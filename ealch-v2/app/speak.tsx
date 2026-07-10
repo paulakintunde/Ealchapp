@@ -1,0 +1,279 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Animated, Easing, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Path, Rect } from 'react-native-svg';
+import { TX } from '@/components/Type';
+import { Press } from '@/components/ui';
+import { Waveform } from '@/components/Waveform';
+import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
+import { useStore } from '@/store/useStore';
+import { sound, tts, stt } from '@/services';
+import { coachLines } from '@/content';
+
+type Phase = 'idle' | 'listening' | 'analysed';
+
+// Blinking status dot (prototype blinkDot)
+function BlinkDot({ color }: { color: string }) {
+  const op = useRef(new Animated.Value(1)).current;
+  useEffect(() => {
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(op, { toValue: 0.2, duration: 800, easing: Easing.inOut(Easing.ease), useNativeDriver: true }),
+        Animated.timing(op, { toValue: 1, duration: 800, easing: Easing.inOut(Easing.ease), useNativeDriver: true }),
+      ])
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [op]);
+  return <Animated.View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: color, opacity: op }} />;
+}
+
+// Expanding pulse ring behind the mic while listening (prototype pulseRing)
+function PulseRing({ color, active }: { color: string; active: boolean }) {
+  const v = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!active) {
+      v.setValue(0);
+      return;
+    }
+    const loop = Animated.loop(
+      Animated.timing(v, { toValue: 1, duration: 1400, easing: Easing.out(Easing.ease), useNativeDriver: true })
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [active, v]);
+  if (!active) return null;
+  return (
+    <Animated.View
+      pointerEvents="none"
+      style={{
+        position: 'absolute',
+        width: 80,
+        height: 80,
+        borderRadius: 40,
+        borderWidth: 1.5,
+        borderColor: color,
+        opacity: v.interpolate({ inputRange: [0, 1], outputRange: [0.5, 0] }),
+        transform: [{ scale: v.interpolate({ inputRange: [0, 1], outputRange: [1, 1.7] }) }],
+      }}
+    />
+  );
+}
+
+export default function Speak() {
+  const t = useTheme();
+  const T = useT();
+  const router = useRouter();
+  const insets = useSafeAreaInsets();
+  const lang = useStore((s) => s.lang);
+
+  const [coachIx, setCoachIx] = useState(0);
+  const [phase, setPhase] = useState<Phase>('idle');
+  const [speaking, setSpeaking] = useState(false);
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const speakLabel = lang === 'fr' ? 'RÉEL — AU CAFÉ' : 'REAL-WORLD — AT THE CAFÉ';
+  const coach = coachLines[Math.min(coachIx, coachLines.length - 1)];
+  const listening = phase === 'listening';
+  const analysed = phase === 'analysed';
+  const waveActive = listening || speaking;
+
+  // Coach "speaks" a line: real French TTS + a ~2.6s speaking state for the wave.
+  const speakLine = useCallback((ix: number) => {
+    const line = coachLines[Math.min(ix, coachLines.length - 1)];
+    setSpeaking(true);
+    tts.speak(line.fr);
+    const id = setTimeout(() => setSpeaking(false), 2600);
+    timers.current.push(id);
+  }, []);
+
+  // On entry: Camille speaks the first line.
+  useEffect(() => {
+    speakLine(0);
+    return () => {
+      tts.stop();
+      timers.current.forEach(clearTimeout);
+      timers.current = [];
+    };
+  }, [speakLine]);
+
+  const micTap = () => {
+    if (listening) return;
+    sound.play('tap');
+    setPhase('listening');
+    stt.listen(coach.fr, { durationMs: 1800 }).then(() => {
+      sound.play('success');
+      setPhase('analysed');
+    });
+  };
+
+  const coachNext = () => {
+    sound.play('tap');
+    const next = Math.min(coachIx + 1, coachLines.length - 1);
+    setCoachIx(next);
+    setPhase('idle');
+    speakLine(next);
+  };
+
+  const replayCoach = () => {
+    sound.play('tap');
+    speakLine(coachIx);
+  };
+
+  const endSession = () => {
+    sound.play('tap');
+    router.push('/feedback');
+  };
+
+  const micIcon = listening ? t.accInk : t.tx;
+  const micCaption = listening ? T.micRec : analysed ? T.micDone : T.micIdle;
+
+  return (
+    <View style={{ flex: 1, backgroundColor: t.bgDeep }}>
+      {/* Aura glow */}
+      <View pointerEvents="none" style={{ position: 'absolute', top: -60, left: 0, right: 0, height: 420, alignItems: 'center' }}>
+        <LinearGradient
+          colors={[t.accA(17), 'transparent']}
+          start={{ x: 0.5, y: 0 }}
+          end={{ x: 0.5, y: 1 }}
+          style={{ width: 420, height: 420, borderRadius: 210 }}
+        />
+      </View>
+
+      {/* Header: X → home, status label, gear → settings */}
+      <View style={{ paddingTop: insets.top }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingVertical: 12 }}>
+          <Press onPress={() => router.replace('/home')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
+            <Svg width={15} height={15} viewBox="0 0 15 15" fill="none">
+              <Path d="M2 2l11 11M13 2L2 13" stroke={t.txA(80)} strokeWidth={1.7} strokeLinecap="round" />
+            </Svg>
+          </Press>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+            <BlinkDot color={t.acc} />
+            <TX font="semi" size={10} ls={2.6} color={t.txA(60)}>
+              {speakLabel}
+            </TX>
+          </View>
+          <Press onPress={() => router.push('/settings')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
+            <Svg width={18} height={18} viewBox="0 0 20 20" fill="none">
+              <Path d="M10 1.5v3M10 15.5v3M1.5 10h3M15.5 10h3M4 4l2.1 2.1M13.9 13.9L16 16M16 4l-2.1 2.1M6.1 13.9L4 16" stroke={t.txA(70)} strokeWidth={1.6} strokeLinecap="round" />
+              <Path d="M10 13a3 3 0 100-6 3 3 0 000 6z" stroke={t.txA(70)} strokeWidth={1.6} />
+            </Svg>
+          </Press>
+        </View>
+      </View>
+
+      {/* AI tutor silhouette + live waveform */}
+      <View style={{ alignItems: 'center', marginTop: 26 }}>
+        <View style={{ width: 210, height: 190 }}>
+          {/* head */}
+          <LinearGradient
+            colors={[t.blend('#20242B', t.card, 70), t.card]}
+            start={{ x: 0.5, y: 0 }}
+            end={{ x: 0.5, y: 1 }}
+            style={{ position: 'absolute', left: 57, top: 0, width: 96, height: 110, borderRadius: 48, borderTopWidth: 1, borderColor: t.accA(40) }}
+          />
+          {/* body */}
+          <LinearGradient
+            colors={[t.blend('#1B1F25', t.bg, 70), t.bg]}
+            start={{ x: 0.5, y: 0 }}
+            end={{ x: 0.5, y: 1 }}
+            style={{ position: 'absolute', left: 7, bottom: 0, width: 196, height: 84, borderTopLeftRadius: 98, borderTopRightRadius: 98, borderBottomLeftRadius: 22, borderBottomRightRadius: 22, borderTopWidth: 1, borderColor: t.accA(26) }}
+          />
+        </View>
+        <View style={{ marginTop: 26, height: 56, alignItems: 'center', justifyContent: 'center' }}>
+          <Waveform count={40} height={54} barWidth={3} gap={4} active={waveActive} color={listening ? t.acc : t.blend(t.acc, t.tx, 70)} />
+        </View>
+      </View>
+
+      {/* Coach line */}
+      <View style={{ paddingHorizontal: 30, paddingTop: 26, alignItems: 'center' }}>
+        <TX font="semi" size={10} ls={3} color={t.acc} style={{ marginBottom: 12 }}>
+          CAMILLE
+        </TX>
+        <TX font="serifI" size={25} lh={33} center style={{ minHeight: 66 }}>
+          « {coach.fr} »
+        </TX>
+        <TX size={12.5} color={t.txA(42)} center style={{ marginTop: 10 }}>
+          {coach.en}
+        </TX>
+      </View>
+
+      {/* Transcript / analysis + end */}
+      <View style={{ flex: 1, justifyContent: 'flex-end', paddingHorizontal: 26, paddingBottom: 18 }}>
+        {analysed ? (
+          <View style={{ borderRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.blend(t.card2, t.bgDeep, 85), padding: 18 }}>
+            <TX font="semi" size={9} ls={2.4} color={t.txA(40)} style={{ marginBottom: 8 }}>
+              {T.youSaid}
+            </TX>
+            <TX font="serif" size={19} lh={27}>
+              « Je voudrais un café{' '}
+              <TX font="serif" size={19} color={t.acc}>allongé</TX>
+              {' '}et un croissant, s'il vous plaît. »
+            </TX>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 12, flexWrap: 'wrap' }}>
+              <View style={{ height: 26, paddingHorizontal: 12, borderRadius: 13, backgroundColor: t.accA(15), justifyContent: 'center' }}>
+                <TX font="semi" size={11} color={t.acc}>
+                  {T.liaisonChip}
+                </TX>
+              </View>
+              <Press onPress={() => router.push('/feedback')} cue="tap" style={{ paddingVertical: 4 }}>
+                <TX font="semi" size={12} color={t.txA(65)} style={{ textDecorationLine: 'underline' }}>
+                  {T.why}
+                </TX>
+              </Press>
+              <Press onPress={coachNext} cue="tap" style={{ marginLeft: 'auto', paddingVertical: 4 }}>
+                <TX font="semi" size={12.5} color={t.acc}>
+                  {T.cont}
+                </TX>
+              </Press>
+            </View>
+          </View>
+        ) : null}
+        <Press onPress={endSession} style={{ alignSelf: 'center', marginTop: 14, height: 34, paddingHorizontal: 18, borderRadius: 17, borderWidth: 1, borderColor: t.line(16), flexDirection: 'row', alignItems: 'center' }}>
+          <TX font="semi" size={12} color={t.txA(75)}>
+            {T.end} · Le Rapport →
+          </TX>
+        </Press>
+      </View>
+
+      {/* Transport: replay · mic · next */}
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 38, paddingBottom: 20 }}>
+        <Press onPress={replayCoach} style={{ width: 46, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
+          <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
+            <Path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6" stroke={t.txA(75)} strokeWidth={1.7} strokeLinecap="round" />
+          </Svg>
+        </Press>
+        <View style={{ width: 80, height: 80, alignItems: 'center', justifyContent: 'center' }}>
+          <PulseRing color={t.acc} active={listening} />
+          <Press
+            onPress={micTap}
+            cue={null}
+            scale={0.94}
+            style={{ width: 80, height: 80, borderRadius: 40, alignItems: 'center', justifyContent: 'center', backgroundColor: listening ? t.acc : t.line(4), borderWidth: 1, borderColor: listening ? t.acc : t.line(20) }}
+          >
+            <Svg width={28} height={28} viewBox="0 0 24 24" fill="none">
+              <Rect x={9} y={3} width={6} height={11} rx={3} stroke={micIcon} strokeWidth={1.8} />
+              <Path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke={micIcon} strokeWidth={1.8} strokeLinecap="round" />
+            </Svg>
+          </Press>
+        </View>
+        <Press onPress={coachNext} style={{ width: 46, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
+          <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
+            <Path d="M12 5V2l5 4-5 4V7a6 6 0 1 0 6 6" stroke={t.txA(75)} strokeWidth={1.7} strokeLinecap="round" />
+          </Svg>
+        </Press>
+      </View>
+
+      {/* Mic caption */}
+      <View style={{ paddingBottom: insets.bottom + 20, alignItems: 'center' }}>
+        <TX font="semi" size={11} ls={1.6} color={t.txA(40)} style={{ textTransform: 'uppercase' }}>
+          {micCaption}
+        </TX>
+      </View>
+    </View>
+  );
+}

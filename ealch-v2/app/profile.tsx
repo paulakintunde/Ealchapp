@@ -1,0 +1,445 @@
+import { type ReactNode } from 'react';
+import { ScrollView, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { TX } from '@/components/Type';
+import { Press } from '@/components/ui';
+import { Icon } from '@/components/Icon';
+import { TabBar } from '@/components/TabBar';
+import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
+import { useStore } from '@/store/useStore';
+import { useUI } from '@/store/useUI';
+import { accentData } from '@/content/onboarding';
+
+// ── week-history dots: explicit states ported from the prototype ──
+type DotState = 'done' | 'frozen' | 'today' | 'off';
+const WK_DOTS: { d: string; st: DotState }[] = [
+  { d: 'L', st: 'done' },
+  { d: 'M', st: 'done' },
+  { d: 'M', st: 'frozen' },
+  { d: 'J', st: 'done' },
+  { d: 'V', st: 'today' },
+  { d: 'S', st: 'off' },
+  { d: 'D', st: 'off' },
+];
+
+// minutes-spoken bar chart — last 7 days
+const BAR_DAYS = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+const BAR_HEIGHTS = [34, 58, 22, 74, 46, 12, 64];
+
+function StatCard({ value, label, accent }: { value: string; label: string; accent?: boolean }) {
+  const t = useTheme();
+  return (
+    <View
+      style={{
+        flex: 1,
+        borderRadius: 16,
+        borderWidth: 1,
+        borderColor: t.line(7),
+        backgroundColor: t.card,
+        paddingVertical: 16,
+        paddingHorizontal: 14,
+      }}
+    >
+      <TX font="serif" size={27} color={accent ? t.acc : t.tx}>
+        {value}
+      </TX>
+      <TX font="semi" size={9} ls={1.6} color={t.txA(45)} style={{ marginTop: 4 }}>
+        {label}
+      </TX>
+    </View>
+  );
+}
+
+function CardBox({ children, style }: { children: ReactNode; style?: object }) {
+  const t = useTheme();
+  return (
+    <View
+      style={[
+        {
+          borderRadius: 18,
+          borderWidth: 1,
+          borderColor: t.line(7),
+          backgroundColor: t.card,
+          padding: 18,
+          marginBottom: 26,
+        },
+        style,
+      ]}
+    >
+      {children}
+    </View>
+  );
+}
+
+function CardHead({ title, right }: { title: string; right: string }) {
+  const t = useTheme();
+  return (
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 14 }}>
+      <TX font="semi" size={12} ls={0.6}>
+        {title}
+      </TX>
+      <TX font="semi" size={10} ls={1.8} color={t.txA(40)}>
+        {right}
+      </TX>
+    </View>
+  );
+}
+
+export default function Profile() {
+  const t = useTheme();
+  const T = useT();
+  const router = useRouter();
+  const insets = useSafeAreaInsets();
+  const { userName, level, lang, setLang, region, setRegion, streak, freeze, signOut } = useStore();
+  const openSheet = useUI((s) => s.openSheet);
+
+  const freezeChip = lang === 'fr' ? `✦ ${freeze} GEL RESTANT` : `✦ ${freeze} FREEZE LEFT`;
+  const freezeNote =
+    lang === 'fr'
+      ? 'Mercredi gelé ✦ — série protégée. 1 gel par semaine, utilisé automatiquement.'
+      : 'Wednesday was frozen ✦ — streak protected. 1 freeze per week, used automatically.';
+  const streakW = lang === 'fr' ? 'jours de suite' : 'day streak';
+
+  const weak = [
+    { glyph: '‿', title: 'La liaison obligatoire' },
+    { glyph: 'ɔ̃', title: 'Voyelles nasales — on / en' },
+    { glyph: 'q', title: 'Le subjonctif présent' },
+  ];
+
+  // progress calendar for the current month
+  const now = new Date();
+  const calLabel = now
+    .toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US', { month: 'long', year: 'numeric' })
+    .toUpperCase();
+  const y = now.getFullYear();
+  const mo = now.getMonth();
+  const td = now.getDate();
+  const off = (new Date(y, mo, 1).getDay() + 6) % 7;
+  const dim = new Date(y, mo + 1, 0).getDate();
+  const calCells: { n: string; done: boolean; today: boolean }[] = [];
+  for (let i = 0; i < off; i++) calCells.push({ n: '', done: false, today: false });
+  for (let d = 1; d <= dim; d++) {
+    calCells.push({ n: String(d), done: d < td && d % 4 !== 0, today: d === td });
+  }
+
+  const dotBg = (st: DotState) =>
+    st === 'done' ? t.accA(18) : st === 'frozen' ? t.line(6) : t.line(4);
+  const dotBorder = (st: DotState) =>
+    st === 'done' ? t.accA(50) : st === 'today' ? t.accA(70) : t.line(10);
+  const dotColor = (st: DotState) => (st === 'done' || st === 'today' ? t.acc : t.txA(50));
+  const dotCh = (st: DotState) =>
+    st === 'done' ? '✓' : st === 'frozen' ? '✦' : st === 'today' ? '·' : '';
+
+  return (
+    <View style={{ flex: 1, backgroundColor: t.bg }}>
+      <ScrollView
+        contentContainerStyle={{ paddingTop: insets.top + 20, paddingHorizontal: 24, paddingBottom: 130 }}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Header */}
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16, marginBottom: 28 }}>
+          <View
+            style={{
+              width: 62,
+              height: 62,
+              borderRadius: 31,
+              borderWidth: 1,
+              borderColor: t.accA(55),
+              backgroundColor: t.card2,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <TX font="serif" size={26}>
+              {userName.charAt(0)}
+            </TX>
+          </View>
+          <View style={{ flex: 1 }}>
+            <TX font="serif" size={30} lh={33}>
+              {userName}
+            </TX>
+            <View
+              style={{
+                alignSelf: 'flex-start',
+                marginTop: 6,
+                height: 24,
+                paddingHorizontal: 11,
+                borderRadius: 12,
+                backgroundColor: t.accA(14),
+                justifyContent: 'center',
+              }}
+            >
+              <TX font="semi" size={11} ls={0.8} color={t.acc}>
+                {level} — SEUIL
+              </TX>
+            </View>
+          </View>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start' }}>
+            <View style={{ flexDirection: 'row', height: 32, borderRadius: 16, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
+              {(['fr', 'en'] as const).map((l) => {
+                const on = lang === l;
+                return (
+                  <Press key={l} onPress={() => setLang(l)} style={{ paddingHorizontal: 13, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}>
+                    <TX font="semi" size={11} ls={1} color={on ? t.accInk : t.txA(55)}>
+                      {l.toUpperCase()}
+                    </TX>
+                  </Press>
+                );
+              })}
+            </View>
+            <Press onPress={() => router.push('/settings')} style={{ width: 36, height: 36, alignItems: 'center', justifyContent: 'center' }}>
+              <Icon name="gear" size={18} color={t.txA(70)} />
+            </Press>
+          </View>
+        </View>
+
+        {/* Primary stats */}
+        <View style={{ flexDirection: 'row', gap: 10, marginBottom: 26 }}>
+          <StatCard value="14,6" label={T.hours} />
+          <StatCard value="38" label={T.convs} />
+          <StatCard value="82" label={T.conf} accent />
+        </View>
+
+        {/* Streak & week history */}
+        <View
+          style={{
+            borderRadius: 18,
+            borderWidth: 1,
+            borderColor: t.accA(26),
+            backgroundColor: t.card,
+            padding: 18,
+            marginBottom: 10,
+            overflow: 'hidden',
+          }}
+        >
+          <LinearGradient
+            colors={[t.accA(10), 'transparent']}
+            start={{ x: 0.85, y: 0 }}
+            end={{ x: 0.3, y: 0.7 }}
+            style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
+          />
+          <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 14 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 9 }}>
+              <TX font="serif" size={34} lh={34} color={t.acc}>
+                {String(streak)}
+              </TX>
+              <TX size={12.5} color={t.txA(60)}>
+                {streakW}
+              </TX>
+            </View>
+            <View
+              style={{
+                height: 22,
+                paddingHorizontal: 10,
+                borderRadius: 11,
+                borderWidth: 1,
+                borderColor: t.accA(45),
+                justifyContent: 'center',
+              }}
+            >
+              <TX font="bold" size={8.5} ls={1} color={t.acc}>
+                {freezeChip}
+              </TX>
+            </View>
+          </View>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12 }}>
+            {WK_DOTS.map((w, i) => (
+              <View key={i} style={{ alignItems: 'center', gap: 5 }}>
+                <View
+                  style={{
+                    width: 30,
+                    height: 30,
+                    borderRadius: 15,
+                    backgroundColor: dotBg(w.st),
+                    borderWidth: w.st === 'today' ? 1.5 : 1,
+                    borderColor: dotBorder(w.st),
+                    borderStyle: w.st === 'today' ? 'dashed' : 'solid',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <TX size={11} color={dotColor(w.st)}>
+                    {dotCh(w.st)}
+                  </TX>
+                </View>
+                <TX font="semi" size={9} color={t.txA(40)}>
+                  {w.d}
+                </TX>
+              </View>
+            ))}
+          </View>
+          <TX font="serifI" size={10.5} lh={16} color={t.txA(45)}>
+            {freezeNote}
+          </TX>
+        </View>
+
+        {/* Minutes spoken — last 7 days */}
+        <CardBox style={{ paddingBottom: 14 }}>
+          <CardHead title={T.minutes} right={T.days7} />
+          <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, height: 74 }}>
+            {BAR_DAYS.map((d, i) => (
+              <View key={i} style={{ flex: 1, alignItems: 'center', gap: 6, height: '100%', justifyContent: 'flex-end' }}>
+                <View
+                  style={{
+                    width: '100%',
+                    borderRadius: 4,
+                    height: (BAR_HEIGHTS[i] / 100) * 74,
+                    backgroundColor: i === 3 ? t.acc : t.txA(16),
+                  }}
+                />
+                <TX size={9} color={t.txA(40)}>
+                  {d}
+                </TX>
+              </View>
+            ))}
+          </View>
+        </CardBox>
+
+        {/* Weakness engine */}
+        <TX font="serif" size={21} style={{ marginBottom: 12 }}>
+          {T.weakEngine}
+        </TX>
+        <View style={{ gap: 10, marginBottom: 30 }}>
+          {weak.map((w, i) => (
+            <Press
+              key={i}
+              onPress={() => openSheet('grammar')}
+              style={{
+                height: 62,
+                borderRadius: 16,
+                borderWidth: 1,
+                borderColor: t.line(7),
+                backgroundColor: t.card,
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 14,
+                paddingHorizontal: 18,
+              }}
+            >
+              <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+                <TX font="serifI" size={16} color={t.acc}>
+                  {w.glyph}
+                </TX>
+              </View>
+              <View style={{ flex: 1 }}>
+                <TX font="semi" size={14}>
+                  {w.title}
+                </TX>
+                <TX size={11.5} color={t.txA(45)} style={{ marginTop: 2 }}>
+                  {T.weakMeta[i]}
+                </TX>
+              </View>
+              <Icon name="chevronRight" size={14} color={t.txA(35)} strokeWidth={1.6} />
+            </Press>
+          ))}
+        </View>
+
+        {/* Your accent */}
+        <TX font="serif" size={21} style={{ marginBottom: 12 }}>
+          {T.accentT}
+        </TX>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 30 }}>
+          {accentData.map((a) => {
+            const on = region === a.id;
+            return (
+              <Press
+                key={a.id}
+                onPress={() => setRegion(a.id)}
+                style={{
+                  height: 36,
+                  paddingHorizontal: 16,
+                  borderRadius: 18,
+                  borderWidth: 1,
+                  borderColor: on ? t.accA(60) : t.line(12),
+                  backgroundColor: on ? t.accCard(8) : 'transparent',
+                  justifyContent: 'center',
+                }}
+              >
+                <TX size={13} color={on ? t.acc : t.txA(70)}>
+                  {a.name}
+                </TX>
+              </Press>
+            );
+          })}
+        </View>
+
+        {/* Progress calendar */}
+        <CardBox>
+          <CardHead title={T.calendarT} right={calLabel} />
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+            {calCells.map((c, i) => (
+              <View key={i} style={{ width: `${100 / 7}%`, padding: 2.5 }}>
+                <View
+                  style={{
+                    aspectRatio: 1,
+                    borderRadius: 9,
+                    backgroundColor: c.done ? t.accA(18) : 'transparent',
+                    borderWidth: 1.5,
+                    borderColor: c.today ? t.acc : 'transparent',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <TX
+                    font="semi"
+                    size={11}
+                    color={c.done || c.today ? t.acc : c.n === '' ? 'transparent' : t.txA(55)}
+                  >
+                    {c.n}
+                  </TX>
+                </View>
+              </View>
+            ))}
+          </View>
+        </CardBox>
+
+        {/* Settings link */}
+        <Press
+          onPress={() => router.push('/settings')}
+          style={{
+            height: 56,
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: t.line(8),
+            backgroundColor: t.card,
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 14,
+            paddingHorizontal: 18,
+            marginBottom: 14,
+          }}
+        >
+          <Icon name="gear" size={18} color={t.acc} />
+          <TX font="semi" size={14} style={{ flex: 1 }}>
+            {T.settingsT}
+          </TX>
+          <Icon name="chevronRight" size={14} color={t.txA(35)} strokeWidth={1.6} />
+        </Press>
+
+        {/* Sign out */}
+        <Press
+          onPress={() => {
+            signOut();
+            router.replace('/onboarding');
+          }}
+          style={{
+            height: 52,
+            borderRadius: 26,
+            borderWidth: 1,
+            borderColor: 'rgba(255,120,110,0.35)',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <TX font="semi" size={14} color="#FF9A8E">
+            {T.signOut}
+          </TX>
+        </Press>
+      </ScrollView>
+      <TabBar />
+    </View>
+  );
+}

@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "Ealch",
+    "slug": "ealch-v2",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "ealch",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#0B0C0E",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.ealch.mobile"
+    },
+    "android": {
+      "package": "app.ealch.mobile",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B0C0E",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-audio",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0B0C0E",
+          "resizeMode": "contain"
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#2FD6C1"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
