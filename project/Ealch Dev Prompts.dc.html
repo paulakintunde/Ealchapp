@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+html,body { margin:0; padding:0; background:#101114; }
+body { font-family:'Instrument Sans',system-ui,sans-serif; }
+a { color:#2FD6C1; text-decoration:none; }
+a:hover { color:#2FD6C1; opacity:0.8; }
+</style>
+</helmet>
+
+<section style="padding:56px 40px 40px; display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start; justify-content:center">
+
+  <!-- ═══════ 2a — EALCH V2 APP MASTER BUILD PROMPT ═══════ -->
+  <div id="2a" style="width:880px; display:flex; flex-direction:column; gap:0">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px">
+      <div style="height:26px; padding:0 12px; border-radius:13px; background:#2FD6C1; color:#0B100F; font-size:12px; font-weight:700; display:flex; align-items:center">2a</div>
+      <div style="font-family:'Instrument Serif',Georgia,serif; font-size:24px; color:#F4F2ED">Dev prompt — Ealch v2 App (React Native + Expo) · Master spec</div>
+      <div style="flex:1"></div>
+      <div onClick="{{ copyC }}" style="height:32px; padding:0 16px; border-radius:16px; background:{{ copyCBg }}; color:{{ copyCColor }}; border:1px solid rgba(47,214,193,0.5); font-size:12.5px; font-weight:600; display:flex; align-items:center; cursor:pointer; transition:all 0.2s">{{ copyCLabel }}</div>
+    </div>
+    <div style="border-radius:20px; background:#FFFFFF; box-shadow:0 30px 60px rgba(0,0,0,0.45); padding:44px 48px">
+      <pre id="prompt-app" style="margin:0; white-space:pre-wrap; font-family:'Instrument Sans',system-ui,sans-serif; font-size:{{ fontSize }}px; line-height:1.62; color:#16181B">You are a senior React Native architect and engineer. Build **Ealch v2** — an AI French voice-coach mobile app — with **Expo**. The design is final and fully specified below (it mirrors approved hi-fi mockups). Do not improvise visuals; implement to spec. Follow the phased plan in section 16: the top priority is that the EARLIEST build is fully functional end-to-end, with features layered on top of that working core — never a broad, half-wired skeleton.
+
+═══════════════════════════════════════════
+1 · PRODUCT SUMMARY
+═══════════════════════════════════════════
+Ealch teaches spoken French through an elegant, editorial, dark-UI experience and an AI coach persona named **Camille**. Core loop: micro-lessons + flashcards with spaced repetition + live spoken conversation with AI feedback ("Le Rapport").
+- UI languages: **English and French** at launch (user-switchable, independent of the course being studied). Architecture must support adding more UI locales and more target-language courses later — French is course #1.
+- A separate remote Ops Console ("**Ealch Admin**", built as its own project) manages users, billing, content publishing, AI model routing, feature flags, notifications, and releases. This app must READ all of that from the backend at runtime — content, flags, and model routing change without an app release.
+
+═══════════════════════════════════════════
+2 · TECH STACK
+═══════════════════════════════════════════
+- Expo SDK (latest stable) + EAS Build/Update. TypeScript strict. Targets: iOS, Android, Web (expo web — gate native-only features gracefully with capability checks, never crashes).
+- Navigation: **Expo Router** (typed routes). State: **Zustand** (+ persist via MMKV). Styling: **NativeWind v4** with the design tokens in section 4 as the Tailwind theme.
+- Animation/gesture: react-native-reanimated + react-native-gesture-handler ONLY (no Animated API mixing).
+- Audio: expo-audio for playback and recording; expo-speech-recognition for on-device STT; expo-speech as TTS fallback.
+- Offline: expo-sqlite + drizzle-orm (structured cache + SRS store), expo-file-system (audio/media downloads).
+- Platform: expo-notifications, expo-haptics, expo-secure-store, expo-localization.
+- Backend: **Supabase** — Auth (email/password + Sign in with Apple + Google), Postgres (RLS on everything), Storage (audio assets), Edge Functions (all AI proxying + report generation).
+- Subscriptions: **RevenueCat** (react-native-purchases).
+- Analytics: PostHog. Crash reporting: Sentry. Both behind adapters (section 3).
+
+═══════════════════════════════════════════
+3 · SWAPPABILITY — PORTS AND ADAPTERS (non-negotiable)
+═══════════════════════════════════════════
+Every external dependency sits behind a TypeScript interface ("port") in src/core/ports/. App code imports the port, never a vendor SDK. A registry binds adapters at startup; bindings can be overridden by remote config where safe.
+
+Ports:
+- LLMPort — chat(messages, opts) streaming + complete(); used by Speak Mode, Le Coach, feedback, placement, dictation scoring, sentence validation.
+- TTSPort — synthesize(text, voice, speed) → audio; voice catalog per accent.
+- STTPort — live transcription stream + file transcription; returns timestamps + confidence.
+- PronunciationPort — score(audio, referenceText) → per-word/phoneme scores.
+- PaymentsPort, AnalyticsPort, PushPort, CrashPort.
+- ContentPort — versioned course/lesson/deck fetch + delta sync.
+- ConfigPort — remote config + feature flags, cached offline, refreshed on foreground.
+
+Default adapters (each replaceable by writing one file):
+- LLM: Anthropic Claude via Supabase Edge Function proxy. NEVER ship AI API keys in the client — every AI call goes through an edge function that checks auth + entitlement + rate limits.
+- TTS: ElevenLabs via edge proxy, cached in Storage by content hash; fallback expo-speech on-device.
+- STT: native expo-speech-recognition where available; fallback Whisper via edge proxy.
+- Pronunciation v1: STT transcript + LLM rubric scoring (structured JSON out). Upgrade path: dedicated phoneme API — same port.
+- Payments: RevenueCat. Analytics: PostHog. Push: Expo Push.
+Model routing per capability (chat, feedback, placement, dictation…) is read from remote_config — the Ealch Admin "AI Models" screen edits it; new sessions pick it up within ~60 s.
+
+═══════════════════════════════════════════
+4 · DESIGN SYSTEM (exact)
+═══════════════════════════════════════════
+Fonts (bundle locally via expo-font): **Instrument Serif** (400 + italic — display/headlines) and **Instrument Sans** (400/500/600/700 — everything else).
+Tokens (dark UI only at launch):
+  --bg:      #0B0C0E   app background
+  --bgDeep:  #060708   speak mode / deepest surfaces
+  --card:    #101216   cards        --card2: #14171C  raised cards
+  --sheet:   #13161B   bottom sheets  --input: #111318  inputs
+  --tx:      #F4F2ED   primary text (cream)
+  --accInk:  #0B100F   text on accent
+  --acc:     user-selected accent. Options exactly: #2FD6C1 (default teal), #FF6B5C coral, #D9B36C gold, #8FA7FF periwinkle. Chosen in onboarding step 02, changeable in Profile; flows through the ENTIRE app via the theme provider.
+Derived tints: use opacity/blend of --tx, #FFFFFF and --acc (e.g. text-60%, hairlines white-10%, accent-14% radial glows at the top of most screens).
+Type scale: serif italic display 42–76px (screen titles like "Parlez avec élégance."); serif 34px section titles; overline labels 10–12px, letter-spacing 0.28–0.46em, weight 600, 40%-cream; body 13–15px; metadata 11–12px 50%-cream.
+Shape language: pill buttons (primary: 52–56px tall, radius 26–28, accent bg, accInk text, weight 600); cards radius 16–24 with 1px white-10% hairline borders; inputs 52px radius 16.
+Icons: inline SVG, 1.5–1.7px stroke, round caps, drawn minimal — no icon fonts, no emoji.
+Motion vocabulary (recreate with Reanimated): fadeUp (14px rise, 0.4–0.5s ease) on screen entry; fadeIn 0.3s for overlays; pulseRing (expanding accent ring) on live mic; spinRing loader; blinkDot typing/loading dots; ewave equalizer bars scaleY when audio plays; auraDrift slow breathing glow behind Camille in Speak Mode; logoPop spring on splash. 60fps, UI-thread driven.
+Haptics (expo-haptics): light impact on all primary taps + card flips; medium on deck answer buttons; success notification on deck-complete / lesson-complete / streak; warning on errors; selection ticks on pickers and sliders.
+
+═══════════════════════════════════════════
+5 · i18n AND MULTI-LANGUAGE ARCHITECTURE
+═══════════════════════════════════════════
+- UI strings: i18next + expo-localization. ALL strings in locales/en.json and locales/fr.json — zero hardcoded copy. Typed t() helper. Language switch in Settings applies instantly, persists.
+- Course content is DATA, never code: every course row has target_lang ('fr' first); lessons/cards carry text in target language + translations keyed by UI locale. Adding Spanish later = new rows, zero refactor.
+- Keep the app's bilingual editorial voice from the mockups: French overlines ("01 — VOTRE COMPTE", "BON RETOUR") with body copy in the UI language.
+
+═══════════════════════════════════════════
+6 · SCREENS (all — behavior + states)
+═══════════════════════════════════════════
+Every screen: dark bg, top accent radial glow where noted, fadeUp entry, safe-area aware, 44px minimum hit targets.
+
+6.1 SPLASH — "E." serif italic logo inside a spinning accent ring, EALCH letterspaced wordmark, 3 blinking dots. Shows while fonts/config/session load; min 900ms, then routes by auth state.
+6.2 ONBOARDING WIZARD — 10 steps, thin accent progress bar + step counter, back chevron. Steps: 00 welcome ("Parlez avec élégance." + Commencer + sign-in link) · 01 account (email/password + Continuer avec Apple/Google) · 02 signature color (4 accent swatches, live-previews the theme) · 03 goal ("Why French?" — option cards w/ subtitle) · 04 experience (self-assessment options) · 05 pace (minutes/day 2×2 grid) · 06 accent ("Which French should Camille speak?" — France/Québec/African/Belgian-Swiss) · 07 reminders (daily alarm time picker + notification toggles) · 08 calibration ("Read this aloud." — records 10s, live waveform, real STT pass) · 09 level result (huge serif accent level e.g. "A2", italic level name, CTA into app). All answers persist to the profile; wizard resumable.
+6.3 SIGN IN — "BON RETOUR / Re-bonjour." serif italic, email+password, social buttons, forgot-password.
+6.4 HOME — LEARNING FEED — greeting header w/ user name + streak flame + avatar; "Continue" hero card (current lesson w/ progress); daily Smart Review card (due count); activity tiles (Flashcards, Voice Flash, Sentence Builder, Role Play, Dictation); micro-lesson playlists row; Le Coach entry. Bottom tab bar: Home · Den · Speak (center accent orb) · Review · Profile.
+6.5 BEGINNERS' DEN — curriculum with 3 track tabs: SONS (Pronunciation Masterclass) · A1 Découverte · A2 Survie. Vertical unit list: done (accent check), active (accent ring, "Continuer"), locked (dimmed). Track progress header.
+6.6 LESSON — reader: overline tag (e.g. "SONS · LEÇON 03"), serif title ("Les voyelles nasales"), rich sections, tappable example rows w/ TTS play + slow-play, inline tips, completion CTA marking progress + scheduling SRS cards. Any French word long-pressable → Dictionary overlay.
+6.7 FLASHCARDS — deck screen, progress bar + n/m count; card flips in 3D on tap (FRANÇAIS front / ANGLAIS back, serif); audio button per side; answer buttons "Encore" (again) and "Je sais" (got it) drive the SRS; deck-done screen with serif score (e.g. 7/10), "Missed cards return tomorrow — right before you'd forget them.", Replay/Back.
+6.8 VOICE FLASH — spoken flashcards: prompt shown, user speaks the answer, STT + fuzzy match grades it, pronunciation feedback chip, same SRS wiring.
+6.9 SENTENCE BUILDER — word-tile assembly: tap/drag shuffled tiles into a sentence, validate (exact match; LLM explains errors), streak counter, haptic feedback per tile.
+6.10 ROLE PLAY — scenario dialogue (e.g. café, taxi) with a Vocab Injector panel: "Use each at least once — Camille is listening." Target phrases get checked off as detected in the user's speech; scene transcript; end summary.
+6.11 SMART REVIEW — SRS dashboard: due-today count, forecast, weak-points list ("7 errors this week", "pronunciation · 5 errors"), "Ask Camille why →" deep-links into Le Coach with context. Start-session CTA.
+6.12 REVIEW SESSION — mixed-modality queue (flash, voice, sentence) served by the scheduler; per-item grading; session summary.
+6.13 TRACK PLAYER — micro-lesson audio player: playlists ("Pronunciation Deep-Dives · 15 tracks · nasal vowels", "Casual Parisian Slang", "French for Business", "Audio Degradation · Métro"), artwork block, scrubber, speed cycle (0.8/1.0/1.2×), skip ±15s, queue, background audio + lock-screen controls, equalizer bars animate while playing.
+6.14 SPEAK MODE — the signature screen. bgDeep, drifting accent aura behind a large orb; states: idle → listening (pulseRing on mic, live partial transcript) → Camille thinking (blinkDot) → Camille speaking (TTS + aura animates). Full-duplex conversation loop: STT stream → LLM (Camille persona: warm, exacting, corrects in context, adapts to the user's level + chosen accent) → TTS. Tap-to-interrupt. Session transcript retained; "End session" → generates Feedback Report.
+6.15 FEEDBACK — LE RAPPORT — post-session report: overall serif score, category bars (pronunciation, grammar, vocabulary, fluency), error list with corrections + replay of the user's own audio moment, recommended drills that deep-link (deck/lesson/builder). Generated by an edge function from the transcript (structured JSON), stored in history.
+6.16 CHAT — LE COACH — text chat with Camille: streaming replies, tappable corrections on user messages, suggestion chips, French words long-pressable → Dictionary. Same LLMPort + persona as Speak Mode.
+6.17 PLACEMENT TEST — adaptive: reading/listening/speaking items, difficulty adapts per answer, ends with CEFR level (A1–B2) → sets level, unlocks tracks, seeds the review queue.
+6.18 DICTATION — plays a French sentence (TTS or recorded), user types what they hear; diff-highlighted correction (per-word), replay + slow replay, scoring streak.
+6.19 PROFILE — avatar, name, level badge, streak stats, weekly minutes chart, accent-color picker, settings entry, subscription status card.
+6.20 SETTINGS — UI language (EN/FR), course accent voice, daily reminder time, notification toggles (daily alarm / weekly report / nudges), audio quality, downloads entry, account (email, password, sign out, delete account), legal.
+6.21 OFFLINE DOWNLOADS — storage map (Audio 690 MB / Lessons / Decks 160 MB visual bar), rows with states: SAVED ✓ / downloading 64% / GET ↓ / AUTO (Smart Review queue syncs each morning). Pause/resume/delete; wifi-only toggle.
+6.22 DICTIONARY OVERLAY — bottom sheet over dimmed blur: word, IPA, TTS play, senses, example w/ translation, "add to deck" action. Available from any French text via long-press.
+
+═══════════════════════════════════════════
+7 · DATA MODEL (Supabase Postgres — RLS everywhere)
+═══════════════════════════════════════════
+profiles (id→auth.users, name, ui_lang, course_lang, level_cefr, accent_choice, theme_accent, goal, pace_minutes, reminder_time, streak_current, streak_best, minutes_by_day jsonb)
+courses (id, target_lang, title, status) → tracks (course_id, key e.g. 'sons'/'a1'/'a2', title, position) → units (track_id, position, title, status) → lessons (unit_id, type, content jsonb versioned, audio_refs, published_version)
+decks (course_id, title, tags) → cards (deck_id, front, back, audio_ref, ipa, notes)
+srs_state (user_id, card_id, due_at, stability, difficulty, reps, lapses, last_review) — synced mirror of the on-device store
+sessions (user_id, kind: speak/chat/roleplay/review/dictation/placement, started_at, ended_at, transcript jsonb, metrics jsonb)
+feedback_reports (session_id, scores jsonb, errors jsonb, recommendations jsonb)
+subscriptions (user_id, rc_app_user_id, entitlement, status, renews_at) — RevenueCat webhook → edge function keeps it fresh
+remote_config (key, value jsonb, updated_at) + feature_flags (key, enabled, rollout jsonb) + ai_model_routing (capability, provider, model, params jsonb)
+device_tokens, notification_prefs, download_manifests, analytics is client→PostHog (not in Postgres).
+Content is versioned + published from Ealch Admin; the app syncs deltas by published_version through ContentPort into SQLite.
+
+═══════════════════════════════════════════
+8 · SRS ENGINE
+═══════════════════════════════════════════
+Implement **FSRS** (v4.5 parameters) in pure TypeScript inside src/core/srs/ — fully unit-tested, no dependencies on UI or network. Grades: Again / Got it (map to FSRS again/good; voice + dictation modalities also grade via score thresholds). Runs 100% offline against SQLite; syncs srs_state opportunistically. Daily queue = due cards ordered by overdue-ness, interleaved by modality. "Missed cards return tomorrow — right before you'd forget them" must be literally true.
+
+═══════════════════════════════════════════
+9 · STREAKS, NOTIFICATIONS, ANALYTICS
+═══════════════════════════════════════════
+- Streak = any completed learning action per local-calendar day. Flame + count on Home; freeze rules configurable via remote config.
+- Push (expo-notifications): daily practice alarm at user's chosen time (local scheduling, works offline), review-due nudges, weekly report — all individually toggleable, all templatable from Ealch Admin.
+- Analytics events (typed union, one module): onboarding_step_completed, calibration_recorded, lesson_started/completed, deck_session_completed{score}, review_completed, speak_session_started/ended{duration, turns}, report_viewed, paywall_viewed/purchase_started/purchased, download_started/completed, streak_extended{n}, settings_changed. Fire through AnalyticsPort only.
+
+═══════════════════════════════════════════
+10 · MONETIZATION (RevenueCat)
+═══════════════════════════════════════════
+Entitlement "premium": unlimited Speak Mode + Le Coach, full curriculum, offline downloads, weekly reports. Free tier: full Den track 1, flashcards + review, 1 Speak session/day (limits in remote config). Paywall screen in-brand (serif italic headline, feature list, annual/monthly with trial), shown at onboarding end + on gated-feature tap. Sandbox-testable; restore purchases; graceful web fallback (hide IAP, show "manage on mobile").
+
+═══════════════════════════════════════════
+11 · OFFLINE
+═══════════════════════════════════════════
+Fully functional offline core: lessons/decks/SRS/review work from SQLite; downloaded audio plays from file system; queue writes (progress, grades, sessions) into an outbox table and sync with last-write-wins + server timestamps on reconnect. Downloads screen reflects real manifest state (sizes, progress, pause/resume). AI features degrade explicitly offline: clear in-brand notice + everything non-AI still works.
+
+═══════════════════════════════════════════
+12 · ACCESSIBILITY
+═══════════════════════════════════════════
+VoiceOver/TalkBack labels on every interactive element; Dynamic Type up to 130% without layout breakage; reduce-motion honored (disable aura/pulse, keep fades); contrast: never accent-on-dark for body text below 4.5:1 (use cream); captions/transcript always available for all audio; keyboard navigation on web.
+
+═══════════════════════════════════════════
+13 · TESTING
+═══════════════════════════════════════════
+- Unit (Jest): SRS scheduler (property tests on intervals), streak logic, i18n completeness (en/fr key parity — CI fails on drift), ports contract tests (every adapter passes the same suite), reducers/stores.
+- Component (RN Testing Library): onboarding flow, deck grading, paywall gating.
+- E2E (Maestro): cold start → onboard → complete a lesson → flashcard session → review shows tomorrow; auth round-trip; purchase sandbox flow.
+- CI: typecheck, lint (eslint + prettier), tests, EAS preview build per PR.
+
+═══════════════════════════════════════════
+14 · STORE SUBMISSION PREP
+═══════════════════════════════════════════
+EAS profiles (dev/preview/production); app icons + splash (E. mark on #0B0C0E) via expo config; privacy manifests + App Privacy answers (mic, speech, analytics); microphone + speech-recognition permission strings in en+fr explaining Camille; account deletion in-app (Apple 5.1.1(v)); RevenueCat products configured in both stores; screenshots checklist; versioning via app.config.ts + EAS Update channels (production/staging) — OTA JS updates, native changes via store builds.
+
+═══════════════════════════════════════════
+15 · ENGINEERING RULES
+═══════════════════════════════════════════
+- Feature folders: src/features/{onboarding,home,den,lesson,cards,review,speak,chat,player,profile,settings,downloads,paywall}/ each with screens/, components/, store.ts, api.ts.
+- src/core/ = ports, adapters, srs, theme, i18n, db, sync — zero React imports in core logic.
+- No vendor SDK import outside src/core/adapters/. Enforce with eslint rule.
+- All server secrets live in edge functions. Client env via app.config.ts extra + typed getter.
+- Every PR keeps the app bootable end-to-end. Never merge a broken core loop.
+
+═══════════════════════════════════════════
+16 · BUILD ORDER (summary — see phased prompts for detail)
+═══════════════════════════════════════════
+Phase 0 foundation → Phase 1 functional core (auth, onboarding, Den, lessons, flashcards + FSRS, Home, Settings — fully usable offline-first app with seed content) → Phase 2 backend + content sync + remote config (Ealch Admin contract) → Phase 3 voice + AI (TTS/STT, Speak Mode, Le Coach, Le Rapport, Voice Flash, Role Play, Dictation, Placement) → Phase 4 growth (RevenueCat, push, downloads, analytics) → Phase 5 polish (haptics pass, a11y, tests, perf, store prep).
+Definition of done per phase: builds on iOS + Android + web, E2E for that phase green, no port violated, all copy in locale files.</pre>
+    </div>
+  </div>
+
+  <!-- ═══════ 2b — PHASED PROMPT SERIES ═══════ -->
+  <div id="2b" style="width:880px; display:flex; flex-direction:column; gap:0">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px">
+      <div style="height:26px; padding:0 12px; border-radius:13px; background:#2FD6C1; color:#0B100F; font-size:12px; font-weight:700; display:flex; align-items:center">2b</div>
+      <div style="font-family:'Instrument Serif',Georgia,serif; font-size:24px; color:#F4F2ED">Dev prompts — Ealch v2 · Phased series (paste one per phase)</div>
+      <div style="flex:1"></div>
+      <div onClick="{{ copyD }}" style="height:32px; padding:0 16px; border-radius:16px; background:{{ copyDBg }}; color:{{ copyDColor }}; border:1px solid rgba(47,214,193,0.5); font-size:12.5px; font-weight:600; display:flex; align-items:center; cursor:pointer; transition:all 0.2s">{{ copyDLabel }}</div>
+    </div>
+    <div style="border-radius:20px; background:#FFFFFF; box-shadow:0 30px 60px rgba(0,0,0,0.45); padding:44px 48px">
+      <pre id="prompt-phases" style="margin:0; white-space:pre-wrap; font-family:'Instrument Sans',system-ui,sans-serif; font-size:{{ fontSize }}px; line-height:1.62; color:#16181B">Use these with the Ealch v2 master spec (prompt <a href="#2a">2a</a>) already in context — paste the master spec first, then one phase prompt at a time. Do not start a phase until the previous phase's exit criteria are demonstrably true.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHASE 0 — FOUNDATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Scaffold the Ealch v2 Expo project exactly per the master spec: Expo + TypeScript strict + Expo Router + Zustand + NativeWind with the full design-token theme; bundle Instrument Serif/Sans; theme provider with the 4 selectable accents flowing through every token; i18next with complete en.json + fr.json for all Phase 1 copy; src/core/ with EVERY port interface defined and a MOCK adapter for each (scripted LLM replies, canned TTS beeps, fake STT) so all later features develop against stable interfaces; SQLite + drizzle schema; eslint rule banning vendor imports outside adapters; CI (typecheck, lint, jest, i18n key-parity check, EAS preview build). Build the Splash screen and tab-bar shell with placeholder screens.
+EXIT: app boots on iOS/Android/web, tabs navigate, theme + language switch live, CI green.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHASE 1 — FUNCTIONAL CORE (the app must be genuinely usable at the end of this phase)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Implement, to visual spec: Supabase auth (email + Apple + Google) with the Sign In screen; the 10-step onboarding wizard (calibration step may use the mock STT adapter; persist every answer); Home learning feed with streak; Beginners' Den with the 3 tracks; the Lesson reader; Flashcards with the full FSRS engine (unit-tested, offline in SQLite); Smart Review + Review Session (flash modality only for now); Sentence Builder (exact-match validation); Profile + Settings (UI language, accent color, reminder time stored); Dictionary overlay with static seed dictionary. Author SEED CONTENT as data files matching the content schema: SONS track 6 units, A1 track 8 units, A2 track 4 units, 12 decks (~15 cards each with EN translations), so the app is genuinely study-able.
+EXIT: a new user can install, onboard, study lessons, run decks, and see missed cards return tomorrow — with airplane mode on after first launch. E2E covers this loop.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHASE 2 — BACKEND, CONTENT PIPELINE, REMOTE CONFIG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Stand up the full Supabase schema from master spec §7 with RLS; migrate seed content into Postgres; implement ContentPort delta sync (published_version) into SQLite; outbox sync for progress/grades/sessions; ConfigPort with remote_config + feature_flags + ai_model_routing, cached offline, refreshed on foreground. Define and document the exact contract the Ealch Admin console will use (tables, edge functions, publish flow) in CONTRACT.md.
+EXIT: content edited in Postgres appears in-app without a release; two devices on one account stay in sync; flags flip features live.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHASE 3 — VOICE + AI (swap mocks for real adapters; interfaces must not change)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Edge-function AI proxy (auth + entitlement + rate limits + model routing); real adapters: Claude LLM, ElevenLabs TTS w/ storage cache + expo-speech fallback, native STT w/ Whisper fallback. Then build: Speak Mode with the full state machine (idle/listening/thinking/speaking, aura + pulse animations, interrupt, transcript); Camille persona prompt (warm, exacting, level- and accent-aware, corrects in context); Le Rapport generation (structured JSON scores/errors/recommendations) + Feedback screen; Le Coach chat with streaming + tappable corrections; Voice Flash; Role Play with the Vocab Injector detection; Dictation with per-word diff; Placement Test (adaptive, sets CEFR level); real calibration in onboarding step 08; Track Player with background audio + lock-screen controls.
+EXIT: full spoken conversation with Camille ends in a stored, viewable Rapport; switching a model in ai_model_routing changes provider within a minute; pulling any single AI vendor requires touching only its adapter file.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHASE 4 — GROWTH LAYERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RevenueCat: entitlement "premium", paywall screen per master spec §10, gating via feature flags, restore, webhook → subscriptions table, sandbox-tested. Push: daily alarm (local, honoring onboarding step 07), review-due nudges, weekly report; templates driven by Ealch Admin. Offline Downloads screen fully functional per §11 (manifests, progress, pause/resume, wifi-only). Wire ALL analytics events from §9 through AnalyticsPort → PostHog; add Sentry.
+EXIT: free/premium gating correct across app + offline; downloads survive kill + relaunch; every event visible in PostHog.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHASE 5 — POLISH + SHIP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Haptics pass per master spec §4 table; accessibility pass per §12 (VoiceOver/TalkBack audit of every screen, reduce-motion, dynamic type); performance (cold start under 2.5s mid-range Android, 60fps lists + Speak Mode, bundle audit); complete Maestro E2E suite; store prep per §14 (icons, splash, permission strings en+fr, privacy answers, account deletion, EAS production profiles + Update channels); final QA matrix across iOS/Android/web.
+EXIT: production builds submitted to TestFlight + Play internal track; all CI + E2E green; a11y audit checklist attached.</pre>
+    </div>
+  </div>
+
+</section>
+
+<section style="padding:16px 40px 96px; display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start; justify-content:center">
+
+  <!-- ═══════ 1a — LANDING PAGE PROMPT ═══════ -->
+  <div id="1a" style="width:880px; display:flex; flex-direction:column; gap:0">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px">
+      <div style="height:26px; padding:0 12px; border-radius:13px; background:#2FD6C1; color:#0B100F; font-size:12px; font-weight:700; display:flex; align-items:center">1a</div>
+      <div style="font-family:'Instrument Serif',Georgia,serif; font-size:24px; color:#F4F2ED">Dev prompt — Ealch Landing Page (Astro)</div>
+      <div style="flex:1"></div>
+      <div onClick="{{ copyA }}" style="height:32px; padding:0 16px; border-radius:16px; background:{{ copyABg }}; color:{{ copyAColor }}; border:1px solid rgba(47,214,193,0.5); font-size:12.5px; font-weight:600; display:flex; align-items:center; cursor:pointer; transition:all 0.2s">{{ copyALabel }}</div>
+    </div>
+    <div style="border-radius:20px; background:#FFFFFF; box-shadow:0 30px 60px rgba(0,0,0,0.45); padding:44px 48px">
+      <pre id="prompt-landing" style="margin:0; white-space:pre-wrap; font-family:'Instrument Sans',system-ui,sans-serif; font-size:{{ fontSize }}px; line-height:1.62; color:#16181B">You are a senior front-end engineer. Build the production marketing site for **Ealch** — an AI French voice-coach app — using **Astro**. The design is final and specified exactly below. Do not improvise visuals; implement to spec.
+
+═══════════════════════════════════════════
+1 · TECH STACK &amp; PROJECT SETUP
+═══════════════════════════════════════════
+- Astro 5.x, TypeScript strict mode.
+- Styling: vanilla CSS with custom properties (design tokens below) in a single global stylesheet + scoped component styles. No Tailwind, no CSS-in-JS.
+- Integrations: @astrojs/sitemap, @astrojs/rss, @astrojs/mdx, @astrojs/preact (islands only where listed).
+- Fonts self-hosted via @fontsource/instrument-serif and @fontsource/instrument-sans (weights 400/500/600/700 + italics). Preload the two critical woff2 files; font-display: swap.
+- i18n: Astro built-in i18n routing. defaultLocale "en" (served at /), locale "fr" at /fr/. Every page exists in both locales. All copy lives in src/i18n/en.json and src/i18n/fr.json — never hardcode strings in components. A typed t() helper reads them.
+- File layout:
+  src/layouts/Base.astro (head, meta, fonts, JSON-LD slot)
+  src/components/ (Nav, Hero, PhoneMock, ScenarioMarquee, PainWall, MethodDemo, FeatureGrid, Faq, FinalCta, Footer, LangToggle, StoreBadges, BlogCard)
+  src/pages/index.astro, src/pages/fr/index.astro
+  src/pages/blog/… (section 6)
+  src/content/ (content collections)
+
+═══════════════════════════════════════════
+2 · DESIGN TOKENS (exact — define as :root custom props)
+═══════════════════════════════════════════
+--ink-black: #0B0C0E      (dark section bg)
+--ink-deep:  #060708      (final CTA bg, phone screen bg)
+--ink-text:  #16181B      (text on light)
+--cream:     #F4F2ED      (text on dark)
+--teal:      #2FD6C1      (accent on dark bg)
+--teal-deep: #0E8A7A      (accent on light bg — never use --teal on white, contrast fails)
+--amber:     #E6BB7C      (error/warning highlights in app mockups)
+--muted:     #5C5F63      (secondary text on light)
+--line:      #E5E2DA      (hairlines on light)
+--paper:     #FAFAF8      (light card bg)
+--card-line: #E7E2D6      (light card border)
+Type: 'Instrument Serif' for display headlines (weight 600, tight -0.01em, line-height 1.04–1.12) and italic French quotes; 'Instrument Sans' for everything else. Eyebrow labels: 11px, letter-spacing 0.4em, weight 600, uppercase, teal. Body: 15–17.5px, line-height 1.6–1.65.
+Radii: pills 50%, cards 20px, page frame 24px. Max content width 1200px, section padding 96px 72px (48px 24px under 768px).
+
+═══════════════════════════════════════════
+3 · PAGE STRUCTURE (one page, 8 sections, exact order)
+═══════════════════════════════════════════
+3.1 NAV — dark bar (--ink-black). Left: serif italic "E." logo with teal period + "EALCH" letterspaced 0.42em. Right: anchor links Method / Features / FAQ / Blog, the EN|FR pill toggle (section 5), and a teal pill CTA "Get the app". Sticky after 80px scroll with backdrop-blur and subtle border. Mobile: hamburger → full-screen overlay menu.
+
+3.2 HERO — dark, radial teal glow top-left (radial-gradient 90% 70% at 30% 0%, rgba(47,214,193,0.10)). Two columns (stack under 1024px):
+  Left: eyebrow "YOUR FRENCH VOICE COACH"; H1 serif 64px "Fluent on paper. Silent at the table."; subcopy (exact): "You can read Le Monde. You can conjugate the subjunctive. But at the boulangerie, the words won't come. Ealch is an AI voice coach that trains the French no class ever did: speaking it, hearing it, and being understood."; App Store + Google Play badges (real badge markup, 58px tall, cream + outlined variants); trust row: ★★★★★ 4.9 pill + "CAFÉS · LANDLORDS · EXAMINERS" microcopy.
+  Right: PhoneMock component — a CSS-drawn iPhone frame showing "Speak Mode": live badge "EN DIRECT · AU CAFÉ" with blinking dot, abstract avatar bust, animated 7-bar waveform (scaleY keyframes, staggered delays), Camille's line « Qu'est-ce que je vous sers ? » in serif italic + EN gloss, a "VOUS AVEZ DIT" card with the word "allongé" dotted-underlined in teal and a "Liaison ✓ vous‿avez" chip, mic button with pulsing ring (box-shadow keyframe), skip-back/forward buttons. Behind the phone: a drifting radial aura (7s ease-in-out infinite). Entrance: fadeUp 0.7s both columns, phone delayed 0.15s.
+  Bottom of hero: ScenarioMarquee — infinite horizontal loop (translateX -50%, 38s linear, duplicated list) of serif pill chips: Au café · Chez le propriétaire · L'entretien d'embauche · Le DELF oral · À la préfecture · Chez le médecin · Les beaux-parents · Au marché · Au téléphone. Every third chip teal-outlined. Pause on hover; static row under prefers-reduced-motion.
+
+3.3 PAIN WALL — white. H2 serif 52px "Every learner hits the same wall. Here's what it's made of." Then 3 ledger rows (grid 80px / 1fr / 1fr, hairline top borders, hover bg --paper): 01 "Native speakers talk too fast." / 02 "I rehearse the sentence, then panic." / 03 "My written French sounds like homework." — each with its rebuttal paragraph from the design copy. Numbers serif 34px --teal-deep.
+
+3.4 METHOD DEMO — dark. The one interactive island (section 4). Left: eyebrow "THE METHOD · IN ACTION", H2 "Ten minutes a day, out loud.", subcopy, then 5 clickable step rows (01 Parlez avec Camille / 02 She listens while you speak / 03 Lisez le Rapport / 04 Drill your gaps / 05 Watch the freeze disappear). Active row: teal border + tinted bg + expanded description. Right: a phone mock whose screen swaps per step with a 0.45s fadeUp: (1) live conversation, (2) real-time analysis card — « j'ai allé » flagged amber "Auxiliaire · être ?", « mes‿amis » liaison ✓ teal, "Rythme 92" chip, (3) Le Rapport — 82 confidence ring (SVG stroke-dashoffset), three score bars PRONONCIATION 78 / LIAISON 64 / GENRE 81, an "AUXILIAIRE" mistake card, (4) Smart Review flashcard "___ baguette — le ou la ?" with le/la answer pills and progress 7/23, (5) Progress bar-chart S1 45 → S4 82 with "+37 depuis la semaine 1" chip and "14 jours de suite ✦". Auto-advance every 4.2s; clicking a step resets the timer.
+
+3.5 FEATURE GRID — white. Eyebrow FEATURES, H2 "Everything between you and votre première vraie conversation." 3×2 card grid (gap 22px, radius 20px, hover translateY(-6px) + shadow). Card 1 is dark (inverted) with a mini animated waveform: **Speak Mode**. Cards 2–6 on --paper with --card-line border: **Le Rapport** (82 · CONFIANCE chip), **Smart Review** (two tilted flashcards), **Dictée &amp; l'Oreille** (« chais pas » in serif italic teal-deep), **Sentence Builder** (three outlined pill strokes), **Beginners' Den** (SONS · A1 · A2 amber chip). Body copy per card exactly as in the design.
+
+3.6 FAQ — white, continues from grid. Eyebrow THE QUESTIONS, H2 "Fair questions." Five hairline-divided disclosure items (native &lt;details&gt;/&lt;summary&gt;, styled, animated open): accent understanding / embarrassment / starting level / offline / "How is this different from the apps I've already tried?" — copy verbatim from the design.
+
+3.7 FINAL CTA — --ink-deep, centered. Faint 7-bar waveform rising behind (opacity 0.14). H2 60px: "Stop studying French." + line 2 in teal "Start speaking it." Subcopy "Free to download. Your first conversation takes two minutes." Both store badges (primary now teal-filled).
+
+3.8 FOOTER — inside the CTA block, hairline-top row: "E. © 2026 Ealch" left; Privacy / Terms / Contact / Blog right. Plus a second footer band: newsletter capture — single email input + teal button "Get the weekly drill" posting to /api/subscribe (stub endpoint that validates + returns 200; wire to provider later), microcopy "One short French listening drill, every Friday. Unsubscribe anytime."
+
+═══════════════════════════════════════════
+4 · INTERACTIVITY &amp; ISLANDS
+═══════════════════════════════════════════
+- Everything is static HTML/CSS except TWO Preact islands: (a) MethodDemo (client:visible) — step state, 4.2s auto-advance interval, click-to-select resets timer, screens keyed by step; (b) mobile nav toggle (client:media="(max-width:768px)").
+- LangToggle is NOT an island — it's two links (/ ↔ /fr/ equivalent page) styled as a pill; active side teal-filled.
+- All ambient animation is pure CSS keyframes: auraDrift, ewave (waveform), blinkDot, marquee, fadeUp, floaty, pulseRing. Wrap ALL of them in @media (prefers-reduced-motion: no-preference).
+- FAQ uses native details with grid-template-rows transition trick for smooth open.
+
+═══════════════════════════════════════════
+5 · i18n COPY
+═══════════════════════════════════════════
+Full FR translations exist in the design and must ship at /fr/: hero "Courant à l'écrit. Muet à table.", pain wall « Les Français parlent trop vite. » etc., method "Dix minutes par jour, à voix haute.", features FONCTIONS, FAQ "Les vraies questions.", CTA "Arrêtez d'étudier le français. / Commencez à le parler." Use the exact strings from the EN/FR copy deck (provided as en.json / fr.json — transcribe every string from the design mock, both languages). hreflang alternates on every page; the toggle links to the same page in the other locale, not the homepage.
+
+═══════════════════════════════════════════
+6 · BLOG
+═══════════════════════════════════════════
+- Content collection "blog" (src/content/blog/, MDX) with zod schema:
+  title: string, description: string (≤160 chars), pubDate: date, updatedDate: date optional, author: string default "The Ealch Team", locale: enum en|fr, tags: string[], heroAlt: string, draft: boolean default false, readingMinutes: number.
+- Routes: /blog (index, newest first, BlogCard grid — serif title, date, tag chips, description), /blog/[slug] (article layout: 720px measure, serif H1 56px, 18px/1.7 body, teal-deep links, pull-quotes in serif italic with teal left rule, styled FR example blocks), /fr/blog mirrors with locale-filtered posts. RSS feed at /rss.xml.
+- Article template ends with an inline CTA band ("Practice this out loud — download Ealch") + prev/next links.
+- SHIP THIS LAUNCH POST as content/blog/why-you-freeze-at-the-boulangerie.mdx:
+
+  title: "Why you freeze at the boulangerie (and how to stop)"
+  description: "You can read Le Monde but can't order bread. That's not a vocabulary problem — it's a retrieval problem. Here's the fix."
+  pubDate: 2026-07-10, tags: [speaking, confidence, method], readingMinutes: 6
+
+  Body (write it in full, ~900 words, this outline and voice — direct, warm, zero fluff):
+  1. Cold open: the queue at the boulangerie, three people ahead of you, you rehearse « une tradition, s'il vous plaît » — and when your turn comes, English falls out.
+  2. "You don't have a French problem. You have a retrieval problem." — reading/conjugating is recognition memory; speaking under time pressure is recall under load. Cite the testing effect and retrieval practice in plain language (no academic citations needed, plain-words explanation).
+  3. Why classes never fixed it: 30 students ÷ 60 minutes = 90 seconds of speaking each, in the safest register imaginable. The street doesn't speak textbook: liaisons, elisions, « chais pas ».
+  4. The three-part fix: (a) reps in low-stakes simulations BEFORE high-stakes moments, (b) feedback that names the exact slip (« j'ai allé » → être) while the moment is fresh, (c) spaced re-drilling of YOUR OWN mistakes, not generic word lists.
+  5. A concrete 10-minute daily protocol the reader can do with or without the app: 2 min shadowing street-speed audio, 6 min out-loud scenario, 2 min reviewing what slipped.
+  6. Close: "The wall isn't made of grammar. It's made of silence. Break it ten minutes at a time." Inline CTA to the app.
+  Include one styled FR dialogue block (the boulangerie exchange) and one pull-quote.
+
+═══════════════════════════════════════════
+7 · SEO, PERFORMANCE, A11Y — acceptance criteria
+═══════════════════════════════════════════
+- Per-page title/description/canonical/OG+Twitter cards; static OG image per locale (1200×630, dark, serif headline + teal accent).
+- JSON-LD: SoftwareApplication (aggregateRating 4.9) on the homepage, FAQPage from the 5 FAQ items, BlogPosting on articles, Organization sitewide. Sitemap + robots.txt.
+- Lighthouse ≥ 95 on all four categories, mobile. CLS &lt; 0.02 (reserve phone-mock space), zero layout shift from fonts (size-adjust fallback metrics).
+- Semantic landmarks (header/nav/main/section+aria-labelledby/footer); one h1; visible :focus-visible rings (teal, 2px offset) on dark AND light; marquee content duplicated with aria-hidden; contrast: never --teal as text on white (use --teal-deep).
+- No client JS beyond the two islands. Total JS &lt; 25 KB gzip. Images via astro:assets, AVIF/WebP.
+- Analytics: Plausible script, deferred, respects DNT.
+Deliver: the full repo, a README with run/deploy steps (static output, deploy to Netlify/Vercel), and the copy decks as JSON.</pre>
+    </div>
+  </div>
+
+  <!-- ═══════ 1b — ADMIN PROMPT ═══════ -->
+  <div id="1b" style="width:880px; display:flex; flex-direction:column">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px">
+      <div style="height:26px; padding:0 12px; border-radius:13px; background:#2FD6C1; color:#0B100F; font-size:12px; font-weight:700; display:flex; align-items:center">1b</div>
+      <div style="font-family:'Instrument Serif',Georgia,serif; font-size:24px; color:#F4F2ED">Dev prompt — Ealch Admin (Ops Console)</div>
+      <div style="flex:1"></div>
+      <div onClick="{{ copyB }}" style="height:32px; padding:0 16px; border-radius:16px; background:{{ copyBBg }}; color:{{ copyBColor }}; border:1px solid rgba(47,214,193,0.5); font-size:12.5px; font-weight:600; display:flex; align-items:center; cursor:pointer; transition:all 0.2s">{{ copyBLabel }}</div>
+    </div>
+    <div style="border-radius:20px; background:#FFFFFF; box-shadow:0 30px 60px rgba(0,0,0,0.45); padding:44px 48px">
+      <pre id="prompt-admin" style="margin:0; white-space:pre-wrap; font-family:'Instrument Sans',system-ui,sans-serif; font-size:{{ fontSize }}px; line-height:1.62; color:#16181B">You are a senior full-stack engineer. Build **Ealch Ops Console** — the internal admin for the Ealch language-learning app. The UI design is final (spec below). Build it end-to-end: database, API, auth, real-time, and every screen.
+
+═══════════════════════════════════════════
+1 · STACK
+═══════════════════════════════════════════
+- Next.js 15 (App Router, RSC) + TypeScript strict.
+- Postgres + Drizzle ORM (schema below), migrations via drizzle-kit. Seed script required.
+- Auth: Auth.js email+password with 2FA (TOTP); session cookies; middleware-guarded /admin/**.
+- Data layer: server actions for mutations, tRPC (or typed route handlers) for queries; TanStack Query on the client; TanStack Table for grids; Recharts for charts; SSE for the live feed.
+- Styling: CSS custom properties + CSS modules. Tokens:
+  --acc:#0FA894  --accBright: color-mix(in srgb, var(--acc) 55%, #CFFFF4)
+  --bg:#F2F3F1  --card:#FFFFFF  --ink:#13181B  --mut:#66716C  --line:#E3E6E1
+  --sb:#0E1114 (sidebar)  --sbTx:#EDEFEA  --ok:#1C9E6E  --warn:#C97B2D  --bad:#C2453A
+  Fonts: 'Instrument Sans' UI (13.5px base), 'Instrument Serif' for the page title and big numbers. Cards: radius 14px, 1px --line border. Sidebar 226px fixed, dark.
+
+═══════════════════════════════════════════
+2 · APP SHELL
+═══════════════════════════════════════════
+- Sidebar: "E." logomark + EALCH / OPS CONSOLE. Nav groups (exact): MONITOR → Overview, Users, Performance, Link tracking · REVENUE → Billing · ENGAGE → Notifications, Content · PLATFORM → AI models, Releases &amp; flags. Active item: tinted bg, bright text. Bottom: Maintenance-mode toggle (label "Clients see downtime screen" when on) + current admin avatar/name/role.
+- Topbar: serif section title · global search input (⌘K opens a command palette searching users, content units, tracked links, and nav destinations — debounced, keyboard navigable) · "Production" badge with pulsing green dot.
+- Global banners under topbar: (a) red maintenance banner when maintenance mode is ON; (b) amber anomaly banner when an unresolved anomaly exists (e.g. "TTS latency p95 up 38% in the last hour (eu-west)") with "View performance →" and dismiss.
+- Toast system (bottom-right, toastIn animation) confirming every mutation.
+- All mutations write to audit_log. RBAC roles: super_admin (all), ops (no billing writes, no role management), support (read + user actions only), content_editor (content + notifications only). Hide/disable UI per role and enforce server-side.
+
+═══════════════════════════════════════════
+3 · DATABASE SCHEMA (Drizzle/Postgres — implement exactly, add indexes/FKs)
+═══════════════════════════════════════════
+admin_users(id, email uniq, name, password_hash, role enum[super_admin,ops,support,content_editor], totp_secret, created_at, last_login_at)
+audit_log(id, admin_id FK, action, entity_type, entity_id, before jsonb, after jsonb, ip, created_at)
+settings(key pk, value jsonb, updated_by FK, updated_at) — row 'maintenance_mode': boolean+message
+users(id, email uniq, display_name, locale enum[en,fr], level enum[a1..c2], platform enum[ios,android], country, status enum[active,trial,churn_risk,banned,deleted], created_at, last_seen_at)
+user_stats(user_id pk FK, streak_days, confidence_score int, sessions_total, minutes_total, last_session_at)
+subscriptions(id, user_id FK, plan enum[free,monthly,annual], store enum[app_store,play,stripe], status enum[active,trialing,past_due,canceled,refunded], mrr_cents, started_at, renews_at, canceled_at)
+payments(id, subscription_id FK, amount_cents, currency, kind enum[charge,refund], status, occurred_at)
+learning_sessions(id, user_id FK, scenario, duration_s, confidence, mistakes jsonb, created_at)
+events(id, user_id FK nullable, name, props jsonb, created_at) — partition by month
+notif_templates(id, name, locale, title, body, deeplink, created_by, updated_at)
+notif_campaigns(id, template_id FK, name, segment jsonb, schedule_at, status enum[draft,scheduled,sending,sent,paused], sent_count, open_rate, created_by)
+notif_sends(id, campaign_id FK, user_id FK, status enum[queued,delivered,opened,failed], ts)
+content_units(id, slug uniq, title, kind enum[scenario,drill,dictation,curriculum_unit], level, locale, status enum[draft,in_review,published,archived], body jsonb, version int, author_id FK, published_at, updated_at)
+content_revisions(id, unit_id FK, version, body jsonb, editor_id FK, created_at)
+content_flags(id, unit_id FK, user_id FK, reason, status enum[open,resolved], created_at)
+ai_capabilities(id, key uniq [general,content,audio,video], label, description, monthly_volume)
+ai_models(id, capability_id FK, name, provider, meta, cost_label, latency_label, enabled bool)
+ai_routing(capability_id pk FK, active_model_id FK, updated_by FK, updated_at) — history in audit_log
+metrics(id, name [api_p95_ms,tts_p95_ms,uptime,crash_free,error_rate], region, value numeric, ts) — time-series, 1-min grain
+incidents(id, severity enum[anomaly,degraded,outage], title, metric_ref, region, status enum[open,ack,resolved], opened_at, resolved_at)
+tracked_links(id, slug uniq, destination_url, campaign, channel enum[email,social,ads,podcast,qr], created_by, created_at, archived bool)
+link_clicks(id, link_id FK, ts, country, platform, referrer) — aggregate views by day
+releases(id, version, platform enum[ios,android], notes, rollout_pct int 0–100, status enum[draft,staged,rolling,complete,halted], created_at)
+feature_flags(id, key uniq, description, kind enum[boolean,percentage], value jsonb, environments jsonb, updated_by, updated_at)
+
+═══════════════════════════════════════════
+4 · SCREENS (exact scope — each with loading skeletons, empty states, error states)
+═══════════════════════════════════════════
+4.1 OVERVIEW — 5 KPI cards with sparklines (MAU 48.2K +6.1% · DAU 12.9K +3.2% · MRR €86.4K +4.8% · Crash-free 99.6% · Churn 2.3% −0.4; deltas green when good). Below: main chart (DAU 30-day area chart, teal) beside a LIVE FEED panel — SSE stream of recent events (signup, subscription, refund, incident, flagged content) with type-colored dots, relative timestamps, newest on top, buffered to 50. Quick-action row: New notification · New tracked link · Toggle flag.
+4.2 USERS — 4 stat cards (Total 61,408 · New today 318 · Paying 7,930 · At churn risk 412). Filterable/sortable table (search, status filter, plan filter, pagination 25/pg): avatar+name+email, level chip, plan, streak, confidence score, status chip, last seen. Row → detail drawer: profile, subscription + payment history, recent sessions with mistake summaries, actions (grant free month, reset password email, ban/unban, GDPR export, delete) — each confirmed via modal, audited, toasted.
+4.3 BILLING — KPI cards (MRR €86,410 · ARR €1.04M · ARPU €10.90 · Refunds 30d €412). MRR 12-month bar chart (46→86). Plan-mix donut. Recent transactions table (user, plan, store icon, amount, kind, status). Refund action (super_admin/ops) with reason → writes payments row + audit.
+4.4 NOTIFICATIONS — two-column: left = campaign composer (template picker, EN/FR body preview in a phone-shaped frame, segment builder: level/plan/last-seen/locale predicates with live audience-count estimate, schedule now/later) + campaign list with status chips and open rates; right = template library CRUD. Sending simulated by a queue worker that ticks sent_count.
+4.5 CONTENT — table of content_units (title, kind chip, level, locale, status chip, version, updated) with kind/status filters; side panel: review queue of content_flags (open) with resolve action + "43-unit Beginners' Den curriculum" progress card. Editor: metadata form + JSON body editor with validation, Save draft → in_review → Publish flow (publish bumps version, snapshots content_revisions, content_editor can draft but only ops+ can publish).
+4.6 AI MODELS — one card per capability (General assistant 1.2M req/mo · Content generation 86K/mo · Audio TTS &amp; STT 3.4M min/mo · Video generation 2.1K clips/mo), each listing model options as radio rows (name, provider meta, cost, p95 latency) with the active one highlighted. Changing routing → confirm modal ("applies to new sessions within ~60 s") → updates ai_routing + audit + toast. Monthly-spend summary strip.
+4.7 PERFORMANCE — KPI cards (Uptime 30d 99.98% SLO met · API p95 412ms · TTS p95 1.42s ⚠ investigating · Error rate). p95 latency multi-line chart by region (24h, 1-min grain from metrics), uptime 90-day heat strip, incidents table (severity chip, title, region, status, ack/resolve actions). Anomaly rule (worker): if any p95 metric &gt; 1.3× its trailing-24h mean for 15 min → open incidents row (severity anomaly) → surfaces the amber banner globally.
+4.8 LINK TRACKING — 3 stat cards (Active links, Clicks 7d, Top channel). Table: slug, destination, campaign, channel chip, clicks sparkline, created; create-link modal (slug auto from campaign, collision-checked); copy-URL button; archive. Public redirect endpoint /l/[slug] → logs link_clicks (country from header, platform from UA) → 302.
+4.9 RELEASES &amp; FLAGS — left: release timeline per platform (version, notes, rollout % slider with Halt button; staged→rolling→complete lifecycle). Right: feature-flag list — boolean toggles or percentage sliders, per-environment (prod/staging) values, "last changed by X, 2h ago" from audit. Flag changes are optimistic with rollback on failure.
+
+═══════════════════════════════════════════
+5 · MECHANICS &amp; CROSS-CUTTING LOGIC
+═══════════════════════════════════════════
+- Maintenance mode: sidebar toggle writes settings.maintenance_mode (confirm modal — "All clients will see the downtime screen"), red banner appears app-wide instantly (server-sent revalidation), exposed at GET /api/status for clients.
+- ⌘K palette: fuzzy search across users (name/email), content slugs/titles, link slugs, and nav; grouped results; Enter navigates or opens the drawer.
+- Live feed: /api/stream SSE, heartbeat 25s, auto-reconnect w/ backoff.
+- Every table: URL-synced state (filters/sort/page), CSV export of the current view.
+- Numbers: Intl.NumberFormat, EUR currency, compact notation for K/M.
+- Charts: 200ms ease-out entrance; skeleton shimmer while loading.
+- Seed script generates: 4 admin users (one per role, incl. Marc Beaumont super_admin), 2,000 users with realistic stat distributions, 12 months of subscriptions/payments matching the KPI numbers above, 30 days of 1-min metrics with the TTS anomaly injected in the last hour, 6 content units + 3 open flags, 4 capabilities × 3 models each with routing set, 5 tracked links with click history, 3 releases, 6 flags, 2 notification campaigns.
+
+═══════════════════════════════════════════
+6 · ACCEPTANCE CRITERIA
+═══════════════════════════════════════════
+- pnpm i &amp;&amp; pnpm db:migrate &amp;&amp; pnpm db:seed &amp;&amp; pnpm dev boots the full console with all 9 screens populated.
+- Every mutation: RBAC-enforced server-side, audit-logged, toast-confirmed, optimistic where safe.
+- No layout shift on data load (skeletons sized to content). Keyboard: palette, table row focus, drawer Esc-to-close, focus traps in modals.
+- Playwright smoke tests: login+2FA, maintenance toggle round-trip, user ban flow, routing change, flag rollout change, link create + redirect logging.
+- README: architecture overview, env vars, worker processes (anomaly rule, campaign queue), deploy notes.</pre>
+    </div>
+  </div>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1860 },
+  &quot;fontSize&quot;: { &quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 14, &quot;min&quot;: 12, &quot;max&quot;: 17, &quot;step&quot;: 0.5, &quot;unit&quot;: &quot;px&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Reading&quot;, &quot;description&quot;: &quot;Prompt body text size&quot; }
+}">
+class Component extends DCLogic {
+  state = { copiedA: false, copiedB: false, copiedC: false, copiedD: false };
+
+  copy(which, elId) {
+    const el = document.getElementById(elId);
+    if (!el) return;
+    const text = el.innerText;
+    const done = (ok) => {
+      this.setState({ [which]: ok ? true : 'err' });
+      setTimeout(() => this.setState({ [which]: false }), 1800);
+    };
+    const fallback = () => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        done(ok);
+      } catch (e) {
+        done(false);
+      }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => done(true)).catch(fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  renderVals() {
+    const fs = this.props.fontSize ?? 14;
+    const a = this.state.copiedA, b = this.state.copiedB, c = this.state.copiedC, d = this.state.copiedD;
+    return {
+      fontSize: fs,
+      copyA: () => this.copy('copiedA', 'prompt-landing'),
+      copyB: () => this.copy('copiedB', 'prompt-admin'),
+      copyC: () => this.copy('copiedC', 'prompt-app'),
+      copyD: () => this.copy('copiedD', 'prompt-phases'),
+      copyCLabel: c === 'err' ? 'Copy failed' : (c ? 'Copied ✓' : 'Copy prompt'),
+      copyDLabel: d === 'err' ? 'Copy failed' : (d ? 'Copied ✓' : 'Copy prompt'),
+      copyCBg: c === true ? '#2FD6C1' : 'transparent',
+      copyDBg: d === true ? '#2FD6C1' : 'transparent',
+      copyCColor: c === 'err' ? '#C2453A' : (c ? '#0B100F' : '#2FD6C1'),
+      copyDColor: d === 'err' ? '#C2453A' : (d ? '#0B100F' : '#2FD6C1'),
+      copyALabel: a === 'err' ? 'Copy failed' : (a ? 'Copied ✓' : 'Copy prompt'),
+      copyBLabel: b === 'err' ? 'Copy failed' : (b ? 'Copied ✓' : 'Copy prompt'),
+      copyABg: a === true ? '#2FD6C1' : 'transparent',
+      copyBBg: b === true ? '#2FD6C1' : 'transparent',
+      copyAColor: a === 'err' ? '#C2453A' : (a ? '#0B100F' : '#2FD6C1'),
+      copyBColor: b === 'err' ? '#C2453A' : (b ? '#0B100F' : '#2FD6C1')
+    };
+  }
+}
+</script>
+</body>
+</html>

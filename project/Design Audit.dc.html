@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+html,body { margin:0; padding:0; background:#0A0B0D; }
+body { font-family:'Instrument Sans',system-ui,sans-serif; color:#F4F2ED; }
+a { color:#2FD6C1; text-decoration:none; }
+a:hover { color:#2FD6C1; opacity:0.8; }
+</style>
+</helmet>
+
+<section style="padding:60px; box-sizing:border-box">
+<div style="width:1560px">
+
+  <div style="margin-bottom:36px">
+    <div style="font-size:11px; letter-spacing:0.28em; font-weight:600; color:rgba(244,242,237,0.45); margin-bottom:10px">EALCH · DESIGN AUDIT · v2</div>
+    <div style="font-family:'Instrument Serif',Georgia,serif; font-style:italic; font-size:52px; line-height:1">State of the design.</div>
+    <div style="font-size:13.5px; color:rgba(244,242,237,0.55); max-width:640px; margin-top:14px; line-height:1.6">Covers all 20 screens, now including Smart Review, Placement, Dictation, Downloads and the dictionary popover added in v2.</div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; align-items:start; margin-bottom:44px">
+
+    <!-- GOOD -->
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <div style="height:24px; padding:0 12px; border-radius:12px; background:#2FD6C1; color:#0B100F; font-size:10px; font-weight:700; letter-spacing:0.16em; display:flex; align-items:center">GOOD</div>
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:22px">Working well</div>
+      </div>
+
+      <div style="border-radius:18px; border:1px solid rgba(255,255,255,0.08); background:#101216; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Consistent visual system</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">One accent teal, Instrument Serif italic for headlines, dark radial-gradient backdrops on every screen. It reads as one considered product, not a stitched-together prototype.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,255,255,0.08); background:#101216; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Speaking-first practice loop</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Role Play, Speak Mode, Voice Flash cover output, not just recognition — rare in language apps and the app's clearest differentiator.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,255,255,0.08); background:#101216; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">New Smart Review closes the loop</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Pulling misses from Role Play, Coach, and quizzes into one queue is the single most important structural fix — mistakes now have somewhere to go.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,255,255,0.08); background:#101216; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Feedback report has real substance</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Trajectory, confidence, replay — it treats a conversation as data worth reviewing, not just a pass/fail.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,255,255,0.08); background:#101216; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Bilingual UI done properly</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Every string branches on FR/EN rather than hard-coding one language — genuinely dual-audience, not just decoration.</div>
+      </div>
+    </div>
+
+    <!-- NEEDS WORK -->
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <div style="height:24px; padding:0 12px; border-radius:12px; border:1px solid rgba(255,180,90,0.5); color:#FFC97A; font-size:10px; font-weight:700; letter-spacing:0.16em; display:flex; align-items:center">IMPROVE</div>
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:22px">Needs work</div>
+      </div>
+
+      <div style="border-radius:18px; border:1px solid rgba(255,180,90,0.25); background:#141110; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Home is getting crowded</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Streak card, Review entry, word-of-the-day, hero, 4 foundations tiles, Role Play, Dictée, playlists, exams, weak spots — 9+ sections stacked before any real hierarchy. Needs a "your day" fold above everything else, with lower-priority browse content collapsed under a see-more.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,180,90,0.25); background:#141110; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Settings screen is one long scroll</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Subscription, currency, app language, appearance, sound, reminders, downloads, accent, sign out — nine sections with no grouping or section jump. Split into Account / Learning / Notifications / Appearance sub-pages, or at minimum add sticky section headers.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,180,90,0.25); background:#141110; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Five near-identical practice-mode cards</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Flashcards, Voice Flash, Sentence Builder, Role Play, Dictée all use the same tile pattern with a one-line subtitle — a new user can't tell which to pick first, or how they differ in difficulty/purpose. Needs a clearer "what happens when I tap this" signal, maybe grouped by skill (listening / speaking / writing).</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,180,90,0.25); background:#141110; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Streak card duplicates the tab bar's Home entry</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">It's the first thing under the greeting but visually similar in weight to the hero directly below it — two hero-strength moments compete for the same glance.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,180,90,0.25); background:#141110; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Pricing card copy is thin</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">"Unlimited Examiner · Advanced reports · Offline" vs. free's three bullets — no comparison table, no framing of what's actually lost by staying free. The upgrade moment is under-sold given how much of the app it gates (Offline, Examiner).</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,180,90,0.25); background:#141110; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">No empty / error / loading states designed</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Every screen assumes happy-path data (cards always exist, mic always works, AI always responds instantly). Worth designing: empty review queue ("all caught up"), offline/no-mic states, coach response delay.</div>
+      </div>
+    </div>
+
+    <!-- REMOVE / RETHINK -->
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <div style="height:24px; padding:0 12px; border-radius:12px; border:1px solid rgba(255,120,110,0.5); color:#FF9A8E; font-size:10px; font-weight:700; letter-spacing:0.16em; display:flex; align-items:center">REMOVE</div>
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:22px">Cut or rethink</div>
+      </div>
+
+      <div style="border-radius:18px; border:1px solid rgba(255,120,110,0.2); background:#141010; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Redundant settings gear icon everywhere</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Every practice-mode header repeats a settings gear that just opens the same global Settings screen mid-exercise — an odd escape hatch that breaks focus during a drill. Drop it from in-session headers; keep Settings reachable only from Home/Profile.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,120,110,0.2); background:#141010; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Accent-region picker's payoff is unclear</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Settings lets you pick a regional accent, but no other screen explains what changes (voice model? vocabulary? both?). Either surface the effect somewhere the user will notice it, or fold it into onboarding instead of a standalone Settings section.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,120,110,0.2); background:#141010; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Two navigation entries into Le Coach chat</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Chat lives in the tab bar and the hero card also opens a coach-adjacent Speak Mode — worth confirming these are meant to be different features, since visually they look like the same idea reached two ways.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,120,110,0.2); background:#141010; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">"Test alarm" button in Settings</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">A debug-flavored affordance in a shipped settings panel. Fine to keep functionally, but restyle so it doesn't read as a leftover dev tool.</div>
+      </div>
+      <div style="border-radius:18px; border:1px solid rgba(255,120,110,0.2); background:#141010; padding:20px">
+        <div style="font-family:'Instrument Serif',Georgia,serif; font-size:19px; margin-bottom:7px">Onboarding is 10 steps before any payoff</div>
+        <div style="font-size:13px; line-height:1.6; color:rgba(244,242,237,0.65)">Goal, experience, pace, calibration, etc. all collected before the user hears/speaks a word of French. Worth cutting to the 3–4 questions that actually change the curriculum, and moving the rest into the new placement test instead.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="border-radius:20px; border:1px solid rgba(47,214,193,0.25); background:radial-gradient(120% 200% at 15% 0%, rgba(47,214,193,0.08), transparent 60%), #101216; padding:26px 28px">
+    <div style="font-family:'Instrument Serif',Georgia,serif; font-size:22px; margin-bottom:14px">If I fixed three things next</div>
+    <div style="display:flex; gap:20px; flex-wrap:wrap">
+      <div style="flex:1; min-width:280px">
+        <div style="font-size:13px; font-weight:600; color:#2FD6C1; margin-bottom:6px">1. Re-tier the Home feed</div>
+        <div style="font-size:12.5px; line-height:1.6; color:rgba(244,242,237,0.6)">One compact "today" strip (streak + review count), then the hero, then everything else collapsed under tabs or a "browse" fold.</div>
+      </div>
+      <div style="flex:1; min-width:280px">
+        <div style="font-size:13px; font-weight:600; color:#2FD6C1; margin-bottom:6px">2. Group Settings into sections</div>
+        <div style="font-size:12.5px; line-height:1.6; color:rgba(244,242,237,0.6)">Account & Billing / Learning / Notifications / Appearance — even as in-page anchors, before it becomes a scrolling wall.</div>
+      </div>
+      <div style="flex:1; min-width:280px">
+        <div style="font-size:13px; font-weight:600; color:#2FD6C1; margin-bottom:6px">3. Differentiate the five drills</div>
+        <div style="font-size:12.5px; line-height:1.6; color:rgba(244,242,237,0.6)">Label each tile by skill (Read / Listen / Speak / Write) so the choice is legible, not five lookalike cards.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+</x-dc>
+</body>
+</html>
