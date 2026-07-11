@@ -1,6 +1,7 @@
 'use client';
 // ⌘K command palette — debounced /api/search lookup, grouped results,
 // full keyboard navigation (↑↓ Enter Esc), focus-trapped in the input.
+// The inner panel unmounts when closed, so state resets on every open.
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
@@ -39,6 +40,11 @@ export default function CommandPalette({
   open: boolean;
   onClose: () => void;
 }) {
+  if (!open) return null;
+  return <Palette onClose={onClose} />;
+}
+
+function Palette({ onClose }: { onClose: () => void }) {
   const router = useRouter();
   const [q, setQ] = useState('');
   const [selected, setSelected] = useState(0);
@@ -52,7 +58,6 @@ export default function CommandPalette({
       if (!res.ok) throw new Error('Search failed');
       return res.json();
     },
-    enabled: open,
     placeholderData: (prev) => prev,
   });
 
@@ -97,21 +102,13 @@ export default function CommandPalette({
     return out;
   }, [results]);
 
-  // Reset on open, keep focus in the input (focus trap).
-  useEffect(() => {
-    if (open) {
-      setQ('');
-      setSelected(0);
-      const t = setTimeout(() => inputRef.current?.focus(), 0);
-      return () => clearTimeout(t);
-    }
-  }, [open]);
-
-  useEffect(() => {
+  // Reset the highlighted row whenever a new result set arrives
+  // (state adjustment during render — no effect needed).
+  const [prevQ, setPrevQ] = useState(debouncedQ);
+  if (prevQ !== debouncedQ) {
+    setPrevQ(debouncedQ);
     setSelected(0);
-  }, [debouncedQ]);
-
-  if (!open) return null;
+  }
 
   const go = (item: Item) => {
     onClose();
@@ -131,7 +128,7 @@ export default function CommandPalette({
       setSelected((s) => Math.max(s - 1, 0));
     } else if (e.key === 'Enter') {
       e.preventDefault();
-      const item = items[selected];
+      const item = items[Math.min(selected, items.length - 1)];
       if (item) go(item);
     } else if (e.key === 'Tab') {
       // Trap focus — the input is the only focus target.
@@ -158,6 +155,7 @@ export default function CommandPalette({
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search users, content, links…"
+          autoFocus
           onBlur={() => {
             // Focus trap: never let focus escape while open.
             inputRef.current?.focus();
@@ -176,7 +174,7 @@ export default function CommandPalette({
                     <div className={styles.groupHeader}>{item.group}</div>
                   ) : null}
                   <div
-                    className={`${styles.item} ${i === selected ? styles.itemSelected : ''}`}
+                    className={`${styles.item} ${i === Math.min(selected, items.length - 1) ? styles.itemSelected : ''}`}
                     onMouseEnter={() => setSelected(i)}
                     onMouseDown={(e) => {
                       e.preventDefault();

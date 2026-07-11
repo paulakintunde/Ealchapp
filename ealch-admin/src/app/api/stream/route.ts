@@ -27,6 +27,10 @@ export async function GET(req: NextRequest) {
       };
       const send = (ev: LiveEvent) => write(`data: ${JSON.stringify(ev)}\n\n`);
 
+      // Initial comment — flushes headers so clients connect immediately
+      // even when the ring buffer is empty.
+      write(`: connected\n\n`);
+
       // Replay buffered events, oldest first.
       for (const ev of [...recent()].reverse()) send(ev);
 
