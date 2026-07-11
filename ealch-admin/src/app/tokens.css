@@ -1,0 +1,82 @@
+/* Ealch Ops Console — design tokens (from Ealch Admin.dc.html, final). */
+:root {
+  --acc: #0FA894;
+  --accBright: color-mix(in srgb, var(--acc) 55%, #CFFFF4);
+  --bg: #F2F3F1;
+  --card: #FFFFFF;
+  --ink: #13181B;
+  --mut: #66716C;
+  --line: #E3E6E1;
+  --sb: #0E1114;
+  --sbTx: #EDEFEA;
+  --ok: #1C9E6E;
+  --warn: #C97B2D;
+  --bad: #C2453A;
+
+  --radius-card: 14px;
+  --sidebar-w: 226px;
+  --font-ui: 'Instrument Sans', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+}
+
+body {
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  color: var(--ink);
+}
+
+a {
+  color: var(--acc);
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-ui);
+}
+input::placeholder,
+textarea::placeholder {
+  color: #9aa49e;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+/* Shared skeleton block — sized by the consumer to avoid layout shift. */
+.skeleton {
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ecefec 25%, #f6f8f5 50%, #ecefec 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s linear infinite;
+}
