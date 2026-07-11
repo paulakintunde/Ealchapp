@@ -1,5 +1,6 @@
 // Applies ./drizzle SQL migrations to whichever database is configured
 // (node-postgres when DATABASE_URL is set, embedded PGlite otherwise).
+import { mkdirSync } from 'node:fs';
 import * as schema from '../src/db/schema';
 
 async function main() {
@@ -15,7 +16,9 @@ async function main() {
     const { drizzle } = await import('drizzle-orm/pglite');
     const { migrate } = await import('drizzle-orm/pglite/migrator');
     const { PGlite } = await import('@electric-sql/pglite');
-    const client = new PGlite(process.env.PGLITE_DIR ?? '.data/pglite');
+    const dir = process.env.PGLITE_DIR ?? '.data/pglite';
+    mkdirSync(dir, { recursive: true });
+    const client = new PGlite(dir);
     const db = drizzle(client, { schema });
     await migrate(db, { migrationsFolder: './drizzle' });
     await client.close();

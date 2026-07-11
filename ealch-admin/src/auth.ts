@@ -6,7 +6,7 @@ import NextAuth, { type DefaultSession } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { eq } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
-import { authenticator } from 'otplib';
+import { verify as verifyTotp } from 'otplib';
 import { db, schema } from '@/db';
 import type { Role } from '@/lib/rbac';
 
@@ -43,7 +43,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         if (!passOk) return null;
 
         if (admin.totpSecret) {
-          if (!totp || !authenticator.verify({ token: totp, secret: admin.totpSecret })) return null;
+          if (!totp) return null;
+          try {
+            const result = await verifyTotp({ token: totp, secret: admin.totpSecret });
+            if (!result.valid) return null;
+          } catch {
+            return null;
+          }
         }
 
         await d
