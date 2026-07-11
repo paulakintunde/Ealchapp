@@ -46,9 +46,9 @@ where not exists (
 -- ── Ensure the active config row exists (schema.sql also seeds this) ──
 insert into public.system_config (id, config)
 values ('active', '{
-  "orchestrator": "kie",
+  "orchestrator": "nvidia",
   "services": { "fishAudio": true, "azure": false, "glif": false },
-  "models": { "general": "claude-sonnet-5", "content": "claude-sonnet-5", "audio": "fish-1", "video": "mux" },
+  "models": { "general": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning", "content": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning", "audio": "fish-1", "video": "mux" },
   "promptVersion": "v1",
   "ttsProvider": "device",
   "sttProvider": "device",

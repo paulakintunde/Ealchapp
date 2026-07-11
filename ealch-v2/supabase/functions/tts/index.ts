@@ -1,14 +1,18 @@
 // Ealch v2 — `tts` Edge Function.
 // Optional premium voice synthesis proxy. The app uses on-device French TTS by
-// default (config.ttsProvider = "device"); flipping the control plane to
-// "elevenlabs" or "fish" routes phrase audio through here instead, with the
-// provider key injected server-side.
+// default (config.ttsProvider = "device"); flipping the control plane routes
+// phrase audio through here instead, with provider keys injected server-side.
 //
-// Request:  { text: string, provider?: "elevenlabs" | "fish", voice?: string }
-// Response: { audio: string (base64 mp3), provider: string }
+// Provider resolver order (first configured wins, rest are fallbacks):
+//   1. Custom      — TTS_API_URL (+ TTS_API_KEY, TTS_MODEL, TTS_VOICE, TTS_FORMAT)
+//                    OpenAI-compatible /v1/audio/speech shape (e.g. a Piper server).
+//   2. Fish Audio  — FISH_AUDIO_API_KEY (or FISH_API_KEY)
+//   3. ElevenLabs  — ELEVENLABS_API_KEY
+//
+// Request:  { text: string, voice?: string }
+// Response: { audio: string (base64), format: string, provider: string }
 //
 // Deploy:  supabase functions deploy tts --no-verify-jwt
-// Secrets: supabase secrets set ELEVENLABS_API_KEY=... [FISH_API_KEY=...]
 
 const b64 = (buf: ArrayBuffer) => {
   const bytes = new Uint8Array(buf);
@@ -20,7 +24,44 @@ const b64 = (buf: ArrayBuffer) => {
   return btoa(bin);
 };
 
-async function elevenlabs(text: string, voice: string): Promise<ArrayBuffer> {
+type TtsResult = { audio: ArrayBuffer; format: string; provider: string };
+
+async function customTts(text: string, voice: string): Promise<TtsResult> {
+  const url = Deno.env.get("TTS_API_URL");
+  if (!url) throw new Error("no TTS_API_URL");
+  const format = Deno.env.get("TTS_FORMAT") ?? "wav";
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${Deno.env.get("TTS_API_KEY") ?? ""}`,
+    },
+    body: JSON.stringify({
+      model: Deno.env.get("TTS_MODEL") ?? "piper",
+      voice: voice || Deno.env.get("TTS_VOICE") ?? "fr_FR-siwis-medium",
+      input: text,
+      response_format: format,
+    }),
+    signal: AbortSignal.timeout(25_000),
+  });
+  if (!res.ok) throw new Error(`custom tts ${res.status}`);
+  return { audio: await res.arrayBuffer(), format, provider: Deno.env.get("TTS_PROVIDER") ?? "custom" };
+}
+
+async function fishAudio(text: string, voice: string): Promise<TtsResult> {
+  const key = Deno.env.get("FISH_AUDIO_API_KEY") ?? Deno.env.get("FISH_API_KEY");
+  if (!key) throw new Error("no FISH_AUDIO_API_KEY");
+  const res = await fetch("https://api.fish.audio/v1/tts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+    body: JSON.stringify({ text, reference_id: voice || undefined, format: "mp3" }),
+    signal: AbortSignal.timeout(25_000),
+  });
+  if (!res.ok) throw new Error(`fish ${res.status}`);
+  return { audio: await res.arrayBuffer(), format: "mp3", provider: "fish" };
+}
+
+async function elevenlabs(text: string, voice: string): Promise<TtsResult> {
   const key = Deno.env.get("ELEVENLABS_API_KEY");
   if (!key) throw new Error("no ELEVENLABS_API_KEY");
   const res = await fetch(
@@ -37,20 +78,7 @@ async function elevenlabs(text: string, voice: string): Promise<ArrayBuffer> {
     },
   );
   if (!res.ok) throw new Error(`elevenlabs ${res.status}`);
-  return res.arrayBuffer();
-}
-
-async function fishAudio(text: string, voice: string): Promise<ArrayBuffer> {
-  const key = Deno.env.get("FISH_API_KEY");
-  if (!key) throw new Error("no FISH_API_KEY");
-  const res = await fetch("https://api.fish.audio/v1/tts", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-    body: JSON.stringify({ text, reference_id: voice || undefined, format: "mp3" }),
-    signal: AbortSignal.timeout(25_000),
-  });
-  if (!res.ok) throw new Error(`fish ${res.status}`);
-  return res.arrayBuffer();
+  return { audio: await res.arrayBuffer(), format: "mp3", provider: "elevenlabs" };
 }
 
 Deno.serve(async (req) => {
@@ -61,7 +89,7 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors });
 
   try {
-    const { text, provider = "elevenlabs", voice = "" } = await req.json();
+    const { text, voice = "" } = await req.json();
     if (!text || String(text).length > 600) {
       return new Response(JSON.stringify({ error: "text required (max 600 chars)" }), {
         status: 400,
@@ -69,22 +97,31 @@ Deno.serve(async (req) => {
       });
     }
 
-    let audio: ArrayBuffer;
-    let used = provider;
-    try {
-      audio = provider === "fish" ? await fishAudio(text, voice) : await elevenlabs(text, voice);
-    } catch (_) {
-      // cross-provider fallback, mirroring the app's resilience posture
-      used = provider === "fish" ? "elevenlabs" : "fish";
-      audio = used === "fish" ? await fishAudio(text, voice) : await elevenlabs(text, voice);
+    const chain = [customTts, fishAudio, elevenlabs];
+    let result: TtsResult | null = null;
+    let lastErr = "";
+    for (const provider of chain) {
+      try {
+        result = await provider(String(text), String(voice));
+        break;
+      } catch (e) {
+        lastErr = String(e);
+      }
+    }
+    if (!result) {
+      return new Response(JSON.stringify({ error: `all tts providers failed: ${lastErr}` }), {
+        status: 502,
+        headers: { ...cors, "Content-Type": "application/json" },
+      });
     }
 
-    return new Response(JSON.stringify({ audio: b64(audio), provider: used }), {
-      headers: { ...cors, "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ audio: b64(result.audio), format: result.format, provider: result.provider }),
+      { headers: { ...cors, "Content-Type": "application/json" } },
+    );
   } catch (e) {
     return new Response(JSON.stringify({ error: String(e) }), {
-      status: 502,
+      status: 400,
       headers: { ...cors, "Content-Type": "application/json" },
     });
   }

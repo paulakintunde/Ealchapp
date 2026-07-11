@@ -3,20 +3,27 @@
 // tutor, and Role Play. Secrets are injected here, server-side — the client
 // only ever sends messages + non-sensitive config references.
 //
-// Provider chain (per the control-plane spec):
-//   primary   = Kie.ai        (OpenAI-compatible, KIE_API_KEY)
-//   secondary = NVIDIA NIM    (OpenAI-compatible, NVIDIA_API_KEY)
-//   tertiary  = Anthropic     (ANTHROPIC_API_KEY) — optional direct fallback
+// Provider resolver order (first configured wins as PRIMARY, the rest form
+// the failover chain, in order):
+//   1. AI_API_*    — generic OpenAI-compatible override (AI_API_URL + AI_API_KEY [+ AI_API_MODEL])
+//   2. OpenRouter  — OPENROUTER_API_KEY [+ OPENROUTER_MODEL]
+//   3. NVIDIA      — NVIDIA_API_KEY [+ NVIDIA_AI_MODEL, NVIDIA_ENABLE_THINKING]
+//   4. Anthropic   — ANTHROPIC_API_KEY [+ ANTHROPIC_MODEL]
 // A module-scope circuit breaker skips the primary after repeated failures
-// and re-probes it after a cooldown. Every trip/recovery is reported to
-// PostHog when POSTHOG_API_KEY is set.
+// and re-probes it after a cooldown. Trips/recoveries go to PostHog when
+// POSTHOG_API_KEY is set.
 //
 // Deploy:  supabase functions deploy coach --no-verify-jwt
-// Secrets: supabase secrets set KIE_API_KEY=... NVIDIA_API_KEY=... [ANTHROPIC_API_KEY=...]
+// Secrets: supabase secrets set NVIDIA_API_KEY=... NVIDIA_AI_MODEL=... [ANTHROPIC_API_KEY=...]
 
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 type Msg = { role: "user" | "assistant"; content: string };
+
+type Provider = {
+  name: string;
+  call: (system: string, messages: Msg[]) => Promise<string>;
+};
 
 const BREAKER = { failures: 0, threshold: 3, openedAt: 0, cooldownMs: 60_000 };
 
@@ -44,32 +51,39 @@ async function activePrompt(promptVersion: string, lang: string): Promise<string
   return FALLBACK_PROMPT.replaceAll("{{lang}}", lang);
 }
 
+/** Strip <think>…</think> blocks reasoning models prepend to replies. */
+function stripThinking(text: string): string {
+  return text.replace(/<think>[\s\S]*?<\/think>/g, "").trim();
+}
+
 async function openAICompatible(
   base: string,
   key: string,
   model: string,
   system: string,
   messages: Msg[],
+  extra?: Record<string, unknown>,
 ): Promise<string> {
-  const res = await fetch(`${base}/chat/completions`, {
+  const res = await fetch(`${base.replace(/\/$/, "")}/chat/completions`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
     body: JSON.stringify({
       model,
       messages: [{ role: "system", content: system }, ...messages],
-      max_tokens: 400,
+      max_tokens: extra?.max_tokens ?? 500,
       temperature: 0.7,
+      ...extra,
     }),
-    signal: AbortSignal.timeout(20_000),
+    signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) throw new Error(`${base} ${res.status}`);
   const json = await res.json();
   const reply = json?.choices?.[0]?.message?.content;
   if (!reply) throw new Error(`${base} empty completion`);
-  return reply;
+  return stripThinking(String(reply));
 }
 
-async function anthropicDirect(model: string, system: string, messages: Msg[]): Promise<string> {
+async function anthropicDirect(system: string, messages: Msg[]): Promise<string> {
   const key = Deno.env.get("ANTHROPIC_API_KEY");
   if (!key) throw new Error("no ANTHROPIC_API_KEY");
   const res = await fetch("https://api.anthropic.com/v1/messages", {
@@ -79,8 +93,13 @@ async function anthropicDirect(model: string, system: string, messages: Msg[]): 
       "x-api-key": key,
       "anthropic-version": "2023-06-01",
     },
-    body: JSON.stringify({ model, system, messages, max_tokens: 400 }),
-    signal: AbortSignal.timeout(20_000),
+    body: JSON.stringify({
+      model: Deno.env.get("ANTHROPIC_MODEL") ?? "claude-sonnet-5",
+      system,
+      messages,
+      max_tokens: 500,
+    }),
+    signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) throw new Error(`anthropic ${res.status}`);
   const json = await res.json();
@@ -89,11 +108,67 @@ async function anthropicDirect(model: string, system: string, messages: Msg[]): 
   return reply;
 }
 
+/** Build the provider chain per the resolver order. */
+function resolveProviders(): Provider[] {
+  const chain: Provider[] = [];
+
+  const aiUrl = Deno.env.get("AI_API_URL");
+  const aiKey = Deno.env.get("AI_API_KEY");
+  if (aiUrl && aiKey) {
+    chain.push({
+      name: "ai_api",
+      call: (sys, msgs) =>
+        openAICompatible(aiUrl, aiKey, Deno.env.get("AI_API_MODEL") ?? "default", sys, msgs),
+    });
+  }
+
+  const orKey = Deno.env.get("OPENROUTER_API_KEY");
+  if (orKey) {
+    chain.push({
+      name: "openrouter",
+      call: (sys, msgs) =>
+        openAICompatible(
+          "https://openrouter.ai/api/v1",
+          orKey,
+          Deno.env.get("OPENROUTER_MODEL") ?? "meta-llama/llama-3.1-70b-instruct",
+          sys,
+          msgs,
+        ),
+    });
+  }
+
+  const nvKey = Deno.env.get("NVIDIA_API_KEY");
+  if (nvKey) {
+    const thinking = (Deno.env.get("NVIDIA_ENABLE_THINKING") ?? "").toLowerCase() === "true";
+    chain.push({
+      name: "nvidia",
+      call: (sys, msgs) =>
+        openAICompatible(
+          "https://integrate.api.nvidia.com/v1",
+          nvKey,
+          Deno.env.get("NVIDIA_AI_MODEL") ?? "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+          sys,
+          msgs,
+          thinking
+            // Reasoning on: give the model room to think, then strip the trace.
+            ? { max_tokens: 2048, chat_template_kwargs: { thinking: true } }
+            // Fast coaching: suppress the reasoning trace entirely.
+            : { chat_template_kwargs: { thinking: false } },
+        ),
+    });
+  }
+
+  if (Deno.env.get("ANTHROPIC_API_KEY")) {
+    chain.push({ name: "anthropic", call: anthropicDirect });
+  }
+
+  return chain;
+}
+
 function posthog(event: string, props: Record<string, unknown>) {
   const key = Deno.env.get("POSTHOG_API_KEY");
   if (!key) return;
   const host = Deno.env.get("POSTHOG_HOST") ?? "https://us.i.posthog.com";
-  // fire-and-forget — observability must never block the reply
   fetch(`${host}/capture/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -109,13 +184,11 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors });
 
   try {
-    const { messages = [], lang = "fr", model = "gpt-4o-mini", promptVersion = "v1" } =
-      await req.json();
+    const { messages = [], lang = "fr", promptVersion = "v1" } = await req.json();
     const system = await activePrompt(promptVersion, lang);
     const history: Msg[] = messages.slice(-12); // bound the context
 
-    const kieKey = Deno.env.get("KIE_API_KEY");
-    const nvidiaKey = Deno.env.get("NVIDIA_API_KEY");
+    const chain = resolveProviders();
     const breakerOpen =
       BREAKER.failures >= BREAKER.threshold &&
       Date.now() - BREAKER.openedAt < BREAKER.cooldownMs;
@@ -123,51 +196,33 @@ Deno.serve(async (req) => {
     let reply: string | null = null;
     let provider = "";
 
-    // 1 — primary: Kie.ai (unless the breaker is open)
-    if (kieKey && !breakerOpen) {
+    for (let i = 0; i < chain.length && !reply; i++) {
+      // The breaker only gates the primary; fallbacks are always tried.
+      if (i === 0 && breakerOpen) continue;
       try {
-        reply = await openAICompatible("https://api.kie.ai/v1", kieKey, model, system, history);
-        provider = "kie";
-        if (BREAKER.failures >= BREAKER.threshold) posthog("failover_recovered", { provider: "kie" });
-        BREAKER.failures = 0;
+        reply = await chain[i].call(system, history);
+        provider = chain[i].name;
+        if (i === 0) {
+          if (BREAKER.failures >= BREAKER.threshold) {
+            posthog("failover_recovered", { provider: chain[i].name });
+          }
+          BREAKER.failures = 0;
+        } else {
+          posthog("failover_served", { provider: chain[i].name });
+        }
       } catch (e) {
-        BREAKER.failures += 1;
-        if (BREAKER.failures === BREAKER.threshold) {
-          BREAKER.openedAt = Date.now();
-          posthog("failover_tripped", { provider: "kie", error: String(e) });
+        if (i === 0) {
+          BREAKER.failures += 1;
+          if (BREAKER.failures === BREAKER.threshold) {
+            BREAKER.openedAt = Date.now();
+            posthog("failover_tripped", { provider: chain[i].name, error: String(e) });
+          }
         }
       }
     }
 
-    // 2 — secondary: NVIDIA NIM
-    if (!reply && nvidiaKey) {
-      try {
-        reply = await openAICompatible(
-          "https://integrate.api.nvidia.com/v1",
-          nvidiaKey,
-          Deno.env.get("NVIDIA_MODEL") ?? "meta/llama-3.1-70b-instruct",
-          system,
-          history,
-        );
-        provider = "nvidia";
-        posthog("failover_served", { provider: "nvidia" });
-      } catch (_) { /* fall through */ }
-    }
-
-    // 3 — tertiary: Anthropic direct
     if (!reply) {
-      try {
-        reply = await anthropicDirect(
-          Deno.env.get("ANTHROPIC_MODEL") ?? "claude-sonnet-5",
-          system,
-          history,
-        );
-        provider = "anthropic";
-      } catch (_) { /* fall through */ }
-    }
-
-    if (!reply) {
-      posthog("coach_all_providers_failed", {});
+      posthog("coach_all_providers_failed", { chain: chain.map((c) => c.name) });
       return new Response(JSON.stringify({ error: "all providers failed" }), {
         status: 503,
         headers: { ...cors, "Content-Type": "application/json" },

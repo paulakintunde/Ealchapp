@@ -18,9 +18,9 @@ export type RemoteConfig = {
 };
 
 const DEFAULTS: RemoteConfig = {
-  orchestrator: 'kie',
+  orchestrator: 'nvidia',
   services: { fishAudio: true, azure: false, glif: false },
-  models: { general: 'claude-sonnet-5', content: 'claude-sonnet-5', audio: 'fish-1', video: 'mux' },
+  models: { general: 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning', content: 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning', audio: 'fish-1', video: 'mux' },
   promptVersion: 'v1',
   ttsProvider: 'device',
   sttProvider: 'device',
