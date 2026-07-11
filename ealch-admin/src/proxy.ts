@@ -7,7 +7,7 @@ export async function proxy(req: NextRequest) {
   const token = await getToken({
     req,
     secret: process.env.AUTH_SECRET,
-    secureCookie: process.env.NODE_ENV === 'production',
+    secureCookie: (process.env.AUTH_URL ?? '').startsWith('https'),
   });
   if (!token) {
     const login = new URL('/login', req.url);
