@@ -1,0 +1,330 @@
+/* Content editor — metadata form, JSON body editor, workflow + revisions. */
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeUp 0.35s ease both;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.back {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--mut);
+}
+.back:hover {
+  color: var(--acc);
+  opacity: 1;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+
+.chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9px;
+  white-space: nowrap;
+}
+
+.chipStrike {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.mono {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--mut);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cardSub {
+  font-size: 12px;
+  color: var(--mut);
+  margin-top: 4px;
+}
+
+/* ── Metadata form ── */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.fieldWide {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--mut);
+  text-transform: uppercase;
+}
+
+.input,
+.select {
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 0 10px;
+  font-size: 12.5px;
+  background: var(--card);
+  color: var(--ink);
+  box-sizing: border-box;
+  width: 100%;
+}
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--acc);
+}
+.input:disabled,
+.select:disabled,
+.textarea:disabled {
+  background: var(--bg);
+  color: var(--mut);
+  cursor: not-allowed;
+}
+
+/* ── JSON body editor ── */
+.textarea {
+  width: 100%;
+  min-height: 320px;
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink);
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.textareaBad {
+  border-color: var(--bad);
+}
+.textareaBad:focus {
+  border-color: var(--bad);
+}
+
+.jsonError {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--bad);
+  margin-top: 7px;
+}
+
+.btnRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: none;
+  background: var(--acc);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.darkBtn {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: none;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ghostBtn {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ghostBtn:hover {
+  border-color: var(--acc);
+  color: var(--acc);
+}
+
+.dangerBtn {
+  composes: ghostBtn;
+  color: var(--bad);
+}
+.dangerBtn:hover {
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.primaryBtn:disabled,
+.darkBtn:disabled,
+.ghostBtn:disabled,
+.dangerBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--mut);
+}
+
+.fieldError {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--bad);
+}
+
+/* ── Workflow card ── */
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mut);
+  flex-wrap: wrap;
+}
+
+.flowStep {
+  padding: 3px 9px;
+  border-radius: 9px;
+  background: var(--bg);
+  white-space: nowrap;
+}
+
+.flowStepActive {
+  background: color-mix(in srgb, var(--acc) 12%, transparent);
+  color: var(--acc);
+}
+
+.flowArrow {
+  color: var(--line);
+}
+
+/* ── Revision history ── */
+.revList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+}
+
+.revRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.revRow:last-child {
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+
+.revVer {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.revMeta {
+  flex: 1;
+  font-size: 11.5px;
+  color: var(--mut);
+  min-width: 0;
+}
+
+.restoreBtn {
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--acc);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.restoreBtn:hover {
+  border-color: var(--acc);
+}
+.restoreBtn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.emptyRevs {
+  font-size: 12.5px;
+  color: var(--mut);
+  padding: 8px 0 2px;
+}

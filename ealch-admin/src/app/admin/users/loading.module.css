@@ -1,0 +1,105 @@
+/* Users loading skeleton — mirrors users.module.css dimensions. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  width: 90px;
+  height: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cardLabel {
+  width: 80px;
+  height: 11px;
+}
+.cardValue {
+  width: 120px;
+  height: 26px;
+}
+
+.tableCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.pills {
+  width: 280px;
+  height: 28px;
+  border-radius: 14px;
+}
+.search {
+  width: 220px;
+  height: 28px;
+}
+.spacer {
+  flex: 1;
+}
+.export {
+  width: 92px;
+  height: 30px;
+}
+
+.headRow {
+  height: 14px;
+  margin: 9px 18px;
+  border-radius: 6px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 18px;
+  border-top: 1px solid var(--line);
+}
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  flex-shrink: 0;
+}
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 26%;
+}
+.lineWide {
+  height: 12px;
+  width: 70%;
+}
+.lineNarrow {
+  height: 10px;
+  width: 90%;
+}
+.cell {
+  height: 14px;
+  flex: 1;
+}

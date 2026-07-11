@@ -1,0 +1,381 @@
+/* Content library — main list screen (grid 2fr/1fr like the mock). */
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeUp 0.35s ease both;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.tableCard {
+  overflow: hidden;
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.newBtn {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+.newBtn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* ── Filters ── */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.filterSep {
+  width: 1px;
+  height: 16px;
+  background: var(--line);
+  margin: 0 4px;
+}
+
+.pill {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pill:hover {
+  border-color: color-mix(in srgb, var(--acc) 45%, var(--line));
+}
+
+.pillActive {
+  border-color: var(--acc);
+  background: color-mix(in srgb, var(--acc) 9%, transparent);
+  color: var(--acc);
+}
+
+/* ── Table ── */
+.thead,
+.row {
+  display: grid;
+  grid-template-columns: 2.2fr 0.85fr 0.5fr 0.55fr 0.9fr 0.5fr 0.75fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.thead {
+  padding: 9px 18px;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--mut);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+}
+
+.row {
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+.row:hover {
+  background: color-mix(in srgb, var(--acc) 4%, transparent);
+  opacity: 1;
+}
+.row:last-child {
+  border-bottom: none;
+}
+
+.unitTitle {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.unitSub {
+  font-size: 11px;
+  color: var(--mut);
+  margin-top: 1px;
+}
+
+.chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9px;
+  white-space: nowrap;
+}
+
+.chipStrike {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.level {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.mono {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.updated {
+  font-size: 12px;
+  color: var(--mut);
+}
+
+/* ── Empty state ── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 52px 20px;
+  color: var(--mut);
+}
+
+.emptyIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--acc) 10%, transparent);
+  color: var(--acc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyLine {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.emptyHint {
+  font-size: 12px;
+}
+
+/* ── Right column ── */
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sideCard {
+  padding: 18px 20px;
+}
+
+.sideSub {
+  font-size: 12px;
+  color: var(--mut);
+  margin-top: 4px;
+}
+
+.flagList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+}
+
+.flagRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.flagRow:last-child {
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+
+.flagBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.flagReason {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.flagMeta {
+  font-size: 11px;
+  color: var(--mut);
+  margin-top: 2px;
+}
+
+.resolveBtn {
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--acc);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.resolveBtn:hover {
+  border-color: var(--acc);
+}
+.resolveBtn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.queueClear {
+  font-size: 12.5px;
+  color: var(--ok);
+  font-weight: 600;
+  padding: 8px 0 2px;
+}
+
+/* ── Curriculum progress card ── */
+.progressTrack {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg);
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--acc);
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 11.5px;
+  color: var(--mut);
+  margin-top: 8px;
+}
+
+.progressCount {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ── Recent edits mini-feed ── */
+.editList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.editRow {
+  display: flex;
+  gap: 10px;
+  font-size: 12.5px;
+}
+
+.editDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--acc);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.editText {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.editTime {
+  font-size: 10.5px;
+  color: var(--mut);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Error boundary ── */
+.errorBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 60px 20px;
+}
+
+.errorTitle {
+  font-family: var(--font-serif);
+  font-size: 19px;
+}
+
+.errorHint {
+  font-size: 12.5px;
+  color: var(--mut);
+}
+
+.retryBtn {
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 9px;
+  border: none;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}

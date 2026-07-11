@@ -1,0 +1,412 @@
+/* Performance — KPI cards, latency chart, uptime heat strip, tables. */
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeUp 0.35s ease both;
+}
+
+/* ── KPI cards (mock-exact) ─────────────────────────────────────────────── */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.kpiCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+.kpiHead {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.kpiDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.kpiLabel {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--mut);
+  text-transform: uppercase;
+}
+.kpiValue {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+.kpiSub {
+  font-size: 11.5px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.subOk {
+  color: var(--ok);
+}
+.subWarn {
+  color: var(--warn);
+}
+.subBad {
+  color: var(--bad);
+}
+.subMut {
+  color: var(--mut);
+}
+
+/* ── Cards ──────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.cardHead {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  flex: 1;
+}
+.cardHeadNote {
+  font-size: 11.5px;
+  color: var(--mut);
+}
+
+/* ── Latency chart ──────────────────────────────────────────────────────── */
+.chartBody {
+  padding: 12px 16px 14px;
+}
+.legendRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 2px 4px 10px;
+}
+.legendChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mut);
+}
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+}
+.legendDash {
+  width: 12px;
+  height: 0;
+  border-top: 2px dashed;
+}
+.chartFrame {
+  width: 100%;
+}
+.emptyInline {
+  padding: 32px 0;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--mut);
+}
+
+/* Tooltip */
+.tip {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 11px;
+  box-shadow: 0 8px 24px rgba(14, 17, 20, 0.12);
+  font-size: 11.5px;
+}
+.tipLabel {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.tipRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 2px;
+}
+.tipDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.tipName {
+  color: var(--mut);
+  flex: 1;
+  padding-right: 10px;
+}
+.tipVal {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Uptime heat strip ──────────────────────────────────────────────────── */
+.heatBody {
+  padding: 16px 18px;
+}
+.heatGrid {
+  display: grid;
+  grid-template-columns: repeat(90, 1fr);
+  gap: 3px;
+}
+.heatCell {
+  aspect-ratio: 1;
+  border-radius: 2.5px;
+  min-width: 0;
+}
+.heatLegend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--mut);
+}
+.heatLegendScale {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.heatLegendScale .heatCell {
+  width: 9px;
+  height: 9px;
+  aspect-ratio: auto;
+}
+
+/* ── Endpoints table (mock-exact grid) ──────────────────────────────────── */
+.epHeadRow,
+.epRow {
+  display: grid;
+  grid-template-columns: 2fr 0.8fr 0.8fr 0.8fr 1fr;
+  gap: 8px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+.epHeadRow {
+  padding: 9px 18px;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--mut);
+  text-transform: uppercase;
+}
+.epRow {
+  padding: 11px 18px;
+  font-size: 12.5px;
+}
+.epRow:last-child {
+  border-bottom: none;
+}
+.epRow:hover {
+  background: color-mix(in srgb, var(--acc) 4%, transparent);
+}
+.epRoute {
+  font-weight: 600;
+  font-family: ui-monospace, monospace;
+}
+.epP95 {
+  font-weight: 600;
+}
+.epP95Warn {
+  font-weight: 600;
+  color: var(--warn);
+}
+.epHealth {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+.epDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* ── Incidents table ────────────────────────────────────────────────────── */
+.incHeadRow,
+.incRow {
+  display: grid;
+  grid-template-columns: 0.9fr 2.4fr 0.8fr 1.1fr 0.9fr 0.9fr 1.2fr;
+  gap: 8px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+.incHeadRow {
+  padding: 9px 18px;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--mut);
+  text-transform: uppercase;
+}
+.incRow {
+  padding: 11px 18px;
+  font-size: 12.5px;
+}
+.incRow:last-child {
+  border-bottom: none;
+}
+.incRow:hover {
+  background: color-mix(in srgb, var(--acc) 4%, transparent);
+}
+.incTitle {
+  font-weight: 600;
+}
+.incRegion {
+  color: var(--mut);
+}
+.incMetric {
+  font-family: ui-monospace, monospace;
+  font-size: 11.5px;
+  color: var(--mut);
+}
+.incOpened {
+  color: var(--mut);
+  font-size: 11.5px;
+}
+.incActionsHead,
+.incActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.rowBtn {
+  height: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  padding: 0 11px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+.rowBtn:hover {
+  border-color: var(--acc);
+  color: var(--acc);
+}
+
+/* Chips */
+.chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9px;
+}
+.chipWarn {
+  background: color-mix(in srgb, var(--warn) 12%, transparent);
+  color: var(--warn);
+}
+.chipBad {
+  background: color-mix(in srgb, var(--bad) 12%, transparent);
+  color: var(--bad);
+}
+.chipOpen {
+  background: color-mix(in srgb, var(--bad) 12%, transparent);
+  color: var(--bad);
+  animation: livePulse 1.6s ease-in-out infinite;
+}
+.chipAck {
+  background: color-mix(in srgb, #4A6CF7 12%, transparent);
+  color: #4A6CF7;
+}
+.chipResolved {
+  background: color-mix(in srgb, var(--mut) 12%, transparent);
+  color: var(--mut);
+}
+
+/* ── Empty state ────────────────────────────────────────────────────────── */
+.emptyBlock {
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.emptyIcon {
+  font-size: 20px;
+  color: var(--ok);
+}
+.emptyLine {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.emptyCta {
+  font-size: 12px;
+  color: var(--mut);
+}
+
+/* ── Error card ─────────────────────────────────────────────────────────── */
+.errorCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeUp 0.35s ease both;
+}
+.errorTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+.errorMsg {
+  font-size: 12.5px;
+  color: var(--mut);
+}
+.retryBtn {
+  margin-top: 6px;
+  height: 32px;
+  border: none;
+  border-radius: 10px;
+  background: var(--acc);
+  color: #fff;
+  padding: 0 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ── Loading skeleton (sized to final content) ──────────────────────────── */
+.skelKpi {
+  height: 88px;
+  border-radius: 14px;
+}
+.skelChart {
+  height: 366px;
+  border-radius: 14px;
+}
+.skelHeat {
+  height: 116px;
+  border-radius: 14px;
+}
+.skelEndpoints {
+  height: 328px;
+  border-radius: 14px;
+}
+.skelIncidents {
+  height: 204px;
+  border-radius: 14px;
+}

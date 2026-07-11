@@ -1,0 +1,281 @@
+/* Users table card — toolbar (pills + search + export), TanStack table,
+   pagination footer. Matches the mock's table spec. */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+
+.pills {
+  display: flex;
+  gap: 6px;
+}
+
+.pill {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--mut);
+}
+.pill:hover {
+  border-color: color-mix(in srgb, var(--acc) 45%, var(--line));
+}
+.pillActive {
+  border-color: var(--acc);
+  background: color-mix(in srgb, var(--acc) 9%, transparent);
+  color: var(--acc);
+}
+
+.search {
+  height: 28px;
+  width: 220px;
+  padding: 0 11px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  font-size: 12.5px;
+  color: var(--ink);
+  outline: none;
+}
+.search:focus {
+  border-color: var(--acc);
+  background: var(--card);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.count {
+  font-size: 12px;
+  color: var(--mut);
+  white-space: nowrap;
+}
+
+.export {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.export:hover {
+  opacity: 0.9;
+}
+
+/* ── Table ───────────────────────────────────────────────────────────── */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.headRow {
+  border-bottom: 1px solid var(--line);
+}
+
+.th {
+  text-align: left;
+  padding: 9px 18px;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--mut);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.th:first-child {
+  width: 30%;
+}
+
+.thBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+.thBtn:hover,
+.thActive {
+  color: var(--ink);
+}
+.sortArrow {
+  font-size: 10px;
+  width: 10px;
+  display: inline-block;
+}
+
+.row {
+  cursor: pointer;
+  border-bottom: 1px solid var(--line);
+}
+.row:hover,
+.row:focus-visible {
+  background: color-mix(in srgb, var(--acc) 4%, transparent);
+  outline: none;
+}
+.row:last-child {
+  border-bottom: 0;
+}
+
+.td {
+  padding: 11px 18px;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.refetching {
+  opacity: 0.55;
+  transition: opacity 0.15s ease;
+}
+
+.userCell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.userMeta {
+  min-width: 0;
+}
+.userName {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.userEmail {
+  font-size: 11px;
+  color: var(--mut);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.num {
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.confidence {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.confidenceBar {
+  width: 46px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+  display: inline-block;
+}
+.confidenceFill {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--acc);
+}
+
+.seen {
+  font-size: 12px;
+  color: var(--mut);
+  white-space: nowrap;
+}
+
+/* ── Empty / error state ─────────────────────────────────────────────── */
+.emptyWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 56px 18px;
+}
+.emptyIcon {
+  font-size: 26px;
+  color: var(--mut);
+}
+.emptyTitle {
+  font-size: 13.5px;
+  color: var(--mut);
+}
+.emptyBtn {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: 1px solid var(--acc);
+  background: color-mix(in srgb, var(--acc) 9%, transparent);
+  color: var(--acc);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.emptyBtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ── Pager ───────────────────────────────────────────────────────────── */
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 10px 18px;
+  border-top: 1px solid var(--line);
+}
+.pageInfo {
+  font-size: 12px;
+  color: var(--mut);
+}
+.pageBtn {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+.pageBtn:hover:not(:disabled) {
+  border-color: var(--acc);
+  color: var(--acc);
+}
+.pageBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
