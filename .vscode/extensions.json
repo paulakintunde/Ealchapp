@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "anthropic.claude-code",
+    "expo.vscode-expo-tools",
+    "dbaeumer.vscode-eslint",
+    "ms-playwright.playwright",
+    "bradlc.vscode-tailwindcss",
+    "denoland.vscode-deno"
+  ]
+}
