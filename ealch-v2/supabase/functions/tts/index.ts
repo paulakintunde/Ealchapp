@@ -38,7 +38,7 @@ async function customTts(text: string, voice: string): Promise<TtsResult> {
     },
     body: JSON.stringify({
       model: Deno.env.get("TTS_MODEL") ?? "piper",
-      voice: voice || Deno.env.get("TTS_VOICE") ?? "fr_FR-siwis-medium",
+      voice: voice || (Deno.env.get("TTS_VOICE") ?? "fr_FR-siwis-medium"),
       input: text,
       response_format: format,
     }),
