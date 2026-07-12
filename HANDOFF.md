@@ -49,7 +49,7 @@ EXPO_PUBLIC_SUPABASE_ANON_KEY=<anon key — Supabase dashboard → Settings → 
 cd ealch-admin
 pnpm install
 pnpm run db:migrate && pnpm run db:seed   # embedded PGlite, no Postgres needed
-pnpm dev                                  # http://localhost:3000
+pnpm dev                                  # http://localhost:4000
 ```
 Login: seeded admin users with TOTP secrets are in `scripts/seed.ts`.
 Playwright: `pnpm run test:e2e` (uses port 3100 per `playwright.config.ts`).

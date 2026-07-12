@@ -10,7 +10,7 @@ Built with **Next.js 16 (App Router, Turbopack)**, **React 19**, **TypeScript st
 pnpm i
 pnpm db:migrate   # creates the schema (embedded PGlite by default — no external DB needed)
 pnpm db:seed      # loads ~2,000 users, subscriptions, metrics, links, flags…
-pnpm dev          # http://localhost:3000
+pnpm dev          # http://localhost:4000
 ```
 
 The seed prints the **admin credentials at the end of its output**: four admin accounts (password `admin1234` for all) each with a **TOTP secret** and an `otpauth://` URI. Logging in requires a 6-digit authenticator code — add the printed secret to any authenticator app (or paste the `otpauth://` URI into a QR generator and scan it), then sign in with email + password + code.

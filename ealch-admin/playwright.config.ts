@@ -25,7 +25,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'AUTH_URL=http://localhost:3100 PORT=3100 pnpm start',
+    command: 'AUTH_URL=http://localhost:3100 pnpm exec next start -p 3100',
     url: 'http://localhost:3100/api/status',
     reuseExistingServer: true,
     timeout: 120_000,
