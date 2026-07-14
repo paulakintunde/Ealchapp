@@ -66,8 +66,11 @@ These are not bugs. These are fabrications rendered as the user's own data, and 
 
 | # | Finding |
 |---|---|
-| 1.14 | **`coach` and `tts` are deployed with `verify_jwt: false`.** They are publicly callable by anyone with the URL, unauthenticated, and they proxy paid LLM and TTS providers with server-side keys. This is an open, billable endpoint. Anyone who reads the URL out of the app bundle has a free LLM. Fix before any launch. |
-| 1.15 | **The app does not know its own backend is live.** `coach` is `ACTIVE` (v7), yet `llm.ts` silently serves 3 rotating canned replies on any failure and never tells the user. Chat's header meanwhile reads *"your coach · online · UNLIMITED"*. The fallback may be masking a real, fixable integration error rather than an absent backend. |
+| 1.14 | **`coach` is a fully open, unauthenticated LLM proxy.** It creates a **service-role** Supabase client (`coach/index.ts:38-40`) and then `Deno.serve`s (`:179`) with **no `getUser()` call, no caller check, and no rate limit of any kind**. The only `Authorization` header it touches is the *outbound* one to NVIDIA (`:69`). Anyone holding the anon key has a free LLM billed to this project. Contrast `delete-account`, which does caller verification correctly. |
+| 1.15 | **`verify_jwt: true` is NOT a fix for 1.14, and believing otherwise is the trap.** The Supabase anon key **is itself a valid JWT** (`role: "anon"`, `iss: supabase`) and it **ships inside the app bundle**. A gateway that "requires a valid JWT" therefore accepts the exact key an attacker extracts from the APK. Enabling `verify_jwt` on `coach` would change nothing while creating the appearance of a fix. **The real fix requires a per-user identity** — see 1.17. |
+| 1.16 | **`tts` is deployed, open, and has zero callers.** `src/services/tts.ts:21-24` contains a dead `if (provider !== 'device')` branch whose body is a comment. The app has never called the `tts` Edge Function and currently cannot. The function proxies **Fish Audio and ElevenLabs** (both paid; ElevenLabs bills per character) and throws only if no provider key is set. **Action: check Supabase → Edge Functions → Secrets for `ELEVENLABS_API_KEY` / `FISH_AUDIO_API_KEY`.** If either is set, this is a live billable endpoint serving no one. If neither is set, it 502s harmlessly. *Decision (Paul): keep it deployed — it is wanted for Phase 7. Note that undeploying would never have deleted the source, which lives in git regardless.* |
+| 1.17 | **The root cause of 1.14 is that guests have no server identity.** `completeOnboarding` sets `signedIn: true` locally for a user who exists nowhere on the server, so `coach` *cannot* demand a real user JWT without breaking guests. This same gap is why nothing syncs and why `signedIn` is never reconciled with Supabase. *Decision (Paul): the guest path will be removed.* Once every user is a real `auth.users` row, `coach` can do a `getUser()` check exactly like `delete-account`, per-user rate limiting becomes possible, and Phase 6 sync gains its precondition. **Removing guests is therefore a security fix, a sync prerequisite, and a simplification in one move.** |
+| 1.18 | **The app does not know its own backend is live.** `coach` is `ACTIVE` (v7), yet `llm.ts` silently serves 3 rotating canned replies on any failure and never tells the user. Chat's header meanwhile reads *"your coach · online · UNLIMITED"*. The fallback may be masking a real, fixable integration error rather than an absent backend. **Test the deployed function before assuming the coach is offline.** |
 
 ### Tier 2 — Real bugs
 
@@ -139,6 +142,8 @@ These are not bugs. These are fabrications rendered as the user's own data, and 
 | **Corpus scale** | Themed vocabulary, dictation, role play, la dictée and flashcards drawing on up to **8000 French words and sentences**, simple through complex. |
 | **Facade screens** | **Build all four properly** (Player, Downloads, Placement, Le Rapport). None are deleted; all are useful. Placement must test multiple skills, but its result is **a suggestion only** — the user may proceed to any level regardless. |
 | **Ops Console DB access** | Leave as-is (raw Postgres over the pooler, bypasses RLS). Internal, TOTP-protected, fully audit-logged. Revisit before a second admin user exists. |
+| **The guest path** | **To be removed.** Today a guest is `signedIn: true` locally while existing nowhere on the server. That single gap causes three separate problems: `coach` cannot demand a real user JWT (`1.14`/`1.17`), nothing can sync (Phase 6), and `signedIn` is never reconciled with Supabase. Removing guests fixes all three at once. |
+| **`tts` Edge Function** | **Stays deployed**, wanted for Phase 7. See `1.16` for the one secret to check. |
 
 ---
 
@@ -189,10 +194,25 @@ Also live: `send-email` (v4), `contact` (v2), `send-email-probe` (v1) — none r
 
 **Database state confirms the review.** 29 tables, RLS enabled on all. `profiles`, `sessions`, `review_items`: **0 rows** — nothing has ever synced. `content_units`: **0 rows** — the Ops Console has never published anything. `system_config`: 1 row, `system_prompts`: 3 rows, `admin_users`: 1 row. Everything else is empty.
 
-**Three actions fall out of this, all new:**
-1. **Deploy `delete-account`.** The source exists; it has simply never been shipped. Until it is, account deletion fails for every user (`1.13`).
-2. **Turn on `verify_jwt` for `coach` and `tts`** (`1.14`), or otherwise authenticate them. They are currently open, billable, unauthenticated LLM/TTS proxies.
-3. **Find out why `coach` falls back** (`1.15`). It is deployed and active, so the canned-reply path may be masking a fixable integration bug rather than an absent backend. Test it before assuming the coach is offline.
+### 6.2 — Actions taken and resolved
+
+**✅ `delete-account` is deployed and verified (v1, ACTIVE, `verify_jwt: true`).** Finding `1.13` is closed at the infrastructure level. Probed against the live project:
+
+| Probe | Result |
+|---|---|
+| `POST`, no `Authorization` header | `401 UNAUTHORIZED_NO_AUTH_HEADER` (gateway) |
+| `POST`, anon key only, no user session | `401 invalid-session` (the function's own `getUser()` check refuses to delete) |
+| `GET` instead of `POST` | `405 method-not-allowed` |
+| `POST`, forged JWT | `401 UNAUTHORIZED_INVALID_JWT_FORMAT` (gateway) |
+
+Account deletion now works. **The code-level half of the Apple 5.1.1(v) problem remains open** — Task 8 item 3, where a user with an unconfirmed email has a null session, is marked signed in, and still cannot delete. That is Phase 1 work.
+
+**Still open, and deliberately not acted on:**
+
+1. **`coach` is an open unauthenticated LLM proxy** (`1.14`). Blocked on removing the guest path (`1.17`), which Paul has decided to do. Not urgent while traffic is dev-only and there are no paying users, but it **must not reach launch**.
+2. **`tts` stays deployed** by Paul's decision (`1.16`). **One thing to check:** Supabase → Edge Functions → Secrets. If `ELEVENLABS_API_KEY` or `FISH_AUDIO_API_KEY` is set, this is a live billable endpoint with no callers and no auth. If neither is set, it 502s and is harmless.
+3. **Test whether `coach` actually works** (`1.18`) before assuming the chat feature is offline. It is deployed and active; the canned-reply fallback may be hiding a fixable bug, in which case the coach is closer to real than this review assumed.
+4. **`DISABLE_TOTP=true`** is set in `ealch-admin/.env`. Correct for local development; **must not reach production.**
 
 ---
 

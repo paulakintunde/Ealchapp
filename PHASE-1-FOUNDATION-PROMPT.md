@@ -313,13 +313,22 @@ You will run onboarding dozens of times this phase. Two of these bugs make that 
 2. **`app/onboarding.tsx:205`** — identical shape in `doCalib`: leave step 9 mid-recording and the UI is stuck on "recording" with a mic button that can never restart.
 3. **`src/services/auth.ts:31-33`** — with Supabase email confirmation on, `signUp` returns a **null session** but `attempt()` reports `ok: true`. The user is marked signed in and can then **never delete their account** (`deleteAccount` → `DELETE_NO_SESSION`; `delete-account.tsx:61-72` refuses to fall through to local erase for non-guests). This is an **Apple 5.1.1(v) failure in the screen written to satisfy it.** Detect the null-session signup and handle it explicitly.
 
-### Uncovered by Task 0 — infrastructure, needs Paul's approval (external services)
+### Uncovered by Task 0
 
-These three are **not code changes** and touch the live Supabase project, so they are flagged, not executed:
+4. ✅ **`delete-account` deployed** (v1, ACTIVE, `verify_jwt: true`) and verified against the live project. The infrastructure half of the Apple 5.1.1(v) failure is closed. **Item 3 above is the remaining half and is still open.**
 
-4. **`delete-account` is not deployed.** The Edge Function source exists (`ealch-v2/supabase/functions/delete-account/`) and `auth.ts:141` invokes it, but it has never been shipped. **Account deletion fails for every user right now.** Combined with item 3 above, the Apple 5.1.1(v) surface is broken twice over. Deploy it, then test deletion end to end. This is the single highest-priority infrastructure action.
-5. **`coach` and `tts` are deployed with `verify_jwt: false`.** They are publicly callable, unauthenticated, and proxy paid LLM/TTS providers using server-side keys. Anyone who pulls the URL out of the app bundle has a free LLM billed to you. Enable JWT verification or otherwise authenticate them **before launch**.
-6. **Find out why `coach` falls back to canned replies.** It is `ACTIVE` (v7), so `llm.ts`'s silent fallback to 3 rotating strings may be masking a *fixable integration bug*, not an absent backend. Test the deployed function directly before assuming the coach is offline. If it does work, the chat feature is closer to real than the review assumed.
+5. **Remove the guest path.** *(Decided with Paul.)* This is the highest-leverage change in Task 8 and it is not cosmetic — one gap causes three problems:
+   - `completeOnboarding` sets `signedIn: true` for a user who exists nowhere on the server (`useStore.ts:225`).
+   - Therefore `coach` **cannot** demand a real user JWT, so it runs as a fully open, unauthenticated LLM proxy with a service-role client and no rate limit (review `1.14`). **Note: `verify_jwt: true` does NOT fix this — the anon key is itself a valid JWT and ships in the app bundle (review `1.15`).** Only a real per-user identity does.
+   - Therefore nothing can sync, and Phase 6 has no precondition.
+
+   Removing guests is simultaneously a **security fix**, a **sync prerequisite**, and a **simplification**. Do it here, in Task 8, alongside item 3 — they share a root cause (the local `signedIn` flag is never reconciled with the actual Supabase session). Once done, add a `getUser()` check to `coach`, exactly as `delete-account` already does.
+
+6. **Test whether `coach` actually works.** It is `ACTIVE` (v7), so `llm.ts`'s silent fallback to 3 rotating canned strings may be masking a *fixable integration bug*, not an absent backend. If it does work, chat is closer to real than the review assumed — and the fallback should say so rather than pretending to be the coach while the header reads "online · UNLIMITED".
+
+7. **`tts` stays deployed** *(Paul's decision — it is wanted for Phase 7)*, but it currently has **zero callers**: `tts.ts:21-24` is a dead `if (provider !== 'device')` branch containing only a comment. **One thing to check:** Supabase → Edge Functions → Secrets. If `ELEVENLABS_API_KEY` or `FISH_AUDIO_API_KEY` is set, it is a live billable ElevenLabs/Fish proxy with no auth and no callers. If neither is set, it 502s harmlessly.
+
+8. **`DISABLE_TOTP=true` in `ealch-admin/.env`.** Fine locally. Must not reach production.
 
 ---
 
