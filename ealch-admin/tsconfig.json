@@ -13,6 +13,11 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
+    // scripts/publish-content.ts imports ../../ealch-v2/src/content/schema.ts —
+    // the ONE canonical definition of content shape, shared verbatim with the
+    // app. Importing it beats copying it: a copy drifts, and a drift means the
+    // console can approve content the app cannot render. Safe with noEmit.
+    "allowImportingTsExtensions": true,
     "plugins": [
       {
         "name": "next"

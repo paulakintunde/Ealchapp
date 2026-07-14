@@ -319,6 +319,32 @@ export const contentFlags = pgTable('content_flags', {
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [index('flags_status_idx').on(t.status)]);
 
+/**
+ * Every content snapshot ever published. The canonical version counter.
+ *
+ * The DB is the source of truth, so the version lives here rather than being
+ * inferred from whatever happens to be sitting in Storage. This table answers
+ * the question an ops console must be able to answer: "what content is live
+ * right now, who published it, and when."
+ *
+ * `checksum` is the sha256 of the exact bytes uploaded. It is what lets the app
+ * (and a reviewer) prove the snapshot it downloaded is the snapshot that was
+ * approved, and it is what makes the committed seed.json verifiable rather than
+ * merely plausible.
+ */
+export const contentSnapshots = pgTable('content_snapshots', {
+  version: integer('version').primaryKey(),
+  /** Path within the public `content` Storage bucket. */
+  path: text('path').notNull(),
+  checksum: text('checksum').notNull(),
+  /** { units, lessons, items } — what the snapshot contains. */
+  counts: jsonb('counts').notNull(),
+  /** { units, lessons, items } — what of it was cut into the bundled seed. */
+  seedCounts: jsonb('seed_counts'),
+  publishedBy: uuid('published_by').references(() => adminUsers.id),
+  publishedAt: timestamp('published_at', { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [index('snapshots_published_idx').on(t.publishedAt)]);
+
 // ── AI routing ─────────────────────────────────────────────────────────────
 export const aiCapabilities = pgTable('ai_capabilities', {
   id: uuid('id').primaryKey().defaultRandom(),
