@@ -1,6 +1,833 @@
 {
-  "version": 0,
-  "units": [],
-  "lessons": [],
-  "items": []
+  "version": 1,
+  "units": [
+    {
+      "id": "sons.01",
+      "seq": 1,
+      "sub": "the 26 letters & their French names",
+      "title": "L'alphabet",
+      "track": "sons",
+      "lessonIds": []
+    },
+    {
+      "id": "sons.02",
+      "seq": 2,
+      "sub": "pure vowels — a, e, i, o, u, ou, eu",
+      "title": "Les voyelles",
+      "track": "sons",
+      "lessonIds": []
+    },
+    {
+      "id": "sons.03",
+      "seq": 3,
+      "sub": "on · en · in · un — through the nose",
+      "title": "Les voyelles nasales",
+      "track": "sons",
+      "lessonIds": [
+        "sons.03.l1"
+      ]
+    },
+    {
+      "id": "sons.04",
+      "seq": 4,
+      "sub": "consonant sounds & the French r",
+      "title": "Les consonnes",
+      "track": "sons",
+      "lessonIds": []
+    },
+    {
+      "id": "sons.05",
+      "seq": 5,
+      "sub": "é è ê ë ç — what each mark changes",
+      "title": "Les accents",
+      "track": "sons",
+      "lessonIds": []
+    },
+    {
+      "id": "sons.06",
+      "seq": 6,
+      "sub": "silent letters — why « ils parlent » ends quietly",
+      "title": "Les lettres muettes",
+      "track": "sons",
+      "lessonIds": []
+    },
+    {
+      "id": "sons.07",
+      "seq": 7,
+      "sub": "je → j', le → l' — dropping the vowel",
+      "title": "L'élision",
+      "track": "sons",
+      "lessonIds": []
+    },
+    {
+      "id": "sons.08",
+      "seq": 8,
+      "sub": "the music of French — even syllables",
+      "title": "Rythme & intonation",
+      "track": "sons",
+      "lessonIds": []
+    },
+    {
+      "id": "sons.09",
+      "seq": 9,
+      "sub": "pronunciation masterclass — putting it all together",
+      "title": "Masterclass",
+      "track": "sons",
+      "lessonIds": []
+    },
+    {
+      "id": "a1.01",
+      "seq": 1,
+      "sub": "greetings & politeness — bonjour, merci",
+      "title": "Les salutations",
+      "track": "a1",
+      "lessonIds": []
+    },
+    {
+      "id": "a1.02",
+      "seq": 2,
+      "sub": "numbers 0–100",
+      "title": "Les nombres",
+      "track": "a1",
+      "lessonIds": []
+    },
+    {
+      "id": "a1.03",
+      "seq": 3,
+      "sub": "noun gender — masculin & féminin",
+      "title": "Le genre des noms",
+      "track": "a1",
+      "lessonIds": []
+    },
+    {
+      "id": "a1.04",
+      "seq": 4,
+      "sub": "le, la, les",
+      "title": "Les articles définis",
+      "track": "a1",
+      "lessonIds": [
+        "a1.04.l1"
+      ]
+    },
+    {
+      "id": "a2.01",
+      "seq": 1,
+      "sub": "deep dive — -er, -ir, -re families",
+      "title": "Verbes réguliers",
+      "track": "a2",
+      "lessonIds": [
+        "a2.01.l1"
+      ]
+    },
+    {
+      "id": "a2.02",
+      "seq": 2,
+      "sub": "aller, faire, venir, pouvoir, vouloir",
+      "title": "Verbes irréguliers",
+      "track": "a2",
+      "lessonIds": []
+    },
+    {
+      "id": "a2.03",
+      "seq": 3,
+      "sub": "agreement, formation, -ment adverbs",
+      "title": "Adjectifs & adverbes",
+      "track": "a2",
+      "lessonIds": []
+    },
+    {
+      "id": "a2.04",
+      "seq": 4,
+      "sub": "à, de, en, chez — and their traps",
+      "title": "Les prépositions",
+      "track": "a2",
+      "lessonIds": []
+    }
+  ],
+  "lessons": [
+    {
+      "id": "sons.03.l1",
+      "seq": 1,
+      "tag": "SONS · LEÇON 03",
+      "intro": "Four sounds with no English equivalent. The air escapes through the nose — the n or m is never pronounced as a consonant. Master these and you instantly sound less foreign.",
+      "level": "sons",
+      "title": "Les voyelles nasales",
+      "unitId": "sons.03",
+      "itemIds": [],
+      "version": 1,
+      "sections": [
+        {
+          "cols": [
+            "Spelling",
+            "Sound",
+            "Example"
+          ],
+          "rows": [
+            [
+              "on · om",
+              "ɔ̃",
+              "bon, nom"
+            ],
+            [
+              "en · an · em",
+              "ɑ̃",
+              "vent, blanc"
+            ],
+            [
+              "in · ain · ein",
+              "ɛ̃",
+              "vin, pain"
+            ],
+            [
+              "un · um",
+              "œ̃",
+              "un, parfum"
+            ]
+          ],
+          "type": "table",
+          "title": "Reference"
+        },
+        {
+          "type": "examples",
+          "title": "Examples",
+          "examples": [
+            {
+              "en": "A good white wine — all four nasals in one phrase",
+              "fr": "Un bon vin blanc"
+            },
+            {
+              "en": "My uncle is eleven — chained ɔ̃ sounds",
+              "fr": "Mon oncle a onze ans"
+            }
+          ]
+        },
+        {
+          "type": "audio",
+          "lines": [
+            "Un bon vin blanc",
+            "Mon oncle adore le parfum",
+            "Le pain est en train de cuire"
+          ],
+          "title": "Listen"
+        },
+        {
+          "type": "commonErrors",
+          "title": "Common errors",
+          "errors": [
+            {
+              "why": "Pronouncing the n turns the nasal into an oral vowel + consonant — the single most-heard beginner error.",
+              "right": "bon = bɔ̃ (no n sound)",
+              "wrong": "bon → \" bonne \""
+            },
+            {
+              "why": "English speakers close the vowel. Keep the mouth open, push air through the nose.",
+              "right": "vin = vɛ̃",
+              "wrong": "vin = \" veen \""
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "title": "Quiz",
+          "questions": [
+            {
+              "q": "Which word contains the sound ɔ̃ ?",
+              "opts": [
+                "vin",
+                "nom",
+                "vent"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "In « un bon vin blanc », how many DIFFERENT nasal vowels appear?",
+              "opts": [
+                "2",
+                "3",
+                "4"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "The n in a nasal vowel is…",
+              "opts": [
+                "pronounced softly",
+                "never pronounced",
+                "pronounced at the end"
+              ],
+              "correct": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1.04.l1",
+      "seq": 1,
+      "tag": "A1 · LEÇON 04",
+      "intro": "French has four ways to say « the », and the choice depends on the noun’s gender, number, and first letter. There is no way around them — every noun you ever use will need one.",
+      "level": "a1",
+      "title": "Les articles définis",
+      "unitId": "a1.04",
+      "itemIds": [],
+      "version": 1,
+      "sections": [
+        {
+          "cols": [
+            "Article",
+            "Used for",
+            "Example"
+          ],
+          "rows": [
+            [
+              "le",
+              "masculine",
+              "le café"
+            ],
+            [
+              "la",
+              "feminine",
+              "la maison"
+            ],
+            [
+              "l'",
+              "before a vowel or h",
+              "l'eau, l'homme"
+            ],
+            [
+              "les",
+              "all plurals",
+              "les amis"
+            ]
+          ],
+          "type": "table",
+          "title": "Reference"
+        },
+        {
+          "type": "examples",
+          "title": "Examples",
+          "examples": [
+            {
+              "en": "The sun and the moon — gender is arbitrary; learn it with the noun",
+              "fr": "Le soleil et la lune"
+            },
+            {
+              "en": "I love summer — l’ before the vowel, and note: French uses « the » where English drops it",
+              "fr": "J'aime l'été"
+            }
+          ]
+        },
+        {
+          "type": "audio",
+          "lines": [
+            "Le café, s'il vous plaît",
+            "L'addition et la carte",
+            "Les amis arrivent"
+          ],
+          "title": "Listen"
+        },
+        {
+          "type": "commonErrors",
+          "title": "Common errors",
+          "errors": [
+            {
+              "why": "Two vowel sounds may not collide — the e elides. This is élision, and it is mandatory.",
+              "right": "« l'eau »",
+              "wrong": "« le eau »"
+            },
+            {
+              "why": "Before a vowel, the s of les must be pronounced as z.",
+              "right": "« les‿amis » (lé-zami)",
+              "wrong": "« les ami » (no liaison)"
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "title": "Quiz",
+          "questions": [
+            {
+              "q": "« ___ école » (school, feminine)",
+              "opts": [
+                "la école",
+                "l'école",
+                "le école"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "The article for ALL plural nouns is…",
+              "opts": [
+                "les",
+                "las",
+                "los"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In « les‿amis », the s sounds like…",
+              "opts": [
+                "s",
+                "silent",
+                "z"
+              ],
+              "correct": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2.01.l1",
+      "seq": 1,
+      "tag": "A2 · LEÇON 01",
+      "intro": "About 90% of French verbs are regular -ER verbs. Learn one conjugation pattern and you unlock thousands of verbs at once. This unit has four sub-lessons — start with the full -ER system.",
+      "level": "a2",
+      "title": "Verbes réguliers",
+      "unitId": "a2.01",
+      "itemIds": [],
+      "version": 1,
+      "sections": [
+        {
+          "cols": [
+            "parler",
+            "Ending",
+            "Sounds like"
+          ],
+          "rows": [
+            [
+              "je parle",
+              "-e",
+              "parl"
+            ],
+            [
+              "tu parles",
+              "-es",
+              "parl"
+            ],
+            [
+              "il / elle parle",
+              "-e",
+              "parl"
+            ],
+            [
+              "nous parlons",
+              "-ons",
+              "par-lõ"
+            ],
+            [
+              "vous parlez",
+              "-ez",
+              "par-lé"
+            ],
+            [
+              "ils parlent",
+              "-ent",
+              "parl (silent!)"
+            ]
+          ],
+          "type": "table",
+          "title": "Reference"
+        },
+        {
+          "type": "examples",
+          "title": "Examples",
+          "examples": [
+            {
+              "en": "They speak French — the -ent is completely silent",
+              "fr": "Ils parlent français"
+            },
+            {
+              "en": "We eat — manger keeps the e before -ons (a spelling quirk, see sub-lesson 2)",
+              "fr": "Nous mangeons"
+            }
+          ]
+        },
+        {
+          "type": "audio",
+          "lines": [
+            "Je parle, tu parles, il parle",
+            "Nous parlons français ensemble",
+            "Elles écoutent la radio"
+          ],
+          "title": "Listen"
+        },
+        {
+          "type": "commonErrors",
+          "title": "Common errors",
+          "errors": [
+            {
+              "why": "Only tu takes the s. Four of the six forms sound identical — the spelling differs.",
+              "right": "« je parle »",
+              "wrong": "« je parles »"
+            },
+            {
+              "why": "The third-person plural ending is written but never voiced.",
+              "right": "« parl » — the -ent is silent",
+              "wrong": "pronouncing « ils parlent » as \" parlont \""
+            }
+          ]
+        },
+        {
+          "type": "focus",
+          "title": "In this unit",
+          "points": [
+            "Regular -ER Verbs — The Full System",
+            "-ER Verbs — Spelling Quirks",
+            "Regular -IR Verbs",
+            "Regular -RE Verbs"
+          ]
+        },
+        {
+          "type": "quiz",
+          "title": "Quiz",
+          "questions": [
+            {
+              "q": "« Nous ___ » (parler)",
+              "opts": [
+                "parlons",
+                "parlez",
+                "parlent"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How is the -ent in « ils parlent » pronounced?",
+              "opts": [
+                "\" ent \"",
+                "\" on \"",
+                "it is silent"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Which forms of parler SOUND identical?",
+              "opts": [
+                "je / nous / vous",
+                "je / tu / il / ils",
+                "tu / vous"
+              ],
+              "correct": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "fr.a1.cafe.001",
+      "kind": "word",
+      "level": "a1",
+      "theme": "cafe",
+      "fr": "Bonjour",
+      "en": "Hello / Good day",
+      "notes": "« Bonjour, madame ! »",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.cafe.002",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "cafe",
+      "fr": "Merci beaucoup",
+      "en": "Thank you very much",
+      "notes": "« Merci beaucoup, à bientôt. »",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.cafe.003",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "cafe",
+      "fr": "Je voudrais…",
+      "en": "I would like…",
+      "notes": "« Je voudrais un café. »",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.cafe.004",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "cafe",
+      "fr": "L'addition, s'il vous plaît",
+      "en": "The bill, please",
+      "notes": "Said once — never wave.",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.cafe.005",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "cafe",
+      "fr": "Sur place ou à emporter ?",
+      "en": "For here or to go?",
+      "notes": "You will be asked this daily.",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.cafe.006",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "cafe",
+      "fr": "Une carafe d'eau",
+      "en": "A jug of tap water",
+      "gender": "f",
+      "notes": "Free, if you ask for it.",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.cafe.007",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "cafe",
+      "fr": "Combien ça coûte ?",
+      "en": "How much is it?",
+      "notes": "« Ça coûte combien ? » works too.",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.cafe.008",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "cafe",
+      "fr": "À bientôt !",
+      "en": "See you soon!",
+      "notes": "The polite exit.",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.cafe.020",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "cafe",
+      "fr": "Je voudrais un café s'il vous plaît",
+      "en": "I would like a coffee, please.",
+      "notes": "{\"tiles\":[{\"w\":\"Je\",\"t\":\"I\"},{\"w\":\"voudrais\",\"t\":\"would like\"},{\"w\":\"un\",\"t\":\"a\"},{\"w\":\"café\",\"t\":\"coffee\"},{\"w\":\"s'il vous plaît\",\"t\":\"please\"}]}",
+      "tags": [],
+      "drills": [
+        "sentence"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.dictee.001",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "dictee",
+      "fr": "Il a mangé ses croissants avec sa sœur.",
+      "en": "He ate his croissants with his sister.",
+      "notes": "“ses” — possessive, not “ces”",
+      "tags": [],
+      "drills": [
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.dictee.002",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "dictee",
+      "fr": "Nous allons à la plage demain.",
+      "en": "We are going to the beach tomorrow.",
+      "notes": "“à” takes a grave accent",
+      "tags": [],
+      "drills": [
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.dictee.003",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "dictee",
+      "fr": "J’achète du pain à la boulangerie.",
+      "en": "I buy bread at the bakery.",
+      "notes": "“achète” — è before a silent syllable",
+      "tags": [],
+      "drills": [
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.objets.001",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "objets",
+      "fr": "un café",
+      "en": "a coffee",
+      "gender": "m",
+      "tags": [],
+      "drills": [
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.objets.002",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "objets",
+      "fr": "une maison",
+      "en": "a house",
+      "gender": "f",
+      "tags": [],
+      "drills": [
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.objets.003",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "objets",
+      "fr": "un livre",
+      "en": "a book",
+      "gender": "m",
+      "tags": [],
+      "drills": [
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.objets.004",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "objets",
+      "fr": "le soleil",
+      "en": "the sun",
+      "gender": "m",
+      "tags": [],
+      "drills": [
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.objets.005",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "objets",
+      "fr": "une voiture",
+      "en": "a car",
+      "gender": "f",
+      "tags": [],
+      "drills": [
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc.a1.marche.001",
+      "level": "a1",
+      "theme": "marche",
+      "title": "Au marché",
+      "turns": [
+        {
+          "ai": "Bonjour ! Vous désirez ?",
+          "en": "Hello! What would you like?",
+          "user": "Trois pommes, s'il vous plaît."
+        },
+        {
+          "ai": "Voilà. Autre chose ?",
+          "en": "Here you go. Anything else?",
+          "user": "Non, merci. C'est combien ?"
+        },
+        {
+          "ai": "Deux euros cinquante.",
+          "en": "Two euros fifty.",
+          "user": "Voilà. Merci, au revoir !"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "id": "sc.a2.marche.001",
+      "level": "a2",
+      "theme": "marche",
+      "title": "Au marché",
+      "turns": [
+        {
+          "ai": "Bonjour ! Les fraises sont en promotion aujourd'hui.",
+          "en": "The strawberries are on sale today.",
+          "user": "Elles viennent d'où, vos fraises ?"
+        },
+        {
+          "ai": "De Bretagne — cueillies ce matin. Une barquette ?",
+          "en": "From Brittany — picked this morning.",
+          "user": "J'en prends deux, et un kilo de tomates."
+        },
+        {
+          "ai": "Et avec ceci ? Ça vous fait neuf euros vingt.",
+          "en": "Anything else? That's €9.20.",
+          "user": "C'est tout. Tenez, dix euros."
+        }
+      ],
+      "version": 1
+    }
+  ]
 }

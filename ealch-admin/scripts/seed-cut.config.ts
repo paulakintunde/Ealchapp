@@ -34,9 +34,12 @@ export const SEED_CUT: SeedCut = {
   // without bundling a corpus that has not been written yet.
   units: ['a1.01', 'a1.02', 'a1.03', 'a1.04', 'a2.01', 'a2.02', 'a2.03', 'a2.04'],
 
-  // Core themes: the vocabulary a survival-level learner needs first. Drills draw
-  // from these on a fresh install.
-  themes: ['cafe', 'marche', 'salutations', 'nombres', 'transport'],
+  // Core themes: the vocabulary a survival-level learner needs first, and drills
+  // draw from these on a fresh install. 'objets' and 'dictee' are here so Voice
+  // Flash and Dictation are populated OFFLINE — without them, those two drills
+  // are empty until the first network fetch. 'marche' / 'salutations' / etc. have
+  // no items yet; they are aspirational and simply match nothing for now.
+  themes: ['cafe', 'objets', 'dictee', 'marche', 'salutations', 'nombres', 'transport'],
 };
 
 /** Every unit id explicitly named, for the cut summary. */
