@@ -1,9 +1,19 @@
 // Applies ./drizzle SQL migrations to whichever database is configured
 // (node-postgres when DATABASE_URL is set, embedded PGlite otherwise).
+//
+// './env' MUST be imported first: without it this script never sees DATABASE_URL
+// from .env, silently migrates a throwaway PGlite database instead of Supabase,
+// and still prints "✓ migrations applied". See scripts/env.ts.
+import './env';
 import { mkdirSync } from 'node:fs';
+import { describeTarget } from './env';
 import * as schema from '../src/db/schema';
 
 async function main() {
+  // Say which database is about to be mutated. Silence here is how a migration
+  // lands somewhere nobody intended.
+  console.log(`→ ${describeTarget()}`);
+
   if (process.env.DATABASE_URL) {
     const { drizzle } = await import('drizzle-orm/node-postgres');
     const { migrate } = await import('drizzle-orm/node-postgres/migrator');

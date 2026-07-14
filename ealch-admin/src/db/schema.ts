@@ -17,9 +17,33 @@ export const subStatus = pgEnum('sub_status', ['active', 'trialing', 'past_due',
 export const paymentKind = pgEnum('payment_kind', ['charge', 'refund']);
 export const campaignStatus = pgEnum('campaign_status', ['draft', 'scheduled', 'sending', 'sent', 'paused']);
 export const sendStatus = pgEnum('send_status', ['queued', 'delivered', 'opened', 'failed']);
-export const contentKind = pgEnum('content_kind', ['scenario', 'drill', 'dictation', 'curriculum_unit']);
+// 'lesson' — a rich, sectioned lesson document (ealch-v2/src/content/schema.ts: Lesson).
+// 'vocabulary' — a themed PACK of corpus items, reviewed as one unit of work.
+//   Nobody reviews 8000 vocabulary rows one at a time, so the pack is the document
+//   a human approves; the rows themselves live in content_items.
+export const contentKind = pgEnum('content_kind', [
+  'scenario', 'drill', 'dictation', 'curriculum_unit', 'lesson', 'vocabulary',
+]);
 export const contentStatus = pgEnum('content_status', ['draft', 'in_review', 'published', 'archived']);
 export const flagStatus = pgEnum('flag_status', ['open', 'resolved']);
+
+// ── Content corpus ─────────────────────────────────────────────────────────
+// These mirror ealch-v2/src/content/schema.ts EXACTLY. That file is the single
+// source of truth for content shape and is imported by the app, this console,
+// the generator and the publish pipeline. If you change one, change both — a
+// drift here means the console can approve content the app cannot render.
+
+// NOT userLevel: a *user* is never at level "sons", but content is — and the
+// Sons track is the deepest content in the curriculum. Content needs its own.
+export const contentLevel = pgEnum('content_level', ['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2']);
+export const itemKind = pgEnum('item_kind', ['word', 'phrase', 'sentence']);
+export const itemGender = pgEnum('item_gender', ['m', 'f']);
+export const drillKind = pgEnum('drill_kind', [
+  'flashcard', 'voiceflash', 'dictation', 'sentence', 'roleplay', 'review',
+]);
+// Once content is LLM-generated, "which model produced this, against which
+// prompt, and who signed it off" stops being optional.
+export const generatedBy = pgEnum('generated_by', ['human', 'llm']);
 export const capabilityKey = pgEnum('capability_key', ['general', 'content', 'audio', 'video']);
 export const incidentSeverity = pgEnum('incident_severity', ['anomaly', 'degraded', 'outage']);
 export const incidentStatus = pgEnum('incident_status', ['open', 'ack', 'resolved']);
@@ -183,7 +207,9 @@ export const contentUnits = pgTable('content_units', {
   slug: text('slug').notNull(),
   title: text('title').notNull(),
   kind: contentKind('kind').notNull(),
-  level: userLevel('level').notNull(),
+  // contentLevel, not userLevel — see the note on the enum. Safe to widen: this
+  // table has 0 rows, and every existing user_level value is also a content_level.
+  level: contentLevel('level').notNull(),
   locale: userLocale('locale').notNull().default('fr'),
   status: contentStatus('status').notNull().default('draft'),
   body: jsonb('body').notNull(),
@@ -191,9 +217,88 @@ export const contentUnits = pgTable('content_units', {
   authorId: uuid('author_id').references(() => adminUsers.id),
   publishedAt: timestamp('published_at', { withTimezone: true }),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+
+  // ── Provenance ──
+  generatedBy: generatedBy('generated_by').notNull().default('human'),
+  model: text('model'),
+  promptVersion: text('prompt_version'),
+  /** The pedagogical sources backing this content. The brief requires lessons
+   *  drawn from established French teaching, with multiple sources supporting
+   *  their validity — this is where that claim is recorded and auditable. */
+  sourceRefs: jsonb('source_refs'),
+  reviewedBy: uuid('reviewed_by').references(() => adminUsers.id),
+  reviewedAt: timestamp('reviewed_at', { withTimezone: true }),
 }, (t) => [
   uniqueIndex('content_slug_uq').on(t.slug),
   index('content_status_idx').on(t.status),
+]);
+
+/**
+ * The atomic corpus — up to ~8000 French words and sentences. Drills select
+ * from it; the SRS schedules against it.
+ *
+ * Deliberately NOT content_units. content_units holds DOCUMENTS: a lesson, a
+ * scenario, a dictée set — things a human reviews as one unit of work, which is
+ * what the draft/in_review/published machine is built for. Nobody reviews 8000
+ * rows one at a time. Items are generated and approved in themed batches, and a
+ * 'vocabulary' content_unit is the pack that represents that batch.
+ *
+ * `id` is TEXT, not uuid: 'fr.a1.cafe.001'. It is a stable, public, immutable
+ * key that must survive regeneration. An item may be rewritten, retranslated or
+ * re-recorded, but if its id changes, every attempt logged against it and every
+ * SRS interval built on it is orphaned.
+ */
+export const contentItems = pgTable('content_items', {
+  id: text('id').primaryKey(),
+  kind: itemKind('kind').notNull(),
+  level: contentLevel('level').notNull(),
+  /** Lowercase slug. Items are generated, reviewed and shipped by theme, so this
+   *  is a working index, not a label. */
+  theme: text('theme').notNull(),
+  fr: text('fr').notNull(),
+  en: text('en').notNull(),
+  ipa: text('ipa'),
+  /** Nouns only. Gender is the most common beginner error in French, so it is a
+   *  first-class column rather than something buried in notes. */
+  gender: itemGender('gender'),
+  /** { fr, en } */
+  example: jsonb('example'),
+  /** Teaching note, hack or clue. Dictation's why-tip lands here. */
+  notes: text('notes'),
+  /** 'liaison' | 'nasal' | 'passe-compose' … The handle the SRS uses to say
+   *  "you are weak at nasals" rather than "you are weak at item 47". */
+  tags: text('tags').array().notNull().default([]),
+  /** Which drills may select this item. Must be non-empty — an item no drill can
+   *  reach is dead weight and a silent authoring bug. Enforced by a CHECK below. */
+  drills: drillKind('drills').array().notNull(),
+  /** Null until Phase 7. Device TTS speaks `fr` in the meantime. */
+  audioRef: text('audio_ref'),
+  version: integer('version').notNull().default(1),
+
+  status: contentStatus('status').notNull().default('draft'),
+  publishedAt: timestamp('published_at', { withTimezone: true }),
+
+  /** The 'vocabulary' content_unit this item was reviewed as part of. */
+  packId: uuid('pack_id').references(() => contentUnits.id, { onDelete: 'set null' }),
+
+  // ── Provenance ──
+  generatedBy: generatedBy('generated_by').notNull().default('llm'),
+  model: text('model'),
+  promptVersion: text('prompt_version'),
+  sourceRefs: jsonb('source_refs'),
+  reviewedBy: uuid('reviewed_by').references(() => adminUsers.id),
+  reviewedAt: timestamp('reviewed_at', { withTimezone: true }),
+
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [
+  // The publish pipeline's hot path: "give me every published item".
+  index('items_status_idx').on(t.status),
+  // The review path: "give me the cafe batch". And the drill path: "give me
+  // published a1 cafe items". Theme-first because it is the coarsest filter.
+  index('items_theme_idx').on(t.theme),
+  index('items_status_level_theme_idx').on(t.status, t.level, t.theme),
+  index('items_pack_idx').on(t.packId),
 ]);
 
 export const contentRevisions = pgTable('content_revisions', {

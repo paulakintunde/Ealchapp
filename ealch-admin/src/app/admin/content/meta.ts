@@ -5,22 +5,40 @@
 // curriculum) are mandated by the screen spec, mirroring the mock's typeSt map.
 
 import type { CSSProperties } from 'react';
+// TYPE-ONLY import: fully erased at build time, so this module stays safe to
+// import from a client component and no drizzle code reaches the browser bundle.
+//
+// These used to be hand-written string unions duplicating the DB enums, and they
+// silently drifted the moment content_kind gained 'lesson' and 'vocabulary' —
+// the KIND_META Record below is what caught it. Deriving them from the schema
+// means the next enum change is a compile error, not a runtime `undefined` chip.
+import type { contentKind, contentLevel, contentStatus, userLocale } from '@/db/schema';
 
-export type ContentKind = 'scenario' | 'drill' | 'dictation' | 'curriculum_unit';
-export type ContentStatus = 'draft' | 'in_review' | 'published' | 'archived';
-export type ContentLevel = 'a1' | 'a2' | 'b1' | 'b2' | 'c1' | 'c2';
-export type ContentLocale = 'en' | 'fr';
+export type ContentKind = (typeof contentKind)['enumValues'][number];
+export type ContentStatus = (typeof contentStatus)['enumValues'][number];
+export type ContentLevel = (typeof contentLevel)['enumValues'][number];
+export type ContentLocale = (typeof userLocale)['enumValues'][number];
 
-export const KINDS: ContentKind[] = ['scenario', 'drill', 'dictation', 'curriculum_unit'];
+export const KINDS: ContentKind[] = [
+  'scenario', 'drill', 'dictation', 'curriculum_unit', 'lesson', 'vocabulary',
+];
 export const STATUSES: ContentStatus[] = ['draft', 'in_review', 'published', 'archived'];
-export const LEVELS: ContentLevel[] = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+// 'sons' first: it is the pronunciation track, and it precedes A1.
+export const LEVELS: ContentLevel[] = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 export const LOCALES: ContentLocale[] = ['en', 'fr'];
 
+// Exhaustive by construction: Record<ContentKind, …> fails to compile the moment
+// the DB enum gains a value this map does not have. Leave it that way.
 export const KIND_META: Record<ContentKind, { label: string; color: string }> = {
   scenario: { label: 'Scenario', color: 'var(--acc)' },
   drill: { label: 'Drill', color: '#4A6CF7' },
   dictation: { label: 'Dictation', color: '#7C4A9E' },
   curriculum_unit: { label: 'Curriculum', color: '#A5642A' },
+  // A rich, sectioned lesson document.
+  lesson: { label: 'Lesson', color: '#2E8B72' },
+  // A themed PACK of corpus items, reviewed as one unit of work — nobody reviews
+  // 8000 vocabulary rows one at a time. The rows live in content_items.
+  vocabulary: { label: 'Vocab pack', color: '#B5762A' },
 };
 
 export const STATUS_META: Record<ContentStatus, { label: string; color: string }> = {

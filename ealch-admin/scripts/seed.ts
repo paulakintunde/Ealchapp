@@ -8,6 +8,18 @@
 // DETERMINISTIC: all randomness comes from a mulberry32 PRNG with a fixed seed
 // (no Math.random), so distributions/counts are stable across reruns. Times are
 // anchored to `new Date()` at run time so "today"/"2 min ago" always renders.
+//
+// DESTRUCTIVE. It deletes before it writes — content_units, content_revisions,
+// content_flags and admin_users among them. It is a DEMO seeder: it inserts four
+// fictional admins (marc@ealch.app and friends), so running it against production
+// would destroy the real admin account along with the real content.
+//
+// './env' MUST be imported first (see scripts/env.ts). Before that fix this
+// script never saw DATABASE_URL and quietly wiped a throwaway PGlite database
+// instead — which is the only reason it never destroyed production. Loading .env
+// correctly arms it, so assertDestructiveAllowed() is the brake that ships with it.
+import './env';
+import { assertDestructiveAllowed, describeTarget } from './env';
 import * as schema from '../src/db/schema';
 import bcrypt from 'bcryptjs';
 
@@ -124,6 +136,13 @@ const counts: Record<string, number> = {};
 
 async function main() {
   const t0 = Date.now();
+
+  // Say what we are about to destroy, and where. Then refuse, unless the
+  // operator has said out loud that they mean it. This runs BEFORE we connect:
+  // a destructive script must not even open a socket to a database it should
+  // not be touching.
+  console.log(`→ ${describeTarget()}`);
+  assertDestructiveAllowed('db:seed (DESTRUCTIVE — deletes before it writes)');
 
   // Connect — mirrors scripts/migrate.ts
   let d: DB;
