@@ -21,7 +21,7 @@ test('parallel arrays have equal lengths in both languages', () => {
   const arrays: (keyof typeof T.fr)[] = [
     'obSteps', 'alarmChips', 'expTitles', 'expSubs', 'paceSubs',
     'notifLabels', 'skills', 'weakMeta', 'playlistMeta', 'playlistLabels',
-    'examMeta', 'errorIssues', 'dayLetters', 'dlCats', 'dlSubs', 'chatSuggs', 'errorTypes',
+    'examMeta', 'errorIssues', 'dayLetters', 'weekdayNames', 'dlCats', 'dlSubs', 'chatSuggs', 'errorTypes',
   ];
   for (const key of arrays) {
     const fr = T.fr[key] as unknown[];
@@ -52,6 +52,7 @@ test('known fixed-length arrays match their consumers', () => {
     strictEqual(T[lang].obSteps.length, 10, `${lang}.obSteps drives the 10-step wizard`);
     strictEqual(T[lang].alarmChips.length, 4, `${lang}.alarmChips drives 4 alarm presets`);
     strictEqual(T[lang].dayLetters.length, 7, `${lang}.dayLetters drives 7 weekday dots`);
+    strictEqual(T[lang].weekdayNames.length, 7, `${lang}.weekdayNames is indexed Monday-first by freezeNote`);
     strictEqual(T[lang].notifLabels.length, 3, `${lang}.notifLabels drives 3 toggles`);
   }
 });

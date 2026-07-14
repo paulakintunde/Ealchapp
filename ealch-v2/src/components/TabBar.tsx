@@ -17,7 +17,7 @@ export function TabBar() {
   const tabs: Tab[] = [
     { key: 'home', label: T.tabListen, route: '/home' },
     { key: 'speak', label: T.tabSpeak, route: '/speak' },
-    { key: 'coach', label: 'COACH', route: '/chat' },
+    { key: 'coach', label: T.tabCoach, route: '/chat' },
     { key: 'profile', label: T.tabProfile, route: '/profile' },
   ];
 

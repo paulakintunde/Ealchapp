@@ -39,7 +39,7 @@ export default function Home() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { userName, lang, setLang, reviewCleared } = useStore();
+  const { userName, lang, setAppLang, reviewCleared, freeze } = useStore();
   const openDict = useUI((s) => s.openDict);
   const openSheet = useUI((s) => s.openSheet);
   const [browse, setBrowse] = useState(false);
@@ -59,10 +59,15 @@ export default function Home() {
     { word: "L'Oreille", tag: 'IMMERSION', glow: 'rgba(139,116,190,0.28)' },
   ];
   const exams = ['TEF Canada', 'DELF B2', 'TCF'];
+  // Serif capitals, not IPA: ‿ (U+203F) and a combining tilde fall outside the
+  // display font's coverage and render as tofu. Each row goes to the thing it
+  // names — a weakness that opens a lesson about something else is a lie.
+  // « Le subjonctif présent » is absent: no subjonctif lesson exists yet
+  // (content/lessons.ts ships sons3, a1_4, a2_1), and a row with nowhere honest
+  // to land does not render. It returns with its lesson.
   const weak = [
-    { glyph: '‿', title: 'La liaison obligatoire' },
-    { glyph: 'ɔ̃', title: 'Voyelles nasales — on / en' },
-    { glyph: 'q', title: 'Le subjonctif présent' },
+    { glyph: 'L', title: 'La liaison obligatoire', open: () => openSheet('grammar') },
+    { glyph: 'N', title: 'Voyelles nasales — on / en', open: () => router.push('/lesson?key=sons3') },
   ];
 
   return (
@@ -83,7 +88,16 @@ export default function Home() {
               {(['fr', 'en'] as const).map((l) => {
                 const on = lang === l;
                 return (
-                  <Press key={l} onPress={() => setLang(l)} style={{ paddingHorizontal: 13, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}>
+                  // setAppLang, not setLang: setLang moves `lang` alone and leaves
+                  // Settings' "App language" row showing the stale onboarding pick.
+                  <Press
+                    key={l}
+                    onPress={() => setAppLang(l)}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: on }}
+                    accessibilityLabel={T.appLangNames[l]}
+                    style={{ paddingHorizontal: 13, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}
+                  >
                     <TX font="semi" size={11} ls={1} color={on ? t.accInk : t.txA(55)}>
                       {l.toUpperCase()}
                     </TX>
@@ -91,7 +105,7 @@ export default function Home() {
                 );
               })}
             </View>
-            <Press onPress={() => router.replace('/profile')} style={{ width: 40, height: 40, borderRadius: 20, borderWidth: 1, borderColor: t.accA(55), backgroundColor: t.card2, alignItems: 'center', justifyContent: 'center' }}>
+            <Press onPress={() => router.push('/profile')} accessibilityRole="button" accessibilityLabel={T.tabProfile} style={{ width: 40, height: 40, borderRadius: 20, borderWidth: 1, borderColor: t.accA(55), backgroundColor: t.card2, alignItems: 'center', justifyContent: 'center' }}>
               {userName ? (
                 <TX font="serif" size={17}>
                   {userName.charAt(0).toUpperCase()}
@@ -105,7 +119,7 @@ export default function Home() {
 
         {/* Today strip */}
         <View style={{ height: 66, borderRadius: 20, borderWidth: 1, borderColor: t.accA(28), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', marginBottom: 14, overflow: 'hidden' }}>
-          <Press cue={null} onPress={() => router.replace('/profile')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14 }}>
+          <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14 }}>
             <Ring color={t.acc} track={t.line(10)} />
             <View>
               <TX font="bold" size={13} lh={16}>
@@ -117,7 +131,7 @@ export default function Home() {
             </View>
           </Press>
           <View style={{ width: 1, backgroundColor: t.line(8), marginVertical: 13 }} />
-          <Press cue={null} onPress={() => router.replace('/profile')} style={{ flex: 0.9, flexDirection: 'row', alignItems: 'center', gap: 9, paddingHorizontal: 14 }}>
+          <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 0.9, flexDirection: 'row', alignItems: 'center', gap: 9, paddingHorizontal: 14 }}>
             <TX font="serif" size={25} color={t.acc} lh={25}>
               14
             </TX>
@@ -126,7 +140,7 @@ export default function Home() {
                 {T.daysWord} <TX size={11} color={t.acc}>✦</TX>
               </TX>
               <TX font="semi" size={9.5} color={t.txA(50)}>
-                {T.oneFreeze}
+                {T.freezeLeft.replace('{n}', String(freeze))}
               </TX>
             </View>
           </Press>
@@ -168,16 +182,13 @@ export default function Home() {
             <TX size={14} color={t.txA(65)} style={{ marginBottom: 18 }}>
               {T.heroSub}
             </TX>
+            {/* No "4:12 left" pill: nothing persists a playback position yet, so any
+                duration here is invented. It returns when the player reports a real one. */}
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
               <View style={{ height: 46, paddingHorizontal: 22, borderRadius: 23, backgroundColor: t.acc, flexDirection: 'row', alignItems: 'center', gap: 9 }}>
                 <Icon name="play" size={13} color={t.accInk} />
                 <TX font="semi" size={14} color={t.accInk}>
                   {T.resume}
-                </TX>
-              </View>
-              <View style={{ height: 46, paddingHorizontal: 18, borderRadius: 23, borderWidth: 1, borderColor: t.line(20), alignItems: 'center', justifyContent: 'center' }}>
-                <TX size={13} color={t.txA(85)}>
-                  {T.left}
                 </TX>
               </View>
             </View>
@@ -187,7 +198,7 @@ export default function Home() {
         {/* Foundations */}
         <SectionHead title={T.found} right="SONS · A1 · A2" />
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
-          <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.replace('/den')} style={{ width: '47.5%', height: 148, padding: 16 }}>
+          <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push('/den')} style={{ width: '47.5%', height: 148, padding: 16 }}>
             <TileHead badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />} right={`43 ${T.unitsWord}`} />
             <TX font="serifI" size={23} lh={24} style={{ marginTop: 'auto' }}>
               {T.denT}
@@ -241,7 +252,7 @@ export default function Home() {
           glow="rgba(214,160,96,0.22)"
           leadColor="rgba(214,160,96,0.14)"
           lead={<TX font="serifI" size={19} color={skillGold.c}>é</TX>}
-          title="La Dictée"
+          title={T.dicteeT}
           badge={<Badge label={T.skillListen + ' · ' + T.skillWrite} color={skillBlue.c} bg={skillBlue.bg} />}
           sub={T.dictRowSub}
         />
@@ -251,7 +262,7 @@ export default function Home() {
           <TX font="semi" size={13} color={t.txA(70)}>
             {browse ? T.browseLess : T.browseOpen}
           </TX>
-          <Icon name="chevronDown" size={14} color={t.txA(55)} strokeWidth={1.6} />
+          <Icon name={browse ? 'chevronUp' : 'chevronDown'} size={14} color={t.txA(55)} strokeWidth={1.6} />
         </Press>
 
         {browse ? (
@@ -322,9 +333,9 @@ export default function Home() {
             <SectionHead title={T.weak} right={T.week} />
             <View style={{ gap: 10 }}>
               {weak.map((w, i) => (
-                <Press key={i} onPress={() => openSheet('grammar')} style={{ height: 66, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>
+                <Press key={i} onPress={w.open} style={{ height: 66, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>
                   <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
-                    <TX font="serifI" size={16} color={t.acc}>
+                    <TX font="serif" size={16} color={t.acc}>
                       {w.glyph}
                     </TX>
                   </View>
