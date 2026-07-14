@@ -18,6 +18,8 @@ import { BottomSheet } from '@/components/BottomSheet';
 import { DictionaryOverlay } from '@/components/DictionaryOverlay';
 import { ErrorScreen } from '@/components/ErrorScreen';
 import { refreshConfig } from '@/services';
+import { useProgress } from '@/store/useProgress';
+import { useContent, initContent } from '@/services/content';
 import { installErrorHandlers, logError } from '@/services/errors';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
@@ -62,19 +64,26 @@ if (Platform.OS === 'android') {
 
 export default function RootLayout() {
   const fontsLoaded = useAppFonts();
+  // Gate first paint on ALL THREE persisted stores, not just useStore. Before
+  // this, home could paint a zero-streak, empty-corpus frame while useProgress
+  // and content were still rehydrating, then snap to real data (review 2.11).
   const hydrated = useStore((s) => s.hydrated);
+  const progressHydrated = useProgress((s) => s.hydrated);
+  const contentHydrated = useContent((s) => s.hydrated);
+  const ready = fontsLoaded && hydrated && progressHydrated && contentHydrated;
   const t = useTheme();
   useAlarmWatcher();
 
   useEffect(() => {
     refreshConfig();
+    void initContent();
   }, []);
 
   useEffect(() => {
-    if (fontsLoaded && hydrated) SplashScreen.hideAsync().catch(() => {});
-  }, [fontsLoaded, hydrated]);
+    if (ready) SplashScreen.hideAsync().catch(() => {});
+  }, [ready]);
 
-  if (!fontsLoaded || !hydrated) {
+  if (!ready) {
     return <View style={{ flex: 1, backgroundColor: '#0B0C0E' }} />;
   }
 
