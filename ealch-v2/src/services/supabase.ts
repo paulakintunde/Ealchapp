@@ -9,14 +9,21 @@ let client: SupabaseClient | null = null;
 export function supabase(): SupabaseClient | null {
   if (!hasSupabase()) return null;
   if (!client) {
-    client = createClient(ENV.supabaseUrl, ENV.supabaseAnonKey, {
-      auth: {
-        storage: AsyncStorage,
-        autoRefreshToken: true,
-        persistSession: true,
-        detectSessionInUrl: false,
-      },
-    });
+    // A malformed EXPO_PUBLIC_SUPABASE_URL makes createClient throw synchronously;
+    // treat it exactly like "not configured" so the app stays on the offline path.
+    try {
+      new URL(ENV.supabaseUrl);
+      client = createClient(ENV.supabaseUrl, ENV.supabaseAnonKey, {
+        auth: {
+          storage: AsyncStorage,
+          autoRefreshToken: true,
+          persistSession: true,
+          detectSessionInUrl: false,
+        },
+      });
+    } catch {
+      return null;
+    }
   }
   return client;
 }

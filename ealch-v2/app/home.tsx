@@ -10,6 +10,7 @@ import { Icon } from '@/components/Icon';
 import { TabBar } from '@/components/TabBar';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
+import { greetSlot } from '@/i18n/strings';
 import { useStore } from '@/store/useStore';
 import { useUI } from '@/store/useUI';
 import { sound } from '@/services';
@@ -26,7 +27,7 @@ function Ring({ color, track }: { color: string; track: string }) {
 function GlowTile({ base, glow, children, onPress, style }: { base: string; glow: string; children: ReactNode; onPress: () => void; style?: object }) {
   const t = useTheme();
   return (
-    <Press onPress={onPress} scale={0.98} style={[{ borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: base }, style]}>
+    <Press onPress={onPress} scale={0.98} style={[{ borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: t.isDark ? base : t.card, ...t.cardShadow }, style]}>
       <LinearGradient colors={[glow, 'transparent']} start={{ x: 0.85, y: 0 }} end={{ x: 0.2, y: 0.7 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
       {children}
     </Press>
@@ -44,12 +45,12 @@ export default function Home() {
   const [browse, setBrowse] = useState(false);
 
   const revNum = reviewCleared ? '✓' : '23';
-  const revLabel = reviewCleared ? (lang === 'fr' ? 'à jour' : 'caught up') : T.tabListen && (lang === 'fr' ? 'à réviser' : 'to review');
-  const revSub = reviewCleared ? (lang === 'fr' ? 'demain →' : 'tomorrow →') : '6 min →';
+  const revLabel = reviewCleared ? T.caughtUpShort : T.reviewShort;
+  const revSub = reviewCleared ? T.tomorrow : '6 min →';
 
-  const skillGold = { c: '#E6BB7C', bg: 'rgba(214,160,96,0.16)' };
-  const skillPurple = { c: '#B7A3E3', bg: 'rgba(139,116,190,0.2)' };
-  const skillBlue = { c: '#9FBEDF', bg: 'rgba(96,126,160,0.22)' };
+  const skillGold = t.tag('gold');
+  const skillPurple = t.tag('grammar');
+  const skillBlue = t.tag('info');
 
   const playlists = [
     { word: 'La Voix', tag: 'DEEP-DIVE', glow: t.accA(28) },
@@ -71,10 +72,10 @@ export default function Home() {
         <View style={{ flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 22, paddingHorizontal: 4 }}>
           <View>
             <TX font="semi" size={10} ls={3} color={t.txA(45)}>
-              {T.greet}
+              {T.greets[greetSlot()]}
             </TX>
             <TX font="serif" size={32} lh={37}>
-              {userName}
+              {userName || T.welcomeWord}
             </TX>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
@@ -91,15 +92,19 @@ export default function Home() {
               })}
             </View>
             <Press onPress={() => router.replace('/profile')} style={{ width: 40, height: 40, borderRadius: 20, borderWidth: 1, borderColor: t.accA(55), backgroundColor: t.card2, alignItems: 'center', justifyContent: 'center' }}>
-              <TX font="serif" size={17}>
-                {userName.charAt(0)}
-              </TX>
+              {userName ? (
+                <TX font="serif" size={17}>
+                  {userName.charAt(0).toUpperCase()}
+                </TX>
+              ) : (
+                <Icon name="user" size={18} color={t.txA(70)} strokeWidth={1.7} />
+              )}
             </Press>
           </View>
         </View>
 
         {/* Today strip */}
-        <View style={{ height: 66, borderRadius: 20, borderWidth: 1, borderColor: t.accA(28), backgroundColor: t.card, flexDirection: 'row', marginBottom: 14, overflow: 'hidden' }}>
+        <View style={{ height: 66, borderRadius: 20, borderWidth: 1, borderColor: t.accA(28), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', marginBottom: 14, overflow: 'hidden' }}>
           <Press cue={null} onPress={() => router.replace('/profile')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14 }}>
             <Ring color={t.acc} track={t.line(10)} />
             <View>
@@ -107,7 +112,7 @@ export default function Home() {
                 12<TX size={13} color={t.txA(45)} font="semi">/15 min</TX>
               </TX>
               <TX font="semi" size={9.5} color={t.txA(50)}>
-                {lang === 'fr' ? 'objectif' : 'goal'}
+                {T.goalWord}
               </TX>
             </View>
           </Press>
@@ -118,10 +123,10 @@ export default function Home() {
             </TX>
             <View>
               <TX font="semi" size={11} lh={13}>
-                {lang === 'fr' ? 'jours' : 'days'} <TX size={11} color={t.acc}>✦</TX>
+                {T.daysWord} <TX size={11} color={t.acc}>✦</TX>
               </TX>
               <TX font="semi" size={9.5} color={t.txA(50)}>
-                {lang === 'fr' ? '1 gel' : '1 freeze'}
+                {T.oneFreeze}
               </TX>
             </View>
           </Press>
@@ -142,8 +147,8 @@ export default function Home() {
         </View>
 
         {/* Hero */}
-        <Press onPress={() => router.push('/player')} scale={0.99} style={{ height: 400, borderRadius: 26, overflow: 'hidden', borderWidth: 1, borderColor: t.line(7), backgroundColor: '#1B1712' }}>
-          <LinearGradient colors={['rgba(214,160,96,0.24)', 'transparent']} start={{ x: 0.72, y: 0 }} end={{ x: 0.3, y: 0.55 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
+        <Press onPress={() => router.push('/player')} scale={0.99} style={{ height: 400, borderRadius: 26, overflow: 'hidden', borderWidth: 1, borderColor: t.line(7), backgroundColor: t.isDark ? '#1B1712' : t.card, ...t.cardShadow }}>
+          <LinearGradient colors={[t.isDark ? 'rgba(214,160,96,0.24)' : 'rgba(214,160,96,0.35)', 'transparent']} start={{ x: 0.72, y: 0 }} end={{ x: 0.3, y: 0.55 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <LinearGradient colors={['transparent', t.accA(22)]} start={{ x: 0.15, y: 0.4 }} end={{ x: 0.15, y: 1 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <View style={{ position: 'absolute', top: 20, left: 22, flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: t.acc }} />
@@ -235,16 +240,16 @@ export default function Home() {
           onPress={() => router.push('/dictation')}
           glow="rgba(214,160,96,0.22)"
           leadColor="rgba(214,160,96,0.14)"
-          lead={<TX font="serifI" size={19} color="#E6BB7C">é</TX>}
+          lead={<TX font="serifI" size={19} color={skillGold.c}>é</TX>}
           title="La Dictée"
           badge={<Badge label={T.skillListen + ' · ' + T.skillWrite} color={skillBlue.c} bg={skillBlue.bg} />}
-          sub={lang === 'fr' ? 'Écoutez et écrivez — accents compris' : 'Hear it, type it — accents included'}
+          sub={T.dictRowSub}
         />
 
         {/* Browse fold */}
         <Press onPress={() => setBrowse((b) => !b)} style={{ marginTop: 26, height: 48, borderRadius: 24, borderWidth: 1, borderColor: t.line(12), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
           <TX font="semi" size={13} color={t.txA(70)}>
-            {browse ? (lang === 'fr' ? 'Masquer' : 'Show less') : lang === 'fr' ? 'Parcourir — playlists, examens, points faibles' : 'Browse — playlists, exams, weak spots'}
+            {browse ? T.browseLess : T.browseOpen}
           </TX>
           <Icon name="chevronDown" size={14} color={t.txA(55)} strokeWidth={1.6} />
         </Press>
@@ -252,7 +257,7 @@ export default function Home() {
         {browse ? (
           <View>
             {/* Word of the day */}
-            <Press onPress={openDict} style={{ marginTop: 22, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, padding: 14, paddingHorizontal: 18, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Press onPress={openDict} style={{ marginTop: 22, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, padding: 14, paddingHorizontal: 18, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
               <View style={{ flex: 1 }}>
                 <TX font="semi" size={9} ls={2.4} color={t.txA(45)} style={{ marginBottom: 4 }}>
                   {T.wordOfDay}
@@ -262,7 +267,7 @@ export default function Home() {
                     la flânerie
                   </TX>
                   <TX size={11.5} color={t.txA(50)}>
-                    {lang === 'fr' ? 'nom féminin' : 'feminine noun'}
+                    {T.nounFem}
                   </TX>
                 </View>
               </View>
@@ -276,7 +281,7 @@ export default function Home() {
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -20 }} contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}>
               {playlists.map((p, i) => (
                 <View key={i} style={{ width: 158 }}>
-                  <View style={{ height: 198, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', marginBottom: 10, backgroundColor: '#12100E' }}>
+                  <View style={{ height: 198, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', marginBottom: 10, backgroundColor: t.isDark ? '#12100E' : t.card, ...t.cardShadow }}>
                     <LinearGradient colors={[p.glow, 'transparent']} start={{ x: 0.8, y: 0 }} end={{ x: 0.2, y: 0.7 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
                     <TX font="semi" size={9} ls={2.2} color={t.txA(55)} style={{ position: 'absolute', top: 14, left: 16 }}>
                       {p.tag}
@@ -299,7 +304,7 @@ export default function Home() {
             <SectionHead title={T.examiner} right="TEF · TCF · DELF" />
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -20 }} contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}>
               {exams.map((name, i) => (
-                <Press key={i} onPress={() => router.push('/speak')} style={{ width: 224, height: 118, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 16, paddingHorizontal: 18 }}>
+                <Press key={i} onPress={() => router.push('/speak')} style={{ width: 224, height: 118, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18 }}>
                   <TX font="semi" size={9} ls={2.2} color={t.acc} style={{ marginBottom: 8 }}>
                     SIMULATION
                   </TX>
@@ -317,7 +322,7 @@ export default function Home() {
             <SectionHead title={T.weak} right={T.week} />
             <View style={{ gap: 10 }}>
               {weak.map((w, i) => (
-                <Press key={i} onPress={() => openSheet('grammar')} style={{ height: 66, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>
+                <Press key={i} onPress={() => openSheet('grammar')} style={{ height: 66, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>
                   <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
                     <TX font="serifI" size={16} color={t.acc}>
                       {w.glyph}
@@ -374,7 +379,7 @@ function TileHead({ badge, right }: { badge: ReactNode; right?: string }) {
 function DrillRow({ onPress, glow, lead, leadColor, title, badge, sub }: { onPress: () => void; glow: string; lead: ReactNode; leadColor: string; title: string; badge: ReactNode; sub: string }) {
   const t = useTheme();
   return (
-    <Press onPress={onPress} scale={0.99} style={{ marginTop: 12, height: 88, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: t.card2, flexDirection: 'row', alignItems: 'center', gap: 16, paddingHorizontal: 20 }}>
+    <Press onPress={onPress} scale={0.99} style={{ marginTop: 12, height: 88, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: t.card2, flexDirection: 'row', alignItems: 'center', gap: 16, paddingHorizontal: 20, ...t.cardShadow }}>
       <LinearGradient colors={[glow, 'transparent']} start={{ x: 0.9, y: 0 }} end={{ x: 0.3, y: 0.8 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
       <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: leadColor, alignItems: 'center', justifyContent: 'center' }}>
         {lead}

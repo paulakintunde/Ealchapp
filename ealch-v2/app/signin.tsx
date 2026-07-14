@@ -4,32 +4,87 @@ import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, Button } from '@/components/ui';
+import { RadialGlow } from '@/components/RadialGlow';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
-import { auth, sound } from '@/services';
+import { auth, hasSupabase, sound } from '@/services';
+import { FLAGS } from '@/services/flags';
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function SignIn() {
   const t = useTheme();
+  const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const store = useStore();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [reset, setReset] = useState<'idle' | 'pending' | 'sent'>('idle');
 
-  const doSignIn = async () => {
-    sound.play('flip');
-    const res = await auth.signInWithEmail(email || 'maya@ealch.app', password || 'demo');
-    store.signIn(res.email, store.userName);
+  const enterApp = (resEmail: string | undefined, accountType: 'guest' | 'email') => {
+    store.signIn(resEmail, store.userName);
+    store.setField('accountType', accountType);
     store.completeOnboarding(store.level);
     router.replace('/splash');
+  };
+
+  const doSignIn = async () => {
+    if (pending) return;
+    sound.play('flip');
+    setError(null);
+
+    if (!hasSupabase()) {
+      // Pure-offline dev: no auth backend exists, accept a local demo session.
+      const res = await auth.signInWithEmail(email || 'maya@ealch.app', password || 'demo');
+      enterApp(res.email, 'guest');
+      return;
+    }
+
+    if (!email.trim() || !password) {
+      sound.play('error');
+      setError(T.errCreds);
+      return;
+    }
+    setPending(true);
+    const res = await auth.signInWithEmail(email.trim(), password);
+    setPending(false);
+    if (!res.ok) {
+      sound.play('error');
+      setError(res.error ?? T.errSignIn);
+      return;
+    }
+    enterApp(res.email, 'email');
+  };
+
+  const doReset = async () => {
+    if (reset !== 'idle') return;
+    const em = email.trim();
+    if (!EMAIL_RE.test(em)) {
+      sound.play('error');
+      setError(T.errEmail);
+      return;
+    }
+    setError(null);
+    setReset('pending');
+    const res = await auth.resetPassword(em);
+    if (!res.ok) {
+      sound.play('error');
+      setReset('idle');
+      setError(res.error === 'offline' ? T.errReset : (res.error ?? T.errReset));
+      return;
+    }
+    sound.play('success');
+    setReset('sent');
   };
 
   const oauth = async (provider: 'apple' | 'google') => {
     sound.play('flip');
     await auth.signInWithProvider(provider);
-    store.signIn(undefined, store.userName);
-    store.completeOnboarding(store.level);
-    router.replace('/splash');
+    enterApp(undefined, 'email');
   };
 
   const field = (props: React.ComponentProps<typeof TextInput>) => (
@@ -51,33 +106,58 @@ export default function SignIn() {
     />
   );
 
+  const oauthStyle = {
+    height: 52,
+    backgroundColor: t.card,
+    shadowColor: '#000',
+    shadowOpacity: t.isDark ? 0.32 : 0.1,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 4,
+  } as const;
+
   return (
     <View style={{ flex: 1, backgroundColor: t.bg, paddingHorizontal: 28, paddingTop: insets.top + 70, paddingBottom: insets.bottom + 30 }}>
-      <View style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 280, backgroundColor: t.accA(8) }} />
+      <RadialGlow color={t.acc} opacity={0.1} height={300} />
       <TX font="semi" size={10} ls={2.8} color={t.txA(40)} style={{ marginBottom: 12 }}>
-        BON RETOUR
+        {T.welcomeBack}
       </TX>
       <TX font="serifI" size={42} lh={44} style={{ marginBottom: 30 }}>
-        Re-bonjour.
+        {T.helloAgain}
       </TX>
-      {field({ placeholder: 'Email', value: email, onChangeText: setEmail, keyboardType: 'email-address', autoCapitalize: 'none' })}
-      {field({ placeholder: 'Mot de passe', value: password, onChangeText: setPassword, secureTextEntry: true })}
-      <TX size={12} color={t.txA(45)} style={{ textAlign: 'right', marginBottom: 18 }}>
-        Mot de passe oublié ?
-      </TX>
-      <Button label="Se connecter" onPress={doSignIn} style={{ height: 54 }} />
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginVertical: 22 }}>
-        <View style={{ flex: 1, height: 1, backgroundColor: t.line(10) }} />
-        <TX size={11} ls={3} color={t.txA(40)}>
-          OU
+      {field({ placeholder: T.emailPh, value: email, onChangeText: setEmail, keyboardType: 'email-address', autoCapitalize: 'none' })}
+      {field({ placeholder: T.passwordPh, value: password, onChangeText: setPassword, secureTextEntry: true })}
+      {error ? (
+        <TX size={12} lh={17} color={t.danger} style={{ marginBottom: 10 }}>
+          {error}
         </TX>
-        <View style={{ flex: 1, height: 1, backgroundColor: t.line(10) }} />
-      </View>
-      <Button label="Continuer avec Apple" variant="outline" onPress={() => oauth('apple')} style={{ height: 52, marginBottom: 10 }} />
-      <Button label="Continuer avec Google" variant="outline" onPress={() => oauth('google')} style={{ height: 52 }} />
+      ) : null}
+      {FLAGS.forgotPassword && hasSupabase() ? (
+        <Press onPress={doReset} cue={null} style={{ alignSelf: 'flex-end', marginBottom: 18, opacity: reset === 'pending' ? 0.5 : 1 }}>
+          <TX size={12} color={reset === 'sent' ? t.acc : t.txA(45)}>
+            {reset === 'sent' ? T.resetSent : T.forgotPw}
+          </TX>
+        </Press>
+      ) : (
+        <View style={{ height: 8 }} />
+      )}
+      <Button label={T.signInBtn} onPress={doSignIn} disabled={pending} style={{ height: 54 }} />
+      {FLAGS.oauth ? (
+        <>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginVertical: 22 }}>
+            <View style={{ flex: 1, height: 1, backgroundColor: t.line(10) }} />
+            <TX size={11} ls={3} color={t.txA(40)}>
+              {T.orT}
+            </TX>
+            <View style={{ flex: 1, height: 1, backgroundColor: t.line(10) }} />
+          </View>
+          <Button label={T.withApple} icon="apple" variant="outline" onPress={() => oauth('apple')} style={[oauthStyle, { marginBottom: 10 }]} />
+          <Button label={T.withGoogle} icon="google" variant="outline" onPress={() => oauth('google')} style={oauthStyle} />
+        </>
+      ) : null}
       <Press onPress={() => router.replace('/onboarding')} style={{ alignItems: 'center', marginTop: 'auto', paddingTop: 20 }}>
         <TX size={13} color={t.txA(50)}>
-          Nouveau ici ? <TX font="semi" size={13} color={t.acc}>Créer un compte</TX>
+          {T.newHere} <TX font="semi" size={13} color={t.acc}>{T.createAccount}</TX>
         </TX>
       </Press>
     </View>

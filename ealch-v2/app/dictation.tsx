@@ -14,8 +14,6 @@ import { sound, tts } from '@/services';
 import { dictationSentences, accentKeys, normDict } from '@/content/drills';
 import { F } from '@/theme/fonts';
 
-const CORAL = '#FF9A8E';
-
 export default function Dictation() {
   const t = useTheme();
   const T = useT();
@@ -40,36 +38,16 @@ export default function Dictation() {
   const last = dcIx >= sentences.length - 1;
   const empty = !dcTyped.trim();
 
-  const tag = 'DICTÉE · A2';
+  const tag = T.dcTag;
   const count = `${Math.min(dcIx + 1, sentences.length)} / ${sentences.length}`;
-  const title = lang === 'fr' ? 'Écoutez, écrivez.' : 'Listen, write.';
-  const purpose =
-    lang === 'fr'
-      ? 'Entraînez votre oreille et votre orthographe : écoutez la phrase, puis écrivez-la exactement — accents, accords, homophones.'
-      : 'Train your ear and your spelling: write exactly what you hear — accents, agreement, homophones.';
-  const yourLabel = lang === 'fr' ? 'VOTRE RÉPONSE' : 'YOUR ANSWER';
-  const correctLabel = lang === 'fr' ? 'CORRECT' : 'CORRECT';
-  const okSub =
-    lang === 'fr'
-      ? 'Accents et accord compris. Cette phrase reviendra dans 7 jours.'
-      : 'Accents and agreement all correct. This sentence returns in 7 days.';
-  const hint =
-    lang === 'fr'
-      ? 'Entrée pour vérifier · les touches ajoutent les accents'
-      : 'Press Enter to check · tap keys to add accents';
-  const listenLabel = dcSpeaking
-    ? lang === 'fr'
-      ? 'Écoutez…'
-      : 'Playing…'
-    : lang === 'fr'
-      ? 'Écouter la phrase'
-      : 'Play the sentence';
-  const playsLeft =
-    dcPlays > 0
-      ? `${dcPlays} ${lang === 'fr' ? 'écoutes restantes' : 'plays left'}`
-      : lang === 'fr'
-        ? 'plus d’écoutes — à vous d’écrire'
-        : 'no plays left — now write it';
+  const title = T.dcTitle;
+  const purpose = T.dcPurpose;
+  const yourLabel = T.dcYours;
+  const correctLabel = T.dcCorrect;
+  const okSub = T.dcOkSub;
+  const hint = T.dcHint;
+  const listenLabel = dcSpeaking ? T.dcPlaying : T.dcPlay;
+  const playsLeft = dcPlays > 0 ? `${dcPlays} ${T.dcPlaysLeft}` : T.dcNoPlays;
 
   const play = () => {
     if (dcSpeaking) return;
@@ -131,19 +109,15 @@ export default function Dictation() {
     dcPhase === 'checked'
       ? dcOkFlag
         ? t.accA(60)
-        : 'rgba(255,107,92,0.5)'
+        : t.dangerA(50)
       : t.line(10);
   const btnActive = !(dcPhase === 'idle' && empty);
   const btnLabel =
     dcPhase === 'idle'
       ? T.check2
       : last
-        ? lang === 'fr'
-          ? 'Terminer'
-          : 'Finish'
-        : lang === 'fr'
-          ? 'Phrase suivante'
-          : 'Next sentence';
+        ? T.dcFinish
+        : T.dcNext;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -185,12 +159,10 @@ export default function Dictation() {
               </Svg>
             </View>
             <TX font="serifI" size={36} center style={{ marginBottom: 10 }}>
-              {lang === 'fr' ? 'Dictée terminée.' : 'Dictation done.'}
+              {T.dcDoneT}
             </TX>
             <TX size={13.5} lh={23} center color={t.txA(60)} style={{ maxWidth: 280, marginBottom: 30 }}>
-              {lang === 'fr'
-                ? `${dcScore} sur ${sentences.length} sans faute. Les erreurs rejoignent votre file de révision.`
-                : `${dcScore} of ${sentences.length} with no mistakes. Misses joined your review queue.`}
+              {T.dcDoneS.replace('{n}', String(dcScore)).replace('{m}', String(sentences.length))}
             </TX>
             <Press
               onPress={restart}
@@ -198,12 +170,12 @@ export default function Dictation() {
               style={{ width: '100%', height: 52, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}
             >
               <TX font="semi" size={14} color={t.accInk}>
-                {lang === 'fr' ? 'Refaire la dictée' : 'Do it again'}
+                {T.dcRedo}
               </TX>
             </Press>
             <Press onPress={() => router.replace('/home')} cue={null} style={{ height: 48, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" size={13} color={t.txA(55)}>
-                {lang === 'fr' ? 'Retour à l’accueil' : 'Back home'}
+                {T.dcHome}
               </TX>
             </Press>
           </View>
@@ -301,7 +273,7 @@ export default function Dictation() {
                   onChangeText={setDcTyped}
                   onSubmitEditing={check}
                   returnKeyType="done"
-                  placeholder={lang === 'fr' ? 'Écrivez ce que vous entendez…' : 'Type what you hear…'}
+                  placeholder={T.dcTypePh}
                   placeholderTextColor={t.txA(30)}
                   autoCorrect={false}
                   autoCapitalize="none"
@@ -323,8 +295,8 @@ export default function Dictation() {
                     font="serif"
                     size={20}
                     lh={30}
-                    color={CORAL}
-                    style={{ textDecorationLine: 'line-through', textDecorationColor: 'rgba(255,107,92,0.5)' }}
+                    color={t.danger}
+                    style={{ textDecorationLine: 'line-through', textDecorationColor: t.dangerA(50) }}
                   >
                     {dcTyped}
                   </TX>
@@ -436,9 +408,7 @@ export default function Dictation() {
               {hint}
             </TX>
             <TX size={10.5} center color={t.txA(28)} style={{ marginTop: 8, fontStyle: 'italic' }}>
-              {lang === 'fr'
-                ? 'Voix française de l’appareil — muette si aucune voix FR n’est installée.'
-                : 'Uses your device’s French voice — silent on setups with no FR voice.'}
+              {T.dcVoiceNote}
             </TX>
           </>
         )}

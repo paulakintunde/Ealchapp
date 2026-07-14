@@ -1,3 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Web-only polish. The @tailwind directives were removed along with NativeWind —
+   nothing in the app uses utility classes, and they need a processor to compile. */
+
+/* Crisp, vector-sharp text on the web preview (native renders fonts directly). */
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

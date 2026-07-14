@@ -6,8 +6,8 @@ import {
   type StyleProp,
   type PressableProps,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { TX } from './Type';
+import { RadialGlow } from './RadialGlow';
 import { Icon, type IconName } from './Icon';
 import { useTheme } from '@/theme/useTheme';
 import { sound, type Cue } from '@/services';
@@ -24,6 +24,7 @@ export function Press({ cue = 'tap', scale = 0.96, onPress, style, children, ...
   return (
     <Pressable
       onPress={(e) => {
+        sound.unlock();
         if (cue) sound.play(cue);
         onPress?.(e);
       }}
@@ -58,6 +59,7 @@ export function Card({
           borderWidth: 1,
           borderColor: t.line(8),
           padding: padded ? 16 : 0,
+          ...t.cardShadow,
         },
         style,
       ]}
@@ -197,7 +199,7 @@ export function Toggle({ value, onChange }: { value: boolean; onChange: (v: bool
         height: 28,
         borderRadius: 14,
         padding: 3,
-        backgroundColor: value ? t.acc : t.line(14),
+        backgroundColor: value ? t.acc : t.line(t.isDark ? 14 : 22),
         justifyContent: 'center',
       }}
     >
@@ -289,15 +291,7 @@ export function ScreenBg({
   const t = useTheme();
   return (
     <View style={[{ flex: 1, backgroundColor: t.bg }, style]}>
-      {glow ? (
-        <LinearGradient
-          colors={[t.accA(12), 'transparent']}
-          style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 320 }}
-          start={{ x: 0.5, y: 0 }}
-          end={{ x: 0.5, y: 1 }}
-          pointerEvents="none"
-        />
-      ) : null}
+      {glow ? <RadialGlow color={t.acc} opacity={0.12} height={320} /> : null}
       {children}
     </View>
   );

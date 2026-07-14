@@ -7,7 +7,6 @@ import { Press, FocusHeader, Toggle } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useStore } from '@/store/useStore';
 import { sound } from '@/services';
 
 const TOTAL_MB = 2048; // 2 GB device allowance
@@ -17,36 +16,24 @@ export default function Downloads() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const lang = useStore((s) => s.lang);
 
   // Store has no dlWifi field — keep the Wi-Fi-only preference local.
   const [wifiOnly, setWifiOnly] = useState(true);
 
-  const cats = [
-    { label: lang === 'fr' ? 'Playlists' : 'Playlists', mb: 420, color: t.acc },
-    { label: lang === 'fr' ? 'Leçons' : 'Lessons', mb: 180, color: t.accA(45) },
-    { label: lang === 'fr' ? 'Audio du coach' : 'Coach audio', mb: 60, color: t.accA(22) },
-  ];
+  const catMbs = [420, 180, 60];
+  const cats = T.dlCats.map((label, i) => ({
+    label,
+    mb: catMbs[i],
+    color: [t.acc, t.accA(45), t.accA(22)][i],
+  }));
   const usedMb = cats.reduce((a, c) => a + c.mb, 0);
   const usedLabel = `${(usedMb / 1024).toFixed(1)} GB`;
   const totalLabel = '2 GB';
 
   const collections = [
-    {
-      id: 'voix',
-      title: 'La Voix · nasal vowels',
-      sub: lang === 'fr' ? '12 leçons · 210 Mo' : '12 lessons · 210 MB',
-    },
-    {
-      id: 'argot',
-      title: 'Argot parisien',
-      sub: lang === 'fr' ? 'playlist · 160 Mo' : 'playlist · 160 MB',
-    },
-    {
-      id: 'a1',
-      title: 'A1 · Découverte',
-      sub: lang === 'fr' ? '24 leçons · 340 Mo' : '24 lessons · 340 MB',
-    },
+    { id: 'voix', title: 'La Voix · nasal vowels', sub: T.dlSubs[0] },
+    { id: 'argot', title: 'Argot parisien', sub: T.dlSubs[1] },
+    { id: 'a1', title: 'A1 · Découverte', sub: T.dlSubs[2] },
   ];
   const [got, setGot] = useState<Record<string, boolean>>({ voix: true, a1: true });
 
@@ -70,7 +57,7 @@ export default function Downloads() {
         {/* Tag row */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
           <TX font="semi" size={9} ls={2.4} color={t.txA(45)}>
-            {lang === 'fr' ? 'HORS LIGNE' : 'OFFLINE'}
+            {T.offlineTag}
           </TX>
           <View style={{ height: 22, paddingHorizontal: 10, borderRadius: 11, backgroundColor: t.accA(15), alignItems: 'center', justifyContent: 'center' }}>
             <TX font="bold" size={9} ls={1.2} color={t.acc}>
@@ -93,7 +80,7 @@ export default function Downloads() {
             borderRadius: 18,
             borderWidth: 1,
             borderColor: t.line(8),
-            backgroundColor: t.card,
+            backgroundColor: t.card, ...t.cardShadow,
             padding: 16,
             paddingHorizontal: 18,
             marginBottom: 12,
@@ -129,7 +116,7 @@ export default function Downloads() {
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
               <View style={{ width: 8, height: 8, borderRadius: 2, backgroundColor: t.line(12) }} />
               <TX size={10.5} color={t.txA(50)}>
-                {lang === 'fr' ? 'Espace libre' : 'Free space'} {((TOTAL_MB - usedMb) / 1024).toFixed(1)} GB
+                {T.freeSpace} {((TOTAL_MB - usedMb) / 1024).toFixed(1)} GB
               </TX>
             </View>
           </View>
@@ -142,7 +129,7 @@ export default function Downloads() {
             borderRadius: 16,
             borderWidth: 1,
             borderColor: t.line(8),
-            backgroundColor: t.card,
+            backgroundColor: t.card, ...t.cardShadow,
             flexDirection: 'row',
             alignItems: 'center',
             gap: 14,
@@ -156,7 +143,7 @@ export default function Downloads() {
               {T.wifiOnly}
             </TX>
             <TX size={11} color={t.txA(45)} style={{ marginTop: 1 }}>
-              {lang === 'fr' ? 'Pause des téléchargements en données mobiles' : 'Pause downloads on cellular'}
+              {T.wifiOnlySub}
             </TX>
           </View>
           <Toggle value={wifiOnly} onChange={setWifiOnly} />
@@ -164,7 +151,7 @@ export default function Downloads() {
 
         {/* Available collections */}
         <TX font="semi" size={10} ls={2.4} color={t.txA(40)} style={{ marginBottom: 12 }}>
-          {lang === 'fr' ? 'DISPONIBLE' : 'AVAILABLE'}
+          {T.availableT}
         </TX>
         <View style={{ gap: 10, marginBottom: 18 }}>
           {collections.map((c) => {
@@ -176,7 +163,7 @@ export default function Downloads() {
                   borderRadius: 16,
                   borderWidth: 1,
                   borderColor: t.line(7),
-                  backgroundColor: t.card,
+                  backgroundColor: t.card, ...t.cardShadow,
                   padding: 14,
                   paddingHorizontal: 16,
                   flexDirection: 'row',
@@ -215,9 +202,7 @@ export default function Downloads() {
 
         {/* Footer note */}
         <TX size={11} center color={t.txA(35)} style={{ fontStyle: 'italic' }}>
-          {lang === 'fr'
-            ? 'Les progrès hors ligne se synchronisent au retour du réseau.'
-            : 'Progress made offline syncs when you’re back online.'}
+          {T.offlineSync}
         </TX>
       </ScrollView>
     </View>

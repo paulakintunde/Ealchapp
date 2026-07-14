@@ -27,6 +27,7 @@ const DARK = {
   desk1: '#141519',
   desk2: '#0A0B0D',
   knob: '#F4F2ED',
+  danger: '#FF6B5C',
 };
 
 const LIGHT = {
@@ -41,9 +42,13 @@ const LIGHT = {
   desk1: '#E8E5DD',
   desk2: '#DCD8CE',
   knob: '#FFFFFF',
+  danger: '#C2412F', // darker red than dark-mode coral so it passes contrast on cream
 };
 
 export type Palette = typeof DARK;
+
+/** Semantic tag/chip tone, resolved to { bg, c } per mode via Theme.tag(). */
+export type TagTone = 'gold' | 'accent' | 'grammar' | 'info' | 'neutral' | 'danger';
 
 export type Theme = Palette & {
   acc: string;
@@ -56,8 +61,14 @@ export type Theme = Palette & {
   accA: (pct: number) => string;
   /** text at opacity pct → rgba. */
   txA: (pct: number) => string;
+  /** danger at opacity pct → rgba. */
+  dangerA: (pct: number) => string;
   /** blend pct% of accent into card. */
   accCard: (pct: number) => string;
+  /** semantic tag colors (pill bg + text) for the current mode. */
+  tag: (tone: TagTone) => { bg: string; c: string };
+  /** soft elevation for card surfaces — empty in dark mode (hairlines suffice). */
+  cardShadow: object;
   /** blend two colors. */
   blend: (top: string, base: string, pct: number) => string;
   alpha: (hex: string, pct: number) => string;
@@ -65,16 +76,45 @@ export type Theme = Palette & {
 
 export function buildTheme(accent: string, mode: Mode): Theme {
   const P = mode === 'light' ? LIGHT : DARK;
+  const isDark = mode === 'dark';
   return {
     ...P,
     acc: accent,
     accInk: ACCENT_INK,
     mode,
-    isDark: mode === 'dark',
-    line: (pct: number) => alpha(P.lnc, pct),
+    isDark,
+    // Light mode floors: hairlines below 12% vanish on cream; functional text
+    // below 45% fails contrast (decorative fills < 25% are left untouched).
+    line: (pct: number) => alpha(P.lnc, isDark ? pct : Math.max(pct, 12)),
     accA: (pct: number) => alpha(accent, pct),
-    txA: (pct: number) => alpha(P.tx, pct),
+    txA: (pct: number) => alpha(P.tx, isDark || pct < 25 ? pct : Math.max(pct, 45)),
+    dangerA: (pct: number) => alpha(P.danger, pct),
     accCard: (pct: number) => blend(accent, P.card, pct),
+    tag: (tone: TagTone) => {
+      switch (tone) {
+        case 'gold':
+          return isDark
+            ? { bg: 'rgba(214,160,96,0.16)', c: '#E6BB7C' }
+            : { bg: 'rgba(214,160,96,0.20)', c: '#8A6127' };
+        case 'accent':
+          return { bg: alpha(accent, 14), c: isDark ? accent : blend(accent, P.tx, 55) };
+        case 'grammar':
+          return isDark
+            ? { bg: 'rgba(139,116,190,0.20)', c: '#B7A3E3' }
+            : { bg: 'rgba(139,116,190,0.16)', c: '#63549B' };
+        case 'info':
+          return isDark
+            ? { bg: 'rgba(96,126,160,0.22)', c: '#9FBEDF' }
+            : { bg: 'rgba(96,126,160,0.18)', c: '#48607D' };
+        case 'danger':
+          return { bg: alpha(P.danger, 14), c: isDark ? '#FF9A8E' : P.danger };
+        case 'neutral':
+          return { bg: alpha(P.lnc, 8), c: alpha(P.tx, 60) };
+      }
+    },
+    cardShadow: isDark
+      ? {}
+      : { shadowColor: '#17181B', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.06, shadowRadius: 12, elevation: 2 },
     blend,
     alpha,
   };

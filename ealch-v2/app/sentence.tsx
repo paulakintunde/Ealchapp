@@ -14,7 +14,7 @@ import { sound, tts, stt } from '@/services';
 import { sbWords, sbShuffle, sbTarget } from '@/content';
 
 type Phase = 'learn' | 'arrange' | 'say' | 'write' | 'passed';
-const ERR = '#FF6B5C';
+
 const STEP: Record<Phase, string> = { learn: '1', arrange: '2', say: '3', write: '4', passed: '✓' };
 
 const normWrite = (s: string) => s.toLowerCase().replace(/[.,!’']/g, ' ').replace(/\s+/g, ' ').trim();
@@ -24,7 +24,6 @@ export default function Sentence() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const lang = useStore((s) => s.lang);
 
   const [phase, setPhase] = useState<Phase>('learn');
   const [picked, setPicked] = useState<number[]>([]);
@@ -72,7 +71,8 @@ export default function Sentence() {
     setPracticeW(i);
     await stt.listen(sbWords[i].w, { durationMs: 1900 });
     if (!mounted.current) return;
-    sound.play('success');
+    // Neutral cue — the pause is a speaking-aloud pacing aid, nothing is scored.
+    sound.play('flip');
     setPracticeW(null);
   };
 
@@ -102,7 +102,8 @@ export default function Sentence() {
     setSaying(true);
     await stt.listen(sbTarget, { durationMs: 2000 });
     if (!mounted.current) return;
-    sound.play('success');
+    // Neutral cue — saying it aloud is unscored; the write step does the checking.
+    sound.play('flip');
     setSaying(false);
     setPhase('write');
   };
@@ -187,7 +188,7 @@ export default function Sentence() {
                         >
                           <Icon name="mic" size={14} color={practiceW === i ? t.accInk : t.acc} />
                           <TX font="semi" size={12} color={practiceW === i ? t.accInk : t.acc}>
-                            {practiceW === i ? '…' : lang === 'fr' ? 'Répétez' : 'Repeat'}
+                            {practiceW === i ? '…' : T.repeatWord}
                           </TX>
                         </Press>
                       </View>
@@ -207,7 +208,7 @@ export default function Sentence() {
               {T.arrangeT}
             </TX>
             <Animated.View
-              style={{ transform: [{ translateX: shakeX }], minHeight: 104, borderRadius: 18, borderWidth: 1.5, borderStyle: 'dashed', borderColor: err ? ERR : t.line(10), padding: 14, flexDirection: 'row', flexWrap: 'wrap', gap: 8, alignItems: 'flex-start', alignContent: 'flex-start', marginBottom: 20 }}
+              style={{ transform: [{ translateX: shakeX }], minHeight: 104, borderRadius: 18, borderWidth: 1.5, borderStyle: 'dashed', borderColor: err ? t.danger : t.line(10), padding: 14, flexDirection: 'row', flexWrap: 'wrap', gap: 8, alignItems: 'flex-start', alignContent: 'flex-start', marginBottom: 20 }}
             >
               {picked.map((i, ix) => (
                 <Press
@@ -287,7 +288,7 @@ export default function Sentence() {
                 placeholder="Écrivez la phrase…"
                 placeholderTextColor={t.txA(30)}
                 autoCapitalize="none"
-                style={{ height: 56, borderRadius: 18, borderWidth: 1.5, borderColor: err ? ERR : t.line(10), backgroundColor: t.input, color: t.tx, paddingHorizontal: 18, fontSize: 16, fontFamily: 'InstrumentSerif' }}
+                style={{ height: 56, borderRadius: 18, borderWidth: 1.5, borderColor: err ? t.danger : t.line(10), backgroundColor: t.input, color: t.tx, paddingHorizontal: 18, fontSize: 16, fontFamily: 'InstrumentSerif' }}
               />
             </Animated.View>
             <View style={{ marginTop: 'auto' }}>{primaryBtn(T.checkT, checkWrite)}</View>

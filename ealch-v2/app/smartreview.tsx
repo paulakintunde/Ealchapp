@@ -129,7 +129,7 @@ export default function SmartReview() {
             </TX>
             <View style={{ gap: 10, marginBottom: 16 }}>
               {items.map((ri, i) => (
-                <View key={i} style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, paddingVertical: 14, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                <View key={i} style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, paddingVertical: 14, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
                   <View style={{ flex: 1, minWidth: 0 }}>
                     <TX font="serif" size={18}>
                       {ri.w}
@@ -138,8 +138,8 @@ export default function SmartReview() {
                       {ri.meta}
                     </TX>
                   </View>
-                  <View style={{ height: 20, paddingHorizontal: 9, borderRadius: 10, backgroundColor: ri.tagBg, alignItems: 'center', justifyContent: 'center' }}>
-                    <TX font="bold" size={9} ls={1} color={ri.tagC}>
+                  <View style={{ height: 20, paddingHorizontal: 9, borderRadius: 10, backgroundColor: t.tag(ri.tone).bg, alignItems: 'center', justifyContent: 'center' }}>
+                    <TX font="bold" size={9} ls={1} color={t.tag(ri.tone).c}>
                       {ri.tag}
                     </TX>
                   </View>

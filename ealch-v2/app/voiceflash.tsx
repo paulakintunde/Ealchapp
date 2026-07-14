@@ -21,7 +21,7 @@ const ICON_MAP: Record<VfIcon, IconName> = {
   car: 'car',
 };
 
-const WRONG = '#FF6B5C';
+
 
 type Phase = 'ask' | 'listening' | 'result';
 
@@ -30,7 +30,6 @@ export default function VoiceFlash() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const lang = useStore((s) => s.lang);
 
   const [vfIx, setVfIx] = useState(0);
   const [vfPhase, setVfPhase] = useState<Phase>('ask');
@@ -53,15 +52,23 @@ export default function VoiceFlash() {
     promptTimer.current = setTimeout(() => setPromptOn(false), 1400);
   };
 
+  // Spoken path: nothing is recorded or scored — the pause is a pacing aid.
+  // The answer is then revealed and the user self-assesses (vfCorrect stays
+  // null until they do), so the session score is honest.
   const vfMic = async () => {
     if (vfPhase !== 'ask') return;
     sound.play('tap');
     setVfPhase('listening');
     await stt.listen(vfIsFr ? item.fr : item.en, { durationMs: 1800 });
-    sound.play('success');
-    setVfCorrect(true);
-    setVfScore((v) => v + 1);
+    sound.play('flip');
+    setVfCorrect(null);
     setVfPhase('result');
+  };
+
+  const vfSelf = (got: boolean) => {
+    sound.play(got ? 'success' : 'tap');
+    if (got) setVfScore((v) => v + 1);
+    vfNext();
   };
 
   const vfCheck = () => {
@@ -105,7 +112,7 @@ export default function VoiceFlash() {
       <FocusHeader
         onClose={() => router.replace('/home')}
         onSettings={() => router.push('/settings')}
-        title={lang === 'fr' ? 'FLASH VOCAL' : 'VOICE FLASH'}
+        title={T.vfTitle}
       />
 
       <View style={{ flex: 1, paddingHorizontal: 24, paddingBottom: insets.bottom + 24 }}>
@@ -206,35 +213,79 @@ export default function VoiceFlash() {
                   marginTop: 18,
                   borderRadius: 18,
                   borderWidth: 1,
-                  borderColor: vfCorrect ? t.acc : WRONG,
+                  borderColor: vfCorrect === null ? t.accA(45) : vfCorrect ? t.acc : t.danger,
                   backgroundColor: t.card,
                   padding: 18,
                   alignItems: 'center',
                 }}
               >
-                <TX font="bold" size={11} ls={1.8} color={vfCorrect ? t.acc : WRONG} style={{ marginBottom: 8, textTransform: 'uppercase' }}>
-                  {vfCorrect ? T.correctT : T.incorrectT}
+                <TX
+                  font="bold"
+                  size={11}
+                  ls={1.8}
+                  color={vfCorrect === null || vfCorrect ? t.acc : t.danger}
+                  style={{ marginBottom: 8, textTransform: 'uppercase' }}
+                >
+                  {vfCorrect === null ? T.vfSelfT : vfCorrect ? T.correctT : T.incorrectT}
                 </TX>
                 <TX font="serifI" size={24} center>
                   « {vfIsFr ? item.fr : item.en} »
                 </TX>
-                <Press
-                  onPress={vfNext}
-                  cue={null}
-                  style={{
-                    height: 46,
-                    borderRadius: 23,
-                    backgroundColor: t.acc,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginTop: 16,
-                    alignSelf: 'stretch',
-                  }}
-                >
-                  <TX font="semi" size={14} color={t.accInk}>
-                    {T.nextCard}
-                  </TX>
-                </Press>
+                {vfCorrect === null ? (
+                  <View style={{ flexDirection: 'row', gap: 10, marginTop: 16, alignSelf: 'stretch' }}>
+                    <Press
+                      onPress={() => vfSelf(false)}
+                      cue={null}
+                      style={{
+                        flex: 1,
+                        height: 46,
+                        borderRadius: 23,
+                        borderWidth: 1,
+                        borderColor: t.line(16),
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <TX font="semi" size={14}>
+                        {T.vfMissed}
+                      </TX>
+                    </Press>
+                    <Press
+                      onPress={() => vfSelf(true)}
+                      cue={null}
+                      style={{
+                        flex: 1,
+                        height: 46,
+                        borderRadius: 23,
+                        backgroundColor: t.acc,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <TX font="semi" size={14} color={t.accInk}>
+                        {T.vfGot}
+                      </TX>
+                    </Press>
+                  </View>
+                ) : (
+                  <Press
+                    onPress={vfNext}
+                    cue={null}
+                    style={{
+                      height: 46,
+                      borderRadius: 23,
+                      backgroundColor: t.acc,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginTop: 16,
+                      alignSelf: 'stretch',
+                    }}
+                  >
+                    <TX font="semi" size={14} color={t.accInk}>
+                      {T.nextCard}
+                    </TX>
+                  </Press>
+                )}
               </View>
             ) : (
               <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', gap: 14 }}>

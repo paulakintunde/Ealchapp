@@ -1,11 +1,13 @@
-import { type ReactNode } from 'react';
-import { ScrollView, TextInput, View } from 'react-native';
+import { useState, type ReactNode } from 'react';
+import { ScrollView, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, Toggle, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { TimeWheel, ClockToggle } from '@/components/TimeWheel';
+import { formatTime } from '@/utils/time';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore, type Currency } from '@/store/useStore';
@@ -71,7 +73,7 @@ function ToggleRow({
         borderRadius: 16,
         borderWidth: 1,
         borderColor: t.line(8),
-        backgroundColor: t.card,
+        backgroundColor: t.card, ...t.cardShadow,
         flexDirection: 'row',
         alignItems: 'center',
         gap: 14,
@@ -99,7 +101,6 @@ export default function Settings() {
   const insets = useSafeAreaInsets();
   const s = useStore();
   const {
-    lang,
     premium,
     upgrade,
     planPick,
@@ -118,43 +119,30 @@ export default function Settings() {
     setSound,
     alarmTime,
     setAlarm,
+    clock24,
     notifs,
     setNotif,
   } = s;
   const showBanner = useUI((u) => u.showBanner);
+  const [showWheel, setShowWheel] = useState(false);
 
   const c = CUR[currency];
-  const planName = premium
-    ? 'Première'
-    : lang === 'fr'
-      ? 'Essentiel — Gratuit'
-      : 'Essential — Free';
-  const planDesc = premium
-    ? lang === 'fr'
-      ? 'Examinateur illimité · Rapports avancés · Hors ligne'
-      : 'Unlimited Examiner · Advanced reports · Offline'
-    : lang === 'fr'
-      ? 'Feed quotidien · 1 scénario par jour · Le Coin des débutants'
-      : "Daily feed · 1 scenario per day · Beginners' Den";
+  const planName = premium ? 'Première' : T.planFree;
+  const planDesc = premium ? T.planPremDesc : T.planFreeDesc;
   const planBadge = premium ? 'PREMIÈRE ✓' : T.currentPlan;
-  const upgradeLabel = premium
-    ? lang === 'fr'
-      ? 'Abonnement actif ✓'
-      : 'Subscription active ✓'
-    : T.upgrade;
+  const upgradeLabel = premium ? T.subActive : T.upgrade;
 
   const planRows = [
-    { id: 'mo' as const, name: T.monthly, price: c.mo, sub: lang === 'fr' ? 'par mois' : 'per month', best: false },
+    { id: 'mo' as const, name: T.monthly, price: c.mo, sub: T.perMonth, best: false },
     {
       id: 'yr' as const,
       name: T.annual,
       price: c.yrmo,
-      sub: lang === 'fr' ? `${c.yr} / an — 2 mois offerts` : `${c.yr} / yr — 2 months free`,
+      sub: T.perYear.replace('{yr}', c.yr),
       best: true,
     },
   ];
 
-  const langNoteShow = appLang !== 'fr' && appLang !== 'en';
 
   const doUpgrade = () => {
     if (premium) return;
@@ -170,7 +158,7 @@ export default function Settings() {
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <View style={{ paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/home')} title="Réglages" />
+        <FocusHeader onClose={() => router.replace('/home')} title={T.settingsT} />
       </View>
       <ScrollView contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: insets.bottom + 60 }} showsVerticalScrollIndicator={false}>
         <TX font="serif" size={36} style={{ marginBottom: 28 }}>
@@ -187,7 +175,7 @@ export default function Settings() {
             borderRadius: 18,
             borderWidth: 1,
             borderColor: t.accA(35),
-            backgroundColor: t.card,
+            backgroundColor: t.card, ...t.cardShadow,
             padding: 16,
             paddingHorizontal: 18,
             marginBottom: 12,
@@ -291,7 +279,7 @@ export default function Settings() {
         </Press>
 
         {/* billing rows */}
-        <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, marginBottom: 14 }}>
+        <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, ...t.cardShadow, marginBottom: 14 }}>
           <View style={{ minHeight: 50, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: t.line(7) }}>
             <TX font="semi" size={13}>
               {T.billing}
@@ -349,7 +337,7 @@ export default function Settings() {
             borderRadius: 16,
             borderWidth: 1,
             borderColor: t.line(8),
-            backgroundColor: t.card,
+            backgroundColor: t.card, ...t.cardShadow,
             flexDirection: 'row',
             alignItems: 'center',
             gap: 14,
@@ -376,8 +364,9 @@ export default function Settings() {
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 14, marginBottom: 10 }}>
           {langs.map((lg) => {
             const on = appLang === lg.id;
+            const soon = !lg.available;
             return (
-              <Press key={lg.id} onPress={() => setAppLang(lg.id)} style={{ alignItems: 'center', gap: 7, width: 48 }}>
+              <Press key={lg.id} onPress={soon ? undefined : () => setAppLang(lg.id)} cue={soon ? null : 'tap'} style={{ alignItems: 'center', gap: 7, width: 48, opacity: soon ? 0.38 : 1 }}>
                 <View
                   style={{
                     width: 48,
@@ -395,17 +384,15 @@ export default function Settings() {
                   </TX>
                 </View>
                 <TX font="semi" size={9.5} color={on ? t.acc : t.txA(50)}>
-                  {lg.ch}
+                  {soon ? T.soonT : lg.ch}
                 </TX>
               </Press>
             );
           })}
         </View>
-        {langNoteShow ? (
-          <TX font="serifI" size={11.5} color={t.txA(45)} style={{ marginBottom: 16 }}>
-            {T.appLangNote}
-          </TX>
-        ) : null}
+        <TX font="serifI" size={11.5} color={t.txA(45)} style={{ marginBottom: 16 }}>
+          {T.appLangNote}
+        </TX>
         <View style={{ height: 14 }} />
 
         <GroupTitle>{T.accentT}</GroupTitle>
@@ -497,7 +484,7 @@ export default function Settings() {
         <GroupTitle>{T.reminders}</GroupTitle>
 
         {/* alarm card */}
-        <View style={{ borderRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 16, marginBottom: 12 }}>
+        <View style={{ borderRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, ...t.cardShadow, padding: 16, marginBottom: 12 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
             <View>
               <TX font="semi" size={14}>
@@ -507,27 +494,32 @@ export default function Settings() {
                 {T.customTime}
               </TX>
             </View>
-            <TextInput
-              value={alarmTime}
-              onChangeText={(v) => setAlarm(v)}
-              placeholder="19:00"
-              placeholderTextColor={t.txA(35)}
-              maxLength={5}
-              keyboardType="numbers-and-punctuation"
+            <Press
+              onPress={() => setShowWheel((v) => !v)}
               style={{
                 height: 42,
                 minWidth: 78,
-                textAlign: 'center',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
                 borderRadius: 12,
                 borderWidth: 1,
-                borderColor: t.accA(45),
+                borderColor: showWheel ? t.accA(60) : t.accA(45),
                 backgroundColor: t.input,
-                color: t.acc,
                 paddingHorizontal: 12,
-                fontSize: 17,
               }}
-            />
+            >
+              <TX font="serif" size={17} color={t.acc}>
+                {formatTime(alarmTime, clock24)}
+              </TX>
+              <Icon name="clock" size={15} color={t.acc} />
+            </Press>
           </View>
+          <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 12 }}>
+            <ClockToggle />
+          </View>
+          {showWheel ? <TimeWheel value={alarmTime} onChange={setAlarm} /> : null}
           <View style={{ flexDirection: 'row', gap: 8, marginBottom: 12 }}>
             {alarmData.map((chip) => {
               const on = alarmTime === chip.time;
@@ -547,7 +539,7 @@ export default function Settings() {
                   }}
                 >
                   <TX font="semi" size={12.5} color={on ? t.acc : t.txA(75)}>
-                    {chip.time}
+                    {formatTime(chip.time, clock24)}
                   </TX>
                 </Press>
               );

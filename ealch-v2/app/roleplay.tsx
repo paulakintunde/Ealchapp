@@ -146,7 +146,7 @@ export default function Roleplay() {
             })}
           </View>
           <TX size={12} lh={18} color={t.txA(40)}>
-            {lang === 'fr' ? 'La complexité de la conversation s’adapte au niveau choisi.' : 'The conversation complexity changes with the level you choose.'}
+            {T.rpLevelNote}
           </TX>
           <View style={{ marginTop: 'auto' }}>
             <Press cue={null} onPress={start} style={{ height: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
@@ -227,10 +227,22 @@ export default function Roleplay() {
               </Press>
             </View>
           ) : (
-            <View style={{ alignItems: 'center', paddingTop: 10 }}>
-              <Press cue={null} onPress={mic} scale={0.94} style={{ width: 70, height: 70, borderRadius: 35, alignItems: 'center', justifyContent: 'center', backgroundColor: busy ? t.acc : t.line(4), borderWidth: 1, borderColor: busy ? t.acc : t.line(20) }}>
-                <Icon name="mic" size={26} color={busy ? t.accInk : t.tx} />
-              </Press>
+            <View style={{ paddingTop: 10, gap: 14 }}>
+              {/* The next line is shown before the mic tap: this is guided
+                  reading aloud, not transcription — nothing is recorded. */}
+              <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), padding: 14, paddingHorizontal: 16 }}>
+                <TX font="semi" size={9} ls={2.2} color={t.acc} style={{ marginBottom: 6 }}>
+                  {T.rpYourLine}
+                </TX>
+                <TX font="serifI" size={17} lh={24}>
+                  « {rpLines[level][ix].user} »
+                </TX>
+              </View>
+              <View style={{ alignItems: 'center' }}>
+                <Press cue={null} onPress={mic} scale={0.94} style={{ width: 70, height: 70, borderRadius: 35, alignItems: 'center', justifyContent: 'center', backgroundColor: busy ? t.acc : t.line(4), borderWidth: 1, borderColor: busy ? t.acc : t.line(20) }}>
+                  <Icon name="mic" size={26} color={busy ? t.accInk : t.tx} />
+                </Press>
+              </View>
             </View>
           )}
         </View>

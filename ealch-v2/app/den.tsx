@@ -13,14 +13,13 @@ import { currSons, currA1, currA2, a2Subs, extendedLesson, type Unit } from '@/c
 
 type TabId = 'sons' | 'a1' | 'a2';
 
-const GOLD = 'rgba(214,160,96,0.9)';
+
 
 export default function Den() {
   const t = useTheme();
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const lang = useStore((s) => s.lang);
 
   const [denTab, setDenTab] = useState<TabId>('sons');
   const [a2Open, setA2Open] = useState<number | null>(null);
@@ -39,9 +38,8 @@ export default function Den() {
     { id: 'a2', name: 'A2', count: '8' },
   ];
 
-  const banT = lang === 'fr' ? 'Pas sûr de votre niveau ?' : 'Not sure where to start?';
-  const banS =
-    lang === 'fr' ? 'Test de placement — 3 minutes, adaptatif' : 'Placement test — 3 minutes, adaptive';
+  const banT = T.denBanT;
+  const banS = T.denBanS;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -70,7 +68,7 @@ export default function Den() {
 
         {/* Title + intro */}
         <TX font="serif" size={38} style={{ marginBottom: 8 }}>
-          Le coin des débutants
+          {T.denT}
         </TX>
         <TX size={13.5} lh={21} color={t.txA(55)} style={{ maxWidth: 310, marginBottom: 16 }}>
           {T.denIntro}
@@ -162,7 +160,7 @@ export default function Den() {
           }}
         >
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
-            <TX font="semi" size={10} ls={2.2} color={GOLD}>
+            <TX font="semi" size={10} ls={2.2} color={t.tag('gold').c}>
               {T.trackLabels[denTab]}
             </TX>
             <TX size={12} color={t.txA(55)}>
@@ -295,7 +293,7 @@ export default function Den() {
 
                 {isA2 ? (
                   <TX font="semi" size={10} ls={1.2} color={t.accA(75)} style={{ marginTop: 8 }}>
-                    {a2Subs[i].length} {lang === 'fr' ? 'sous-leçons' : 'sub-lessons'}
+                    {a2Subs[i].length} {T.subLessonsWord}
                   </TX>
                 ) : null}
               </Press>

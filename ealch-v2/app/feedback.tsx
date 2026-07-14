@@ -48,7 +48,7 @@ export default function Feedback() {
   const insets = useSafeAreaInsets();
 
   const errorPhrases = ['un café allongé', 'je veux un croissant', 'le… euh… croissant'];
-  const errorTypes = ['PRONONCIATION', 'REGISTRE', 'FLUIDITÉ'];
+  const errorTypes = T.errorTypes;
   const skillVals = [74, 86, 68];
 
   return (

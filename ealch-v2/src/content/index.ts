@@ -15,16 +15,19 @@ export const deck: Card[] = [
   { fr: 'À bientôt !', en: 'See you soon!', ex: 'The polite exit.' },
 ];
 
-export type LangOption = { id: string; ch: string; name: string };
+export type LangOption = { id: string; ch: string; name: string; available: boolean };
 
+// Single source of truth for BOTH language pickers (onboarding step 2 + Settings).
+// Only `available: true` languages have full interface tables; the rest render
+// as disabled "soon" chips so the pickers can never promise a language we lack.
 export const langs: LangOption[] = [
-  { id: 'en', ch: 'EN', name: 'English' },
-  { id: 'fr', ch: 'FR', name: 'Français' },
-  { id: 'es', ch: 'ES', name: 'Español' },
-  { id: 'zh', ch: '中', name: '中文' },
-  { id: 'pt', ch: 'PT', name: 'Português' },
-  { id: 'ar', ch: 'ع', name: 'العربية' },
-  { id: 'ja', ch: '日', name: '日本語' },
+  { id: 'en', ch: 'EN', name: 'English', available: true },
+  { id: 'fr', ch: 'FR', name: 'Français', available: true },
+  { id: 'es', ch: 'ES', name: 'Español', available: false },
+  { id: 'zh', ch: '中', name: '中文', available: false },
+  { id: 'pt', ch: 'PT', name: 'Português', available: false },
+  { id: 'ar', ch: 'ع', name: 'العربية', available: false },
+  { id: 'ja', ch: '日', name: '日本語', available: false },
 ];
 
 export type VfIcon = 'cup' | 'house' | 'book' | 'sun' | 'car';

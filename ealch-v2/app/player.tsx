@@ -21,14 +21,13 @@ export default function Player() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const lang = useStore((s) => s.lang);
 
   const [progress, setProgress] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [speedIx, setSpeedIx] = useState(0);
   const [queued, setQueued] = useState(false);
 
-  const trackPlaylist = lang === 'fr' ? 'PRONONCIATION EN PROFONDEUR' : 'PRONUNCIATION DEEP-DIVES';
+  const trackPlaylist = T.playerPlaylist;
 
   // Advance the scrubber while playing (prototype tick loop).
   useEffect(() => {
@@ -93,9 +92,9 @@ export default function Player() {
 
       <View style={{ flex: 1, paddingHorizontal: 26, paddingBottom: insets.bottom + 20 }}>
         {/* Hero art */}
-        <View style={{ aspectRatio: 1, borderRadius: 22, borderWidth: 1, borderColor: t.line(8), overflow: 'hidden', marginBottom: 24, backgroundColor: '#12100E' }}>
+        <View style={{ aspectRatio: 1, borderRadius: 22, borderWidth: 1, borderColor: t.line(8), overflow: 'hidden', marginBottom: 24, backgroundColor: t.isDark ? '#12100E' : t.card2, ...t.cardShadow }}>
           <LinearGradient colors={[t.accA(34), 'transparent']} start={{ x: 0.85, y: 0 }} end={{ x: 0.25, y: 0.62 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
-          <LinearGradient colors={['transparent', t.blend('#16211E', t.bg, 60)]} start={{ x: 0.2, y: 0.4 }} end={{ x: 0.2, y: 1 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
+          <LinearGradient colors={['transparent', t.blend(t.isDark ? '#16211E' : '#DCE7E2', t.bg, 60)]} start={{ x: 0.2, y: 0.4 }} end={{ x: 0.2, y: 1 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <TX font="semi" size={9} ls={2.4} color={t.txA(55)} style={{ position: 'absolute', top: 18, left: 20 }}>
             ÉPISODE 03
           </TX>

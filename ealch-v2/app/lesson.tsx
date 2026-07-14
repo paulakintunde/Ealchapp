@@ -12,7 +12,7 @@ import { useStore } from '@/store/useStore';
 import { sound, tts } from '@/services';
 import { lessons, type TableCell } from '@/content/lessons';
 
-const CORAL = '#FF6B5C';
+
 
 const NASAL_PADS = [
   { sym: 'on', ipa: 'ɔ̃', word: 'bon' },
@@ -34,7 +34,6 @@ export default function LessonScreen() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const lang = useStore((s) => s.lang);
   const params = useLocalSearchParams<{ key?: string }>();
 
   const raw = Array.isArray(params.key) ? params.key[0] : params.key;
@@ -181,7 +180,7 @@ export default function LessonScreen() {
                       </TX>
                       {i === 0 ? (
                         <TX font="bold" size={9} ls={1.4} color={t.acc}>
-                          {lang === 'fr' ? 'EN COURS' : 'NOW'}
+                          {T.lessonNow}
                         </TX>
                       ) : null}
                     </View>
@@ -193,7 +192,7 @@ export default function LessonScreen() {
             {/* Nasal sound pads */}
             {L.unique === 'nasal' ? (
               <View style={{ marginBottom: 26 }}>
-                <SectionLabel text={lang === 'fr' ? 'Touchez pour entendre' : 'Tap to hear'} color={t.acc} />
+                <SectionLabel text={T.tapHear} color={t.acc} />
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
                   {NASAL_PADS.map((p, i) => {
                     const on = padOn === i;
@@ -367,7 +366,7 @@ export default function LessonScreen() {
             </View>
 
             {/* Common errors */}
-            <SectionLabel text={acc.errorsT} color={CORAL} />
+            <SectionLabel text={acc.errorsT} color={t.danger} />
             <View style={{ gap: 10, marginBottom: 30 }}>
               {L.errors.map((er, i) => (
                 <View
@@ -375,14 +374,14 @@ export default function LessonScreen() {
                   style={{
                     borderRadius: 14,
                     borderWidth: 1,
-                    borderColor: 'rgba(255,107,92,0.25)',
+                    borderColor: t.dangerA(25),
                     backgroundColor: t.card,
                     padding: 14,
                     paddingHorizontal: 16,
                   }}
                 >
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 6, flexWrap: 'wrap' }}>
-                    <TX font="serifI" size={16} color={CORAL} style={{ textDecorationLine: 'line-through' }}>
+                    <TX font="serifI" size={16} color={t.danger} style={{ textDecorationLine: 'line-through' }}>
                       {er.wrong}
                     </TX>
                     <Icon name="arrowRight" size={13} color={t.txA(40)} strokeWidth={1.4} />
@@ -438,11 +437,11 @@ export default function LessonScreen() {
                   ? isCorrect
                     ? t.acc
                     : isSel
-                      ? CORAL
+                      ? t.danger
                       : t.line(9)
                   : t.line(9);
-                const bg = answered && isCorrect ? t.accA(10) : answered && isSel && !isCorrect ? 'rgba(255,107,92,0.1)' : t.card;
-                const color = answered && isSel && !isCorrect ? CORAL : t.tx;
+                const bg = answered && isCorrect ? t.accA(10) : answered && isSel && !isCorrect ? t.dangerA(10) : t.card;
+                const color = answered && isSel && !isCorrect ? t.danger : t.tx;
                 return (
                   <Press
                     key={i}

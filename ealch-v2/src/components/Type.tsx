@@ -1,5 +1,6 @@
 import { Text, type TextProps, type TextStyle } from 'react-native';
 import { F } from '@/theme/fonts';
+import { useTheme } from '@/theme/useTheme';
 
 type FontKey = 'serif' | 'serifI' | 'sans' | 'med' | 'semi' | 'bold';
 
@@ -34,10 +35,11 @@ export function TX({
   children,
   ...rest
 }: TXProps) {
+  const t = useTheme();
   const base: TextStyle = {
     fontFamily: FAMILY[font],
     fontSize: size,
-    color: color ?? '#F4F2ED',
+    color: color ?? t.tx,
   };
   if (lh != null) base.lineHeight = lh;
   if (ls != null) base.letterSpacing = ls;

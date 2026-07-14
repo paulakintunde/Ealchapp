@@ -1,5 +1,5 @@
-import { type ReactNode } from 'react';
-import { ScrollView, View } from 'react-native';
+import { useState, type ReactNode } from 'react';
+import { ScrollView, TextInput, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -12,21 +12,13 @@ import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useUI } from '@/store/useUI';
 import { accentData } from '@/content/onboarding';
+import { auth } from '@/services';
 
 // ── week-history dots: explicit states ported from the prototype ──
 type DotState = 'done' | 'frozen' | 'today' | 'off';
-const WK_DOTS: { d: string; st: DotState }[] = [
-  { d: 'L', st: 'done' },
-  { d: 'M', st: 'done' },
-  { d: 'M', st: 'frozen' },
-  { d: 'J', st: 'done' },
-  { d: 'V', st: 'today' },
-  { d: 'S', st: 'off' },
-  { d: 'D', st: 'off' },
-];
+const WK_STATES: DotState[] = ['done', 'done', 'frozen', 'done', 'today', 'off', 'off'];
 
 // minutes-spoken bar chart — last 7 days
-const BAR_DAYS = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 const BAR_HEIGHTS = [34, 58, 22, 74, 46, 12, 64];
 
 function StatCard({ value, label, accent }: { value: string; label: string; accent?: boolean }) {
@@ -93,15 +85,27 @@ export default function Profile() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { userName, level, lang, setLang, region, setRegion, streak, freeze, signOut } = useStore();
+  const { userName, setField, level, lang, setLang, region, setRegion, streak, freeze, signOut } = useStore();
   const openSheet = useUI((s) => s.openSheet);
 
-  const freezeChip = lang === 'fr' ? `✦ ${freeze} GEL RESTANT` : `✦ ${freeze} FREEZE LEFT`;
-  const freezeNote =
-    lang === 'fr'
-      ? 'Mercredi gelé ✦ — série protégée. 1 gel par semaine, utilisé automatiquement.'
-      : 'Wednesday was frozen ✦ — streak protected. 1 freeze per week, used automatically.';
-  const streakW = lang === 'fr' ? 'jours de suite' : 'day streak';
+  const [editingName, setEditingName] = useState(false);
+  const [nameDraft, setNameDraft] = useState(userName);
+
+  const startEditName = () => {
+    setNameDraft(userName);
+    setEditingName(true);
+  };
+  const saveName = () => {
+    const name = nameDraft.trim();
+    setField('userName', name);
+    setEditingName(false);
+    if (name) void auth.updateDisplayName(name);
+  };
+
+  const freezeChip = T.freezeLeft.replace('{n}', String(freeze));
+  const freezeNote = T.freezeNote;
+  const streakW = T.streakWord;
+  const levelName = T.levelNames[level as keyof typeof T.levelNames] ?? '';
 
   const weak = [
     { glyph: '‿', title: 'La liaison obligatoire' },
@@ -153,14 +157,51 @@ export default function Profile() {
               justifyContent: 'center',
             }}
           >
-            <TX font="serif" size={26}>
-              {userName.charAt(0)}
-            </TX>
+            {userName ? (
+              <TX font="serif" size={26}>
+                {userName.charAt(0).toUpperCase()}
+              </TX>
+            ) : (
+              <Icon name="user" size={26} color={t.txA(60)} strokeWidth={1.6} />
+            )}
           </View>
           <View style={{ flex: 1 }}>
-            <TX font="serif" size={30} lh={33}>
-              {userName}
-            </TX>
+            {editingName ? (
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                <TextInput
+                  value={nameDraft}
+                  onChangeText={setNameDraft}
+                  placeholder={T.namePh}
+                  placeholderTextColor={t.txA(30)}
+                  autoFocus
+                  autoCapitalize="words"
+                  maxLength={30}
+                  onSubmitEditing={saveName}
+                  style={{
+                    flex: 1,
+                    height: 40,
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    borderColor: t.accA(50),
+                    backgroundColor: t.input,
+                    color: t.tx,
+                    paddingHorizontal: 12,
+                    fontSize: 17,
+                    fontFamily: 'InstrumentSerif',
+                  }}
+                />
+                <Press onPress={saveName} style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                  <Icon name="check" size={16} color={t.accInk} />
+                </Press>
+              </View>
+            ) : (
+              <Press onPress={startEditName} cue={null} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'flex-start' }}>
+                <TX font="serif" size={30} lh={33}>
+                  {userName || T.guestName}
+                </TX>
+                <Icon name="pencil" size={14} color={t.txA(40)} strokeWidth={1.6} />
+              </Press>
+            )}
             <View
               style={{
                 alignSelf: 'flex-start',
@@ -173,7 +214,7 @@ export default function Profile() {
               }}
             >
               <TX font="semi" size={11} ls={0.8} color={t.acc}>
-                {level} — SEUIL
+                {level}{levelName ? ` — ${levelName}` : ''}
               </TX>
             </View>
           </View>
@@ -246,27 +287,27 @@ export default function Profile() {
             </View>
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12 }}>
-            {WK_DOTS.map((w, i) => (
+            {WK_STATES.map((st, i) => (
               <View key={i} style={{ alignItems: 'center', gap: 5 }}>
                 <View
                   style={{
                     width: 30,
                     height: 30,
                     borderRadius: 15,
-                    backgroundColor: dotBg(w.st),
-                    borderWidth: w.st === 'today' ? 1.5 : 1,
-                    borderColor: dotBorder(w.st),
-                    borderStyle: w.st === 'today' ? 'dashed' : 'solid',
+                    backgroundColor: dotBg(st),
+                    borderWidth: st === 'today' ? 1.5 : 1,
+                    borderColor: dotBorder(st),
+                    borderStyle: st === 'today' ? 'dashed' : 'solid',
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}
                 >
-                  <TX size={11} color={dotColor(w.st)}>
-                    {dotCh(w.st)}
+                  <TX size={11} color={dotColor(st)}>
+                    {dotCh(st)}
                   </TX>
                 </View>
                 <TX font="semi" size={9} color={t.txA(40)}>
-                  {w.d}
+                  {T.dayLetters[i]}
                 </TX>
               </View>
             ))}
@@ -280,18 +321,18 @@ export default function Profile() {
         <CardBox style={{ paddingBottom: 14 }}>
           <CardHead title={T.minutes} right={T.days7} />
           <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, height: 74 }}>
-            {BAR_DAYS.map((d, i) => (
+            {BAR_HEIGHTS.map((h, i) => (
               <View key={i} style={{ flex: 1, alignItems: 'center', gap: 6, height: '100%', justifyContent: 'flex-end' }}>
                 <View
                   style={{
                     width: '100%',
                     borderRadius: 4,
-                    height: (BAR_HEIGHTS[i] / 100) * 74,
+                    height: (h / 100) * 74,
                     backgroundColor: i === 3 ? t.acc : t.txA(16),
                   }}
                 />
                 <TX size={9} color={t.txA(40)}>
-                  {d}
+                  {T.dayLetters[i]}
                 </TX>
               </View>
             ))}
@@ -422,6 +463,7 @@ export default function Profile() {
         {/* Sign out */}
         <Press
           onPress={() => {
+            void auth.signOut();
             signOut();
             router.replace('/onboarding');
           }}
@@ -429,12 +471,12 @@ export default function Profile() {
             height: 52,
             borderRadius: 26,
             borderWidth: 1,
-            borderColor: 'rgba(255,120,110,0.35)',
+            borderColor: t.dangerA(35),
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          <TX font="semi" size={14} color="#FF9A8E">
+          <TX font="semi" size={14} color={t.tag('danger').c}>
             {T.signOut}
           </TX>
         </Press>

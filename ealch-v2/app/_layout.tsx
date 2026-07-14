@@ -1,10 +1,11 @@
 import '../global.css';
 import { useEffect } from 'react';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { Stack } from 'expo-router';
+import * as Notifications from 'expo-notifications';
 import * as SplashScreen from 'expo-splash-screen';
 import { useAppFonts } from '@/theme/fonts';
 import { useStore } from '@/store/useStore';
@@ -17,6 +18,26 @@ import { DictionaryOverlay } from '@/components/DictionaryOverlay';
 import { refreshConfig } from '@/services';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
+
+// Scheduled practice reminders must be visible while the app is foregrounded.
+if (Platform.OS !== 'web') {
+  Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowBanner: true,
+      shouldShowList: true,
+      shouldPlaySound: true,
+      shouldSetBadge: false,
+    }),
+  });
+}
+
+// Android 8+ drops notifications that aren't attached to a channel.
+if (Platform.OS === 'android') {
+  Notifications.setNotificationChannelAsync('practice-reminders', {
+    name: 'Practice reminders',
+    importance: Notifications.AndroidImportance.DEFAULT,
+  }).catch(() => {});
+}
 
 export default function RootLayout() {
   const fontsLoaded = useAppFonts();

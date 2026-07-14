@@ -6,6 +6,8 @@ import { Press } from './ui';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useUI } from '@/store/useUI';
+import { useStore } from '@/store/useStore';
+import { formatTime } from '@/utils/time';
 
 /** Drops in a Spotify/iOS-style push banner; tap → Speak Mode. */
 export function PushBanner() {
@@ -13,6 +15,7 @@ export function PushBanner() {
   const T = useT();
   const router = useRouter();
   const { bannerVisible, bannerAt, hideBanner } = useUI();
+  const clock24 = useStore((s) => s.clock24);
   const y = useRef(new Animated.Value(-140)).current;
 
   useEffect(() => {
@@ -23,7 +26,7 @@ export function PushBanner() {
     }).start();
   }, [bannerVisible, y]);
 
-  const text = T.bannerText.replace('{t}', bannerAt);
+  const text = T.bannerText.replace('{t}', formatTime(bannerAt, clock24));
 
   return (
     <Animated.View

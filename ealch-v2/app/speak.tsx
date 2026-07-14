@@ -5,6 +5,7 @@ import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path, Rect } from 'react-native-svg';
 import { TX } from '@/components/Type';
+import { Icon } from '@/components/Icon';
 import { Press } from '@/components/ui';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
@@ -68,14 +69,13 @@ export default function Speak() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const lang = useStore((s) => s.lang);
 
   const [coachIx, setCoachIx] = useState(0);
   const [phase, setPhase] = useState<Phase>('idle');
   const [speaking, setSpeaking] = useState(false);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
-  const speakLabel = lang === 'fr' ? 'RÉEL — AU CAFÉ' : 'REAL-WORLD — AT THE CAFÉ';
+  const speakLabel = T.speakScene;
   const coach = coachLines[Math.min(coachIx, coachLines.length - 1)];
   const listening = phase === 'listening';
   const analysed = phase === 'analysed';
@@ -104,8 +104,10 @@ export default function Speak() {
     if (listening) return;
     sound.play('tap');
     setPhase('listening');
+    // Nothing is recorded — the pause paces the reply, then the model answer
+    // is shown for self-comparison. Neutral cue, not a success claim.
     stt.listen(coach.fr, { durationMs: 1800 }).then(() => {
-      sound.play('success');
+      sound.play('flip');
       setPhase('analysed');
     });
   };
@@ -158,10 +160,7 @@ export default function Speak() {
             </TX>
           </View>
           <Press onPress={() => router.push('/settings')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
-            <Svg width={18} height={18} viewBox="0 0 20 20" fill="none">
-              <Path d="M10 1.5v3M10 15.5v3M1.5 10h3M15.5 10h3M4 4l2.1 2.1M13.9 13.9L16 16M16 4l-2.1 2.1M6.1 13.9L4 16" stroke={t.txA(70)} strokeWidth={1.6} strokeLinecap="round" />
-              <Path d="M10 13a3 3 0 100-6 3 3 0 000 6z" stroke={t.txA(70)} strokeWidth={1.6} />
-            </Svg>
+            <Icon name="gear" size={18} color={t.txA(70)} strokeWidth={1.7} />
           </Press>
         </View>
       </View>
@@ -171,14 +170,14 @@ export default function Speak() {
         <View style={{ width: 210, height: 190 }}>
           {/* head */}
           <LinearGradient
-            colors={[t.blend('#20242B', t.card, 70), t.card]}
+            colors={[t.blend(t.isDark ? '#20242B' : '#AEB7C2', t.card, 70), t.card]}
             start={{ x: 0.5, y: 0 }}
             end={{ x: 0.5, y: 1 }}
             style={{ position: 'absolute', left: 57, top: 0, width: 96, height: 110, borderRadius: 48, borderTopWidth: 1, borderColor: t.accA(40) }}
           />
           {/* body */}
           <LinearGradient
-            colors={[t.blend('#1B1F25', t.bg, 70), t.bg]}
+            colors={[t.blend(t.isDark ? '#1B1F25' : '#B8C0CA', t.bg, 70), t.bg]}
             start={{ x: 0.5, y: 0 }}
             end={{ x: 0.5, y: 1 }}
             style={{ position: 'absolute', left: 7, bottom: 0, width: 196, height: 84, borderTopLeftRadius: 98, borderTopRightRadius: 98, borderBottomLeftRadius: 22, borderBottomRightRadius: 22, borderTopWidth: 1, borderColor: t.accA(26) }}
@@ -202,7 +201,7 @@ export default function Speak() {
         </TX>
       </View>
 
-      {/* Transcript / analysis + end */}
+      {/* Model reply for self-comparison + end */}
       <View style={{ flex: 1, justifyContent: 'flex-end', paddingHorizontal: 26, paddingBottom: 18 }}>
         {analysed ? (
           <View style={{ borderRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.blend(t.card2, t.bgDeep, 85), padding: 18 }}>

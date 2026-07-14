@@ -1,11 +1,33 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Platform } from 'react-native';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { ACCENTS, type Mode } from '@/theme/palette';
+// Import the service module directly (not '@/services') — the barrel pulls in
+// sound.ts, which imports this store back.
+import { notifications } from '@/services/notifications';
+// strings.ts only type-imports this store, so this is not a runtime cycle.
+import { T as STRINGS } from '@/i18n/strings';
+import { device24h, formatTime } from '@/utils/time';
 
 export type Lang = 'fr' | 'en';
+
+/**
+ * English is the primary interface language; devices set to French
+ * (e.g. installs from a French store region) start in French.
+ */
+export function deviceLang(): Lang {
+  try {
+    const nav = typeof navigator !== 'undefined' ? (navigator as { language?: string; languages?: readonly string[] }) : undefined;
+    const loc = nav?.language ?? nav?.languages?.[0] ?? Intl.DateTimeFormat().resolvedOptions().locale ?? '';
+    return loc.toLowerCase().startsWith('fr') ? 'fr' : 'en';
+  } catch {
+    return 'en';
+  }
+}
 export type Currency = 'USD' | 'EUR' | 'GBP' | 'CAD';
 export type Plan = 'yr' | 'mo';
+export type AccountType = 'guest' | 'email';
 
 export type Notifs = { daily: boolean; report: boolean; nudge: boolean };
 
@@ -22,7 +44,8 @@ export type AppState = {
 
   // audio + reminders
   sound: boolean;
-  alarmTime: string;
+  alarmTime: string; // always 24h "HH:MM" internally
+  clock24: boolean; // display preference: 24h vs 12h AM/PM
   notifs: Notifs;
 
   // learning prefs from onboarding
@@ -35,6 +58,7 @@ export type AppState = {
   // account
   userName: string;
   email: string;
+  accountType: AccountType;
   signedIn: boolean;
   onboarded: boolean;
 
@@ -59,7 +83,10 @@ export type AppState = {
   setAccent: (hex: string) => void;
   setSound: (on: boolean) => void;
   setAlarm: (t: string) => void;
+  setClock24: (v: boolean) => void;
   setNotif: (k: keyof Notifs, v: boolean) => void;
+  /** Request notification permission and schedule the daily reminder; on native denial flips notifs.daily off. */
+  enableDailyReminder: () => Promise<boolean>;
   setCurrency: (c: Currency) => void;
   setPlan: (p: Plan) => void;
   upgrade: () => void;
@@ -77,14 +104,15 @@ export const useStore = create<AppState>()(
     (set, get) => ({
       hydrated: false,
 
-      lang: 'fr',
-      appLang: 'fr',
+      lang: deviceLang(),
+      appLang: deviceLang(),
 
       mode: 'dark',
       accent: ACCENTS[0].c,
 
       sound: true,
       alarmTime: '19:00',
+      clock24: device24h(),
       notifs: { daily: true, report: true, nudge: false },
 
       goal: 'survive',
@@ -93,8 +121,9 @@ export const useStore = create<AppState>()(
       level: 'B1',
       region: 'Parisienne',
 
-      userName: 'Maya',
+      userName: '', // optional display name — empty means "greet without a name"
       email: '',
+      accountType: 'guest',
       signedIn: false,
       onboarded: false,
 
@@ -115,24 +144,72 @@ export const useStore = create<AppState>()(
       toggleMode: () => set({ mode: get().mode === 'dark' ? 'light' : 'dark' }),
       setAccent: (accent) => set({ accent }),
       setSound: (sound) => set({ sound }),
-      setAlarm: (alarmTime) => set({ alarmTime }),
-      setNotif: (k, v) => set({ notifs: { ...get().notifs, [k]: v } }),
+      setAlarm: (alarmTime) => {
+        set({ alarmTime });
+        // scheduleDaily cancels before scheduling, so at most one is pending.
+        if (get().notifs.daily) {
+          void notifications.scheduleDaily(
+            alarmTime,
+            STRINGS[get().lang].bannerText.replace('{t}', formatTime(alarmTime, get().clock24)),
+          );
+        }
+      },
+      setClock24: (clock24) => set({ clock24 }),
+      setNotif: (k, v) => {
+        set({ notifs: { ...get().notifs, [k]: v } });
+        if (k === 'daily') {
+          if (v) void get().enableDailyReminder();
+          else void notifications.cancelAll();
+        }
+      },
+      enableDailyReminder: async () => {
+        const granted = await notifications.requestPermissions();
+        if (granted) {
+          const { alarmTime, lang, clock24 } = get();
+          await notifications.scheduleDaily(
+            alarmTime,
+            STRINGS[lang].bannerText.replace('{t}', formatTime(alarmTime, clock24)),
+          );
+        } else if (Platform.OS !== 'web' && get().notifs.daily) {
+          // Denied on native: the toggle must tell the truth. On web the
+          // scheduler is a no-op and the in-app banner is the delivery path,
+          // so the toggle stays on.
+          set({ notifs: { ...get().notifs, daily: false } });
+        }
+        return granted;
+      },
       setCurrency: (currency) => set({ currency }),
       setPlan: (planPick) => set({ planPick }),
       upgrade: () => set({ premium: true }),
       setRegion: (region) => set({ region }),
+      // Non-FR/EN picks fall back to the declared default interface language (EN).
       setAppLang: (appLang) =>
-        set({ appLang, lang: appLang === 'en' ? 'en' : appLang === 'fr' ? 'fr' : get().lang }),
+        set({ appLang, lang: appLang === 'fr' ? 'fr' : 'en' }),
       setField: (k, v) => set({ [k]: v } as Partial<AppState>),
       signIn: (email, name) =>
         set({ signedIn: true, email: email ?? get().email, userName: name ?? get().userName }),
       signOut: () =>
-        set({ signedIn: false, onboarded: false }),
+        set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest' }),
       completeOnboarding: (level) => set({ level, onboarded: true, signedIn: true }),
       clearReview: () => set({ reviewCleared: true, reviewDue: 0 }),
     }),
     {
       name: 'ealch-store',
+      version: 2,
+      // v0 → v1: language used to be hardcoded French; re-derive from the device.
+      // v1 → v2: 'Maya' was a hardcoded placeholder identity, never user-entered;
+      // clear it so the no-name greeting applies until the user sets a real name.
+      migrate: (persisted, version) => {
+        const s = persisted as Partial<AppState>;
+        if (version === 0) {
+          s.lang = deviceLang();
+          s.appLang = s.lang;
+        }
+        if (version <= 1 && s.userName === 'Maya') {
+          s.userName = '';
+        }
+        return s as AppState;
+      },
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (s) => ({
         lang: s.lang,
@@ -141,6 +218,7 @@ export const useStore = create<AppState>()(
         accent: s.accent,
         sound: s.sound,
         alarmTime: s.alarmTime,
+        clock24: s.clock24,
         notifs: s.notifs,
         goal: s.goal,
         exp: s.exp,
@@ -149,6 +227,7 @@ export const useStore = create<AppState>()(
         region: s.region,
         userName: s.userName,
         email: s.email,
+        accountType: s.accountType,
         signedIn: s.signedIn,
         onboarded: s.onboarded,
         currency: s.currency,
@@ -160,8 +239,11 @@ export const useStore = create<AppState>()(
         weekDots: s.weekDots,
         freeze: s.freeze,
       }),
-      onRehydrateStorage: () => (state) => {
-        state?.setHydrated();
+      // Always flip `hydrated`, even when rehydration fails or yields no state —
+      // a corrupt AsyncStorage entry must never brick startup.
+      onRehydrateStorage: () => (state, error) => {
+        if (state && !error) state.setHydrated();
+        else useStore.setState({ hydrated: true });
       },
     }
   )

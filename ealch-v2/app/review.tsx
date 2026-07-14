@@ -68,8 +68,8 @@ export default function Review() {
 
         {/* Card meta */}
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 14 }}>
-          <View style={{ height: 20, paddingHorizontal: 9, borderRadius: 10, backgroundColor: it.tagBg, alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="bold" size={9} ls={1} color={it.tagC}>
+          <View style={{ height: 20, paddingHorizontal: 9, borderRadius: 10, backgroundColor: t.tag(it.tone).bg, alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="bold" size={9} ls={1} color={t.tag(it.tone).c}>
               {it.type}
             </TX>
           </View>
@@ -79,7 +79,7 @@ export default function Review() {
         </View>
 
         {/* Card */}
-        <View style={{ borderRadius: 24, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, paddingVertical: 34, paddingHorizontal: 26, minHeight: 260, alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
+        <View style={{ borderRadius: 24, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, ...t.cardShadow, paddingVertical: 34, paddingHorizontal: 26, minHeight: 260, alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
           <TX font="serif" size={38} lh={44} center>
             {it.prompt}
           </TX>

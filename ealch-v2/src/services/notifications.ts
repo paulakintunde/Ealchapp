@@ -28,6 +28,8 @@ export const notifications = {
           type: Notifications.SchedulableTriggerInputTypes.DAILY,
           hour: h,
           minute: m,
+          // channel created at startup in app/_layout.tsx (required Android 8+)
+          channelId: 'practice-reminders',
         },
       });
     } catch {

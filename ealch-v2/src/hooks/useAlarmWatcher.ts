@@ -6,6 +6,14 @@ import { sound } from '@/services';
 /** Watches the device clock; fires the in-app practice banner at the alarm time. */
 export function useAlarmWatcher() {
   const lastFired = useRef('');
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const alarmTime = useStore((s) => s.alarmTime);
+
+  // A new alarm time is a new alarm: it may fire again today, including
+  // immediately when set to the current minute.
+  useEffect(() => {
+    lastFired.current = '';
+  }, [alarmTime]);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -20,9 +28,13 @@ export function useAlarmWatcher() {
         lastFired.current = day;
         showBanner(alarmTime);
         sound.play('ding');
-        setTimeout(() => hideBanner(), 12000);
+        if (hideTimer.current) clearTimeout(hideTimer.current);
+        hideTimer.current = setTimeout(() => hideBanner(), 12000);
       }
     }, 15000);
-    return () => clearInterval(id);
+    return () => {
+      clearInterval(id);
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+    };
   }, []);
 }

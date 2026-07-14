@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Animated, Easing, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
+import { RadialGlow } from '@/components/RadialGlow';
 import { TX } from '@/components/Type';
 import { useTheme } from '@/theme/useTheme';
 
@@ -36,9 +36,14 @@ export default function Splash() {
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg, alignItems: 'center', justifyContent: 'center' }}>
-      <LinearGradient
-        colors={[t.accA(12), 'transparent']}
-        style={{ position: 'absolute', top: '18%', width: 320, height: 320, borderRadius: 160 }}
+      <RadialGlow
+        color={t.acc}
+        opacity={0.16}
+        cx="50%"
+        cy="50%"
+        rx="50%"
+        ry="50%"
+        style={{ top: '10%', height: 440 }}
       />
       <View style={{ width: 150, height: 150, alignItems: 'center', justifyContent: 'center', marginBottom: 26 }}>
         <Animated.View

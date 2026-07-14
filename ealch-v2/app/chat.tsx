@@ -76,24 +76,13 @@ export default function Chat() {
     try {
       reply = await coach.ask(history, lang);
     } catch {
-      reply = lang === 'fr' ? "Réessayez dans un instant." : 'Try again in a moment.';
+      reply = T.chatRetry;
     }
     setTyping(false);
     setMessages((cur) => [...cur, { who: 'ai', text: reply, time: stamp(cur.length) }]);
   };
 
-  const quickReplies =
-    lang === 'fr'
-      ? [
-          { label: 'Pourquoi « je voudrais » ?', msg: 'Pourquoi « je voudrais » et pas « je veux » ?' },
-          { label: 'Expliquer la liaison', msg: 'Explique-moi les liaisons, simplement.' },
-          { label: 'Le plan de demain ?', msg: "Quel est le plan de demain ?" },
-        ]
-      : [
-          { label: 'Why « je voudrais »?', msg: 'Why « je voudrais » and not « je veux »?' },
-          { label: 'Explain the liaison', msg: 'Explain liaisons again, simply.' },
-          { label: "What's next?", msg: "What's tomorrow's plan?" },
-        ];
+  const quickReplies = T.chatSuggs;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
