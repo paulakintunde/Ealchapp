@@ -1,0 +1,117 @@
+.toggle {
+  width: 36px;
+  height: 21px;
+  border-radius: 11px;
+  border: none;
+  background: color-mix(in srgb, var(--sbTx) 25%, transparent);
+  padding: 2.5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+  display: block;
+}
+
+.toggleOn {
+  background: var(--bad);
+}
+
+.toggleDisabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.knob {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background: var(--card);
+  transform: translateX(0);
+  transition: transform 0.2s;
+}
+
+.toggleOn .knob {
+  transform: translateX(13px);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog {
+  width: 340px;
+  max-width: calc(100vw - 48px);
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeUp 0.2s ease both;
+}
+
+.dialogTitle {
+  font-size: 14.5px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.dialogBody {
+  font-size: 12.5px;
+  color: var(--mut);
+  margin-bottom: 16px;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.cancelBtn {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancelBtn:hover {
+  background: var(--bg);
+}
+
+.confirmBtn {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: none;
+  background: var(--acc);
+  color: var(--card);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.confirmDanger {
+  background: var(--bad);
+}
+
+.confirmBtn:hover {
+  opacity: 0.9;
+}
+
+.confirmBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

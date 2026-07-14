@@ -1,0 +1,123 @@
+.page {
+  min-height: 100vh;
+  background: var(--sb);
+  color: var(--sbTx);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 360px;
+  max-width: 100%;
+  background: color-mix(in srgb, var(--sbTx) 4%, var(--sb));
+  border: 1px solid color-mix(in srgb, var(--sbTx) 12%, transparent);
+  border-radius: 14px;
+  padding: 28px;
+  box-sizing: border-box;
+  animation: fadeUp 0.35s ease both;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.logomark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accBright) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accBright) 35%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accBright);
+  flex-shrink: 0;
+}
+
+.wordmark {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.sub {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: color-mix(in srgb, var(--sbTx) 45%, transparent);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--sbTx) 55%, transparent);
+}
+
+.input {
+  height: 38px;
+  border-radius: 9px;
+  border: 1px solid color-mix(in srgb, var(--sbTx) 16%, transparent);
+  background: color-mix(in srgb, var(--sbTx) 6%, transparent);
+  color: var(--sbTx);
+  font-size: 13.5px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input::placeholder {
+  color: color-mix(in srgb, var(--sbTx) 30%, transparent);
+}
+
+.input:focus {
+  border-color: color-mix(in srgb, var(--accBright) 55%, transparent);
+}
+
+.submit {
+  height: 38px;
+  border-radius: 9px;
+  border: none;
+  background: var(--acc);
+  color: var(--card);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.submit:hover {
+  opacity: 0.9;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.error {
+  color: var(--bad);
+  font-size: 12.5px;
+  font-weight: 600;
+}

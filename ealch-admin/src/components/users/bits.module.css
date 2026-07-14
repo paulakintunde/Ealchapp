@@ -1,0 +1,82 @@
+/* Shared users-screen bits: avatar + chips (mock chip spec). */
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9px;
+  white-space: nowrap;
+}
+
+/* Plan tints per mock: Pro = acc, Plus = #4A6CF7, Free = grey. */
+.plan_pro {
+  background: color-mix(in srgb, var(--acc) 13%, transparent);
+  color: var(--acc);
+}
+.plan_plus {
+  background: color-mix(in srgb, #4a6cf7 12%, transparent);
+  color: #4a6cf7;
+}
+.plan_free {
+  background: #eff1ee;
+  color: var(--mut);
+}
+
+.level {
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+/* Status chip with leading dot. */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9px;
+  white-space: nowrap;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.st_active {
+  background: color-mix(in srgb, var(--ok) 12%, transparent);
+  color: var(--ok);
+}
+.st_trial {
+  background: color-mix(in srgb, var(--acc) 12%, transparent);
+  color: var(--acc);
+}
+.st_churn_risk {
+  background: color-mix(in srgb, var(--warn) 12%, transparent);
+  color: var(--warn);
+}
+.st_banned {
+  background: color-mix(in srgb, var(--bad) 12%, transparent);
+  color: var(--bad);
+}
+.st_deleted {
+  background: #eff1ee;
+  color: var(--mut);
+}
+.st_deleted .dot {
+  background: #c4cbc6;
+}

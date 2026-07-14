@@ -1,0 +1,504 @@
+/* Releases & flags screen — rollout card, history, feature flags. */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  align-items: start;
+  animation: fadeUp 0.35s ease both;
+}
+
+.colLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.spacer { flex: 1; }
+
+/* ── Chips ──────────────────────────────────────────────────────────────── */
+.chip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+.chipOk {
+  background: color-mix(in srgb, var(--ok) 12%, transparent);
+  color: var(--ok);
+}
+.chipWarn {
+  background: color-mix(in srgb, var(--warn) 14%, transparent);
+  color: var(--warn);
+}
+.chipBad {
+  background: color-mix(in srgb, var(--bad) 12%, transparent);
+  color: var(--bad);
+}
+.chipStaged {
+  background: color-mix(in srgb, #4A6CF7 12%, transparent);
+  color: #4A6CF7;
+}
+.chipGrey {
+  background: #EFF1EE;
+  color: var(--mut);
+}
+
+/* ── Current rollout ────────────────────────────────────────────────────── */
+.rolloutHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.rolloutTitle {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.rolloutSub {
+  font-size: 12.5px;
+  color: var(--mut);
+  margin-bottom: 16px;
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.bar {
+  flex: 1;
+  height: 9px;
+  border-radius: 5px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 9px;
+  border-radius: 5px;
+  background: var(--acc);
+  transition: width 0.3s;
+}
+
+.bigPct {
+  font-size: 15px;
+  font-weight: 700;
+  width: 44px;
+  text-align: right;
+}
+
+.usersLine {
+  font-size: 11.5px;
+  color: var(--mut);
+  margin-bottom: 14px;
+}
+
+.stepsRow {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.stepBtn {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--mut);
+}
+
+.stepActive {
+  border-color: var(--acc);
+  background: color-mix(in srgb, var(--acc) 9%, transparent);
+  color: var(--acc);
+}
+
+.haltBtn {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--bad) 35%, transparent);
+  background: transparent;
+  color: var(--bad);
+}
+.haltBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Per-platform rows */
+.platList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--line);
+  margin-top: 16px;
+  padding-top: 10px;
+}
+
+.platRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0;
+}
+
+.platName {
+  font-size: 12.5px;
+  font-weight: 600;
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.platPct {
+  font-size: 12.5px;
+  font-weight: 700;
+  width: 40px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Force update row */
+.forceRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+  margin-top: 12px;
+  padding-top: 14px;
+}
+
+.forceText { flex: 1; }
+
+.forceTitle {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.forceSub {
+  font-size: 11.5px;
+  color: var(--mut);
+}
+
+/* ── Toggle (36×21, mock style) ─────────────────────────────────────────── */
+.toggle {
+  width: 36px;
+  height: 21px;
+  border-radius: 11px;
+  background: var(--line);
+  padding: 2.5px;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.toggle:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.knob {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background: #fff;
+  transform: translateX(0);
+  transition: transform 0.2s;
+}
+
+.toggleOn {
+  background: var(--acc);
+}
+.toggleOn .knob {
+  transform: translateX(13px);
+}
+
+/* ── Range slider ───────────────────────────────────────────────────────── */
+.range {
+  flex: 1;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--bg);
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+}
+.range:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  background: var(--acc);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px var(--line);
+  cursor: pointer;
+}
+.range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 7px;
+  background: var(--acc);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px var(--line);
+  cursor: pointer;
+}
+
+/* ── Release history ────────────────────────────────────────────────────── */
+.historyCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.historyTitle {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.histRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.histRow:last-child {
+  border-bottom: none;
+}
+.histRow:hover {
+  background: color-mix(in srgb, var(--acc) 4%, transparent);
+}
+
+.histVer {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: ui-monospace, monospace;
+  width: 56px;
+  flex-shrink: 0;
+}
+
+.histNotes {
+  flex: 1;
+  font-size: 12.5px;
+  color: var(--mut);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.histDate {
+  font-size: 11.5px;
+  color: var(--mut);
+  flex-shrink: 0;
+  width: 48px;
+  text-align: right;
+}
+
+/* ── Feature flags card ─────────────────────────────────────────────────── */
+.flagsCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.flagsHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.flagsTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.flagsSub {
+  font-size: 12px;
+  color: var(--mut);
+  margin-top: 3px;
+}
+
+.envTabs {
+  display: flex;
+  gap: 4px;
+  background: var(--bg);
+  border-radius: 9px;
+  padding: 3px;
+}
+
+.envTab {
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  color: var(--mut);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.envTabActive {
+  background: var(--card);
+  color: var(--acc);
+  box-shadow: 0 1px 2px rgba(14, 17, 20, 0.08);
+}
+
+.flagList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flagRow {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.flagRow:last-child {
+  border-bottom: none;
+}
+
+.flagMain {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flagInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.flagName {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.flagDesc {
+  font-size: 11.5px;
+  color: var(--mut);
+  margin-top: 1px;
+}
+
+.sliderWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 132px;
+  flex-shrink: 0;
+}
+
+.pctLabel {
+  font-size: 11.5px;
+  font-weight: 700;
+  width: 32px;
+  text-align: right;
+}
+
+.lastChanged {
+  font-size: 11px;
+  color: var(--mut);
+  margin-top: 5px;
+}
+
+/* ── Empty / error / loading ────────────────────────────────────────────── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 32px 18px;
+}
+.emptyIcon {
+  font-size: 20px;
+  color: var(--mut);
+}
+.emptyText {
+  font-size: 13px;
+  color: var(--mut);
+}
+
+.errorCard {
+  grid-column: 1 / -1;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 42px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.errorTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+.errorSub {
+  font-size: 12.5px;
+  color: var(--mut);
+}
+.retryBtn {
+  margin-top: 4px;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: 1px solid var(--acc);
+  background: color-mix(in srgb, var(--acc) 9%, transparent);
+  color: var(--acc);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.skRollout {
+  height: 264px;
+  border-radius: 14px;
+}
+.skHistory {
+  height: 236px;
+  border-radius: 14px;
+}
+.skFlags {
+  height: 430px;
+  border-radius: 14px;
+}

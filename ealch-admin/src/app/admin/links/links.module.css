@@ -1,0 +1,427 @@
+/* Link tracking screen — stat cards, table, modal. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeUp 0.35s ease both;
+}
+
+/* ── Stat cards ─────────────────────────────────────────────────────────── */
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.statCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.statLabel {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--mut);
+  text-transform: uppercase;
+}
+
+.statValue {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.deltaOk,
+.deltaBad,
+.deltaMut {
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.deltaOk { color: var(--ok); }
+.deltaBad { color: var(--bad); }
+.deltaMut { color: var(--mut); }
+
+/* ── Table card ─────────────────────────────────────────────────────────── */
+.tableCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.tableHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tableTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.spacer { flex: 1; }
+
+.filterChip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--acc) 12%, transparent);
+  color: var(--acc);
+  cursor: pointer;
+}
+
+.newBtn {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: none;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.pill {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--mut);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pillActive {
+  border-color: var(--acc);
+  background: color-mix(in srgb, var(--acc) 9%, transparent);
+  color: var(--acc);
+}
+
+/* ── Grid rows ──────────────────────────────────────────────────────────── */
+.gridHead,
+.row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.6fr 1fr 0.65fr 0.5fr 72px 0.65fr 110px;
+  gap: 8px;
+  align-items: center;
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.gridHead {
+  padding: 9px 18px;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--mut);
+  text-transform: uppercase;
+}
+
+.row {
+  transition: background 0.12s ease;
+}
+.row:hover {
+  background: color-mix(in srgb, var(--acc) 4%, transparent);
+}
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowArchived > * {
+  opacity: 0.45;
+}
+.rowArchived .actions {
+  opacity: 1;
+}
+
+.slug {
+  font-size: 12.5px;
+  font-weight: 700;
+  font-family: ui-monospace, monospace;
+  color: var(--acc);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dest {
+  font-size: 12px;
+  color: var(--mut);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.campaign {
+  font-size: 12.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9px;
+  text-transform: capitalize;
+}
+.chipEmail {
+  background: color-mix(in srgb, #4A6CF7 12%, transparent);
+  color: #4A6CF7;
+}
+.chipSocial {
+  background: color-mix(in srgb, var(--acc) 12%, transparent);
+  color: var(--acc);
+}
+.chipAds {
+  background: color-mix(in srgb, var(--warn) 12%, transparent);
+  color: var(--warn);
+}
+.chipPodcast {
+  background: color-mix(in srgb, #7C4A9E 12%, transparent);
+  color: #7C4A9E;
+}
+.chipQr {
+  background: #EFF1EE;
+  color: var(--mut);
+}
+
+.clicks {
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.spark {
+  display: flex;
+  align-items: center;
+}
+
+.created {
+  font-size: 12px;
+  color: var(--mut);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.actionBtn {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--acc);
+  cursor: pointer;
+}
+.actionBtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.actionMut {
+  color: var(--mut);
+}
+
+/* ── Empty state ────────────────────────────────────────────────────────── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 42px 18px;
+}
+.emptyIcon {
+  font-size: 22px;
+  color: var(--mut);
+}
+.emptyText {
+  font-size: 13px;
+  color: var(--mut);
+}
+.emptyCta {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--acc);
+}
+.emptyHint {
+  font-size: 12px;
+  color: var(--mut);
+}
+
+/* ── Create-link modal ──────────────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(14, 17, 20, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+
+.modal {
+  width: 420px;
+  max-width: calc(100vw - 40px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  animation: fadeUp 0.25s ease both;
+}
+
+.modalTitle {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--mut);
+  text-transform: uppercase;
+}
+
+.input,
+.select {
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 0 10px;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--card);
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+}
+.input:focus,
+.select:focus {
+  border-color: var(--acc);
+}
+.inputError {
+  border-color: var(--bad);
+}
+
+.slugWrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.slugPrefix {
+  font-size: 12.5px;
+  font-family: ui-monospace, monospace;
+  color: var(--mut);
+  flex-shrink: 0;
+}
+
+.errText {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--bad);
+}
+
+.btnRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.btnGhost {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--mut);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btnPrimary {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: none;
+  background: var(--acc);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btnPrimary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* ── Error / loading ────────────────────────────────────────────────────── */
+.errorCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 42px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.errorTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+.errorSub {
+  font-size: 12.5px;
+  color: var(--mut);
+}
+.retryBtn {
+  margin-top: 4px;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: 1px solid var(--acc);
+  background: color-mix(in srgb, var(--acc) 9%, transparent);
+  color: var(--acc);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.skStat {
+  height: 67px;
+  border-radius: 14px;
+}
+.skHead {
+  height: 59px;
+  border-radius: 0;
+}
+.skRow {
+  height: 43px;
+  border-radius: 0;
+}

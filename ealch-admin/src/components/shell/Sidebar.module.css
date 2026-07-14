@@ -1,0 +1,174 @@
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  background: var(--sb);
+  color: var(--sbTx);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 12px 14px;
+  box-sizing: border-box;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px 18px;
+}
+
+.logomark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accBright) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accBright) 35%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accBright);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.wordmark {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.wordmarkSub {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: color-mix(in srgb, var(--sbTx) 45%, transparent);
+}
+
+.nav {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.groupLabel {
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--sbTx) 38%, transparent);
+  padding: 0 10px 7px;
+}
+
+.groupItems {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 9px;
+  cursor: pointer;
+  background: transparent;
+  color: color-mix(in srgb, var(--sbTx) 72%, transparent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.item:hover {
+  background: color-mix(in srgb, var(--sbTx) 8%, transparent);
+  opacity: 1;
+}
+
+.itemActive,
+.itemActive:hover {
+  background: color-mix(in srgb, var(--accBright) 13%, transparent);
+  color: var(--accBright);
+  font-weight: 700;
+}
+
+.itemLabel {
+  font-size: 13px;
+  flex: 1;
+}
+
+.maintRow {
+  border-top: 1px solid color-mix(in srgb, var(--sbTx) 10%, transparent);
+  padding: 12px 10px 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.maintText {
+  flex: 1;
+}
+
+.maintTitle {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.maintSub {
+  font-size: 10.5px;
+  color: color-mix(in srgb, var(--sbTx) 45%, transparent);
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 0;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accBright), var(--acc));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #0b100f;
+  flex-shrink: 0;
+}
+
+.userMeta {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userRole {
+  font-size: 10.5px;
+  color: color-mix(in srgb, var(--sbTx) 45%, transparent);
+}
+
+.signOut {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--sbTx) 55%, transparent);
+  cursor: pointer;
+}
+
+.signOut:hover {
+  color: var(--sbTx);
+}

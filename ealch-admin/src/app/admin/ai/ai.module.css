@@ -1,0 +1,367 @@
+/* AI model routing — mock-exact card grid + radio rows + spend strip. */
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeUp 0.35s ease both;
+}
+
+/* ── Header row ─────────────────────────────────────────────────────────── */
+.headRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.headNote {
+  font-size: 12.5px;
+  color: var(--mut);
+  flex: 1;
+}
+.applyBtn {
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: var(--acc);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 18px;
+  cursor: pointer;
+}
+.applyBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.readOnlyChip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--mut) 12%, transparent);
+  color: var(--mut);
+}
+
+/* ── Capability cards ───────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.capHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 3px;
+}
+.capIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--acc) 10%, transparent);
+  color: var(--acc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.capLabel {
+  font-size: 14px;
+  font-weight: 700;
+  flex: 1;
+}
+.capVol {
+  font-size: 11.5px;
+  color: var(--mut);
+}
+.capDesc {
+  font-size: 12px;
+  color: var(--mut);
+  margin: 0 0 12px 40px;
+}
+
+/* ── Radio rows (mock-exact) ────────────────────────────────────────────── */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 13px;
+  border-radius: 11px;
+  cursor: pointer;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+.opt:disabled {
+  cursor: default;
+}
+.optSelected {
+  border-color: var(--acc);
+  background: color-mix(in srgb, var(--acc) 6%, transparent);
+}
+.optDisabled {
+  opacity: 0.45;
+}
+.radio {
+  width: 15px;
+  height: 15px;
+  border-radius: 8px;
+  border: 1.5px solid #C4CBC6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.optSelected .radio {
+  border-color: var(--acc);
+}
+.radioDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  background: transparent;
+}
+.optSelected .radioDot {
+  background: var(--acc);
+}
+.optMain {
+  flex: 1;
+  min-width: 0;
+}
+.optName {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+}
+.optMeta {
+  display: block;
+  font-size: 11px;
+  color: var(--mut);
+}
+.optRight {
+  text-align: right;
+  flex-shrink: 0;
+}
+.optCost {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+.optLat {
+  display: block;
+  font-size: 10px;
+  color: var(--mut);
+}
+
+/* ── Monthly-spend summary strip ────────────────────────────────────────── */
+.strip {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.stripLabel {
+  font-size: 13px;
+  font-weight: 700;
+}
+.stripTotal {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--acc);
+}
+.stripNote {
+  font-size: 12px;
+  color: var(--mut);
+}
+.stripSpacer {
+  flex: 1;
+}
+.stripStrong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── Confirm modal ──────────────────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(14, 17, 20, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+.modal {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 22px;
+  width: 440px;
+  max-width: calc(100vw - 48px);
+  box-shadow: 0 18px 50px rgba(14, 17, 20, 0.25);
+  animation: fadeUp 0.2s ease both;
+}
+.modalTitle {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.modalNote {
+  font-size: 12.5px;
+  color: var(--mut);
+  margin-bottom: 14px;
+}
+.changeList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.changeRow {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  font-size: 12.5px;
+}
+.changeCap {
+  font-weight: 600;
+  flex: 0 0 140px;
+}
+.changeFrom {
+  color: var(--mut);
+}
+.changeArrow {
+  color: var(--mut);
+}
+.changeTo {
+  font-weight: 600;
+}
+.modalBtns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.btnGhost {
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  padding: 0 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+.btnAcc {
+  height: 32px;
+  border: none;
+  border-radius: 10px;
+  background: var(--acc);
+  color: #fff;
+  padding: 0 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ── Empty / error states ───────────────────────────────────────────────── */
+.empty {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeUp 0.35s ease both;
+}
+.emptyIcon {
+  font-size: 22px;
+  color: var(--acc);
+}
+.emptyLine {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.emptyCta {
+  font-size: 12px;
+  color: var(--mut);
+}
+.emptyCta code {
+  font-family: ui-monospace, monospace;
+  font-size: 11.5px;
+  background: color-mix(in srgb, var(--mut) 10%, transparent);
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+
+.errorCard {
+  composes: empty;
+}
+.errorTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+.errorMsg {
+  font-size: 12.5px;
+  color: var(--mut);
+}
+.retryBtn {
+  margin-top: 6px;
+  height: 32px;
+  border: none;
+  border-radius: 10px;
+  background: var(--acc);
+  color: #fff;
+  padding: 0 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ── Loading skeleton (sized to final content — no layout shift) ────────── */
+.skelHead {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.skelHeadNote {
+  height: 14px;
+  width: 420px;
+}
+.skelHeadBtn {
+  height: 34px;
+  width: 132px;
+  margin-left: auto;
+  border-radius: 10px;
+}
+.skelCard {
+  height: 262px;
+  border-radius: 14px;
+}
+.skelStrip {
+  height: 61px;
+  border-radius: 14px;
+}

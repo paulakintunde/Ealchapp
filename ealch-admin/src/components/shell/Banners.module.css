@@ -1,0 +1,49 @@
+.maintenance {
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--bad) 10%, var(--card));
+  border-bottom: 1px solid color-mix(in srgb, var(--bad) 30%, transparent);
+  color: var(--bad);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 9px 22px;
+}
+
+.anomaly {
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--warn) 9%, var(--card));
+  border-bottom: 1px solid color-mix(in srgb, var(--warn) 28%, transparent);
+  font-size: 12.5px;
+  padding: 9px 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.anomalyTag {
+  color: var(--warn);
+  font-weight: 700;
+}
+
+.anomalyText {
+  color: color-mix(in srgb, var(--warn) 55%, var(--ink));
+}
+
+.anomalyLink {
+  color: var(--acc);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.dismiss {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--mut);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
