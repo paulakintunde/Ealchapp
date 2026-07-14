@@ -26,6 +26,8 @@ export type Strings = {
   queueOn: string; queueOff: string;
   end: string; cont: string; why: string;
   micIdle: string; micRec: string; micDone: string;
+  micHeard: string; micNoSpeech: string; micDenied: string; micUnavail: string;
+  micGood: string; micClose: string; micOff: string;
   youSaid: string; liaisonChip: string;
   reportTag: string; review: string; replay: string; talk: string;
   traj: string; conf: string;
@@ -94,7 +96,11 @@ export type Strings = {
   welcomeWord: string; guestName: string;
   continueGuest: string; emailPh: string;
   errEmail: string; errPw: string; errCreds: string; errSignIn: string; errSignUp: string;
-  resetSent: string; errReset: string;
+  resetSent: string; errReset: string; errAuthUnavailable: string;
+  resetTag: string; resetTitle: string; resetSub: string; resetInvalid: string;
+  newPwPh: string; setNewPw: string; backToSignIn: string; errResetFailed: string;
+  pwShow: string; pwHide: string;
+  legalPre: string; legalTerms: string; legalAnd: string; legalPrivacy: string; legalPost: string;
   freezeLeft: string; freezeNote: string; streakWord: string;
   levelNames: { A1: string; B1: string };
   dayLetters: string[];
@@ -132,6 +138,10 @@ export const T: Record<Lang, Strings> = {
     queueOn: 'Dans votre pratique ✓', queueOff: 'File de pratique',
     end: 'Terminer', cont: 'Continuer →', why: 'Pourquoi ?',
     micIdle: 'Touchez pour parler', micRec: 'Dites-le à voix haute…', micDone: 'Comparez avec la réponse modèle — réessayez ou continuez',
+    micHeard: 'ENTENDU', micNoSpeech: 'Je n’ai rien entendu — réessayez',
+    micDenied: 'Accès au micro refusé — activez-le dans les réglages de votre téléphone',
+    micUnavail: 'Micro indisponible sur cette version — comparez vous-même',
+    micGood: 'Bien dit', micClose: 'Presque — réessayez', micOff: 'Pas tout à fait',
     youSaid: 'UNE RÉPONSE MODÈLE — À DIRE À VOIX HAUTE', liaisonChip: 'Attention à la liaison · un‿allongé',
     reportTag: 'EXEMPLE — VOTRE RAPPORT DU SOIR', review: 'À revoir', replay: 'Rejouer', talk: 'Parler au coach',
     traj: 'B1 → B1+ trajectoire', conf: 'CONFIANCE',
@@ -232,6 +242,19 @@ export const T: Record<Lang, Strings> = {
     errSignUp: 'Création du compte impossible — réessayez.',
     resetSent: 'Lien envoyé — vérifiez votre boîte mail.',
     errReset: 'Envoi impossible — réessayez dans un instant.',
+    errAuthUnavailable: 'Connexion au serveur impossible. Vérifiez votre réseau et réessayez.',
+    resetTag: 'RÉINITIALISATION',
+    resetTitle: 'Nouveau mot de passe.',
+    resetSub: 'Choisissez un mot de passe d’au moins 8 caractères. Vous serez connecté aussitôt.',
+    resetInvalid: 'Ce lien est invalide ou a expiré. Demandez-en un nouveau depuis l’écran de connexion.',
+    newPwPh: 'Nouveau mot de passe', setNewPw: 'Enregistrer le mot de passe', backToSignIn: 'Retour à la connexion',
+    errResetFailed: 'Impossible de mettre à jour le mot de passe — réessayez.',
+    pwShow: 'Afficher le mot de passe', pwHide: 'Masquer le mot de passe',
+    legalPre: "En créant un compte, vous acceptez les ",
+    legalTerms: "conditions d'utilisation",
+    legalAnd: ' et la ',
+    legalPrivacy: 'politique de confidentialité',
+    legalPost: " d'Ealch. En fournissant votre e-mail, vous consentez à recevoir les communications d'Ealch. Vous pouvez vous désabonner à tout moment.",
     freezeLeft: '✦ {n} GEL RESTANT',
     freezeNote: 'Mercredi gelé ✦ — série protégée. 1 gel par semaine, utilisé automatiquement.',
     streakWord: 'jours de suite',
@@ -294,6 +317,10 @@ export const T: Record<Lang, Strings> = {
     queueOn: 'In your practice ✓', queueOff: 'Practice queue',
     end: 'End', cont: 'Continue →', why: 'Why?',
     micIdle: 'Tap to speak', micRec: 'Say it out loud…', micDone: 'Compare with the model reply — retry or continue',
+    micHeard: 'HEARD', micNoSpeech: 'Didn’t catch that — try again',
+    micDenied: 'Microphone access denied — turn it on in your phone’s settings',
+    micUnavail: 'Mic unavailable on this build — compare it yourself',
+    micGood: 'Well said', micClose: 'Close — try again', micOff: 'Not quite',
     youSaid: 'A MODEL REPLY — SAY IT ALOUD', liaisonChip: 'Mind the liaison · un‿allongé',
     reportTag: 'SAMPLE — YOUR EVENING REPORT', review: 'To review', replay: 'Replay', talk: 'Talk to the coach',
     traj: 'B1 → B1+ trajectory', conf: 'CONFIDENCE',
@@ -394,6 +421,19 @@ export const T: Record<Lang, Strings> = {
     errSignUp: 'Could not create the account — try again.',
     resetSent: 'Reset link sent — check your inbox.',
     errReset: 'Could not send the reset email — try again shortly.',
+    errAuthUnavailable: 'Cannot reach the server. Check your connection and try again.',
+    resetTag: 'PASSWORD RESET',
+    resetTitle: 'Set a new password.',
+    resetSub: 'Choose a password of at least 8 characters. You’ll be signed in straight away.',
+    resetInvalid: 'This link is invalid or has expired. Request a new one from the sign-in screen.',
+    newPwPh: 'New password', setNewPw: 'Save password', backToSignIn: 'Back to sign in',
+    errResetFailed: 'Could not update the password — try again.',
+    pwShow: 'Show password', pwHide: 'Hide password',
+    legalPre: "By signing up you agree to Ealch's ",
+    legalTerms: 'Terms of Use',
+    legalAnd: ' and ',
+    legalPrivacy: 'Privacy Policy',
+    legalPost: '. By providing your email, you consent to receive communications from Ealch. You can opt out anytime.',
     freezeLeft: '✦ {n} FREEZE LEFT',
     freezeNote: 'Wednesday was frozen ✦ — streak protected. 1 freeze per week, used automatically.',
     streakWord: 'day streak',

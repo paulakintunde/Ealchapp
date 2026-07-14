@@ -6,9 +6,9 @@ export const FLAGS = {
   // Google without Sign in with Apple triggers guideline 4.8.
   oauth: false,
 
-  // "Forgot password?" — the send-reset-email flow is wired; the link is only
-  // rendered when Supabase is configured (there is nothing to send offline).
-  // Completing the reset (the emailed link → set-new-password) still needs the
-  // Supabase project's redirect URL / email template configured (Gate 5).
+  // "Forgot password?" — fully wired end to end: resetPasswordForEmail sends a
+  // link to RESET_REDIRECT (ealch://reset), and app/reset.tsx exchanges the
+  // recovery tokens for a session and sets the new password.
+  // Requires `ealch://reset` in Supabase → Auth → URL Configuration → Redirect URLs.
   forgotPassword: true,
 };

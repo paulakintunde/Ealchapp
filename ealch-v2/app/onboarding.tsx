@@ -14,8 +14,10 @@ import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { ACCENTS } from '@/theme/palette';
 import { langs } from '@/content';
-import { auth, hasSupabase, sound, stt } from '@/services';
+import { auth, sound, stt, type SttResult } from '@/services';
+import { AUTH_UNAVAILABLE } from '@/services/auth';
 import { FLAGS } from '@/services/flags';
+import { PasswordField, LegalConsent } from '@/components/AuthFields';
 import {
   goalsData,
   expData,
@@ -77,6 +79,8 @@ export default function Onboarding() {
   const s = useStore();
   const [step, setStep] = useState(0);
   const [calib, setCalib] = useState<'idle' | 'rec' | 'done'>('idle');
+  const [calibPartial, setCalibPartial] = useState('');
+  const [calibHeard, setCalibHeard] = useState<SttResult | null>(null);
   const [showWheel, setShowWheel] = useState(false);
   const [password, setPassword] = useState('');
   const [acctErr, setAcctErr] = useState<string | null>(null);
@@ -121,6 +125,11 @@ export default function Onboarding() {
   const beginner = isBeginnerExp(s.exp);
   const level = beginner ? 'A1' : 'B1';
 
+  // The exact sentence the mic check listens for (guillemets are display-only).
+  const calibPhrase = s.userName.trim()
+    ? `Bonjour, je m'appelle ${s.userName.trim()} et j'apprends le français depuis longtemps.`
+    : "Bonjour, j'apprends le français depuis longtemps.";
+
   const finish = () => {
     sound.play('ding');
     if (s.accountType === 'email' && s.userName.trim()) {
@@ -144,22 +153,17 @@ export default function Onboarding() {
       return;
     }
     setAcctErr(null);
-    if (hasSupabase()) {
-      setAcctPending(true);
-      const res = await auth.signUpWithEmail(email, password);
-      if (!mounted.current || stepRef.current !== 1) return;
-      setAcctPending(false);
-      if (!res.ok) {
-        sound.play('error');
-        setAcctErr(res.error ?? T.errSignUp);
-        return;
-      }
-      s.setField('email', res.email ?? email);
-      s.setField('accountType', 'email');
-    } else {
-      // Offline / unconfigured: keep the graceful local-guest path.
-      s.setField('accountType', 'guest');
+    setAcctPending(true);
+    const res = await auth.signUpWithEmail(email, password);
+    if (!mounted.current || stepRef.current !== 1) return;
+    setAcctPending(false);
+    if (!res.ok) {
+      sound.play('error');
+      setAcctErr(res.error === AUTH_UNAVAILABLE ? T.errAuthUnavailable : (res.error ?? T.errSignUp));
+      return;
     }
+    s.setField('email', res.email ?? email);
+    s.setField('accountType', 'email');
     next();
   };
 
@@ -179,15 +183,30 @@ export default function Onboarding() {
     next();
   };
 
-  const doCalib = () => {
-    if (calib === 'rec') return;
+  // The mic check. It records for real: the phrase on screen is the target, and
+  // what the recognizer heard is shown back. It does NOT set the level — that
+  // comes from the experience question at step 5 — so this screen no longer
+  // implies an assessment it isn't making.
+  const doCalib = async () => {
+    if (calib === 'rec') {
+      stt.stop();
+      return;
+    }
     sound.play('tap');
+    setCalibPartial('');
+    setCalibHeard(null);
     setCalib('rec');
-    stt.listen(s.userName, { durationMs: 2600 }).then(() => {
-      if (!mounted.current || stepRef.current !== 9) return;
-      setCalib('done');
-      setStep(10);
+
+    const res = await stt.listen(calibPhrase, {
+      maxMs: 10000,
+      onPartial: setCalibPartial,
     });
+
+    if (!mounted.current || stepRef.current !== 9) return;
+    setCalibPartial('');
+    setCalibHeard(res);
+    setCalib('done');
+    sound.play(res.ok ? 'success' : 'flip');
   };
 
   const showHead = step >= 1 && step <= 9;
@@ -246,13 +265,15 @@ export default function Onboarding() {
               {T.obCreateT}
             </TX>
             <Field placeholder={T.emailPh} value={s.email} onChangeText={(v) => s.setField('email', v)} keyboardType="email-address" autoCapitalize="none" />
-            <Field placeholder={T.passwordPh} value={password} onChangeText={setPassword} secureTextEntry />
+            <PasswordField placeholder={T.passwordPh} value={password} onChangeText={setPassword} onSubmitEditing={() => void submitAccount()} />
             {acctErr ? (
               <TX size={12} lh={17} color={t.danger} style={{ marginTop: 2, marginBottom: 10 }}>
                 {acctErr}
               </TX>
             ) : null}
             <Button label={T.continueT} onPress={submitAccount} disabled={acctPending} style={{ height: 54, marginTop: 6 }} />
+            {/* Consent is disclosed at the moment of account creation. */}
+            <LegalConsent />
             <Press onPress={continueAsGuest} style={{ alignItems: 'center', marginTop: 18 }}>
               <TX font="semi" size={13.5} color={t.acc}>
                 {T.continueGuest}
@@ -505,26 +526,58 @@ export default function Onboarding() {
             </TX>
             <View style={{ borderRadius: 20, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.input, padding: 26, marginBottom: 30 }}>
               <TX font="serifI" size={24} lh={33}>
-                {s.userName
-                  ? `« Bonjour, je m'appelle ${s.userName} et j'apprends le français depuis longtemps. »`
-                  : "« Bonjour, j'apprends le français depuis longtemps. »"}
+                « {calibPhrase} »
               </TX>
             </View>
             <View style={{ alignItems: 'center', marginBottom: 26 }}>
               <Waveform count={30} height={38} color={calib === 'rec' ? t.acc : t.txA(28)} active={calib === 'rec'} barWidth={3} gap={4} />
             </View>
+
+            {/* What the recognizer heard. Empty until it hears something — this
+                screen never claims to have understood speech it didn't get. */}
+            {calib === 'done' && calibHeard ? (
+              <View style={{ marginBottom: 22, paddingHorizontal: 4 }}>
+                {calibHeard.ok ? (
+                  <>
+                    <TX font="semi" size={9} ls={2.4} color={t.txA(40)} style={{ marginBottom: 6 }}>
+                      {T.micHeard} · {Math.round(calibHeard.score * 100)}%
+                    </TX>
+                    <TX font="serifI" size={17} lh={24} color={t.txA(80)}>
+                      « {calibHeard.transcript} »
+                    </TX>
+                  </>
+                ) : (
+                  <TX size={13} lh={19} color={t.txA(50)}>
+                    {calibHeard.error === 'not-allowed'
+                      ? T.micDenied
+                      : !calibHeard.available
+                        ? T.micUnavail
+                        : T.micNoSpeech}
+                  </TX>
+                )}
+              </View>
+            ) : null}
+
             <View style={{ alignItems: 'center', gap: 16 }}>
               <Press
-                onPress={doCalib}
+                onPress={() => void doCalib()}
                 cue={null}
                 style={{ width: 76, height: 76, borderRadius: 38, alignItems: 'center', justifyContent: 'center', backgroundColor: calib === 'rec' ? t.acc : 'transparent', borderWidth: 1, borderColor: calib === 'rec' ? t.acc : t.line(22) }}
               >
                 <Icon name="mic" size={26} color={calib === 'rec' ? t.accInk : t.tx} />
               </Press>
               <TX size={12} ls={1.4} color={t.txA(50)} center style={{ textTransform: 'uppercase' }}>
-                {calib === 'rec' ? T.obCalibRec : T.obCalibTap}
+                {calib === 'rec' ? calibPartial || T.obCalibRec : T.obCalibTap}
               </TX>
             </View>
+
+            {/* The mic check gates nothing — it can always be skipped. */}
+            <Button
+              label={calib === 'done' ? T.continueT : T.skipT}
+              variant={calib === 'done' ? 'primary' : 'outline'}
+              onPress={() => setStep(10)}
+              style={{ marginTop: 'auto' }}
+            />
           </View>
         ) : null}
 

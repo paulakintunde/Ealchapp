@@ -11,7 +11,7 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
-import { sound, tts, stt } from '@/services';
+import { sound, tts, stt, type SttResult } from '@/services';
 import { coachLines } from '@/content';
 
 type Phase = 'idle' | 'listening' | 'analysed';
@@ -73,6 +73,8 @@ export default function Speak() {
   const [coachIx, setCoachIx] = useState(0);
   const [phase, setPhase] = useState<Phase>('idle');
   const [speaking, setSpeaking] = useState(false);
+  const [partial, setPartial] = useState('');
+  const [heard, setHeard] = useState<SttResult | null>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const speakLabel = T.speakScene;
@@ -95,21 +97,34 @@ export default function Speak() {
     speakLine(0);
     return () => {
       tts.stop();
+      stt.abort();
       timers.current.forEach(clearTimeout);
       timers.current = [];
     };
   }, [speakLine]);
 
-  const micTap = () => {
-    if (listening) return;
+  // Tap once to record; the recognizer finalises on end-of-speech (or at 7s).
+  // Tap again while listening to finish early.
+  const micTap = async () => {
+    if (listening) {
+      stt.stop();
+      return;
+    }
     sound.play('tap');
+    setPartial('');
+    setHeard(null);
     setPhase('listening');
-    // Nothing is recorded — the pause paces the reply, then the model answer
-    // is shown for self-comparison. Neutral cue, not a success claim.
-    stt.listen(coach.fr, { durationMs: 1800 }).then(() => {
-      sound.play('flip');
-      setPhase('analysed');
+
+    const res = await stt.listen(coach.fr, {
+      maxMs: 7000,
+      onPartial: setPartial,
     });
+
+    setPartial('');
+    setHeard(res);
+    // Only claim success when the recognizer actually agreed with the target.
+    sound.play(res.ok && res.verdict === 'good' ? 'success' : 'flip');
+    setPhase('analysed');
   };
 
   const coachNext = () => {
@@ -117,6 +132,8 @@ export default function Speak() {
     const next = Math.min(coachIx + 1, coachLines.length - 1);
     setCoachIx(next);
     setPhase('idle');
+    setPartial('');
+    setHeard(null);
     speakLine(next);
   };
 
@@ -131,7 +148,22 @@ export default function Speak() {
   };
 
   const micIcon = listening ? t.accInk : t.tx;
-  const micCaption = listening ? T.micRec : analysed ? T.micDone : T.micIdle;
+
+  // The caption tells the truth about what the recognizer did — it never
+  // implies a success the mic did not actually hear.
+  const micCaption = (() => {
+    if (listening) return partial || T.micRec;
+    if (!analysed || !heard) return T.micIdle;
+    if (heard.ok) return T.micDone;
+    if (heard.error === 'not-allowed') return T.micDenied;
+    if (!heard.available) return T.micUnavail;
+    return T.micNoSpeech;
+  })();
+
+  const verdictColor =
+    heard?.verdict === 'good' ? t.acc : heard?.verdict === 'close' ? t.tx : t.danger;
+  const verdictLabel =
+    heard?.verdict === 'good' ? T.micGood : heard?.verdict === 'close' ? T.micClose : T.micOff;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bgDeep }}>
@@ -205,6 +237,22 @@ export default function Speak() {
       <View style={{ flex: 1, justifyContent: 'flex-end', paddingHorizontal: 26, paddingBottom: 18 }}>
         {analysed ? (
           <View style={{ borderRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.blend(t.card2, t.bgDeep, 85), padding: 18 }}>
+            {/* What the recognizer actually heard, scored against Camille's line. */}
+            {heard?.ok ? (
+              <View style={{ marginBottom: 14, paddingBottom: 14, borderBottomWidth: 1, borderBottomColor: t.line(8) }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+                  <TX font="semi" size={9} ls={2.4} color={t.txA(40)}>
+                    {T.micHeard}
+                  </TX>
+                  <TX font="semi" size={10} color={verdictColor}>
+                    · {verdictLabel} · {Math.round(heard.score * 100)}%
+                  </TX>
+                </View>
+                <TX font="serifI" size={17} lh={24} color={t.txA(85)}>
+                  « {heard.transcript} »
+                </TX>
+              </View>
+            ) : null}
             <TX font="semi" size={9} ls={2.4} color={t.txA(40)} style={{ marginBottom: 8 }}>
               {T.youSaid}
             </TX>

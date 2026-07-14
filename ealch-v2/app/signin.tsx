@@ -5,10 +5,12 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, Button } from '@/components/ui';
 import { RadialGlow } from '@/components/RadialGlow';
+import { PasswordField } from '@/components/AuthFields';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { auth, hasSupabase, sound } from '@/services';
+import { AUTH_UNAVAILABLE } from '@/services/auth';
 import { FLAGS } from '@/services/flags';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -37,13 +39,6 @@ export default function SignIn() {
     sound.play('flip');
     setError(null);
 
-    if (!hasSupabase()) {
-      // Pure-offline dev: no auth backend exists, accept a local demo session.
-      const res = await auth.signInWithEmail(email || 'maya@ealch.app', password || 'demo');
-      enterApp(res.email, 'guest');
-      return;
-    }
-
     if (!email.trim() || !password) {
       sound.play('error');
       setError(T.errCreds);
@@ -54,7 +49,7 @@ export default function SignIn() {
     setPending(false);
     if (!res.ok) {
       sound.play('error');
-      setError(res.error ?? T.errSignIn);
+      setError(res.error === AUTH_UNAVAILABLE ? T.errAuthUnavailable : (res.error ?? T.errSignIn));
       return;
     }
     enterApp(res.email, 'email');
@@ -74,7 +69,7 @@ export default function SignIn() {
     if (!res.ok) {
       sound.play('error');
       setReset('idle');
-      setError(res.error === 'offline' ? T.errReset : (res.error ?? T.errReset));
+      setError(res.error === AUTH_UNAVAILABLE ? T.errAuthUnavailable : (res.error ?? T.errReset));
       return;
     }
     sound.play('success');
@@ -126,7 +121,7 @@ export default function SignIn() {
         {T.helloAgain}
       </TX>
       {field({ placeholder: T.emailPh, value: email, onChangeText: setEmail, keyboardType: 'email-address', autoCapitalize: 'none' })}
-      {field({ placeholder: T.passwordPh, value: password, onChangeText: setPassword, secureTextEntry: true })}
+      <PasswordField placeholder={T.passwordPh} value={password} onChangeText={setPassword} onSubmitEditing={doSignIn} />
       {error ? (
         <TX size={12} lh={17} color={t.danger} style={{ marginBottom: 10 }}>
           {error}

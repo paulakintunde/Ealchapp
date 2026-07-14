@@ -33,6 +33,8 @@ export type IconName =
   | 'user'
   | 'pencil'
   | 'clock'
+  | 'eye'
+  | 'eyeOff'
   | 'apple'
   | 'google'
   // Voice Flash glyphs (52x52)
@@ -83,6 +85,15 @@ const ICONS: Record<IconName, Spec> = {
   user: { vb: 24, stroke: ['M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', 'M4 21a8 8 0 0 1 16 0'] },
   pencil: { vb: 24, stroke: ['M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z'] },
   clock: { vb: 24, stroke: ['M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z', 'M12 7v5l3.5 2'] },
+  eye: { vb: 24, stroke: ['M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z', 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'] },
+  eyeOff: {
+    vb: 24,
+    stroke: [
+      'M10.6 5.1A9.9 9.9 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.4 3.3M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.7 9.7 0 0 0 4.5-1',
+      'M9.9 9.9a3 3 0 0 0 4.2 4.2',
+      'M3 3l18 18',
+    ],
+  },
   apple: {
     vb: 24,
     fill: [

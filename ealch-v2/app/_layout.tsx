@@ -74,6 +74,7 @@ export default function RootLayout() {
               <Stack.Screen name="splash" options={{ animation: 'none' }} />
               <Stack.Screen name="onboarding" />
               <Stack.Screen name="signin" options={{ animation: 'slide_from_bottom' }} />
+              <Stack.Screen name="reset" options={{ animation: 'slide_from_bottom' }} />
               <Stack.Screen name="home" />
               <Stack.Screen name="den" />
               <Stack.Screen name="lesson" options={{ animation: 'slide_from_right' }} />

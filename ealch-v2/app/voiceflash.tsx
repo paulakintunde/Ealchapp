@@ -10,7 +10,7 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
-import { sound, tts, stt } from '@/services';
+import { sound, tts, stt, type SttResult } from '@/services';
 import { vfItems, type VfIcon } from '@/content';
 
 const ICON_MAP: Record<VfIcon, IconName> = {
@@ -36,6 +36,8 @@ export default function VoiceFlash() {
   const [vfTyped, setVfTyped] = useState('');
   const [vfCorrect, setVfCorrect] = useState<boolean | null>(null);
   const [vfScore, setVfScore] = useState(0);
+  const [vfPartial, setVfPartial] = useState('');
+  const [vfHeard, setVfHeard] = useState<SttResult | null>(null);
   const [promptOn, setPromptOn] = useState(false);
   const promptTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -52,16 +54,40 @@ export default function VoiceFlash() {
     promptTimer.current = setTimeout(() => setPromptOn(false), 1400);
   };
 
-  // Spoken path: nothing is recorded or scored — the pause is a pacing aid.
-  // The answer is then revealed and the user self-assesses (vfCorrect stays
-  // null until they do), so the session score is honest.
+  // Spoken path: the recognizer scores the utterance against the target.
+  // If it heard nothing usable (no mic, denied, silence) vfCorrect stays null
+  // and the user self-assesses, exactly as before — the score stays honest
+  // either way; it is never awarded for a recording that didn't happen.
   const vfMic = async () => {
+    if (vfPhase === 'listening') {
+      stt.stop();
+      return;
+    }
     if (vfPhase !== 'ask') return;
     sound.play('tap');
+    setVfPartial('');
     setVfPhase('listening');
-    await stt.listen(vfIsFr ? item.fr : item.en, { durationMs: 1800 });
-    sound.play('flip');
-    setVfCorrect(null);
+
+    const target = vfIsFr ? item.fr : item.en;
+    const res = await stt.listen(target, {
+      maxMs: 6000,
+      lang: vfIsFr ? 'fr-FR' : 'en-US',
+      onPartial: setVfPartial,
+    });
+
+    setVfPartial('');
+    setVfHeard(res);
+
+    if (res.ok) {
+      const got = res.verdict === 'good';
+      sound.play(got ? 'success' : 'error');
+      setVfCorrect(got);
+      if (got) setVfScore((v) => v + 1);
+    } else {
+      // Nothing was heard — fall back to self-assessment.
+      sound.play('flip');
+      setVfCorrect(null);
+    }
     setVfPhase('result');
   };
 
@@ -87,6 +113,8 @@ export default function VoiceFlash() {
     setVfPhase('ask');
     setVfTyped('');
     setVfCorrect(null);
+    setVfHeard(null);
+    setVfPartial('');
   };
 
   const restart = () => {
@@ -95,6 +123,8 @@ export default function VoiceFlash() {
     setVfPhase('ask');
     setVfTyped('');
     setVfCorrect(null);
+    setVfHeard(null);
+    setVfPartial('');
     setVfScore(0);
   };
 
@@ -231,6 +261,22 @@ export default function VoiceFlash() {
                 <TX font="serifI" size={24} center>
                   « {vfIsFr ? item.fr : item.en} »
                 </TX>
+                {/* What the recognizer heard — shown whenever it heard anything,
+                    so a wrong verdict is always explained rather than asserted. */}
+                {vfHeard?.ok ? (
+                  <TX size={12.5} lh={18} center color={t.txA(50)} style={{ marginTop: 10 }}>
+                    {T.micHeard}: « {vfHeard.transcript} » · {Math.round(vfHeard.score * 100)}%
+                  </TX>
+                ) : null}
+                {vfHeard && !vfHeard.ok ? (
+                  <TX size={12} lh={18} center color={t.txA(45)} style={{ marginTop: 10 }}>
+                    {vfHeard.error === 'not-allowed'
+                      ? T.micDenied
+                      : !vfHeard.available
+                        ? T.micUnavail
+                        : T.micNoSpeech}
+                  </TX>
+                ) : null}
                 {vfCorrect === null ? (
                   <View style={{ flexDirection: 'row', gap: 10, marginTop: 16, alignSelf: 'stretch' }}>
                     <Press

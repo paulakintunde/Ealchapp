@@ -10,7 +10,7 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
-import { sound, tts, stt } from '@/services';
+import { sound, tts, stt, type SttResult } from '@/services';
 import { sbWords, sbShuffle, sbTarget } from '@/content';
 
 type Phase = 'learn' | 'arrange' | 'say' | 'write' | 'passed';
@@ -33,6 +33,8 @@ export default function Sentence() {
   const [openWord, setOpenWord] = useState<number | null>(null);
   const [playW, setPlayW] = useState<number | null>(null);
   const [practiceW, setPracticeW] = useState<number | null>(null);
+  const [saidPartial, setSaidPartial] = useState('');
+  const [said, setSaid] = useState<SttResult | null>(null);
 
   // Timer / lifecycle bookkeeping so nothing fires after unmount.
   const mounted = useRef(true);
@@ -43,6 +45,7 @@ export default function Sentence() {
       mounted.current = false;
       timers.current.forEach(clearTimeout);
       tts.stop();
+      stt.abort();
     };
   }, []);
 
@@ -66,13 +69,18 @@ export default function Sentence() {
     tts.speak(sbWords[i].w, { onDone: () => mounted.current && setPlayW((p) => (p === i ? null : p)) });
     later(() => mounted.current && setPlayW((p) => (p === i ? null : p)), 1600);
   };
+  // Per-word drill: recorded and scored, but a miss is never punished here —
+  // this is the "hear yourself say it" step, so the cue stays encouraging.
   const practiceWord = async (i: number) => {
+    if (practiceW === i) {
+      stt.stop();
+      return;
+    }
     sound.play('tap');
     setPracticeW(i);
-    await stt.listen(sbWords[i].w, { durationMs: 1900 });
+    const res = await stt.listen(sbWords[i].w, { maxMs: 4000 });
     if (!mounted.current) return;
-    // Neutral cue — the pause is a speaking-aloud pacing aid, nothing is scored.
-    sound.play('flip');
+    sound.play(res.ok && res.verdict !== 'off' ? 'success' : 'flip');
     setPracticeW(null);
   };
 
@@ -97,13 +105,20 @@ export default function Sentence() {
 
   // ── SAY ──
   const mic = async () => {
-    if (saying) return;
+    if (saying) {
+      stt.stop();
+      return;
+    }
     sound.play('tap');
     setSaying(true);
-    await stt.listen(sbTarget, { durationMs: 2000 });
+    setSaidPartial('');
+    const res = await stt.listen(sbTarget, { maxMs: 6000, onPartial: setSaidPartial });
     if (!mounted.current) return;
-    // Neutral cue — saying it aloud is unscored; the write step does the checking.
-    sound.play('flip');
+    setSaidPartial('');
+    setSaid(res);
+    // Saying it aloud gates nothing — the write step still does the checking —
+    // but the cue now reflects whether the recognizer actually got the phrase.
+    sound.play(res.ok && res.verdict === 'good' ? 'success' : 'flip');
     setSaying(false);
     setPhase('write');
   };
