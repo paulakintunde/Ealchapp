@@ -10,6 +10,7 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
+import { useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { sbWords, sbShuffle, sbTarget } from '@/content';
 
@@ -24,6 +25,8 @@ export default function Sentence() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+
+  const logSession = useSessionLog();
 
   const [phase, setPhase] = useState<Phase>('learn');
   const [picked, setPicked] = useState<number[]>([]);
@@ -129,6 +132,7 @@ export default function Sentence() {
     if (n.includes('je voudrais un cafe') || n.includes('je voudrais un café')) {
       sound.play('ding');
       setPhase('passed');
+      logSession('sentence', 1);
     } else {
       sound.play('error');
       setErr(true);

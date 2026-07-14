@@ -11,6 +11,7 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
+import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { speeds } from '@/content';
 
@@ -21,6 +22,8 @@ export default function Player() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+
+  const logSession = useSessionLog();
 
   const [progress, setProgress] = useState(0);
   const [playing, setPlaying] = useState(false);
@@ -46,6 +49,17 @@ export default function Player() {
   }, [playing, speedIx]);
 
   useEffect(() => () => tts.stop(), []);
+
+  // Track finish. The tick loop above is a state updater, so the log lives here
+  // rather than inside it; the ref makes a finished track log exactly once no
+  // matter how many renders observe progress at 100.
+  const trackLogged = useRef(false);
+  useEffect(() => {
+    if (progress >= 100 && !trackLogged.current) {
+      trackLogged.current = true;
+      logSession('player', 1);
+    }
+  }, [progress, logSession]);
 
   const mm = Math.floor((progress / 100) * 124);
   const curTime = `${Math.floor(mm / 60)}:${String(mm % 60).padStart(2, '0')}`;

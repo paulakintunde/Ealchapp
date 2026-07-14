@@ -9,6 +9,7 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
+import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { deck } from '@/content';
 
@@ -17,6 +18,8 @@ export default function Flashcards() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+
+  const logSession = useSessionLog();
 
   const [cardIx, setCardIx] = useState(0);
   const [flipped, setFlipped] = useState(false);
@@ -47,7 +50,9 @@ export default function Flashcards() {
     sound.play(know ? 'success' : 'tap');
     setFlipped(false);
     setKnown((k) => (know ? k + 1 : k));
+    const lastCard = cardIx + 1 >= deckLen;
     setTimeout(() => setCardIx((i) => i + 1), 220);
+    if (lastCard) logSession('flashcards', deckLen);
   };
 
   const flipDir = () => {

@@ -10,15 +10,22 @@ import { TabBar } from '@/components/TabBar';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
+import { useProgress } from '@/store/useProgress';
+import { localDay, mondayIndex, shiftDay, streak, weekDots } from '@/store/progress.logic';
 import { useUI } from '@/store/useUI';
 import { accentData } from '@/content/onboarding';
 import { auth } from '@/services';
 
-// ── week-history dots: explicit states ported from the prototype ──
+// ── week-history dots ──
+// Derived from the session log, not the fixed ['done','done','frozen',…] array
+// the prototype shipped. 'today' is today whether or not it has been practised
+// yet; 'frozen' is the day a freeze actually bridged.
 type DotState = 'done' | 'frozen' | 'today' | 'off';
-const WK_STATES: DotState[] = ['done', 'done', 'frozen', 'done', 'today', 'off', 'off'];
 
 // minutes-spoken bar chart — last 7 days
+// TODO(minutes): still a fixed shape. The session log records minutes per day,
+// so this can be derived, but the chart is a later phase and a plausible-looking
+// invented curve is worse than an obviously placeholder one.
 const BAR_HEIGHTS = [34, 58, 22, 74, 46, 12, 64];
 
 function StatCard({ value, label, accent }: { value: string; label: string; accent?: boolean }) {
@@ -85,8 +92,23 @@ export default function Profile() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { userName, setField, level, lang, setLang, region, setRegion, streak, freeze, signOut } = useStore();
+  const { userName, setField, level, lang, setLang, region, setRegion, freeze, signOut } = useStore();
+  const sessions = useProgress((s) => s.sessions);
   const openSheet = useUI((s) => s.openSheet);
+
+  const today = localDay();
+  const run = streak(sessions, today, freeze);
+  const dots = weekDots(sessions, today);
+  const todayIx = mondayIndex(today);
+  const monday = shiftDay(today, -todayIx);
+
+  const wkStates: DotState[] = dots.map((practised, i) => {
+    const day = shiftDay(monday, i);
+    if (practised) return 'done';
+    if (day === run.frozenDay) return 'frozen';
+    if (i === todayIx) return 'today';
+    return 'off';
+  });
 
   const [editingName, setEditingName] = useState(false);
   const [nameDraft, setNameDraft] = useState(userName);
@@ -102,15 +124,20 @@ export default function Profile() {
     if (name) void auth.updateDisplayName(name);
   };
 
-  const freezeChip = T.freezeLeft.replace('{n}', String(freeze));
-  const freezeNote = T.freezeNote;
+  const freezeChip = T.freezeLeft.replace('{n}', String(run.freezesLeft));
+  // Name the day a freeze actually bridged. The note used to say "Wednesday"
+  // to everyone, forever, whether or not anything had been frozen.
+  const freezeNote = run.frozenDay
+    ? T.freezeNote.replace('{d}', T.weekdayNames[mondayIndex(run.frozenDay)])
+    : T.freezeIdle;
   const streakW = T.streakWord;
   const levelName = T.levelNames[level as keyof typeof T.levelNames] ?? '';
 
+  // Same tofu fix as home: ‿ and ɔ̃ fall outside the display font. Le subjonctif
+  // has no lesson to open, so it does not render. See app/home.tsx.
   const weak = [
-    { glyph: '‿', title: 'La liaison obligatoire' },
-    { glyph: 'ɔ̃', title: 'Voyelles nasales — on / en' },
-    { glyph: 'q', title: 'Le subjonctif présent' },
+    { glyph: 'L', title: 'La liaison obligatoire' },
+    { glyph: 'N', title: 'Voyelles nasales — on / en' },
   ];
 
   // progress calendar for the current month
@@ -265,7 +292,7 @@ export default function Profile() {
           <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 14 }}>
             <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 9 }}>
               <TX font="serif" size={34} lh={34} color={t.acc}>
-                {String(streak)}
+                {String(run.days)}
               </TX>
               <TX size={12.5} color={t.txA(60)}>
                 {streakW}
@@ -287,7 +314,7 @@ export default function Profile() {
             </View>
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12 }}>
-            {WK_STATES.map((st, i) => (
+            {wkStates.map((st, i) => (
               <View key={i} style={{ alignItems: 'center', gap: 5 }}>
                 <View
                   style={{

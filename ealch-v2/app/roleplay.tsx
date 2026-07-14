@@ -9,6 +9,7 @@ import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
+import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { rpLines, type RpLevel } from '@/content';
 
@@ -36,6 +37,8 @@ export default function Roleplay() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const lang = useStore((s) => s.lang);
+
+  const logSession = useSessionLog();
 
   const [level, setLevel] = useState<RpLevel>('A1');
   const [live, setLive] = useState(false);
@@ -91,6 +94,7 @@ export default function Roleplay() {
           sound.play('success');
           setIx(3);
           setBusy(false);
+          logSession('roleplay', 3);
         }, 1000);
       }
     }, 1800);

@@ -9,6 +9,7 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
+import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { lessons, type TableCell } from '@/content/lessons';
 
@@ -39,6 +40,8 @@ export default function LessonScreen() {
   const raw = Array.isArray(params.key) ? params.key[0] : params.key;
   const key = raw && lessons[raw] ? raw : 'sons3';
   const L = lessons[key];
+
+  const logSession = useSessionLog();
 
   const [phase, setPhase] = useState<'content' | 'quiz' | 'done'>('content');
   const [quizIx, setQuizIx] = useState(0);
@@ -87,6 +90,9 @@ export default function LessonScreen() {
     if (quizIx + 1 >= L.quiz.length) {
       sound.play(quizScore >= 2 ? 'ding' : 'tap');
       setPhase('done');
+      // Logged on a fail too: the user sat the lesson and spent the minutes,
+      // and the streak is a record of showing up, not of scoring.
+      logSession('lesson', L.quiz.length);
     } else {
       sound.play('tap');
       setQuizIx((q) => q + 1);

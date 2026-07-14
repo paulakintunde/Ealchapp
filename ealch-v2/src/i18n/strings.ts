@@ -111,7 +111,10 @@ export type Strings = {
   delBtn: string; delBtnGuest: string; delCancel: string;
   errDelete: string; errDelNoSession: string;
   legalPre: string; legalTerms: string; legalAnd: string; legalPrivacy: string; legalPost: string;
-  freezeLeft: string; freezeNote: string; freezeIdle: string; streakWord: string;
+  /** freezeLeft is the profile chip; freezeShort/freezeShortPl fit the today strip,
+   *  where the chip string wraps to two lines. Both take {n}. */
+  freezeLeft: string; freezeShort: string; freezeShortPl: string;
+  freezeNote: string; freezeIdle: string; streakWord: string;
   levelNames: { A1: string; B1: string };
   dayLetters: string[];
   /** Full weekday names, Monday-first — substituted into freezeNote's {d}. */
@@ -289,6 +292,7 @@ export const T: Record<Lang, Strings> = {
     legalPrivacy: 'politique de confidentialité',
     legalPost: " d'Ealch. En fournissant votre e-mail, vous consentez à recevoir les communications d'Ealch. Vous pouvez vous désabonner à tout moment.",
     freezeLeft: '✦ {n} GEL RESTANT',
+    freezeShort: '{n} gel', freezeShortPl: '{n} gels',
     freezeNote: '{d} gelé ✦ Série protégée.',
     freezeIdle: '1 gel par semaine, utilisé automatiquement.',
     streakWord: 'jours de suite',
@@ -491,6 +495,7 @@ export const T: Record<Lang, Strings> = {
     legalPrivacy: 'Privacy Policy',
     legalPost: '. By providing your email, you consent to receive communications from Ealch. You can opt out anytime.',
     freezeLeft: '✦ {n} FREEZE LEFT',
+    freezeShort: '{n} freeze', freezeShortPl: '{n} freezes',
     freezeNote: '{d} was frozen ✦ Streak protected.',
     freezeIdle: '1 freeze per week, used automatically.',
     streakWord: 'day streak',

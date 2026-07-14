@@ -8,6 +8,8 @@ import { ACCENTS, type Mode } from '@/theme/palette';
 import { notifications } from '@/services/notifications';
 // strings.ts only type-imports this store, so this is not a runtime cycle.
 import { T as STRINGS } from '@/i18n/strings';
+// useProgress does not import this store back, so this is not a cycle either.
+import { useProgress } from './useProgress';
 import { device24h, formatTime } from '@/utils/time';
 
 export type Lang = 'fr' | 'en';
@@ -68,10 +70,12 @@ export type AppState = {
   premium: boolean;
 
   // progress
-  streak: number;
-  reviewDue: number;
+  //
+  // streak, reviewDue and weekDots used to live here as stored numbers that
+  // nothing ever wrote. They are now derived from the session log — see
+  // progress.logic.ts. `freeze` stays: it is a grant the app makes, not a
+  // measurement of anything the user did, so there is nothing to derive it from.
   reviewCleared: boolean;
-  weekDots: boolean[]; // 7 days, true = practiced
   freeze: number; // streak freezes available
 
   // actions
@@ -132,13 +136,9 @@ const initialData = () => ({
   planPick: 'yr' as Plan,
   premium: false,
 
-  // A fresh install has practised on exactly zero days. `freeze` is the one
-  // number that survives: a single freeze at day zero is a real starting grant,
-  // not a claim about past activity.
-  streak: 0,
-  reviewDue: 0,
   reviewCleared: false,
-  weekDots: [false, false, false, false, false, false, false],
+  // One freeze at day zero is a real starting grant, not a claim about past
+  // activity — which is why it is the only progress field left in this store.
   freeze: 1,
 });
 
@@ -218,21 +218,26 @@ export const useStore = create<AppState>()(
         } catch {
           // Storage is already unreadable — the in-memory reset still stands.
         }
+        // The session log lives in its own persisted store. It is a record of
+        // what this account did, so it dies with the account.
+        await useProgress.getState().eraseProgress();
       },
       completeOnboarding: (level) => set({ level, onboarded: true, signedIn: true }),
-      clearReview: () => set({ reviewCleared: true, reviewDue: 0 }),
+      clearReview: () => set({ reviewCleared: true }),
     }),
     {
       name: 'ealch-store',
-      version: 3,
+      version: 4,
       // v0 → v1: language used to be hardcoded French; re-derive from the device.
       // v1 → v2: 'Maya' was a hardcoded placeholder identity, never user-entered;
       // clear it so the no-name greeting applies until the user sets a real name.
-      // v2 → v3: streak/reviewDue/weekDots shipped seeded (14, 23, five dots on)
-      // and nothing ever wrote them, so every install carried the same fabricated
-      // fortnight. Clear them rather than let a fake streak persist forever.
+      // v3 → v4: streak/reviewDue/weekDots are gone. They shipped seeded (14, 23,
+      // five dots on), nothing ever wrote them, and every install carried the same
+      // fabricated fortnight. They are now derived from the session log
+      // (progress.logic.ts) and no longer belong in this store; drop the stale
+      // keys rather than leave a fake streak sitting in the persisted blob.
       migrate: (persisted, version) => {
-        const s = persisted as Partial<AppState>;
+        const s = persisted as Partial<AppState> & Record<string, unknown>;
         if (version === 0) {
           s.lang = deviceLang();
           s.appLang = s.lang;
@@ -240,10 +245,10 @@ export const useStore = create<AppState>()(
         if (version <= 1 && s.userName === 'Maya') {
           s.userName = '';
         }
-        if (version <= 2) {
-          s.streak = 0;
-          s.reviewDue = 0;
-          s.weekDots = [false, false, false, false, false, false, false];
+        if (version <= 3) {
+          delete s.streak;
+          delete s.reviewDue;
+          delete s.weekDots;
         }
         return s as AppState;
       },
@@ -270,10 +275,7 @@ export const useStore = create<AppState>()(
         currency: s.currency,
         planPick: s.planPick,
         premium: s.premium,
-        streak: s.streak,
-        reviewDue: s.reviewDue,
         reviewCleared: s.reviewCleared,
-        weekDots: s.weekDots,
         freeze: s.freeze,
       }),
       // Always flip `hydrated`, even when rehydration fails or yields no state —

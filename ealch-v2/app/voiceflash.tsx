@@ -10,6 +10,7 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
+import { useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { vfItems, type VfIcon } from '@/content';
 
@@ -30,6 +31,8 @@ export default function VoiceFlash() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+
+  const logSession = useSessionLog();
 
   const [vfIx, setVfIx] = useState(0);
   const [vfPhase, setVfPhase] = useState<Phase>('ask');
@@ -109,12 +112,14 @@ export default function VoiceFlash() {
 
   const vfNext = () => {
     sound.play('tap');
+    const lastItem = vfIx + 1 >= total;
     setVfIx((i) => i + 1);
     setVfPhase('ask');
     setVfTyped('');
     setVfCorrect(null);
     setVfHeard(null);
     setVfPartial('');
+    if (lastItem) logSession('voiceflash', total);
   };
 
   const restart = () => {

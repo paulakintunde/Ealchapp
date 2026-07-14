@@ -11,6 +11,7 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
+import { useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { coachLines } from '@/content';
 
@@ -69,6 +70,8 @@ export default function Speak() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+
+  const logSession = useSessionLog();
 
   const [coachIx, setCoachIx] = useState(0);
   const [phase, setPhase] = useState<Phase>('idle');
@@ -144,6 +147,7 @@ export default function Speak() {
 
   const endSession = () => {
     sound.play('tap');
+    logSession('speak', coachIx + 1);
     router.push('/feedback');
   };
 

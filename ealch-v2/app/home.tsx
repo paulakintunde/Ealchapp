@@ -12,14 +12,32 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { greetSlot } from '@/i18n/strings';
 import { useStore } from '@/store/useStore';
+import { useProgress } from '@/store/useProgress';
+import { goalTarget, localDay, minutesToday, streak } from '@/store/progress.logic';
 import { useUI } from '@/store/useUI';
-import { sound } from '@/services';
 
-function Ring({ color, track }: { color: string; track: string }) {
+const RING_R = 14;
+const RING_C = 2 * Math.PI * RING_R; // 87.96 — the real circumference, not a hand-tuned 88
+
+/** `pct` is progress toward the daily goal, 0–1. It used to be a fixed
+ *  strokeDashoffset of 18, tuned by eye to look like the hardcoded "12/15". */
+function Ring({ color, track, pct }: { color: string; track: string; pct: number }) {
+  const filled = Math.max(0, Math.min(pct, 1));
   return (
     <Svg width={36} height={36} viewBox="0 0 36 36">
-      <Circle cx={18} cy={18} r={14} fill="none" stroke={track} strokeWidth={4} />
-      <Circle cx={18} cy={18} r={14} fill="none" stroke={color} strokeWidth={4} strokeLinecap="round" strokeDasharray={88} strokeDashoffset={18} transform="rotate(-90 18 18)" />
+      <Circle cx={18} cy={18} r={RING_R} fill="none" stroke={track} strokeWidth={4} />
+      <Circle
+        cx={18}
+        cy={18}
+        r={RING_R}
+        fill="none"
+        stroke={color}
+        strokeWidth={4}
+        strokeLinecap="round"
+        strokeDasharray={RING_C}
+        strokeDashoffset={RING_C * (1 - filled)}
+        transform="rotate(-90 18 18)"
+      />
     </Svg>
   );
 }
@@ -39,11 +57,28 @@ export default function Home() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { userName, lang, setAppLang, reviewCleared, freeze } = useStore();
+  const { userName, lang, setAppLang, reviewCleared, freeze, pace } = useStore();
+  const sessions = useProgress((s) => s.sessions);
   const openDict = useUI((s) => s.openDict);
   const openSheet = useUI((s) => s.openSheet);
   const [browse, setBrowse] = useState(false);
 
+  // Every number below is a view over the session log. Nothing is seeded, so a
+  // fresh install reads 0/10 min and "Day 1 starts today" — which is the truth.
+  const today = localDay();
+  const goal = goalTarget(pace);
+  const done = minutesToday(sessions, today);
+  const run = streak(sessions, today, freeze);
+
+  // "2 freeze" is not English. The grant is 1 today, but it will not always be.
+  const freezeLine = (run.freezesLeft === 1 ? T.freezeShort : T.freezeShortPl).replace(
+    '{n}',
+    String(run.freezesLeft)
+  );
+
+  // TODO(SRS): the review count is still a literal. It needs the spaced-repetition
+  // scheduler, which is the next phase — a count of logged sessions would be a
+  // plausible-looking number that means nothing. Left visibly unfinished on purpose.
   const revNum = reviewCleared ? '✓' : '23';
   const revLabel = reviewCleared ? T.caughtUpShort : T.reviewShort;
   const revSub = reviewCleared ? T.tomorrow : '6 min →';
@@ -120,10 +155,11 @@ export default function Home() {
         {/* Today strip */}
         <View style={{ height: 66, borderRadius: 20, borderWidth: 1, borderColor: t.accA(28), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', marginBottom: 14, overflow: 'hidden' }}>
           <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14 }}>
-            <Ring color={t.acc} track={t.line(10)} />
+            <Ring color={t.acc} track={t.line(10)} pct={done / goal} />
             <View>
               <TX font="bold" size={13} lh={16}>
-                12<TX size={13} color={t.txA(45)} font="semi">/15 min</TX>
+                {done}
+                <TX size={13} color={t.txA(45)} font="semi">/{goal} min</TX>
               </TX>
               <TX font="semi" size={9.5} color={t.txA(50)}>
                 {T.goalWord}
@@ -132,17 +168,31 @@ export default function Home() {
           </Press>
           <View style={{ width: 1, backgroundColor: t.line(8), marginVertical: 13 }} />
           <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 0.9, flexDirection: 'row', alignItems: 'center', gap: 9, paddingHorizontal: 14 }}>
-            <TX font="serif" size={25} color={t.acc} lh={25}>
-              14
-            </TX>
-            <View>
-              <TX font="semi" size={11} lh={13}>
-                {T.daysWord} <TX size={11} color={t.acc}>✦</TX>
-              </TX>
-              <TX font="semi" size={9.5} color={t.txA(50)}>
-                {T.freezeLeft.replace('{n}', String(freeze))}
-              </TX>
-            </View>
+            {run.days > 0 ? (
+              <>
+                <TX font="serif" size={25} color={t.acc} lh={25}>
+                  {run.days}
+                </TX>
+                <View style={{ flex: 1, minWidth: 0 }}>
+                  <TX font="semi" size={11} lh={13}>
+                    {T.daysWord} <TX size={11} color={t.acc}>✦</TX>
+                  </TX>
+                  <TX font="semi" size={9.5} color={t.txA(50)}>
+                    {freezeLine}
+                  </TX>
+                </View>
+              </>
+            ) : (
+              // Day zero is not a failure and does not get shamed with a 0.
+              <View style={{ flex: 1, minWidth: 0 }}>
+                <TX font="semi" size={11} lh={13}>
+                  {T.dayOne}
+                </TX>
+                <TX font="semi" size={9.5} color={t.txA(50)}>
+                  {freezeLine}
+                </TX>
+              </View>
+            )}
           </Press>
           <View style={{ width: 1, backgroundColor: t.line(8), marginVertical: 13 }} />
           <Press cue={null} onPress={() => router.push('/smartreview')} style={{ flex: 1.1, flexDirection: 'row', alignItems: 'center', gap: 9, paddingHorizontal: 14, backgroundColor: t.accA(8) }}>

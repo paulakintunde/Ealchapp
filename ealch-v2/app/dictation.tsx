@@ -10,6 +10,7 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
+import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { dictationSentences, accentKeys, normDict } from '@/content/drills';
 import { F } from '@/theme/fonts';
@@ -23,6 +24,8 @@ export default function Dictation() {
   const inputRef = useRef<TextInput>(null);
 
   const sentences = useMemo(() => dictationSentences(lang), [lang]);
+
+  const logSession = useSessionLog();
 
   const [dcIx, setDcIx] = useState(0);
   const [dcTyped, setDcTyped] = useState('');
@@ -86,6 +89,7 @@ export default function Dictation() {
     if (last) {
       sound.play('ding');
       setDcDone(true);
+      logSession('dictation', sentences.length);
     } else {
       sound.play('tap');
       setDcIx((i) => i + 1);
