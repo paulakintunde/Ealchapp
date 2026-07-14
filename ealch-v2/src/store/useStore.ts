@@ -95,47 +95,59 @@ export type AppState = {
   setField: <K extends keyof AppState>(k: K, v: AppState[K]) => void;
   signIn: (email?: string, name?: string) => void;
   signOut: () => void;
+  /** Wipe every persisted field back to first-launch defaults. Used by account deletion. */
+  eraseLocalData: () => Promise<void>;
   completeOnboarding: (level: string) => void;
   clearReview: () => void;
 };
+
+/** Every data field at first-launch value. A function, not a constant, so that
+ *  a reset re-reads the device locale and clock format rather than replaying
+ *  whatever they were when the module first loaded. */
+const initialData = () => ({
+  lang: deviceLang(),
+  appLang: deviceLang() as string,
+
+  mode: 'dark' as Mode,
+  accent: ACCENTS[0].c,
+
+  sound: true,
+  alarmTime: '19:00',
+  clock24: device24h(),
+  notifs: { daily: true, report: true, nudge: false } as Notifs,
+
+  goal: 'survive',
+  exp: 'zero',
+  pace: '10 min',
+  level: 'B1',
+  region: 'Parisienne',
+
+  userName: '', // optional display name — empty means "greet without a name"
+  email: '',
+  accountType: 'guest' as AccountType,
+  signedIn: false,
+  onboarded: false,
+
+  currency: 'USD' as Currency,
+  planPick: 'yr' as Plan,
+  premium: false,
+
+  // A fresh install has practised on exactly zero days. `freeze` is the one
+  // number that survives: a single freeze at day zero is a real starting grant,
+  // not a claim about past activity.
+  streak: 0,
+  reviewDue: 0,
+  reviewCleared: false,
+  weekDots: [false, false, false, false, false, false, false],
+  freeze: 1,
+});
 
 export const useStore = create<AppState>()(
   persist(
     (set, get) => ({
       hydrated: false,
 
-      lang: deviceLang(),
-      appLang: deviceLang(),
-
-      mode: 'dark',
-      accent: ACCENTS[0].c,
-
-      sound: true,
-      alarmTime: '19:00',
-      clock24: device24h(),
-      notifs: { daily: true, report: true, nudge: false },
-
-      goal: 'survive',
-      exp: 'zero',
-      pace: '10 min',
-      level: 'B1',
-      region: 'Parisienne',
-
-      userName: '', // optional display name — empty means "greet without a name"
-      email: '',
-      accountType: 'guest',
-      signedIn: false,
-      onboarded: false,
-
-      currency: 'USD',
-      planPick: 'yr',
-      premium: false,
-
-      streak: 14,
-      reviewDue: 23,
-      reviewCleared: false,
-      weekDots: [true, true, false, true, true, true, false],
-      freeze: 1,
+      ...initialData(),
 
       setHydrated: () => set({ hydrated: true }),
       setLang: (lang) => set({ lang }),
@@ -190,15 +202,35 @@ export const useStore = create<AppState>()(
         set({ signedIn: true, email: email ?? get().email, userName: name ?? get().userName }),
       signOut: () =>
         set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest' }),
+      eraseLocalData: async () => {
+        // Pending reminders reference an account that is about to stop existing.
+        try {
+          await notifications.cancelAll();
+        } catch {
+          // A scheduler that refuses to cancel must not block the erase.
+        }
+        // Reset in memory first, then drop the persisted blob. Doing it in this
+        // order means any write the persist middleware makes on the way out
+        // writes defaults, never the data we are trying to destroy.
+        set({ ...initialData() });
+        try {
+          await useStore.persist.clearStorage();
+        } catch {
+          // Storage is already unreadable — the in-memory reset still stands.
+        }
+      },
       completeOnboarding: (level) => set({ level, onboarded: true, signedIn: true }),
       clearReview: () => set({ reviewCleared: true, reviewDue: 0 }),
     }),
     {
       name: 'ealch-store',
-      version: 2,
+      version: 3,
       // v0 → v1: language used to be hardcoded French; re-derive from the device.
       // v1 → v2: 'Maya' was a hardcoded placeholder identity, never user-entered;
       // clear it so the no-name greeting applies until the user sets a real name.
+      // v2 → v3: streak/reviewDue/weekDots shipped seeded (14, 23, five dots on)
+      // and nothing ever wrote them, so every install carried the same fabricated
+      // fortnight. Clear them rather than let a fake streak persist forever.
       migrate: (persisted, version) => {
         const s = persisted as Partial<AppState>;
         if (version === 0) {
@@ -207,6 +239,11 @@ export const useStore = create<AppState>()(
         }
         if (version <= 1 && s.userName === 'Maya') {
           s.userName = '';
+        }
+        if (version <= 2) {
+          s.streak = 0;
+          s.reviewDue = 0;
+          s.weekDots = [false, false, false, false, false, false, false];
         }
         return s as AppState;
       },
