@@ -289,9 +289,15 @@ async function main() {
 }
 
 async function upload(baseUrl: string, key: string, path: string, body: string) {
+  // Send the key in BOTH headers. New-style secret keys (sb_secret_…) are NOT
+  // JWTs, so Storage's gateway rejects them in `Authorization: Bearer` with
+  // "Invalid Compact JWS" — it validates that header as a JWT. The `apikey`
+  // header is where the new format authenticates. Legacy service_role JWTs work
+  // in either, so setting both is correct for both key formats.
   const res = await fetch(`${baseUrl}/storage/v1/object/${BUCKET}/${path}`, {
     method: 'POST',
     headers: {
+      apikey: key,
       Authorization: `Bearer ${key}`,
       'Content-Type': 'application/json',
       'Cache-Control': 'max-age=300',
@@ -300,7 +306,11 @@ async function upload(baseUrl: string, key: string, path: string, body: string) 
     body,
   });
   if (!res.ok) {
-    die(`Storage upload failed for ${path}: HTTP ${res.status} ${await res.text()}`);
+    // Throw rather than die(): die() calls process.exit while the pg pool is
+    // still open, which on Windows aborts with a native UV_HANDLE_CLOSING panic
+    // mid-teardown. main()'s catch reports it cleanly. The snapshot row is
+    // inserted AFTER upload, so a failed upload leaves no orphan version.
+    throw new Error(`Storage upload failed for ${path}: HTTP ${res.status} ${await res.text()}`);
   }
 }
 
