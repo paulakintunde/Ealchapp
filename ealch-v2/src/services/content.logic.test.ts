@@ -12,9 +12,11 @@ import { test } from 'node:test';
 import { validateCorpus, type Corpus, type Item, type Lesson, type Unit } from '../content/schema.ts';
 import {
   getItem,
+  getScenario,
   lessonsOfUnit,
   manifestIsNewer,
   mergeCorpus,
+  scenariosFor,
   selectItems,
   sha256Hex,
   stableStringify,
@@ -192,6 +194,43 @@ test('unitsInTrack and lessonsOfUnit both return seq order', () => {
 test('lessonsOfUnit drops links to lessons that are not present', () => {
   const c: Corpus = { ...corpus, units: [unit('sons.01', 1, ['sons.01.l1', 'sons.01.l9'])] };
   deepStrictEqual(lessonsOfUnit(c, 'sons.01').map((l) => l.id), ['sons.01.l1']);
+});
+
+/* ─── scenarios ──────────────────────────────────────────────────────────── */
+
+const scen = (id: string, level: 'a1' | 'a2' | 'b1', theme: string) => ({
+  id,
+  level,
+  theme,
+  title: 'S',
+  turns: [{ ai: 'a', en: 'e', user: 'u' }],
+  version: 1,
+});
+
+test('mergeCorpus overlays scenarios by id, and a seed scenario survives', () => {
+  const seed: Corpus = { version: 1, units: [], lessons: [], items: [], scenarios: [scen('sc.a1.marche.001', 'a1', 'marche')] };
+  const snap: Corpus = { version: 2, units: [], lessons: [], items: [], scenarios: [scen('sc.a2.cafe.001', 'a2', 'cafe')] };
+  const merged = mergeCorpus(seed, snap);
+  strictEqual(merged.scenarios.length, 2);
+  ok(getScenario(merged, 'sc.a1.marche.001'), 'the bundled scenario must not vanish');
+  ok(getScenario(merged, 'sc.a2.cafe.001'));
+});
+
+test('scenariosFor filters by level and theme', () => {
+  const c: Corpus = {
+    version: 1, units: [], lessons: [], items: [],
+    scenarios: [scen('sc.a1.marche.001', 'a1', 'marche'), scen('sc.a2.marche.001', 'a2', 'marche'), scen('sc.a1.cafe.001', 'a1', 'cafe')],
+  };
+  strictEqual(scenariosFor(c).length, 3);
+  strictEqual(scenariosFor(c, { level: 'a1' }).length, 2);
+  strictEqual(scenariosFor(c, { theme: 'marche' }).length, 2);
+  strictEqual(scenariosFor(c, { level: 'a1', theme: 'marche' }).length, 1);
+});
+
+test('scenario helpers tolerate a corpus with no scenarios array', () => {
+  const legacy = { version: 0, units: [], lessons: [], items: [] } as unknown as Corpus;
+  strictEqual(getScenario(legacy, 'sc.a1.marche.001'), null);
+  strictEqual(scenariosFor(legacy).length, 0);
 });
 
 /* ─── verifySnapshot: the three gates ────────────────────────────────────── */

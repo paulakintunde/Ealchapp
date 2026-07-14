@@ -11,7 +11,7 @@
 // resolved here. The one runtime thing verifySnapshot needs — the structural
 // validator — is passed IN (see `validate` below). Same spirit as
 // progress.logic.ts: this file stays a pure island.
-import type { Corpus, DrillKind, Item, Lesson, Track, Unit } from '../content/schema';
+import type { Corpus, DrillKind, Item, Lesson, Level, Scenario, Track, Unit } from '../content/schema';
 
 /* ─── merge ──────────────────────────────────────────────────────────────── */
 
@@ -47,6 +47,8 @@ export function mergeCorpus(seed: Corpus, snapshot: Corpus | null | undefined): 
     items: overlay(seed.items, snapshot.items),
     lessons: overlay(seed.lessons, snapshot.lessons),
     units: overlay(seed.units, snapshot.units),
+    // A seed written before scenarios existed has no scenarios array; default it.
+    scenarios: overlay(seed.scenarios ?? [], snapshot.scenarios ?? []),
   };
 }
 
@@ -98,6 +100,17 @@ export function getUnit(corpus: Corpus, id: string): Unit | null {
 /** Units of a track, in seq order. The Den's spine. */
 export function unitsInTrack(corpus: Corpus, track: Track): Unit[] {
   return corpus.units.filter((u) => u.track === track).sort((a, b) => a.seq - b.seq);
+}
+
+export function getScenario(corpus: Corpus, id: string): Scenario | null {
+  return (corpus.scenarios ?? []).find((s) => s.id === id) ?? null;
+}
+
+/** Role Play scenarios, optionally filtered by level and/or theme. */
+export function scenariosFor(corpus: Corpus, q: { level?: Level; theme?: string } = {}): Scenario[] {
+  return (corpus.scenarios ?? []).filter(
+    (s) => (q.level === undefined || s.level === q.level) && (q.theme === undefined || s.theme === q.theme)
+  );
 }
 
 /** The lessons of a unit, in seq order, resolved and filtered to what exists.

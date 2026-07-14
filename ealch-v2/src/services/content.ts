@@ -17,16 +17,18 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { ENV } from './env';
 import seedJson from '@/content/seed.json';
-import type { Corpus, DrillKind, Item, Lesson, Track, Unit } from '@/content/schema';
+import type { Corpus, DrillKind, Item, Lesson, Level, Scenario, Track, Unit } from '@/content/schema';
 import { isValidCorpus, validateCorpus } from '@/content/schema';
 import {
   getItem,
   getLesson,
+  getScenario,
   getUnit,
   isManifest,
   lessonsOfUnit,
   manifestIsNewer,
   mergeCorpus,
+  scenariosFor,
   selectItems,
   unitsInTrack,
   verifySnapshot,
@@ -148,4 +150,7 @@ export const content = {
   unit: (id: string): Unit | null => getUnit(useContent.getState().corpus, id),
   units: (track: Track): Unit[] => unitsInTrack(useContent.getState().corpus, track),
   lessonsOf: (unitId: string): Lesson[] => lessonsOfUnit(useContent.getState().corpus, unitId),
+  scenario: (id: string): Scenario | null => getScenario(useContent.getState().corpus, id),
+  scenarios: (q?: { level?: Level; theme?: string }): Scenario[] =>
+    scenariosFor(useContent.getState().corpus, q),
 };

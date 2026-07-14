@@ -36,6 +36,7 @@ import {
   type Item,
   type Lesson,
   type LessonSection,
+  type Scenario,
   type Unit,
 } from '../../ealch-v2/src/content/schema.ts';
 
@@ -112,8 +113,13 @@ async function main() {
        from content_items where status = 'published'`
   );
 
+  const scenarioRows = await pool.query<{ body: Scenario }>(
+    `select body from content_units where kind = 'scenario' and status = 'published'`
+  );
+
   const units: Unit[] = unitRows.rows.map((r) => r.body);
   const lessons: Lesson[] = lessonRows.rows.map((r) => r.body);
+  const scenarios: Scenario[] = scenarioRows.rows.map((r) => r.body);
   const items: Item[] = itemRows.rows.map((r) => ({
     id: r.id,
     kind: r.kind,
@@ -131,9 +137,11 @@ async function main() {
     version: r.version,
   }));
 
-  console.log(`\n  published: ${units.length} units · ${lessons.length} lessons · ${items.length} items`);
+  console.log(
+    `\n  published: ${units.length} units · ${lessons.length} lessons · ${items.length} items · ${scenarios.length} scenarios`
+  );
 
-  if (!units.length && !lessons.length && !items.length) {
+  if (!units.length && !lessons.length && !items.length && !scenarios.length) {
     await pool.end();
     die('Nothing is published. Approve some content in the Ops Console first.');
   }
@@ -166,7 +174,7 @@ async function main() {
   const previous = prev.rows[0];
   const version = (previous?.version ?? 0) + 1;
 
-  const corpus: Corpus = { version, units: prunedUnits, lessons, items };
+  const corpus: Corpus = { version, units: prunedUnits, lessons, items, scenarios };
 
   // ── 4. THE GATE ────────────────────────────────────────────────────────
   // Every failure below is one that does NOT crash in production. A dangling
@@ -198,7 +206,13 @@ async function main() {
   const needed = new Set(seedLessons.flatMap(itemsReferencedBy));
   const seedItems = items.filter((i) => needed.has(i.id) || SEED_CUT.themes.includes(i.theme));
 
-  const seed: Corpus = { version, units: seedUnits, lessons: seedLessons, items: seedItems };
+  // Scenarios ship in the seed when their level is represented in the seed — by a
+  // bundled track OR a bundled unit (a1.01 pulls a1 in). So a fresh, offline
+  // install can run Role Play at the levels it actually ships content for.
+  const seedLevels = new Set<string>([...SEED_CUT.tracks, ...seedUnits.map((u) => u.track)]);
+  const seedScenarios = scenarios.filter((s) => seedLevels.has(s.level));
+
+  const seed: Corpus = { version, units: seedUnits, lessons: seedLessons, items: seedItems, scenarios: seedScenarios };
 
   // The seed must be a coherent corpus IN ITS OWN RIGHT. It is what a user with
   // no network sees, so a dangling reference here is invisible until someone is
@@ -213,15 +227,25 @@ async function main() {
     process.exit(1);
   }
   console.log(
-    `  ✓ seed valid: ${seedUnits.length} units · ${seedLessons.length} lessons · ${seedItems.length} items`
+    `  ✓ seed valid: ${seedUnits.length} units · ${seedLessons.length} lessons · ${seedItems.length} items · ${seedScenarios.length} scenarios`
   );
 
   // ── 6. Bytes ───────────────────────────────────────────────────────────
   const snapshotJson = stableStringify(corpus);
   const checksum = sha256(snapshotJson);
   const path = `snapshots/v${version}.json`;
-  const counts = { units: corpus.units.length, lessons: corpus.lessons.length, items: corpus.items.length };
-  const seedCounts = { units: seed.units.length, lessons: seed.lessons.length, items: seed.items.length };
+  const counts = {
+    units: corpus.units.length,
+    lessons: corpus.lessons.length,
+    items: corpus.items.length,
+    scenarios: corpus.scenarios.length,
+  };
+  const seedCounts = {
+    units: seed.units.length,
+    lessons: seed.lessons.length,
+    items: seed.items.length,
+    scenarios: seed.scenarios.length,
+  };
 
   const manifest = { version, path, checksum, counts, publishedAt: new Date().toISOString() };
 
@@ -233,14 +257,15 @@ async function main() {
     console.log(`  identical to v${previous.version} — nothing changed.`);
   } else {
     const p = previous.counts ?? {};
-    const d = (k: 'units' | 'lessons' | 'items') => {
+    const d = (k: keyof typeof counts) => {
       const delta = counts[k] - (Number(p[k]) || 0);
       return `${counts[k]} (${delta >= 0 ? '+' : ''}${delta})`;
     };
     console.log(`  v${previous.version} → v${version}`);
-    console.log(`    units:   ${d('units')}`);
-    console.log(`    lessons: ${d('lessons')}`);
-    console.log(`    items:   ${d('items')}`);
+    console.log(`    units:     ${d('units')}`);
+    console.log(`    lessons:   ${d('lessons')}`);
+    console.log(`    items:     ${d('items')}`);
+    console.log(`    scenarios: ${d('scenarios')}`);
   }
   console.log(`  checksum: ${checksum.slice(0, 16)}…`);
 

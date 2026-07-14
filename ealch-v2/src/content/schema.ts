@@ -95,6 +95,8 @@ export type ContentStatus = (typeof CONTENT_STATUSES)[number];
 export const ITEM_ID_RE = /^fr\.(sons|a1|a2|b1|b2|c1|c2)\.[a-z0-9-]+\.\d{3,}$/;
 export const UNIT_ID_RE = /^(sons|a1|a2)\.\d{2}$/;
 export const LESSON_ID_RE = /^(sons|a1|a2)\.\d{2}\.l\d+$/;
+/** Scenario ids: sc.<level>.<theme>.<seq>   sc.a1.marche.001 */
+export const SCENARIO_ID_RE = /^sc\.(sons|a1|a2|b1|b2|c1|c2)\.[a-z0-9-]+\.\d{3,}$/;
 /** Themes group the corpus for batch review and for themed drills. */
 export const THEME_RE = /^[a-z0-9-]+$/;
 
@@ -106,6 +108,9 @@ export function unitId(track: Track, seq: number): string {
 }
 export function lessonId(unit: string, seq: number): string {
   return `${unit}.l${seq}`;
+}
+export function scenarioId(level: Level, theme: string, seq: number): string {
+  return `sc.${level}.${theme}.${String(seq).padStart(3, '0')}`;
 }
 /** The unit a lesson belongs to, read straight off its id. */
 export function unitOfLesson(id: string): string {
@@ -211,15 +216,33 @@ export type Unit = {
   lessonIds: string[];
 };
 
+/**
+ * A Role Play scenario: an ordered dialogue the learner works through, one turn
+ * at a time. It is neither an Item (atomic) nor a Lesson (a document to read) —
+ * it is a script — so it is its own corpus shape rather than being forced into
+ * one of the others. `turns[].user` is the line the learner is meant to produce
+ * and the STT scores against; `ai` is the other speaker's prompt. */
+export type ScenarioTurn = { ai: string; en: string; user: string };
+export type Scenario = {
+  /** 'sc.<level>.<theme>.<seq>' — e.g. 'sc.a1.marche.001' */
+  id: string;
+  level: Level;
+  theme: string;
+  title: string;
+  turns: ScenarioTurn[];
+  version: number;
+};
+
 /** What the publish pipeline emits and the app loads. */
 export type Corpus = {
   version: number;
   units: Unit[];
   lessons: Lesson[];
   items: Item[];
+  scenarios: Scenario[];
 };
 
-export const EMPTY_CORPUS: Corpus = { version: 0, units: [], lessons: [], items: [] };
+export const EMPTY_CORPUS: Corpus = { version: 0, units: [], lessons: [], items: [], scenarios: [] };
 
 /* ─── Validation ─────────────────────────────────────────────────────────── */
 
@@ -480,6 +503,45 @@ export function validateUnit(v: unknown, path = 'unit'): Issue[] {
   return out;
 }
 
+export function validateScenario(v: unknown, path = 'scenario'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null) return [{ path, message: 'not an object' }];
+  const s = v as Partial<Scenario>;
+
+  if (!isStr(s.id)) push('id is required');
+  else if (!SCENARIO_ID_RE.test(s.id)) push(`id "${s.id}" must match sc.<level>.<theme>.<seq>`);
+
+  if (!oneOf(LEVELS, s.level)) push(`level must be one of ${LEVELS.join(' | ')}`);
+  if (!isStr(s.theme)) push('theme is required');
+  else if (!THEME_RE.test(s.theme)) push(`theme "${s.theme}" must be a lowercase slug`);
+  if (isStr(s.id) && SCENARIO_ID_RE.test(s.id)) {
+    const [, lvl, theme] = s.id.split('.');
+    if (s.level && lvl !== s.level) push(`id level "${lvl}" disagrees with level "${s.level}"`);
+    if (s.theme && theme !== s.theme) push(`id theme "${theme}" disagrees with theme "${s.theme}"`);
+  }
+
+  if (!isStr(s.title)) push('title is required');
+  if (typeof s.version !== 'number' || !Number.isFinite(s.version)) push('version must be a number');
+
+  if (!isArr(s.turns)) push('turns must be an array');
+  else if (s.turns.length === 0) push('turns must not be empty — a scenario with no dialogue is nothing');
+  else {
+    s.turns.forEach((t, i) => {
+      if (typeof t !== 'object' || t === null) {
+        push(`turns[${i}] is not an object`);
+        return;
+      }
+      const tt = t as Partial<ScenarioTurn>;
+      if (!isStr(tt.ai)) push(`turns[${i}].ai is required`);
+      if (!isStr(tt.en)) push(`turns[${i}].en is required`);
+      if (!isStr(tt.user)) push(`turns[${i}].user is required`);
+    });
+  }
+
+  return out;
+}
+
 /**
  * Whole-corpus validation, including referential integrity.
  *
@@ -497,13 +559,17 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   if (typeof co.version !== 'number' || !Number.isFinite(co.version)) {
     out.push({ path: `${path}.version`, message: 'version must be a number' });
   }
-  if (!isArr(co.units) || !isArr(co.lessons) || !isArr(co.items)) {
-    return [{ path, message: 'units, lessons and items must all be arrays' }];
+  // scenarios is optional for back-compat with a v0 seed written before scenarios
+  // existed; treat a missing array as empty.
+  const scenarios = co.scenarios ?? [];
+  if (!isArr(co.units) || !isArr(co.lessons) || !isArr(co.items) || !isArr(scenarios)) {
+    return [{ path, message: 'units, lessons, items and scenarios must all be arrays' }];
   }
 
   co.items.forEach((it, i) => out.push(...validateItem(it, `${path}.items[${i}]`)));
   co.lessons.forEach((l, i) => out.push(...validateLesson(l, `${path}.lessons[${i}]`)));
   co.units.forEach((u, i) => out.push(...validateUnit(u, `${path}.units[${i}]`)));
+  scenarios.forEach((s, i) => out.push(...validateScenario(s, `${path}.scenarios[${i}]`)));
 
   // Duplicate ids: the later one silently wins in any Map-based lookup, so two
   // different items can share a key and the SRS schedules a ghost.
@@ -520,6 +586,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   dupes(itemIds, 'item');
   dupes(lessonIds, 'lesson');
   dupes(unitIds, 'unit');
+  dupes(scenarios.map((s) => s.id).filter(isStr), 'scenario');
 
   const itemSet = new Set(itemIds);
   const lessonSet = new Set(lessonIds);
@@ -572,6 +639,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
 export const isValidItem = (v: unknown): v is Item => validateItem(v).length === 0;
 export const isValidLesson = (v: unknown): v is Lesson => validateLesson(v).length === 0;
 export const isValidUnit = (v: unknown): v is Unit => validateUnit(v).length === 0;
+export const isValidScenario = (v: unknown): v is Scenario => validateScenario(v).length === 0;
 export const isValidCorpus = (v: unknown): v is Corpus => validateCorpus(v).length === 0;
 
 /** Render issues for a human — the publish script's abort message, and the

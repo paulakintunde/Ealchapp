@@ -22,6 +22,7 @@ import {
   validateCorpus,
   validateItem,
   validateLesson,
+  validateScenario,
   validateUnit,
   type Corpus,
   type Item,
@@ -70,11 +71,22 @@ const unit = (over: Partial<Unit> = {}): Unit => ({
   ...over,
 });
 
+const scenario = (over: Partial<import('./schema.ts').Scenario> = {}): import('./schema.ts').Scenario => ({
+  id: 'sc.a1.marche.001',
+  level: 'a1',
+  theme: 'marche',
+  title: 'Au marché',
+  turns: [{ ai: 'Bonjour !', en: 'Hello!', user: "Bonjour, trois pommes s'il vous plaît." }],
+  version: 1,
+  ...over,
+});
+
 const corpus = (over: Partial<Corpus> = {}): Corpus => ({
   version: 1,
   units: [unit()],
   lessons: [lesson()],
   items: [item()],
+  scenarios: [scenario()],
   ...over,
 });
 
@@ -241,6 +253,38 @@ test('a unit with NO lessons is legal — it is honest "coming soon"', () => {
 test('a unit id must agree with its track', () => {
   const issues = validateUnit(unit({ id: 'sons.03', track: 'a1' }));
   ok(issues.some((i) => /disagrees with track/.test(i.message)));
+});
+
+/* ─── scenarios ──────────────────────────────────────────────────────────── */
+
+test('a well-formed scenario validates', () => {
+  deepStrictEqual(validateScenario(scenario()), []);
+});
+
+test('a scenario id must match sc.<level>.<theme>.<seq> and agree with its fields', () => {
+  ok(validateScenario(scenario({ id: 'a1.marche.001' })).length > 0);
+  const issues = validateScenario(scenario({ id: 'sc.a2.marche.001', level: 'a1' }));
+  ok(issues.some((i) => /id level .* disagrees/.test(i.message)));
+});
+
+test('a scenario with no turns is rejected', () => {
+  ok(validateScenario(scenario({ turns: [] })).length > 0);
+});
+
+test('each turn needs ai, en and user', () => {
+  ok(validateScenario(scenario({ turns: [{ ai: 'x', en: 'y', user: '' } as never] })).length > 0);
+  ok(validateScenario(scenario({ turns: [{ ai: 'x', user: 'z' } as never] })).length > 0);
+});
+
+test('validateCorpus validates scenarios and catches duplicate scenario ids', () => {
+  deepStrictEqual(validateCorpus(corpus()), []);
+  ok(validateCorpus(corpus({ scenarios: [scenario(), scenario()] })).some((i) => /duplicate scenario id/.test(i.message)));
+  ok(validateCorpus(corpus({ scenarios: [scenario({ turns: [] })] })).some((i) => /turns must not be empty/.test(i.message)));
+});
+
+test('a corpus with no scenarios array still validates (back-compat with a v0 seed)', () => {
+  const noScenarios = { version: 1, units: [], lessons: [], items: [] };
+  deepStrictEqual(validateCorpus(noScenarios), []);
 });
 
 /* ─── corpus: referential integrity ──────────────────────────────────────── */
