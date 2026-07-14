@@ -61,12 +61,12 @@ export default function Splash() {
         />
         <View style={{ position: 'absolute', width: 130, height: 130, borderRadius: 65, borderWidth: 1, borderColor: t.line(10) }} />
         <Animated.View style={{ transform: [{ scale }], opacity: pop }}>
-          <TX font="serifI" size={76} color={t.tx} style={{ lineHeight: 78 }}>
-            E<TX font="serifI" size={76} color={t.acc}>.</TX>
+          <TX font="serifI" size={76} role="display" color={t.txPrimary}>
+            E<TX font="serifI" size={76} role="display" color={t.accTx}>.</TX>
           </TX>
         </Animated.View>
       </View>
-      <TX font="semi" size={12} ls={7} color={t.txA(60)} style={{ marginLeft: 7 }}>
+      <TX font="semi" role="label" ls={7} color={t.txSecondary} style={{ marginLeft: 7 }}>
         EALCH
       </TX>
       <View style={{ flexDirection: 'row', gap: 6, marginTop: 22 }}>

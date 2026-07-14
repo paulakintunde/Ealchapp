@@ -12,6 +12,7 @@
     "expo-asset": "~57.0.3",
     "expo-audio": "~57.0.0",
     "expo-blur": "~57.0.0",
+    "expo-brightness": "~57.0.0",
     "expo-constants": "~57.0.3",
     "expo-dev-client": "~57.0.5",
     "expo-font": "~57.0.0",
@@ -34,18 +35,18 @@
     "react-native-svg": "^15.15.4",
     "react-native-url-polyfill": "^2.0.0",
     "react-native-web": "^0.21.2",
+    "react-native-worklets": "^0.10.0",
     "zustand": "^5.0.14"
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
     "babel-preset-expo": "^57.0.2",
-    "react-native-worklets": "^0.10.0",
     "typescript": "~6.0.3"
   },
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
     "test:i18n": "node --test src/i18n/i18n.test.ts",

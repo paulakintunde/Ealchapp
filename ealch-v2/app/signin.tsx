@@ -85,9 +85,10 @@ export default function SignIn() {
   const field = (props: React.ComponentProps<typeof TextInput>) => (
     <TextInput
       {...props}
-      placeholderTextColor={t.txA(30)}
+      placeholderTextColor={t.txSubtle}
       style={{
-        height: 52,
+        minHeight: 52,
+        paddingVertical: 6,
         borderRadius: 16,
         borderWidth: 1,
         borderColor: t.line(12),
@@ -102,7 +103,8 @@ export default function SignIn() {
   );
 
   const oauthStyle = {
-    height: 52,
+    minHeight: 52,
+    paddingVertical: 6,
     backgroundColor: t.card,
     shadowColor: '#000',
     shadowOpacity: t.isDark ? 0.32 : 0.1,
@@ -114,34 +116,34 @@ export default function SignIn() {
   return (
     <View style={{ flex: 1, backgroundColor: t.bg, paddingHorizontal: 28, paddingTop: insets.top + 70, paddingBottom: insets.bottom + 30 }}>
       <RadialGlow color={t.acc} opacity={0.1} height={300} />
-      <TX font="semi" size={10} ls={2.8} color={t.txA(40)} style={{ marginBottom: 12 }}>
+      <TX font="semi" role="meta" ls={2.8} color={t.txSubtle} style={{ marginBottom: 12 }}>
         {T.welcomeBack}
       </TX>
-      <TX font="serifI" size={42} lh={44} style={{ marginBottom: 30 }}>
+      <TX font="serifI" role="display" size={42} style={{ marginBottom: 30 }}>
         {T.helloAgain}
       </TX>
       {field({ placeholder: T.emailPh, value: email, onChangeText: setEmail, keyboardType: 'email-address', autoCapitalize: 'none' })}
       <PasswordField placeholder={T.passwordPh} value={password} onChangeText={setPassword} onSubmitEditing={doSignIn} />
       {error ? (
-        <TX size={12} lh={17} color={t.danger} style={{ marginBottom: 10 }}>
+        <TX role="label" color={t.danger} style={{ marginBottom: 10 }}>
           {error}
         </TX>
       ) : null}
       {FLAGS.forgotPassword && hasSupabase() ? (
         <Press onPress={doReset} cue={null} style={{ alignSelf: 'flex-end', marginBottom: 18, opacity: reset === 'pending' ? 0.5 : 1 }}>
-          <TX size={12} color={reset === 'sent' ? t.acc : t.txA(45)}>
+          <TX role="label" color={reset === 'sent' ? t.accTx : t.txSubtle}>
             {reset === 'sent' ? T.resetSent : T.forgotPw}
           </TX>
         </Press>
       ) : (
         <View style={{ height: 8 }} />
       )}
-      <Button label={T.signInBtn} onPress={doSignIn} disabled={pending} style={{ height: 54 }} />
+      <Button label={T.signInBtn} onPress={doSignIn} disabled={pending} style={{ minHeight: 54, paddingVertical: 6 }} />
       {FLAGS.oauth ? (
         <>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginVertical: 22 }}>
             <View style={{ flex: 1, height: 1, backgroundColor: t.line(10) }} />
-            <TX size={11} ls={3} color={t.txA(40)}>
+            <TX role="meta" ls={3} color={t.txSubtle}>
               {T.orT}
             </TX>
             <View style={{ flex: 1, height: 1, backgroundColor: t.line(10) }} />
@@ -151,8 +153,8 @@ export default function SignIn() {
         </>
       ) : null}
       <Press onPress={() => router.replace('/onboarding')} style={{ alignItems: 'center', marginTop: 'auto', paddingTop: 20 }}>
-        <TX size={13} color={t.txA(50)}>
-          {T.newHere} <TX font="semi" size={13} color={t.acc}>{T.createAccount}</TX>
+        <TX role="bodySm" color={t.txMuted}>
+          {T.newHere} <TX font="semi" role="bodySm" color={t.accTx}>{T.createAccount}</TX>
         </TX>
       </Press>
     </View>

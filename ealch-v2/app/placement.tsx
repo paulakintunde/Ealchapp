@@ -49,7 +49,7 @@ export default function Placement() {
         <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} />
       </View>
       <ScrollView contentContainerStyle={{ paddingHorizontal: 24, paddingTop: 6, paddingBottom: insets.bottom + 40 }} showsVerticalScrollIndicator={false}>
-        <TX font="semi" size={9} ls={2.6} color={t.txA(45)} center style={{ marginBottom: 22 }}>
+        <TX font="semi" role="eyebrow" ls={2.6} color={t.txSubtle} center style={{ marginBottom: 22 }}>
           {fr ? 'TEST DE PLACEMENT' : 'PLACEMENT TEST'}
         </TX>
 
@@ -60,24 +60,24 @@ export default function Placement() {
               <View style={{ flex: 1, height: 5, borderRadius: 3, backgroundColor: t.line(8), overflow: 'hidden' }}>
                 <View style={{ width: '58%', height: 5, borderRadius: 3, backgroundColor: t.acc }} />
               </View>
-              <TX font="semi" size={11.5} color={t.txA(50)}>
+              <TX font="semi" role="label" color={t.txMuted}>
                 Q7
               </TX>
             </View>
 
             {/* Adaptive question */}
-            <TX font="serif" size={26} lh={32} style={{ marginBottom: 16 }}>
+            <TX font="serif" role="display" size={26} lhMult={1.23} style={{ marginBottom: 16 }}>
               {q.prompt}
             </TX>
 
             {/* Estimate chip */}
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-              <TX size={12} color={t.txA(50)}>
+              <TX role="label" color={t.txMuted}>
                 {fr ? 'Estimation actuelle' : 'Current estimate'}
               </TX>
-              <View style={{ height: 26, paddingHorizontal: 12, borderRadius: 13, borderWidth: 1, borderColor: t.accA(50), flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+              <View style={{ minHeight: 26, paddingVertical: 4, paddingHorizontal: 12, borderRadius: 13, borderWidth: 1, borderColor: t.accA(50), flexDirection: 'row', alignItems: 'center', gap: 6 }}>
                 <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: t.acc }} />
-                <TX font="bold" size={12} ls={0.8} color={t.acc}>
+                <TX font="bold" role="label" ls={0.8} color={t.accTx}>
                   {estChip}
                 </TX>
               </View>
@@ -89,8 +89,8 @@ export default function Placement() {
                 const on = l === 'A2';
                 const bg = l === 'A2' ? t.acc : l === 'A1' ? t.accA(30) : l === 'B1' ? t.accA(13) : t.line(6);
                 return (
-                  <View key={l} style={{ flex: 1, height: 26, borderRadius: 8, backgroundColor: bg, alignItems: 'center', justifyContent: 'center' }}>
-                    <TX font="bold" size={10} color={on ? t.accInk : t.txA(55)}>
+                  <View key={l} style={{ flex: 1, minHeight: 26, paddingVertical: 4, borderRadius: 8, backgroundColor: bg, alignItems: 'center', justifyContent: 'center' }}>
+                    <TX font="bold" role="meta" color={on ? t.accInk : t.txMuted}>
                       {l}
                     </TX>
                   </View>
@@ -100,7 +100,7 @@ export default function Placement() {
 
             {/* Listen card */}
             <View style={{ borderRadius: 20, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 22, marginBottom: 16 }}>
-              <TX font="semi" size={10} ls={2.4} color={t.txA(40)} style={{ marginBottom: 14 }}>
+              <TX font="semi" role="meta" ls={2.4} color={t.txSubtle} style={{ marginBottom: 14 }}>
                 {fr ? 'ÉCOUTEZ, PUIS RÉPONDEZ' : 'LISTEN, THEN REPLY'}
               </TX>
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
@@ -115,7 +115,7 @@ export default function Placement() {
                   ))}
                 </View>
               </View>
-              <TX font="serifI" size={13} color={t.txA(50)} style={{ marginTop: 14 }}>
+              <TX font="serifI" role="bodySm" color={t.txMuted} style={{ marginTop: 14 }}>
                 « {STEM} »
               </TX>
             </View>
@@ -131,21 +131,21 @@ export default function Placement() {
                     onPress={() => setPlSel(i)}
                     style={{ borderRadius: 16, borderWidth: on ? 1.5 : 1, borderColor: on ? t.acc : t.line(8), backgroundColor: on ? t.accA(8) : t.card, paddingVertical: 15, paddingHorizontal: 16 }}
                   >
-                    <TX size={14.5}>{o}</TX>
+                    <TX role="body">{o}</TX>
                   </Press>
                 );
               })}
             </View>
 
             {plSel !== null ? (
-              <Press cue={null} onPress={cont} style={{ height: 52, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
-                <TX font="semi" size={14} color={t.accInk}>
+              <Press cue={null} onPress={cont} style={{ minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
+                <TX font="semi" role="body" color={t.accInk}>
                   {fr ? 'Continuer' : 'Continue'}
                 </TX>
               </Press>
             ) : null}
 
-            <TX font="serifI" size={11} lh={18} color={t.txA(35)} center>
+            <TX font="serifI" role="meta" lhMult={1.64} color={t.txSubtle} center>
               {fr
                 ? 'Adaptatif — le test s’arrête quand votre niveau est fiable. Vous commencerez au bon endroit, pas à la page un.'
                 : 'Adaptive — the test ends when your level is confident. You’ll start at the right unit, not at page one.'}
@@ -154,13 +154,13 @@ export default function Placement() {
         ) : (
           // ── Result ──
           <View style={{ alignItems: 'center', paddingTop: 20 }}>
-            <TX font="semi" size={10} ls={2.8} color={t.txA(40)} style={{ marginBottom: 14 }}>
+            <TX font="semi" role="meta" ls={2.8} color={t.txSubtle} style={{ marginBottom: 14 }}>
               {fr ? 'VOTRE RÉSULTAT' : 'YOUR RESULT'}
             </TX>
-            <TX font="serifI" size={110} lh={110} color={t.acc}>
+            <TX font="serifI" role="display" size={110} color={t.accTx}>
               {isA2 ? 'A2' : 'A1+'}
             </TX>
-            <TX size={14} lh={24} color={t.txA(65)} center style={{ maxWidth: 290, marginTop: 22 }}>
+            <TX role="body" lhMult={1.71} color={t.txSecondary} center style={{ maxWidth: 290, marginTop: 22 }}>
               {isA2
                 ? fr
                   ? 'Solide sur le présent et les bases — le passé composé est la prochaine marche.'
@@ -173,27 +173,27 @@ export default function Placement() {
             {/* Starting unit */}
             <View style={{ alignSelf: 'stretch', borderRadius: 18, borderWidth: 1, borderColor: t.accA(35), backgroundColor: t.accA(6), paddingVertical: 16, paddingHorizontal: 18, marginVertical: 26, flexDirection: 'row', alignItems: 'center', gap: 13 }}>
               <View style={{ width: 36, height: 36, borderRadius: 18, borderWidth: 1, borderColor: t.accA(55), alignItems: 'center', justifyContent: 'center' }}>
-                <TX font="serif" size={14} color={t.acc}>
+                <TX font="serif" role="body" color={t.accTx}>
                   {isA2 ? '12' : '8'}
                 </TX>
               </View>
               <View style={{ flex: 1 }}>
-                <TX font="semi" size={13.5}>
+                <TX font="semi" role="bodySm">
                   {isA2 ? 'Passé Composé — avoir' : 'Le présent — verbes irréguliers'}
                 </TX>
-                <TX size={11} color={t.txA(50)} style={{ marginTop: 2 }}>
+                <TX role="meta" color={t.txMuted} style={{ marginTop: 2 }}>
                   {fr ? 'Votre point de départ dans le Coin des débutants' : "Your starting unit in the Beginners' Den"}
                 </TX>
               </View>
             </View>
 
-            <Press cue={null} onPress={() => { sound.play('tap'); router.push('/den'); }} style={{ alignSelf: 'stretch', height: 52, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
-              <TX font="semi" size={14} color={t.accInk}>
+            <Press cue={null} onPress={() => { sound.play('tap'); router.push('/den'); }} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+              <TX font="semi" role="body" color={t.accInk}>
                 {isA2 ? (fr ? "Commencer à l'unité 12" : 'Start at unit 12') : fr ? "Commencer à l'unité 8" : 'Start at unit 8'}
               </TX>
             </Press>
-            <Press cue={null} onPress={redo} style={{ height: 48, alignItems: 'center', justifyContent: 'center' }}>
-              <TX font="semi" size={13} color={t.txA(55)}>
+            <Press cue={null} onPress={redo} style={{ minHeight: 48, paddingVertical: 6, alignItems: 'center', justifyContent: 'center' }}>
+              <TX font="semi" role="bodySm" color={t.txMuted}>
                 {fr ? 'Refaire le test' : 'Retake the test'}
               </TX>
             </Press>

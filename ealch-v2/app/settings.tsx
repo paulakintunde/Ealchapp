@@ -38,7 +38,7 @@ function SectionHead({ label }: { label: string }) {
   const t = useTheme();
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 4, marginBottom: 14 }}>
-      <TX font="bold" size={9} ls={2.6} color={t.acc}>
+      <TX font="bold" role="eyebrow" ls={2.6} color={t.accTx}>
         {label}
       </TX>
       <View style={{ flex: 1, height: 1, backgroundColor: t.line(8) }} />
@@ -48,7 +48,7 @@ function SectionHead({ label }: { label: string }) {
 
 function GroupTitle({ children }: { children: ReactNode }) {
   return (
-    <TX font="serif" size={20} style={{ marginBottom: 12 }}>
+    <TX font="serif" role="titleLg" size={21} style={{ marginBottom: 12 }}>
       {children}
     </TX>
   );
@@ -82,10 +82,10 @@ function ToggleRow({
       }}
     >
       <View style={{ flex: 1 }}>
-        <TX font="semi" size={14}>
+        <TX font="semi" role="body">
           {title}
         </TX>
-        <TX size={11.5} color={t.txA(45)} style={{ marginTop: 1 }}>
+        <TX role="label" color={t.txSubtle} style={{ marginTop: 1 }}>
           {sub}
         </TX>
       </View>
@@ -117,6 +117,8 @@ export default function Settings() {
     setAccent,
     sound: soundOn,
     setSound,
+    brightBoost,
+    setBrightBoost,
     alarmTime,
     setAlarm,
     clock24,
@@ -161,7 +163,7 @@ export default function Settings() {
         <FocusHeader onClose={() => router.replace('/home')} title={T.settingsT} />
       </View>
       <ScrollView contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: insets.bottom + 60 }} showsVerticalScrollIndicator={false}>
-        <TX font="serif" size={36} style={{ marginBottom: 28 }}>
+        <TX font="serif" role="display" size={36} style={{ marginBottom: 28 }}>
           {T.settingsT}
         </TX>
 
@@ -188,13 +190,13 @@ export default function Settings() {
             end={{ x: 0.3, y: 0.7 }}
             style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
           />
-          <TX font="bold" size={9} ls={2.4} color={t.acc} style={{ marginBottom: 6 }}>
+          <TX font="bold" role="eyebrow" ls={2.4} color={t.accTx} style={{ marginBottom: 6 }}>
             {planBadge}
           </TX>
-          <TX font="serifI" size={22} style={{ marginBottom: 4 }}>
+          <TX font="serifI" role="display" size={22} style={{ marginBottom: 4 }}>
             {planName}
           </TX>
-          <TX size={11.5} lh={17} color={t.txA(55)}>
+          <TX role="label" color={t.txMuted}>
             {planDesc}
           </TX>
         </View>
@@ -224,7 +226,8 @@ export default function Settings() {
                   <View
                     style={{
                       width: 18,
-                      height: 18,
+                      minHeight: 18,
+                      paddingVertical: 2,
                       borderRadius: 9,
                       borderWidth: 1.5,
                       borderColor: on ? t.acc : t.line(20),
@@ -236,22 +239,22 @@ export default function Settings() {
                   </View>
                   <View style={{ flex: 1 }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                      <TX font="semi" size={14}>
+                      <TX font="semi" role="body">
                         {p.name}
                       </TX>
                       {p.best ? (
-                        <View style={{ height: 18, paddingHorizontal: 8, borderRadius: 9, backgroundColor: t.acc, justifyContent: 'center' }}>
-                          <TX font="bold" size={8.5} ls={1} color={t.accInk}>
+                        <View style={{ minHeight: 18, paddingVertical: 2, paddingHorizontal: 8, borderRadius: 9, backgroundColor: t.acc, justifyContent: 'center' }}>
+                          <TX font="bold" role="eyebrow" ls={1} color={t.accInk}>
                             {T.bestValue.toUpperCase()}
                           </TX>
                         </View>
                       ) : null}
                     </View>
-                    <TX size={11} color={t.txA(50)} style={{ marginTop: 2 }}>
+                    <TX role="meta" color={t.txMuted} style={{ marginTop: 2 }}>
                       {p.sub}
                     </TX>
                   </View>
-                  <TX font="serif" size={20}>
+                  <TX font="serif" role="titleLg" size={21}>
                     {p.price}
                   </TX>
                 </Press>
@@ -265,7 +268,8 @@ export default function Settings() {
           onPress={doUpgrade}
           cue={null}
           style={{
-            height: 52,
+            minHeight: 52,
+            paddingVertical: 6,
             borderRadius: 26,
             backgroundColor: t.acc,
             alignItems: 'center',
@@ -273,7 +277,7 @@ export default function Settings() {
             marginBottom: 12,
           }}
         >
-          <TX font="semi" size={14} color={t.accInk}>
+          <TX font="semi" role="body" color={t.accInk}>
             {upgradeLabel}
           </TX>
         </Press>
@@ -281,15 +285,15 @@ export default function Settings() {
         {/* billing rows */}
         <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, ...t.cardShadow, marginBottom: 14 }}>
           <View style={{ minHeight: 50, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: t.line(7) }}>
-            <TX font="semi" size={13}>
+            <TX font="semi" role="bodySm">
               {T.billing}
             </TX>
-            <TX size={12} color={t.txA(45)}>
+            <TX role="label" color={t.txSubtle}>
               {T.paymentMethod} · Visa ····4212
             </TX>
           </View>
-          <Press style={{ height: 48, justifyContent: 'center', paddingHorizontal: 16 }}>
-            <TX font="semi" size={13} color={t.acc}>
+          <Press style={{ minHeight: 48, paddingVertical: 6, justifyContent: 'center', paddingHorizontal: 16 }}>
+            <TX font="semi" role="bodySm" color={t.accTx}>
               {T.restore}
             </TX>
           </Press>
@@ -297,10 +301,10 @@ export default function Settings() {
 
         {/* currency */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10, paddingHorizontal: 2 }}>
-          <TX font="semi" size={13}>
+          <TX font="semi" role="bodySm">
             {T.currencyT}
           </TX>
-          <TX size={11} color={t.txA(40)}>
+          <TX role="meta" color={t.txSubtle}>
             {T.detected}
           </TX>
         </View>
@@ -312,7 +316,8 @@ export default function Settings() {
                 key={cu.id}
                 onPress={() => setCurrency(cu.id)}
                 style={{
-                  height: 36,
+                  minHeight: 36,
+                  paddingVertical: 6,
                   paddingHorizontal: 14,
                   borderRadius: 18,
                   borderWidth: 1,
@@ -321,7 +326,7 @@ export default function Settings() {
                   justifyContent: 'center',
                 }}
               >
-                <TX font="semi" size={13} color={on ? t.acc : t.txA(60)}>
+                <TX font="semi" role="bodySm" color={on ? t.accTx : t.txSecondary}>
                   {cu.name}
                 </TX>
               </Press>
@@ -348,14 +353,14 @@ export default function Settings() {
         >
           <Icon name="download" size={18} color={t.acc} />
           <View style={{ flex: 1 }}>
-            <TX font="semi" size={14}>
+            <TX font="semi" role="body">
               {T.downloadsT}
             </TX>
-            <TX size={11.5} color={t.txA(45)} style={{ marginTop: 1 }}>
+            <TX role="label" color={t.txSubtle} style={{ marginTop: 1 }}>
               {T.downloadsS}
             </TX>
           </View>
-          <Icon name="chevronRight" size={14} color={t.txA(35)} strokeWidth={1.6} />
+          <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
         </Press>
 
         {/* ── Learning ── */}
@@ -379,18 +384,18 @@ export default function Settings() {
                     justifyContent: 'center',
                   }}
                 >
-                  <TX font="bold" size={16} color={on ? t.acc : t.txA(70)}>
+                  <TX font="bold" role="titleSm" color={on ? t.accTx : t.txSecondary}>
                     {lg.ch}
                   </TX>
                 </View>
-                <TX font="semi" size={9.5} color={on ? t.acc : t.txA(50)}>
+                <TX font="semi" role="eyebrow" color={on ? t.accTx : t.txMuted}>
                   {soon ? T.soonT : lg.ch}
                 </TX>
               </Press>
             );
           })}
         </View>
-        <TX font="serifI" size={11.5} color={t.txA(45)} style={{ marginBottom: 16 }}>
+        <TX font="serifI" role="label" color={t.txSubtle} style={{ marginBottom: 16 }}>
           {T.appLangNote}
         </TX>
         <View style={{ height: 14 }} />
@@ -404,7 +409,8 @@ export default function Settings() {
                 key={a.id}
                 onPress={() => setRegion(a.id)}
                 style={{
-                  height: 36,
+                  minHeight: 36,
+                  paddingVertical: 6,
                   paddingHorizontal: 16,
                   borderRadius: 18,
                   borderWidth: 1,
@@ -413,7 +419,7 @@ export default function Settings() {
                   justifyContent: 'center',
                 }}
               >
-                <TX size={13} color={on ? t.acc : t.txA(70)}>
+                <TX role="bodySm" color={on ? t.accTx : t.txSecondary}>
                   {a.name}
                 </TX>
               </Press>
@@ -425,7 +431,7 @@ export default function Settings() {
         <SectionHead label={T.appearanceSec.toUpperCase()} />
         <GroupTitle>{T.modeT}</GroupTitle>
         <View style={{ flexDirection: 'row', marginBottom: 18 }}>
-          <View style={{ flexDirection: 'row', height: 40, borderRadius: 20, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
+          <View style={{ flexDirection: 'row', minHeight: 40, paddingVertical: 6, borderRadius: 20, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
             {(['dark', 'light'] as const).map((m) => {
               const on = mode === m;
               return (
@@ -440,8 +446,8 @@ export default function Settings() {
                     backgroundColor: on ? t.acc : 'transparent',
                   }}
                 >
-                  <Icon name={m === 'dark' ? 'moon' : 'sun'} size={13} color={on ? t.accInk : t.txA(55)} />
-                  <TX font="bold" size={11} ls={1.2} color={on ? t.accInk : t.txA(55)}>
+                  <Icon name={m === 'dark' ? 'moon' : 'sun'} size={13} color={on ? t.accInk : t.txNonText} />
+                  <TX font="bold" role="meta" ls={1.2} color={on ? t.accInk : t.txMuted}>
                     {m === 'dark' ? T.modeDark : T.modeLight}
                   </TX>
                 </Press>
@@ -466,12 +472,17 @@ export default function Settings() {
                     borderColor: on ? th.c : t.line(12),
                   }}
                 />
-                <TX font="semi" size={10} color={on ? t.acc : t.txA(50)}>
+                <TX font="semi" role="meta" color={on ? t.accTx : t.txMuted}>
                   {th.n}
                 </TX>
               </Press>
             );
           })}
+        </View>
+
+        {/* reading brightness */}
+        <View style={{ marginBottom: 10 }}>
+          <ToggleRow title={T.brightT} sub={T.brightS} value={brightBoost} onChange={setBrightBoost} />
         </View>
 
         {/* sound effects */}
@@ -487,17 +498,18 @@ export default function Settings() {
         <View style={{ borderRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, ...t.cardShadow, padding: 16, marginBottom: 12 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
             <View>
-              <TX font="semi" size={14}>
+              <TX font="semi" role="body">
                 {T.dailyAlarm}
               </TX>
-              <TX size={11.5} color={t.txA(45)} style={{ marginTop: 2 }}>
+              <TX role="label" color={t.txSubtle} style={{ marginTop: 2 }}>
                 {T.customTime}
               </TX>
             </View>
             <Press
               onPress={() => setShowWheel((v) => !v)}
               style={{
-                height: 42,
+                minHeight: 42,
+                paddingVertical: 6,
                 minWidth: 78,
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -510,7 +522,7 @@ export default function Settings() {
                 paddingHorizontal: 12,
               }}
             >
-              <TX font="serif" size={17} color={t.acc}>
+              <TX font="serif" role="title" color={t.accTx}>
                 {formatTime(alarmTime, clock24)}
               </TX>
               <Icon name="clock" size={15} color={t.acc} />
@@ -529,7 +541,8 @@ export default function Settings() {
                   onPress={() => setAlarm(chip.time)}
                   style={{
                     flex: 1,
-                    height: 36,
+                    minHeight: 36,
+                    paddingVertical: 6,
                     borderRadius: 18,
                     borderWidth: 1,
                     borderColor: on ? t.accA(60) : t.line(10),
@@ -538,7 +551,7 @@ export default function Settings() {
                     justifyContent: 'center',
                   }}
                 >
-                  <TX font="semi" size={12.5} color={on ? t.acc : t.txA(75)}>
+                  <TX font="semi" role="label" color={on ? t.accTx : t.txSecondary}>
                     {formatTime(chip.time, clock24)}
                   </TX>
                 </Press>
@@ -549,7 +562,8 @@ export default function Settings() {
             onPress={testAlarm}
             cue={null}
             style={{
-              height: 42,
+              minHeight: 42,
+              paddingVertical: 6,
               borderRadius: 21,
               borderWidth: 1,
               borderColor: t.accA(55),
@@ -557,14 +571,14 @@ export default function Settings() {
               justifyContent: 'center',
             }}
           >
-            <TX font="semi" size={12.5} color={t.acc}>
+            <TX font="semi" role="label" color={t.accTx}>
               {T.testAlarm}
             </TX>
           </Press>
         </View>
 
         {/* notif toggles */}
-        <View style={{ gap: 10, marginBottom: 28 }}>
+        <View style={{ gap: 10, marginBottom: 32 }}>
           {NOTIF_KEYS.map((k, i) => (
             <ToggleRow
               key={k}
@@ -575,6 +589,42 @@ export default function Settings() {
             />
           ))}
         </View>
+
+        {/* ── Danger zone ──
+            Account deletion must be reachable in-app (Apple 5.1.1(v), Play).
+            It lives last, in its own section, and routes to a confirm screen —
+            findable, but never a stray tap. */}
+        <SectionHead label={T.dangerZone.toUpperCase()} />
+        <Press
+          onPress={() => router.push('/delete-account')}
+          accessibilityRole="button"
+          accessibilityLabel={T.delAccount}
+          style={{
+            minHeight: 58,
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: t.dangerA(28),
+            backgroundColor: t.card,
+            ...t.cardShadow,
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 14,
+            paddingHorizontal: 16,
+            paddingVertical: 10,
+            marginBottom: 24,
+          }}
+        >
+          <Icon name="trash" size={18} color={t.danger} />
+          <View style={{ flex: 1 }}>
+            <TX font="semi" role="body" color={t.danger}>
+              {T.delAccount}
+            </TX>
+            <TX role="label" color={t.txSubtle} style={{ marginTop: 1 }}>
+              {T.delAccountSub}
+            </TX>
+          </View>
+          <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
+        </Press>
       </ScrollView>
     </View>
   );

@@ -102,7 +102,8 @@ export default function Flashcards() {
             onPress={flipDir}
             cue={null}
             style={{
-              height: 32,
+              minHeight: 32,
+              paddingVertical: 4,
               paddingHorizontal: 13,
               borderRadius: 16,
               borderWidth: 1,
@@ -111,7 +112,7 @@ export default function Flashcards() {
               alignItems: 'center',
             }}
           >
-            <TX font="semi" size={11} ls={0.9} color={t.acc}>
+            <TX font="semi" role="meta" ls={0.9} color={t.accTx}>
               {frFront ? 'FR → EN' : 'EN → FR'}
             </TX>
           </Press>
@@ -122,27 +123,28 @@ export default function Flashcards() {
           <View style={{ flex: 1 }}>
             <ProgressBar pct={Math.min(100, (cardIx / deckLen) * 100)} height={3} color={t.acc} track={t.line(10)} />
           </View>
-          <TX size={12} color={t.txA(50)}>
+          <TX role="meta" color={t.txMuted}>
             {Math.min(cardIx + 1, deckLen)} / {deckLen}
           </TX>
         </View>
 
         {deckOver ? (
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 20 }}>
-            <TX font="serif" size={64} lh={64} color={t.acc}>
+            <TX font="serif" size={64} role="display" color={t.accTx}>
               {known}/{deckLen}
             </TX>
-            <TX font="serifI" size={26} center style={{ marginTop: 10, marginBottom: 6 }}>
+            <TX font="serifI" size={26} role="display" center style={{ marginTop: 10, marginBottom: 6 }}>
               {T.deckDone}
             </TX>
-            <TX size={13} center color={t.txA(50)} style={{ marginBottom: 36, maxWidth: 260 }}>
+            <TX role="bodySm" center color={t.txMuted} style={{ marginBottom: 36, maxWidth: 260 }}>
               {T.deckSub}
             </TX>
             <Press
               onPress={restart}
               cue={null}
               style={{
-                height: 52,
+                minHeight: 52,
+                paddingVertical: 8,
                 paddingHorizontal: 34,
                 borderRadius: 26,
                 backgroundColor: t.acc,
@@ -150,12 +152,12 @@ export default function Flashcards() {
                 justifyContent: 'center',
               }}
             >
-              <TX font="semi" size={14} color={t.accInk}>
+              <TX font="semi" role="body" color={t.accInk}>
                 {T.redo}
               </TX>
             </Press>
             <Press onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
-              <TX size={13} color={t.txA(50)}>
+              <TX role="bodySm" color={t.txMuted}>
                 {T.backFeed}
               </TX>
             </Press>
@@ -175,16 +177,16 @@ export default function Flashcards() {
                   },
                 ]}
               >
-                <TX font="semi" size={9} ls={2.8} color={t.acc} style={{ marginBottom: 18 }}>
+                <TX font="semi" role="eyebrow" ls={2.8} color={t.accTx} style={{ marginBottom: 18 }}>
                   {frFront ? T.frontFr : T.frontEn}
                 </TX>
-                <TX font="serifI" size={33} lh={40} center>
+                <TX font="serifI" size={33} role="display" center>
                   {frFront ? card.fr : card.en}
                 </TX>
                 <View style={{ marginTop: 22 }}>
                   <Waveform count={18} height={18} color={t.accA(55)} barWidth={2.5} gap={3.5} />
                 </View>
-                <TX font="semi" size={10.5} ls={1.7} color={t.txA(35)} style={{ position: 'absolute', bottom: 20, textTransform: 'uppercase' }}>
+                <TX font="semi" role="meta" ls={1.7} color={t.txSubtle} style={{ position: 'absolute', bottom: 20, textTransform: 'uppercase' }}>
                   {T.flipHint}
                 </TX>
               </Animated.View>
@@ -200,13 +202,13 @@ export default function Flashcards() {
                   },
                 ]}
               >
-                <TX font="semi" size={9} ls={2.8} color={t.txA(50)} style={{ marginBottom: 18 }}>
+                <TX font="semi" role="eyebrow" ls={2.8} color={t.txMuted} style={{ marginBottom: 18 }}>
                   {frFront ? T.frontEn : T.frontFr}
                 </TX>
-                <TX font="serif" size={29} lh={36} center>
+                <TX font="serif" size={29} role="display" center>
                   {frFront ? card.en : card.fr}
                 </TX>
-                <TX font="serifI" size={13} center color={t.txA(50)} style={{ marginTop: 16 }}>
+                <TX font="serifI" role="bodySm" center color={t.txMuted} style={{ marginTop: 16 }}>
                   {card.ex}
                 </TX>
                 <Press
@@ -235,7 +237,8 @@ export default function Flashcards() {
                 cue={null}
                 style={{
                   flex: 1,
-                  height: 54,
+                  minHeight: 54,
+                  paddingVertical: 8,
                   borderRadius: 27,
                   borderWidth: 1,
                   borderColor: t.line(16),
@@ -243,7 +246,7 @@ export default function Flashcards() {
                   justifyContent: 'center',
                 }}
               >
-                <TX font="semi" size={14} color={t.txA(80)}>
+                <TX font="semi" role="body" color={t.txSecondary}>
                   {T.again}
                 </TX>
               </Press>
@@ -252,14 +255,15 @@ export default function Flashcards() {
                 cue={null}
                 style={{
                   flex: 1,
-                  height: 54,
+                  minHeight: 54,
+                  paddingVertical: 8,
                   borderRadius: 27,
                   backgroundColor: t.acc,
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
               >
-                <TX font="semi" size={14} color={t.accInk}>
+                <TX font="semi" role="body" color={t.accInk}>
                   {T.know}
                 </TX>
               </Press>

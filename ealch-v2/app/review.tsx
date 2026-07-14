@@ -9,6 +9,7 @@ import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { sound } from '@/services';
 import { reviewSession } from '@/content/drills';
+import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 
 export default function Review() {
   const t = useTheme();
@@ -17,6 +18,7 @@ export default function Review() {
   const insets = useSafeAreaInsets();
   const lang = useStore((s) => s.lang);
   const clearReview = useStore((s) => s.clearReview);
+  useReadingBrightness();
   const fr = lang === 'fr';
 
   const items = reviewSession(lang);
@@ -55,10 +57,10 @@ export default function Review() {
       <ScrollView contentContainerStyle={{ paddingHorizontal: 24, paddingTop: 6, paddingBottom: insets.bottom + 40, flexGrow: 1 }} showsVerticalScrollIndicator={false}>
         {/* Session header */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-          <TX font="semi" size={9} ls={2.6} color={t.txA(45)}>
+          <TX font="semi" role="eyebrow" ls={2.6} color={t.txSubtle}>
             {fr ? 'SESSION DE RÉVISION' : 'REVIEW SESSION'}
           </TX>
-          <TX font="semi" size={11.5} color={t.txA(50)}>
+          <TX font="semi" role="label" color={t.txMuted}>
             {Math.min(rvIx + 1, items.length)} / {items.length}
           </TX>
         </View>
@@ -68,31 +70,31 @@ export default function Review() {
 
         {/* Card meta */}
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 14 }}>
-          <View style={{ height: 20, paddingHorizontal: 9, borderRadius: 10, backgroundColor: t.tag(it.tone).bg, alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="bold" size={9} ls={1} color={t.tag(it.tone).c}>
+          <View style={{ minHeight: 20, paddingVertical: 2, paddingHorizontal: 9, borderRadius: 10, backgroundColor: t.tag(it.tone).bg, alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="bold" role="eyebrow" ls={1} color={t.tag(it.tone).c}>
               {it.type}
             </TX>
           </View>
-          <TX size={11} color={t.txA(45)} style={{ flex: 1 }}>
+          <TX role="meta" color={t.txSubtle} style={{ flex: 1 }}>
             {it.meta}
           </TX>
         </View>
 
         {/* Card */}
         <View style={{ borderRadius: 24, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, ...t.cardShadow, paddingVertical: 34, paddingHorizontal: 26, minHeight: 260, alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
-          <TX font="serif" size={38} lh={44} center>
+          <TX font="serif" role="display" size={38} center>
             {it.prompt}
           </TX>
-          <TX font="serifI" size={13} color={t.txA(50)} center style={{ marginTop: 10 }}>
+          <TX font="serifI" role="bodySm" color={t.txMuted} center style={{ marginTop: 10 }}>
             {it.hint}
           </TX>
           {rvRevealed ? (
             <>
               <View style={{ width: 44, height: 1, backgroundColor: t.line(14), marginVertical: 22 }} />
-              <TX font="semi" size={17} center>
+              <TX font="semi" role="title" center>
                 {it.answer}
               </TX>
-              <TX font="serifI" size={12.5} lh={20} color={t.txA(55)} center style={{ marginTop: 8 }}>
+              <TX font="serifI" role="label" lhMult={1.6} color={t.txMuted} center style={{ marginTop: 8 }}>
                 {it.example}
               </TX>
             </>
@@ -102,26 +104,26 @@ export default function Review() {
         {/* Actions */}
         {rvRevealed ? (
           <View style={{ flexDirection: 'row', gap: 10 }}>
-            <Press onPress={again} style={{ flex: 1, height: 52, borderRadius: 26, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
-              <TX font="semi" size={14} color={t.txA(70)}>
+            <Press onPress={again} style={{ flex: 1, minHeight: 52, paddingVertical: 8, borderRadius: 26, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
+              <TX font="semi" role="body" color={t.txSecondary}>
                 {fr ? 'Encore' : 'Again'}
               </TX>
             </Press>
-            <Press onPress={gotIt} style={{ flex: 1.4, height: 52, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-              <TX font="semi" size={14} color={t.accInk}>
+            <Press onPress={gotIt} style={{ flex: 1.4, minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+              <TX font="semi" role="body" color={t.accInk}>
                 {fr ? 'Je sais ✓' : 'Got it ✓'}
               </TX>
             </Press>
           </View>
         ) : (
-          <Press cue={null} onPress={reveal} style={{ height: 52, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="semi" size={14} color={t.accInk}>
+          <Press cue={null} onPress={reveal} style={{ minHeight: 52, paddingVertical: 8, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="semi" role="body" color={t.accInk}>
               {fr ? 'Voir la réponse' : 'Reveal answer'}
             </TX>
           </Press>
         )}
 
-        <TX font="serifI" size={11} color={t.txA(35)} center style={{ marginTop: 16 }}>
+        <TX font="serifI" role="meta" color={t.txSubtle} center style={{ marginTop: 16 }}>
           {fr ? '« Encore » le remet dans la file de demain.' : '“Again” puts it back in tomorrow’s queue.'}
         </TX>
       </ScrollView>

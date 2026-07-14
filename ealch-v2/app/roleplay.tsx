@@ -120,13 +120,13 @@ export default function Roleplay() {
       {/* ── SETUP ── */}
       {!live ? (
         <View style={{ flex: 1, paddingHorizontal: 24, paddingTop: 12, paddingBottom: insets.bottom + 28 }}>
-          <TX font="serifI" size={40} lh={44} style={{ marginBottom: 8 }}>
+          <TX font="serifI" size={40} role="display" style={{ marginBottom: 8 }}>
             Au marché
           </TX>
-          <TX size={14} lh={22} color={t.txA(55)} style={{ marginBottom: 28 }}>
+          <TX role="body" color={t.txMuted} style={{ marginBottom: 28 }}>
             {LEVEL_DESC[lang][level]}
           </TX>
-          <TX font="semi" size={10} ls={2.6} color={t.txA(45)} style={{ marginBottom: 12 }}>
+          <TX font="semi" role="meta" ls={2.6} color={t.txSubtle} style={{ marginBottom: 12 }}>
             {T.chooseLevel}
           </TX>
           <View style={{ flexDirection: 'row', gap: 8, marginBottom: 16 }}>
@@ -140,21 +140,21 @@ export default function Roleplay() {
                     sound.play('tap');
                     setLevel(l);
                   }}
-                  style={{ flex: 1, height: 54, borderRadius: 16, borderWidth: 1, borderColor: on ? t.acc : t.line(12), backgroundColor: on ? t.accA(12) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
+                  style={{ flex: 1, minHeight: 54, paddingVertical: 8, borderRadius: 16, borderWidth: 1, borderColor: on ? t.acc : t.line(12), backgroundColor: on ? t.accA(12) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
                 >
-                  <TX font="serif" size={19} color={on ? t.acc : t.txA(60)}>
+                  <TX font="serif" size={20} role="titleLg" color={on ? t.accTx : t.txSecondary}>
                     {l}
                   </TX>
                 </Press>
               );
             })}
           </View>
-          <TX size={12} lh={18} color={t.txA(40)}>
+          <TX role="meta" color={t.txSubtle}>
             {T.rpLevelNote}
           </TX>
           <View style={{ marginTop: 'auto' }}>
-            <Press cue={null} onPress={start} style={{ height: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-              <TX font="semi" size={15} color={t.accInk}>
+            <Press cue={null} onPress={start} style={{ minHeight: 54, paddingVertical: 8, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+              <TX font="semi" role="bodyLg" color={t.accInk}>
                 {T.startRp}
               </TX>
             </Press>
@@ -190,11 +190,11 @@ export default function Roleplay() {
                       borderColor: me ? t.accA(35) : t.line(7),
                     }}
                   >
-                    <TX font="serifI" size={16.5} lh={23}>
+                    <TX font="serifI" role="titleSm">
                       {m.fr}
                     </TX>
                     {m.en ? (
-                      <TX size={11} color={t.txA(42)} style={{ marginTop: 5 }}>
+                      <TX role="meta" color={t.txSubtle} style={{ marginTop: 5 }}>
                         {m.en}
                       </TX>
                     ) : null}
@@ -206,26 +206,26 @@ export default function Roleplay() {
 
           {finished ? (
             <View style={{ borderRadius: 20, borderWidth: 1, borderColor: t.accA(40), backgroundColor: t.accA(7), padding: 20, alignItems: 'center' }}>
-              <TX font="serifI" size={24} center style={{ marginBottom: 6 }}>
+              <TX font="serifI" size={24} role="display" center style={{ marginBottom: 6 }}>
                 {T.rpDoneT}
               </TX>
-              <TX size={12.5} lh={18} color={t.txA(60)} center style={{ marginBottom: 16 }}>
+              <TX role="label" color={t.txSecondary} center style={{ marginBottom: 16 }}>
                 {T.rpDoneS}
               </TX>
               <View style={{ flexDirection: 'row', gap: 10, alignSelf: 'stretch' }}>
-                <Press cue={null} onPress={restart} style={{ flex: 1, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
-                  <TX font="semi" size={13}>
+                <Press cue={null} onPress={restart} style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
+                  <TX font="semi" role="bodySm">
                     {T.redo}
                   </TX>
                 </Press>
-                <Press cue={null} onPress={() => router.push('/feedback')} style={{ flex: 1, height: 46, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-                  <TX font="semi" size={13} color={t.accInk}>
+                <Press cue={null} onPress={() => router.push('/feedback')} style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                  <TX font="semi" role="bodySm" color={t.accInk}>
                     Le Rapport →
                   </TX>
                 </Press>
               </View>
               <Press cue={null} onPress={() => router.replace('/home')} style={{ marginTop: 14 }}>
-                <TX size={13} color={t.txA(50)}>
+                <TX role="bodySm" color={t.txMuted}>
                   {T.backFeed}
                 </TX>
               </Press>
@@ -235,10 +235,10 @@ export default function Roleplay() {
               {/* The next line is shown before the mic tap: this is guided
                   reading aloud, not transcription — nothing is recorded. */}
               <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), padding: 14, paddingHorizontal: 16 }}>
-                <TX font="semi" size={9} ls={2.2} color={t.acc} style={{ marginBottom: 6 }}>
+                <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx} style={{ marginBottom: 6 }}>
                   {T.rpYourLine}
                 </TX>
-                <TX font="serifI" size={17} lh={24}>
+                <TX font="serifI" role="title">
                   « {rpLines[level][ix].user} »
                 </TX>
               </View>

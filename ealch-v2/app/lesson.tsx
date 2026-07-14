@@ -10,6 +10,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useSessionLog } from '@/store/useProgress';
+import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts } from '@/services';
 import { lessons, type TableCell } from '@/content/lessons';
 
@@ -24,7 +25,7 @@ const NASAL_PADS = [
 
 function SectionLabel({ text, color }: { text: string; color: string }) {
   return (
-    <TX font="semi" size={10} ls={2.4} color={color} style={{ marginBottom: 10 }}>
+    <TX font="semi" role="meta" ls={2.4} color={color} style={{ marginBottom: 10 }}>
       {text}
     </TX>
   );
@@ -33,6 +34,7 @@ function SectionLabel({ text, color }: { text: string; color: string }) {
 export default function LessonScreen() {
   const t = useTheme();
   const T = useT();
+  useReadingBrightness();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const params = useLocalSearchParams<{ key?: string }>();
@@ -126,7 +128,8 @@ export default function LessonScreen() {
             <View
               style={{
                 alignSelf: 'flex-start',
-                height: 24,
+                minHeight: 24,
+                paddingVertical: 3,
                 paddingHorizontal: 11,
                 borderRadius: 12,
                 backgroundColor: t.accA(14),
@@ -134,22 +137,22 @@ export default function LessonScreen() {
                 marginBottom: 12,
               }}
             >
-              <TX font="semi" size={10} ls={1.2} color={t.acc}>
+              <TX font="semi" role="meta" ls={1.2} color={t.accTx}>
                 {L.level}
               </TX>
             </View>
 
-            <TX font="serif" size={36} lh={40} style={{ marginBottom: 12 }}>
+            <TX font="serif" size={36} role="display" style={{ marginBottom: 12 }}>
               {L.title}
             </TX>
-            <TX size={14} lh={23} color={t.txA(65)} style={{ marginBottom: 26 }}>
+            <TX role="body" color={t.txSecondary} style={{ marginBottom: 26 }}>
               {L.intro}
             </TX>
 
             {/* Sub-lessons */}
             {L.subs ? (
               <View style={{ marginBottom: 26 }}>
-                <SectionLabel text={acc.subsT} color={t.acc} />
+                <SectionLabel text={acc.subsT} color={t.accTx} />
                 <View style={{ gap: 8 }}>
                   {L.subs.map((nm, i) => (
                     <View
@@ -177,15 +180,15 @@ export default function LessonScreen() {
                           justifyContent: 'center',
                         }}
                       >
-                        <TX font="serif" size={12} color={t.acc}>
+                        <TX font="serif" role="label" color={t.accTx}>
                           {'0' + (i + 1)}
                         </TX>
                       </View>
-                      <TX font="semi" size={13.5} style={{ flex: 1 }}>
+                      <TX font="semi" role="bodySm" style={{ flex: 1 }}>
                         {nm}
                       </TX>
                       {i === 0 ? (
-                        <TX font="bold" size={9} ls={1.4} color={t.acc}>
+                        <TX font="bold" role="eyebrow" ls={1.4} color={t.accTx}>
                           {T.lessonNow}
                         </TX>
                       ) : null}
@@ -198,7 +201,7 @@ export default function LessonScreen() {
             {/* Nasal sound pads */}
             {L.unique === 'nasal' ? (
               <View style={{ marginBottom: 26 }}>
-                <SectionLabel text={T.tapHear} color={t.acc} />
+                <SectionLabel text={T.tapHear} color={t.accTx} />
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
                   {NASAL_PADS.map((p, i) => {
                     const on = padOn === i;
@@ -209,7 +212,8 @@ export default function LessonScreen() {
                         onPress={() => playPad(i, p.word)}
                         style={{
                           width: '47.7%',
-                          height: 96,
+                          minHeight: 96,
+                          paddingVertical: 8,
                           borderRadius: 18,
                           borderWidth: 1,
                           borderColor: on ? t.acc : t.line(10),
@@ -219,14 +223,14 @@ export default function LessonScreen() {
                         }}
                       >
                         <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
-                          <TX font="serifI" size={28} color={on ? t.accInk : t.tx}>
+                          <TX font="serifI" size={28} role="display" color={on ? t.accInk : t.txPrimary}>
                             {p.sym}
                           </TX>
-                          <TX size={15} color={on ? t.accInk : t.txA(55)}>
+                          <TX role="bodyLg" color={on ? t.accInk : t.txMuted}>
                             {p.ipa}
                           </TX>
                         </View>
-                        <TX font="serifI" size={11} color={on ? t.accInk : t.txA(50)} style={{ marginTop: 4 }}>
+                        <TX font="serifI" role="meta" color={on ? t.accInk : t.txMuted} style={{ marginTop: 4 }}>
                           {p.word}
                         </TX>
                       </Press>
@@ -237,7 +241,7 @@ export default function LessonScreen() {
             ) : null}
 
             {/* Table */}
-            <SectionLabel text={acc.tableT} color={t.acc} />
+            <SectionLabel text={acc.tableT} color={t.accTx} />
             <View
               style={{
                 borderRadius: 16,
@@ -255,10 +259,9 @@ export default function LessonScreen() {
                     <View key={ci} style={{ flex: 1 }}>
                       <TX
                         font={c.h ? 'semi' : 'sans'}
-                        size={c.h ? 10 : 13}
+                        role={c.h ? 'meta' : 'bodySm'}
                         ls={c.h ? 1.4 : 0}
-                        lh={c.h ? 14 : 18}
-                        color={c.h ? t.acc : t.txA(80)}
+                        color={c.h ? t.accTx : t.txSecondary}
                       >
                         {c.v}
                       </TX>
@@ -269,7 +272,7 @@ export default function LessonScreen() {
             </View>
 
             {/* Examples */}
-            <SectionLabel text={acc.examplesT} color={t.acc} />
+            <SectionLabel text={acc.examplesT} color={t.accTx} />
             <View style={{ gap: 10, marginBottom: 26 }}>
               {L.examples.map((ex, i) => (
                 <View
@@ -283,10 +286,10 @@ export default function LessonScreen() {
                     paddingHorizontal: 16,
                   }}
                 >
-                  <TX font="serifI" size={18} style={{ marginBottom: 4 }}>
+                  <TX font="serifI" role="titleLg" size={19} style={{ marginBottom: 4 }}>
                     « {ex.fr} »
                   </TX>
-                  <TX size={12} lh={17} color={t.txA(50)}>
+                  <TX role="label" color={t.txMuted}>
                     {ex.en}
                   </TX>
                 </View>
@@ -296,7 +299,7 @@ export default function LessonScreen() {
             {/* Video */}
             {L.video ? (
               <View style={{ marginBottom: 26 }}>
-                <SectionLabel text={acc.videoT} color={t.acc} />
+                <SectionLabel text={acc.videoT} color={t.accTx} />
                 <View
                   style={{
                     aspectRatio: 16 / 9,
@@ -321,7 +324,7 @@ export default function LessonScreen() {
                   >
                     <Icon name="play" size={18} color={t.accInk} />
                   </View>
-                  <TX size={11} ls={1.4} color={t.txA(45)}>
+                  <TX role="meta" ls={1.4} color={t.txSubtle}>
                     2:14 · ɔ̃ · ɑ̃ · ɛ̃ · œ̃
                   </TX>
                 </View>
@@ -329,7 +332,7 @@ export default function LessonScreen() {
             ) : null}
 
             {/* Audio practice */}
-            <SectionLabel text={acc.audioT} color={t.acc} />
+            <SectionLabel text={acc.audioT} color={t.accTx} />
             <View style={{ gap: 8, marginBottom: 26 }}>
               {L.audio.map((str, i) => {
                 const on = audioOn === i;
@@ -339,7 +342,8 @@ export default function LessonScreen() {
                     cue={null}
                     onPress={() => playAudio(i, str)}
                     style={{
-                      height: 56,
+                      minHeight: 56,
+                      paddingVertical: 6,
                       borderRadius: 14,
                       borderWidth: 1,
                       borderColor: t.line(8),
@@ -362,10 +366,10 @@ export default function LessonScreen() {
                     >
                       <Icon name="play" size={12} color={t.acc} />
                     </View>
-                    <TX font="serifI" size={16} style={{ flex: 1 }}>
+                    <TX font="serifI" role="titleSm" style={{ flex: 1 }}>
                       {str}
                     </TX>
-                    <Waveform count={14} height={16} barWidth={2.5} gap={3} active={on} color={on ? t.acc : t.txA(30)} />
+                    <Waveform count={14} height={16} barWidth={2.5} gap={3} active={on} color={on ? t.acc : t.txNonText} />
                   </Press>
                 );
               })}
@@ -387,15 +391,15 @@ export default function LessonScreen() {
                   }}
                 >
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 6, flexWrap: 'wrap' }}>
-                    <TX font="serifI" size={16} color={t.danger} style={{ textDecorationLine: 'line-through' }}>
+                    <TX font="serifI" role="titleSm" color={t.danger} style={{ textDecorationLine: 'line-through' }}>
                       {er.wrong}
                     </TX>
-                    <Icon name="arrowRight" size={13} color={t.txA(40)} strokeWidth={1.4} />
-                    <TX font="serifI" size={16} color={t.acc}>
+                    <Icon name="arrowRight" size={13} color={t.txNonText} strokeWidth={1.4} />
+                    <TX font="serifI" role="titleSm" color={t.accTx}>
                       {er.right}
                     </TX>
                   </View>
-                  <TX size={12} lh={18} color={t.txA(55)}>
+                  <TX role="label" color={t.txMuted}>
                     {er.why}
                   </TX>
                 </View>
@@ -407,14 +411,15 @@ export default function LessonScreen() {
               cue={null}
               onPress={startQuiz}
               style={{
-                height: 56,
+                minHeight: 56,
+                paddingVertical: 6,
                 borderRadius: 28,
                 backgroundColor: t.acc,
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <TX font="semi" size={15} color={t.accInk}>
+              <TX font="semi" role="bodyLg" color={t.accInk}>
                 {acc.startQuiz}
               </TX>
             </Press>
@@ -424,14 +429,14 @@ export default function LessonScreen() {
         {phase === 'quiz' ? (
           <View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 18 }}>
-              <TX font="semi" size={10} ls={2.6} color={t.acc}>
+              <TX font="semi" role="meta" ls={2.6} color={t.accTx}>
                 QUIZ
               </TX>
-              <TX size={12} color={t.txA(50)}>
+              <TX role="label" color={t.txMuted}>
                 {quizIx + 1} / {L.quiz.length}
               </TX>
             </View>
-            <TX font="serif" size={26} lh={33} style={{ marginBottom: 24, minHeight: 66 }}>
+            <TX font="serif" size={26} role="display" lhMult={1.27} style={{ marginBottom: 24, minHeight: 66 }}>
               {L.quiz[quizIx].q}
             </TX>
             <View style={{ gap: 10, marginBottom: 24 }}>
@@ -447,7 +452,7 @@ export default function LessonScreen() {
                       : t.line(9)
                   : t.line(9);
                 const bg = answered && isCorrect ? t.accA(10) : answered && isSel && !isCorrect ? t.dangerA(10) : t.card;
-                const color = answered && isSel && !isCorrect ? t.danger : t.tx;
+                const color = answered && isSel && !isCorrect ? t.danger : t.txPrimary;
                 return (
                   <Press
                     key={i}
@@ -464,7 +469,7 @@ export default function LessonScreen() {
                       paddingVertical: 12,
                     }}
                   >
-                    <TX font="med" size={15} color={color}>
+                    <TX font="med" role="bodyLg" color={color}>
                       {o}
                     </TX>
                   </Press>
@@ -476,14 +481,15 @@ export default function LessonScreen() {
                 cue={null}
                 onPress={quizNext}
                 style={{
-                  height: 52,
+                  minHeight: 52,
+                  paddingVertical: 6,
                   borderRadius: 26,
                   backgroundColor: t.acc,
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
               >
-                <TX font="semi" size={14} color={t.accInk}>
+                <TX font="semi" role="body" color={t.accInk}>
                   {acc.qNext}
                 </TX>
               </Press>
@@ -499,7 +505,8 @@ export default function LessonScreen() {
                 color={t.acc}
                 bg="transparent"
                 style={{
-                  height: 34,
+                  minHeight: 34,
+                  paddingVertical: 6,
                   paddingHorizontal: 18,
                   borderRadius: 17,
                   borderWidth: 1.5,
@@ -510,14 +517,14 @@ export default function LessonScreen() {
                 }}
               />
             ) : (
-              <TX font="semi" size={12} ls={2} color={t.txA(55)} style={{ marginBottom: 20 }}>
+              <TX font="semi" role="label" ls={2} color={t.txMuted} style={{ marginBottom: 20 }}>
                 {acc.quizFailed}
               </TX>
             )}
-            <TX font="serif" size={64} lh={64} color={t.acc}>
+            <TX font="serif" size={64} role="display" color={t.accTx}>
               {quizScore} / {L.quiz.length}
             </TX>
-            <TX font="serifI" size={24} style={{ marginTop: 12, marginBottom: 34 }}>
+            <TX font="serifI" size={24} role="display" style={{ marginTop: 12, marginBottom: 34 }}>
               {L.title}
             </TX>
             {pass ? (
@@ -528,7 +535,8 @@ export default function LessonScreen() {
                   router.back();
                 }}
                 style={{
-                  height: 52,
+                  minHeight: 52,
+                  paddingVertical: 6,
                   paddingHorizontal: 34,
                   borderRadius: 26,
                   backgroundColor: t.acc,
@@ -536,13 +544,13 @@ export default function LessonScreen() {
                   justifyContent: 'center',
                 }}
               >
-                <TX font="semi" size={14} color={t.accInk}>
+                <TX font="semi" role="body" color={t.accInk}>
                   {acc.backToDen}
                 </TX>
               </Press>
             ) : null}
             <Press cue={null} onPress={retry} style={{ marginTop: 16 }}>
-              <TX size={13} color={t.txA(50)}>
+              <TX role="bodySm" color={t.txMuted}>
                 {acc.retry}
               </TX>
             </Press>

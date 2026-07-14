@@ -111,15 +111,15 @@ export default function Home() {
         {/* Header */}
         <View style={{ flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 22, paddingHorizontal: 4 }}>
           <View>
-            <TX font="semi" size={10} ls={3} color={t.txA(45)}>
+            <TX font="semi" role="meta" ls={3} color={t.txSubtle}>
               {T.greets[greetSlot()]}
             </TX>
-            <TX font="serif" size={32} lh={37}>
+            <TX font="serif" size={32} role="display">
               {userName || T.welcomeWord}
             </TX>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-            <View style={{ flexDirection: 'row', height: 32, borderRadius: 16, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
+            <View style={{ flexDirection: 'row', minHeight: 32, paddingVertical: 4, borderRadius: 16, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
               {(['fr', 'en'] as const).map((l) => {
                 const on = lang === l;
                 return (
@@ -133,7 +133,7 @@ export default function Home() {
                     accessibilityLabel={T.appLangNames[l]}
                     style={{ paddingHorizontal: 13, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}
                   >
-                    <TX font="semi" size={11} ls={1} color={on ? t.accInk : t.txA(55)}>
+                    <TX font="semi" role="meta" ls={1} color={on ? t.accInk : t.txMuted}>
                       {l.toUpperCase()}
                     </TX>
                   </Press>
@@ -142,26 +142,26 @@ export default function Home() {
             </View>
             <Press onPress={() => router.push('/profile')} accessibilityRole="button" accessibilityLabel={T.tabProfile} style={{ width: 40, height: 40, borderRadius: 20, borderWidth: 1, borderColor: t.accA(55), backgroundColor: t.card2, alignItems: 'center', justifyContent: 'center' }}>
               {userName ? (
-                <TX font="serif" size={17}>
+                <TX font="serif" role="title">
                   {userName.charAt(0).toUpperCase()}
                 </TX>
               ) : (
-                <Icon name="user" size={18} color={t.txA(70)} strokeWidth={1.7} />
+                <Icon name="user" size={18} color={t.txNonText} strokeWidth={1.7} />
               )}
             </Press>
           </View>
         </View>
 
         {/* Today strip */}
-        <View style={{ height: 66, borderRadius: 20, borderWidth: 1, borderColor: t.accA(28), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', marginBottom: 14, overflow: 'hidden' }}>
+        <View style={{ minHeight: 66, paddingVertical: 8, borderRadius: 20, borderWidth: 1, borderColor: t.accA(28), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', marginBottom: 14, overflow: 'hidden' }}>
           <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14 }}>
             <Ring color={t.acc} track={t.line(10)} pct={done / goal} />
             <View>
-              <TX font="bold" size={13} lh={16}>
+              <TX font="bold" role="bodySm">
                 {done}
-                <TX size={13} color={t.txA(45)} font="semi">/{goal} min</TX>
+                <TX role="bodySm" color={t.txSubtle} font="semi">/{goal} min</TX>
               </TX>
-              <TX font="semi" size={9.5} color={t.txA(50)}>
+              <TX font="semi" role="eyebrow" color={t.txMuted}>
                 {T.goalWord}
               </TX>
             </View>
@@ -170,14 +170,14 @@ export default function Home() {
           <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 0.9, flexDirection: 'row', alignItems: 'center', gap: 9, paddingHorizontal: 14 }}>
             {run.days > 0 ? (
               <>
-                <TX font="serif" size={25} color={t.acc} lh={25}>
+                <TX font="serif" size={25} role="display" color={t.accTx}>
                   {run.days}
                 </TX>
                 <View style={{ flex: 1, minWidth: 0 }}>
-                  <TX font="semi" size={11} lh={13}>
-                    {T.daysWord} <TX size={11} color={t.acc}>✦</TX>
+                  <TX font="semi" role="meta">
+                    {T.daysWord} <TX role="meta" color={t.accTx}>✦</TX>
                   </TX>
-                  <TX font="semi" size={9.5} color={t.txA(50)}>
+                  <TX font="semi" role="eyebrow" color={t.txMuted}>
                     {freezeLine}
                   </TX>
                 </View>
@@ -185,10 +185,10 @@ export default function Home() {
             ) : (
               // Day zero is not a failure and does not get shamed with a 0.
               <View style={{ flex: 1, minWidth: 0 }}>
-                <TX font="semi" size={11} lh={13}>
+                <TX font="semi" role="meta">
                   {T.dayOne}
                 </TX>
-                <TX font="semi" size={9.5} color={t.txA(50)}>
+                <TX font="semi" role="eyebrow" color={t.txMuted}>
                   {freezeLine}
                 </TX>
               </View>
@@ -196,14 +196,14 @@ export default function Home() {
           </Press>
           <View style={{ width: 1, backgroundColor: t.line(8), marginVertical: 13 }} />
           <Press cue={null} onPress={() => router.push('/smartreview')} style={{ flex: 1.1, flexDirection: 'row', alignItems: 'center', gap: 9, paddingHorizontal: 14, backgroundColor: t.accA(8) }}>
-            <TX font="serif" size={25} color={t.acc} lh={25}>
+            <TX font="serif" size={25} role="display" color={t.accTx}>
               {revNum}
             </TX>
             <View style={{ flex: 1, minWidth: 0 }}>
-              <TX font="semi" size={11} lh={13}>
+              <TX font="semi" role="meta">
                 {revLabel}
               </TX>
-              <TX font="bold" size={9.5} color={t.acc}>
+              <TX font="bold" role="eyebrow" color={t.accTx}>
                 {revSub}
               </TX>
             </View>
@@ -211,25 +211,25 @@ export default function Home() {
         </View>
 
         {/* Hero */}
-        <Press onPress={() => router.push('/player')} scale={0.99} style={{ height: 400, borderRadius: 26, overflow: 'hidden', borderWidth: 1, borderColor: t.line(7), backgroundColor: t.isDark ? '#1B1712' : t.card, ...t.cardShadow }}>
+        <Press onPress={() => router.push('/player')} scale={0.99} style={{ minHeight: 400, borderRadius: 26, overflow: 'hidden', borderWidth: 1, borderColor: t.line(7), backgroundColor: t.isDark ? '#1B1712' : t.card, ...t.cardShadow }}>
           <LinearGradient colors={[t.isDark ? 'rgba(214,160,96,0.24)' : 'rgba(214,160,96,0.35)', 'transparent']} start={{ x: 0.72, y: 0 }} end={{ x: 0.3, y: 0.55 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <LinearGradient colors={['transparent', t.accA(22)]} start={{ x: 0.15, y: 0.4 }} end={{ x: 0.15, y: 1 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
-          <View style={{ position: 'absolute', top: 20, left: 22, flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <View style={{ position: 'absolute', top: 20, left: 22, right: 62, flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: t.acc }} />
-            <TX font="semi" size={10} ls={2.6} color={t.txA(75)}>
+            <TX font="semi" role="meta" ls={2.6} color={t.txSecondary} numberOfLines={1} style={{ flexShrink: 1 }}>
               {T.heroTag}
             </TX>
           </View>
           <Press onPress={() => openSheet('vocab')} cue="tap" style={{ position: 'absolute', top: 12, right: 14, width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: 3 }}>
             {[0, 1, 2].map((i) => (
-              <View key={i} style={{ width: 3.5, height: 3.5, borderRadius: 2, backgroundColor: t.txA(70) }} />
+              <View key={i} style={{ width: 3.5, height: 3.5, borderRadius: 2, backgroundColor: t.txNonText }} />
             ))}
           </Press>
           <View style={{ position: 'absolute', left: 22, right: 22, bottom: 22 }}>
-            <TX font="serifI" size={46} lh={46} style={{ marginBottom: 8 }}>
+            <TX font="serifI" size={46} role="display" style={{ marginBottom: 8 }}>
               Au Café
             </TX>
-            <TX size={14} color={t.txA(65)} style={{ marginBottom: 18 }}>
+            <TX role="body" color={t.txSecondary} style={{ marginBottom: 18 }}>
               {T.heroSub}
             </TX>
             {/* No "4:12 left" pill: nothing persists a playback position yet, so any
@@ -237,7 +237,7 @@ export default function Home() {
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
               <View style={{ height: 46, paddingHorizontal: 22, borderRadius: 23, backgroundColor: t.acc, flexDirection: 'row', alignItems: 'center', gap: 9 }}>
                 <Icon name="play" size={13} color={t.accInk} />
-                <TX font="semi" size={14} color={t.accInk}>
+                <TX font="semi" role="body" color={t.accInk}>
                   {T.resume}
                 </TX>
               </View>
@@ -248,39 +248,39 @@ export default function Home() {
         {/* Foundations */}
         <SectionHead title={T.found} right="SONS · A1 · A2" />
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
-          <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push('/den')} style={{ width: '47.5%', height: 148, padding: 16 }}>
+          <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push('/den')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
             <TileHead badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />} right={`43 ${T.unitsWord}`} />
-            <TX font="serifI" size={23} lh={24} style={{ marginTop: 'auto' }}>
+            <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
               {T.denT}
             </TX>
-            <TX size={11} color={t.txA(50)} style={{ marginTop: 5 }}>
+            <TX role="meta" color={t.txMuted} style={{ marginTop: 5 }}>
               {T.denS}
             </TX>
           </GlowTile>
-          <GlowTile base="#0F1413" glow={t.accA(30)} onPress={() => router.push('/flashcards')} style={{ width: '47.5%', height: 148, padding: 16 }}>
+          <GlowTile base="#0F1413" glow={t.accA(30)} onPress={() => router.push('/flashcards')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
             <TileHead badge={<Badge label={T.skillRead + ' · ' + T.skillVocab} color={skillGold.c} bg={skillGold.bg} />} />
-            <TX font="serifI" size={23} lh={24} style={{ marginTop: 'auto' }}>
+            <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
               {T.cardsT}
             </TX>
-            <TX size={11} color={t.txA(50)} style={{ marginTop: 5 }}>
+            <TX role="meta" color={t.txMuted} style={{ marginTop: 5 }}>
               {T.cardsS}
             </TX>
           </GlowTile>
-          <GlowTile base="#0E1116" glow="rgba(96,126,160,0.30)" onPress={() => router.push('/voiceflash')} style={{ width: '47.5%', height: 148, padding: 16 }}>
+          <GlowTile base="#0E1116" glow="rgba(96,126,160,0.30)" onPress={() => router.push('/voiceflash')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
             <TileHead badge={<Badge label={T.skillSpeak} color={t.acc} bg={t.accA(16)} />} />
-            <TX font="serifI" size={23} lh={24} style={{ marginTop: 'auto' }}>
+            <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
               {T.voiceT}
             </TX>
-            <TX size={11} color={t.txA(50)} style={{ marginTop: 5 }}>
+            <TX role="meta" color={t.txMuted} style={{ marginTop: 5 }}>
               {T.voiceS}
             </TX>
           </GlowTile>
-          <GlowTile base="#0D0B12" glow="rgba(139,116,190,0.28)" onPress={() => router.push('/sentence')} style={{ width: '47.5%', height: 148, padding: 16 }}>
+          <GlowTile base="#0D0B12" glow="rgba(139,116,190,0.28)" onPress={() => router.push('/sentence')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
             <TileHead badge={<Badge label={T.skillWrite} color={skillPurple.c} bg={skillPurple.bg} />} />
-            <TX font="serifI" size={23} lh={24} style={{ marginTop: 'auto' }}>
+            <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
               {T.sbT}
             </TX>
-            <TX size={11} color={t.txA(50)} style={{ marginTop: 5 }}>
+            <TX role="meta" color={t.txMuted} style={{ marginTop: 5 }}>
               {T.sbS}
             </TX>
           </GlowTile>
@@ -301,18 +301,18 @@ export default function Home() {
           onPress={() => router.push('/dictation')}
           glow="rgba(214,160,96,0.22)"
           leadColor="rgba(214,160,96,0.14)"
-          lead={<TX font="serifI" size={19} color={skillGold.c}>é</TX>}
+          lead={<TX font="serifI" role="titleLg" size={20} color={skillGold.c}>é</TX>}
           title={T.dicteeT}
           badge={<Badge label={T.skillListen + ' · ' + T.skillWrite} color={skillBlue.c} bg={skillBlue.bg} />}
           sub={T.dictRowSub}
         />
 
         {/* Browse fold */}
-        <Press onPress={() => setBrowse((b) => !b)} style={{ marginTop: 26, height: 48, borderRadius: 24, borderWidth: 1, borderColor: t.line(12), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
-          <TX font="semi" size={13} color={t.txA(70)}>
+        <Press onPress={() => setBrowse((b) => !b)} style={{ marginTop: 26, minHeight: 48, paddingVertical: 8, borderRadius: 24, borderWidth: 1, borderColor: t.line(12), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+          <TX font="semi" role="bodySm" color={t.txSecondary}>
             {browse ? T.browseLess : T.browseOpen}
           </TX>
-          <Icon name={browse ? 'chevronUp' : 'chevronDown'} size={14} color={t.txA(55)} strokeWidth={1.6} />
+          <Icon name={browse ? 'chevronUp' : 'chevronDown'} size={14} color={t.txNonText} strokeWidth={1.6} />
         </Press>
 
         {browse ? (
@@ -320,14 +320,14 @@ export default function Home() {
             {/* Word of the day */}
             <Press onPress={openDict} style={{ marginTop: 22, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, padding: 14, paddingHorizontal: 18, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
               <View style={{ flex: 1 }}>
-                <TX font="semi" size={9} ls={2.4} color={t.txA(45)} style={{ marginBottom: 4 }}>
+                <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle} style={{ marginBottom: 4 }}>
                   {T.wordOfDay}
                 </TX>
                 <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10 }}>
-                  <TX font="serif" size={21}>
+                  <TX font="serif" role="titleLg" size={22}>
                     la flânerie
                   </TX>
-                  <TX size={11.5} color={t.txA(50)}>
+                  <TX role="label" color={t.txMuted}>
                     {T.nounFem}
                   </TX>
                 </View>
@@ -344,17 +344,17 @@ export default function Home() {
                 <View key={i} style={{ width: 158 }}>
                   <View style={{ height: 198, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', marginBottom: 10, backgroundColor: t.isDark ? '#12100E' : t.card, ...t.cardShadow }}>
                     <LinearGradient colors={[p.glow, 'transparent']} start={{ x: 0.8, y: 0 }} end={{ x: 0.2, y: 0.7 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
-                    <TX font="semi" size={9} ls={2.2} color={t.txA(55)} style={{ position: 'absolute', top: 14, left: 16 }}>
+                    <TX font="semi" role="eyebrow" ls={2.2} color={t.txMuted} style={{ position: 'absolute', top: 14, left: 16 }}>
                       {p.tag}
                     </TX>
-                    <TX font="serifI" size={27} style={{ position: 'absolute', left: 16, bottom: 14 }}>
+                    <TX font="serifI" size={27} role="display" style={{ position: 'absolute', left: 16, bottom: 14 }}>
                       {p.word}
                     </TX>
                   </View>
-                  <TX font="semi" size={13}>
+                  <TX font="semi" role="bodySm">
                     {T.playlistLabels[i]}
                   </TX>
-                  <TX size={11} color={t.txA(45)} style={{ marginTop: 2 }}>
+                  <TX role="meta" color={t.txSubtle} style={{ marginTop: 2 }}>
                     {T.playlistMeta[i]}
                   </TX>
                 </View>
@@ -365,14 +365,14 @@ export default function Home() {
             <SectionHead title={T.examiner} right="TEF · TCF · DELF" />
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -20 }} contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}>
               {exams.map((name, i) => (
-                <Press key={i} onPress={() => router.push('/speak')} style={{ width: 224, height: 118, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18 }}>
-                  <TX font="semi" size={9} ls={2.2} color={t.acc} style={{ marginBottom: 8 }}>
+                <Press key={i} onPress={() => router.push('/speak')} style={{ width: 224, minHeight: 118, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18 }}>
+                  <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx} style={{ marginBottom: 8 }}>
                     SIMULATION
                   </TX>
-                  <TX font="serif" size={23} lh={24} style={{ marginBottom: 6 }}>
+                  <TX font="serif" size={23} role="display" style={{ marginBottom: 6 }}>
                     {name}
                   </TX>
-                  <TX size={11.5} color={t.txA(50)}>
+                  <TX role="label" color={t.txMuted}>
                     {T.examMeta[i]}
                   </TX>
                 </Press>
@@ -383,21 +383,21 @@ export default function Home() {
             <SectionHead title={T.weak} right={T.week} />
             <View style={{ gap: 10 }}>
               {weak.map((w, i) => (
-                <Press key={i} onPress={w.open} style={{ height: 66, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>
+                <Press key={i} onPress={w.open} style={{ minHeight: 66, paddingVertical: 8, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>
                   <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
-                    <TX font="serif" size={16} color={t.acc}>
+                    <TX font="serif" role="titleSm" color={t.accTx}>
                       {w.glyph}
                     </TX>
                   </View>
                   <View style={{ flex: 1 }}>
-                    <TX font="semi" size={14}>
+                    <TX font="semi" role="body">
                       {w.title}
                     </TX>
-                    <TX size={11.5} color={t.txA(45)} style={{ marginTop: 2 }}>
+                    <TX role="label" color={t.txSubtle} style={{ marginTop: 2 }}>
                       {T.weakMeta[i]}
                     </TX>
                   </View>
-                  <Icon name="chevronRight" size={14} color={t.txA(35)} strokeWidth={1.6} />
+                  <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
                 </Press>
               ))}
             </View>
@@ -413,10 +413,10 @@ function SectionHead({ title, right }: { title: string; right: string }) {
   const t = useTheme();
   return (
     <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginTop: 30, marginBottom: 14, paddingHorizontal: 4 }}>
-      <TX font="serif" size={22}>
+      <TX font="serif" size={22} role="display">
         {title}
       </TX>
-      <TX font="semi" size={11} ls={1.8} color={t.txA(40)}>
+      <TX font="semi" role="meta" ls={1.8} color={t.txSubtle}>
         {right}
       </TX>
     </View>
@@ -426,10 +426,10 @@ function SectionHead({ title, right }: { title: string; right: string }) {
 function TileHead({ badge, right }: { badge: ReactNode; right?: string }) {
   const t = useTheme();
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
       {badge}
       {right ? (
-        <TX font="semi" size={9} ls={1.8} color={t.txA(50)}>
+        <TX font="semi" role="eyebrow" ls={1.8} color={t.txMuted} numberOfLines={1} style={{ flexShrink: 1 }}>
           {right}
         </TX>
       ) : null}
@@ -440,23 +440,23 @@ function TileHead({ badge, right }: { badge: ReactNode; right?: string }) {
 function DrillRow({ onPress, glow, lead, leadColor, title, badge, sub }: { onPress: () => void; glow: string; lead: ReactNode; leadColor: string; title: string; badge: ReactNode; sub: string }) {
   const t = useTheme();
   return (
-    <Press onPress={onPress} scale={0.99} style={{ marginTop: 12, height: 88, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: t.card2, flexDirection: 'row', alignItems: 'center', gap: 16, paddingHorizontal: 20, ...t.cardShadow }}>
+    <Press onPress={onPress} scale={0.99} style={{ marginTop: 12, minHeight: 88, paddingVertical: 8, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: t.card2, flexDirection: 'row', alignItems: 'center', gap: 16, paddingHorizontal: 20, ...t.cardShadow }}>
       <LinearGradient colors={[glow, 'transparent']} start={{ x: 0.9, y: 0 }} end={{ x: 0.3, y: 0.8 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
       <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: leadColor, alignItems: 'center', justifyContent: 'center' }}>
         {lead}
       </View>
       <View style={{ flex: 1 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 9 }}>
-          <TX font="serifI" size={21} lh={22}>
+          <TX font="serifI" role="titleLg" size={22}>
             {title}
           </TX>
           {badge}
         </View>
-        <TX size={11} color={t.txA(50)} style={{ marginTop: 3 }}>
+        <TX role="meta" color={t.txMuted} style={{ marginTop: 3 }}>
           {sub}
         </TX>
       </View>
-      <Icon name="chevronRight" size={13} color={t.txA(35)} strokeWidth={1.6} />
+      <Icon name="chevronRight" size={13} color={t.txNonText} strokeWidth={1.6} />
     </Press>
   );
 }

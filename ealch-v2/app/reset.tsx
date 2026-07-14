@@ -79,6 +79,19 @@ export default function ResetPassword() {
     return () => { cancelled = true; };
   }, [initialUrl]);
 
+  /**
+   * A dead recovery link fails deep inside Supabase, which words it for
+   * developers ("JWT not in base64url format", "token is expired"). Users get
+   * the plain-language version instead; anything genuinely actionable (e.g. a
+   * password-policy complaint) is passed through as-is.
+   */
+  const resetErrorText = (err: string | undefined): string => {
+    if (!err) return T.errResetFailed;
+    if (err === AUTH_UNAVAILABLE) return T.errAuthUnavailable;
+    if (/jwt|token|expired|invalid|session|claim/i.test(err)) return T.resetInvalid;
+    return err;
+  };
+
   const submit = async () => {
     if (pending || !tokens) return;
     if (password.length < 8) {
@@ -93,7 +106,7 @@ export default function ResetPassword() {
     setPending(false);
     if (!res.ok) {
       sound.play('error');
-      setError(res.error === AUTH_UNAVAILABLE ? T.errAuthUnavailable : (res.error ?? T.errResetFailed));
+      setError(resetErrorText(res.error));
       return;
     }
     // The recovery session is now a real session — go straight into the app.
@@ -109,23 +122,23 @@ export default function ResetPassword() {
   return (
     <View style={{ flex: 1, backgroundColor: t.bg, paddingHorizontal: 28, paddingTop: insets.top + 70, paddingBottom: insets.bottom + 30 }}>
       <RadialGlow color={t.acc} opacity={0.1} height={300} />
-      <TX font="semi" size={10} ls={2.8} color={t.txA(40)} style={{ marginBottom: 12 }}>
+      <TX font="semi" role="meta" ls={2.8} color={t.txSubtle} style={{ marginBottom: 12 }}>
         {T.resetTag}
       </TX>
-      <TX font="serifI" size={42} lh={44} style={{ marginBottom: 14 }}>
+      <TX font="serifI" role="display" size={42} style={{ marginBottom: 14 }}>
         {T.resetTitle}
       </TX>
 
       {invalid ? (
         <>
-          <TX size={13.5} lh={20} color={t.txA(55)} style={{ marginBottom: 26 }}>
+          <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 26 }}>
             {T.resetInvalid}
           </TX>
-          <Button label={T.backToSignIn} onPress={() => router.replace('/signin')} style={{ height: 54 }} />
+          <Button label={T.backToSignIn} onPress={() => router.replace('/signin')} style={{ minHeight: 54, paddingVertical: 6 }} />
         </>
       ) : (
         <>
-          <TX size={13.5} lh={20} color={t.txA(55)} style={{ marginBottom: 26 }}>
+          <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 26 }}>
             {T.resetSub}
           </TX>
           <PasswordField
@@ -135,7 +148,7 @@ export default function ResetPassword() {
             onSubmitEditing={() => void submit()}
           />
           {error ? (
-            <TX size={12} lh={17} color={t.danger} style={{ marginTop: 2, marginBottom: 10 }}>
+            <TX role="label" color={t.danger} style={{ marginTop: 2, marginBottom: 10 }}>
               {error}
             </TX>
           ) : null}
@@ -143,10 +156,10 @@ export default function ResetPassword() {
             label={T.setNewPw}
             onPress={submit}
             disabled={pending || !checked || !tokens}
-            style={{ height: 54, marginTop: 6 }}
+            style={{ minHeight: 54, paddingVertical: 6, marginTop: 6 }}
           />
           <Press onPress={() => router.replace('/signin')} style={{ alignItems: 'center', marginTop: 'auto', paddingTop: 20 }}>
-            <TX size={13} color={t.txA(50)}>
+            <TX role="bodySm" color={t.txMuted}>
               {T.backToSignIn}
             </TX>
           </Press>

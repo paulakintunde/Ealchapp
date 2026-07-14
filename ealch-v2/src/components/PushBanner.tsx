@@ -67,27 +67,28 @@ export function PushBanner() {
         <View
           style={{
             width: 38,
-            height: 38,
+            minHeight: 38,
+            paddingVertical: 6,
             borderRadius: 10,
             backgroundColor: t.acc,
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          <TX font="serifI" size={20} color={t.accInk}>
+          <TX font="serifI" role="titleLg" size={21} color={t.accInk}>
             E
           </TX>
         </View>
         <View style={{ flex: 1, minWidth: 0 }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' }}>
-            <TX font="bold" size={12} ls={0.4}>
+            <TX font="bold" role="label" ls={0.4}>
               EALCH
             </TX>
-            <TX size={10} color={t.txA(40)}>
+            <TX role="meta" color={t.txSubtle}>
               {T.now}
             </TX>
           </View>
-          <TX size={12.5} color={t.txA(75)} lh={17} style={{ marginTop: 2 }}>
+          <TX role="label" color={t.txSecondary} style={{ marginTop: 2 }}>
             {text}
           </TX>
         </View>

@@ -56,21 +56,21 @@ export default function Downloads() {
       >
         {/* Tag row */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-          <TX font="semi" size={9} ls={2.4} color={t.txA(45)}>
+          <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle}>
             {T.offlineTag}
           </TX>
-          <View style={{ height: 22, paddingHorizontal: 10, borderRadius: 11, backgroundColor: t.accA(15), alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="bold" size={9} ls={1.2} color={t.acc}>
+          <View style={{ minHeight: 22, paddingVertical: 3, paddingHorizontal: 10, borderRadius: 11, backgroundColor: t.accA(15), alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="bold" role="eyebrow" ls={1.2} color={t.accTx}>
               PREMIÈRE
             </TX>
           </View>
         </View>
 
         {/* Title + subtitle */}
-        <TX font="serifI" size={36} style={{ marginBottom: 4 }}>
+        <TX font="serifI" role="display" size={36} style={{ marginBottom: 4 }}>
           {T.downloadsT}
         </TX>
-        <TX size={13} color={t.txA(55)} style={{ marginBottom: 20 }}>
+        <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 20 }}>
           {T.downloadsS}
         </TX>
 
@@ -87,11 +87,11 @@ export default function Downloads() {
           }}
         >
           <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 10 }}>
-            <TX font="semi" size={13}>
+            <TX font="semi" role="bodySm">
               {T.storage}
             </TX>
-            <TX size={12} color={t.txA(50)}>
-              <TX font="semi" size={12} color={t.acc}>
+            <TX role="label" color={t.txMuted}>
+              <TX font="semi" role="label" color={t.accTx}>
                 {usedLabel}
               </TX>{' '}
               / {totalLabel}
@@ -108,14 +108,14 @@ export default function Downloads() {
             {cats.map((c) => (
               <View key={c.label} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
                 <View style={{ width: 8, height: 8, borderRadius: 2, backgroundColor: c.color }} />
-                <TX size={10.5} color={t.txA(50)}>
+                <TX role="meta" color={t.txMuted}>
                   {c.label} {c.mb} MB
                 </TX>
               </View>
             ))}
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
               <View style={{ width: 8, height: 8, borderRadius: 2, backgroundColor: t.line(12) }} />
-              <TX size={10.5} color={t.txA(50)}>
+              <TX role="meta" color={t.txMuted}>
                 {T.freeSpace} {((TOTAL_MB - usedMb) / 1024).toFixed(1)} GB
               </TX>
             </View>
@@ -139,10 +139,10 @@ export default function Downloads() {
           }}
         >
           <View style={{ flex: 1 }}>
-            <TX font="semi" size={13.5}>
+            <TX font="semi" role="bodySm">
               {T.wifiOnly}
             </TX>
-            <TX size={11} color={t.txA(45)} style={{ marginTop: 1 }}>
+            <TX role="meta" color={t.txSubtle} style={{ marginTop: 1 }}>
               {T.wifiOnlySub}
             </TX>
           </View>
@@ -150,7 +150,7 @@ export default function Downloads() {
         </View>
 
         {/* Available collections */}
-        <TX font="semi" size={10} ls={2.4} color={t.txA(40)} style={{ marginBottom: 12 }}>
+        <TX font="semi" role="meta" ls={2.4} color={t.txSubtle} style={{ marginBottom: 12 }}>
           {T.availableT}
         </TX>
         <View style={{ gap: 10, marginBottom: 18 }}>
@@ -172,10 +172,10 @@ export default function Downloads() {
                 }}
               >
                 <View style={{ flex: 1, minWidth: 0 }}>
-                  <TX font="semi" size={13.5}>
+                  <TX font="semi" role="bodySm">
                     {c.title}
                   </TX>
-                  <TX size={11} color={t.txA(45)} style={{ marginTop: 2 }}>
+                  <TX role="meta" color={t.txSubtle} style={{ marginTop: 2 }}>
                     {c.sub}
                   </TX>
                 </View>
@@ -193,7 +193,7 @@ export default function Downloads() {
                     borderColor: t.line(16),
                   }}
                 >
-                  <Icon name={on ? 'check' : 'download'} size={17} color={on ? t.accInk : t.txA(60)} strokeWidth={on ? 2.4 : 1.8} />
+                  <Icon name={on ? 'check' : 'download'} size={17} color={on ? t.accInk : t.txNonText} strokeWidth={on ? 2.4 : 1.8} />
                 </Press>
               </View>
             );
@@ -201,7 +201,7 @@ export default function Downloads() {
         </View>
 
         {/* Footer note */}
-        <TX size={11} center color={t.txA(35)} style={{ fontStyle: 'italic' }}>
+        <TX role="meta" center color={t.txSubtle} style={{ fontStyle: 'italic' }}>
           {T.offlineSync}
         </TX>
       </ScrollView>

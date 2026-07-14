@@ -10,12 +10,16 @@
 // failed AuthResult here, once, for all of them.
 import type { AuthError } from '@supabase/supabase-js';
 import { supabase } from './supabase';
+import { ENV } from './env';
 import { RESET_REDIRECT } from '@/config/legal';
 
 export type AuthResult = { ok: boolean; email?: string; error?: string };
 
 /** Sentinel: Supabase is not configured, or the call never reached it. */
 export const AUTH_UNAVAILABLE = 'auth-unavailable';
+
+/** Sentinel: deletion was attempted with no live session to authenticate it. */
+export const DELETE_NO_SESSION = 'delete-no-session';
 
 const unavailable: AuthResult = { ok: false, error: AUTH_UNAVAILABLE };
 
@@ -115,6 +119,40 @@ export const auth = {
       await sb.auth.signOut();
     } catch {
       // Local sign-out still proceeds in the store.
+    }
+  },
+
+  /**
+   * Permanently delete the signed-in user's account, server-side.
+   *
+   * Required by Apple 5.1.1(v) / Google Play for any app that creates accounts.
+   * Deleting an auth user needs the service-role key, so the work happens in the
+   * `delete-account` Edge Function (supabase/functions/delete-account) — the
+   * client only proves who it is. Rows in profiles/review_items/sessions cascade
+   * from auth.users.
+   *
+   * NOTE: this deletes the *server* account. Local data is wiped separately by
+   * `useStore.eraseLocalData()` — the caller must do both, and must not treat a
+   * failure here as success.
+   */
+  async deleteAccount(): Promise<AuthResult> {
+    const sb = supabase();
+    if (!sb) return unavailable;
+    try {
+      // invoke() attaches the current session's bearer token. Without a session
+      // the function would reject with a bare 401, so fail early and legibly.
+      const { data } = await sb.auth.getSession();
+      if (!data.session) return { ok: false, error: DELETE_NO_SESSION };
+
+      const { error } = await sb.functions.invoke(ENV.deleteAccountFunction, { method: 'POST' });
+      if (error) return { ok: false, error: error.message };
+
+      // The account no longer exists; drop the now-orphaned local session so no
+      // stale token sits in AsyncStorage refreshing against a dead user.
+      await sb.auth.signOut().catch(() => {});
+      return { ok: true };
+    } catch {
+      return unavailable;
     }
   },
 };

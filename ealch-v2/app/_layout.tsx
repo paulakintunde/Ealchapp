@@ -7,6 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Stack } from 'expo-router';
 import * as Notifications from 'expo-notifications';
 import * as SplashScreen from 'expo-splash-screen';
+import type { ErrorBoundaryProps } from 'expo-router';
 import { useAppFonts } from '@/theme/fonts';
 import { useStore } from '@/store/useStore';
 import { useTheme } from '@/theme/useTheme';
@@ -15,9 +16,29 @@ import { AppFrame } from '@/components/AppFrame';
 import { PushBanner } from '@/components/PushBanner';
 import { BottomSheet } from '@/components/BottomSheet';
 import { DictionaryOverlay } from '@/components/DictionaryOverlay';
+import { ErrorScreen } from '@/components/ErrorScreen';
 import { refreshConfig } from '@/services';
+import { installErrorHandlers, logError } from '@/services/errors';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
+
+// Installed at module scope so uncaught errors thrown *during* the first render
+// are already being captured by the time React starts.
+installErrorHandlers();
+
+/**
+ * expo-router renders this instead of the route tree when a descendant throws
+ * during render. Without it, a single bad render is an unrecoverable white
+ * screen with nothing logged — the worst possible failure to hand a tester.
+ */
+export function ErrorBoundary({ error, retry }: ErrorBoundaryProps) {
+  useEffect(() => {
+    logError('render', error);
+    // The splash is still held up if the crash landed before hideAsync ran.
+    SplashScreen.hideAsync().catch(() => {});
+  }, [error]);
+  return <ErrorScreen error={error} retry={() => void retry()} />;
+}
 
 // Scheduled practice reminders must be visible while the app is foregrounded.
 if (Platform.OS !== 'web') {
@@ -84,6 +105,7 @@ export default function RootLayout() {
               <Stack.Screen name="chat" />
               <Stack.Screen name="profile" />
               <Stack.Screen name="settings" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="delete-account" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="flashcards" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="voiceflash" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="sentence" options={{ animation: 'slide_from_right' }} />

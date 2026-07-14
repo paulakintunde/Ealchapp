@@ -37,7 +37,7 @@ export function TabBar() {
               key={tab.key}
               onPress={() => router.replace(tab.route as never)}
               scale={0.92}
-              style={{ alignItems: 'center', gap: 6, minWidth: 64, paddingVertical: 6 }}
+              style={{ flex: 1, alignItems: 'center', gap: 6, minWidth: 64, paddingVertical: 6 }}
             >
               <View
                 style={{
@@ -47,7 +47,15 @@ export function TabBar() {
                   backgroundColor: on ? t.acc : 'transparent',
                 }}
               />
-              <TX font="semi" size={10.5} ls={2.2} color={on ? t.tx : t.txA(45)}>
+              <TX
+                font="semi"
+                role="meta"
+                ls={2.2}
+                color={on ? t.txPrimary : t.txSubtle}
+                maxScale={1.25}
+                numberOfLines={1}
+                adjustsFontSizeToFit
+              >
                 {tab.label}
               </TX>
             </Press>

@@ -11,6 +11,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useSessionLog } from '@/store/useProgress';
+import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { sbWords, sbShuffle, sbTarget } from '@/content';
 
@@ -23,6 +24,7 @@ const normWrite = (s: string) => s.toLowerCase().replace(/[.,!’']/g, ' ').repl
 export default function Sentence() {
   const t = useTheme();
   const T = useT();
+  useReadingBrightness();
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
@@ -151,8 +153,8 @@ export default function Sentence() {
   };
 
   const primaryBtn = (label: string, onPress: () => void) => (
-    <Press cue={null} onPress={onPress} style={{ height: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-      <TX font="semi" size={15} color={t.accInk}>
+    <Press cue={null} onPress={onPress} style={{ minHeight: 54, paddingVertical: 6, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+      <TX font="semi" role="bodyLg" color={t.accInk}>
         {label}
       </TX>
     </Press>
@@ -169,7 +171,7 @@ export default function Sentence() {
         {/* ── LEARN ── */}
         {phase === 'learn' ? (
           <View style={{ flex: 1 }}>
-            <TX font="serif" size={30} style={{ marginBottom: 20 }}>
+            <TX font="serif" size={30} role="display" style={{ marginBottom: 20 }}>
               {T.learnT}
             </TX>
             <View style={{ gap: 10, marginBottom: 24 }}>
@@ -190,23 +192,23 @@ export default function Sentence() {
                       <Press cue={null} onPress={() => playWord(i)} style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
                         <Icon name="play" size={12} color={t.acc} />
                       </Press>
-                      <TX font="serifI" size={19} style={{ flex: 1 }}>
+                      <TX font="serifI" role="titleLg" size={20} style={{ flex: 1 }}>
                         {w.w}
                       </TX>
-                      <TX size={12.5} color={t.txA(50)}>
+                      <TX role="label" color={t.txMuted}>
                         {w.t}
                       </TX>
                     </View>
                     {openWord === i ? (
                       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 14, marginTop: 12, borderTopWidth: 1, borderTopColor: t.line(7), paddingTop: 12 }}>
-                        <Waveform count={16} height={16} barWidth={2.5} gap={3} active={active} color={active ? t.acc : t.txA(30)} />
+                        <Waveform count={16} height={16} barWidth={2.5} gap={3} active={active} color={active ? t.acc : t.txNonText} />
                         <Press
                           cue={null}
                           onPress={() => practiceWord(i)}
-                          style={{ flexDirection: 'row', alignItems: 'center', gap: 8, height: 34, paddingHorizontal: 15, borderRadius: 17, borderWidth: 1, borderColor: t.accA(50), backgroundColor: practiceW === i ? t.acc : 'transparent' }}
+                          style={{ flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 34, paddingVertical: 6, paddingHorizontal: 15, borderRadius: 17, borderWidth: 1, borderColor: t.accA(50), backgroundColor: practiceW === i ? t.acc : 'transparent' }}
                         >
                           <Icon name="mic" size={14} color={practiceW === i ? t.accInk : t.acc} />
-                          <TX font="semi" size={12} color={practiceW === i ? t.accInk : t.acc}>
+                          <TX font="semi" role="label" color={practiceW === i ? t.accInk : t.accTx}>
                             {practiceW === i ? '…' : T.repeatWord}
                           </TX>
                         </Press>
@@ -223,7 +225,7 @@ export default function Sentence() {
         {/* ── ARRANGE ── */}
         {phase === 'arrange' ? (
           <View style={{ flex: 1 }}>
-            <TX font="serif" size={30} style={{ marginBottom: 20 }}>
+            <TX font="serif" size={30} role="display" style={{ marginBottom: 20 }}>
               {T.arrangeT}
             </TX>
             <Animated.View
@@ -237,9 +239,9 @@ export default function Sentence() {
                     sound.play('tap');
                     setPicked((p) => p.filter((_, xi) => xi !== ix));
                   }}
-                  style={{ height: 40, paddingHorizontal: 16, borderRadius: 20, backgroundColor: t.accA(15), borderWidth: 1, borderColor: t.accA(45), alignItems: 'center', justifyContent: 'center' }}
+                  style={{ minHeight: 40, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 20, backgroundColor: t.accA(15), borderWidth: 1, borderColor: t.accA(45), alignItems: 'center', justifyContent: 'center' }}
                 >
-                  <TX font="serifI" size={16} color={t.acc}>
+                  <TX font="serifI" role="titleSm" color={t.accTx}>
                     {sbWords[i].w}
                   </TX>
                 </Press>
@@ -256,9 +258,9 @@ export default function Sentence() {
                       sound.play('tap');
                       setPicked((p) => [...p, i]);
                     }}
-                    style={{ height: 40, paddingHorizontal: 16, borderRadius: 20, backgroundColor: t.card2, borderWidth: 1, borderColor: t.line(12), alignItems: 'center', justifyContent: 'center' }}
+                    style={{ minHeight: 40, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 20, backgroundColor: t.card2, borderWidth: 1, borderColor: t.line(12), alignItems: 'center', justifyContent: 'center' }}
                   >
-                    <TX font="serifI" size={16}>
+                    <TX font="serifI" role="titleSm">
                       {sbWords[i].w}
                     </TX>
                   </Press>
@@ -271,11 +273,11 @@ export default function Sentence() {
         {/* ── SAY ── */}
         {phase === 'say' ? (
           <View style={{ flex: 1 }}>
-            <TX font="serif" size={30} style={{ marginBottom: 20 }}>
+            <TX font="serif" size={30} role="display" style={{ marginBottom: 20 }}>
               {T.sayItT}
             </TX>
             <View style={{ borderRadius: 20, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.input, padding: 26, paddingHorizontal: 22, marginBottom: 24 }}>
-              <TX font="serifI" size={25} lh={34}>
+              <TX font="serifI" size={25} role="display" lhMult={1.36}>
                 « {sbTarget} »
               </TX>
             </View>
@@ -284,7 +286,7 @@ export default function Sentence() {
                 <Waveform count={26} height={28} barWidth={3} gap={4} active={saying} color={t.acc} />
               </View>
               <Press cue={null} onPress={mic} scale={0.94} style={{ width: 76, height: 76, borderRadius: 38, alignItems: 'center', justifyContent: 'center', backgroundColor: saying ? t.acc : t.line(4), borderWidth: 1, borderColor: saying ? t.acc : t.line(20) }}>
-                <Icon name="mic" size={27} color={saying ? t.accInk : t.tx} />
+                <Icon name="mic" size={27} color={saying ? t.accInk : t.txNonText} />
               </Press>
             </View>
           </View>
@@ -293,10 +295,10 @@ export default function Sentence() {
         {/* ── WRITE ── */}
         {phase === 'write' ? (
           <View style={{ flex: 1 }}>
-            <TX font="serif" size={30} style={{ marginBottom: 8 }}>
+            <TX font="serif" size={30} role="display" style={{ marginBottom: 8 }}>
               {T.writeItT}
             </TX>
-            <TX font="serifI" size={13} color={t.txA(50)} style={{ marginBottom: 24 }}>
+            <TX font="serifI" role="bodySm" color={t.txMuted} style={{ marginBottom: 24 }}>
               « I would like a coffee, please. »
             </TX>
             <Animated.View style={{ transform: [{ translateX: shakeX }], marginBottom: 24 }}>
@@ -305,9 +307,9 @@ export default function Sentence() {
                 onChangeText={setTyped}
                 onSubmitEditing={checkWrite}
                 placeholder="Écrivez la phrase…"
-                placeholderTextColor={t.txA(30)}
+                placeholderTextColor={t.txSubtle}
                 autoCapitalize="none"
-                style={{ height: 56, borderRadius: 18, borderWidth: 1.5, borderColor: err ? t.danger : t.line(10), backgroundColor: t.input, color: t.tx, paddingHorizontal: 18, fontSize: 16, fontFamily: 'InstrumentSerif' }}
+                style={{ minHeight: 56, paddingVertical: 6, borderRadius: 18, borderWidth: 1.5, borderColor: err ? t.danger : t.line(10), backgroundColor: t.input, color: t.txPrimary, paddingHorizontal: 18, fontSize: 16, fontFamily: 'InstrumentSerif' }}
               />
             </Animated.View>
             <View style={{ marginTop: 'auto' }}>{primaryBtn(T.checkT, checkWrite)}</View>
@@ -320,19 +322,19 @@ export default function Sentence() {
             <View style={{ width: 88, height: 88, borderRadius: 44, backgroundColor: t.accA(15), borderWidth: 1, borderColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 22 }}>
               <Icon name="check" size={38} color={t.acc} strokeWidth={3} />
             </View>
-            <TX font="serifI" size={27} center style={{ marginBottom: 8 }}>
+            <TX font="serifI" size={27} role="display" center style={{ marginBottom: 8 }}>
               {T.wellDone}
             </TX>
-            <TX font="serif" size={18} color={t.acc} center style={{ marginBottom: 34 }}>
+            <TX font="serif" role="titleLg" size={19} color={t.accTx} center style={{ marginBottom: 34 }}>
               « {sbTarget} »
             </TX>
-            <Press cue={null} onPress={restart} style={{ height: 52, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-              <TX font="semi" size={14} color={t.accInk}>
+            <Press cue={null} onPress={restart} style={{ minHeight: 52, paddingVertical: 6, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+              <TX font="semi" role="body" color={t.accInk}>
                 {T.redo}
               </TX>
             </Press>
             <Press cue={null} onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
-              <TX size={13} color={t.txA(50)}>
+              <TX role="bodySm" color={t.txMuted}>
                 {T.backFeed}
               </TX>
             </Press>

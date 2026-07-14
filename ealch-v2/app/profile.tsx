@@ -42,10 +42,10 @@ function StatCard({ value, label, accent }: { value: string; label: string; acce
         paddingHorizontal: 14,
       }}
     >
-      <TX font="serif" size={27} color={accent ? t.acc : t.tx}>
+      <TX font="serif" role="display" size={27} color={accent ? t.accTx : t.txPrimary}>
         {value}
       </TX>
-      <TX font="semi" size={9} ls={1.6} color={t.txA(45)} style={{ marginTop: 4 }}>
+      <TX font="semi" role="eyebrow" ls={1.6} color={t.txSubtle} style={{ marginTop: 4 }} numberOfLines={2}>
         {label}
       </TX>
     </View>
@@ -77,10 +77,10 @@ function CardHead({ title, right }: { title: string; right: string }) {
   const t = useTheme();
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 14 }}>
-      <TX font="semi" size={12} ls={0.6}>
+      <TX font="semi" role="label" ls={0.6}>
         {title}
       </TX>
-      <TX font="semi" size={10} ls={1.8} color={t.txA(40)}>
+      <TX font="semi" role="meta" ls={1.8} color={t.txSubtle}>
         {right}
       </TX>
     </View>
@@ -160,7 +160,7 @@ export default function Profile() {
     st === 'done' ? t.accA(18) : st === 'frozen' ? t.line(6) : t.line(4);
   const dotBorder = (st: DotState) =>
     st === 'done' ? t.accA(50) : st === 'today' ? t.accA(70) : t.line(10);
-  const dotColor = (st: DotState) => (st === 'done' || st === 'today' ? t.acc : t.txA(50));
+  const dotColor = (st: DotState) => (st === 'done' || st === 'today' ? t.accTx : t.txMuted);
   const dotCh = (st: DotState) =>
     st === 'done' ? '✓' : st === 'frozen' ? '✦' : st === 'today' ? '·' : '';
 
@@ -185,11 +185,11 @@ export default function Profile() {
             }}
           >
             {userName ? (
-              <TX font="serif" size={26}>
+              <TX font="serif" role="display" size={26}>
                 {userName.charAt(0).toUpperCase()}
               </TX>
             ) : (
-              <Icon name="user" size={26} color={t.txA(60)} strokeWidth={1.6} />
+              <Icon name="user" size={26} color={t.txNonText} strokeWidth={1.6} />
             )}
           </View>
           <View style={{ flex: 1 }}>
@@ -199,7 +199,7 @@ export default function Profile() {
                   value={nameDraft}
                   onChangeText={setNameDraft}
                   placeholder={T.namePh}
-                  placeholderTextColor={t.txA(30)}
+                  placeholderTextColor={t.txSubtle}
                   autoFocus
                   autoCapitalize="words"
                   maxLength={30}
@@ -223,35 +223,36 @@ export default function Profile() {
               </View>
             ) : (
               <Press onPress={startEditName} cue={null} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'flex-start' }}>
-                <TX font="serif" size={30} lh={33}>
+                <TX font="serif" role="display" size={30}>
                   {userName || T.guestName}
                 </TX>
-                <Icon name="pencil" size={14} color={t.txA(40)} strokeWidth={1.6} />
+                <Icon name="pencil" size={14} color={t.txNonText} strokeWidth={1.6} />
               </Press>
             )}
             <View
               style={{
                 alignSelf: 'flex-start',
                 marginTop: 6,
-                height: 24,
+                minHeight: 24,
+                paddingVertical: 3,
                 paddingHorizontal: 11,
                 borderRadius: 12,
                 backgroundColor: t.accA(14),
                 justifyContent: 'center',
               }}
             >
-              <TX font="semi" size={11} ls={0.8} color={t.acc}>
+              <TX font="semi" role="meta" ls={0.8} color={t.accTx} numberOfLines={1} adjustsFontSizeToFit>
                 {level}{levelName ? ` — ${levelName}` : ''}
               </TX>
             </View>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start' }}>
-            <View style={{ flexDirection: 'row', height: 32, borderRadius: 16, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
+            <View style={{ flexDirection: 'row', minHeight: 32, paddingVertical: 4, borderRadius: 16, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
               {(['fr', 'en'] as const).map((l) => {
                 const on = lang === l;
                 return (
                   <Press key={l} onPress={() => setLang(l)} style={{ paddingHorizontal: 13, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}>
-                    <TX font="semi" size={11} ls={1} color={on ? t.accInk : t.txA(55)}>
+                    <TX font="semi" role="meta" ls={1} color={on ? t.accInk : t.txMuted}>
                       {l.toUpperCase()}
                     </TX>
                   </Press>
@@ -259,7 +260,7 @@ export default function Profile() {
               })}
             </View>
             <Press onPress={() => router.push('/settings')} style={{ width: 36, height: 36, alignItems: 'center', justifyContent: 'center' }}>
-              <Icon name="gear" size={18} color={t.txA(70)} />
+              <Icon name="gear" size={18} color={t.txNonText} />
             </Press>
           </View>
         </View>
@@ -291,16 +292,17 @@ export default function Profile() {
           />
           <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 14 }}>
             <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 9 }}>
-              <TX font="serif" size={34} lh={34} color={t.acc}>
+              <TX font="serif" role="display" size={34} color={t.accTx}>
                 {String(run.days)}
               </TX>
-              <TX size={12.5} color={t.txA(60)}>
+              <TX role="label" color={t.txSecondary}>
                 {streakW}
               </TX>
             </View>
             <View
               style={{
-                height: 22,
+                minHeight: 22,
+                paddingVertical: 3,
                 paddingHorizontal: 10,
                 borderRadius: 11,
                 borderWidth: 1,
@@ -308,7 +310,7 @@ export default function Profile() {
                 justifyContent: 'center',
               }}
             >
-              <TX font="bold" size={8.5} ls={1} color={t.acc}>
+              <TX font="bold" role="eyebrow" ls={1} color={t.accTx}>
                 {freezeChip}
               </TX>
             </View>
@@ -319,7 +321,8 @@ export default function Profile() {
                 <View
                   style={{
                     width: 30,
-                    height: 30,
+                    minHeight: 30,
+                    paddingVertical: 4,
                     borderRadius: 15,
                     backgroundColor: dotBg(st),
                     borderWidth: st === 'today' ? 1.5 : 1,
@@ -329,17 +332,17 @@ export default function Profile() {
                     justifyContent: 'center',
                   }}
                 >
-                  <TX size={11} color={dotColor(st)}>
+                  <TX role="meta" color={dotColor(st)}>
                     {dotCh(st)}
                   </TX>
                 </View>
-                <TX font="semi" size={9} color={t.txA(40)}>
+                <TX font="semi" role="eyebrow" color={t.txSubtle}>
                   {T.dayLetters[i]}
                 </TX>
               </View>
             ))}
           </View>
-          <TX font="serifI" size={10.5} lh={16} color={t.txA(45)}>
+          <TX font="serifI" role="meta" color={t.txSubtle}>
             {freezeNote}
           </TX>
         </View>
@@ -358,7 +361,7 @@ export default function Profile() {
                     backgroundColor: i === 3 ? t.acc : t.txA(16),
                   }}
                 />
-                <TX size={9} color={t.txA(40)}>
+                <TX role="eyebrow" color={t.txSubtle}>
                   {T.dayLetters[i]}
                 </TX>
               </View>
@@ -367,7 +370,7 @@ export default function Profile() {
         </CardBox>
 
         {/* Weakness engine */}
-        <TX font="serif" size={21} style={{ marginBottom: 12 }}>
+        <TX font="serif" role="titleLg" size={22} style={{ marginBottom: 12 }}>
           {T.weakEngine}
         </TX>
         <View style={{ gap: 10, marginBottom: 30 }}>
@@ -376,7 +379,8 @@ export default function Profile() {
               key={i}
               onPress={() => openSheet('grammar')}
               style={{
-                height: 62,
+                minHeight: 62,
+                paddingVertical: 6,
                 borderRadius: 16,
                 borderWidth: 1,
                 borderColor: t.line(7),
@@ -388,25 +392,25 @@ export default function Profile() {
               }}
             >
               <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
-                <TX font="serifI" size={16} color={t.acc}>
+                <TX font="serifI" role="titleSm" color={t.accTx}>
                   {w.glyph}
                 </TX>
               </View>
               <View style={{ flex: 1 }}>
-                <TX font="semi" size={14}>
+                <TX font="semi" role="body">
                   {w.title}
                 </TX>
-                <TX size={11.5} color={t.txA(45)} style={{ marginTop: 2 }}>
+                <TX role="label" color={t.txSubtle} style={{ marginTop: 2 }}>
                   {T.weakMeta[i]}
                 </TX>
               </View>
-              <Icon name="chevronRight" size={14} color={t.txA(35)} strokeWidth={1.6} />
+              <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
             </Press>
           ))}
         </View>
 
         {/* Your accent */}
-        <TX font="serif" size={21} style={{ marginBottom: 12 }}>
+        <TX font="serif" role="titleLg" size={22} style={{ marginBottom: 12 }}>
           {T.accentT}
         </TX>
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 30 }}>
@@ -417,7 +421,8 @@ export default function Profile() {
                 key={a.id}
                 onPress={() => setRegion(a.id)}
                 style={{
-                  height: 36,
+                  minHeight: 36,
+                  paddingVertical: 6,
                   paddingHorizontal: 16,
                   borderRadius: 18,
                   borderWidth: 1,
@@ -426,7 +431,7 @@ export default function Profile() {
                   justifyContent: 'center',
                 }}
               >
-                <TX size={13} color={on ? t.acc : t.txA(70)}>
+                <TX role="bodySm" color={on ? t.accTx : t.txSecondary}>
                   {a.name}
                 </TX>
               </Press>
@@ -453,8 +458,8 @@ export default function Profile() {
                 >
                   <TX
                     font="semi"
-                    size={11}
-                    color={c.done || c.today ? t.acc : c.n === '' ? 'transparent' : t.txA(55)}
+                    role="meta"
+                    color={c.done || c.today ? t.accTx : c.n === '' ? 'transparent' : t.txMuted}
                   >
                     {c.n}
                   </TX>
@@ -468,7 +473,8 @@ export default function Profile() {
         <Press
           onPress={() => router.push('/settings')}
           style={{
-            height: 56,
+            minHeight: 56,
+            paddingVertical: 6,
             borderRadius: 16,
             borderWidth: 1,
             borderColor: t.line(8),
@@ -481,10 +487,10 @@ export default function Profile() {
           }}
         >
           <Icon name="gear" size={18} color={t.acc} />
-          <TX font="semi" size={14} style={{ flex: 1 }}>
+          <TX font="semi" role="body" style={{ flex: 1 }}>
             {T.settingsT}
           </TX>
-          <Icon name="chevronRight" size={14} color={t.txA(35)} strokeWidth={1.6} />
+          <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
         </Press>
 
         {/* Sign out */}
@@ -495,7 +501,8 @@ export default function Profile() {
             router.replace('/onboarding');
           }}
           style={{
-            height: 52,
+            minHeight: 52,
+            paddingVertical: 6,
             borderRadius: 26,
             borderWidth: 1,
             borderColor: t.dangerA(35),
@@ -503,7 +510,7 @@ export default function Profile() {
             justifyContent: 'center',
           }}
         >
-          <TX font="semi" size={14} color={t.tag('danger').c}>
+          <TX font="semi" role="body" color={t.tag('danger').c}>
             {T.signOut}
           </TX>
         </Press>

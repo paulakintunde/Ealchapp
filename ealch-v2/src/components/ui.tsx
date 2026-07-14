@@ -90,14 +90,15 @@ export function Button({
   const t = useTheme();
   const bg =
     variant === 'primary' ? t.acc : variant === 'outline' ? 'transparent' : t.line(6);
-  const fg = variant === 'primary' ? t.accInk : t.tx;
+  const fg = variant === 'primary' ? t.accInk : t.txPrimary;
   return (
     <Press
       cue={cue}
       onPress={disabled ? undefined : onPress}
       style={[
         {
-          height: 54,
+          minHeight: 54,
+          paddingVertical: 12,
           borderRadius: 16,
           alignItems: 'center',
           justifyContent: 'center',
@@ -112,7 +113,7 @@ export function Button({
       ]}
     >
       {icon ? <Icon name={icon} size={18} color={fg} /> : null}
-      <TX font="semi" size={15.5} color={fg}>
+      <TX font="semi" role="bodyLg" color={fg}>
         {label}
       </TX>
     </Press>
@@ -175,11 +176,12 @@ export function Badge({
           borderRadius: 7,
           backgroundColor: bg ?? t.accA(14),
           alignSelf: 'flex-start',
+          flexShrink: 0,
         },
         style,
       ]}
     >
-      <TX font="semi" size={9.5} ls={1} color={color ?? t.acc}>
+      <TX font="semi" role="eyebrow" ls={1} color={color ?? t.accTx} numberOfLines={1}>
         {label}
       </TX>
     </View>
@@ -251,7 +253,15 @@ export function FocusHeader({
         <Icon name="x" size={18} color={t.tx} />
       </Press>
       {title ? (
-        <TX font="semi" size={12} ls={2} color={t.txA(55)}>
+        <TX
+          font="semi"
+          role="label"
+          ls={2}
+          color={t.txMuted}
+          center
+          numberOfLines={1}
+          style={{ flex: 1, marginHorizontal: 8 }}
+        >
           {title}
         </TX>
       ) : (

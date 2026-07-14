@@ -11,6 +11,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useSessionLog } from '@/store/useProgress';
+import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts } from '@/services';
 import { dictationSentences, accentKeys, normDict } from '@/content/drills';
 import { F } from '@/theme/fonts';
@@ -21,6 +22,7 @@ export default function Dictation() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const lang = useStore((s) => s.lang);
+  useReadingBrightness();
   const inputRef = useRef<TextInput>(null);
 
   const sentences = useMemo(() => dictationSentences(lang), [lang]);
@@ -135,10 +137,10 @@ export default function Dictation() {
       >
         {/* Tag + count */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-          <TX font="semi" size={9} ls={2.4} color={t.txA(45)}>
+          <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle}>
             {tag}
           </TX>
-          <TX font="semi" size={11.5} color={t.txA(50)}>
+          <TX font="semi" role="label" color={t.txMuted}>
             {count}
           </TX>
         </View>
@@ -162,33 +164,33 @@ export default function Dictation() {
                 <Path d="M2 15l10 10L34 3" stroke={t.acc} strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round" />
               </Svg>
             </View>
-            <TX font="serifI" size={36} center style={{ marginBottom: 10 }}>
+            <TX font="serifI" size={36} role="display" center style={{ marginBottom: 10 }}>
               {T.dcDoneT}
             </TX>
-            <TX size={13.5} lh={23} center color={t.txA(60)} style={{ maxWidth: 280, marginBottom: 30 }}>
+            <TX role="bodySm" lhMult={1.7} center color={t.txSecondary} style={{ maxWidth: 280, marginBottom: 30 }}>
               {T.dcDoneS.replace('{n}', String(dcScore)).replace('{m}', String(sentences.length))}
             </TX>
             <Press
               onPress={restart}
               cue={null}
-              style={{ width: '100%', height: 52, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}
+              style={{ width: '100%', minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}
             >
-              <TX font="semi" size={14} color={t.accInk}>
+              <TX font="semi" role="body" color={t.accInk}>
                 {T.dcRedo}
               </TX>
             </Press>
-            <Press onPress={() => router.replace('/home')} cue={null} style={{ height: 48, alignItems: 'center', justifyContent: 'center' }}>
-              <TX font="semi" size={13} color={t.txA(55)}>
+            <Press onPress={() => router.replace('/home')} cue={null} style={{ minHeight: 48, paddingVertical: 6, alignItems: 'center', justifyContent: 'center' }}>
+              <TX font="semi" role="bodySm" color={t.txMuted}>
                 {T.dcHome}
               </TX>
             </Press>
           </View>
         ) : (
           <>
-            <TX font="serifI" size={32} style={{ marginBottom: 8 }}>
+            <TX font="serifI" size={32} role="display" style={{ marginBottom: 8 }}>
               {title}
             </TX>
-            <TX size={12.5} lh={20} color={t.txA(55)} style={{ marginBottom: 20 }}>
+            <TX role="label" lhMult={1.6} color={t.txMuted} style={{ marginBottom: 20 }}>
               {purpose}
             </TX>
 
@@ -223,15 +225,15 @@ export default function Dictation() {
                   <Waveform active count={3} height={16} color={t.accInk} barWidth={3} gap={2.5} />
                 ) : (
                   <Svg width={16} height={18} viewBox="0 0 16 18" fill="none">
-                    <Path d="M2.5 2v14l12-7z" fill={dcPlays > 0 ? t.accInk : t.txA(40)} />
+                    <Path d="M2.5 2v14l12-7z" fill={dcPlays > 0 ? t.accInk : t.txNonText} />
                   </Svg>
                 )}
               </Press>
               <View style={{ flex: 1 }}>
-                <TX font="semi" size={13}>
+                <TX font="semi" role="bodySm">
                   {listenLabel}
                 </TX>
-                <TX size={11} color={t.txA(45)} style={{ marginTop: 2 }}>
+                <TX role="meta" color={t.txSubtle} style={{ marginTop: 2 }}>
                   {playsLeft}
                 </TX>
               </View>
@@ -239,7 +241,8 @@ export default function Dictation() {
                 onPress={toggleSlow}
                 cue={null}
                 style={{
-                  height: 30,
+                  minHeight: 30,
+                  paddingVertical: 4,
                   paddingHorizontal: 12,
                   borderRadius: 15,
                   borderWidth: 1,
@@ -249,7 +252,7 @@ export default function Dictation() {
                   justifyContent: 'center',
                 }}
               >
-                <TX font="bold" size={11} color={dcSlow ? t.acc : t.txA(55)}>
+                <TX font="bold" role="meta" color={dcSlow ? t.accTx : t.txMuted}>
                   {T.slow}
                 </TX>
               </Press>
@@ -267,7 +270,7 @@ export default function Dictation() {
                 marginBottom: 12,
               }}
             >
-              <TX font="semi" size={10} ls={2} color={t.txA(40)} style={{ marginBottom: 10 }}>
+              <TX font="semi" role="meta" ls={2} color={t.txSubtle} style={{ marginBottom: 10 }}>
                 {yourLabel}
               </TX>
               {dcPhase === 'idle' ? (
@@ -278,36 +281,37 @@ export default function Dictation() {
                   onSubmitEditing={check}
                   returnKeyType="done"
                   placeholder={T.dcTypePh}
-                  placeholderTextColor={t.txA(30)}
+                  placeholderTextColor={t.txSubtle}
                   autoCorrect={false}
                   autoCapitalize="none"
                   style={{
                     fontFamily: F.serif,
                     fontSize: 22,
                     lineHeight: 30,
-                    color: t.tx,
+                    color: t.txPrimary,
                     padding: 0,
                   }}
                 />
               ) : dcOkFlag ? (
-                <TX font="serif" size={22} lh={33} color={t.acc}>
+                <TX font="serif" size={22} role="display" lhMult={1.5} color={t.accTx}>
                   {d.fr}
                 </TX>
               ) : (
                 <View>
                   <TX
                     font="serif"
-                    size={20}
-                    lh={30}
+                    size={21}
+                    role="titleLg"
+                    lhMult={1.43}
                     color={t.danger}
                     style={{ textDecorationLine: 'line-through', textDecorationColor: t.dangerA(50) }}
                   >
                     {dcTyped}
                   </TX>
-                  <TX font="semi" size={10} ls={2} color={t.acc} style={{ marginTop: 12, marginBottom: 6 }}>
+                  <TX font="semi" role="meta" ls={2} color={t.accTx} style={{ marginTop: 12, marginBottom: 6 }}>
                     {correctLabel}
                   </TX>
-                  <TX font="serif" size={22} lh={33} color={t.acc}>
+                  <TX font="serif" size={22} role="display" lhMult={1.5} color={t.accTx}>
                     {d.fr}
                   </TX>
                 </View>
@@ -327,10 +331,10 @@ export default function Dictation() {
                   marginBottom: 12,
                 }}
               >
-                <TX font="semi" size={12.5} style={{ marginBottom: 6 }}>
+                <TX font="semi" role="label" style={{ marginBottom: 6 }}>
                   {d.tipT}
                 </TX>
-                <TX size={12} lh={20} color={t.txA(60)}>
+                <TX role="label" lhMult={1.67} color={t.txSecondary}>
                   {d.tipB}
                 </TX>
               </View>
@@ -356,10 +360,10 @@ export default function Dictation() {
                   <Icon name="check" size={16} color={t.accInk} strokeWidth={2.4} />
                 </View>
                 <View style={{ flex: 1 }}>
-                  <TX font="semi" size={13}>
+                  <TX font="semi" role="bodySm">
                     {T.perfectNoMistakes}
                   </TX>
-                  <TX size={11.5} lh={18} color={t.txA(60)} style={{ marginTop: 2 }}>
+                  <TX role="label" lhMult={1.57} color={t.txSecondary} style={{ marginTop: 2 }}>
                     {okSub}
                   </TX>
                 </View>
@@ -376,7 +380,8 @@ export default function Dictation() {
                   scale={0.92}
                   style={{
                     width: 42,
-                    height: 42,
+                    minHeight: 42,
+                    paddingVertical: 6,
                     borderRadius: 12,
                     backgroundColor: t.card2,
                     borderWidth: 1,
@@ -385,7 +390,7 @@ export default function Dictation() {
                     justifyContent: 'center',
                   }}
                 >
-                  <TX font="serif" size={17}>
+                  <TX font="serif" role="title">
                     {ch}
                   </TX>
                 </Press>
@@ -397,21 +402,22 @@ export default function Dictation() {
               onPress={dcPhase === 'idle' ? check : advance}
               cue={null}
               style={{
-                height: 52,
+                minHeight: 52,
+                paddingVertical: 6,
                 borderRadius: 26,
                 backgroundColor: btnActive ? t.acc : t.line(10),
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <TX font="semi" size={14} color={btnActive ? t.accInk : t.txA(40)}>
+              <TX font="semi" role="body" color={btnActive ? t.accInk : t.txSubtle}>
                 {btnLabel}
               </TX>
             </Press>
-            <TX size={11} center color={t.txA(35)} style={{ marginTop: 14, fontStyle: 'italic' }}>
+            <TX role="meta" center color={t.txSubtle} style={{ marginTop: 14, fontStyle: 'italic' }}>
               {hint}
             </TX>
-            <TX size={10.5} center color={t.txA(28)} style={{ marginTop: 8, fontStyle: 'italic' }}>
+            <TX role="meta" center color={t.txSubtle} style={{ marginTop: 8, fontStyle: 'italic' }}>
               {T.dcVoiceNote}
             </TX>
           </>

@@ -54,7 +54,7 @@ export type Strings = {
   notifLabels: NotifLabel[];
   theme: string; signOut: string; now: string;
   settingsT: string; appLangT: string; appLangNote: string;
-  modeT: string; modeDark: string; modeLight: string; soundT: string; soundS: string;
+  modeT: string; modeDark: string; modeLight: string; soundT: string; soundS: string; brightT: string; brightS: string;
   testAlarm: string; customTime: string; calendarT: string;
   voiceT: string; voiceS: string; sbT: string; sbS: string; rpT: string; rpS: string;
   startQuiz: string; quizPassed: string; quizFailed: string; retry: string; qNext: string; backToDen: string;
@@ -197,7 +197,7 @@ export const T: Record<Lang, Strings> = {
     ],
     theme: 'Thème', signOut: 'Se déconnecter', now: 'MAINTENANT',
     settingsT: 'Réglages', appLangT: "Langue de l'application", appLangNote: 'Interface FR & EN complète. Autres langues bientôt.',
-    modeT: 'Apparence', modeDark: 'SOMBRE', modeLight: 'CLAIR', soundT: 'Effets sonores', soundS: 'Sons de réussite, cartes et alarme',
+    modeT: 'Apparence', modeDark: 'SOMBRE', modeLight: 'CLAIR', soundT: 'Effets sonores', soundS: 'Sons de réussite, cartes et alarme', brightT: 'Éclaircir pendant la lecture', brightS: "Éclaircit un écran sombre pendant les leçons, puis le restaure",
     testAlarm: "Tester l'alarme", customTime: 'Heure personnalisée', calendarT: 'Votre calendrier',
     voiceT: 'Flash vocal', voiceS: 'image → voix · traduction', sbT: 'Phrases', sbS: 'apprendre · dire · écrire', rpT: 'Jeu de rôle', rpS: 'conversation IA · A1 → B2',
     startQuiz: 'Commencer le quiz', quizPassed: 'RÉUSSI', quizFailed: 'Pas encore', retry: 'Réessayer', qNext: 'Suivant', backToDen: 'Retour au cursus',
@@ -400,7 +400,7 @@ export const T: Record<Lang, Strings> = {
     ],
     theme: 'Theme', signOut: 'Sign out', now: 'NOW',
     settingsT: 'Settings', appLangT: 'App language', appLangNote: 'FR & EN interface complete. More languages soon.',
-    modeT: 'Appearance', modeDark: 'DARK', modeLight: 'LIGHT', soundT: 'Sound effects', soundS: 'Success chimes, cards & alarm',
+    modeT: 'Appearance', modeDark: 'DARK', modeLight: 'LIGHT', soundT: 'Sound effects', soundS: 'Success chimes, cards & alarm', brightT: 'Boost brightness while reading', brightS: 'Lifts a dim screen during lessons, then puts it back',
     testAlarm: 'Test the alarm', customTime: 'Custom time', calendarT: 'Your calendar',
     voiceT: 'Voice Flash', voiceS: 'image → voice · translation', sbT: 'Sentences', sbS: 'learn · say · write', rpT: 'Role Play', rpS: 'AI conversation · A1 → B2',
     startQuiz: 'Start the quiz', quizPassed: 'PASSED', quizFailed: 'Not yet', retry: 'Retry', qNext: 'Next', backToDen: 'Back to curriculum',

@@ -44,6 +44,10 @@ export type AppState = {
   mode: Mode;
   accent: string; // active accent hex (accentPick)
 
+  // Lift a dim screen while reading. App-window brightness only, never the
+  // system setting, and only on the lesson-style screens.
+  brightBoost: boolean;
+
   // audio + reminders
   sound: boolean;
   alarmTime: string; // always 24h "HH:MM" internally
@@ -86,6 +90,7 @@ export type AppState = {
   toggleMode: () => void;
   setAccent: (hex: string) => void;
   setSound: (on: boolean) => void;
+  setBrightBoost: (on: boolean) => void;
   setAlarm: (t: string) => void;
   setClock24: (v: boolean) => void;
   setNotif: (k: keyof Notifs, v: boolean) => void;
@@ -114,6 +119,8 @@ const initialData = () => ({
 
   mode: 'dark' as Mode,
   accent: ACCENTS[0].c,
+
+  brightBoost: true,
 
   sound: true,
   alarmTime: '19:00',
@@ -156,6 +163,7 @@ export const useStore = create<AppState>()(
       toggleMode: () => set({ mode: get().mode === 'dark' ? 'light' : 'dark' }),
       setAccent: (accent) => set({ accent }),
       setSound: (sound) => set({ sound }),
+      setBrightBoost: (brightBoost) => set({ brightBoost }),
       setAlarm: (alarmTime) => {
         set({ alarmTime });
         // scheduleDaily cancels before scheduling, so at most one is pending.
@@ -258,6 +266,7 @@ export const useStore = create<AppState>()(
         appLang: s.appLang,
         mode: s.mode,
         accent: s.accent,
+        brightBoost: s.brightBoost,
         sound: s.sound,
         alarmTime: s.alarmTime,
         clock24: s.clock24,

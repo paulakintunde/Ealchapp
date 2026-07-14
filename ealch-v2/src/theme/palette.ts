@@ -59,8 +59,20 @@ export type Theme = Palette & {
   line: (pct: number) => string;
   /** accent at opacity pct → rgba. */
   accA: (pct: number) => string;
-  /** text at opacity pct → rgba. */
+  /** text at opacity pct → rgba. Floored to the AA minimum in both modes. */
   txA: (pct: number) => string;
+  /** Headings, values, answers. */
+  txPrimary: string;
+  /** Body copy, descriptions. */
+  txSecondary: string;
+  /** Row subtitles, meta, hints. */
+  txMuted: string;
+  /** The floor: AA (4.5:1) for normal text. Nothing may be fainter than this. */
+  txSubtle: string;
+  /** Non-text UI only (icons, strokes). WCAG 1.4.11, 3:1. Never use for text. */
+  txNonText: string;
+  /** Accent, safe as TEXT in both modes. Darkened on light surfaces. */
+  accTx: string;
   /** danger at opacity pct → rgba. */
   dangerA: (pct: number) => string;
   /** blend pct% of accent into card. */
@@ -83,11 +95,25 @@ export function buildTheme(accent: string, mode: Mode): Theme {
     accInk: ACCENT_INK,
     mode,
     isDark,
-    // Light mode floors: hairlines below 12% vanish on cream; functional text
-    // below 45% fails contrast (decorative fills < 25% are left untouched).
+    // Hairlines below 12% vanish on cream.
     line: (pct: number) => alpha(P.lnc, isDark ? pct : Math.max(pct, 12)),
     accA: (pct: number) => alpha(accent, pct),
-    txA: (pct: number) => alpha(P.tx, isDark || pct < 25 ? pct : Math.max(pct, 45)),
+    // Contrast floors, computed against the worst-case surface in each mode.
+    // DARK  (#F4F2ED on #14171C): 3:1 needs 36%, 4.5:1 needs 48%.
+    // LIGHT (#17181B on #FFFFFF): 3:1 needs 47%, 4.5:1 needs 61%.
+    // Below 25% we assume a decorative fill rather than text, and leave it be.
+    // Prefer the named roles below; this is the safety net for one-off blends.
+    txA: (pct: number) => alpha(P.tx, pct < 25 ? pct : Math.max(pct, isDark ? 48 : 61)),
+
+    txPrimary: P.tx,
+    txSecondary: alpha(P.tx, isDark ? 72 : 78),
+    txMuted: alpha(P.tx, isDark ? 58 : 66),
+    txSubtle: alpha(P.tx, isDark ? 48 : 61),
+    txNonText: alpha(P.tx, isDark ? 40 : 50),
+    // The raw accent is unreadable as text on cream (Riviera lands at 1.65:1).
+    // 50% is the deepest blend that still reads as the accent; above ~52% every
+    // accent drops back under 4.5:1 on white. Worst case here is 4.81:1.
+    accTx: isDark ? accent : blend(accent, P.tx, 50),
     dangerA: (pct: number) => alpha(P.danger, pct),
     accCard: (pct: number) => blend(accent, P.card, pct),
     tag: (tone: TagTone) => {

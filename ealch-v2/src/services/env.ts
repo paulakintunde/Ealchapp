@@ -14,6 +14,7 @@ export const ENV = {
   coachFunction: process.env.EXPO_PUBLIC_COACH_FN ?? 'coach',
   ttsFunction: process.env.EXPO_PUBLIC_TTS_FN ?? 'tts',
   sttFunction: process.env.EXPO_PUBLIC_STT_FN ?? 'stt',
+  deleteAccountFunction: process.env.EXPO_PUBLIC_DELETE_ACCOUNT_FN ?? 'delete-account',
 
   // RevenueCat (paywall) public SDK key — safe to ship.
   revenueCatKey: process.env.EXPO_PUBLIC_REVENUECAT_KEY ?? '',

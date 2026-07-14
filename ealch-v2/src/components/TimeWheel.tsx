@@ -21,7 +21,7 @@ function Unit({ value, onStep }: { value: string; onStep: (dir: 1 | -1) => void 
         backgroundColor: t.line(6),
       }}
     >
-      <Icon name={dir === 1 ? 'chevronUp' : 'chevronDown'} size={15} color={t.txA(70)} />
+      <Icon name={dir === 1 ? 'chevronUp' : 'chevronDown'} size={15} color={t.txNonText} />
     </Press>
   );
   return (
@@ -30,7 +30,8 @@ function Unit({ value, onStep }: { value: string; onStep: (dir: 1 | -1) => void 
       <View
         style={{
           width: 72,
-          height: 58,
+          minHeight: 58,
+          paddingVertical: 6,
           borderRadius: 14,
           borderWidth: 1,
           borderColor: t.accA(35),
@@ -39,7 +40,14 @@ function Unit({ value, onStep }: { value: string; onStep: (dir: 1 | -1) => void 
           justifyContent: 'center',
         }}
       >
-        <TX font="serif" size={30} color={t.acc}>
+        <TX
+          font="serif"
+          role="display"
+          size={30}
+          color={t.accTx}
+          numberOfLines={1}
+          adjustsFontSizeToFit
+        >
           {value}
         </TX>
       </View>
@@ -55,12 +63,12 @@ export function ClockToggle() {
   const clock24 = useStore((s) => s.clock24);
   const setClock24 = useStore((s) => s.setClock24);
   return (
-    <View style={{ flexDirection: 'row', height: 30, borderRadius: 15, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden', alignSelf: 'flex-start' }}>
+    <View style={{ flexDirection: 'row', minHeight: 30, borderRadius: 15, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden', alignSelf: 'flex-start' }}>
       {([false, true] as const).map((v) => {
         const on = clock24 === v;
         return (
-          <Press key={String(v)} onPress={() => setClock24(v)} style={{ paddingHorizontal: 13, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}>
-            <TX font="semi" size={10.5} ls={1} color={on ? t.accInk : t.txA(55)}>
+          <Press key={String(v)} onPress={() => setClock24(v)} style={{ paddingHorizontal: 13, paddingVertical: 4, justifyContent: 'center', backgroundColor: on ? t.acc : 'transparent' }}>
+            <TX font="semi" role="meta" ls={1} color={on ? t.accInk : t.txMuted}>
               {v ? T.clock24T : T.clock12T}
             </TX>
           </Press>
@@ -100,7 +108,7 @@ export function TimeWheel({ value, onChange }: { value: string; onChange: (hhmm:
       }}
     >
       <Unit value={hourLabel} onStep={stepH} />
-      <TX font="serif" size={26} color={t.txA(45)}>
+      <TX font="serif" role="display" size={26} color={t.txSubtle} numberOfLines={1}>
         :
       </TX>
       <Unit value={pad(m)} onStep={stepM} />
@@ -114,7 +122,8 @@ export function TimeWheel({ value, onChange }: { value: string; onChange: (hhmm:
                 onPress={() => setMeridiem(mer === 'PM')}
                 style={{
                   width: 52,
-                  height: 34,
+                  minHeight: 34,
+                  paddingVertical: 6,
                   borderRadius: 11,
                   borderWidth: 1,
                   borderColor: on ? t.acc : t.line(12),
@@ -123,7 +132,7 @@ export function TimeWheel({ value, onChange }: { value: string; onChange: (hhmm:
                   justifyContent: 'center',
                 }}
               >
-                <TX font="bold" size={11} ls={1} color={on ? t.accInk : t.txA(55)}>
+                <TX font="bold" role="meta" ls={1} color={on ? t.accInk : t.txMuted}>
                   {mer}
                 </TX>
               </Press>

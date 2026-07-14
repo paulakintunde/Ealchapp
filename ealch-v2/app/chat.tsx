@@ -9,6 +9,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { sound, coach, type CoachMessage } from '@/services';
+import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 
 type Msg = { who: 'ai' | 'me'; text: string; time: string };
 
@@ -39,7 +40,7 @@ function TypingDots() {
   return (
     <View style={{ alignSelf: 'flex-start', flexDirection: 'row', gap: 5, paddingVertical: 13, paddingHorizontal: 16, borderRadius: 16, borderBottomLeftRadius: 5, backgroundColor: t.card2, borderWidth: 1, borderColor: t.line(7) }}>
       {dots.map((v, i) => (
-        <Animated.View key={i} style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: t.txA(60), opacity: v }} />
+        <Animated.View key={i} style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: t.txNonText, opacity: v }} />
       ))}
     </View>
   );
@@ -51,6 +52,7 @@ export default function Chat() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const lang = useStore((s) => s.lang);
+  useReadingBrightness();
 
   const [messages, setMessages] = useState<Msg[]>(SEED);
   const [typing, setTyping] = useState(false);
@@ -89,25 +91,25 @@ export default function Chat() {
       {/* Top bar */}
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, paddingTop: insets.top + 8, paddingBottom: 14, paddingHorizontal: 20, borderBottomWidth: 1, borderBottomColor: t.line(7) }}>
         <Press cue={null} onPress={() => router.replace('/home')} style={{ width: 36, height: 44, marginLeft: -8, alignItems: 'center', justifyContent: 'center' }}>
-          <Icon name="chevronLeft" size={20} color={t.txA(80)} strokeWidth={1.7} />
+          <Icon name="chevronLeft" size={20} color={t.txNonText} strokeWidth={1.7} />
         </Press>
         <View style={{ width: 42, height: 42, borderRadius: 21, backgroundColor: t.card2, borderWidth: 1, borderColor: t.accA(45), alignItems: 'center', justifyContent: 'center' }}>
-          <TX font="serif" size={20} color={t.acc}>
+          <TX font="serif" role="titleLg" size={21} color={t.accTx}>
             C
           </TX>
         </View>
         <View style={{ flex: 1 }}>
-          <TX font="semi" size={15}>
+          <TX font="semi" role="bodyLg">
             Camille
           </TX>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 1 }}>
             <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: t.acc }} />
-            <TX size={11} color={t.txA(50)}>
+            <TX role="meta" color={t.txMuted}>
               {T.coachStatus}
             </TX>
           </View>
         </View>
-        <TX font="semi" size={9} ls={1.8} color={t.txA(35)}>
+        <TX font="semi" role="eyebrow" ls={1.8} color={t.txSubtle} numberOfLines={1} style={{ flexShrink: 1 }}>
           {T.unlimited}
         </TX>
       </View>
@@ -137,11 +139,11 @@ export default function Chat() {
                   borderColor: me ? t.accA(35) : t.line(7),
                 }}
               >
-                <TX size={14} lh={21} color={t.tx}>
+                <TX role="body" lhMult={1.5} color={t.txPrimary}>
                   {m.text}
                 </TX>
               </View>
-              <TX size={10} color={t.txA(30)} style={{ marginTop: 4, paddingHorizontal: 4 }}>
+              <TX role="meta" color={t.txSubtle} style={{ marginTop: 4, paddingHorizontal: 4 }}>
                 {m.time}
               </TX>
             </View>
@@ -151,10 +153,10 @@ export default function Chat() {
       </ScrollView>
 
       {/* Quick replies */}
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingHorizontal: 18, paddingVertical: 8 }}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingHorizontal: 18, paddingVertical: 8, alignItems: 'center' }}>
         {quickReplies.map((q, i) => (
-          <Press key={i} onPress={() => send(q.msg)} style={{ height: 34, paddingHorizontal: 15, borderRadius: 17, borderWidth: 1, borderColor: t.accA(45), alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="med" size={12.5} color={t.acc}>
+          <Press key={i} onPress={() => send(q.msg)} style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 15, borderRadius: 17, borderWidth: 1, borderColor: t.accA(45), alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="med" role="label" color={t.accTx}>
               {q.label}
             </TX>
           </Press>
@@ -168,9 +170,9 @@ export default function Chat() {
           onChangeText={setDraft}
           onSubmitEditing={() => send(draft)}
           placeholder={T.placeholder}
-          placeholderTextColor={t.txA(40)}
+          placeholderTextColor={t.txSubtle}
           returnKeyType="send"
-          style={{ flex: 1, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.input, color: t.tx, paddingHorizontal: 18, fontSize: 14 }}
+          style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.input, color: t.tx, paddingHorizontal: 18, fontSize: 14 }}
         />
         <Press onPress={() => send(draft)} style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
           <Icon name="arrowRight" size={16} color={t.accInk} strokeWidth={1.8} />

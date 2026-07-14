@@ -109,24 +109,24 @@ export default function Player() {
         <View style={{ aspectRatio: 1, borderRadius: 22, borderWidth: 1, borderColor: t.line(8), overflow: 'hidden', marginBottom: 24, backgroundColor: t.isDark ? '#12100E' : t.card2, ...t.cardShadow }}>
           <LinearGradient colors={[t.accA(34), 'transparent']} start={{ x: 0.85, y: 0 }} end={{ x: 0.25, y: 0.62 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <LinearGradient colors={['transparent', t.blend(t.isDark ? '#16211E' : '#DCE7E2', t.bg, 60)]} start={{ x: 0.2, y: 0.4 }} end={{ x: 0.2, y: 1 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
-          <TX font="semi" size={9} ls={2.4} color={t.txA(55)} style={{ position: 'absolute', top: 18, left: 20 }}>
+          <TX font="semi" role="eyebrow" ls={2.4} color={t.txMuted} style={{ position: 'absolute', top: 18, left: 20 }}>
             ÉPISODE 03
           </TX>
-          <TX font="serifI" size={44} lh={46} style={{ position: 'absolute', left: 20, right: 20, top: '32%' }}>
+          <TX font="serifI" role="display" size={44} style={{ position: 'absolute', left: 20, right: 20, top: '32%' }}>
             on · en · in
           </TX>
           <View style={{ position: 'absolute', left: 20, bottom: 20 }}>
-            <Waveform count={22} height={22} barWidth={2.5} gap={3.5} active={playing} color={t.txA(75)} />
+            <Waveform count={22} height={22} barWidth={2.5} gap={3.5} active={playing} color={t.txNonText} />
           </View>
         </View>
 
         {/* Title + meta + queue toggle */}
         <View style={{ flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: 14, marginBottom: 18 }}>
           <View style={{ flex: 1 }}>
-            <TX font="semi" size={18} lh={22}>
+            <TX font="semi" role="titleLg" size={19}>
               {T.trackTitle}
             </TX>
-            <TX size={13} color={t.txA(50)} style={{ marginTop: 3 }}>
+            <TX role="bodySm" color={t.txMuted} style={{ marginTop: 3 }}>
               {T.trackMeta}
             </TX>
           </View>
@@ -138,7 +138,7 @@ export default function Player() {
             {queued ? (
               <Icon name="check" size={17} color={t.acc} />
             ) : (
-              <Icon name="plus" size={18} color={t.txA(80)} />
+              <Icon name="plus" size={18} color={t.txNonText} />
             )}
           </Press>
         </View>
@@ -148,28 +148,28 @@ export default function Player() {
           <ProgressBar pct={progress} height={4} />
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 4, marginBottom: 18 }}>
-          <TX size={11} color={t.txA(45)}>
+          <TX role="meta" color={t.txSubtle}>
             {curTime}
           </TX>
-          <TX size={11} color={t.txA(45)}>
+          <TX role="meta" color={t.txSubtle}>
             2:04
           </TX>
         </View>
 
         {/* Transport */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 34, marginBottom: 22 }}>
-          <Press onPress={skipBack} cue={null} style={{ width: 48, alignItems: 'center', justifyContent: 'center' }}>
-            <Icon name="skipBack" size={22} color={t.txA(80)} />
-            <TX font="semi" size={8.5} ls={0.8} color={t.txA(55)} style={{ marginTop: 3 }}>
+          <Press onPress={skipBack} cue={null} style={{ minWidth: 48, alignItems: 'center', justifyContent: 'center' }}>
+            <Icon name="skipBack" size={22} color={t.txNonText} />
+            <TX font="semi" role="eyebrow" ls={0.8} color={t.txMuted} style={{ marginTop: 3 }} numberOfLines={1}>
               {T.phrase}
             </TX>
           </Press>
           <Press onPress={togglePlay} cue={null} scale={0.94} style={{ width: 74, height: 74, borderRadius: 37, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name={playing ? 'pause' : 'play'} size={26} color={t.accInk} />
           </Press>
-          <Press onPress={skipForward} cue={null} style={{ width: 48, alignItems: 'center', justifyContent: 'center' }}>
-            <Icon name="skipForward" size={22} color={t.txA(80)} />
-            <TX font="semi" size={8.5} ls={0.8} color={t.txA(55)} style={{ marginTop: 3 }}>
+          <Press onPress={skipForward} cue={null} style={{ minWidth: 48, alignItems: 'center', justifyContent: 'center' }}>
+            <Icon name="skipForward" size={22} color={t.txNonText} />
+            <TX font="semi" role="eyebrow" ls={0.8} color={t.txMuted} style={{ marginTop: 3 }} numberOfLines={1}>
               {T.next}
             </TX>
           </Press>
@@ -177,21 +177,21 @@ export default function Player() {
 
         {/* Speed + queue label */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 'auto' }}>
-          <Press onPress={cycleSpeed} cue={null} style={{ height: 34, paddingHorizontal: 16, borderRadius: 17, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="semi" size={12} color={t.txA(80)}>
+          <Press onPress={cycleSpeed} cue={null} style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 17, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="semi" role="label" color={t.txSecondary}>
               {speeds[speedIx].label}
             </TX>
           </Press>
-          <View style={{ height: 34, paddingHorizontal: 16, borderRadius: 17, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
-            <TX size={12} color={queued ? t.acc : t.txA(55)}>
+          <View style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 17, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
+            <TX role="label" color={queued ? t.accTx : t.txMuted}>
               {queued ? T.queueOn : T.queueOff}
             </TX>
           </View>
         </View>
 
         {/* Practice out loud → Speak Mode */}
-        <Press onPress={() => router.push('/speak')} style={{ height: 54, borderRadius: 27, borderWidth: 1, borderColor: t.accA(60), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 18 }}>
-          <TX font="semi" size={15} color={t.acc}>
+        <Press onPress={() => router.push('/speak')} style={{ minHeight: 54, paddingVertical: 6, borderRadius: 27, borderWidth: 1, borderColor: t.accA(60), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 18 }}>
+          <TX font="semi" role="bodyLg" color={t.accTx}>
             {T.practice}
           </TX>
           <Svg width={14} height={10} viewBox="0 0 14 10" fill="none">

@@ -156,30 +156,30 @@ export default function VoiceFlash() {
           <View style={{ flex: 1 }}>
             <ProgressBar pct={Math.min(100, (vfIx / total) * 100)} height={3} color={t.acc} track={t.line(10)} />
           </View>
-          <TX size={12} color={t.txA(50)}>
+          <TX role="meta" color={t.txMuted}>
             {Math.min(vfIx + 1, total)} / {total}
           </TX>
         </View>
 
         {finished ? (
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="serif" size={64} lh={64} color={t.acc}>
+            <TX font="serif" size={64} role="display" color={t.accTx}>
               {vfScore} / {total}
             </TX>
-            <TX font="serifI" size={26} center style={{ marginTop: 10, marginBottom: 32 }}>
+            <TX font="serifI" size={26} role="display" center style={{ marginTop: 10, marginBottom: 32 }}>
               {T.vfDoneT}
             </TX>
             <Press
               onPress={restart}
               cue={null}
-              style={{ height: 52, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
+              style={{ minHeight: 52, paddingVertical: 8, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
             >
-              <TX font="semi" size={14} color={t.accInk}>
+              <TX font="semi" role="body" color={t.accInk}>
                 {T.redo}
               </TX>
             </Press>
             <Press onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
-              <TX size={13} color={t.txA(50)}>
+              <TX role="bodySm" color={t.txMuted}>
                 {T.backFeed}
               </TX>
             </Press>
@@ -215,7 +215,7 @@ export default function VoiceFlash() {
                   <Icon name={ICON_MAP[item.icon]} size={72} color={t.acc} />
                 </View>
               ) : null}
-              <TX font="serifI" size={30} center style={{ marginBottom: 12 }}>
+              <TX font="serifI" size={30} role="display" center style={{ marginBottom: 12 }}>
                 {vfIsFr ? item.en : item.fr}
               </TX>
               {/* Audio chip — plays the French word */}
@@ -235,9 +235,9 @@ export default function VoiceFlash() {
                 }}
               >
                 <Icon name="play" size={12} color={t.acc} />
-                <Waveform count={14} height={14} color={promptOn ? t.acc : t.txA(30)} active={promptOn} barWidth={2.5} gap={3} />
+                <Waveform count={14} height={14} color={promptOn ? t.acc : t.txNonText} active={promptOn} barWidth={2.5} gap={3} />
               </Press>
-              <TX font="semi" size={10} ls={2.6} color={t.acc}>
+              <TX font="semi" role="meta" ls={2.6} color={t.accTx}>
                 {vfIsFr ? T.sayFr : T.transEn}
               </TX>
             </View>
@@ -256,25 +256,25 @@ export default function VoiceFlash() {
               >
                 <TX
                   font="bold"
-                  size={11}
+                  role="meta"
                   ls={1.8}
-                  color={vfCorrect === null || vfCorrect ? t.acc : t.danger}
+                  color={vfCorrect === null || vfCorrect ? t.accTx : t.danger}
                   style={{ marginBottom: 8, textTransform: 'uppercase' }}
                 >
                   {vfCorrect === null ? T.vfSelfT : vfCorrect ? T.correctT : T.incorrectT}
                 </TX>
-                <TX font="serifI" size={24} center>
+                <TX font="serifI" size={24} role="display" center>
                   « {vfIsFr ? item.fr : item.en} »
                 </TX>
                 {/* What the recognizer heard — shown whenever it heard anything,
                     so a wrong verdict is always explained rather than asserted. */}
                 {vfHeard?.ok ? (
-                  <TX size={12.5} lh={18} center color={t.txA(50)} style={{ marginTop: 10 }}>
+                  <TX role="label" center color={t.txMuted} style={{ marginTop: 10 }}>
                     {T.micHeard}: « {vfHeard.transcript} » · {Math.round(vfHeard.score * 100)}%
                   </TX>
                 ) : null}
                 {vfHeard && !vfHeard.ok ? (
-                  <TX size={12} lh={18} center color={t.txA(45)} style={{ marginTop: 10 }}>
+                  <TX role="meta" center color={t.txSubtle} style={{ marginTop: 10 }}>
                     {vfHeard.error === 'not-allowed'
                       ? T.micDenied
                       : !vfHeard.available
@@ -289,7 +289,8 @@ export default function VoiceFlash() {
                       cue={null}
                       style={{
                         flex: 1,
-                        height: 46,
+                        minHeight: 46,
+                        paddingVertical: 6,
                         borderRadius: 23,
                         borderWidth: 1,
                         borderColor: t.line(16),
@@ -297,7 +298,7 @@ export default function VoiceFlash() {
                         justifyContent: 'center',
                       }}
                     >
-                      <TX font="semi" size={14}>
+                      <TX font="semi" role="body">
                         {T.vfMissed}
                       </TX>
                     </Press>
@@ -306,14 +307,15 @@ export default function VoiceFlash() {
                       cue={null}
                       style={{
                         flex: 1,
-                        height: 46,
+                        minHeight: 46,
+                        paddingVertical: 6,
                         borderRadius: 23,
                         backgroundColor: t.acc,
                         alignItems: 'center',
                         justifyContent: 'center',
                       }}
                     >
-                      <TX font="semi" size={14} color={t.accInk}>
+                      <TX font="semi" role="body" color={t.accInk}>
                         {T.vfGot}
                       </TX>
                     </Press>
@@ -323,7 +325,8 @@ export default function VoiceFlash() {
                     onPress={vfNext}
                     cue={null}
                     style={{
-                      height: 46,
+                      minHeight: 46,
+                      paddingVertical: 6,
                       borderRadius: 23,
                       backgroundColor: t.acc,
                       alignItems: 'center',
@@ -332,7 +335,7 @@ export default function VoiceFlash() {
                       alignSelf: 'stretch',
                     }}
                   >
-                    <TX font="semi" size={14} color={t.accInk}>
+                    <TX font="semi" role="body" color={t.accInk}>
                       {T.nextCard}
                     </TX>
                   </Press>
@@ -361,7 +364,7 @@ export default function VoiceFlash() {
                 </Press>
                 {listening ? null : (
                   <>
-                    <TX font="semi" size={10.5} ls={1.6} center color={t.txA(40)} style={{ textTransform: 'uppercase' }}>
+                    <TX font="semi" role="meta" ls={1.6} center color={t.txSubtle} style={{ textTransform: 'uppercase' }}>
                       {T.orTypeT}
                     </TX>
                     <View style={{ flexDirection: 'row', gap: 10, alignSelf: 'stretch' }}>
@@ -370,7 +373,7 @@ export default function VoiceFlash() {
                         onChangeText={setVfTyped}
                         onSubmitEditing={vfCheck}
                         placeholder="…"
-                        placeholderTextColor={t.txA(35)}
+                        placeholderTextColor={t.txSubtle}
                         autoCapitalize="none"
                         autoCorrect={false}
                         returnKeyType="done"
@@ -381,7 +384,7 @@ export default function VoiceFlash() {
                           borderWidth: 1,
                           borderColor: t.line(12),
                           backgroundColor: t.input,
-                          color: t.tx,
+                          color: t.txPrimary,
                           paddingHorizontal: 18,
                           fontSize: 14,
                         }}
@@ -390,7 +393,8 @@ export default function VoiceFlash() {
                         onPress={vfCheck}
                         cue={null}
                         style={{
-                          height: 48,
+                          minHeight: 48,
+                          paddingVertical: 6,
                           paddingHorizontal: 20,
                           borderRadius: 24,
                           borderWidth: 1,
@@ -399,7 +403,7 @@ export default function VoiceFlash() {
                           justifyContent: 'center',
                         }}
                       >
-                        <TX font="semi" size={13} color={t.acc}>
+                        <TX font="semi" role="bodySm" color={t.accTx}>
                           {T.checkT}
                         </TX>
                       </Press>

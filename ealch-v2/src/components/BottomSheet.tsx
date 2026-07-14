@@ -82,13 +82,13 @@ export function BottomSheet() {
         <ScrollView contentContainerStyle={{ paddingHorizontal: 26, paddingTop: 14, paddingBottom: 44 }}>
           {sheet === 'vocab' ? (
             <>
-              <TX font="semi" size={10} ls={2.6} color={t.acc} style={{ marginBottom: 10 }}>
+              <TX font="semi" role="meta" ls={2.6} color={t.accTx} style={{ marginBottom: 10 }}>
                 {T.vocabTag}
               </TX>
-              <TX font="serif" size={28} style={{ marginBottom: 6 }}>
+              <TX font="serif" role="display" size={28} style={{ marginBottom: 6 }}>
                 Le vocabulaire du café
               </TX>
-              <TX size={13} color={t.txA(55)} style={{ marginBottom: 22 }}>
+              <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 22 }}>
                 {T.vocabSub}
               </TX>
               <View style={{ gap: 10, marginBottom: 22 }}>
@@ -132,10 +132,10 @@ export function BottomSheet() {
                         ) : null}
                       </View>
                       <View style={{ flex: 1 }}>
-                        <TX font="serifI" size={17}>
+                        <TX font="serifI" role="title">
                           {v.fr}
                         </TX>
-                        <TX size={11.5} color={t.txA(45)} style={{ marginTop: 1 }}>
+                        <TX role="label" color={t.txSubtle} style={{ marginTop: 1 }}>
                           {v.en}
                         </TX>
                       </View>
@@ -154,32 +154,32 @@ export function BottomSheet() {
                   marginBottom: 22,
                 }}
               >
-                <TX font="semi" size={10} ls={2} color={t.acc} style={{ marginBottom: 6 }}>
+                <TX font="semi" role="meta" ls={2} color={t.accTx} style={{ marginBottom: 6 }}>
                   {T.register}
                 </TX>
-                <TX size={13.5} lh={20} color={t.txA(85)}>
-                  {T.registerBody} <TX font="serifI" size={14}>« je voudrais »</TX> — <TX font="serifI" size={14}>« je veux »</TX> {T.registerEnd}
+                <TX role="bodySm" color={t.txSecondary}>
+                  {T.registerBody} <TX font="serifI" role="body">« je voudrais »</TX> — <TX font="serifI" role="body">« je veux »</TX> {T.registerEnd}
                 </TX>
               </View>
               <Press
                 cue="tap"
                 onPress={() => closeThen(() => router.push('/speak'))}
-                style={{ height: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
+                style={{ minHeight: 54, paddingVertical: 12, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
               >
-                <TX font="semi" size={15} color={t.accInk}>
+                <TX font="semi" role="bodyLg" color={t.accInk}>
                   {T.go}
                 </TX>
               </Press>
             </>
           ) : (
             <>
-              <TX font="semi" size={10} ls={2.6} color={t.acc} style={{ marginBottom: 10 }}>
+              <TX font="semi" role="meta" ls={2.6} color={t.accTx} style={{ marginBottom: 10 }}>
                 {T.grammarTag}
               </TX>
-              <TX font="serif" size={28} style={{ marginBottom: 14 }}>
+              <TX font="serif" role="display" size={28} style={{ marginBottom: 14 }}>
                 La liaison obligatoire
               </TX>
-              <TX size={14} lh={23} color={t.txA(70)} style={{ marginBottom: 22 }}>
+              <TX role="body" lhMult={1.65} color={t.txSecondary} style={{ marginBottom: 22 }}>
                 {T.grammarBody}
               </TX>
               <View style={{ gap: 10, marginBottom: 24 }}>
@@ -209,10 +209,10 @@ export function BottomSheet() {
                       </Svg>
                     </Press>
                     <View style={{ flex: 1 }}>
-                      <TX font="serifI" size={17}>
+                      <TX font="serifI" role="title">
                         {l.fr}
                       </TX>
-                      <TX size={11} color={t.txA(45)} style={{ marginTop: 1 }}>
+                      <TX role="meta" color={t.txSubtle} style={{ marginTop: 1 }}>
                         {l.hint}
                       </TX>
                     </View>
@@ -222,9 +222,9 @@ export function BottomSheet() {
               <Press
                 cue="tap"
                 onPress={() => closeThen(() => router.push('/chat'))}
-                style={{ height: 54, borderRadius: 27, borderWidth: 1, borderColor: t.accA(55), alignItems: 'center', justifyContent: 'center' }}
+                style={{ minHeight: 54, paddingVertical: 12, borderRadius: 27, borderWidth: 1, borderColor: t.accA(55), alignItems: 'center', justifyContent: 'center' }}
               >
-                <TX font="semi" size={15} color={t.acc}>
+                <TX font="semi" role="bodyLg" color={t.accTx}>
                   {T.askCamille}
                 </TX>
               </Press>

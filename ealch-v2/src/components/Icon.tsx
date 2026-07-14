@@ -3,6 +3,7 @@ import { useTheme } from '@/theme/useTheme';
 
 export type IconName =
   | 'x'
+  | 'trash'
   | 'gear'
   | 'chevronRight'
   | 'chevronDown'
@@ -85,6 +86,7 @@ const ICONS: Record<IconName, Spec> = {
   user: { vb: 24, stroke: ['M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', 'M4 21a8 8 0 0 1 16 0'] },
   pencil: { vb: 24, stroke: ['M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z'] },
   clock: { vb: 24, stroke: ['M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z', 'M12 7v5l3.5 2'] },
+  trash: { vb: 24, stroke: ['M4 7h16', 'M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2', 'M6 7l1 13h10l1-13', 'M10 11v6', 'M14 11v6'] },
   eye: { vb: 24, stroke: ['M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z', 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'] },
   eyeOff: {
     vb: 24,

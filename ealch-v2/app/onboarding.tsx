@@ -58,10 +58,10 @@ function SelectRow({
     >
       <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: active ? t.acc : t.line(18) }} />
       <View style={{ flex: 1 }}>
-        <TX font="semi" size={15}>
+        <TX font="semi" role="bodyLg">
           {title}
         </TX>
-        <TX size={12} color={t.txA(50)} style={{ marginTop: 2 }}>
+        <TX role="label" color={t.txMuted} style={{ marginTop: 2 }}>
           {sub}
         </TX>
       </View>
@@ -219,12 +219,12 @@ export default function Onboarding() {
         <View style={{ paddingTop: insets.top + 14, paddingHorizontal: 24 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginBottom: 14 }}>
             <Press onPress={back} style={{ width: 38, height: 38, marginLeft: -10, alignItems: 'center', justifyContent: 'center' }}>
-              <Icon name="chevronLeft" size={20} color={t.txA(70)} />
+              <Icon name="chevronLeft" size={20} color={t.txNonText} />
             </Press>
             <View style={{ flex: 1, height: 3, borderRadius: 2, backgroundColor: t.line(10) }}>
               <View style={{ height: 3, borderRadius: 2, backgroundColor: t.acc, width: `${(step / 10) * 100}%` }} />
             </View>
-            <TX size={11} color={t.txA(40)} style={{ minWidth: 34, textAlign: 'right' }}>
+            <TX role="meta" color={t.txSubtle} style={{ minWidth: 34, textAlign: 'right' }}>
               {step}/10
             </TX>
           </View>
@@ -239,19 +239,19 @@ export default function Onboarding() {
         {/* 0 · Welcome */}
         {step === 0 ? (
           <View style={{ flex: 1, justifyContent: 'flex-end', paddingTop: insets.top + 120 }}>
-            <TX font="semi" size={11} ls={6} color={t.acc} style={{ marginBottom: 18 }}>
+            <TX font="semi" role="meta" ls={6} color={t.accTx} style={{ marginBottom: 18 }}>
               EALCH
             </TX>
-            <TX font="serifI" size={52} lh={54} style={{ marginBottom: 18, letterSpacing: -0.5 }}>
+            <TX font="serifI" role="display" size={52} style={{ marginBottom: 18, letterSpacing: -0.5 }}>
               {T.obTagline}
             </TX>
-            <TX size={15} lh={23} color={t.txA(60)} style={{ maxWidth: 300, marginBottom: 40 }}>
+            <TX role="bodyLg" color={t.txSecondary} style={{ maxWidth: 300, marginBottom: 40 }}>
               {T.obIntro}
             </TX>
             <Button label={T.createAccount} onPress={next} />
             <Press onPress={() => router.push('/signin')} style={{ alignItems: 'center', marginTop: 18 }}>
-              <TX size={13.5} color={t.txA(55)}>
-                {T.alreadyAccount} <TX font="semi" size={13.5} color={t.acc}>{T.signInLink}</TX>
+              <TX role="bodySm" color={t.txMuted}>
+                {T.alreadyAccount} <TX font="semi" role="bodySm" color={t.accTx}>{T.signInLink}</TX>
               </TX>
             </Press>
           </View>
@@ -261,13 +261,13 @@ export default function Onboarding() {
         {step === 1 ? (
           <View style={{ flex: 1, paddingTop: 8 }}>
             <StepLabel>{LABELS[1]}</StepLabel>
-            <TX font="serif" size={34} lh={38} style={{ marginBottom: 26 }}>
+            <TX font="serif" role="display" size={34} style={{ marginBottom: 26 }}>
               {T.obCreateT}
             </TX>
             <Field placeholder={T.emailPh} value={s.email} onChangeText={(v) => s.setField('email', v)} keyboardType="email-address" autoCapitalize="none" />
             <PasswordField placeholder={T.passwordPh} value={password} onChangeText={setPassword} onSubmitEditing={() => void submitAccount()} />
             {acctErr ? (
-              <TX size={12} lh={17} color={t.danger} style={{ marginTop: 2, marginBottom: 10 }}>
+              <TX role="label" color={t.danger} style={{ marginTop: 2, marginBottom: 10 }}>
                 {acctErr}
               </TX>
             ) : null}
@@ -275,7 +275,7 @@ export default function Onboarding() {
             {/* Consent is disclosed at the moment of account creation. */}
             <LegalConsent />
             <Press onPress={continueAsGuest} style={{ alignItems: 'center', marginTop: 18 }}>
-              <TX font="semi" size={13.5} color={t.acc}>
+              <TX font="semi" role="bodySm" color={t.accTx}>
                 {T.continueGuest}
               </TX>
             </Press>
@@ -283,7 +283,7 @@ export default function Onboarding() {
               <>
                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginVertical: 22 }}>
                   <View style={{ flex: 1, height: 1, backgroundColor: t.line(10) }} />
-                  <TX size={11} ls={3} color={t.txA(40)}>
+                  <TX role="meta" ls={3} color={t.txSubtle}>
                     {T.orT}
                   </TX>
                   <View style={{ flex: 1, height: 1, backgroundColor: t.line(10) }} />
@@ -299,10 +299,10 @@ export default function Onboarding() {
         {step === 2 ? (
           <View style={{ flex: 1, paddingTop: 8 }}>
             <StepLabel>{LABELS[2]}</StepLabel>
-            <TX font="serif" size={34} lh={38} style={{ marginBottom: 10 }}>
+            <TX font="serif" role="display" size={34} style={{ marginBottom: 10 }}>
               {T.obNameT}
             </TX>
-            <TX size={13} color={t.txA(50)} style={{ marginBottom: 26 }}>
+            <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 26 }}>
               {T.obNameS}
             </TX>
             <Field
@@ -314,7 +314,7 @@ export default function Onboarding() {
             />
             <Button label={T.continueT} onPress={submitName} style={{ height: 54, marginTop: 6 }} />
             <Press onPress={skipName} style={{ alignItems: 'center', marginTop: 18 }}>
-              <TX font="semi" size={13.5} color={t.txA(55)}>
+              <TX font="semi" role="bodySm" color={t.txMuted}>
                 {T.skipT}
               </TX>
             </Press>
@@ -325,10 +325,10 @@ export default function Onboarding() {
         {step === 3 ? (
           <View style={{ flex: 1, paddingTop: 8 }}>
             <StepLabel>{LABELS[3]}</StepLabel>
-            <TX font="serif" size={34} lh={38} style={{ marginBottom: 10 }}>
+            <TX font="serif" role="display" size={34} style={{ marginBottom: 10 }}>
               {T.obThemeT}
             </TX>
-            <TX size={13} color={t.txA(50)} style={{ marginBottom: 26 }}>
+            <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 26 }}>
               {T.obThemeS}
             </TX>
             <View style={{ flexDirection: 'row', gap: 16, justifyContent: 'center', marginBottom: 26 }}>
@@ -337,7 +337,7 @@ export default function Onboarding() {
                 return (
                   <Press key={a.c} onPress={() => s.setAccent(a.c)} style={{ alignItems: 'center', gap: 9 }}>
                     <View style={{ width: 56, height: 56, borderRadius: 28, backgroundColor: a.c, borderWidth: on ? 3 : 0, borderColor: t.bg, ...(on ? { shadowColor: a.c, shadowOpacity: 0.9, shadowRadius: 8, elevation: 6 } : {}) }} />
-                    <TX font="semi" size={11} color={on ? t.tx : t.txA(45)}>
+                    <TX font="semi" role="meta" color={on ? t.txPrimary : t.txSubtle}>
                       {a.n}
                     </TX>
                   </Press>
@@ -345,13 +345,13 @@ export default function Onboarding() {
               })}
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 24 }}>
-              <View style={{ flexDirection: 'row', height: 40, borderRadius: 20, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
+              <View style={{ flexDirection: 'row', minHeight: 40, paddingVertical: 6, borderRadius: 20, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
                 {(['dark', 'light'] as const).map((m) => {
                   const on = s.mode === m;
                   return (
                     <Press key={m} onPress={() => s.setMode(m)} style={{ paddingHorizontal: 22, flexDirection: 'row', alignItems: 'center', gap: 7, backgroundColor: on ? t.acc : 'transparent' }}>
-                      <Icon name={m === 'dark' ? 'moon' : 'sun'} size={13} color={on ? t.accInk : t.txA(60)} />
-                      <TX font="bold" size={11} ls={1.4} color={on ? t.accInk : t.txA(60)}>
+                      <Icon name={m === 'dark' ? 'moon' : 'sun'} size={13} color={on ? t.accInk : t.txNonText} />
+                      <TX font="bold" role="meta" ls={1.4} color={on ? t.accInk : t.txSecondary}>
                         {m === 'dark' ? T.modeDark : T.modeLight}
                       </TX>
                     </Press>
@@ -359,7 +359,7 @@ export default function Onboarding() {
                 })}
               </View>
             </View>
-            <TX font="semi" size={10} ls={2.6} color={t.txA(45)} style={{ marginBottom: 14 }}>
+            <TX font="semi" role="meta" ls={2.6} color={t.txSubtle} style={{ marginBottom: 14 }}>
               {T.appLangT}
             </TX>
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 20 }}>
@@ -369,11 +369,11 @@ export default function Onboarding() {
                 return (
                   <Press key={lg.id} onPress={soon ? undefined : () => s.setAppLang(lg.id)} cue={soon ? null : 'tap'} style={{ alignItems: 'center', gap: 6, width: 52, opacity: soon ? 0.38 : 1 }}>
                     <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: t.card2, alignItems: 'center', justifyContent: 'center', borderWidth: on ? 2 : 0, borderColor: t.acc }}>
-                      <TX font="bold" size={15} color={on ? t.acc : t.txA(70)}>
+                      <TX font="bold" role="bodyLg" color={on ? t.accTx : t.txSecondary}>
                         {lg.ch}
                       </TX>
                     </View>
-                    <TX font="semi" size={9} color={on ? t.tx : t.txA(45)}>
+                    <TX font="semi" role="eyebrow" color={on ? t.txPrimary : t.txSubtle}>
                       {soon ? T.soonT : lg.name}
                     </TX>
                   </Press>
@@ -408,7 +408,7 @@ export default function Onboarding() {
         {step === 6 ? (
           <View style={{ flex: 1, paddingTop: 8 }}>
             <StepLabel>{LABELS[6]}</StepLabel>
-            <TX font="serif" size={34} lh={38} style={{ marginBottom: 26 }}>
+            <TX font="serif" role="display" size={34} style={{ marginBottom: 26 }}>
               {T.obPaceT}
             </TX>
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
@@ -418,12 +418,12 @@ export default function Onboarding() {
                   <Press
                     key={p.id}
                     onPress={() => s.setField('pace', p.id)}
-                    style={{ width: '47%', height: 104, borderRadius: 18, borderWidth: 1, borderColor: on ? t.accA(60) : t.line(9), backgroundColor: on ? t.accCard(8) : t.card, ...t.cardShadow, justifyContent: 'center', paddingHorizontal: 18 }}
+                    style={{ width: '47%', minHeight: 104, paddingVertical: 8, borderRadius: 18, borderWidth: 1, borderColor: on ? t.accA(60) : t.line(9), backgroundColor: on ? t.accCard(8) : t.card, ...t.cardShadow, justifyContent: 'center', paddingHorizontal: 18 }}
                   >
-                    <TX font="serif" size={30} color={t.acc}>
+                    <TX font="serif" role="display" size={30} color={t.accTx}>
                       {p.v}
                     </TX>
-                    <TX font="serifI" size={12} color={t.txA(50)} style={{ marginTop: 4 }}>
+                    <TX font="serifI" role="label" color={t.txMuted} style={{ marginTop: 4 }}>
                       {T.paceSubs[i] ?? p.s}
                     </TX>
                   </Press>
@@ -448,10 +448,10 @@ export default function Onboarding() {
         {step === 8 ? (
           <View style={{ flex: 1, paddingTop: 8 }}>
             <StepLabel>{LABELS[8]}</StepLabel>
-            <TX font="serif" size={34} lh={38} style={{ marginBottom: 10 }}>
+            <TX font="serif" role="display" size={34} style={{ marginBottom: 10 }}>
               {T.obRemindT}
             </TX>
-            <TX size={13} color={t.txA(50)} style={{ marginBottom: 16 }}>
+            <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 16 }}>
               {T.obRemindS}
             </TX>
             <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 12 }}>
@@ -464,12 +464,12 @@ export default function Onboarding() {
                   <Press
                     key={c.time}
                     onPress={() => s.setAlarm(c.time)}
-                    style={{ width: '47%', height: 58, borderRadius: 16, borderWidth: 1, borderColor: on ? t.accA(60) : t.line(9), backgroundColor: on ? t.accCard(8) : t.card, ...t.cardShadow, alignItems: 'center', justifyContent: 'center' }}
+                    style={{ width: '47%', minHeight: 58, paddingVertical: 6, borderRadius: 16, borderWidth: 1, borderColor: on ? t.accA(60) : t.line(9), backgroundColor: on ? t.accCard(8) : t.card, ...t.cardShadow, alignItems: 'center', justifyContent: 'center' }}
                   >
-                    <TX font="serif" size={20} color={on ? t.acc : t.tx}>
+                    <TX font="serif" role="titleLg" size={21} color={on ? t.accTx : t.txPrimary}>
                       {formatTime(c.time, s.clock24)}
                     </TX>
-                    <TX size={10} color={t.txA(45)}>
+                    <TX role="meta" color={t.txSubtle}>
                       {T.alarmChips[i] ?? c.label}
                     </TX>
                   </Press>
@@ -479,12 +479,12 @@ export default function Onboarding() {
             <View style={{ borderRadius: 16, borderWidth: 1, borderColor: showWheel ? t.accA(60) : t.line(9), backgroundColor: t.card, ...t.cardShadow, marginBottom: 22 }}>
               <Press onPress={() => setShowWheel((v) => !v)} style={{ minHeight: 58, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 16 }}>
                 <View style={{ flex: 1 }}>
-                  <TX font="semi" size={14}>
+                  <TX font="semi" role="body">
                     {T.customTime}
                   </TX>
                 </View>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, height: 36, paddingHorizontal: 14, borderRadius: 10, borderWidth: 1, borderColor: t.accA(40) }}>
-                  <TX font="serif" size={17} color={t.acc}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 36, paddingVertical: 6, paddingHorizontal: 14, borderRadius: 10, borderWidth: 1, borderColor: t.accA(40) }}>
+                  <TX font="serif" role="title" color={t.accTx}>
                     {formatTime(s.alarmTime, s.clock24)}
                   </TX>
                   <Icon name="clock" size={15} color={t.acc} />
@@ -498,10 +498,10 @@ export default function Onboarding() {
                 return (
                   <View key={i} style={{ minHeight: 58, borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 16, paddingVertical: 8 }}>
                     <View style={{ flex: 1 }}>
-                      <TX font="semi" size={14}>
+                      <TX font="semi" role="body">
                         {n.label}
                       </TX>
-                      <TX size={11.5} color={t.txA(45)} style={{ marginTop: 1 }}>
+                      <TX role="label" color={t.txSubtle} style={{ marginTop: 1 }}>
                         {n.sub}
                       </TX>
                     </View>
@@ -518,19 +518,19 @@ export default function Onboarding() {
         {step === 9 ? (
           <View style={{ flex: 1, paddingTop: 8 }}>
             <StepLabel>{LABELS[9]}</StepLabel>
-            <TX font="serif" size={34} lh={38} style={{ marginBottom: 10 }}>
+            <TX font="serif" role="display" size={34} style={{ marginBottom: 10 }}>
               {T.obCalibT}
             </TX>
-            <TX size={13} color={t.txA(50)} style={{ marginBottom: 30 }}>
+            <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 30 }}>
               {T.obCalibS}
             </TX>
             <View style={{ borderRadius: 20, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.input, padding: 26, marginBottom: 30 }}>
-              <TX font="serifI" size={24} lh={33}>
+              <TX font="serifI" role="display" size={24} lhMult={1.375}>
                 « {calibPhrase} »
               </TX>
             </View>
             <View style={{ alignItems: 'center', marginBottom: 26 }}>
-              <Waveform count={30} height={38} color={calib === 'rec' ? t.acc : t.txA(28)} active={calib === 'rec'} barWidth={3} gap={4} />
+              <Waveform count={30} height={38} color={calib === 'rec' ? t.acc : t.txNonText} active={calib === 'rec'} barWidth={3} gap={4} />
             </View>
 
             {/* What the recognizer heard. Empty until it hears something — this
@@ -539,15 +539,15 @@ export default function Onboarding() {
               <View style={{ marginBottom: 22, paddingHorizontal: 4 }}>
                 {calibHeard.ok ? (
                   <>
-                    <TX font="semi" size={9} ls={2.4} color={t.txA(40)} style={{ marginBottom: 6 }}>
+                    <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle} style={{ marginBottom: 6 }}>
                       {T.micHeard} · {Math.round(calibHeard.score * 100)}%
                     </TX>
-                    <TX font="serifI" size={17} lh={24} color={t.txA(80)}>
+                    <TX font="serifI" role="title" color={t.txPrimary}>
                       « {calibHeard.transcript} »
                     </TX>
                   </>
                 ) : (
-                  <TX size={13} lh={19} color={t.txA(50)}>
+                  <TX role="bodySm" color={t.txMuted}>
                     {calibHeard.error === 'not-allowed'
                       ? T.micDenied
                       : !calibHeard.available
@@ -566,7 +566,7 @@ export default function Onboarding() {
               >
                 <Icon name="mic" size={26} color={calib === 'rec' ? t.accInk : t.tx} />
               </Press>
-              <TX size={12} ls={1.4} color={t.txA(50)} center style={{ textTransform: 'uppercase' }}>
+              <TX role="label" ls={1.4} color={t.txMuted} center style={{ textTransform: 'uppercase' }}>
                 {calib === 'rec' ? calibPartial || T.obCalibRec : T.obCalibTap}
               </TX>
             </View>
@@ -584,16 +584,16 @@ export default function Onboarding() {
         {/* 10 · Result */}
         {step === 10 ? (
           <View style={{ flex: 1, justifyContent: 'center', paddingTop: insets.top }}>
-            <TX font="semi" size={10} ls={2.8} color={t.txA(40)} style={{ marginBottom: 16 }}>
+            <TX font="semi" role="meta" ls={2.8} color={t.txSubtle} style={{ marginBottom: 16 }}>
               {LABELS[10]}
             </TX>
-            <TX font="serif" size={74} lh={74} color={t.acc}>
+            <TX font="serif" role="display" size={74} color={t.accTx}>
               {level}
             </TX>
-            <TX font="serifI" size={28} style={{ marginTop: 6, marginBottom: 22 }}>
+            <TX font="serifI" role="display" size={28} style={{ marginTop: 6, marginBottom: 22 }}>
               {beginner ? T.obDecouverte : T.obSeuil}
             </TX>
-            <TX size={15} lh={24} color={t.txA(60)} style={{ maxWidth: 310, marginBottom: 44 }}>
+            <TX role="bodyLg" lhMult={1.6} color={t.txSecondary} style={{ maxWidth: 310, marginBottom: 44 }}>
               {beginner ? T.obResultA1 : T.obResultB1}
             </TX>
             <Button label={T.enterEalch} onPress={finish} />
@@ -607,7 +607,7 @@ export default function Onboarding() {
 function StepLabel({ children }: { children: string }) {
   const t = useTheme();
   return (
-    <TX font="semi" size={10} ls={2.8} color={t.txA(40)} style={{ marginBottom: 12 }}>
+    <TX font="semi" role="meta" ls={2.8} color={t.txSubtle} style={{ marginBottom: 12 }}>
       {children}
     </TX>
   );
@@ -625,7 +625,7 @@ function StepList({ label, title, children }: { label: string; title: string; ch
 
 function SerifTitle({ children }: { children: string }) {
   return (
-    <TX font="serif" size={34} lh={38}>
+    <TX font="serif" role="display" size={34}>
       {children}
     </TX>
   );
@@ -636,7 +636,7 @@ function Field(props: React.ComponentProps<typeof TextInput> & { placeholder: st
   return (
     <TextInput
       {...props}
-      placeholderTextColor={t.txA(30)}
+      placeholderTextColor={t.txSubtle}
       style={{
         height: 52,
         borderRadius: 16,

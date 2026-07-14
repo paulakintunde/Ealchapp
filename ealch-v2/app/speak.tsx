@@ -151,7 +151,7 @@ export default function Speak() {
     router.push('/feedback');
   };
 
-  const micIcon = listening ? t.accInk : t.tx;
+  const micIcon = listening ? t.accInk : t.txNonText;
 
   // The caption tells the truth about what the recognizer did — it never
   // implies a success the mic did not actually hear.
@@ -165,7 +165,7 @@ export default function Speak() {
   })();
 
   const verdictColor =
-    heard?.verdict === 'good' ? t.acc : heard?.verdict === 'close' ? t.tx : t.danger;
+    heard?.verdict === 'good' ? t.accTx : heard?.verdict === 'close' ? t.txPrimary : t.danger;
   const verdictLabel =
     heard?.verdict === 'good' ? T.micGood : heard?.verdict === 'close' ? T.micClose : T.micOff;
 
@@ -186,17 +186,17 @@ export default function Speak() {
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingVertical: 12 }}>
           <Press onPress={() => router.replace('/home')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
             <Svg width={15} height={15} viewBox="0 0 15 15" fill="none">
-              <Path d="M2 2l11 11M13 2L2 13" stroke={t.txA(80)} strokeWidth={1.7} strokeLinecap="round" />
+              <Path d="M2 2l11 11M13 2L2 13" stroke={t.txNonText} strokeWidth={1.7} strokeLinecap="round" />
             </Svg>
           </Press>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, marginHorizontal: 8 }}>
             <BlinkDot color={t.acc} />
-            <TX font="semi" size={10} ls={2.6} color={t.txA(60)}>
+            <TX font="semi" role="meta" ls={2.6} color={t.txSecondary} numberOfLines={1} style={{ flexShrink: 1 }}>
               {speakLabel}
             </TX>
           </View>
           <Press onPress={() => router.push('/settings')} style={{ width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: t.line(6) }}>
-            <Icon name="gear" size={18} color={t.txA(70)} strokeWidth={1.7} />
+            <Icon name="gear" size={18} color={t.txNonText} strokeWidth={1.7} />
           </Press>
         </View>
       </View>
@@ -226,13 +226,13 @@ export default function Speak() {
 
       {/* Coach line */}
       <View style={{ paddingHorizontal: 30, paddingTop: 26, alignItems: 'center' }}>
-        <TX font="semi" size={10} ls={3} color={t.acc} style={{ marginBottom: 12 }}>
+        <TX font="semi" role="meta" ls={3} color={t.accTx} style={{ marginBottom: 12 }}>
           CAMILLE
         </TX>
-        <TX font="serifI" size={25} lh={33} center style={{ minHeight: 66 }}>
+        <TX font="serifI" size={25} role="display" lhMult={1.32} center style={{ minHeight: 66 }}>
           « {coach.fr} »
         </TX>
-        <TX size={12.5} color={t.txA(42)} center style={{ marginTop: 10 }}>
+        <TX role="label" color={t.txSubtle} center style={{ marginTop: 10 }}>
           {coach.en}
         </TX>
       </View>
@@ -245,47 +245,47 @@ export default function Speak() {
             {heard?.ok ? (
               <View style={{ marginBottom: 14, paddingBottom: 14, borderBottomWidth: 1, borderBottomColor: t.line(8) }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                  <TX font="semi" size={9} ls={2.4} color={t.txA(40)}>
+                  <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle}>
                     {T.micHeard}
                   </TX>
-                  <TX font="semi" size={10} color={verdictColor}>
+                  <TX font="semi" role="meta" color={verdictColor}>
                     · {verdictLabel} · {Math.round(heard.score * 100)}%
                   </TX>
                 </View>
-                <TX font="serifI" size={17} lh={24} color={t.txA(85)}>
+                <TX font="serifI" role="title" color={t.txPrimary}>
                   « {heard.transcript} »
                 </TX>
               </View>
             ) : null}
-            <TX font="semi" size={9} ls={2.4} color={t.txA(40)} style={{ marginBottom: 8 }}>
+            <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle} style={{ marginBottom: 8 }}>
               {T.youSaid}
             </TX>
-            <TX font="serif" size={19} lh={27}>
+            <TX font="serif" size={20} role="titleLg">
               « Je voudrais un café{' '}
-              <TX font="serif" size={19} color={t.acc}>allongé</TX>
+              <TX font="serif" size={20} role="titleLg" color={t.accTx}>allongé</TX>
               {' '}et un croissant, s'il vous plaît. »
             </TX>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 12, flexWrap: 'wrap' }}>
-              <View style={{ height: 26, paddingHorizontal: 12, borderRadius: 13, backgroundColor: t.accA(15), justifyContent: 'center' }}>
-                <TX font="semi" size={11} color={t.acc}>
+              <View style={{ minHeight: 26, paddingVertical: 4, paddingHorizontal: 12, borderRadius: 13, backgroundColor: t.accA(15), justifyContent: 'center' }}>
+                <TX font="semi" role="meta" color={t.accTx}>
                   {T.liaisonChip}
                 </TX>
               </View>
               <Press onPress={() => router.push('/feedback')} cue="tap" style={{ paddingVertical: 4 }}>
-                <TX font="semi" size={12} color={t.txA(65)} style={{ textDecorationLine: 'underline' }}>
+                <TX font="semi" role="meta" color={t.txSecondary} style={{ textDecorationLine: 'underline' }}>
                   {T.why}
                 </TX>
               </Press>
               <Press onPress={coachNext} cue="tap" style={{ marginLeft: 'auto', paddingVertical: 4 }}>
-                <TX font="semi" size={12.5} color={t.acc}>
+                <TX font="semi" role="label" color={t.accTx}>
                   {T.cont}
                 </TX>
               </Press>
             </View>
           </View>
         ) : null}
-        <Press onPress={endSession} style={{ alignSelf: 'center', marginTop: 14, height: 34, paddingHorizontal: 18, borderRadius: 17, borderWidth: 1, borderColor: t.line(16), flexDirection: 'row', alignItems: 'center' }}>
-          <TX font="semi" size={12} color={t.txA(75)}>
+        <Press onPress={endSession} style={{ alignSelf: 'center', marginTop: 14, minHeight: 34, paddingVertical: 6, paddingHorizontal: 18, borderRadius: 17, borderWidth: 1, borderColor: t.line(16), flexDirection: 'row', alignItems: 'center' }}>
+          <TX font="semi" role="meta" color={t.txSecondary}>
             {T.end} · Le Rapport →
           </TX>
         </Press>
@@ -295,7 +295,7 @@ export default function Speak() {
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 38, paddingBottom: 20 }}>
         <Press onPress={replayCoach} style={{ width: 46, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
           <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
-            <Path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6" stroke={t.txA(75)} strokeWidth={1.7} strokeLinecap="round" />
+            <Path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6" stroke={t.txNonText} strokeWidth={1.7} strokeLinecap="round" />
           </Svg>
         </Press>
         <View style={{ width: 80, height: 80, alignItems: 'center', justifyContent: 'center' }}>
@@ -314,14 +314,14 @@ export default function Speak() {
         </View>
         <Press onPress={coachNext} style={{ width: 46, height: 46, borderRadius: 23, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
           <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
-            <Path d="M12 5V2l5 4-5 4V7a6 6 0 1 0 6 6" stroke={t.txA(75)} strokeWidth={1.7} strokeLinecap="round" />
+            <Path d="M12 5V2l5 4-5 4V7a6 6 0 1 0 6 6" stroke={t.txNonText} strokeWidth={1.7} strokeLinecap="round" />
           </Svg>
         </Press>
       </View>
 
       {/* Mic caption */}
       <View style={{ paddingBottom: insets.bottom + 20, alignItems: 'center' }}>
-        <TX font="semi" size={11} ls={1.6} color={t.txA(40)} style={{ textTransform: 'uppercase' }}>
+        <TX font="semi" role="meta" ls={1.6} color={t.txSubtle} style={{ textTransform: 'uppercase' }}>
           {micCaption}
         </TX>
       </View>

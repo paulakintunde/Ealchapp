@@ -10,6 +10,7 @@ import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { sound } from '@/services';
 import { currSons, currA1, currA2, a2Subs, extendedLesson, type Unit } from '@/content/curriculum';
+import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 
 type TabId = 'sons' | 'a1' | 'a2';
 
@@ -18,6 +19,7 @@ type TabId = 'sons' | 'a1' | 'a2';
 export default function Den() {
   const t = useTheme();
   const T = useT();
+  useReadingBrightness();
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
@@ -53,24 +55,24 @@ export default function Den() {
             onPress={() => router.replace('/home')}
             style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}
           >
-            <Icon name="chevronLeft" size={20} color={t.txA(80)} strokeWidth={1.7} />
+            <Icon name="chevronLeft" size={20} color={t.txNonText} strokeWidth={1.7} />
           </Press>
-          <TX font="semi" size={9} ls={2.6} color={t.txA(45)}>
+          <TX font="semi" role="eyebrow" ls={2.6} color={t.txSubtle}>
             {T.denTag}
           </TX>
           <Press
             onPress={() => router.push('/settings')}
             style={{ width: 44, height: 44, marginRight: -12, alignItems: 'center', justifyContent: 'center' }}
           >
-            <Icon name="gear" size={18} color={t.txA(70)} />
+            <Icon name="gear" size={18} color={t.txNonText} />
           </Press>
         </View>
 
         {/* Title + intro */}
-        <TX font="serif" size={38} style={{ marginBottom: 8 }}>
+        <TX font="serif" role="display" size={38} style={{ marginBottom: 8 }}>
           {T.denT}
         </TX>
-        <TX size={13.5} lh={21} color={t.txA(55)} style={{ maxWidth: 310, marginBottom: 16 }}>
+        <TX role="bodySm" color={t.txMuted} style={{ maxWidth: 310, marginBottom: 16 }}>
           {T.denIntro}
         </TX>
 
@@ -100,15 +102,15 @@ export default function Den() {
               justifyContent: 'center',
             }}
           >
-            <TX font="bold" size={13} color={t.acc}>
+            <TX font="bold" role="label" color={t.accTx}>
               A?
             </TX>
           </View>
           <View style={{ flex: 1 }}>
-            <TX font="semi" size={13.5}>
+            <TX font="semi" role="bodySm">
               {banT}
             </TX>
-            <TX size={11} color={t.txA(50)} style={{ marginTop: 2 }}>
+            <TX role="meta" color={t.txMuted} style={{ marginTop: 2 }}>
               {banS}
             </TX>
           </View>
@@ -128,7 +130,8 @@ export default function Den() {
                 }}
                 style={{
                   flex: 1,
-                  height: 44,
+                  minHeight: 44,
+                  paddingVertical: 6,
                   borderRadius: 22,
                   borderWidth: 1,
                   borderColor: on ? t.accA(60) : t.line(10),
@@ -137,10 +140,10 @@ export default function Den() {
                   justifyContent: 'center',
                 }}
               >
-                <TX font="bold" size={11} ls={1.4} color={on ? t.acc : t.txA(55)}>
+                <TX font="bold" role="meta" ls={1.4} color={on ? t.accTx : t.txMuted}>
                   {tab.name}
                 </TX>
-                <TX size={9} color={on ? t.accA(70) : t.txA(40)} style={{ marginTop: 1 }}>
+                <TX role="eyebrow" color={on ? t.accA(70) : t.txSubtle} style={{ marginTop: 1 }}>
                   {tab.count}
                 </TX>
               </Press>
@@ -160,15 +163,15 @@ export default function Den() {
           }}
         >
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
-            <TX font="semi" size={10} ls={2.2} color={t.tag('gold').c}>
+            <TX font="semi" role="meta" ls={2.2} color={t.tag('gold').c}>
               {T.trackLabels[denTab]}
             </TX>
-            <TX size={12} color={t.txA(55)}>
+            <TX role="label" color={t.txMuted}>
               {track.done} / {track.list.length}
             </TX>
           </View>
           <ProgressBar pct={(track.done / track.list.length) * 100} />
-          <TX size={11.5} lh={17} color={t.txA(45)} style={{ marginTop: 10 }}>
+          <TX role="label" color={t.txSubtle} style={{ marginTop: 10 }}>
             {T.trackDescs[denTab]}
           </TX>
         </View>
@@ -213,7 +216,8 @@ export default function Den() {
                   <View
                     style={{
                       width: 36,
-                      height: 36,
+                      minHeight: 36,
+                      paddingVertical: 6,
                       borderRadius: 18,
                       borderWidth: 1,
                       borderColor: st === 'now' ? t.acc : t.line(14),
@@ -222,28 +226,28 @@ export default function Den() {
                       justifyContent: 'center',
                     }}
                   >
-                    <TX font="serif" size={14} color={st === 'done' || st === 'now' ? t.acc : t.txA(55)}>
+                    <TX font="serif" role="body" color={st === 'done' || st === 'now' ? t.accTx : t.txMuted}>
                       {st === 'done' ? '✓' : String(i + 1).padStart(2, '0')}
                     </TX>
                   </View>
                   <View style={{ flex: 1, minWidth: 0 }}>
-                    <TX font="semi" size={14.5}>
+                    <TX font="semi" role="body">
                       {u.title}
                     </TX>
-                    <TX font="serifI" size={11.5} color={t.txA(45)} style={{ marginTop: 2 }} numberOfLines={1}>
+                    <TX font="serifI" role="label" color={t.txSubtle} style={{ marginTop: 2 }} numberOfLines={1}>
                       {u.sub}
                     </TX>
                   </View>
                   {isA2 ? (
                     lessonKey ? (
-                      <Icon name="chevronRight" size={13} color={t.txA(35)} strokeWidth={1.6} />
+                      <Icon name="chevronRight" size={13} color={t.txNonText} strokeWidth={1.6} />
                     ) : (
                       <View style={{ transform: [{ rotate: open ? '180deg' : '0deg' }] }}>
-                        <Icon name="chevronDown" size={14} color={t.txA(45)} strokeWidth={1.6} />
+                        <Icon name="chevronDown" size={14} color={t.txNonText} strokeWidth={1.6} />
                       </View>
                     )
                   ) : stateLabel ? (
-                    <TX font="semi" size={9.5} ls={1.4} color={st === 'done' ? t.acc : t.txA(35)}>
+                    <TX font="semi" role="eyebrow" ls={1.4} color={st === 'done' ? t.accTx : t.txSubtle}>
                       {stateLabel}
                     </TX>
                   ) : null}
@@ -256,14 +260,15 @@ export default function Den() {
                     </View>
                     <View
                       style={{
-                        height: 42,
+                        minHeight: 42,
+                        paddingVertical: 6,
                         borderRadius: 21,
                         backgroundColor: t.acc,
                         alignItems: 'center',
                         justifyContent: 'center',
                       }}
                     >
-                      <TX font="semi" size={13} color={t.accInk}>
+                      <TX font="semi" role="label" color={t.accInk}>
                         {T.denCont}
                       </TX>
                     </View>
@@ -283,7 +288,7 @@ export default function Den() {
                     {a2Subs[i].map((nm, si) => (
                       <View key={si} style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                         <View style={{ width: 5, height: 5, borderRadius: 3, backgroundColor: t.accA(60) }} />
-                        <TX size={12.5} color={t.txA(65)}>
+                        <TX role="label" color={t.txSecondary}>
                           {nm}
                         </TX>
                       </View>
@@ -292,7 +297,7 @@ export default function Den() {
                 ) : null}
 
                 {isA2 ? (
-                  <TX font="semi" size={10} ls={1.2} color={t.accA(75)} style={{ marginTop: 8 }}>
+                  <TX font="semi" role="meta" ls={1.2} color={t.accTx} style={{ marginTop: 8 }}>
                     {a2Subs[i].length} {T.subLessonsWord}
                   </TX>
                 ) : null}
