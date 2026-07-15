@@ -31,6 +31,7 @@ export type Strings = {
   micHeard: string; micNoSpeech: string; micDenied: string; micUnavail: string;
   micGood: string; micClose: string; micOff: string;
   youSaid: string; liaisonChip: string;
+  speakYouSaid: string; speakModelWas: string;
   reportTag: string; review: string; replay: string; talk: string;
   traj: string; conf: string;
   reportSub: string;
@@ -136,7 +137,7 @@ export type Strings = {
   denBanT: string; denBanS: string; subLessonsWord: string;
   lessonNow: string; tapHear: string;
   playerPlaylist: string; rpLevelNote: string; repeatWord: string;
-  speakScene: string; vfTitle: string;
+  speakScene: string; speakRepeat: string; vfTitle: string;
   chatRetry: string;
   chatSuggs: { label: string; msg: string }[];
   planFree: string; planPremDesc: string; planFreeDesc: string; subActive: string;
@@ -170,6 +171,7 @@ export const T: Record<Lang, Strings> = {
     micUnavail: 'Micro indisponible sur cette version. Comparez vous-même',
     micGood: 'Bien dit', micClose: 'Presque. Réessayez', micOff: 'Pas tout à fait',
     youSaid: 'UNE RÉPONSE MODÈLE — À DIRE À VOIX HAUTE', liaisonChip: 'Attention à la liaison · un‿allongé',
+    speakYouSaid: 'VOUS AVEZ DIT', speakModelWas: 'Camille a dit',
     reportTag: 'VOTRE RAPPORT', review: 'À revoir', replay: 'Rejouer', talk: 'Parler au coach',
     traj: 'B1 → B1+ trajectoire', conf: 'CONFIANCE',
     reportSub: 'Bâti sur vos tentatives réelles, pas sur des exemples.',
@@ -337,7 +339,7 @@ export const T: Record<Lang, Strings> = {
     playerPlaylist: 'PRONONCIATION EN PROFONDEUR',
     rpLevelNote: 'La complexité de la conversation s’adapte au niveau choisi.',
     repeatWord: 'Répétez',
-    speakScene: 'RÉEL — AU CAFÉ', vfTitle: 'FLASH VOCAL',
+    speakScene: 'RÉEL — AU CAFÉ', speakRepeat: 'Répétez la phrase de Camille', vfTitle: 'FLASH VOCAL',
     chatRetry: 'Réessayez dans un instant.',
     chatSuggs: [
       { label: 'Pourquoi « je voudrais » ?', msg: 'Pourquoi « je voudrais » et pas « je veux » ?' },
@@ -389,6 +391,7 @@ export const T: Record<Lang, Strings> = {
     micUnavail: 'Mic unavailable on this build. Compare it yourself',
     micGood: 'Well said', micClose: 'Close. Try again', micOff: 'Not quite',
     youSaid: 'A MODEL REPLY — SAY IT ALOUD', liaisonChip: 'Mind the liaison · un‿allongé',
+    speakYouSaid: 'YOU SAID', speakModelWas: 'Camille said',
     reportTag: 'YOUR REPORT', review: 'To review', replay: 'Replay', talk: 'Talk to the coach',
     traj: 'B1 → B1+ trajectory', conf: 'CONFIDENCE',
     reportSub: 'Built from your real attempts, not sample data.',
@@ -556,7 +559,7 @@ export const T: Record<Lang, Strings> = {
     playerPlaylist: 'PRONUNCIATION DEEP-DIVES',
     rpLevelNote: 'The conversation complexity changes with the level you choose.',
     repeatWord: 'Repeat',
-    speakScene: 'REAL-WORLD — AT THE CAFÉ', vfTitle: 'VOICE FLASH',
+    speakScene: 'REAL-WORLD — AT THE CAFÉ', speakRepeat: "Repeat Camille's line", vfTitle: 'VOICE FLASH',
     chatRetry: 'Try again in a moment.',
     chatSuggs: [
       { label: 'Why « je voudrais »?', msg: 'Why « je voudrais » and not « je veux »?' },

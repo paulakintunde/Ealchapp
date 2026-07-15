@@ -235,18 +235,27 @@ export default function Speak() {
         <TX role="label" color={t.txSubtle} center style={{ marginTop: 10 }}>
           {coach.en}
         </TX>
+        {/* Say what the drill actually does: the mic scores your utterance
+            against Camille's line, so this is shadowing, not a free reply. */}
+        <TX font="semi" role="meta" ls={1.6} color={t.accTx} center style={{ marginTop: 12, textTransform: 'uppercase' }}>
+          {T.speakRepeat}
+        </TX>
       </View>
 
       {/* Model reply for self-comparison + end */}
       <View style={{ flex: 1, justifyContent: 'flex-end', paddingHorizontal: 26, paddingBottom: 18 }}>
         {analysed ? (
           <View style={{ borderRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.blend(t.card2, t.bgDeep, 85), padding: 18 }}>
-            {/* What the recognizer actually heard, scored against Camille's line. */}
             {heard?.ok ? (
-              <View style={{ marginBottom: 14, paddingBottom: 14, borderBottomWidth: 1, borderBottomColor: t.line(8) }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+              // What the learner ACTUALLY said, scored against Camille's line.
+              // No model reply is invented: the target is Camille's line above,
+              // shown again here for a direct compare. The old block hardcoded
+              // « Je voudrais un café allongé… » regardless of the line or what
+              // was heard — a fabrication (review §speak).
+              <>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6, flexWrap: 'wrap' }}>
                   <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle}>
-                    {T.micHeard}
+                    {T.speakYouSaid}
                   </TX>
                   <TX font="semi" role="meta" color={verdictColor}>
                     · {verdictLabel} · {Math.round(heard.score * 100)}%
@@ -255,27 +264,22 @@ export default function Speak() {
                 <TX font="serifI" role="title" color={t.txPrimary}>
                   « {heard.transcript} »
                 </TX>
-              </View>
-            ) : null}
-            <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle} style={{ marginBottom: 8 }}>
-              {T.youSaid}
-            </TX>
-            <TX font="serif" size={20} role="titleLg">
-              « Je voudrais un café{' '}
-              <TX font="serif" size={20} role="titleLg" color={t.accTx}>allongé</TX>
-              {' '}et un croissant, s'il vous plaît. »
-            </TX>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 12, flexWrap: 'wrap' }}>
-              <View style={{ minHeight: 26, paddingVertical: 4, paddingHorizontal: 12, borderRadius: 13, backgroundColor: t.accA(15), justifyContent: 'center' }}>
-                <TX font="semi" role="meta" color={t.accTx}>
-                  {T.liaisonChip}
+                <TX role="meta" color={t.txSubtle} style={{ marginTop: 10 }}>
+                  {T.speakModelWas} : « {coach.fr} »
                 </TX>
-              </View>
-              <Press onPress={() => router.push('/feedback')} cue="tap" style={{ paddingVertical: 4 }}>
-                <TX font="semi" role="meta" color={t.txSecondary} style={{ textDecorationLine: 'underline' }}>
-                  {T.why}
-                </TX>
-              </Press>
+              </>
+            ) : (
+              // Nothing usable was heard — say why, honestly, instead of showing
+              // a score for a recording that did not happen.
+              <TX role="label" color={t.txSecondary} lhMult={1.5}>
+                {heard?.error === 'not-allowed'
+                  ? T.micDenied
+                  : heard && !heard.available
+                    ? T.micUnavail
+                    : T.micNoSpeech}
+              </TX>
+            )}
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 14 }}>
               <Press onPress={coachNext} cue="tap" style={{ marginLeft: 'auto', paddingVertical: 4 }}>
                 <TX font="semi" role="label" color={t.accTx}>
                   {T.cont}
