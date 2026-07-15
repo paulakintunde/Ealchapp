@@ -10,11 +10,17 @@ import { cannedReplies } from '@/content';
 
 export type CoachMessage = { role: 'user' | 'assistant'; content: string };
 
+/** `live` is true only when the reply came from the coach backend. When it is
+ *  false the reply is a canned coaching tip served because the function was
+ *  unreachable — the UI shows that honestly rather than claiming the coach is
+ *  online. */
+export type CoachReply = { reply: string; live: boolean };
+
 let fallbackIx = 0;
 
 export const coach = {
-  /** Ask the coach. Returns a reply string. Never throws. */
-  async ask(history: CoachMessage[], lang: 'fr' | 'en'): Promise<string> {
+  /** Ask the coach. Never throws. Returns the reply and whether it was live. */
+  async ask(history: CoachMessage[], lang: 'fr' | 'en'): Promise<CoachReply> {
     const sb = supabase();
     if (sb) {
       try {
@@ -26,13 +32,13 @@ export const coach = {
             promptVersion: getConfig().promptVersion,
           },
         });
-        if (!error && data?.reply) return String(data.reply);
+        if (!error && data?.reply) return { reply: String(data.reply), live: true };
       } catch {
         // fall through to canned reply
       }
     }
     const reply = cannedReplies[fallbackIx % cannedReplies.length];
     fallbackIx += 1;
-    return reply;
+    return { reply, live: false };
   },
 };

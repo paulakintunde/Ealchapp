@@ -43,6 +43,7 @@ export type Strings = {
   hours: string; convs: string; minutes: string; days7: string;
   accentT: string; weakEngine: string;
   coachStatus: string; unlimited: string; placeholder: string;
+  chatGreet: string; coachIdle: string; coachOnline: string; coachOffline: string; coachTip: string;
   skills: string[];
   denTag: string; denIntro: string; denCont: string;
   trackDescs: { sons: string; a1: string; a2: string };
@@ -186,6 +187,8 @@ export const T: Record<Lang, Strings> = {
     hours: 'HEURES PARLÉES', convs: 'CONVERSATIONS', minutes: 'Minutes parlées', days7: '7 DERNIERS JOURS',
     accentT: 'Votre accent', weakEngine: 'Le moteur de faiblesses',
     coachStatus: 'votre coach · en ligne', unlimited: 'POURQUOI ? · ILLIMITÉ', placeholder: 'Posez votre question…',
+    chatGreet: 'Bonjour ! Posez-moi vos questions sur le français, en français ou en anglais.',
+    coachIdle: 'votre coach de français', coachOnline: 'en ligne', coachOffline: 'hors ligne · conseils enregistrés', coachTip: 'Conseil enregistré (hors ligne)',
     skills: ['FLUIDITÉ', 'PRÉCISION', 'RYTHME & LIAISONS'],
     denTag: 'LE COIN DES DÉBUTANTS',
     denIntro: "Un vrai cursus, du premier son jusqu'au passé composé. Aucune honte à commencer petit.",
@@ -407,6 +410,8 @@ export const T: Record<Lang, Strings> = {
     hours: 'HOURS SPOKEN', convs: 'CONVERSATIONS', minutes: 'Minutes spoken', days7: 'LAST 7 DAYS',
     accentT: 'Your accent', weakEngine: 'The weakness engine',
     coachStatus: 'your coach · online', unlimited: 'WHY? · UNLIMITED', placeholder: 'Ask your question…',
+    chatGreet: 'Bonjour! Ask me anything about French, in French or English.',
+    coachIdle: 'your French coach', coachOnline: 'online', coachOffline: 'offline · saved tips', coachTip: 'Saved tip (offline)',
     skills: ['FLUENCY', 'ACCURACY', 'RHYTHM & LIAISONS'],
     denTag: "BEGINNERS' DEN",
     denIntro: 'A real curriculum, from your first sound to the past tense. No shame in starting small.',

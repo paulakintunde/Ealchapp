@@ -9,14 +9,13 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { sound, coach, type CoachMessage } from '@/services';
+import { formatTime } from '@/utils/time';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 
-type Msg = { who: 'ai' | 'me'; text: string; time: string };
-
-const SEED: Msg[] = [
-  { who: 'ai', text: "Bonsoir — I read tonight's report. Your liaisons slipped on « un‿allongé », but your rhythm was your best yet.", time: '21:04' },
-  { who: 'ai', text: 'Ask me anything — in French or English.', time: '21:04' },
-];
+// `tip` marks a reply served from the canned offline fallback rather than the
+// live coach, so the bubble can say so instead of passing it off as the coach.
+type Msg = { who: 'ai' | 'me'; text: string; time: string; tip?: boolean };
+type CoachState = 'idle' | 'online' | 'offline';
 
 // Blinking three-dot typing indicator.
 function TypingDots() {
@@ -52,21 +51,31 @@ export default function Chat() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const lang = useStore((s) => s.lang);
+  const clock24 = useStore((s) => s.clock24);
   useReadingBrightness();
 
-  const [messages, setMessages] = useState<Msg[]>(SEED);
+  // Real wall-clock time in the user's chosen format — not the old stamp() that
+  // returned 21:05–21:08 for every message at any hour of any day.
+  const nowStamp = () =>
+    formatTime(
+      `${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`,
+      clock24
+    );
+
+  // A plain greeting — no invented "I read tonight's report" analysis of a
+  // session that never happened.
+  const [messages, setMessages] = useState<Msg[]>(() => [{ who: 'ai', text: T.chatGreet, time: nowStamp() }]);
   const [typing, setTyping] = useState(false);
   const [draft, setDraft] = useState('');
+  // Unknown until the first exchange tells us whether the backend answered.
+  const [coachState, setCoachState] = useState<CoachState>('idle');
   const scrollRef = useRef<ScrollView>(null);
-
-  const stamp = (len: number) => '21:0' + (5 + (len % 4));
 
   const send = async (raw: string) => {
     const text = raw.trim();
     if (!text || typing) return;
     sound.play('tap');
-    const time = stamp(messages.length);
-    const next = [...messages, { who: 'me' as const, text, time }];
+    const next = [...messages, { who: 'me' as const, text, time: nowStamp() }];
     setMessages(next);
     setDraft('');
     setTyping(true);
@@ -74,14 +83,15 @@ export default function Chat() {
       role: m.who === 'me' ? 'user' : 'assistant',
       content: m.text,
     }));
-    let reply = '';
+    let res: { reply: string; live: boolean };
     try {
-      reply = await coach.ask(history, lang);
+      res = await coach.ask(history, lang);
     } catch {
-      reply = T.chatRetry;
+      res = { reply: T.chatRetry, live: false };
     }
     setTyping(false);
-    setMessages((cur) => [...cur, { who: 'ai', text: reply, time: stamp(cur.length) }]);
+    setCoachState(res.live ? 'online' : 'offline');
+    setMessages((cur) => [...cur, { who: 'ai', text: res.reply, time: nowStamp(), tip: !res.live }]);
   };
 
   const quickReplies = T.chatSuggs;
@@ -102,16 +112,15 @@ export default function Chat() {
           <TX font="semi" role="bodyLg">
             Camille
           </TX>
+          {/* Honest status: neutral until we know, then online only when the
+              backend actually answered; offline when serving canned tips. */}
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 1 }}>
-            <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: t.acc }} />
+            <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: coachState === 'online' ? t.acc : coachState === 'offline' ? t.txMuted : t.txNonText }} />
             <TX role="meta" color={t.txMuted}>
-              {T.coachStatus}
+              {coachState === 'online' ? T.coachOnline : coachState === 'offline' ? T.coachOffline : T.coachIdle}
             </TX>
           </View>
         </View>
-        <TX font="semi" role="eyebrow" ls={1.8} color={t.txSubtle} numberOfLines={1} style={{ flexShrink: 1 }}>
-          {T.unlimited}
-        </TX>
       </View>
 
       {/* Messages */}
@@ -143,9 +152,16 @@ export default function Chat() {
                   {m.text}
                 </TX>
               </View>
-              <TX role="meta" color={t.txSubtle} style={{ marginTop: 4, paddingHorizontal: 4 }}>
-                {m.time}
-              </TX>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4, paddingHorizontal: 4 }}>
+                <TX role="meta" color={t.txSubtle}>
+                  {m.time}
+                </TX>
+                {m.tip ? (
+                  <TX role="meta" color={t.txSubtle} style={{ fontStyle: 'italic' }}>
+                    · {T.coachTip}
+                  </TX>
+                ) : null}
+              </View>
             </View>
           );
         })}
