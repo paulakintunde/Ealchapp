@@ -94,6 +94,18 @@ export async function initContent(): Promise<void> {
   void refreshFromRemote();
 }
 
+/** The size of the cached OTA snapshot, if any — the one real "downloaded"
+ *  number the offline screen can show. Null when only the bundled seed is
+ *  present (nothing was ever fetched). */
+export async function contentCacheInfo(): Promise<{ bytes: number } | null> {
+  try {
+    const raw = await AsyncStorage.getItem(CACHE_KEY);
+    return raw ? { bytes: raw.length } : null;
+  } catch {
+    return null;
+  }
+}
+
 /** Read and validate the cached snapshot. A cache that fails validation is
  *  treated as absent — the seed backstops it. */
 async function readCache(): Promise<Corpus | null> {

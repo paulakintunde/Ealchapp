@@ -1,15 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
-import { Press, FocusHeader, Toggle } from '@/components/ui';
+import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
+import { useContent, refreshFromRemote, contentCacheInfo } from '@/services/content';
 
-const TOTAL_MB = 2048; // 2 GB device allowance
+// Honest offline/content status.
+//
+// The whole corpus ships bundled in the binary (seed.json), so every lesson,
+// drill and phrase already works offline — there is nothing to "download" for
+// text content. What CAN be shown truthfully: the content version and real
+// counts, the size of the cached over-the-air update (if any), and a real
+// "check for updates" that runs the same refresh the app does in the background.
+// Was pure mock: a fixed 2 GB storage bar, invented 210/160/340 MB collections,
+// two of them flagged "already downloaded" on a fresh install, and a Wi-Fi
+// toggle that controlled nothing (review §1.10). Downloadable audio packs are
+// real work for Phase 7, when recorded audio exists to download.
 
 export default function Downloads() {
   const t = useTheme();
@@ -17,33 +28,38 @@ export default function Downloads() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
-  // Store has no dlWifi field — keep the Wi-Fi-only preference local.
-  const [wifiOnly, setWifiOnly] = useState(true);
+  const corpus = useContent((s) => s.corpus);
+  const [cacheBytes, setCacheBytes] = useState<number | null>(null);
+  const [checking, setChecking] = useState(false);
+  const [result, setResult] = useState<string | null>(null);
 
-  const catMbs = [420, 180, 60];
-  const cats = T.dlCats.map((label, i) => ({
-    label,
-    mb: catMbs[i],
-    color: [t.acc, t.accA(45), t.accA(22)][i],
-  }));
-  const usedMb = cats.reduce((a, c) => a + c.mb, 0);
-  const usedLabel = `${(usedMb / 1024).toFixed(1)} GB`;
-  const totalLabel = '2 GB';
+  useEffect(() => {
+    let alive = true;
+    contentCacheInfo().then((i) => alive && setCacheBytes(i?.bytes ?? 0));
+    return () => {
+      alive = false;
+    };
+  }, [corpus]);
 
-  const collections = [
-    { id: 'voix', title: 'La Voix · nasal vowels', sub: T.dlSubs[0] },
-    { id: 'argot', title: 'Argot parisien', sub: T.dlSubs[1] },
-    { id: 'a1', title: 'A1 · Découverte', sub: T.dlSubs[2] },
-  ];
-  const [got, setGot] = useState<Record<string, boolean>>({ voix: true, a1: true });
-
-  const toggleCollection = (id: string) => {
-    setGot((g) => {
-      const next = !g[id];
-      sound.play(next ? 'success' : 'tap');
-      return { ...g, [id]: next };
-    });
+  const check = async () => {
+    if (checking) return;
+    sound.play('tap');
+    setChecking(true);
+    setResult(null);
+    const before = useContent.getState().corpus.version;
+    await refreshFromRemote();
+    const after = useContent.getState().corpus.version;
+    setChecking(false);
+    setResult(after > before ? T.updatedL : T.upToDateL);
+    const info = await contentCacheInfo();
+    setCacheBytes(info?.bytes ?? 0);
   };
+
+  const counts = T.contentCountsFmt
+    .replace('{u}', String(corpus.units.length))
+    .replace('{l}', String(corpus.lessons.length))
+    .replace('{i}', String(corpus.items.length));
+  const cacheLabel = cacheBytes && cacheBytes > 0 ? `${Math.max(1, Math.round(cacheBytes / 1024))} KB` : null;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -54,155 +70,64 @@ export default function Downloads() {
         contentContainerStyle={{ paddingHorizontal: 24, paddingTop: 8, paddingBottom: insets.bottom + 60 }}
         showsVerticalScrollIndicator={false}
       >
-        {/* Tag row */}
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-          <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle}>
-            {T.offlineTag}
-          </TX>
-          <View style={{ minHeight: 22, paddingVertical: 3, paddingHorizontal: 10, borderRadius: 11, backgroundColor: t.accA(15), alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="bold" role="eyebrow" ls={1.2} color={t.accTx}>
-              PREMIÈRE
+        <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle} style={{ marginBottom: 12 }}>
+          {T.offlineTag}
+        </TX>
+
+        {/* Everything is already offline — the honest headline */}
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginBottom: 18 }}>
+          <View style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+            <Icon name="check" size={22} color={t.acc} strokeWidth={2.4} />
+          </View>
+          <View style={{ flex: 1 }}>
+            <TX font="serifI" role="display" size={30}>
+              {T.offlineReadyT}
             </TX>
           </View>
         </View>
-
-        {/* Title + subtitle */}
-        <TX font="serifI" role="display" size={36} style={{ marginBottom: 4 }}>
-          {T.downloadsT}
-        </TX>
-        <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 20 }}>
-          {T.downloadsS}
+        <TX role="bodySm" lhMult={1.6} color={t.txMuted} style={{ marginBottom: 24 }}>
+          {T.offlineReadyS}
         </TX>
 
-        {/* Storage breakdown card */}
-        <View
-          style={{
-            borderRadius: 18,
-            borderWidth: 1,
-            borderColor: t.line(8),
-            backgroundColor: t.card, ...t.cardShadow,
-            padding: 16,
-            paddingHorizontal: 18,
-            marginBottom: 12,
-          }}
-        >
-          <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 10 }}>
-            <TX font="semi" role="bodySm">
-              {T.storage}
-            </TX>
-            <TX role="label" color={t.txMuted}>
-              <TX font="semi" role="label" color={t.accTx}>
-                {usedLabel}
-              </TX>{' '}
-              / {totalLabel}
-            </TX>
+        {/* Content version + real counts */}
+        <View style={{ borderRadius: 18, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, ...t.cardShadow, padding: 18, marginBottom: 12 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 6 }}>
+            <TX font="semi" role="bodySm">{T.contentVersionL}</TX>
+            <TX font="semi" role="label" color={t.accTx}>v{corpus.version}</TX>
           </View>
-          {/* Segmented usage bar */}
-          <View style={{ height: 8, borderRadius: 4, backgroundColor: t.line(8), overflow: 'hidden', flexDirection: 'row' }}>
-            {cats.map((c) => (
-              <View key={c.label} style={{ width: `${(c.mb / TOTAL_MB) * 100}%`, height: '100%', backgroundColor: c.color }} />
-            ))}
-          </View>
-          {/* Legend */}
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 14, marginTop: 10 }}>
-            {cats.map((c) => (
-              <View key={c.label} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-                <View style={{ width: 8, height: 8, borderRadius: 2, backgroundColor: c.color }} />
-                <TX role="meta" color={t.txMuted}>
-                  {c.label} {c.mb} MB
-                </TX>
-              </View>
-            ))}
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-              <View style={{ width: 8, height: 8, borderRadius: 2, backgroundColor: t.line(12) }} />
+          <TX role="meta" color={t.txMuted}>{counts}</TX>
+          {cacheLabel ? (
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderTopColor: t.line(8) }}>
+              <Icon name="download" size={14} color={t.txNonText} strokeWidth={1.8} />
               <TX role="meta" color={t.txMuted}>
-                {T.freeSpace} {((TOTAL_MB - usedMb) / 1024).toFixed(1)} GB
+                {T.cachedUpdateL} · {cacheLabel}
               </TX>
             </View>
-          </View>
+          ) : null}
         </View>
 
-        {/* Wi-Fi only */}
-        <View
-          style={{
-            minHeight: 58,
-            borderRadius: 16,
-            borderWidth: 1,
-            borderColor: t.line(8),
-            backgroundColor: t.card, ...t.cardShadow,
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: 14,
-            paddingHorizontal: 16,
-            paddingVertical: 12,
-            marginBottom: 26,
-          }}
+        {/* Real "check for updates" — runs the same refresh the app does */}
+        <Press
+          onPress={check}
+          cue={null}
+          style={{ minHeight: 52, paddingVertical: 6, borderRadius: 26, borderWidth: 1, borderColor: t.accA(50), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 10 }}
         >
-          <View style={{ flex: 1 }}>
-            <TX font="semi" role="bodySm">
-              {T.wifiOnly}
-            </TX>
-            <TX role="meta" color={t.txSubtle} style={{ marginTop: 1 }}>
-              {T.wifiOnlySub}
-            </TX>
-          </View>
-          <Toggle value={wifiOnly} onChange={setWifiOnly} />
-        </View>
+          <Icon name="download" size={16} color={t.accTx} strokeWidth={1.8} />
+          <TX font="semi" role="body" color={t.accTx}>
+            {checking ? T.updatingL : T.checkUpdates}
+          </TX>
+        </Press>
+        {result ? (
+          <TX role="meta" center color={t.txMuted} style={{ marginBottom: 20 }}>
+            {result}
+          </TX>
+        ) : (
+          <View style={{ marginBottom: 20 }} />
+        )}
 
-        {/* Available collections */}
-        <TX font="semi" role="meta" ls={2.4} color={t.txSubtle} style={{ marginBottom: 12 }}>
-          {T.availableT}
-        </TX>
-        <View style={{ gap: 10, marginBottom: 18 }}>
-          {collections.map((c) => {
-            const on = !!got[c.id];
-            return (
-              <View
-                key={c.id}
-                style={{
-                  borderRadius: 16,
-                  borderWidth: 1,
-                  borderColor: t.line(7),
-                  backgroundColor: t.card, ...t.cardShadow,
-                  padding: 14,
-                  paddingHorizontal: 16,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  gap: 12,
-                }}
-              >
-                <View style={{ flex: 1, minWidth: 0 }}>
-                  <TX font="semi" role="bodySm">
-                    {c.title}
-                  </TX>
-                  <TX role="meta" color={t.txSubtle} style={{ marginTop: 2 }}>
-                    {c.sub}
-                  </TX>
-                </View>
-                <Press
-                  onPress={() => toggleCollection(c.id)}
-                  cue={null}
-                  style={{
-                    width: 38,
-                    height: 38,
-                    borderRadius: 19,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: on ? t.acc : 'transparent',
-                    borderWidth: on ? 0 : 1,
-                    borderColor: t.line(16),
-                  }}
-                >
-                  <Icon name={on ? 'check' : 'download'} size={17} color={on ? t.accInk : t.txNonText} strokeWidth={on ? 2.4 : 1.8} />
-                </Press>
-              </View>
-            );
-          })}
-        </View>
-
-        {/* Footer note */}
-        <TX role="meta" center color={t.txSubtle} style={{ fontStyle: 'italic' }}>
-          {T.offlineSync}
+        {/* Honest about what's not here yet */}
+        <TX role="meta" center lhMult={1.6} color={t.txSubtle} style={{ fontStyle: 'italic' }}>
+          {T.audioSoonL}
         </TX>
       </ScrollView>
     </View>

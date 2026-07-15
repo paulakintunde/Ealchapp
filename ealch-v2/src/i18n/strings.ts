@@ -147,6 +147,9 @@ export type Strings = {
   perMonth: string; perYear: string;
   offlineTag: string; dlCats: string[]; dlSubs: string[]; freeSpace: string;
   wifiOnlySub: string; availableT: string; offlineSync: string;
+  offlineReadyT: string; offlineReadyS: string; contentVersionL: string; contentCountsFmt: string;
+  checkUpdates: string; updatingL: string; upToDateL: string; updatedL: string;
+  cachedUpdateL: string; audioSoonL: string;
   dcTag: string; dcTitle: string; dcPurpose: string; dcYours: string; dcCorrect: string;
   dcOkSub: string; dcHint: string; dcPlaying: string; dcPlay: string;
   dcPlaysLeft: string; dcNoPlays: string; dcFinish: string; dcNext: string;
@@ -365,6 +368,11 @@ export const T: Record<Lang, Strings> = {
     wifiOnlySub: 'Pause des téléchargements en données mobiles',
     availableT: 'DISPONIBLE',
     offlineSync: 'Les progrès hors ligne se synchronisent au retour du réseau.',
+    offlineReadyT: 'Tout fonctionne hors ligne',
+    offlineReadyS: "Vos leçons, exercices et vocabulaire sont intégrés à l'app. Aucun téléchargement nécessaire.",
+    contentVersionL: 'Version du contenu', contentCountsFmt: '{u} unités · {l} leçons · {i} phrases',
+    checkUpdates: 'Rechercher des mises à jour', updatingL: 'Vérification…', upToDateL: 'À jour', updatedL: 'Contenu mis à jour.',
+    cachedUpdateL: 'Mise à jour téléchargée', audioSoonL: 'Des packs audio téléchargeables arriveront dans une prochaine mise à jour.',
     dcTag: 'DICTÉE · A2', dcTitle: 'Écoutez, écrivez.',
     dcPurpose: 'Entraînez votre oreille et votre orthographe : écoutez la phrase, puis écrivez-la exactement, accents, accords et homophones compris.',
     dcYours: 'VOTRE RÉPONSE', dcCorrect: 'CORRECT',
@@ -589,6 +597,11 @@ export const T: Record<Lang, Strings> = {
     wifiOnlySub: 'Pause downloads on cellular',
     availableT: 'AVAILABLE',
     offlineSync: 'Progress made offline syncs when you’re back online.',
+    offlineReadyT: 'Everything works offline',
+    offlineReadyS: 'Your lessons, drills and vocabulary are built into the app. No download needed.',
+    contentVersionL: 'Content version', contentCountsFmt: '{u} units · {l} lessons · {i} phrases',
+    checkUpdates: 'Check for updates', updatingL: 'Checking…', upToDateL: 'Up to date', updatedL: 'Content updated.',
+    cachedUpdateL: 'Downloaded update', audioSoonL: 'Downloadable audio packs arrive in a future update.',
     dcTag: 'DICTATION · A2', dcTitle: 'Listen, write.',
     dcPurpose: 'Train your ear and your spelling: write exactly what you hear, accents, agreement and homophones included.',
     dcYours: 'YOUR ANSWER', dcCorrect: 'CORRECT',
