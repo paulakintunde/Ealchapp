@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
@@ -10,12 +10,18 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useStore } from '@/store/useStore';
 import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
-import { speeds } from '@/content';
+import { content } from '@/services/content';
 
-const PHRASE = 'Un bon vin blanc';
+// An honest LISTENING pass over real corpus phrases, spoken by device TTS.
+//
+// There is no recorded track yet (Item.audioRef is null until Phase 7), so there
+// is no seekable timeline: progress is "line N of M", not a fabricated 2:04
+// scrubber, and every transport does something real. Was a setInterval filling a
+// fake bar against a hardcoded 2:04 duration while ~1.5s of one hardcoded phrase
+// played, with dead skip and speed controls (review §1.4). A real time scrubber
+// returns with real audio in Phase 7.
 
 export default function Player() {
   const t = useTheme();
@@ -25,73 +31,95 @@ export default function Player() {
 
   const logSession = useSessionLog();
 
-  const [progress, setProgress] = useState(0);
+  const lines = useMemo(() => content.itemsFor('flashcard'), []);
+  const total = lines.length;
+
+  const [ix, setIx] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [speedIx, setSpeedIx] = useState(0);
-  const [queued, setQueued] = useState(false);
+  const [slow, setSlow] = useState(false);
+  // The async TTS callbacks must read live play state, not a stale closure.
+  const playingRef = useRef(false);
+  const logged = useRef(false);
 
-  const trackPlaylist = T.playerPlaylist;
+  const cur = lines[Math.min(ix, Math.max(0, total - 1))];
 
-  // Advance the scrubber while playing (prototype tick loop).
-  useEffect(() => {
-    if (!playing) return;
-    const id = setInterval(() => {
-      setProgress((p) => {
-        const next = p + speeds[speedIx].v * 0.55;
-        if (next >= 100) {
+  useEffect(
+    () => () => {
+      playingRef.current = false;
+      tts.stop();
+    },
+    []
+  );
+
+  // Speak a line; when it finishes, auto-advance to the next while still playing.
+  // The last line ends the session (logged exactly once).
+  const speakLine = (i: number) => {
+    const item = lines[i];
+    if (!item) return;
+    tts.speak(item.fr, {
+      slow,
+      onDone: () => {
+        if (!playingRef.current) return;
+        if (i + 1 < total) {
+          setIx(i + 1);
+          speakLine(i + 1);
+        } else {
+          playingRef.current = false;
           setPlaying(false);
-          return 100;
+          if (!logged.current) {
+            logged.current = true;
+            logSession('player', total);
+          }
         }
-        return next;
-      });
-    }, 100);
-    return () => clearInterval(id);
-  }, [playing, speedIx]);
-
-  useEffect(() => () => tts.stop(), []);
-
-  // Track finish. The tick loop above is a state updater, so the log lives here
-  // rather than inside it; the ref makes a finished track log exactly once no
-  // matter how many renders observe progress at 100.
-  const trackLogged = useRef(false);
-  useEffect(() => {
-    if (progress >= 100 && !trackLogged.current) {
-      trackLogged.current = true;
-      logSession('player', 1);
-    }
-  }, [progress, logSession]);
-
-  const mm = Math.floor((progress / 100) * 124);
-  const curTime = `${Math.floor(mm / 60)}:${String(mm % 60).padStart(2, '0')}`;
+      },
+      onError: () => {
+        playingRef.current = false;
+        setPlaying(false);
+      },
+    });
+  };
 
   const togglePlay = () => {
     sound.play('tap');
-    const nowPlaying = !playing;
-    if (nowPlaying) {
-      setProgress((cur) => (cur >= 100 ? 0 : cur));
-      tts.speak(PHRASE);
-    } else {
+    if (playing) {
+      playingRef.current = false;
+      setPlaying(false);
       tts.stop();
+    } else {
+      playingRef.current = true;
+      setPlaying(true);
+      speakLine(ix);
     }
-    setPlaying(nowPlaying);
   };
 
-  const skipBack = () => {
+  // Seek. If playing, jump and keep going from the new line; if paused, preview
+  // the line once so the control is never dead.
+  const go = (target: number) => {
+    const next = Math.max(0, Math.min(total - 1, target));
     sound.play('tap');
-    setProgress((p) => Math.max(0, p - 12));
+    setIx(next);
+    tts.stop();
+    if (playingRef.current) speakLine(next);
+    else tts.speak(lines[next]?.fr ?? '', { slow });
   };
-  const skipForward = () => {
+
+  const toggleSlow = () => {
     sound.play('tap');
-    setProgress((p) => Math.min(100, p + 12));
+    setSlow((s) => !s);
   };
-  const cycleSpeed = () => {
-    sound.play('tap');
-    setSpeedIx((i) => (i + 1) % speeds.length);
-  };
-  const toggleQueue = () => {
-    sound.play(queued ? 'tap' : 'success');
-    setQueued((q) => !q);
-  };
+
+  if (total === 0 || !cur) {
+    return (
+      <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
+        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={T.playerListen} />
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30 }}>
+          <TX role="body" color={t.txMuted} center>
+            {T.playerEmpty}
+          </TX>
+        </View>
+      </View>
+    );
+  }
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -101,92 +129,65 @@ export default function Player() {
       </View>
 
       <View style={{ paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={trackPlaylist} />
+        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={T.playerListen} />
       </View>
 
       <View style={{ flex: 1, paddingHorizontal: 26, paddingBottom: insets.bottom + 20 }}>
-        {/* Hero art */}
-        <View style={{ aspectRatio: 1, borderRadius: 22, borderWidth: 1, borderColor: t.line(8), overflow: 'hidden', marginBottom: 24, backgroundColor: t.isDark ? '#12100E' : t.card2, ...t.cardShadow }}>
+        {/* Now playing — the real phrase currently being spoken */}
+        <View style={{ aspectRatio: 1, borderRadius: 22, borderWidth: 1, borderColor: t.line(8), overflow: 'hidden', marginBottom: 24, backgroundColor: t.isDark ? '#12100E' : t.card2, ...t.cardShadow, justifyContent: 'center', padding: 26 }}>
           <LinearGradient colors={[t.accA(34), 'transparent']} start={{ x: 0.85, y: 0 }} end={{ x: 0.25, y: 0.62 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <LinearGradient colors={['transparent', t.blend(t.isDark ? '#16211E' : '#DCE7E2', t.bg, 60)]} start={{ x: 0.2, y: 0.4 }} end={{ x: 0.2, y: 1 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <TX font="semi" role="eyebrow" ls={2.4} color={t.txMuted} style={{ position: 'absolute', top: 18, left: 20 }}>
-            ÉPISODE 03
+            {T.playerNow}
           </TX>
-          <TX font="serifI" role="display" size={44} style={{ position: 'absolute', left: 20, right: 20, top: '32%' }}>
-            on · en · in
+          <TX font="serifI" role="display" size={40} lhMult={1.15}>
+            {cur.fr}
+          </TX>
+          <TX role="body" color={t.txSecondary} style={{ marginTop: 12 }}>
+            {cur.en}
           </TX>
           <View style={{ position: 'absolute', left: 20, bottom: 20 }}>
-            <Waveform count={22} height={22} barWidth={2.5} gap={3.5} active={playing} color={t.txNonText} />
+            <Waveform count={22} height={22} barWidth={2.5} gap={3.5} active={playing} color={playing ? t.acc : t.txNonText} />
           </View>
         </View>
 
-        {/* Title + meta + queue toggle */}
-        <View style={{ flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: 14, marginBottom: 18 }}>
-          <View style={{ flex: 1 }}>
-            <TX font="semi" role="titleLg" size={19}>
-              {T.trackTitle}
-            </TX>
-            <TX role="bodySm" color={t.txMuted} style={{ marginTop: 3 }}>
-              {T.trackMeta}
-            </TX>
-          </View>
-          <Press
-            onPress={toggleQueue}
-            cue={null}
-            style={{ width: 40, height: 40, borderRadius: 20, borderWidth: 1, borderColor: queued ? t.accA(55) : t.line(16), backgroundColor: queued ? t.accCard(8) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
-          >
-            {queued ? (
-              <Icon name="check" size={17} color={t.acc} />
-            ) : (
-              <Icon name="plus" size={18} color={t.txNonText} />
-            )}
-          </Press>
-        </View>
-
-        {/* Scrubber */}
+        {/* Progress — real line position, not a fabricated timeline */}
         <View style={{ paddingVertical: 6 }}>
-          <ProgressBar pct={progress} height={4} />
+          <ProgressBar pct={((ix + 1) / total) * 100} height={4} />
         </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 4, marginBottom: 18 }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 4, marginBottom: 20 }}>
           <TX role="meta" color={t.txSubtle}>
-            {curTime}
+            {T.phrase} {ix + 1}
           </TX>
           <TX role="meta" color={t.txSubtle}>
-            2:04
+            {ix + 1} / {total}
           </TX>
         </View>
 
         {/* Transport */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 34, marginBottom: 22 }}>
-          <Press onPress={skipBack} cue={null} style={{ minWidth: 48, alignItems: 'center', justifyContent: 'center' }}>
+          <Press onPress={() => go(ix - 1)} cue={null} disabled={ix === 0} style={{ minWidth: 48, alignItems: 'center', justifyContent: 'center', opacity: ix === 0 ? 0.35 : 1 }}>
             <Icon name="skipBack" size={22} color={t.txNonText} />
-            <TX font="semi" role="eyebrow" ls={0.8} color={t.txMuted} style={{ marginTop: 3 }} numberOfLines={1}>
-              {T.phrase}
-            </TX>
           </Press>
           <Press onPress={togglePlay} cue={null} scale={0.94} style={{ width: 74, height: 74, borderRadius: 37, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name={playing ? 'pause' : 'play'} size={26} color={t.accInk} />
           </Press>
-          <Press onPress={skipForward} cue={null} style={{ minWidth: 48, alignItems: 'center', justifyContent: 'center' }}>
+          <Press onPress={() => go(ix + 1)} cue={null} disabled={ix >= total - 1} style={{ minWidth: 48, alignItems: 'center', justifyContent: 'center', opacity: ix >= total - 1 ? 0.35 : 1 }}>
             <Icon name="skipForward" size={22} color={t.txNonText} />
-            <TX font="semi" role="eyebrow" ls={0.8} color={t.txMuted} style={{ marginTop: 3 }} numberOfLines={1}>
-              {T.next}
-            </TX>
           </Press>
         </View>
 
-        {/* Speed + queue label */}
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 'auto' }}>
-          <Press onPress={cycleSpeed} cue={null} style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 17, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="semi" role="label" color={t.txSecondary}>
-              {speeds[speedIx].label}
+        {/* Slow — a real rate the TTS honours */}
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 'auto' }}>
+          <Press
+            onPress={toggleSlow}
+            cue={null}
+            style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 17, borderWidth: 1, borderColor: slow ? t.acc : t.line(14), backgroundColor: slow ? t.accA(12) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
+          >
+            <TX font="semi" role="label" color={slow ? t.accTx : t.txSecondary}>
+              {T.slow}
             </TX>
           </Press>
-          <View style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 17, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}>
-            <TX role="label" color={queued ? t.accTx : t.txMuted}>
-              {queued ? T.queueOn : T.queueOff}
-            </TX>
-          </View>
         </View>
 
         {/* Practice out loud → Speak Mode */}
