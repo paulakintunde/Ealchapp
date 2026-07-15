@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
@@ -11,9 +11,11 @@ import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
-import { rpLines, type RpLevel } from '@/content';
+import { content } from '@/services/content';
+import type { Level } from '@/content/schema';
 
 type Msg = { who: 'ai' | 'me'; fr: string; en?: string };
+type RpLevel = 'A1' | 'A2' | 'B1' | 'B2';
 const LEVELS: RpLevel[] = ['A1', 'A2', 'B1', 'B2'];
 
 const LEVEL_DESC: Record<'fr' | 'en', Record<RpLevel, string>> = {
@@ -46,6 +48,16 @@ export default function Roleplay() {
   const [ix, setIx] = useState(0);
   const [busy, setBusy] = useState(false);
 
+  // Scenarios come from the corpus now (the "Au marché" role play, one per level).
+  // B1/B2 ship over the air, so a seed-only install may not have them yet.
+  const scenarios = useMemo(() => content.scenarios({ theme: 'marche' }), []);
+  const scenario = useMemo(
+    () => scenarios.find((s) => s.level === (level.toLowerCase() as Level)),
+    [scenarios, level]
+  );
+  const turns = scenario?.turns ?? [];
+  const nTurns = turns.length;
+
   const mounted = useRef(true);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const later = (fn: () => void, ms: number) => timers.current.push(setTimeout(fn, ms));
@@ -61,8 +73,9 @@ export default function Roleplay() {
   const speak = (fr: string) => tts.speak(fr);
 
   const start = () => {
+    if (!nTurns) return;
     sound.play('tap');
-    const first = rpLines[level][0];
+    const first = turns[0];
     setMsgs([{ who: 'ai', fr: first.ai, en: first.en }]);
     setIx(0);
     setBusy(false);
@@ -70,19 +83,23 @@ export default function Roleplay() {
     speak(first.ai);
   };
 
+  // NOTE: the mic is still a prop — it appends the scripted user line after a
+  // delay; nothing is recorded or scored. Making it real is Phase 4's job (it
+  // needs the attempt log). Task 6 only moves the dialogue onto the corpus and
+  // fixes the hardcoded turn count.
   const mic = () => {
-    if (busy || ix >= 3) return;
+    if (busy || ix >= nTurns) return;
     sound.play('tap');
     setBusy(true);
-    const line = rpLines[level][ix];
+    const line = turns[ix];
     later(() => {
       if (!mounted.current) return;
       setMsgs((m) => [...m, { who: 'me', fr: line.user }]);
       const next = ix + 1;
-      if (next < 3) {
+      if (next < nTurns) {
         later(() => {
           if (!mounted.current) return;
-          const nx = rpLines[level][next];
+          const nx = turns[next];
           setMsgs((m) => [...m, { who: 'ai', fr: nx.ai, en: nx.en }]);
           setIx(next);
           setBusy(false);
@@ -92,9 +109,9 @@ export default function Roleplay() {
         later(() => {
           if (!mounted.current) return;
           sound.play('success');
-          setIx(3);
+          setIx(nTurns);
           setBusy(false);
-          logSession('roleplay', 3);
+          logSession('roleplay', nTurns);
         }, 1000);
       }
     }, 1800);
@@ -108,20 +125,20 @@ export default function Roleplay() {
     setLive(false);
   };
 
-  const finished = ix >= 3 && live && !busy;
+  const finished = nTurns > 0 && ix >= nTurns && live && !busy;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <LinearGradient colors={[t.accA(11), 'transparent']} start={{ x: 0.5, y: 0 }} end={{ x: 0.5, y: 0.5 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 260 }} />
       <View style={{ paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={`JEU DE RÔLE · ${level}`} />
+        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={`${T.rpTag} · ${level}`} />
       </View>
 
       {/* ── SETUP ── */}
       {!live ? (
         <View style={{ flex: 1, paddingHorizontal: 24, paddingTop: 12, paddingBottom: insets.bottom + 28 }}>
           <TX font="serifI" size={40} role="display" style={{ marginBottom: 8 }}>
-            Au marché
+            {scenario?.title ?? 'Au marché'}
           </TX>
           <TX role="body" color={t.txMuted} style={{ marginBottom: 28 }}>
             {LEVEL_DESC[lang][level]}
@@ -150,11 +167,15 @@ export default function Roleplay() {
             })}
           </View>
           <TX role="meta" color={t.txSubtle}>
-            {T.rpLevelNote}
+            {nTurns ? T.rpLevelNote : T.lessonSoon}
           </TX>
           <View style={{ marginTop: 'auto' }}>
-            <Press cue={null} onPress={start} style={{ minHeight: 54, paddingVertical: 8, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-              <TX font="semi" role="bodyLg" color={t.accInk}>
+            <Press
+              cue={nTurns ? 'tap' : null}
+              onPress={start}
+              style={{ minHeight: 54, paddingVertical: 8, borderRadius: 27, backgroundColor: nTurns ? t.acc : t.line(10), alignItems: 'center', justifyContent: 'center' }}
+            >
+              <TX font="semi" role="bodyLg" color={nTurns ? t.accInk : t.txSubtle}>
                 {T.startRp}
               </TX>
             </Press>
@@ -220,7 +241,7 @@ export default function Roleplay() {
                 </Press>
                 <Press cue={null} onPress={() => router.push('/feedback')} style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
                   <TX font="semi" role="bodySm" color={t.accInk}>
-                    Le Rapport →
+                    {T.rpReport}
                   </TX>
                 </Press>
               </View>
@@ -239,7 +260,7 @@ export default function Roleplay() {
                   {T.rpYourLine}
                 </TX>
                 <TX font="serifI" role="title">
-                  « {rpLines[level][ix].user} »
+                  « {turns[ix]?.user ?? ''} »
                 </TX>
               </View>
               <View style={{ alignItems: 'center' }}>
