@@ -66,7 +66,7 @@ export type Strings = {
   learnT: string; arrangeT: string; sayItT: string; writeItT: string; wellDone: string;
   chooseLevel: string; startRp: string; rpDoneT: string; rpDoneS: string; rpYourLine: string;
   bannerText: string;
-  uDone: string; uLock: string;
+  uDone: string; uLock: string; uSoon: string; denLessonsReady: string;
 
   // --- v2 additions (today strip, browse, review, placement, dictation, downloads, billing) ---
   todayTag: string; toReviewShort: string; caughtUp: string; tomorrow: string;
@@ -210,7 +210,7 @@ export const T: Record<Lang, Strings> = {
     learnT: 'Apprenez ces mots', arrangeT: 'Arrangez la phrase', sayItT: 'Dites-la à voix haute', writeItT: 'Écrivez-la', wellDone: 'Bravo, phrase acquise',
     chooseLevel: 'Choisissez votre niveau', startRp: 'Commencer la conversation', rpDoneT: 'Scène terminée', rpDoneS: 'Camille : « Votre marchand vous adore. »', rpYourLine: 'VOTRE RÉPLIQUE — À DIRE À VOIX HAUTE',
     bannerText: 'Votre séance de {t} vous attend : Au Café, 4 min. Camille est prête.',
-    uDone: 'ACQUIS', uLock: '···',
+    uDone: 'ACQUIS', uLock: '···', uSoon: 'BIENTÔT', denLessonsReady: '{n} leçons prêtes',
 
     todayTag: "AUJOURD'HUI", toReviewShort: 'à revoir', caughtUp: '✓ à jour', tomorrow: 'demain →',
     browse: 'Parcourir', browseClose: 'Réduire', wordOfDay: 'MOT DU JOUR', save: 'Enregistrer', saved: 'Enregistré ✓',
@@ -414,7 +414,7 @@ export const T: Record<Lang, Strings> = {
     learnT: 'Learn these words', arrangeT: 'Arrange the sentence', sayItT: 'Say it out loud', writeItT: 'Write it', wellDone: 'Bravo, sentence mastered',
     chooseLevel: 'Choose your level', startRp: 'Start the conversation', rpDoneT: 'Scene complete', rpDoneS: 'Camille: "Your market vendor adores you."', rpYourLine: 'YOUR LINE — SAY IT ALOUD',
     bannerText: 'Your {t} session is waiting: Au Café, 4 min. Camille is ready.',
-    uDone: 'DONE', uLock: '···',
+    uDone: 'DONE', uLock: '···', uSoon: 'SOON', denLessonsReady: '{n} lessons ready',
 
     todayTag: 'TODAY', toReviewShort: 'to review', caughtUp: '✓ caught up', tomorrow: 'tomorrow →',
     browse: 'Browse', browseClose: 'Close', wordOfDay: 'WORD OF THE DAY', save: 'Save', saved: 'Saved ✓',
