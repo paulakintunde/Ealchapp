@@ -324,11 +324,26 @@ export function applyGrade(
   return { reps: reps + 1, ease: Math.min(MAX_EASE, ease + 0.1), intervalDays: next };
 }
 
-/** Every attempted item, folded into its current SRS card. */
+/** Drills the scheduler can turn into a recall card. Conversation surfaces
+ *  (roleplay, speak) and passive ones (lesson, player) are logged and DO surface
+ *  in Le Rapport's review list, but their targets are not atomic corpus items —
+ *  a scripted dialogue line has no English-prompt recall form — so the SRS does
+ *  not schedule them. This keeps the due count, Smart Review and the review
+ *  session (which renders corpus items) consistent with each other. */
+const SCHEDULABLE: ReadonlySet<Activity> = new Set([
+  'flashcards',
+  'voiceflash',
+  'dictation',
+  'sentence',
+  'review',
+]);
+
+/** Every attempted item the SRS can schedule, folded into its current card. */
 export function srsCards(attempts: AttemptEntry[]): Map<string, SrsCard> {
   // Group preserving chronological order — the log is already append-ordered.
   const byItem = new Map<string, AttemptEntry[]>();
   for (const a of attempts) {
+    if (!SCHEDULABLE.has(a.activity)) continue;
     const list = byItem.get(a.itemId);
     if (list) list.push(a);
     else byItem.set(a.itemId, [a]);

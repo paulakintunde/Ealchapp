@@ -10,7 +10,7 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
-import { useSessionLog } from '@/store/useProgress';
+import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { content } from '@/services/content';
 import type { Level } from '@/content/schema';
@@ -45,6 +45,7 @@ export default function Roleplay() {
   const lang = useStore((s) => s.lang);
 
   const logSession = useSessionLog();
+  const logAttempt = useProgress((s) => s.logAttempt);
 
   const [level, setLevel] = useState<RpLevel>('A1');
   const [live, setLive] = useState(false);
@@ -119,6 +120,21 @@ export default function Roleplay() {
 
     const heardOk = res.ok && res.verdict !== 'none';
     sound.play(heardOk && res.verdict !== 'off' ? 'success' : 'flip');
+    // Log a real recognized turn so the suggested response (the model line) can
+    // surface in Le Rapport's review list. Keyed by scenario + turn, not a corpus
+    // item id — so it feeds the report but not the SRS card deck (a dialogue line
+    // has no recall-card form). A not-heard turn logs nothing: no signal.
+    if (heardOk) {
+      logAttempt({
+        activity: 'roleplay',
+        itemId: `${scenario?.id ?? 'rp'}.t${ix}`,
+        expected: line.user,
+        heard: res.transcript,
+        score: res.score,
+        verdict: res.verdict,
+        correct: res.verdict === 'good',
+      });
+    }
     setMsgs((m) => [
       ...m,
       heardOk

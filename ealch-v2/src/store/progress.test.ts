@@ -378,6 +378,32 @@ test('dueCards is the queue: overdue and due-now in, freshly-passed and future o
   deepStrictEqual(up.map((c) => c.itemId).sort(), ['fresh', 'future']);
 });
 
+test('conversation turns reach the report but never the SRS card deck', () => {
+  // A missed roleplay turn: it must show up as weak (report), but must NOT
+  // become an SRS card — a dialogue line has no recall-card form.
+  const log: AttemptEntry[] = [
+    {
+      date: TODAY,
+      activity: 'roleplay',
+      itemId: 'sc.a1.marche.001.t0',
+      expected: 'la monnaie',
+      heard: 'money',
+      score: 0.2,
+      verdict: 'off',
+      correct: false,
+    },
+    a('fr.a1.cafe.001', false, 0, 'off'), // a real recall miss
+  ];
+  // The scheduler ignores the roleplay turn, schedules only the corpus item.
+  deepStrictEqual([...srsCards(log).keys()], ['fr.a1.cafe.001']);
+  strictEqual(reviewDueCount(log, TODAY), 1);
+  // The report's weakest list includes BOTH.
+  deepStrictEqual(
+    weakestItems(log).map((s) => s.itemId).sort(),
+    ['fr.a1.cafe.001', 'sc.a1.marche.001.t0']
+  );
+});
+
 test('the scheduler treats an empty log as an empty queue', () => {
   strictEqual(srsCards([]).size, 0);
   deepStrictEqual(dueCards([], TODAY), []);
