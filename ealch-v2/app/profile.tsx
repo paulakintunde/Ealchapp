@@ -11,7 +11,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
-import { localDay, mondayIndex, shiftDay, streak, weekDots } from '@/store/progress.logic';
+import { itemsPracticed, localDay, minutesToday, mondayIndex, shiftDay, streak, weekDots } from '@/store/progress.logic';
 import { useUI } from '@/store/useUI';
 import { accentData } from '@/content/onboarding';
 import { auth } from '@/services';
@@ -22,11 +22,13 @@ import { auth } from '@/services';
 // yet; 'frozen' is the day a freeze actually bridged.
 type DotState = 'done' | 'frozen' | 'today' | 'off';
 
-// minutes-spoken bar chart — last 7 days
-// TODO(minutes): still a fixed shape. The session log records minutes per day,
-// so this can be derived, but the chart is a later phase and a plausible-looking
-// invented curve is worse than an obviously placeholder one.
-const BAR_HEIGHTS = [34, 58, 22, 74, 46, 12, 64];
+/** A duration for the practice stat card: minutes under an hour, else hours to
+ *  one decimal. The unit rides in the value so the label can stay constant. */
+function fmtDuration(min: number): string {
+  if (min < 60) return `${min}m`;
+  const h = min / 60;
+  return `${h % 1 === 0 ? h.toFixed(0) : h.toFixed(1)}h`;
+}
 
 function StatCard({ value, label, accent }: { value: string; label: string; accent?: boolean }) {
   const t = useTheme();
@@ -94,6 +96,7 @@ export default function Profile() {
   const insets = useSafeAreaInsets();
   const { userName, setField, level, lang, setLang, region, setRegion, freeze, signOut } = useStore();
   const sessions = useProgress((s) => s.sessions);
+  const attempts = useProgress((s) => s.attempts);
   const openSheet = useUI((s) => s.openSheet);
 
   const today = localDay();
@@ -101,6 +104,24 @@ export default function Profile() {
   const dots = weekDots(sessions, today);
   const todayIx = mondayIndex(today);
   const monday = shiftDay(today, -todayIx);
+
+  // ── Real top-line stats, all derived from the logs ──
+  // Total practice time (session minutes), distinct words met correctly (attempt
+  // log), and overall accuracy. A fresh install reads 0m / 0 / — , which is true.
+  const totalMin = sessions.reduce((sum, s) => sum + s.minutes, 0);
+  const wordsMet = itemsPracticed(attempts).size;
+  const graded = attempts.length;
+  const correct = attempts.reduce((n, a) => n + (a.correct ? 1 : 0), 0);
+  const accValue = graded ? `${Math.round((correct / graded) * 100)}%` : '—';
+
+  // Minutes practised on each day of THIS calendar week, Monday-first — the same
+  // week the dots above the chart cover. Bars scale to the busiest day.
+  const weekMins = Array.from({ length: 7 }, (_, i) => minutesToday(sessions, shiftDay(monday, i)));
+  const maxMin = Math.max(1, ...weekMins);
+
+  // The set of days actually practised, so the month calendar marks real days
+  // instead of the old `d % 4 !== 0` decoration.
+  const practisedDays = new Set(sessions.map((s) => s.date));
 
   const wkStates: DotState[] = dots.map((practised, i) => {
     const day = shiftDay(monday, i);
@@ -150,10 +171,13 @@ export default function Profile() {
   const td = now.getDate();
   const off = (new Date(y, mo, 1).getDay() + 6) % 7;
   const dim = new Date(y, mo + 1, 0).getDate();
+  const pad2 = (n: number) => String(n).padStart(2, '0');
   const calCells: { n: string; done: boolean; today: boolean }[] = [];
   for (let i = 0; i < off; i++) calCells.push({ n: '', done: false, today: false });
   for (let d = 1; d <= dim; d++) {
-    calCells.push({ n: String(d), done: d < td && d % 4 !== 0, today: d === td });
+    // "Done" means the session log actually has a session on that calendar day.
+    const dayStr = `${y}-${pad2(mo + 1)}-${pad2(d)}`;
+    calCells.push({ n: String(d), done: practisedDays.has(dayStr), today: d === td });
   }
 
   const dotBg = (st: DotState) =>
@@ -265,11 +289,11 @@ export default function Profile() {
           </View>
         </View>
 
-        {/* Primary stats */}
+        {/* Primary stats — derived from the session and attempt logs */}
         <View style={{ flexDirection: 'row', gap: 10, marginBottom: 26 }}>
-          <StatCard value="14,6" label={T.hours} />
-          <StatCard value="38" label={T.convs} />
-          <StatCard value="82" label={T.conf} accent />
+          <StatCard value={fmtDuration(totalMin)} label={T.statPractice} />
+          <StatCard value={String(wordsMet)} label={T.statWords} />
+          <StatCard value={accValue} label={T.accuracyLabel} accent />
         </View>
 
         {/* Streak & week history */}
@@ -351,17 +375,19 @@ export default function Profile() {
         <CardBox style={{ paddingBottom: 14 }}>
           <CardHead title={T.minutes} right={T.days7} />
           <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, height: 74 }}>
-            {BAR_HEIGHTS.map((h, i) => (
+            {weekMins.map((m, i) => (
               <View key={i} style={{ flex: 1, alignItems: 'center', gap: 6, height: '100%', justifyContent: 'flex-end' }}>
                 <View
                   style={{
                     width: '100%',
                     borderRadius: 4,
-                    height: (h / 100) * 74,
-                    backgroundColor: i === 3 ? t.acc : t.txA(16),
+                    // A practised day always shows a visible sliver, even one
+                    // minute, so the bar reads as "something" not "nothing".
+                    height: m > 0 ? Math.max(4, (m / maxMin) * 74) : 0,
+                    backgroundColor: i === todayIx ? t.acc : t.txA(16),
                   }}
                 />
-                <TX role="eyebrow" color={t.txSubtle}>
+                <TX role="eyebrow" color={i === todayIx ? t.accTx : t.txSubtle}>
                   {T.dayLetters[i]}
                 </TX>
               </View>

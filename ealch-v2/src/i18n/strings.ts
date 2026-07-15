@@ -36,6 +36,7 @@ export type Strings = {
   reportSub: string;
   reportEmptyT: string; reportEmptyS: string;
   accuracyLabel: string; byDrillT: string; reviewNone: string;
+  statPractice: string; statWords: string;
   attemptsLabel: string; practiceWeak: string;
   drillNames: { flashcards: string; voiceflash: string; dictation: string; sentence: string };
   hours: string; convs: string; minutes: string; days7: string;
@@ -175,6 +176,7 @@ export const T: Record<Lang, Strings> = {
     reportEmptyT: "Rien à signaler pour l'instant",
     reportEmptyS: "Terminez un exercice et votre rapport apparaît ici, bâti sur ce que vous avez vraiment dit et écrit.",
     accuracyLabel: 'PRÉCISION', byDrillT: 'Par exercice',
+    statPractice: 'PRATIQUE', statWords: 'MOTS VUS',
     reviewNone: "Rien à revoir pour l'instant. Vous les réussissez.",
     attemptsLabel: '{n} tentatives', practiceWeak: 'Réviser ces mots',
     drillNames: { flashcards: 'Cartes', voiceflash: 'Flash vocal', dictation: 'Dictée', sentence: 'Constructeur' },
@@ -393,6 +395,7 @@ export const T: Record<Lang, Strings> = {
     reportEmptyT: 'Nothing to report yet',
     reportEmptyS: 'Finish a drill and your report appears here, built from what you actually said and typed.',
     accuracyLabel: 'ACCURACY', byDrillT: 'By drill',
+    statPractice: 'PRACTICE', statWords: 'WORDS MET',
     reviewNone: 'Nothing to review yet. You are getting these right.',
     attemptsLabel: '{n} attempts', practiceWeak: 'Practice these words',
     drillNames: { flashcards: 'Flashcards', voiceflash: 'Voice Flash', dictation: 'Dictation', sentence: 'Builder' },
