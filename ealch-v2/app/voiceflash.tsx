@@ -9,7 +9,7 @@ import { Icon, type IconName } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useSessionLog } from '@/store/useProgress';
+import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { content } from '@/services/content';
 import { answerMatches } from '@/utils/score';
@@ -35,6 +35,7 @@ export default function VoiceFlash() {
   const insets = useSafeAreaInsets();
 
   const logSession = useSessionLog();
+  const logAttempt = useProgress((s) => s.logAttempt);
 
   const [vfIx, setVfIx] = useState(0);
   const [vfPhase, setVfPhase] = useState<Phase>('ask');
@@ -101,8 +102,19 @@ export default function VoiceFlash() {
       sound.play(got ? 'success' : 'error');
       setVfCorrect(got);
       if (got) setVfScore((v) => v + 1);
+      // The recognizer graded a real utterance — record it with what it heard.
+      logAttempt({
+        activity: 'voiceflash',
+        itemId: item.id,
+        expected: target,
+        heard: res.transcript,
+        score: res.score,
+        verdict: res.verdict,
+        correct: got,
+      });
     } else {
-      // Nothing was heard — fall back to self-assessment.
+      // Nothing was heard — fall back to self-assessment (vfSelf logs the attempt
+      // once the learner rates themselves, so nothing is recorded here).
       sound.play('flip');
       setVfCorrect(null);
     }
@@ -112,6 +124,17 @@ export default function VoiceFlash() {
   const vfSelf = (got: boolean) => {
     sound.play(got ? 'success' : 'tap');
     if (got) setVfScore((v) => v + 1);
+    // Self-rated: nothing was captured, so `heard` is empty and the score is the
+    // learner's own verdict, honestly labelled as such.
+    logAttempt({
+      activity: 'voiceflash',
+      itemId: item.id,
+      expected: vfIsFr ? item.fr : item.en,
+      heard: '',
+      score: got ? 1 : 0,
+      verdict: got ? 'good' : 'off',
+      correct: got,
+    });
     vfNext();
   };
 
@@ -124,6 +147,15 @@ export default function VoiceFlash() {
     sound.play(ok ? 'success' : 'error');
     setVfCorrect(ok);
     if (ok) setVfScore((v) => v + 1);
+    logAttempt({
+      activity: 'voiceflash',
+      itemId: item.id,
+      expected: target,
+      heard: vfTyped.trim(),
+      score: ok ? 1 : 0,
+      verdict: ok ? 'good' : 'off',
+      correct: ok,
+    });
     setVfPhase('result');
   };
 

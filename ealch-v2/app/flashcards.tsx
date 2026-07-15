@@ -9,7 +9,7 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useSessionLog } from '@/store/useProgress';
+import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
 
@@ -20,6 +20,7 @@ export default function Flashcards() {
   const insets = useSafeAreaInsets();
 
   const logSession = useSessionLog();
+  const logAttempt = useProgress((s) => s.logAttempt);
 
   // The deck is now a view over the corpus, not a hardcoded array. Snapshotted
   // once at mount (content is already hydrated — _layout gates paint on it).
@@ -64,6 +65,18 @@ export default function Flashcards() {
     sound.play(know ? 'success' : 'tap');
     setFlipped(false);
     setKnown((k) => (know ? k + 1 : k));
+    // Self-rated recall: nothing is captured, so `heard` is empty and the score
+    // is the learner's own "I knew it" / "again". The French is what's being
+    // learned, so it is the expected value regardless of which way the card faced.
+    logAttempt({
+      activity: 'flashcards',
+      itemId: card.id,
+      expected: card.fr,
+      heard: '',
+      score: know ? 1 : 0,
+      verdict: know ? 'good' : 'off',
+      correct: know,
+    });
     const lastCard = cardIx + 1 >= deckLen;
     answerTimer.current = setTimeout(() => setCardIx((i) => i + 1), 220);
     if (lastCard) logSession('flashcards', deckLen);

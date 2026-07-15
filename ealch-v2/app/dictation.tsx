@@ -9,7 +9,7 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useSessionLog } from '@/store/useProgress';
+import { useProgress, useSessionLog } from '@/store/useProgress';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
@@ -28,6 +28,7 @@ export default function Dictation() {
   const sentences = useMemo(() => content.itemsFor('dictation'), []);
 
   const logSession = useSessionLog();
+  const logAttempt = useProgress((s) => s.logAttempt);
 
   const [dcIx, setDcIx] = useState(0);
   const [dcTyped, setDcTyped] = useState('');
@@ -110,6 +111,15 @@ export default function Dictation() {
     sound.play(ok ? 'success' : 'error');
     setDcOkFlag(ok);
     if (ok) setDcScore((s) => s + 1);
+    logAttempt({
+      activity: 'dictation',
+      itemId: d.id,
+      expected: d.fr,
+      heard: dcTyped.trim(),
+      score: ok ? 1 : 0,
+      verdict: ok ? 'good' : 'off',
+      correct: ok,
+    });
     setDcPhase('checked');
   };
 

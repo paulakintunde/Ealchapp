@@ -2,21 +2,28 @@ import { useCallback, useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { localDay, type Activity, type SessionEntry } from './progress.logic';
+import { localDay, type Activity, type AttemptEntry, type AttemptInput, type SessionEntry } from './progress.logic';
 
-// The session log — the only record that the user did anything. Every number on
-// the today strip is a view over this list; nothing here is seeded. All the math
-// lives in progress.logic.ts so it stays testable under `node --test`; this file
-// is the zustand + AsyncStorage shell and nothing else.
+// The session log — the record that the user showed up — and the attempt log —
+// the record of what they got right or wrong, per item. Every number on the
+// today strip is a view over the sessions; the review queue and (soon) the SRS
+// are views over the attempts. Nothing here is seeded. All the math lives in
+// progress.logic.ts so it stays testable under `node --test`; this file is the
+// zustand + AsyncStorage shell and nothing else.
 
 export type ProgressState = {
   hydrated: boolean;
   sessions: SessionEntry[];
+  attempts: AttemptEntry[];
 
   setHydrated: () => void;
-  /** The one writer. A drill screen calls this when the user finishes it. */
+  /** The session writer. A drill screen calls this when the user finishes it. */
   logSession: (activity: Activity, minutes: number, items: number) => void;
-  /** Wipe the log. Account deletion; not a user-facing "reset progress" yet. */
+  /** The attempt writer. A drill calls this once per graded item, the moment it
+   *  grades one — not at the end — so a mid-drill exit still keeps what was done.
+   *  `date` is stamped here, like a session. */
+  logAttempt: (attempt: AttemptInput) => void;
+  /** Wipe both logs. Account deletion; not a user-facing "reset progress" yet. */
   eraseProgress: () => Promise<void>;
 };
 
@@ -24,11 +31,18 @@ export type ProgressState = {
  *  product decision — the streak never looks back further than this either. */
 const MAX_SESSIONS = 4000;
 
+/** The attempt log grows far faster than the session log (many items per
+ *  session), so it gets its own, larger ceiling. The SRS cares about an item's
+ *  recent state, which the tail always preserves; the oldest attempts are the
+ *  first to fall off. */
+const MAX_ATTEMPTS = 20_000;
+
 export const useProgress = create<ProgressState>()(
   persist(
     (set, get) => ({
       hydrated: false,
       sessions: [],
+      attempts: [],
 
       setHydrated: () => set({ hydrated: true }),
 
@@ -47,8 +61,17 @@ export const useProgress = create<ProgressState>()(
         set({ sessions: next.length > MAX_SESSIONS ? next.slice(-MAX_SESSIONS) : next });
       },
 
+      logAttempt: (attempt) => {
+        const entry: AttemptEntry = {
+          date: localDay(new Date()),
+          ...attempt,
+        };
+        const next = [...get().attempts, entry];
+        set({ attempts: next.length > MAX_ATTEMPTS ? next.slice(-MAX_ATTEMPTS) : next });
+      },
+
       eraseProgress: async () => {
-        set({ sessions: [] });
+        set({ sessions: [], attempts: [] });
         try {
           await useProgress.persist.clearStorage();
         } catch {
@@ -58,9 +81,14 @@ export const useProgress = create<ProgressState>()(
     }),
     {
       name: 'ealch-progress',
+      // Still version 1: `attempts` is an additive field. zustand's default
+      // shallow merge lays the persisted blob over the initial state, so a v1
+      // record written before this change (which has no `attempts`) simply keeps
+      // the initial `attempts: []` — no migration, and no risk of dropping the
+      // existing session history that a version bump without a migrate would run.
       version: 1,
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: (s) => ({ sessions: s.sessions }),
+      partialize: (s) => ({ sessions: s.sessions, attempts: s.attempts }),
       // Always flip `hydrated`, even when rehydration fails — a corrupt log must
       // never brick startup, it must only mean "no progress yet".
       onRehydrateStorage: () => (state, error) => {

@@ -1,10 +1,18 @@
-// Progress engine — pure math over the session log.
+// Progress engine — pure math over the session log AND the attempt log.
 //
 // This file must stay free of react-native, zustand and AsyncStorage imports:
 // the test runner (`node --test "src/**/*.test.ts"`) executes TypeScript
 // directly and cannot load any of them. Every calculation the app makes about
 // streaks, minutes and week dots lives here; src/store/useProgress.ts is only
 // the persistence shell around it.
+//
+// Two logs, deliberately separate:
+//   - the SESSION log (SessionEntry) answers "did they show up, how long" — it
+//     drives the streak, the today ring and the week dots.
+//   - the ATTEMPT log (AttemptEntry) answers "what did they get right or wrong,
+//     on which word" — it is the raw material for the SRS, Le Rapport and Den
+//     completion. Every drill already computes a score and a verdict per item
+//     and, until now, threw them away; this records them.
 
 export type Activity =
   | 'lesson' | 'flashcards' | 'voiceflash' | 'sentence'
@@ -126,4 +134,114 @@ export function streak(sessions: SessionEntry[], today: string, freeze: number):
 
   if (days === 0) return { days: 0, freezeUsed: false, frozenDay: null, freezesLeft: freeze };
   return { days, freezeUsed: frozenDay !== null, frozenDay, freezesLeft: freeze - spent };
+}
+
+// ── The attempt log ──────────────────────────────────────────────────────────
+//
+// One AttemptEntry per graded response to one corpus item. `verdict` is the same
+// four-way signal the recognizer / matcher produced ('good' | 'close' | 'off' |
+// 'none'); the type is re-declared here rather than imported so this module keeps
+// its zero-runtime-import property. It is structurally identical to the Verdict
+// in utils/score.ts, so the drill screens can pass their scores straight through.
+export type AttemptVerdict = 'good' | 'close' | 'off' | 'none';
+
+export type AttemptEntry = {
+  /** Local calendar day, stamped at write time — same contract as
+   *  SessionEntry.date (see the note there). */
+  date: string;
+  activity: Activity;
+  /** The corpus Item id the attempt was graded against. Always a real item id,
+   *  so the SRS can key on it directly. */
+  itemId: string;
+  /** What we asked the learner for (the French, or the English on a reverse
+   *  card). Stored verbatim so a later review can show it without a corpus join. */
+  expected: string;
+  /** What came back: the recognizer transcript, the typed answer, or '' for a
+   *  self-rated card where nothing was captured. */
+  heard: string;
+  /** 0..1. For typed/self-rated drills this is simply 1 or 0. */
+  score: number;
+  verdict: AttemptVerdict;
+  /** Did it count as correct. Distinct from `verdict`: a 'close' utterance is
+   *  useful signal but not a pass, so it can be correct === false with verdict
+   *  === 'close'. */
+  correct: boolean;
+};
+
+/** Everything about an attempt except the day it happened — the store stamps
+ *  `date` at write time, exactly as it does for a session. */
+export type AttemptInput = Omit<AttemptEntry, 'date'>;
+
+/** A running recall summary for one item, folded from its attempts in order. */
+export type ItemStat = {
+  itemId: string;
+  /** Total graded attempts. */
+  seen: number;
+  /** How many of them were correct. */
+  correct: number;
+  /** correct / seen, in 0..1. 0 when never seen (guarded by callers). */
+  ratio: number;
+  /** The most recent attempt's fields — "where does this item stand now". */
+  lastVerdict: AttemptVerdict;
+  lastCorrect: boolean;
+  lastDate: string;
+};
+
+/** Fold the attempt log into a per-item summary. Attempts are assumed to be in
+ *  chronological (append) order, so the last one seen for an item wins the
+ *  `last*` fields. */
+export function statsByItem(attempts: AttemptEntry[]): Map<string, ItemStat> {
+  const out = new Map<string, ItemStat>();
+  for (const a of attempts) {
+    const cur = out.get(a.itemId);
+    if (cur) {
+      cur.seen += 1;
+      if (a.correct) cur.correct += 1;
+      cur.ratio = cur.correct / cur.seen;
+      cur.lastVerdict = a.verdict;
+      cur.lastCorrect = a.correct;
+      cur.lastDate = a.date;
+    } else {
+      out.set(a.itemId, {
+        itemId: a.itemId,
+        seen: 1,
+        correct: a.correct ? 1 : 0,
+        ratio: a.correct ? 1 : 0,
+        lastVerdict: a.verdict,
+        lastCorrect: a.correct,
+        lastDate: a.date,
+      });
+    }
+  }
+  return out;
+}
+
+/** Items ranked weakest-first — the review queue Le Rapport and the SRS draw
+ *  from. Lowest correct ratio first; ties broken so an item the learner missed
+ *  *last time* outranks one they eventually got, and more recent misses outrank
+ *  older ones. Only items seen at least once are returned. `limit` (when given)
+ *  caps the list. */
+export function weakestItems(attempts: AttemptEntry[], limit?: number): ItemStat[] {
+  const ranked = [...statsByItem(attempts).values()].sort((a, b) => {
+    if (a.ratio !== b.ratio) return a.ratio - b.ratio;
+    if (a.lastCorrect !== b.lastCorrect) return a.lastCorrect ? 1 : -1;
+    if (a.lastDate !== b.lastDate) return a.lastDate < b.lastDate ? 1 : -1;
+    return a.itemId < b.itemId ? -1 : 1;
+  });
+  return typeof limit === 'number' ? ranked.slice(0, Math.max(0, limit)) : ranked;
+}
+
+/** Distinct items with at least one correct attempt — the honest floor for
+ *  "words you have actually met", as opposed to merely shown. */
+export function itemsPracticed(attempts: AttemptEntry[]): Set<string> {
+  const met = new Set<string>();
+  for (const a of attempts) if (a.correct) met.add(a.itemId);
+  return met;
+}
+
+/** Attempts recorded on `today`. */
+export function attemptsToday(attempts: AttemptEntry[], today: string): number {
+  let n = 0;
+  for (const a of attempts) if (a.date === today) n += 1;
+  return n;
 }

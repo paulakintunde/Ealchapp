@@ -9,7 +9,7 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useSessionLog } from '@/store/useProgress';
+import { useProgress, useSessionLog } from '@/store/useProgress';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { content } from '@/services/content';
@@ -40,6 +40,7 @@ export default function Sentence() {
   const insets = useSafeAreaInsets();
 
   const logSession = useSessionLog();
+  const logAttempt = useProgress((s) => s.logAttempt);
 
   // The one sentence item, from the corpus. Tiles, target and shuffle all derive
   // from it — nothing about this sentence is hardcoded in the screen any more.
@@ -157,6 +158,7 @@ export default function Sentence() {
 
   // ── WRITE ──
   const checkWrite = () => {
+    if (!item) return; // unreachable in the write phase, but narrows item for the log
     // Compare against the ITEM, order- and accent-insensitive but complete: the
     // old check hardcoded "je voudrais un cafe" and did not even require "s'il
     // vous plaît", so it silently diverged from the content (review §sentence).
@@ -164,6 +166,19 @@ export default function Sentence() {
       sound.play('ding');
       setPhase('passed');
       logSession('sentence', 1);
+      // One attempt per completion. The write step is what gates the pass, so it
+      // is always correct here; but if the SAY step captured a real utterance,
+      // carry ITS transcript/score as the signal — it is the graded response.
+      // Otherwise the typed line is the evidence and the score is a clean 1.
+      logAttempt({
+        activity: 'sentence',
+        itemId: item.id,
+        expected: sbTarget,
+        heard: said?.ok ? said.transcript : typed.trim(),
+        score: said?.ok ? said.score : 1,
+        verdict: said?.ok ? said.verdict : 'good',
+        correct: true,
+      });
     } else {
       sound.play('error');
       setErr(true);

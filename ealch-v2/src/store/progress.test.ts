@@ -5,13 +5,18 @@
 import { deepStrictEqual, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import {
+  attemptsToday,
   goalTarget,
+  itemsPracticed,
   localDay,
   minutesToday,
   mondayIndex,
   shiftDay,
+  statsByItem,
   streak,
+  weakestItems,
   weekDots,
+  type AttemptEntry,
   type SessionEntry,
 } from './progress.logic.ts';
 
@@ -202,4 +207,110 @@ test('a freeze is not charged for a gap that protects nothing', () => {
 test('a log full of future-dated junk cannot inflate the streak', () => {
   const st = streak([s(3), s(2), s(1)], TODAY, 1);
   strictEqual(st.days, 0);
+});
+
+// ── the attempt log ──
+
+/** An attempt on `id`, `delta` days from TODAY. */
+const a = (
+  id: string,
+  correct: boolean,
+  delta = 0,
+  verdict: AttemptEntry['verdict'] = correct ? 'good' : 'off'
+): AttemptEntry => ({
+  date: day(delta),
+  activity: 'voiceflash',
+  itemId: id,
+  expected: id,
+  heard: correct ? id : '',
+  score: correct ? 1 : 0,
+  verdict,
+  correct,
+});
+
+test('statsByItem folds attempts per item, last attempt winning the last* fields', () => {
+  const stats = statsByItem([
+    a('fr.a1.cafe.001', false, -2, 'off'),
+    a('fr.a1.cafe.001', true, -1, 'close'),
+    a('fr.a1.cafe.001', true, 0, 'good'),
+    a('fr.a1.pain.002', false, 0, 'off'),
+  ]);
+
+  const cafe = stats.get('fr.a1.cafe.001');
+  strictEqual(cafe?.seen, 3);
+  strictEqual(cafe?.correct, 2);
+  strictEqual(cafe?.ratio, 2 / 3);
+  // The most recent attempt (today, good) sets the standing.
+  strictEqual(cafe?.lastVerdict, 'good');
+  strictEqual(cafe?.lastCorrect, true);
+  strictEqual(cafe?.lastDate, TODAY);
+
+  const pain = stats.get('fr.a1.pain.002');
+  strictEqual(pain?.seen, 1);
+  strictEqual(pain?.correct, 0);
+  strictEqual(pain?.ratio, 0);
+});
+
+test('weakestItems ranks the lowest ratio first', () => {
+  const ranked = weakestItems([
+    a('never', false),
+    a('never', false),
+    a('always', true),
+    a('always', true),
+    a('half', true),
+    a('half', false),
+  ]);
+  deepStrictEqual(
+    ranked.map((r) => r.itemId),
+    ['never', 'half', 'always']
+  );
+});
+
+test('weakestItems breaks a tie by who was missed most recently', () => {
+  // Two items each seen twice, one right one wrong — same 0.5 ratio. The one
+  // whose LAST attempt was a miss should come first, and among misses the more
+  // recent one first.
+  const ranked = weakestItems([
+    a('old-miss', true, -3),
+    a('old-miss', false, -2), // last = miss, 2 days ago
+    a('new-miss', true, -1),
+    a('new-miss', false, 0), // last = miss, today
+    a('recovered', false, -1),
+    a('recovered', true, 0), // last = correct
+  ]);
+  deepStrictEqual(
+    ranked.map((r) => r.itemId),
+    ['new-miss', 'old-miss', 'recovered']
+  );
+});
+
+test('weakestItems honours the limit', () => {
+  const attempts = [a('a', false), a('b', false), a('c', false)];
+  strictEqual(weakestItems(attempts, 2).length, 2);
+  strictEqual(weakestItems(attempts, 0).length, 0);
+});
+
+test('itemsPracticed counts only items met correctly at least once', () => {
+  const met = itemsPracticed([
+    a('seen-right', true),
+    a('seen-wrong', false),
+    a('seen-wrong', false),
+    a('mixed', false),
+    a('mixed', true),
+  ]);
+  deepStrictEqual([...met].sort(), ['mixed', 'seen-right']);
+});
+
+test('attemptsToday counts only today', () => {
+  strictEqual(
+    attemptsToday([a('x', true, 0), a('y', false, 0), a('z', true, -1)], TODAY),
+    2
+  );
+});
+
+test('the attempt aggregators treat an empty log as empty, never a crash', () => {
+  strictEqual(statsByItem([]).size, 0);
+  deepStrictEqual(weakestItems([]), []);
+  strictEqual(itemsPracticed([]).size, 0);
+  strictEqual(attemptsToday([], TODAY), 0);
 });
