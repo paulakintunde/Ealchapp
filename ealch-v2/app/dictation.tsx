@@ -1,5 +1,5 @@
-import { useMemo, useRef, useState } from 'react';
-import { ScrollView, TextInput, View } from 'react-native';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { ScrollView, TextInput, View, type NativeSyntheticEvent, type TextInputSelectionChangeEventData } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
@@ -9,11 +9,11 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useStore } from '@/store/useStore';
 import { useSessionLog } from '@/store/useProgress';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts } from '@/services';
-import { dictationSentences, accentKeys, normDict } from '@/content/drills';
+import { content } from '@/services/content';
+import { accentKeys, normDict } from '@/content/drills';
 import { F } from '@/theme/fonts';
 
 export default function Dictation() {
@@ -21,11 +21,11 @@ export default function Dictation() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const lang = useStore((s) => s.lang);
   useReadingBrightness();
   const inputRef = useRef<TextInput>(null);
 
-  const sentences = useMemo(() => dictationSentences(lang), [lang]);
+  // Dictation items from the corpus: { fr (the sentence), en, notes (the tip) }.
+  const sentences = useMemo(() => content.itemsFor('dictation'), []);
 
   const logSession = useSessionLog();
 
@@ -38,6 +38,11 @@ export default function Dictation() {
   const [dcPlays, setDcPlays] = useState(3);
   const [dcSlow, setDcSlow] = useState(false);
   const [dcSpeaking, setDcSpeaking] = useState(false);
+  // Track the caret so an accent key inserts where the cursor is, not at the end.
+  const [sel, setSel] = useState({ start: 0, end: 0 });
+
+  // Stop any in-flight speech when leaving the screen.
+  useEffect(() => () => tts.stop(), []);
 
   const d = sentences[Math.min(dcIx, sentences.length - 1)];
   const last = dcIx >= sentences.length - 1;
@@ -61,9 +66,18 @@ export default function Dictation() {
       return;
     }
     sound.play('tap');
-    setDcPlays((p) => p - 1);
     setDcSpeaking(true);
-    tts.speak(d.fr, { slow: dcSlow, onDone: () => setDcSpeaking(false) });
+    // Spend a play only when the utterance actually COMPLETES. If there is no
+    // French voice, expo-speech fires onError and the play is refunded — the
+    // learner is never charged three plays for hearing nothing (review §dictation).
+    tts.speak(d.fr, {
+      slow: dcSlow,
+      onDone: () => {
+        setDcSpeaking(false);
+        setDcPlays((p) => p - 1);
+      },
+      onError: () => setDcSpeaking(false),
+    });
   };
 
   const toggleSlow = () => {
@@ -71,10 +85,22 @@ export default function Dictation() {
     setDcSlow((s) => !s);
   };
 
+  const onSelChange = (e: NativeSyntheticEvent<TextInputSelectionChangeEventData>) =>
+    setSel(e.nativeEvent.selection);
+
   const addAccent = (ch: string) => {
     if (dcPhase !== 'idle') return;
     sound.play('tap');
-    setDcTyped((s) => s + ch);
+    // Insert at the caret, replacing any selection — appending to the end
+    // corrupts the answer when the cursor is mid-sentence (review §dictation).
+    setDcTyped((s) => {
+      const start = Math.min(sel.start, s.length);
+      const end = Math.min(sel.end, s.length);
+      const next = s.slice(0, start) + ch + s.slice(end);
+      const caret = start + ch.length;
+      setSel({ start: caret, end: caret });
+      return next;
+    });
     inputRef.current?.focus();
   };
 
@@ -278,6 +304,8 @@ export default function Dictation() {
                   ref={inputRef}
                   value={dcTyped}
                   onChangeText={setDcTyped}
+                  selection={sel}
+                  onSelectionChange={onSelChange}
                   onSubmitEditing={check}
                   returnKeyType="done"
                   placeholder={T.dcTypePh}
@@ -331,11 +359,8 @@ export default function Dictation() {
                   marginBottom: 12,
                 }}
               >
-                <TX font="semi" role="label" style={{ marginBottom: 6 }}>
-                  {d.tipT}
-                </TX>
                 <TX role="label" lhMult={1.67} color={t.txSecondary}>
-                  {d.tipB}
+                  {d.notes}
                 </TX>
               </View>
             ) : null}

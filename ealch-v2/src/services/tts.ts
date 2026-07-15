@@ -9,10 +9,17 @@ let speaking = false;
 export const tts = {
   isSpeaking: () => speaking,
 
-  /** Speak French text. `slow` uses a lower rate for comprehension practice. */
+  /**
+   * Speak French text. `slow` uses a lower rate for comprehension practice.
+   *
+   * `onError` is distinct from `onDone`: a caller that spends something on
+   * playback (Dictation's 3-play budget) must be able to tell "it played" from
+   * "there was no voice and nothing was heard". Callers that don't care can pass
+   * only `onDone` and still get called on completion; `onError` defaults to it.
+   */
   async speak(
     text: string,
-    opts: { slow?: boolean; onDone?: () => void } = {}
+    opts: { slow?: boolean; onDone?: () => void; onError?: () => void } = {}
   ): Promise<void> {
     const provider = getConfig().ttsProvider;
     // For device (default) we use expo-speech directly. Remote providers would
@@ -22,6 +29,7 @@ export const tts = {
       // Remote synthesis path is wired for production; device speech is used as
       // the guaranteed fallback here so playback always works.
     }
+    const fail = opts.onError ?? opts.onDone;
     try {
       Speech.stop();
       speaking = true;
@@ -37,12 +45,12 @@ export const tts = {
         },
         onError: () => {
           speaking = false;
-          opts.onDone?.();
+          fail?.();
         },
       });
     } catch {
       speaking = false;
-      opts.onDone?.();
+      fail?.();
     }
   },
 
