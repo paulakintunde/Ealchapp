@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, ScrollView, TextInput, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
@@ -9,17 +9,28 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useStore } from '@/store/useStore';
 import { useSessionLog } from '@/store/useProgress';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts, stt, type SttResult } from '@/services';
-import { sbWords, sbShuffle, sbTarget } from '@/content';
+import { content } from '@/services/content';
+import { normalizeFr } from '@/utils/score';
 
 type Phase = 'learn' | 'arrange' | 'say' | 'write' | 'passed';
+type Tile = { w: string; t: string };
 
 const STEP: Record<Phase, string> = { learn: '1', arrange: '2', say: '3', write: '4', passed: '✓' };
 
-const normWrite = (s: string) => s.toLowerCase().replace(/[.,!’']/g, ' ').replace(/\s+/g, ' ').trim();
+/** The word tiles for the sentence. The port stored them as JSON in the item's
+ *  notes; if that is ever missing, fall back to splitting the sentence. */
+function tilesFor(fr: string, notes?: string): Tile[] {
+  try {
+    const parsed = JSON.parse(notes ?? '{}');
+    if (Array.isArray(parsed.tiles) && parsed.tiles.length) return parsed.tiles as Tile[];
+  } catch {
+    // fall through
+  }
+  return fr.split(/\s+/).map((w) => ({ w, t: '' }));
+}
 
 export default function Sentence() {
   const t = useTheme();
@@ -29,6 +40,20 @@ export default function Sentence() {
   const insets = useSafeAreaInsets();
 
   const logSession = useSessionLog();
+
+  // The one sentence item, from the corpus. Tiles, target and shuffle all derive
+  // from it — nothing about this sentence is hardcoded in the screen any more.
+  const item = useMemo(() => content.itemsFor('sentence')[0], []);
+  const sbTarget = item?.fr ?? '';
+  const sbWords = useMemo(() => (item ? tilesFor(item.fr, item.notes) : []), [item]);
+  const sbShuffle = useMemo(() => {
+    const idx = sbWords.map((_, i) => i);
+    for (let i = idx.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [idx[i], idx[j]] = [idx[j], idx[i]];
+    }
+    return idx;
+  }, [sbWords]);
 
   const [phase, setPhase] = useState<Phase>('learn');
   const [picked, setPicked] = useState<number[]>([]);
@@ -115,23 +140,27 @@ export default function Sentence() {
       return;
     }
     sound.play('tap');
+    setSaid(null);
     setSaying(true);
     setSaidPartial('');
     const res = await stt.listen(sbTarget, { maxMs: 6000, onPartial: setSaidPartial });
     if (!mounted.current) return;
     setSaidPartial('');
+    // Show the result instead of discarding it: before this, `said` was captured
+    // and never rendered, so a denied mic looked identical to a perfect utterance
+    // (review §sentence). The step still gates nothing — the write step checks —
+    // but the learner now sees what the recognizer actually heard.
     setSaid(res);
-    // Saying it aloud gates nothing — the write step still does the checking —
-    // but the cue now reflects whether the recognizer actually got the phrase.
     sound.play(res.ok && res.verdict === 'good' ? 'success' : 'flip');
     setSaying(false);
-    setPhase('write');
   };
 
   // ── WRITE ──
   const checkWrite = () => {
-    const n = normWrite(typed);
-    if (n.includes('je voudrais un cafe') || n.includes('je voudrais un café')) {
+    // Compare against the ITEM, order- and accent-insensitive but complete: the
+    // old check hardcoded "je voudrais un cafe" and did not even require "s'il
+    // vous plaît", so it silently diverged from the content (review §sentence).
+    if (normalizeFr(typed) === normalizeFr(sbTarget)) {
       sound.play('ding');
       setPhase('passed');
       logSession('sentence', 1);
@@ -149,6 +178,8 @@ export default function Sentence() {
     setTyped('');
     setErr(false);
     setOpenWord(null);
+    setSaid(null);
+    setSaidPartial('');
     setPhase('learn');
   };
 
@@ -160,11 +191,22 @@ export default function Sentence() {
     </Press>
   );
 
+  if (!item) {
+    return (
+      <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
+        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} />
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30 }}>
+          <TX role="body" color={t.txMuted} center>{T.lessonSoon}</TX>
+        </View>
+      </View>
+    );
+  }
+
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <LinearGradient colors={[t.accA(11), 'transparent']} start={{ x: 0.5, y: 0 }} end={{ x: 0.5, y: 0.5 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 260 }} />
       <View style={{ paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={`CONSTRUCTEUR · ${STEP[phase]} / 4`} />
+        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={`${T.builderTag} · ${STEP[phase]} / 4`} />
       </View>
 
       <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 24, paddingTop: 12, paddingBottom: insets.bottom + 28 }} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
@@ -281,6 +323,29 @@ export default function Sentence() {
                 « {sbTarget} »
               </TX>
             </View>
+            {/* What the recognizer heard — rendered so the say step means
+                something. Empty until the mic returns. */}
+            {saidPartial ? (
+              <TX font="serifI" role="titleSm" color={t.txMuted} center style={{ marginBottom: 10 }}>
+                « {saidPartial} »
+              </TX>
+            ) : null}
+            {said ? (
+              <View style={{ borderRadius: 16, borderWidth: 1, borderColor: said.ok ? t.accA(45) : t.line(12), backgroundColor: t.card, padding: 16, marginBottom: 8, alignItems: 'center' }}>
+                {said.ok ? (
+                  <>
+                    <TX font="semi" role="meta" ls={1.8} color={said.verdict === 'good' ? t.accTx : t.txMuted} style={{ marginBottom: 6, textTransform: 'uppercase' }}>
+                      {T.micHeard} · {Math.round(said.score * 100)}%
+                    </TX>
+                    <TX font="serifI" role="titleSm" center>« {said.transcript} »</TX>
+                  </>
+                ) : (
+                  <TX role="label" center color={t.txSubtle}>
+                    {said.error === 'not-allowed' ? T.micDenied : !said.available ? T.micUnavail : T.micNoSpeech}
+                  </TX>
+                )}
+              </View>
+            ) : null}
             <View style={{ marginTop: 'auto', alignItems: 'center' }}>
               <View style={{ marginBottom: 18 }}>
                 <Waveform count={26} height={28} barWidth={3} gap={4} active={saying} color={t.acc} />
@@ -288,6 +353,11 @@ export default function Sentence() {
               <Press cue={null} onPress={mic} scale={0.94} style={{ width: 76, height: 76, borderRadius: 38, alignItems: 'center', justifyContent: 'center', backgroundColor: saying ? t.acc : t.line(4), borderWidth: 1, borderColor: saying ? t.acc : t.line(20) }}>
                 <Icon name="mic" size={27} color={saying ? t.accInk : t.txNonText} />
               </Press>
+              {/* Advance is a separate, deliberate step now — not an automatic
+                  side effect of the mic returning. */}
+              <View style={{ alignSelf: 'stretch', marginTop: 22 }}>
+                {primaryBtn(said ? T.cont : T.sbSkipSay, () => { sound.play('tap'); setPhase('write'); })}
+              </View>
             </View>
           </View>
         ) : null}
@@ -299,7 +369,7 @@ export default function Sentence() {
               {T.writeItT}
             </TX>
             <TX font="serifI" role="bodySm" color={t.txMuted} style={{ marginBottom: 24 }}>
-              « I would like a coffee, please. »
+              « {item?.en ?? ''} »
             </TX>
             <Animated.View style={{ transform: [{ translateX: shakeX }], marginBottom: 24 }}>
               <TextInput
