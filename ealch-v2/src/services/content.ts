@@ -60,6 +60,14 @@ export const useContent = create<ContentState>((set) => ({
 
 let initStarted = false;
 
+// The version of the SNAPSHOT we have actually cached — distinct from the merged
+// corpus version. The seed is a SUBSET cut from a snapshot but carries that
+// snapshot's version number, so a fresh install has corpus.version === the seed
+// version yet holds none of the over-the-air content. Comparing the manifest
+// against this (0 until a snapshot is cached) is what makes a seed-only install
+// fetch the full corpus, instead of thinking it is already up to date.
+let cachedSnapshotVersion = 0;
+
 /**
  * Bring content up. Idempotent — safe to call from _layout on every mount, runs
  * its work once. Sets `hydrated` exactly once, even on failure, so a broken
@@ -72,6 +80,7 @@ export async function initContent(): Promise<void> {
 
   try {
     const cached = await readCache();
+    if (cached) cachedSnapshotVersion = cached.version;
     useContent.getState().setCorpus(mergeCorpus(SEED, cached));
   } catch {
     // Seed already stands as the initial corpus; nothing more to do.
@@ -109,8 +118,10 @@ export async function refreshFromRemote(): Promise<void> {
     const manifest = await manRes.json();
     if (!isManifest(manifest)) return;
 
-    const current = useContent.getState().corpus.version;
-    if (!manifestIsNewer(manifest, current)) return;
+    // Compare against the cached SNAPSHOT version, not the merged corpus version:
+    // a seed-only install has no snapshot (0) and must fetch even when the
+    // manifest's version equals the seed's.
+    if (!manifestIsNewer(manifest, cachedSnapshotVersion)) return;
 
     const snapRes = await fetch(`${STORAGE_BASE}/${manifest.path}`, { cache: 'no-store' as RequestCache });
     if (!snapRes.ok) return;
@@ -125,6 +136,7 @@ export async function refreshFromRemote(): Promise<void> {
     // not stop the in-memory upgrade.
     try {
       await AsyncStorage.setItem(CACHE_KEY, JSON.stringify(verified.corpus));
+      cachedSnapshotVersion = verified.corpus.version;
     } catch {
       // Out of space or unwritable — the live upgrade below still applies for
       // this session; next launch simply refetches.
