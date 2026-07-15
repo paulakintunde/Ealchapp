@@ -18,7 +18,7 @@ import type { Level } from '@/content/schema';
 // A user turn carries what the recognizer actually heard and how it scored, so
 // the bubble can show the real utterance and its verdict — never the scripted
 // line dressed up as the user's speech.
-type Msg = { who: 'ai' | 'me'; fr: string; en?: string; score?: number; verdict?: SttResult['verdict']; heardOk?: boolean };
+type Msg = { who: 'ai' | 'me'; fr: string; en?: string; score?: number; verdict?: SttResult['verdict']; heardOk?: boolean; model?: string };
 type RpLevel = 'A1' | 'A2' | 'B1' | 'B2';
 const LEVELS: RpLevel[] = ['A1', 'A2', 'B1', 'B2'];
 
@@ -53,6 +53,9 @@ export default function Roleplay() {
   const [busy, setBusy] = useState(false);
   const [listening, setListening] = useState(false);
   const [partial, setPartial] = useState('');
+  // After an attempt: the model line is revealed and the conversation waits for
+  // an explicit Continue, so the learner can compare before moving on.
+  const [revealed, setRevealed] = useState(false);
 
   // Scenarios come from the corpus now (the "Au marché" role play, one per level).
   // B1/B2 ship over the air, so a seed-only install may not have them yet.
@@ -66,7 +69,6 @@ export default function Roleplay() {
 
   const mounted = useRef(true);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
-  const later = (fn: () => void, ms: number) => timers.current.push(setTimeout(fn, ms));
   const scrollRef = useRef<ScrollView>(null);
   useEffect(() => {
     return () => {
@@ -90,14 +92,14 @@ export default function Roleplay() {
     speak(first.ai);
   };
 
-  // The mic is real: the recognizer scores the user's utterance against this
-  // turn's target line (turns[ix].user), and what lands in the transcript is
-  // what they ACTUALLY said, with its score — not the scripted line. A tap while
-  // listening stops early. If nothing usable was heard (denied mic, silence),
-  // the conversation still advances as guided reading, clearly marked, so a
-  // broken mic never traps the dialogue.
+  // Hide-then-reveal: the target line is NOT shown before you speak. You respond
+  // in French from what you understood of Camille's line; the recognizer scores
+  // your real utterance against the model line (turns[ix].user), which is then
+  // revealed on your bubble so you can compare. A tap while listening stops
+  // early; a mic that hears nothing still reveals the model, so nothing traps
+  // the dialogue. Advancing waits for an explicit Continue.
   const mic = async () => {
-    if (ix >= nTurns) return;
+    if (ix >= nTurns || revealed) return;
     if (listening) {
       stt.stop();
       return;
@@ -113,34 +115,34 @@ export default function Roleplay() {
     if (!mounted.current) return;
     setListening(false);
     setPartial('');
+    setBusy(false);
 
     const heardOk = res.ok && res.verdict !== 'none';
     sound.play(heardOk && res.verdict !== 'off' ? 'success' : 'flip');
     setMsgs((m) => [
       ...m,
       heardOk
-        ? { who: 'me', fr: res.transcript, score: res.score, verdict: res.verdict, heardOk: true }
-        : { who: 'me', fr: line.user, heardOk: false },
+        ? { who: 'me', fr: res.transcript, score: res.score, verdict: res.verdict, heardOk: true, model: line.user }
+        : { who: 'me', fr: '', heardOk: false, model: line.user },
     ]);
+    setRevealed(true);
+  };
 
+  // Move to Camille's next line after the learner has seen the reveal.
+  const continueTurn = () => {
+    if (!revealed) return;
+    sound.play('tap');
+    setRevealed(false);
     const next = ix + 1;
     if (next < nTurns) {
-      later(() => {
-        if (!mounted.current) return;
-        const nx = turns[next];
-        setMsgs((m) => [...m, { who: 'ai', fr: nx.ai, en: nx.en }]);
-        setIx(next);
-        setBusy(false);
-        speak(nx.ai);
-      }, 900);
+      const nx = turns[next];
+      setMsgs((m) => [...m, { who: 'ai', fr: nx.ai, en: nx.en }]);
+      setIx(next);
+      speak(nx.ai);
     } else {
-      later(() => {
-        if (!mounted.current) return;
-        sound.play('success');
-        setIx(nTurns);
-        setBusy(false);
-        logSession('roleplay', nTurns);
-      }, 700);
+      setIx(nTurns);
+      sound.play('success');
+      logSession('roleplay', nTurns);
     }
   };
 
@@ -149,6 +151,9 @@ export default function Roleplay() {
     setMsgs([]);
     setIx(0);
     setBusy(false);
+    setListening(false);
+    setPartial('');
+    setRevealed(false);
     setLive(false);
   };
 
@@ -238,9 +243,15 @@ export default function Roleplay() {
                       borderColor: me ? t.accA(35) : t.line(7),
                     }}
                   >
-                    <TX font="serifI" role="titleSm">
-                      {m.fr}
-                    </TX>
+                    {me && m.heardOk === false ? (
+                      <TX font="serifI" role="titleSm" color={t.txMuted} style={{ fontStyle: 'italic' }}>
+                        {T.rpNotHeard}
+                      </TX>
+                    ) : (
+                      <TX font="serifI" role="titleSm">
+                        {m.fr}
+                      </TX>
+                    )}
                     {m.en ? (
                       <TX role="meta" color={t.txSubtle} style={{ marginTop: 5 }}>
                         {m.en}
@@ -257,10 +268,17 @@ export default function Roleplay() {
                         {m.verdict === 'good' ? T.micGood : m.verdict === 'close' ? T.micClose : T.micOff} · {Math.round((m.score ?? 0) * 100)}%
                       </TX>
                     ) : null}
-                    {me && m.heardOk === false ? (
-                      <TX role="meta" color={t.txSubtle} style={{ marginTop: 6, fontStyle: 'italic' }}>
-                        {T.rpNotHeard}
-                      </TX>
+                    {/* The model line, revealed only after the attempt so the
+                        turn is produce-from-comprehension, then compare. */}
+                    {me && m.model ? (
+                      <View style={{ marginTop: 8, paddingTop: 8, borderTopWidth: 1, borderTopColor: t.line(12) }}>
+                        <TX font="semi" role="eyebrow" ls={1.8} color={t.accTx} style={{ marginBottom: 3 }}>
+                          {T.rpModel}
+                        </TX>
+                        <TX font="serifI" role="label" color={t.txSecondary}>
+                          « {m.model} »
+                        </TX>
+                      </View>
                     ) : null}
                   </View>
                 </View>
@@ -294,16 +312,26 @@ export default function Roleplay() {
                 </TX>
               </Press>
             </View>
+          ) : revealed ? (
+            // Attempt made and the model line revealed on the bubble above.
+            // Advance only on an explicit tap, so the learner can compare first.
+            <View style={{ paddingTop: 10 }}>
+              <Press cue="tap" onPress={continueTurn} style={{ minHeight: 54, borderRadius: 27, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                <TX font="semi" role="bodyLg" color={t.accInk}>
+                  {T.cont}
+                </TX>
+              </Press>
+            </View>
           ) : (
             <View style={{ paddingTop: 10, gap: 14 }}>
-              {/* The target line to say. The recognizer scores what you actually
-                  say against it — this is real, not a scripted append. */}
-              <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), padding: 14, paddingHorizontal: 16 }}>
-                <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx} style={{ marginBottom: 6 }}>
-                  {T.rpYourLine}
+              {/* No line is shown: respond in French from what Camille said. The
+                  model is revealed only after you speak (produce, then check). */}
+              <View style={{ alignItems: 'center' }}>
+                <TX font="semi" role="eyebrow" ls={2.4} color={t.accTx}>
+                  {T.rpYourTurn}
                 </TX>
-                <TX font="serifI" role="title">
-                  « {turns[ix]?.user ?? ''} »
+                <TX role="meta" color={t.txSubtle} style={{ marginTop: 5 }}>
+                  {T.rpRespond}
                 </TX>
               </View>
               {/* What the recognizer is hearing, live. */}
