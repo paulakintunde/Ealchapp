@@ -43,10 +43,10 @@ The problem list below is long. It should not obscure that several things here a
 ## 3. What is broken
 
 > **Fix-pass status — updated 2026-07-15.** A ✅ on a row below means the finding is closed in code and verified (tests + tsc, and on-device where relevant). Closed so far:
-> - **Tier 1:** 1.1 (speak "YOU SAID", `0e34e40`), 1.3 (Le Rapport, `cd85d79`), 1.5 + 1.6 (profile calendar + stat cards, `dc3bd3f`), 1.8 (Den progress, `be99bde`/`cd85d79`), 1.9 + 1.12 (Smart Review + home count → real SRS, `65615ae`), 1.13 (delete-account deployed, §6.2).
+> - **Tier 1:** 1.1 (speak "YOU SAID", `0e34e40`), 1.2 (roleplay real mic, `69bbff8`), 1.3 (Le Rapport, `cd85d79`), 1.5 + 1.6 (profile calendar + stat cards, `dc3bd3f`), 1.8 (Den progress, `be99bde`/`cd85d79`), 1.9 + 1.12 (Smart Review + home count → real SRS, `65615ae`), 1.13 (delete-account deployed, §6.2).
 > - **Tier 2:** 2.1 (reviewCleared latch removed, `65615ae`), 2.5 (sentence SAY result, `359d91a`), 2.9 + 2.10 (dictation play-budget + accent caret, `2ffb546`), 2.11 (hydration race — `_layout` gates all three stores), 2.12 ◐ (errors now ring-buffered + fallback screen; remote reporter a deliberate Phase-3 stub), 2.13 ◐ (cleanup added to flashcards/voiceflash/dictation; player still pending, Phase 5).
 > - **Foundation/engines:** Phase 1 (corpus + attempt log) and Phase 3 (SRS) are built; Phase 4 (honesty pass) is largely done — remaining Tier-1 fabrications are the facade screens (1.4 player, 1.10 downloads, 1.11 chat) and 1.7 (monetization, deferred).
-> - **In progress:** 1.2 (roleplay prop mic) — real conversation scoring being wired now.
+> - **Remaining Tier-1 fabrications:** 1.4 (player), 1.10 (downloads), 1.11 (chat) — facade screens, Phase 5; 1.7 (settings/monetization), deferred.
 
 ### Tier 1 — The app lies to the user about themselves
 
@@ -55,7 +55,7 @@ These are not bugs. These are fabrications rendered as the user's own data, and 
 | # | Location | Finding |
 |---|---|---|
 | ✅ 1.1 | `app/speak.tsx:260-267` | Renders a **hardcoded sentence** — `« Je voudrais un café allongé et un croissant, s'il vous plaît. »` — under the label **"YOU SAID"**, regardless of what the user said. It sits directly *below* the real recognizer transcript, so the screen shows a true transcript and a fabricated one, stacked, and the fabricated one gets the prominent label. The `T.liaisonChip` badge beside it is a static pseudo-diagnosis of that fake sentence. **The single worst thing in the app.** |
-| ⏳ 1.2 | `app/roleplay.tsx:73-101` | **The microphone is a prop.** Tapping it waits `1800ms` on a `setTimeout`, then appends the *scripted* user line to the transcript styled as the user's own speech. Nothing is recorded, nothing is scored. It then calls `logSession('roleplay', 3)` — so a user can complete the drill and light their streak with the phone face-down on the table. |
+| ✅ 1.2 | `app/roleplay.tsx:73-101` | **The microphone is a prop.** Tapping it waits `1800ms` on a `setTimeout`, then appends the *scripted* user line to the transcript styled as the user's own speech. Nothing is recorded, nothing is scored. It then calls `logSession('roleplay', 3)` — so a user can complete the drill and light their streak with the phone face-down on the table. |
 | ✅ 1.3 | `app/feedback.tsx` | **"Le Rapport" contains no real data of any kind.** Hardcoded 82% confidence (`:73`), hardcoded skill scores `[74, 86, 68]` (`:52`), hardcoded error critiques including *"A 1.8s pause: you translated in your head."* It is the destination of every drill's result CTA, so three different drills at four levels all produce the identical report. |
 | 1.4 | `app/player.tsx:36-49, 64, 87-94` | **The scrubber is a `setInterval` counter.** It fills over ~18s against a hardcoded `2:04` duration while the actual audio is a four-word TTS utterance. Skip-forward, skip-back and the speed control are all dead (`tts.speak` already accepts a `slow` option that is never passed). Logs a session for watching a bar move. |
 | ✅ 1.5 | `app/profile.tsx:156` | The practice calendar is `done: d < td && d % 4 !== 0` — it **algorithmically fabricates a month of activity**, ignoring the session log entirely. |
@@ -114,7 +114,7 @@ These are not bugs. These are fabrications rendered as the user's own data, and 
 | Component | Its actual goal | Reality in code | Premium user reaction |
 |---|---|---|---|
 | ✅ **Speak Mode** | The flagship: talk to Camille, get judged honestly | Real STT, real scoring, then **prints a sentence you never said** under "YOU SAID". No end, no summary. | Refund. This is fraud-adjacent. |
-| ⏳ **Role Play** | Live conversation practice | Mic is a `setTimeout`. Credits progress for silence. | Refund. |
+| ✅ **Role Play** | Live conversation practice | Mic is a `setTimeout`. Credits progress for silence. | Refund. |
 | ✅ **Le Rapport** | The premium payoff: your evening report | 100% hardcoded. Same 82% for every human being. | Refund. |
 | ✅ **Smart Review** | Spaced repetition of *your* mistakes | 4 static cards claiming "missed 2× in Role Play" on a fresh install. No SRS. One-way "caught up" latch. | The single most valuable feature, entirely absent. |
 | **Player** | Immersive listening | Fake scrubber, fake duration, three dead transports, ~1.5s of TTS. | Embarrassing. |
