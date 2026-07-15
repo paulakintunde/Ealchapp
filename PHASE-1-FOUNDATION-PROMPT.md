@@ -76,7 +76,7 @@ There are two git repos sharing ancestor `d43e5ae`. Each holds assets the other 
 
 ---
 
-## Task 1 — The canonical schema
+## Task 1 — The canonical schema ✅ DONE
 
 Create `ealch-v2/src/content/schema.ts`. **This file is the single source of truth for content shape and is shared, verbatim, with `ealch-admin`.** It must have zero runtime imports (no React Native, no zustand, no Supabase) so it can be imported by the app, the Ops Console, the generator, and `node --test` alike. Follow the `progress.logic.ts` precedent exactly.
 
@@ -160,7 +160,7 @@ export type Corpus = {
 
 ---
 
-## Task 2 — Database
+## Task 2 — Database ✅ DONE
 
 Migrate Supabase project `ogbothupjcivwruesgsu` (via `ealch-admin`'s Drizzle setup, so the console and the DB stay in step).
 
@@ -176,7 +176,7 @@ Migrate Supabase project `ogbothupjcivwruesgsu` (via `ealch-admin`'s Drizzle set
 
 ---
 
-## Task 3 — The publish pipeline (DB → snapshot → git)
+## Task 3 — The publish pipeline (DB → snapshot → git) ✅ DONE
 
 **The DB is canonical. Git is a mirror, never a rival writer.** This is the mechanism that makes both review paths (Ops Console *and* PR) operate on one truth.
 
@@ -203,7 +203,7 @@ publish-content.ts
 
 ---
 
-## Task 4 — The app's content service
+## Task 4 — The app's content service ✅ DONE
 
 Create `ealch-v2/src/services/content.ts`.
 
@@ -232,7 +232,7 @@ Non-negotiables, and each mirrors a lesson the existing services already learned
 
 ---
 
-## Task 5 — Migrate the existing content into the corpus
+## Task 5 — Migrate the existing content into the corpus ✅ DONE
 
 This is the proof that the rails work. **Port, do not author.** Every existing item keeps its exact French and English text.
 
@@ -253,7 +253,7 @@ Load these rows into Supabase as `published`, then run Task 3's publish script t
 
 ---
 
-## Task 6 — Refactor the drills to read from the corpus
+## Task 6 — Refactor the drills to read from the corpus ✅ DONE
 
 Each drill stops owning content and starts *selecting* it.
 
@@ -269,7 +269,7 @@ Delete `src/content/index.ts`, `curriculum.ts`, `lessons.ts` and the corpus half
 
 ---
 
-## Task 7 — The attempt log
+## Task 7 — The attempt log ✅ DONE (commit `c357bcb`)
 
 Today `useProgress` records that a user **showed up** (`activity`, `minutes`, `items`). It cannot record **what they got wrong** — which is why nothing in the app can be personalized.
 
@@ -305,7 +305,7 @@ This table is what Phase 3's SRS schedules against, what Phase 4's Le Rapport co
 
 ---
 
-## Task 8 — Three Tier 2 bug fixes (independent, do them because they block testing)
+## Task 8 — Three Tier 2 bug fixes (independent, do them because they block testing) ⏳ NOT DONE (onboarding 2.2/2.3 + deletion 2.4 still open)
 
 You will run onboarding dozens of times this phase. Two of these bugs make that impossible, and the third is a compliance failure.
 

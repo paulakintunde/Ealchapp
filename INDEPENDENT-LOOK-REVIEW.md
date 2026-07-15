@@ -42,25 +42,31 @@ The problem list below is long. It should not obscure that several things here a
 
 ## 3. What is broken
 
+> **Fix-pass status — updated 2026-07-15.** A ✅ on a row below means the finding is closed in code and verified (tests + tsc, and on-device where relevant). Closed so far:
+> - **Tier 1:** 1.1 (speak "YOU SAID", `0e34e40`), 1.3 (Le Rapport, `cd85d79`), 1.5 + 1.6 (profile calendar + stat cards, `dc3bd3f`), 1.8 (Den progress, `be99bde`/`cd85d79`), 1.9 + 1.12 (Smart Review + home count → real SRS, `65615ae`), 1.13 (delete-account deployed, §6.2).
+> - **Tier 2:** 2.1 (reviewCleared latch removed, `65615ae`), 2.5 (sentence SAY result, `359d91a`), 2.9 + 2.10 (dictation play-budget + accent caret, `2ffb546`), 2.11 (hydration race — `_layout` gates all three stores), 2.12 ◐ (errors now ring-buffered + fallback screen; remote reporter a deliberate Phase-3 stub), 2.13 ◐ (cleanup added to flashcards/voiceflash/dictation; player still pending, Phase 5).
+> - **Foundation/engines:** Phase 1 (corpus + attempt log) and Phase 3 (SRS) are built; Phase 4 (honesty pass) is largely done — remaining Tier-1 fabrications are the facade screens (1.4 player, 1.10 downloads, 1.11 chat) and 1.7 (monetization, deferred).
+> - **In progress:** 1.2 (roleplay prop mic) — real conversation scoring being wired now.
+
 ### Tier 1 — The app lies to the user about themselves
 
 These are not bugs. These are fabrications rendered as the user's own data, and each is a refund, a one-star review, or an App Store rejection.
 
 | # | Location | Finding |
 |---|---|---|
-| 1.1 | `app/speak.tsx:260-267` | Renders a **hardcoded sentence** — `« Je voudrais un café allongé et un croissant, s'il vous plaît. »` — under the label **"YOU SAID"**, regardless of what the user said. It sits directly *below* the real recognizer transcript, so the screen shows a true transcript and a fabricated one, stacked, and the fabricated one gets the prominent label. The `T.liaisonChip` badge beside it is a static pseudo-diagnosis of that fake sentence. **The single worst thing in the app.** |
-| 1.2 | `app/roleplay.tsx:73-101` | **The microphone is a prop.** Tapping it waits `1800ms` on a `setTimeout`, then appends the *scripted* user line to the transcript styled as the user's own speech. Nothing is recorded, nothing is scored. It then calls `logSession('roleplay', 3)` — so a user can complete the drill and light their streak with the phone face-down on the table. |
-| 1.3 | `app/feedback.tsx` | **"Le Rapport" contains no real data of any kind.** Hardcoded 82% confidence (`:73`), hardcoded skill scores `[74, 86, 68]` (`:52`), hardcoded error critiques including *"A 1.8s pause: you translated in your head."* It is the destination of every drill's result CTA, so three different drills at four levels all produce the identical report. |
+| ✅ 1.1 | `app/speak.tsx:260-267` | Renders a **hardcoded sentence** — `« Je voudrais un café allongé et un croissant, s'il vous plaît. »` — under the label **"YOU SAID"**, regardless of what the user said. It sits directly *below* the real recognizer transcript, so the screen shows a true transcript and a fabricated one, stacked, and the fabricated one gets the prominent label. The `T.liaisonChip` badge beside it is a static pseudo-diagnosis of that fake sentence. **The single worst thing in the app.** |
+| ⏳ 1.2 | `app/roleplay.tsx:73-101` | **The microphone is a prop.** Tapping it waits `1800ms` on a `setTimeout`, then appends the *scripted* user line to the transcript styled as the user's own speech. Nothing is recorded, nothing is scored. It then calls `logSession('roleplay', 3)` — so a user can complete the drill and light their streak with the phone face-down on the table. |
+| ✅ 1.3 | `app/feedback.tsx` | **"Le Rapport" contains no real data of any kind.** Hardcoded 82% confidence (`:73`), hardcoded skill scores `[74, 86, 68]` (`:52`), hardcoded error critiques including *"A 1.8s pause: you translated in your head."* It is the destination of every drill's result CTA, so three different drills at four levels all produce the identical report. |
 | 1.4 | `app/player.tsx:36-49, 64, 87-94` | **The scrubber is a `setInterval` counter.** It fills over ~18s against a hardcoded `2:04` duration while the actual audio is a four-word TTS utterance. Skip-forward, skip-back and the speed control are all dead (`tts.speak` already accepts a `slow` option that is never passed). Logs a session for watching a bar move. |
-| 1.5 | `app/profile.tsx:156` | The practice calendar is `done: d < td && d % 4 !== 0` — it **algorithmically fabricates a month of activity**, ignoring the session log entirely. |
-| 1.6 | `app/profile.tsx:269-271` | Stat cards hardcode `14,6` hours, `38` conversations, `82` confidence. A brand-new install shows a user 14.6 hours of history they never had. |
+| ✅ 1.5 | `app/profile.tsx:156` | The practice calendar is `done: d < td && d % 4 !== 0` — it **algorithmically fabricates a month of activity**, ignoring the session log entirely. |
+| ✅ 1.6 | `app/profile.tsx:269-271` | Stat cards hardcode `14,6` hours, `38` conversations, `82` confidence. A brand-new install shows a user 14.6 hours of history they never had. |
 | 1.7 | `app/settings.tsx:288-295` | Hardcoded `Visa ····4212` payment method, beside a **"Restore purchases" button with no `onPress` handler**. That combination alone is an App Store rejection. |
-| 1.8 | `app/den.tsx:27-31, 256` | Unit progress hardcoded `{sons: done 2, a1: done 3, a2: done 0}` and an inline progress bar literally `pct={55}`. A fresh user sees five completed units. |
-| 1.9 | `app/smartreview.tsx:98, 152` | `23` items hardcoded in the ring; `strokeDashoffset={111}` is a hand-tuned arc. Screen promises *"Items return in 1 → 3 → 7 → 21 days"*. **There is no SRS.** |
+| ✅ 1.8 | `app/den.tsx:27-31, 256` | Unit progress hardcoded `{sons: done 2, a1: done 3, a2: done 0}` and an inline progress bar literally `pct={55}`. A fresh user sees five completed units. |
+| ✅ 1.9 | `app/smartreview.tsx:98, 152` | `23` items hardcoded in the ring; `strokeDashoffset={111}` is a hand-tuned arc. Screen promises *"Items return in 1 → 3 → 7 → 21 days"*. **There is no SRS.** |
 | 1.10 | `app/downloads.tsx` | **Pure mock.** `TOTAL_MB = 2048`, `catMbs = [420,180,60]`, and initial state claims two collections are already downloaded. No `expo-file-system` anywhere in the repo. No download occurs. |
 | 1.11 | `app/chat.tsx:15-18, 60` | Seed message asserts a fake analysis of a session the user never had. `stamp()` returns `'21:0' + (5 + len % 4)` — **every message in every conversation is stamped 21:05–21:08**, at any hour of any day. |
-| 1.12 | `app/home.tsx:82` | Review count `'23'` is a string literal. (Carries an honest `TODO(SRS)` — the only fabrication in the app that admits it.) |
-| 1.13 | `src/services/auth.ts:141` | **Account deletion is entirely broken.** `deleteAccount()` invokes the `delete-account` Edge Function — **which is not deployed** (verified against the live project, see §6.1). Every deletion attempt fails. This is not the narrow unconfirmed-user bug in `2.4`; it is a **total Apple 5.1.1(v) failure for every user**, in the screen written to satisfy that guideline. |
+| ✅ 1.12 | `app/home.tsx:82` | Review count `'23'` is a string literal. (Carries an honest `TODO(SRS)` — the only fabrication in the app that admits it.) |
+| ✅ 1.13 | `src/services/auth.ts:141` | **Account deletion is entirely broken.** `deleteAccount()` invokes the `delete-account` Edge Function — **which is not deployed** (verified against the live project, see §6.1). Every deletion attempt fails. This is not the narrow unconfirmed-user bug in `2.4`; it is a **total Apple 5.1.1(v) failure for every user**, in the screen written to satisfy that guideline. |
 
 ### Tier 1b — Live infrastructure findings (verified against Supabase `ogbothupjcivwruesgsu`)
 
@@ -77,19 +83,19 @@ These are not bugs. These are fabrications rendered as the user's own data, and 
 
 | # | Location | Finding |
 |---|---|---|
-| 2.1 | `app/review.tsx:41` | **`reviewCleared` is a one-way latch.** Set once, never cleared by anything. Finish the 4-card review a single time and Smart Review reads "All caught up" — permanently, forever. |
+| ✅ 2.1 | `app/review.tsx:41` | **`reviewCleared` is a one-way latch.** Set once, never cleared by anything. Finish the 4-card review a single time and Smart Review reads "All caught up" — permanently, forever. |
 | 2.2 | `app/onboarding.tsx:158` | **Step 1 can permanently brick itself.** `submitAccount` returns on the `stepRef.current !== 1` guard *before* resetting `acctPending`. Navigate away mid-signup and return: Continue is disabled forever, unrecoverable without an app restart. |
 | 2.3 | `app/onboarding.tsx:205` | Identical bug in the mic check. Leave step 9 while recording and return: UI stuck on "recording", mic button can never restart. |
 | 2.4 | `src/services/auth.ts:31-33` | **Apple 5.1.1(v) hole in the account-deletion screen itself.** With email confirmation on, `signUp` returns a null session but `attempt()` reports `ok: true`; onboarding marks the user signed in. That user can then never delete their account — `deleteAccount` returns `DELETE_NO_SESSION` and `delete-account.tsx:61-72` refuses to fall through to local erase for non-guests. |
-| 2.5 | `app/sentence.tsx:121` | The SAY step runs the recognizer, scores it, and **throws the result away** — `said` / `saidPartial` are never rendered. A denied mic is indistinguishable from a perfect utterance. |
+| ✅ 2.5 | `app/sentence.tsx:121` | The SAY step runs the recognizer, scores it, and **throws the result away** — `said` / `saidPartial` are never rendered. A denied mic is indistinguishable from a perfect utterance. |
 | 2.6 | `app/speak.tsx:135` | Clamps at the last coach line. No completion, no summary, no score. Exiting via the X logs **nothing at all**, however long the user practised. |
 | 2.7 | `app/onboarding.tsx` | **Android back-button trap.** The wizard is `useState`, not routes, so the system back gesture pops the entire route and discards all 10 steps. |
 | 2.8 | `src/components/Waveform.tsx:23` | **Every waveform in the app is `Math.sin()`.** Meanwhile `stt.ts:56` exposes a real `onVolume` callback, fully wired at `stt.ts:273-293`, that **no screen passes**. The plumbing to make them real already exists and is unused. |
-| 2.9 | `app/dictation.tsx:55-65` | Play budget decrements *before* speaking, and `tts.speak` swallows failures. A user with no FR voice spends all 3 plays hearing nothing, then must transcribe a sentence they never heard. |
-| 2.10 | `app/dictation.tsx:75` | `addAccent` appends to the end of the string, not at the cursor. Tapping `é` mid-sentence corrupts the answer. |
-| 2.11 | `app/_layout.tsx:65,77` | **Hydration race.** Render gates on `useStore.hydrated` only; `useProgress` rehydrates independently and is never awaited, so Home can paint a zero-streak state before the session log loads. |
-| 2.12 | `src/services/errors.ts:58-60` | `report()` is an empty function. Every logged crash goes nowhere. |
-| 2.13 | flashcards / voiceflash / dictation / player | No unmount cleanup: `tts.stop()` / `stt.abort()` never called, timers never cleared. `sentence.tsx:46-53` does it correctly and is the model. |
+| ✅ 2.9 | `app/dictation.tsx:55-65` | Play budget decrements *before* speaking, and `tts.speak` swallows failures. A user with no FR voice spends all 3 plays hearing nothing, then must transcribe a sentence they never heard. |
+| ✅ 2.10 | `app/dictation.tsx:75` | `addAccent` appends to the end of the string, not at the cursor. Tapping `é` mid-sentence corrupts the answer. |
+| ✅ 2.11 | `app/_layout.tsx:65,77` | **Hydration race.** Render gates on `useStore.hydrated` only; `useProgress` rehydrates independently and is never awaited, so Home can paint a zero-streak state before the session log loads. |
+| ◐ 2.12 | `src/services/errors.ts:58-60` | `report()` is an empty function. Every logged crash goes nowhere. |
+| ◐ 2.13 | flashcards / voiceflash / dictation / player | No unmount cleanup: `tts.stop()` / `stt.abort()` never called, timers never cleared. `sentence.tsx:46-53` does it correctly and is the model. |
 
 ### Tier 3 — Structural gaps
 
@@ -107,20 +113,20 @@ These are not bugs. These are fabrications rendered as the user's own data, and 
 
 | Component | Its actual goal | Reality in code | Premium user reaction |
 |---|---|---|---|
-| **Speak Mode** | The flagship: talk to Camille, get judged honestly | Real STT, real scoring, then **prints a sentence you never said** under "YOU SAID". No end, no summary. | Refund. This is fraud-adjacent. |
-| **Role Play** | Live conversation practice | Mic is a `setTimeout`. Credits progress for silence. | Refund. |
-| **Le Rapport** | The premium payoff: your evening report | 100% hardcoded. Same 82% for every human being. | Refund. |
-| **Smart Review** | Spaced repetition of *your* mistakes | 4 static cards claiming "missed 2× in Role Play" on a fresh install. No SRS. One-way "caught up" latch. | The single most valuable feature, entirely absent. |
+| ✅ **Speak Mode** | The flagship: talk to Camille, get judged honestly | Real STT, real scoring, then **prints a sentence you never said** under "YOU SAID". No end, no summary. | Refund. This is fraud-adjacent. |
+| ⏳ **Role Play** | Live conversation practice | Mic is a `setTimeout`. Credits progress for silence. | Refund. |
+| ✅ **Le Rapport** | The premium payoff: your evening report | 100% hardcoded. Same 82% for every human being. | Refund. |
+| ✅ **Smart Review** | Spaced repetition of *your* mistakes | 4 static cards claiming "missed 2× in Role Play" on a fresh install. No SRS. One-way "caught up" latch. | The single most valuable feature, entirely absent. |
 | **Player** | Immersive listening | Fake scrubber, fake duration, three dead transports, ~1.5s of TTS. | Embarrassing. |
 | **Downloads** | Offline collections | Zero filesystem code. Claims 0.6 GB already used. | Embarrassing. |
-| **Beginners' Den** | The curriculum spine | 3 real lessons of 43 units; 40 fall through to a generic player. | Empty. |
+| ✅ **Beginners' Den** | The curriculum spine | 3 real lessons of 43 units; 40 fall through to a generic player. | Empty. |
 | **Voice Flash** | Say the word you see | **Works.** Best failure handling in the codebase (`:276-320`). Runs out after 5 items. | Good, but a 5-item feature. |
 | **Flashcards** | Vocab drilling | **Works.** Real summary, real redo. 8 cards. | Good, but an 8-card feature. |
 | **Dictation** | Listening → writing | **Works.** Real score, real done-screen. 3 sentences. | Good, but a 3-item feature. |
 | **Sentence Builder** | Construct + say a sentence | Works, but **one sentence exists** and the SAY step discards the mic result. | One sentence. |
 | **Coach (chat)** | Unlimited AI tutor | Silently serves 3 rotating canned replies when offline while the header says "online · UNLIMITED". Logs no progress. | Bait and switch. |
 | **Onboarding** | Personalize the app | Collects 7 preferences; **`goal`, `pace`, `region` are read by almost nothing**. Mic check is real but discards its result. | Theatre. |
-| **Profile** | Your real progress | Streak and week dots are **real**. Calendar and stat cards are **fabricated**. | Mixed, which is worse — it teaches distrust. |
+| ✅ **Profile** | Your real progress | Streak and week dots are **real**. Calendar and stat cards are **fabricated**. | Mixed, which is worse — it teaches distrust. |
 
 **Would a premium user be happy? No.** They pay for five things and all five are theatre: a coach that listens, review that targets their weaknesses, a report about them, content that does not run out, and progress that is safe. The one mercy: **there is currently no way to pay**, so no one has been sold this yet.
 
@@ -255,11 +261,11 @@ Monetization is **last**, by explicit decision, and is out of scope until a sepa
 
 | Phase | Name | Delivers |
 |---|---|---|
-| **0** | **Repo consolidation** | One repo, `ealch-v2` (A) + `ealch-admin` (B). Folded into Phase 1 as Task 0. |
-| **1** | **Foundation: the canonical corpus + the attempt log** | The `Item` and `Lesson` schemas shared by app and admin. `content_items` in Supabase. The snapshot/manifest publish + fetch/cache/merge pipeline. Every drill reads from the corpus by stable ID. Every drill attempt is logged **against an item ID**. **Zero new content, zero new features** — the app renders exactly what it renders today, on real rails. See `PHASE-1-FOUNDATION-PROMPT.md`. |
+| ✅ **0** | **Repo consolidation** | One repo, `ealch-v2` (A) + `ealch-admin` (B). Folded into Phase 1 as Task 0. |
+| ✅ **1** | **Foundation: the canonical corpus + the attempt log** | The `Item` and `Lesson` schemas shared by app and admin. `content_items` in Supabase. The snapshot/manifest publish + fetch/cache/merge pipeline. Every drill reads from the corpus by stable ID. Every drill attempt is logged **against an item ID**. **Zero new content, zero new features** — the app renders exactly what it renders today, on real rails. See `PHASE-1-FOUNDATION-PROMPT.md`. |
 | **2** | **Content generation + review** | LLM generation into `draft`, typed review editors in the Ops Console, provenance columns. Fill the deep Sons track, A1 1-4, A2 1-4, and the themed corpus. |
-| **3** | **The SRS** | A pure scheduler module (modelled on `progress.logic.ts`, testable under `node --test`) over the attempt log. This is what makes "23 due", weak spots, and Smart Review real. |
-| **4** | **The honesty pass, completed** | With real engines behind them, every Tier 1 fabrication is replaced by derived data rather than deleted. Le Rapport computes 82% instead of asserting it. |
+| ✅ **3** | **The SRS** | A pure scheduler module (modelled on `progress.logic.ts`, testable under `node --test`) over the attempt log. This is what makes "23 due", weak spots, and Smart Review real. |
+| ⏳ **4** | **The honesty pass, completed** | With real engines behind them, every Tier 1 fabrication is replaced by derived data rather than deleted. Le Rapport computes 82% instead of asserting it. |
 | **5** | **Rebuild the four screens properly** | Player (real audio position), Downloads (real filesystem), Placement (multi-skill, suggestion-only), Le Rapport (from the attempt log). |
 | **6** | **Sync** | Write `profiles` / `sessions` / `review_items`. Progress survives a reinstall — the precondition for charging anyone anything. |
 | **7** | **Audio** | Real recorded/synthesized audio where the Phase-5 test run proves TTS is not good enough. Makes the accent picker real. |
