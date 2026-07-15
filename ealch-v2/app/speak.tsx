@@ -235,9 +235,18 @@ export default function Speak() {
         <TX role="label" color={t.txSubtle} center style={{ marginTop: 10 }}>
           {coach.en}
         </TX>
+        {/* Hear the line on demand — the same replay as the transport bar, but
+            right under the words so it is actually found. */}
+        <Press
+          onPress={replayCoach}
+          cue={null}
+          style={{ marginTop: 14, width: 44, height: 44, borderRadius: 22, borderWidth: 1, borderColor: speaking ? t.acc : t.accA(50), backgroundColor: speaking ? t.accA(12) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
+        >
+          <Icon name="speaker" size={18} color={t.acc} />
+        </Press>
         {/* Say what the drill actually does: the mic scores your utterance
             against Camille's line, so this is shadowing, not a free reply. */}
-        <TX font="semi" role="meta" ls={1.6} color={t.accTx} center style={{ marginTop: 12, textTransform: 'uppercase' }}>
+        <TX font="semi" role="meta" ls={1.6} color={t.accTx} center style={{ marginTop: 14, textTransform: 'uppercase' }}>
           {T.speakRepeat}
         </TX>
       </View>
