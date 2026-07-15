@@ -78,6 +78,10 @@ export type Strings = {
   browse: string; browseClose: string; wordOfDay: string; save: string; saved: string;
   smartReviewT: string; smartReviewS: string; startReview: string; dueToday: string;
   allCaught: string; allCaughtS: string; nextDue: string;
+  srEmptyT: string; srEmptyS: string; srDueTitle: string;
+  srItems: string; srTomorrow: string; srInDays: string; srLadder: string;
+  srSession: string; srReveal: string; srAgain: string; srGot: string;
+  srDone: string; srDoneS: string; srAgainNote: string;
   placementT: string; placementS: string; placementCta: string; estimate: string;
   dicteeT: string; dicteeS: string; play: string; slow: string; playsLeft: string;
   writeHeard: string; check2: string; perfectNoMistakes: string; youWrote: string; correctIs: string;
@@ -228,6 +232,13 @@ export const T: Record<Lang, Strings> = {
     browse: 'Parcourir', browseClose: 'Réduire', wordOfDay: 'MOT DU JOUR', save: 'Enregistrer', saved: 'Enregistré ✓',
     smartReviewT: 'Révision intelligente', smartReviewS: 'Votre file du jour · mots, sons, grammaire', startReview: 'Commencer la révision', dueToday: 'à réviser',
     allCaught: 'Tout est à jour', allCaughtS: 'Revenez demain pour la prochaine série.', nextDue: 'PROCHAINEMENT',
+    srEmptyT: "Rien à réviser pour l'instant",
+    srEmptyS: 'Terminez un exercice et ses mots reviennent ici, espacés pour mieux les retenir.',
+    srDueTitle: 'À réviser.', srItems: 'éléments', srTomorrow: 'demain', srInDays: 'dans {n} jours',
+    srLadder: "Les items reviennent à 1 → 3 → 7 jours, puis s'espacent quand vous réussissez.",
+    srSession: 'SESSION DE RÉVISION', srReveal: 'Voir la réponse', srAgain: 'Encore', srGot: 'Je sais',
+    srDone: 'Révision terminée', srDoneS: '{n} sur {m} réussis. Les ratés reviennent bientôt.',
+    srAgainNote: '« Encore » le remet dans la file.',
     placementT: 'Test de niveau', placementS: 'Quelques questions, estimation en direct.', placementCta: 'Passer le test', estimate: 'ESTIMATION',
     dicteeT: 'La Dictée', dicteeS: "Entraînez l'oreille et l'orthographe : écrivez exactement ce que vous entendez.", play: 'Écouter', slow: '0,75×', playsLeft: 'écoutes',
     writeHeard: 'Écrivez ce que vous entendez', check2: 'Vérifier', perfectNoMistakes: 'Parfait, aucune faute', youWrote: 'Vous avez écrit', correctIs: 'La bonne réponse',
@@ -439,6 +450,13 @@ export const T: Record<Lang, Strings> = {
     browse: 'Browse', browseClose: 'Close', wordOfDay: 'WORD OF THE DAY', save: 'Save', saved: 'Saved ✓',
     smartReviewT: 'Smart Review', smartReviewS: "Today's queue · words, sounds, grammar", startReview: 'Start review', dueToday: 'due today',
     allCaught: 'All caught up', allCaughtS: 'Come back tomorrow for the next set.', nextDue: 'NEXT DUE',
+    srEmptyT: 'Nothing to review yet',
+    srEmptyS: 'Finish a drill and its words come back here, spaced out so they stick.',
+    srDueTitle: 'Due today.', srItems: 'items', srTomorrow: 'tomorrow', srInDays: 'in {n} days',
+    srLadder: 'Items return in 1 → 3 → 7 days and space out as you keep getting them right.',
+    srSession: 'REVIEW SESSION', srReveal: 'Reveal answer', srAgain: 'Again', srGot: 'Got it',
+    srDone: 'Review complete', srDoneS: '{n} of {m} right. The misses come back soon.',
+    srAgainNote: '“Again” puts it back in the queue.',
     placementT: 'Placement test', placementS: 'A few questions, live estimate.', placementCta: 'Take the test', estimate: 'ESTIMATE',
     dicteeT: 'La Dictée', dicteeS: 'Train your ear and spelling: write exactly what you hear.', play: 'Play', slow: '0.75×', playsLeft: 'plays',
     writeHeard: 'Write what you hear', check2: 'Check', perfectNoMistakes: 'Perfect, no mistakes', youWrote: 'You wrote', correctIs: 'The correct answer',

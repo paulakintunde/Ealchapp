@@ -77,9 +77,11 @@ export type AppState = {
   //
   // streak, reviewDue and weekDots used to live here as stored numbers that
   // nothing ever wrote. They are now derived from the session log — see
-  // progress.logic.ts. `freeze` stays: it is a grant the app makes, not a
-  // measurement of anything the user did, so there is nothing to derive it from.
-  reviewCleared: boolean;
+  // progress.logic.ts. `reviewCleared` joined them: it was a manual "I cleared
+  // the queue" boolean, but the review queue is now derived from the attempt log
+  // by the scheduler (dueCards), so there is nothing to flag. `freeze` stays: it
+  // is a grant the app makes, not a measurement of anything the user did, so
+  // there is nothing to derive it from.
   freeze: number; // streak freezes available
 
   // actions
@@ -107,7 +109,6 @@ export type AppState = {
   /** Wipe every persisted field back to first-launch defaults. Used by account deletion. */
   eraseLocalData: () => Promise<void>;
   completeOnboarding: (level: string) => void;
-  clearReview: () => void;
 };
 
 /** Every data field at first-launch value. A function, not a constant, so that
@@ -143,7 +144,6 @@ const initialData = () => ({
   planPick: 'yr' as Plan,
   premium: false,
 
-  reviewCleared: false,
   // One freeze at day zero is a real starting grant, not a claim about past
   // activity — which is why it is the only progress field left in this store.
   freeze: 1,
@@ -231,11 +231,10 @@ export const useStore = create<AppState>()(
         await useProgress.getState().eraseProgress();
       },
       completeOnboarding: (level) => set({ level, onboarded: true, signedIn: true }),
-      clearReview: () => set({ reviewCleared: true }),
     }),
     {
       name: 'ealch-store',
-      version: 4,
+      version: 5,
       // v0 → v1: language used to be hardcoded French; re-derive from the device.
       // v1 → v2: 'Maya' was a hardcoded placeholder identity, never user-entered;
       // clear it so the no-name greeting applies until the user sets a real name.
@@ -244,6 +243,8 @@ export const useStore = create<AppState>()(
       // fabricated fortnight. They are now derived from the session log
       // (progress.logic.ts) and no longer belong in this store; drop the stale
       // keys rather than leave a fake streak sitting in the persisted blob.
+      // v4 → v5: reviewCleared is gone too — the review queue is now derived from
+      // the attempt log by the scheduler (dueCards), so the manual flag is dead.
       migrate: (persisted, version) => {
         const s = persisted as Partial<AppState> & Record<string, unknown>;
         if (version === 0) {
@@ -257,6 +258,9 @@ export const useStore = create<AppState>()(
           delete s.streak;
           delete s.reviewDue;
           delete s.weekDots;
+        }
+        if (version <= 4) {
+          delete s.reviewCleared;
         }
         return s as AppState;
       },
@@ -284,7 +288,6 @@ export const useStore = create<AppState>()(
         currency: s.currency,
         planPick: s.planPick,
         premium: s.premium,
-        reviewCleared: s.reviewCleared,
         freeze: s.freeze,
       }),
       // Always flip `hydrated`, even when rehydration fails or yields no state —

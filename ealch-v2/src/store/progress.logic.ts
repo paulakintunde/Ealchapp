@@ -50,6 +50,12 @@ export function shiftDay(day: string, delta: number): string {
   return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`;
 }
 
+/** Whole days from `from` to `to` (positive when `to` is later). Same UTC-on-a
+ *  local-day-string basis as shiftDay, so it never trips over DST. */
+export function daysBetween(from: string, to: string): number {
+  return Math.round((dayToUTC(to) - dayToUTC(from)) / 86_400_000);
+}
+
 /** Monday-first weekday index (0 = Monday … 6 = Sunday), matching T.dayLetters. */
 export function mondayIndex(day: string): number {
   return (new Date(dayToUTC(day)).getUTCDay() + 6) % 7;
@@ -253,4 +259,128 @@ export function attemptsToday(attempts: AttemptEntry[], today: string): number {
   let n = 0;
   for (const a of attempts) if (a.date === today) n += 1;
   return n;
+}
+
+// ── The scheduler (SRS) ──────────────────────────────────────────────────────
+//
+// Spaced repetition, derived — like everything else here — straight from the
+// attempt log, with no second source of truth to persist or keep in sync. Each
+// item's schedule is a fold of ITS attempts in order: an SM-2-shaped interval
+// that grows while the learner keeps getting the item right and collapses the
+// moment they miss it. The log is day-granular (attempts carry a local day, not
+// an instant), so intervals are whole days and "due" means dueDay <= today —
+// the same resolution the streak already works at. An item the learner has never
+// attempted is not a card: new material is introduced by drills and lessons, not
+// by the review queue.
+
+export type SrsGrade = 0 | 1 | 2; // 0 miss (relearn) · 1 shaky pass · 2 clean pass
+
+export type SrsCard = {
+  itemId: string;
+  /** Consecutive non-miss reviews. Resets to 0 on a miss. */
+  reps: number;
+  /** SM-2 ease factor, clamped to [1.3, 3.0]. How fast the interval grows. */
+  ease: number;
+  /** Current interval in days. 0 means "due immediately" — just missed, or a
+   *  brand-new item whose first pass has not yet earned a day of spacing. */
+  intervalDays: number;
+  /** The day this item next comes due: lastDay + intervalDays. */
+  dueDay: string;
+  /** The day of its most recent attempt. */
+  lastDay: string;
+  lastVerdict: AttemptVerdict;
+  seen: number;
+};
+
+/** How an attempt grades for scheduling. `correct` is the drill's own verdict on
+ *  whether it passed; a 'close' pass is real but shaky, so it advances less. A
+ *  miss always relearns, whatever the recognizer verdict happened to be. */
+export function gradeAttempt(a: AttemptEntry): SrsGrade {
+  if (!a.correct) return 0;
+  return a.verdict === 'close' ? 1 : 2;
+}
+
+const MIN_EASE = 1.3;
+const MAX_EASE = 3.0;
+
+/** Advance one card's numbers by a single graded attempt. Pure and exported so
+ *  the interval ladder can be tested directly, without synthesising a log. */
+export function applyGrade(
+  card: { reps: number; ease: number; intervalDays: number },
+  grade: SrsGrade
+): { reps: number; ease: number; intervalDays: number } {
+  const { reps, ease, intervalDays } = card;
+  if (grade === 0) {
+    // A miss wipes the run and sends the item back to the front of the queue.
+    return { reps: 0, ease: Math.max(MIN_EASE, ease - 0.2), intervalDays: 0 };
+  }
+  if (grade === 1) {
+    // Shaky pass: it advances, but by less, and its ease erodes.
+    const next = reps === 0 ? 1 : Math.max(1, Math.round(intervalDays * 1.2));
+    return { reps: reps + 1, ease: Math.max(MIN_EASE, ease - 0.15), intervalDays: next };
+  }
+  // Clean pass: the classic 1 → 3 → interval × ease ladder.
+  const next = reps === 0 ? 1 : reps === 1 ? 3 : Math.max(1, Math.round(intervalDays * ease));
+  return { reps: reps + 1, ease: Math.min(MAX_EASE, ease + 0.1), intervalDays: next };
+}
+
+/** Every attempted item, folded into its current SRS card. */
+export function srsCards(attempts: AttemptEntry[]): Map<string, SrsCard> {
+  // Group preserving chronological order — the log is already append-ordered.
+  const byItem = new Map<string, AttemptEntry[]>();
+  for (const a of attempts) {
+    const list = byItem.get(a.itemId);
+    if (list) list.push(a);
+    else byItem.set(a.itemId, [a]);
+  }
+
+  const out = new Map<string, SrsCard>();
+  for (const [itemId, list] of byItem) {
+    let state = { reps: 0, ease: 2.5, intervalDays: 0 };
+    let lastDay = '';
+    let lastVerdict: AttemptVerdict = 'none';
+    for (const a of list) {
+      state = applyGrade(state, gradeAttempt(a));
+      lastDay = a.date;
+      lastVerdict = a.verdict;
+    }
+    out.set(itemId, {
+      itemId,
+      reps: state.reps,
+      ease: state.ease,
+      intervalDays: state.intervalDays,
+      dueDay: shiftDay(lastDay, state.intervalDays),
+      lastDay,
+      lastVerdict,
+      seen: list.length,
+    });
+  }
+  return out;
+}
+
+/** The review queue for `today`: cards whose dueDay has arrived, most overdue
+ *  first, then hardest (lowest ease), then by id for a stable order. */
+export function dueCards(attempts: AttemptEntry[], today: string): SrsCard[] {
+  return [...srsCards(attempts).values()]
+    .filter((c) => c.dueDay <= today)
+    .sort((a, b) => {
+      if (a.dueDay !== b.dueDay) return a.dueDay < b.dueDay ? -1 : 1;
+      if (a.ease !== b.ease) return a.ease - b.ease;
+      return a.itemId < b.itemId ? -1 : 1;
+    });
+}
+
+/** How many items are due on `today` — the honest review count. */
+export function reviewDueCount(attempts: AttemptEntry[], today: string): number {
+  let n = 0;
+  for (const c of srsCards(attempts).values()) if (c.dueDay <= today) n += 1;
+  return n;
+}
+
+/** The soonest not-yet-due cards, for an "up next" preview. */
+export function upcomingCards(attempts: AttemptEntry[], today: string, limit?: number): SrsCard[] {
+  const up = [...srsCards(attempts).values()]
+    .filter((c) => c.dueDay > today)
+    .sort((a, b) => (a.dueDay !== b.dueDay ? (a.dueDay < b.dueDay ? -1 : 1) : a.itemId < b.itemId ? -1 : 1));
+  return typeof limit === 'number' ? up.slice(0, Math.max(0, limit)) : up;
 }

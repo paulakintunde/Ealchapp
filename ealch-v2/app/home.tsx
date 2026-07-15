@@ -13,7 +13,7 @@ import { useT } from '@/i18n/useT';
 import { greetSlot } from '@/i18n/strings';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
-import { goalTarget, localDay, minutesToday, streak } from '@/store/progress.logic';
+import { goalTarget, localDay, minutesToday, reviewDueCount, streak } from '@/store/progress.logic';
 import { useUI } from '@/store/useUI';
 
 const RING_R = 14;
@@ -57,8 +57,9 @@ export default function Home() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { userName, lang, setAppLang, reviewCleared, freeze, pace } = useStore();
+  const { userName, lang, setAppLang, freeze, pace } = useStore();
   const sessions = useProgress((s) => s.sessions);
+  const attempts = useProgress((s) => s.attempts);
   const openDict = useUI((s) => s.openDict);
   const openSheet = useUI((s) => s.openSheet);
   const [browse, setBrowse] = useState(false);
@@ -76,12 +77,15 @@ export default function Home() {
     String(run.freezesLeft)
   );
 
-  // TODO(SRS): the review count is still a literal. It needs the spaced-repetition
-  // scheduler, which is the next phase — a count of logged sessions would be a
-  // plausible-looking number that means nothing. Left visibly unfinished on purpose.
-  const revNum = reviewCleared ? '✓' : '23';
-  const revLabel = reviewCleared ? T.caughtUpShort : T.reviewShort;
-  const revSub = reviewCleared ? T.tomorrow : '6 min →';
+  // The review count is now real: how many items the scheduler says are due
+  // today, folded from the attempt log (progress.logic.ts). Zero due is caught
+  // up — and on a fresh install nothing has ever been attempted, so it reads
+  // caught up, which is the truth, not a seeded "23".
+  const due = reviewDueCount(attempts, today);
+  const caughtUp = due === 0;
+  const revNum = caughtUp ? '✓' : String(due);
+  const revLabel = caughtUp ? T.caughtUpShort : T.reviewShort;
+  const revSub = caughtUp ? T.tomorrow : T.dueToday;
 
   const skillGold = t.tag('gold');
   const skillPurple = t.tag('grammar');

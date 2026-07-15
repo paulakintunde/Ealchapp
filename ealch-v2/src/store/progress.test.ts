@@ -2,18 +2,24 @@
 //   npm test
 // progress.logic.ts imports nothing from react-native, zustand or AsyncStorage,
 // which is the whole reason it can be tested at all.
-import { deepStrictEqual, strictEqual } from 'node:assert';
+import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import {
+  applyGrade,
   attemptsToday,
+  dueCards,
+  gradeAttempt,
   goalTarget,
   itemsPracticed,
   localDay,
   minutesToday,
   mondayIndex,
+  reviewDueCount,
   shiftDay,
+  srsCards,
   statsByItem,
   streak,
+  upcomingCards,
   weakestItems,
   weekDots,
   type AttemptEntry,
@@ -316,4 +322,65 @@ test('the attempt aggregators treat an empty log as empty, never a crash', () =>
   deepStrictEqual(weakestItems([]), []);
   strictEqual(itemsPracticed([]).size, 0);
   strictEqual(attemptsToday([], TODAY), 0);
+});
+
+// ── the scheduler (SRS) ──
+
+test('gradeAttempt maps correctness and verdict to a grade', () => {
+  strictEqual(gradeAttempt(a('x', true, 0, 'good')), 2);
+  strictEqual(gradeAttempt(a('x', true, 0, 'close')), 1);
+  strictEqual(gradeAttempt(a('x', false, 0, 'off')), 0);
+  // A miss relearns no matter what verdict the recognizer reported.
+  strictEqual(gradeAttempt(a('x', false, 0, 'close')), 0);
+});
+
+test('applyGrade walks the 1 → 3 → x·ease ladder, and a miss resets it', () => {
+  const fresh = { reps: 0, ease: 2.5, intervalDays: 0 };
+  const one = applyGrade(fresh, 2);
+  deepStrictEqual([one.reps, one.intervalDays], [1, 1]); // first clean pass: 1 day
+  const two = applyGrade(one, 2);
+  deepStrictEqual([two.reps, two.intervalDays], [2, 3]); // second: 3 days
+  const three = applyGrade(two, 2);
+  strictEqual(three.reps, 3);
+  strictEqual(three.intervalDays, Math.round(3 * two.ease)); // then interval × ease
+
+  // A miss wipes reps and interval and erodes ease.
+  const missed = applyGrade(three, 0);
+  deepStrictEqual([missed.reps, missed.intervalDays], [0, 0]);
+  ok(missed.ease < three.ease);
+});
+
+test('srsCards schedules a learned item forward, an unseen item not at all', () => {
+  // One clean pass yesterday → interval 1 → due today.
+  const cards = srsCards([a('learned', true, -1, 'good')]);
+  const c = cards.get('learned');
+  strictEqual(c?.intervalDays, 1);
+  strictEqual(c?.dueDay, TODAY);
+  // An item never attempted has no card.
+  strictEqual(cards.get('never-seen'), undefined);
+});
+
+test('dueCards is the queue: overdue and due-now in, freshly-passed and future out', () => {
+  const log = [
+    a('missed', false, -1, 'off'), // interval 0 → due day(-1), overdue
+    a('due-now', true, -1, 'good'), // interval 1 → due TODAY
+    a('fresh', true, 0, 'good'), // interval 1 → due tomorrow, NOT today
+    a('future', true, -3, 'good'),
+    a('future', true, -2, 'good'), // reps 2 → interval 3 → due day(+1)
+  ];
+  const due = dueCards(log, TODAY);
+  // Most overdue first: missed (day-1) then due-now (TODAY).
+  deepStrictEqual(due.map((c) => c.itemId), ['missed', 'due-now']);
+  strictEqual(reviewDueCount(log, TODAY), 2);
+
+  const up = upcomingCards(log, TODAY);
+  // fresh (tomorrow) and future (tomorrow) are the not-yet-due cards.
+  deepStrictEqual(up.map((c) => c.itemId).sort(), ['fresh', 'future']);
+});
+
+test('the scheduler treats an empty log as an empty queue', () => {
+  strictEqual(srsCards([]).size, 0);
+  deepStrictEqual(dueCards([], TODAY), []);
+  strictEqual(reviewDueCount([], TODAY), 0);
+  deepStrictEqual(upcomingCards([], TODAY), []);
 });
