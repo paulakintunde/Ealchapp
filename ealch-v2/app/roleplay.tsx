@@ -6,15 +6,19 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useSessionLog } from '@/store/useProgress';
-import { sound, tts } from '@/services';
+import { sound, tts, stt, type SttResult } from '@/services';
 import { content } from '@/services/content';
 import type { Level } from '@/content/schema';
 
-type Msg = { who: 'ai' | 'me'; fr: string; en?: string };
+// A user turn carries what the recognizer actually heard and how it scored, so
+// the bubble can show the real utterance and its verdict — never the scripted
+// line dressed up as the user's speech.
+type Msg = { who: 'ai' | 'me'; fr: string; en?: string; score?: number; verdict?: SttResult['verdict']; heardOk?: boolean };
 type RpLevel = 'A1' | 'A2' | 'B1' | 'B2';
 const LEVELS: RpLevel[] = ['A1', 'A2', 'B1', 'B2'];
 
@@ -47,6 +51,8 @@ export default function Roleplay() {
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [ix, setIx] = useState(0);
   const [busy, setBusy] = useState(false);
+  const [listening, setListening] = useState(false);
+  const [partial, setPartial] = useState('');
 
   // Scenarios come from the corpus now (the "Au marché" role play, one per level).
   // B1/B2 ship over the air, so a seed-only install may not have them yet.
@@ -67,6 +73,7 @@ export default function Roleplay() {
       mounted.current = false;
       timers.current.forEach(clearTimeout);
       tts.stop();
+      stt.abort();
     };
   }, []);
 
@@ -83,38 +90,58 @@ export default function Roleplay() {
     speak(first.ai);
   };
 
-  // NOTE: the mic is still a prop — it appends the scripted user line after a
-  // delay; nothing is recorded or scored. Making it real is Phase 4's job (it
-  // needs the attempt log). Task 6 only moves the dialogue onto the corpus and
-  // fixes the hardcoded turn count.
-  const mic = () => {
-    if (busy || ix >= nTurns) return;
+  // The mic is real: the recognizer scores the user's utterance against this
+  // turn's target line (turns[ix].user), and what lands in the transcript is
+  // what they ACTUALLY said, with its score — not the scripted line. A tap while
+  // listening stops early. If nothing usable was heard (denied mic, silence),
+  // the conversation still advances as guided reading, clearly marked, so a
+  // broken mic never traps the dialogue.
+  const mic = async () => {
+    if (ix >= nTurns) return;
+    if (listening) {
+      stt.stop();
+      return;
+    }
+    if (busy) return;
+    const line = turns[ix];
     sound.play('tap');
     setBusy(true);
-    const line = turns[ix];
-    later(() => {
-      if (!mounted.current) return;
-      setMsgs((m) => [...m, { who: 'me', fr: line.user }]);
-      const next = ix + 1;
-      if (next < nTurns) {
-        later(() => {
-          if (!mounted.current) return;
-          const nx = turns[next];
-          setMsgs((m) => [...m, { who: 'ai', fr: nx.ai, en: nx.en }]);
-          setIx(next);
-          setBusy(false);
-          speak(nx.ai);
-        }, 1300);
-      } else {
-        later(() => {
-          if (!mounted.current) return;
-          sound.play('success');
-          setIx(nTurns);
-          setBusy(false);
-          logSession('roleplay', nTurns);
-        }, 1000);
-      }
-    }, 1800);
+    setListening(true);
+    setPartial('');
+
+    const res = await stt.listen(line.user, { maxMs: 7000, onPartial: setPartial });
+    if (!mounted.current) return;
+    setListening(false);
+    setPartial('');
+
+    const heardOk = res.ok && res.verdict !== 'none';
+    sound.play(heardOk && res.verdict !== 'off' ? 'success' : 'flip');
+    setMsgs((m) => [
+      ...m,
+      heardOk
+        ? { who: 'me', fr: res.transcript, score: res.score, verdict: res.verdict, heardOk: true }
+        : { who: 'me', fr: line.user, heardOk: false },
+    ]);
+
+    const next = ix + 1;
+    if (next < nTurns) {
+      later(() => {
+        if (!mounted.current) return;
+        const nx = turns[next];
+        setMsgs((m) => [...m, { who: 'ai', fr: nx.ai, en: nx.en }]);
+        setIx(next);
+        setBusy(false);
+        speak(nx.ai);
+      }, 900);
+    } else {
+      later(() => {
+        if (!mounted.current) return;
+        sound.play('success');
+        setIx(nTurns);
+        setBusy(false);
+        logSession('roleplay', nTurns);
+      }, 700);
+    }
   };
 
   const restart = () => {
@@ -219,6 +246,22 @@ export default function Roleplay() {
                         {m.en}
                       </TX>
                     ) : null}
+                    {/* Real recognizer verdict on the user's own turn. */}
+                    {me && m.heardOk && m.verdict ? (
+                      <TX
+                        font="semi"
+                        role="meta"
+                        style={{ marginTop: 6 }}
+                        color={m.verdict === 'good' ? t.accTx : m.verdict === 'close' ? t.txSecondary : t.danger}
+                      >
+                        {m.verdict === 'good' ? T.micGood : m.verdict === 'close' ? T.micClose : T.micOff} · {Math.round((m.score ?? 0) * 100)}%
+                      </TX>
+                    ) : null}
+                    {me && m.heardOk === false ? (
+                      <TX role="meta" color={t.txSubtle} style={{ marginTop: 6, fontStyle: 'italic' }}>
+                        {T.rpNotHeard}
+                      </TX>
+                    ) : null}
                   </View>
                 </View>
               );
@@ -253,8 +296,8 @@ export default function Roleplay() {
             </View>
           ) : (
             <View style={{ paddingTop: 10, gap: 14 }}>
-              {/* The next line is shown before the mic tap: this is guided
-                  reading aloud, not transcription — nothing is recorded. */}
+              {/* The target line to say. The recognizer scores what you actually
+                  say against it — this is real, not a scripted append. */}
               <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), padding: 14, paddingHorizontal: 16 }}>
                 <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx} style={{ marginBottom: 6 }}>
                   {T.rpYourLine}
@@ -263,9 +306,16 @@ export default function Roleplay() {
                   « {turns[ix]?.user ?? ''} »
                 </TX>
               </View>
-              <View style={{ alignItems: 'center' }}>
-                <Press cue={null} onPress={mic} scale={0.94} style={{ width: 70, height: 70, borderRadius: 35, alignItems: 'center', justifyContent: 'center', backgroundColor: busy ? t.acc : t.line(4), borderWidth: 1, borderColor: busy ? t.acc : t.line(20) }}>
-                  <Icon name="mic" size={26} color={busy ? t.accInk : t.tx} />
+              {/* What the recognizer is hearing, live. */}
+              {partial ? (
+                <TX font="serifI" role="titleSm" color={t.txMuted} center>
+                  « {partial} »
+                </TX>
+              ) : null}
+              <View style={{ alignItems: 'center', gap: 12 }}>
+                {listening ? <Waveform count={22} height={22} color={t.acc} active barWidth={3} gap={3.5} /> : null}
+                <Press cue={null} onPress={mic} scale={0.94} style={{ width: 70, height: 70, borderRadius: 35, alignItems: 'center', justifyContent: 'center', backgroundColor: listening ? t.acc : t.line(4), borderWidth: 1, borderColor: listening ? t.acc : t.line(20) }}>
+                  <Icon name="mic" size={26} color={listening ? t.accInk : t.tx} />
                 </Press>
               </View>
             </View>
