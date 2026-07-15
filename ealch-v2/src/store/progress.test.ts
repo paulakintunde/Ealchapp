@@ -244,6 +244,9 @@ test('statsByItem folds attempts per item, last attempt winning the last* fields
   strictEqual(cafe?.lastVerdict, 'good');
   strictEqual(cafe?.lastCorrect, true);
   strictEqual(cafe?.lastDate, TODAY);
+  // The last expected/heard are carried so a review list needs no corpus join.
+  strictEqual(cafe?.lastExpected, 'fr.a1.cafe.001');
+  strictEqual(cafe?.lastHeard, 'fr.a1.cafe.001');
 
   const pain = stats.get('fr.a1.pain.002');
   strictEqual(pain?.seen, 1);

@@ -185,6 +185,11 @@ export type ItemStat = {
   lastVerdict: AttemptVerdict;
   lastCorrect: boolean;
   lastDate: string;
+  /** The last thing we asked for and the last thing we got back. Carried so a
+   *  review list can name the item without a corpus lookup — the corpus may have
+   *  moved on, but what the learner actually saw and said is preserved here. */
+  lastExpected: string;
+  lastHeard: string;
 };
 
 /** Fold the attempt log into a per-item summary. Attempts are assumed to be in
@@ -201,6 +206,8 @@ export function statsByItem(attempts: AttemptEntry[]): Map<string, ItemStat> {
       cur.lastVerdict = a.verdict;
       cur.lastCorrect = a.correct;
       cur.lastDate = a.date;
+      cur.lastExpected = a.expected;
+      cur.lastHeard = a.heard;
     } else {
       out.set(a.itemId, {
         itemId: a.itemId,
@@ -210,6 +217,8 @@ export function statsByItem(attempts: AttemptEntry[]): Map<string, ItemStat> {
         lastVerdict: a.verdict,
         lastCorrect: a.correct,
         lastDate: a.date,
+        lastExpected: a.expected,
+        lastHeard: a.heard,
       });
     }
   }

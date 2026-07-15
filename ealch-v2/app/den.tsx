@@ -3,18 +3,21 @@ import { ScrollView, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
-import { Press } from '@/components/ui';
+import { Press, ProgressBar } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { content } from '@/services/content';
+import { useProgress } from '@/store/useProgress';
+import { itemsPracticed } from '@/store/progress.logic';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import type { Track } from '@/content/schema';
 
-// Den progress (which units are done / in progress) needs the attempt log, which
-// lands with the SRS phase. Until then this screen shows the HONEST state: what
-// content exists, which units have a lesson you can open, and which are still to
-// come — no fabricated "2 done" or 55% bars (review §den).
+// Den progress is now REAL: a unit's "learned" count is how many of the items its
+// lessons teach have been answered correctly at least once, read from the attempt
+// log (progress.logic.ts). No fabricated "2 done" or 55% bars — a unit reads 0/N
+// until the learner actually gets its words right, and shows a check only when
+// every one is met (review §den).
 
 export default function Den() {
   const t = useTheme();
@@ -35,6 +38,18 @@ export default function Den() {
   );
   const list = byTrack[denTab];
   const ready = list.filter((u) => u.lessonIds.length > 0).length;
+
+  // The set of items the learner has met correctly, and a per-unit view over it:
+  // a unit's items are everything its lessons teach, so its progress is honest —
+  // it can only fill as real drills log correct attempts against those ids.
+  const attempts = useProgress((s) => s.attempts);
+  const met = useMemo(() => itemsPracticed(attempts), [attempts]);
+  const progressOf = (unitId: string) => {
+    const ids = new Set(content.lessonsOf(unitId).flatMap((l) => l.itemIds));
+    let mastered = 0;
+    for (const id of ids) if (met.has(id)) mastered += 1;
+    return { total: ids.size, mastered };
+  };
 
   const tabs: { id: Track; name: string }[] = [
     { id: 'sons', name: 'SONS' },
@@ -121,6 +136,9 @@ export default function Den() {
         <View style={{ gap: 9 }}>
           {list.map((u) => {
             const hasLesson = u.lessonIds.length > 0;
+            const prog = hasLesson ? progressOf(u.id) : { total: 0, mastered: 0 };
+            const done = prog.total > 0 && prog.mastered === prog.total;
+            const started = prog.mastered > 0;
             const onPress = () => {
               if (hasLesson) router.push({ pathname: '/lesson', params: { key: u.lessonIds[0] } });
             };
@@ -130,26 +148,39 @@ export default function Den() {
                 onPress={onPress}
                 cue={hasLesson ? 'tap' : null}
                 scale={hasLesson ? 0.99 : 1}
-                style={{ borderRadius: 16, borderWidth: 1, borderColor: hasLesson ? t.accA(30) : t.line(7), backgroundColor: t.card, padding: 14, paddingHorizontal: 16, opacity: hasLesson ? 1 : 0.6 }}
+                style={{ borderRadius: 16, borderWidth: 1, borderColor: done ? t.accA(55) : hasLesson ? t.accA(30) : t.line(7), backgroundColor: t.card, padding: 14, paddingHorizontal: 16, opacity: hasLesson ? 1 : 0.6 }}
               >
                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: 13 }}>
-                  <View style={{ width: 36, minHeight: 36, paddingVertical: 6, borderRadius: 18, borderWidth: 1, borderColor: hasLesson ? t.accA(45) : t.line(14), alignItems: 'center', justifyContent: 'center' }}>
-                    <TX font="serif" role="body" color={hasLesson ? t.accTx : t.txMuted}>
-                      {String(u.seq).padStart(2, '0')}
-                    </TX>
+                  <View style={{ width: 36, minHeight: 36, paddingVertical: 6, borderRadius: 18, borderWidth: 1, borderColor: done ? t.acc : hasLesson ? t.accA(45) : t.line(14), backgroundColor: done ? t.acc : 'transparent', alignItems: 'center', justifyContent: 'center' }}>
+                    {done ? (
+                      <Icon name="check" size={16} color={t.accInk} strokeWidth={2.4} />
+                    ) : (
+                      <TX font="serif" role="body" color={hasLesson ? t.accTx : t.txMuted}>
+                        {String(u.seq).padStart(2, '0')}
+                      </TX>
+                    )}
                   </View>
                   <View style={{ flex: 1, minWidth: 0 }}>
                     <TX font="semi" role="body">{u.title}</TX>
                     <TX font="serifI" role="label" color={t.txSubtle} style={{ marginTop: 2 }} numberOfLines={1}>
                       {u.sub}
                     </TX>
+                    {/* Real per-unit progress, only once it has words to track. */}
+                    {hasLesson && prog.total > 0 && !done ? (
+                      <View style={{ marginTop: 9, gap: 5 }}>
+                        <ProgressBar pct={(prog.mastered / prog.total) * 100} height={3} color={t.acc} track={t.line(10)} />
+                        <TX role="meta" color={started ? t.accTx : t.txSubtle}>
+                          {T.denLearned.replace('{n}', String(prog.mastered)).replace('{m}', String(prog.total))}
+                        </TX>
+                      </View>
+                    ) : null}
                   </View>
-                  {hasLesson ? (
-                    <Icon name="chevronRight" size={13} color={t.accTx} strokeWidth={1.6} />
-                  ) : (
+                  {!hasLesson ? (
                     <TX font="semi" role="eyebrow" ls={1.4} color={t.txSubtle}>
                       {T.uSoon}
                     </TX>
+                  ) : (
+                    <Icon name="chevronRight" size={13} color={t.accTx} strokeWidth={1.6} />
                   )}
                 </View>
               </Press>

@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -6,6 +7,15 @@ import { TX } from '@/components/Type';
 import { Press, ProgressBar, FocusHeader } from '@/components/ui';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
+import { useProgress } from '@/store/useProgress';
+import { statsByItem, weakestItems, type Activity, type AttemptVerdict } from '@/store/progress.logic';
+import { content } from '@/services/content';
+
+// Le Rapport — the honest version. Every number here is a view over the attempt
+// log (progress.logic.ts); nothing is sampled or hardcoded. Before this the whole
+// screen was a fabrication, openly labelled "shown with sample data" (review
+// §feedback). It now says only what the log actually knows: how accurate the
+// learner has been, per drill, and which words they keep getting wrong.
 
 // Confidence ring — SVG circular progress (r=52 → circumference ≈ 326.7).
 function ConfidenceRing({ pct, score, label }: { pct: number; score: string; label: string }) {
@@ -51,16 +61,57 @@ export default function Feedback() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
-  const errorPhrases = ['un café allongé', 'je veux un croissant', 'le… euh… croissant'];
-  const errorTypes = T.errorTypes;
-  const skillVals = [74, 86, 68];
+  // Reactive: an attempt logged this session updates the report live.
+  const attempts = useProgress((s) => s.attempts);
+
+  const drillName = (act: Activity) => (T.drillNames as Record<string, string>)[act] ?? act;
+  const verdictColor = (v: AttemptVerdict) =>
+    v === 'good' ? t.accTx : v === 'close' ? t.txPrimary : t.danger;
+
+  const report = useMemo(() => {
+    const total = attempts.length;
+    const correct = attempts.filter((a) => a.correct).length;
+
+    // Accuracy per drill, in log order of first appearance, richest first.
+    const perDrill = new Map<Activity, { seen: number; correct: number }>();
+    for (const a of attempts) {
+      const cur = perDrill.get(a.activity) ?? { seen: 0, correct: 0 };
+      cur.seen += 1;
+      if (a.correct) cur.correct += 1;
+      perDrill.set(a.activity, cur);
+    }
+    const byDrill = [...perDrill.entries()]
+      .map(([activity, v]) => ({ activity, seen: v.seen, pct: Math.round((v.correct / v.seen) * 100) }))
+      .sort((a, b) => b.seen - a.seen);
+
+    // The review queue: weakest first, but only items not yet solid (a perfect
+    // item does not belong on a "to review" list).
+    const weak = weakestItems(attempts)
+      .filter((s) => s.ratio < 1 || !s.lastCorrect)
+      .slice(0, 6)
+      .map((s) => {
+        const item = content.item(s.itemId);
+        return {
+          itemId: s.itemId,
+          fr: item?.fr ?? s.lastExpected,
+          en: item?.en ?? '',
+          seen: s.seen,
+          correct: Math.round(s.ratio * s.seen),
+          lastVerdict: s.lastVerdict,
+        };
+      });
+
+    return { total, correct, accuracy: total ? correct / total : 0, byDrill, weak };
+  }, [attempts]);
+
+  const empty = report.total === 0;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <View style={{ paddingTop: insets.top }}>
         <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} />
       </View>
-      <ScrollView contentContainerStyle={{ paddingHorizontal: 26, paddingTop: 8, paddingBottom: insets.bottom + 40 }} showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={{ paddingHorizontal: 26, paddingTop: 8, paddingBottom: insets.bottom + 40, flexGrow: 1 }} showsVerticalScrollIndicator={false}>
         {/* Kicker + title */}
         <TX font="semi" role="meta" ls={2.8} color={t.txSubtle} style={{ marginBottom: 10 }}>
           {T.reportTag}
@@ -72,75 +123,107 @@ export default function Feedback() {
           {T.reportSub}
         </TX>
 
-        {/* Confidence ring + trajectory */}
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 24, marginBottom: 28 }}>
-          <ConfidenceRing pct={0.82} score="82" label={T.conf} />
-          <View style={{ flex: 1, gap: 10 }}>
-            <View style={{ alignSelf: 'flex-start', minHeight: 30, paddingVertical: 4, paddingHorizontal: 14, borderRadius: 15, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
-              <TX font="semi" role="label" color={t.accTx}>
-                {T.traj}
+        {empty ? (
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 20, paddingTop: 40 }}>
+            <TX font="serifI" size={26} role="display" center style={{ marginBottom: 10 }}>
+              {T.reportEmptyT}
+            </TX>
+            <TX role="bodySm" center lhMult={1.6} color={t.txMuted} style={{ maxWidth: 300, marginBottom: 30 }}>
+              {T.reportEmptyS}
+            </TX>
+            <Press onPress={() => router.replace('/home')} style={{ minHeight: 50, paddingVertical: 6, paddingHorizontal: 30, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+              <TX font="semi" role="body" color={t.accInk}>
+                {T.backFeed}
               </TX>
-            </View>
+            </Press>
           </View>
-        </View>
-
-        {/* Skill bars */}
-        <View style={{ gap: 14, marginBottom: 32 }}>
-          {T.skills.map((label, i) => (
-            <View key={i}>
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 7 }}>
-                <TX font="semi" role="label" ls={0.7}>
-                  {label}
+        ) : (
+          <>
+            {/* Accuracy ring + attempt tally */}
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 24, marginBottom: 30 }}>
+              <ConfidenceRing pct={report.accuracy} score={String(Math.round(report.accuracy * 100))} label={T.accuracyLabel} />
+              <View style={{ flex: 1, gap: 8 }}>
+                <TX font="serif" role="display" size={30} color={t.accTx}>
+                  {report.correct} / {report.total}
                 </TX>
                 <TX role="label" color={t.txMuted}>
-                  {skillVals[i]}
+                  {T.attemptsLabel.replace('{n}', String(report.total))}
                 </TX>
               </View>
-              <ProgressBar pct={skillVals[i]} height={3} />
             </View>
-          ))}
-        </View>
 
-        {/* To review */}
-        <TX font="serif" role="display" size={22} style={{ marginBottom: 14 }}>
-          {T.review}
-        </TX>
-        <View style={{ gap: 10, marginBottom: 30 }}>
-          {errorPhrases.map((phrase, i) => (
-            <View key={i} style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, padding: 15, paddingHorizontal: 17 }}>
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 7 }}>
-                <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx}>
-                  {errorTypes[i]}
+            {/* Accuracy by drill — real per-activity coverage */}
+            {report.byDrill.length ? (
+              <>
+                <TX font="semi" role="meta" ls={2.4} color={t.txSubtle} style={{ marginBottom: 14 }}>
+                  {T.byDrillT}
                 </TX>
-                <Press onPress={() => router.push('/chat')} style={{ paddingVertical: 2 }}>
-                  <TX font="semi" role="label" color={t.txSecondary} style={{ textDecorationLine: 'underline' }}>
-                    {T.why}
-                  </TX>
-                </Press>
-              </View>
-              <TX font="serifI" role="titleLg" size={19} style={{ marginBottom: 4 }}>
-                « {phrase} »
-              </TX>
-              <TX role="label" color={t.txMuted}>
-                {T.errorIssues[i]}
-              </TX>
-            </View>
-          ))}
-        </View>
+                <View style={{ gap: 14, marginBottom: 32 }}>
+                  {report.byDrill.map((d) => (
+                    <View key={d.activity}>
+                      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 7 }}>
+                        <TX font="semi" role="label" ls={0.7}>
+                          {drillName(d.activity)}
+                        </TX>
+                        <TX role="label" color={t.txMuted}>
+                          {d.pct}% · {T.attemptsLabel.replace('{n}', String(d.seen))}
+                        </TX>
+                      </View>
+                      <ProgressBar pct={d.pct} height={3} />
+                    </View>
+                  ))}
+                </View>
+              </>
+            ) : null}
 
-        {/* Actions */}
-        <View style={{ flexDirection: 'row', gap: 12 }}>
-          <Press onPress={() => router.push('/player')} style={{ flex: 1, minHeight: 52, paddingVertical: 6, borderRadius: 26, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="semi" role="body" color={t.txSecondary}>
-              {T.replay}
+            {/* To review — the weakest items, straight from the attempt log */}
+            <TX font="serif" role="display" size={22} style={{ marginBottom: 14 }}>
+              {T.review}
             </TX>
-          </Press>
-          <Press onPress={() => router.push('/chat')} style={{ flex: 1.4, minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-            <TX font="semi" role="body" color={t.accInk}>
-              {T.talk}
-            </TX>
-          </Press>
-        </View>
+            {report.weak.length ? (
+              <View style={{ gap: 10, marginBottom: 30 }}>
+                {report.weak.map((w) => (
+                  <View key={w.itemId} style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, padding: 15, paddingHorizontal: 17 }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
+                      <View style={{ flex: 1, minWidth: 0 }}>
+                        <TX font="serifI" role="titleLg" size={19} style={{ marginBottom: 3 }}>
+                          « {w.fr} »
+                        </TX>
+                        {w.en ? (
+                          <TX role="label" color={t.txMuted} numberOfLines={1}>
+                            {w.en}
+                          </TX>
+                        ) : null}
+                      </View>
+                      <View style={{ alignItems: 'flex-end', gap: 4 }}>
+                        <TX font="semi" role="label" color={verdictColor(w.lastVerdict)}>
+                          {w.correct}/{w.seen}
+                        </TX>
+                        <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: verdictColor(w.lastVerdict) }} />
+                      </View>
+                    </View>
+                  </View>
+                ))}
+              </View>
+            ) : (
+              <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), padding: 18, marginBottom: 30 }}>
+                <TX role="bodySm" color={t.txSecondary} lhMult={1.5}>
+                  {T.reviewNone}
+                </TX>
+              </View>
+            )}
+
+            {/* Action — practise the weak words for real (Voice Flash reads the
+                same corpus these items came from). */}
+            {report.weak.length ? (
+              <Press onPress={() => router.push('/voiceflash')} style={{ minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                <TX font="semi" role="body" color={t.accInk}>
+                  {T.practiceWeak}
+                </TX>
+              </Press>
+            ) : null}
+          </>
+        )}
       </ScrollView>
     </View>
   );

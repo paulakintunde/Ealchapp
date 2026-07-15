@@ -34,6 +34,10 @@ export type Strings = {
   reportTag: string; review: string; replay: string; talk: string;
   traj: string; conf: string;
   reportSub: string;
+  reportEmptyT: string; reportEmptyS: string;
+  accuracyLabel: string; byDrillT: string; reviewNone: string;
+  attemptsLabel: string; practiceWeak: string;
+  drillNames: { flashcards: string; voiceflash: string; dictation: string; sentence: string };
   hours: string; convs: string; minutes: string; days7: string;
   accentT: string; weakEngine: string;
   coachStatus: string; unlimited: string; placeholder: string;
@@ -59,6 +63,7 @@ export type Strings = {
   voiceT: string; voiceS: string; sbT: string; sbS: string; rpT: string; rpS: string;
   startQuiz: string; quizPassed: string; quizFailed: string; retry: string; qNext: string; backToDen: string;
   lessonDone: string; lessonSoon: string; builderTag: string; sbSkipSay: string;
+  denLearned: string;
   examplesT: string; tableT: string; errorsT: string; audioT: string; videoT: string; subsT: string;
   sayFr: string; transEn: string; orTypeT: string; checkT: string;
   correctT: string; incorrectT: string; nextCard: string; vfDoneT: string;
@@ -160,9 +165,15 @@ export const T: Record<Lang, Strings> = {
     micUnavail: 'Micro indisponible sur cette version. Comparez vous-même',
     micGood: 'Bien dit', micClose: 'Presque. Réessayez', micOff: 'Pas tout à fait',
     youSaid: 'UNE RÉPONSE MODÈLE — À DIRE À VOIX HAUTE', liaisonChip: 'Attention à la liaison · un‿allongé',
-    reportTag: 'EXEMPLE — VOTRE RAPPORT DU SOIR', review: 'À revoir', replay: 'Rejouer', talk: 'Parler au coach',
+    reportTag: 'VOTRE RAPPORT', review: 'À revoir', replay: 'Rejouer', talk: 'Parler au coach',
     traj: 'B1 → B1+ trajectoire', conf: 'CONFIANCE',
-    reportSub: "Un aperçu du rapport du soir, illustré avec des données d'exemple.",
+    reportSub: 'Bâti sur vos tentatives réelles, pas sur des exemples.',
+    reportEmptyT: "Rien à signaler pour l'instant",
+    reportEmptyS: "Terminez un exercice et votre rapport apparaît ici, bâti sur ce que vous avez vraiment dit et écrit.",
+    accuracyLabel: 'PRÉCISION', byDrillT: 'Par exercice',
+    reviewNone: "Rien à revoir pour l'instant. Vous les réussissez.",
+    attemptsLabel: '{n} tentatives', practiceWeak: 'Réviser ces mots',
+    drillNames: { flashcards: 'Cartes', voiceflash: 'Flash vocal', dictation: 'Dictée', sentence: 'Constructeur' },
     hours: 'HEURES PARLÉES', convs: 'CONVERSATIONS', minutes: 'Minutes parlées', days7: '7 DERNIERS JOURS',
     accentT: 'Votre accent', weakEngine: 'Le moteur de faiblesses',
     coachStatus: 'votre coach · en ligne', unlimited: 'POURQUOI ? · ILLIMITÉ', placeholder: 'Posez votre question…',
@@ -203,6 +214,7 @@ export const T: Record<Lang, Strings> = {
     voiceT: 'Flash vocal', voiceS: 'image → voix · traduction', sbT: 'Phrases', sbS: 'apprendre · dire · écrire', rpT: 'Jeu de rôle', rpS: 'conversation IA · A1 → B2',
     startQuiz: 'Commencer le quiz', quizPassed: 'RÉUSSI', quizFailed: 'Pas encore', retry: 'Réessayer', qNext: 'Suivant', backToDen: 'Retour au cursus',
     lessonDone: 'Terminer la leçon', lessonSoon: 'Leçon bientôt disponible', builderTag: 'CONSTRUCTEUR', sbSkipSay: 'Passer',
+    denLearned: '{n} / {m} appris',
     examplesT: 'Exemples & usages', tableT: 'Tableau', errorsT: 'Erreurs communes', audioT: 'Pratique audio', videoT: 'Vidéo — la bouche en 3D', subsT: 'Sous-leçons',
     sayFr: 'Dites-le en français', transEn: 'Traduisez en anglais', orTypeT: 'ou écrivez votre réponse', checkT: 'Vérifier',
     correctT: 'Correct !', incorrectT: 'Pas tout à fait : ', nextCard: 'Carte suivante', vfDoneT: 'Session terminée',
@@ -364,9 +376,15 @@ export const T: Record<Lang, Strings> = {
     micUnavail: 'Mic unavailable on this build. Compare it yourself',
     micGood: 'Well said', micClose: 'Close. Try again', micOff: 'Not quite',
     youSaid: 'A MODEL REPLY — SAY IT ALOUD', liaisonChip: 'Mind the liaison · un‿allongé',
-    reportTag: 'SAMPLE — YOUR EVENING REPORT', review: 'To review', replay: 'Replay', talk: 'Talk to the coach',
+    reportTag: 'YOUR REPORT', review: 'To review', replay: 'Replay', talk: 'Talk to the coach',
     traj: 'B1 → B1+ trajectory', conf: 'CONFIDENCE',
-    reportSub: 'A preview of the evening report, shown with sample data.',
+    reportSub: 'Built from your real attempts, not sample data.',
+    reportEmptyT: 'Nothing to report yet',
+    reportEmptyS: 'Finish a drill and your report appears here, built from what you actually said and typed.',
+    accuracyLabel: 'ACCURACY', byDrillT: 'By drill',
+    reviewNone: 'Nothing to review yet. You are getting these right.',
+    attemptsLabel: '{n} attempts', practiceWeak: 'Practice these words',
+    drillNames: { flashcards: 'Flashcards', voiceflash: 'Voice Flash', dictation: 'Dictation', sentence: 'Builder' },
     hours: 'HOURS SPOKEN', convs: 'CONVERSATIONS', minutes: 'Minutes spoken', days7: 'LAST 7 DAYS',
     accentT: 'Your accent', weakEngine: 'The weakness engine',
     coachStatus: 'your coach · online', unlimited: 'WHY? · UNLIMITED', placeholder: 'Ask your question…',
@@ -407,6 +425,7 @@ export const T: Record<Lang, Strings> = {
     voiceT: 'Voice Flash', voiceS: 'image → voice · translation', sbT: 'Sentences', sbS: 'learn · say · write', rpT: 'Role Play', rpS: 'AI conversation · A1 → B2',
     startQuiz: 'Start the quiz', quizPassed: 'PASSED', quizFailed: 'Not yet', retry: 'Retry', qNext: 'Next', backToDen: 'Back to curriculum',
     lessonDone: 'Finish the lesson', lessonSoon: 'Lesson coming soon', builderTag: 'BUILDER', sbSkipSay: 'Skip',
+    denLearned: '{n} / {m} learned',
     examplesT: 'Examples & use cases', tableT: 'Table', errorsT: 'Common errors', audioT: 'Audio practice', videoT: 'Video — the mouth in 3D', subsT: 'Sub-lessons',
     sayFr: 'Say it in French', transEn: 'Translate to English', orTypeT: 'or type your answer', checkT: 'Check',
     correctT: 'Correct!', incorrectT: 'Not quite: ', nextCard: 'Next card', vfDoneT: 'Session complete',
