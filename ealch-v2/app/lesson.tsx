@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -8,20 +8,19 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useStore } from '@/store/useStore';
 import { useSessionLog } from '@/store/useProgress';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts } from '@/services';
-import { lessons, type TableCell } from '@/content/lessons';
+import { content } from '@/services/content';
+import type { Lesson, LessonSection } from '@/content/schema';
 
-
-
-const NASAL_PADS = [
-  { sym: 'on', ipa: 'ɔ̃', word: 'bon' },
-  { sym: 'en', ipa: 'ɑ̃', word: 'vent' },
-  { sym: 'in', ipa: 'ɛ̃', word: 'vin' },
-  { sym: 'un', ipa: 'œ̃', word: 'un' },
-];
+// Callers written before the corpus used short keys; map them to the real ids so
+// existing links (home's weak-spots row, etc.) keep working until they're updated.
+const LEGACY: Record<string, string> = {
+  sons3: 'sons.03.l1',
+  a1_4: 'a1.04.l1',
+  a2_1: 'a2.01.l1',
+};
 
 function SectionLabel({ text, color }: { text: string; color: string }) {
   return (
@@ -29,6 +28,212 @@ function SectionLabel({ text, color }: { text: string; color: string }) {
       {text}
     </TX>
   );
+}
+
+/** Renders one typed lesson section. The quiz section is handled by the screen's
+ *  quiz phase, not here. */
+function SectionView({ s, onPlay, playingId }: { s: LessonSection; onPlay: (id: string, text: string) => void; playingId: string | null }) {
+  const t = useTheme();
+  const label = <SectionLabel text={s.title} color={s.type === 'commonErrors' ? t.danger : t.accTx} />;
+
+  switch (s.type) {
+    case 'teach':
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <TX role="body" color={t.txSecondary} lhMult={1.5}>
+            {s.body}
+          </TX>
+        </View>
+      );
+
+    case 'steps':
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <View style={{ gap: 10 }}>
+            {s.steps.map((step, i) => (
+              <View key={i} style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
+                <View style={{ width: 26, height: 26, borderRadius: 13, backgroundColor: t.accA(12), alignItems: 'center', justifyContent: 'center', marginTop: 1 }}>
+                  <TX font="serif" role="label" color={t.accTx}>{i + 1}</TX>
+                </View>
+                <TX role="body" color={t.txSecondary} lhMult={1.45} style={{ flex: 1 }}>{step}</TX>
+              </View>
+            ))}
+          </View>
+        </View>
+      );
+
+    case 'focus':
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <View style={{ gap: 8 }}>
+            {s.points.map((p, i) => (
+              <View key={i} style={{ flexDirection: 'row', gap: 10, alignItems: 'flex-start' }}>
+                <View style={{ width: 5, height: 5, borderRadius: 3, backgroundColor: t.acc, marginTop: 9 }} />
+                <TX role="body" color={t.txSecondary} lhMult={1.4} style={{ flex: 1 }}>{p}</TX>
+              </View>
+            ))}
+          </View>
+        </View>
+      );
+
+    case 'examples':
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <View style={{ gap: 10 }}>
+            {s.examples.map((ex, i) => (
+              <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 14, paddingHorizontal: 16 }}>
+                <TX font="serifI" role="titleLg" size={19} style={{ marginBottom: 4 }}>« {ex.fr} »</TX>
+                <TX role="label" color={t.txMuted}>{ex.en}</TX>
+                {ex.note ? <TX role="meta" color={t.txSubtle} style={{ marginTop: 6 }}>{ex.note}</TX> : null}
+              </View>
+            ))}
+          </View>
+        </View>
+      );
+
+    case 'useCases':
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <View style={{ gap: 10 }}>
+            {s.cases.map((c, i) => (
+              <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 14, paddingHorizontal: 16 }}>
+                <TX font="semi" role="meta" ls={1.4} color={t.txSubtle} style={{ marginBottom: 6 }}>{c.situation}</TX>
+                <TX font="serifI" role="titleLg" size={18} style={{ marginBottom: 3 }}>« {c.fr} »</TX>
+                <TX role="label" color={t.txMuted}>{c.en}</TX>
+              </View>
+            ))}
+          </View>
+        </View>
+      );
+
+    case 'hacks':
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <View style={{ gap: 10 }}>
+            {s.hacks.map((h, i) => (
+              <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), padding: 14, paddingHorizontal: 16 }}>
+                <TX font="semi" role="bodySm" style={{ marginBottom: 4 }}>{h.hack}</TX>
+                <TX role="label" color={t.txSecondary} lhMult={1.5}>{h.why}</TX>
+              </View>
+            ))}
+          </View>
+        </View>
+      );
+
+    case 'cheatSheet':
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 16, gap: 10 }}>
+            {s.rows.map((r, i) => (
+              <View key={i} style={{ flexDirection: 'row', gap: 12 }}>
+                <TX font="serif" role="bodySm" color={t.accTx} style={{ width: 90 }}>{r.k}</TX>
+                <TX role="bodySm" color={t.txSecondary} style={{ flex: 1 }}>{r.v}</TX>
+              </View>
+            ))}
+          </View>
+        </View>
+      );
+
+    case 'commonErrors':
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <View style={{ gap: 10 }}>
+            {s.errors.map((er, i) => (
+              <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.dangerA(25), backgroundColor: t.card, padding: 14, paddingHorizontal: 16 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 6, flexWrap: 'wrap' }}>
+                  <TX font="serifI" role="titleSm" color={t.danger} style={{ textDecorationLine: 'line-through' }}>{er.wrong}</TX>
+                  <Icon name="arrowRight" size={13} color={t.txNonText} strokeWidth={1.4} />
+                  <TX font="serifI" role="titleSm" color={t.accTx}>{er.right}</TX>
+                </View>
+                <TX role="label" color={t.txMuted}>{er.why}</TX>
+              </View>
+            ))}
+          </View>
+        </View>
+      );
+
+    case 'table':
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 16, gap: 10 }}>
+            <View style={{ flexDirection: 'row', gap: 12 }}>
+              {s.cols.map((c, ci) => (
+                <TX key={ci} font="semi" role="meta" ls={1.4} color={t.accTx} style={{ flex: 1 }}>{c}</TX>
+              ))}
+            </View>
+            {s.rows.map((row, ri) => (
+              <View key={ri} style={{ flexDirection: 'row', gap: 12 }}>
+                {row.map((cell, ci) => (
+                  <TX key={ci} role="bodySm" color={t.txSecondary} style={{ flex: 1 }}>{cell}</TX>
+                ))}
+              </View>
+            ))}
+          </View>
+        </View>
+      );
+
+    case 'audio':
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <View style={{ gap: 8 }}>
+            {s.lines.map((str, i) => {
+              const id = `${s.title}-${i}`;
+              const on = playingId === id;
+              return (
+                <Press key={i} cue={null} onPress={() => onPlay(id, str)} style={{ minHeight: 56, paddingVertical: 6, borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 15 }}>
+                  <View style={{ width: 32, height: 32, borderRadius: 16, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name="play" size={12} color={t.acc} />
+                  </View>
+                  <TX font="serifI" role="titleSm" style={{ flex: 1 }}>{str}</TX>
+                  <Waveform count={14} height={16} barWidth={2.5} gap={3} active={on} color={on ? t.acc : t.txNonText} />
+                </Press>
+              );
+            })}
+          </View>
+        </View>
+      );
+
+    case 'practice':
+      // itemIds resolved against the corpus; a tap speaks the French. The full
+      // drill wiring lands with the SRS phase.
+      return (
+        <View style={{ marginBottom: 26 }}>
+          {label}
+          <View style={{ gap: 8 }}>
+            {s.itemIds.map((id) => {
+              const it = content.item(id);
+              if (!it) return null;
+              const on = playingId === id;
+              return (
+                <Press key={id} cue={null} onPress={() => onPlay(id, it.fr)} style={{ minHeight: 52, paddingVertical: 6, borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 15 }}>
+                  <View style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: t.accA(12), alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name="speaker" size={14} color={t.acc} />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <TX font="serifI" role="titleSm">{it.fr}</TX>
+                    <TX role="meta" color={t.txMuted}>{it.en}</TX>
+                  </View>
+                  <Waveform count={10} height={14} barWidth={2.5} gap={3} active={on} color={on ? t.acc : t.txNonText} />
+                </Press>
+              );
+            })}
+          </View>
+        </View>
+      );
+
+    case 'quiz':
+      return null; // driven by the quiz phase
+  }
 }
 
 export default function LessonScreen() {
@@ -40,8 +245,10 @@ export default function LessonScreen() {
   const params = useLocalSearchParams<{ key?: string }>();
 
   const raw = Array.isArray(params.key) ? params.key[0] : params.key;
-  const key = raw && lessons[raw] ? raw : 'sons3';
-  const L = lessons[key];
+  const id = raw ? LEGACY[raw] ?? raw : '';
+  // Fall back to the first available lesson if the id is unknown, so a bad link
+  // shows real content rather than crashing.
+  const L: Lesson | null = content.lesson(id) ?? content.units('sons').flatMap((u) => content.lessonsOf(u.id))[0] ?? null;
 
   const logSession = useSessionLog();
 
@@ -49,31 +256,40 @@ export default function LessonScreen() {
   const [quizIx, setQuizIx] = useState(0);
   const [quizSel, setQuizSel] = useState<number | null>(null);
   const [quizScore, setQuizScore] = useState(0);
-  const [padOn, setPadOn] = useState<number | null>(null);
-  const [audioOn, setAudioOn] = useState<number | null>(null);
+  const [playingId, setPlayingId] = useState<string | null>(null);
 
-  const acc = T; // alias for readability of interface strings
+  useEffect(() => () => tts.stop(), []);
 
-  // Build table rows from the flat cell array.
-  const rows: TableCell[][] = [];
-  for (let i = 0; i < L.table.length; i += L.tableCols) rows.push(L.table.slice(i, i + L.tableCols));
+  if (!L) {
+    return (
+      <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
+        <FocusHeader onClose={() => router.back()} onSettings={() => router.push('/settings')} />
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30 }}>
+          <TX role="body" color={t.txMuted} center>{T.lessonSoon}</TX>
+        </View>
+      </View>
+    );
+  }
 
-  const playPad = (i: number, word: string) => {
-    sound.play('vowel');
-    tts.speak(word);
-    setPadOn(i);
-    setTimeout(() => setPadOn((p) => (p === i ? null : p)), 700);
-  };
+  const contentSections = L.sections.filter((s) => s.type !== 'quiz');
+  const quizSection = L.sections.find((s): s is Extract<LessonSection, { type: 'quiz' }> => s.type === 'quiz');
+  const quiz = quizSection?.questions ?? [];
+  const passMark = Math.ceil(quiz.length * 0.6);
 
-  const playAudio = (i: number, str: string) => {
+  const play = (pid: string, text: string) => {
     sound.play('flip');
-    tts.speak(str);
-    setAudioOn(i);
-    setTimeout(() => setAudioOn((a) => (a === i ? null : a)), 1600);
+    setPlayingId(pid);
+    tts.speak(text, { onDone: () => setPlayingId((p) => (p === pid ? null : p)), onError: () => setPlayingId((p) => (p === pid ? null : p)) });
   };
 
   const startQuiz = () => {
     sound.play('tap');
+    if (quiz.length === 0) {
+      // No quiz on this lesson: sitting the content is the completion.
+      logSession('lesson', 1);
+      router.back();
+      return;
+    }
     setPhase('quiz');
     setQuizIx(0);
     setQuizSel(null);
@@ -82,19 +298,18 @@ export default function LessonScreen() {
 
   const quizPick = (i: number) => {
     if (quizSel !== null) return;
-    const ok = i === L.quiz[quizIx].correct;
+    const ok = i === quiz[quizIx].correct;
     sound.play(ok ? 'success' : 'error');
     setQuizSel(i);
     if (ok) setQuizScore((s) => s + 1);
   };
 
   const quizNext = () => {
-    if (quizIx + 1 >= L.quiz.length) {
-      sound.play(quizScore >= 2 ? 'ding' : 'tap');
+    if (quizIx + 1 >= quiz.length) {
+      sound.play(quizScore >= passMark ? 'ding' : 'tap');
       setPhase('done');
-      // Logged on a fail too: the user sat the lesson and spent the minutes,
-      // and the streak is a record of showing up, not of scoring.
-      logSession('lesson', L.quiz.length);
+      // Logged on a fail too: the streak records showing up, not scoring.
+      logSession('lesson', quiz.length);
     } else {
       sound.play('tap');
       setQuizIx((q) => q + 1);
@@ -110,7 +325,7 @@ export default function LessonScreen() {
     setQuizScore(0);
   };
 
-  const pass = quizScore >= 2;
+  const pass = quizScore >= passMark;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -118,380 +333,61 @@ export default function LessonScreen() {
         <FocusHeader onClose={() => router.back()} onSettings={() => router.push('/settings')} title={L.tag} />
       </View>
 
-      <ScrollView
-        contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: insets.bottom + 50, paddingTop: 8 }}
-        showsVerticalScrollIndicator={false}
-      >
+      <ScrollView contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: insets.bottom + 50, paddingTop: 8 }} showsVerticalScrollIndicator={false}>
         {phase === 'content' ? (
           <View>
-            {/* Level chip */}
-            <View
-              style={{
-                alignSelf: 'flex-start',
-                minHeight: 24,
-                paddingVertical: 3,
-                paddingHorizontal: 11,
-                borderRadius: 12,
-                backgroundColor: t.accA(14),
-                justifyContent: 'center',
-                marginBottom: 12,
-              }}
-            >
-              <TX font="semi" role="meta" ls={1.2} color={t.accTx}>
-                {L.level}
-              </TX>
-            </View>
-
             <TX font="serif" size={36} role="display" style={{ marginBottom: 12 }}>
               {L.title}
             </TX>
-            <TX role="body" color={t.txSecondary} style={{ marginBottom: 26 }}>
+            <TX role="body" color={t.txSecondary} style={{ marginBottom: 26 }} lhMult={1.5}>
               {L.intro}
             </TX>
 
-            {/* Sub-lessons */}
-            {L.subs ? (
-              <View style={{ marginBottom: 26 }}>
-                <SectionLabel text={acc.subsT} color={t.accTx} />
-                <View style={{ gap: 8 }}>
-                  {L.subs.map((nm, i) => (
-                    <View
-                      key={i}
-                      style={{
-                        minHeight: 52,
-                        borderRadius: 14,
-                        borderWidth: 1,
-                        borderColor: t.line(8),
-                        backgroundColor: t.card,
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        gap: 12,
-                        paddingHorizontal: 15,
-                        paddingVertical: 10,
-                      }}
-                    >
-                      <View
-                        style={{
-                          width: 30,
-                          height: 30,
-                          borderRadius: 15,
-                          backgroundColor: t.accA(12),
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                        }}
-                      >
-                        <TX font="serif" role="label" color={t.accTx}>
-                          {'0' + (i + 1)}
-                        </TX>
-                      </View>
-                      <TX font="semi" role="bodySm" style={{ flex: 1 }}>
-                        {nm}
-                      </TX>
-                      {i === 0 ? (
-                        <TX font="bold" role="eyebrow" ls={1.4} color={t.accTx}>
-                          {T.lessonNow}
-                        </TX>
-                      ) : null}
-                    </View>
-                  ))}
-                </View>
-              </View>
-            ) : null}
+            {contentSections.map((s, i) => (
+              <SectionView key={i} s={s} onPlay={play} playingId={playingId} />
+            ))}
 
-            {/* Nasal sound pads */}
-            {L.unique === 'nasal' ? (
-              <View style={{ marginBottom: 26 }}>
-                <SectionLabel text={T.tapHear} color={t.accTx} />
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
-                  {NASAL_PADS.map((p, i) => {
-                    const on = padOn === i;
-                    return (
-                      <Press
-                        key={i}
-                        cue={null}
-                        onPress={() => playPad(i, p.word)}
-                        style={{
-                          width: '47.7%',
-                          minHeight: 96,
-                          paddingVertical: 8,
-                          borderRadius: 18,
-                          borderWidth: 1,
-                          borderColor: on ? t.acc : t.line(10),
-                          backgroundColor: on ? t.acc : t.card2,
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                        }}
-                      >
-                        <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
-                          <TX font="serifI" size={28} role="display" color={on ? t.accInk : t.txPrimary}>
-                            {p.sym}
-                          </TX>
-                          <TX role="bodyLg" color={on ? t.accInk : t.txMuted}>
-                            {p.ipa}
-                          </TX>
-                        </View>
-                        <TX font="serifI" role="meta" color={on ? t.accInk : t.txMuted} style={{ marginTop: 4 }}>
-                          {p.word}
-                        </TX>
-                      </Press>
-                    );
-                  })}
-                </View>
-              </View>
-            ) : null}
-
-            {/* Table */}
-            <SectionLabel text={acc.tableT} color={t.accTx} />
-            <View
-              style={{
-                borderRadius: 16,
-                borderWidth: 1,
-                borderColor: t.line(9),
-                backgroundColor: t.card,
-                padding: 16,
-                marginBottom: 26,
-                gap: 10,
-              }}
-            >
-              {rows.map((row, ri) => (
-                <View key={ri} style={{ flexDirection: 'row', gap: 12 }}>
-                  {row.map((c, ci) => (
-                    <View key={ci} style={{ flex: 1 }}>
-                      <TX
-                        font={c.h ? 'semi' : 'sans'}
-                        role={c.h ? 'meta' : 'bodySm'}
-                        ls={c.h ? 1.4 : 0}
-                        color={c.h ? t.accTx : t.txSecondary}
-                      >
-                        {c.v}
-                      </TX>
-                    </View>
-                  ))}
-                </View>
-              ))}
-            </View>
-
-            {/* Examples */}
-            <SectionLabel text={acc.examplesT} color={t.accTx} />
-            <View style={{ gap: 10, marginBottom: 26 }}>
-              {L.examples.map((ex, i) => (
-                <View
-                  key={i}
-                  style={{
-                    borderRadius: 14,
-                    borderWidth: 1,
-                    borderColor: t.line(8),
-                    backgroundColor: t.card,
-                    padding: 14,
-                    paddingHorizontal: 16,
-                  }}
-                >
-                  <TX font="serifI" role="titleLg" size={19} style={{ marginBottom: 4 }}>
-                    « {ex.fr} »
-                  </TX>
-                  <TX role="label" color={t.txMuted}>
-                    {ex.en}
-                  </TX>
-                </View>
-              ))}
-            </View>
-
-            {/* Video */}
-            {L.video ? (
-              <View style={{ marginBottom: 26 }}>
-                <SectionLabel text={acc.videoT} color={t.accTx} />
-                <View
-                  style={{
-                    aspectRatio: 16 / 9,
-                    borderRadius: 18,
-                    borderWidth: 1,
-                    borderColor: t.line(9),
-                    backgroundColor: t.card2,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: 10,
-                  }}
-                >
-                  <View
-                    style={{
-                      width: 56,
-                      height: 56,
-                      borderRadius: 28,
-                      backgroundColor: t.acc,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <Icon name="play" size={18} color={t.accInk} />
-                  </View>
-                  <TX role="meta" ls={1.4} color={t.txSubtle}>
-                    2:14 · ɔ̃ · ɑ̃ · ɛ̃ · œ̃
-                  </TX>
-                </View>
-              </View>
-            ) : null}
-
-            {/* Audio practice */}
-            <SectionLabel text={acc.audioT} color={t.accTx} />
-            <View style={{ gap: 8, marginBottom: 26 }}>
-              {L.audio.map((str, i) => {
-                const on = audioOn === i;
-                return (
-                  <Press
-                    key={i}
-                    cue={null}
-                    onPress={() => playAudio(i, str)}
-                    style={{
-                      minHeight: 56,
-                      paddingVertical: 6,
-                      borderRadius: 14,
-                      borderWidth: 1,
-                      borderColor: t.line(8),
-                      backgroundColor: t.card,
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      gap: 13,
-                      paddingHorizontal: 15,
-                    }}
-                  >
-                    <View
-                      style={{
-                        width: 32,
-                        height: 32,
-                        borderRadius: 16,
-                        backgroundColor: t.accA(14),
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      <Icon name="play" size={12} color={t.acc} />
-                    </View>
-                    <TX font="serifI" role="titleSm" style={{ flex: 1 }}>
-                      {str}
-                    </TX>
-                    <Waveform count={14} height={16} barWidth={2.5} gap={3} active={on} color={on ? t.acc : t.txNonText} />
-                  </Press>
-                );
-              })}
-            </View>
-
-            {/* Common errors */}
-            <SectionLabel text={acc.errorsT} color={t.danger} />
-            <View style={{ gap: 10, marginBottom: 30 }}>
-              {L.errors.map((er, i) => (
-                <View
-                  key={i}
-                  style={{
-                    borderRadius: 14,
-                    borderWidth: 1,
-                    borderColor: t.dangerA(25),
-                    backgroundColor: t.card,
-                    padding: 14,
-                    paddingHorizontal: 16,
-                  }}
-                >
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 6, flexWrap: 'wrap' }}>
-                    <TX font="serifI" role="titleSm" color={t.danger} style={{ textDecorationLine: 'line-through' }}>
-                      {er.wrong}
-                    </TX>
-                    <Icon name="arrowRight" size={13} color={t.txNonText} strokeWidth={1.4} />
-                    <TX font="serifI" role="titleSm" color={t.accTx}>
-                      {er.right}
-                    </TX>
-                  </View>
-                  <TX role="label" color={t.txMuted}>
-                    {er.why}
-                  </TX>
-                </View>
-              ))}
-            </View>
-
-            {/* Start quiz */}
-            <Press
-              cue={null}
-              onPress={startQuiz}
-              style={{
-                minHeight: 56,
-                paddingVertical: 6,
-                borderRadius: 28,
-                backgroundColor: t.acc,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
+            <Press cue={null} onPress={startQuiz} style={{ minHeight: 56, paddingVertical: 6, borderRadius: 28, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="bodyLg" color={t.accInk}>
-                {acc.startQuiz}
+                {quiz.length > 0 ? T.startQuiz : T.lessonDone}
               </TX>
             </Press>
           </View>
         ) : null}
 
-        {phase === 'quiz' ? (
+        {phase === 'quiz' && quiz.length > 0 ? (
           <View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 18 }}>
-              <TX font="semi" role="meta" ls={2.6} color={t.accTx}>
-                QUIZ
-              </TX>
-              <TX role="label" color={t.txMuted}>
-                {quizIx + 1} / {L.quiz.length}
-              </TX>
+              <TX font="semi" role="meta" ls={2.6} color={t.accTx}>QUIZ</TX>
+              <TX role="label" color={t.txMuted}>{quizIx + 1} / {quiz.length}</TX>
             </View>
             <TX font="serif" size={26} role="display" lhMult={1.27} style={{ marginBottom: 24, minHeight: 66 }}>
-              {L.quiz[quizIx].q}
+              {quiz[quizIx].q}
             </TX>
-            <View style={{ gap: 10, marginBottom: 24 }}>
-              {L.quiz[quizIx].opts.map((o, i) => {
+            <View style={{ gap: 10, marginBottom: 18 }}>
+              {quiz[quizIx].opts.map((o, i) => {
                 const answered = quizSel !== null;
-                const isCorrect = i === L.quiz[quizIx].correct;
+                const isCorrect = i === quiz[quizIx].correct;
                 const isSel = quizSel === i;
-                const border = answered
-                  ? isCorrect
-                    ? t.acc
-                    : isSel
-                      ? t.danger
-                      : t.line(9)
-                  : t.line(9);
+                const border = answered ? (isCorrect ? t.acc : isSel ? t.danger : t.line(9)) : t.line(9);
                 const bg = answered && isCorrect ? t.accA(10) : answered && isSel && !isCorrect ? t.dangerA(10) : t.card;
                 const color = answered && isSel && !isCorrect ? t.danger : t.txPrimary;
                 return (
-                  <Press
-                    key={i}
-                    cue={null}
-                    onPress={() => quizPick(i)}
-                    style={{
-                      minHeight: 58,
-                      borderRadius: 16,
-                      borderWidth: 1.5,
-                      borderColor: border,
-                      backgroundColor: bg,
-                      justifyContent: 'center',
-                      paddingHorizontal: 18,
-                      paddingVertical: 12,
-                    }}
-                  >
-                    <TX font="med" role="bodyLg" color={color}>
-                      {o}
-                    </TX>
+                  <Press key={i} cue={null} onPress={() => quizPick(i)} style={{ minHeight: 58, borderRadius: 16, borderWidth: 1.5, borderColor: border, backgroundColor: bg, justifyContent: 'center', paddingHorizontal: 18, paddingVertical: 12 }}>
+                    <TX font="med" role="bodyLg" color={color}>{o}</TX>
                   </Press>
                 );
               })}
             </View>
+            {/* Explain the answer when the content provides one. */}
+            {quizSel !== null && quiz[quizIx].why ? (
+              <View style={{ borderRadius: 14, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), padding: 14, marginBottom: 18 }}>
+                <TX role="label" color={t.txSecondary} lhMult={1.5}>{quiz[quizIx].why}</TX>
+              </View>
+            ) : null}
             {quizSel !== null ? (
-              <Press
-                cue={null}
-                onPress={quizNext}
-                style={{
-                  minHeight: 52,
-                  paddingVertical: 6,
-                  borderRadius: 26,
-                  backgroundColor: t.acc,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <TX font="semi" role="body" color={t.accInk}>
-                  {acc.qNext}
-                </TX>
+              <Press cue={null} onPress={quizNext} style={{ minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                <TX font="semi" role="body" color={t.accInk}>{T.qNext}</TX>
               </Press>
             ) : null}
           </View>
@@ -500,59 +396,23 @@ export default function LessonScreen() {
         {phase === 'done' ? (
           <View style={{ alignItems: 'center', paddingTop: 60 }}>
             {pass ? (
-              <Badge
-                label={acc.quizPassed}
-                color={t.acc}
-                bg="transparent"
-                style={{
-                  minHeight: 34,
-                  paddingVertical: 6,
-                  paddingHorizontal: 18,
-                  borderRadius: 17,
-                  borderWidth: 1.5,
-                  borderColor: t.acc,
-                  justifyContent: 'center',
-                  marginBottom: 20,
-                  transform: [{ rotate: '-3deg' }],
-                }}
-              />
+              <Badge label={T.quizPassed} color={t.acc} bg="transparent" style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 18, borderRadius: 17, borderWidth: 1.5, borderColor: t.acc, justifyContent: 'center', marginBottom: 20, transform: [{ rotate: '-3deg' }] }} />
             ) : (
-              <TX font="semi" role="label" ls={2} color={t.txMuted} style={{ marginBottom: 20 }}>
-                {acc.quizFailed}
-              </TX>
+              <TX font="semi" role="label" ls={2} color={t.txMuted} style={{ marginBottom: 20 }}>{T.quizFailed}</TX>
             )}
             <TX font="serif" size={64} role="display" color={t.accTx}>
-              {quizScore} / {L.quiz.length}
+              {quizScore} / {quiz.length}
             </TX>
             <TX font="serifI" size={24} role="display" style={{ marginTop: 12, marginBottom: 34 }}>
               {L.title}
             </TX>
             {pass ? (
-              <Press
-                cue={null}
-                onPress={() => {
-                  sound.play('tap');
-                  router.back();
-                }}
-                style={{
-                  minHeight: 52,
-                  paddingVertical: 6,
-                  paddingHorizontal: 34,
-                  borderRadius: 26,
-                  backgroundColor: t.acc,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <TX font="semi" role="body" color={t.accInk}>
-                  {acc.backToDen}
-                </TX>
+              <Press cue={null} onPress={() => { sound.play('tap'); router.back(); }} style={{ minHeight: 52, paddingVertical: 6, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                <TX font="semi" role="body" color={t.accInk}>{T.backToDen}</TX>
               </Press>
             ) : null}
             <Press cue={null} onPress={retry} style={{ marginTop: 16 }}>
-              <TX role="bodySm" color={t.txMuted}>
-                {acc.retry}
-              </TX>
+              <TX role="bodySm" color={t.txMuted}>{T.retry}</TX>
             </Press>
           </View>
         ) : null}
