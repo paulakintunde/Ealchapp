@@ -6,6 +6,14 @@ import { getConfig } from './config';
 
 let speaking = false;
 
+// Android's TextToSpeech service can be transiently "not bound": right after the
+// app process starts, and again whenever the OS reclaims the idle bound service.
+// The FIRST speak in that state fails silently — no audio, and not even a
+// reliable onError. The Coach screen is the most exposed caller because it
+// speaks the instant it mounts, before the engine has (re)bound. So a speak that
+// never actually starts is retried once; by the retry the engine has bound.
+const START_GRACE_MS = 450;
+
 export const tts = {
   isSpeaking: () => speaking,
 
@@ -16,6 +24,8 @@ export const tts = {
    * playback (Dictation's 3-play budget) must be able to tell "it played" from
    * "there was no voice and nothing was heard". Callers that don't care can pass
    * only `onDone` and still get called on completion; `onError` defaults to it.
+   *
+   * `onDone`/`onError` fire exactly once, even across the internal retry.
    */
   async speak(
     text: string,
@@ -29,29 +39,75 @@ export const tts = {
       // Remote synthesis path is wired for production; device speech is used as
       // the guaranteed fallback here so playback always works.
     }
+    const done = opts.onDone;
     const fail = opts.onError ?? opts.onDone;
-    try {
-      Speech.stop();
-      speaking = true;
-      Speech.speak(text, {
-        language: 'fr-FR',
-        rate: opts.slow ? 0.7 : 0.95,
-        onDone: () => {
-          speaking = false;
-          opts.onDone?.();
-        },
-        onStopped: () => {
-          speaking = false;
-        },
-        onError: () => {
-          speaking = false;
-          fail?.();
-        },
-      });
-    } catch {
+
+    // Guarantee the callbacks fire once, regardless of how many native attempts
+    // it takes (or which of onStart/onError/timeout wins the race).
+    let settled = false;
+    const finishOk = () => {
+      if (settled) return;
+      settled = true;
+      speaking = false;
+      done?.();
+    };
+    const finishFail = () => {
+      if (settled) return;
+      settled = true;
       speaking = false;
       fail?.();
-    }
+    };
+
+    const attempt = (retriesLeft: number) => {
+      let started = false;
+      try {
+        Speech.stop();
+      } catch {
+        // Stopping an unbound engine is a no-op warning; ignore it.
+      }
+      speaking = true;
+      try {
+        Speech.speak(text, {
+          language: 'fr-FR',
+          rate: opts.slow ? 0.7 : 0.95,
+          onStart: () => {
+            started = true;
+          },
+          onDone: finishOk,
+          onStopped: () => {
+            // A deliberate stop() (e.g. leaving the screen) is not a failure and
+            // not a completion — just clear the flag.
+            speaking = false;
+          },
+          onError: () => {
+            if (retriesLeft > 0) attempt(retriesLeft - 1);
+            else finishFail();
+          },
+        });
+      } catch {
+        if (retriesLeft > 0) attempt(retriesLeft - 1);
+        else finishFail();
+        return;
+      }
+
+      // The "not bound" failure often produces neither onStart nor onError, so
+      // detect a silent no-start: if nothing is speaking after a grace window,
+      // retry once (the engine has bound by then).
+      if (retriesLeft > 0) {
+        setTimeout(async () => {
+          if (started || settled) return;
+          let isSpeaking = false;
+          try {
+            isSpeaking = await Speech.isSpeakingAsync();
+          } catch {
+            // ignore — treat as not speaking
+          }
+          if (!started && !settled && !isSpeaking) attempt(retriesLeft - 1);
+        }, START_GRACE_MS);
+      }
+    };
+
+    attempt(1);
   },
 
   stop() {
