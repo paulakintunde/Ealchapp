@@ -116,3 +116,28 @@ export function verdictFor(score: number): Verdict {
   if (score >= 0.55) return 'close';
   return 'off';
 }
+
+/**
+ * Exact-answer matching for TYPED input (Voice Flash, and any drill that types a
+ * short target word or phrase). This is not fuzzy like scoreUtterance — typing
+ * has no recognizer noise, so it demands the exact significant words.
+ *
+ * Articles carry no meaning for the match, so they are dropped: "café" and "un
+ * café" both satisfy "un café". But every OTHER word must line up exactly — the
+ * significant-word SETS must be equal — so "je voudrais un café to go" does NOT
+ * match "un café". This replaces a `typed.includes(headword)` check that scored
+ * any string containing the headword as correct.
+ */
+const ARTICLES = new Set(['un', 'une', 'le', 'la', 'les', 'l', 'des', 'du', 'de', 'd', 'a', 'an', 'the']);
+
+export function significantWords(s: string): Set<string> {
+  return new Set(tokens(normalizeFr(s)).filter((w) => !ARTICLES.has(w)));
+}
+
+export function answerMatches(target: string, typed: string): boolean {
+  const want = significantWords(target);
+  const got = significantWords(typed);
+  if (want.size === 0 || want.size !== got.size) return false;
+  for (const w of want) if (!got.has(w)) return false;
+  return true;
+}

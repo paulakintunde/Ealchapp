@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { TextInput, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
@@ -9,20 +9,22 @@ import { Icon, type IconName } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useStore } from '@/store/useStore';
 import { useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
-import { vfItems, type VfIcon } from '@/content';
+import { content } from '@/services/content';
+import { answerMatches } from '@/utils/score';
 
-const ICON_MAP: Record<VfIcon, IconName> = {
-  cup: 'cup',
-  house: 'house',
-  book: 'vfBook',
-  sun: 'vfSun',
-  car: 'car',
-};
-
-
+// The corpus carries no per-item icon (it is app chrome, not content), so derive
+// one from the French word, with a neutral fallback for future vocab.
+function iconFor(fr: string): IconName {
+  const n = fr.toLowerCase();
+  if (n.includes('café')) return 'cup';
+  if (n.includes('maison')) return 'house';
+  if (n.includes('livre')) return 'vfBook';
+  if (n.includes('soleil')) return 'vfSun';
+  if (n.includes('voiture')) return 'car';
+  return 'vfBook';
+}
 
 type Phase = 'ask' | 'listening' | 'result';
 
@@ -44,9 +46,22 @@ export default function VoiceFlash() {
   const [promptOn, setPromptOn] = useState(false);
   const promptTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const total = vfItems.length;
+  // Items now come from the corpus, snapshotted at mount.
+  const items = useMemo(() => content.itemsFor('voiceflash'), []);
+
+  // Leaving mid-drill must not leave the recognizer listening, TTS speaking, or
+  // the prompt timer firing setState after unmount.
+  useEffect(() => {
+    return () => {
+      if (promptTimer.current) clearTimeout(promptTimer.current);
+      stt.abort();
+      tts.stop();
+    };
+  }, []);
+
+  const total = items.length;
   const finished = vfIx >= total;
-  const item = vfItems[Math.min(vfIx, total - 1)];
+  const item = items[Math.min(vfIx, total - 1)];
   const vfIsFr = vfIx % 2 === 0;
 
   const playPrompt = () => {
@@ -102,8 +117,10 @@ export default function VoiceFlash() {
 
   const vfCheck = () => {
     if (!vfTyped.trim()) return;
-    const key = (vfIsFr ? item.key : item.keyEn).toLowerCase();
-    const ok = vfTyped.toLowerCase().includes(key);
+    // Match against the same target the mic scores against — the full word/phrase,
+    // article-insensitive but junk-rejecting.
+    const target = vfIsFr ? item.fr : item.en;
+    const ok = answerMatches(target, vfTyped);
     sound.play(ok ? 'success' : 'error');
     setVfCorrect(ok);
     if (ok) setVfScore((v) => v + 1);
@@ -212,7 +229,7 @@ export default function VoiceFlash() {
                     marginBottom: 16,
                   }}
                 >
-                  <Icon name={ICON_MAP[item.icon]} size={72} color={t.acc} />
+                  <Icon name={iconFor(item.fr)} size={72} color={t.acc} />
                 </View>
               ) : null}
               <TX font="serifI" size={30} role="display" center style={{ marginBottom: 12 }}>

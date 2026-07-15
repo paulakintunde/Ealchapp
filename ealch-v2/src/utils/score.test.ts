@@ -1,7 +1,7 @@
 // Utterance-scoring guard. Runs on plain Node: npm run test.
 import { strictEqual, ok } from 'node:assert';
 import { test } from 'node:test';
-import { normalizeFr, levenshtein, wordCoverage, scoreUtterance, verdictFor } from './score.ts';
+import { normalizeFr, levenshtein, wordCoverage, scoreUtterance, verdictFor, answerMatches } from './score.ts';
 
 test('normalizeFr strips diacritics, elisions and punctuation', () => {
   strictEqual(normalizeFr('« Bonjour, j’apprends le français ! »'), 'bonjour j apprends le francais');
@@ -66,4 +66,19 @@ test('verdictFor thresholds', () => {
   strictEqual(verdictFor(0.55), 'close');
   strictEqual(verdictFor(0.54), 'off');
   strictEqual(verdictFor(0), 'off');
+});
+
+test('answerMatches is article- and accent-insensitive but rejects extra words', () => {
+  // The exact case Voice Flash's typed check must get right.
+  ok(answerMatches('un café', 'un café'));
+  ok(answerMatches('un café', 'café')); // article dropped
+  ok(answerMatches('un café', 'un cafe')); // accent folded
+  ok(answerMatches('a house', 'house'));
+  ok(answerMatches('le soleil', 'Soleil')); // case folded
+  // The reported bug: a string that merely CONTAINS the headword is NOT a match.
+  ok(!answerMatches('un café', 'je voudrais un café to go'));
+  ok(!answerMatches('un café', 'un thé')); // wrong noun
+  ok(!answerMatches('a house', 'a car'));
+  ok(!answerMatches('a house', 'ahouse')); // missing space is not a match
+  ok(!answerMatches('un café', '')); // empty
 });
