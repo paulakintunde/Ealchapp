@@ -8,7 +8,7 @@ import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
-import { sound, coach, type CoachMessage } from '@/services';
+import { sound, coach, stt, type CoachMessage } from '@/services';
 import { formatTime } from '@/utils/time';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 
@@ -69,7 +69,29 @@ export default function Chat() {
   const [draft, setDraft] = useState('');
   // Unknown until the first exchange tells us whether the backend answered.
   const [coachState, setCoachState] = useState<CoachState>('idle');
+  const [listening, setListening] = useState(false);
   const scrollRef = useRef<ScrollView>(null);
+
+  useEffect(() => () => stt.abort(), []);
+
+  // Speak instead of type: the recognizer fills the draft (in the app's
+  // language) so the user can read it back and edit before sending. Tap again
+  // to stop early.
+  const micTap = async () => {
+    if (listening) {
+      stt.stop();
+      return;
+    }
+    sound.play('tap');
+    setListening(true);
+    const res = await stt.listen('', {
+      lang: lang === 'fr' ? 'fr-FR' : 'en-US',
+      maxMs: 8000,
+      onPartial: setDraft,
+    });
+    setListening(false);
+    if (res.ok && res.transcript) setDraft(res.transcript);
+  };
 
   const send = async (raw: string) => {
     const text = raw.trim();
@@ -190,6 +212,14 @@ export default function Chat() {
           returnKeyType="send"
           style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.input, color: t.tx, paddingHorizontal: 18, fontSize: 14 }}
         />
+        {/* Speak instead of type */}
+        <Press
+          onPress={micTap}
+          accessibilityLabel={T.placeholder}
+          style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: listening ? t.acc : t.card2, borderWidth: 1, borderColor: listening ? t.acc : t.line(12), alignItems: 'center', justifyContent: 'center' }}
+        >
+          <Icon name="mic" size={18} color={listening ? t.accInk : t.txNonText} strokeWidth={1.8} />
+        </Press>
         <Press onPress={() => send(draft)} style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
           <Icon name="arrowRight" size={16} color={t.accInk} strokeWidth={1.8} />
         </Press>
