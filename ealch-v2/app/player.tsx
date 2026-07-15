@@ -13,6 +13,7 @@ import { useT } from '@/i18n/useT';
 import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
+import { SpeedPicker } from '@/components/SpeedPicker';
 
 // An honest LISTENING pass over real corpus phrases, spoken by device TTS.
 //
@@ -36,10 +37,18 @@ export default function Player() {
 
   const [ix, setIx] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [slow, setSlow] = useState(false);
-  // The async TTS callbacks must read live play state, not a stale closure.
+  const [speed, setSpeed] = useState(1);
+  // The async TTS callbacks must read live play state and speed, not a stale
+  // closure — so changing speed mid-listen applies from the next line.
   const playingRef = useRef(false);
+  const speedRef = useRef(1);
   const logged = useRef(false);
+
+  const setSpeedLive = (v: number) => {
+    sound.play('tap');
+    speedRef.current = v;
+    setSpeed(v);
+  };
 
   const cur = lines[Math.min(ix, Math.max(0, total - 1))];
 
@@ -57,7 +66,7 @@ export default function Player() {
     const item = lines[i];
     if (!item) return;
     tts.speak(item.fr, {
-      slow,
+      rate: speedRef.current,
       onDone: () => {
         if (!playingRef.current) return;
         if (i + 1 < total) {
@@ -100,12 +109,18 @@ export default function Player() {
     setIx(next);
     tts.stop();
     if (playingRef.current) speakLine(next);
-    else tts.speak(lines[next]?.fr ?? '', { slow });
+    else tts.speak(lines[next]?.fr ?? '', { rate: speedRef.current });
   };
 
-  const toggleSlow = () => {
+  // Back to the first phrase and play from the top.
+  const restart = () => {
     sound.play('tap');
-    setSlow((s) => !s);
+    tts.stop();
+    logged.current = false;
+    setIx(0);
+    playingRef.current = true;
+    setPlaying(true);
+    speakLine(0);
   };
 
   if (total === 0 || !cur) {
@@ -177,15 +192,17 @@ export default function Player() {
           </Press>
         </View>
 
-        {/* Slow — a real rate the TTS honours */}
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 'auto' }}>
+        {/* Speed + restart — every control here is real (rate reaches the TTS) */}
+        <View style={{ marginBottom: 'auto', gap: 12 }}>
+          <SpeedPicker value={speed} onChange={setSpeedLive} />
           <Press
-            onPress={toggleSlow}
+            onPress={restart}
             cue={null}
-            style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 17, borderWidth: 1, borderColor: slow ? t.acc : t.line(14), backgroundColor: slow ? t.accA(12) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
+            style={{ alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 36, paddingVertical: 6, paddingHorizontal: 18, borderRadius: 18, borderWidth: 1, borderColor: t.line(14) }}
           >
-            <TX font="semi" role="label" color={slow ? t.accTx : t.txSecondary}>
-              {T.slow}
+            <Icon name="restart" size={15} color={t.txSecondary} strokeWidth={1.8} />
+            <TX font="semi" role="label" color={t.txSecondary}>
+              {T.restart}
             </TX>
           </Press>
         </View>

@@ -28,6 +28,7 @@ export type IconName =
   | 'wifi'
   | 'card'
   | 'speaker'
+  | 'restart'
   | 'skipBack'
   | 'skipForward'
   | 'book'
@@ -80,6 +81,7 @@ const ICONS: Record<IconName, Spec> = {
   wifi: { vb: 24, stroke: ['M2 9a15 15 0 0 1 20 0', 'M5 12.5a10 10 0 0 1 14 0', 'M8.5 16a5 5 0 0 1 7 0'], fill: ['M12 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'] },
   card: { vb: 24, stroke: ['M3 6h18v12H3z', 'M3 10h18'] },
   speaker: { vb: 24, stroke: ['M4 9v6h4l5 4V5L8 9H4z', 'M17 8a5 5 0 0 1 0 8'] },
+  restart: { vb: 24, stroke: ['M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6'] },
   skipBack: { vb: 24, fill: ['M18 6v12l-8-6z'], stroke: ['M6 6v12'] },
   skipForward: { vb: 24, fill: ['M6 6v12l8-6z'], stroke: ['M18 6v12'] },
   book: { vb: 24, stroke: ['M4 5c3-1 6-1 8 1 2-2 5-2 8-1v13c-3-1-6-1-8 1-2-2-5-2-8-1V5z', 'M12 6v13'] },

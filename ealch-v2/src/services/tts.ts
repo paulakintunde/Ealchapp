@@ -29,7 +29,7 @@ export const tts = {
    */
   async speak(
     text: string,
-    opts: { slow?: boolean; onDone?: () => void; onError?: () => void } = {}
+    opts: { slow?: boolean; rate?: number; onDone?: () => void; onError?: () => void } = {}
   ): Promise<void> {
     const provider = getConfig().ttsProvider;
     // For device (default) we use expo-speech directly. Remote providers would
@@ -69,7 +69,9 @@ export const tts = {
       try {
         Speech.speak(text, {
           language: 'fr-FR',
-          rate: opts.slow ? 0.7 : 0.95,
+          // Explicit rate wins (the player/dictation speed pickers set it, where
+          // 1.0 is the engine's normal speed); `slow` is the legacy shortcut.
+          rate: opts.rate ?? (opts.slow ? 0.7 : 0.95),
           onStart: () => {
             started = true;
           },

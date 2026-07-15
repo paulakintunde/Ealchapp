@@ -14,6 +14,7 @@ import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
 import { accentKeys, normDict } from '@/content/drills';
+import { SpeedPicker } from '@/components/SpeedPicker';
 import { F } from '@/theme/fonts';
 
 export default function Dictation() {
@@ -37,7 +38,7 @@ export default function Dictation() {
   const [dcScore, setDcScore] = useState(0);
   const [dcDone, setDcDone] = useState(false);
   const [dcPlays, setDcPlays] = useState(3);
-  const [dcSlow, setDcSlow] = useState(false);
+  const [dcSpeed, setDcSpeed] = useState(1);
   const [dcSpeaking, setDcSpeaking] = useState(false);
   // Track the caret so an accent key inserts where the cursor is, not at the end.
   const [sel, setSel] = useState({ start: 0, end: 0 });
@@ -72,18 +73,13 @@ export default function Dictation() {
     // French voice, expo-speech fires onError and the play is refunded — the
     // learner is never charged three plays for hearing nothing (review §dictation).
     tts.speak(d.fr, {
-      slow: dcSlow,
+      rate: dcSpeed,
       onDone: () => {
         setDcSpeaking(false);
         setDcPlays((p) => p - 1);
       },
       onError: () => setDcSpeaking(false),
     });
-  };
-
-  const toggleSlow = () => {
-    sound.play('tap');
-    setDcSlow((s) => !s);
   };
 
   const onSelChange = (e: NativeSyntheticEvent<TextInputSelectionChangeEventData>) =>
@@ -273,25 +269,11 @@ export default function Dictation() {
                   {playsLeft}
                 </TX>
               </View>
-              <Press
-                onPress={toggleSlow}
-                cue={null}
-                style={{
-                  minHeight: 30,
-                  paddingVertical: 4,
-                  paddingHorizontal: 12,
-                  borderRadius: 15,
-                  borderWidth: 1,
-                  borderColor: dcSlow ? t.acc : t.line(14),
-                  backgroundColor: dcSlow ? t.accA(12) : 'transparent',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <TX font="bold" role="meta" color={dcSlow ? t.accTx : t.txMuted}>
-                  {T.slow}
-                </TX>
-              </Press>
+            </View>
+
+            {/* Playback speed — from 0.25× for catching every sound to 1.5× */}
+            <View style={{ marginBottom: 14 }}>
+              <SpeedPicker value={dcSpeed} onChange={(v) => { sound.play('tap'); setDcSpeed(v); }} />
             </View>
 
             {/* Answer box */}

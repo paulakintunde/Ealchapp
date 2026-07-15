@@ -139,7 +139,7 @@ export type Strings = {
   denBanT: string; denBanS: string; subLessonsWord: string;
   lessonNow: string; tapHear: string;
   playerPlaylist: string; rpLevelNote: string; repeatWord: string;
-  playerListen: string; playerNow: string; playerEmpty: string;
+  playerListen: string; playerNow: string; playerEmpty: string; restart: string;
   speakScene: string; speakRepeat: string; vfTitle: string;
   chatRetry: string;
   chatSuggs: { label: string; msg: string }[];
@@ -346,7 +346,7 @@ export const T: Record<Lang, Strings> = {
     subLessonsWord: 'sous-leçons',
     lessonNow: 'EN COURS', tapHear: 'Touchez pour entendre',
     playerPlaylist: 'PRONONCIATION EN PROFONDEUR',
-    playerListen: 'Écoute', playerNow: 'EN LECTURE', playerEmpty: 'Rien à écouter pour le moment.',
+    playerListen: 'Écoute', playerNow: 'EN LECTURE', playerEmpty: 'Rien à écouter pour le moment.', restart: 'Recommencer',
     rpLevelNote: 'La complexité de la conversation s’adapte au niveau choisi.',
     repeatWord: 'Répétez',
     speakScene: 'RÉEL — AU CAFÉ', speakRepeat: 'Répétez la phrase de Camille', vfTitle: 'FLASH VOCAL',
@@ -575,7 +575,7 @@ export const T: Record<Lang, Strings> = {
     subLessonsWord: 'sub-lessons',
     lessonNow: 'NOW', tapHear: 'Tap to hear',
     playerPlaylist: 'PRONUNCIATION DEEP-DIVES',
-    playerListen: 'Listen', playerNow: 'NOW PLAYING', playerEmpty: 'Nothing to listen to yet.',
+    playerListen: 'Listen', playerNow: 'NOW PLAYING', playerEmpty: 'Nothing to listen to yet.', restart: 'Restart',
     rpLevelNote: 'The conversation complexity changes with the level you choose.',
     repeatWord: 'Repeat',
     speakScene: 'REAL-WORLD — AT THE CAFÉ', speakRepeat: "Repeat Camille's line", vfTitle: 'VOICE FLASH',
