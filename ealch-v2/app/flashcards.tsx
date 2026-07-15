@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
@@ -11,7 +11,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
-import { deck } from '@/content';
+import { content } from '@/services/content';
 
 export default function Flashcards() {
   const t = useTheme();
@@ -21,10 +21,24 @@ export default function Flashcards() {
 
   const logSession = useSessionLog();
 
+  // The deck is now a view over the corpus, not a hardcoded array. Snapshotted
+  // once at mount (content is already hydrated — _layout gates paint on it).
+  const deck = useMemo(() => content.itemsFor('flashcard'), []);
+
   const [cardIx, setCardIx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [known, setKnown] = useState(0);
   const [cardDir, setCardDir] = useState<'fr' | 'en'>('fr');
+
+  // Cleanup: without this, closing mid-card leaves the answer timer to fire
+  // setState on an unmounted component, and any in-flight TTS keeps speaking.
+  const answerTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    return () => {
+      if (answerTimer.current) clearTimeout(answerTimer.current);
+      tts.stop();
+    };
+  }, []);
 
   const anim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
@@ -51,7 +65,7 @@ export default function Flashcards() {
     setFlipped(false);
     setKnown((k) => (know ? k + 1 : k));
     const lastCard = cardIx + 1 >= deckLen;
-    setTimeout(() => setCardIx((i) => i + 1), 220);
+    answerTimer.current = setTimeout(() => setCardIx((i) => i + 1), 220);
     if (lastCard) logSession('flashcards', deckLen);
   };
 
@@ -208,9 +222,11 @@ export default function Flashcards() {
                 <TX font="serif" size={29} role="display" center>
                   {frFront ? card.en : card.fr}
                 </TX>
-                <TX font="serifI" role="bodySm" center color={t.txMuted} style={{ marginTop: 16 }}>
-                  {card.ex}
-                </TX>
+                {card.notes ? (
+                  <TX font="serifI" role="bodySm" center color={t.txMuted} style={{ marginTop: 16 }}>
+                    {card.notes}
+                  </TX>
+                ) : null}
                 <Press
                   onPress={() => tts.speak(card.fr)}
                   cue={null}
