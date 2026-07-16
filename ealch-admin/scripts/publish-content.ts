@@ -31,6 +31,7 @@ import { SEED_CUT, describeCut } from './seed-cut.config.ts';
 // content the app cannot render.
 import {
   formatIssues,
+  unitBand,
   validateCorpus,
   type Corpus,
   type Item,
@@ -194,8 +195,14 @@ async function main() {
   // ── 5. The seed cut — what ships inside the binary ─────────────────────
   console.log(`\n  seed cut: ${describeCut()}`);
 
+  // Band comes off the ID, not off u.track. A unit past a2 has no track at all
+  // (it belongs to no Den column), so reading u.track here would compare against
+  // undefined and quietly drop it — and worse, a b1 unit named explicitly in
+  // SEED_CUT.units would ship while contributing `undefined` to seedLevels below,
+  // taking its scenarios with it. unitBand() reads the one field that is always
+  // present and cannot disagree.
   const wantUnit = (u: Unit) =>
-    SEED_CUT.tracks.includes(u.track) || SEED_CUT.units.includes(u.id);
+    (SEED_CUT.tracks as readonly string[]).includes(unitBand(u.id) ?? '') || SEED_CUT.units.includes(u.id);
 
   const seedUnits = prunedUnits.filter(wantUnit);
   const seedUnitIds = new Set(seedUnits.map((u) => u.id));
@@ -209,7 +216,10 @@ async function main() {
   // Scenarios ship in the seed when their level is represented in the seed — by a
   // bundled track OR a bundled unit (a1.01 pulls a1 in). So a fresh, offline
   // install can run Role Play at the levels it actually ships content for.
-  const seedLevels = new Set<string>([...SEED_CUT.tracks, ...seedUnits.map((u) => u.track)]);
+  const seedLevels = new Set<string>([
+    ...SEED_CUT.tracks,
+    ...seedUnits.map((u) => unitBand(u.id)).filter((b): b is NonNullable<typeof b> => b !== null),
+  ]);
   const seedScenarios = scenarios.filter((s) => seedLevels.has(s.level));
 
   const seed: Corpus = { version, units: seedUnits, lessons: seedLessons, items: seedItems, scenarios: seedScenarios };

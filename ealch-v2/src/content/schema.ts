@@ -165,7 +165,7 @@ export type ContentStatus = (typeof CONTENT_STATUSES)[number];
 // every attempt logged against it and every SRS interval built on it is orphaned.
 //
 //   item    fr.<level>.<theme>.<seq>   fr.a1.cafe.001
-//   unit    <track>.<nn>               sons.03
+//   unit    <level>.<nn>               sons.03   b1.01
 //   lesson  <unitId>.l<seq>            sons.03.l1
 
 /**
@@ -182,14 +182,10 @@ export type ContentStatus = (typeof CONTENT_STATUSES)[number];
  * the top of this file is about modules, and RegExp is a language builtin.
  */
 const BANDS_RE = LEVELS.join('|');
-/** Units and lessons are still capped to the Den's three beginner tracks. That
- *  cap is a product decision that has outlived its usefulness and is lifted in
- *  its own commit; deriving it from TRACKS here means the lift is one edit. */
-const UNIT_BANDS_RE = TRACKS.join('|');
 
 export const ITEM_ID_RE = new RegExp(`^fr\\.(${BANDS_RE})\\.[a-z0-9-]+\\.\\d{3,}$`);
-export const UNIT_ID_RE = new RegExp(`^(${UNIT_BANDS_RE})\\.\\d{2}$`);
-export const LESSON_ID_RE = new RegExp(`^(${UNIT_BANDS_RE})\\.\\d{2}\\.l\\d+$`);
+export const UNIT_ID_RE = new RegExp(`^(${BANDS_RE})\\.\\d{2}$`);
+export const LESSON_ID_RE = new RegExp(`^(${BANDS_RE})\\.\\d{2}\\.l\\d+$`);
 /** Scenario ids: sc.<level>.<theme>.<seq>   sc.a1.marche.001 */
 export const SCENARIO_ID_RE = new RegExp(`^sc\\.(${BANDS_RE})\\.[a-z0-9-]+\\.\\d{3,}$`);
 /** Themes group the corpus for batch review and for themed drills. */
@@ -198,8 +194,11 @@ export const THEME_RE = /^[a-z0-9-]+$/;
 export function itemId(level: Level, theme: string, seq: number): string {
   return `fr.${level}.${theme}.${String(seq).padStart(3, '0')}`;
 }
-export function unitId(track: Track, seq: number): string {
-  return `${track}.${String(seq).padStart(2, '0')}`;
+/** Units are keyed by LEVEL, not Track — a b1 unit is a legal unit that no Den
+ *  column shows. Existing 'sons.03' / 'a1.04' ids are unchanged by this, which
+ *  is why lifting the cap needed no data migration. */
+export function unitId(level: Level, seq: number): string {
+  return `${level}.${String(seq).padStart(2, '0')}`;
 }
 export function lessonId(unit: string, seq: number): string {
   return `${unit}.l${seq}`;
@@ -210,6 +209,19 @@ export function scenarioId(level: Level, theme: string, seq: number): string {
 /** The unit a lesson belongs to, read straight off its id. */
 export function unitOfLesson(id: string): string {
   return id.replace(/\.l\d+$/, '');
+}
+/**
+ * The band a unit or lesson belongs to, read off its id: 'b1.01' → 'b1'.
+ *
+ * Prefer this to `Unit.track` and `Unit.level`. The id is the only field that
+ * cannot be absent or disagree — `track` is undefined for anything past a2, and
+ * `level` is optional for back-compat with units authored before it existed.
+ * Returns null for an id that is not a unit or lesson id, so a caller cannot
+ * mistake a parse failure for a real band.
+ */
+export function unitBand(id: string): Level | null {
+  const band = id.split('.')[0];
+  return (LEVELS as readonly string[]).includes(band) ? (band as Level) : null;
 }
 
 /* ─── Item: the atomic corpus row ────────────────────────────────────────── */
@@ -298,13 +310,37 @@ export type Lesson = {
   version: number;
 };
 
-/** A Unit CONTAINS lessons. The Den's tree is units; the lessons live inside.
- *  A unit with no lessons is legal and must render honestly as "coming soon" —
- *  it must never fall through to a generic player pretending to be its content. */
+/**
+ * A Unit CONTAINS lessons. The Den's tree is units; the lessons live inside.
+ * A unit with no lessons is legal and must render honestly as "coming soon" —
+ * it must never fall through to a generic player pretending to be its content.
+ *
+ * A unit is keyed by LEVEL, not by Track. It used to be the other way round, and
+ * that quietly made B1-C1 lessons unrepresentable: the only band vocabulary a
+ * unit had was Track, which stops at a2, so there was nowhere to file an upper
+ * unit even though items and scenarios have always been taggable that high.
+ *
+ * Track survives because the Den really does render three fixed beginner columns
+ * and needs to know which unit belongs in which. It is now what it always
+ * actually was — a DISPLAY grouping over the first three bands, not the unit's
+ * identity. Anything past a2 has no track and appears in no column, which is
+ * correct: the Den is the Beginners' Den.
+ *
+ * Both `track` and `level` are optional, and the id is the source of truth for
+ * the band. Read it with `unitBand()` rather than trusting either field:
+ *   · `track` is absent on b1..c1 units (they belong to no column)
+ *   · `level` is absent on every unit authored before it existed, i.e. all of
+ *     the shipped seed. Making it required would mean the corpus on people's
+ *     phones stops validating, so it is optional until a publish backfills it.
+ */
 export type Unit = {
-  /** '<track>.<nn>' — e.g. 'sons.03' */
+  /** '<level>.<nn>' — e.g. 'sons.03', 'b1.01' */
   id: string;
-  track: Track;
+  /** Display grouping for the Den's three beginner columns. Absent past a2. */
+  track?: Track;
+  /** The band this unit teaches. Optional only for back-compat; when present it
+   *  must agree with the id. `unitBand(id)` is the reliable read. */
+  level?: Level;
   seq: number;
   title: string;
   sub: string;
@@ -575,11 +611,28 @@ export function validateUnit(v: unknown, path = 'unit'): Issue[] {
   const u = v as Partial<Unit>;
 
   if (!isStr(u.id)) push('id is required');
-  else if (!UNIT_ID_RE.test(u.id)) push(`id "${u.id}" must match <track>.<nn>`);
+  else if (!UNIT_ID_RE.test(u.id)) push(`id "${u.id}" must match <level>.<nn>`);
 
-  if (!oneOf(TRACKS, u.track)) push(`track must be one of ${TRACKS.join(' | ')}`);
-  if (isStr(u.id) && UNIT_ID_RE.test(u.id) && u.track && u.id.split('.')[0] !== u.track) {
-    push(`id track "${u.id.split('.')[0]}" disagrees with track "${u.track}"`);
+  // The id carries the band; track and level are both optional restatements of
+  // it. Each is checked only when present, and only for AGREEMENT — a unit that
+  // says one band in its id and another in a field is filed in one place and
+  // linked from another, and there is no way to tell which was meant.
+  const band = isStr(u.id) && UNIT_ID_RE.test(u.id) ? u.id.split('.')[0] : null;
+
+  if (u.track !== undefined) {
+    if (!oneOf(TRACKS, u.track)) push(`track must be one of ${TRACKS.join(' | ')}`);
+    else if (band && band !== u.track) push(`id band "${band}" disagrees with track "${u.track}"`);
+  }
+  if (u.level !== undefined) {
+    if (!oneOf(LEVELS, u.level)) push(`level must be one of ${LEVELS.join(' | ')}`);
+    else if (band && band !== u.level) push(`id band "${band}" disagrees with level "${u.level}"`);
+  }
+  // A unit in a Den band must say which column it is in, or it is authored,
+  // published, and rendered by nothing: unitsInTrack() filters on `track`, so a
+  // trackless sons/a1/a2 unit silently vanishes from the only screen that shows
+  // it. Past a2 there is no column to belong to, so absence is correct there.
+  if (band && (TRACKS as readonly string[]).includes(band) && u.track === undefined) {
+    push(`unit "${u.id}" is in Den band "${band}" but has no track — it would render in no column`);
   }
 
   if (!isStr(u.title)) push('title is required');

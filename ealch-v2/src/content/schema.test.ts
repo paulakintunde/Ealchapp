@@ -15,16 +15,19 @@ import {
   EMPTY_CORPUS,
   EXAM_SECTIONS,
   EXAM_SKILLS,
+  LESSON_ID_RE,
   LEVELS,
   MODALITIES,
   PRACTICE_SKILLS,
   REGISTERS,
   SCORE_BANDS,
+  UNIT_ID_RE,
   formatIssues,
   isValidCorpus,
   isValidItem,
   itemId,
   lessonId,
+  unitBand,
   unitId,
   unitOfLesson,
   validateCorpus,
@@ -316,6 +319,62 @@ test('a unit with NO lessons is legal — it is honest "coming soon"', () => {
 test('a unit id must agree with its track', () => {
   const issues = validateUnit(unit({ id: 'sons.03', track: 'a1' }));
   ok(issues.some((i) => /disagrees with track/.test(i.message)));
+});
+
+/* ─── the Den's level cap, lifted ────────────────────────────────────────── */
+
+test('a b1 unit and its lesson are now legal — the Den cap is lifted', () => {
+  // Before this, UNIT_ID_RE and LESSON_ID_RE capped at (sons|a1|a2), so a B1
+  // lesson could not be represented at all: items and scenarios have always been
+  // taggable to c1, but there was nowhere to file the unit that teaches them.
+  const b1 = unit({ id: 'b1.01', track: undefined, level: 'b1', seq: 1, lessonIds: ['b1.01.l1'] });
+  deepStrictEqual(validateUnit(b1), []);
+  const b1Lesson = lesson({ id: 'b1.01.l1', unitId: 'b1.01', level: 'b1' });
+  deepStrictEqual(validateLesson(b1Lesson), []);
+  deepStrictEqual(validateCorpus(corpus({ units: [b1], lessons: [b1Lesson] })), []);
+});
+
+test('every band we author is a legal unit band, and none we do not is', () => {
+  // Derived from LEVELS, so this cannot drift from the list above it.
+  for (const l of LEVELS) {
+    ok(UNIT_ID_RE.test(`${l}.01`), `${l}.01 should be a legal unit id`);
+    ok(LESSON_ID_RE.test(`${l}.01.l1`), `${l}.01.l1 should be a legal lesson id`);
+  }
+  ok(!UNIT_ID_RE.test('c2.01'), 'c2 is not a band we author');
+  ok(!UNIT_ID_RE.test('zz.01'));
+});
+
+test('unitBand reads the band off the id, and refuses to guess', () => {
+  strictEqual(unitBand('sons.03'), 'sons');
+  strictEqual(unitBand('b1.01'), 'b1');
+  strictEqual(unitBand('b1.01.l1'), 'b1');
+  // Null, not a fallback. A caller must not mistake a parse failure for a band.
+  strictEqual(unitBand('c2.01'), null);
+  strictEqual(unitBand('nonsense'), null);
+});
+
+test('a unit in a Den band with no track is rejected — it would render nowhere', () => {
+  // unitsInTrack() filters on `track`, and the Den is the only screen that shows
+  // units. A trackless sons/a1/a2 unit is published, valid-looking, and invisible.
+  const issues = validateUnit(unit({ id: 'a1.04', track: undefined, seq: 4, lessonIds: [] }));
+  ok(issues.some((i) => /has no track — it would render in no column/.test(i.message)));
+});
+
+test('past a2 a unit must NOT claim a track, and may state its level', () => {
+  // There is no b1 column to belong to, so `track` is meaningless there and the
+  // type makes it unrepresentable. `level` is the field that carries the band.
+  const issues = validateUnit(unit({ id: 'b1.01', track: 'a1', level: 'b1', seq: 1, lessonIds: [] }));
+  ok(issues.some((i) => /disagrees with track/.test(i.message)));
+  ok(validateUnit(unit({ id: 'b1.01', track: undefined, level: 'a2', seq: 1, lessonIds: [] }))
+    .some((i) => /disagrees with level/.test(i.message)));
+});
+
+test('a shipped unit with a track and no level still validates', () => {
+  // Every unit in the committed seed looks like this. `level` arrived after they
+  // were published, so requiring it would mean the corpus on people's phones
+  // stops validating. Optional until a publish backfills it.
+  const shipped = unit({ id: 'sons.03', track: 'sons', level: undefined });
+  deepStrictEqual(validateUnit(shipped), []);
 });
 
 /* ─── scenarios ──────────────────────────────────────────────────────────── */

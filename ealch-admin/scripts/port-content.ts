@@ -20,6 +20,7 @@ import {
   itemId,
   lessonId,
   scenarioId,
+  unitBand,
   unitId,
   validateItem,
   validateLesson,
@@ -280,7 +281,17 @@ async function main() {
       [slug, title, kind, level, JSON.stringify(body)]
     );
 
-  for (const u of units) await upsertDoc(u.id, u.title, 'curriculum_unit', u.track, u);
+  // The band comes off the id, not off u.track: `track` is a Den display
+  // grouping and is undefined for anything past a2, while content_units.level is
+  // NOT NULL. Passing u.track straight through would insert null and fail the
+  // whole port on the first b1 unit. unitBand() reads the band that is always
+  // there — and die() rather than defaulting, because a unit whose id we cannot
+  // parse is a bug to fix, not a row to guess a level for.
+  for (const u of units) {
+    const band = unitBand(u.id);
+    if (!band) die(`unit "${u.id}" has no parseable band in its id — cannot set content_units.level`);
+    await upsertDoc(u.id, u.title, 'curriculum_unit', band, u);
+  }
   for (const l of lessons) await upsertDoc(l.id, l.title, 'lesson', l.level, l);
   for (const s of scenarios) await upsertDoc(s.id, s.title, 'scenario', s.level, s);
 
