@@ -26,9 +26,11 @@ import {
   isValidCorpus,
   isValidDomain,
   isValidItem,
+  isValidPack,
   isValidTheme,
   itemId,
   lessonId,
+  packId,
   unitBand,
   unitId,
   unitOfLesson,
@@ -36,6 +38,7 @@ import {
   validateDomain,
   validateItem,
   validateLesson,
+  validatePack,
   validateScenario,
   validateTheme,
   validateUnit,
@@ -44,6 +47,7 @@ import {
   type Item,
   type Lesson,
   type LessonSection,
+  type Pack,
   type PracticeSkill,
   type Theme,
   type Unit,
@@ -114,6 +118,16 @@ const theme = (over: Partial<Theme> = {}): Theme => ({
   examFlag: false,
   immigFlag: false,
   subThemes: ['commander', 'payer'],
+  ...over,
+});
+
+const pack = (over: Partial<Pack> = {}): Pack => ({
+  id: 'pack.a1.cafe',
+  theme: 'cafe',
+  level: 'a1',
+  goal: 'I can order a coffee and pay for it',
+  modeTargets: { flashcard: 40, roleplay: 6 },
+  status: 'draft',
   ...over,
 });
 
@@ -482,6 +496,56 @@ test('validateDomain and validateTheme never throw on garbage', () => {
     ok(Array.isArray(validateDomain(junk)));
     ok(Array.isArray(validateTheme(junk)));
   }
+});
+
+/* ─── packs ──────────────────────────────────────────────────────────────── */
+
+test('a well-formed pack validates', () => {
+  deepStrictEqual(validatePack(pack()), []);
+  ok(isValidPack(pack()));
+  strictEqual(packId('a1', 'cafe'), 'pack.a1.cafe');
+});
+
+test('a pack id must match pack.<level>.<theme> and agree with its fields', () => {
+  // The same rule as Item, and it matters more here: a pack's items are found by
+  // filtering on (level, theme), so a pack whose id says a1 and whose fields say
+  // a2 collects a different set of items than its name claims.
+  ok(validatePack(pack({ id: 'pack.a1' })).length > 0);
+  ok(validatePack(pack({ id: 'pack.c2.affaires', level: 'c2' as never })).length > 0, 'c2 is not authored');
+  const issues = validatePack(pack({ id: 'pack.a1.cafe', level: 'a2', theme: 'marche' }));
+  ok(issues.some((i) => /id level .* disagrees/.test(i.message)));
+  ok(issues.some((i) => /id theme .* disagrees/.test(i.message)));
+});
+
+test('a pack must state a can-do goal — without one it has no definition of done', () => {
+  ok(validatePack(pack({ goal: '' })).some((i) => /goal is required/.test(i.message)));
+});
+
+test('modeTargets must name real drills', () => {
+  // A target for a drill that does not exist can never be met, so the pack can
+  // never be finished and nothing anywhere says why.
+  ok(validatePack(pack({ modeTargets: { karaoke: 5 } as never })).some((i) => /unknown drill "karaoke"/.test(i.message)));
+  deepStrictEqual(validatePack(pack({ modeTargets: { flashcard: 40, roleplay: 6 } })), []);
+});
+
+test('an empty modeTargets is legal, but a zero target is not', () => {
+  // {} is a pack that wants nothing yet. `{ dictation: 0 }` is a second way of
+  // spelling "not wanted", and two spellings invite code that treats them
+  // differently — so absence is the only way to say it.
+  deepStrictEqual(validatePack(pack({ modeTargets: {} })), []);
+  ok(validatePack(pack({ modeTargets: { dictation: 0 } })).some((i) => /omit the key/.test(i.message)));
+  ok(validatePack(pack({ modeTargets: { dictation: -1 } })).length > 0);
+  ok(validatePack(pack({ modeTargets: { dictation: 2.5 } })).length > 0);
+  ok(validatePack(pack({ modeTargets: [] as never })).length > 0);
+});
+
+test('a pack status must be a real content status', () => {
+  deepStrictEqual(validatePack(pack({ status: 'published' })), []);
+  ok(validatePack(pack({ status: 'nearly' as never })).length > 0);
+});
+
+test('validatePack never throws on garbage', () => {
+  for (const junk of [null, undefined, 42, 'pack', [], true]) ok(Array.isArray(validatePack(junk)));
 });
 
 /* ─── corpus: referential integrity ──────────────────────────────────────── */

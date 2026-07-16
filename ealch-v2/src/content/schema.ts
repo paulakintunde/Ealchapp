@@ -415,6 +415,48 @@ export type Theme = {
   subThemes: string[];
 };
 
+/* ─── Pack: the unit of authoring work ───────────────────────────────────── */
+
+// A Pack is one themed batch at one band: "the a1 café pack". It already exists
+// as a working concept — ealch-admin reviews items in themed batches and calls
+// the batch a 'vocabulary' content_unit — but it has never been a first-class
+// thing in the corpus, only an implicit grouping you get by filtering items on
+// (level, theme). That implicitness is what makes "is the a1 café pack finished?"
+// unanswerable: there is no row to hold the goal, the targets, or the status.
+//
+// Making it explicit gives generation a work item with a definition of done, and
+// gives review something to approve that is not 8000 rows.
+
+/** 'pack.<level>.<theme>' — pack.a1.cafe. One pack per (band, theme), which is
+ *  why there is no seq: a second a1 café pack is a bug, not a feature. Derived
+ *  from LEVELS like every other id regex. */
+export const PACK_ID_RE = new RegExp(`^pack\\.(${BANDS_RE})\\.[a-z0-9-]+$`);
+
+export function packId(level: Level, theme: string): string {
+  return `pack.${level}.${theme}`;
+}
+
+export type Pack = {
+  /** 'pack.<level>.<theme>' — pack.a1.cafe */
+  id: string;
+  /** Theme.slug. Must resolve to a Theme — checked in validateCorpus. */
+  theme: string;
+  level: Level;
+  /** The can-do this pack buys the learner, in their words: "I can order a
+   *  coffee and pay for it". Not a topic label — a capability, so that "done"
+   *  means something a human can check rather than a row count. */
+  goal: string;
+  /**
+   * How many items this pack wants per drill: { flashcard: 40, roleplay: 6 }.
+   *
+   * Partial on purpose. A pack that wants no dictation says nothing rather than
+   * writing `dictation: 0`, so "not wanted" and "wanted, none written yet" stay
+   * distinguishable — they are different states and only one of them is a gap.
+   */
+  modeTargets: Partial<Record<DrillKind, number>>;
+  status: ContentStatus;
+};
+
 /** What the publish pipeline emits and the app loads. */
 export type Corpus = {
   version: number;
@@ -796,6 +838,51 @@ export function validateTheme(v: unknown, path = 'theme'): Issue[] {
   return out;
 }
 
+export function validatePack(v: unknown, path = 'pack'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null) return [{ path, message: 'not an object' }];
+  const p = v as Partial<Pack>;
+
+  if (!isStr(p.id)) push('id is required');
+  else if (!PACK_ID_RE.test(p.id)) push(`id "${p.id}" must match pack.<level>.<theme>`);
+
+  if (!oneOf(LEVELS, p.level)) push(`level must be one of ${LEVELS.join(' | ')}`);
+  if (!isStr(p.theme)) push('theme is required');
+  else if (!THEME_RE.test(p.theme)) push(`theme "${p.theme}" must be a lowercase slug`);
+
+  // Same rule as Item: the id encodes level and theme, so a disagreement means
+  // one of them is a lie and there is no way to tell which. Refuse both. This
+  // matters more for a Pack than an Item, because a pack's items are found by
+  // filtering on (level, theme) — a pack whose id says a1 and whose fields say
+  // a2 collects a different set of items than its name claims.
+  if (isStr(p.id) && PACK_ID_RE.test(p.id)) {
+    const [, lvl, theme] = p.id.split('.');
+    if (p.level && lvl !== p.level) push(`id level "${lvl}" disagrees with level "${p.level}"`);
+    if (p.theme && theme !== p.theme) push(`id theme "${theme}" disagrees with theme "${p.theme}"`);
+  }
+
+  if (!isStr(p.goal)) push('goal is required — a pack with no can-do has no definition of done');
+  if (!oneOf(CONTENT_STATUSES, p.status)) push(`status must be one of ${CONTENT_STATUSES.join(' | ')}`);
+
+  if (typeof p.modeTargets !== 'object' || p.modeTargets === null || isArr(p.modeTargets)) {
+    push('modeTargets must be an object (use {} for none)');
+  } else {
+    for (const [k, n] of Object.entries(p.modeTargets)) {
+      // A target for a drill that does not exist is a target nothing will ever
+      // meet, so the pack can never be finished and nothing says why.
+      if (!oneOf(DRILL_KINDS, k)) push(`modeTargets has unknown drill "${k}"`);
+      if (typeof n !== 'number' || !Number.isInteger(n) || n < 1) {
+        // Not >= 0: a target of 0 is what `absent` already means, and having two
+        // ways to say it invites code that treats them differently.
+        push(`modeTargets.${k} must be an integer >= 1 (omit the key for "not wanted")`);
+      }
+    }
+  }
+
+  return out;
+}
+
 /**
  * Whole-corpus validation, including referential integrity.
  *
@@ -892,6 +979,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
 
 export const isValidDomain = (v: unknown): v is Domain => validateDomain(v).length === 0;
 export const isValidTheme = (v: unknown): v is Theme => validateTheme(v).length === 0;
+export const isValidPack = (v: unknown): v is Pack => validatePack(v).length === 0;
 export const isValidItem = (v: unknown): v is Item => validateItem(v).length === 0;
 export const isValidLesson = (v: unknown): v is Lesson => validateLesson(v).length === 0;
 export const isValidUnit = (v: unknown): v is Unit => validateUnit(v).length === 0;
