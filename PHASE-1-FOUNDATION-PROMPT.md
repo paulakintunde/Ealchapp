@@ -305,7 +305,7 @@ This table is what Phase 3's SRS schedules against, what Phase 4's Le Rapport co
 
 ---
 
-## Task 8 — Three Tier 2 bug fixes (independent, do them because they block testing) ⏳ NOT DONE (onboarding 2.2/2.3 + deletion 2.4 still open)
+## Task 8 — Three Tier 2 bug fixes (independent, do them because they block testing) ✅ DONE (commit `8718cf5`: 2.2/2.3 onboarding bricks + 2.4 Apple deletion)
 
 You will run onboarding dozens of times this phase. Two of these bugs make that impossible, and the third is a compliance failure.
 
