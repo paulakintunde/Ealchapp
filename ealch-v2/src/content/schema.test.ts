@@ -24,22 +24,28 @@ import {
   UNIT_ID_RE,
   formatIssues,
   isValidCorpus,
+  isValidDomain,
   isValidItem,
+  isValidTheme,
   itemId,
   lessonId,
   unitBand,
   unitId,
   unitOfLesson,
   validateCorpus,
+  validateDomain,
   validateItem,
   validateLesson,
   validateScenario,
+  validateTheme,
   validateUnit,
   type Corpus,
+  type Domain,
   type Item,
   type Lesson,
   type LessonSection,
   type PracticeSkill,
+  type Theme,
   type Unit,
 } from './schema.ts';
 
@@ -90,6 +96,24 @@ const scenario = (over: Partial<import('./schema.ts').Scenario> = {}): import('.
   title: 'Au marché',
   turns: [{ ai: 'Bonjour !', en: 'Hello!', user: "Bonjour, trois pommes s'il vous plaît." }],
   version: 1,
+  ...over,
+});
+
+const domain = (over: Partial<Domain> = {}): Domain => ({
+  slug: 'vie-quotidienne',
+  title: 'Vie quotidienne',
+  order: 1,
+  ...over,
+});
+
+const theme = (over: Partial<Theme> = {}): Theme => ({
+  slug: 'cafe',
+  title: 'Au café',
+  domain: 'vie-quotidienne',
+  levelRange: ['a1', 'b1'],
+  examFlag: false,
+  immigFlag: false,
+  subThemes: ['commander', 'payer'],
   ...over,
 });
 
@@ -407,6 +431,57 @@ test('validateCorpus validates scenarios and catches duplicate scenario ids', ()
 test('a corpus with no scenarios array still validates (back-compat with a v0 seed)', () => {
   const noScenarios = { version: 1, units: [], lessons: [], items: [] };
   deepStrictEqual(validateCorpus(noScenarios), []);
+});
+
+/* ─── domains and themes ─────────────────────────────────────────────────── */
+
+test('a well-formed domain and theme validate', () => {
+  deepStrictEqual(validateDomain(domain()), []);
+  deepStrictEqual(validateTheme(theme()), []);
+  ok(isValidDomain(domain()));
+  ok(isValidTheme(theme()));
+});
+
+test('domain and theme slugs must be lowercase slugs', () => {
+  ok(validateDomain(domain({ slug: 'Vie Quotidienne' })).length > 0);
+  ok(validateTheme(theme({ slug: 'Au Café' })).length > 0);
+  ok(validateTheme(theme({ domain: 'Vie Quotidienne' })).length > 0);
+});
+
+test('a theme spans a band RANGE, because a theme is not a level', () => {
+  // 'cafe' is orderable at a1 and still worth teaching at b2 — same situation,
+  // different language. A single level would force the catalogue to duplicate
+  // the theme per band or lie about it.
+  deepStrictEqual(validateTheme(theme({ levelRange: ['a1', 'c1'] })), []);
+  deepStrictEqual(validateTheme(theme({ levelRange: ['a1', 'a1'] })), [], 'a single-band range is legal');
+});
+
+test('an inverted level range is rejected — it selects nothing, silently', () => {
+  const issues = validateTheme(theme({ levelRange: ['b2', 'a1'] }));
+  ok(issues.some((i) => /levelRange is inverted/.test(i.message)));
+});
+
+test('a level range must be made of bands we actually author', () => {
+  ok(validateTheme(theme({ levelRange: ['a1', 'c2'] as never })).length > 0, 'c2 is not authored');
+  ok(validateTheme(theme({ levelRange: ['zz', 'b1'] as never })).length > 0);
+  ok(validateTheme(theme({ levelRange: ['a1'] as never })).length > 0, 'a range needs both ends');
+  ok(validateTheme(theme({ levelRange: 'a1' as never })).length > 0);
+});
+
+test('theme flags are booleans, and a theme may serve both tracks or neither', () => {
+  // Two flags rather than one 'purpose' field precisely so both/neither are
+  // representable: 'logement' is exam material AND immigration material.
+  deepStrictEqual(validateTheme(theme({ examFlag: true, immigFlag: true })), []);
+  deepStrictEqual(validateTheme(theme({ examFlag: false, immigFlag: false })), []);
+  ok(validateTheme(theme({ examFlag: 'yes' as never })).length > 0);
+  ok(validateTheme(theme({ immigFlag: undefined as never })).length > 0);
+});
+
+test('validateDomain and validateTheme never throw on garbage', () => {
+  for (const junk of [null, undefined, 42, 'theme', [], true]) {
+    ok(Array.isArray(validateDomain(junk)));
+    ok(Array.isArray(validateTheme(junk)));
+  }
 });
 
 /* ─── corpus: referential integrity ──────────────────────────────────────── */

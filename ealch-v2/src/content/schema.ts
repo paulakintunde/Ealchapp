@@ -364,6 +364,57 @@ export type Scenario = {
   version: number;
 };
 
+/* ─── Domain and Theme: the catalogue ────────────────────────────────────── */
+
+// `theme` has been a bare string on every Item and Scenario since the beginning:
+// 'cafe', 'marche', 'transport'. That was enough to batch content for review and
+// nothing more. It cannot answer the questions the curriculum actually asks —
+// which themes exist, which are worth teaching at a1 versus b2, which an exam
+// candidate needs, which someone moving to France needs — because there is no
+// row anywhere that says so. A typo'd theme is simply a new theme, silently.
+//
+// Domain and Theme make the catalogue data instead of folklore. A Theme belongs
+// to a Domain, declares the band range it is teachable in, and flags whether it
+// serves the exam track or the immigration track. Those flags are what let a
+// generator pick the next thing to write, and a learner's plan pick the next
+// thing to teach, without either hardcoding a list.
+
+/** Domain slugs: the top of the catalogue. 'vie-quotidienne', 'travail'. */
+export const DOMAIN_RE = /^[a-z0-9-]+$/;
+
+export type Domain = {
+  slug: string;
+  title: string;
+  /** Display order. Not the id — a domain can be reordered without breaking
+   *  every theme that points at it. */
+  order: number;
+};
+
+export type Theme = {
+  /** The slug carried by Item.theme and Scenario.theme. THE join key. */
+  slug: string;
+  title: string;
+  /** Domain.slug. Must resolve — checked in validateCorpus. */
+  domain: string;
+  /**
+   * The band range this theme is teachable across, inclusive: ['a1','b1'].
+   *
+   * A range, not a single level, because a theme is not a level — 'cafe' is
+   * orderable at a1 and still worth teaching at b2, where the language is
+   * different but the situation is the same. A single `level` would force the
+   * catalogue to either duplicate the theme per band or lie about it.
+   */
+  levelRange: [Level, Level];
+  /** Serves an exam track (TEF/TCF/DELF/DALF). */
+  examFlag: boolean;
+  /** Serves the immigration track — the paperwork, the prefecture, the lease.
+   *  A different corpus from the exam one, and the reason both flags exist
+   *  rather than one 'purpose' field: a theme can serve both, or neither. */
+  immigFlag: boolean;
+  /** Finer cuts within the theme, for generation batching. May be empty. */
+  subThemes: string[];
+};
+
 /** What the publish pipeline emits and the app loads. */
 export type Corpus = {
   version: number;
@@ -690,6 +741,61 @@ export function validateScenario(v: unknown, path = 'scenario'): Issue[] {
   return out;
 }
 
+/** Where a band sits in LEVELS. -1 if it is not a band we author. */
+const bandIndex = (v: unknown): number =>
+  typeof v === 'string' ? (LEVELS as readonly string[]).indexOf(v) : -1;
+
+export function validateDomain(v: unknown, path = 'domain'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null) return [{ path, message: 'not an object' }];
+  const d = v as Partial<Domain>;
+
+  if (!isStr(d.slug)) push('slug is required');
+  else if (!DOMAIN_RE.test(d.slug)) push(`slug "${d.slug}" must be a lowercase slug`);
+  if (!isStr(d.title)) push('title is required');
+  if (typeof d.order !== 'number' || !Number.isInteger(d.order)) push('order must be an integer');
+
+  return out;
+}
+
+export function validateTheme(v: unknown, path = 'theme'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null) return [{ path, message: 'not an object' }];
+  const t = v as Partial<Theme>;
+
+  if (!isStr(t.slug)) push('slug is required');
+  else if (!THEME_RE.test(t.slug)) push(`slug "${t.slug}" must be a lowercase slug`);
+  if (!isStr(t.title)) push('title is required');
+  if (!isStr(t.domain)) push('domain is required');
+  else if (!DOMAIN_RE.test(t.domain)) push(`domain "${t.domain}" must be a lowercase slug`);
+
+  if (!isArr(t.levelRange) || t.levelRange.length !== 2) {
+    push('levelRange must be a [from, to] pair');
+  } else {
+    const [from, to] = t.levelRange;
+    const lo = bandIndex(from);
+    const hi = bandIndex(to);
+    if (lo < 0) push(`levelRange[0] "${String(from)}" must be one of ${LEVELS.join(' | ')}`);
+    if (hi < 0) push(`levelRange[1] "${String(to)}" must be one of ${LEVELS.join(' | ')}`);
+    // An inverted range is not a range: it selects nothing. The theme sits in the
+    // catalogue looking authored, and every reader that treats it as "from..to"
+    // skips it forever, without erroring.
+    if (lo >= 0 && hi >= 0 && lo > hi) {
+      push(`levelRange is inverted: "${String(from)}" comes after "${String(to)}"`);
+    }
+  }
+
+  if (typeof t.examFlag !== 'boolean') push('examFlag must be a boolean');
+  if (typeof t.immigFlag !== 'boolean') push('immigFlag must be a boolean');
+
+  if (!isArr(t.subThemes)) push('subThemes must be an array (use [] for none)');
+  else if (t.subThemes.some((s) => !isStr(s))) push('subThemes must all be non-empty strings');
+
+  return out;
+}
+
 /**
  * Whole-corpus validation, including referential integrity.
  *
@@ -784,6 +890,8 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   return out;
 }
 
+export const isValidDomain = (v: unknown): v is Domain => validateDomain(v).length === 0;
+export const isValidTheme = (v: unknown): v is Theme => validateTheme(v).length === 0;
 export const isValidItem = (v: unknown): v is Item => validateItem(v).length === 0;
 export const isValidLesson = (v: unknown): v is Lesson => validateLesson(v).length === 0;
 export const isValidUnit = (v: unknown): v is Unit => validateUnit(v).length === 0;
