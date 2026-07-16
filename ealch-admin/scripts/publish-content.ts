@@ -91,6 +91,38 @@ const sha256 = (s: string) => createHash('sha256').update(s, 'utf8').digest('hex
 // check would happily conclude that a forgotten column was intentionally
 // forgotten.
 
+// ─── PUBLISH-PROJECTION DEBT: schema fields that exist and do NOT ship yet ───
+//
+// The schema extension defined these. Nothing carries them to a phone. They are
+// listed here, rather than in a plan document, because this file is where the
+// person wiring them up will be standing — and because a field that validates,
+// type-checks and reaches the app empty is the exact failure the guard below
+// exists to prevent. Each entry says what is missing and what "done" means.
+//
+//   Item.segments, Item.assetKey        (schema.ts: AudioSegment, AssetKeyed)
+//     No columns on content_items, so they are absent from every snapshot.
+//     Deliberate for now: nothing renders real audio yet and there is nothing
+//     to put in them. DONE = add the columns (jsonb for segments, text for
+//     assetKey), add them to the SELECT, the mapper and PROJECTED_ITEM_COLUMNS.
+//     Blocked on the Phase 7 audio pipeline actually producing timings.
+//
+//   Domain, Theme, Pack, ExamTask, ExamSeries     (Corpus.domains/…/examSeries)
+//     No tables at all. validateCorpus treats the arrays as empty, so a corpus
+//     without them is valid and the app sees no catalogue and no exams.
+//     Sequenced later by design (the plan scopes tables and data out of this
+//     pass). DONE = tables + a read here + the arrays on the emitted Corpus.
+//     NOTE for whoever does it: unlike content_items, there is no guard holding
+//     these honest. Nothing will tell you the arrays are empty.
+//
+//   Item.provenance                                (schema.ts: Provenance)
+//     NOT debt — a decision. The columns exist and are deliberately withheld;
+//     see WITHHELD_ITEM_COLUMNS. The field stays absent on purpose.
+//
+// Lesson/Unit/Scenario need nothing: they ship as whole `body` jsonb documents,
+// so grammarAssumed/grammarIntroduced/provenance already round-trip. Only
+// content_items is column-mapped, which is precisely why only it can lose a
+// field silently.
+
 /** Columns projected into the Item the app receives. */
 const PROJECTED_ITEM_COLUMNS = new Set([
   'id', 'kind', 'level', 'theme', 'fr', 'en', 'ipa', 'gender', 'example', 'notes',
