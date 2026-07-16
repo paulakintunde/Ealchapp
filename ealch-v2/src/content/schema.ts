@@ -747,16 +747,41 @@ export type ExamSeries = {
   taskIds: string[];
 };
 
-/** What the publish pipeline emits and the app loads. */
+/**
+ * What the publish pipeline emits and the app loads.
+ *
+ * The new arrays are all OPTIONAL, and treated as [] when missing. That is not
+ * politeness — the seed.json committed today, and every cached snapshot on every
+ * install, is a v0 corpus with exactly four arrays. Making any of these required
+ * makes that content invalid, which means a fresh offline install renders
+ * nothing and an existing install throws away a cache it could have used. Same
+ * reason `scenarios` was optional before them.
+ */
 export type Corpus = {
   version: number;
   units: Unit[];
   lessons: Lesson[];
   items: Item[];
   scenarios: Scenario[];
+  domains?: Domain[];
+  themes?: Theme[];
+  packs?: Pack[];
+  examTasks?: ExamTask[];
+  examSeries?: ExamSeries[];
 };
 
-export const EMPTY_CORPUS: Corpus = { version: 0, units: [], lessons: [], items: [], scenarios: [] };
+export const EMPTY_CORPUS: Corpus = {
+  version: 0,
+  units: [],
+  lessons: [],
+  items: [],
+  scenarios: [],
+  domains: [],
+  themes: [],
+  packs: [],
+  examTasks: [],
+  examSeries: [],
+};
 
 /* ─── Validation ─────────────────────────────────────────────────────────── */
 
@@ -1454,17 +1479,31 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   if (typeof co.version !== 'number' || !Number.isFinite(co.version)) {
     out.push({ path: `${path}.version`, message: 'version must be a number' });
   }
-  // scenarios is optional for back-compat with a v0 seed written before scenarios
-  // existed; treat a missing array as empty.
+  // Every array added after v0 is optional for back-compat with the seed that is
+  // already shipped and already cached; a missing one is an empty one.
   const scenarios = co.scenarios ?? [];
+  const domains = co.domains ?? [];
+  const themes = co.themes ?? [];
+  const packs = co.packs ?? [];
+  const examTasks = co.examTasks ?? [];
+  const examSeries = co.examSeries ?? [];
+
   if (!isArr(co.units) || !isArr(co.lessons) || !isArr(co.items) || !isArr(scenarios)) {
     return [{ path, message: 'units, lessons, items and scenarios must all be arrays' }];
+  }
+  if (!isArr(domains) || !isArr(themes) || !isArr(packs) || !isArr(examTasks) || !isArr(examSeries)) {
+    return [{ path, message: 'domains, themes, packs, examTasks and examSeries must be arrays when present' }];
   }
 
   co.items.forEach((it, i) => out.push(...validateItem(it, `${path}.items[${i}]`)));
   co.lessons.forEach((l, i) => out.push(...validateLesson(l, `${path}.lessons[${i}]`)));
   co.units.forEach((u, i) => out.push(...validateUnit(u, `${path}.units[${i}]`)));
   scenarios.forEach((s, i) => out.push(...validateScenario(s, `${path}.scenarios[${i}]`)));
+  domains.forEach((d, i) => out.push(...validateDomain(d, `${path}.domains[${i}]`)));
+  themes.forEach((t, i) => out.push(...validateTheme(t, `${path}.themes[${i}]`)));
+  packs.forEach((p, i) => out.push(...validatePack(p, `${path}.packs[${i}]`)));
+  examTasks.forEach((t, i) => out.push(...validateExamTask(t, `${path}.examTasks[${i}]`)));
+  examSeries.forEach((s, i) => out.push(...validateExamSeries(s, `${path}.examSeries[${i}]`)));
 
   // Duplicate ids: the later one silently wins in any Map-based lookup, so two
   // different items can share a key and the SRS schedules a ghost.
@@ -1482,6 +1521,14 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   dupes(lessonIds, 'lesson');
   dupes(unitIds, 'unit');
   dupes(scenarios.map((s) => s.id).filter(isStr), 'scenario');
+  // Domains and themes are keyed by SLUG rather than id, but the failure is the
+  // same one: the later row wins every Map lookup, so a theme silently points at
+  // a domain nobody meant.
+  dupes(domains.map((d) => d.slug).filter(isStr), 'domain slug');
+  dupes(themes.map((t) => t.slug).filter(isStr), 'theme slug');
+  dupes(packs.map((p) => p.id).filter(isStr), 'pack');
+  dupes(examTasks.map((t) => t.id).filter(isStr), 'exam task');
+  dupes(examSeries.map((s) => s.id).filter(isStr), 'exam series');
 
   const itemSet = new Set(itemIds);
   const lessonSet = new Set(lessonIds);
@@ -1526,6 +1573,81 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
     if (isStr(l.id) && !linked.has(l.id)) {
       out.push({ path: `${path}.lessons`, message: `lesson "${l.id}" is not listed in any unit's lessonIds` });
     }
+  }
+
+  // ── The catalogue's references ──
+  //
+  // The same rule as everywhere above, for the same reason: a dangling reference
+  // does not crash. A theme pointing at a domain that does not exist renders as a
+  // theme filed under nothing — it simply never appears in the picker, and no
+  // error is raised at any point between authoring it and not seeing it.
+  //
+  // Only checked when the catalogue is actually present. A v0 corpus has no
+  // themes, and "no themes" must not be reported as "every theme is dangling".
+  const domainSlugs = new Set(domains.map((d) => d.slug).filter(isStr));
+  const themeSlugs = new Set(themes.map((t) => t.slug).filter(isStr));
+
+  if (domains.length) {
+    for (const t of themes) {
+      if (isStr(t.domain) && !domainSlugs.has(t.domain)) {
+        out.push({ path: `${path}.themes`, message: `theme "${t.slug}" references unknown domain "${t.domain}"` });
+      }
+    }
+  }
+
+  if (themes.length) {
+    for (const p of packs) {
+      if (isStr(p.theme) && !themeSlugs.has(p.theme)) {
+        out.push({ path: `${path}.packs`, message: `pack "${p.id}" references unknown theme "${p.theme}"` });
+      }
+    }
+    // A pack outside its own theme's declared range is a contradiction between
+    // two rows we authored: either the range is wrong or the pack is. It would
+    // quietly generate content at a band the catalogue says the theme does not
+    // reach.
+    const themeById = new Map(themes.filter((t) => isStr(t.slug)).map((t) => [t.slug, t]));
+    for (const p of packs) {
+      const t = isStr(p.theme) ? themeById.get(p.theme) : undefined;
+      if (!t || !isArr(t.levelRange) || t.levelRange.length !== 2) continue;
+      const lo = bandIndex(t.levelRange[0]);
+      const hi = bandIndex(t.levelRange[1]);
+      const at = bandIndex(p.level);
+      if (lo >= 0 && hi >= 0 && at >= 0 && (at < lo || at > hi)) {
+        out.push({
+          path: `${path}.packs`,
+          message: `pack "${p.id}" is at level "${p.level}" but theme "${t.slug}" declares levelRange ${t.levelRange[0]}..${t.levelRange[1]}`,
+        });
+      }
+    }
+  }
+
+  // A series pointing at a task that does not exist is a mock exam that is
+  // shorter than it says it is, and the candidate has no way to know.
+  const taskIds = new Set(examTasks.map((t) => t.id).filter(isStr));
+  for (const s of examSeries) {
+    for (const id of isArr(s.taskIds) ? s.taskIds : []) {
+      if (isStr(id) && !taskIds.has(id)) {
+        out.push({ path: `${path}.examSeries`, message: `series "${s.id}" references unknown exam task "${id}"` });
+      }
+    }
+  }
+
+  // Ids must be unique ACROSS entity types too, not just within one. Every id in
+  // this corpus shares one namespace the moment anything builds a single lookup
+  // map over "all content", which is the obvious thing to write. Prefixes make
+  // collisions unlikely rather than impossible, and "unlikely" is not a property
+  // you want defended by nothing.
+  const allIds = [...itemIds, ...lessonIds, ...unitIds, ...scenarios.map((s) => s.id).filter(isStr),
+    ...packs.map((p) => p.id).filter(isStr), ...examTasks.map((t) => t.id).filter(isStr),
+    ...examSeries.map((s) => s.id).filter(isStr)];
+  const seenGlobal = new Set<string>();
+  const collided = new Set<string>();
+  for (const id of allIds) {
+    if (seenGlobal.has(id) && !collided.has(id)) {
+      collided.add(id);
+      out.push({ path, message: `id "${id}" is used by more than one kind of entity` });
+    }
+    seenGlobal.add(id);
   }
 
   return out;

@@ -931,6 +931,111 @@ test('duplicate ids are caught for items, lessons and units', () => {
   ok(validateCorpus(corpus({ units: [unit(), unit()] })).some((i) => /duplicate unit id/.test(i.message)));
 });
 
+/* ─── corpus: the new entities ───────────────────────────────────────────── */
+
+test('a v0 corpus with none of the new arrays still validates', () => {
+  // THE back-compat rule. The committed seed.json and every cached snapshot on
+  // every install is exactly this shape. If it ever fails, a fresh offline
+  // install renders nothing and existing installs bin a cache they could use.
+  deepStrictEqual(validateCorpus({ version: 1, units: [], lessons: [], items: [] }), []);
+  deepStrictEqual(validateCorpus(corpus()), []);
+  deepStrictEqual(validateCorpus(EMPTY_CORPUS), []);
+});
+
+test('a corpus carrying the whole catalogue validates', () => {
+  deepStrictEqual(
+    validateCorpus(corpus({
+      domains: [domain()],
+      themes: [theme()],
+      packs: [pack()],
+      examTasks: [closedTask()],
+      examSeries: [series()],
+    })),
+    []
+  );
+});
+
+test('a theme pointing at an unknown domain is caught', () => {
+  // It does not crash. The theme is filed under nothing, never appears in the
+  // picker, and no error is raised between authoring it and not seeing it.
+  const issues = validateCorpus(corpus({ domains: [domain()], themes: [theme({ domain: 'travail' })] }));
+  ok(issues.some((i) => /theme "cafe" references unknown domain "travail"/.test(i.message)));
+});
+
+test('a pack pointing at an unknown theme is caught', () => {
+  const issues = validateCorpus(corpus({ themes: [theme()], packs: [pack({ id: 'pack.a1.marche', theme: 'marche' })] }));
+  ok(issues.some((i) => /pack "pack\.a1\.marche" references unknown theme "marche"/.test(i.message)));
+});
+
+test('a pack outside its theme’s declared level range is caught', () => {
+  // Two rows we authored, contradicting each other: the pack would generate
+  // content at a band the catalogue says the theme does not reach.
+  const issues = validateCorpus(corpus({
+    themes: [theme({ levelRange: ['a1', 'a2'] })],
+    packs: [pack({ id: 'pack.c1.cafe', level: 'c1' })],
+  }));
+  ok(issues.some((i) => /is at level "c1" but theme "cafe" declares levelRange a1\.\.a2/.test(i.message)));
+  // In range is silent.
+  deepStrictEqual(
+    validateCorpus(corpus({ themes: [theme({ levelRange: ['a1', 'c1'] })], packs: [pack({ id: 'pack.b2.cafe', level: 'b2' })] })),
+    []
+  );
+});
+
+test('an empty catalogue is not "everything is dangling"', () => {
+  // A v0 corpus has no themes at all. Reporting every pack as pointing at an
+  // unknown theme would make the back-compat gate unpassable for no reason.
+  deepStrictEqual(validateCorpus(corpus({ packs: [pack()] })), []);
+  deepStrictEqual(validateCorpus(corpus({ themes: [theme()] })), []);
+});
+
+test('a series pointing at an unknown task is caught', () => {
+  // A mock exam that is shorter than it claims, and the candidate cannot tell.
+  const issues = validateCorpus(corpus({
+    examTasks: [closedTask()],
+    examSeries: [series({ taskIds: ['exam.tcf.2024a.co.001', 'exam.tcf.2024a.ce.009'] })],
+  }));
+  ok(issues.some((i) => /series "series\.tcf\.2024a\.1" references unknown exam task "exam\.tcf\.2024a\.ce\.009"/.test(i.message)));
+});
+
+test('duplicate ids are caught for every new entity', () => {
+  ok(validateCorpus(corpus({ packs: [pack(), pack()], themes: [theme()] }))
+    .some((i) => /duplicate pack id/.test(i.message)));
+  ok(validateCorpus(corpus({ examTasks: [closedTask(), closedTask()] }))
+    .some((i) => /duplicate exam task id/.test(i.message)));
+  ok(validateCorpus(corpus({ examTasks: [closedTask()], examSeries: [series(), series()] }))
+    .some((i) => /duplicate exam series id/.test(i.message)));
+  // Domains and themes key on slug, and the failure is identical: the later row
+  // wins the lookup, so a theme silently points at a domain nobody meant.
+  ok(validateCorpus(corpus({ domains: [domain(), domain()] }))
+    .some((i) => /duplicate domain slug/.test(i.message)));
+  ok(validateCorpus(corpus({ domains: [domain()], themes: [theme(), theme()] }))
+    .some((i) => /duplicate theme slug/.test(i.message)));
+});
+
+test('an id may not be shared by two different KINDS of entity', () => {
+  // Prefixes make this unlikely, not impossible, and "unlikely" should not be
+  // defended by nothing: anything building one lookup map over all content —
+  // the obvious thing to write — silently loses one of the two.
+  const clash = validateCorpus(corpus({
+    examTasks: [closedTask()],
+    examSeries: [series({ id: 'series.tcf.2024a.1', taskIds: ['exam.tcf.2024a.co.001'] })],
+    packs: [pack({ id: 'series.tcf.2024a.1' as never })],
+  }));
+  ok(clash.some((i) => /is used by more than one kind of entity/.test(i.message)));
+});
+
+test('the new entities are validated, not merely listed', () => {
+  // The corpus must run each entity's own validator, or a corpus of broken rows
+  // passes as long as the references happen to line up.
+  ok(validateCorpus(corpus({ domains: [domain()], themes: [theme({ levelRange: ['c1', 'a1'] })] }))
+    .some((i) => /levelRange is inverted/.test(i.message)));
+  ok(validateCorpus(corpus({ examTasks: [{ ...openTask(), rubric: undefined }] }))
+    .some((i) => /MUST have a rubric/.test(i.message)));
+  ok(validateCorpus(corpus({ themes: [theme()], packs: [pack({ goal: '' })] }))
+    .some((i) => /goal is required/.test(i.message)));
+});
+
 test('validateCorpus never throws on garbage', () => {
   for (const junk of [null, undefined, 42, 'corpus', [], { version: 1 }]) {
     ok(Array.isArray(validateCorpus(junk)));
