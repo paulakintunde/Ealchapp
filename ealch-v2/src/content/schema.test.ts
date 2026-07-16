@@ -264,6 +264,78 @@ test('validateItem never throws on garbage', () => {
   }
 });
 
+/* ─── the optional spine on Item and Lesson ──────────────────────────────── */
+
+test('an item with the full spine validates', () => {
+  deepStrictEqual(
+    validateItem(
+      item({
+        skill: 'PO',
+        register: 'courant',
+        canDo: 'I can order a coffee',
+        grammarPoints: ['conditionnel-politesse'],
+        modality: 'produce',
+        provenance: { model: 'claude-opus-4-8', promptVersion: 'v3', generatedBy: 'llm', sourceRefs: ['Grevisse §912'] },
+      })
+    ),
+    []
+  );
+});
+
+test('an item with NONE of the spine still validates — this is the whole seed', () => {
+  // Not a nicety. Every one of the ~2k items already on people's phones looks
+  // like this. The moment any of these becomes required, the shipped corpus is
+  // invalid and a fresh offline install renders nothing.
+  deepStrictEqual(validateItem(item()), []);
+  const bare = item();
+  for (const k of ['skill', 'register', 'canDo', 'grammarPoints', 'modality', 'provenance'] as const) {
+    strictEqual(bare[k], undefined, `the base fixture must not set ${k}`);
+  }
+});
+
+test('the spine is checked for TYPE when present, and only then', () => {
+  ok(validateItem(item({ skill: 'listen' as never })).length > 0, 'PracticeSkill is not ExamSkill');
+  ok(validateItem(item({ skill: 'CO' })).length === 0);
+  ok(validateItem(item({ register: 'street' as never })).length > 0);
+  ok(validateItem(item({ modality: 'recall' as never })).length > 0);
+  ok(validateItem(item({ canDo: '' })).length > 0);
+  ok(validateItem(item({ grammarPoints: 'passe-compose' as never })).length > 0);
+  ok(validateItem(item({ grammarPoints: [''] })).length > 0);
+});
+
+test('the two skill vocabularies are not interchangeable', () => {
+  // The rename exists to stop exactly this confusion. An item's `skill` is the
+  // exam taxonomy; a practice section's `skill` is what the learner does. Each
+  // must reject the other's values, or the distinction is decorative.
+  ok(validateItem(item({ skill: 'speak' as never })).length > 0);
+  const sections: LessonSection[] = [{ type: 'practice', title: 'T', skill: 'PO' as never, itemIds: ['fr.a1.cafe.001'] }];
+  ok(validateLesson(lesson({ sections })).length > 0);
+});
+
+test('a lesson carries a grammar spine, and both halves are optional', () => {
+  deepStrictEqual(validateLesson(lesson({ grammarAssumed: ['present'], grammarIntroduced: ['passe-compose'] })), []);
+  deepStrictEqual(validateLesson(lesson()), [], 'the shipped lessons have neither');
+  ok(validateLesson(lesson({ grammarAssumed: 'present' as never })).length > 0);
+  ok(validateLesson(lesson({ grammarIntroduced: [42] as never })).length > 0);
+});
+
+test('provenance is optional everywhere, and validated when claimed', () => {
+  // Absent means UNKNOWN, never 'human'. Hand-written content from before any of
+  // this existed has no history to claim, and inventing one would make the audit
+  // trail a liar.
+  deepStrictEqual(validateItem(item({ provenance: {} })), [], 'an empty claim is legal');
+  ok(validateItem(item({ provenance: { generatedBy: 'robot' } as never })).length > 0);
+  ok(validateItem(item({ provenance: { sourceRefs: 'Grevisse' } as never })).length > 0);
+  ok(validateItem(item({ provenance: 'llm' as never })).length > 0);
+  ok(validateItem(item({ provenance: [] as never })).length > 0);
+  // Every entity that can be generated can say where it came from.
+  deepStrictEqual(validateLesson(lesson({ provenance: { generatedBy: 'human' } })), []);
+  deepStrictEqual(validateScenario(scenario({ provenance: { model: 'x' } })), []);
+  deepStrictEqual(validatePack(pack({ provenance: { promptVersion: 'v1' } })), []);
+  ok(validateScenario(scenario({ provenance: { model: 42 } as never })).length > 0);
+  ok(validatePack(pack({ provenance: { reviewedBy: '' } as never })).length > 0);
+});
+
 /* ─── lesson sections ────────────────────────────────────────────────────── */
 
 const withSection = (s: LessonSection) => validateLesson(lesson({ sections: [s] }));

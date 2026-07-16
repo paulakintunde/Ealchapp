@@ -36,6 +36,13 @@
       "when": 1784214154848,
       "tag": "0004_content_items_no_c2",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1784214932011,
+      "tag": "0005_content_items_spine",
+      "breakpoints": true
     }
   ]
 }

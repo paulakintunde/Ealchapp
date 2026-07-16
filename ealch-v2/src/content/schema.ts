@@ -224,6 +224,52 @@ export function unitBand(id: string): Level | null {
   return (LEVELS as readonly string[]).includes(band) ? (band as Level) : null;
 }
 
+/* ─── Provenance ─────────────────────────────────────────────────────────── */
+
+/**
+ * Where a piece of content came from. Once content is LLM-generated, "which
+ * model wrote this, against which prompt, and who signed it off" stops being
+ * paperwork and becomes the only way to answer the question that matters after
+ * a bad batch ships: what else did that model, on that prompt version, write?
+ * Without it the answer is "re-read everything".
+ *
+ * Every field is optional because provenance is a claim about history, and
+ * hand-written content from before any of this existed has no history to claim.
+ * An absent provenance means unknown — it must never be read as "human".
+ */
+export type Provenance = {
+  model?: string;
+  promptVersion?: string;
+  generatedBy?: 'human' | 'llm';
+  /** Admin id of the human who approved it. Absent means nobody has. */
+  reviewedBy?: string;
+  /** The pedagogical sources backing this content. The brief requires lessons
+   *  drawn from established French teaching with sources supporting them; this
+   *  is where that claim is recorded and made auditable. */
+  sourceRefs?: string[];
+};
+
+function validateProvenance(v: unknown, path: string): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null || isArr(v)) return [{ path, message: 'provenance must be an object' }];
+  const p = v as Partial<Provenance>;
+
+  // Type-when-present only: every field is optional, and an absent one means
+  // "unknown", not "invalid".
+  for (const k of ['model', 'promptVersion', 'reviewedBy'] as const) {
+    if (p[k] !== undefined && !isStr(p[k])) push(`provenance.${k} must be a non-empty string when present`);
+  }
+  if (p.generatedBy !== undefined && p.generatedBy !== 'human' && p.generatedBy !== 'llm') {
+    push("provenance.generatedBy must be 'human' or 'llm'");
+  }
+  if (p.sourceRefs !== undefined) {
+    if (!isArr(p.sourceRefs)) push('provenance.sourceRefs must be an array');
+    else if (p.sourceRefs.some((s) => !isStr(s))) push('provenance.sourceRefs must all be non-empty strings');
+  }
+  return out;
+}
+
 /* ─── Item: the atomic corpus row ────────────────────────────────────────── */
 
 export type Item = {
@@ -252,6 +298,28 @@ export type Item = {
   /** Null until Phase 7. Device TTS speaks `fr` in the meantime. */
   audioRef?: string | null;
   version: number;
+
+  // ── The exam/SRS spine. All optional TODAY, required LATER. ──
+  //
+  // Every field below will carry real data and none of it is backfilled yet.
+  // They are optional because the corpus already on people's phones does not
+  // have them, and a required field would mean the shipped seed stops
+  // validating — see seed.backcompat.test.ts. The Master Build makes `skill` and
+  // `modality` required once a publish has backfilled them; until then the
+  // validators check TYPE-WHEN-PRESENT only, and absence is not an error.
+
+  /** The exam taxonomy: CO/CE/PO/PE. Not the lesson-practice PracticeSkill —
+   *  see the mapping note on EXAM_SKILLS. */
+  skill?: ExamSkill;
+  register?: Register;
+  /** The can-do this item serves, in the learner's words. */
+  canDo?: string;
+  /** Grammar this item exercises: 'passe-compose', 'subjonctif-present'. */
+  grammarPoints?: string[];
+  /** How this item is exercised. The SRS keys on (itemId, modality), never on
+   *  itemId alone — recognising and producing are different memories. */
+  modality?: Modality;
+  provenance?: Provenance;
 };
 
 /* ─── Lesson: an ordered list of typed sections ──────────────────────────── */
@@ -308,6 +376,19 @@ export type Lesson = {
   /** Every corpus item this lesson teaches. */
   itemIds: string[];
   version: number;
+
+  // ── The grammar spine ──
+  //
+  // Two lists, not one, because "what this lesson expects you to already know"
+  // and "what it teaches you" are different claims and only the pair makes the
+  // curriculum checkable. With both, a lesson ordering that introduces the
+  // subjunctive after a lesson that assumes it is findable by a script. With
+  // one, it is findable by a confused learner.
+  /** Grammar the learner is expected to have already. */
+  grammarAssumed?: string[];
+  /** Grammar this lesson introduces for the first time. */
+  grammarIntroduced?: string[];
+  provenance?: Provenance;
 };
 
 /**
@@ -362,6 +443,7 @@ export type Scenario = {
   title: string;
   turns: ScenarioTurn[];
   version: number;
+  provenance?: Provenance;
 };
 
 /* ─── Domain and Theme: the catalogue ────────────────────────────────────── */
@@ -455,6 +537,7 @@ export type Pack = {
    */
   modeTargets: Partial<Record<DrillKind, number>>;
   status: ContentStatus;
+  provenance?: Provenance;
 };
 
 /** What the publish pipeline emits and the app loads. */
@@ -531,6 +614,26 @@ export function validateItem(v: unknown, path = 'item'): Issue[] {
   }
 
   if (typeof it.version !== 'number' || !Number.isFinite(it.version)) push('version must be a number');
+
+  // ── The optional spine: TYPE-WHEN-PRESENT only ──
+  // Absence is not an error here and must not become one until a publish has
+  // backfilled the corpus. The shipped seed has none of these fields, so a
+  // required check would make the content on people's phones invalid.
+  if (it.skill !== undefined && !oneOf(EXAM_SKILLS, it.skill)) {
+    push(`skill must be one of ${EXAM_SKILLS.join(' | ')}`);
+  }
+  if (it.register !== undefined && !oneOf(REGISTERS, it.register)) {
+    push(`register must be one of ${REGISTERS.join(' | ')}`);
+  }
+  if (it.modality !== undefined && !oneOf(MODALITIES, it.modality)) {
+    push(`modality must be one of ${MODALITIES.join(' | ')}`);
+  }
+  if (it.canDo !== undefined && !isStr(it.canDo)) push('canDo must be a non-empty string when present');
+  if (it.grammarPoints !== undefined) {
+    if (!isArr(it.grammarPoints)) push('grammarPoints must be an array when present');
+    else if (it.grammarPoints.some((g) => !isStr(g))) push('grammarPoints must all be non-empty strings');
+  }
+  if (it.provenance !== undefined) out.push(...validateProvenance(it.provenance, `${path}.provenance`));
 
   return out;
 }
@@ -694,6 +797,16 @@ export function validateLesson(v: unknown, path = 'lesson'): Issue[] {
   else if (l.sections.length === 0) push('sections must not be empty — an empty lesson teaches nothing');
   else l.sections.forEach((s, i) => out.push(...validateSection(s, `${path}.sections[${i}]`)));
 
+  // Type-when-present, as on Item: the shipped lessons have no grammar spine.
+  for (const k of ['grammarAssumed', 'grammarIntroduced'] as const) {
+    const v2 = l[k];
+    if (v2 !== undefined) {
+      if (!isArr(v2)) push(`${k} must be an array when present`);
+      else if (v2.some((g) => !isStr(g))) push(`${k} must all be non-empty strings`);
+    }
+  }
+  if (l.provenance !== undefined) out.push(...validateProvenance(l.provenance, `${path}.provenance`));
+
   return out;
 }
 
@@ -764,6 +877,7 @@ export function validateScenario(v: unknown, path = 'scenario'): Issue[] {
 
   if (!isStr(s.title)) push('title is required');
   if (typeof s.version !== 'number' || !Number.isFinite(s.version)) push('version must be a number');
+  if (s.provenance !== undefined) out.push(...validateProvenance(s.provenance, `${path}.provenance`));
 
   if (!isArr(s.turns)) push('turns must be an array');
   else if (s.turns.length === 0) push('turns must not be empty — a scenario with no dialogue is nothing');
@@ -862,6 +976,7 @@ export function validatePack(v: unknown, path = 'pack'): Issue[] {
     if (p.theme && theme !== p.theme) push(`id theme "${theme}" disagrees with theme "${p.theme}"`);
   }
 
+  if (p.provenance !== undefined) out.push(...validateProvenance(p.provenance, `${path}.provenance`));
   if (!isStr(p.goal)) push('goal is required — a pack with no can-do has no definition of done');
   if (!oneOf(CONTENT_STATUSES, p.status)) push(`status must be one of ${CONTENT_STATUSES.join(' | ')}`);
 

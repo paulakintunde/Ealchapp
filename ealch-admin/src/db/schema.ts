@@ -301,6 +301,23 @@ export const contentItems = pgTable('content_items', {
   audioRef: text('audio_ref'),
   version: integer('version').notNull().default(1),
 
+  // ── The exam/SRS spine ──
+  // All nullable, because the ~2k rows already published have none of them and a
+  // NOT NULL would need a backfill this migration cannot invent. The app's
+  // schema.ts keeps the matching fields optional for the same reason. They
+  // become required on both sides together, once a real backfill has run.
+  /** CO/CE/PO/PE — the exam taxonomy. Not the lesson-practice skill. */
+  skill: examSkill('skill'),
+  register: register('register'),
+  /** The can-do this item serves, in the learner's words. */
+  canDo: text('can_do'),
+  /** 'passe-compose', 'subjonctif-present'. text[], not an enum: the grammar
+   *  point list is long, open, and edited by content people rather than by a
+   *  migration. */
+  grammarPoints: text('grammar_points').array().notNull().default([]),
+  /** How the item is exercised. The SRS keys on (item, modality). */
+  modality: modality('modality'),
+
   status: contentStatus('status').notNull().default('draft'),
   publishedAt: timestamp('published_at', { withTimezone: true }),
 

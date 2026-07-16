@@ -24,7 +24,9 @@ import './env';
 import { createHash } from 'node:crypto';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
+import { getTableColumns } from 'drizzle-orm';
 import { describeTarget } from './env';
+import { contentItems } from '../src/db/schema';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
 // THE canonical schema — the same file the app, the tests and the generator read.
 // Imported, never copied: a copy drifts, and a drift means this script can ship
@@ -72,6 +74,68 @@ function stableStringify(v: unknown): string {
 
 const sha256 = (s: string) => createHash('sha256').update(s, 'utf8').digest('hex');
 
+/* ─── The projection guard ───────────────────────────────────────────────── */
+
+// The failure this exists to stop: this script hand-picks columns. It is an
+// allowlist, not `select *`. So a column added to content_items — with a
+// migration, a Drizzle field, an Ops Console editor and real authored data
+// behind it — reaches the app as UNDEFINED unless someone also remembers to edit
+// the SELECT and the mapper thirty lines apart in this file. Nothing errors. The
+// content validates. The field is simply, silently, not there.
+//
+// So every column must be classified exactly once, here. A new column belongs to
+// one of these two sets or publishing stops until someone decides which.
+//
+// This is deliberately a hand-maintained list rather than something derived from
+// the mapper: the point is to force a DECISION about each column, and a derived
+// check would happily conclude that a forgotten column was intentionally
+// forgotten.
+
+/** Columns projected into the Item the app receives. */
+const PROJECTED_ITEM_COLUMNS = new Set([
+  'id', 'kind', 'level', 'theme', 'fr', 'en', 'ipa', 'gender', 'example', 'notes',
+  'tags', 'drills', 'audio_ref', 'version',
+  'skill', 'register', 'can_do', 'grammar_points', 'modality',
+]);
+
+/** Columns deliberately NOT shipped, each with the reason it stays behind. */
+const WITHHELD_ITEM_COLUMNS = new Set([
+  'status',        // publish-time filter; every shipped row is 'published' by definition
+  'published_at',  // editorial history, not content
+  'pack_id',       // an internal review grouping; the app finds items by level+theme
+  'created_at',    // ditto
+  'updated_at',    // ditto
+  // Provenance is authoring metadata: who/what wrote this and who signed it off.
+  // It is real and it is audited in the console, but it is not content, and it
+  // would put reviewer ids in a public snapshot on every phone.
+  'generated_by', 'model', 'prompt_version', 'source_refs', 'reviewed_by', 'reviewed_at',
+]);
+
+/** Fail publish if any content_items column is unclassified. Runs before the
+ *  DB is touched, so a forgotten column costs a message rather than a snapshot. */
+function assertItemProjectionIsComplete(): void {
+  const columns = Object.values(getTableColumns(contentItems)).map((c) => c.name);
+  const unclassified = columns.filter(
+    (c) => !PROJECTED_ITEM_COLUMNS.has(c) && !WITHHELD_ITEM_COLUMNS.has(c)
+  );
+  if (unclassified.length) {
+    die(
+      `content_items has ${unclassified.length} column(s) this script does not know about:\n` +
+        unclassified.map((c) => `    · ${c}`).join('\n') +
+        '\n\n  Every column must be classified in publish-content.ts, because the SELECT is an\n' +
+        '  allowlist: an unlisted column reaches the app as undefined with no error anywhere.\n' +
+        '  Either add it to the SELECT + the row→Item mapper + PROJECTED_ITEM_COLUMNS,\n' +
+        '  or add it to WITHHELD_ITEM_COLUMNS with the reason it stays in the database.'
+    );
+  }
+  // The reverse: a column removed from the table but still claimed here would
+  // make the SELECT fail at runtime with a Postgres error rather than here.
+  const stale = [...PROJECTED_ITEM_COLUMNS, ...WITHHELD_ITEM_COLUMNS].filter((c) => !columns.includes(c));
+  if (stale.length) {
+    die(`publish-content.ts claims column(s) that content_items no longer has: ${stale.join(', ')}`);
+  }
+}
+
 /** Every item a lesson depends on: its itemIds plus anything a practice section
  *  points at. Miss the practice sections and the seed ships a lesson whose
  *  practice block is silently empty. */
@@ -88,6 +152,10 @@ function itemsReferencedBy(l: Lesson): string[] {
 async function main() {
   console.log(`→ ${describeTarget()}`);
   if (DRY_RUN) console.log('  (dry run — nothing will be written or uploaded)');
+
+  // Before anything else, and before the DB is touched: if a column is not
+  // classified, a field that someone authored is about to ship as undefined.
+  assertItemProjectionIsComplete();
 
   const { Pool } = await import('pg');
   if (!process.env.DATABASE_URL) {
@@ -110,7 +178,9 @@ async function main() {
   const itemRows = await pool.query(
     `select id, kind::text as kind, level::text as level, theme, fr, en, ipa,
             gender::text as gender, example, notes, tags, drills::text[] as drills,
-            audio_ref, version
+            audio_ref, version,
+            skill::text as skill, register::text as register, can_do,
+            grammar_points, modality::text as modality
        from content_items where status = 'published'`
   );
 
@@ -136,6 +206,15 @@ async function main() {
     drills: r.drills ?? [],
     audioRef: r.audio_ref ?? null,
     version: r.version,
+    // The spine. Spread-when-present, like ipa/gender above: a null column must
+    // become an ABSENT key, not `skill: null`. The app's validators check
+    // type-when-present, and `null` is present — it would be rejected, and the
+    // snapshot checksum would churn on fields that carry no information.
+    ...(r.skill ? { skill: r.skill } : {}),
+    ...(r.register ? { register: r.register } : {}),
+    ...(r.can_do ? { canDo: r.can_do } : {}),
+    ...(r.grammar_points?.length ? { grammarPoints: r.grammar_points } : {}),
+    ...(r.modality ? { modality: r.modality } : {}),
   }));
 
   console.log(
