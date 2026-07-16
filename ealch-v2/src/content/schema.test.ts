@@ -11,7 +11,15 @@
 import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import {
+  DRILL_KINDS,
   EMPTY_CORPUS,
+  EXAM_SECTIONS,
+  EXAM_SKILLS,
+  LEVELS,
+  MODALITIES,
+  PRACTICE_SKILLS,
+  REGISTERS,
+  SCORE_BANDS,
   formatIssues,
   isValidCorpus,
   isValidItem,
@@ -28,6 +36,7 @@ import {
   type Item,
   type Lesson,
   type LessonSection,
+  type PracticeSkill,
   type Unit,
 } from './schema.ts';
 
@@ -88,6 +97,60 @@ const corpus = (over: Partial<Corpus> = {}): Corpus => ({
   items: [item()],
   scenarios: [scenario()],
   ...over,
+});
+
+/* ─── value lists ────────────────────────────────────────────────────────── */
+
+test('content stops at c1; only an exam SCORE can be c2', () => {
+  // The two lists do different jobs and neither contains the other. LEVELS is
+  // what we author; SCORE_BANDS is what a paper can award. 'sons' is our own
+  // pronunciation track and not a CEFR band at all, so it can never be a score.
+  deepStrictEqual([...LEVELS], ['sons', 'a1', 'a2', 'b1', 'b2', 'c1']);
+  deepStrictEqual([...SCORE_BANDS], ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']);
+  ok(!(LEVELS as readonly string[]).includes('c2'), 'we author no c2 content');
+  ok((SCORE_BANDS as readonly string[]).includes('c2'), 'but a learner can score c2');
+  ok(!(SCORE_BANDS as readonly string[]).includes('sons'), "nobody's CEFR level is 'sons'");
+});
+
+test('a c2 content id is now rejected everywhere an id is parsed', () => {
+  // Dropping c2 from LEVELS must drop it from the id regexes too. It does,
+  // because they are derived from LEVELS rather than restating it — this test
+  // is what proves the derivation is wired up and not just described.
+  ok(validateItem(item({ id: 'fr.c2.affaires.001', level: 'c2' as never })).length > 0);
+  ok(validateScenario(scenario({ id: 'sc.c2.affaires.001', level: 'c2' as never })).length > 0);
+  // c1 is the highest band we author, and it must still pass.
+  deepStrictEqual(validateItem(item({ id: 'fr.c1.affaires.001', level: 'c1', theme: 'affaires' })), []);
+});
+
+test('the new value lists exist and hold what the rest of the phase assumes', () => {
+  deepStrictEqual([...MODALITIES], ['recognise', 'produce', 'discriminate']);
+  deepStrictEqual([...REGISTERS], ['familier', 'courant', 'soutenu']);
+  deepStrictEqual([...EXAM_SKILLS], ['CO', 'CE', 'PO', 'PE']);
+  deepStrictEqual([...EXAM_SECTIONS], ['co', 'ce', 'eo', 'ee']);
+});
+
+test('the shipped drill-kind strings are append-only', () => {
+  // These values live inside cached OTA snapshots on real installs. Adding a
+  // kind is safe; renaming one silently empties every deck built from an old
+  // cache, with no error anywhere. Pinning the prefix makes that a red test
+  // rather than a support ticket.
+  deepStrictEqual(
+    [...DRILL_KINDS].slice(0, 6),
+    ['flashcard', 'voiceflash', 'dictation', 'sentence', 'roleplay', 'review'],
+    'the six original drill kinds must keep their exact strings and order'
+  );
+  ok((DRILL_KINDS as readonly string[]).includes('playlist'));
+  ok((DRILL_KINDS as readonly string[]).includes('exam'));
+});
+
+test('practice skills keep their shipped string values under the new name', () => {
+  // PRACTICE_SKILLS is a renamed identifier, not new data. The strings are what
+  // cached snapshots hold, so they must not have moved.
+  deepStrictEqual([...PRACTICE_SKILLS], ['read', 'write', 'speak', 'listen']);
+  // And the renamed type still types the thing it was renamed for.
+  const s: PracticeSkill = 'speak';
+  const sections: LessonSection[] = [{ type: 'practice', title: 'T', skill: s, itemIds: ['fr.a1.cafe.001'] }];
+  deepStrictEqual(validateLesson(lesson({ sections })), []);
 });
 
 /* ─── identity ───────────────────────────────────────────────────────────── */

@@ -35,12 +35,38 @@ export const flagStatus = pgEnum('flag_status', ['open', 'resolved']);
 
 // NOT userLevel: a *user* is never at level "sons", but content is — and the
 // Sons track is the deepest content in the curriculum. Content needs its own.
+//
+// 'c2' is here and is NOT in the app's LEVELS. That asymmetry is deliberate and
+// permanent: we author no c2 content, but Postgres has no safe way to drop an
+// enum value (it means recreating the type and rewriting every dependent column)
+// and doing that for a value no row uses is pure downtime risk. So the value
+// stays reachable in the type and is forbidden at two other gates instead — the
+// items_level_not_c2 CHECK below (drizzle/0004) stops an author writing it, and
+// the app's validateCorpus stops it shipping. Asserted by ealch-v2's
+// enum-parity.test.ts, which requires the difference to be exactly c2.
 export const contentLevel = pgEnum('content_level', ['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2']);
 export const itemKind = pgEnum('item_kind', ['word', 'phrase', 'sentence']);
 export const itemGender = pgEnum('item_gender', ['m', 'f']);
 export const drillKind = pgEnum('drill_kind', [
   'flashcard', 'voiceflash', 'dictation', 'sentence', 'roleplay', 'review',
+  // Append-only. These values ship inside cached OTA snapshots on real installs,
+  // so a rename silently empties every deck built from an old cache.
+  'playlist', 'exam',
 ]);
+
+// How an item is exercised. Recognising 'la gare' and producing it from 'the
+// station' are different memories with different decay curves, so the SRS keys
+// on (item, modality) rather than item alone.
+export const modality = pgEnum('modality', ['recognise', 'produce', 'discriminate']);
+// Saying 'tu fous quoi ?' to a border officer is grammatically perfect and a
+// social catastrophe. Register is content, not a note.
+export const register = pgEnum('register', ['familier', 'courant', 'soutenu']);
+export const examFamily = pgEnum('exam_family', ['tef', 'tcf', 'delf', 'dalf']);
+/** Sections of an exam PAPER (épreuve orale/écrite). Not examSkill — see the
+ *  mapping note on EXAM_SKILLS in ealch-v2/src/content/schema.ts. */
+export const examSection = pgEnum('exam_section', ['co', 'ce', 'eo', 'ee']);
+/** The per-ITEM exam taxonomy: compréhension/production × orale/écrite. */
+export const examSkill = pgEnum('exam_skill', ['CO', 'CE', 'PO', 'PE']);
 // Once content is LLM-generated, "which model produced this, against which
 // prompt, and who signed it off" stops being optional.
 export const generatedBy = pgEnum('generated_by', ['human', 'llm']);

@@ -35,11 +35,30 @@
 
 /* ─── Value lists ────────────────────────────────────────────────────────── */
 
-export const LEVELS = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'] as const;
+/**
+ * The bands CONTENT can be authored at. Deliberately not the same list as the
+ * bands a learner can SCORE at — see SCORE_BANDS.
+ *
+ * 'c2' is absent on purpose. We author no c2 content: a c2 candidate is not
+ * learning French from an app, and pretending the corpus reaches c2 would put an
+ * empty band in every level picker. c2 remains meaningful as an exam RESULT,
+ * which is why the two lists are split rather than one list doing both jobs.
+ */
+export const LEVELS = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1'] as const;
 export type Level = (typeof LEVELS)[number];
 
+/**
+ * The bands a learner can be SCORED at on a real exam paper. Display only: a TEF
+ * or TCF result can legitimately come back c2, and 'sons' is not a CEFR band at
+ * all — it is our own pronunciation track. So this list is neither a superset
+ * nor a subset of LEVELS, and conflating them would either invent c2 content or
+ * report a learner's level as "sons".
+ */
+export const SCORE_BANDS = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'] as const;
+export type ScoreBand = (typeof SCORE_BANDS)[number];
+
 /** Tracks are the three columns of the Beginners' Den. A Level is broader:
- *  corpus items can be tagged b1..c2 long before a track exists for them. */
+ *  corpus items can be tagged b1..c1 long before a track exists for them. */
 export const TRACKS = ['sons', 'a1', 'a2'] as const;
 export type Track = (typeof TRACKS)[number];
 
@@ -48,7 +67,11 @@ export type ItemKind = (typeof ITEM_KINDS)[number];
 
 /** Which drills MAY select an item. An item carries its own eligibility rather
  *  than each drill hardcoding a list: a drill asks the corpus for what it can
- *  use, so adding a drill never means editing every item. */
+ *  use, so adding a drill never means editing every item.
+ *
+ *  These are SHIPPED STRING VALUES. Existing installs hold cached OTA snapshots
+ *  containing them, so adding a kind is safe and changing one is not: a renamed
+ *  value silently empties every deck built from a cached snapshot. Append only. */
 export const DRILL_KINDS = [
   'flashcard',
   'voiceflash',
@@ -56,12 +79,65 @@ export const DRILL_KINDS = [
   'sentence',
   'roleplay',
   'review',
+  'playlist',
+  'exam',
 ] as const;
 export type DrillKind = (typeof DRILL_KINDS)[number];
 
-/** The four skills every rich lesson must exercise. */
-export const SKILLS = ['read', 'write', 'speak', 'listen'] as const;
-export type Skill = (typeof SKILLS)[number];
+/**
+ * The four skills a rich LESSON must exercise — what `LessonSection.practice`
+ * asks the learner to do. Not the exam taxonomy: see EXAM_SKILLS.
+ *
+ * Named PRACTICE_SKILLS rather than SKILLS because there are now two skill
+ * vocabularies in play and an unqualified `Skill` gave no way to tell which one
+ * a field meant. The string values are unchanged and must stay that way — they
+ * ship inside cached snapshots.
+ */
+export const PRACTICE_SKILLS = ['read', 'write', 'speak', 'listen'] as const;
+export type PracticeSkill = (typeof PRACTICE_SKILLS)[number];
+
+/**
+ * The exam taxonomy, per item. Compréhension/Production × Orale/Écrite — the
+ * four skills every TEF/TCF/DELF paper is built from.
+ *
+ *   CO  compréhension orale     listening   → EXAM_SECTIONS 'co'  ≈ PracticeSkill 'listen'
+ *   CE  compréhension écrite    reading     → EXAM_SECTIONS 'ce'  ≈ PracticeSkill 'read'
+ *   PO  production orale        speaking    → EXAM_SECTIONS 'eo'  ≈ PracticeSkill 'speak'
+ *   PE  production écrite       writing     → EXAM_SECTIONS 'ee'  ≈ PracticeSkill 'write'
+ *
+ * The mapping is a correspondence, not an identity, which is exactly why both
+ * lists exist. EXAM_SECTIONS uses the French paper's own labels (eo/ee, épreuve
+ * orale/écrite) because that is what candidates and past papers call them, and
+ * an item's skill is a property of the item while a section is a property of the
+ * paper. Do not collapse them.
+ */
+export const EXAM_SKILLS = ['CO', 'CE', 'PO', 'PE'] as const;
+export type ExamSkill = (typeof EXAM_SKILLS)[number];
+
+/**
+ * How an item is being exercised, which is not the same as whether it is known.
+ * Recognising 'la gare' on sight and producing it from 'the station' are
+ * different memories with different decay curves, so the SRS schedules them
+ * separately: the scheduler's key is (itemId, modality), never itemId alone.
+ * Collapsing them is why an app can insist you know a word you cannot say.
+ */
+export const MODALITIES = ['recognise', 'produce', 'discriminate'] as const;
+export type Modality = (typeof MODALITIES)[number];
+
+/** Register. Saying 'tu fous quoi ?' to a border officer is a grammatically
+ *  perfect sentence and a social catastrophe, so register is a first-class
+ *  property of an item rather than a note nobody reads. */
+export const REGISTERS = ['familier', 'courant', 'soutenu'] as const;
+export type Register = (typeof REGISTERS)[number];
+
+/** The exam families we author toward. */
+export const EXAM_FAMILIES = ['tef', 'tcf', 'delf', 'dalf'] as const;
+export type ExamFamily = (typeof EXAM_FAMILIES)[number];
+
+/** The sections of an exam paper. See the note on EXAM_SKILLS for how these
+ *  correspond to the per-item taxonomy, and why they are not the same list. */
+export const EXAM_SECTIONS = ['co', 'ce', 'eo', 'ee'] as const;
+export type ExamSection = (typeof EXAM_SECTIONS)[number];
 
 export const SECTION_TYPES = [
   'teach',
@@ -92,11 +168,30 @@ export type ContentStatus = (typeof CONTENT_STATUSES)[number];
 //   unit    <track>.<nn>               sons.03
 //   lesson  <unitId>.l<seq>            sons.03.l1
 
-export const ITEM_ID_RE = /^fr\.(sons|a1|a2|b1|b2|c1|c2)\.[a-z0-9-]+\.\d{3,}$/;
-export const UNIT_ID_RE = /^(sons|a1|a2)\.\d{2}$/;
-export const LESSON_ID_RE = /^(sons|a1|a2)\.\d{2}\.l\d+$/;
+/**
+ * The band alternation every content id regex is built from, DERIVED from LEVELS
+ * rather than written out.
+ *
+ * Hand-maintained copies of this list had already drifted: the item and scenario
+ * regexes accepted all seven bands while the unit and lesson regexes silently
+ * capped at (sons|a1|a2). Nothing caught it, because each regex looked correct on
+ * its own. Deriving means dropping 'c2' from LEVELS drops it from all four ids at
+ * once, and a future band cannot be half-added.
+ *
+ * `new RegExp` rather than a literal is not a runtime import — the constraint at
+ * the top of this file is about modules, and RegExp is a language builtin.
+ */
+const BANDS_RE = LEVELS.join('|');
+/** Units and lessons are still capped to the Den's three beginner tracks. That
+ *  cap is a product decision that has outlived its usefulness and is lifted in
+ *  its own commit; deriving it from TRACKS here means the lift is one edit. */
+const UNIT_BANDS_RE = TRACKS.join('|');
+
+export const ITEM_ID_RE = new RegExp(`^fr\\.(${BANDS_RE})\\.[a-z0-9-]+\\.\\d{3,}$`);
+export const UNIT_ID_RE = new RegExp(`^(${UNIT_BANDS_RE})\\.\\d{2}$`);
+export const LESSON_ID_RE = new RegExp(`^(${UNIT_BANDS_RE})\\.\\d{2}\\.l\\d+$`);
 /** Scenario ids: sc.<level>.<theme>.<seq>   sc.a1.marche.001 */
-export const SCENARIO_ID_RE = /^sc\.(sons|a1|a2|b1|b2|c1|c2)\.[a-z0-9-]+\.\d{3,}$/;
+export const SCENARIO_ID_RE = new RegExp(`^sc\\.(${BANDS_RE})\\.[a-z0-9-]+\\.\\d{3,}$`);
 /** Themes group the corpus for batch review and for themed drills. */
 export const THEME_RE = /^[a-z0-9-]+$/;
 
@@ -179,7 +274,7 @@ export type LessonSection =
   | { type: 'audio'; title: string; lines: string[] }
   /** Practice against real corpus items — this is the join between a lesson and
    *  the drills, and it is what lets a lesson exercise all four skills. */
-  | { type: 'practice'; title: string; skill: Skill; itemIds: string[] }
+  | { type: 'practice'; title: string; skill: PracticeSkill; itemIds: string[] }
   | {
       type: 'quiz';
       title: string;
@@ -392,7 +487,7 @@ function validateSection(s: unknown, path: string): Issue[] {
       break;
     }
     case 'practice': {
-      if (!oneOf(SKILLS, sec.skill)) push(`skill must be one of ${SKILLS.join(' | ')}`);
+      if (!oneOf(PRACTICE_SKILLS, sec.skill)) push(`skill must be one of ${PRACTICE_SKILLS.join(' | ')}`);
       const ids = sec.itemIds;
       if (!isArr(ids) || ids.length === 0) push('itemIds must be a non-empty array');
       else {
