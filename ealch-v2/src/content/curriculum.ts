@@ -1,6 +1,19 @@
 // Beginners' Den curriculum ported 1:1 from the prototype.
 
+import type { WeakSkill } from '@/store/progress.logic';
+
 export type Unit = { title: string; sub: string };
+
+/** Maps a wired lesson (by corpus id) to the weak-spot skill a failed quiz
+ *  question there belongs to. This is the classifier behind home's weak-spots
+ *  section: a missed question in the nasales lesson is a nasales slip, honestly.
+ *  Only lessons whose topic maps cleanly onto the closed weak-spot taxonomy
+ *  appear here — a lesson with no honest mapping records nothing rather than
+ *  guessing. Keyed by resolved lesson id (see LEGACY in app/lesson.tsx). */
+export const lessonSkill: Record<string, WeakSkill> = {
+  'sons.03.l1': 'nasales', // Les voyelles nasales
+  'a1.04.l1': 'genre', // Les articles définis — gender is what they encode
+};
 
 export const currSons: Unit[] = [
   { title: "L'alphabet", sub: 'the 26 letters & their French names' },

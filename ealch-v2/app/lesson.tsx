@@ -8,8 +8,9 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useSessionLog } from '@/store/useProgress';
+import { useProgress, useSessionLog } from '@/store/useProgress';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
+import { lessonSkill } from '@/content/curriculum';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
 import type { Lesson, LessonSection } from '@/content/schema';
@@ -251,6 +252,9 @@ export default function LessonScreen() {
   const L: Lesson | null = content.lesson(id) ?? content.units('sons').flatMap((u) => content.lessonsOf(u.id))[0] ?? null;
 
   const logSession = useSessionLog();
+  const setResume = useProgress((s) => s.setResume);
+  const clearResume = useProgress((s) => s.clearResume);
+  const logError = useProgress((s) => s.logError);
 
   const [phase, setPhase] = useState<'content' | 'quiz' | 'done'>('content');
   const [quizIx, setQuizIx] = useState(0);
@@ -259,6 +263,14 @@ export default function LessonScreen() {
   const [playingId, setPlayingId] = useState<string | null>(null);
 
   useEffect(() => () => tts.stop(), []);
+
+  // Mark this lesson resumable the moment it opens, so a mid-lesson exit leaves
+  // the home hero offering it by its real title. The completion handlers below
+  // clear it; unmount deliberately does not (leaving = not finishing). Store the
+  // caller's key so the route round-trips through the same LEGACY resolution.
+  useEffect(() => {
+    if (L) setResume({ route: `/lesson?key=${raw ?? id}`, title: L.title, activity: 'lesson' });
+  }, [L?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!L) {
     return (
@@ -287,6 +299,7 @@ export default function LessonScreen() {
     if (quiz.length === 0) {
       // No quiz on this lesson: sitting the content is the completion.
       logSession('lesson', 1);
+      clearResume();
       router.back();
       return;
     }
@@ -302,6 +315,13 @@ export default function LessonScreen() {
     sound.play(ok ? 'success' : 'error');
     setQuizSel(i);
     if (ok) setQuizScore((s) => s + 1);
+    else {
+      // A wrong answer in a skill-mapped lesson is a real, named weak spot —
+      // the one honest producer available while the corpus carries no tags and
+      // speech recognition is stubbed. Unmapped lessons record nothing.
+      const skill = lessonSkill[L.id];
+      if (skill) logError({ skill, source: 'lesson' });
+    }
   };
 
   const quizNext = () => {
@@ -310,6 +330,9 @@ export default function LessonScreen() {
       setPhase('done');
       // Logged on a fail too: the streak records showing up, not scoring.
       logSession('lesson', quiz.length);
+      // Reaching the end of the quiz is finishing the lesson, pass or fail — the
+      // hero should stop offering to resume what you just completed.
+      clearResume();
     } else {
       sound.play('tap');
       setQuizIx((q) => q + 1);
