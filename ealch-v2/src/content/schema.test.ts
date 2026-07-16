@@ -42,6 +42,7 @@ import {
   validateScenario,
   validateTheme,
   validateUnit,
+  type AudioSegment,
   type Corpus,
   type Domain,
   type Item,
@@ -139,6 +140,8 @@ const corpus = (over: Partial<Corpus> = {}): Corpus => ({
   scenarios: [scenario()],
   ...over,
 });
+
+const withSection = (s: LessonSection) => validateLesson(lesson({ sections: [s] }));
 
 /* ─── value lists ────────────────────────────────────────────────────────── */
 
@@ -336,9 +339,87 @@ test('provenance is optional everywhere, and validated when claimed', () => {
   ok(validatePack(pack({ provenance: { reviewedBy: '' } as never })).length > 0);
 });
 
-/* ─── lesson sections ────────────────────────────────────────────────────── */
+/* ─── audio segments ─────────────────────────────────────────────────────── */
 
-const withSection = (s: LessonSection) => validateLesson(lesson({ sections: [s] }));
+const seg = (over: Partial<AudioSegment> = {}): AudioSegment => ({
+  blockId: 'b1',
+  startMs: 0,
+  endMs: 1200,
+  text: 'Un bon vin blanc',
+  ...over,
+});
+
+test('an item with an ordered, non-overlapping segment map validates', () => {
+  deepStrictEqual(
+    validateItem(
+      item({
+        audioRef: 'a/cafe-001.mp3',
+        assetKey: 'sha256:abc123',
+        segments: [seg(), seg({ blockId: 'b2', startMs: 1200, endMs: 2400, text: 'Je voudrais un café' })],
+      })
+    ),
+    []
+  );
+  // Touching is not overlapping: one ends exactly where the next begins.
+  deepStrictEqual(validateItem(item({ segments: [seg({ endMs: 500 }), seg({ startMs: 500, endMs: 900 })] })), []);
+  // And no segments at all is fine — that is every item we ship today.
+  deepStrictEqual(validateItem(item()), []);
+});
+
+test('overlapping segments are rejected — "which line is playing?" must have one answer', () => {
+  // A player answering that with find() silently picks whichever was authored
+  // first, so the wrong line highlights on some segments and nobody can say why.
+  const issues = validateItem(item({ segments: [seg({ endMs: 1200 }), seg({ startMs: 900, endMs: 2000 })] }));
+  ok(issues.some((i) => /must not overlap/.test(i.message)));
+});
+
+test('out-of-order segments are rejected', () => {
+  const issues = validateItem(item({
+    segments: [seg({ startMs: 2000, endMs: 3000 }), seg({ startMs: 0, endMs: 1000 })],
+  }));
+  ok(issues.some((i) => /must not overlap/.test(i.message)));
+});
+
+test('a segment must have real duration', () => {
+  // Zero-length and reversed spans do not throw: the highlight just never lights
+  // up, on one line, sometimes.
+  ok(validateItem(item({ segments: [seg({ startMs: 500, endMs: 500 })] })).some((i) => /must have duration/.test(i.message)));
+  ok(validateItem(item({ segments: [seg({ startMs: 900, endMs: 400 })] })).some((i) => /must have duration/.test(i.message)));
+});
+
+test('segment times are non-negative integer milliseconds', () => {
+  ok(validateItem(item({ segments: [seg({ startMs: -1 })] })).length > 0);
+  ok(validateItem(item({ segments: [seg({ startMs: 1.5 })] })).length > 0);
+  ok(validateItem(item({ segments: [seg({ endMs: '1200' as never })] })).length > 0);
+});
+
+test('a segment must say which block it voices and what it says', () => {
+  ok(validateItem(item({ segments: [seg({ blockId: '' })] })).length > 0);
+  ok(validateItem(item({ segments: [seg({ text: '' })] })).length > 0);
+  ok(validateItem(item({ segments: 'none' as never })).length > 0);
+  ok(validateItem(item({ segments: [null as never] })).length > 0);
+});
+
+test('an audio SECTION can carry the same map, and needs a file to map onto', () => {
+  deepStrictEqual(
+    withSection({
+      type: 'audio',
+      title: 'T',
+      lines: ['Un bon vin blanc'],
+      audioRef: 'a/sons-03.mp3',
+      segments: [seg()],
+    }),
+    []
+  );
+  // Timings with no file point at nothing: the section falls back to TTS while
+  // claiming to be seekable.
+  const issues = withSection({ type: 'audio', title: 'T', lines: ['x'], segments: [seg()] });
+  ok(issues.some((i) => /segments need an audioRef/.test(i.message)));
+  // Lines with no segments stay legal — that is the shipped shape.
+  deepStrictEqual(withSection({ type: 'audio', title: 'T', lines: ['x'] }), []);
+});
+
+/* ─── lesson sections ────────────────────────────────────────────────────── */
 
 test('every documented section type validates when well-formed', () => {
   const all: LessonSection[] = [

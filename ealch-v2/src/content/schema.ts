@@ -224,6 +224,84 @@ export function unitBand(id: string): Level | null {
   return (LEVELS as readonly string[]).includes(band) ? (band as Level) : null;
 }
 
+/* ─── Audio ──────────────────────────────────────────────────────────────── */
+
+/**
+ * One spoken span inside a rendered audio file: what is said, and exactly when.
+ *
+ * `audioRef` alone can only do one thing — play the file from the top. It cannot
+ * highlight the line being spoken, replay one sentence, or let a learner scrub
+ * to the bit they did not catch, because nothing knows where anything is. That
+ * is the difference between an audio LESSON and an audio file.
+ *
+ * Times are integer milliseconds from the START OF THE FILE, not from the
+ * previous segment. Relative offsets accumulate error and mean a mid-file edit
+ * silently shifts everything after it.
+ */
+export type AudioSegment = {
+  /** Which block of the lesson this span voices. The join back to the text. */
+  blockId: string;
+  startMs: number;
+  /** Exclusive. Must be > startMs — a zero-length span is not a span. */
+  endMs: number;
+  /** The words actually spoken here, so a segment is checkable against the
+   *  script without re-listening to the file. */
+  text: string;
+};
+
+/**
+ * The media cache key convention: `hash(script + voice + provider + renderVersion)`.
+ *
+ * All four, and not just the script. Same words in a different voice, from a
+ * different provider, or through a changed render pipeline is a DIFFERENT audio
+ * file — key on the script alone and a voice change serves the old recording
+ * from cache forever. Include renderVersion and re-rendering everything is a
+ * constant bump instead of a cache purge nobody can verify ran.
+ */
+export type AssetKeyed = {
+  assetKey?: string;
+};
+
+function validateSegments(v: unknown, path: string): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (!isArr(v)) return [{ path, message: 'segments must be an array' }];
+
+  let prevEnd = -1;
+  v.forEach((s, i) => {
+    if (typeof s !== 'object' || s === null) {
+      push(`segments[${i}] is not an object`);
+      return;
+    }
+    const seg = s as Partial<AudioSegment>;
+    if (!isStr(seg.blockId)) push(`segments[${i}].blockId is required`);
+    if (!isStr(seg.text)) push(`segments[${i}].text is required`);
+
+    const okStart = typeof seg.startMs === 'number' && Number.isInteger(seg.startMs) && seg.startMs >= 0;
+    const okEnd = typeof seg.endMs === 'number' && Number.isInteger(seg.endMs) && seg.endMs >= 0;
+    if (!okStart) push(`segments[${i}].startMs must be an integer >= 0 (ms from the start of the file)`);
+    if (!okEnd) push(`segments[${i}].endMs must be an integer >= 0`);
+
+    if (okStart && okEnd) {
+      // A zero-length or reversed span highlights nothing and seeks nowhere. It
+      // does not throw — the UI just never lights up, on one line, sometimes.
+      if (seg.endMs! <= seg.startMs!) {
+        push(`segments[${i}] ends at ${seg.endMs} but starts at ${seg.startMs} — a span must have duration`);
+      }
+      // Ordered and non-overlapping, checked together because they are the same
+      // property: at any moment exactly one segment is speaking. Overlap makes
+      // "which line is playing now?" ambiguous, and a player answering it with
+      // find() silently picks whichever was authored first.
+      if (seg.startMs! < prevEnd) {
+        push(`segments[${i}] starts at ${seg.startMs} but segments[${i - 1}] runs to ${prevEnd} — segments must not overlap`);
+      }
+      prevEnd = Math.max(prevEnd, seg.endMs!);
+    }
+  });
+
+  return out;
+}
+
 /* ─── Provenance ─────────────────────────────────────────────────────────── */
 
 /**
@@ -297,6 +375,11 @@ export type Item = {
   drills: DrillKind[];
   /** Null until Phase 7. Device TTS speaks `fr` in the meantime. */
   audioRef?: string | null;
+  /** Where the words are inside `audioRef`. Absent means the file can only be
+   *  played from the top — see AudioSegment. */
+  segments?: AudioSegment[];
+  /** hash(script+voice+provider+renderVersion) — see AssetKeyed. */
+  assetKey?: string;
   version: number;
 
   // ── The exam/SRS spine. All optional TODAY, required LATER. ──
@@ -350,8 +433,17 @@ export type LessonSection =
   /** What to concentrate on. Deliberately short. */
   | { type: 'focus'; title: string; points: string[] }
   | { type: 'table'; title: string; cols: string[]; rows: string[][] }
-  /** Lines to hear. Device TTS today; real audio in Phase 7. */
-  | { type: 'audio'; title: string; lines: string[] }
+  /** Lines to hear. Device TTS today; real audio in Phase 7. `segments` maps
+   *  those lines onto a rendered file so the section can highlight and seek
+   *  rather than only play; `audioRef` is the file it maps onto. */
+  | {
+      type: 'audio';
+      title: string;
+      lines: string[];
+      audioRef?: string | null;
+      segments?: AudioSegment[];
+      assetKey?: string;
+    }
   /** Practice against real corpus items — this is the join between a lesson and
    *  the drills, and it is what lets a lesson exercise all four skills. */
   | { type: 'practice'; title: string; skill: PracticeSkill; itemIds: string[] }
@@ -633,6 +725,8 @@ export function validateItem(v: unknown, path = 'item'): Issue[] {
     if (!isArr(it.grammarPoints)) push('grammarPoints must be an array when present');
     else if (it.grammarPoints.some((g) => !isStr(g))) push('grammarPoints must all be non-empty strings');
   }
+  if (it.segments !== undefined) out.push(...validateSegments(it.segments, `${path}.segments`));
+  if (it.assetKey !== undefined && !isStr(it.assetKey)) push('assetKey must be a non-empty string when present');
   if (it.provenance !== undefined) out.push(...validateProvenance(it.provenance, `${path}.provenance`));
 
   return out;
@@ -696,9 +790,18 @@ function validateSection(s: unknown, path: string): Issue[] {
     case 'focus':
       strList('points');
       break;
-    case 'audio':
+    case 'audio': {
       strList('lines');
+      if (sec.segments !== undefined) out.push(...validateSegments(sec.segments, `${path}.segments`));
+      if (sec.assetKey !== undefined && !isStr(sec.assetKey)) push('assetKey must be a non-empty string when present');
+      // Segments locate words inside a FILE. Without audioRef there is no file,
+      // so the timings point at nothing and the section silently plays via TTS
+      // while claiming to be seekable.
+      if (isArr(sec.segments) && sec.segments.length > 0 && !isStr(sec.audioRef)) {
+        push('segments need an audioRef — they are offsets into a file that must exist');
+      }
       break;
+    }
     case 'table': {
       const cols = sec.cols;
       const rows = sec.rows;
