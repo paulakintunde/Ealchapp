@@ -30,9 +30,14 @@ const TARGET = 0.6;
 export function useReadingBrightness() {
   const enabled = useStore((s) => s.brightBoost);
   const original = useRef<number | null>(null);
+  // Focus and AppState can both fire in the same tick. Without a synchronous
+  // gate, two boosts race: the second reads the brightness the first just set
+  // and records 0.6 as the "original", so restore would never give it back.
+  const busy = useRef(false);
 
   const boost = useCallback(async () => {
-    if (!enabled || original.current != null) return;
+    if (!enabled || original.current != null || busy.current) return;
+    busy.current = true;
     try {
       if (!(await Brightness.isAvailableAsync())) return;
       const current = await Brightness.getBrightnessAsync();
@@ -42,12 +47,16 @@ export function useReadingBrightness() {
       await Brightness.setBrightnessAsync(TARGET);
     } catch {
       original.current = null;
+    } finally {
+      busy.current = false;
     }
   }, [enabled]);
 
   const restore = useCallback(async () => {
+    if (busy.current) return;
     const prev = original.current;
     if (prev == null) return;
+    busy.current = true;
     original.current = null;
     try {
       if (Platform.OS === 'android') {
@@ -57,6 +66,8 @@ export function useReadingBrightness() {
       }
     } catch {
       // Nothing safe left to do. On Android the OS reverts for us anyway.
+    } finally {
+      busy.current = false;
     }
   }, []);
 
