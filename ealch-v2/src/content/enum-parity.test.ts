@@ -38,6 +38,7 @@ import {
   REGISTERS,
   SCORE_BANDS,
 } from './schema.ts';
+import { ENTITLEMENT_SOURCES, PLANS } from './progress-schema.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const ADMIN_SCHEMA = resolve(here, '../../../ealch-admin/src/db/schema.ts');
@@ -72,6 +73,28 @@ test('app value lists and Drizzle pgEnums hold the same values', () => {
   deepStrictEqual(dbEnum('exam_family'), [...EXAM_FAMILIES], 'EXAM_FAMILIES ↔ exam_family');
   deepStrictEqual(dbEnum('exam_section'), [...EXAM_SECTIONS], 'EXAM_SECTIONS ↔ exam_section');
   deepStrictEqual(dbEnum('exam_skill'), [...EXAM_SKILLS], 'EXAM_SKILLS ↔ exam_skill');
+});
+
+test('PLANS is sub_plan — what the app grants and what billing sold must agree', () => {
+  // The app decides access from a plan; the admin bills against one. If the two
+  // lists drift, a plan exists that one side cannot represent, and the symptom
+  // is a paying user with no access and no error to explain it.
+  deepStrictEqual(dbEnum('sub_plan'), [...PLANS], 'PLANS ↔ sub_plan');
+});
+
+test('ENTITLEMENT_SOURCES has no DB counterpart yet, and that is written down', () => {
+  // Not asserted for parity, deliberately. sub_store is (app_store | play |
+  // stripe); ENTITLEMENT_SOURCES is (iap | stripe | paystack). They genuinely
+  // disagree today — 'paystack' is intended and unbuilt, and 'iap' is one value
+  // where the DB has two. Reconciling them is Phase 5's job.
+  //
+  // A parity assertion here would be red from the day it was written, and a test
+  // that is always red is a test everyone learns to skip — including on the day
+  // it starts failing for a new reason. So this asserts the CURRENT truth
+  // instead, and will fail the moment someone changes either side, which is
+  // exactly when this decision needs revisiting.
+  deepStrictEqual(dbEnum('sub_store'), ['app_store', 'play', 'stripe']);
+  deepStrictEqual([...ENTITLEMENT_SOURCES], ['iap', 'stripe', 'paystack']);
 });
 
 test("SCORE_BANDS is user_level — a learner's level is an exam band, never 'sons'", () => {

@@ -2,6 +2,15 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    // The import-free schema files (src/content/schema.ts, progress-schema.ts)
+    // are loaded by `node --test` directly, and Node's ESM resolver does not do
+    // extensionless resolution — so progress-schema.ts must import './schema.ts'
+    // with the extension or the test run cannot resolve it. Metro resolves the
+    // explicit extension fine, and this project never emits with tsc (noEmit is
+    // set by expo/tsconfig.base), which is the condition TypeScript requires for
+    // this option. The test files already rely on the same specifier style; they
+    // are simply excluded from tsc below, which is why this only surfaced now.
+    "allowImportingTsExtensions": true,
     "paths": {
       "@/*": [
         "./src/*"
