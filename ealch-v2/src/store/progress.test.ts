@@ -14,8 +14,11 @@ import {
   localDay,
   minutesToday,
   mondayIndex,
+  resumeIsFresh,
+  RESUME_MAX_AGE_DAYS,
   reviewDueCount,
   shiftDay,
+  topWeaknesses,
   srsCards,
   statsByItem,
   streak,
@@ -23,6 +26,8 @@ import {
   weakestItems,
   weekDots,
   type AttemptEntry,
+  type ErrorEvent,
+  type ResumeState,
   type SessionEntry,
 } from './progress.logic.ts';
 
@@ -409,4 +414,71 @@ test('the scheduler treats an empty log as an empty queue', () => {
   deepStrictEqual(dueCards([], TODAY), []);
   strictEqual(reviewDueCount([], TODAY), 0);
   deepStrictEqual(upcomingCards([], TODAY), []);
+});
+
+// ── resumeIsFresh ──
+
+const resumeAt = (delta: number): ResumeState => ({
+  route: '/lesson?key=sons3',
+  title: 'Les voyelles nasales',
+  activity: 'lesson',
+  at: day(delta),
+});
+
+test('no resume is never fresh', () => {
+  strictEqual(resumeIsFresh(null, TODAY), false);
+});
+
+test('a resume started today is fresh', () => {
+  strictEqual(resumeIsFresh(resumeAt(0), TODAY), true);
+});
+
+test('a resume is fresh right up to the age limit and stale one day past it', () => {
+  strictEqual(resumeIsFresh(resumeAt(-RESUME_MAX_AGE_DAYS), TODAY), true);
+  strictEqual(resumeIsFresh(resumeAt(-(RESUME_MAX_AGE_DAYS + 1)), TODAY), false);
+});
+
+test('a resume stamped in the future (clock skew) is not treated as fresh', () => {
+  strictEqual(resumeIsFresh(resumeAt(1), TODAY), false);
+});
+
+// ── topWeaknesses ──
+
+const err = (skill: ErrorEvent['skill'], delta: number): ErrorEvent => ({
+  date: day(delta),
+  skill,
+  source: 'lesson',
+});
+
+test('no errors: no weaknesses, never a fabricated one', () => {
+  deepStrictEqual(topWeaknesses([], TODAY), []);
+});
+
+test('weaknesses rank most-missed first with real counts', () => {
+  const errors = [err('nasales', 0), err('nasales', -1), err('liaison', 0), err('nasales', -2), err('liaison', -1)];
+  deepStrictEqual(topWeaknesses(errors, TODAY), [
+    { skill: 'nasales', count: 3 },
+    { skill: 'liaison', count: 2 },
+  ]);
+});
+
+test('a tie breaks on skill name so the order is stable', () => {
+  deepStrictEqual(topWeaknesses([err('nasales', 0), err('genre', 0)], TODAY), [
+    { skill: 'genre', count: 1 },
+    { skill: 'nasales', count: 1 },
+  ]);
+});
+
+test('only the trailing window counts: a slip from last week is gone', () => {
+  const errors = [err('liaison', 0), err('nasales', -6), err('genre', -7), err('genre', -30)];
+  // -7 and -30 fall outside the 7-day window (age 0..6); only liaison and nasales remain.
+  deepStrictEqual(topWeaknesses(errors, TODAY), [
+    { skill: 'liaison', count: 1 },
+    { skill: 'nasales', count: 1 },
+  ]);
+});
+
+test('the ranking is capped at the limit', () => {
+  const errors = [err('liaison', 0), err('liaison', 0), err('nasales', 0), err('genre', 0), err('register', 0)];
+  strictEqual(topWeaknesses(errors, TODAY, 7, 3).length, 3);
 });

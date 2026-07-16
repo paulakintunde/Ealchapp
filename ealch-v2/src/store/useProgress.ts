@@ -2,7 +2,7 @@ import { useCallback, useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { localDay, type Activity, type AttemptEntry, type AttemptInput, type SessionEntry } from './progress.logic';
+import { localDay, type Activity, type AttemptEntry, type AttemptInput, type ErrorEvent, type ErrorInput, type ResumeState, type SessionEntry } from './progress.logic';
 
 // The session log — the record that the user showed up — and the attempt log —
 // the record of what they got right or wrong, per item. Every number on the
@@ -15,6 +15,14 @@ export type ProgressState = {
   hydrated: boolean;
   sessions: SessionEntry[];
   attempts: AttemptEntry[];
+  /** The grammar skills the learner has actually missed — the raw material for
+   *  home's weak-spots section. Empty on a fresh install, so the section shows an
+   *  honest "nothing yet" rather than three invented weaknesses. */
+  errors: ErrorEvent[];
+  /** The last lesson opened and not finished — what the hero offers to resume.
+   *  Null on a fresh install and after every completion, so the hero falls back
+   *  to an honest "Begin" recommendation rather than a fabricated one. */
+  resume: ResumeState | null;
 
   setHydrated: () => void;
   /** The session writer. A drill screen calls this when the user finishes it. */
@@ -23,6 +31,15 @@ export type ProgressState = {
    *  grades one — not at the end — so a mid-drill exit still keeps what was done.
    *  `date` is stamped here, like a session. */
   logAttempt: (attempt: AttemptInput) => void;
+  /** The error writer. A drill calls this the moment it can name the grammar
+   *  skill a miss belongs to — the date is stamped here, like the other logs. */
+  logError: (error: ErrorInput) => void;
+  /** Mark a screen as resumable. Called on mount by lesson-style screens; the
+   *  local day is stamped here so callers pass only content-stable fields. */
+  setResume: (r: Omit<ResumeState, 'at'>) => void;
+  /** Clear the resume — called by a completion handler, never on unmount, so a
+   *  mid-lesson exit still leaves something to come back to. */
+  clearResume: () => void;
   /** Wipe both logs. Account deletion; not a user-facing "reset progress" yet. */
   eraseProgress: () => Promise<void>;
 };
@@ -37,14 +54,24 @@ const MAX_SESSIONS = 4000;
  *  first to fall off. */
 const MAX_ATTEMPTS = 20_000;
 
+/** The error log only ever feeds a trailing-7-day ranking, so it needs no deep
+ *  history — a generous ceiling that the oldest events fall off the front of. */
+const MAX_ERRORS = 4000;
+
 export const useProgress = create<ProgressState>()(
   persist(
     (set, get) => ({
       hydrated: false,
       sessions: [],
       attempts: [],
+      errors: [],
+      resume: null,
 
       setHydrated: () => set({ hydrated: true }),
+
+      setResume: (r) => set({ resume: { ...r, at: localDay(new Date()) } }),
+
+      clearResume: () => set({ resume: null }),
 
       logSession: (activity, minutes, items) => {
         const entry: SessionEntry = {
@@ -70,8 +97,14 @@ export const useProgress = create<ProgressState>()(
         set({ attempts: next.length > MAX_ATTEMPTS ? next.slice(-MAX_ATTEMPTS) : next });
       },
 
+      logError: (error) => {
+        const entry: ErrorEvent = { date: localDay(new Date()), ...error };
+        const next = [...get().errors, entry];
+        set({ errors: next.length > MAX_ERRORS ? next.slice(-MAX_ERRORS) : next });
+      },
+
       eraseProgress: async () => {
-        set({ sessions: [], attempts: [] });
+        set({ sessions: [], attempts: [], errors: [], resume: null });
         try {
           await useProgress.persist.clearStorage();
         } catch {
@@ -88,7 +121,7 @@ export const useProgress = create<ProgressState>()(
       // existing session history that a version bump without a migrate would run.
       version: 1,
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: (s) => ({ sessions: s.sessions, attempts: s.attempts }),
+      partialize: (s) => ({ sessions: s.sessions, attempts: s.attempts, errors: s.errors, resume: s.resume }),
       // Always flip `hydrated`, even when rehydration fails — a corrupt log must
       // never brick startup, it must only mean "no progress yet".
       onRehydrateStorage: () => (state, error) => {

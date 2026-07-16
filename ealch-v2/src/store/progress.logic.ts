@@ -29,6 +29,31 @@ export type SessionEntry = {
   items: number;
 };
 
+/** The last lesson the user opened and did not finish — what the hero offers to
+ *  "Resume". Only content-stable fields are stored: the title is French display
+ *  copy (the serif hero title), never a localized UI string, so it reads the
+ *  same after a later language switch. The subtitle and CTA are derived at
+ *  render time from `activity`, not persisted. */
+export type ResumeState = {
+  route: string;
+  title: string;
+  activity: Activity;
+  /** Local day it was stamped, so a stale resume stops dominating the hero. */
+  at: string;
+};
+
+/** How old a resume can be before the hero stops offering it. A lesson last
+ *  touched three weeks ago is not something you are "resuming". */
+export const RESUME_MAX_AGE_DAYS = 21;
+
+/** Whether the hero should still offer this resume, or fall through to a
+ *  "Begin" recommendation. Null and over-age resumes are both not fresh. */
+export function resumeIsFresh(resume: ResumeState | null, today: string): boolean {
+  if (!resume) return false;
+  const age = daysBetween(resume.at, today);
+  return age >= 0 && age <= RESUME_MAX_AGE_DAYS;
+}
+
 const pad = (n: number) => String(n).padStart(2, '0');
 
 /** The local calendar day `d` falls on. */
@@ -398,4 +423,48 @@ export function upcomingCards(attempts: AttemptEntry[], today: string, limit?: n
     .filter((c) => c.dueDay > today)
     .sort((a, b) => (a.dueDay !== b.dueDay ? (a.dueDay < b.dueDay ? -1 : 1) : a.itemId < b.itemId ? -1 : 1));
   return typeof limit === 'number' ? up.slice(0, Math.max(0, limit)) : up;
+}
+
+// ── The error log ────────────────────────────────────────────────────────────
+//
+// The weak-spots section on home used to assert three fixed weaknesses about a
+// user who had done nothing. This log is where a real one is recorded: one
+// ErrorEvent each time a drill can name the grammar skill the learner just
+// missed. The taxonomy is deliberately small and closed — a weakness we cannot
+// route to a remediation is a weakness we cannot honestly show.
+
+export type WeakSkill = 'liaison' | 'nasales' | 'subjonctif' | 'genre' | 'register' | 'passe-compose';
+
+export type ErrorEvent = {
+  /** Local calendar day, stamped at write time — same contract as the other logs. */
+  date: string;
+  skill: WeakSkill;
+  /** Which drill surfaced the miss. Kept for a future "where you slip" view; the
+   *  weakness ranking itself is source-agnostic. */
+  source: Activity;
+};
+
+/** Everything about an error except the day — the store stamps `date`. */
+export type ErrorInput = Omit<ErrorEvent, 'date'>;
+
+export type Weakness = { skill: WeakSkill; count: number };
+
+/** The learner's top weak skills over a trailing window, most-missed first.
+ *
+ *  Honest by construction: a skill with zero errors in the window never appears,
+ *  so an empty return is an empty section — never a fabricated one. Ties break on
+ *  skill name so the order is stable across renders. `days` is the trailing
+ *  window (7 = today and the six days before it), which is what makes home's
+ *  "THIS WEEK" caption a fact rather than a decoration. */
+export function topWeaknesses(errors: ErrorEvent[], today: string, days = 7, limit = 3): Weakness[] {
+  const counts = new Map<WeakSkill, number>();
+  for (const e of errors) {
+    const age = daysBetween(e.date, today);
+    if (age < 0 || age >= days) continue;
+    counts.set(e.skill, (counts.get(e.skill) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([skill, count]) => ({ skill, count }))
+    .sort((a, b) => (b.count !== a.count ? b.count - a.count : a.skill < b.skill ? -1 : 1))
+    .slice(0, Math.max(0, limit));
 }
