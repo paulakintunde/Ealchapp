@@ -9,7 +9,10 @@ create table if not exists public.system_config (
   id            text primary key default 'active',
   config        jsonb not null,          -- RemoteConfig shape (orchestrator, services, models, promptVersion, ttsProvider, sttProvider, failoverToastVisible)
   updated_at    timestamptz not null default now(),
-  updated_by    uuid references auth.users(id)
+  -- set null (not the default no-action) so deleting an admin who once wrote
+  -- config can never be RESTRICTed by this FK — account deletion must not fail
+  -- on a dangling audit reference. The delete-account function relies on this.
+  updated_by    uuid references auth.users(id) on delete set null
 );
 
 -- Versioned, auditable system prompts.
