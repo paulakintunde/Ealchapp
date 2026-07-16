@@ -13,8 +13,9 @@ import { useT } from '@/i18n/useT';
 import { greetSlot } from '@/i18n/strings';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
-import { goalTarget, localDay, minutesToday, reviewDueCount, streak } from '@/store/progress.logic';
+import { goalTarget, localDay, minutesToday, resumeIsFresh, reviewDueCount, streak, topWeaknesses, type WeakSkill } from '@/store/progress.logic';
 import { useUI } from '@/store/useUI';
+import { playlists } from '@/content/playlists';
 
 const RING_R = 14;
 const RING_C = 2 * Math.PI * RING_R; // 87.96 — the real circumference, not a hand-tuned 88
@@ -60,6 +61,8 @@ export default function Home() {
   const { userName, lang, setAppLang, freeze, pace } = useStore();
   const sessions = useProgress((s) => s.sessions);
   const attempts = useProgress((s) => s.attempts);
+  const errors = useProgress((s) => s.errors);
+  const resume = useProgress((s) => s.resume);
   const openDict = useUI((s) => s.openDict);
   const openSheet = useUI((s) => s.openSheet);
   const [browse, setBrowse] = useState(false);
@@ -87,27 +90,40 @@ export default function Home() {
   const revLabel = caughtUp ? T.caughtUpShort : T.reviewShort;
   const revSub = caughtUp ? T.tomorrow : T.dueToday;
 
+  // The hero is a view over real state, in three honest tiers. A resume only
+  // survives while it is fresh (see resumeIsFresh); once it lapses, or when
+  // nothing was ever started, the card recommends what to do next instead of
+  // claiming a scenario the user never opened. No time-remaining pill: nothing
+  // persists a playback position yet, so any "4:12 left" would be invented.
+  const hero = resumeIsFresh(resume, today) && resume
+    ? { eyebrow: T.resumeTag, title: resume.title, sub: T.resumeSub, cta: T.resume, route: resume.route }
+    : due > 0
+      ? { eyebrow: T.beginTag, title: T.reviewHeroTitle, sub: `${due} ${T.dueToday}`, cta: T.begin, route: '/smartreview' }
+      : { eyebrow: T.beginTag, title: T.listenHeroTitle, sub: T.listenHeroSub, cta: T.begin, route: '/player' };
+
   const skillGold = t.tag('gold');
   const skillPurple = t.tag('grammar');
   const skillBlue = t.tag('info');
 
-  const playlists = [
-    { word: 'La Voix', tag: 'DEEP-DIVE', glow: t.accA(28) },
-    { word: 'Argot', tag: 'PARIS', glow: 'rgba(199,106,92,0.30)' },
-    { word: "L'Argent", tag: 'BUSINESS', glow: 'rgba(96,126,160,0.32)' },
-    { word: "L'Oreille", tag: 'IMMERSION', glow: 'rgba(139,116,190,0.28)' },
-  ];
   const exams = ['TEF Canada', 'DELF B2', 'TCF'];
+
+  // The weak-spots rows are now real: the top skills the learner has actually
+  // missed this week, from the error log, most-missed first. Nothing is seeded,
+  // so a fresh install shows an honest empty state, never three invented flaws.
+  const weaknesses = topWeaknesses(errors, today, 7);
   // Serif capitals, not IPA: ‿ (U+203F) and a combining tilde fall outside the
-  // display font's coverage and render as tofu. Each row goes to the thing it
-  // names — a weakness that opens a lesson about something else is a lie.
-  // « Le subjonctif présent » is absent: no subjonctif lesson exists yet
-  // (content/lessons.ts ships sons3, a1_4, a2_1), and a row with nowhere honest
-  // to land does not render. It returns with its lesson.
-  const weak = [
-    { glyph: 'L', title: 'La liaison obligatoire', open: () => openSheet('grammar') },
-    { glyph: 'N', title: 'Voyelles nasales — on / en', open: () => router.push('/lesson?key=sons3') },
-  ];
+  // display font's coverage and render as tofu. Each skill goes to the thing it
+  // names — liaison to its sheet, nasales/genre to their lessons; the skills with
+  // no wired lesson yet (subjonctif, register, passé composé) send you to Camille
+  // rather than to a lesson about something else, which would be a lie.
+  const weakDisplay: Record<WeakSkill, { glyph: string; title: string; open: () => void }> = {
+    liaison: { glyph: 'L', title: 'La liaison obligatoire', open: () => openSheet('grammar') },
+    nasales: { glyph: 'N', title: 'Voyelles nasales · on, en', open: () => router.push('/lesson?key=sons3') },
+    genre: { glyph: 'G', title: 'Le genre des noms', open: () => router.push('/lesson?key=a1_4') },
+    subjonctif: { glyph: 'S', title: 'Le subjonctif présent', open: () => router.push('/chat') },
+    register: { glyph: 'R', title: 'Le registre', open: () => router.push('/chat') },
+    'passe-compose': { glyph: 'P', title: 'Le passé composé', open: () => router.push('/chat') },
+  };
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -215,13 +231,13 @@ export default function Home() {
         </View>
 
         {/* Hero */}
-        <Press onPress={() => router.push('/player')} scale={0.99} style={{ minHeight: 400, borderRadius: 26, overflow: 'hidden', borderWidth: 1, borderColor: t.line(7), backgroundColor: t.isDark ? '#1B1712' : t.card, ...t.cardShadow }}>
+        <Press onPress={() => router.push(hero.route as never)} scale={0.99} style={{ minHeight: 400, borderRadius: 26, overflow: 'hidden', borderWidth: 1, borderColor: t.line(7), backgroundColor: t.isDark ? '#1B1712' : t.card, ...t.cardShadow }}>
           <LinearGradient colors={[t.isDark ? 'rgba(214,160,96,0.24)' : 'rgba(214,160,96,0.35)', 'transparent']} start={{ x: 0.72, y: 0 }} end={{ x: 0.3, y: 0.55 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <LinearGradient colors={['transparent', t.accA(22)]} start={{ x: 0.15, y: 0.4 }} end={{ x: 0.15, y: 1 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
           <View style={{ position: 'absolute', top: 20, left: 22, right: 62, flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: t.acc }} />
             <TX font="semi" role="meta" ls={2.6} color={t.txSecondary} numberOfLines={1} style={{ flexShrink: 1 }}>
-              {T.heroTag}
+              {hero.eyebrow}
             </TX>
           </View>
           <Press onPress={() => openSheet('vocab')} cue="tap" style={{ position: 'absolute', top: 12, right: 14, width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: 3 }}>
@@ -230,11 +246,11 @@ export default function Home() {
             ))}
           </Press>
           <View style={{ position: 'absolute', left: 22, right: 22, bottom: 22 }}>
-            <TX font="serifI" size={46} role="display" style={{ marginBottom: 8 }}>
-              Au Café
+            <TX font="serifI" size={46} role="display" numberOfLines={2} style={{ marginBottom: 8 }}>
+              {hero.title}
             </TX>
-            <TX role="body" color={t.txSecondary} style={{ marginBottom: 18 }}>
-              {T.heroSub}
+            <TX role="body" color={t.txSecondary} numberOfLines={2} style={{ marginBottom: 18 }}>
+              {hero.sub}
             </TX>
             {/* No "4:12 left" pill: nothing persists a playback position yet, so any
                 duration here is invented. It returns when the player reports a real one. */}
@@ -242,7 +258,7 @@ export default function Home() {
               <View style={{ height: 46, paddingHorizontal: 22, borderRadius: 23, backgroundColor: t.acc, flexDirection: 'row', alignItems: 'center', gap: 9 }}>
                 <Icon name="play" size={13} color={t.accInk} />
                 <TX font="semi" role="body" color={t.accInk}>
-                  {T.resume}
+                  {hero.cta}
                 </TX>
               </View>
             </View>
@@ -341,11 +357,12 @@ export default function Home() {
               </View>
             </Press>
 
-            {/* Playlists */}
-            <SectionHead title={T.playlists} right={T.seeAll} />
+            {/* Playlists — real sets now; SEE ALL routes to the index, and each
+                card plays its first track through the player. */}
+            <SectionHead title={T.playlists} right={T.seeAll} onPress={() => router.push('/playlists')} />
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -20 }} contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}>
-              {playlists.map((p, i) => (
-                <View key={i} style={{ width: 158 }}>
+              {playlists.map((p) => (
+                <Press key={p.id} onPress={() => router.push(`/player?playlist=${p.id}&track=0`)} scale={0.98} style={{ width: 158 }}>
                   <View style={{ height: 198, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', marginBottom: 10, backgroundColor: t.isDark ? '#12100E' : t.card, ...t.cardShadow }}>
                     <LinearGradient colors={[p.glow, 'transparent']} start={{ x: 0.8, y: 0 }} end={{ x: 0.2, y: 0.7 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
                     <TX font="semi" role="eyebrow" ls={2.2} color={t.txMuted} style={{ position: 'absolute', top: 14, left: 16 }}>
@@ -356,12 +373,12 @@ export default function Home() {
                     </TX>
                   </View>
                   <TX font="semi" role="bodySm">
-                    {T.playlistLabels[i]}
+                    {lang === 'fr' ? p.labelFr : p.labelEn}
                   </TX>
                   <TX role="meta" color={t.txSubtle} style={{ marginTop: 2 }}>
-                    {T.playlistMeta[i]}
+                    {`${p.tracks.length} ${T.tracksWord} · ${lang === 'fr' ? p.topicFr : p.topicEn}`}
                   </TX>
-                </View>
+                </Press>
               ))}
             </ScrollView>
 
@@ -385,26 +402,40 @@ export default function Home() {
 
             {/* Weak spots */}
             <SectionHead title={T.weak} right={T.week} />
-            <View style={{ gap: 10 }}>
-              {weak.map((w, i) => (
-                <Press key={i} onPress={w.open} style={{ minHeight: 66, paddingVertical: 8, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>
-                  <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
-                    <TX font="serif" role="titleSm" color={t.accTx}>
-                      {w.glyph}
-                    </TX>
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <TX font="semi" role="body">
-                      {w.title}
-                    </TX>
-                    <TX role="label" color={t.txSubtle} style={{ marginTop: 2 }}>
-                      {T.weakMeta[i]}
-                    </TX>
-                  </View>
-                  <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
-                </Press>
-              ))}
-            </View>
+            {weaknesses.length === 0 ? (
+              // Never fabricate a weakness: with nothing logged this week, the
+              // section says so plainly instead of asserting three invented ones.
+              <View style={{ minHeight: 66, paddingVertical: 14, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, justifyContent: 'center', paddingHorizontal: 18 }}>
+                <TX role="label" color={t.txSubtle} lhMult={1.5}>
+                  {T.weakEmpty}
+                </TX>
+              </View>
+            ) : (
+              <View style={{ gap: 10 }}>
+                {weaknesses.map((w) => {
+                  const d = weakDisplay[w.skill];
+                  const meta = (w.count === 1 ? T.weakSlip : T.weakSlipPl).replace('{n}', String(w.count));
+                  return (
+                    <Press key={w.skill} onPress={d.open} style={{ minHeight: 66, paddingVertical: 8, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>
+                      <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+                        <TX font="serif" role="titleSm" color={t.accTx}>
+                          {d.glyph}
+                        </TX>
+                      </View>
+                      <View style={{ flex: 1 }}>
+                        <TX font="semi" role="body">
+                          {d.title}
+                        </TX>
+                        <TX role="label" color={t.txSubtle} style={{ marginTop: 2 }}>
+                          {meta}
+                        </TX>
+                      </View>
+                      <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
+                    </Press>
+                  );
+                })}
+              </View>
+            )}
           </View>
         ) : null}
       </ScrollView>
@@ -413,16 +444,29 @@ export default function Home() {
   );
 }
 
-function SectionHead({ title, right }: { title: string; right: string }) {
+function SectionHead({ title, right, onPress }: { title: string; right: string; onPress?: () => void }) {
   const t = useTheme();
+  // When `onPress` is given the right caption becomes a real control with a
+  // chevron; without it, it stays inert descriptive text (SONS · A1 · A2). A
+  // caption that looks like a link but isn't is the broken promise this fixes.
+  const caption = (
+    <TX font="semi" role="meta" ls={1.8} color={t.txSubtle}>
+      {right}
+    </TX>
+  );
   return (
     <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginTop: 30, marginBottom: 14, paddingHorizontal: 4 }}>
       <TX font="serif" size={22} role="display">
         {title}
       </TX>
-      <TX font="semi" role="meta" ls={1.8} color={t.txSubtle}>
-        {right}
-      </TX>
+      {onPress ? (
+        <Press onPress={onPress} accessibilityRole="button" style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+          {caption}
+          <Icon name="chevronRight" size={12} color={t.txSubtle} strokeWidth={1.8} />
+        </Press>
+      ) : (
+        caption
+      )}
     </View>
   );
 }

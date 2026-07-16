@@ -16,9 +16,12 @@ export function greetSlot(hour: number = new Date().getHours()): GreetSlot {
 }
 
 export type Strings = {
-  greets: Record<GreetSlot, string>; seeAll: string; playlists: string; examiner: string;
+  greets: Record<GreetSlot, string>; seeAll: string; playlists: string; examiner: string; tracksWord: string;
   weak: string; week: string; resume: string;
+  weakSlip: string; weakSlipPl: string; weakEmpty: string;
   heroTag: string; heroSub: string;
+  resumeTag: string; beginTag: string; resumeSub: string; begin: string;
+  reviewHeroTitle: string; listenHeroTitle: string; listenHeroSub: string;
   found: string; denT: string; denS: string;
   cardsT: string; cardsS: string; cardsTag: string; unitsWord: string;
   tabListen: string; tabSpeak: string; tabProfile: string; tabCoach: string;
@@ -54,7 +57,7 @@ export type Strings = {
   vocabTag: string; vocabSub: string;
   register: string; registerBody: string; registerEnd: string;
   go: string; grammarTag: string; grammarBody: string; askCamille: string;
-  weakMeta: string[]; playlistMeta: string[]; playlistLabels: string[];
+  weakMeta: string[];
   examMeta: string[]; errorIssues: string[];
   trackTitle: string; trackMeta: string;
   reminders: string; dailyAlarm: string; dailyAlarmSub: string;
@@ -161,9 +164,12 @@ export type Strings = {
 export const T: Record<Lang, Strings> = {
   fr: {
     greets: { morning: 'BONJOUR', afternoon: 'BON APRÈS-MIDI', evening: 'BONSOIR', late: 'VOUS TRAVAILLEZ TARD', early: 'PRATIQUE DE LÈVE-TÔT' },
-    seeAll: 'TOUT VOIR', playlists: 'Vos playlists', examiner: "L'Examinateur",
+    seeAll: 'TOUT VOIR', playlists: 'Vos playlists', examiner: "L'Examinateur", tracksWord: 'pistes',
     weak: 'Vos points faibles', week: 'CETTE SEMAINE', resume: 'Reprendre',
+    weakSlip: '1 erreur', weakSlipPl: '{n} erreurs', weakEmpty: 'Vos points faibles apparaîtront ici au fil de la pratique.',
     heroTag: 'RÉEL — SURVIE · REPRENDRE', heroSub: 'Commandez comme un vrai Parisien · avec Camille',
+    resumeTag: 'REPRENDRE', beginTag: 'POUR COMMENCER', resumeSub: 'Reprenez où vous en étiez', begin: 'Commencer',
+    reviewHeroTitle: 'À réviser', listenHeroTitle: "À l'écoute", listenHeroSub: 'De vraies phrases, une vraie voix',
     found: 'Les fondations', denT: 'Le coin des débutants', denS: 'Sons · A1 · A2 — le cursus complet',
     cardsT: 'Cartes mémoire', cardsS: '8 cartes · rappel du café', cardsTag: 'RAPPEL · CARTES', unitsWord: 'UNITÉS',
     tabListen: 'ÉCOUTE', tabSpeak: 'PARLE', tabProfile: 'PROFIL', tabCoach: 'COACH',
@@ -212,8 +218,6 @@ export const T: Record<Lang, Strings> = {
     grammarBody: "La liaison relie la consonne finale muette à la voyelle qui suit. Après un, les, vous, ils, elle est obligatoire, et c'est la première chose qu'un examinateur entend.",
     askCamille: 'Demandez à Camille →',
     weakMeta: ['le piège classique, à travailler', 'prononciation · on / en / an'],
-    playlistMeta: ['15 pistes · voyelles nasales', '9 pistes · B1+', '12 pistes · B1', '6 pistes · avec bruit'],
-    playlistLabels: ['Prononciation en profondeur', 'Argot parisien décontracté', 'Le français des affaires', 'Dégradation audio · Métro'],
     examMeta: ['Expression orale · 15 min · chrono', "L'examinateur vous interrompt", 'Compréhension · une seule écoute'],
     errorIssues: ['Liaison omise. Il faut enchaîner : un‿allongé.', '« Je voudrais » est le registre attendu avec le personnel.', 'Une pause de 1,8 s : vous avez traduit dans votre tête. On va travailler ça.'],
     trackTitle: 'Les voyelles nasales', trackMeta: 'La Voix · 2 min · B1',
@@ -390,9 +394,12 @@ export const T: Record<Lang, Strings> = {
   },
   en: {
     greets: { morning: 'GOOD MORNING', afternoon: 'GOOD AFTERNOON', evening: 'GOOD EVENING', late: "YOU'RE WORKING LATE", early: 'EARLY RISER PRACTICE' },
-    seeAll: 'SEE ALL', playlists: 'Your playlists', examiner: 'The Examiner',
+    seeAll: 'SEE ALL', playlists: 'Your playlists', examiner: 'The Examiner', tracksWord: 'tracks',
     weak: 'Your weak spots', week: 'THIS WEEK', resume: 'Resume',
+    weakSlip: '1 slip', weakSlipPl: '{n} slips', weakEmpty: 'Your weak spots show up here as you practise.',
     heroTag: 'REAL-WORLD — SURVIVAL · RESUME', heroSub: 'Order like a local · with Camille',
+    resumeTag: 'CONTINUE', beginTag: 'START HERE', resumeSub: 'Pick up where you left off', begin: 'Begin',
+    reviewHeroTitle: 'À réviser', listenHeroTitle: "À l'écoute", listenHeroSub: 'Real phrases, in a real voice',
     found: 'Foundations', denT: "Beginners' Den", denS: 'Sounds · A1 · A2 — the full curriculum',
     cardsT: 'Flashcards', cardsS: '8 cards · café recall', cardsTag: 'RECALL · FLASHCARDS', unitsWord: 'UNITS',
     tabListen: 'LISTEN', tabSpeak: 'SPEAK', tabProfile: 'PROFILE', tabCoach: 'COACH',
@@ -441,8 +448,6 @@ export const T: Record<Lang, Strings> = {
     grammarBody: "A liaison links a word's silent final consonant to the vowel that follows. After un, les, vous, ils it is not optional, and dropping it is what examiners hear first.",
     askCamille: 'Ask Camille why →',
     weakMeta: ['the classic trap, drill it', 'pronunciation · on / en / an'],
-    playlistMeta: ['15 tracks · nasal vowels', '9 tracks · B1+', '12 tracks · B1', '6 tracks · with noise'],
-    playlistLabels: ['Pronunciation Deep-Dives', 'Casual Parisian Slang', 'French for Business', 'Audio Degradation · Métro'],
     examMeta: ['Speaking · 15 min · timed', 'The examiner interrupts you', 'Listening · single play'],
     errorIssues: ['Liaison dropped. It should flow as un‿allongé.', '« Je voudrais » is the expected register with staff.', 'A 1.8s pause: you translated in your head. We will drill this.'],
     trackTitle: 'The nasal vowels', trackMeta: 'La Voix · 2 min · B1',

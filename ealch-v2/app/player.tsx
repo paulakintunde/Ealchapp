@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useRouter } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 import { TX } from '@/components/Type';
@@ -13,6 +13,7 @@ import { useT } from '@/i18n/useT';
 import { useSessionLog } from '@/store/useProgress';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
+import { playlist } from '@/content/playlists';
 import { SpeedPicker } from '@/components/SpeedPicker';
 
 // An honest LISTENING pass over real corpus phrases, spoken by device TTS.
@@ -32,10 +33,30 @@ export default function Player() {
 
   const logSession = useSessionLog();
 
-  const lines = useMemo(() => content.itemsFor('flashcard'), []);
+  // With ?playlist=<id> the player plays that set's real tracks (their lines feed
+  // TTS exactly as a corpus item does); without it, the default listening pass
+  // over corpus phrases. The two share every transport below — a line is a line.
+  const params = useLocalSearchParams<{ playlist?: string; track?: string }>();
+  const pl = useMemo(() => {
+    const id = Array.isArray(params.playlist) ? params.playlist[0] : params.playlist;
+    return id ? playlist(id) : undefined;
+  }, [params.playlist]);
+
+  const lines = useMemo<{ fr: string; en: string }[]>(
+    () => (pl ? pl.tracks.flatMap((tk) => tk.lines) : content.itemsFor('flashcard')),
+    [pl]
+  );
   const total = lines.length;
 
-  const [ix, setIx] = useState(0);
+  // ?track=N starts the flattened line sequence at the first line of track N.
+  const startIx = useMemo(() => {
+    if (!pl) return 0;
+    const raw = Array.isArray(params.track) ? params.track[0] : params.track;
+    const n = Math.max(0, Math.min(pl.tracks.length - 1, parseInt(raw ?? '0', 10) || 0));
+    return pl.tracks.slice(0, n).reduce((sum, tk) => sum + tk.lines.length, 0);
+  }, [pl, params.track]);
+
+  const [ix, setIx] = useState(startIx);
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
   // The async TTS callbacks must read live play state and speed, not a stale
@@ -51,6 +72,18 @@ export default function Player() {
   };
 
   const cur = lines[Math.min(ix, Math.max(0, total - 1))];
+
+  // In playlist mode the header names the track the current line belongs to, so
+  // skipping through the set is legible; otherwise it's the plain listen title.
+  const headerTitle = useMemo(() => {
+    if (!pl) return T.playerListen;
+    let acc = 0;
+    for (const tk of pl.tracks) {
+      acc += tk.lines.length;
+      if (ix < acc) return tk.title;
+    }
+    return pl.word;
+  }, [pl, ix, T.playerListen]);
 
   useEffect(
     () => () => {
@@ -126,7 +159,7 @@ export default function Player() {
   if (total === 0 || !cur) {
     return (
       <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={T.playerListen} />
+        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={headerTitle} />
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30 }}>
           <TX role="body" color={t.txMuted} center>
             {T.playerEmpty}
@@ -144,7 +177,7 @@ export default function Player() {
       </View>
 
       <View style={{ paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={T.playerListen} />
+        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={headerTitle} />
       </View>
 
       <View style={{ flex: 1, paddingHorizontal: 26, paddingBottom: insets.bottom + 20 }}>
