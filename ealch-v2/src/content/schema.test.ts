@@ -23,8 +23,12 @@ import {
   SCORE_BANDS,
   UNIT_ID_RE,
   formatIssues,
+  examSeriesId,
+  examTaskId,
   isValidCorpus,
   isValidDomain,
+  isValidExamSeries,
+  isValidExamTask,
   isValidItem,
   isValidPack,
   isValidTheme,
@@ -36,6 +40,8 @@ import {
   unitOfLesson,
   validateCorpus,
   validateDomain,
+  validateExamSeries,
+  validateExamTask,
   validateItem,
   validateLesson,
   validatePack,
@@ -45,6 +51,8 @@ import {
   type AudioSegment,
   type Corpus,
   type Domain,
+  type ExamSeries,
+  type ExamTask,
   type Item,
   type Lesson,
   type LessonSection,
@@ -142,6 +150,49 @@ const corpus = (over: Partial<Corpus> = {}): Corpus => ({
 });
 
 const withSection = (s: LessonSection) => validateLesson(lesson({ sections: [s] }));
+
+/** A closed (machine-markable) task: listening/reading, with questions. */
+const closedTask = (over: Partial<ExamTask> = {}): ExamTask => ({
+  id: 'exam.tcf.2024a.co.001',
+  family: 'tcf',
+  variant: '2024a',
+  section: 'co',
+  level: 'b1',
+  formatVersion: 'tcf-2024.1',
+  prompt: 'Écoutez le dialogue et répondez.',
+  items: [{ q: 'Où sont-ils ?', opts: ['À la gare', 'Au café'], correct: 1 }],
+  timingS: 90,
+  ...over,
+});
+
+/** An open (human-marked) task: speaking/writing, with a rubric. */
+const openTask = (over: Partial<ExamTask> = {}): ExamTask => ({
+  id: 'exam.delf.2024a.ee.001',
+  family: 'delf',
+  variant: '2024a',
+  section: 'ee',
+  level: 'b1',
+  formatVersion: 'delf-2020.2',
+  prompt: 'Vous écrivez à votre propriétaire pour signaler une fuite.',
+  rubric: {
+    criteria: [
+      { key: 'coherence', label: 'Cohérence', maxPoints: 5, descriptors: ['Idées liées et ordonnées'] },
+      { key: 'lexique', label: 'Lexique', maxPoints: 5 },
+    ],
+  },
+  modelAnswer: 'Madame, Monsieur, je vous écris au sujet d\'une fuite…',
+  timingS: 1800,
+  ...over,
+});
+
+const series = (over: Partial<ExamSeries> = {}): ExamSeries => ({
+  id: 'series.tcf.2024a.1',
+  family: 'tcf',
+  variant: '2024a',
+  seriesNo: 1,
+  taskIds: ['exam.tcf.2024a.co.001'],
+  ...over,
+});
 
 /* ─── value lists ────────────────────────────────────────────────────────── */
 
@@ -699,6 +750,128 @@ test('a pack status must be a real content status', () => {
 
 test('validatePack never throws on garbage', () => {
   for (const junk of [null, undefined, 42, 'pack', [], true]) ok(Array.isArray(validatePack(junk)));
+});
+
+/* ─── exam tasks and series ──────────────────────────────────────────────── */
+
+test('a well-formed closed task and open task both validate', () => {
+  deepStrictEqual(validateExamTask(closedTask()), []);
+  deepStrictEqual(validateExamTask(openTask()), []);
+  ok(isValidExamTask(closedTask()));
+  strictEqual(examTaskId('tcf', '2024a', 'co', 1), 'exam.tcf.2024a.co.001');
+  strictEqual(examSeriesId('tcf', '2024a', 1), 'series.tcf.2024a.1');
+});
+
+test('an OPEN task without a rubric is rejected — nothing could mark it', () => {
+  // The rule from the Examiner spec. A prompt with no rubric does not produce a
+  // score, it produces an opinion, and the candidate cannot tell the difference.
+  for (const section of ['eo', 'ee'] as const) {
+    const t = openTask({ id: `exam.delf.2024a.${section}.001`, section });
+    const issues = validateExamTask({ ...t, rubric: undefined });
+    ok(issues.some((i) => /MUST have a rubric/.test(i.message)), `${section} without rubric`);
+    const noModel = validateExamTask({ ...t, modelAnswer: undefined });
+    ok(noModel.some((i) => /MUST have a modelAnswer/.test(i.message)), `${section} without modelAnswer`);
+  }
+});
+
+test('a CLOSED task must carry the questions it is marked on', () => {
+  const issues = validateExamTask({ ...closedTask(), items: undefined });
+  ok(issues.some((i) => /MUST have items to mark/.test(i.message)));
+});
+
+test('formatVersion is required — a task nobody can date cannot be retired', () => {
+  // Boards change formats. A task written to the old one is not wrong, it is
+  // stale, and without this field the two are indistinguishable without reading
+  // every task. A candidate sat on a stale mock prepares for the wrong paper.
+  const issues = validateExamTask({ ...closedTask(), formatVersion: undefined });
+  ok(issues.some((i) => /formatVersion is required/.test(i.message)));
+});
+
+test('an exam task is banded by SCORE, not by content level', () => {
+  // The reason SCORE_BANDS was split out. c2 papers are real even though we
+  // author no c2 content; no paper has ever tested 'sons'.
+  deepStrictEqual(validateExamTask(closedTask({ level: 'c2' })), []);
+  ok(validateExamTask(closedTask({ level: 'sons' as never })).some((i) => /level must be one of/.test(i.message)));
+});
+
+test('an exam task needs a clock', () => {
+  ok(validateExamTask(closedTask({ timingS: 0 })).some((i) => /without a clock is a worksheet/.test(i.message)));
+  ok(validateExamTask(closedTask({ timingS: -30 })).length > 0);
+});
+
+test('an exam task id must agree with its family, variant and section', () => {
+  const issues = validateExamTask(closedTask({ id: 'exam.tcf.2024a.co.001', family: 'delf', section: 'ce', variant: 'x' }));
+  ok(issues.some((i) => /id family .* disagrees/.test(i.message)));
+  ok(issues.some((i) => /id section .* disagrees/.test(i.message)));
+  ok(issues.some((i) => /id variant .* disagrees/.test(i.message)));
+  ok(validateExamTask(closedTask({ id: 'exam.toefl.2024a.co.001' as never })).length > 0, 'unknown family');
+});
+
+test('a rubric criterion must be able to move the score', () => {
+  // A zero-point criterion is a thing the examiner is asked to judge and then
+  // ignore, on the one task where their attention is the entire product.
+  ok(validateExamTask(openTask({ rubric: { criteria: [{ key: 'k', label: 'L', maxPoints: 0 }] } }))
+    .some((i) => /maxPoints must be an integer >= 1/.test(i.message)));
+  ok(validateExamTask(openTask({ rubric: { criteria: [] } }))
+    .some((i) => /criteria must be a non-empty array/.test(i.message)));
+});
+
+test('duplicate rubric keys are rejected — the total stops adding up', () => {
+  const issues = validateExamTask(openTask({
+    rubric: { criteria: [
+      { key: 'coherence', label: 'Coherence', maxPoints: 5 },
+      { key: 'coherence', label: 'Again', maxPoints: 5 },
+    ] },
+  }));
+  ok(issues.some((i) => /duplicates key "coherence"/.test(i.message)));
+});
+
+test('an unsatisfiable responseSpec is rejected', () => {
+  // min > max means every answer is both too short and too long: the candidate
+  // fails whatever they write.
+  ok(validateExamTask(openTask({ responseSpec: { kind: 'text', minWords: 200, maxWords: 120 } }))
+    .some((i) => /no answer can satisfy it/.test(i.message)));
+  ok(validateExamTask(openTask({ responseSpec: { kind: 'audio', minDurationS: 180, maxDurationS: 60 } })).length > 0);
+  deepStrictEqual(validateExamTask(openTask({ responseSpec: { kind: 'text', minWords: 120, maxWords: 200 } })), []);
+  ok(validateExamTask(openTask({ responseSpec: { kind: 'essay' as never } })).length > 0);
+});
+
+test('a scoring map must ascend — thresholds are read in order', () => {
+  // Out of order, a reader that returns the first match awards high scorers the
+  // low band, and it reads as a marking error rather than a data error.
+  const issues = validateExamTask(closedTask({
+    scoringMap: [{ band: 'b1', minPoints: 60 }, { band: 'a2', minPoints: 30 }],
+  }));
+  ok(issues.some((i) => /minPoints must ascend/.test(i.message)));
+  deepStrictEqual(
+    validateExamTask(closedTask({ scoringMap: [{ band: 'a2', minPoints: 30 }, { band: 'b1', minPoints: 60 }] })),
+    []
+  );
+});
+
+test('a well-formed series validates, and an empty one does not', () => {
+  deepStrictEqual(validateExamSeries(series()), []);
+  ok(isValidExamSeries(series()));
+  ok(validateExamSeries(series({ taskIds: [] })).some((i) => /not a paper/.test(i.message)));
+});
+
+test('seriesNo is 1..5 and must agree with the id', () => {
+  ok(validateExamSeries(series({ id: 'series.tcf.2024a.6', seriesNo: 6 })).length > 0);
+  ok(validateExamSeries(series({ seriesNo: 0 })).length > 0);
+  const issues = validateExamSeries(series({ id: 'series.tcf.2024a.1', seriesNo: 2 }));
+  ok(issues.some((i) => /disagrees with seriesNo/.test(i.message)));
+});
+
+test('a series must not sit the same task twice', () => {
+  const issues = validateExamSeries(series({ taskIds: ['exam.tcf.2024a.co.001', 'exam.tcf.2024a.co.001'] }));
+  ok(issues.some((i) => /appears twice — a candidate would sit it twice/.test(i.message)));
+});
+
+test('exam validators never throw on garbage', () => {
+  for (const junk of [null, undefined, 42, 'exam', [], true]) {
+    ok(Array.isArray(validateExamTask(junk)));
+    ok(Array.isArray(validateExamSeries(junk)));
+  }
 });
 
 /* ─── corpus: referential integrity ──────────────────────────────────────── */

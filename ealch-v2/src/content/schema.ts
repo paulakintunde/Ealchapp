@@ -632,6 +632,121 @@ export type Pack = {
   provenance?: Provenance;
 };
 
+/* ─── Exam entities ──────────────────────────────────────────────────────── */
+
+// An ExamTask is one task off one paper: a TCF listening question, a DELF B1
+// speaking prompt. It is not an Item and not a Lesson — an item is a thing to
+// know, a lesson is a document to read, and a task is a thing you are SCORED on
+// under a clock. Forcing it into either loses the two properties that make it an
+// exam at all: the timing, and the rubric.
+//
+// The sections these belong to (co/ce/eo/ee) split cleanly in two, and the split
+// is what the validators below care about:
+//   · CLOSED tasks (co, ce) have right answers. A QCM can be marked by a machine.
+//   · OPEN   tasks (eo, ee) do not. Someone judges them against a rubric, and
+//     without one there is no such thing as a score — only an opinion.
+
+/** 'exam.<family>.<variant>.<section>.<seq>' — exam.tcf.2024a.co.001 */
+export const EXAM_TASK_ID_RE = new RegExp(
+  `^exam\\.(${EXAM_FAMILIES.join('|')})\\.[a-z0-9-]+\\.(${EXAM_SECTIONS.join('|')})\\.\\d{3,}$`
+);
+/** 'series.<family>.<variant>.<n>' — series.tcf.2024a.1 */
+export const EXAM_SERIES_ID_RE = new RegExp(`^series\\.(${EXAM_FAMILIES.join('|')})\\.[a-z0-9-]+\\.[1-5]$`);
+
+export function examTaskId(family: ExamFamily, variant: string, section: ExamSection, seq: number): string {
+  return `exam.${family}.${variant}.${section}.${String(seq).padStart(3, '0')}`;
+}
+export function examSeriesId(family: ExamFamily, variant: string, seriesNo: number): string {
+  return `series.${family}.${variant}.${seriesNo}`;
+}
+
+/** Sections whose answers a machine can mark. The rest need a human and a rubric. */
+export const CLOSED_SECTIONS = ['co', 'ce'] as const;
+export const OPEN_SECTIONS = ['eo', 'ee'] as const;
+const isOpenSection = (v: unknown): boolean => (OPEN_SECTIONS as readonly string[]).includes(v as string);
+
+/** A multiple-choice question. Same shape and same trap as the quiz section. */
+export type QcmItem = { q: string; opts: string[]; correct: number; why?: string };
+
+export type RubricCriterion = {
+  key: string;
+  label: string;
+  /** Must be >= 1: a criterion worth nothing cannot change a score, so it is a
+   *  thing the examiner is asked to judge and then ignore. */
+  maxPoints: number;
+  /** What each level of performance looks like. Absent means the examiner is
+   *  guessing, which is how two markers give the same answer different scores. */
+  descriptors?: string[];
+};
+
+export type Rubric = { criteria: RubricCriterion[] };
+
+/** What the candidate must produce. Bounds are what make "too short" markable. */
+export type ResponseSpec = {
+  kind: 'qcm' | 'text' | 'audio';
+  minWords?: number;
+  maxWords?: number;
+  minDurationS?: number;
+  maxDurationS?: number;
+};
+
+/** Raw points → the band it reports as. Ascending, and the reason SCORE_BANDS
+ *  exists: this is the one place c2 is a legitimate value. */
+export type ScoringBandRule = { band: ScoreBand; minPoints: number };
+
+export type ExamTask = {
+  /** 'exam.<family>.<variant>.<section>.<seq>' */
+  id: string;
+  family: ExamFamily;
+  /** The paper this came from: '2024a', 'blanc-03'. */
+  variant: string;
+  section: ExamSection;
+  /**
+   * The band this task tests. A SCORE band, not a content Level: exams are CEFR
+   * -scored, 'sons' is our own pronunciation track and no paper has ever tested
+   * it, and c2 tasks are real even though we author no c2 CONTENT. This is the
+   * field SCORE_BANDS was split out for.
+   */
+  level: ScoreBand;
+  /**
+   * Which published exam format this task was written against: 'tcf-2024.1'.
+   *
+   * REQUIRED, and the one field here that is not obviously necessary until it is.
+   * Exam boards change their formats — task counts, timings, mark schemes. When
+   * that happens, tasks written to the old format are not wrong, they are STALE,
+   * and without this field the two are indistinguishable: there is no way to ask
+   * "what did we write for the format that no longer exists?" short of reading
+   * every task. Sitting a candidate on a stale mock is worse than not mocking at
+   * all, because they walk in prepared for the wrong paper.
+   */
+  formatVersion: string;
+  prompt: string;
+  /** Closed sections only: the questions to mark. */
+  items?: QcmItem[];
+  responseSpec?: ResponseSpec;
+  /** Open sections only, and REQUIRED there — see validateExamTask. */
+  rubric?: Rubric;
+  /** Open sections only, and required there: what a good answer looks like. */
+  modelAnswer?: string;
+  examinerNotes?: string[];
+  /** Seconds allowed. An exam task without a clock is a worksheet. */
+  timingS: number;
+  scoringMap?: ScoringBandRule[];
+  provenance?: Provenance;
+};
+
+/** A full mock sitting: the ordered tasks that make up one paper. */
+export type ExamSeries = {
+  /** 'series.<family>.<variant>.<n>' */
+  id: string;
+  family: ExamFamily;
+  variant: string;
+  /** 1..5. Five mock papers per variant, per the examiner spec. */
+  seriesNo: number;
+  /** Ordered. Must all resolve — checked in validateCorpus. */
+  taskIds: string[];
+};
+
 /** What the publish pipeline emits and the app loads. */
 export type Corpus = {
   version: number;
@@ -1101,6 +1216,227 @@ export function validatePack(v: unknown, path = 'pack'): Issue[] {
   return out;
 }
 
+/** Shared with the quiz section: an out-of-range `correct` makes every option
+ *  score wrong, so the candidate is told they failed whatever they picked. */
+function validateQcm(v: unknown, path: string): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (!isArr(v) || v.length === 0) return [{ path, message: 'items must be a non-empty array' }];
+
+  v.forEach((q, i) => {
+    if (typeof q !== 'object' || q === null) {
+      push(`items[${i}] is not an object`);
+      return;
+    }
+    const qq = q as Partial<QcmItem>;
+    if (!isStr(qq.q)) push(`items[${i}].q is required`);
+    if (!isArr(qq.opts) || qq.opts.length < 2 || qq.opts.some((o) => !isStr(o))) {
+      push(`items[${i}].opts must be 2+ non-empty strings`);
+    } else if (
+      typeof qq.correct !== 'number' ||
+      !Number.isInteger(qq.correct) ||
+      qq.correct < 0 ||
+      qq.correct >= qq.opts.length
+    ) {
+      push(`items[${i}].correct must index opts (0..${qq.opts.length - 1})`);
+    }
+  });
+  return out;
+}
+
+function validateRubric(v: unknown, path: string): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null || isArr(v)) return [{ path, message: 'rubric must be an object' }];
+  const r = v as Partial<Rubric>;
+
+  if (!isArr(r.criteria) || r.criteria.length === 0) {
+    push('rubric.criteria must be a non-empty array — a rubric with no criteria scores nothing');
+    return out;
+  }
+  const keys = new Set<string>();
+  r.criteria.forEach((c, i) => {
+    if (typeof c !== 'object' || c === null) {
+      push(`criteria[${i}] is not an object`);
+      return;
+    }
+    const cc = c as Partial<RubricCriterion>;
+    if (!isStr(cc.key)) push(`criteria[${i}].key is required`);
+    else {
+      // Two criteria under one key: whichever is applied last silently wins, and
+      // the total quietly stops adding up to what the rubric says it does.
+      if (keys.has(cc.key)) push(`criteria[${i}] duplicates key "${cc.key}"`);
+      keys.add(cc.key);
+    }
+    if (!isStr(cc.label)) push(`criteria[${i}].label is required`);
+    if (typeof cc.maxPoints !== 'number' || !Number.isInteger(cc.maxPoints) || cc.maxPoints < 1) {
+      // A zero-point criterion cannot move the score. It is a thing the examiner
+      // is asked to judge and then ignore, which wastes their attention on the
+      // one task where attention is the whole product.
+      push(`criteria[${i}].maxPoints must be an integer >= 1`);
+    }
+    if (cc.descriptors !== undefined) {
+      if (!isArr(cc.descriptors)) push(`criteria[${i}].descriptors must be an array when present`);
+      else if (cc.descriptors.some((d) => !isStr(d))) push(`criteria[${i}].descriptors must all be non-empty strings`);
+    }
+  });
+  return out;
+}
+
+export function validateExamTask(v: unknown, path = 'examTask'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null) return [{ path, message: 'not an object' }];
+  const t = v as Partial<ExamTask>;
+
+  if (!isStr(t.id)) push('id is required');
+  else if (!EXAM_TASK_ID_RE.test(t.id)) push(`id "${t.id}" must match exam.<family>.<variant>.<section>.<seq>`);
+
+  if (!oneOf(EXAM_FAMILIES, t.family)) push(`family must be one of ${EXAM_FAMILIES.join(' | ')}`);
+  if (!oneOf(EXAM_SECTIONS, t.section)) push(`section must be one of ${EXAM_SECTIONS.join(' | ')}`);
+  // SCORE_BANDS, not LEVELS: a paper can test c2 and no paper tests 'sons'.
+  if (!oneOf(SCORE_BANDS, t.level)) push(`level must be one of ${SCORE_BANDS.join(' | ')}`);
+  if (!isStr(t.variant)) push('variant is required');
+
+  // The id encodes family and section, as everywhere else in this file.
+  if (isStr(t.id) && EXAM_TASK_ID_RE.test(t.id)) {
+    const [, family, variant, section] = t.id.split('.');
+    if (t.family && family !== t.family) push(`id family "${family}" disagrees with family "${t.family}"`);
+    if (t.section && section !== t.section) push(`id section "${section}" disagrees with section "${t.section}"`);
+    if (t.variant && variant !== t.variant) push(`id variant "${variant}" disagrees with variant "${t.variant}"`);
+  }
+
+  // Required. A task with no formatVersion cannot be told from a stale one, and
+  // a stale mock prepares a candidate for the wrong paper. See the type.
+  if (!isStr(t.formatVersion)) push('formatVersion is required — a task nobody can date cannot be retired');
+  if (!isStr(t.prompt)) push('prompt is required');
+
+  if (typeof t.timingS !== 'number' || !Number.isInteger(t.timingS) || t.timingS < 1) {
+    push('timingS must be an integer >= 1 — an exam task without a clock is a worksheet');
+  }
+
+  // THE RULE, per the Examiner spec: an open task needs a rubric and a model
+  // answer. Without them nothing can mark it — not a human, not a model. It is
+  // not a partially-authored task, it is a prompt that produces an opinion and
+  // calls it a score, and the candidate cannot tell the difference.
+  if (isOpenSection(t.section)) {
+    if (t.rubric === undefined) {
+      push(`section "${t.section}" is an open task and MUST have a rubric — nothing can mark it otherwise`);
+    }
+    if (!isStr(t.modelAnswer)) {
+      push(`section "${t.section}" is an open task and MUST have a modelAnswer`);
+    }
+  }
+  if (t.rubric !== undefined) out.push(...validateRubric(t.rubric, `${path}.rubric`));
+
+  // Closed sections carry the questions. Marking is the whole point of them, so
+  // a co/ce task with nothing to mark is an empty paper that scores 0/0.
+  if (!isOpenSection(t.section) && oneOf(EXAM_SECTIONS, t.section)) {
+    if (t.items === undefined) push(`section "${t.section}" is a closed task and MUST have items to mark`);
+  }
+  if (t.items !== undefined) out.push(...validateQcm(t.items, `${path}.items`));
+
+  if (t.responseSpec !== undefined) {
+    const rs = t.responseSpec as Partial<ResponseSpec>;
+    if (typeof rs !== 'object' || rs === null) push('responseSpec must be an object');
+    else {
+      if (rs.kind !== 'qcm' && rs.kind !== 'text' && rs.kind !== 'audio') {
+        push("responseSpec.kind must be 'qcm', 'text' or 'audio'");
+      }
+      for (const k of ['minWords', 'maxWords', 'minDurationS', 'maxDurationS'] as const) {
+        const n = rs[k];
+        if (n !== undefined && (typeof n !== 'number' || !Number.isInteger(n) || n < 0)) {
+          push(`responseSpec.${k} must be an integer >= 0 when present`);
+        }
+      }
+      // An inverted bound cannot be satisfied: every answer is both too short and
+      // too long, so the candidate fails whatever they write.
+      if (typeof rs.minWords === 'number' && typeof rs.maxWords === 'number' && rs.minWords > rs.maxWords) {
+        push(`responseSpec.minWords (${rs.minWords}) exceeds maxWords (${rs.maxWords}) — no answer can satisfy it`);
+      }
+      if (
+        typeof rs.minDurationS === 'number' &&
+        typeof rs.maxDurationS === 'number' &&
+        rs.minDurationS > rs.maxDurationS
+      ) {
+        push(`responseSpec.minDurationS (${rs.minDurationS}) exceeds maxDurationS (${rs.maxDurationS})`);
+      }
+    }
+  }
+
+  if (t.examinerNotes !== undefined) {
+    if (!isArr(t.examinerNotes)) push('examinerNotes must be an array when present');
+    else if (t.examinerNotes.some((n) => !isStr(n))) push('examinerNotes must all be non-empty strings');
+  }
+
+  if (t.scoringMap !== undefined) {
+    if (!isArr(t.scoringMap) || t.scoringMap.length === 0) push('scoringMap must be a non-empty array when present');
+    else {
+      let prev = -1;
+      t.scoringMap.forEach((rule, i) => {
+        if (typeof rule !== 'object' || rule === null) {
+          push(`scoringMap[${i}] is not an object`);
+          return;
+        }
+        const r = rule as Partial<ScoringBandRule>;
+        if (!oneOf(SCORE_BANDS, r.band)) push(`scoringMap[${i}].band must be one of ${SCORE_BANDS.join(' | ')}`);
+        if (typeof r.minPoints !== 'number' || !Number.isInteger(r.minPoints) || r.minPoints < 0) {
+          push(`scoringMap[${i}].minPoints must be an integer >= 0`);
+        } else {
+          // Ascending, because the map is read as thresholds. Out of order, a
+          // reader that returns the first match awards the wrong band — high
+          // scorers get the low band, and it looks like a marking error.
+          if (r.minPoints <= prev) push(`scoringMap[${i}].minPoints must ascend — thresholds are read in order`);
+          prev = r.minPoints;
+        }
+      });
+    }
+  }
+
+  if (t.provenance !== undefined) out.push(...validateProvenance(t.provenance, `${path}.provenance`));
+
+  return out;
+}
+
+export function validateExamSeries(v: unknown, path = 'examSeries'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null) return [{ path, message: 'not an object' }];
+  const s = v as Partial<ExamSeries>;
+
+  if (!isStr(s.id)) push('id is required');
+  else if (!EXAM_SERIES_ID_RE.test(s.id)) push(`id "${s.id}" must match series.<family>.<variant>.<1-5>`);
+
+  if (!oneOf(EXAM_FAMILIES, s.family)) push(`family must be one of ${EXAM_FAMILIES.join(' | ')}`);
+  if (!isStr(s.variant)) push('variant is required');
+
+  if (typeof s.seriesNo !== 'number' || !Number.isInteger(s.seriesNo) || s.seriesNo < 1 || s.seriesNo > 5) {
+    push('seriesNo must be an integer 1..5');
+  }
+
+  if (isStr(s.id) && EXAM_SERIES_ID_RE.test(s.id)) {
+    const [, family, variant, no] = s.id.split('.');
+    if (s.family && family !== s.family) push(`id family "${family}" disagrees with family "${s.family}"`);
+    if (s.variant && variant !== s.variant) push(`id variant "${variant}" disagrees with variant "${s.variant}"`);
+    if (s.seriesNo !== undefined && no !== String(s.seriesNo)) {
+      push(`id series number "${no}" disagrees with seriesNo "${s.seriesNo}"`);
+    }
+  }
+
+  if (!isArr(s.taskIds)) push('taskIds must be an array');
+  else if (s.taskIds.length === 0) push('taskIds must not be empty — a series with no tasks is not a paper');
+  else {
+    const seen = new Set<string>();
+    s.taskIds.forEach((id, i) => {
+      if (!isStr(id) || !EXAM_TASK_ID_RE.test(id)) push(`taskIds[${i}] "${String(id)}" is not a valid exam task id`);
+      else if (seen.has(id)) push(`taskIds[${i}] "${id}" appears twice — a candidate would sit it twice`);
+      else seen.add(id);
+    });
+  }
+
+  return out;
+}
+
 /**
  * Whole-corpus validation, including referential integrity.
  *
@@ -1198,6 +1534,8 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
 export const isValidDomain = (v: unknown): v is Domain => validateDomain(v).length === 0;
 export const isValidTheme = (v: unknown): v is Theme => validateTheme(v).length === 0;
 export const isValidPack = (v: unknown): v is Pack => validatePack(v).length === 0;
+export const isValidExamTask = (v: unknown): v is ExamTask => validateExamTask(v).length === 0;
+export const isValidExamSeries = (v: unknown): v is ExamSeries => validateExamSeries(v).length === 0;
 export const isValidItem = (v: unknown): v is Item => validateItem(v).length === 0;
 export const isValidLesson = (v: unknown): v is Lesson => validateLesson(v).length === 0;
 export const isValidUnit = (v: unknown): v is Unit => validateUnit(v).length === 0;
