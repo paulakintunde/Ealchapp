@@ -154,17 +154,24 @@ export default function Onboarding() {
     }
     setAcctErr(null);
     setAcctPending(true);
-    const res = await auth.signUpWithEmail(email, password);
-    if (!mounted.current || stepRef.current !== 1) return;
-    setAcctPending(false);
-    if (!res.ok) {
-      sound.play('error');
-      setAcctErr(res.error === AUTH_UNAVAILABLE ? T.errAuthUnavailable : (res.error ?? T.errSignUp));
-      return;
+    // finally clears the pending latch no matter how we leave — the old code
+    // returned on the step guard BEFORE resetting it, so navigating away
+    // mid-signup left Continue disabled forever, unrecoverable without a restart
+    // (review §2.2).
+    try {
+      const res = await auth.signUpWithEmail(email, password);
+      if (!mounted.current || stepRef.current !== 1) return;
+      if (!res.ok) {
+        sound.play('error');
+        setAcctErr(res.error === AUTH_UNAVAILABLE ? T.errAuthUnavailable : (res.error ?? T.errSignUp));
+        return;
+      }
+      s.setField('email', res.email ?? email);
+      s.setField('accountType', 'email');
+      next();
+    } finally {
+      if (mounted.current) setAcctPending(false);
     }
-    s.setField('email', res.email ?? email);
-    s.setField('accountType', 'email');
-    next();
   };
 
   const continueAsGuest = () => {
@@ -202,7 +209,15 @@ export default function Onboarding() {
       onPartial: setCalibPartial,
     });
 
-    if (!mounted.current || stepRef.current !== 9) return;
+    if (!mounted.current) return;
+    // Left the mic step mid-record: reset the latch to 'idle' instead of
+    // returning with it stuck on 'rec', which stranded the step on "recording"
+    // with a mic that could never restart (review §2.3).
+    if (stepRef.current !== 9) {
+      setCalib('idle');
+      setCalibPartial('');
+      return;
+    }
     setCalibPartial('');
     setCalibHeard(res);
     setCalib('done');

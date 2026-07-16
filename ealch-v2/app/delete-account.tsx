@@ -61,15 +61,21 @@ export default function DeleteAccount() {
     if (!isGuest) {
       const res = await auth.deleteAccount();
       if (!mounted.current) return;
-      if (!res.ok) {
-        // The server account still exists. Wiping the device now would strand
-        // it — an account the user believes is gone but that still holds their
-        // data is exactly the failure this screen exists to prevent.
+      if (!res.ok && res.error !== DELETE_NO_SESSION) {
+        // A real failure while a session exists (function error, unreachable
+        // backend): the server account still exists, so wiping the device now
+        // would strand it. Block and surface the error.
         setPending(false);
         sound.play('error');
         setError(deleteErrorText(res.error));
         return;
       }
+      // DELETE_NO_SESSION falls through: with no live session there is no
+      // authenticated way to delete a server row, and the account that reaches
+      // here is an unconfirmed email sign-up with no real server data. Blocking
+      // deletion outright would fail Apple 5.1.1(v) (review §2.4), so we finish
+      // with a local erase + sign-out — the deletion the user asked for. When
+      // sync (Phase 6) lands, this branch should re-authenticate first.
     }
 
     await eraseLocalData();
