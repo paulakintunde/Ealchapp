@@ -359,10 +359,29 @@ test('applyGrade walks the 1 → 3 → x·ease ladder, and a miss resets it', ()
   strictEqual(three.reps, 3);
   strictEqual(three.intervalDays, Math.round(3 * two.ease)); // then interval × ease
 
-  // A miss wipes reps and interval and erodes ease.
+  // A miss wipes reps and erodes ease. `three` has interval 8 (a review-stage
+  // card), so under the softer lapse it falls to a 1-day relearning step, not 0.
   const missed = applyGrade(three, 0);
-  deepStrictEqual([missed.reps, missed.intervalDays], [0, 0]);
+  strictEqual(missed.reps, 0);
+  strictEqual(missed.intervalDays, 1);
   ok(missed.ease < three.ease);
+});
+
+test('softer lapse: the drop is floored by how stable the card was', () => {
+  const erode = (ease: number) => Math.max(1.3, ease - 0.2);
+  // A young card (interval under a week) still relearns from 0 — no stability to
+  // protect, and it should come straight back.
+  deepStrictEqual(applyGrade({ reps: 2, ease: 2.5, intervalDays: 3 }, 0).intervalDays, 0);
+  deepStrictEqual(applyGrade({ reps: 3, ease: 2.5, intervalDays: 6 }, 0).intervalDays, 0);
+  // A review-stage card (a week or more) drops to a 1-day step.
+  strictEqual(applyGrade({ reps: 4, ease: 2.5, intervalDays: 12 }, 0).intervalDays, 1);
+  // A mature card (three weeks or more) drops to a 2-day step — a slip, not a
+  // total loss, and it does not slam back to "due right now".
+  strictEqual(applyGrade({ reps: 6, ease: 2.5, intervalDays: 40 }, 0).intervalDays, 2);
+  // Reps still reset and ease still erodes at every tier — relearning is real.
+  const m = applyGrade({ reps: 6, ease: 2.5, intervalDays: 40 }, 0);
+  strictEqual(m.reps, 0);
+  strictEqual(m.ease, erode(2.5));
 });
 
 test('srsCards schedules a learned item forward, an unseen item not at all', () => {

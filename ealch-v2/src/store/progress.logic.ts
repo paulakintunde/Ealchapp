@@ -408,6 +408,25 @@ export function gradeAttempt(a: AttemptEntry): SrsGrade {
 const MIN_EASE = 1.3;
 const MAX_EASE = 3.0;
 
+// Softer lapse. A miss still resets reps — relearning is real, you have to earn
+// the interval back — but it no longer slams the card to "due this second". A
+// card that had earned weeks of spacing drops to a short relearning STEP, not to
+// zero, because a mature lapse is a slip, not a total loss, and zeroing it both
+// punishes the learner and floods tomorrow's queue with everything they fumbled
+// once. Young cards (interval under a week) still relearn from 0 — there was no
+// stability to protect. Tunable and tested.
+const RELEARN_MATURE_FLOOR = 21; // a well-established card; equals MASTERY_INTERVAL_DAYS, kept a literal to avoid a load-order dead zone
+const RELEARN_REVIEW_FLOOR = 7; // roughly a week: past the fixed ladder
+const RELEARN_STEP_MATURE = 2;
+const RELEARN_STEP_REVIEW = 1;
+
+/** The interval a card falls to after a miss, floored by how stable it was. */
+export function relearnInterval(priorInterval: number): number {
+  if (priorInterval >= RELEARN_MATURE_FLOOR) return RELEARN_STEP_MATURE;
+  if (priorInterval >= RELEARN_REVIEW_FLOOR) return RELEARN_STEP_REVIEW;
+  return 0;
+}
+
 /** Advance one card's numbers by a single graded attempt. Pure and exported so
  *  the interval ladder can be tested directly, without synthesising a log. */
 export function applyGrade(
@@ -416,8 +435,10 @@ export function applyGrade(
 ): { reps: number; ease: number; intervalDays: number } {
   const { reps, ease, intervalDays } = card;
   if (grade === 0) {
-    // A miss wipes the run and sends the item back to the front of the queue.
-    return { reps: 0, ease: Math.max(MIN_EASE, ease - 0.2), intervalDays: 0 };
+    // A miss wipes the run and erodes ease, but the interval falls only to a
+    // relearning step scaled by prior stability — not always to 0. See
+    // relearnInterval.
+    return { reps: 0, ease: Math.max(MIN_EASE, ease - 0.2), intervalDays: relearnInterval(intervalDays) };
   }
   if (grade === 1) {
     // Shaky pass: it advances, but by less, and its ease erodes.
