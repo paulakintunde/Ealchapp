@@ -22,6 +22,7 @@ export type Strings = {
   heroTag: string; heroSub: string;
   resumeTag: string; beginTag: string; resumeSub: string; begin: string; vocabPrime: string;
   reviewHeroTitle: string; listenHeroTitle: string; listenHeroSub: string;
+  freshHeroTitle: string; freshHeroSub: string; freshShort: string;
   found: string; denT: string; denS: string;
   cardsT: string; cardsS: string; cardsTag: string; unitsWord: string;
   tabListen: string; tabSpeak: string; tabProfile: string; tabCoach: string;
@@ -42,7 +43,7 @@ export type Strings = {
   accuracyLabel: string; byDrillT: string; reviewNone: string;
   statPractice: string; statWords: string;
   attemptsLabel: string; practiceWeak: string;
-  drillNames: { flashcards: string; voiceflash: string; dictation: string; sentence: string; roleplay: string };
+  drillNames: { flashcards: string; voiceflash: string; dictation: string; sentence: string; roleplay: string; placement: string };
   hours: string; convs: string; minutes: string; days7: string;
   accentT: string; weakEngine: string;
   coachStatus: string; unlimited: string; placeholder: string;
@@ -90,6 +91,10 @@ export type Strings = {
   srSession: string; srReveal: string; srAgain: string; srGot: string;
   srDone: string; srDoneS: string; srAgainNote: string;
   placementT: string; placementS: string; placementCta: string; estimate: string;
+  plWhatMean: string; plCheckNote: string; plResult: string;
+  plResA0: string; plResA1: string; plResA2: string;
+  plStartUnit: string; plStartCta: string; plRetake: string;
+  plScore: string; plNoBank: string;
   dicteeT: string; dicteeS: string; play: string; slow: string; playsLeft: string;
   writeHeard: string; check2: string; perfectNoMistakes: string; youWrote: string; correctIs: string;
   downloadsT: string; downloadsS: string; storage: string; wifiOnly: string;
@@ -171,6 +176,7 @@ export const T: Record<Lang, Strings> = {
     heroTag: 'RÉEL — SURVIE · REPRENDRE', heroSub: 'Commandez comme un vrai Parisien · avec Camille',
     resumeTag: 'REPRENDRE', beginTag: 'POUR COMMENCER', resumeSub: 'Reprenez où vous en étiez', begin: 'Commencer', vocabPrime: 'Le vocabulaire',
     reviewHeroTitle: 'À réviser', listenHeroTitle: "À l'écoute", listenHeroSub: 'De vraies phrases, une vraie voix',
+    freshHeroTitle: 'Des mots nouveaux', freshHeroSub: '{n} mots choisis pour aujourd’hui', freshShort: '{n} nouveaux',
     found: 'Les fondations', denT: 'Le coin des débutants', denS: 'Sons · A1 · A2 — le cursus complet',
     cardsT: 'Cartes mémoire', cardsS: '{n} cartes · à réviser', cardsTag: 'RAPPEL · CARTES', unitsWord: 'UNITÉS',
     tabListen: 'ÉCOUTE', tabSpeak: 'PARLE', tabProfile: 'PROFIL', tabCoach: 'COACH',
@@ -194,7 +200,7 @@ export const T: Record<Lang, Strings> = {
     statPractice: 'PRATIQUE', statWords: 'MOTS VUS',
     reviewNone: "Rien à revoir pour l'instant. Vous les réussissez.",
     attemptsLabel: '{n} tentatives', practiceWeak: 'Réviser ces mots',
-    drillNames: { flashcards: 'Cartes', voiceflash: 'Flash vocal', dictation: 'Dictée', sentence: 'Constructeur', roleplay: 'Jeu de rôle' },
+    drillNames: { flashcards: 'Cartes', voiceflash: 'Flash vocal', dictation: 'Dictée', sentence: 'Constructeur', roleplay: 'Jeu de rôle', placement: 'Niveau' },
     hours: 'HEURES PARLÉES', convs: 'CONVERSATIONS', minutes: 'Minutes parlées', days7: '7 DERNIERS JOURS',
     accentT: 'Votre accent', weakEngine: 'Le moteur de faiblesses',
     coachStatus: 'votre coach · en ligne', unlimited: 'POURQUOI ? · ILLIMITÉ', placeholder: 'Posez votre question…',
@@ -260,7 +266,16 @@ export const T: Record<Lang, Strings> = {
     srSession: 'SESSION DE RÉVISION', srReveal: 'Voir la réponse', srAgain: 'Encore', srGot: 'Je sais',
     srDone: 'Révision terminée', srDoneS: '{n} sur {m} réussis. Les ratés reviennent bientôt.',
     srAgainNote: '« Encore » le remet dans la file.',
-    placementT: 'Test de niveau', placementS: 'Quelques questions, estimation en direct.', placementCta: 'Passer le test', estimate: 'ESTIMATION',
+    placementT: 'Vérification de niveau', placementS: 'Quelques questions de vocabulaire, une estimation honnête.', placementCta: 'Faire la vérification', estimate: 'ESTIMATION',
+    plWhatMean: 'Que veut dire ce mot ?',
+    plCheckNote: 'Une vérification rapide, pas un examen : une estimation honnête pour choisir votre point de départ.',
+    plResult: 'VOTRE ESTIMATION',
+    plResA0: 'On commence au début : les fondations d’abord, à votre rythme.',
+    plResA1: 'Les bases sont là. On consolide le A1 et on avance.',
+    plResA2: 'Vocabulaire de base solide. On attaque le A2.',
+    plStartUnit: 'Votre point de départ', plStartCta: 'Commencer ici', plRetake: 'Refaire la vérification',
+    plScore: '{n} sur {m} bonnes réponses',
+    plNoBank: 'Pas encore assez de contenu pour une vérification. Réessayez après une mise à jour.',
     dicteeT: 'La Dictée', dicteeS: "Entraînez l'oreille et l'orthographe : écrivez exactement ce que vous entendez.", play: 'Écouter', slow: '0,75×', playsLeft: 'écoutes',
     writeHeard: 'Écrivez ce que vous entendez', check2: 'Vérifier', perfectNoMistakes: 'Parfait, aucune faute', youWrote: 'Vous avez écrit', correctIs: 'La bonne réponse',
     downloadsT: 'Téléchargements', downloadsS: 'Écoutez hors connexion', storage: 'Stockage', wifiOnly: 'Wi-Fi uniquement',
@@ -349,7 +364,7 @@ export const T: Record<Lang, Strings> = {
     dictRowSub: 'Écoutez et écrivez, accents compris',
     browseOpen: 'Parcourir — playlists, examens, points faibles', browseLess: 'Masquer',
     nounFem: 'nom féminin',
-    denBanT: 'Pas sûr de votre niveau ?', denBanS: 'Test de placement — 3 minutes, adaptatif',
+    denBanT: 'Pas sûr de votre niveau ?', denBanS: 'Vérification rapide, environ 2 minutes',
     subLessonsWord: 'sous-leçons',
     lessonNow: 'EN COURS', tapHear: 'Touchez pour entendre',
     playerPlaylist: 'PRONONCIATION EN PROFONDEUR',
@@ -400,6 +415,7 @@ export const T: Record<Lang, Strings> = {
     heroTag: 'REAL-WORLD — SURVIVAL · RESUME', heroSub: 'Order like a local · with Camille',
     resumeTag: 'CONTINUE', beginTag: 'START HERE', resumeSub: 'Pick up where you left off', begin: 'Begin', vocabPrime: 'Vocab first',
     reviewHeroTitle: 'À réviser', listenHeroTitle: "À l'écoute", listenHeroSub: 'Real phrases, in a real voice',
+    freshHeroTitle: 'New words', freshHeroSub: '{n} words picked for today', freshShort: '{n} new',
     found: 'Foundations', denT: "Beginners' Den", denS: 'Sounds · A1 · A2 — the full curriculum',
     cardsT: 'Flashcards', cardsS: '{n} cards · due now', cardsTag: 'RECALL · FLASHCARDS', unitsWord: 'UNITS',
     tabListen: 'LISTEN', tabSpeak: 'SPEAK', tabProfile: 'PROFILE', tabCoach: 'COACH',
@@ -423,7 +439,7 @@ export const T: Record<Lang, Strings> = {
     statPractice: 'PRACTICE', statWords: 'WORDS MET',
     reviewNone: 'Nothing to review yet. You are getting these right.',
     attemptsLabel: '{n} attempts', practiceWeak: 'Practice these words',
-    drillNames: { flashcards: 'Flashcards', voiceflash: 'Voice Flash', dictation: 'Dictation', sentence: 'Builder', roleplay: 'Role Play' },
+    drillNames: { flashcards: 'Flashcards', voiceflash: 'Voice Flash', dictation: 'Dictation', sentence: 'Builder', roleplay: 'Role Play', placement: 'Level check' },
     hours: 'HOURS SPOKEN', convs: 'CONVERSATIONS', minutes: 'Minutes spoken', days7: 'LAST 7 DAYS',
     accentT: 'Your accent', weakEngine: 'The weakness engine',
     coachStatus: 'your coach · online', unlimited: 'WHY? · UNLIMITED', placeholder: 'Ask your question…',
@@ -489,7 +505,16 @@ export const T: Record<Lang, Strings> = {
     srSession: 'REVIEW SESSION', srReveal: 'Reveal answer', srAgain: 'Again', srGot: 'Got it',
     srDone: 'Review complete', srDoneS: '{n} of {m} right. The misses come back soon.',
     srAgainNote: '“Again” puts it back in the queue.',
-    placementT: 'Placement test', placementS: 'A few questions, live estimate.', placementCta: 'Take the test', estimate: 'ESTIMATE',
+    placementT: 'Level check', placementS: 'A few vocab questions, an honest estimate.', placementCta: 'Take the check', estimate: 'ESTIMATE',
+    plWhatMean: 'What does this word mean?',
+    plCheckNote: 'A quick check, not an exam: an honest estimate to pick your starting point.',
+    plResult: 'YOUR ESTIMATE',
+    plResA0: 'We start at the beginning: foundations first, at your pace.',
+    plResA1: 'The basics are there. We firm up A1 and move on.',
+    plResA2: 'Solid core vocabulary. We start at A2.',
+    plStartUnit: 'Your starting point', plStartCta: 'Start here', plRetake: 'Retake the check',
+    plScore: '{n} of {m} correct',
+    plNoBank: 'Not enough content for a check yet. Try again after an update.',
     dicteeT: 'La Dictée', dicteeS: 'Train your ear and spelling: write exactly what you hear.', play: 'Play', slow: '0.75×', playsLeft: 'plays',
     writeHeard: 'Write what you hear', check2: 'Check', perfectNoMistakes: 'Perfect, no mistakes', youWrote: 'You wrote', correctIs: 'The correct answer',
     downloadsT: 'Downloads', downloadsS: 'Listen offline', storage: 'Storage', wifiOnly: 'Wi-Fi only',
@@ -578,7 +603,7 @@ export const T: Record<Lang, Strings> = {
     dictRowSub: 'Hear it, type it, accents included',
     browseOpen: 'Browse — playlists, exams, weak spots', browseLess: 'Show less',
     nounFem: 'feminine noun',
-    denBanT: 'Not sure where to start?', denBanS: 'Placement test — 3 minutes, adaptive',
+    denBanT: 'Not sure where to start?', denBanS: 'Quick check, about 2 minutes',
     subLessonsWord: 'sub-lessons',
     lessonNow: 'NOW', tapHear: 'Tap to hear',
     playerPlaylist: 'PRONUNCIATION DEEP-DIVES',

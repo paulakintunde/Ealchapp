@@ -13,7 +13,8 @@ import { useT } from '@/i18n/useT';
 import { greetSlot } from '@/i18n/strings';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
-import { goalTarget, localDay, minutesToday, resumeIsFresh, reviewDueCount, streak, topWeaknesses } from '@/store/progress.logic';
+import { composeSession, goalTarget, introEligible, localDay, minutesToday, resumeIsFresh, streak, topWeaknesses } from '@/store/progress.logic';
+import { selectItems } from '@/services/content.logic';
 import { useUI } from '@/store/useUI';
 import { playlists } from '@/content/playlists';
 import { useContent } from '@/services/content';
@@ -73,7 +74,7 @@ export default function Home() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { userName, lang, setAppLang, freeze, pace, browseOpen, setField } = useStore();
+  const { userName, lang, setAppLang, freeze, pace, level, browseOpen, setField } = useStore();
   const sessions = useProgress((s) => s.sessions);
   const attempts = useProgress((s) => s.attempts);
   const errors = useProgress((s) => s.errors);
@@ -85,6 +86,7 @@ export default function Home() {
   // after an OTA. A zustand selector returning a primitive re-renders only when
   // the number changes.
   const denUnits = useContent((s) => s.corpus.units.filter((u) => u.track !== undefined).length);
+  const corpus = useContent((s) => s.corpus);
   const openDict = useUI((s) => s.openDict);
   const openSheet = useUI((s) => s.openSheet);
   // The fold's open/closed state persists (survives remounts) and its reveal
@@ -113,11 +115,18 @@ export default function Home() {
     String(run.freezesLeft)
   );
 
-  // The review count is now real: how many items the scheduler says are due
-  // today, folded from the attempt log (progress.logic.ts). Zero due is caught
-  // up — and on a fresh install nothing has ever been attempted, so it reads
-  // caught up, which is the truth, not a seeded "23".
-  const due = useMemo(() => reviewDueCount(attempts, today), [attempts, today]);
+  // The composed daily session (composeSession, the Phase 5 engine wired in at
+  // last): capped reviews first, then new items to introduce in whatever budget
+  // the reviews left. `due` is the same capped count reviewDueCount gave; `fresh`
+  // is what makes day one work — a learner with nothing due does not meet an
+  // empty home, they meet new words. Candidates are the flashcard-eligible
+  // corpus at or below the learner's level; a full review day yields no fresh.
+  const session = useMemo(
+    () => composeSession(attempts, introEligible(selectItems(corpus, 'flashcard'), level), today),
+    [attempts, corpus, level, today]
+  );
+  const due = session.due.length;
+  const freshN = session.fresh.length;
   const caughtUp = due === 0;
   const revNum = caughtUp ? '✓' : String(due);
   const revLabel = caughtUp ? T.caughtUpShort : T.reviewShort;
@@ -131,8 +140,18 @@ export default function Home() {
   const hero = resumeIsFresh(resume, today) && resume
     ? { eyebrow: T.resumeTag, title: resume.title, sub: T.resumeSub, cta: T.resume, route: resume.route }
     : due > 0
-      ? { eyebrow: T.beginTag, title: T.reviewHeroTitle, sub: `${due} ${T.dueToday}`, cta: T.begin, route: '/smartreview' }
-      : { eyebrow: T.beginTag, title: T.listenHeroTitle, sub: T.listenHeroSub, cta: T.begin, route: '/player' };
+      ? {
+          eyebrow: T.beginTag,
+          title: T.reviewHeroTitle,
+          // The whole session in one line: reviews first, and if the budget left
+          // room for new words, say so — "5 due today · 3 new".
+          sub: `${due} ${T.dueToday}` + (freshN > 0 ? ' · ' + T.freshShort.replace('{n}', String(freshN)) : ''),
+          cta: T.begin,
+          route: '/smartreview',
+        }
+      : freshN > 0
+        ? { eyebrow: T.beginTag, title: T.freshHeroTitle, sub: T.freshHeroSub.replace('{n}', String(freshN)), cta: T.begin, route: '/flashcards?deck=new' }
+        : { eyebrow: T.beginTag, title: T.listenHeroTitle, sub: T.listenHeroSub, cta: T.begin, route: '/player' };
 
   const skillGold = t.tag('gold');
   const skillPurple = t.tag('grammar');

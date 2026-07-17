@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader, ProgressBar } from '@/components/ui';
@@ -10,6 +10,8 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useProgress, useSessionLog } from '@/store/useProgress';
+import { useStore } from '@/store/useStore';
+import { composeSession, introEligible, localDay } from '@/store/progress.logic';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
 
@@ -22,9 +24,20 @@ export default function Flashcards() {
   const logSession = useSessionLog();
   const logAttempt = useProgress((s) => s.logAttempt);
 
-  // The deck is now a view over the corpus, not a hardcoded array. Snapshotted
-  // once at mount (content is already hydrated — _layout gates paint on it).
-  const deck = useMemo(() => content.itemsFor('flashcard'), []);
+  // The deck is a view over the corpus, snapshotted once at mount (content is
+  // already hydrated — _layout gates paint on it). `?deck=new` plays the
+  // composed session's FRESH slice instead of the whole eligible set: the
+  // never-attempted items at or below the learner's level, theme-interleaved,
+  // capped by what today's review load left room for (composeSession). Grading
+  // a card logs an attempt, which is exactly how a new word enters the SRS —
+  // so home's "new words" hero leads here.
+  const { deck: deckMode } = useLocalSearchParams<{ deck?: string }>();
+  const deck = useMemo(() => {
+    const all = content.itemsFor('flashcard');
+    if (deckMode !== 'new') return all;
+    const { attempts } = useProgress.getState();
+    return composeSession(attempts, introEligible(all, useStore.getState().level), localDay()).fresh;
+  }, [deckMode]);
 
   const [cardIx, setCardIx] = useState(0);
   const [flipped, setFlipped] = useState(false);
@@ -153,7 +166,9 @@ export default function Flashcards() {
         {/* Progress */}
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 22 }}>
           <View style={{ flex: 1 }}>
-            <ProgressBar pct={Math.min(100, (cardIx / deckLen) * 100)} height={3} color={t.acc} track={t.line(10)} />
+            {/* deckLen can be 0 (a deep link to ?deck=new with nothing fresh);
+                0/0 must render an idle bar, not a NaN width. */}
+            <ProgressBar pct={deckLen ? Math.min(100, (cardIx / deckLen) * 100) : 0} height={3} color={t.acc} track={t.line(10)} />
           </View>
           <TX role="meta" color={t.txMuted}>
             {Math.min(cardIx + 1, deckLen)} / {deckLen}
