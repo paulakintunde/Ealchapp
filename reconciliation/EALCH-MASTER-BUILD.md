@@ -35,8 +35,8 @@ A few conventions:
 | **2** | 🟡 | Content pipeline hardening + lesson↔corpus join + prove-the-pipe (join ✅ · RLS ✅ · OTA safety ✅ · perf pass ✅ w/ leftovers · atomicity ✅; French gates, deep-link anchors, prove-the-pipe open) | 4,7,8 authoring | pipeline + JS |
 | **3** | 🟡 | Pluggable provider socket → OPR, Nemotron default (code-complete 2026-07-17, commits `928bc8a..fff310e`; edge deploy + live flip-proof pending) | de-risks 4,7,8, coach margin | edge + admin |
 | **4** | ⬜ | Azure/Camille TTS resolver + client remote-audio path | feeds 7 | native rebuild |
-| **5** | 🟡 | SRS / mastery engine (G2 persist v1→v2 + drills emit modality ✅ `e09f722`; sibling-gating, mastery, cap, composer open) | feeds 6,7,10 | JS/OTA |
-| **6** | ⬜ | Placement rebuild (adaptive probe) | seeds SRS | JS/OTA |
+| **5** | ✅ | SRS / mastery engine (code-complete 2026-07-17, `e09f722..8eba23b`: modality cards, sibling-gating, mastery, cap, Wilson, composer, softer lapse, predicate scheduling, shared fold, Den met+mastered; suite 289/289. Open: 20k low-end device benchmark, dictation CO/PE split) | feeds 6,7,10 | JS/OTA |
+| **6** | 🟡 | Placement rebuild (honest quick check landed 2026-07-17 `542d1fc`+`e3a0b12`: writes level, seeds SRS, no fabricated UI; full adaptive probe gated on the Phase 2 item bank) | seeds SRS | JS/OTA |
 | **6b** | ⬜ | Voice Flash image_ref, drill breadth, Word of the Day | feeds 5,7 | JS + content |
 | **7** | ⬜ | The Den: greenfield 7-stage narrated lesson | flagship | native + JS |
 | **8** | ⬜ | Examiner engine + schema | needs 1,2,5; gated by 11 | JS + content |
@@ -214,7 +214,7 @@ Three questions were unresolved in this plan and had to be answered before the w
 
 ---
 
-## Phase 1 — Schema v2 (unified migration) + curriculum spine + level-cap lift — execute immediately (CF-25)
+## Phase 1 — Schema v2 (unified migration) + curriculum spine + level-cap lift — execute immediately (CF-25) — ✅ DONE 2026-07-17
 
 > **Classification: EXTEND (not greenfield).** The content pipeline is built and proven; this phase extends the schema in place to carry a fuller corpus. Do not rebuild delivery. See the CF-07 resolution in `SSOT-DECISION-SHEET.md`.
 
@@ -274,7 +274,7 @@ The systems draft's through-line ("the canonical shape lives in two files that m
 
 ---
 
-## Phase 2 — Content pipeline hardening + lesson↔corpus join + prove-the-pipe
+## Phase 2 — Content pipeline hardening + lesson↔corpus join + prove-the-pipe — 🟡 IN PROGRESS 2026-07-17 (2.B join, RLS, OTA safety, perf landed; gates, deep links, prove-the-pipe, OPR lifecycle open)
 
 > **Classification: HARDEN + EXTEND (not greenfield).** The author-in-DB → snapshot → app pipeline is built and proven; this phase hardens it into a governed system and extends its capabilities. The content corpus itself is the greenfield work (a separate, ongoing build). See the CF-07 resolution in `SSOT-DECISION-SHEET.md`.
 
@@ -374,7 +374,7 @@ The 8-stage pipeline (Nemotron default per CF-05, via the Phase 3 socket):
 
 ---
 
-## Phase 3 — Pluggable provider socket → OPR admin :4000, Nemotron default (CF-05, CF-06)
+## Phase 3 — Pluggable provider socket → OPR admin :4000, Nemotron default (CF-05, CF-06) — 🟡 CODE-COMPLETE 2026-07-17, NOT LIVE (deploy drill pending, see status below)
 
 **Goal.** One multipurpose LLM socket the OPR console drives, defaulting to NVIDIA Nemotron, that accepts any OpenAI-compatible provider (KIE, OpenAI, Anthropic, Gemini/DeepSeek cheap tier) without a client ship. Implements CF-05 and CF-06.
 
@@ -404,7 +404,7 @@ The 8-stage pipeline (Nemotron default per CF-05, via the Phase 3 socket):
 
 ---
 
-## Phase 4 — Azure / Camille TTS resolver + client remote-audio path (CF-04)
+## Phase 4 — Azure / Camille TTS resolver + client remote-audio path (CF-04) — ⬜ NOT STARTED
 
 **Goal.** Lock a single consistent Camille brand voice via an Azure/OpenAI-neural resolver as primary, keeping Fish/ElevenLabs as wired fallbacks, and build the client remote-audio playback path that does not exist today. Implements CF-04.
 
@@ -431,11 +431,13 @@ The 8-stage pipeline (Nemotron default per CF-05, via the Phase 3 socket):
 
 ---
 
-## Phase 5 — SRS / mastery engine wiring (CF-01, CF-03, CF-02, CF-21) — 🟡 opened 2026-07-17
+## Phase 5 — SRS / mastery engine wiring (CF-01, CF-03, CF-02, CF-21) — ✅ CODE-COMPLETE 2026-07-17 (two named leftovers below)
 
 **Goal.** Keep the shipped SM-2 engine, make it modality-aware with sibling-gating, define a mastery bar SM-2 can compute, cap the daily queue, and make every SRS-facing string honest. Implements CF-01, CF-02, CF-03, CF-21; the full content Section 3.
 
-> **🟡 Landed 2026-07-17 (commit `e09f722`): G2 + the modality substrate — Targets 2 and 7, and the precondition for 3.** `useProgress` persist v1→v2 via pure tested `migrateProgressToV2` (legacy attempts default `'recognise'`, corrupt → clean, idempotent — the exact suite the G2 stamp demanded); `modality` REQUIRED on `AttemptEntry`; `srsCards` keys on `(itemId, modality)` via `cardKey` — one item, up to three cards, own intervals (CF-02's key, verbatim); every drill emits direction-aware modality (`flashcards` fr→en `recognise` / en→fr `produce`, `voiceflash` by direction, dictation/sentence/roleplay/review `produce`) — which also discharges half the LOW mislabel note below (dictation's CO/PE split still open). **Open: Targets 3 (sibling-gating), 4 (mastery), 5 (daily cap), 6 (Wilson), 8 (composer), 9 (softer lapse), and the two HIGH folded items (shared-fold memoization, SCHEDULABLE-as-predicate).** Suite 250/250.
+> **🟡 Landed 2026-07-17 (commit `e09f722`): G2 + the modality substrate — Targets 2 and 7, and the precondition for 3.** `useProgress` persist v1→v2 via pure tested `migrateProgressToV2` (legacy attempts default `'recognise'`, corrupt → clean, idempotent — the exact suite the G2 stamp demanded); `modality` REQUIRED on `AttemptEntry`; `srsCards` keys on `(itemId, modality)` via `cardKey` — one item, up to three cards, own intervals (CF-02's key, verbatim); every drill emits direction-aware modality (`flashcards` fr→en `recognise` / en→fr `produce`, `voiceflash` by direction, dictation/sentence/roleplay/review `produce`) — which also discharges half the LOW mislabel note below (dictation's CO/PE split still open). ~~Open: Targets 3-6, 8, 9 and the two HIGH folded items.~~ Suite 250/250.
+
+> **✅ Closed 2026-07-17 (commits `0df0d11..8eba23b`): every remaining target and both HIGH folded items, verified against code.** Sibling-gating on a justified floor (`SIBLING_GATE_REPS = 3` — the recognise card must clear the 1→3 transition, not just two passes — `AND intervalDays ≥ 7`); mastery is `MASTERY_REPS = 5 ∧ MASTERY_INTERVAL_DAYS = 21 ∧ no recent miss`, unit mastery requiring recognise + produce siblings (+ discriminate where the item carries one); `DAILY_REVIEW_CAP = 20` with `dueBacklog` a separate number so the raw debt is never shown; `topWeaknesses` ranks by Wilson lower bound (`wilsonLower`); `composeSession` fixes starve and flood and is wired into home + flashcards (`948c35b`, `2d8f6b8`); a mature lapse floors the relearn step by prior stability instead of zeroing (`RELEARN_MATURE_FLOOR`); `SCHEDULABLE` is now the predicate `isSchedulable` (any attempt carrying a resolvable `itemId` + `modality` schedules, regardless of surface); one shared fold (`foldCards`) serves due/upcoming/mastery/session instead of refolding per derivation (`3c6ff8d`); the Den shows met AND mastered so early progress is not deleted (`8eba23b`). Suite 289/289. **Still open, deliberately: the 20k-attempt benchmark on low-end hardware (needs a device), and the dictation CO/PE modality split (LOW).**
 
 **Current state.** `progress.logic.ts` is a clean pure fold: `applyGrade` (`:333-350`) is SM-2 (`MIN_EASE 1.3`, `MAX_EASE 3.0`, `1→3→interval×ease`, miss wipes to 0); `srsCards` (`:367-399`) keys purely on `itemId` (no modality); `dueCards`/`reviewDueCount` (`:403-418`) return the full uncapped backlog; `topWeaknesses` (`:459-470`) ranks by raw count over 7 days; no mastery constant exists; `itemsPracticed` (`:276`, ≥1 correct) is the "met" proxy the Den uses (`den.tsx:46-52`). Append-only attempt log, cards a replayable fold.
 
@@ -468,9 +470,11 @@ The 8-stage pipeline (Nemotron default per CF-05, via the Phase 3 socket):
 
 ---
 
-## Phase 6 — Placement rebuild (CF-16)
+## Phase 6 — Placement rebuild (CF-16) — 🟡 HONEST INTERIM LANDED 2026-07-17 (full adaptive probe gated on the item bank)
 
 **Goal.** Replace the fabricated single-question placement theatre with a real adaptive 12-18 item probe that writes a level to the store. Implements CF-16.
+
+> **🟡 Honest interim landed 2026-07-17 (commits `542d1fc`, `e3a0b12`), verified against code.** The adaptive theatre is gone: `placement.tsx` is now a "quick check" drawing a fixed per-band recognition set from the live corpus (never hardcoded), with real `Q{n}` progress — no `isA2`, no fake `Q7`, no `58%` bar, no "adaptive" claim (the old literals survive only in a comment describing what was removed). Grading is the pure tested `placementEstimate` rule (`PLACEMENT_PASS = 0.6` per band; an unasked band never passes, so a check with no a2 questions honestly caps at A1); the estimate is written to the store level the rest of the app reads (`setField('level', graded)`); every response logs a real `AttemptEntry` with modality, so the check itself seeds the SRS (the Phase 5 dependency, satisfied); the start unit is derived from the estimate against units that actually hold lessons. **Open: the full adaptive 12-18 item probe stays gated on a calibrated item bank authored via Phase 2 — exactly the sequencing this phase prescribes.**
 
 **Current state.** `app/placement.tsx` is confident adaptive theatre over one hardcoded question: `isA2` hardcoded (`:31`), fake `Q7` (`:65`), `58%` bar (`:61`), mocked A2/A1+ result (`:161`), "adaptive — the test ends when your level is confident" copy (`:148-152`), and it writes to no store (`router.push('/den')` with a hardcoded start unit, `:190-192`). This is the Apple 2.3.1 fabricated-UI risk.
 
@@ -495,7 +499,7 @@ The 8-stage pipeline (Nemotron default per CF-05, via the Phase 3 socket):
 
 ---
 
-## Phase 6b — Voice Flash image_ref, drill breadth, Word of the Day (CF-24)
+## Phase 6b — Voice Flash image_ref, drill breadth, Word of the Day (CF-24) — ⬜ NOT STARTED (schema prerequisites landed in Phase 1)
 
 **Goal.** Scale Voice Flash beyond derivable icons via explicit per-item image references; broaden per-item drill eligibility so the review deck is not starved; tie Word of the Day to the learner's level/theme. Implements CF-24; the full content Section 6.
 
@@ -696,10 +700,10 @@ Phase 0  honesty/store-risk ─┐ ✅ DONE 2026-07-16 (pricing.ts extracted, ex
 Phase 1  SCHEMA v2 + spine ──┼─► ✅ DONE 2026-07-17 (spine + A1 reseq published v2; G2 closed via Phase 5 e09f722)
 Phase 2  content pipeline ───┼─► 🟡 join ✅ · RLS ✅ · OTA safety ✅ · perf ✅; French gates / anchors / prove-the-pipe open
 Phase 3  provider socket ────┘  🟡 CODE-COMPLETE (routing registry + ceiling + durable cap); edge deploy + live flip-proof pending
-Phase 4  Camille TTS (L/XL: client audio path is net-new) ─► feeds 7
-Phase 5  SRS/mastery (SCHEDULABLE predicate, shared fold) ─► 🟡 G2 + modality cards ✅; gating/mastery/cap/composer open; feeds 6,7,10
-Phase 6  placement rebuild ──────────► seeds SRS; paywall trigger hook
-Phase 6b Voice Flash / drills / WotD ─► feeds 5,7
+Phase 4  Camille TTS (L/XL: client audio path is net-new) ─► ⬜ feeds 7
+Phase 5  SRS/mastery (SCHEDULABLE predicate, shared fold) ─► ✅ CODE-COMPLETE 2026-07-17 (all targets; open: 20k device benchmark, dictation split); feeds 6,7,10
+Phase 6  placement rebuild ──────────► 🟡 honest quick check ✅ (writes level, seeds SRS); adaptive probe gated on item bank; paywall trigger hook
+Phase 6b Voice Flash / drills / WotD ─► ⬜ feeds 5,7
 Phase 7  Den 7-stage (flagship) ─────► needs 1,2,4,5
 Phase 8  Exam engine ────────────────► needs 1,2,5; gated by 11
 Phase 9  identity & sync substrate ──► gates 10,11 + server attempts   (new; the drafts omitted it)
