@@ -342,6 +342,51 @@ async function main() {
   }
   console.log('  ✓ lesson-has-practice: every lesson feeds the SRS');
 
+  // ── 4c. MACHINE GATES (Phase 6b, CF-24) — warnings, never failures ──────
+  // Breadth rules the corpus is expected to GROW INTO. They warn instead of
+  // failing because the corpus is still early: making them hard gates today
+  // would block every publish until Phase 2 authoring lands, and a gate nobody
+  // can pass just gets deleted. The day the corpus clears them, flip to errors.
+  {
+    const gate: string[] = [];
+
+    // A theme below ~20 items starves every deck built from it.
+    const themeCounts = new Map<string, number>();
+    for (const i of items) themeCounts.set(i.theme, (themeCounts.get(i.theme) ?? 0) + 1);
+    const thin = [...themeCounts.entries()].filter(([, n]) => n < 20);
+    if (thin.length) {
+      gate.push(`theme breadth: ${thin.map(([t, n]) => `${t}=${n}`).join(', ')} (target ≥ 20 items per theme)`);
+    }
+
+    // An item only one drill can reach barely earns its place in the corpus.
+    const singleDrill = items.filter((i) => i.drills.length === 1);
+    if (singleDrill.length) {
+      gate.push(`single-drill items (${singleDrill.length}): ${singleDrill.map((i) => i.id).join(', ')}`);
+    }
+
+    // Voice Flash is a pronunciation surface; an item there without IPA ships
+    // a sound drill with no sound spec (deterministic FR→IPA pass is Phase 2).
+    const vfNoIpa = items.filter((i) => i.drills.includes('voiceflash') && !i.ipa);
+    if (vfNoIpa.length) {
+      gate.push(`voiceflash items missing ipa (${vfNoIpa.length}): ${vfNoIpa.map((i) => i.id).join(', ')}`);
+    }
+
+    // imageRef shape is validated by validateCorpus; RESOLVABILITY is not yet —
+    // the dangling-ref hard gate arrives with the snapshot asset manifest.
+    const withImage = items.filter((i) => typeof i.imageRef === 'string' && i.imageRef.length > 0);
+    if (withImage.length) {
+      gate.push(`imageRef on ${withImage.length} item(s) — resolvability is not machine-checked until the asset manifest lands; verify the uploads`);
+    }
+
+    if (gate.length) {
+      console.log(`\n  ⚠ machine gates (advisory, publish continues):`);
+      for (const g of gate) console.log(`    · ${g}`);
+      console.log('');
+    } else {
+      console.log('  ✓ machine gates: breadth, multi-drill, ipa, image refs');
+    }
+  }
+
   // ── 5. The seed cut — what ships inside the binary ─────────────────────
   console.log(`\n  seed cut: ${describeCut()}`);
 
