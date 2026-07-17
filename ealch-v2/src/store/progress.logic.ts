@@ -18,7 +18,8 @@
 
 export type Activity =
   | 'lesson' | 'flashcards' | 'voiceflash' | 'sentence'
-  | 'roleplay' | 'dictation' | 'speak' | 'player' | 'review';
+  | 'roleplay' | 'dictation' | 'speak' | 'player' | 'review'
+  | 'placement';
 
 export type SessionEntry = {
   /** Local calendar day, 'YYYY-MM-DD' — deliberately NOT an ISO instant.
@@ -176,7 +177,7 @@ export function streak(sessions: SessionEntry[], today: string, freeze: number):
 // 'none'); the type is re-declared here rather than imported so this module keeps
 // its zero-runtime-import property. It is structurally identical to the Verdict
 // in utils/score.ts, so the drill screens can pass their scores straight through.
-import { ITEM_ID_RE, type Modality } from '../content/schema.ts';
+import { ITEM_ID_RE, LEVELS, type Modality } from '../content/schema.ts';
 
 export type AttemptVerdict = 'good' | 'close' | 'off' | 'none';
 
@@ -726,6 +727,21 @@ function interleaveByTheme<T extends { theme?: string }>(items: T[]): T[] {
   return out;
 }
 
+/** Which items may be INTRODUCED as new to a learner whose stored level is
+ *  `storeLevel` — the useStore string ('A1', 'B1'...). Items at the learner's
+ *  band or below qualify; an unknown or pre-A1 value ('A0', '') means the
+ *  floor: sons and a1 only, because a beginner's first new words are a1 words.
+ *  The caller passes drill-eligible items; this only draws the level line, so
+ *  the two filters stay separable. */
+export function introEligible<T extends { level: string }>(items: T[], storeLevel: string): T[] {
+  const band = LEVELS.indexOf(storeLevel.toLowerCase() as (typeof LEVELS)[number]);
+  const cap = band < 0 ? LEVELS.indexOf('a1') : band;
+  return items.filter((it) => {
+    const b = LEVELS.indexOf(it.level as (typeof LEVELS)[number]);
+    return b >= 0 && b <= cap;
+  });
+}
+
 export function composeSession<T extends { id: string; theme?: string }>(
   attempts: AttemptEntry[],
   candidates: T[],
@@ -748,6 +764,35 @@ export function composeSession<T extends { id: string; theme?: string }>(
   const fresh = interleaveByTheme(brandNew).slice(0, want);
 
   return { due, fresh, backlog };
+}
+
+// ── Placement (CF-16, the honest interim) ────────────────────────────────────
+//
+// The quick check is not adaptive and does not claim to be: a fixed set of
+// recognition questions drawn from the shipped corpus, graded per band. Until a
+// calibrated item bank exists (authored via Phase 2), the estimate can honestly
+// say only three things: not yet at a1, at a1, or at a2. The screen builds and
+// asks the questions; this function is the whole grading rule, kept in the
+// island so the boundary cases are tested rather than eyeballed.
+
+/** The pass line per band. 0.6 of a handful of recognition questions is a
+ *  coarse screen, not a psychometric claim — which is why the result copy says
+ *  "estimate" and the screen says "quick check". */
+export const PLACEMENT_PASS = 0.6;
+
+export type PlacementAnswer = { level: string; correct: boolean };
+
+/** Grade a finished quick check. A band passes when it was asked at all and the
+ *  share correct meets PLACEMENT_PASS; an unasked band never passes, so a check
+ *  with no a2 questions can honestly reach at most A1. */
+export function placementEstimate(answers: PlacementAnswer[]): 'A0' | 'A1' | 'A2' {
+  const passed = (lvl: string): boolean => {
+    const asked = answers.filter((a) => a.level === lvl);
+    if (asked.length === 0) return false;
+    return asked.filter((a) => a.correct).length / asked.length >= PLACEMENT_PASS;
+  };
+  if (!passed('a1')) return 'A0';
+  return passed('a2') ? 'A2' : 'A1';
 }
 
 /** The soonest not-yet-due cards, for an "up next" preview. */

@@ -15,10 +15,12 @@ import {
   foldCards,
   gradeAttempt,
   goalTarget,
+  introEligible,
   isConfidentWeakSpot,
   isMastered,
   isSchedulable,
   itemsPracticed,
+  placementEstimate,
   localDay,
   masteredItems,
   migrateProgressToV2,
@@ -918,6 +920,57 @@ test('new items share the daily budget: some reviews leaves room for fewer new',
   const { due, fresh } = composeSession(log, candidates, TODAY, { newCount: 5 });
   strictEqual(due.length, 17);
   strictEqual(fresh.length, 3, 'cap 20 minus 17 due leaves room for 3 new, not the full 5');
+});
+
+// ── introEligible: the level line for new-item candidates ────────────────────
+
+const lv = (id: string, level: string) => ({ id, level });
+
+test('introEligible keeps items at or below the learner band', () => {
+  const items = [lv('s', 'sons'), lv('one', 'a1'), lv('two', 'a2'), lv('three', 'b1'), lv('four', 'b2')];
+  deepStrictEqual(introEligible(items, 'A2').map((i) => i.id), ['s', 'one', 'two']);
+  deepStrictEqual(introEligible(items, 'B1').map((i) => i.id), ['s', 'one', 'two', 'three']);
+});
+
+test('introEligible floors an unknown or pre-A1 level at a1', () => {
+  const items = [lv('s', 'sons'), lv('one', 'a1'), lv('two', 'a2')];
+  deepStrictEqual(introEligible(items, 'A0').map((i) => i.id), ['s', 'one'], 'A0 is not a band; floor at a1');
+  deepStrictEqual(introEligible(items, '').map((i) => i.id), ['s', 'one'], 'empty level means beginner');
+});
+
+test('introEligible drops items whose level is not a band at all', () => {
+  deepStrictEqual(introEligible([lv('x', 'c2'), lv('y', 'weird')], 'C1'), [], 'unknown item bands never qualify');
+});
+
+// ── placementEstimate: the quick-check grading rule (CF-16 interim) ──────────
+
+const pa = (level: string, correct: boolean) => ({ level, correct });
+
+test('failing the a1 band reads A0, whatever a2 said', () => {
+  strictEqual(placementEstimate([pa('a1', false), pa('a1', false), pa('a1', true), pa('a2', true), pa('a2', true)]), 'A0');
+});
+
+test('passing a1 but not a2 reads A1', () => {
+  strictEqual(placementEstimate([pa('a1', true), pa('a1', true), pa('a2', false), pa('a2', false)]), 'A1');
+});
+
+test('passing both bands reads A2', () => {
+  strictEqual(placementEstimate([pa('a1', true), pa('a1', true), pa('a2', true), pa('a2', true)]), 'A2');
+});
+
+test('an unasked band never passes: no a2 questions caps the estimate at A1', () => {
+  strictEqual(placementEstimate([pa('a1', true), pa('a1', true)]), 'A1');
+});
+
+test('an empty check grades A0 — no answers is not evidence of level', () => {
+  strictEqual(placementEstimate([]), 'A0');
+});
+
+test('the pass line is inclusive: exactly 3 of 5 meets 0.6', () => {
+  const threeOfFive = [pa('a1', true), pa('a1', true), pa('a1', true), pa('a1', false), pa('a1', false)];
+  strictEqual(placementEstimate(threeOfFive), 'A1');
+  const twoOfFive = [pa('a1', true), pa('a1', true), pa('a1', false), pa('a1', false), pa('a1', false)];
+  strictEqual(placementEstimate(twoOfFive), 'A0');
 });
 
 // ── one fold per render (shared-fold memo) ───────────────────────────────────
