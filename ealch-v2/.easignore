@@ -1,0 +1,25 @@
+# What NOT to upload to EAS Build. EAS runs its own install and prebuild on the
+# server, so the heavy local folders below are dead weight in the upload archive
+# (the first preview build shipped 214 MB without this file). Everything the
+# build actually needs — app/, src/, assets/, app.json, eas.json, package*.json,
+# and the config files — is deliberately NOT listed here.
+
+# Dependencies (EAS reinstalls from the lockfile)
+node_modules/
+
+# Git history (not needed to build)
+.git/
+
+# Native folders (EAS prebuilds these from app.json on the server)
+/android
+/ios
+
+# Expo / build caches and outputs
+.expo/
+dist/
+web-build/
+*.tsbuildinfo
+
+# Local noise
+*.log
+.DS_Store
