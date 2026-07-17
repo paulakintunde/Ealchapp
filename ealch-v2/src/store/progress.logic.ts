@@ -621,10 +621,40 @@ export function srsCards(attempts: AttemptEntry[]): Map<string, SrsCard> {
 // Infinity for the honest uncapped total (the backlog math uses it).
 export const DAILY_REVIEW_CAP = 20;
 
+// ── One fold per render (folded panel: SRS is O(attempts), folded many times) ─
+//
+// srsCards folds the whole attempt log (bounded at 20k). A single screen asks
+// for the due count, the "up next" preview, mastery and the session at once, and
+// each used to re-fold independently — the same 20k walk, four times, every
+// render. foldCards memoises the last fold by the attempts array's IDENTITY. The
+// store replaces that array on every logAttempt (`[...attempts, entry]`), so a
+// stale array is impossible: a new log is a new reference and re-folds; the same
+// log across one render's derivations folds once. Size-1 is enough because every
+// derivation in a render reads the same store array.
+let _memoIn: AttemptEntry[] | null = null;
+let _memoOut: Map<string, SrsCard> | null = null;
+let _foldCount = 0;
+
+/** The shared, memoised card fold. Public so UI that needs the Map directly
+ *  (masteredItems) shares the one fold with dueCards and the rest. */
+export function foldCards(attempts: AttemptEntry[]): Map<string, SrsCard> {
+  if (attempts === _memoIn && _memoOut) return _memoOut;
+  _foldCount += 1;
+  _memoOut = srsCards(attempts);
+  _memoIn = attempts;
+  return _memoOut;
+}
+
+/** How many real folds have happened. Observability for the shared-fold test —
+ *  the cheapest honest proof the memo is doing its job. */
+export function srsFoldCount(): number {
+  return _foldCount;
+}
+
 /** Everything due on `today`, sorted, uncapped. The ordering is the contract:
  *  most overdue first, then hardest (lowest ease), then by id for stability. */
 function allDue(attempts: AttemptEntry[], today: string): SrsCard[] {
-  return [...srsCards(attempts).values()]
+  return [...foldCards(attempts).values()]
     .filter((c) => c.dueDay <= today)
     .sort((a, b) => {
       if (a.dueDay !== b.dueDay) return a.dueDay < b.dueDay ? -1 : 1;
@@ -722,7 +752,7 @@ export function composeSession<T extends { id: string; theme?: string }>(
 
 /** The soonest not-yet-due cards, for an "up next" preview. */
 export function upcomingCards(attempts: AttemptEntry[], today: string, limit?: number): SrsCard[] {
-  const up = [...srsCards(attempts).values()]
+  const up = [...foldCards(attempts).values()]
     .filter((c) => c.dueDay > today)
     .sort((a, b) => (a.dueDay !== b.dueDay ? (a.dueDay < b.dueDay ? -1 : 1) : a.itemId < b.itemId ? -1 : 1));
   return typeof limit === 'number' ? up.slice(0, Math.max(0, limit)) : up;

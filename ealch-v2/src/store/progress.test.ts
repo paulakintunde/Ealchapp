@@ -12,6 +12,7 @@ import {
   DAILY_REVIEW_CAP,
   dueBacklog,
   dueCards,
+  foldCards,
   gradeAttempt,
   goalTarget,
   isConfidentWeakSpot,
@@ -28,6 +29,7 @@ import {
   recognitionStable,
   reviewDueCount,
   shiftDay,
+  srsFoldCount,
   topWeaknesses,
   srsCards,
   statsByItem,
@@ -916,4 +918,34 @@ test('new items share the daily budget: some reviews leaves room for fewer new',
   const { due, fresh } = composeSession(log, candidates, TODAY, { newCount: 5 });
   strictEqual(due.length, 17);
   strictEqual(fresh.length, 3, 'cap 20 minus 17 due leaves room for 3 new, not the full 5');
+});
+
+// ── one fold per render (shared-fold memo) ───────────────────────────────────
+
+test('the log is folded once across a render’s derivations, even at 20k attempts', () => {
+  // Build a realistic worst-case log: MAX_ATTEMPTS entries across many items.
+  const log: AttemptEntry[] = [];
+  for (let i = 0; i < 20_000; i++) {
+    log.push(a(`fr.a1.t${i % 40}.${String(i).padStart(4, '0')}`, i % 3 !== 0, -(i % 25), i % 3 !== 0 ? 'good' : 'off'));
+  }
+  const before = srsFoldCount();
+  // A single screen's worth of derivations, all on the SAME array reference.
+  dueCards(log, TODAY);
+  reviewDueCount(log, TODAY);
+  upcomingCards(log, TODAY, 4);
+  dueBacklog(log, TODAY);
+  masteredItems(foldCards(log));
+  composeSession(log, [], TODAY);
+  strictEqual(srsFoldCount() - before, 1, 'six derivations, one fold');
+});
+
+test('a new log reference re-folds (the store makes a new array on every attempt)', () => {
+  const base = [a('fr.a1.cafe.001', true, -1, 'good')];
+  const before = srsFoldCount();
+  dueCards(base, TODAY);
+  dueCards(base, TODAY); // same ref → cached
+  strictEqual(srsFoldCount() - before, 1);
+  const grown = [...base, a('fr.a1.cafe.002', true, 0, 'good')]; // logAttempt's shape
+  dueCards(grown, TODAY);
+  strictEqual(srsFoldCount() - before, 2, 'a new reference folds again');
 });
