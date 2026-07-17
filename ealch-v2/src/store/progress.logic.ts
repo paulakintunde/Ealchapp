@@ -556,9 +556,18 @@ export function srsCards(attempts: AttemptEntry[]): Map<string, SrsCard> {
   return out;
 }
 
-/** The review queue for `today`: cards whose dueDay has arrived, most overdue
- *  first, then hardest (lowest ease), then by id for a stable order. */
-export function dueCards(attempts: AttemptEntry[], today: string): SrsCard[] {
+// The daily review cap. Twenty is a session, not a sentence. Without it, a
+// learner who crams and then misses a few days opens the app to a backlog of
+// hundreds all marked "due", which is the single most reliable way to make them
+// close it for good. The overdue work does not vanish — it waits, surfaced most-
+// overdue first — but the number the learner sees is a day's worth, never the
+// raw debt. Pass a different cap where a caller genuinely wants more; pass
+// Infinity for the honest uncapped total (the backlog math uses it).
+export const DAILY_REVIEW_CAP = 20;
+
+/** Everything due on `today`, sorted, uncapped. The ordering is the contract:
+ *  most overdue first, then hardest (lowest ease), then by id for stability. */
+function allDue(attempts: AttemptEntry[], today: string): SrsCard[] {
   return [...srsCards(attempts).values()]
     .filter((c) => c.dueDay <= today)
     .sort((a, b) => {
@@ -568,11 +577,22 @@ export function dueCards(attempts: AttemptEntry[], today: string): SrsCard[] {
     });
 }
 
-/** How many items are due on `today` — the honest review count. */
-export function reviewDueCount(attempts: AttemptEntry[], today: string): number {
-  let n = 0;
-  for (const c of srsCards(attempts).values()) if (c.dueDay <= today) n += 1;
-  return n;
+/** The review queue for `today`, capped to a day's worth. */
+export function dueCards(attempts: AttemptEntry[], today: string, cap: number = DAILY_REVIEW_CAP): SrsCard[] {
+  const all = allDue(attempts, today);
+  return cap >= all.length ? all : all.slice(0, Math.max(0, cap));
+}
+
+/** How many items to show as due on `today`: a day's worth at most, never the
+ *  raw overdue count. */
+export function reviewDueCount(attempts: AttemptEntry[], today: string, cap: number = DAILY_REVIEW_CAP): number {
+  return Math.min(allDue(attempts, today).length, Math.max(0, cap));
+}
+
+/** How many due items are being held back beyond the cap — the gentle backlog,
+ *  for a "and N more waiting" line. Never shown as a debt or a red number. */
+export function dueBacklog(attempts: AttemptEntry[], today: string, cap: number = DAILY_REVIEW_CAP): number {
+  return Math.max(0, allDue(attempts, today).length - Math.max(0, cap));
 }
 
 /** The soonest not-yet-due cards, for an "up next" preview. */

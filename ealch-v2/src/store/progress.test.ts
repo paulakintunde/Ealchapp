@@ -8,6 +8,8 @@ import {
   applyGrade,
   attemptsToday,
   cardKey,
+  DAILY_REVIEW_CAP,
+  dueBacklog,
   dueCards,
   gradeAttempt,
   goalTarget,
@@ -794,4 +796,34 @@ test('an item is mastered only when recognise AND produce are both mastered', ()
   ok(isMastered(cards.get(cardKey('fr.a1.cafe.001', 'recognise'))));
   ok(isMastered(cards.get(cardKey('fr.a1.cafe.001', 'produce'))));
   deepStrictEqual([...masteredItems(cards)], ['fr.a1.cafe.001']);
+});
+
+// ── the daily cap: a session, not a sentence ─────────────────────────────────
+
+test('dueCards and reviewDueCount never exceed the daily cap; the rest is backlog', () => {
+  // 25 items all overdue. The queue and the count are a day's worth; five wait.
+  const log: AttemptEntry[] = [];
+  for (let i = 1; i <= 25; i++) log.push(a(`fr.a1.cafe.${String(i).padStart(3, '0')}`, false, -1, 'off'));
+  strictEqual(dueCards(log, TODAY).length, DAILY_REVIEW_CAP);
+  strictEqual(reviewDueCount(log, TODAY), DAILY_REVIEW_CAP);
+  strictEqual(dueBacklog(log, TODAY), 5);
+});
+
+test('under the cap, everything due is shown and there is no backlog', () => {
+  const log = [a('fr.a1.cafe.001', false, -1, 'off'), a('fr.a1.cafe.002', true, -1, 'good')];
+  strictEqual(dueCards(log, TODAY).length, 2);
+  strictEqual(reviewDueCount(log, TODAY), 2);
+  strictEqual(dueBacklog(log, TODAY), 0);
+});
+
+test('the cap keeps the most-overdue items and defers the rest, in order', () => {
+  // Two very overdue, plus 20 due today. A cap of 2 must keep the two oldest.
+  const log: AttemptEntry[] = [
+    a('fr.a1.old.001', false, -10, 'off'),
+    a('fr.a1.old.002', false, -9, 'off'),
+  ];
+  for (let i = 1; i <= 20; i++) log.push(a(`fr.a1.cafe.${String(i).padStart(3, '0')}`, true, -1, 'good'));
+  const kept = dueCards(log, TODAY, 2).map((c) => c.itemId);
+  deepStrictEqual(kept, ['fr.a1.old.001', 'fr.a1.old.002'], 'the oldest debt is paid first');
+  strictEqual(dueBacklog(log, TODAY, 2), 20);
 });
