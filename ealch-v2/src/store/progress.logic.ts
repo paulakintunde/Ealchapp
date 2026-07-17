@@ -651,6 +651,75 @@ export function dueBacklog(attempts: AttemptEntry[], today: string, cap: number 
   return Math.max(0, allDue(attempts, today).length - Math.max(0, cap));
 }
 
+// ── The daily session (HIGH note 13 — the D1 return hook) ────────────────────
+//
+// A learner who returns and finds nothing to do leaves as surely as one who
+// finds too much. composeSession answers both: capped reviews first, then new
+// items to fill whatever budget the reviews left. An empty due list is not an
+// empty screen — it is room for new words (the starve fix); a day already full
+// of reviews introduces no new ones (the flood fix). New items share the daily
+// budget with reviews rather than stacking on top of it.
+//
+// Pure by construction: the candidate items are passed in, so the island never
+// imports the corpus. The caller filters candidates to the learner's level.
+export const DEFAULT_NEW_PER_SESSION = 5;
+
+export type ComposedSession<T> = {
+  /** Capped, most-overdue-first. */
+  due: SrsCard[];
+  /** New items to introduce, theme-interleaved, within the leftover budget. */
+  fresh: T[];
+  /** Due items held back beyond the cap. For a gentle line, never a debt. */
+  backlog: number;
+};
+
+/** Round-robin items across their themes, so a session is not five of one theme
+ *  then five of another — variety holds attention better than a block. */
+function interleaveByTheme<T extends { theme?: string }>(items: T[]): T[] {
+  const buckets = new Map<string, T[]>();
+  for (const it of items) {
+    const k = it.theme ?? '';
+    const b = buckets.get(k);
+    if (b) b.push(it);
+    else buckets.set(k, [it]);
+  }
+  const queues = [...buckets.values()];
+  const out: T[] = [];
+  let progressed = true;
+  while (progressed) {
+    progressed = false;
+    for (const q of queues) {
+      const next = q.shift();
+      if (next) { out.push(next); progressed = true; }
+    }
+  }
+  return out;
+}
+
+export function composeSession<T extends { id: string; theme?: string }>(
+  attempts: AttemptEntry[],
+  candidates: T[],
+  today: string,
+  opts?: { cap?: number; newCount?: number },
+): ComposedSession<T> {
+  const cap = opts?.cap ?? DAILY_REVIEW_CAP;
+  const newCount = opts?.newCount ?? DEFAULT_NEW_PER_SESSION;
+
+  const due = dueCards(attempts, today, cap);
+  const backlog = dueBacklog(attempts, today, cap);
+
+  // New items get whatever budget the reviews left. Full review day → no new.
+  const headroom = Math.max(0, cap - due.length);
+  const want = Math.min(newCount, headroom);
+
+  const seen = new Set<string>();
+  for (const at of attempts) seen.add(at.itemId);
+  const brandNew = candidates.filter((c) => !seen.has(c.id));
+  const fresh = interleaveByTheme(brandNew).slice(0, want);
+
+  return { due, fresh, backlog };
+}
+
 /** The soonest not-yet-due cards, for an "up next" preview. */
 export function upcomingCards(attempts: AttemptEntry[], today: string, limit?: number): SrsCard[] {
   const up = [...srsCards(attempts).values()]

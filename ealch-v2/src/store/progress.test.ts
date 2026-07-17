@@ -8,6 +8,7 @@ import {
   applyGrade,
   attemptsToday,
   cardKey,
+  composeSession,
   DAILY_REVIEW_CAP,
   dueBacklog,
   dueCards,
@@ -868,4 +869,51 @@ test('weakSpots ignores struggles outside the 30-day window', () => {
 test('isConfidentWeakSpot needs the minimum attempts', () => {
   const thin = statsByItem([a('fr.a1.cafe.001', false, 0, 'off')]).get('fr.a1.cafe.001')!;
   strictEqual(isConfidentWeakSpot(thin), false);
+});
+
+// ── composeSession: the daily return hook (HIGH note 13) ─────────────────────
+
+const cand = (id: string, theme: string) => ({ id, theme, fr: id, en: id });
+
+test('an empty due list is room for new words, not an empty screen (starve fix)', () => {
+  const candidates = [cand('fr.a1.cafe.001', 'cafe'), cand('fr.a1.cafe.002', 'cafe'), cand('fr.a1.marche.001', 'marche')];
+  const { due, fresh } = composeSession([], candidates, TODAY, { newCount: 5 });
+  strictEqual(due.length, 0);
+  strictEqual(fresh.length, 3, 'nothing due, so bring new items');
+});
+
+test('a day already full of reviews introduces no new items (flood fix)', () => {
+  const log: AttemptEntry[] = [];
+  for (let i = 1; i <= 25; i++) log.push(a(`fr.a1.cafe.${String(i).padStart(3, '0')}`, false, -1, 'off'));
+  const candidates = [cand('fr.a1.new.900', 'x'), cand('fr.a1.new.901', 'x')];
+  const { due, fresh, backlog } = composeSession(log, candidates, TODAY);
+  strictEqual(due.length, DAILY_REVIEW_CAP, 'the review cap is full');
+  strictEqual(fresh.length, 0, 'no room for new on a swamped day');
+  strictEqual(backlog, 5);
+});
+
+test('new items are theme-interleaved, not blocked by theme', () => {
+  const candidates = [
+    cand('fr.a1.cafe.001', 'cafe'), cand('fr.a1.cafe.002', 'cafe'),
+    cand('fr.a1.marche.001', 'marche'), cand('fr.a1.marche.002', 'marche'),
+  ];
+  const { fresh } = composeSession([], candidates, TODAY, { newCount: 4 });
+  // Round-robin: cafe, marche, cafe, marche — no two adjacent share a theme.
+  for (let i = 1; i < fresh.length; i++) ok(fresh[i].theme !== fresh[i - 1].theme, 'themes alternate');
+});
+
+test('already-seen items are never offered as new', () => {
+  const log = [a('fr.a1.cafe.001', true, -1, 'good')];
+  const candidates = [cand('fr.a1.cafe.001', 'cafe'), cand('fr.a1.cafe.002', 'cafe')];
+  const { fresh } = composeSession(log, candidates, TODAY, { newCount: 5 });
+  deepStrictEqual(fresh.map((f) => f.id), ['fr.a1.cafe.002'], 'the practised item is not new');
+});
+
+test('new items share the daily budget: some reviews leaves room for fewer new', () => {
+  const log: AttemptEntry[] = [];
+  for (let i = 1; i <= 17; i++) log.push(a(`fr.a1.cafe.${String(i).padStart(3, '0')}`, false, -1, 'off'));
+  const candidates = Array.from({ length: 10 }, (_, i) => cand(`fr.a1.new.${900 + i}`, 't'));
+  const { due, fresh } = composeSession(log, candidates, TODAY, { newCount: 5 });
+  strictEqual(due.length, 17);
+  strictEqual(fresh.length, 3, 'cap 20 minus 17 due leaves room for 3 new, not the full 5');
 });
