@@ -7,8 +7,37 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { supabase } from './supabase';
 
+// THE SOCKET CONTRACT (Phase 3, CF-05). Which field drives which call site, and
+// — just as importantly — which fields nothing reads yet. Claiming a field is
+// wired when it is not is how `models` came to look like a control plane while
+// steering nothing:
+//
+//   models.general → the coach. Read SERVER-side by the coach edge function
+//                    straight from system_config, which is what makes routing
+//                    real: the console flips it and the next turn obeys, with no
+//                    app rebuild and no client refresh. The client also sends it
+//                    in the coach body, where it is advisory only and ignored —
+//                    a request that can name its own provider can name the most
+//                    expensive one.
+//   models.audio   → tts. NOT wired yet; Phase 4 (CF-04) gives it a consumer.
+//   models.content → the generation pipeline, which runs admin-side. The app
+//                    never reads it.
+//   models.video   → reserved. Nothing reads it.
+//   orchestrator   → nothing reads it, on the client or the server.
+//
+// system_config also carries server-only keys the app deliberately does not
+// model here (coachCostCeiling, coachFreeTurnsPerDay): they bound spend inside
+// the coach function, the client has no use for them, and typing them here would
+// imply it does. The default-merge below passes them through harmlessly.
 export type RemoteConfig = {
-  orchestrator: 'kie' | 'nvidia';
+  /** A provider key, matching `ai_models.provider` in the Ops Console.
+   *
+   *  Deliberately a free string, not a union: the console can introduce a
+   *  provider without an app release, and an old client receiving one it has
+   *  never heard of must not be broken by it. Nothing branches on this value
+   *  today, so widening it costs nothing and the narrow union only ever
+   *  threatened to reject a future the console is allowed to choose. */
+  orchestrator: string;
   services: { fishAudio: boolean; azure: boolean; glif: boolean };
   models: { general: string; content: string; audio: string; video: string };
   promptVersion: string;
