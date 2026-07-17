@@ -48,6 +48,10 @@ export type AppState = {
   // system setting, and only on the lesson-style screens.
   brightBoost: boolean;
 
+  // home: whether the "Browse" fold is expanded — a UI preference that should
+  // survive remounts, not reset to collapsed on every visit.
+  browseOpen: boolean;
+
   // audio + reminders
   sound: boolean;
   alarmTime: string; // always 24h "HH:MM" internally
@@ -100,7 +104,6 @@ export type AppState = {
   enableDailyReminder: () => Promise<boolean>;
   setCurrency: (c: Currency) => void;
   setPlan: (p: Plan) => void;
-  upgrade: () => void;
   setRegion: (r: string) => void;
   setAppLang: (id: string) => void;
   setField: <K extends keyof AppState>(k: K, v: AppState[K]) => void;
@@ -122,6 +125,7 @@ const initialData = () => ({
   accent: ACCENTS[0].c,
 
   brightBoost: true,
+  browseOpen: false,
 
   sound: true,
   alarmTime: '19:00',
@@ -200,7 +204,11 @@ export const useStore = create<AppState>()(
       },
       setCurrency: (currency) => set({ currency }),
       setPlan: (planPick) => set({ planPick }),
-      upgrade: () => set({ premium: true }),
+      // No upgrade(). It was `() => set({ premium: true })`: it minted the
+      // premium flag with no payment, no receipt and no entitlement, from a
+      // button in settings. Phase 10 sets `premium` from RevenueCat's
+      // customerInfo, which is the only authority that can honestly say a user
+      // has paid. Nothing else may write it.
       setRegion: (region) => set({ region }),
       // Non-FR/EN picks fall back to the declared default interface language (EN).
       setAppLang: (appLang) =>
@@ -271,6 +279,7 @@ export const useStore = create<AppState>()(
         mode: s.mode,
         accent: s.accent,
         brightBoost: s.brightBoost,
+        browseOpen: s.browseOpen,
         sound: s.sound,
         alarmTime: s.alarmTime,
         clock24: s.clock24,

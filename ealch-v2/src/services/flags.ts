@@ -11,4 +11,13 @@ export const FLAGS = {
   // recovery tokens for a session and sets the new password.
   // Requires `ealch://reset` in Supabase → Auth → URL Configuration → Redirect URLs.
   forgotPassword: true,
+
+  // Speech recognition runs on-device (expo-speech-recognition), not in the
+  // cloud; the `edge` Whisper path is only a backstop.
+  //
+  // A RECORD, NOT A SWITCH: flipping this changes nothing. The operational
+  // control is `sttProvider` in src/services/config.ts, which remote config can
+  // flip without a client ship. This states the v1 decision where the decision
+  // is looked for.
+  sttOnDevice: true,
 };

@@ -20,7 +20,7 @@ test('fr and en tables have identical key sets', () => {
 test('parallel arrays have equal lengths in both languages', () => {
   const arrays: (keyof typeof T.fr)[] = [
     'obSteps', 'alarmChips', 'expTitles', 'expSubs', 'paceSubs',
-    'notifLabels', 'skills', 'weakMeta',
+    'notifLabels', 'skills',
     'examMeta', 'errorIssues', 'dayLetters', 'weekdayNames', 'dlCats', 'dlSubs', 'chatSuggs', 'errorTypes',
   ];
   for (const key of arrays) {

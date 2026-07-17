@@ -12,12 +12,11 @@ export function DictionaryOverlay() {
   const t = useTheme();
   const lang = useStore((s) => s.lang);
   const fr = lang === 'fr';
-  const { dictOpen, closeDict, dictSaved, toggleDictSaved } = useUI();
-  if (!dictOpen) return null;
+  const { dictOpen, dictEntry, closeDict, dictSaved, toggleDictSaved } = useUI();
+  if (!dictOpen || !dictEntry) return null;
 
-  const meaning = fr
-    ? 'flânerie — se promener sans but, pour le plaisir'
-    : 'strolling without hurry — wandering for the pleasure of it';
+  const e = dictEntry;
+  const pos = fr ? e.posFr : e.posEn;
 
   return (
     <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 55, justifyContent: 'center', padding: 22 }}>
@@ -47,26 +46,26 @@ export function DictionaryOverlay() {
 
         <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10, marginTop: 8 }}>
           <TX font="serif" role="display" size={30}>
-            flânerie
+            {e.word}
           </TX>
-          <Press onPress={() => tts.speak('la flânerie')} style={{ padding: 4 }}>
+          <Press onPress={() => tts.speak(e.speak)} style={{ padding: 4 }}>
             <Icon name="speaker" size={20} color={t.acc} />
           </Press>
         </View>
         <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>
-          {fr ? 'nom féminin · /fla.nʁi/' : 'feminine noun · /fla.nʁi/'}
+          {`${pos} · ${e.ipa}`}
         </TX>
 
         <TX role="body" color={t.txSecondary} style={{ marginTop: 14 }}>
-          {meaning}
+          {fr ? e.defFr : e.defEn}
         </TX>
 
         <View style={{ borderLeftWidth: 2, borderColor: t.accA(40), paddingLeft: 12, marginTop: 14 }}>
           <TX font="serifI" role="bodySm" color={t.txSecondary} lhMult={1.6}>
-            On a passé l'après-midi en pleine flânerie le long de la Seine.
+            {e.exampleFr}
           </TX>
           <TX role="label" color={t.txSubtle} style={{ marginTop: 4 }}>
-            {fr ? 'On a flâné tout l\'après-midi au bord de la Seine.' : 'We spent the afternoon strolling along the Seine.'}
+            {e.exampleEn}
           </TX>
         </View>
 

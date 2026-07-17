@@ -1,6 +1,10 @@
 // Beginners' Den curriculum ported 1:1 from the prototype.
 
-import type { WeakSkill } from '@/store/progress.logic';
+// Relative, not '@/store/...': ealch-admin/scripts/port-content.ts imports this
+// file across the repo boundary, and the admin tsconfig maps '@/*' to its OWN
+// src/. Any file the admin imports (directly or transitively) must use relative
+// imports only, or the admin typecheck breaks.
+import type { WeakSkill } from '../store/progress.logic';
 
 export type Unit = { title: string; sub: string };
 
@@ -55,6 +59,11 @@ export const currA1: Unit[] = [
   { title: 'La routine quotidienne', sub: 'daily routines — se lever, se coucher' },
   { title: 'La maison', sub: 'home & furniture' },
 ];
+
+/** The total unit count across all three tracks, derived so the Den tile can
+ *  never drift from the curriculum. Currently 9 + 26 + 8 = 43; `trackDescs.a1`'s
+ *  "26 units" is the A1 track alone, which is consistent with this total. */
+export const totalUnits = () => currSons.length + currA1.length + currA2.length;
 
 export const currA2: Unit[] = [
   { title: 'Verbes réguliers', sub: 'deep dive — -er, -ir, -re families' },

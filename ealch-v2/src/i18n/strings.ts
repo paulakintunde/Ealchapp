@@ -20,7 +20,7 @@ export type Strings = {
   weak: string; week: string; resume: string;
   weakSlip: string; weakSlipPl: string; weakEmpty: string;
   heroTag: string; heroSub: string;
-  resumeTag: string; beginTag: string; resumeSub: string; begin: string;
+  resumeTag: string; beginTag: string; resumeSub: string; begin: string; vocabPrime: string;
   reviewHeroTitle: string; listenHeroTitle: string; listenHeroSub: string;
   found: string; denT: string; denS: string;
   cardsT: string; cardsS: string; cardsTag: string; unitsWord: string;
@@ -57,7 +57,6 @@ export type Strings = {
   vocabTag: string; vocabSub: string;
   register: string; registerBody: string; registerEnd: string;
   go: string; grammarTag: string; grammarBody: string; askCamille: string;
-  weakMeta: string[];
   examMeta: string[]; errorIssues: string[];
   trackTitle: string; trackMeta: string;
   reminders: string; dailyAlarm: string; dailyAlarmSub: string;
@@ -93,9 +92,11 @@ export type Strings = {
   dicteeT: string; dicteeS: string; play: string; slow: string; playsLeft: string;
   writeHeard: string; check2: string; perfectNoMistakes: string; youWrote: string; correctIs: string;
   downloadsT: string; downloadsS: string; storage: string; wifiOnly: string;
-  subscription: string; currentPlan: string; monthly: string; annual: string; bestValue: string;
-  upgrade: string; billing: string; paymentMethod: string; restore: string; currencyT: string; detected: string;
-  skillRead: string; skillListen: string; skillSpeak: string; skillWrite: string; skillCourse: string; skillVocab: string;
+  // Paywall copy is deliberately absent until Phase 10 can gate a real
+  // entitlement: copy that names a feature the app does not gate is the defect,
+  // not the missing string. See app/settings.tsx.
+  subscription: string; currentPlan: string;
+  skillRead: string; skillListen: string; skillSpeak: string; skillWrite: string; skillCourse: string; skillVocab: string; skillReadVocab: string;
   accountBilling: string; learningSec: string; appearanceSec: string; notificationsSec: string;
 
   // --- onboarding & sign-in (English-primary, FR when device is French) ---
@@ -146,8 +147,7 @@ export type Strings = {
   speakScene: string; speakRepeat: string; vfTitle: string;
   chatRetry: string;
   chatSuggs: { label: string; msg: string }[];
-  planFree: string; planPremDesc: string; planFreeDesc: string; subActive: string;
-  perMonth: string; perYear: string;
+  planFree: string; planFreeDesc: string;
   offlineTag: string; dlCats: string[]; dlSubs: string[]; freeSpace: string;
   wifiOnlySub: string; availableT: string; offlineSync: string;
   offlineReadyT: string; offlineReadyS: string; contentVersionL: string; contentCountsFmt: string;
@@ -168,10 +168,10 @@ export const T: Record<Lang, Strings> = {
     weak: 'Vos points faibles', week: 'CETTE SEMAINE', resume: 'Reprendre',
     weakSlip: '1 erreur', weakSlipPl: '{n} erreurs', weakEmpty: 'Vos points faibles apparaîtront ici au fil de la pratique.',
     heroTag: 'RÉEL — SURVIE · REPRENDRE', heroSub: 'Commandez comme un vrai Parisien · avec Camille',
-    resumeTag: 'REPRENDRE', beginTag: 'POUR COMMENCER', resumeSub: 'Reprenez où vous en étiez', begin: 'Commencer',
+    resumeTag: 'REPRENDRE', beginTag: 'POUR COMMENCER', resumeSub: 'Reprenez où vous en étiez', begin: 'Commencer', vocabPrime: 'Le vocabulaire',
     reviewHeroTitle: 'À réviser', listenHeroTitle: "À l'écoute", listenHeroSub: 'De vraies phrases, une vraie voix',
     found: 'Les fondations', denT: 'Le coin des débutants', denS: 'Sons · A1 · A2 — le cursus complet',
-    cardsT: 'Cartes mémoire', cardsS: '8 cartes · rappel du café', cardsTag: 'RAPPEL · CARTES', unitsWord: 'UNITÉS',
+    cardsT: 'Cartes mémoire', cardsS: '{n} cartes · à réviser', cardsTag: 'RAPPEL · CARTES', unitsWord: 'UNITÉS',
     tabListen: 'ÉCOUTE', tabSpeak: 'PARLE', tabProfile: 'PROFIL', tabCoach: 'COACH',
     appLangNames: { fr: 'Français', en: 'Anglais' },
     practice: 'Pratiquer à voix haute', phrase: 'PHRASE', next: 'SUIVANTE',
@@ -217,8 +217,8 @@ export const T: Record<Lang, Strings> = {
     go: "J'y vais →", grammarTag: 'GRAMMAIRE · SANS QUITTER LA CONVERSATION',
     grammarBody: "La liaison relie la consonne finale muette à la voyelle qui suit. Après un, les, vous, ils, elle est obligatoire, et c'est la première chose qu'un examinateur entend.",
     askCamille: 'Demandez à Camille →',
-    weakMeta: ['le piège classique, à travailler', 'prononciation · on / en / an'],
-    examMeta: ['Expression orale · 15 min · chrono', "L'examinateur vous interrompt", 'Compréhension · une seule écoute'],
+    // Index-aligned to EXAMS in app/home.tsx: TEF Canada · TCF Canada · DELF B2.
+    examMeta: ['Expression orale · 15 min · chrono', 'Compréhension · une seule écoute', "L'examinateur vous interrompt"],
     errorIssues: ['Liaison omise. Il faut enchaîner : un‿allongé.', '« Je voudrais » est le registre attendu avec le personnel.', 'Une pause de 1,8 s : vous avez traduit dans votre tête. On va travailler ça.'],
     trackTitle: 'Les voyelles nasales', trackMeta: 'La Voix · 2 min · B1',
     reminders: 'Rappels de pratique', dailyAlarm: 'Alarme quotidienne', dailyAlarmSub: 'Votre séance vous appelle',
@@ -252,7 +252,9 @@ export const T: Record<Lang, Strings> = {
     srEmptyT: "Rien à réviser pour l'instant",
     srEmptyS: 'Terminez un exercice et ses mots reviennent ici, espacés pour mieux les retenir.',
     srDueTitle: 'À réviser.', srItems: 'éléments', srTomorrow: 'demain', srInDays: 'dans {n} jours',
-    srLadder: "Les items reviennent à 1 → 3 → 7 jours, puis s'espacent quand vous réussissez.",
+    // Décrit l'espacement SM-2 tel qu'il est : les intervalles sortent de vos
+    // réponses (progress.logic.ts), ils ne suivent aucune suite fixe de jours.
+    srLadder: "Les intervalles s'adaptent à vos réponses : ce que vous réussissez revient plus tard, ce que vous ratez revient vite.",
     srSession: 'SESSION DE RÉVISION', srReveal: 'Voir la réponse', srAgain: 'Encore', srGot: 'Je sais',
     srDone: 'Révision terminée', srDoneS: '{n} sur {m} réussis. Les ratés reviennent bientôt.',
     srAgainNote: '« Encore » le remet dans la file.',
@@ -260,9 +262,8 @@ export const T: Record<Lang, Strings> = {
     dicteeT: 'La Dictée', dicteeS: "Entraînez l'oreille et l'orthographe : écrivez exactement ce que vous entendez.", play: 'Écouter', slow: '0,75×', playsLeft: 'écoutes',
     writeHeard: 'Écrivez ce que vous entendez', check2: 'Vérifier', perfectNoMistakes: 'Parfait, aucune faute', youWrote: 'Vous avez écrit', correctIs: 'La bonne réponse',
     downloadsT: 'Téléchargements', downloadsS: 'Écoutez hors connexion', storage: 'Stockage', wifiOnly: 'Wi-Fi uniquement',
-    subscription: 'Abonnement', currentPlan: 'FORMULE ACTUELLE', monthly: 'Mensuel', annual: 'Annuel', bestValue: 'meilleure offre',
-    upgrade: 'Passer à Première', billing: 'Facturation', paymentMethod: 'Moyen de paiement', restore: 'Restaurer les achats', currencyT: 'Devise', detected: 'Détectée selon votre région.',
-    skillRead: 'LIRE', skillListen: 'ÉCOUTE', skillSpeak: 'PARLE', skillWrite: 'ÉCRIRE', skillCourse: 'COURS', skillVocab: 'VOCAB',
+    subscription: 'Abonnement', currentPlan: 'FORMULE ACTUELLE',
+    skillRead: 'LIRE', skillListen: 'ÉCOUTE', skillSpeak: 'PARLE', skillWrite: 'ÉCRIRE', skillCourse: 'COURS', skillVocab: 'VOCAB', skillReadVocab: 'LIRE · VOCAB',
     accountBilling: 'Compte & facturation', learningSec: 'Apprentissage', appearanceSec: 'Apparence', notificationsSec: 'Notifications',
 
     obSteps: ['01 — VOTRE COMPTE', '02 — VOTRE PRÉNOM', '03 — VOTRE THÈME', '04 — VOTRE OBJECTIF', '05 — VOTRE EXPÉRIENCE', '06 — VOTRE RYTHME', '07 — VOTRE ACCENT', '08 — VOS RAPPELS', '09 — ÉCHAUFFEMENT', '10 — VOTRE NIVEAU'],
@@ -361,10 +362,7 @@ export const T: Record<Lang, Strings> = {
       { label: 'Le plan de demain ?', msg: 'Quel est le plan de demain ?' },
     ],
     planFree: 'Essentiel — Gratuit',
-    planPremDesc: 'Examinateur illimité · Rapports avancés · Hors ligne',
     planFreeDesc: 'Feed quotidien · 1 scénario par jour · Le Coin des débutants',
-    subActive: 'Abonnement actif ✓',
-    perMonth: 'par mois', perYear: '{yr} / an — 2 mois offerts',
     offlineTag: 'HORS LIGNE',
     dlCats: ['Playlists', 'Leçons', 'Audio du coach'],
     dlSubs: ['12 leçons · 210 Mo', 'playlist · 160 Mo', '24 leçons · 340 Mo'],
@@ -398,10 +396,10 @@ export const T: Record<Lang, Strings> = {
     weak: 'Your weak spots', week: 'THIS WEEK', resume: 'Resume',
     weakSlip: '1 slip', weakSlipPl: '{n} slips', weakEmpty: 'Your weak spots show up here as you practise.',
     heroTag: 'REAL-WORLD — SURVIVAL · RESUME', heroSub: 'Order like a local · with Camille',
-    resumeTag: 'CONTINUE', beginTag: 'START HERE', resumeSub: 'Pick up where you left off', begin: 'Begin',
+    resumeTag: 'CONTINUE', beginTag: 'START HERE', resumeSub: 'Pick up where you left off', begin: 'Begin', vocabPrime: 'Vocab first',
     reviewHeroTitle: 'À réviser', listenHeroTitle: "À l'écoute", listenHeroSub: 'Real phrases, in a real voice',
     found: 'Foundations', denT: "Beginners' Den", denS: 'Sounds · A1 · A2 — the full curriculum',
-    cardsT: 'Flashcards', cardsS: '8 cards · café recall', cardsTag: 'RECALL · FLASHCARDS', unitsWord: 'UNITS',
+    cardsT: 'Flashcards', cardsS: '{n} cards · due now', cardsTag: 'RECALL · FLASHCARDS', unitsWord: 'UNITS',
     tabListen: 'LISTEN', tabSpeak: 'SPEAK', tabProfile: 'PROFILE', tabCoach: 'COACH',
     appLangNames: { fr: 'French', en: 'English' },
     practice: 'Practice out loud', phrase: 'PHRASE', next: 'NEXT',
@@ -447,8 +445,8 @@ export const T: Record<Lang, Strings> = {
     go: "Let's go →", grammarTag: 'GRAMMAR · WITHOUT LEAVING THE CONVERSATION',
     grammarBody: "A liaison links a word's silent final consonant to the vowel that follows. After un, les, vous, ils it is not optional, and dropping it is what examiners hear first.",
     askCamille: 'Ask Camille why →',
-    weakMeta: ['the classic trap, drill it', 'pronunciation · on / en / an'],
-    examMeta: ['Speaking · 15 min · timed', 'The examiner interrupts you', 'Listening · single play'],
+    // Index-aligned to EXAMS in app/home.tsx: TEF Canada · TCF Canada · DELF B2.
+    examMeta: ['Speaking · 15 min · timed', 'Listening · single play', 'The examiner interrupts you'],
     errorIssues: ['Liaison dropped. It should flow as un‿allongé.', '« Je voudrais » is the expected register with staff.', 'A 1.8s pause: you translated in your head. We will drill this.'],
     trackTitle: 'The nasal vowels', trackMeta: 'La Voix · 2 min · B1',
     reminders: 'Practice reminders', dailyAlarm: 'Daily alarm', dailyAlarmSub: 'Your session calls you',
@@ -482,7 +480,9 @@ export const T: Record<Lang, Strings> = {
     srEmptyT: 'Nothing to review yet',
     srEmptyS: 'Finish a drill and its words come back here, spaced out so they stick.',
     srDueTitle: 'Due today.', srItems: 'items', srTomorrow: 'tomorrow', srInDays: 'in {n} days',
-    srLadder: 'Items return in 1 → 3 → 7 days and space out as you keep getting them right.',
+    // Describes SM-2 spacing as it actually is: intervals fall out of your own
+    // answers (progress.logic.ts), they do not follow a fixed day sequence.
+    srLadder: 'Intervals are tailored to your answers: what you get right comes back later, what you miss comes back soon.',
     srSession: 'REVIEW SESSION', srReveal: 'Reveal answer', srAgain: 'Again', srGot: 'Got it',
     srDone: 'Review complete', srDoneS: '{n} of {m} right. The misses come back soon.',
     srAgainNote: '“Again” puts it back in the queue.',
@@ -490,9 +490,8 @@ export const T: Record<Lang, Strings> = {
     dicteeT: 'La Dictée', dicteeS: 'Train your ear and spelling: write exactly what you hear.', play: 'Play', slow: '0.75×', playsLeft: 'plays',
     writeHeard: 'Write what you hear', check2: 'Check', perfectNoMistakes: 'Perfect, no mistakes', youWrote: 'You wrote', correctIs: 'The correct answer',
     downloadsT: 'Downloads', downloadsS: 'Listen offline', storage: 'Storage', wifiOnly: 'Wi-Fi only',
-    subscription: 'Subscription', currentPlan: 'CURRENT PLAN', monthly: 'Monthly', annual: 'Annual', bestValue: 'best value',
-    upgrade: 'Upgrade to Première', billing: 'Billing', paymentMethod: 'Payment method', restore: 'Restore purchases', currencyT: 'Currency', detected: 'Detected from your region.',
-    skillRead: 'READ', skillListen: 'LISTEN', skillSpeak: 'SPEAK', skillWrite: 'WRITE', skillCourse: 'COURSE', skillVocab: 'VOCAB',
+    subscription: 'Subscription', currentPlan: 'CURRENT PLAN',
+    skillRead: 'READ', skillListen: 'LISTEN', skillSpeak: 'SPEAK', skillWrite: 'WRITE', skillCourse: 'COURSE', skillVocab: 'VOCAB', skillReadVocab: 'READ · VOCAB',
     accountBilling: 'Account & Billing', learningSec: 'Learning', appearanceSec: 'Appearance', notificationsSec: 'Notifications',
 
     obSteps: ['01 — YOUR ACCOUNT', '02 — YOUR NAME', '03 — YOUR THEME', '04 — YOUR GOAL', '05 — YOUR EXPERIENCE', '06 — YOUR PACE', '07 — YOUR ACCENT', '08 — YOUR REMINDERS', '09 — WARM-UP', '10 — YOUR LEVEL'],
@@ -591,10 +590,7 @@ export const T: Record<Lang, Strings> = {
       { label: "What's next?", msg: "What's tomorrow's plan?" },
     ],
     planFree: 'Essential — Free',
-    planPremDesc: 'Unlimited Examiner · Advanced reports · Offline',
     planFreeDesc: "Daily feed · 1 scenario per day · Beginners' Den",
-    subActive: 'Subscription active ✓',
-    perMonth: 'per month', perYear: '{yr} / yr — 2 months free',
     offlineTag: 'OFFLINE',
     dlCats: ['Playlists', 'Lessons', 'Coach audio'],
     dlSubs: ['12 lessons · 210 MB', 'playlist · 160 MB', '24 lessons · 340 MB'],

@@ -1,5 +1,5 @@
-import { useState, type ReactNode } from 'react';
-import { ScrollView, View } from 'react-native';
+import { useMemo, type ReactNode } from 'react';
+import { LayoutAnimation, Platform, ScrollView, UIManager, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -13,12 +13,27 @@ import { useT } from '@/i18n/useT';
 import { greetSlot } from '@/i18n/strings';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
-import { goalTarget, localDay, minutesToday, resumeIsFresh, reviewDueCount, streak, topWeaknesses, type WeakSkill } from '@/store/progress.logic';
+import { goalTarget, localDay, minutesToday, resumeIsFresh, reviewDueCount, streak, topWeaknesses } from '@/store/progress.logic';
 import { useUI } from '@/store/useUI';
 import { playlists } from '@/content/playlists';
+import { totalUnits } from '@/content/curriculum';
+import { wordOfDay } from '@/content/wordOfDay';
+import { openWeakRows } from '@/content/weakness';
+import { tts } from '@/services';
+
+// LayoutAnimation must be opted into on old-architecture Android; on the new
+// architecture the setter is absent and the fold animates without it.
+if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 const RING_R = 14;
 const RING_C = 2 * Math.PI * RING_R; // 87.96 — the real circumference, not a hand-tuned 88
+
+// The resolved Canada-first set. `T.examMeta` is index-aligned to this array:
+// reorder one and you must reorder the other, or TCF inherits DELF's caption.
+// The third chip was a generic "TCF"; the exam Ealch targets is TCF Canada.
+const EXAMS = ['TEF Canada', 'TCF Canada', 'DELF B2'];
 
 /** `pct` is progress toward the daily goal, 0–1. It used to be a fixed
  *  strokeDashoffset of 18, tuned by eye to look like the hardcoded "12/15". */
@@ -58,21 +73,32 @@ export default function Home() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { userName, lang, setAppLang, freeze, pace } = useStore();
+  const { userName, lang, setAppLang, freeze, pace, browseOpen, setField } = useStore();
   const sessions = useProgress((s) => s.sessions);
   const attempts = useProgress((s) => s.attempts);
   const errors = useProgress((s) => s.errors);
   const resume = useProgress((s) => s.resume);
   const openDict = useUI((s) => s.openDict);
   const openSheet = useUI((s) => s.openSheet);
-  const [browse, setBrowse] = useState(false);
+  // The fold's open/closed state persists (survives remounts) and its reveal
+  // animates rather than popping in.
+  const toggleBrowse = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setField('browseOpen', !browseOpen);
+  };
 
   // Every number below is a view over the session log. Nothing is seeded, so a
   // fresh install reads 0/10 min and "Day 1 starts today" — which is the truth.
+  //
+  // The folds are memoized because they are not cheap (`streak` walks up to 3660
+  // days; `reviewDueCount` folds up to MAX_ATTEMPTS = 20k) and home re-renders on
+  // every language and browse toggle, neither of which touches the logs. `today`
+  // is a stable 'YYYY-MM-DD' that turns over at the local midnight the logs are
+  // bucketed by, so it is a sound key.
   const today = localDay();
   const goal = goalTarget(pace);
-  const done = minutesToday(sessions, today);
-  const run = streak(sessions, today, freeze);
+  const done = useMemo(() => minutesToday(sessions, today), [sessions, today]);
+  const run = useMemo(() => streak(sessions, today, freeze), [sessions, today, freeze]);
 
   // "2 freeze" is not English. The grant is 1 today, but it will not always be.
   const freezeLine = (run.freezesLeft === 1 ? T.freezeShort : T.freezeShortPl).replace(
@@ -84,7 +110,7 @@ export default function Home() {
   // today, folded from the attempt log (progress.logic.ts). Zero due is caught
   // up — and on a fresh install nothing has ever been attempted, so it reads
   // caught up, which is the truth, not a seeded "23".
-  const due = reviewDueCount(attempts, today);
+  const due = useMemo(() => reviewDueCount(attempts, today), [attempts, today]);
   const caughtUp = due === 0;
   const revNum = caughtUp ? '✓' : String(due);
   const revLabel = caughtUp ? T.caughtUpShort : T.reviewShort;
@@ -105,25 +131,16 @@ export default function Home() {
   const skillPurple = t.tag('grammar');
   const skillBlue = t.tag('info');
 
-  const exams = ['TEF Canada', 'DELF B2', 'TCF'];
-
   // The weak-spots rows are now real: the top skills the learner has actually
   // missed this week, from the error log, most-missed first. Nothing is seeded,
   // so a fresh install shows an honest empty state, never three invented flaws.
-  const weaknesses = topWeaknesses(errors, today, 7);
-  // Serif capitals, not IPA: ‿ (U+203F) and a combining tilde fall outside the
-  // display font's coverage and render as tofu. Each skill goes to the thing it
-  // names — liaison to its sheet, nasales/genre to their lessons; the skills with
-  // no wired lesson yet (subjonctif, register, passé composé) send you to Camille
-  // rather than to a lesson about something else, which would be a lie.
-  const weakDisplay: Record<WeakSkill, { glyph: string; title: string; open: () => void }> = {
-    liaison: { glyph: 'L', title: 'La liaison obligatoire', open: () => openSheet('grammar') },
-    nasales: { glyph: 'N', title: 'Voyelles nasales · on, en', open: () => router.push('/lesson?key=sons3') },
-    genre: { glyph: 'G', title: 'Le genre des noms', open: () => router.push('/lesson?key=a1_4') },
-    subjonctif: { glyph: 'S', title: 'Le subjonctif présent', open: () => router.push('/chat') },
-    register: { glyph: 'R', title: 'Le registre', open: () => router.push('/chat') },
-    'passe-compose': { glyph: 'P', title: 'Le passé composé', open: () => router.push('/chat') },
-  };
+  const weaknesses = useMemo(() => topWeaknesses(errors, today, 7), [errors, today]);
+  // Deterministic daily rotation — the same real word for everyone on a given
+  // date, no backend. Was « la flânerie », hardcoded here and in the overlay.
+  // Keyed on `today`, not []: the word turns over at the local midnight that
+  // localDay() names, and an empty key would freeze it for the process lifetime.
+  const wod = useMemo(() => wordOfDay(), [today]);
+  const weakRows = useMemo(() => openWeakRows(router, openSheet), [router, openSheet]);
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -240,11 +257,6 @@ export default function Home() {
               {hero.eyebrow}
             </TX>
           </View>
-          <Press onPress={() => openSheet('vocab')} cue="tap" style={{ position: 'absolute', top: 12, right: 14, width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: 3 }}>
-            {[0, 1, 2].map((i) => (
-              <View key={i} style={{ width: 3.5, height: 3.5, borderRadius: 2, backgroundColor: t.txNonText }} />
-            ))}
-          </Press>
           <View style={{ position: 'absolute', left: 22, right: 22, bottom: 22 }}>
             <TX font="serifI" size={46} role="display" numberOfLines={2} style={{ marginBottom: 8 }}>
               {hero.title}
@@ -261,6 +273,15 @@ export default function Home() {
                   {hero.cta}
                 </TX>
               </View>
+              {/* The vocab primer — a labeled pill, not a ⋯ overflow kebab. A
+                  three-dot icon reads as share/hide/report; this opens the
+                  pre-lesson vocabulary sheet, so it says so. */}
+              <Press onPress={() => openSheet('vocab')} cue="tap" style={{ height: 46, paddingHorizontal: 18, borderRadius: 23, borderWidth: 1, borderColor: t.line(20), flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                <Icon name="book" size={15} color={t.txSecondary} strokeWidth={1.7} />
+                <TX font="semi" role="body" color={t.txSecondary}>
+                  {T.vocabPrime}
+                </TX>
+              </Press>
             </View>
           </View>
         </Press>
@@ -269,7 +290,7 @@ export default function Home() {
         <SectionHead title={T.found} right="SONS · A1 · A2" />
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
           <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push('/den')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
-            <TileHead badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />} right={`43 ${T.unitsWord}`} />
+            <TileHead badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />} right={`${totalUnits()} ${T.unitsWord}`} />
             <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
               {T.denT}
             </TX>
@@ -278,12 +299,12 @@ export default function Home() {
             </TX>
           </GlowTile>
           <GlowTile base="#0F1413" glow={t.accA(30)} onPress={() => router.push('/flashcards')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
-            <TileHead badge={<Badge label={T.skillRead + ' · ' + T.skillVocab} color={skillGold.c} bg={skillGold.bg} />} />
+            <TileHead badge={<Badge label={T.skillReadVocab} color={skillGold.c} bg={skillGold.bg} />} />
             <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
               {T.cardsT}
             </TX>
             <TX role="meta" color={t.txMuted} style={{ marginTop: 5 }}>
-              {T.cardsS}
+              {T.cardsS.replace('{n}', String(due))}
             </TX>
           </GlowTile>
           <GlowTile base="#0E1116" glow="rgba(96,126,160,0.30)" onPress={() => router.push('/voiceflash')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
@@ -328,33 +349,34 @@ export default function Home() {
         />
 
         {/* Browse fold */}
-        <Press onPress={() => setBrowse((b) => !b)} style={{ marginTop: 26, minHeight: 48, paddingVertical: 8, borderRadius: 24, borderWidth: 1, borderColor: t.line(12), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+        <Press onPress={toggleBrowse} style={{ marginTop: 26, minHeight: 48, paddingVertical: 8, borderRadius: 24, borderWidth: 1, borderColor: t.line(12), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
           <TX font="semi" role="bodySm" color={t.txSecondary}>
-            {browse ? T.browseLess : T.browseOpen}
+            {browseOpen ? T.browseLess : T.browseOpen}
           </TX>
-          <Icon name={browse ? 'chevronUp' : 'chevronDown'} size={14} color={t.txNonText} strokeWidth={1.6} />
+          <Icon name={browseOpen ? 'chevronUp' : 'chevronDown'} size={14} color={t.txNonText} strokeWidth={1.6} />
         </Press>
 
-        {browse ? (
+        {browseOpen ? (
           <View>
-            {/* Word of the day */}
-            <Press onPress={openDict} style={{ marginTop: 22, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, padding: 14, paddingHorizontal: 18, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            {/* Word of the day — the card opens the full entry; the play button
+                is a real Press that speaks the word inline without opening it. */}
+            <Press onPress={() => openDict(wod)} style={{ marginTop: 22, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, padding: 14, paddingHorizontal: 18, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
               <View style={{ flex: 1 }}>
                 <TX font="semi" role="eyebrow" ls={2.4} color={t.txSubtle} style={{ marginBottom: 4 }}>
                   {T.wordOfDay}
                 </TX>
                 <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10 }}>
                   <TX font="serif" role="titleLg" size={22}>
-                    la flânerie
+                    {wod.word}
                   </TX>
                   <TX role="label" color={t.txMuted}>
-                    {T.nounFem}
+                    {lang === 'fr' ? wod.posFr : wod.posEn}
                   </TX>
                 </View>
               </View>
-              <View style={{ width: 34, height: 34, borderRadius: 17, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}>
+              <Press onPress={() => tts.speak(wod.speak)} cue={null} style={{ width: 34, height: 34, borderRadius: 17, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name="play" size={13} color={t.acc} />
-              </View>
+              </Press>
             </Press>
 
             {/* Playlists — real sets now; SEE ALL routes to the index, and each
@@ -385,7 +407,7 @@ export default function Home() {
             {/* Examiner */}
             <SectionHead title={T.examiner} right="TEF · TCF · DELF" />
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -20 }} contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}>
-              {exams.map((name, i) => (
+              {EXAMS.map((name, i) => (
                 <Press key={i} onPress={() => router.push('/speak')} style={{ width: 224, minHeight: 118, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18 }}>
                   <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx} style={{ marginBottom: 8 }}>
                     SIMULATION
@@ -413,7 +435,7 @@ export default function Home() {
             ) : (
               <View style={{ gap: 10 }}>
                 {weaknesses.map((w) => {
-                  const d = weakDisplay[w.skill];
+                  const d = weakRows[w.skill];
                   const meta = (w.count === 1 ? T.weakSlip : T.weakSlipPl).replace('{n}', String(w.count));
                   return (
                     <Press key={w.skill} onPress={d.open} style={{ minHeight: 66, paddingVertical: 8, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18 }}>

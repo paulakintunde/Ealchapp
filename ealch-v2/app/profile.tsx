@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useMemo, useState, type ReactNode } from 'react';
 import { ScrollView, TextInput, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
@@ -11,9 +11,10 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
-import { itemsPracticed, localDay, minutesToday, mondayIndex, shiftDay, streak, weekDots } from '@/store/progress.logic';
+import { itemsPracticed, localDay, minutesToday, mondayIndex, shiftDay, streak, topWeaknesses, weekDots } from '@/store/progress.logic';
 import { useUI } from '@/store/useUI';
 import { accentData } from '@/content/onboarding';
+import { openWeakRows } from '@/content/weakness';
 import { auth } from '@/services';
 
 // ── week-history dots ──
@@ -97,6 +98,7 @@ export default function Profile() {
   const { userName, setField, level, lang, setLang, region, setRegion, freeze, signOut } = useStore();
   const sessions = useProgress((s) => s.sessions);
   const attempts = useProgress((s) => s.attempts);
+  const errors = useProgress((s) => s.errors);
   const openSheet = useUI((s) => s.openSheet);
 
   const today = localDay();
@@ -154,12 +156,11 @@ export default function Profile() {
   const streakW = T.streakWord;
   const levelName = T.levelNames[level as keyof typeof T.levelNames] ?? '';
 
-  // Same tofu fix as home: ‿ and ɔ̃ fall outside the display font. Le subjonctif
-  // has no lesson to open, so it does not render. See app/home.tsx.
-  const weak = [
-    { glyph: 'L', title: 'La liaison obligatoire' },
-    { glyph: 'N', title: 'Voyelles nasales — on / en' },
-  ];
+  // The same fold and the same map home reads, so the two screens cannot
+  // disagree about the same user. This used to hardcode two flaws and route
+  // both to the grammar sheet whichever was tapped.
+  const weaknesses = useMemo(() => topWeaknesses(errors, today, 7), [errors, today]);
+  const weakRows = useMemo(() => openWeakRows(router, openSheet), [router, openSheet]);
 
   // progress calendar for the current month
   const now = new Date();
@@ -399,41 +400,56 @@ export default function Profile() {
         <TX font="serif" role="titleLg" size={22} style={{ marginBottom: 12 }}>
           {T.weakEngine}
         </TX>
-        <View style={{ gap: 10, marginBottom: 30 }}>
-          {weak.map((w, i) => (
-            <Press
-              key={i}
-              onPress={() => openSheet('grammar')}
-              style={{
-                minHeight: 62,
-                paddingVertical: 6,
-                borderRadius: 16,
-                borderWidth: 1,
-                borderColor: t.line(7),
-                backgroundColor: t.card,
-                flexDirection: 'row',
-                alignItems: 'center',
-                gap: 14,
-                paddingHorizontal: 18,
-              }}
-            >
-              <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
-                <TX font="serifI" role="titleSm" color={t.accTx}>
-                  {w.glyph}
-                </TX>
-              </View>
-              <View style={{ flex: 1 }}>
-                <TX font="semi" role="body">
-                  {w.title}
-                </TX>
-                <TX role="label" color={t.txSubtle} style={{ marginTop: 2 }}>
-                  {T.weakMeta[i]}
-                </TX>
-              </View>
-              <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
-            </Press>
-          ))}
-        </View>
+        {weaknesses.length === 0 ? (
+          // Never fabricate a weakness: with nothing logged this week, the
+          // section says so plainly instead of asserting two invented ones.
+          <View style={{ minHeight: 62, paddingVertical: 14, marginBottom: 30, borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, justifyContent: 'center', paddingHorizontal: 18 }}>
+            <TX role="label" color={t.txSubtle} lhMult={1.5}>
+              {T.weakEmpty}
+            </TX>
+          </View>
+        ) : (
+          <View style={{ gap: 10, marginBottom: 30 }}>
+            {weaknesses.map((w) => {
+              const d = weakRows[w.skill];
+              // The real count from the error log, not a fixed caption per row.
+              const meta = (w.count === 1 ? T.weakSlip : T.weakSlipPl).replace('{n}', String(w.count));
+              return (
+                <Press
+                  key={w.skill}
+                  onPress={d.open}
+                  style={{
+                    minHeight: 62,
+                    paddingVertical: 6,
+                    borderRadius: 16,
+                    borderWidth: 1,
+                    borderColor: t.line(7),
+                    backgroundColor: t.card,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: 14,
+                    paddingHorizontal: 18,
+                  }}
+                >
+                  <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+                    <TX font="serifI" role="titleSm" color={t.accTx}>
+                      {d.glyph}
+                    </TX>
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <TX font="semi" role="body">
+                      {d.title}
+                    </TX>
+                    <TX role="label" color={t.txSubtle} style={{ marginTop: 2 }}>
+                      {meta}
+                    </TX>
+                  </View>
+                  <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
+                </Press>
+              );
+            })}
+          </View>
+        )}
 
         {/* Your accent */}
         <TX font="serif" role="titleLg" size={22} style={{ marginBottom: 12 }}>

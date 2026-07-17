@@ -10,27 +10,12 @@ import { TimeWheel, ClockToggle } from '@/components/TimeWheel';
 import { formatTime } from '@/utils/time';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { useStore, type Currency } from '@/store/useStore';
+import { useStore } from '@/store/useStore';
 import { useUI } from '@/store/useUI';
 import { sound } from '@/services';
 import { ACCENTS } from '@/theme/palette';
 import { langs } from '@/content';
 import { accentData, alarmData } from '@/content/onboarding';
-
-// pricing per currency, ported from the prototype
-const CUR: Record<Currency, { mo: string; yrmo: string; yr: string }> = {
-  USD: { mo: '$9.99', yrmo: '$6.58', yr: '$79' },
-  EUR: { mo: '9,99 €', yrmo: '6,58 €', yr: '79 €' },
-  GBP: { mo: '£8.99', yrmo: '£5.75', yr: '£69' },
-  CAD: { mo: 'CA$12.99', yrmo: 'CA$8.25', yr: 'CA$99' },
-};
-
-const CURRENCIES: { id: Currency; name: string }[] = [
-  { id: 'USD', name: '$ USD' },
-  { id: 'EUR', name: '€ EUR' },
-  { id: 'GBP', name: '£ GBP' },
-  { id: 'CAD', name: 'CA$ CAD' },
-];
 
 const NOTIF_KEYS = ['daily', 'report', 'nudge'] as const;
 
@@ -101,12 +86,6 @@ export default function Settings() {
   const insets = useSafeAreaInsets();
   const s = useStore();
   const {
-    premium,
-    upgrade,
-    planPick,
-    setPlan,
-    currency,
-    setCurrency,
     appLang,
     setAppLang,
     region,
@@ -127,30 +106,6 @@ export default function Settings() {
   } = s;
   const showBanner = useUI((u) => u.showBanner);
   const [showWheel, setShowWheel] = useState(false);
-
-  const c = CUR[currency];
-  const planName = premium ? 'Première' : T.planFree;
-  const planDesc = premium ? T.planPremDesc : T.planFreeDesc;
-  const planBadge = premium ? 'PREMIÈRE ✓' : T.currentPlan;
-  const upgradeLabel = premium ? T.subActive : T.upgrade;
-
-  const planRows = [
-    { id: 'mo' as const, name: T.monthly, price: c.mo, sub: T.perMonth, best: false },
-    {
-      id: 'yr' as const,
-      name: T.annual,
-      price: c.yrmo,
-      sub: T.perYear.replace('{yr}', c.yr),
-      best: true,
-    },
-  ];
-
-
-  const doUpgrade = () => {
-    if (premium) return;
-    sound.play('ding');
-    upgrade();
-  };
 
   const testAlarm = () => {
     showBanner(alarmTime);
@@ -191,148 +146,22 @@ export default function Settings() {
             style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
           />
           <TX font="bold" role="eyebrow" ls={2.4} color={t.accTx} style={{ marginBottom: 6 }}>
-            {planBadge}
+            {T.currentPlan}
           </TX>
           <TX font="serifI" role="display" size={22} style={{ marginBottom: 4 }}>
-            {planName}
+            {T.planFree}
           </TX>
           <TX role="label" color={t.txMuted}>
-            {planDesc}
+            {T.planFreeDesc}
           </TX>
         </View>
 
-        {/* monthly / annual selector */}
-        {!premium ? (
-          <View style={{ gap: 10, marginBottom: 12 }}>
-            {planRows.map((p) => {
-              const on = planPick === p.id;
-              return (
-                <Press
-                  key={p.id}
-                  onPress={() => setPlan(p.id)}
-                  scale={1}
-                  style={{
-                    borderRadius: 16,
-                    borderWidth: 1.5,
-                    borderColor: on ? t.acc : t.line(10),
-                    backgroundColor: on ? t.accA(8) : t.card,
-                    padding: 14,
-                    paddingHorizontal: 16,
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    gap: 13,
-                  }}
-                >
-                  <View
-                    style={{
-                      width: 18,
-                      minHeight: 18,
-                      paddingVertical: 2,
-                      borderRadius: 9,
-                      borderWidth: 1.5,
-                      borderColor: on ? t.acc : t.line(20),
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {on ? <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: t.acc }} /> : null}
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                      <TX font="semi" role="body">
-                        {p.name}
-                      </TX>
-                      {p.best ? (
-                        <View style={{ minHeight: 18, paddingVertical: 2, paddingHorizontal: 8, borderRadius: 9, backgroundColor: t.acc, justifyContent: 'center' }}>
-                          <TX font="bold" role="eyebrow" ls={1} color={t.accInk}>
-                            {T.bestValue.toUpperCase()}
-                          </TX>
-                        </View>
-                      ) : null}
-                    </View>
-                    <TX role="meta" color={t.txMuted} style={{ marginTop: 2 }}>
-                      {p.sub}
-                    </TX>
-                  </View>
-                  <TX font="serif" role="titleLg" size={21}>
-                    {p.price}
-                  </TX>
-                </Press>
-              );
-            })}
-          </View>
-        ) : null}
-
-        {/* upgrade button */}
-        <Press
-          onPress={doUpgrade}
-          cue={null}
-          style={{
-            minHeight: 52,
-            paddingVertical: 6,
-            borderRadius: 26,
-            backgroundColor: t.acc,
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: 12,
-          }}
-        >
-          <TX font="semi" role="body" color={t.accInk}>
-            {upgradeLabel}
-          </TX>
-        </Press>
-
-        {/* billing rows */}
-        <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, ...t.cardShadow, marginBottom: 14 }}>
-          <View style={{ minHeight: 50, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: t.line(7) }}>
-            <TX font="semi" role="bodySm">
-              {T.billing}
-            </TX>
-            <TX role="label" color={t.txSubtle}>
-              {T.paymentMethod} · Visa ····4212
-            </TX>
-          </View>
-          <Press style={{ minHeight: 48, paddingVertical: 6, justifyContent: 'center', paddingHorizontal: 16 }}>
-            <TX font="semi" role="bodySm" color={t.accTx}>
-              {T.restore}
-            </TX>
-          </Press>
-        </View>
-
-        {/* currency */}
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10, paddingHorizontal: 2 }}>
-          <TX font="semi" role="bodySm">
-            {T.currencyT}
-          </TX>
-          <TX role="meta" color={t.txSubtle}>
-            {T.detected}
-          </TX>
-        </View>
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 32 }}>
-          {CURRENCIES.map((cu) => {
-            const on = currency === cu.id;
-            return (
-              <Press
-                key={cu.id}
-                onPress={() => setCurrency(cu.id)}
-                style={{
-                  minHeight: 36,
-                  paddingVertical: 6,
-                  paddingHorizontal: 14,
-                  borderRadius: 18,
-                  borderWidth: 1,
-                  borderColor: on ? t.acc : t.line(12),
-                  backgroundColor: on ? t.accA(10) : t.card,
-                  justifyContent: 'center',
-                }}
-              >
-                <TX font="semi" role="bodySm" color={on ? t.accTx : t.txSecondary}>
-                  {cu.name}
-                </TX>
-              </Press>
-            );
-          })}
-        </View>
+        {/* The plan picker, upgrade button, billing rows and currency picker
+            stood here and sold nothing: no IAP, no receipt, and `premium` gates
+            no feature anywhere in the app. Phase 10 rebuilds them against a real
+            RevenueCat entitlement and imports the prices from
+            src/content/pricing.ts. Until a purchase can actually happen, this
+            screen states the plan and stops. */}
 
         {/* downloads */}
         <Press
