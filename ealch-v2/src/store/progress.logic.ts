@@ -450,9 +450,40 @@ export function isSchedulable(a: AttemptEntry): boolean {
   return ITEM_ID_RE.test(a.itemId);
 }
 
+// ── Sibling-gating ───────────────────────────────────────────────────────────
+//
+// You should not be drilling production of a word you cannot yet reliably
+// recognise. So a produce or discriminate card is not surfaced until its
+// recognise sibling is stable — which caps the flood of new cards a first
+// session would otherwise generate (recognise + produce on every new item, all
+// due at once), the single biggest documented churn event.
+//
+// The floor is NOT "two clean passes". Two passes only reaches reps 2, interval
+// 3 — the tail of the fixed part of the ladder (1 → 3), before the interval has
+// multiplied even once. A card there is not stable; it just has not failed yet.
+// The floor is reps ≥ 3 (past the two fixed steps, into the interval×ease
+// regime) AND interval ≥ 7 (it actually earned about a week of spacing, so a
+// card that scraped three shaky passes with an eroded ease does not unlock its
+// producers early). These are named so the sibling-gate and its test move
+// together.
+export const SIBLING_GATE_REPS = 3;
+export const SIBLING_GATE_INTERVAL_DAYS = 7;
+
+/** Is a recognise card stable enough to build production on? A missing sibling
+ *  is, correctly, not stable: you cannot have earned production of a word the
+ *  log has no record of you recognising. */
+export function recognitionStable(recognise: SrsCard | undefined): boolean {
+  return (
+    !!recognise &&
+    recognise.reps >= SIBLING_GATE_REPS &&
+    recognise.intervalDays >= SIBLING_GATE_INTERVAL_DAYS
+  );
+}
+
 /** Every scheduled memory, folded into its current card, keyed by (item,modality).
  *  One item can hold up to three cards — recognise, produce, discriminate — each
- *  advancing on its own attempts and its own interval. */
+ *  advancing on its own attempts and its own interval. Produce/discriminate cards
+ *  are withheld until their recognise sibling clears the stability floor. */
 export function srsCards(attempts: AttemptEntry[]): Map<string, SrsCard> {
   // Group preserving chronological order — the log is already append-ordered.
   const byKey = new Map<string, AttemptEntry[]>();
@@ -486,6 +517,21 @@ export function srsCards(attempts: AttemptEntry[]): Map<string, SrsCard> {
       seen: list.length,
     });
   }
+
+  // Sibling-gate: withhold any produce/discriminate card whose recognise sibling
+  // has not cleared the floor. Collect first, then delete — deleting while
+  // iterating a Map is legal but reads as a trap. A recognise card that later
+  // lapses (a miss drops it below the floor) withdraws its producers again,
+  // which is the honest behaviour: recognition regressed, so production is no
+  // longer earned. The producers' own history is not lost, only unsurfaced —
+  // the attempt log is the source of truth, cards are a disposable fold.
+  const gated: string[] = [];
+  for (const [key, card] of out) {
+    if (card.modality === 'recognise') continue;
+    if (!recognitionStable(out.get(cardKey(card.itemId, 'recognise')))) gated.push(key);
+  }
+  for (const key of gated) out.delete(key);
+
   return out;
 }
 

@@ -19,6 +19,7 @@ import {
   mondayIndex,
   resumeIsFresh,
   RESUME_MAX_AGE_DAYS,
+  recognitionStable,
   reviewDueCount,
   shiftDay,
   topWeaknesses,
@@ -608,25 +609,33 @@ test('one item drilled in two modalities becomes two independent cards', () => {
 
 test('a miss in one modality does not disturb the sibling', () => {
   const cards = srsCards([
-    a('fr.a1.cafe.001', true, -5, 'good', 'recognise'),
-    a('fr.a1.cafe.001', true, -3, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -20, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -14, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -8, 'good', 'recognise'), // reps 3 → stable, unlocks producers
+    a('fr.a1.cafe.001', true, -2, 'good', 'produce'),
     a('fr.a1.cafe.001', false, 0, 'off', 'produce'),
   ]);
-  strictEqual(cards.get(cardKey('fr.a1.cafe.001', 'recognise'))!.reps, 2, 'recognise untouched');
+  strictEqual(cards.get(cardKey('fr.a1.cafe.001', 'recognise'))!.reps, 3, 'recognise untouched');
   strictEqual(cards.get(cardKey('fr.a1.cafe.001', 'produce'))!.reps, 0, 'the produce miss relearns only itself');
 });
 
 test('a real corpus itemId is schedulable whatever surface produced it', () => {
   // The point of the predicate: a narration `produce` interaction (Phase 7) logs
   // a real item id under a non-drill activity, and it must schedule, where the
-  // old activity allowlist would have recorded and silently dropped it.
+  // old activity allowlist would have recorded and silently dropped it. It still
+  // has to earn its place through the recognise sibling, so recognition is here.
   const narration: AttemptEntry = {
     date: TODAY, activity: 'lesson', itemId: 'fr.a1.cafe.001',
     expected: 'le café', heard: 'le café', score: 1, verdict: 'good', correct: true, modality: 'produce',
   };
-  ok(isSchedulable(narration));
-  const cards = srsCards([narration]);
-  strictEqual(cards.size, 1);
+  ok(isSchedulable(narration), 'the predicate is about the id, not the surface');
+  const cards = srsCards([
+    a('fr.a1.cafe.001', true, -20, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -14, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -8, 'good', 'recognise'),
+    narration,
+  ]);
+  ok(cards.has(cardKey('fr.a1.cafe.001', 'produce')));
   strictEqual(cards.get(cardKey('fr.a1.cafe.001', 'produce'))!.modality, 'produce');
 });
 
@@ -641,14 +650,86 @@ test('a synthetic (non-corpus) itemId is never scheduled', () => {
   strictEqual(srsCards([turn]).size, 0);
 });
 
-test('a produce narration attempt becomes a due card (the SCHEDULABLE predicate, end to end)', () => {
-  // The acceptance criterion, stated as a test: log a produce attempt on a real
-  // item and it shows up in tomorrow-and-earlier due, keyed as produce.
+test('a produce narration attempt becomes a due card once recognition is stable', () => {
+  // The acceptance criterion, stated honestly: a produce attempt on a real item,
+  // whose recognise sibling has cleared the floor, shows up as a due produce card.
   const due = dueCards([
+    a('fr.a1.cafe.005', true, -22, 'good', 'recognise'),
+    a('fr.a1.cafe.005', true, -15, 'good', 'recognise'),
+    a('fr.a1.cafe.005', true, -9, 'good', 'recognise'), // stable
     { date: day(-2), activity: 'lesson', itemId: 'fr.a1.cafe.005',
       expected: 'l’addition', heard: 'l’addition', score: 1, verdict: 'good', correct: true, modality: 'produce' },
   ], TODAY);
-  strictEqual(due.length, 1);
-  strictEqual(due[0].itemId, 'fr.a1.cafe.005');
-  strictEqual(due[0].modality, 'produce');
+  const prod = due.find((c) => c.modality === 'produce' && c.itemId === 'fr.a1.cafe.005');
+  ok(prod, 'the produce card is due');
+});
+
+// ── sibling-gating: production is earned on recognition (CF-02) ───────────────
+
+test('a produce card with no recognise sibling never surfaces', () => {
+  const cards = srsCards([a('fr.a1.cafe.001', true, -1, 'good', 'produce')]);
+  strictEqual(cards.size, 0, 'production is earned on recognition, and there is none');
+});
+
+test('a produce card is gated while its recognise sibling is only two passes in', () => {
+  const cards = srsCards([
+    a('fr.a1.cafe.001', true, -5, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -3, 'good', 'recognise'), // reps 2, interval 3 — the tail of the fixed ladder
+    a('fr.a1.cafe.001', true, 0, 'good', 'produce'),
+  ]);
+  ok(cards.has(cardKey('fr.a1.cafe.001', 'recognise')));
+  ok(!cards.has(cardKey('fr.a1.cafe.001', 'produce')), 'two clean passes is not yet stable');
+});
+
+test('a produce card surfaces once its recognise sibling clears the floor', () => {
+  const cards = srsCards([
+    a('fr.a1.cafe.001', true, -20, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -14, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -8, 'good', 'recognise'), // reps 3, interval 8 → over the floor
+    a('fr.a1.cafe.001', true, -1, 'good', 'produce'),
+  ]);
+  const rec = cards.get(cardKey('fr.a1.cafe.001', 'recognise'))!;
+  ok(rec.reps >= 3 && rec.intervalDays >= 7, 'the floor is genuinely cleared');
+  ok(cards.has(cardKey('fr.a1.cafe.001', 'produce')), 'now unlocked');
+});
+
+test('a recognise lapse withdraws its producers again', () => {
+  // Documents the deliberate behaviour: if recognition regresses below the
+  // floor, production is no longer earned and its card is unsurfaced. The
+  // attempts are not lost — the log keeps them; only the card is withheld.
+  const cards = srsCards([
+    a('fr.a1.cafe.001', true, -20, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -14, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -8, 'good', 'recognise'), // stable
+    a('fr.a1.cafe.001', true, -4, 'good', 'produce'),   // producer unlocked, practised
+    a('fr.a1.cafe.001', false, -1, 'off', 'recognise'), // recognition lapses, reps → 0
+  ]);
+  strictEqual(cards.get(cardKey('fr.a1.cafe.001', 'recognise'))!.reps, 0);
+  ok(!cards.has(cardKey('fr.a1.cafe.001', 'produce')), 'production is no longer earned');
+});
+
+test('a realistic first session surfaces zero produce cards (the flood is capped)', () => {
+  // Five new items, each recognised and produced the same day — the exact
+  // day-one flood sibling-gating exists to prevent. Every recognise sibling is
+  // one pass in, so no producer is due.
+  const log: AttemptEntry[] = [];
+  for (let i = 1; i <= 5; i++) {
+    const id = `fr.a1.cafe.00${i}`;
+    log.push(a(id, true, 0, 'good', 'recognise'));
+    log.push(a(id, true, 0, 'good', 'produce'));
+  }
+  const produce = [...srsCards(log).values()].filter((c) => c.modality === 'produce');
+  strictEqual(produce.length, 0);
+});
+
+test('legacy attempts (all migrated to recognise) gate their producers correctly', () => {
+  // The Phase 1 migrate defaults pre-modality attempts to recognise. A long
+  // recognise history therefore unlocks producers exactly as real recognition
+  // would, which is the honest reading of that history.
+  const legacy = [
+    a('fr.a1.cafe.001', true, -30, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -20, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -10, 'good', 'recognise'),
+  ];
+  ok(recognitionStable(srsCards(legacy).get(cardKey('fr.a1.cafe.001', 'recognise'))));
 });
