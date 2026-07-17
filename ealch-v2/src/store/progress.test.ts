@@ -13,6 +13,7 @@ import {
   dueCards,
   gradeAttempt,
   goalTarget,
+  isConfidentWeakSpot,
   isMastered,
   isSchedulable,
   itemsPracticed,
@@ -32,7 +33,9 @@ import {
   streak,
   upcomingCards,
   weakestItems,
+  weakSpots,
   weekDots,
+  wilsonLower,
   type AttemptEntry,
   type ErrorEvent,
   type ResumeState,
@@ -826,4 +829,43 @@ test('the cap keeps the most-overdue items and defers the rest, in order', () =>
   const kept = dueCards(log, TODAY, 2).map((c) => c.itemId);
   deepStrictEqual(kept, ['fr.a1.old.001', 'fr.a1.old.002'], 'the oldest debt is paid first');
   strictEqual(dueBacklog(log, TODAY, 2), 20);
+});
+
+// ── Wilson weak-spot ranking (orphan 1) ──────────────────────────────────────
+
+test('wilsonLower discounts thin evidence far below its point estimate', () => {
+  // A 1/1 miss has a point estimate of 100% but almost no confidence: its lower
+  // bound collapses to ~0.21, nowhere near 1.0.
+  ok(wilsonLower(1, 1) < 0.3, 'one miss is barely evidence, whatever its raw ratio');
+  // The same 100% miss rate seen ten times is genuine, and the bound climbs.
+  ok(wilsonLower(10, 10) > wilsonLower(1, 1), 'more of the same raises confidence');
+  ok(wilsonLower(10, 10) > 0.6);
+  // And a sustained partial pattern outranks a lone fumble — the ranking that matters.
+  ok(wilsonLower(8, 20) > wilsonLower(1, 1));
+});
+
+test('weakSpots suppresses a 1/1 fumble below a confident weakness', () => {
+  const log: AttemptEntry[] = [
+    a('fr.a1.fumble.001', false, -1, 'off'), // seen once, missed once → ratio 0, but thin
+  ];
+  for (let i = 0; i < 20; i++) log.push(a('fr.a1.real.002', i < 8 ? false : true, -(i % 20), i < 8 ? 'off' : 'good'));
+  const ranked = weakSpots(log, TODAY).map((s) => s.itemId);
+  strictEqual(ranked[0], 'fr.a1.real.002', 'the sustained 8/20 pattern ranks first');
+  ok(ranked.indexOf('fr.a1.real.002') < ranked.indexOf('fr.a1.fumble.001'), 'raw-ratio ranking would have inverted this');
+});
+
+test('weakSpots ignores struggles outside the 30-day window', () => {
+  const log = [
+    a('fr.a1.old.001', false, -40, 'off'), // 40 days ago, out of window
+    a('fr.a1.old.001', false, -35, 'off'),
+    a('fr.a1.now.002', false, -2, 'off'),
+  ];
+  const ids = weakSpots(log, TODAY).map((s) => s.itemId);
+  ok(!ids.includes('fr.a1.old.001'), 'a struggle that has gone quiet drops out');
+  ok(ids.includes('fr.a1.now.002'));
+});
+
+test('isConfidentWeakSpot needs the minimum attempts', () => {
+  const thin = statsByItem([a('fr.a1.cafe.001', false, 0, 'off')]).get('fr.a1.cafe.001')!;
+  strictEqual(isConfidentWeakSpot(thin), false);
 });

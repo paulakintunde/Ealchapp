@@ -8,7 +8,7 @@ import { Press, ProgressBar, FocusHeader } from '@/components/ui';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useProgress } from '@/store/useProgress';
-import { statsByItem, weakestItems, type Activity, type AttemptVerdict } from '@/store/progress.logic';
+import { localDay, statsByItem, weakSpots, type Activity, type AttemptVerdict } from '@/store/progress.logic';
 import { content } from '@/services/content';
 
 // Le Rapport — the honest version. Every number here is a view over the attempt
@@ -84,9 +84,10 @@ export default function Feedback() {
       .map(([activity, v]) => ({ activity, seen: v.seen, pct: Math.round((v.correct / v.seen) * 100) }))
       .sort((a, b) => b.seen - a.seen);
 
-    // The review queue: weakest first, but only items not yet solid (a perfect
-    // item does not belong on a "to review" list).
-    const weak = weakestItems(attempts)
+    // The review queue: weakest first by Wilson lower bound (a single fumble no
+    // longer outranks a real pattern), over the last 30 days, and only items not
+    // yet solid (a perfect item does not belong on a "to review" list).
+    const weak = weakSpots(attempts, localDay(), { windowDays: 30 })
       .filter((s) => s.ratio < 1 || !s.lastCorrect)
       .slice(0, 6)
       .map((s) => {

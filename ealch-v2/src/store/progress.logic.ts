@@ -347,6 +347,62 @@ export function weakestItems(attempts: AttemptEntry[], limit?: number): ItemStat
   return typeof limit === 'number' ? ranked.slice(0, Math.max(0, limit)) : ranked;
 }
 
+// ── Weak-spot ranking (orphan 1) ─────────────────────────────────────────────
+//
+// Ranking weakness by raw ratio makes a single fumble the loudest signal in the
+// app: an item seen once and missed has ratio 0 and outranks an item genuinely
+// failing 8 times in 20. That is noise winning over evidence. The Wilson lower
+// confidence bound fixes it — it asks not "what is the miss rate" but "what miss
+// rate can we be confident is at least this bad", so thin evidence is discounted
+// rather than amplified. A 1/1 fumble carries a bound near 0.06; an 8/20 pattern
+// near 0.30, so the pattern wins, which is the point.
+export const WEAK_WINDOW_DAYS = 30;
+export const WEAK_MIN_ATTEMPTS = 8;
+
+/** Wilson score lower bound for `pos` positives in `n` trials, at ~95% (z=1.96).
+ *  Here "positive" is a MISS, so a high bound means "confidently failing often". */
+export function wilsonLower(pos: number, n: number, z = 1.96): number {
+  if (n <= 0) return 0;
+  const phat = pos / n;
+  const z2 = z * z;
+  const denom = 1 + z2 / n;
+  const center = phat + z2 / (2 * n);
+  const margin = z * Math.sqrt((phat * (1 - phat) + z2 / (4 * n)) / n);
+  return Math.max(0, (center - margin) / denom);
+}
+
+/** Whether an item has enough attempts to call a weakness confident rather than
+ *  a guess. Used to decide what to *assert*, not what to *rank*. */
+export function isConfidentWeakSpot(s: ItemStat): boolean {
+  return s.seen >= WEAK_MIN_ATTEMPTS;
+}
+
+/** Items ranked weakest-first by the Wilson lower bound of their miss rate,
+ *  over the last `windowDays` (default 30). Old struggles that have since gone
+ *  quiet fall out of the window; a single recent fumble ranks below a sustained
+ *  pattern. Replaces raw-ratio ranking for the review list. */
+export function weakSpots(
+  attempts: AttemptEntry[],
+  today: string,
+  opts?: { windowDays?: number; limit?: number },
+): ItemStat[] {
+  const windowDays = opts?.windowDays ?? WEAK_WINDOW_DAYS;
+  const inWindow = attempts.filter((a) => {
+    const age = daysBetween(a.date, today);
+    return age >= 0 && age < windowDays;
+  });
+  const ranked = [...statsByItem(inWindow).values()]
+    .map((s) => ({ s, lower: wilsonLower(s.seen - s.correct, s.seen) }))
+    .sort((x, y) => {
+      if (y.lower !== x.lower) return y.lower - x.lower; // most-confidently-weak first
+      if (x.s.lastCorrect !== y.s.lastCorrect) return x.s.lastCorrect ? 1 : -1;
+      if (x.s.lastDate !== y.s.lastDate) return x.s.lastDate < y.s.lastDate ? 1 : -1;
+      return x.s.itemId < y.s.itemId ? -1 : 1;
+    })
+    .map((x) => x.s);
+  return typeof opts?.limit === 'number' ? ranked.slice(0, Math.max(0, opts.limit)) : ranked;
+}
+
 /** Distinct items with at least one correct attempt — the honest floor for
  *  "words you have actually met", as opposed to merely shown. */
 export function itemsPracticed(attempts: AttemptEntry[]): Set<string> {
