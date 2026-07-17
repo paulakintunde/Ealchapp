@@ -80,7 +80,11 @@ async function activePrompt(promptVersion: string, lang: string): Promise<string
 const CONFIG_TTL_MS = 60_000;
 let routedCache: { routing: Routing; at: number } | null = null;
 
-type Routing = { model: string; ceiling: CostTier };
+type Routing = { model: string; ceiling: CostTier; freeTurnsPerDay: number };
+
+/** Free-tier coach turns per subject per day when config does not say. Config
+ *  drives it, so this default is only ever a floor for an unseeded database. */
+const FREE_TURNS_DEFAULT = 20;
 
 const TIERS: CostTier[] = ["cheap", "standard", "premium"];
 const isTier = (v: unknown): v is CostTier => typeof v === "string" && (TIERS as string[]).includes(v);
@@ -109,15 +113,58 @@ async function routing(): Promise<Routing> {
       | null;
     const m = cfg?.models?.general;
     if (typeof m === "string" && m.trim()) {
+      const turns = cfg?.coachFreeTurnsPerDay;
       const routed: Routing = {
         model: m.trim(),
         ceiling: isTier(cfg?.coachCostCeiling) ? cfg.coachCostCeiling : DEFAULT_CEILING,
+        freeTurnsPerDay:
+          typeof turns === "number" && Number.isFinite(turns) && turns >= 0
+            ? Math.floor(turns)
+            : FREE_TURNS_DEFAULT,
       };
       routedCache = { routing: routed, at: now };
       return routed;
     }
   } catch (_) { /* fall through to the default, uncached */ }
-  return { model: DEFAULT_MODEL, ceiling: DEFAULT_CEILING };
+  return { model: DEFAULT_MODEL, ceiling: DEFAULT_CEILING, freeTurnsPerDay: FREE_TURNS_DEFAULT };
+}
+
+/** Who this turn is billed against.
+ *
+ *  Layered on purpose so it improves without another edge deploy: a client that
+ *  sends a device id gets a device-scoped cap, and everyone else is capped by
+ *  IP. Both are spoofable, and IP is worse than spoofable — a school or an
+ *  office behind one NAT shares a single quota. That collateral is the price of
+ *  capping cost before an identity substrate exists, and it is why this is a
+ *  cost limiter and not a security boundary. Phase 9 replaces all of this with
+ *  the authenticated uid. */
+function subjectKey(req: Request, deviceId: unknown): string {
+  if (typeof deviceId === "string" && deviceId.trim()) {
+    return `dev:${deviceId.trim().slice(0, 64)}`;
+  }
+  const ip = (req.headers.get("x-forwarded-for") ?? "").split(",")[0]?.trim();
+  return ip ? `ip:${ip}` : "anon";
+}
+
+/** Bump the day's counter and report whether this turn is allowed.
+ *
+ *  Returns null when the quota plane cannot answer, and the caller treats that
+ *  as allowed. Failing OPEN is the deliberate choice: this guards margin, not
+ *  access, and a database blip must not take the coach down. The tradeoff is
+ *  that an outage is also uncapped, which is why the failure is logged. */
+async function bumpTurn(key: string, limit: number): Promise<{ used: number; allowed: boolean } | null> {
+  try {
+    const { data, error } = await serviceClient().rpc("coach_bump", {
+      p_key: key,
+      p_day: new Date().toISOString().slice(0, 10),
+      p_limit: limit,
+    });
+    const row = Array.isArray(data) ? data[0] : null;
+    if (error || !row) return null;
+    return { used: Number(row.used), allowed: !!row.allowed };
+  } catch (_) {
+    return null;
+  }
 }
 
 /** Strip <think>…</think> blocks reasoning models prepend to replies. */
@@ -262,12 +309,37 @@ Deno.serve(async (req) => {
 
   try {
     // `model` is accepted and deliberately not obeyed — see the header note.
-    const { messages = [], lang = "fr", promptVersion = "v1", model: clientModel = null } =
-      await req.json();
-    const system = await activePrompt(promptVersion, lang);
-    const history: Msg[] = messages.slice(-12); // bound the context
+    const {
+      messages = [],
+      lang = "fr",
+      promptVersion = "v1",
+      model: clientModel = null,
+      deviceId = null,
+    } = await req.json();
 
     const routed = await routing();
+
+    // Check the quota before spending a provider call, not after.
+    //
+    // The cap currently applies to EVERYONE, because no entitlement exists to
+    // exempt anyone: there is no paywall in the app yet, so there are no premium
+    // users to spare. Phase 10 must exempt premium here when it lands, or it
+    // will cap the people who paid.
+    const subject = subjectKey(req, deviceId);
+    const quota = await bumpTurn(subject, routed.freeTurnsPerDay);
+    if (quota && !quota.allowed) {
+      posthog("coach_turn_cap_reached", { used: quota.used, limit: routed.freeTurnsPerDay });
+      // 429 with a machine-readable reason: Phase 10 turns this into the paywall
+      // trigger, and llm.ts already degrades to canned coaching on a failure.
+      return new Response(
+        JSON.stringify({ error: "daily coach limit reached", reason: "turn_cap", used: quota.used, limit: routed.freeTurnsPerDay }),
+        { status: 429, headers: { ...cors, "Content-Type": "application/json" } },
+      );
+    }
+    if (!quota) posthog("coach_quota_unavailable", { subject: subject.split(":")[0] });
+
+    const system = await activePrompt(promptVersion, lang);
+    const history: Msg[] = messages.slice(-12); // bound the context
     const resolution = buildChain(routed.model, {
       hasSecret,
       aiApiModel: Deno.env.get("AI_API_MODEL"),

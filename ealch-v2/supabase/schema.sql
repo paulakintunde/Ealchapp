@@ -62,7 +62,26 @@ create table if not exists public.sessions (
   created_at    timestamptz not null default now()
 );
 
+-- ── Coach usage quota (Phase 3, CF-06) ──
+-- The coach is the only real recurring variable cost, so the free tier is capped
+-- per day. The counter has to be durable: edge instances are ephemeral and
+-- horizontally scaled, so a module-scope counter would reset on every cold start
+-- and be per-instance besides — it would cap nothing while looking like it did.
+--
+-- HONESTY, and this belongs in the schema rather than a ticket: until Phase 9
+-- lands an identity substrate, `subject_key` is a device id or an IP, and a user
+-- can change either. This is a COST LIMITER, not a security boundary. It bounds
+-- runaway spend and gives Phase 10 its paywall trigger; it does not stop someone
+-- determined to get more turns. Phase 9 replaces the key with auth.uid().
+create table if not exists public.coach_usage (
+  subject_key   text    not null,
+  day           date    not null,
+  count         integer not null default 0,
+  primary key (subject_key, day)
+);
+
 -- ── Row Level Security ──
+alter table public.coach_usage     enable row level security;
 alter table public.system_config   enable row level security;
 alter table public.system_prompts  enable row level security;
 alter table public.profiles        enable row level security;
@@ -81,6 +100,39 @@ create policy "config readable" on public.system_config for select using (true);
 -- return zero rows. (The previous "prompts readable" using(true) policy was
 -- dropped from the live DB on 2026-07-17; this file no longer creates it.)
 
+-- Quota: NO policies at all, deliberately. Only the coach function touches this,
+-- with the service role, which bypasses RLS. A client that could write its own
+-- quota row would not be a quota.
+
+-- Atomic bump: read-then-write in the function would let two concurrent turns
+-- both see 9, both conclude they are under a limit of 10, and both spend. One
+-- statement, so the database settles it.
+--
+-- Refused turns still increment. That is deliberate: it keeps the statement
+-- single and race-free, and a counter that runs past the limit is harmless
+-- because only `allowed` is ever read.
+create or replace function public.coach_bump(p_key text, p_day date, p_limit integer)
+returns table (used integer, allowed boolean)
+language plpgsql
+as $$
+begin
+  insert into public.coach_usage (subject_key, day, count)
+  values (p_key, p_day, 1)
+  on conflict (subject_key, day)
+    do update set count = coach_usage.count + 1
+  returning coach_usage.count into used;
+
+  allowed := used <= p_limit;
+  return next;
+end;
+$$;
+
+-- Only the service role may call it. A client that can bump an arbitrary key can
+-- exhaust someone else's quota.
+revoke all on function public.coach_bump(text, date, integer) from public;
+revoke all on function public.coach_bump(text, date, integer) from anon;
+revoke all on function public.coach_bump(text, date, integer) from authenticated;
+
 -- Users own their rows.
 create policy "own profile"  on public.profiles     for all using (auth.uid() = id)      with check (auth.uid() = id);
 create policy "own reviews"  on public.review_items for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
@@ -95,6 +147,14 @@ values ('active', '{
   "promptVersion": "v1",
   "ttsProvider": "device",
   "sttProvider": "device",
-  "failoverToastVisible": true
+  "failoverToastVisible": true,
+  "coachCostCeiling": "standard",
+  "coachFreeTurnsPerDay": 20
 }'::jsonb)
 on conflict (id) do nothing;
+
+-- Note the `do nothing`: an already-seeded database does NOT gain the two coach
+-- keys above from this file. That is safe by construction — the coach defaults
+-- to 'standard' and 20 when a key is absent, and an absent ceiling never means
+-- "unlimited". To change either on a live database, update the row (or let the
+-- Phase 3 sync job write it), rather than expecting this insert to run again.
