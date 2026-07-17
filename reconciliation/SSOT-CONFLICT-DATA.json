@@ -1,0 +1,754 @@
+{
+  "conflicts": [
+    {
+      "id": "CF-01",
+      "category": "pedagogy",
+      "title": "SRS algorithm: FSRS-6 (specced) vs SM-2 (shipped)",
+      "sideA": {
+        "statement": "The scheduler must be FSRS-6 because retrievability is the only defensible mastery number (~20-30% fewer reviews than SM-2).",
+        "source": "CONTENT-GENERATION-PIPELINE-SPEC C30 / EALCH-MASTER c15 / THEME-CATALOGUE C05 / contentresearch c36"
+      },
+      "sideB": {
+        "statement": "A working SM-2-shaped scheduler already exists and drives due counts, weak spots and Smart Review honestly.",
+        "source": "INDEPENDENT-LOOK 3.2 / WELCOME C04"
+      },
+      "code_says": "progress.logic.ts:301-350 applyGrade is an SM-2 ease-factor ladder (MIN_EASE 1.3, MAX_EASE 3.0, 1->3->interval x ease); no FSRS and no retrievability probability. SM-2 cannot compute the 0.90-retention figure other docs assume.",
+      "recommendation": "Reframe every doc that asserts FSRS as-built to say 'SM-2 today, FSRS-6 as a later upgrade'; keep SM-2 for launch (adequate at 17-item scale) and gate the FSRS migration behind a real need, since the mastery/headline claims (CF-03) depend on it.",
+      "rationale": "SM-2 is shipped, tested and honest; FSRS is a genuine efficiency and mastery-honesty upgrade but non-blocking. Docs currently advertise an algorithm the code does not run, which will misdirect anyone building against 'the scheduler'.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "If FSRS is dropped, the app loses the only algorithm that yields a decaying 'items you can currently recall' number and a probabilistic mastery gate; if SM-2 is dropped prematurely, a working retention loop is rebuilt for marginal gain."
+    },
+    {
+      "id": "CF-02",
+      "category": "pedagogy",
+      "title": "SRS card key: (user,item,modality) vs (user,item)",
+      "sideA": {
+        "statement": "Cards must key on (user, item, modality) so recognise/produce/discriminate are separate memories - the voice-first learning decision.",
+        "source": "EALCH-MASTER c16 / contentresearch c37"
+      },
+      "sideB": {
+        "statement": "One card per item is what ships; the attempt log has no modality dimension.",
+        "source": "code (progress.logic.ts)"
+      },
+      "code_says": "progress.logic.ts:303-399 srsCards keys purely on itemId; SrsCard and AttemptEntry carry no modality field. Recognition and production collapse into one schedule.",
+      "recommendation": "Decide now whether to add a modality dimension to AttemptEntry/SrsCard before the corpus and attempt log grow, since retrofitting a modality split after users accumulate history is expensive (the doc's stated warning).",
+      "rationale": "A single card collapses 'I know it' and 'I can say it' into one interval, under-drilling production - the exact skill a speaking-first app sells. But adding modality roughly triples review load and needs sibling-gating (see orphan) to stay tolerable.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Dropping the modality split makes the SRS blind to the recognise/produce gap that is the product's core; keeping it triples day-one review volume without the gating machinery."
+    },
+    {
+      "id": "CF-03",
+      "category": "pedagogy",
+      "title": "Mastery definition: retention>=0.90 & reps>=3 vs no mastery concept",
+      "sideA": {
+        "statement": "Mastery = retention >= 0.90 AND reps >= 3, never a single quiz; 'complete' and 'mastered' must be two separate words.",
+        "source": "EALCH-MASTER c22 / THEME-CATALOGUE C06 / contentresearch c48"
+      },
+      "sideB": {
+        "statement": "The code has no mastery threshold; the closest proxy (itemsPracticed = >=1 correct) means 'met', not 'retained'.",
+        "source": "code (progress.logic.ts:276)"
+      },
+      "code_says": "progress.logic.ts computes ratios/reps but defines no mastery constant, and the shipped SM-2 scheduler has no retrievability to compare against 0.90.",
+      "recommendation": "Either encode a concrete two-factor mastery rule the SM-2 engine can actually compute (e.g. reps>=3 AND interval>=N days) or defer the 0.90-retention definition until FSRS lands (CF-01); do not surface 'mastered' anywhere until one is chosen.",
+      "rationale": "An explicit mastery bar keeps progress honest, but the specified 0.90 formula is uncomputable under SM-2, so the definition and the engine must be reconciled before any 'mastered' UI ships.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Without a mastery definition, den 'learned' counts and any future 'mastered' label conflate coverage with competence, the fabrication the whole honesty pass set out to remove."
+    },
+    {
+      "id": "CF-04",
+      "category": "narration",
+      "title": "TTS provider: Azure Neural (Camille) primary vs Fish/ElevenLabs wired",
+      "sideA": {
+        "statement": "TTS is Azure Neural (fr-FR, voice Camille) as primary for batch + live, with Fish Audio and ElevenLabs kept as options.",
+        "source": "CANONICAL C18 / EALCH-MASTER c04 / NARRATION C9 / AUDIO-LESSON C21"
+      },
+      "sideB": {
+        "statement": "The Edge Function has no Azure path; its chain is custom(OpenAI-compatible)->Fish->ElevenLabs, and 'azure' in the config enum has no implementation.",
+        "source": "NARRATION C4 / code"
+      },
+      "code_says": "supabase/functions/tts/index.ts:100 chain=[customTts,fishAudio,elevenlabs]; config.ts:15 ttsProvider enum lists 'device'|'elevenlabs'|'azure' but no azure resolver exists; default 'device'.",
+      "recommendation": "Reconcile the decision with the function: either add an Azure/OpenAI-neural resolver and lock the Camille voice by audition, or update the provider docs to endorse the Fish/OpenAI-compatible path already built. The config enum and the resolver set must be made to agree either way.",
+      "rationale": "The one provider the decision names as primary is unimplemented, and the providers implemented are the 'fallback' ones; a single consistent Camille voice is a real brand/quality lever the docs preserve.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Dropping Azure loses the specced single-consistent-neural-Camille voice; dropping the Fish/ElevenLabs reality means ignoring the only working server-side synthesis path."
+    },
+    {
+      "id": "CF-05",
+      "category": "narration",
+      "title": "Content-generation model: claude-sonnet-5 vs NVIDIA Nemotron",
+      "sideA": {
+        "statement": "Config names 'claude-sonnet-5' as the content-generation model (a stale factual claim).",
+        "source": "CONTENT-CURRICULUM C25"
+      },
+      "sideB": {
+        "statement": "Post-merge default orchestrator/content model is NVIDIA Nemotron, matched to the coach Edge Function cascade.",
+        "source": "INDEPENDENT-LOOK 6.2 / PHASE-2 c25"
+      },
+      "code_says": "config.ts:23 models.content = 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning'; schema.sql:86 mirrors it. No claude-sonnet-5 as the content model (it appears only as the coach Anthropic fallback).",
+      "recommendation": "Correct the curriculum doc's factual claim to Nemotron, then separately decide the intended content model - PHASE-2 D2 recommends a top-tier model while config answers Nemotron, so the target-vs-current gap should be recorded explicitly.",
+      "rationale": "This is both a stale doc fact and an open quality decision (cheap Nemotron drafts vs a mid/top model for content); leaving the doc asserting claude-sonnet-5 misleads anyone wiring generation.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "If the Nemotron reality is ignored, generation is planned against a model that isn't configured; if the top-model recommendation is dropped, bulk content is drafted by a small model with known level-control degradation."
+    },
+    {
+      "id": "CF-06",
+      "category": "monetization",
+      "title": "Coach cheap tier: Gemini 3 Flash vs NVIDIA/Anthropic chain",
+      "sideA": {
+        "statement": "Coach runs on a cheap tier defaulting to Gemini 3 Flash at ~$0.0015/turn, the only real recurring variable cost.",
+        "source": "MONETIZATION C3"
+      },
+      "sideB": {
+        "statement": "Keep NVIDIA plus cheap-tier options (Gemini/DeepSeek) selectable via remote config.",
+        "source": "EALCH-MASTER c05 / CANONICAL C19"
+      },
+      "code_says": "coach/index.ts:112-166 provider chain is AI_API > OpenRouter > NVIDIA nemotron > Anthropic claude-sonnet-5; no Gemini or DeepSeek is wired.",
+      "recommendation": "Preserve 'coach defaults to a cheap tier' as a hard cost rule regardless of provider, and either wire Gemini/DeepSeek or update the economics doc to cost the actual Nemotron/Anthropic chain; the unit-margin model in MONETIZATION depends on the per-turn figure being real.",
+      "rationale": "The whole contribution-margin story rests on a ~$0.0015/turn coach; the code's chain has no Gemini and can fall through to Anthropic (5-8x cost), so the economic assumption is unverified.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Dropping the cheap-tier rule risks the coach silently running an expensive model and breaking margins; dropping the specific Gemini claim just requires re-costing against the wired providers."
+    },
+    {
+      "id": "CF-07",
+      "category": "schema",
+      "title": "Content plane: relational SQL tables vs bundled seed + Storage snapshot",
+      "sideA": {
+        "statement": "Create content_units, content_items, audio_assets, content_releases SQL tables with RLS (published-only read) as the content plane.",
+        "source": "CONTENT-CURRICULUM C22 / CONTENT-PART4 B-tables"
+      },
+      "sideB": {
+        "statement": "The content plane is a typed TS Corpus bundled as seed.json, cached in AsyncStorage, and OTA-updated via a Supabase Storage snapshot; the relational tables are rejected.",
+        "source": "PHASE-2 c13 / EALCH-MASTER c32 / INDEPENDENT 5.4"
+      },
+      "code_says": "content.ts:1-161 implements seed->cache->Storage manifest with sha256 verify; ealch-admin DOES have a content_items table (drizzle) but there is no audio_assets or content_releases table and the app never reads content tables directly.",
+      "recommendation": "Record the snapshot-over-tables model as canonical, but preserve the audio_assets manifest and content_releases pointer concepts as open items for Phase 7 (audio) and formal release tracking, since the Storage-blob approach has no equivalent and may limit partial sync/querying at volume.",
+      "rationale": "The blob-snapshot approach shipped and is offline-first with no 8000-row RLS surface, but the rejected relational design carries capabilities (per-row queries, level+/-1 partial sync, audio manifest) the current model lacks.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Discarding the SQL-table design loses the audio_assets manifest and level+/-1 sync-scoping that become relevant once real audio ships or the single corpus blob grows large on Android."
+    },
+    {
+      "id": "CF-08",
+      "category": "architecture",
+      "title": "The Den: 'already a 7-stage narrated lesson' vs net-new/unbuilt",
+      "sideA": {
+        "statement": "The Den is already a 7-stage guided narrated lesson walked by Camille in guided-autoplay or self-pace.",
+        "source": "AUDIO-LESSON C2 / AUDIO-SCRIPT-PILOT C6"
+      },
+      "sideB": {
+        "statement": "The narrated 7-stage swipe lesson with Camille is net-new and does not exist; the Den is a track/unit listing and a lesson is a typed-section list.",
+        "source": "THEME-CATALOGUE C09 / NARRATION C1 / EALCH-MASTER c12"
+      },
+      "code_says": "den.tsx:29-58 is a SONS/A1/A2 unit browser; lesson.tsx renders an ordered LessonSection[] then a quiz; no stage grouping, no Camille narrator, no guided-autoplay/self-pace toggle, no narration engine anywhere.",
+      "recommendation": "Relabel the narration docs as greenfield build (not integration) and sequence the real dependencies - schema narration field + validator, segment parser + pause player, a 7-stage Den host - before authoring more scripts against a player that does not exist.",
+      "rationale": "Framing the 7-stage lesson as already-existing corrupts effort estimates and lets scripts accumulate with nothing able to play them; the honest state is that it is the flagship's largest unbuilt piece.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Keeping the 'already exists' framing hides that the flagship experience is 0% built; discarding the 7-stage design entirely loses the Den's intended pedagogical spine."
+    },
+    {
+      "id": "CF-09",
+      "category": "content",
+      "title": "Pilot 'reuses the existing café roleplay and items' vs neither exists",
+      "sideA": {
+        "statement": "The A1 'Au cafe' pilot reuses the existing fr.a1.cafe theme AND the existing cafe roleplay, weaving corpus items the drills already key against.",
+        "source": "AUDIO-LESSON C3 / AUDIO-SCRIPT-PILOT C6/C12/C13"
+      },
+      "sideB": {
+        "statement": "There is no cafe roleplay scenario and no standalone 'un cafe' / 's'il vous plait' items; the only scenarios are sc.a1.marche and sc.a2.marche.",
+        "source": "code / AUDIO-SCRIPT-PILOT C11/C12"
+      },
+      "code_says": "seed.json has fr.a1.cafe.001-020 (9 items) but zero cafe scenarios; roleplay.tsx loads 'marche'; 'un cafe' appears only in notes/a separate a1.04 lesson; 's'il vous plait' only embedded in cafe.004; 'merci' exists only as 'Merci beaucoup'.",
+      "recommendation": "Before scaling narration scripts, either author a sc.a1.cafe scenario plus discrete corpus items (un cafe, s'il vous plait, merci, un the) and cite real item IDs, or rewrite the pilot to reference only existing IDs; enforce ID-existence at validate time so a script referencing a missing item/scenario fails publish.",
+      "rationale": "The pilot's 'spaced recycling' and 'reuse the roleplay' claims are unbacked; its INPUT/STORY stage has no scenario to reuse and its targets are not SRS-schedulable atoms.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "If the recycling claim is dropped without adding the items, the narrated lesson leaves no memory trace and cannot feed review; if the pilot is discarded, the 70/30 ratio and sequential-scaffold pedagogy should survive."
+    },
+    {
+      "id": "CF-10",
+      "category": "schema",
+      "title": "c2: content level vs scoring band only",
+      "sideA": {
+        "statement": "Drop c2 from content LEVELS (sons..c1 only) and model it as a separate SCORE_BANDS list for scoring display only.",
+        "source": "CANONICAL C2/C3 / EALCH-MASTER c25 / SCHEMA-EXTENSION C15"
+      },
+      "sideB": {
+        "statement": "Current code keeps c2 as a taggable content level.",
+        "source": "code"
+      },
+      "code_says": "schema.ts:38 LEVELS=['sons','a1','a2','b1','b2','c1','c2']; ITEM_ID_RE and SCENARIO_ID_RE both accept c2; no SCORE_BANDS export. seed.json currently has no c2 content, so the split can be made without rejecting data (SCHEMA-EXTENSION C05).",
+      "recommendation": "Make the LEVELS/SCORE_BANDS split now while zero c2 content exists, so validateItem cannot silently accept a c2-tagged item the product deliberately does not sell (no DALF C2).",
+      "rationale": "Multiple docs agree c2 is scoring-only, and the pre-check confirms no c2 content would break, so this is a cheap guardrail against exactly the drift the decision warns about.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Leaving c2 in the content LEVELS union lets authors generate a C2 tier no launch exam requires; removing it costs nothing today but must precede mass authoring."
+    },
+    {
+      "id": "CF-11",
+      "category": "schema",
+      "title": "Den level cap sons/a1/a2 vs lift to all six bands",
+      "sideA": {
+        "statement": "Lift UNIT_ID_RE/LESSON_ID_RE (and TRACKS) to sons|a1|a2|b1|b2|c1 so the Den can hold the B1-B2 immigration wedge.",
+        "source": "CANONICAL C10 / EALCH-MASTER c26 / SCHEMA-EXTENSION C19"
+      },
+      "sideB": {
+        "statement": "The regexes and TRACKS still stop at a2.",
+        "source": "code"
+      },
+      "code_says": "schema.ts:96-97 UNIT_ID_RE/LESSON_ID_RE capped to (sons|a1|a2); schema.ts:43 TRACKS=['sons','a1','a2']. B1-C1 Den content is structurally impossible today.",
+      "recommendation": "Treat the regex/TRACKS relaxation as a prerequisite gate for any B1-C1 or exam-prep content, since it blocks the Canada-first build order (CF is linked to the immigration wedge duplicate).",
+      "rationale": "This is the one non-additive schema change the plans agree on, and it structurally blocks the prioritised upper-level content until made.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Without the lift, the immigration/exam content the business prioritises cannot exist in the Den at all."
+    },
+    {
+      "id": "CF-12",
+      "category": "exam",
+      "title": "Exam schema hooks 'already present' vs absent",
+      "sideA": {
+        "statement": "The content schema already has exam hooks - an exam_task payload and a roleplay_scenario.exam{} object - as a reusable foundation.",
+        "source": "EXAMINER C6 / OPR C3"
+      },
+      "sideB": {
+        "statement": "No exam_task type and no exam{} field on Scenario exist anywhere; the exam data model is entirely greenfield.",
+        "source": "EALCH-MASTER c28 / code"
+      },
+      "code_says": "schema.ts:226-234 Scenario carries id/level/theme/title/turns/version only; grep exam_task returns nothing; Corpus is units/lessons/items/scenarios. c2/c28 confirm 'Scenario.exam already present' is factually wrong.",
+      "recommendation": "Correct the build-status lines that claim exam hooks exist, then add the exam entities (ExamTask/ExamSeries, Scenario.exam{}, format_version) per SCHEMA-EXTENSION C26 before the Examiner is planned against, so the claim becomes true.",
+      "rationale": "Misrepresenting exam readiness corrupts sequencing for the premium wedge; the reuse idea (extend LessonSection/Scenario) is right but must be built, not asserted.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Believing the hooks exist means the Examiner is scoped as an extension when it is greenfield schema work; discarding the design loses the natural home for exam metadata."
+    },
+    {
+      "id": "CF-13",
+      "category": "schema",
+      "title": "Item skill taxonomy: CO/CE/PO/PE vs read/write/speak/listen",
+      "sideA": {
+        "statement": "Every Item is tagged with an exam skill CO/CE/PO/PE (and register, can_do, grammar_points, modality).",
+        "source": "CANONICAL C11 / EALCH-MASTER c09 / OPR C16 / THEME-CATALOGUE C03"
+      },
+      "sideB": {
+        "statement": "The shipped skill union is read/write/speak/listen and lives only on LessonSection.practice, not on Items.",
+        "source": "code (schema.ts:63,182)"
+      },
+      "code_says": "schema.ts:63 SKILLS=['read','write','speak','listen']; Item (122-148) has no skill, register, can_do, grammar_points, or modality fields.",
+      "recommendation": "Decide one canonical skill vocabulary (CO/CE/PO/PE aligns with CEFR/exam marking; read/write/speak/listen is simpler and shipped) and, if exam alignment is wanted, add the CO/CE/PO/PE tagging plus register/can_do/modality to Item before the corpus is authored.",
+      "rationale": "The exam engine and SRS modality split need the richer per-item tags; the current thin Item cannot support exam-skill views or a recognise-vs-produce schedule, and reconciling the two vocabularies late means re-tagging the corpus.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Dropping CO/CE/PO/PE loses exam-skill alignment and per-item four-skill coverage; the read/write/speak/listen mapping cannot express oral vs written comprehension/expression."
+    },
+    {
+      "id": "CF-14",
+      "category": "monetization",
+      "title": "Pricing: doc price points vs shipped Settings",
+      "sideA": {
+        "statement": "Premium $9.99/mo and $59.99/yr (=$5/mo); a separate Exam tier at $14.99/mo; Africa PPP ~$2-4/mo via Paystack.",
+        "source": "MONETIZATION C7/C8/C9"
+      },
+      "sideB": {
+        "statement": "Settings shows $9.99/mo but $79/yr; no Exam tier; currencies limited to USD/EUR/GBP/CAD with no PPP/NGN tier.",
+        "source": "code (settings.tsx)"
+      },
+      "code_says": "settings.tsx:22 USD yr '$79' (yrmo '$6.58'); useStore Currency='USD'|'EUR'|'GBP'|'CAD'; no $14.99 plan, no Paystack, no local-currency tier.",
+      "recommendation": "Reconcile the annual price ($59.99 target vs $79 shipped, which sits above the ~$7-8/mo competitor cluster the doc cites as the wedge) and decide whether the Exam tier and Africa PPP pricing - both named as core differentiation - are launch scope or deferred.",
+      "rationale": "The two documented wedges (Africa PPP + a distinct exam tier) are absent from code, and the shipped annual price contradicts the positioning; these are strategy-vs-build gaps, not mere unbuilt features.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Keeping $79/yr abandons the sub-competitor annual positioning; dropping the Exam tier and PPP pricing discards the two revenue theses unique to this audience."
+    },
+    {
+      "id": "CF-15",
+      "category": "monetization",
+      "title": "Payment routing: web-checkout-first (Stripe/Paystack) vs RevenueCat IAP scaffolding",
+      "sideA": {
+        "statement": "Payment routing is web-checkout-first: Stripe web + Paystack primary, IAP as fallback (the single biggest revenue lever, ~34% more kept per sub).",
+        "source": "MONETIZATION C5/C20"
+      },
+      "sideB": {
+        "statement": "The only payment scaffolding present is a RevenueCat public-key placeholder, which is IAP-centric and pulls opposite to web-first.",
+        "source": "MONETIZATION C18 / README C11"
+      },
+      "code_says": "env.ts:19-20 revenueCatKey placeholder only; no Stripe/Paystack code; upgrade() just sets premium locally. No react-native-purchases import either.",
+      "recommendation": "Resolve the routing tension before wiring real checkout: either commit to web-first (add Stripe/Paystack, treat RevenueCat as IAP-only fallback) or accept RevenueCat/IAP and re-cost margins; the doc flags a time-sensitive Epic-ruling window worth re-checking.",
+      "rationale": "The scaffolded SDK contradicts the stated highest-leverage economic decision; building on RevenueCat by default silently forfeits the web-checkout margin the model depends on.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Defaulting to IAP/RevenueCat gives up ~$28/yr/subscriber vs web; dropping web-first without re-costing breaks the unit economics."
+    },
+    {
+      "id": "CF-16",
+      "category": "onboarding",
+      "title": "Placement: adaptive 12-18 item probe (target) vs single fake question still shipped",
+      "sideA": {
+        "statement": "Placement is a 12-18 item adaptive probe (vocab recognition -> audio QCM -> produced sentence) outputting A0..C1 and setting profiles.level.",
+        "source": "CONTENT-CURRICULUM C18 / CANONICAL C27"
+      },
+      "sideB": {
+        "statement": "Placement is one hardcoded question with a fake 'Q7' label and 58% bar, a mocked A2 result, writing to no store; the honesty cleanup was never applied.",
+        "source": "INDEPENDENT 3.5 / CONTENT-PART4 F6 / CONTENT-PART4 C-placementhonesty"
+      },
+      "code_says": "placement.tsx:31/34/61/65 hardcoded isA2/estChip/58%/Q7; single drills.placementQuestion; 'adaptive - the test ends when your level is confident' copy remains (148-152). Not written to any store.",
+      "recommendation": "As an immediate step, either relabel honestly (single-question quick check, remove Q7/58%/'adaptive' copy) to avoid an Apple 2.3.1 fabricated-UI risk, or gate placement behind a real item bank; separately keep the 12-18 item adaptive design as the target.",
+      "rationale": "The shipped screen presents confident adaptive theatre over one question - a live store-review and trust risk - while the real adaptive probe is the intended end state; the two must not be conflated as done.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Shipping the fake Q7/58% as-is risks App Store rejection and erodes trust on retake; dropping the adaptive-probe target leaves placement permanently a facade."
+    },
+    {
+      "id": "CF-17",
+      "category": "content",
+      "title": "Sons/A1/A2 unit spine: PHASE-2 topic lists vs shipped curriculum",
+      "sideA": {
+        "statement": "Sons units include semi-voyelles, Le R francais, liaisons, accent tonique; A1 1-4 = salutations/se presenter/nombres&l'heure/etre&avoir; A2 1-4 = passe compose avoir/etre/pronoms objets/futur proche.",
+        "source": "PHASE-2 c15/c16/c17"
+      },
+      "sideB": {
+        "statement": "Shipped curriculum has different Sons units (no semi-voyelles/Le R/liaisons), A1 3-4 = genre/articles definis, and A2 1-4 = verbes reguliers/irreguliers/adjectifs/prepositions (passe compose is a2.05).",
+        "source": "code (curriculum.ts / seed.json)"
+      },
+      "code_says": "curriculum.ts:18-73 and seed.json encode the shipped spine; unit IDs are immutable (sons.03, a1.04, a2.01). Generating to the doc's lists would mint units/lessons whose IDs and topics do not line up with the Den tree and would break the level-discipline vocab gate.",
+      "recommendation": "Before any generation, reconcile the plan's unit lists against curriculum.ts/seed.json and pick ONE canonical spine (the shipped one, since the Den renders it and IDs are immutable), rewriting lesson targets as concrete existing unit IDs.",
+      "rationale": "Two divergent unit spines mean generated content cannot slot into existing units and the teaching-order-based recycling gate has no single order to enforce.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Following the doc's spine orphans generated content from the Den tree; abandoning the doc's topic choices (e.g. earlier liaisons, /y/-/u/, passe compose sequencing) loses pedagogically motivated ordering worth folding into the canonical spine."
+    },
+    {
+      "id": "CF-18",
+      "category": "architecture",
+      "title": "STT-decision record location: flags.ts vs config.ts",
+      "sideA": {
+        "statement": "Record the on-device STT reversal in flags.ts.",
+        "source": "CANONICAL C22 / EALCH-MASTER c36"
+      },
+      "sideB": {
+        "statement": "The STT decision is recorded in config.ts (sttProvider default 'device'), not flags.ts; flags.ts holds only oauth/forgotPassword.",
+        "source": "code"
+      },
+      "code_says": "flags.ts:3-14 contains only oauth and forgotPassword; config.ts:26 sttProvider default 'device'. The specific action item (write it in flags.ts) is undone, though the intent (a durable record) is satisfied elsewhere.",
+      "recommendation": "Note the location mismatch and either add the STT note to flags.ts or update the docs to point at config.ts as the record; this is a low-stakes bookkeeping reconciliation, not a functional gap.",
+      "rationale": "The decision is durably captured, just not where two docs say; leaving the docs asserting flags.ts sends readers to the wrong file.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Minor - only the provenance trail's discoverability is affected."
+    },
+    {
+      "id": "CF-19",
+      "category": "ui",
+      "title": "Profile weakness engine: hardcoded 2-row list vs data-driven like Home",
+      "sideA": {
+        "statement": "Profile's weakness engine should read the same topWeaknesses aggregation as Home, removing its hardcoded copy.",
+        "source": "HOME-FUNCTIONALITY H4d"
+      },
+      "sideB": {
+        "statement": "Profile still renders a hardcoded two-item weak array (La liaison obligatoire / Voyelles nasales) routing all rows to openSheet('grammar').",
+        "source": "HOME-BUILD-1-AUDIT C12 / INDEPENDENT health.2"
+      },
+      "code_says": "profile.tsx:159-162 hardcoded weak[] rendered at 402-436 from T.weakMeta, not derived from the error log; Home was made real (topWeaknesses) but Profile was not - a residual fabrication the re-reviews mostly missed.",
+      "recommendation": "Wire Profile's weakness section to topWeaknesses(errors,today,7) exactly as Home does, so the two surfaces agree and Profile stops re-introducing fabricated weaknesses.",
+      "rationale": "A code-internal inconsistency: Home is honest, Profile is not, which reopens the exact distrust the honesty pass closed.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Leaving Profile hardcoded means a fabricated-weakness surface survives on a screen users inspect for their real stats."
+    },
+    {
+      "id": "CF-20",
+      "category": "architecture",
+      "title": "README service-fallback claims vs code that refuses fabrication",
+      "sideA": {
+        "statement": "Service ports have graceful fallbacks: NativeWind is configured; auth falls back to a local session; stt falls back to simulated capture.",
+        "source": "README C5/C18/C21"
+      },
+      "sideB": {
+        "statement": "NativeWind was removed; auth returns AUTH_UNAVAILABLE rather than a fake session; stt reports available:false and never invents a transcript.",
+        "source": "code"
+      },
+      "code_says": "metro.config.js notes NativeWind removed (no className anywhere); auth.ts:1-4 'no local fallback... fails honestly'; stt.ts:14-16 'NEVER invents a transcript... reports available:false'. The README's fallback column is stale for these three.",
+      "recommendation": "Update README to match the honest-failure design: no NativeWind, no fake auth session, no simulated STT; the real adapters remain accurate, only the fallback descriptions are wrong.",
+      "rationale": "The README documents fallbacks the code deliberately rejected on honesty grounds; leaving them invites someone to 'restore' fabrication the app intentionally removed.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Stale README claims could lead a contributor to reintroduce simulated capture or a fake session, undoing deliberate honesty guarantees."
+    },
+    {
+      "id": "CF-21",
+      "category": "pedagogy",
+      "title": "Smart Review copy '1->3->7->21' vs SM-2 engine",
+      "sideA": {
+        "statement": "Smart Review text promises items return in 1 -> 3 -> 7 -> 21 days (a fixed Leitner ladder).",
+        "source": "INDEPENDENT 1.9b"
+      },
+      "sideB": {
+        "statement": "The implemented scheduler is SM-2 (1 -> 3 -> interval x ease), so the shown ladder is not literal.",
+        "source": "code / contentresearch c46"
+      },
+      "code_says": "progress.logic.ts:333-350 applyGrade SM-2 ladder; smartreview.tsx T.srLadder copy. (Note strings.ts:255 already reworded to '1 -> 3 -> 7 days...', so the copy is partly reconciled.)",
+      "recommendation": "Reconcile copy and engine either way: adopt a fixed 1/3/7/21 Leitner ladder (simpler to explain) or reword the copy to describe SM-2 spacing honestly; do not display a literal schedule the engine does not follow.",
+      "rationale": "User-facing copy asserting a specific interval sequence the SM-2 engine does not produce is a small but real honesty mismatch on a trust-sensitive screen.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "A fixed ladder is easier to communicate; SM-2 gives better spacing but needs copy that does not promise exact day counts."
+    },
+    {
+      "id": "CF-22",
+      "category": "exam",
+      "title": "Third exam chip label: 'TCF Canada' vs generic 'TCF'",
+      "sideA": {
+        "statement": "Launch set is Canada/immigration: TEF Canada + TCF Canada + DELF B2.",
+        "source": "EXAMINER C29 / CANONICAL C25"
+      },
+      "sideB": {
+        "statement": "Home chips are ['TEF Canada','DELF B2','TCF'] - the third is generic 'TCF' and the order differs.",
+        "source": "code (home.tsx:122)"
+      },
+      "code_says": "home.tsx:122 exams=['TEF Canada','DELF B2','TCF']; all three route to /speak. The third chip's label and the order diverge from the resolved decision.",
+      "recommendation": "Relabel the third chip to 'TCF Canada' to match the resolved Canada-first launch set, or record that generic TCF is intended; trivial but worth aligning before the exam engine is wired.",
+      "rationale": "Small label drift on the paid-tier surface that immigration users read literally.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Minor - only exam-chip labeling accuracy is affected."
+    },
+    {
+      "id": "CF-23",
+      "category": "monetization",
+      "title": "Settings fake billing block + Restore purchases: remove vs still present",
+      "sideA": {
+        "statement": "Remove the fake billing block and delete the 'Restore purchases' row (monetization-honesty fix).",
+        "source": "HOME-FUNCTIONALITY H8b"
+      },
+      "sideB": {
+        "statement": "Settings still shows a hardcoded 'Visa ....4212' and a Restore-purchases row with no handler.",
+        "source": "INDEPENDENT 1.7 / code (settings.tsx:285-299)"
+      },
+      "code_says": "settings.tsx:285-297 billing rows + T.restore still present; :292 'Visa ....4212'; :295-299 Restore Press with no onPress. The alarm TimeWheel landed but this removal did not.",
+      "recommendation": "Remove or wire the billing block and Restore row before any build reaches review, independent of the broader monetization decision, since a fabricated payment method is a concrete App Store rejection risk.",
+      "rationale": "An outstanding honesty fix that also carries store-review risk; the docs asked for its removal and it was not done.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Shipping the fake 'Visa ....4212' and dead Restore row risks App Store rejection and user distrust."
+    },
+    {
+      "id": "CF-24",
+      "category": "schema",
+      "title": "Voice Flash scaling: image_ref indirection (claimed) vs iconFor(fr) derivation (real)",
+      "sideA": {
+        "statement": "The schema already has an audioRef-style indirection so voiceflash content need not be re-authored when the icon set scales; add image_ref.",
+        "source": "PHASE-2 c30 / CONTENT-PART4 D-imageref"
+      },
+      "sideB": {
+        "statement": "The corpus carries no per-item icon field; voiceflash derives icons from the French string via iconFor(fr) over a hardcoded 5-icon map, so the scaling wall is only partly solved.",
+        "source": "code (voiceflash.tsx:17-19)"
+      },
+      "code_says": "voiceflash.tsx:17-19,264 iconFor(fr) with cup/house/book/sun/car and a vfBook fallback; Item schema has no icon/image_ref field, only audioRef. The doc's stated 'indirection exists' rationale is inaccurate.",
+      "recommendation": "Correct the rationale (no icon indirection exists) and decide the real mechanism: add an optional image_ref to Item (named icon | emoji | URL) with a fallback chain, so voiceflash can scale past the closed 5-icon set without re-authoring content.",
+      "rationale": "The scaling concern is real but the doc's premise is wrong; without a content-carried icon field, voiceflash is permanently capped at the hardcoded derivation.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Without image_ref, Voice Flash cannot grow beyond words that map to the five hardcoded icons."
+    },
+    {
+      "id": "CF-25",
+      "category": "schema",
+      "title": "Amend schema before mass authoring: window open (17 items) vs partly closed",
+      "sideA": {
+        "statement": "Amend the schema (register on useCases, itemId+per-distractor errorClass on quiz, audio on table/paradigm, new section types) BEFORE the corpus is written - every breaking change is free today.",
+        "source": "contentresearch c7/c8/c10/c40 / SCHEMA-EXTENSION commits 5-7"
+      },
+      "sideB": {
+        "statement": "The 'amend before authoring' window was skipped: 17 items and 3 lessons are already authored against the unchanged 12-type schema.",
+        "source": "contentresearch c5/c7 / code"
+      },
+      "code_says": "schema.ts unchanged (12 section types; useCases {situation,fr,en} no register; quiz {q,opts,correct,why} no itemId/errorClass; table {cols,rows} no audio). seed.json has 17 items - small enough that migration is still cheap but no longer free.",
+      "recommendation": "Land the highest-leverage schema deltas (useCases.register, quiz.itemId, table/audio) now while the corpus is only 17 items, before it grows and each change becomes a data migration plus re-record.",
+      "rationale": "The zero-cost window closed but the low-cost window is still open; delaying makes register-less French use cases and quiz answers that cannot feed the SRS permanent liabilities.",
+      "status": "UNRESOLVED",
+      "value_if_dropped": "Deferring the schema amendments turns a cheap 17-item migration into a large one and ships French use cases with no tu/vous and quiz misses that never reach the scheduler."
+    }
+  ],
+  "duplicates": [
+    {
+      "topic": "Home is mode-first with mode buckets",
+      "statement": "The home is mode-first, organised as buckets (Den, Flashcards, Voice Flash, Sentences, Role Play, La Dictee, Playlist, Examiner, Smart Review); the theme-spine home is superseded. Code confirms.",
+      "sources": [
+        "CANONICAL C23",
+        "EALCH-MASTER c07",
+        "THEME-CATALOGUE C01/C19",
+        "WELCOME C01"
+      ]
+    },
+    {
+      "topic": "Pack = first-class theme x level bundle",
+      "statement": "A Pack is a first-class entity = one theme x one level, ~60 mixed items, with id pack.<level>.<theme>, mode_targets, goal, status, provenance; it is not today's Unit and does not exist in code yet.",
+      "sources": [
+        "CANONICAL C7",
+        "EALCH-MASTER c11",
+        "SCHEMA-EXTENSION C21"
+      ]
+    },
+    {
+      "topic": "15 domains / 108 themes machine-readable catalogue",
+      "statement": "Canonical taxonomy is 15 domains and 108 themes (including an Exam Preparation domain) shipped as a machine-readable catalogue with domain/level_range/exam_flag/immig_flag; retire '~100 themes/~14 domains'. Not in code (theme is a free slug).",
+      "sources": [
+        "CANONICAL C5/C6",
+        "EALCH-MASTER c02",
+        "THEME-CATALOGUE C17",
+        "OPR C9",
+        "CONTENT-GEN C35"
+      ]
+    },
+    {
+      "topic": "Corpus sizing ~250-300 packs + ~130-150 Den lessons",
+      "statement": "Retire the ~750 figure; canonical basis is ~250-300 theme x level packs plus a separate ~130-150 Den guided-lesson axis, ~60 items per pack. Lives only in planning against a 17-item seed.",
+      "sources": [
+        "CANONICAL C16",
+        "EALCH-MASTER c03"
+      ]
+    },
+    {
+      "topic": "Provenance columns on every generated row",
+      "statement": "Add provenance (model, prompt_version, generated_by, reviewed_by, source_refs) to every generated Item/Lesson/Scenario/Pack to audit AI-generated content; partly built in ealch-admin content_items, absent from the app schema.",
+      "sources": [
+        "CONTENT-CURRICULUM C15",
+        "EALCH-MASTER c31",
+        "CONTENT-GEN C27",
+        "SCHEMA-EXTENSION C24",
+        "PHASE-2 c23"
+      ]
+    },
+    {
+      "topic": "Real per-user Entitlement replaces the fake premium boolean",
+      "statement": "Replace the local premium boolean (upgrade() sets premium:true) with a per-user Entitlement (plan, features[], source iap|stripe|paystack, expiry) tied to a real subscription.",
+      "sources": [
+        "CANONICAL C14",
+        "EALCH-MASTER c30",
+        "SCHEMA-EXTENSION C27",
+        "THEME-CATALOGUE C13"
+      ]
+    },
+    {
+      "topic": "Audio segment map beyond single audioRef",
+      "statement": "Add a timestamped audio segment map ([{blockId,startMs,endMs,text}]) plus a content-addressed asset key (hash of script+voice+provider+renderVersion) to drive karaoke highlight and pause-at-interaction; only a single nullable audioRef exists.",
+      "sources": [
+        "CANONICAL C13",
+        "EALCH-MASTER c29",
+        "SCHEMA-EXTENSION C25",
+        "NARRATION C10",
+        "contentresearch c64/c65"
+      ]
+    },
+    {
+      "topic": "On-device STT is installed, free and offline",
+      "statement": "STT is on-device (expo-speech-recognition, real stt.ts), free and offline, and is an architecture pillar; the 'no STT installed' claim is stale/superseded.",
+      "sources": [
+        "CANONICAL C21",
+        "EALCH-MASTER c06",
+        "EXAMINER C4"
+      ]
+    },
+    {
+      "topic": "Three-layer content load that never blocks or throws",
+      "statement": "Content loads seed.json (bundled) -> AsyncStorage cache -> remote Supabase-Storage manifest/snapshot, verified by sha256, never blocking first paint and never throwing; seed is the zero-config fallback.",
+      "sources": [
+        "CONTENT-PART4 C-contentservice",
+        "EALCH-MASTER c42",
+        "INDEPENDENT 5.2/5.4",
+        "PHASE-2 c8",
+        "OPR C7",
+        "README C30"
+      ]
+    },
+    {
+      "topic": "schema.ts is a zero-runtime-import shared module",
+      "statement": "schema.ts (and progress.logic.ts) hold zero react-native/zustand/AsyncStorage imports so they load under node --test and are shared by app, admin, generator and publish pipeline.",
+      "sources": [
+        "EALCH-MASTER c24",
+        "SCHEMA-EXTENSION C02",
+        "CONTENT-PART4 F4",
+        "HOME-BUILD-1 C13"
+      ]
+    },
+    {
+      "topic": "Append-only attempt log; SRS cards derived from it",
+      "statement": "Truth is an append-only AttemptLog and SRS cards are a replayable fold over it (multi-device-safe, CRDT-by-construction). Confirmed in progress.logic.ts.",
+      "sources": [
+        "EALCH-MASTER c18",
+        "THEME-CATALOGUE C16",
+        "contentresearch c38",
+        "HOME-FUNCTIONALITY C1"
+      ]
+    },
+    {
+      "topic": "Stable immutable IDs fr.<level>.<theme>.<seq> as SRS key",
+      "statement": "Content moved off array-index addressing to stable immutable dotted IDs (fr.a1.cafe.001, sons.03, sons.03.l1) that are the SRS key; the proposed kebab-title slug is superseded but the underlying decision is live.",
+      "sources": [
+        "CONTENT-CURRICULUM C29",
+        "CONTENT-PART4 C-idscheme",
+        "OPR C2",
+        "PHASE-2 c4",
+        "THEME-CATALOGUE C02",
+        "contentresearch c17"
+      ]
+    },
+    {
+      "topic": "system_prompts RLS leaks prompt IP; restrict to active=true",
+      "statement": "system_prompts RLS is world-readable including inactive rows, so the content-gen master prompt would leak as public IP; tighten to 'for select using (active = true)'. Still unbuilt (world-readable).",
+      "sources": [
+        "CONTENT-CURRICULUM C35",
+        "CONTENT-PART4 B-rls11",
+        "PHASE-2 c24"
+      ]
+    },
+    {
+      "topic": "Native review (Gate H) is the real cost and the mandatory gate",
+      "statement": "Native reviewer sign-off is the bottleneck and real spend (~$3-5k launch), mandatory (100%) for Sons/A1, all exam answer keys/rubrics and cultural claims, with sampling for lower-stakes B1+; AI may draft but never auto-publishes.",
+      "sources": [
+        "CONTENT-GEN C20/C22",
+        "MONETIZATION C16",
+        "EXAMINER C17",
+        "PHASE-2 c28",
+        "CONTENT-CURRICULUM C28"
+      ]
+    },
+    {
+      "topic": "Exam copyright guardrails",
+      "statement": "Generate only original items in authentic format (never reproduce papers), attach a visible non-affiliation disclaimer (i18n key examDisclaimer, pending Gate D), and tag every exam item with a format_version. None shipped.",
+      "sources": [
+        "CONTENT-CURRICULUM C34",
+        "EXAMINER C8/C9",
+        "CONTENT-PART4 B-examdisclaimer/B-examcheck",
+        "CONTENT-GEN C24"
+      ]
+    },
+    {
+      "topic": "Deterministic French correctness gates",
+      "statement": "Three fields must not be trusted from an LLM and need non-LLM gates: verb forms via a deterministic conjugator (verbecc/mlconjug3), gender via a gold lexicon (Lefff/Lexique/spaCy), and IPA via Phonemizer/espeak-ng; plus a CEFR classifier for level-fit. None exist in code.",
+      "sources": [
+        "CONTENT-GEN C12/C13/C14/C15/C33",
+        "EALCH-MASTER c33",
+        "contentresearch c66"
+      ]
+    },
+    {
+      "topic": ">=30% recycled vocab / <=8 new items comprehensible-input rule",
+      "statement": "Each unit must reuse >=30% vocabulary from earlier units and cap new lexical items (<=8/batch), enforced as a deterministic post-filter (token-diff / Token Miss Rate), not just a prompt request.",
+      "sources": [
+        "CONTENT-CURRICULUM C17",
+        "CONTENT-GEN C3/C16",
+        "PHASE-2 c23/c27"
+      ]
+    },
+    {
+      "topic": "Versioned OTA snapshot with checksum and rollback",
+      "statement": "Publish builds a version-stamped, sha256-checksummed OTA content snapshot pushed to Supabase Storage and picked up by content.ts; versioned and rollback-able. Built via publish-content.ts.",
+      "sources": [
+        "CONTENT-GEN C25",
+        "PHASE-2 c7",
+        "OPR C28",
+        "INDEPENDENT 5.3"
+      ]
+    },
+    {
+      "topic": "Seeded progress fakes deleted; only freeze:1 kept",
+      "statement": "The seeded streak/reviewDue/weekDots (and reviewCleared) were deleted via migration (store now v5), all now derived from the session/attempt logs; only freeze:1 remains as a real day-zero grant, not a measurement.",
+      "sources": [
+        "HOME-BUILD-PROMPT C8/C23",
+        "HOME-BUILD-1 C21",
+        "WELCOME C06",
+        "HOME-FUNCTIONALITY C3/C4"
+      ]
+    },
+    {
+      "topic": "Immigration/Canada-first build order",
+      "statement": "Build B1-B2 content plus the Examiner (TEF Canada, TCF Canada, DELF B2) first as the market wedge; only stub exam cards exist today.",
+      "sources": [
+        "CANONICAL C25",
+        "EALCH-MASTER c35",
+        "EXAMINER C29",
+        "MONETIZATION C21"
+      ]
+    }
+  ],
+  "orphans": [
+    {
+      "statement": "Sibling gating: a produce card is not created until its recognise sibling reaches stability >= 7 days, so learners are never asked to produce words they cannot yet recognise.",
+      "doc": "EALCH-MASTER c17",
+      "note": "Appears only here; the essential pacing rule that makes the modality split (CF-02) tolerable by preventing a day-one review explosion. Worth reviving alongside any modality work."
+    },
+    {
+      "statement": "Weak-spot detection should rank by Wilson lower confidence bound with MIN_ATTEMPTS=8 over a 30-day window, not raw counts over 7 days.",
+      "doc": "contentresearch c39",
+      "note": "Only source. The shipped topWeaknesses ranks by raw count over 7 days; the Wilson-bound + min-attempts approach is a cheap statistical hardening that avoids surfacing noise as a 'weakness'."
+    },
+    {
+      "statement": "Cap the daily review queue (e.g. 20/day) and present a backlog gently ('do 20 today, clear the rest over the week') rather than the raw due count.",
+      "doc": "contentresearch c68",
+      "note": "Only source; named the single biggest churn event in the SRS category. dueCards()/reviewDueCount() currently return the full backlog uncapped - a high-value returning-user retention fix."
+    },
+    {
+      "statement": "Cache the shared instruction prefix across generation packs for ~90% input-cost reduction.",
+      "doc": "CONTENT-GENERATION-PIPELINE-SPEC C10",
+      "note": "Only source. A large, concrete cost lever for bulk generation that should survive into any generation-runner spec."
+    },
+    {
+      "statement": "Version-hash staleness: a prompt/schema/format change marks only affected items stale by version hash and enqueues just those for regen + re-review, never the whole corpus.",
+      "doc": "CONTENT-GENERATION-PIPELINE-SPEC C28",
+      "note": "Only source. The optimization that avoids regenerating thousands of items on every prompt tweak; genuinely important once the corpus is large."
+    },
+    {
+      "statement": "Idempotency-keyed resumable generation runner: queue + workers, key = hash(prompt_version + schema_version + inputs), building on the existing port/publish scripts.",
+      "doc": "CONTENT-GENERATION-PIPELINE-SPEC C29",
+      "note": "Only source. The orchestration layer that makes bulk regen cheap and safe; the port/publish scripts exist as anchors but the runner does not."
+    },
+    {
+      "statement": "Affiliate/immigration lead-gen as a 5-15% revenue top-up (italki/Preply tutoring, recurring course affiliates, TEF/TCF immigration leads).",
+      "doc": "MONETIZATION-AND-UNIT-ECONOMICS C14",
+      "note": "Only source. A modest but real supplemental revenue line uniquely fitted to this app's immigration audience; nothing in code or other docs references it."
+    },
+    {
+      "statement": "Reject Boss Fight (timed cumulative gate); replace with an untimed, advisory, skippable Checkpoint that writes to the SRS and never hard-gates paid content.",
+      "doc": "contentresearch c49",
+      "note": "Only source. A load-bearing product principle - no hard content gates for paying adults - embodied nowhere in code or other docs."
+    },
+    {
+      "statement": "Reject XP/levels; the honest headline is 'items you can currently recall' (retrievability >= 0.90 and reps >= 3), a number that goes down with inaction.",
+      "doc": "contentresearch c47",
+      "note": "Only source. The no-XP stance is honored (no XP shipped) but the proposed honest recall headline needs FSRS (CF-01); a distinctive motivational-honesty idea worth preserving."
+    },
+    {
+      "statement": "Author error diagnosis on the content: QuizQ needs itemId plus per-distractor Choice.errorClass/why so a wrong answer is diagnosed in O(1) and feeds weak spots/SRS.",
+      "doc": "contentresearch c40",
+      "note": "Only source at this granularity. Currently only a single lesson-level 'why' exists; per-distractor diagnosis is a zero-runtime-cost, high-leverage error loop."
+    },
+    {
+      "statement": "Mark French text with fr-FR (accessibilityLanguage/lang on the TX component) so VoiceOver does not read French in the English voice.",
+      "doc": "contentresearch c26",
+      "note": "Only source. A concrete, cheap accessibility fix (TX has no lang prop) that no other doc raises."
+    },
+    {
+      "statement": "Teach 'on' at A1 alongside nous, move negation and yes/no + question words into the first third of A1 (they currently arrive at units 18-20 of 26), and add CEFR can_do statements to drive units.",
+      "doc": "contentresearch c50/c51/c52",
+      "note": "Only source. Concrete curriculum-sequencing fixes: a learner currently cannot ask or deny for two-thirds of A1, and units lack a communicative-function anchor."
+    },
+    {
+      "statement": "Sub-Item Token/Align on examples enabling story tap-a-word, inline clues and chunk alignment, with a tokensReconstruct hard publish gate.",
+      "doc": "contentresearch c65",
+      "note": "Only source. Enables tap-a-word comprehensible-input reading; not represented in schema or any other doc."
+    },
+    {
+      "statement": "Authoring collaboration primitives: autosave, a draft lock to prevent two editors clobbering, and inline threaded per-block comments.",
+      "doc": "OPR-CONTENT-STUDIO-SPEC C15",
+      "note": "Only source. Draft-lock/comments become necessary once more than one author works the corpus; the studio editor currently saves only on explicit click with no lock."
+    },
+    {
+      "statement": "Live device preview (phone frame + real renderers incl. Camille narration) with a QR/deep-link to open a draft on device before publish.",
+      "doc": "OPR-CONTENT-STUDIO-SPEC C14",
+      "note": "Only source. Preview-before-publish catches render errors before they enter the OTA bundle; no equivalent exists and no other doc raises it."
+    },
+    {
+      "statement": "Restructure-with-migration: attaching/moving a pack to a curriculum node auto-applies domain/theme/level tags and any restructure rewrites tags via a migration with preview + diff + undo.",
+      "doc": "OPR-CONTENT-STUDIO-SPEC C11",
+      "note": "Only source. Protects published items from silent tag reassignment once a real corpus exists; a genuine data-safety idea."
+    },
+    {
+      "statement": "Positional deep-link anchors (<lessonId>#s<n>.<k>) derived from array index, invalidated on corpusVersion mismatch and never used as an SRS key, backing the error drawer's 'see this in the lesson' link.",
+      "doc": "contentresearch c67",
+      "note": "Only source. The mechanism that lets an error point back into the exact lesson block without polluting the immutable SRS key space."
+    },
+    {
+      "statement": "Skip a Sepia mode: warm LIGHT.card from #FFFFFF to ~#FDFBF6 to capture the sepia delta with a two-hex change and no third theme.",
+      "doc": "contentresearch c23",
+      "note": "Only source. A tiny, high-return reading-comfort tweak that avoids the cost of a whole third color mode."
+    }
+  ],
+  "coverage": {
+    "docs_reviewed": 21,
+    "code_areas": "Claims reference ealch-v2 (schema.ts, content.ts/content.logic.ts, progress.logic.ts/useProgress.ts, useStore.ts, tts.ts/stt.ts, config.ts/flags.ts, home.tsx/den.tsx/lesson.tsx/placement.tsx/settings.tsx/profile.tsx and other drill screens, seed.json/curriculum.ts/playlists.ts/wordOfDay.ts, supabase functions coach/tts and schema.sql) and ealch-admin (drizzle schema, content actions/BodyEditor/WorkflowCard, publish-content.ts). Reconciliation performed over the supplied claim set and its embedded code evidence; source files were not independently re-read since the data is self-contained by design.",
+    "notes": "235 claims across 21 docs plus pedagogy notes. Dominant tension is target-state specs vs a thin shipped build: ~17 corpus items/3 lessons behind a 43-unit UI, a working SM-2 attempt-log SRS where docs specify FSRS+modality, an entirely unbuilt narration engine and Examiner, and unimplemented monetization. Several 'already exists' framings (7-stage Den, cafe roleplay, exam schema hooks, NativeWind, service fallbacks) are contradicted by code and flagged as conflicts. Many repeated cross-doc decisions (mode-first home, Pack entity, 108-theme catalogue, provenance, entitlements, audio segment map, Gate H review, deterministic French gates) collapsed as duplicates. Per the flag-only rule, all conflict recommendations are advisory and every conflict status is UNRESOLVED; I did not pick winners."
+  }
+}

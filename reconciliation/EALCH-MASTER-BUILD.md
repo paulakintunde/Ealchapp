@@ -1,0 +1,699 @@
+# EALCH MASTER BUILD — Unified Phased Plan
+
+## How to read this
+
+This document is the single source of truth that supersedes the two half-drafts (systems and content) and folds in the 71 expert-panel findings. It is organized as one ordered phase plan, not two parallel numbering schemes. Where the two drafts covered the same work under different names (schema, the modality SRS, narration, placement, the generation pipeline), they have been reconciled into one phase with one owner, using the systems dependency spine as the skeleton and the content sections as the pedagogy-and-acceptance detail underneath each phase. [arch]
+
+A few conventions:
+
+- **Folded panel improvements are tagged inline with their lens:** `[arch]` architecture/Expo-RN, `[perf]` performance/reliability, `[data]` data/schema, `[content]` content/pedagogy, `[money]` monetization/retention, `[qa]` release/QA. Every CRITICAL and HIGH finding is folded into its phase; MED/LOW findings are folded where they clearly improve the plan.
+- **The content/curriculum architecture is first-class.** Phases 1, 2, 5, 6, 7, and 8 each carry the full pedagogical depth from the content draft. Nothing about the curriculum spine, the lesson data model, the SRS design, or the generation pipeline has been summarized away.
+- **Dependency ordering is preserved.** Schema v2 (Phase 1) migrates before any authoring. The spine at the end shows the full DAG.
+- **Two cross-cutting workstreams run alongside every phase from Phase 0:** the release/CI model (there is no EAS Update or CI today) and the commercial-setup lead time (IAP agreements take weeks). They are described once, up front, then referenced by the phases that consume them.
+- **Never uses em dashes**, per the standing style rule.
+
+**Author's note on current reality, because it changes the plan:** the CF-07 "Management Plane vs Delivery Plane" split is already substantially built, not greenfield. `ealch-admin/src/db/schema.ts` has `content_units`, `content_items` (text PK `fr.a1.cafe.001`), `content_snapshots`, and `ai_capabilities`/`ai_models`/`ai_routing`. `ealch-admin/scripts/publish-content.ts` already compiles DB → `snapshots/v{n}.json` + `manifest.json` → Storage `content` bucket → committed `ealch-v2/src/content/seed.json`, and the app reads seed → cache → OTA manifest with sha256 verification (`content.ts:77-161`, `content.logic.ts:263-284`) and never queries the live DB. So CF-07 is a hardening-and-extension job. The single largest retention risk is not any missing engine; it is **content volume**: a motivated learner exhausts every real piece of content (17 items, all `level: a1`) in one sitting. Every phase treats corpus breadth as the critical path and plumbing as the enabler.
+
+## Build status — verified against the repo 2026-07-16
+
+**Legend:** ✅ done · 🟡 partial (substantially landed, named gaps remain) · ⬜ not started · ⏳ deferred by design
+
+> **Overall: ✅ Phase 0 is done. 🟡 Phase 1 remains substantially done with two named gaps. 🟡 CC-A's CI slice landed 2026-07-16** — `.github/workflows/ci.yml` gates both typechecks, the pure-island tests (incl. enum parity), the Phase 0 honesty greps, a seed-size ceiling, and the publish dry-run. It is unproven on GitHub until pushed, and the rest of CC-A (release model / expo-updates, eas.json, toolchain proof) is still ⬜.
+>
+> **Standing up the dry-run gate immediately caught a live incident:** the canonical Supabase DB had never received migrations `0004`/`0005`, so the Phase 1 publish projection selected columns that did not exist and **publishing was broken against the canonical DB**. Diagnosed, migrations applied via the direct connection (approved 2026-07-16), dry-run green. The old grading examiner prompt was also found live in that DB and converged to the honest body. Details in the CC-A section and the Phase 1 stamp.
+>
+> **Evidence (Phase 0, 2026-07-16):** `tsc --noEmit` clean on `ealch-v2`; `node --test` = **208/208 pass** (unchanged, no test regressed). Acceptance greps all empty: `4212`, price literals outside `pricing.ts`, every removed `T.` key, the literal `1 → 3 → 7` ladder. New files `ealch-v2/src/content/pricing.ts` (canonical matrix) and `ealch-v2/src/content/weakness.ts` (shared weakness map). **Not device-verified:** the changes are render-path and were validated by typecheck, tests and grep only.
+>
+> **Evidence (Phase 1):** Schema v2 landed in `ealch-v2/src/content/schema.ts` (~1400 lines) + `progress-schema.ts`. Migrations `0004_content_items_no_c2.sql`, `0005_content_items_spine.sql` applied. `enum-parity.test.ts` exists. Publish projection wired in `ealch-admin/scripts/publish-content.ts` (L130 allowlist, L214-215 `::text` casts, L245-249 mapper).
+
+| Phase | Status | Name | Blocks / feeds | Ships as |
+|---|---|---|---|---|
+| **CC-A** | 🟡 | Release model + CI + toolchain proof (cross-cutting, starts Phase 0) | everything | infra |
+| **CC-B** | ⬜ | Commercial setup lead time (cross-cutting, starts Phase 0) | Phases 10-11 | infra |
+| **0** | ✅ | Honesty & store-risk fixes | unblocks review | JS/OTA + config |
+| **1** | 🟡 | Schema v2 unified migration + curriculum spine + level-cap lift | 2,5,6,7,8, all authoring | migration + JS |
+| **2** | ⬜ | Content pipeline hardening + lesson↔corpus join + prove-the-pipe | 4,7,8 authoring | pipeline + JS |
+| **3** | ⬜ | Pluggable provider socket → OPR, Nemotron default | de-risks 4,7,8, coach margin | edge + admin |
+| **4** | ⬜ | Azure/Camille TTS resolver + client remote-audio path | feeds 7 | native rebuild |
+| **5** | ⬜ | SRS / mastery engine (modality, sibling-gating, cap) | feeds 6,7,10 | JS/OTA |
+| **6** | ⬜ | Placement rebuild (adaptive probe) | seeds SRS | JS/OTA |
+| **6b** | ⬜ | Voice Flash image_ref, drill breadth, Word of the Day | feeds 5,7 | JS + content |
+| **7** | ⬜ | The Den: greenfield 7-stage narrated lesson | flagship | native + JS |
+| **8** | ⬜ | Examiner engine + schema | needs 1,2,5; gated by 11 | JS + content |
+| **9** | ⬜ | Identity & sync substrate | gates 10,11, server attempts | native + server |
+| **10** | ⬜ | Subscription monetization + paywall/gating (was 9a) | first revenue | native rebuild |
+| **11** | ⬜ | $39 exam tier (was 9b) | needs 8,9,10 | native + IAP |
+
+### Phase 0 status detail (✅ — landed 2026-07-16)
+
+| Item | Status | Evidence |
+|---|---|---|
+| CF-23 fabricated payment method + no-op Restore removed | ✅ | billing block deleted from `settings.tsx`; `grep 4212` and the `T.restore` key are both clean |
+| CF-23+ whole plan section removed (picker, prices, Upgrade button) | ✅ | scope decision below; `premium` gated nothing and no purchase was real |
+| `useStore.upgrade()` deleted | ✅ | it was `() => set({ premium: true })`: minted premium with no payment. Only RevenueCat may write `premium` (Phase 10) |
+| CF-19 Profile wired to `topWeaknesses` | ✅ | `profile.tsx` renders the same fold and the same map as `home.tsx`, with the honest empty state |
+| CF-22 exam chips + index-aligned captions | ✅ | `EXAMS = ['TEF Canada','TCF Canada','DELF B2']`; `examMeta` reordered in both tables |
+| CF-18 `sttOnDevice` record | ✅ | `src/services/flags.ts` (note: **not** `src/config/`, the path this doc gave); `config.ts:26` stays authoritative |
+| CF-21 honest SR ladder copy | ✅ | `srLadder` describes performance-adaptive spacing in both tables; `grep "1 → 3 → 7"` clean |
+| CF-20 README matches code | ✅ | NativeWind claim removed (see `metro.config.js`); `auth` and `stt` rows now state their honest failure, not a fake fallback |
+| CF-16 class: paywall copy | ✅ | `planPremDesc` deleted with the UI that rendered it; no copy names an unbuilt or ungated feature |
+| `pricing.ts` canonical matrix | ✅ | `src/content/pricing.ts`; no price literal survives anywhere else |
+| Examiner v1 fenced to unscored roleplay | ✅ | `seed.sql` prompt refuses to produce a band; one caveat open, below |
+| Home render cost memoized | ✅ | `due`/`run`/`weaknesses`/`done`/`wod` keyed on their own slices |
+| Deployed examiner prompt cannot be retracted by seed | ✅ | **Resolved 2026-07-16 — and this row's original "N/A today (Supabase unconfigured)" was wrong: the canonical DB exists and WAS carrying the old grading body, live and `active`.** Converged by a guarded `UPDATE` (body extracted from `seed.sql`, not retyped; matched on `%CEFR rubrics%` so it cannot touch an honest row). Post-state verified: grading text gone, refusal text present, still active. Deployed DB now byte-matches what `seed.sql` gives fresh installs |
+| Device verification | ⬜ | validated by `tsc`, `node --test` and grep only. Not run on hardware |
+| Unit-economics doc still models `$59.99/yr` | ⬜ | contradicts the pinned `$79`; see the price stamp in Phase 0 below |
+
+### Phase 1 status detail (🟡)
+
+| Item | Status | Evidence |
+|---|---|---|
+| Level caps lifted (CF-11), regexes derived from const | ✅ | `BANDS_RE`; `UNIT_ID_RE`/`LESSON_ID_RE` widened |
+| c2 scoring-only (CF-10) + `SCORE_BANDS` | ✅ | `SCORE_BANDS`; `ExamTask.level` typed on it |
+| Item taxonomy (CF-13): `EXAM_SKILLS`, `PracticeSkill` rename, `MODALITIES`, `register` | ✅ | schema.ts value lists + validators |
+| Exam entity types (CF-12 schema half) | ✅ | `ExamTask`/`ExamSeries`, `EXAM_TASK_ID_RE`, `scoringMap` |
+| Audio segment map / role-keyed audio | ✅ | `AudioSegment`, `segments?` |
+| Corpus arrays + referential integrity | ✅ | `domains?`/`themes?`/`packs?`/`examTasks?`/`examSeries?` (all optional → v0 seed valid) |
+| Real-`seed.json` back-compat test | ✅ | `schema.test.ts:937` |
+| **G1** publish projection | ✅ | see guardrail stamp in Phase 1 below |
+| **G3** enum parity + c2 asymmetry | ✅ | see guardrail stamp in Phase 1 below |
+| **G2** persist migrate (modality on attempts) | ⏳ | correctly deferred — see guardrail stamp below |
+| `validateItem` requires `skill`/`modality` | ⏳ | still type-when-present; blocked on the backfill (by design, per G2 / `0005` header) |
+| Curriculum spine cleanup (CF-17) | ❌ | `curriculum.ts` still exports the `{title,sub}` prototype arrays `currSons`/`currA1`/`currA2` |
+| `Unit.canDo`, `themes`, `prereqUnitIds`; A1 resequencing | ❌ | not landed |
+| Drizzle `0004`/`0005` applied | ✅ | **Evidence corrected 2026-07-16:** this row was ✅ while the **canonical** Supabase DB had never received either migration (its journal held only `0000`-`0003`) — the original claim was true of a local/branch environment only, and publish was silently broken against canonical the whole time. Caught by the first CC-A dry-run gate; applied to canonical via direct connection same day, verified (6 journaled, columns + CHECK present, dry-run green). "Applied" claims must name the database they are true of. |
+
+---
+
+## Cross-cutting workstream CC-A — Release model, CI, and toolchain proof
+
+> **Step-by-step completion guide: `reconciliation/CC-A-ARMING-GUIDE.md`** (2026-07-16) — arming the landed CI workflow (push, secret, branch protection incl. the private-repo/Free-plan limitation), then the account-bound remainder (identity → expo-updates → toolchain proof → submit config), then the Phase 1 gaps that follow.
+
+This is not a phase; it is the substrate every phase ships through, and it is missing today. It must be stood up in Phase 0/1 before the schema work, because unenforced invariants across two repos will drift and silently ship content the app cannot render.
+
+**Release model (CRITICAL).** No EAS Update (`expo-updates`) is installed: absent from `package.json`, no `runtimeVersion`, no `updates` block in `app.json`, no `channel` in `eas.json`. The drafts repeatedly claim the pipeline "ships OTA without app-store review," but that is true only for the custom content-snapshot fetch in `content.ts`. Every greenfield rebuild in Phases 4-11 (SRS engine, placement, Den narration player, exam engine, RevenueCat) is JS/native code that cannot ship through the content channel. [qa]
+
+- Decide the release model explicitly: add `expo-updates` with a `runtimeVersion` policy and per-profile `channel`s so JS-only phases can ship as OTA JS updates between store builds, while native-module phases (Phase 4 audio, Phase 7 native, Phases 10-11 purchases) are batched into planned store binaries. [qa]
+- Define a release train: a store binary at Phase 4 and again at Phase 10, OTA JS updates in between. Stage each phase through an internal/TestFlight track before production. Stop describing code phases as OTA-deliverable. [qa]
+
+**🟡 CI (HIGH).** `.github/workflows` and `.eas/workflows` are absent, so every quality gate the plan proposes is manual. Land a CI workflow in Phase 0/1, before the schema work, that runs on every PR and gates merges: [qa]
+
+- ✅ `tsc --noEmit` on both `ealch-v2` and `ealch-admin`;
+- ✅ `node --test` for the pure islands (`schema`, `content.logic`, `progress`, `score`, `time`, `i18n`);
+- ✅ the schema **enum/union parity** check across the two schema files (see Phase 1 for why this is an enum-list diff, not a byte diff);
+- 🟡 `content:publish --dry-run` as a required status check;
+- ✅ a byte-size check on `seed.json` (keep the seed a bounded small offline-first subset; document a ceiling). [perf]
+
+> **🟡 Landed 2026-07-16: `.github/workflows/ci.yml`**, on PRs and pushes to `build/ealch-v2-expo`. Three jobs: **app** (npm ci → typecheck → `node --test`, which includes `enum-parity.test.ts` → the Phase 0 honesty greps → seed ceiling), **admin** (pnpm → typecheck, which also type-checks the cross-repo import surface), **publish-dry-run**. Beyond the list above it also gates the Phase 0 acceptance greps permanently (fabricated card number, price literal outside `pricing.ts`, literal SRS ladder), each negative-tested against a planted violation. The seed ceiling is **256 KiB**, documented in the workflow: if it trips, shrink the seed-cut, do not raise the ceiling without a recorded decision.
+>
+> **Why 🟡 and not ✅:** (a) the workflow is unproven on GitHub until pushed — every command was verified locally on the exact CLI the jobs run, but Actions itself has not executed it; (b) the dry-run job **skips with a notice until the `DATABASE_URL` repo secret is set** (repo Settings → Secrets → Actions), because `publish-content.ts` refuses to run without the canonical DB by design. Setting that secret and marking the checks required in branch protection is what turns this from a workflow into a gate.
+>
+> **Prerequisite fix that fell out of it:** the admin typecheck gate was born red. `curriculum.ts` (modified on this branch) imported `@/store/progress.logic`, and `ealch-admin/scripts/port-content.ts` imports `curriculum.ts` across the repo boundary — where `@/*` resolves to the **admin's** own `src/`. Fixed to a relative import, with the rule now stated in `curriculum.ts`: **any app file the admin imports, directly or transitively, must use relative imports only.** This is the invariant-#1 drift class, caught by hand this once; the admin CI job catches it from now on. An `ealch-admin` `typecheck` script was added.
+>
+> **⚠ INCIDENT, caught by the first-ever dry-run (2026-07-16, resolved same day).** The dry-run failed against the canonical Supabase DB: `column "skill" does not exist`. **Migrations `0004`/`0005` had never been applied to the canonical database** — only 4 migrations (`0000`-`0003`) were in its journal, while the Phase 1 publish projection already selected the new columns. Consequence: **every publish, including dry runs, was broken against the canonical DB**, silently, since the Phase 1 projection landed. `migrate.ts`'s own header documents the likely mechanism: run without its env loading, it "silently migrates a throwaway PGlite database instead of Supabase, and still prints ✓ migrations applied."
+> Resolution, all verified: pre-checked read-only that the data satisfies the incoming `c2` CHECK (0 `c2` rows; 17 items, all `a1`); applied both migrations **via the direct connection, not the transaction pooler** (with approval); confirmed 6 migrations journaled, all five columns present, `items_level_not_c2` in place; re-ran the dry-run → **green** (`seed valid: 17 units · 3 lessons · 17 items · 2 scenarios`, checksum computed, nothing written).
+> The lesson is the plan's own thesis proved on day one: **"machine-enforced quality, not remembered quality."** The gate found in its first execution a break that hand-run checks had missed for the entire life of Phase 1, because nobody's hand-run loop included "dry-run against canonical."
+
+**Release config (HIGH).** `eas.json` is a skeleton. `submit.production` is `{}` (no `ios.ascAppId`/`appleTeamId`, no `android.serviceAccountKeyPath`/`track`), so `eas submit` cannot run non-interactively. No `channel` on any profile. No production env story: the app reads `EXPO_PUBLIC_SUPABASE_URL` / `EXPO_PUBLIC_REVENUECAT_KEY` at build time (`env.ts`), and with none set every service silently falls back to the offline path, so a production build with an unpopulated `.env` would ship with no backend, no OTA content, no purchases, and still pass a smoke test because nothing throws. [qa]
+
+- Fill `submit.production` for both stores; add channels per profile; wire production `EXPO_PUBLIC_*` via EAS secrets; add a build-time assertion (or post-build smoke check) that **fails** the pipeline if a production build has empty Supabase/RevenueCat config, so "accidentally shipped the offline demo" is impossible. [qa]
+
+**Toolchain proof (MED).** `expo-speech-recognition` is pinned to `^56.0.1` while the Expo SDK and every other native dep is `~57`. A config-plugin native module a full major behind the SDK is a classic EAS build break or new-architecture (RN 0.86 / reanimated 4) runtime crash, and this is the STT module the placement rebuild, exam PO/PE capture, and narration produce/check interactions all depend on. Align/pin it to the SDK-57-compatible release and run a real `eas build` (dev + production) early, before Phase 1, to prove the native toolchain compiles. Pin exact versions on all native modules. [qa]
+
+**Project identity (LOW).** `app.json` slug `wonerock`, owner `wonerocks-team`, product `Ealch`, bundle `app.ealch.mobile`, scheme `ealch` are inconsistent and complicate `eas submit`, listings, and analytics attribution. Reconcile slug/owner to the brand before the first production build (or record why they differ), and configure associated domains / Android app links if the OPR live-preview deep link (Phase 2) is in scope. [qa]
+
+**Content OTA release safety (HIGH).** The content OTA channel has no rollback, no staged rollout, no kill switch. `content.ts` always fetches the single newest `manifest.json`; `manifestIsNewer` is strictly monotonic and the on-device cache only ever raises version. A snapshot that passes `validateCorpus` but is pedagogically wrong, has broken audio refs, or contains bad LLM French reaches 100% of users on next launch and cannot be pulled back. Given Phase 7 generates hundreds of LLM-authored items, a bad publish is the highest-probability incident in the plan. This is specified fully in Phase 2 but is a release-safety requirement, not an afterthought. [qa]
+
+## Cross-cutting workstream CC-B — Commercial setup lead time
+
+RevenueCat + App Store Connect needs the paid-apps agreement, banking/tax forms, product creation, and the IAP products submitted for review with the first binary that references them; 3.1.1/3.1.2 scrutiny is heaviest on a first paid submission. `react-native-purchases` is a native module, so Phases 10-11 force native rebuilds and can never be JS-only OTA. Pull commercial setup (agreements, banking, product IDs in both stores, RevenueCat offerings) forward to run in parallel from Phase 0, budget an extra review round for the first IAP submission, and ship a real sandbox purchase + restore + reconciliation through TestFlight/internal track before production. [qa]
+
+---
+
+## Phase 0 — Honesty & store-risk fixes (no schema, no dependencies) — ✅ DONE 2026-07-16
+
+**Goal.** Clear the fabrications that are concrete App Store / trust risks and cost nothing to fix, so nothing downstream inherits them and a build can reach review. Implements CF-18, CF-19, CF-20, CF-21, CF-22, CF-23.
+
+> **✅ Landed 2026-07-16 (verified by `tsc` + `node --test` + grep; not device-verified).** All six CF fixes (18-23) and all four folded panel improvements are in. `tsc --noEmit` clean, 208/208 tests pass with no regression, every acceptance grep empty.
+>
+> **Three decisions had to be pinned** before the work could proceed (0.Z below). **Four fabrications this section did not name were found and fixed**, each recorded in the stamp of the fix that surfaced it: `T.weakMeta[i]` and `T.examMeta[i]` captions indexed by row position (CF-19, CF-22); "Offline" sold as premium while it is free and ungateable (paywall copy); and "2 months free" understating a 34-36% discount (price matrix). **One diagnosis was under-called:** CF-23 read as a fake-card problem, but `premium` gates nothing at all, so the whole commercial surface was fabricated, not just the card.
+>
+> The section text below is preserved as the original diagnosis. Each fix now carries its resolution beneath it.
+
+### 0.Z Decisions pinned at execution (2026-07-16)
+
+Three questions were unresolved in this plan and had to be answered before the work could proceed. All three are now canonical.
+
+1. **Annual price = `$79/yr`.** The plan left this genuinely contradictory: code carried `$79`/`$6.58` while `MONETIZATION-AND-UNIT-ECONOMICS.md:70-71` modelled `$59.99/yr`. **`$79` is pinned**, so the prototype numbers stand and **the unit-economics doc is now the document that is wrong**. It still models `$59.99/yr` and must be corrected; that changes margin per annual sub, so it is a deliberate open item, not an oversight. [money]
+2. **Currency scope = USD/EUR/GBP/CAD only.** The Africa PPP tier (`$19.99/yr`, Paystack) is Phase 10 scope and needs a payment rail that does not exist. `Currency` is unchanged. [money]
+3. **Paywall scope = remove the whole plan section.** See the stamp under CF-23 below. [money]
+
+**Current state (as diagnosed; every item below is now fixed).**
+- `settings.tsx:292` renders a hardcoded `Visa ····4212`; `:295-299` a "Restore purchases" `Press` with no `onPress`. `useStore.upgrade()` (`useStore.ts:208`) just sets `premium: true` locally. This is CF-23's fabricated-payment-method rejection risk.
+- `profile.tsx:159-162` renders a hardcoded `weak[]` (`La liaison obligatoire`, `Voyelles nasales`) routing all rows to `openSheet('grammar')`, while `home.tsx:127` already uses the real `topWeaknesses(errors, today, 7)`. Profile re-introduces the exact fabrication Home removed (CF-19).
+- `home.tsx:122` exams `['TEF Canada', 'DELF B2', 'TCF']`; third chip is generic `TCF`, order diverges from the resolved Canada-first set (CF-22).
+- `flags.ts:3-14` holds only `oauth`/`forgotPassword`; the STT-on-device decision lives in `config.ts:26` (`sttProvider` default `device`), not `flags.ts` (CF-18).
+- `strings.ts` `T.srLadder` partly reworded (CF-21); the SM-2 engine (`progress.logic.ts:333-350`) does not run a literal `1→3→7→21` ladder.
+- `README.md` documents NativeWind config, auth local-session fallback, simulated STT, all three removed/refused in code (`auth.ts` returns `AUTH_UNAVAILABLE`; `stt.ts:14-16` never invents a transcript) (CF-20).
+
+**Target.**
+- **CF-23 ✅** Remove the billing block and Restore row entirely (reinstated properly in Phase 10 against a real entitlement). Do not leave a dead handler.
+  > **Resolved 2026-07-16 — and it went further than this line, deliberately.** This section and **Scope/tasks** below disagreed: the target said "billing block and Restore row", scope said "delete the `CUR`/`planRows` billing UI". The wider reading was taken, because the diagnosis under-called the problem: **`premium` gates nothing.** It is read in exactly one file (`settings.tsx`) where it only swaps labels, and `useStore.upgrade()` set it locally with no payment, no IAP and no receipt. So the picker, the prices and the Upgrade button were not adjacent to the fake card, they were **the same defect**: UI asserting a commercial relationship that does not exist. A user tapped Upgrade, became "Première" for free, and unlocked nothing.
+  > **Removed:** the plan picker, the price rows, the Upgrade button, the billing block, the Restore row, and the currency picker (its only job was switching the deleted prices, and its "Detected from your region" caption was itself false: the default is a hardcoded `'USD'` and nothing detects). **`useStore.upgrade()` is deleted** so nothing can mint premium without a purchase; Phase 10 sets `premium` from RevenueCat `customerInfo`, the only authority that can honestly say a user paid. `premium`/`currency`/`planPick` remain as persisted state Phase 10 reads. Settings now states the current plan and stops.
+- **CF-19 ✅** Wire Profile's weakness section to `topWeaknesses(errors, today, 7)` exactly as Home does, sharing `weakDisplay` mapping; empty state = honest "nothing yet".
+  > **Resolved 2026-07-16. A second fabrication was found here that this plan did not name:** Profile's captions came from `T.weakMeta[i]`, a fixed array indexed by **row position**, so each caption described whatever weakness happened to land at that index ("the classic trap, drill it"). Wiring the rows to real data without touching the captions would have kept a fabrication and made it harder to see. `weakMeta` is deleted from both language tables and from the `i18n.test.ts` parity list; Profile renders the real slip count via `weakSlip`/`weakSlipPl`, as Home does.
+  > `weakDisplay` closed over `router` and `openSheet`, so it could not simply be imported. It is extracted to **`src/content/weakness.ts`** as `openWeakRows(router, openSheet)`, with type-only imports so the module keeps no runtime dependency on expo-router or zustand. `Record<WeakSkill, WeakRow>` makes coverage of the closed taxonomy a compile-time guarantee.
+- **CF-22 ✅** Relabel third chip to `TCF Canada`; align order to `TEF Canada · TCF Canada · DELF B2`.
+  > **Resolved 2026-07-16. This chip reorder had a trap this plan did not name:** `T.examMeta` is **index-aligned** to the chip array, so reordering the chips alone would have silently handed TCF Canada the DELF caption ("The examiner interrupts you"). Both were reordered together, and both now carry a comment naming the coupling, which is invisible from either side alone. The array is hoisted to module scope as `EXAMS`.
+- **CF-18 ✅** Add a durable `sttOnDevice` record to `flags.ts` (with a comment pointing to `config.ts` as the operational switch), satisfying the doc's stated location while keeping `config.ts` authoritative.
+  > **Resolved 2026-07-16. Correction to this plan:** `flags.ts` lives at **`src/services/flags.ts`**, not `src/config/`, which is where this section's phrasing implies. The gap was real, the path was wrong. The record is explicitly marked read-only (flipping it changes nothing); `sttProvider` in `src/services/config.ts` stays the operational switch.
+- **CF-21 ✅** Reword `T.srLadder` to describe SM-2 spacing honestly ("intervals tailored to your performance"), never a literal day sequence. Keep SM-2, fix the copy.
+  > **Resolved 2026-07-16.** Both tables reworded to performance-adaptive spacing. SM-2 untouched. `grep "1 → 3 → 7"` clean.
+- **CF-20 ✅** Rewrite the README fallback section to the honest-failure design.
+  > **Resolved 2026-07-16.** Three false claims removed: NativeWind "configured" (it was removed in `metro.config.js` because its `jsxImportSource` transform corrupted inline styles), `auth` → "local session" (it fails with `AUTH_UNAVAILABLE`), `stt` → "simulated capture" (it reports `available: false` and never invents a transcript). **The `llm` row was left alone: it is true.** The coach really does serve canned tips and really does return `live: false` so the UI shows "offline · saved tips". The table is reframed from "Fallback" to what each port does when it cannot reach the real thing, since two ports deliberately have none.
+
+**Folded panel improvements.**
+- **✅ DONE — Paywall copy honesty (MED).** `planPremDesc` = "Unlimited Examiner · Advanced reports · Offline" (`strings.ts:364/594`) sells features that do not exist and are not gated. Selling "Unlimited Examiner" for an unbuilt (Phase 8) feature is the same fabricated-UI class CF-23/CF-16 exist to fix. Add to the honesty sweep: paywall/plan copy must only advertise features that exist and are actually gated at ship time. Gate the copy on real entitlements; do not advertise the Examiner until Phase 8/11 ships. [money]
+  > **Resolved 2026-07-16.** The stated criterion ("advertise only what exists **and is gated**") resolves, on this codebase, to **advertising nothing**: zero features are gated. So `planPremDesc` was not reworded, it was deleted along with the UI that rendered it. A third false claim was in it that this line did not name: **"Offline" was sold as premium while `strings.ts:605-606` tells every user "Everything works offline"** for free. Offline is how the app works; it is not gateable. Dead paywall copy removed with it: `subActive`, `perMonth`/`perYear`, `monthly`, `annual`, `bestValue`, `upgrade`, `billing`, `paymentMethod`, `restore`, `currencyT`, `detected`. Phase 10 writes fresh copy against a real entitlement.
+- **✅ DONE — Canonical price matrix now (MED).** The target annual price is never stated: code has `$79`/`$6.58` (`settings.tsx:22-26`); the unit-econ doc uses `$59.99/yr`. When extracting `pricing.ts` (below), state the canonical matrix (monthly, annual, $39 exam) across USD/EUR/GBP/CAD, with the annual-vs-monthly discount math consistent with the "2 months free" copy, and grep-assert no stray `$79` remains. An undefined "corrected price" otherwise ships as whatever the prototype had. [money]
+  > **Resolved 2026-07-16. Two instructions on this line inverted once `$79` was pinned; both are superseded.**
+  > **(a) "grep-assert no stray `$79` remains" is now backwards.** It assumed the price would move off `$79`. `$79` is canonical, so the assertion it was reaching for is the durable one: **no price literal appears anywhere outside `pricing.ts`.** That is what is asserted, and it is clean.
+  > **(b) "discount math consistent with the '2 months free' copy" cannot be satisfied, because that copy is false.** At `$9.99 × 12 = $119.88` against `$79`, the saving is `$40.88`, which is **just over four months, not two** — and no currency lands on a whole number of free months (USD/EUR 34%, GBP/CAD 36%). The copy was wrong in the user's favour, which is still a number the price table does not back. It is deleted with the picker; the arithmetic and the rule ("express the discount as a share, never a month count") are recorded in `pricing.ts` for Phase 10.
+  > **Exam row is provisional outside USD.** `$39` is pinned; no source states a EUR/GBP/CAD exam price, so those are derived from the ratios the subscription rows already use and are marked provisional in-file. Apple and Google price IAP from fixed tier ladders, so they will not survive the store consoles unchanged: pin them against real tiers during CC-B, before Phase 11 wires RevenueCat.
+- **✅ DONE — Examiner v1 ungrounded marking (MED).** A shipped examiner v1 prompt already grades "against CEFR rubrics" with no authored rubric, model answer, or examiner notes, the exact memory-based marking the content spec's principle #1 calls the industry's quiet lie. Re-scope examiner v1 to conversational roleplay only (unscored) and block any exam-scoring code path until rubric + model_answer + examiner_notes exist. Do this here as an honesty/store-risk fix, not deferred to Phase 8. [content]
+  > **Resolved 2026-07-16, and the exposure was smaller than this line implies.** "A shipped examiner v1 prompt" overstates it: the prompt is seeded `active: true` but **no code path can reach it**. `supabase/functions/coach/index.ts:45` hardcodes `.eq("key", "coach")` and is the only deployed function, so the marking was latent, not live. The **code-path block this line asks for already exists** and landed in Phase 1: `validateExamTask` (`schema.ts:1343`) rejects an open task with no rubric and no model answer.
+  > The `seed.sql` prompt is rewritten to unscored roleplay that refuses a band, level, score or report even when the candidate insists, and says it cannot mark rather than guessing.
+  > **✅ Caveat closed 2026-07-16 (it was live, not theoretical).** `seed.sql` inserts under `where not exists`, so it cannot retract a prompt already deployed — and the stamp originally written here said "N/A today (Supabase unconfigured)", which was **false**: the canonical DB exists, and CC-A's dry-run work surfaced the old grading body sitting in it, `active: true`. Converged same day with a guarded `UPDATE` (body extracted programmatically from `seed.sql` so deployed and seed are byte-identical; the `%CEFR rubrics%` guard means re-running it is a no-op). Verified: `has_grading: false`, `has_refusal: true`, still active. Any **other** control plane seeded before 2026-07-16 still needs the same one-liner, now recorded in `seed.sql`.
+- **✅ DONE — Home render cost (HIGH).** `home.tsx` computes `reviewDueCount` (a full ~20k-entry SRS fold, `:101`), `streak` (up to 3660 iterations with `Set.has`, `:89`), `topWeaknesses`, `minutesToday`, and `wordOfDay` directly in the render body with **no `useMemo`**, while `den.tsx`/`smartreview.tsx`/`review.tsx` all memoize. Home is the most-visited screen and re-renders on every language toggle, browse-fold toggle, and any attempts/sessions/errors change. Wrap `due`/`run`/`weaknesses`/`done` in `useMemo` keyed on the specific store slices. Trivial, high payoff; the deeper shared-fold fix lands in Phase 5. [perf]
+  > **Resolved 2026-07-16.** `due`, `run`, `weaknesses`, `done` and `wod` are memoized on their own slices. **`wordOfDay` needed care this line did not anticipate:** it reads the clock (`new Date()` default arg), so an empty key would have frozen the word for the process lifetime. It is keyed on `today`, the `localDay()` string that turns over at the same local midnight the logs are bucketed by. The deeper shared-fold fix still lands in Phase 5.
+
+**Scope/tasks.** Pure edits to `settings.tsx`, `profile.tsx`, `home.tsx`, `flags.ts`, `strings.ts`, `README.md`. Delete the `CUR`/`planRows` billing UI that references the fake card; **extract the reusable `CUR` price table to `src/content/pricing.ts` now** (with the canonical matrix above) so Phase 10 imports it rather than re-deriving.
+
+> **Actual scope 2026-07-16.** As planned, plus four files this list did not anticipate: **`src/store/useStore.ts`** (delete `upgrade()`), **`src/i18n/i18n.test.ts`** (drop `weakMeta` from the parity list), **`supabase/seed.sql`** (examiner prompt), and two new modules, **`src/content/pricing.ts`** and **`src/content/weakness.ts`**. The store edit is the notable one: this phase was scoped as "pure edits" to screens, but `upgrade()` is the fabrication engine itself and leaving it callable would have left the defect one call site away from returning.
+
+**Schema/data changes.** None.
+
+> **Held 2026-07-16.** None made. The one place it was tempting (a unique constraint on `system_prompts (key, version)` so the examiner prompt could upsert) was **declined** to keep this promise; the cost is the manual-retraction caveat recorded above.
+
+**Dependencies.** None. This is the unblocking pre-phase. Start CC-A and CC-B here.
+
+> **2026-07-16: neither CC-A nor CC-B was started.** Phase 0 shipped through no CI, exactly as Phase 1 did. Every criterion below was checked by hand. **CC-A is now the highest-value next move**: two phases of invariants are enforced only by a human remembering to run `node --test`.
+
+**Acceptance criteria.** No hardcoded payment method or no-op Restore row anywhere (`grep 4212` and `grep -n restore` clean). Profile and Home render identical weakness data for the same log. README claims match `auth.ts`/`stt.ts`/`metro.config.js`. Exam chips read `TEF Canada · TCF Canada · DELF B2`. No paywall/plan copy advertises an unbuilt or ungated feature. Examiner v1 scores nothing. `pricing.ts` states the full matrix; ~~no stray `$79`~~ **no price literal outside `pricing.ts`** (inverted, see the price stamp above). Home folds are memoized.
+
+> **Met 2026-07-16, with one criterion restated and one not evidenced.**
+> ✅ `grep 4212` clean; the `T.restore` key is gone entirely. ✅ Profile and Home read the same fold and the same map, so they agree **by construction** rather than by inspection. ✅ README matches `auth.ts`/`stt.ts`/`metro.config.js`. ✅ Chips read `TEF Canada · TCF Canada · DELF B2`, captions realigned. ✅ No paywall copy remains at all. ✅ Examiner v1 scores nothing. ✅ `pricing.ts` states the matrix and no price literal survives elsewhere. ✅ Home folds memoized. ✅ `tsc --noEmit` clean; `node --test` 208/208, no regression.
+> **⬜ Not evidenced: none of this was run on hardware.** It is verified by typecheck, tests and grep. Every change is render-path (a removed settings section, a rewired Profile section, memoized Home folds), and memo keys in particular typecheck cleanly while misbehaving live. **A device pass on the Pixel is the honest remaining step before trusting Phase 0 visually.**
+> **Note on the grep criteria:** the explanatory comments left in `settings.tsx` were deliberately written **without** the literals (`4212`, `$79`) they describe, so the greps above stay mechanically checkable when CC-A turns them into CI gates. A comment that quotes the string it removed fails the check that proves it was removed.
+
+**Risks.** Low. The only real risk is removing billing UI that Phase 10 reinstates; mitigated by the `pricing.ts` extraction.
+
+> **2026-07-16: that risk is now larger than this line assumed, and still accepted.** What Phase 10 must reinstate is not "billing UI" but the **entire commercial surface**: plan picker, price rows, upgrade button, billing rows, Restore control, currency picker, `upgrade()` (as a real purchase), and all of the paywall copy. The mitigation holds and is broader than stated: `pricing.ts` pins every number, `premium`/`currency`/`planPick` survive as persisted state, and git history holds the deleted markup. The trade is deliberate: a store-rejection risk and a free-unlock bug are cleared now, and Phase 10 rebuilds against a real entitlement instead of retrofitting one under a prototype's UI.
+
+---
+
+## Phase 1 — Schema v2 (unified migration) + curriculum spine + level-cap lift — execute immediately (CF-25)
+
+> **Classification: EXTEND (not greenfield).** The content pipeline is built and proven; this phase extends the schema in place to carry a fuller corpus. Do not rebuild delivery. See the CF-07 resolution in `SSOT-DECISION-SHEET.md`.
+
+**Goal.** Land every non-additive and high-leverage content-schema change in one migration while the corpus is still 17 items, so each change is a cheap edit, not a data migration plus re-record. Simultaneously fix the one canonical curriculum spine and lift the A2 ceiling before any advanced authoring. Implements CF-02, CF-10, CF-11, CF-13, CF-17, CF-24, CF-25, and the schema half of CF-12.
+
+### 1.A The two-file invariant, corrected
+
+The systems draft's through-line ("the canonical shape lives in two files that must stay byte-identical, `ealch-v2/src/content/schema.ts` and `ealch-admin/src/db/schema.ts`") is factually wrong and misdirects the schema plan. [arch]
+
+- `ealch-admin/src/db/schema.ts` is a Drizzle Postgres schema (`pgTable` + `pgEnum`), not a copy of the TS content schema, and cannot be byte-identical to it. `publish-content.ts` imports the app schema directly (`from '../../ealch-v2/src/content/schema.ts'`, lines 32-41), so there is **one** canonical TS contract, imported, not duplicated. [arch]
+- Reframe invariant #1: the app `schema.ts` is canonical and imported by the pipeline; the real, narrower drift risk is the Drizzle pgEnums (`contentLevel`, `drillKind`, `itemKind`, `contentStatus`, `userLevel`) that manually mirror the app's `as const` unions. The CI parity check compares those **enum value-lists** against the app unions, not files. Document the cross-repo TS import (sibling paths, erasable-syntax constraint) so nobody "fixes" it by copying `schema.ts` into admin and creating the exact drift the design prevents. [arch]
+- **Pin canonical field names in one place.** The drafts name the new image field inconsistently (`image_ref` vs `imageRef`); the app convention is camelCase fields (`audioRef`, `itemIds`) mapping to snake_case columns (`audio_ref`). Canonical: app field `imageRef` ⟷ column `image_ref`. Getting this wrong desyncs the publish row-mapper, the validator, and the voiceflash resolver. [data]
+- **Derive the id regexes from the const arrays.** Live drift already exists: `UNIT_ID_RE`/`LESSON_ID_RE` are capped to `(sons|a1|a2)` while `ITEM_ID_RE`/`SCENARIO_ID_RE` already allow all six bands. Build the band alternation from `LEVELS`/`TRACKS` rather than hardcoding the list in each RegExp, so CF-11's widening cannot miss one. [data]
+
+### 1.B Schema v2 delta (applied to `ealch-v2/src/content/schema.ts` and mirrored in Drizzle + a new migration)
+
+1. **Level caps (CF-11).** `TRACKS = ['sons','a1','a2','b1','b2','c1']`; widen `UNIT_ID_RE`/`LESSON_ID_RE` to `(sons|a1|a2|b1|b2|c1)` (derived from the const). "From Sons to C1"; the A2 ceiling is removed as an absolute prerequisite gate. The id regex was the ceiling.
+2. **c2 scoring-only (CF-10) with the exam-band contradiction resolved (HIGH).** Introduce `export const SCORE_BANDS = ['a1','a2','b1','b2','c1','c2'] as const`. Remove `c2` from content `LEVELS` (→ `['sons','a1','a2','b1','b2','c1']`) and from `ITEM_ID_RE`/`SCENARIO_ID_RE`. The draft's own `ExamTask.band: Level` then cannot hold `c2`, the very band CF-10 exists to preserve; **type `ExamTask.band`, `ExamSeries.passBand`, rubric band, and any exam result as `SCORE_BANDS`, not `Level`.** Add a validator test asserting a `c2` `ExamTask.band` passes while a `c2` `Item.level` fails. [data]
+3. **Item taxonomy, greenfield per CF-13.** Add to `Item`: `skill: ExamSkill` where `EXAM_SKILLS = ['CO','CE','PO','PE'] as const` (compréhension/expression orale/écrite); `register?: 'formal'|'neutral'|'informal'|'slang'`; `cando?: string` (CEFR can-do anchor); `modality: Modality` where `MODALITIES = ['recognise','produce','discriminate'] as const`; `imageRef?: string | null` (CF-24); `audio?: { word?: string; example?: string; slow?: string } | null` (role-keyed, replacing the single nullable `audioRef` at the schema level). Keep the existing `read/write/speak/listen` union only where `LessonSection.practice.skill` uses it (rename to `PracticeSkill` to disambiguate). Update `validateItem` to require `skill` and `modality`.
+4. **image_ref indirection built now (CF-24).** `voiceflash.tsx` resolves `item.imageRef` first, falls back to the built-in glyph set (`content/index.ts:33` `VfIcon`), then a generic icon. This uncaps Voice Flash past the 5 hardcoded icons without re-authoring. (Detail in Phase 6b.)
+5. **Modality on the attempt log (CF-02).** Add `modality: Modality` and an optional `at?: string` ISO instant to `AttemptInput`/`AttemptEntry` (`progress.logic.ts`). Modality is the one field expensive to retrofit after users accumulate history; `at?` makes the log FSRS-ready without changing today's SM-2 math (SM-2 ignores it).
+6. **CF-25 lesson deltas.** `useCases` cases gain `register`; `quiz` questions gain `itemId?: string` (so a missed quiz answer reaches the SRS/weak-spots) and each `opts` entry optionally becomes `{ text, errorClass?: WeakSkill, why? }` (per-distractor O(1) diagnosis). Add new section types: `minimalPair` (Phase 5's discriminate gate), `story` (tap-a-word tokens), `paradigm`, and per-cell audio on `table` rows. Extend `validateSection`; keep back-compat by treating string opts as `{text}`.
+7. **Exam entity types (CF-12 schema half; engine is Phase 8).** Add `ExamSkill`, `ExamTask`, `ExamSeries` types, `Scenario.exam?: { series; task; formatVersion }`, top-level `Corpus.examTasks?`/`examSeries?`, and `formatVersion` for copyright traceability. Add `validateExamTask` and referential checks in `validateCorpus`.
+8. **Curriculum spine, one canonical id-first source (CF-17, HIGH note 26).** Delete the `{title,sub}` prototype arrays in `curriculum.ts` (`currSons` 9, `currA1` 26, `currA2` 8); the Den already renders `content.units(track)` (`den.tsx:32-36`). `curriculum.ts` keeps only the honest classifier maps (`lessonSkill`) and derived counts. The shipped seed ids are canonical because they are immutable. Add to `Unit`: `canDo: string` (CEFR can-do anchor), `themes: string[]`, `prereqUnitIds?: string[]`. Add to `Lesson`: `features?: ('narrated'|'minimalPairs'|'roleplay'|'voiceflash')[]` and `scenarioId?: string`. Add `minLevel: Level` to `Playlist`.
+
+**The unit → lesson → step model (CF-17: "swappable lessons that go deep").** A Unit is a topic (e.g. `a1.18 La négation`); it contains one or more Lessons; a Lesson is a deep multi-section document (`sections[]`, already the right shape). Depth is delivered by three composable layers, not a new nesting type:
+- **Steps** = the ordered `sections[]` (`teach → minimalPair → examples → commonErrors → practice(read) → practice(speak) → cheatSheet → quiz`).
+- **Classes** = multiple `Lesson` rows under one Unit (`Unit.lessonIds[]`); `a2.01`'s 4-sub-lesson `focus` block becomes 4 real `Lesson` rows (`a2.01.l1..l4`).
+- **Features** = optional capabilities toggled by section presence (narrated Den walkthrough, minimal-pair discriminate gate, role-play by theme, Voice Flash set), surfaced by the Den as depth-tiered entry points (Learn / Narrated / Practice / Roleplay).
+
+**Sequencing fixes (HIGH note 35, orphan 11).** Rewrite the A1 spine so communicative payoff arrives early: move `La négation`, `Questions oui/non`, `Les mots interrogatifs` into A1 units 6-9 (immediately after être/avoir); teach informal `on` alongside `nous` at A1; every unit carries a non-empty `canDo`.
+
+**Prove the level ladder (HIGH note 23).** Author `cafe` at `a1`, `a2`, and `b1` so the "different content for beginners vs advanced" claim is demonstrable.
+
+**Folded panel improvements.**
+- **seed.json is never validated against schema.ts (HIGH).** `content.ts` casts `seedJson as Corpus` without validating; `schema.test.ts` only exercises synthetic fixtures. The moment `validateItem` requires `skill`/`modality`, the bundled 17-item seed becomes invalid but app-repo `node --test` stays green. Add a test that imports the real `seed.json` and asserts `validateCorpus(seed).length === 0`, converting the cross-repo hazard into a red CI light. Land it as Phase 1 acceptance **before** tightening any validator. [data]
+- **Migration reversibility and ordering (MED).** Drizzle migrations have no down scripts and the draft bundles column-adds plus an in-place re-seed `UPDATE` with no rollback story. Split `0004_schema_v2`: (a) additive DDL (new columns nullable, new standalone enums/tables, fine in one tx), then (b) a separate transactional data backfill for the 17 items, then (c) a follow-up tightening `NOT NULL` once backfilled. Keep any `ALTER TYPE ... ADD VALUE` on existing enums in its own committed step (it cannot run inside a transaction block). Write a down migration (or documented manual revert) for each. Tighten the app-side validator (`require modality`) only after the backfill. [data]
+- **[G3] ✅ DONE — Enum drift for c2 (MED).** CF-10 narrows the app `LEVELS` to drop `c2`, but the Drizzle `contentLevel`/`userLevel` pgEnums keep `c2`, and Postgres cannot cleanly `DROP` an enum value, so the DB will accept a `c2` `content_item` the app validator rejects only at publish. Decide and document: keep `c2` in the pgEnum but add a DB `CHECK` forbidding `c2` on `content_items` so authors are stopped at write time, or accept publish-gate-only enforcement and reframe the invariant as "value lists agree except intentionally-wider DB enums, guarded by CHECK." Whitelist the `c2` asymmetry in the CI parity check so it is a conscious exception, not silent drift. [data]
+  > **Resolved 2026-07-16 (verified).** Took the **CHECK-at-write-gate** option. `drizzle/0004_content_items_no_c2.sql` keeps `c2` in the pgEnum (documenting that Postgres has no safe `DROP VALUE`) and adds `CHECK (level <> 'c2')` on `content_items`, giving **two independent gates**: the CHECK stops authors at write time, `validateCorpus` stops `c2` reaching a phone even if the CHECK is dropped. The migration notes `level` is `NOT NULL` so the CHECK cannot pass on NULL (the 0002 bug class). `ealch-v2/src/content/enum-parity.test.ts` asserts the asymmetry is **exactly `c2` and nothing else**, so it cannot widen into general drift. **Caveat:** the parity check is a `node --test` case, not a CI gate — CC-A (⬜) must land for it to actually block a merge.
+- **[G1] ✅ DONE — Publish item projection drops new columns (MED, HIGH-leverage).** *(Verified 2026-07-16: `publish-content.ts` L130 carries `skill, register, can_do, grammar_points, modality` in the column allowlist; L214-215 apply the `::text` / `::text[]` casts incl. `modality::text`; L245-249 map rows → `Item` with absent-key (not `null`) semantics, matching the validators' type-when-present rule. The fields round-trip; they do not ship empty.)* `publish-content.ts:109-138` hand-selects and hand-maps each item column; anything not listed never reaches the snapshot. New optional fields (`register`, `cando`, `imageRef`) will pass `validateCorpus` yet ship empty unless **both** the SQL `SELECT` and the row map are updated (required `modality` at least fails loudly). Make "extend the publish SELECT + row mapper for every new column, with the correct `::text[]`/`::text` casts for enum(-array) columns" an explicit Phase 1 task and acceptance criterion. `modality` as a pg enum array hits the node-postgres enum-array parse bug already documented for `drills` (returns raw `'{...}'`) and needs the same `::text[]` cast. Add a publish-time assertion that every column present on `content_items` has a corresponding mapper key, so a future added column cannot be silently omitted. [arch][data]
+- **Corpus array merge is a four-touchpoint change (MED).** Adding top-level `Corpus.examTasks[]`/`examSeries[]` is not free: `mergeCorpus` overlays only items/lessons/units/scenarios, `EMPTY_CORPUS` lists only those, and the publish seed-cut selects only those. Adding exam arrays to the type without extending `mergeCorpus`, `EMPTY_CORPUS`, and the publish seed-cut + `itemsReferencedBy` graph will silently drop all exam content to the seed floor. Treat "add a Corpus array" as a four-touchpoint change and add a test that `mergeCorpus` preserves exam arrays from the snapshot. [data]
+- **[G2] ⏳ OPEN (deferred by design) — Persist migration is real, not additive (LOW/MED).** `useProgress` is persist version 1 with no `migrate()`, relying on zustand shallow merge for additive **top-level** fields (`useProgress.ts:118-124`). Making `modality` required on `AttemptEntry` is not additive at the element level: persisted attempt array elements have no modality, so a straight shallow merge yields undefined-keyed cards. Ship a genuine `migrate` (bump persist version to 2) that maps over the persisted attempts array (up to `MAX_ATTEMPTS=20k`) defaulting legacy entries to `'recognise'`. This is the app's first non-trivial persist migration: call it out and test it (v1 blob → migrate → assert every attempt has a valid modality; corrupt → clean empty; idempotent re-run). Sibling-gating (Phase 5) then correctly treats legacy attempts as recognise siblings. [data]
+  > **Status 2026-07-16 (verified): correctly deferred, not forgotten.** `useProgress.ts:122` is still `version: 1` with no `migrate()`, and that is **the intended state** — the guardrail's rule is *contract required, storage optional, until the migrate lands*. The rest of the stack is honouring it: `validateItem` still checks `skill`/`modality` **type-when-present** (not required), and `drizzle/0005_content_items_spine.sql` deliberately ships every new column **NULLABLE** ("NOT NULL comes later, with a real backfill, in its own migration"), because guessing every legacy item is `'recognise'` would invent data the SRS then schedules against.
+  > **Therefore this is the gating item for two things:** tightening `validateItem` to require `skill`/`modality`, and the `NOT NULL` follow-up migration. **Owner: Phase 5 (SRS engine)** — sibling-gating cannot be correct until legacy attempts carry a modality. Do not require `modality` anywhere until the versioned `migrate` ships with its test suite (v1 blob → migrate → every attempt valid; corrupt → clean empty; idempotent re-run).
+- **Cached-snapshot compatibility across app upgrade (MED).** Renaming `SKILLS`→`PracticeSkill` and reworking `DrillKind` risks that existing installs carry a cached OTA snapshot under the old shape. `selectItems` filters with `it.drills.includes(drill)` (`content.logic.ts:78,84`); if drill-kind strings change and the cached corpus predates the migration, decks silently return `[]`, `flashcards.tsx:151` computes `pct` as `(cardIx/deckLen)*100 = NaN` when `deckLen=0`, and Den progress reads 0/N. Version the snapshot/DrillKind schema and invalidate (or migrate) an incompatible cached snapshot on app upgrade; keep a back-compat mapping for old drill-kind strings during merge; add a `deckLen===0` guard so `pct` never becomes NaN. Make "app upgrade over an old cached snapshot renders real decks" a Phase 1 acceptance criterion. [perf]
+- **Shipped Sons accuracy (HIGH).** `sons.03.l1` teaches `/œ̃/` (un, parfum) as separate from `/ɛ̃/` (in, vin), a contrast merged by most standard-French speakers, while the corpus has no `/y/-/u/` (tu/tout) unit, the contrast that actually causes misunderstanding. The deterministic French gates (conjugator/gender-lexicon/espeak IPA) validate form and will pass a phonologically over-fine distinction. Present `/œ̃/` as an optional traditional variant merging with `/ɛ̃/`, and author a `/y/-/u/` minimal-pair unit as a priority, folded into the `minimalPair` discriminate step so perception precedes production. [content]
+- **Referential integrity for new refs (LOW).** Extend `validateCorpus` in the same phase that adds each reference: resolve `Lesson.scenarioId` against scenarios, `ExamTask.targetItemIds` against items, `ExamSeries.taskIds` against exam tasks, `Scenario.exam` task references; add duplicate-id checks for exam tasks/series to the existing `dupes()` pass; cover each with a "dangling ref is rejected" test. [data]
+
+**Schema/data changes.** Drizzle `0004_schema_v2` (split per above) adds columns `skill`, `register`, `cando`, `modality`, `image_ref`, role-keyed `audio` to `content_items`; a `content_exam_tasks`/`content_exam_series` table; lesson `body` jsonb already carries `useCases.register`/`quiz.itemId`. Re-seed the 17 items with `skill`/`modality` defaults in the transactional backfill step.
+
+**Dependencies.** Phase 0. Blocks Phases 2, 5, 6, 7, 8 and all authoring.
+
+**Acceptance criteria.** `node --test src/content/schema.test.ts` green, including the real-`seed.json` validity test. `content.units('b1')` returns real B1 units; the Den renders 6 tabs with honest per-tab counts; no `{title,sub}` prototype array remains. Every A1 unit has a non-empty `canDo`; negation/interrogation appear in units 6-9. A `c2` `Item` fails `validateItem`; a `c2` `ExamTask.band` passes; a `b1` `UNIT_ID_RE` passes; an `Item` with no `modality` fails. The publish SELECT + mapper carry every new column with correct casts; a golden-snapshot test round-trips the re-seeded fields. The persist `migrate` passes its versioned test suite. An app upgrade over an old cached snapshot renders real decks (no NaN, no empty deck). The enum/union parity CI check is green (with the `c2` whitelist). Drizzle migration applies clean on a branch DB.
+
+**Risks.** The `SKILLS`→`PracticeSkill` rename touches `lesson.tsx` render + `schema.test.ts`. The two-repo enum-parity constraint is enforced by CI, not memory.
+
+---
+
+## Phase 2 — Content pipeline hardening + lesson↔corpus join + prove-the-pipe
+
+> **Classification: HARDEN + EXTEND (not greenfield).** The author-in-DB → snapshot → app pipeline is built and proven; this phase hardens it into a governed system and extends its capabilities. The content corpus itself is the greenfield work (a separate, ongoing build). See the CF-07 resolution in `SSOT-DECISION-SHEET.md`.
+
+**Goal.** Ratify author-in-DB / ship-compiled-snapshot as canonical; close the dead lesson→corpus join so lesson study creates SRS cards; add the capabilities the pipeline lacks; and prove one A1 theme end-to-end on device before scaling generation. Implements CF-07; folds the content data model (Section 2), the generation pipeline (Section 7), and release-safety.
+
+### 2.A Ratify the content-plane architecture (CF-07)
+
+Hybrid: author-in-DB (Management Plane), ship a compiled immutable snapshot (Delivery Plane); the app never live-queries the DB for core content. Already half-built: `publish-content.ts` assembles published rows → `validateCorpus` (abort on any issue) → `snapshots/v{n}.json` + `manifest.json` → Storage `content` bucket → `content_snapshots` row → committed `seed.json`. App: `content.ts:77-161` seed → cache → manifest, `content.logic.ts:263-284` four-gate `verifySnapshot`, `stableStringify` byte-matched to the script. DB is truth, git `seed.json` is a verifiable mirror, Storage snapshot is the OTA channel.
+
+**Content table layout: resolve the draft contradiction (MED).** The two halves contradict each other. Shipped reality: lessons, units, and scenarios are all `content_units` rows discriminated by the `contentKind` enum with a jsonb `body` (`admin schema.ts:205-234`; publish reads `where kind='lesson'|'scenario'|'curriculum_unit'`). **Standardize on the shipped `content_units` + `kind` + jsonb `body` model for documents; keep only `content_items` relational.** Delete the content-half's separate `content_lessons`/`content_scenarios` proposal (a needless migration away from a working discriminated union at 17 items). `sections`/`turns`/`narration` stay as validated JSONB blobs (order-significant documents the app reads whole; the `schema.ts` validators are the contract); atomic entities (items, exam tasks) stay relational so the studio can query "all A1 cafe items eligible for voiceflash" without loading a monolith. [arch]
+
+### 2.A+ Extend scope + governed pipeline (CF-07 resolution)
+
+**Extend scope (added by the CF-07 decision, not yet built).** The current pipeline ships one global snapshot. The decision extends it to: (a) level-sharded blobs (`a1_content.json`, `a2_content.json`, ...) with a manifest pointer and a Level +/- 1 scoped sync so the app downloads only nearby levels rather than one global blob; and (b) an `audio_assets` manifest table mapping ids to media URLs so heavy audio is excluded from the JSON blobs and cached on demand. Sequence sharding once the corpus is large enough to justify it (it is not, at 17 items); land the `audio_assets` manifest with the first phase that ships real media (Phase 4 audio or Phase 7). [arch]
+
+**Governed pipeline — systematize OPR ↔ DB ↔ app.** Turn the working-but-fragile chain into a governed system. These four guarantees are enforced by machine, not by memory, and are Phase 2 acceptance criteria:
+
+1. **No silent loss.** Every field authored in OPR reaches the app or the publish fails loudly. Enforced by the publish `SELECT` + row-mapper parity assertion from Phase 1: no new content field can ship empty. [data]
+2. **No divergence.** The admin pgEnum value-lists and the app `as const` unions must always match; the CI parity check blocks any change that makes them disagree. [data]
+3. **Safe updates.** Every published snapshot passes through staged rollout (a fraction of users first), a remote freeze/kill switch (halt a bad batch), and rollback (return to the last good version). No content update reaches 100% of users without these controls. This is the highest-probability incident once LLM-authored content ships at volume. [qa]
+4. **Real authoring lifecycle.** `draft → in_review → published` (the existing `contentStatus` enum) is an enforced gate in OPR, so quality is checked systematically as the corpus grows, not by hand after the fact. [content]
+
+### 2.B Close the lesson→corpus join — **[PHASE 2 EXIT BLOCKER]** (HIGH note 27 — the retention engine)
+
+All 3 shipped lessons have `itemIds: []` and zero `practice` sections (`seed.json:156,272,388`); `progress.logic.ts:358 SCHEDULABLE` only schedules items attempted in a drill, so a lesson referencing no items feeds the SRS nothing, and the Den's progress bars (`den.tsx:47-52`) stay at 0/0. Add a hard publish gate:
+
+```
+RULE lesson-has-practice: every published Lesson has >=1 section of type 'practice'
+                          with a non-empty, fully-resolvable itemIds[], and Lesson.itemIds is populated.
+```
+
+This is the one rule that converts lesson study into review-deck cards. **Sequence it correctly (MED):** landing the gate before the three lessons are re-authored bricks `publish-content` entirely (the whole point of the plan is to keep publishing). Land the gate in the same change as re-authoring the three shipped lessons with real `practice` sections and `itemIds`; until then ship it as a warning, not an abort, or scope it to lessons authored under the new pipeline. [data]
+
+### 2.C The compile step and OTA safety
+
+`publish-content.ts` reads published rows, assembles a `Corpus`, runs `validateCorpus` (abort on any issue), `stableStringify` + `sha256Hex`, writes the snapshot to Storage and a `Manifest {version, path, checksum}`. The app's `verifySnapshot` is the receiving gate. Byte-parity requirement: the publish stringify must match `stableStringify` exactly or every valid snapshot fails its own checksum.
+
+**Folded panel improvements.**
+- **verifySnapshot perf budget (HIGH).** `verifySnapshot` computes `sha256Hex(stableStringify(parsed))` over the entire snapshot synchronously on the JS thread: a hand-rolled char-by-char SHA-256 (`content.logic.ts:150-215`) plus a full re-serialization sorting every object's keys (`:135-144`). Sub-millisecond at 20KB; at the launch corpus (audio manifest, per-lesson segment maps, narration bodies, exam rubrics, hundreds of KB to multiple MB) this is a multi-hundred-ms main-thread stall that janks whatever is interactive when an OTA lands. Attach a perf budget: chunk the hash across frames (or run after `InteractionManager.runAfterInteractions`), or move verification to a native crypto path/worklet; drop the redundant re-hash on the read path (the cache was already checksum-verified when written); benchmark at the target corpus and set a hard ceiling. [perf]
+- **Cold-start redundant re-validation (HIGH).** `initContent` (`content.ts:81-89`) awaits `readCache`, which `JSON.parse`s the full cached snapshot and runs `isValidCorpus = validateCorpus` over the whole corpus (`schema.ts:554-637`: per-entity validation + duplicate-id Sets + O(lessons×itemIds) and O(units×lessonIds) referential walks + a flatMap "linked" Set) on the paint-gating path (`_layout.tsx:72-73` gates first paint on `contentHydrated`). The cached corpus was already fully verified when written. Trust the already-verified cache: store the manifest checksum alongside it and compare the cheap stored checksum instead of re-running `validateCorpus`, or skip structural re-validation on read and validate lazily after paint (roll back if it fails). Measure cold-start time-to-interactive on a low-end Android at target corpus size. [perf]
+- **OTA apply memory spike (HIGH).** `refreshFromRemote` holds ~5 full-corpus representations live at once (raw response text `:140`, parsed object, the `stableStringify` string for hashing, `verified.corpus`, `JSON.stringify(verified.corpus)` for the cache write `:150`, and `mergeCorpus(SEED, verified.corpus)` `:156`). At multi-MB this is a transient 4-5x memory spike + heavy GC during a background fetch, a realistic low-end Android OOM window. Reuse the already-parsed object for the cache write instead of text→parse→stableStringify→re-stringify; free intermediates before merging; cache the raw verified text so no second stringify is needed; set a hard corpus-size ceiling and test OTA apply under an Android memory-pressure profile. [perf]
+- **Mid-session live-upgrade jank (MED).** On success `refreshFromRemote` upgrades the live corpus mid-session via `useContent.setCorpus` (`content.ts:156`), triggering the synchronous verify + merge on the JS thread while the user interacts; more frequent OTA (the D30 mechanism) means more frequent spikes. Make the mid-session live upgrade opt-in/deferred: apply a downloaded snapshot at next cold start, or schedule verify+merge behind `InteractionManager.runAfterInteractions` so it never lands during an animation or drill. [perf]
+- **OTA rollback / staged rollout / kill switch (HIGH).** `content.ts` always fetches the single newest manifest and only ever raises version, so a bad-but-valid snapshot reaches 100% of users on next launch with no recourse but fix-forward. Add: a staged rollout (manifest carries a rollout % or the app hashes device id to gate adoption), a remote kill/pin flag the app honors to freeze on the cached version, and a documented rollback runbook. Since the counter is DB-derived (`prev+1`) and `content_snapshots` exists, track which version each cohort holds so a bad version can be pinned out. This is the highest-probability incident in the plan; it must exist before Phase 7 scales generation. [qa]
+- **Publish atomicity (LOW).** Version is `prev+1` in app code, the `content_snapshots` row is inserted at step 9, and `seed.json` is written at step 10 after the insert, so a crash between insert and write records a version whose committed git mirror never landed; and Storage upload before row insert can orphan an object under a version the DB later reuses. Move the `seed.json` write before the snapshot-row insert (so the mirror cannot lag the counter), or wrap version-selection + insert so a PK conflict is the single "someone else published" signal; add a cleanup/upsert note for orphaned Storage objects. Low priority until more than one editor publishes. [data]
+
+### 2.D Pipeline capabilities
+
+1. **Audio manifest (unblocks Phases 4/7).** Add an `audio_assets` table keyed by a content-addressed hash of `script + voice + provider + renderVersion`, and a lesson audio segment map (`[{blockId,startMs,endMs,text}]`) so karaoke highlight and pause-at-interaction are expressible before real audio exists.
+2. **Deterministic French gates in the publish path (Content-Gen C12-15).** Before `validateCorpus`, run non-LLM checks: verb forms via a conjugator (mlconjug3/verbecc), gender via a gold lexicon (Lefff/Lexique), IPA via espeak-ng/phonemizer, a CEFR level-fit classifier, and the `≥30% recycled vocab / ≤8 new items` token-diff post-filter. These gates run only in the publish/CI environment, never in the Metro bundle or on device. [perf]
+3. **Regen economics.** Idempotency-keyed resumable runner (`key = hash(prompt_version + schema_version + inputs)`); version-hash staleness so a prompt/schema/format change re-enqueues only affected items; cache the shared instruction prefix across packs (~90% input-cost reduction).
+4. **Security (RLS).** The plan tightens `system_prompts` RLS from `using(true)` to `active=true`, but that still exposes full prompt bodies to any anon reader. If the coach/examiner/generation prompts are injected server-side by edge functions (service role, bypasses RLS), the client never needs prompt bodies: **drop the anon SELECT policy on `system_prompts` entirely** rather than softening it. If the client genuinely needs a prompt key/version (not the body), expose only those columns via a view. Audit `system_config` the same way for secret-adjacent fields. [data]
+
+### 2.E Positional deep-link anchors
+
+Error events point back into the exact lesson block via `<lessonId>#s<n>.<k>` (section index + item index), derived from array position, invalidated on `corpusVersion` mismatch, never used as an SRS key (SRS keys stay `itemId`).
+
+### 2.F The generation pipeline and prove-the-pipe (pulled forward — HIGH)
+
+The content half named corpus volume "the critical path the entire product waits on" yet scheduled the generation pipeline last. **Pull the prove-the-pipe milestone and a minimal generate → deterministic-gates → LLM-judge → Gate-H → publish loop forward to run in parallel from Phase 2, right after the lesson→corpus join lands,** so authoring capacity ramps while later engines are built. Keep narration/examiner UIs late, but let the corpus they consume fill the whole time. "One A1 theme clears the full pipe on device" is an explicit exit gate before any engine work, not a P7 sub-task. [content]
+
+The 8-stage pipeline (Nemotron default per CF-05, via the Phase 3 socket):
+1. **Plan** — a themed job spec (level, theme, unit, target item count, drill eligibility, register, recycled-vocab set) derived from the Phase 1 spine.
+2. **Generate** — Nemotron via the port-4000 socket; cache the shared instruction prefix.
+3. **Deterministic gates** — schema-valid (`validateCorpus`), typography-clean (no em dashes, the standing rule; accent correctness), level-discipline (tense scope, word caps, `≥30%` recycled, `≤8` new items), id-resolution.
+4. **LLM-judge** — adversarial crosscheck for French correctness/naturalness/register.
+5. **Human review (Gate H)** — see the risk-tiered gate below.
+6. **Batch TTS** — Camille/neural audio into the role-keyed audio map; phonics rendered + human-verified first.
+7. **Publish** — `publish-content.ts` compiles the snapshot, `validateCorpus` aborts on any issue, checksum written, OTA (with the rollout/kill-switch safety above).
+8. **Staleness re-gen** — a prompt/schema/format change marks only affected items stale by version hash; the idempotency-keyed resumable runner makes bulk regen cheap and safe.
+
+**Folded panel improvements.**
+- **Risk-tiered Gate H (HIGH).** A flat `≥15%` human-review sample lets subtle, systematic A2/B1 grammar errors (passé composé with être, accord du participe, object-pronoun placement) through at the level where "drilled wrong is retained wrong" bites hardest. Keep 15% spot-check for word-level themed vocab, but require **100% human review for grammar-bearing lessons** (any lesson whose sections teach a tense/agreement/pronoun system) and for all Sons phonics content. Encode the tier as a machine rule keyed off lesson content type so it cannot be skipped by an author. [content]
+- **IPA mandatory where it matters (MED).** IPA stays optional (`Item.ipa?`) and the shipped cafe/objets/dictee items carry none. For a product whose differentiator is "sounding less foreign," make IPA a machine-gate (required) for all Sons items and any item eligible for voiceflash/pronunciation drills, populated by a deterministic FR→IPA pass rather than the 15% LLM spot-check; route Sons IPA through full human review. [content]
+- **Cross-level scaffolding gate (MED).** The `≥30%` recycled / `≤8` new rule is within a lesson; there is no contract that a level recycles the previous level's constructions, leaving the A2→B1 cliff unaddressed. Add a cross-level recycling gate to the publish contract (a B1 lesson must reuse a minimum share of A2 target items/structures) and specify the same-theme-at-multiple-levels pilot (cafe at a1/a2/b1) as the proof artifact for the ladder. [content]
+- **OPR studio authoring workflow.** Typed review editors over `content_units`/`content_items` with autosave + a **draft lock** to stop two editors clobbering, inline threaded per-block comments; **live device preview** (phone frame + real renderers incl. Camille narration) with a QR/deep-link to open a draft on device before publish; restructure-with-migration (moving a pack to a curriculum node auto-applies domain/theme/level tags via a migration rather than silently reassigning published items). The port-4000 socket lets an author swap the generation backend without code changes.
+
+**Real corpus atoms first (HIGH notes 4, 7).** The pilot cites items (`un café`, standalone `s'il vous plaît`, `merci`) that are not discrete corpus items, and a `cafe` scenario that does not exist. Add the discrete items and author `sc.a1.cafe.001`, or rewrite scripts to teach only existing ids; enforce id-existence at validate time so a script referencing a non-existent item/scenario fails publish rather than rendering an empty stage.
+
+**Schema/data changes.** `0005_audio_and_provenance` (audio_assets, segment-map jsonb on lesson body); RLS change on `system_prompts` (drop anon SELECT or view-only); no app-schema break (audio already nullable at the schema level after Phase 1).
+
+**Dependencies.** Phase 1 (exam/format_version present, new columns in the projection). Blocks Phases 4, 7, 8 authoring at volume.
+
+**Acceptance criteria.** OPR studio writes to `content_units`/`content_items`; `publish-content.ts` compiles a snapshot that passes `validateCorpus` and whose checksum verifies via the app's `verifySnapshot` (round-trip test, byte-parity asserted). Publish is rejected if any lesson lacks a resolvable `practice` section (once the gate is live), any `itemIds`/`imageRef`/`scenarioId` dangles, or any `prereqUnitId` forward-references. The 3 existing lessons are re-authored with real `practice` sections. `content:publish --dry-run` runs the French gates and reports rejections with item ids; a prompt-version bump re-enqueues only changed items; `system_prompts` no longer exposes bodies to anon. **One A1 theme clears the full pipe (generate → gates → judge → human → publish → plays on device) and is measured before any Wave 1 scaling.** OTA has staged rollout + a kill switch + a rollback runbook. `verifySnapshot` and cold-start validation meet their perf budgets at target corpus size on a low-end Android device.
+
+**Risks.** The French correctness gates are the heaviest new dependency (Python toolchain in the admin repo); keep them out of the Metro bundle entirely.
+
+---
+
+## Phase 3 — Pluggable provider socket → OPR admin :4000, Nemotron default (CF-05, CF-06)
+
+**Goal.** One multipurpose LLM socket the OPR console drives, defaulting to NVIDIA Nemotron, that accepts any OpenAI-compatible provider (KIE, OpenAI, Anthropic, Gemini/DeepSeek cheap tier) without a client ship. Implements CF-05 and CF-06.
+
+**Current state.** The socket is half-built server-side. `supabase/functions/coach/index.ts:112-166` `resolveProviders()` is a generic chain: `AI_API_*` → OpenRouter → NVIDIA Nemotron → Anthropic, with a module-scope circuit breaker (`:28`) and PostHog failover events. `config.ts` `RemoteConfig` (`:10-18`) carries `orchestrator: 'kie'|'nvidia'`, `models.{general,content,audio,video}`, `promptVersion`. The admin has `ai_capabilities`/`ai_models`/`ai_routing` (`schema.ts:349-374`) but nothing writes `ai_routing` into `system_config`, and there is no `:4000` OPR endpoint the edge function consults. Default is Nemotron (`schema.sql:86`, `config.ts:23`).
+
+**Folded panel improvements.**
+- **The routing wiring is broken at the last inch (CRITICAL).** The draft asserts OPR routing → provider is "true by construction," but the client already sends `model: getConfig().models.general` in the coach body (`llm.ts:31`), and the coach edge function destructures only `{ messages, lang, promptVersion }` (`index.ts:187`) and selects a provider purely by which `AI_API_*`/`OPENROUTER_*`/`NVIDIA_*`/`ANTHROPIC_*` secret is present, in fixed priority order. **The `model` field is received and thrown away; `system_config` is never read by the edge function.** Flipping `ai_routing` in the console cannot change the live provider; only setting/unsetting a server secret and redeploying can. Fix: make the edge function read `model` from the request body (or read `system_config` directly) and select the provider whose configured model id matches, via an explicit **model-id → provider registry** mirroring `ai_models.provider`, instead of by env-var presence. Add a resolver unit test asserting a given model id routes to the intended provider and that the cost ceiling is enforced there. Only then is the Phase 3 acceptance criterion achievable. [arch]
+- **config.models is barely consumed (MED).** `models.content/audio/video` are read into `RemoteConfig` but nothing on the client consumes them; the only consumer, `models.general`, is sent to coach and discarded. Specify the full socket contract: which config field drives which call site (coach `general`; tts `audio`; future `content`/`video`) and wire each, rather than asserting "the app already reads this." Widen `orchestrator: 'kie'|'nvidia'` to a free string keyed to `ai_models.provider` with `nvidia` default (default-merge at `config.ts:48` protects old clients); make audio routing actually select the tts provider once Phase 4's client path exists. [arch]
+- **Coach turn cap / free-tier enforcement (HIGH).** No coach turn cap exists (`coach/index.ts` has no quota); the coach is the only real recurring variable cost, and the unit-econ doc makes capping it the mitigation for African free users being net-negative and premium-brain cost blowout. Phase 3 wires a per-capability **cost ceiling** for margin, but also add a **per-user, per-day coach turn counter enforced server-side** in the coach edge function, gated by entitlement (free = N turns/day, premium = unlimited on cheap tier). This is both the cost control the economics require and a core conversion lever (hitting the cap is a paywall trigger in Phase 10). It depends on the Phase 9 identity substrate for a per-user key; until then, enforce a device/session-scoped cap as an interim. [money]
+
+**Target.**
+1. Formalize `AI_API_*` as the pluggable entry. The OPR console (`:4000`) owns `ai_routing`; a publish/sync step writes the active model per capability into `system_config.config.models`, and the edge function resolves provider from the config-injected model id via the registry + server secret.
+2. Nemotron stays default (CF-05). Anthropic/OpenAI/Gemini are opt-in via routing, never a silent fallthrough (the current chain can fall through to Anthropic at 5-8x cost, the CF-06 margin risk).
+3. Cheap-tier hard rule (CF-06): encode a per-capability cost ceiling for the coach, enforced in code; wire Gemini 3 Flash / DeepSeek as selectable cheap providers in `resolveProviders()`.
+4. OPR :4000 contract: model list, active routing, cost/latency labels (the `ai_models` fields exist) and the sync job that pushes routing → `system_config`.
+
+**Schema/data changes.** No app-schema break; a sync job (admin) writes `ai_routing` → `system_config`; add `cost_ceiling_cents` to `ai_models`.
+
+**Dependencies.** None hard (coach socket exists); benefits from Phase 2 provenance for logging which model drafted content. De-risks Phases 4/7/8 generation and the coach margin.
+
+**Acceptance criteria.** Flipping `ai_routing` in the console changes the coach's live provider/model on next config refresh with no app rebuild (proven by the resolver reading `model` and matching via the registry); a provider with no secret is skipped, not errored; the coach cannot exceed its cost ceiling (unit test on the resolver); a per-user daily coach turn cap is enforced server-side; `failover_served`/`failover_tripped` events fire to PostHog.
+
+---
+
+## Phase 4 — Azure / Camille TTS resolver + client remote-audio path (CF-04)
+
+**Goal.** Lock a single consistent Camille brand voice via an Azure/OpenAI-neural resolver as primary, keeping Fish/ElevenLabs as wired fallbacks, and build the client remote-audio playback path that does not exist today. Implements CF-04.
+
+**Current state.** `supabase/functions/tts/index.ts:100` chain is `[customTts, fishAudio, elevenlabs]`, no Azure path. `config.ts:15` `ttsProvider` enum is `'device'|'elevenlabs'|'azure'` but no `azure` resolver exists; default `'device'`. On device, `tts.ts:38-41` acknowledges the remote path is "wired for production" but always uses `expo-speech`. `stt.ts:146` stops TTS before recording.
+
+**Folded panel improvements.**
+- **The client remote-audio path is entirely net-new (HIGH) — scope this phase L/XL, not M.** No client code invokes the tts edge function (grep: only coach, stt, delete-account are invoked); `tts.ts`'s `provider !== 'device'` branch is a comment-only no-op (`:38-41`) that always falls through to `expo-speech`. Even after Azure is added to the edge chain, nothing plays it until the client build exists. This phase requires: a client `fetch → base64 → expo-audio` playback path; folding remote playback into `tts.ts`'s once-only `onDone`/`onError` settle guarantee (`:44-59`); coordinating the new expo-audio player with `stt.ts`'s pre-record stop, which today only calls `Speech.stop()` and would not stop a remote clip (audio-session contention); a remote-path timeout distinct from the Android "not bound" device retry; and the content-addressed clip cache. Pre-synthesize lesson audio at publish time; live-synthesize only coach/roleplay. [arch]
+- **Clip cache, player teardown, timeout (MED).** Specify: an LRU/size-capped clip cache with eviction (it grows unbounded on disk otherwise); explicit player teardown (release/remove) on unmount and on clip end (the Phase 7 karaoke player creates many; un-torn-down native players leak memory); a per-request synth timeout that falls back to `expo-speech`; and a test that `onDone`/`onError` still fire exactly once across the remote→device fallback. [perf]
+- **Completion watchdog (MED).** `tts.speak` has a retry watchdog for a speak that never starts (`START_GRACE_MS`, `:98-109`) but none for a speak that starts and never reports DONE; some Android engines fail to fire `onDone` on long/edge-case utterances, which stalls the player auto-advance chain (`player.tsx:98-122`) and means `logSession` never runs. Add a per-utterance max-duration timeout inside `tts.speak` that force-settles `finishOk`/`finishFail` (bounded by text length), mirroring `START_GRACE`. This makes every autoplay/narration chain self-healing and guarantees the session log is written. [perf]
+
+**Target.**
+1. Add an `azureNeural` (and/or OpenAI-neural) provider to the edge `chain`, first (primary), before `customTts`/`fish`/`elevenlabs`. Env: `AZURE_TTS_KEY`, `AZURE_TTS_REGION`, `AZURE_TTS_VOICE` (the auditioned `fr-FR` Camille voice).
+2. Make the `config.ts` `ttsProvider` enum and the resolver set agree: `'device'|'azure'|'openai'|'fish'|'elevenlabs'`. Default stays `'device'` (offline-first); the control plane can select `'azure'`.
+3. Client TTS path (`tts.ts`): when `ttsProvider !== 'device'`, fetch synthesized audio from the `tts` function and play via `expo-audio`; on any failure fall back to `expo-speech`. Cache synthesized clips by the Phase 2 content-addressed key.
+4. Lock Camille by audition: record the chosen voice id in `ai_models` (audio capability) so it is auditable and swappable from the console.
+
+**Schema/data changes.** Reuse Phase 2 `audio_assets` for the cache; `ai_models` audio row records the Camille voice.
+
+**Dependencies.** Phase 2 (asset cache), Phase 3 (routing writes the audio model). Feeds Phase 7. Ships in a native store binary (release train, CC-A).
+
+**Acceptance criteria.** With `ttsProvider: 'azure'`, a phrase plays the Camille neural voice; with the key removed it falls back through fish → elevenlabs → device with no crash; the same phrase is not re-synthesized twice (cache hit, LRU eviction present); `tts.speak` fires `onDone`/`onError` exactly once across the remote→device fallback (settle guarantee preserved); a per-utterance completion watchdog force-settles a never-DONE utterance; players are torn down on unmount.
+
+**Risks.** Device-vs-remote latency: pre-synthesize lesson audio at publish time (batch), only live-synthesize coach/roleplay.
+
+---
+
+## Phase 5 — SRS / mastery engine wiring (CF-01, CF-03, CF-02, CF-21)
+
+**Goal.** Keep the shipped SM-2 engine, make it modality-aware with sibling-gating, define a mastery bar SM-2 can compute, cap the daily queue, and make every SRS-facing string honest. Implements CF-01, CF-02, CF-03, CF-21; the full content Section 3.
+
+**Current state.** `progress.logic.ts` is a clean pure fold: `applyGrade` (`:333-350`) is SM-2 (`MIN_EASE 1.3`, `MAX_EASE 3.0`, `1→3→interval×ease`, miss wipes to 0); `srsCards` (`:367-399`) keys purely on `itemId` (no modality); `dueCards`/`reviewDueCount` (`:403-418`) return the full uncapped backlog; `topWeaknesses` (`:459-470`) ranks by raw count over 7 days; no mastery constant exists; `itemsPracticed` (`:276`, ≥1 correct) is the "met" proxy the Den uses (`den.tsx:46-52`). Append-only attempt log, cards a replayable fold.
+
+**Target.**
+1. **Keep SM-2 (CF-01),** gate FSRS-6 behind a real need; structure `applyGrade` so an FSRS implementation is a drop-in swap later (same signature). The `at?` instant landed in Phase 1 makes FSRS a re-fold, not a re-collection.
+2. **Modality cards (CF-02).** Key `srsCards` on `(itemId, modality)` (`${itemId}::${modality}`) using the Phase 1 field. Drill → modality: flashcard fr→en = `recognise`; flashcard en→fr, voiceflash (speak), sentence-builder = `produce`; minimal-pair = `discriminate`; dictation = `produce` (write). One item holds up to three cards, each with its own interval.
+3. **Sibling-gating (CF-02 + orphan 0).** A `produce`/`discriminate` card is not created until its `recognise` sibling reaches a stability floor. Implement as a pure predicate over the folded cards, and enforce in `srsCards` by skipping produce/discriminate attempts whose recognise sibling has not cleared the floor. Legacy attempts (defaulted to `recognise` by the Phase 1 migrate) correctly gate their producers.
+4. **Mastery (CF-03, exact rule).** `export const MASTERY_REPS = 5, MASTERY_INTERVAL_DAYS = 21`; `isMastered(c)` returns true iff `reps ≥ 5 AND intervalDays ≥ 21 AND no recent failure`. An item is mastered for a unit only when its `recognise` + `produce` siblings both pass (discriminate where the item carries a phonics contrast). Keep "met" and "mastered" as two distinct words.
+5. **Daily cap (orphan 2 — the biggest documented churn event).** `dueCards`/`reviewDueCount` return a capped queue (default 20/day) plus a gentle backlog message, never the raw overdue count.
+6. **Weak-spot hardening (orphan 1).** Rank `topWeaknesses` by Wilson lower-confidence bound with `MIN_ATTEMPTS=8` over a 30-day window, not raw 7-day counts.
+7. **Copy (CF-21).** Already reworded in Phase 0; verify no SRS-facing string promises literal intervals (grep `1 → 3 → 7`, `1 -> 3 -> 7`).
+8. **Daily-session composer (HIGH note 13 — the D1 return hook).** `composeSession(attempts, corpus, level, today, opts)` returns `{ due: SrsCard[] (capped, most-overdue first), new: Item[] (M new items at level, theme-interleaved, sibling-gated), backlog: number (never shown as a raw debt) }`. Fixes both starve (empty due → introduce new) and flood (post-cram → cap).
+9. **Softer lapse (HIGH note 32).** A miss currently zeroes interval and reps (`applyGrade:340`). Keep reps reset (relearning is real) but floor the post-lapse interval by prior stability: a card that reached 21d drops to a short relearning step (1-2d), not 0. Tunable, tested.
+
+**Folded panel improvements.**
+- **SRS is O(attempts) per derivation, folded many times per render (HIGH).** Every SRS number is a full fold over the entire log (bounded `MAX_ATTEMPTS=20,000`, `useProgress.ts:55`). `srsCards` rebuilds a Map + per-item arrays + runs `applyGrade` over all attempts; `dueCards`, `reviewDueCount`, and `upcomingCards` each call `srsCards` independently (`:403-426`), so one screen showing a count plus an "up next" preview folds the whole log twice. Phase 5 multiplies this (~3x cards via modality, sibling-gating cross-refs, Wilson ranking, `composeSession`). Add a single source-of-truth fold: memoize one `srsCards(attempts)` result keyed on attempts identity and derive due/upcoming/weak/mastery/session from that one map; better, maintain the card map incrementally in the store (update only the touched item's card on each `logAttempt`) so reads are O(due), not O(log). Keep the pure functions for tests but cache their output. Make this an explicit acceptance criterion with a benchmark at 20k attempts on low-end hardware. [perf]
+- **SCHEDULABLE must become a predicate (HIGH).** `srsCards` only schedules activities in the activity-based `SCHEDULABLE` set, which excludes speak/roleplay/lesson. Phase 7's narration `produce`/`check` interactions write real `AttemptEntry` rows to feed the queue, but logged under a speak-type activity they would be recorded and dropped, silently reproducing the "retention-inert" outcome. Rework `SCHEDULABLE` from an activity allowlist to a predicate: **schedule any attempt that carries a resolvable corpus `itemId` plus a `modality`, regardless of surface.** Then narration produce/check and future speak drills schedule correctly, while open-response exam PO/PE (no atomic itemId) route to the separate exam-skill surface (Phase 8). Add a `progress.test.ts` case proving a narration produce attempt becomes a due card. [content]
+- **Mastery as the sole Den signal deletes early progress (MED).** Because `isMastered` requires `interval ≥ 21`, an active daily learner sees 0/N on every unit for ~3 weeks, deleting the early-progress signal in the D1-D14 make-or-break window, and it conflicts with keeping "met" and "mastered" distinct. Show both counts on the unit (met M / mastered K / total N), or drive the progress bar with "met" and reserve the mastered badge/check for the honest retention milestone. Do not let mastery-only be the sole visible unit signal in the first weeks. [content]
+- **Sibling-gating threshold is arbitrary (MED).** The `reps ≥ 2 AND intervalDays ≥ 7` floor is only two clean passes in, far from stable, so produce siblings can still surface early and re-inflate day-one volume. Justify the floor against the interval ladder (e.g. require the recognise card to have cleared the `3 → interval×ease` transition, not just reps=2), make it a named tested constant, and add a `progress.test.ts` assertion bounding the day-one produce-card count for a realistic first-session log. [content]
+- **Dictation modality mislabel (LOW).** The map labels dictation as `produce`, but dictation trains listening comprehension (CO) plus written production (PE), not spoken production; and it distinguishes flashcard fr→en (recognise) from en→fr (produce) though the shipped flashcards drill does not capture direction. Define modality per drill+direction explicitly and make each drill screen emit the correct value in `AttemptInput`; split dictation into its comprehension and production components or tag it honestly. Add a test that each drill's logged modality matches its retrieval direction. [content]
+- **Server carries fabricated-metric liabilities (HIGH note 33 / control-plane, folded to Phase 9).** `review_items` (`schema.sql:41-52`) is FSRS-shaped and denormalized, keyed to nothing derivable, no `attempts` table; `profiles.level default 'B1'` (uppercase) diverges from the lowercase `Level` union. The full server reconciliation (append-only `attempts` table, `profiles.level` lowercase CHECK, drop `streak`, foreground sync) lands in **Phase 9 (identity substrate)** because it requires an authenticated user id; it is sequenced with Phase 1's modality field so both land once. Flagged here because it is the SRS's server mirror. [data]
+
+**Schema/data changes.** None new client-side (modality/`at?` landed in Phase 1). Server `attempts` table lands in Phase 9.
+
+**Dependencies.** Phase 1 (modality on attempts). Feeds Phase 6 (placement seeds first cards), Phase 7 (Den completion = mastery), Phase 10 (no "mastered" UI ships before this).
+
+**Acceptance criteria.** `progress.test.ts` proves: a produce card does not appear until its recognise sibling clears the (justified) floor; mastery flips only at `reps ≥ 5 ∧ interval ≥ 21 ∧ no recent miss`; `dueCards` never returns more than the cap; Wilson ranking suppresses a 1/1 "weakness"; a narration produce attempt becomes a due card (via the SCHEDULABLE predicate); the day-one produce-card count is bounded for a realistic first session. The shared-fold memo/incremental map meets its 20k-attempt benchmark on a low-end device. Den unit progress shows met + mastered, not mastery-only. No SRS string promises fixed day intervals.
+
+**Risks.** Modality keying changes the map key shape everywhere `srsCards` is consumed (`smartreview.tsx`, `review.tsx`, home due count); grep every caller. Sibling-gating must not strand legacy items (they default to `recognise`, so producers gate correctly).
+
+---
+
+## Phase 6 — Placement rebuild (CF-16)
+
+**Goal.** Replace the fabricated single-question placement theatre with a real adaptive 12-18 item probe that writes a level to the store. Implements CF-16.
+
+**Current state.** `app/placement.tsx` is confident adaptive theatre over one hardcoded question: `isA2` hardcoded (`:31`), fake `Q7` (`:65`), `58%` bar (`:61`), mocked A2/A1+ result (`:161`), "adaptive — the test ends when your level is confident" copy (`:148-152`), and it writes to no store (`router.push('/den')` with a hardcoded start unit, `:190-192`). This is the Apple 2.3.1 fabricated-UI risk.
+
+**Target.**
+1. A real adaptive probe: vocab recognition → audio QCM → produced sentence, drawing items from the corpus by level, 12-18 items, terminating when the level estimate is confident. Output `A0..C1` → writes `profiles.level` and `useStore.level` / `completeOnboarding(level)`.
+2. Seed the SRS: each probe response logs a real `AttemptEntry` (with modality), so placement starts the retention loop.
+3. Real progress UI: `Q{n}` and `%` reflect actual item index / estimate confidence, not literals.
+4. Route the learner to the true starting unit derived from the estimate (now possible because Phase 1 lifted the level cap and the Den holds B1-C1).
+
+**Folded panel improvements.**
+- **Honest interim first (CF-16 immediate step, [content] note 15).** Adaptive item selection needs a calibrated item bank; until it exists, ship an honest interim: relabel as a "quick check" and remove `Q7`/`58%`/`isA2`/"adaptive" copy so no fabricated-UI risk sits in review. Gate the full adaptive version behind bank availability (authored via Phase 2). [content]
+- **Placement is the natural first paywall trigger (HIGH, [money]).** Placement writing a level is the "here's your plan" moment; wire it as a paywall entry point in Phase 10 (do not build the paywall here, but reserve the hook). [money]
+- **STT dependency (CC-A).** The produced-sentence step depends on `expo-speech-recognition`; ensure the toolchain-pinning fix landed. [qa]
+
+**Schema/data changes.** None (writes existing `profiles.level`); reads corpus items; writes attempt log.
+
+**Dependencies.** Phase 1 (level caps + item taxonomy), Phase 5 (attempt→SRS wiring), a placement item bank authored via Phase 2.
+
+**Acceptance criteria.** The probe terminates adaptively, writes a level the Den reads, and logs real attempts; no hardcoded `Q7`/`58%`/`isA2` remain; retaking produces a different path for a different responder. Until the bank exists, the surface is an honest "quick check" with no adaptive claim.
+
+**Risks.** Without a calibrated bank the probe is only as good as its content; ship the honest quick-check first.
+
+---
+
+## Phase 6b — Voice Flash image_ref, drill breadth, Word of the Day (CF-24)
+
+**Goal.** Scale Voice Flash beyond derivable icons via explicit per-item image references; broaden per-item drill eligibility so the review deck is not starved; tie Word of the Day to the learner's level/theme. Implements CF-24; the full content Section 6.
+
+**Current state.** Voice Flash uses 5 fixed icons (`content/index.ts:33 VfIcon = 'cup'|'house'|'book'|'sun'|'car'`, `vfItems` hardcoded to those 5); no `image_ref`. Drill decks are tiny and single-modality: flashcard-eligible = 8, voiceflash = 5, dictation = 3, sentence = 1 (Sentence Builder reads `content.itemsFor('sentence')[0]`, one fixed sentence forever). Each item declares a narrow `drills[]`. Word of the Day is level-blind: 8 abstract literary nouns (`wordOfDay.ts:23-112`), no level, no theme link, rotating every 8 days.
+
+**Target.**
+1. **image_ref indirection (CF-24, schema landed Phase 1).** Voice Flash renders `item.imageRef` when present; `iconFor(fr)` is the fallback only, then a generic icon. `imageRef` points at a Storage asset shipped in the snapshot's asset manifest. Publish gate: a dangling `imageRef` fails validation, same class as a dangling `itemId`.
+2. **Broaden drill eligibility (HIGH note 28).** Require most vocab items to be eligible for multiple drills (a noun → `flashcard + voiceflash + review + sentence`); machine-gate warning for single-drill items; minimum per-theme item count `≥20`. Sentence Builder stops reading `[0]` and draws a rotating set from `selectItems(corpus, 'sentence', {level})`.
+3. **Word of the Day tied to level/theme (HIGH note 12).** Draw from the learner's active level+theme corpus; add `level` to `DictEntry`.
+4. **Drills as views over one corpus.** `selectItems` (`content.logic.ts:72`) is the right join; the fix is corpus breadth + wider `drills[]`, not new drill code. Verify every drill screen (Voice Flash, dictation, sentence, flashcard) logs `AttemptEntry` rows.
+
+**Folded panel improvements.**
+- **Word-of-the-Day determinism contradiction (MED).** "Active level+theme corpus" and "same-for-everyone / deterministic by day-of-year" (the invariant `wordOfDay.ts:116-124` guarantees) are contradictory: once the word depends on the learner's level it is no longer the same for everyone. Pick one contract explicitly: either keep it global (rotate a curated per-level pool, same word for all users at a given level+date) or drop the same-for-everyone claim. State which and update the determinism note so the implementation does not inherit a false invariant. Recommended: per-level pool, same word for all users at a given level+date, keeping the current 8 literary words as the top-band pool. [content]
+- **Sentence Builder article split (MED).** `sbWords` splits `un` and `café` into two draggable bubbles, teaching that the determiner is detachable from the noun, contradicting the "gender travels with the noun / never a bare noun" principle Voice Flash's `vfItems` correctly follows. Treat article+noun as a single token for beginner sentence-building (one bubble: `un café`), and add a validator/authoring rule that vocabulary items carry their article so gender stays part of the phonological word wherever surfaced. [content]
+- **IPA required for voiceflash items (MED, from Phase 2).** Any item eligible for Voice Flash / pronunciation drills must carry IPA via the deterministic FR→IPA pass. [content]
+
+**Schema/data changes.** `imageRef` resolver + fallback; asset manifest in the snapshot (image refs → Storage paths, checksum-verified); `DictEntry.level`; wider `drills[]` on authored items; per-theme `≥20` and multi-drill machine gates; Sentence Builder rotating selection.
+
+**Dependencies.** Phase 1 (schema), Phase 2 (asset manifest + authored breadth). Feeds Phase 5 (deck health) and Phase 7.
+
+**Acceptance criteria.** Voice Flash renders any item with an `imageRef`; items without one fall back to `iconFor` then a generic glyph; publish rejects a dangling `imageRef`. Each active theme has `≥20` items; most vocab items are eligible for `≥2` drills; a machine-gate warning lists single-drill items. Sentence Builder draws a rotating selection with article+noun as one token. Word of the Day reflects the learner's level (per the chosen determinism contract). Every drill screen writes `AttemptEntry` rows.
+
+**Risks.** A starved deck is a dead review loop; breadth is the enabler, and it is authored via Phase 2.
+
+---
+
+## Phase 7 — The Den: greenfield 7-stage narrated lesson (CF-08, CF-09)
+
+**Goal.** Build the flagship narrated 7-stage Den lesson (Camille-walked, guided-autoplay or self-pace) as net-new; a schema that expresses stages/segments/interactions; a parser; a player that walks segments and pauses; a consistent Camille voice; and narration that creates SRS cards. Implements CF-08, CF-09, CF-04 (client side); the full content Section 5.
+
+**Current state.** Entirely unbuilt. `schema.ts` has no `narration`/`stage`/`segment`/`interaction` field; no `parseNarration`; no 7-stage player. `app/den.tsx:29-58` is a `SONS/A1/A2` unit browser; `app/lesson.tsx` renders an ordered `LessonSection[]` then a quiz. The 17 items behind a 43-unit UI (`curriculum.ts:62`) mean most units render honest "coming soon" (`den.tsx:178-181`). `tts.ts` hardcoded `fr-FR` (`:71`). The Au Café pilot script is orphaned content with no code path.
+
+**Target.**
+1. **Narration schema (additive, land the shape before authoring — HIGH note 25).**
+```ts
+export const NARRATION_STAGES = ['warm','focus','input','practice','produce','check','cheat'] as const;
+export type NarrationSegment = { voice:'en'|'fr'; text:string; audioRef?:string|null; startMs?:number; endMs?:number };
+export type NarrationInteraction = { kind:'repeat'|'produce'|'check'; itemId?:string; expected?:string; gradeAs?:Modality };
+export type NarrationStage = { stage:(typeof NARRATION_STAGES)[number]; segments:(NarrationSegment|NarrationInteraction)[] };
+export type LessonNarration = { camilleVoiceId:string; stages:NarrationStage[]; ratioEnFr:number };
+export type Lesson = { /* existing */ narration?: LessonNarration };
+```
+2. **Parser + player.** Pure `parseNarration(block): Seg[]` (zero-import, `node --test`) tokenizes the authoring markup (`[FR]...[/FR]`, `[pause:n]`, `[sfx:ding]`, `[dir:...]`). The Den player walks the stages, speaks each segment in its declared voice, and pauses at each interaction.
+3. **Fix `tts.ts` lang (HIGH note 2 — gate the feature behind it).** Add a `lang` param, default `fr-FR` (no change for existing callers); EN segments call `en-US`: `tts.speak(text, { lang?:'fr-FR'|'en-US', slow?, rate?, onDone?, onError? })`. Preserve the Android "not bound" retry (`:98-109`); do not rewrite casually (the `tts-not-bound-hot-reload` memory: editing `tts.ts` breaks Android TTS in dev, fix with full restart). Raise the slow floor to 0.75 (HIGH note 36).
+4. **Narration creates SRS cards (HIGH notes 3, 5).** `produce`/`check` interactions call `logAttempt` against real `itemId`s via the STT path (`stt.ts`, `utils/score.ts`), gradeable as `produce`/`discriminate`. Every `interaction.itemId` must resolve to a real corpus item (publish gate). This works only because Phase 5 made SCHEDULABLE a predicate.
+5. **7-stage Den host** wrapping the section renderer with stage progression, and CF-09 pooling: the Den entry (and the Home resume hero) pools from all learning components the user needs or last stopped, driven by the SRS due queue (Phase 5), the `resume` slot (`useProgress.ts:37-43`), and weak spots, not a fixed "un café" scenario.
+6. Den completion reads Phase 5 mastery.
+7. **Camille voice (CF-04).** `camilleVoiceId` on the narration doc pins the brand voice; the TTS Edge Function resolves it (Phase 4), device `expo-speech` the guaranteed offline fallback.
+8. **Role-keyed audio map (HIGH note 21).** Use the Phase 1 `Item.audio {word, example, slow}`; add `audio` to `ScenarioTurn`, `PlaylistTrack` lines, `DictEntry`, per-`NarrationSegment`.
+9. **Phonics audio fixed first (HIGH notes 19, 20, 36).** Human-verified natural-render clips for Sons/liaison/nasal/R are the first fixed audio generated, never device TTS, never time-stretch; for A2+ listening comprehension generate a genuine natural-paced take with slow as the secondary render.
+
+**Folded panel improvements.**
+- **Karaoke highlight jank (MED).** A start/end-ms segment map implemented naively means polling playback at 30-60Hz and re-rendering the text block each tick. Drive the highlight on the UI thread (react-native-reanimated is already a dep) rather than React state, or update at word-boundary granularity (advance only when position crosses the next segment's `startMs`); pre-index segments by time for O(1) lookup. Make "no dropped frames during narration on a low-end device" an acceptance criterion. [perf]
+- **Den unit-list render cost (MED).** `den.tsx` computes `progressOf(u.id)` per-unit inside `.map` on every render (`:47-52, 137-139`); each call runs `content.lessonsOf` → `getUnit` (O(units) find) + `indexById` over all lessons (O(lessons) Map build, `content.logic.ts:119-127`) + a new Set from flatMap, so the list is O(units×lessons) with fresh allocations. Content S1/Phase 1 expand the Den to 6 tabs and many more units/lessons. Build a unit→itemIds index once with `useMemo` over the corpus (single O(lessons) pass) and have each row look up its item set from that map; combine with the memoized "met"/mastered set. [perf]
+- **Narration pause timing (MED).** A fixed pause-per-level model (flat `[pause:4]`) means 4 seconds of dead air after a one-word "bonjour" and possibly too little time to compose a PRODUCE line. Scale the interaction pause to the length of the segment being responded to (roughly word-count + a floor), keep the level default only as a minimum, and expose pause length as a user setting; pre-generated baked audio makes this cheap. [content]
+- **Completion watchdog (from Phase 4).** The narration autoplay chain depends on `tts.speak` `onDone`; the per-utterance max-duration timeout added in Phase 4 makes the chain self-healing. [perf]
+
+**Schema/data changes.** Narration types + validators; `Lesson.narration?`; `tts.speak` `lang` param + 0.75 slow floor; `parseNarration` pure module + tests; role-keyed audio on `ScenarioTurn`/`PlaylistTrack`/`DictEntry`/segment; `camilleVoiceId` resolver in the TTS Edge Function; the café corpus atoms + `sc.a1.cafe.001`.
+
+**Dependencies.** Phase 1 (schema), Phase 2 (audio manifest + pipeline + segment map), Phase 4 (Camille + client audio path), Phase 5 (mastery + pooling + SCHEDULABLE predicate). Largest systems build; correctly last among learning surfaces. Ships in a native store binary.
+
+**Acceptance criteria.** `tts.speak` speaks EN segments in `en-US` and FR in `fr-FR`; no English scaffolding is read by a French voice; the Android retry still works on cold restart. A narrated lesson validates only if every `interaction.itemId` and each stage's segments resolve; publish rejects orphaned scripts. Completing a narrated lesson writes `AttemptEntry` rows (produce/discriminate) and advances Den progress + SRS. A narrated lesson plays Camille through 7 stages, pauses at interactions, highlights the spoken segment with no dropped frames on a low-end device, and both autoplay and self-pace work. Sons phonics clips are human-verified natural renders, not device TTS or time-stretch; `slow` never drops below 0.75. One Camille voice is locked by audition and pinned via `camilleVoiceId`; device TTS remains the offline fallback. The Den entry pools from resume/weak-spots (CF-09). A unit with no authored lesson still renders honest "coming soon" (the `validateUnit` legal-empty rule, `schema.ts:494-501`).
+
+**Risks.** Scripts have been accumulating against a player that does not exist; build the player + validator before authoring more. The 70/30 recycling ratio and sequential-scaffold pedagogy survive as publish-time gates (Phase 2 token-diff filter).
+
+---
+
+## Phase 8 — Exam engine + schema (CF-12, CF-13, CF-22)
+
+**Goal.** Build the Examiner against the now-real exam schema, for the Canada-first launch set (TEF Canada, TCF Canada, DELF B2), on a CO/CE/PO/PE taxonomy, with copyright guardrails and the prep content beneath it. Implements CF-12 (schema landed Phase 1, engine here), CF-13, CF-22; the full content Section 4.
+
+**Current state.** Exam schema is greenfield (added in Phase 1: `ExamTask`/`ExamSeries`, `Scenario.exam{}`, `formatVersion`, `SCORE_BANDS`). Home exam chips (corrected to `TEF Canada · TCF Canada · DELF B2` in Phase 0) all route to `/speak`. No exam engine, no answer-key/rubric machinery, no `examDisclaimer` i18n key. All 17 items are `a1`; there is no B1-B2 corpus to draw stimuli/model answers/remediation from.
+
+**Target.**
+1. **The CO/CE/PO/PE taxonomy (CF-13).** `Item.skills` (landed Phase 1) tags every item and exam task with CEFR/exam marking skills (CO listening, CE reading, PO speaking, PE writing), so the Examiner draws stimuli by exact marked skill and a weak result decomposes into the right remediation.
+2. **Exam entities (CF-12).**
+```ts
+export const EXAM_FORMATS = ['delf_b2','tef_canada','tcf_canada'] as const;   // CF-22
+export const EXAM_TASK_TYPES = ['co_mcq','ce_mcq','po_monologue','po_interaction','pe_short','pe_essay'] as const;
+```
+`ExamTask` carries `id` (`ex.<format>.<skill>.<seq>`), `seriesId`, `format`, `taskType`, `skill`, `band: SCORE_BANDS` (b1..c2, c2 scoring-only), `timeLimitSec`, `stimulus {text?, audioRef?, imageRef?, prompt}`, `rubric [{criterion, band, descriptor}]`, `modelAnswer? {text, notes}`, `targetItemIds[]`, `formatVersion`, `version`. `ExamSeries` carries `id` (`exs.<format>.<seq>`), `format`, `title`, `taskIds[]`, `totalMinutes`, `passBand: SCORE_BANDS`, `version`. `Scenario.exam?` reuses a role-play as a `po_interaction`.
+3. **Exam-to-review loop (HIGH note 9 — the missing conversion).** Both required: **Decompose** — each `ExamTask.targetItemIds` lists corpus atoms; a missed CO/CE task enqueues those atoms as normal SRS attempts (recognise/discriminate), which the SCHEDULABLE predicate (Phase 5) now handles. **Exam skill surface** — for PO/PE (open response, unschedulable as atoms), an `ExamResult` → "due skills" keyed by `(format, skill, band)` deep-links to the matching prep lesson.
+4. **Prep-to-remediation path (HIGH note 10 — build one full loop before charging).** Prep is a level band (B1/B2) of the same Den lesson model, tagged by CO/CE/PO/PE. Build at least one complete weak-skill path end to end: weak PE @ B2 → named skill → real B2 prep lesson (argued-text structure) → re-attempt the `pe_essay` task.
+5. **Gating (HIGH note 8).** The Examiner is gated behind a shipped B1-B2 corpus + prep: B2 item bank and scenarios first (stimuli, model answers, remediation), then the marking pipeline. Content before engine. No exam task at a band with no upstream teaching content.
+6. **No hard gates for paying adults (orphan c49).** The exam is advisory/skippable and writes to the SRS, never hard-gating paid content.
+7. **Native review mandatory (Gate H).** AI drafts answer keys/rubrics; it never auto-publishes.
+
+**Folded panel improvements.**
+- **Copyright guardrails (in-app).** Only original items in authentic format (never reproduce papers), a visible non-affiliation disclaimer (`examDisclaimer` i18n key), every exam item tagged `formatVersion`.
+- **Store-listing trademark risk (MED).** In-app copyright is handled, but putting the registered marks "TEF Canada / TCF Canada / DELF B2" (marks of France Éducation international and CCI Paris) in the App Store/Play listing, screenshots, keywords, or prominent UI can be rejected as implying affiliation and is trademark exposure. CF-22 only fixes the chip label, not listing metadata. Add a release-listing review step: use descriptive "prep for…" phrasing with a visible non-affiliation statement in the listing and first-run UI, clear it with legal before submission, and keep the marks out of ASO keywords/screenshots. Treat it as a store-review gate. [qa]
+- **"Parallel," not "equated" (MED).** The model implies equated parallel forms with per-item difficulty rebalanced from real attempt data, but `AttemptEntry` records only score/verdict/correct (no p-values, discrimination, psychometrics) and a pre-launch app has zero sitting volume to equate against. Launch with expert-judged difficulty and call forms "parallel," not "equated"; label produced scores as practice estimates. If true equating is a goal, add item-analysis fields to the exam attempt schema now and hold the "equated" language until enough sittings exist. This is a CF-16-class trust risk if a fabricated band is shown. [content]
+- **Retire examiner v1 scoring (from Phase 0).** The ungrounded examiner v1 scoring path is fenced to unscored roleplay in Phase 0; the scored path unblocks only when rubric + model_answer + examiner_notes exist. [content]
+- **Referential integrity (LOW, from Phase 1).** `validateCorpus` resolves `ExamTask.targetItemIds`, `ExamSeries.taskIds`, `Scenario.exam` references, with duplicate-id checks; publish rejects a task whose stimulus audioRef/imageRef/targetItemIds dangle. [data]
+- **Commercial hook.** The `$39` exam-mode upgrade (Phase 11) unlocks full mock series + marking; the free taster is one diagnostic mock; third chip reads exactly "TCF Canada".
+
+**Schema/data changes.** Exam entities landed Phase 1; exam item authoring via Phase 2 with `formatVersion` + provenance + Gate H; exam-result → due-skill mapping in `progress.logic.ts`.
+
+**Dependencies.** Phase 1 (exam schema, SCORE_BANDS), Phase 2 (authoring + gates + a B1-B2 corpus), Phase 5 (writes attempts/SRS via the predicate), Phase 11 (gated behind the $39 entitlement).
+
+**Acceptance criteria.** Every `ExamTask` carries a `skill` in {CO,CE,PO,PE}, a rubric, and resolvable `targetItemIds`; publish rejects dangling stimulus/targetItemIds. A completed mock writes an `ExamResult`; CO/CE misses enqueue atoms into the SRS; PO/PE misses raise a due skill that deep-links to a real prep lesson (no exam attempt is silently dropped). At least one full weak-skill remediation path is walkable before the $39 tier is sold. Forms are labeled "parallel"; scores are labeled practice estimates. The non-affiliation disclaimer shows; formats are exactly {delf_b2, tef_canada, tcf_canada}; store listing uses "prep for…" phrasing cleared by legal. No exam task exists at a band with no upstream teaching content. Answer keys show Gate H sign-off provenance.
+
+**Risks.** Copyright is the existential risk (in-app and store-listing); the guardrails are non-negotiable and enforced at publish and at submission. Scoring rubrics that fake a band are the trust risk in a new surface; scores must be defensible or labeled as practice estimates.
+
+---
+
+## Phase 9 — Identity & sync substrate (new)
+
+**Goal.** Establish the authenticated-identity and client→server write path that Phases 10, 11, and the server attempt log all require and that no other phase creates. Without this, per-user entitlement and server-side attempts have no substrate. Folds the [arch] HIGH identity finding and the [data] HIGH control-plane finding.
+
+**Current state.** `useProgress` is local AsyncStorage only; `premium` is a local persisted boolean (`useStore.ts:208 upgrade()→premium:true`, `:296 persisted`); `auth.ts` deliberately holds no session unless Supabase is configured and the user actually signs in, and nothing in the app gates on an authenticated identity. The control plane (`supabase/schema.sql`) carries three liabilities: `profiles.level default 'B1'` (uppercase) vs the lowercase `Level` union; `review_items` (FSRS-shaped, denormalized, keyed to nothing derivable); and no `attempts`/progress table, so the entire attempt log (the sole basis for SRS/mastery/weak-spots) lives only in AsyncStorage. A reinstall or device change wipes all mastery, for paying users too.
+
+**Target.**
+1. **Sign-in gating and identity.** An authenticated Supabase user id, with the app's first client→server write path defined. RevenueCat `appUserID` aliased to the Supabase auth uid (prep for Phases 10-11).
+2. **Control-plane reconciliation ([data] HIGH; content 3.3.9).** Make `profiles.level` a lowercase-constrained CHECK or enum matching `Level` and allow null "unplaced" (drop the `'B1'` default); replace `review_items` with an append-only `attempts(user_id, item_id, modality, verdict, correct, day, at)` mirroring `AttemptEntry`; drop `profiles.streak`. Derive cards server-side by replaying the log with the same fold as the client (parity test). The server stops being a second, divergent source of truth. Sequence the `attempts` table with Phase 1's modality field intent so both land once.
+3. **Foreground sync + offline cache.** A defined conflict/merge policy for the attempt log if it ever syncs (append-only makes this a union, not a merge conflict); an offline entitlement cache that reconciles on foreground.
+
+**Schema/data changes.** Server: `attempts` table replacing `review_items`; `profiles` cleanup (lowercase-CHECK level, drop streak/`'B1'` default); auth session wiring; RevenueCat appUserID ↔ Supabase uid alias.
+
+**Dependencies.** Phase 1 (modality shape), Phase 5 (the fold to replay server-side). Gates Phases 10 and 11 and any server attempts.
+
+**Acceptance criteria.** An authenticated user id exists and is the key for entitlement and attempts; replaying the server `attempts` log yields the same cards as the client fold; `profiles.level` stores lowercase and allows null; no `streak`/`'B1'` default remains; a reinstall restores the attempt log via foreground sync. Do not ship the entitlement→admin sync until the user identity it hangs off exists.
+
+**Risks.** This is an L-effort substrate the drafts omitted; it is the honest precondition for selling learning state, not an afterthought.
+
+---
+
+## Phase 10 — Subscription monetization + paywall/gating (was Phase 9a) (CF-14, CF-15, CF-23)
+
+**Goal.** Replace the fake `premium` boolean with a real per-user entitlement, wire RevenueCat IAP, build the paywall/gating layer that does not exist, correct pricing, and start subscription revenue and conversion learning as early as the content is worth paying for. The Première subscription does not depend on the exam engine, so it is split from the $39 exam tier (Phase 11).
+
+**Current state.** `useStore.upgrade()` (`:208`) sets `premium: true` locally. `env.ts:19 revenueCatKey` is a placeholder; no `react-native-purchases` import anywhere. `settings.tsx` pricing (`:22-26`) is `USD/EUR/GBP/CAD`, annual `$79` (diverges from the corrected matrix). Admin has full `subscriptions`/`payments`/`sub_store('app_store'|'play'|'stripe')` tables (`schema.ts:117-143`) waiting for a real source.
+
+**Folded panel improvements.**
+- **No paywall exists anywhere (CRITICAL) — build the gating layer, not just the entitlement.** `premium` is consumed only in `settings.tsx` for plan-card display; the coach has no turn cap; no content, level, theme, coach, or offline feature is gated. You can build a perfect entitlement and earn $0 because nothing reads it to withhold value. Add a paywall/gating layer as an explicit workstream: a single `useEntitlement()`/`gate(feature)` selector wiring the real gating map: level/theme lock past A1, coach daily-turn cap (built server-side in Phase 3), live-roleplay cap, offline downloads, and the Examiner (Phase 11). Each gate needs a paywall entry point. Acceptance: at least one real feature refuses access for a non-entitled user and routes to the paywall. [money]
+- **Paywall placement and timing (HIGH).** Specify trigger points as first-class: (1) after placement writes a level (the natural "here's your plan" moment, Phase 6), (2) at each gate boundary as a contextual paywall, (3) a persistent but non-nagging home entry, (4) at free-exam-taster completion → $39 upsell (Phase 11). Design 2-3 paywall variants for A/B and instrument each entry point. [money]
+- **CF-15 vs unit-economics reconciliation (HIGH).** CF-15 (RevenueCat IAP-first, Stripe "for future / avoid if complicated," no Paystack) contradicts the team's unit-economics doc, whose thesis is web-checkout-first ("the largest leak is payment take, 30% IAP vs ~2-6% web," ~34% more revenue/subscriber, ~$28/yr), and which names PPP-for-Francophone-Africa via Paystack as one of two defensible wedges. Explicitly reconcile before locking this phase: document the LTV cost of IAP-first (~$28/yr/sub), keep the `Entitlement.source` seam genuinely pluggable, recommend RevenueCat IAP as the store-compliant default, and scope a Paystack web-checkout path for the Africa PPP tier specifically (RevenueCat cannot route Paystack). Re-verify the time-sensitive Apple/Google external-link rules pre-launch. [money]
+- **PPP/African pricing is launch scope, not deferred (MED).** CF-14 approved adding currency versions; the unit-econ doc names PPP-Francophone-Africa as a defensible wedge that "won't convert" without local-currency PPP pricing via Paystack. Treat a Paystack-backed PPP tier (local currency, ~$2-4/mo) as launch scope for the target market, or explicitly re-scope the Africa wedge out of the launch thesis so the economics model is honest. Do not leave it ambiguous. [money]
+- **Admin subscriptions schema cannot model the plan (HIGH).** `subPlan = ['free','monthly','annual']` has no exam/one-time tier; `subStore = ['app_store','play','stripe']` has no `paystack`; `payments.currency` defaults `'EUR'` with no NGN. Add a migration: extend `subPlan` (add a one-time/`exam` kind), add `'paystack'` to `subStore`, ensure `payments.currency` supports NGN and USD/EUR/GBP/CAD, and model the $39 exam entitlement as a distinct product rather than a subscription plan. Fold into the same "author both schema files" discipline. [money]
+- **Trial, dunning, winback, funnel instrumentation (MED).** `subStatus` already includes `trialing`/`past_due` but neither a trial (the standard freemium lever behind the cited 3-5% rate) nor failed-payment recovery is specced, and PostHog has no paywall-funnel events. Add: (1) an intro free trial via RevenueCat offerings, (2) dunning/grace handling for `past_due` (RevenueCat billing-issue events → in-app + notification), (3) a funnel spec (`paywall_viewed`/`plan_selected`/`purchase_started`/`completed`/`restored`, `trial_started`/`converted`) to PostHog, (4) a winback surface for canceled/expired users tied to the notification/composer loop. [money]
+- **Entitlement source of truth (LOW).** Declare RevenueCat `customerInfo` the single runtime authority (the app gates on it, refreshed on foreground); make the admin `subscriptions` table a derived mirror fed by webhooks for analytics/BI only, never read by the client to grant access. Mirrors the "DB is truth, snapshot is delivery" discipline and prevents a dropped webhook from silently gating a paying user. [money]
+
+**Target.**
+1. **Real entitlement.** Replace the boolean with `Entitlement { plan, features[], source: 'iap'|'stripe'|'paystack', expiry }` tied to a real subscription, synced from RevenueCat → the admin `subscriptions` table (mirror only). `premium` becomes a derived read over the entitlement.
+2. **RevenueCat IAP (CF-15).** Add `react-native-purchases`, wire `revenueCatKey`, real purchase + real Restore (reinstating the row removed in Phase 0, now with a handler). RevenueCat `appUserID` aliased to the Phase 9 auth uid.
+3. **Stripe/Paystack seam.** Leave a clean seam (`Entitlement.source` models it; admin `sub_store` has `stripe`); build the Paystack web-checkout path for the Africa PPP tier if scoped in (see reconciliation above); do not build general web checkout now.
+4. **Pricing (CF-14).** Import the corrected `pricing.ts` matrix from Phase 0; keep `USD/EUR/GBP/CAD` (+ PPP/NGN if scoped).
+
+> **⚠ Scope correction 2026-07-16: Phase 0 removed more than this section assumes.** These targets were written expecting to reinstate a Restore row into a surviving paywall. **There is no surviving paywall.** Phase 0 deleted the entire commercial surface, because none of it was real (`premium` gated nothing; `upgrade()` minted it for free). Phase 10 must therefore **rebuild, not retrofit**:
+> - the plan picker and price rows (**import `src/content/pricing.ts`**, do not re-derive: it holds the pinned matrix and the discount arithmetic);
+> - the upgrade button, wired to a real RevenueCat purchase (`useStore.upgrade()` is deleted and must not return in its old form: **nothing may write `premium` except RevenueCat `customerInfo`**);
+> - the billing row (card details come from the store, never a literal) and a Restore control that actually restores;
+> - the currency picker, **plus the region detection it always claimed and never had** (the old caption said "Detected from your region" over a hardcoded `'USD'` default). `currency` and `planPick` survived in the store as persisted preferences and are ready to read.
+> - **all paywall copy**, written fresh against real entitlements. Every string is gone (`planPremDesc`, `subActive`, `perMonth`/`perYear`, `monthly`, `annual`, `bestValue`, `upgrade`, `billing`, `paymentMethod`, `restore`, `currencyT`, `detected`). Two traps are recorded for whoever writes the replacements: **do not sell "Offline"** (it is free and ungateable, per `offlineReadyT`), and **do not express the annual discount as a month count** (`$79` vs `$9.99×12` is 34%, which is neither "2 months free" nor a whole number in any currency — see `pricing.ts`).
+>
+> This is more work than "reinstate the row", and it is the right trade: the alternative was retrofitting a real entitlement under a prototype's fake UI while a free-unlock bug sat in production. Git history holds the deleted markup if the layout is worth recovering.
+5. **No "mastered"/premium UI asserts anything the entitlement or Phase 5 mastery does not back.**
+
+**Schema/data changes.** App-side entitlement store; admin `subscriptions`/`payments` fed by RevenueCat webhooks (tables extended per the schema finding); a subscription feature key.
+
+**Dependencies.** Phase 0 (fake billing removed, `pricing.ts`), Phase 3 (coach cap = a gate + cost control), Phase 5/7 (enough content to be worth paying for), Phase 9 (identity to hang the entitlement off). **Split from the exam tier so subscription revenue starts without waiting on Phase 8.** Ships in a native store binary; commercial setup (CC-B) must be complete.
+
+**Acceptance criteria.** At least one real feature refuses access for a non-entitled user and routes to a paywall. Purchasing via RevenueCat flips a real entitlement; Restore actually restores; no code path sets `premium: true` without a backing entitlement. The app gates on RevenueCat `customerInfo` refreshed on foreground; the admin table is a webhook-fed mirror only. Paywall trigger points (post-placement, gate boundaries, home entry) are instrumented; a trial offering exists; `past_due` dunning is handled. Store review sees no fabricated billing and a working purchase/restore flow (Apple 3.1.1 / guideline 4.8). Pricing shows the canonical matrix; no stray `$79`.
+
+**Risks.** RevenueCat webhook → admin sync is integrity-critical; a dropped webhook must not silently grant or revoke access (reconcile on foreground against `customerInfo`). First IAP submission gets extra review scrutiny (CC-B).
+
+---
+
+## Phase 11 — $39 exam tier (was Phase 9b) (CF-14)
+
+**Goal.** Add the distinct in-app exam-mode upgrade that grants the Phase 8 Examiner entitlement, separate from the Première subscription. Sequenced after Phase 8 (the thing it sells) and Phase 10 (the entitlement machinery).
+
+**Folded panel improvements.**
+- **Pin the SKU model (MED).** CF-14/Phase 9 describe a "distinct in-app upgrade tier ($39)... separate from the Première subscription" (reads one-time), but the unit-economics table models the exam segment as "Immigration/Exam $14.99/mo" recurring. A $39 one-time and a $14.99/mo subscription have very different LTV and dunning behavior. Pin the $39 exam as either a one-time consumable/non-consumable or a subscription, and align the unit-economics model. If one-time, add a repurchase/renewal story (exam re-sits) so the highest-intent segment is not a single $39 with no retention; if recurring, correct CF-14's framing. Decide before wiring the SKU in RevenueCat (product type is hard to change post-launch). [money]
+- **Currency variants (CF-14).** The $39 exam tier needs currency variants across USD/EUR/GBP/CAD (+ NGN/PPP if the Africa wedge is in scope), per CF-14 requiring currency versions. [money]
+  > **🟡 Partially pre-supplied by Phase 0, and the non-USD rows are NOT authoritative.** `src/content/pricing.ts` carries an `exam` row across all four currencies so the matrix is stated in one place. **`$39` is pinned; `39 €` / `£34.99` / `CA$49.99` are provisional**, derived from the ratios the subscription rows use because no document states a non-USD exam price. Apple and Google price IAP from fixed tier ladders, so these will not survive the store consoles unchanged. **Pin them against real store tiers during CC-B and correct `pricing.ts`** before wiring the SKU. Nothing renders the exam row today.
+- **Exam-taster upsell (from Phase 10).** Wire the free-exam-taster-completion → $39 upsell paywall trigger. [money]
+
+**Target.** A distinct exam entitlement/product (type per the pinned decision) that grants Examiner access and nothing else. The free taster is one diagnostic mock; the $39 tier unlocks full mock series + marking.
+
+**Schema/data changes.** The exam entitlement modeled as a distinct product in the admin schema (extended in Phase 10); an exam-entitlement feature key.
+
+**Dependencies.** Phase 8 (the Examiner it gates), Phase 9 (identity), Phase 10 (entitlement + paywall machinery). Ships with the exam IAP product submitted alongside its binary (CC-B).
+
+**Acceptance criteria.** The $39 exam upgrade grants Examiner access and nothing else (proven by an automated entitlement test that the tier grants only exam access). The SKU type matches the pinned decision and the unit-economics model; currency variants exist. The free-taster → upsell trigger fires. A real sandbox purchase + restore of the exam tier passes through TestFlight/internal track before production.
+
+**Risks.** Product-type change post-launch is hard; the pin must be made before wiring. The affiliate/immigration lead-gen top-up (orphan, Monetization C14) is a recorded future revenue line, not launch scope.
+
+---
+
+## Dependency spine (build order)
+
+```
+CC-A release model + CI + toolchain proof ─┐ 🟡 CI slice landed 2026-07-16 (push + set DATABASE_URL secret to arm);
+                                           │    release model / eas.json / toolchain proof still ⬜
+CC-B commercial setup lead time ───────────┘ ⬜ (cross-cutting, start Phase 0) ← OVERDUE: weeks of lead time, gates 10/11
+
+Phase 0  honesty/store-risk ─┐ ✅ DONE 2026-07-16 (pricing.ts extracted, examiner fenced, paywall removed entirely)
+Phase 1  SCHEMA v2 + spine ──┼─► 🟡 blocks 2,5,6,7,8 + all authoring   ← execute immediately (CF-25)
+Phase 2  content pipeline ───┼─► blocks 4,7,8 authoring; prove-the-pipe pulled forward, runs from here
+Phase 3  provider socket ────┘  fix routing (CRITICAL) + coach turn cap; de-risks 4,7,8 + coach margin
+Phase 4  Camille TTS (L/XL: client audio path is net-new) ─► feeds 7
+Phase 5  SRS/mastery (SCHEDULABLE predicate, shared fold) ─► feeds 6,7,10
+Phase 6  placement rebuild ──────────► seeds SRS; paywall trigger hook
+Phase 6b Voice Flash / drills / WotD ─► feeds 5,7
+Phase 7  Den 7-stage (flagship) ─────► needs 1,2,4,5
+Phase 8  Exam engine ────────────────► needs 1,2,5; gated by 11
+Phase 9  identity & sync substrate ──► gates 10,11 + server attempts   (new; the drafts omitted it)
+Phase 10 subscription + paywall/gating (was 9a) ─► first revenue; needs 0,3,5/7,9
+Phase 11 $39 exam tier (was 9b) ─────► needs 8,9,10 (sells the real thing last)
+```
+
+## Cross-cutting invariants carried through every phase
+
+- **One canonical TS schema, imported, not two byte-identical files.** `ealch-v2/src/content/schema.ts` is canonical; `ealch-admin` imports it and mirrors only enum value-lists in Drizzle pgEnums. The CI check diffs the enum/union value lists (with the intentional `c2` asymmetry whitelisted), not files. Canonical field names pinned (`imageRef` ⟷ `image_ref`); id regexes derived from the const arrays. [arch][data]
+- **Zero-runtime-import pure islands** (`schema.ts`, `progress.logic.ts`, `content.logic.ts`, `parseNarration`) stay `node --test`-loadable, no react-native/zustand/expo imports in engine code.
+- **Never block first paint, never throw, never fabricate.** The resilience/honesty contract every service keeps (`content.ts`, `config.ts`, `stt.ts:14-16`, `useProgress onRehydrateStorage`). Every new surface degrades to an honest empty/offline state; no paywall or progress UI asserts anything the entitlement or the SRS does not back. **Phase 0 established the corollary the hard way: if nothing backs a surface, the honest render is no surface.** The paywall was removed rather than reworded because no feature was gated; `useStore.upgrade()` was deleted because a flag that can be minted locally is not an entitlement. Only RevenueCat `customerInfo` may write `premium`. [money][qa]
+- **A dishonest number is dishonest in either direction.** Phase 0 found three fabrications the plan had not named, and each was a caption that drifted from the thing it described: `T.weakMeta[i]` and `T.examMeta[i]` were indexed by **row position**, so they described whatever landed at that index, and "2 months free" **understated** a 34-36% discount. Copy indexed by position, and copy quoting arithmetic, must be checked against its source whenever either moves. [content][qa]
+- **DB is truth, snapshot is delivery, seed is a verifiable mirror.** The app never queries live content at runtime (CF-07). RevenueCat `customerInfo` is the runtime entitlement authority; the admin `subscriptions` table is a webhook-fed mirror. [money]
+- **Machine-enforced quality, not remembered quality.** CI runs typecheck on both repos, the pure-island tests, the enum-parity check, `content:publish --dry-run`, and a seed size check on every PR. The publish contract (`validateCorpus` zero issues, `lesson-has-practice`, level discipline, no em dashes, risk-tiered Gate H, phonics human-verified natural renders, byte-parity checksum) is the only path to ship a snapshot. [qa][content]
+- **Release safety on both planes.** Code phases ship on a release train (native binaries at Phase 4 and Phase 10, OTA JS between) with TestFlight/internal staging; the content OTA plane has staged rollout, a kill/pin switch, and a rollback runbook before Phase 7 scales generation. [qa]
+- **Corpus volume is the critical path.** A fully authored A1 (26 units, ≥1 deep lesson each, ≥260 items, ≥20/theme) is the launch floor; a real B1-B2 bank is the Examiner prerequisite. Every engine only produces retention once the Phase 2 pipeline feeds it at volume. [content]
+- **Performance budgets are acceptance criteria, not aspirations.** Snapshot verify, cold-start validation, OTA apply memory, the SRS shared fold, home/Den render cost, and narration karaoke all carry a measured ceiling on a low-end Android device. [perf]
