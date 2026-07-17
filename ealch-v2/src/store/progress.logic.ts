@@ -2,9 +2,11 @@
 //
 // This file must stay free of react-native, zustand and AsyncStorage imports:
 // the test runner (`node --test "src/**/*.test.ts"`) executes TypeScript
-// directly and cannot load any of them. Every calculation the app makes about
-// streaks, minutes and week dots lives here; src/store/useProgress.ts is only
-// the persistence shell around it.
+// directly and cannot load any of them. It may import schema.ts, which imports
+// nothing at all — the same allowance content.logic.ts takes, and the reason the
+// persist migration below can be tested at all. Every calculation the app makes
+// about streaks, minutes and week dots lives here; src/store/useProgress.ts is
+// only the persistence shell around it.
 //
 // Two logs, deliberately separate:
 //   - the SESSION log (SessionEntry) answers "did they show up, how long" — it
@@ -174,6 +176,8 @@ export function streak(sessions: SessionEntry[], today: string, freeze: number):
 // 'none'); the type is re-declared here rather than imported so this module keeps
 // its zero-runtime-import property. It is structurally identical to the Verdict
 // in utils/score.ts, so the drill screens can pass their scores straight through.
+import { type Modality } from '../content/schema.ts';
+
 export type AttemptVerdict = 'good' | 'close' | 'off' | 'none';
 
 export type AttemptEntry = {
@@ -197,11 +201,83 @@ export type AttemptEntry = {
    *  useful signal but not a pass, so it can be correct === false with verdict
    *  === 'close'. */
   correct: boolean;
+  /** WHICH memory this attempt exercised. Recognising a word and being able to
+   *  say it are different memories with different decay, so an attempt that does
+   *  not say which one it was cannot honestly be scheduled against either.
+   *
+   *  Required, which is the whole point of CF-02 — but it only became safe to
+   *  require once the v1→v2 persist migration below could give the attempts
+   *  already sitting on real devices an honest value. Contract first, storage
+   *  second; see migrateProgressToV2. */
+  modality: Modality;
 };
 
 /** Everything about an attempt except the day it happened — the store stamps
  *  `date` at write time, exactly as it does for a session. */
 export type AttemptInput = Omit<AttemptEntry, 'date'>;
+
+// ── The v1 → v2 persist migration (guardrail G2) ─────────────────────────────
+//
+// `modality` became required on AttemptEntry above. Every attempt already
+// written to AsyncStorage on a real device predates the field and has none.
+// zustand's default shallow merge only heals MISSING TOP-LEVEL KEYS; it does not
+// reach inside the `attempts` array, so without this the old entries rehydrate
+// as attempts whose modality is undefined and fold into `undefined`-keyed cards.
+//
+// The failure mode is not a crash, which is why it needs a migration rather than
+// a guard: the learner opens the app and their history is silently wrong.
+//
+// 'recognise' is the honest default rather than a convenient one. Every drill
+// that existed when those attempts were written asked the learner to recall a
+// word they were shown — none captured production. Sibling-gating then reads
+// legacy history as recognition, which is exactly what it was, and a producer
+// card has to be earned rather than inherited.
+//
+// Lives here, in the island, so it is testable: useProgress.ts imports zustand
+// and AsyncStorage and cannot run under `node --test`.
+
+/** The slice of state that is actually persisted (see useProgress `partialize`). */
+export type PersistedProgress = {
+  sessions: unknown[];
+  attempts: AttemptEntry[];
+  errors: unknown[];
+  resume: unknown;
+};
+
+const EMPTY_PERSISTED: PersistedProgress = { sessions: [], attempts: [], errors: [], resume: null };
+
+const isObj = (v: unknown): v is Record<string, unknown> =>
+  typeof v === 'object' && v !== null && !Array.isArray(v);
+
+/**
+ * Bring a persisted v1 blob up to v2. Never throws: a blob we cannot read means
+ * "no progress yet", never a failed launch. It is also idempotent — an attempt
+ * that already carries a valid modality keeps it — so re-running it, or running
+ * it against a v2 blob, changes nothing.
+ */
+export function migrateProgressToV2(persisted: unknown): PersistedProgress {
+  if (!isObj(persisted)) return { ...EMPTY_PERSISTED };
+
+  const rawAttempts = Array.isArray(persisted.attempts) ? persisted.attempts : [];
+  const attempts: AttemptEntry[] = [];
+  for (const a of rawAttempts) {
+    // Drop entries that were never a usable attempt. Keeping a shapeless record
+    // would only push the same problem into the fold.
+    if (!isObj(a) || typeof a.itemId !== 'string' || typeof a.date !== 'string') continue;
+    const m = a.modality;
+    attempts.push({
+      ...(a as unknown as AttemptEntry),
+      modality: m === 'produce' || m === 'discriminate' || m === 'recognise' ? m : 'recognise',
+    });
+  }
+
+  return {
+    sessions: Array.isArray(persisted.sessions) ? persisted.sessions : [],
+    attempts,
+    errors: Array.isArray(persisted.errors) ? persisted.errors : [],
+    resume: persisted.resume ?? null,
+  };
+}
 
 /** A running recall summary for one item, folded from its attempts in order. */
 export type ItemStat = {

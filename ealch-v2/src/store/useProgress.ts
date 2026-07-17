@@ -2,7 +2,7 @@ import { useCallback, useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { localDay, type Activity, type AttemptEntry, type AttemptInput, type ErrorEvent, type ErrorInput, type ResumeState, type SessionEntry } from './progress.logic';
+import { localDay, migrateProgressToV2, type Activity, type AttemptEntry, type AttemptInput, type ErrorEvent, type ErrorInput, type ResumeState, type SessionEntry } from './progress.logic';
 
 // The session log — the record that the user showed up — and the attempt log —
 // the record of what they got right or wrong, per item. Every number on the
@@ -114,12 +114,23 @@ export const useProgress = create<ProgressState>()(
     }),
     {
       name: 'ealch-progress',
-      // Still version 1: `attempts` is an additive field. zustand's default
-      // shallow merge lays the persisted blob over the initial state, so a v1
-      // record written before this change (which has no `attempts`) simply keeps
-      // the initial `attempts: []` — no migration, and no risk of dropping the
-      // existing session history that a version bump without a migrate would run.
-      version: 1,
+      // Version 2 (Phase 5, CF-02). Version 1 needed no migrate because every
+      // change so far was an additive TOP-LEVEL key, and zustand's shallow merge
+      // heals those for free by laying the persisted blob over the initial state.
+      //
+      // `modality` is the first change that is not additive at that level: it
+      // lives inside each element of the `attempts` array, where shallow merge
+      // never reaches. Old attempts would rehydrate without it and fold into
+      // undefined-keyed cards — no crash, just a history that is quietly wrong.
+      //
+      // The migration itself is in progress.logic.ts, not here, because this file
+      // imports zustand and AsyncStorage and therefore cannot be tested; the
+      // island can. See migrateProgressToV2 and its tests.
+      version: 2,
+      migrate: (persisted, version) => {
+        if (version >= 2) return persisted as ReturnType<typeof migrateProgressToV2>;
+        return migrateProgressToV2(persisted);
+      },
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (s) => ({ sessions: s.sessions, attempts: s.attempts, errors: s.errors, resume: s.resume }),
       // Always flip `hydrated`, even when rehydration fails — a corrupt log must

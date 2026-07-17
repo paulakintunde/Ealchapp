@@ -111,6 +111,11 @@ export default function VoiceFlash() {
         score: res.score,
         verdict: res.verdict,
         correct: got,
+        // The deck alternates direction (vfIsFr). Saying the French is
+        // production; being shown the French and giving the English back is
+        // recognition, even though both arrive through the mic. The surface is
+        // not the memory.
+        modality: vfIsFr ? 'produce' : 'recognise',
       });
     } else {
       // Nothing was heard — fall back to self-assessment (vfSelf logs the attempt
@@ -134,6 +139,7 @@ export default function VoiceFlash() {
       score: got ? 1 : 0,
       verdict: got ? 'good' : 'off',
       correct: got,
+      modality: vfIsFr ? 'produce' : 'recognise',
     });
     vfNext();
   };
@@ -155,6 +161,7 @@ export default function VoiceFlash() {
       score: ok ? 1 : 0,
       verdict: ok ? 'good' : 'off',
       correct: ok,
+      modality: vfIsFr ? 'produce' : 'recognise',
     });
     setVfPhase('result');
   };

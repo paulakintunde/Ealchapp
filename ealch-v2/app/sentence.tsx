@@ -178,6 +178,8 @@ export default function Sentence() {
         score: said?.ok ? said.score : 1,
         verdict: said?.ok ? said.verdict : 'good',
         correct: true,
+        // Building the sentence is production whether it was spoken or typed.
+        modality: 'produce',
       });
     } else {
       sound.play('error');

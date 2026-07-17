@@ -115,6 +115,11 @@ export default function Dictation() {
       score: ok ? 1 : 0,
       verdict: ok ? 'good' : 'off',
       correct: ok,
+      // Dictation is written production from an audio prompt: they hear it and
+      // have to render the form. It exercises listening comprehension too, and
+      // this single tag cannot say both — the comprehension half is not tracked
+      // separately, and pretending otherwise would be the dishonest option.
+      modality: 'produce',
     });
     setDcPhase('checked');
   };

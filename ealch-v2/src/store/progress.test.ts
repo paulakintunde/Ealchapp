@@ -12,6 +12,7 @@ import {
   goalTarget,
   itemsPracticed,
   localDay,
+  migrateProgressToV2,
   minutesToday,
   mondayIndex,
   resumeIsFresh,
@@ -481,4 +482,98 @@ test('only the trailing window counts: a slip from last week is gone', () => {
 test('the ranking is capped at the limit', () => {
   const errors = [err('liaison', 0), err('liaison', 0), err('nasales', 0), err('genre', 0), err('register', 0)];
   strictEqual(topWeaknesses(errors, TODAY, 7, 3).length, 3);
+});
+
+// ── The v1 → v2 persist migration (guardrail G2) ─────────────────────────────
+//
+// This is the app's first migration that reaches INSIDE an array, and the reason
+// it exists is that getting it wrong is silent: zustand's shallow merge heals a
+// missing top-level key for free, so every prior version needed no migrate and
+// nobody was trained to expect one. An attempt without a modality does not throw;
+// it folds into an undefined-keyed card, and the learner just finds their history
+// quietly wrong.
+
+const v1Attempt = (itemId: string, extra: Record<string, unknown> = {}) => ({
+  date: '2026-07-01',
+  activity: 'flashcards',
+  itemId,
+  expected: 'le café',
+  heard: '',
+  score: 1,
+  verdict: 'good',
+  correct: true,
+  ...extra,
+});
+
+test('migrate v1→v2 gives every legacy attempt an honest modality', () => {
+  // 'recognise' is not a convenient default, it is a true one: every drill that
+  // existed when these were written asked for recall of a word shown.
+  const out = migrateProgressToV2({
+    sessions: [{ date: '2026-07-01' }],
+    attempts: [v1Attempt('fr.a1.cafe.001'), v1Attempt('fr.a1.cafe.002')],
+    errors: [],
+    resume: null,
+  });
+  strictEqual(out.attempts.length, 2);
+  ok(out.attempts.every((a) => a.modality === 'recognise'));
+});
+
+test('migrate preserves everything it does not own', () => {
+  const resume = { route: '/den', at: 1 };
+  const out = migrateProgressToV2({
+    sessions: [{ date: '2026-07-01' }, { date: '2026-07-02' }],
+    attempts: [v1Attempt('fr.a1.cafe.001')],
+    errors: [{ date: '2026-07-01', skill: 'liaison' }],
+    resume,
+  });
+  strictEqual(out.sessions.length, 2, 'session history must survive: it drives the streak');
+  strictEqual(out.errors.length, 1);
+  deepStrictEqual(out.resume, resume);
+});
+
+test('migrate is idempotent and never downgrades a real modality', () => {
+  // Re-running must not rewrite 'produce' back to 'recognise' — that would erase
+  // earned production history and hand the learner producer cards they never earned.
+  const once = migrateProgressToV2({
+    sessions: [],
+    attempts: [v1Attempt('fr.a1.cafe.001', { modality: 'produce' }), v1Attempt('fr.a1.cafe.002')],
+    errors: [],
+    resume: null,
+  });
+  const twice = migrateProgressToV2(once);
+  deepStrictEqual(twice.attempts.map((a) => a.modality), ['produce', 'recognise']);
+  deepStrictEqual(twice, once);
+});
+
+test('migrate coerces a nonsense modality rather than trusting it', () => {
+  const out = migrateProgressToV2({
+    sessions: [],
+    attempts: [v1Attempt('fr.a1.cafe.001', { modality: 'telepathy' })],
+    errors: [],
+    resume: null,
+  });
+  strictEqual(out.attempts[0].modality, 'recognise');
+});
+
+test('migrate drops shapeless attempts instead of folding them', () => {
+  const out = migrateProgressToV2({
+    sessions: [],
+    attempts: [v1Attempt('fr.a1.cafe.001'), null, 'nonsense', {}, { itemId: 'x' }],
+    errors: [],
+    resume: null,
+  });
+  strictEqual(out.attempts.length, 1, 'only the real attempt survives');
+});
+
+test('a corrupt blob migrates to clean empty, never to a thrown error', () => {
+  // A launch that throws here is a learner who cannot open the app at all.
+  for (const junk of [null, undefined, 'nope', 42, []]) {
+    const out = migrateProgressToV2(junk);
+    deepStrictEqual(out, { sessions: [], attempts: [], errors: [], resume: null });
+  }
+});
+
+test('migrate tolerates a blob whose arrays are the wrong type', () => {
+  const out = migrateProgressToV2({ sessions: 'no', attempts: 'no', errors: 'no', resume: undefined });
+  deepStrictEqual(out, { sessions: [], attempts: [], errors: [], resume: null });
 });

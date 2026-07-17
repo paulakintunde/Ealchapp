@@ -76,6 +76,11 @@ export default function Flashcards() {
       score: know ? 1 : 0,
       verdict: know ? 'good' : 'off',
       correct: know,
+      // Direction decides the memory, and this deck knows its direction — it
+      // prints it on the card (FR → EN / EN → FR). Seeing the French and
+      // recalling the English is recognition; being shown the English and having
+      // to come up with the French is production, self-rated but production.
+      modality: frFront ? 'recognise' : 'produce',
     });
     const lastCard = cardIx + 1 >= deckLen;
     answerTimer.current = setTimeout(() => setCardIx((i) => i + 1), 220);

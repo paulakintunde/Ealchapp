@@ -68,6 +68,10 @@ export default function Review() {
       score: pass ? 1 : 0,
       verdict: pass ? 'good' : 'off',
       correct: pass,
+      // Smart Review prompts with the English and expects the French back, so
+      // this is production — self-rated, but the recall direction is what makes
+      // it production, not whether a mic was involved.
+      modality: 'produce',
     });
     if (pass) setGot((g) => g + 1);
 

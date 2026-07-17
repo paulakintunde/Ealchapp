@@ -133,6 +133,11 @@ export default function Roleplay() {
         score: res.score,
         verdict: res.verdict,
         correct: res.verdict === 'good',
+        // Speaking a scripted line is production, and this is recorded honestly
+        // as such — but note the itemId above is a synthetic turn id, not a
+        // corpus item. The scheduler skips it for that reason, not because
+        // roleplay is somehow not real practice. See the SCHEDULABLE predicate.
+        modality: 'produce',
       });
     }
     setMsgs((m) => [
