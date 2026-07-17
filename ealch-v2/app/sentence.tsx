@@ -24,6 +24,14 @@ type Tile = { w: string; t: string };
 
 const STEP: Record<Phase, string> = { learn: '1', arrange: '2', say: '3', write: '4', passed: '✓' };
 
+/** Display-only guard for the arrange bubbles. Android's draw-time line
+ *  breaker can disagree with layout measurement by a fraction of a pixel on
+ *  the italic serif, wrapping a multi-word tile's last word onto a second line
+ *  the single-line bubble then clips — « un café » drew as « un ». A
+ *  non-breaking space removes the break opportunity. The DATA keeps real
+ *  spaces: verify() joins sbWords[i].w, never this. */
+const noWrap = (w: string) => w.replace(/ /g, String.fromCharCode(160));
+
 /** The word tiles for the sentence. The port stored them as JSON in the item's
  *  notes; if that is ever missing, fall back to splitting the sentence. Either
  *  way the tiles pass through mergeArticleTiles, so « un café » is one bubble:
@@ -321,7 +329,7 @@ export default function Sentence() {
                   style={{ minHeight: 40, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 20, backgroundColor: t.accA(15), borderWidth: 1, borderColor: t.accA(45), alignItems: 'center', justifyContent: 'center' }}
                 >
                   <TX font="serifI" role="titleSm" color={t.accTx}>
-                    {sbWords[i].w}
+                    {noWrap(sbWords[i].w)}
                   </TX>
                 </Press>
               ))}
@@ -340,7 +348,7 @@ export default function Sentence() {
                     style={{ minHeight: 40, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 20, backgroundColor: t.card2, borderWidth: 1, borderColor: t.line(12), alignItems: 'center', justifyContent: 'center' }}
                   >
                     <TX font="serifI" role="titleSm">
-                      {sbWords[i].w}
+                      {noWrap(sbWords[i].w)}
                     </TX>
                   </Press>
                 ))}
