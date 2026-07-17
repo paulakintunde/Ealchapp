@@ -176,7 +176,7 @@ export function streak(sessions: SessionEntry[], today: string, freeze: number):
 // 'none'); the type is re-declared here rather than imported so this module keeps
 // its zero-runtime-import property. It is structurally identical to the Verdict
 // in utils/score.ts, so the drill screens can pass their scores straight through.
-import { type Modality } from '../content/schema.ts';
+import { ITEM_ID_RE, type Modality } from '../content/schema.ts';
 
 export type AttemptVerdict = 'good' | 'close' | 'off' | 'none';
 
@@ -378,6 +378,10 @@ export type SrsGrade = 0 | 1 | 2; // 0 miss (relearn) · 1 shaky pass · 2 clean
 
 export type SrsCard = {
   itemId: string;
+  /** WHICH memory this card schedules. Recognising a word and producing it decay
+   *  separately, so one item holds up to three cards — one per modality — each
+   *  with its own interval. This is the (item, modality) key CF-02 requires. */
+  modality: Modality;
   /** Consecutive non-miss reviews. Resets to 0 on a miss. */
   reps: number;
   /** SM-2 ease factor, clamped to [1.3, 3.0]. How fast the interval grows. */
@@ -425,33 +429,43 @@ export function applyGrade(
   return { reps: reps + 1, ease: Math.min(MAX_EASE, ease + 0.1), intervalDays: next };
 }
 
-/** Drills the scheduler can turn into a recall card. Conversation surfaces
- *  (roleplay, speak) and passive ones (lesson, player) are logged and DO surface
- *  in Le Rapport's review list, but their targets are not atomic corpus items —
- *  a scripted dialogue line has no English-prompt recall form — so the SRS does
- *  not schedule them. This keeps the due count, Smart Review and the review
- *  session (which renders corpus items) consistent with each other. */
-const SCHEDULABLE: ReadonlySet<Activity> = new Set([
-  'flashcards',
-  'voiceflash',
-  'dictation',
-  'sentence',
-  'review',
-]);
+/** The scheduler key for one memory: an item id and the modality being trained.
+ *  Two cards never collide across modalities, and never across items. */
+export function cardKey(itemId: string, modality: Modality): string {
+  return `${itemId}::${modality}`;
+}
 
-/** Every attempted item the SRS can schedule, folded into its current card. */
+/** Whether an attempt can become a recall card. The rule is about the DATA, not
+ *  the drill: any attempt whose itemId is a real corpus item id is scheduled,
+ *  whatever surface produced it — so a Phase 7 narration `produce` interaction
+ *  schedules exactly like a flashcard, which the old activity allowlist would
+ *  have recorded and silently dropped.
+ *
+ *  Excluded, and correctly: a roleplay turn (`${scenario}.t${ix}`), a whole
+ *  lesson, an open-ended exam response. Those are logged and DO surface in Le
+ *  Rapport, but their target is not an atomic word there is a recall form for,
+ *  so there is nothing for the SRS to bring back. `ITEM_ID_RE` is the pure test
+ *  for "is this a real corpus item", shared with the schema that mints the ids. */
+export function isSchedulable(a: AttemptEntry): boolean {
+  return ITEM_ID_RE.test(a.itemId);
+}
+
+/** Every scheduled memory, folded into its current card, keyed by (item,modality).
+ *  One item can hold up to three cards — recognise, produce, discriminate — each
+ *  advancing on its own attempts and its own interval. */
 export function srsCards(attempts: AttemptEntry[]): Map<string, SrsCard> {
   // Group preserving chronological order — the log is already append-ordered.
-  const byItem = new Map<string, AttemptEntry[]>();
+  const byKey = new Map<string, AttemptEntry[]>();
   for (const a of attempts) {
-    if (!SCHEDULABLE.has(a.activity)) continue;
-    const list = byItem.get(a.itemId);
+    if (!isSchedulable(a)) continue;
+    const key = cardKey(a.itemId, a.modality);
+    const list = byKey.get(key);
     if (list) list.push(a);
-    else byItem.set(a.itemId, [a]);
+    else byKey.set(key, [a]);
   }
 
   const out = new Map<string, SrsCard>();
-  for (const [itemId, list] of byItem) {
+  for (const [key, list] of byKey) {
     let state = { reps: 0, ease: 2.5, intervalDays: 0 };
     let lastDay = '';
     let lastVerdict: AttemptVerdict = 'none';
@@ -460,8 +474,9 @@ export function srsCards(attempts: AttemptEntry[]): Map<string, SrsCard> {
       lastDay = a.date;
       lastVerdict = a.verdict;
     }
-    out.set(itemId, {
-      itemId,
+    out.set(key, {
+      itemId: list[0].itemId,
+      modality: list[0].modality,
       reps: state.reps,
       ease: state.ease,
       intervalDays: state.intervalDays,

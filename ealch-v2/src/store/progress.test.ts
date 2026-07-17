@@ -7,9 +7,11 @@ import { test } from 'node:test';
 import {
   applyGrade,
   attemptsToday,
+  cardKey,
   dueCards,
   gradeAttempt,
   goalTarget,
+  isSchedulable,
   itemsPracticed,
   localDay,
   migrateProgressToV2,
@@ -223,12 +225,15 @@ test('a log full of future-dated junk cannot inflate the streak', () => {
 
 // ── the attempt log ──
 
-/** An attempt on `id`, `delta` days from TODAY. */
+/** An attempt on `id`, `delta` days from TODAY. Defaults to the `recognise`
+ *  modality so the existing one-card-per-item tests keep their meaning; the
+ *  modality tests pass it explicitly. */
 const a = (
   id: string,
   correct: boolean,
   delta = 0,
-  verdict: AttemptEntry['verdict'] = correct ? 'good' : 'off'
+  verdict: AttemptEntry['verdict'] = correct ? 'good' : 'off',
+  modality: AttemptEntry['modality'] = 'recognise'
 ): AttemptEntry => ({
   date: day(delta),
   activity: 'voiceflash',
@@ -238,6 +243,7 @@ const a = (
   score: correct ? 1 : 0,
   verdict,
   correct,
+  modality,
 });
 
 test('statsByItem folds attempts per item, last attempt winning the last* fields', () => {
@@ -358,30 +364,30 @@ test('applyGrade walks the 1 → 3 → x·ease ladder, and a miss resets it', ()
 
 test('srsCards schedules a learned item forward, an unseen item not at all', () => {
   // One clean pass yesterday → interval 1 → due today.
-  const cards = srsCards([a('learned', true, -1, 'good')]);
-  const c = cards.get('learned');
+  const cards = srsCards([a('fr.a1.cafe.001', true, -1, 'good')]);
+  const c = cards.get(cardKey('fr.a1.cafe.001', 'recognise'));
   strictEqual(c?.intervalDays, 1);
   strictEqual(c?.dueDay, TODAY);
   // An item never attempted has no card.
-  strictEqual(cards.get('never-seen'), undefined);
+  strictEqual(cards.get(cardKey('fr.a1.cafe.099', 'recognise')), undefined);
 });
 
 test('dueCards is the queue: overdue and due-now in, freshly-passed and future out', () => {
   const log = [
-    a('missed', false, -1, 'off'), // interval 0 → due day(-1), overdue
-    a('due-now', true, -1, 'good'), // interval 1 → due TODAY
-    a('fresh', true, 0, 'good'), // interval 1 → due tomorrow, NOT today
-    a('future', true, -3, 'good'),
-    a('future', true, -2, 'good'), // reps 2 → interval 3 → due day(+1)
+    a('fr.a1.cafe.001', false, -1, 'off'), // interval 0 → due day(-1), overdue
+    a('fr.a1.cafe.002', true, -1, 'good'), // interval 1 → due TODAY
+    a('fr.a1.cafe.003', true, 0, 'good'), // interval 1 → due tomorrow, NOT today
+    a('fr.a1.cafe.004', true, -3, 'good'),
+    a('fr.a1.cafe.004', true, -2, 'good'), // reps 2 → interval 3 → due day(+1)
   ];
   const due = dueCards(log, TODAY);
-  // Most overdue first: missed (day-1) then due-now (TODAY).
-  deepStrictEqual(due.map((c) => c.itemId), ['missed', 'due-now']);
+  // Most overdue first: cafe.001 (day-1) then cafe.002 (TODAY).
+  deepStrictEqual(due.map((c) => c.itemId), ['fr.a1.cafe.001', 'fr.a1.cafe.002']);
   strictEqual(reviewDueCount(log, TODAY), 2);
 
   const up = upcomingCards(log, TODAY);
-  // fresh (tomorrow) and future (tomorrow) are the not-yet-due cards.
-  deepStrictEqual(up.map((c) => c.itemId).sort(), ['fresh', 'future']);
+  // cafe.003 (tomorrow) and cafe.004 (tomorrow) are the not-yet-due cards.
+  deepStrictEqual(up.map((c) => c.itemId).sort(), ['fr.a1.cafe.003', 'fr.a1.cafe.004']);
 });
 
 test('conversation turns reach the report but never the SRS card deck', () => {
@@ -397,11 +403,12 @@ test('conversation turns reach the report but never the SRS card deck', () => {
       score: 0.2,
       verdict: 'off',
       correct: false,
+      modality: 'produce',
     },
     a('fr.a1.cafe.001', false, 0, 'off'), // a real recall miss
   ];
   // The scheduler ignores the roleplay turn, schedules only the corpus item.
-  deepStrictEqual([...srsCards(log).keys()], ['fr.a1.cafe.001']);
+  deepStrictEqual([...srsCards(log).keys()], [cardKey('fr.a1.cafe.001', 'recognise')]);
   strictEqual(reviewDueCount(log, TODAY), 1);
   // The report's weakest list includes BOTH.
   deepStrictEqual(
@@ -576,4 +583,72 @@ test('a corrupt blob migrates to clean empty, never to a thrown error', () => {
 test('migrate tolerates a blob whose arrays are the wrong type', () => {
   const out = migrateProgressToV2({ sessions: 'no', attempts: 'no', errors: 'no', resume: undefined });
   deepStrictEqual(out, { sessions: [], attempts: [], errors: [], resume: null });
+});
+
+// ── modality-keyed cards + the schedulable predicate (CF-02) ─────────────────
+
+test('one item drilled in two modalities becomes two independent cards', () => {
+  // Recognise it five times, produce it once. Different memories, different
+  // intervals: the recognise card is far ahead, the produce card just started.
+  const log: AttemptEntry[] = [
+    a('fr.a1.cafe.001', true, -10, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -7, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -3, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, 0, 'good', 'produce'),
+  ];
+  const cards = srsCards(log);
+  strictEqual(cards.size, 2, 'one card per (item, modality), not per item');
+  const rec = cards.get(cardKey('fr.a1.cafe.001', 'recognise'))!;
+  const prod = cards.get(cardKey('fr.a1.cafe.001', 'produce'))!;
+  strictEqual(rec.modality, 'recognise');
+  strictEqual(prod.modality, 'produce');
+  ok(rec.reps > prod.reps, 'the two modalities schedule independently');
+  ok(rec.intervalDays > prod.intervalDays);
+});
+
+test('a miss in one modality does not disturb the sibling', () => {
+  const cards = srsCards([
+    a('fr.a1.cafe.001', true, -5, 'good', 'recognise'),
+    a('fr.a1.cafe.001', true, -3, 'good', 'recognise'),
+    a('fr.a1.cafe.001', false, 0, 'off', 'produce'),
+  ]);
+  strictEqual(cards.get(cardKey('fr.a1.cafe.001', 'recognise'))!.reps, 2, 'recognise untouched');
+  strictEqual(cards.get(cardKey('fr.a1.cafe.001', 'produce'))!.reps, 0, 'the produce miss relearns only itself');
+});
+
+test('a real corpus itemId is schedulable whatever surface produced it', () => {
+  // The point of the predicate: a narration `produce` interaction (Phase 7) logs
+  // a real item id under a non-drill activity, and it must schedule, where the
+  // old activity allowlist would have recorded and silently dropped it.
+  const narration: AttemptEntry = {
+    date: TODAY, activity: 'lesson', itemId: 'fr.a1.cafe.001',
+    expected: 'le café', heard: 'le café', score: 1, verdict: 'good', correct: true, modality: 'produce',
+  };
+  ok(isSchedulable(narration));
+  const cards = srsCards([narration]);
+  strictEqual(cards.size, 1);
+  strictEqual(cards.get(cardKey('fr.a1.cafe.001', 'produce'))!.modality, 'produce');
+});
+
+test('a synthetic (non-corpus) itemId is never scheduled', () => {
+  // A roleplay turn id is `${scenario}.t${ix}` — a real thing to log, but not a
+  // word with a recall form, so it must not enter the queue.
+  const turn: AttemptEntry = {
+    date: TODAY, activity: 'roleplay', itemId: 'cafe.rp.t3',
+    expected: 'bonjour', heard: 'bonjour', score: 1, verdict: 'good', correct: true, modality: 'produce',
+  };
+  ok(!isSchedulable(turn));
+  strictEqual(srsCards([turn]).size, 0);
+});
+
+test('a produce narration attempt becomes a due card (the SCHEDULABLE predicate, end to end)', () => {
+  // The acceptance criterion, stated as a test: log a produce attempt on a real
+  // item and it shows up in tomorrow-and-earlier due, keyed as produce.
+  const due = dueCards([
+    { date: day(-2), activity: 'lesson', itemId: 'fr.a1.cafe.005',
+      expected: 'l’addition', heard: 'l’addition', score: 1, verdict: 'good', correct: true, modality: 'produce' },
+  ], TODAY);
+  strictEqual(due.length, 1);
+  strictEqual(due[0].itemId, 'fr.a1.cafe.005');
+  strictEqual(due[0].modality, 'produce');
 });
