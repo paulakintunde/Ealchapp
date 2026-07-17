@@ -18,6 +18,7 @@
     "content:publish": "tsx scripts/publish-content.ts",
     "content:rollout": "tsx scripts/set-rollout.ts",
     "content:rollback": "tsx scripts/rollback-content.ts",
+    "routing:sync": "tsx scripts/sync-routing.ts",
     "test:e2e": "playwright test"
   },
   "dependencies": {
