@@ -18,7 +18,7 @@ A few conventions:
 
 **Legend:** ✅ done · 🟡 partial (substantially landed, named gaps remain) · ⬜ not started · ⏳ deferred by design
 
-> **Overall: ✅ Phase 0 is done. 🟡 Phase 1 remains substantially done with two named gaps. 🟡 CC-A's CI slice landed 2026-07-16** — `.github/workflows/ci.yml` gates both typechecks, the pure-island tests (incl. enum parity), the Phase 0 honesty greps, a seed-size ceiling, and the publish dry-run. It is unproven on GitHub until pushed, and the rest of CC-A (release model / expo-updates, eas.json, toolchain proof) is still ⬜.
+> **Overall: ✅ Phase 0 is done. 🟡 Phase 1 remains substantially done with two named gaps. ✅ CC-A's CI slice is landed AND proven (2026-07-17, run 29559658565: all jobs green, dry-run armed with the `DATABASE_URL` secret and executing against the canonical DB).** The rest of CC-A (release model / expo-updates, eas.json, toolchain proof) is still ⬜, and merge-blocking enforcement awaits the branch-protection decision (private repo on GitHub Free).
 >
 > **Standing up the dry-run gate immediately caught a live incident:** the canonical Supabase DB had never received migrations `0004`/`0005`, so the Phase 1 publish projection selected columns that did not exist and **publishing was broken against the canonical DB**. Diagnosed, migrations applied via the direct connection (approved 2026-07-16), dry-run green. The old grading examiner prompt was also found live in that DB and converged to the honest body. Details in the CC-A section and the Phase 1 stamp.
 >
@@ -104,9 +104,11 @@ This is not a phase; it is the substrate every phase ships through, and it is mi
 - 🟡 `content:publish --dry-run` as a required status check;
 - ✅ a byte-size check on `seed.json` (keep the seed a bounded small offline-first subset; document a ceiling). [perf]
 
-> **🟡 Landed 2026-07-16: `.github/workflows/ci.yml`**, on PRs and pushes to `build/ealch-v2-expo`. Three jobs: **app** (npm ci → typecheck → `node --test`, which includes `enum-parity.test.ts` → the Phase 0 honesty greps → seed ceiling), **admin** (pnpm → typecheck, which also type-checks the cross-repo import surface), **publish-dry-run**. Beyond the list above it also gates the Phase 0 acceptance greps permanently (fabricated card number, price literal outside `pricing.ts`, literal SRS ladder), each negative-tested against a planted violation. The seed ceiling is **256 KiB**, documented in the workflow: if it trips, shrink the seed-cut, do not raise the ceiling without a recorded decision.
+> **✅ PROVEN ON GITHUB 2026-07-17 — run 29559658565, all three jobs green, dry-run armed.** `.github/workflows/ci.yml`, on PRs and pushes to `build/ealch-v2-expo`. Three jobs: **app** (npm ci → typecheck → `node --test`, which includes `enum-parity.test.ts` → the Phase 0 honesty greps → seed ceiling), **admin** (pnpm → typecheck, which also type-checks the cross-repo import surface), **publish-dry-run**. Beyond the list above it also gates the Phase 0 acceptance greps permanently (fabricated card number, price literal outside `pricing.ts`, literal SRS ladder), each negative-tested against a planted violation. The seed ceiling is **256 KiB**, documented in the workflow: if it trips, shrink the seed-cut, do not raise the ceiling without a recorded decision.
 >
-> **Why 🟡 and not ✅:** (a) the workflow is unproven on GitHub until pushed — every command was verified locally on the exact CLI the jobs run, but Actions itself has not executed it; (b) the dry-run job **skips with a notice until the `DATABASE_URL` repo secret is set** (repo Settings → Secrets → Actions), because `publish-content.ts` refuses to run without the canonical DB by design. Setting that secret and marking the checks required in branch protection is what turns this from a workflow into a gate.
+> **Proof trail (2026-07-16 → 17):** branch pushed (80 accumulated commits, first off-machine backup of the schema build). First run's jobs were refused at start (0 steps) by an account-level Actions billing block — resolved by the user. Second run: app job green; both pnpm jobs failed because `ealch-admin/pnpm-workspace.yaml` is a pnpm v10+ **config** file (`allowBuilds`, no `packages` field) that the workflow's guessed pnpm 9 rejects as a broken workspace — fixed by declaring `packageManager: pnpm@11.1.0` in `ealch-admin/package.json` and having both jobs read it (the durable pin; CI and every future machine now agree). Third run (29559658565): **all green, and the `DATABASE_URL` secret is set** — the dry-run executed for real against the canonical DB from the runner (`✓ seed valid: 17 units · 3 lessons · 17 items · 2 scenarios`, nothing written). Known cosmetic annotation: the v4 actions emit Node-20 deprecation warnings (forced onto Node 24 by the runner); bump action majors at leisure.
+>
+> **Still open on this item:** "required status check" in the merge-blocking sense needs the branch-protection decision — the repo is **private on GitHub Free**, where protection rules are not enforced (Pro, or social enforcement; see `CC-A-ARMING-GUIDE.md` Step 3). The checks run on every push/PR either way.
 >
 > **Prerequisite fix that fell out of it:** the admin typecheck gate was born red. `curriculum.ts` (modified on this branch) imported `@/store/progress.logic`, and `ealch-admin/scripts/port-content.ts` imports `curriculum.ts` across the repo boundary — where `@/*` resolves to the **admin's** own `src/`. Fixed to a relative import, with the rule now stated in `curriculum.ts`: **any app file the admin imports, directly or transitively, must use relative imports only.** This is the invariant-#1 drift class, caught by hand this once; the admin CI job catches it from now on. An `ealch-admin` `typecheck` script was added.
 >
@@ -667,7 +669,7 @@ export const EXAM_TASK_TYPES = ['co_mcq','ce_mcq','po_monologue','po_interaction
 ## Dependency spine (build order)
 
 ```
-CC-A release model + CI + toolchain proof ─┐ 🟡 CI slice landed 2026-07-16 (push + set DATABASE_URL secret to arm);
+CC-A release model + CI + toolchain proof ─┐ 🟡 CI slice ✅ PROVEN 2026-07-17 (all jobs green, dry-run armed);
                                            │    release model / eas.json / toolchain proof still ⬜
 CC-B commercial setup lead time ───────────┘ ⬜ (cross-cutting, start Phase 0) ← OVERDUE: weeks of lead time, gates 10/11
 

@@ -219,8 +219,8 @@ is why Part 1's dry-run gate comes first.
 
 ## Done-when checklist
 
-- [ ] First Actions run green (Step 1)
-- [ ] `DATABASE_URL` secret set; dry-run job executes for real (Step 2)
+- [x] First Actions run green (Step 1) — **run 29559658565, 2026-07-17.** It took three runs: run 1's jobs were refused at start by an account billing block (user resolved); run 2 exposed that `pnpm-workspace.yaml` is a v10+ config file pnpm 9 rejects, fixed by pinning `packageManager: pnpm@11.1.0` in `ealch-admin/package.json` (commit `e048d2e`)
+- [x] `DATABASE_URL` secret set; dry-run job executes for real (Step 2) — **verified in run 29559658565**: connected to the canonical DB from the runner, `✓ seed valid`, nothing written
 - [ ] Branch protection decision made — Pro + required checks, or Free + social enforcement (Step 3)
 - [ ] Identity (owner/slug) decided and recorded (Step 4)
 - [ ] `expo-updates` installed, channels in `eas.json`, dev client rebuilt (Step 5)
