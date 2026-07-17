@@ -562,6 +562,52 @@ export function upcomingCards(attempts: AttemptEntry[], today: string, limit?: n
   return typeof limit === 'number' ? up.slice(0, Math.max(0, limit)) : up;
 }
 
+// ── Mastery (CF-03) ──────────────────────────────────────────────────────────
+//
+// "Met" and "mastered" are two different words and the app must not blur them.
+// MET is itemsPracticed: you got it right at least once. MASTERED is retention:
+// you still have it weeks later. Only SM-2 numbers the shipped engine can
+// actually compute define the bar — no retrievability probability exists yet
+// (that arrives with FSRS), so mastery is reps and interval, not a 0.90.
+export const MASTERY_REPS = 5;
+export const MASTERY_INTERVAL_DAYS = 21;
+
+/** Is one card mastered? Five clean-enough reps AND at least three weeks of
+ *  earned spacing AND the last attempt was not a miss. reps >= 5 already implies
+ *  no miss in the last five reviews (a miss zeroes reps), but the last-verdict
+ *  check states the intent rather than leaning on that side effect. */
+export function isMastered(c: SrsCard | undefined): boolean {
+  return (
+    !!c &&
+    c.reps >= MASTERY_REPS &&
+    c.intervalDays >= MASTERY_INTERVAL_DAYS &&
+    c.lastVerdict !== 'off'
+  );
+}
+
+/** Which items are mastered, given a folded card set. An item is mastered only
+ *  when you can both RECOGNISE and PRODUCE it — the recognise and produce cards
+ *  must both be mastered — and, where a discriminate card exists (a phonics
+ *  contrast), it too. Recognition alone is "met", not mastered: this is a
+ *  speaking-first product, so being able to pick a word out is not the same as
+ *  being able to say it three weeks later. An item never drilled in production
+ *  therefore cannot be mastered, only met, which is the honest state. */
+export function masteredItems(cards: Map<string, SrsCard>): Set<string> {
+  const byItem = new Map<string, { rec: boolean; prod: boolean; hasDisc: boolean; disc: boolean }>();
+  for (const c of cards.values()) {
+    const e = byItem.get(c.itemId) ?? { rec: false, prod: false, hasDisc: false, disc: false };
+    if (c.modality === 'recognise') e.rec = isMastered(c);
+    else if (c.modality === 'produce') e.prod = isMastered(c);
+    else if (c.modality === 'discriminate') { e.hasDisc = true; e.disc = isMastered(c); }
+    byItem.set(c.itemId, e);
+  }
+  const out = new Set<string>();
+  for (const [itemId, e] of byItem) {
+    if (e.rec && e.prod && (!e.hasDisc || e.disc)) out.add(itemId);
+  }
+  return out;
+}
+
 // ── The error log ────────────────────────────────────────────────────────────
 //
 // The weak-spots section on home used to assert three fixed weaknesses about a

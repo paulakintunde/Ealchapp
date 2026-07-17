@@ -11,9 +11,11 @@ import {
   dueCards,
   gradeAttempt,
   goalTarget,
+  isMastered,
   isSchedulable,
   itemsPracticed,
   localDay,
+  masteredItems,
   migrateProgressToV2,
   minutesToday,
   mondayIndex,
@@ -732,4 +734,45 @@ test('legacy attempts (all migrated to recognise) gate their producers correctly
     a('fr.a1.cafe.001', true, -10, 'good', 'recognise'),
   ];
   ok(recognitionStable(srsCards(legacy).get(cardKey('fr.a1.cafe.001', 'recognise'))));
+});
+
+// ── mastery: met is not mastered (CF-03) ─────────────────────────────────────
+
+/** A card folded from `n` clean passes spaced widely enough to reach a real
+ *  interval. Returns the whole log so callers can add produce siblings. */
+const masteredLog = (id: string, modality: AttemptEntry['modality']): AttemptEntry[] => [
+  a(id, true, -60, 'good', modality),
+  a(id, true, -45, 'good', modality),
+  a(id, true, -30, 'good', modality),
+  a(id, true, -20, 'good', modality),
+  a(id, true, -1, 'good', modality),
+];
+
+test('isMastered needs five reps, three weeks of interval, and no recent miss', () => {
+  const rec = srsCards(masteredLog('fr.a1.cafe.001', 'recognise')).get(cardKey('fr.a1.cafe.001', 'recognise'))!;
+  ok(rec.reps >= 5 && rec.intervalDays >= 21);
+  ok(isMastered(rec));
+});
+
+test('a well-drilled but recently-missed card is not mastered', () => {
+  const log = [...masteredLog('fr.a1.cafe.001', 'recognise'), a('fr.a1.cafe.001', false, 0, 'off', 'recognise')];
+  const rec = srsCards(log).get(cardKey('fr.a1.cafe.001', 'recognise'))!;
+  ok(!isMastered(rec), 'a miss zeroes reps and drops mastery');
+});
+
+test('recognition alone is met, not mastered — production must be proven too', () => {
+  // Recognise it into the ground; never produce it. It is met, not mastered.
+  const cards = srsCards(masteredLog('fr.a1.cafe.001', 'recognise'));
+  deepStrictEqual([...masteredItems(cards)], [], 'no produce card, so not mastered');
+});
+
+test('an item is mastered only when recognise AND produce are both mastered', () => {
+  const log = [
+    ...masteredLog('fr.a1.cafe.001', 'recognise'),
+    ...masteredLog('fr.a1.cafe.001', 'produce'), // its recognise sibling is long stable, so this unlocks
+  ];
+  const cards = srsCards(log);
+  ok(isMastered(cards.get(cardKey('fr.a1.cafe.001', 'recognise'))));
+  ok(isMastered(cards.get(cardKey('fr.a1.cafe.001', 'produce'))));
+  deepStrictEqual([...masteredItems(cards)], ['fr.a1.cafe.001']);
 });
