@@ -10,9 +10,13 @@ import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useProgress, useSessionLog } from '@/store/useProgress';
+import { useStore } from '@/store/useStore';
+import { introEligible } from '@/store/progress.logic';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { content } from '@/services/content';
+import { mergeArticleTiles } from '@/services/content.logic';
+import { dayOfYear } from '@/content/wordOfDay';
 import { normalizeFr } from '@/utils/score';
 
 type Phase = 'learn' | 'arrange' | 'say' | 'write' | 'passed';
@@ -21,15 +25,19 @@ type Tile = { w: string; t: string };
 const STEP: Record<Phase, string> = { learn: '1', arrange: '2', say: '3', write: '4', passed: '✓' };
 
 /** The word tiles for the sentence. The port stored them as JSON in the item's
- *  notes; if that is ever missing, fall back to splitting the sentence. */
+ *  notes; if that is ever missing, fall back to splitting the sentence. Either
+ *  way the tiles pass through mergeArticleTiles, so « un café » is one bubble:
+ *  authored splits and naive whitespace splits both used to detach the article
+ *  from its noun, teaching exactly the wrong instinct (Phase 6b panel note). */
 function tilesFor(fr: string, notes?: string): Tile[] {
+  let tiles: Tile[] | null = null;
   try {
     const parsed = JSON.parse(notes ?? '{}');
-    if (Array.isArray(parsed.tiles) && parsed.tiles.length) return parsed.tiles as Tile[];
+    if (Array.isArray(parsed.tiles) && parsed.tiles.length) tiles = parsed.tiles as Tile[];
   } catch {
     // fall through
   }
-  return fr.split(/\s+/).map((w) => ({ w, t: '' }));
+  return mergeArticleTiles(tiles ?? fr.split(/\s+/).map((w) => ({ w, t: '' })));
 }
 
 export default function Sentence() {
@@ -42,9 +50,18 @@ export default function Sentence() {
   const logSession = useSessionLog();
   const logAttempt = useProgress((s) => s.logAttempt);
 
-  // The one sentence item, from the corpus. Tiles, target and shuffle all derive
-  // from it — nothing about this sentence is hardcoded in the screen any more.
-  const item = useMemo(() => content.itemsFor('sentence')[0], []);
+  // The deck is every sentence-eligible item at or below the learner's level
+  // (all of them if the level line leaves nothing — a thin corpus must not kill
+  // the drill). It used to be `itemsFor('sentence')[0]`: one fixed sentence,
+  // forever. The day picks the starting sentence, deterministically, and
+  // "next sentence" walks the deck from there.
+  const deck = useMemo(() => {
+    const all = content.itemsFor('sentence');
+    const lined = introEligible(all, useStore.getState().level);
+    return lined.length ? lined : all;
+  }, []);
+  const [deckIx, setDeckIx] = useState(() => (deck.length ? dayOfYear() % deck.length : 0));
+  const item = deck.length ? deck[deckIx % deck.length] : undefined;
   const sbTarget = item?.fr ?? '';
   const sbWords = useMemo(() => (item ? tilesFor(item.fr, item.notes) : []), [item]);
   const sbShuffle = useMemo(() => {
@@ -189,8 +206,11 @@ export default function Sentence() {
     }
   };
 
+  // With more than one sentence in the deck, finishing rotates to the next one
+  // (the rotating set CF-24 asks for); with one, it honestly replays.
   const restart = () => {
     sound.play('tap');
+    if (deck.length > 1) setDeckIx((i) => (i + 1) % deck.length);
     setPicked([]);
     setTyped('');
     setErr(false);
@@ -417,7 +437,7 @@ export default function Sentence() {
             </TX>
             <Press cue={null} onPress={restart} style={{ minHeight: 52, paddingVertical: 6, paddingHorizontal: 34, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
               <TX font="semi" role="body" color={t.accInk}>
-                {T.redo}
+                {deck.length > 1 ? T.sbNextSentence : T.redo}
               </TX>
             </Press>
             <Press cue={null} onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>

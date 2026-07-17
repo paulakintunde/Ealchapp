@@ -19,6 +19,7 @@ import {
   looksLikeCorpus,
   manifestIsNewer,
   MAX_SNAPSHOT_BYTES,
+  mergeArticleTiles,
   mergeCorpus,
   scenariosFor,
   selectItems,
@@ -369,4 +370,60 @@ test('the snapshot ceiling is a real number and the current seed clears it', () 
   // refuses to parse); this pins it against accidental edits to something
   // meaninglessly small or absurdly large.
   ok(MAX_SNAPSHOT_BYTES >= 1024 * 1024 && MAX_SNAPSHOT_BYTES <= 16 * 1024 * 1024);
+});
+
+// ── mergeArticleTiles: the article travels with its noun (Phase 6b) ──────────
+
+test('a determiner merges into the noun that follows it', () => {
+  deepStrictEqual(
+    mergeArticleTiles([
+      { w: 'Je', t: 'I' },
+      { w: 'voudrais', t: 'would like' },
+      { w: 'un', t: 'a' },
+      { w: 'café', t: 'coffee' },
+    ]),
+    [
+      { w: 'Je', t: 'I' },
+      { w: 'voudrais', t: 'would like' },
+      { w: 'un café', t: 'a coffee' },
+    ]
+  );
+});
+
+test("elision joins without a space: l' + été is l'été", () => {
+  deepStrictEqual(mergeArticleTiles([{ w: "l'", t: 'the' }, { w: 'été', t: 'summer' }]), [
+    { w: "l'été", t: 'the summer' },
+  ]);
+});
+
+test('bare de never merges — it is usually a preposition, not an article', () => {
+  deepStrictEqual(
+    mergeArticleTiles([
+      { w: 'à côté', t: 'next' },
+      { w: 'de', t: 'to' },
+      { w: 'la', t: 'the' },
+      { w: 'gare', t: 'station' },
+    ]),
+    [
+      { w: 'à côté', t: 'next' },
+      { w: 'de', t: 'to' },
+      { w: 'la gare', t: 'the station' },
+    ]
+  );
+});
+
+test('a trailing determiner with nothing after it is left alone', () => {
+  deepStrictEqual(mergeArticleTiles([{ w: 'le', t: 'the' }]), [{ w: 'le', t: 'the' }]);
+});
+
+test('merging never changes the space-joined sentence the arrange step checks', () => {
+  const tiles = [
+    { w: 'Je', t: '' },
+    { w: 'voudrais', t: '' },
+    { w: 'un', t: '' },
+    { w: 'café', t: '' },
+  ];
+  const before = tiles.map((x) => x.w).join(' ');
+  const after = mergeArticleTiles(tiles).map((x) => x.w).join(' ');
+  strictEqual(after, before);
 });

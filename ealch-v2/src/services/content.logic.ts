@@ -87,6 +87,42 @@ export function selectItems(corpus: Corpus, drill: DrillKind, q: ItemQuery = {})
   );
 }
 
+/* ─── beginner tokenization (CF-24 / Phase 6b panel note) ────────────────── */
+
+export type SbTile = { w: string; t: string };
+
+/** Determiners that must travel WITH their noun in beginner sentence-building.
+ *  Articles and the everyday possessives/demonstratives only — deliberately
+ *  not bare 'de', which is usually a preposition and would glue itself to
+ *  whatever follows. */
+const SB_DETERMINERS = new Set([
+  'un', 'une', 'des', 'le', 'la', 'les', "l'", 'du',
+  'mon', 'ma', 'mes', 'ton', 'ta', 'tes', 'son', 'sa', 'ses',
+  'ce', 'cet', 'cette', 'ces',
+]);
+
+/** Merge a determiner tile into the word that follows it, so the Sentence
+ *  Builder offers « un café » as ONE draggable bubble, never « un » + « café ».
+ *  Splitting them teaches that the article is detachable from the noun — the
+ *  exact instinct a gender-first product exists to prevent; the phonological
+ *  word keeps its gender attached wherever it surfaces. Elision ("l'") joins
+ *  without a space. A determiner with nothing after it is left alone. */
+export function mergeArticleTiles(tiles: SbTile[]): SbTile[] {
+  const out: SbTile[] = [];
+  for (let i = 0; i < tiles.length; i++) {
+    let w = tiles[i].w;
+    let t = tiles[i].t;
+    while (i + 1 < tiles.length && SB_DETERMINERS.has(w.toLowerCase().trim())) {
+      const next = tiles[i + 1];
+      w = w.endsWith("'") ? w + next.w : `${w} ${next.w}`;
+      t = [t, next.t].filter(Boolean).join(' ');
+      i++;
+    }
+    out.push({ w, t });
+  }
+  return out;
+}
+
 export function getItem(corpus: Corpus, id: string): Item | null {
   return corpus.items.find((i) => i.id === id) ?? null;
 }

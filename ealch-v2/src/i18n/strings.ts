@@ -68,7 +68,7 @@ export type Strings = {
   testAlarm: string; customTime: string; calendarT: string;
   voiceT: string; voiceS: string; sbT: string; sbS: string; rpT: string; rpS: string;
   startQuiz: string; quizPassed: string; quizFailed: string; retry: string; qNext: string; backToDen: string;
-  lessonDone: string; lessonSoon: string; builderTag: string; sbSkipSay: string;
+  lessonDone: string; lessonSoon: string; builderTag: string; sbSkipSay: string; sbNextSentence: string;
   denLearned: string;
   denMastered: string;
   examplesT: string; tableT: string; errorsT: string; audioT: string; videoT: string; subsT: string;
@@ -240,7 +240,7 @@ export const T: Record<Lang, Strings> = {
     testAlarm: "Tester l'alarme", customTime: 'Heure personnalisée', calendarT: 'Votre calendrier',
     voiceT: 'Flash vocal', voiceS: 'image → voix · traduction', sbT: 'Phrases', sbS: 'apprendre · dire · écrire', rpT: 'Jeu de rôle', rpS: 'conversation IA · A1 → B2',
     startQuiz: 'Commencer le quiz', quizPassed: 'RÉUSSI', quizFailed: 'Pas encore', retry: 'Réessayer', qNext: 'Suivant', backToDen: 'Retour au cursus',
-    lessonDone: 'Terminer la leçon', lessonSoon: 'Leçon bientôt disponible', builderTag: 'CONSTRUCTEUR', sbSkipSay: 'Passer',
+    lessonDone: 'Terminer la leçon', lessonSoon: 'Leçon bientôt disponible', builderTag: 'CONSTRUCTEUR', sbSkipSay: 'Passer', sbNextSentence: 'Phrase suivante',
     denLearned: '{n} / {m} appris',
     denMastered: '{k} maîtrisés',
     examplesT: 'Exemples & usages', tableT: 'Tableau', errorsT: 'Erreurs communes', audioT: 'Pratique audio', videoT: 'Vidéo — la bouche en 3D', subsT: 'Sous-leçons',
@@ -479,7 +479,7 @@ export const T: Record<Lang, Strings> = {
     testAlarm: 'Test the alarm', customTime: 'Custom time', calendarT: 'Your calendar',
     voiceT: 'Voice Flash', voiceS: 'image → voice · translation', sbT: 'Sentences', sbS: 'learn · say · write', rpT: 'Role Play', rpS: 'AI conversation · A1 → B2',
     startQuiz: 'Start the quiz', quizPassed: 'PASSED', quizFailed: 'Not yet', retry: 'Retry', qNext: 'Next', backToDen: 'Back to curriculum',
-    lessonDone: 'Finish the lesson', lessonSoon: 'Lesson coming soon', builderTag: 'BUILDER', sbSkipSay: 'Skip',
+    lessonDone: 'Finish the lesson', lessonSoon: 'Lesson coming soon', builderTag: 'BUILDER', sbSkipSay: 'Skip', sbNextSentence: 'Next sentence',
     denLearned: '{n} / {m} learned',
     denMastered: '{k} mastered',
     examplesT: 'Examples & use cases', tableT: 'Table', errorsT: 'Common errors', audioT: 'Audio practice', videoT: 'Video — the mouth in 3D', subsT: 'Sub-lessons',
