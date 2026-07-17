@@ -7,6 +7,12 @@
     "icon": "./assets/icon.png",
     "scheme": "ealch",
     "userInterfaceStyle": "automatic",
+    "runtimeVersion": {
+      "policy": "fingerprint"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f7effa79-feb1-4e79-a567-536e32da5306"
+    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "app.ealch.mobile",
@@ -61,10 +67,13 @@
         {
           "microphonePermission": "Ealch uses the microphone so you can speak French out loud and get feedback on what you said.",
           "speechRecognitionPermission": "Ealch uses speech recognition to compare what you said with the phrase you are practising.",
-          "androidSpeechServicePackages": ["com.google.android.googlequicksearchbox"]
+          "androidSpeechServicePackages": [
+            "com.google.android.googlequicksearchbox"
+          ]
         }
       ],
-      "expo-asset"
+      "expo-asset",
+      "expo-status-bar"
     ],
     "experiments": {
       "typedRoutes": false
