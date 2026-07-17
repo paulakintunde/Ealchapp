@@ -69,9 +69,17 @@ alter table public.profiles        enable row level security;
 alter table public.review_items    enable row level security;
 alter table public.sessions        enable row level security;
 
--- Config + prompts: world-readable (non-sensitive), admin-writable only.
+-- Config: world-readable (non-sensitive), admin-writable only.
 create policy "config readable" on public.system_config for select using (true);
-create policy "prompts readable" on public.system_prompts for select using (true);
+
+-- Prompts: NO anon read policy, deliberately (master plan Phase 2.D security).
+-- The client never needs a prompt body: the coach edge function injects the
+-- prompt server-side with the service role, which bypasses RLS. A world-
+-- readable policy here handed the full coach/examiner prompt text to anyone
+-- with the anon key — prompt bodies are product IP and a prompt-injection
+-- surface, not config. RLS stays ENABLED with no select policy, so anon reads
+-- return zero rows. (The previous "prompts readable" using(true) policy was
+-- dropped from the live DB on 2026-07-17; this file no longer creates it.)
 
 -- Users own their rows.
 create policy "own profile"  on public.profiles     for all using (auth.uid() = id)      with check (auth.uid() = id);

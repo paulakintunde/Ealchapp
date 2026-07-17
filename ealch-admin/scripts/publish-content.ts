@@ -303,6 +303,37 @@ async function main() {
   }
   console.log('  ✓ corpus valid');
 
+  // ── 4b. RULE lesson-has-practice (master plan Phase 2.B) ────────────────
+  // Every published lesson must carry >=1 practice section with a non-empty,
+  // fully-resolvable itemIds[], and Lesson.itemIds must be populated. This is
+  // the one rule that converts lesson study into review-deck cards: a lesson
+  // referencing no items feeds the SRS nothing and the Den's progress bars
+  // divide by zero.
+  //
+  // It lives HERE and not in validateCorpus, on purpose: phones carry cached
+  // corpora whose lessons predate this rule, and verifySnapshot runs
+  // validateCorpus on device — putting the rule there would invalidate every
+  // corpus already in the field. The publish contract is where a rule about
+  // what may SHIP belongs.
+  const itemIdSet = new Set(items.map((i) => i.id));
+  const practiceless: string[] = [];
+  for (const l of lessons) {
+    const practices = (l.sections as LessonSection[]).filter((s) => s.type === 'practice');
+    const resolvable =
+      practices.length > 0 &&
+      practices.every((p) => p.itemIds.length > 0 && p.itemIds.every((id) => itemIdSet.has(id)));
+    const joined = Array.isArray(l.itemIds) && l.itemIds.length > 0;
+    if (!resolvable || !joined) practiceless.push(l.id);
+  }
+  if (practiceless.length) {
+    await pool.end();
+    console.error(`\n✖ RULE lesson-has-practice: ${practiceless.length} lesson(s) ship no resolvable practice. NOTHING was published.`);
+    console.error(`  ${practiceless.join(', ')}`);
+    console.error('  Author real practice sections (scripts/author-practice.ts is the pattern), or unpublish the lesson.\n');
+    process.exit(1);
+  }
+  console.log('  ✓ lesson-has-practice: every lesson feeds the SRS');
+
   // ── 5. The seed cut — what ships inside the binary ─────────────────────
   console.log(`\n  seed cut: ${describeCut()}`);
 

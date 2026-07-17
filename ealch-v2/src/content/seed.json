@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "units": [
     {
       "id": "sons.01",
@@ -259,7 +259,13 @@
       "level": "sons",
       "title": "Les voyelles nasales",
       "unitId": "sons.03",
-      "itemIds": [],
+      "itemIds": [
+        "fr.a1.cafe.001",
+        "fr.a1.objets.001",
+        "fr.a1.objets.002",
+        "fr.a1.cafe.007",
+        "fr.a1.cafe.008"
+      ],
       "version": 1,
       "sections": [
         {
@@ -333,6 +339,18 @@
           ]
         },
         {
+          "type": "practice",
+          "skill": "speak",
+          "title": "Practice",
+          "itemIds": [
+            "fr.a1.cafe.001",
+            "fr.a1.objets.001",
+            "fr.a1.objets.002",
+            "fr.a1.cafe.007",
+            "fr.a1.cafe.008"
+          ]
+        },
+        {
           "type": "quiz",
           "title": "Quiz",
           "questions": [
@@ -375,7 +393,12 @@
       "level": "a1",
       "title": "Les articles définis",
       "unitId": "a1.04",
-      "itemIds": [],
+      "itemIds": [
+        "fr.a1.objets.004",
+        "fr.a1.cafe.004",
+        "fr.a1.dictee.002",
+        "fr.a1.dictee.003"
+      ],
       "version": 1,
       "sections": [
         {
@@ -449,6 +472,17 @@
           ]
         },
         {
+          "type": "practice",
+          "skill": "read",
+          "title": "Practice",
+          "itemIds": [
+            "fr.a1.objets.004",
+            "fr.a1.cafe.004",
+            "fr.a1.dictee.002",
+            "fr.a1.dictee.003"
+          ]
+        },
+        {
           "type": "quiz",
           "title": "Quiz",
           "questions": [
@@ -491,7 +525,14 @@
       "level": "a2",
       "title": "Verbes réguliers",
       "unitId": "a2.01",
-      "itemIds": [],
+      "itemIds": [
+        "fr.a2.verbes.001",
+        "fr.a2.verbes.002",
+        "fr.a2.verbes.003",
+        "fr.a2.verbes.004",
+        "fr.a2.verbes.005",
+        "fr.a1.dictee.003"
+      ],
       "version": 1,
       "sections": [
         {
@@ -582,6 +623,19 @@
             "-ER Verbs — Spelling Quirks",
             "Regular -IR Verbs",
             "Regular -RE Verbs"
+          ]
+        },
+        {
+          "type": "practice",
+          "skill": "write",
+          "title": "Practice",
+          "itemIds": [
+            "fr.a2.verbes.001",
+            "fr.a2.verbes.002",
+            "fr.a2.verbes.003",
+            "fr.a2.verbes.004",
+            "fr.a2.verbes.005",
+            "fr.a1.dictee.003"
           ]
         },
         {
@@ -884,6 +938,96 @@
       ],
       "audioRef": null,
       "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.001",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je parle français.",
+      "en": "I speak French.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "grammarPoints": [
+        "present-er"
+      ]
+    },
+    {
+      "id": "fr.a2.verbes.002",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu regardes la télé.",
+      "en": "You watch TV.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "grammarPoints": [
+        "present-er"
+      ]
+    },
+    {
+      "id": "fr.a2.verbes.003",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous finissons nos devoirs.",
+      "en": "We finish our homework.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "grammarPoints": [
+        "present-ir"
+      ]
+    },
+    {
+      "id": "fr.a2.verbes.004",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle attend le bus.",
+      "en": "She waits for the bus.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "grammarPoints": [
+        "present-re"
+      ]
+    },
+    {
+      "id": "fr.a2.verbes.005",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils vendent des fruits au marché.",
+      "en": "They sell fruit at the market.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "grammarPoints": [
+        "present-re"
+      ]
     }
   ],
   "scenarios": [

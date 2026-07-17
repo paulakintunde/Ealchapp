@@ -14,6 +14,7 @@
     "db:seed": "tsx scripts/seed.ts",
     "content:port": "tsx scripts/port-content.ts",
     "content:spine": "tsx scripts/update-spine.ts",
+    "content:practice": "tsx scripts/author-practice.ts",
     "content:publish": "tsx scripts/publish-content.ts",
     "test:e2e": "playwright test"
   },

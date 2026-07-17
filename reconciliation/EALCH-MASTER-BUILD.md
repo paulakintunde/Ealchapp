@@ -32,7 +32,7 @@ A few conventions:
 | **CC-B** | ⬜ | Commercial setup lead time (cross-cutting, starts Phase 0) | Phases 10-11 | infra |
 | **0** | ✅ | Honesty & store-risk fixes | unblocks review | JS/OTA + config |
 | **1** | ✅ | Schema v2 unified migration + curriculum spine + level-cap lift (G2 alone ⏳, owned by Phase 5) | 2,5,6,7,8, all authoring | migration + JS |
-| **2** | ⬜ | Content pipeline hardening + lesson↔corpus join + prove-the-pipe | 4,7,8 authoring | pipeline + JS |
+| **2** | 🟡 | Content pipeline hardening + lesson↔corpus join + prove-the-pipe (2.B exit blocker ✅ + RLS ✅ 2026-07-17; OTA safety, perf budgets, French gates, prove-the-pipe open) | 4,7,8 authoring | pipeline + JS |
 | **3** | ⬜ | Pluggable provider socket → OPR, Nemotron default | de-risks 4,7,8, coach margin | edge + admin |
 | **4** | ⬜ | Azure/Camille TTS resolver + client remote-audio path | feeds 7 | native rebuild |
 | **5** | ⬜ | SRS / mastery engine (modality, sibling-gating, cap) | feeds 6,7,10 | JS/OTA |
@@ -298,6 +298,9 @@ Hybrid: author-in-DB (Management Plane), ship a compiled immutable snapshot (Del
 
 ### 2.B Close the lesson→corpus join — **[PHASE 2 EXIT BLOCKER]** (HIGH note 27 — the retention engine)
 
+> **✅ DONE 2026-07-17 — gate and re-authoring landed together, exactly as the sequencing note below requires, published as snapshot v3 and device-verified.** The `lesson-has-practice` gate is live in `publish-content.ts` as a **hard abort** (it lives in the publish contract, NOT in `validateCorpus` — phones carry cached corpora whose lessons predate the rule, and `verifySnapshot` runs `validateCorpus` on device). It was negative-tested for real: run against the not-yet-re-authored lessons, it refused to publish all three by name.
+> The three lessons now carry honest practice: **sons.03.l1** practices five existing items that actually contain nasal vowels; **a1.04.l1** four items that actually contain definite articles; **a2.01.l1** had exactly ONE honest item in the whole corpus, so **five new a2 present-tense items were authored** (`fr.a2.verbes.001-005`, one per family: parler/regarder, finir, attendre/vendre, with `grammarPoints`) rather than pointing the lesson at content that does not practice what it teaches. `Lesson.itemIds` populated everywhere, so the Den's per-unit progress denominators are real. Authored via `content:practice` (transactional, idempotent, post-state validated pre-write; the script is the documented pattern the gate's error message points at). Items 17 → 22. **Device-verified on the Pixel: the Practice section renders its rows in the articles lesson, delivered OTA as v3.** The renderer's full drill wiring (tap → attempt log) remains Phase 5, as its comment records.
+
 All 3 shipped lessons have `itemIds: []` and zero `practice` sections (`seed.json:156,272,388`); `progress.logic.ts:358 SCHEDULABLE` only schedules items attempted in a drill, so a lesson referencing no items feeds the SRS nothing, and the Den's progress bars (`den.tsx:47-52`) stay at 0/0. Add a hard publish gate:
 
 ```
@@ -325,6 +328,7 @@ This is the one rule that converts lesson study into review-deck cards. **Sequen
 2. **Deterministic French gates in the publish path (Content-Gen C12-15).** Before `validateCorpus`, run non-LLM checks: verb forms via a conjugator (mlconjug3/verbecc), gender via a gold lexicon (Lefff/Lexique), IPA via espeak-ng/phonemizer, a CEFR level-fit classifier, and the `≥30% recycled vocab / ≤8 new items` token-diff post-filter. These gates run only in the publish/CI environment, never in the Metro bundle or on device. [perf]
 3. **Regen economics.** Idempotency-keyed resumable runner (`key = hash(prompt_version + schema_version + inputs)`); version-hash staleness so a prompt/schema/format change re-enqueues only affected items; cache the shared instruction prefix across packs (~90% input-cost reduction).
 4. **Security (RLS).** The plan tightens `system_prompts` RLS from `using(true)` to `active=true`, but that still exposes full prompt bodies to any anon reader. If the coach/examiner/generation prompts are injected server-side by edge functions (service role, bypasses RLS), the client never needs prompt bodies: **drop the anon SELECT policy on `system_prompts` entirely** rather than softening it. If the client genuinely needs a prompt key/version (not the body), expose only those columns via a view. Audit `system_config` the same way for secret-adjacent fields. [data]
+   > **✅ DONE 2026-07-17.** Verified first that no client code reads `system_prompts` (only `functions/coach`, which uses the service role and bypasses RLS). The `"prompts readable" using(true)` policy is **dropped from the live DB** — zero policies remain on the table, so with RLS enabled anon reads return nothing — and `supabase/schema.sql` no longer creates it (the rationale is recorded in-file). The `system_config` audit half is still open: its `using(true)` read policy stands, which is correct while config carries no secrets, but it should be re-checked whenever a config key is added. [data]
 
 ### 2.E Positional deep-link anchors
 
