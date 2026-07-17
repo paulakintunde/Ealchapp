@@ -36,7 +36,68 @@ import {
 // The original content, imported wholesale (these files are import-free).
 import { deck, vfItems, sbWords, sbTarget, rpLines, type RpLevel } from '../../ealch-v2/src/content/index.ts';
 import { lessons as srcLessons, type Lesson as SrcLesson } from '../../ealch-v2/src/content/lessons.ts';
-import { currSons, currA1, currA2 } from '../../ealch-v2/src/content/curriculum.ts';
+
+// The prototype's curriculum arrays, FROZEN here as this script's port source.
+// They lived in ealch-v2/src/content/curriculum.ts until the CF-17 spine
+// cleanup: the app now renders units from the corpus, so the app copy was a
+// second source of truth waiting to drift. This script is the one consumer
+// left, and a port source should be immutable anyway — do not edit these to
+// change the live curriculum; author against content_units in the DB.
+// (The DB was ported from exactly these 43 rows; ids sons.01..a2.08 are
+// canonical and immutable, display order lives in each unit's `seq`.)
+type ProtoUnit = { title: string; sub: string };
+
+const currSons: ProtoUnit[] = [
+  { title: "L'alphabet", sub: 'the 26 letters & their French names' },
+  { title: 'Les voyelles', sub: 'pure vowels — a, e, i, o, u, ou, eu' },
+  { title: 'Les voyelles nasales', sub: 'on · en · in · un — through the nose' },
+  { title: 'Les consonnes', sub: 'consonant sounds & the French r' },
+  { title: 'Les accents', sub: 'é è ê ë ç — what each mark changes' },
+  { title: 'Les lettres muettes', sub: 'silent letters — why « ils parlent » ends quietly' },
+  { title: "L'élision", sub: "je → j', le → l' — dropping the vowel" },
+  { title: 'Rythme & intonation', sub: 'the music of French — even syllables' },
+  { title: 'Masterclass', sub: 'pronunciation masterclass — putting it all together' },
+];
+
+const currA1: ProtoUnit[] = [
+  { title: 'Les salutations', sub: 'greetings & politeness — bonjour, merci' },
+  { title: 'Les nombres', sub: 'numbers 0–100' },
+  { title: 'Le genre des noms', sub: 'noun gender — masculin & féminin' },
+  { title: 'Les articles définis', sub: 'le, la, les' },
+  { title: 'Les pronoms sujets', sub: 'je, tu, il, elle, nous, vous, ils' },
+  { title: 'Le verbe être', sub: 'to be — je suis, tu es…' },
+  { title: 'Le verbe avoir', sub: "to have — j'ai, tu as…" },
+  { title: "Calendrier & l'heure", sub: 'days, months, telling time' },
+  { title: 'Les saisons', sub: 'seasons of the year' },
+  { title: 'La météo', sub: 'weather — il pleut, il fait beau' },
+  { title: 'Décrire les choses', sub: "describing things — c'est, il y a" },
+  { title: 'Les couleurs', sub: 'colors & their agreement' },
+  { title: 'Adjectifs de base', sub: 'basic adjectives — grand, petit, beau' },
+  { title: 'La famille', sub: 'family vocabulary' },
+  { title: 'Adjectifs possessifs', sub: 'mon, ma, mes, notre…' },
+  { title: "La place de l'adjectif", sub: 'adjective placement — before or after?' },
+  { title: 'Demander & localiser', sub: 'asking & locating — où est… ?' },
+  { title: 'La négation', sub: 'ne… pas' },
+  { title: 'Questions oui / non', sub: 'yes-no questions — est-ce que…' },
+  { title: 'Les mots interrogatifs', sub: 'question words — qui, quoi, où, quand' },
+  { title: 'Prépositions de lieu', sub: 'prepositions of place — sur, sous, dans' },
+  { title: 'Pays & nationalités', sub: 'countries & nationalities' },
+  { title: 'La nourriture', sub: 'everyday food vocabulary' },
+  { title: 'Le corps', sub: 'body parts' },
+  { title: 'La routine quotidienne', sub: 'daily routines — se lever, se coucher' },
+  { title: 'La maison', sub: 'home & furniture' },
+];
+
+const currA2: ProtoUnit[] = [
+  { title: 'Verbes réguliers', sub: 'deep dive — -er, -ir, -re families' },
+  { title: 'Verbes irréguliers', sub: 'aller, faire, venir, pouvoir, vouloir' },
+  { title: 'Adjectifs & adverbes', sub: 'agreement, formation, -ment adverbs' },
+  { title: 'Les prépositions', sub: 'à, de, en, chez — and their traps' },
+  { title: 'Le passé composé', sub: 'the past tense — avoir vs être' },
+  { title: 'Pronoms objets', sub: 'object pronouns — le, la, lui, y, en' },
+  { title: 'Situations quotidiennes', sub: 'everyday situations — shops, transport, pharmacy' },
+  { title: 'Comparaisons & références', sub: 'plus… que, moins… que, celui-ci' },
+];
 
 // Dictation is NOT imported from drills.ts: that file alone carries type-only
 // '@/…' imports that admin's tsc cannot resolve across projects. These three

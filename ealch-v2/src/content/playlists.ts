@@ -10,6 +10,8 @@
 // `glow` is stored as a literal rgba so a playlist is theme-independent, matching
 // the three sibling cards that were already fixed colors.
 
+import type { Level } from './schema';
+
 export type PlaylistTrack = {
   /** Stable id: `<playlistId>-t<seq>`. */
   id: string;
@@ -21,6 +23,11 @@ export type PlaylistTrack = {
 
 export type Playlist = {
   id: string;
+  /** The lowest band this playlist is honest listening for. Nothing gates on it
+   *  yet: it is the declaration the future level-aware feed reads, recorded at
+   *  authoring time while the judgement is fresh rather than reverse-engineered
+   *  later. Argot at a1 would be noise; that fact belongs on the data. */
+  minLevel: Level;
   /** The serif French word painted on the card (La Voix, Argot…). */
   word: string;
   /** Eyebrow tag (DEEP-DIVE, PARIS…). */
@@ -38,6 +45,7 @@ export type Playlist = {
 export const playlists: Playlist[] = [
   {
     id: 'la-voix',
+    minLevel: 'sons',
     word: 'La Voix',
     tag: 'DEEP-DIVE',
     glow: 'rgba(214,160,96,0.28)',
@@ -90,6 +98,7 @@ export const playlists: Playlist[] = [
   },
   {
     id: 'argot',
+    minLevel: 'b1',
     word: 'Argot',
     tag: 'PARIS',
     glow: 'rgba(199,106,92,0.30)',
@@ -129,6 +138,7 @@ export const playlists: Playlist[] = [
   },
   {
     id: 'l-argent',
+    minLevel: 'b1',
     word: "L'Argent",
     tag: 'BUSINESS',
     glow: 'rgba(96,126,160,0.32)',
@@ -168,6 +178,7 @@ export const playlists: Playlist[] = [
   },
   {
     id: 'l-oreille',
+    minLevel: 'a2',
     word: "L'Oreille",
     tag: 'IMMERSION',
     glow: 'rgba(139,116,190,0.28)',

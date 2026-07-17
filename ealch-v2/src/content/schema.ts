@@ -480,8 +480,20 @@ export type Lesson = {
   grammarAssumed?: string[];
   /** Grammar this lesson introduces for the first time. */
   grammarIntroduced?: string[];
+
+  /** Optional capabilities the Den surfaces as depth-tiered entry points
+   *  (Learn / Narrated / Practice / Roleplay). Declared, not inferred from
+   *  section presence, so the Den can advertise a mode before tapping in. */
+  features?: LessonFeature[];
+  /** The Role Play scenario that exercises this lesson's ground, when one
+   *  exists. Resolved against corpus scenarios by validateCorpus. */
+  scenarioId?: string;
   provenance?: Provenance;
 };
+
+/** What a lesson can offer beyond reading it. Order here is display order. */
+export const LESSON_FEATURES = ['narrated', 'minimalPairs', 'roleplay', 'voiceflash'] as const;
+export type LessonFeature = (typeof LESSON_FEATURES)[number];
 
 /**
  * A Unit CONTAINS lessons. The Den's tree is units; the lessons live inside.
@@ -514,10 +526,32 @@ export type Unit = {
   /** The band this unit teaches. Optional only for back-compat; when present it
    *  must agree with the id. `unitBand(id)` is the reliable read. */
   level?: Level;
+  /** Display order within the band. The Den sorts on this, NOT on the id — ids
+   *  are immutable (progress and lessons key on them), so resequencing a
+   *  curriculum is a seq edit, never an id rename. Nothing guarantees seq
+   *  matches the id's number, and after the A1 resequencing it does not. */
   seq: number;
   title: string;
   sub: string;
   lessonIds: string[];
+
+  // ── The curriculum spine (CF-17) ──
+  //
+  // All three optional for the same reason `level` is: units authored before
+  // these fields existed are on phones. Presence is enforced at publish time
+  // (every unit must carry a non-empty canDo), not in the type — the same
+  // contract-required-storage-optional pattern as Item.skill/modality.
+  /** CEFR-style can-do anchor: what the learner can DO after this unit
+   *  ("Can say what they want and refuse politely"). The unit's claim about
+   *  itself, and the peg exam tasks and placement probes hang off. */
+  canDo?: string;
+  /** Theme slugs this unit touches ('famille', 'meteo'). Empty/absent is honest
+   *  for pure grammar and phonics: not every unit has a lexical field. */
+  themes?: string[];
+  /** Units this one genuinely assumes, by id. Honest and minimal: a prereq that
+   *  is merely "earlier in the book" is sequence, not dependency, and belongs in
+   *  seq. The gate a learner actually hits belongs here. */
+  prereqUnitIds?: string[];
 };
 
 /**
@@ -1048,6 +1082,22 @@ export function validateLesson(v: unknown, path = 'lesson'): Issue[] {
       else if (v2.some((g) => !isStr(g))) push(`${k} must all be non-empty strings`);
     }
   }
+
+  if (l.features !== undefined) {
+    if (!isArr(l.features)) push('features must be an array when present');
+    else {
+      l.features.forEach((f, i) => {
+        if (!oneOf(LESSON_FEATURES, f)) push(`features[${i}] "${String(f)}" must be one of ${LESSON_FEATURES.join(' | ')}`);
+      });
+      // A repeated feature is a doubled Den entry point for the same thing.
+      if (new Set(l.features).size !== l.features.length) push('features must not repeat');
+    }
+  }
+  if (l.scenarioId !== undefined) {
+    if (!isStr(l.scenarioId) || !SCENARIO_ID_RE.test(l.scenarioId)) {
+      push(`scenarioId "${String(l.scenarioId)}" is not a valid scenario id`);
+    }
+  }
   if (l.provenance !== undefined) out.push(...validateProvenance(l.provenance, `${path}.provenance`));
 
   return out;
@@ -1094,6 +1144,24 @@ export function validateUnit(v: unknown, path = 'unit'): Issue[] {
   else {
     u.lessonIds.forEach((id, i) => {
       if (!isStr(id) || !LESSON_ID_RE.test(id)) push(`lessonIds[${i}] "${String(id)}" is not a valid lesson id`);
+    });
+  }
+
+  // The spine fields: type-when-present, like `level` above. Requiring them
+  // would invalidate every unit on phones today; the publish gate is where
+  // presence is enforced once the backfill lands.
+  if (u.canDo !== undefined && !isStr(u.canDo)) push('canDo must be a non-empty string when present');
+  if (u.themes !== undefined) {
+    if (!isArr(u.themes)) push('themes must be an array when present');
+    else u.themes.forEach((t, i) => {
+      if (!isStr(t) || !THEME_RE.test(t)) push(`themes[${i}] "${String(t)}" is not a valid theme slug`);
+    });
+  }
+  if (u.prereqUnitIds !== undefined) {
+    if (!isArr(u.prereqUnitIds)) push('prereqUnitIds must be an array when present');
+    else u.prereqUnitIds.forEach((id, i) => {
+      if (!isStr(id) || !UNIT_ID_RE.test(id)) push(`prereqUnitIds[${i}] "${String(id)}" is not a valid unit id`);
+      else if (id === u.id) push(`prereqUnitIds[${i}] — a unit cannot be its own prerequisite`);
     });
   }
 
@@ -1563,6 +1631,22 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
       if (isStr(id) && !lessonSet.has(id)) {
         out.push({ path: `${path}.units`, message: `unit "${u.id}" references unknown lesson "${id}"` });
       }
+    }
+    // A dangling prerequisite is a gate the learner can never open: the unit it
+    // waits on is in no corpus, so the wait never ends.
+    for (const id of isArr(u.prereqUnitIds) ? u.prereqUnitIds : []) {
+      if (isStr(id) && !unitSet.has(id)) {
+        out.push({ path: `${path}.units`, message: `unit "${u.id}" requires unknown prerequisite unit "${id}"` });
+      }
+    }
+  }
+
+  // A lesson's scenario link must land on a scenario that shipped, or the Den
+  // advertises a Roleplay entry point that opens onto nothing.
+  const scenarioSet = new Set(scenarios.map((s) => s.id).filter(isStr));
+  for (const l of co.lessons) {
+    if (l.scenarioId !== undefined && isStr(l.scenarioId) && !scenarioSet.has(l.scenarioId)) {
+      out.push({ path: `${path}.lessons`, message: `lesson "${l.id}" references unknown scenario "${l.scenarioId}"` });
     }
   }
 

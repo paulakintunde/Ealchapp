@@ -16,7 +16,7 @@ import { useProgress } from '@/store/useProgress';
 import { goalTarget, localDay, minutesToday, resumeIsFresh, reviewDueCount, streak, topWeaknesses } from '@/store/progress.logic';
 import { useUI } from '@/store/useUI';
 import { playlists } from '@/content/playlists';
-import { totalUnits } from '@/content/curriculum';
+import { useContent } from '@/services/content';
 import { wordOfDay } from '@/content/wordOfDay';
 import { openWeakRows } from '@/content/weakness';
 import { tts } from '@/services';
@@ -78,6 +78,13 @@ export default function Home() {
   const attempts = useProgress((s) => s.attempts);
   const errors = useProgress((s) => s.errors);
   const resume = useProgress((s) => s.resume);
+  // The Den tile's unit count, from the corpus the Den itself renders — a unit
+  // is Den-visible iff it has a track (b1+ units belong to no column). Was
+  // totalUnits() over prototype arrays in curriculum.ts (CF-17): that count was
+  // frozen at build time and could disagree with what the Den actually shows
+  // after an OTA. A zustand selector returning a primitive re-renders only when
+  // the number changes.
+  const denUnits = useContent((s) => s.corpus.units.filter((u) => u.track !== undefined).length);
   const openDict = useUI((s) => s.openDict);
   const openSheet = useUI((s) => s.openSheet);
   // The fold's open/closed state persists (survives remounts) and its reveal
@@ -290,7 +297,7 @@ export default function Home() {
         <SectionHead title={T.found} right="SONS · A1 · A2" />
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
           <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push('/den')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
-            <TileHead badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />} right={`${totalUnits()} ${T.unitsWord}`} />
+            <TileHead badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />} right={`${denUnits} ${T.unitsWord}`} />
             <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
               {T.denT}
             </TX>

@@ -1,10 +1,12 @@
 {
-  "version": 1,
+  "version": 2,
   "units": [
     {
       "id": "sons.01",
       "seq": 1,
       "sub": "the 26 letters & their French names",
+      "canDo": "Can name the letters of the French alphabet and spell their own name aloud",
+      "level": "sons",
       "title": "L'alphabet",
       "track": "sons",
       "lessonIds": []
@@ -13,6 +15,8 @@
       "id": "sons.02",
       "seq": 2,
       "sub": "pure vowels — a, e, i, o, u, ou, eu",
+      "canDo": "Can produce the pure French vowels, including ou and eu, without gliding",
+      "level": "sons",
       "title": "Les voyelles",
       "track": "sons",
       "lessonIds": []
@@ -21,16 +25,23 @@
       "id": "sons.03",
       "seq": 3,
       "sub": "on · en · in · un — through the nose",
+      "canDo": "Can hear and produce the nasal vowels of on, en and in",
+      "level": "sons",
       "title": "Les voyelles nasales",
       "track": "sons",
       "lessonIds": [
         "sons.03.l1"
+      ],
+      "prereqUnitIds": [
+        "sons.02"
       ]
     },
     {
       "id": "sons.04",
       "seq": 4,
       "sub": "consonant sounds & the French r",
+      "canDo": "Can produce the French r and the consonant sounds that differ from English",
+      "level": "sons",
       "title": "Les consonnes",
       "track": "sons",
       "lessonIds": []
@@ -39,14 +50,21 @@
       "id": "sons.05",
       "seq": 5,
       "sub": "é è ê ë ç — what each mark changes",
+      "canDo": "Can read é, è, ê, ë and ç and say what each mark changes",
+      "level": "sons",
       "title": "Les accents",
       "track": "sons",
-      "lessonIds": []
+      "lessonIds": [],
+      "prereqUnitIds": [
+        "sons.02"
+      ]
     },
     {
       "id": "sons.06",
       "seq": 6,
       "sub": "silent letters — why « ils parlent » ends quietly",
+      "canDo": "Can spot the silent letters in written French and stop pronouncing them",
+      "level": "sons",
       "title": "Les lettres muettes",
       "track": "sons",
       "lessonIds": []
@@ -55,6 +73,8 @@
       "id": "sons.07",
       "seq": 7,
       "sub": "je → j', le → l' — dropping the vowel",
+      "canDo": "Can drop the vowel in je, le and la before a vowel sound, as in j'aime and l'école",
+      "level": "sons",
       "title": "L'élision",
       "track": "sons",
       "lessonIds": []
@@ -63,6 +83,8 @@
       "id": "sons.08",
       "seq": 8,
       "sub": "the music of French — even syllables",
+      "canDo": "Can keep syllables even and place the stress at the end of the phrase, the French way",
+      "level": "sons",
       "title": "Rythme & intonation",
       "track": "sons",
       "lessonIds": []
@@ -71,76 +93,160 @@
       "id": "sons.09",
       "seq": 9,
       "sub": "pronunciation masterclass — putting it all together",
+      "canDo": "Can apply the whole sound system in connected speech: nasals, silent letters, elision and rhythm together",
+      "level": "sons",
       "title": "Masterclass",
       "track": "sons",
-      "lessonIds": []
+      "lessonIds": [],
+      "prereqUnitIds": [
+        "sons.01",
+        "sons.02",
+        "sons.03",
+        "sons.04",
+        "sons.05",
+        "sons.06",
+        "sons.07",
+        "sons.08"
+      ]
     },
     {
       "id": "a1.01",
       "seq": 1,
       "sub": "greetings & politeness — bonjour, merci",
+      "canDo": "Can greet someone, ask how they are, and take leave, politely or informally",
+      "level": "a1",
       "title": "Les salutations",
       "track": "a1",
+      "themes": [
+        "salutations",
+        "politesse"
+      ],
       "lessonIds": []
     },
     {
       "id": "a1.02",
       "seq": 2,
       "sub": "numbers 0–100",
+      "canDo": "Can count to 100 and give a phone number and a price",
+      "level": "a1",
       "title": "Les nombres",
       "track": "a1",
+      "themes": [
+        "nombres"
+      ],
       "lessonIds": []
     },
     {
       "id": "a1.03",
-      "seq": 3,
+      "seq": 9,
       "sub": "noun gender — masculin & féminin",
+      "canDo": "Can tell masculine from feminine nouns and pick un or une",
+      "level": "a1",
       "title": "Le genre des noms",
       "track": "a1",
       "lessonIds": []
     },
     {
       "id": "a1.04",
-      "seq": 4,
+      "seq": 10,
       "sub": "le, la, les",
+      "canDo": "Can pick le, la, l' or les for any noun they know",
+      "level": "a1",
       "title": "Les articles définis",
       "track": "a1",
       "lessonIds": [
         "a1.04.l1"
+      ],
+      "prereqUnitIds": [
+        "a1.03"
       ]
     },
     {
       "id": "a2.01",
       "seq": 1,
       "sub": "deep dive — -er, -ir, -re families",
+      "canDo": "Can conjugate the -er, -ir and -re families in the present and use them in real sentences",
+      "level": "a2",
       "title": "Verbes réguliers",
       "track": "a2",
       "lessonIds": [
         "a2.01.l1"
+      ],
+      "prereqUnitIds": [
+        "a1.05"
       ]
     },
     {
       "id": "a2.02",
       "seq": 2,
       "sub": "aller, faire, venir, pouvoir, vouloir",
+      "canDo": "Can use aller, faire, venir, pouvoir and vouloir in the present",
+      "level": "a2",
       "title": "Verbes irréguliers",
       "track": "a2",
-      "lessonIds": []
+      "lessonIds": [],
+      "prereqUnitIds": [
+        "a2.01"
+      ]
     },
     {
       "id": "a2.03",
       "seq": 3,
       "sub": "agreement, formation, -ment adverbs",
+      "canDo": "Can form -ment adverbs and handle full adjective agreement, including beau, nouveau and vieux",
+      "level": "a2",
       "title": "Adjectifs & adverbes",
       "track": "a2",
-      "lessonIds": []
+      "lessonIds": [],
+      "prereqUnitIds": [
+        "a1.13",
+        "a1.16"
+      ]
     },
     {
       "id": "a2.04",
       "seq": 4,
       "sub": "à, de, en, chez — and their traps",
+      "canDo": "Can pick à, de, en or chez, and dodge their classic traps",
+      "level": "a2",
       "title": "Les prépositions",
       "track": "a2",
+      "lessonIds": []
+    },
+    {
+      "id": "a1.13",
+      "seq": 16,
+      "sub": "basic adjectives — grand, petit, beau",
+      "canDo": "Can describe people and things with common adjectives, agreed for gender",
+      "level": "a1",
+      "title": "Adjectifs de base",
+      "track": "a1",
+      "lessonIds": [],
+      "prereqUnitIds": [
+        "a1.03"
+      ]
+    },
+    {
+      "id": "a1.16",
+      "seq": 19,
+      "sub": "adjective placement — before or after?",
+      "canDo": "Can put the adjective on the right side of the noun",
+      "level": "a1",
+      "title": "La place de l'adjectif",
+      "track": "a1",
+      "lessonIds": [],
+      "prereqUnitIds": [
+        "a1.13"
+      ]
+    },
+    {
+      "id": "a1.05",
+      "seq": 3,
+      "sub": "je, tu, il, elle, on, nous, vous, ils",
+      "canDo": "Can pick the right subject pronoun, including tu versus vous, and everyday on for nous",
+      "level": "a1",
+      "title": "Les pronoms sujets",
+      "track": "a1",
       "lessonIds": []
     }
   ],

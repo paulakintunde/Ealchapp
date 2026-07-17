@@ -315,8 +315,39 @@ async function main() {
   const wantUnit = (u: Unit) =>
     (SEED_CUT.tracks as readonly string[]).includes(unitBand(u.id) ?? '') || SEED_CUT.units.includes(u.id);
 
-  const seedUnits = prunedUnits.filter(wantUnit);
-  const seedUnitIds = new Set(seedUnits.map((u) => u.id));
+  // The cut must be PREREQ-CLOSED: if a unit ships in the binary, the units it
+  // gates on ship too, transitively. A seed unit whose prerequisite lives only
+  // on the network is a gate whose key needs a network call — on a fresh
+  // offline install, a gate that never opens. This is also what lets the seed
+  // pass validateCorpus below, whose prereq check (rightly) does not know the
+  // difference between a subset and a corpus.
+  //
+  // A pulled-in unit is a full citizen of the seed: its lessons (and their
+  // items, below) come with it, because a unit whose lessonIds dangle fails
+  // seed validation exactly like a dangling prereq does. That growth is the
+  // honest cost of shipping the gate; today's prereqs are lesson-less A1 units
+  // and cost bytes, not megabytes. If closure ever drags in something heavy,
+  // the fix is in seed-cut.config.ts (name a lighter cut), never here.
+  const unitById = new Map(prunedUnits.map((u) => [u.id, u]));
+  const seedUnitMap = new Map(prunedUnits.filter(wantUnit).map((u) => [u.id, u]));
+  const cutUnitIds = new Set(seedUnitMap.keys());
+  const queue = [...seedUnitMap.values()];
+  while (queue.length) {
+    const u = queue.pop()!;
+    for (const p of u.prereqUnitIds ?? []) {
+      const pu = unitById.get(p);
+      if (pu && !seedUnitMap.has(pu.id)) {
+        seedUnitMap.set(pu.id, pu);
+        queue.push(pu);
+      }
+    }
+  }
+  const seedUnits = [...seedUnitMap.values()];
+  const pulledIn = seedUnits.filter((u) => !cutUnitIds.has(u.id));
+  if (pulledIn.length) {
+    console.log(`  prereq closure pulled in: ${pulledIn.map((u) => u.id).join(', ')}`);
+  }
+  const seedUnitIds = new Set(seedUnitMap.keys());
   const seedLessons = lessons.filter((l) => seedUnitIds.has(l.unitId));
 
   // Everything the bundled lessons depend on, plus the core themes. A seed that

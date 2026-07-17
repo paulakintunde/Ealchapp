@@ -18,7 +18,7 @@ A few conventions:
 
 **Legend:** ✅ done · 🟡 partial (substantially landed, named gaps remain) · ⬜ not started · ⏳ deferred by design
 
-> **Overall: ✅ Phase 0 is done. 🟡 Phase 1 remains substantially done with two named gaps. ✅ CC-A's CI slice is landed AND proven (2026-07-17, run 29559658565: all jobs green, dry-run armed with the `DATABASE_URL` secret and executing against the canonical DB).** The rest of CC-A (release model / expo-updates, eas.json, toolchain proof) is still ⬜, and merge-blocking enforcement awaits the branch-protection decision (private repo on GitHub Free).
+> **Overall: ✅ Phase 0 is done. ✅ Phase 1's two named gaps closed 2026-07-17 (CF-17 spine cleanup + Unit spine/A1 resequencing, published as snapshot v2) — the phase's only remaining ⏳ is G2 (persist migrate + `validateItem` tightening), deferred by design to Phase 5. ✅ CC-A's CI slice is landed AND proven (2026-07-17, run 29559658565: all jobs green, dry-run armed with the `DATABASE_URL` secret and executing against the canonical DB).** The rest of CC-A (release model / expo-updates, eas.json, toolchain proof) is still ⬜, and merge-blocking enforcement awaits the branch-protection decision (private repo on GitHub Free).
 >
 > **Standing up the dry-run gate immediately caught a live incident:** the canonical Supabase DB had never received migrations `0004`/`0005`, so the Phase 1 publish projection selected columns that did not exist and **publishing was broken against the canonical DB**. Diagnosed, migrations applied via the direct connection (approved 2026-07-16), dry-run green. The old grading examiner prompt was also found live in that DB and converged to the honest body. Details in the CC-A section and the Phase 1 stamp.
 >
@@ -31,7 +31,7 @@ A few conventions:
 | **CC-A** | 🟡 | Release model + CI + toolchain proof (cross-cutting, starts Phase 0) | everything | infra |
 | **CC-B** | ⬜ | Commercial setup lead time (cross-cutting, starts Phase 0) | Phases 10-11 | infra |
 | **0** | ✅ | Honesty & store-risk fixes | unblocks review | JS/OTA + config |
-| **1** | 🟡 | Schema v2 unified migration + curriculum spine + level-cap lift | 2,5,6,7,8, all authoring | migration + JS |
+| **1** | ✅ | Schema v2 unified migration + curriculum spine + level-cap lift (G2 alone ⏳, owned by Phase 5) | 2,5,6,7,8, all authoring | migration + JS |
 | **2** | ⬜ | Content pipeline hardening + lesson↔corpus join + prove-the-pipe | 4,7,8 authoring | pipeline + JS |
 | **3** | ⬜ | Pluggable provider socket → OPR, Nemotron default | de-risks 4,7,8, coach margin | edge + admin |
 | **4** | ⬜ | Azure/Camille TTS resolver + client remote-audio path | feeds 7 | native rebuild |
@@ -64,7 +64,7 @@ A few conventions:
 | Device verification | ⬜ | validated by `tsc`, `node --test` and grep only. Not run on hardware |
 | Unit-economics doc still models `$59.99/yr` | ⬜ | contradicts the pinned `$79`; see the price stamp in Phase 0 below |
 
-### Phase 1 status detail (🟡)
+### Phase 1 status detail (✅ — complete 2026-07-17 except G2, which Phase 5 owns by design)
 
 | Item | Status | Evidence |
 |---|---|---|
@@ -79,8 +79,8 @@ A few conventions:
 | **G3** enum parity + c2 asymmetry | ✅ | see guardrail stamp in Phase 1 below |
 | **G2** persist migrate (modality on attempts) | ⏳ | correctly deferred — see guardrail stamp below |
 | `validateItem` requires `skill`/`modality` | ⏳ | still type-when-present; blocked on the backfill (by design, per G2 / `0005` header) |
-| Curriculum spine cleanup (CF-17) | ❌ | `curriculum.ts` still exports the `{title,sub}` prototype arrays `currSons`/`currA1`/`currA2` |
-| `Unit.canDo`, `themes`, `prereqUnitIds`; A1 resequencing | ❌ | not landed |
+| Curriculum spine cleanup (CF-17) | ✅ | **Landed 2026-07-17.** `curriculum.ts` keeps only `lessonSkill`; the prototype arrays are frozen in `ealch-admin/scripts/port-content.ts` (their one consumer); `a2Subs`/`extendedLesson`/`totalUnits` deleted (no live app consumer — the Den renders `content.units()`); home's Den tile count is now a reactive corpus read (`u.track !== undefined`), so an OTA that adds units updates it mid-session |
+| `Unit.canDo`, `themes`, `prereqUnitIds`; A1 resequencing | ✅ | **Landed + published 2026-07-17 (snapshot v2).** Schema: three optional Unit fields + `Lesson.features`/`scenarioId` + `Playlist.minLevel`, validators + referential checks (dangling prereq, self-prereq, dangling scenario), 214/214 incl. the real-seed test. Authored via `content:spine` (transactional, validates post-state pre-write): 43/43 units carry a non-empty `canDo`, `level` backfilled everywhere, négation/oui-non/interrogatifs at A1 seq 6-8 immediately after être/avoir (ids untouched — `seq` is display order), a1.05 sub gains everyday `on`. **Publish gate caught the seed cut being non-prereq-closed on first attempt; the cut logic now closes over `prereqUnitIds` transitively** (pulled in a1.05/a1.13/a1.16; seed 20 units, 24 KB) |
 | Drizzle `0004`/`0005` applied | ✅ | **Evidence corrected 2026-07-16:** this row was ✅ while the **canonical** Supabase DB had never received either migration (its journal held only `0000`-`0003`) — the original claim was true of a local/branch environment only, and publish was silently broken against canonical the whole time. Caught by the first CC-A dry-run gate; applied to canonical via direct connection same day, verified (6 journaled, columns + CHECK present, dry-run green). "Applied" claims must name the database they are true of. |
 
 ---

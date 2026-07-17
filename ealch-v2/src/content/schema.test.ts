@@ -914,6 +914,69 @@ test('a unit referencing an unknown lesson is caught', () => {
   ok(validateCorpus(c).some((i) => /references unknown lesson "sons\.03\.l9"/.test(i.message)));
 });
 
+// ── The curriculum spine (CF-17): canDo, themes, prereqUnitIds ──
+
+test('a unit with the full spine validates; each field is optional', () => {
+  // Optional-by-design: every unit on phones today has none of these. The
+  // publish gate, not the type, is where presence gets enforced post-backfill.
+  deepStrictEqual(validateUnit(unit()), []);
+  deepStrictEqual(
+    validateUnit(
+      unit({
+        canDo: 'Can distinguish the four nasal vowels by ear',
+        themes: ['prononciation'],
+        prereqUnitIds: ['sons.02'],
+      })
+    ),
+    []
+  );
+});
+
+test('malformed spine fields are rejected', () => {
+  ok(validateUnit(unit({ canDo: '' })).some((i) => /canDo/.test(i.message)));
+  ok(validateUnit(unit({ themes: ['Not A Slug!'] })).some((i) => /themes\[0\]/.test(i.message)));
+  ok(validateUnit(unit({ themes: 'cafe' as never })).some((i) => /themes must be an array/.test(i.message)));
+  ok(validateUnit(unit({ prereqUnitIds: ['nope'] })).some((i) => /prereqUnitIds\[0\]/.test(i.message)));
+});
+
+test('a unit cannot be its own prerequisite', () => {
+  ok(
+    validateUnit(unit({ id: 'sons.03', prereqUnitIds: ['sons.03'] })).some((i) =>
+      /own prerequisite/.test(i.message)
+    )
+  );
+});
+
+test('a dangling prereqUnitId is caught at the corpus level', () => {
+  // The failure mode: a gate the learner can never open, because the unit it
+  // waits on is in no corpus.
+  const c = corpus({ units: [unit({ prereqUnitIds: ['a1.99'] })] });
+  ok(validateCorpus(c).some((i) => /requires unknown prerequisite unit "a1\.99"/.test(i.message)));
+  // And a prereq that exists (itself, here as a second unit) passes.
+  const good = corpus({
+    units: [unit(), unit({ id: 'sons.04', track: 'sons', seq: 4, lessonIds: [], prereqUnitIds: ['sons.03'] })],
+  });
+  deepStrictEqual(validateCorpus(good), []);
+});
+
+// ── Lesson.features and Lesson.scenarioId ──
+
+test('lesson features validate as a set drawn from LESSON_FEATURES', () => {
+  deepStrictEqual(validateLesson(lesson({ features: ['narrated', 'minimalPairs'] })), []);
+  ok(validateLesson(lesson({ features: ['karaoke' as never] })).some((i) => /features\[0\]/.test(i.message)));
+  ok(validateLesson(lesson({ features: ['narrated', 'narrated'] })).some((i) => /must not repeat/.test(i.message)));
+});
+
+test('a lesson scenarioId must be well-formed and resolve in the corpus', () => {
+  ok(validateLesson(lesson({ scenarioId: 'not-a-scenario' })).some((i) => /scenarioId/.test(i.message)));
+  deepStrictEqual(validateLesson(lesson({ scenarioId: 'sc.a1.marche.001' })), []);
+  // Well-formed but unshipped: the Den would advertise a Roleplay entry point
+  // that opens onto nothing.
+  const c = corpus({ lessons: [lesson({ scenarioId: 'sc.a1.marche.999' })] });
+  ok(validateCorpus(c).some((i) => /references unknown scenario "sc\.a1\.marche\.999"/.test(i.message)));
+  deepStrictEqual(validateCorpus(corpus({ lessons: [lesson({ scenarioId: 'sc.a1.marche.001' })] })), []);
+});
+
 test('a lesson no unit links to is caught — it is unreachable content', () => {
   // Authored, reviewed, shipped, and no user can ever open it.
   const c = corpus({ units: [unit({ lessonIds: [] })] });

@@ -13,6 +13,7 @@
     "db:migrate": "tsx scripts/migrate.ts",
     "db:seed": "tsx scripts/seed.ts",
     "content:port": "tsx scripts/port-content.ts",
+    "content:spine": "tsx scripts/update-spine.ts",
     "content:publish": "tsx scripts/publish-content.ts",
     "test:e2e": "playwright test"
   },
