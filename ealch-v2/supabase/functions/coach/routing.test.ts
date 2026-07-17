@@ -23,10 +23,15 @@ import {
   type ProviderName,
 } from './routing.ts';
 
-/** An Env where the named providers have secrets and nothing else does. */
+/** An Env where the named providers have secrets and nothing else does. Ceiling
+ *  is left at the default ('standard'), which refuses premium. */
 const withSecrets = (...set: ProviderName[]): Env => ({
   hasSecret: (p) => set.includes(p),
 });
+
+/** The same Env with the cost ceiling deliberately raised to admit premium.
+ *  Reaching Anthropic takes BOTH a route and this — that is the CF-06 rule. */
+const ceilingRaised = (env: Env): Env => ({ ...env, ceiling: 'premium' });
 
 const names = (r: { chain: { provider: ProviderName }[] }) => r.chain.map((c) => c.provider);
 
@@ -63,10 +68,37 @@ test('the routed model chooses the primary, not the first configured secret', ()
   strictEqual(r.chain[0].role, 'primary');
 });
 
-test('routing to a premium model is honoured when it is explicit', () => {
-  const r = buildChain('claude-sonnet-5', withSecrets('nvidia', 'anthropic'));
+test('routing to a premium model is honoured once the ceiling is also raised', () => {
+  const r = buildChain('claude-sonnet-5', ceilingRaised(withSecrets('nvidia', 'anthropic')));
   strictEqual(r.chain[0].provider, 'anthropic');
   strictEqual(r.routedProviderUnavailable, false);
+  strictEqual(r.routeAboveCeiling, false);
+});
+
+// ── the ceiling (CF-06 hard rule) ─────────────────────────────────────────
+test('a premium route is REFUSED while the ceiling is at its default', () => {
+  // Routing alone must not be enough to spend premium money. This is the case
+  // that makes the ceiling worth having: it survives a misroute.
+  const r = buildChain('claude-sonnet-5', withSecrets('nvidia', 'anthropic'));
+  strictEqual(r.routeAboveCeiling, true);
+  ok(!names(r).includes('anthropic'), 'refused, not silently served');
+  strictEqual(r.chain[0].provider, 'nvidia', 'something at or below the ceiling serves instead');
+});
+
+test('the ceiling binds the primary, not merely the failover list', () => {
+  // Anthropic is the only provider configured and it was routed, but it is over
+  // the ceiling: nothing serves, and the caller answers honestly.
+  const r = buildChain('claude-sonnet-5', withSecrets('anthropic'));
+  strictEqual(r.routeAboveCeiling, true);
+  deepStrictEqual(r.chain, []);
+});
+
+test('the ceiling also caps failover below the routed tier', () => {
+  // Routed standard, ceiling cheap: only cheap may serve, primary included.
+  const env: Env = { hasSecret: () => true, ceiling: 'cheap' };
+  const r = buildChain('meta-llama/llama-3.1-70b-instruct', env);
+  strictEqual(r.routeAboveCeiling, true);
+  deepStrictEqual(names(r), ['nvidia']);
 });
 
 // ── the cost rule (CF-06) ─────────────────────────────────────────────────
@@ -86,13 +118,13 @@ test('a missing routed secret falls sideways or down, never up', () => {
 test('routing to premium may de-escalate to cheaper providers', () => {
   // The reverse direction is fine: paying less than routed is never the failure
   // we are guarding against, and it beats failing the request.
-  const r = buildChain('claude-sonnet-5', withSecrets('nvidia', 'anthropic'));
+  const r = buildChain('claude-sonnet-5', ceilingRaised(withSecrets('nvidia', 'anthropic')));
   strictEqual(r.chain[0].provider, 'anthropic');
   ok(names(r).includes('nvidia'), 'a premium route may fall back to a cheap one');
 });
 
 test('failover order is cheapest first', () => {
-  const r = buildChain('claude-sonnet-5', withSecrets('nvidia', 'openrouter', 'anthropic'));
+  const r = buildChain('claude-sonnet-5', ceilingRaised(withSecrets('nvidia', 'openrouter', 'anthropic')));
   deepStrictEqual(names(r), ['anthropic', 'nvidia', 'openrouter']);
 });
 

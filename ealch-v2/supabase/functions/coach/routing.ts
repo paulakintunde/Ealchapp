@@ -90,6 +90,16 @@ export function providerForModel(model: string): ProviderName | null {
   return null;
 }
 
+/** The most expensive tier the coach may use unless an operator deliberately
+ *  raises it. 'standard' admits NVIDIA, OpenRouter and the operator's own
+ *  override, and refuses premium.
+ *
+ *  This is the CF-06 hard rule and it composes with routing rather than
+ *  duplicating it: routing to a premium model is NOT sufficient on its own, the
+ *  ceiling must be raised too. The expensive choice takes intent in two places,
+ *  which is the entire point of a ceiling — it survives a misroute. */
+export const DEFAULT_CEILING: CostTier = 'standard';
+
 export type Env = {
   /** True when the provider's secret is set. A provider without its secret is
    *  skipped, never called and never an error. */
@@ -97,6 +107,8 @@ export type Env = {
   /** AI_API_MODEL, when the operator configured the generic override. If the
    *  routed model matches it exactly, the override is what was routed. */
   aiApiModel?: string | null;
+  /** Cost ceiling for this capability. Defaults to DEFAULT_CEILING. */
+  ceiling?: CostTier;
 };
 
 export type ChainEntry = {
@@ -118,6 +130,11 @@ export type Resolution = {
   /** True when the routed provider had no secret and something cheaper served
    *  instead. Also worth an event: routing says one thing, reality another. */
   routedProviderUnavailable: boolean;
+  /** True when the routed model costs more than this capability's ceiling and
+   *  was therefore refused. The console asked to spend more than the hard rule
+   *  allows; an operator must see that rather than wonder why the route did
+   *  nothing. Refused, never silently served. */
+  routeAboveCeiling: boolean;
 };
 
 const ALL: ProviderName[] = ['nvidia', 'openrouter', 'ai_api', 'anthropic'];
@@ -139,30 +156,25 @@ const ALL: ProviderName[] = ['nvidia', 'openrouter', 'ai_api', 'anthropic'];
 export function buildChain(model: string, env: Env): Resolution {
   const requested = (model || '').trim();
   const aiApi = (env.aiApiModel || '').trim();
-
-  // The operator's generic override, when it is what the console routed.
-  if (aiApi && requested === aiApi) {
-    if (env.hasSecret('ai_api')) {
-      return {
-        chain: withFailover({ provider: 'ai_api', model: requested, tier: PROVIDER_TIER.ai_api, role: 'primary' }, env),
-        routedModel: requested,
-        unknownModel: false,
-        routedProviderUnavailable: false,
-      };
-    }
-    // Override routed but unconfigured: fall through to normal resolution.
-  }
+  const ceilingRank = TIER_ORDER[env.ceiling ?? DEFAULT_CEILING];
 
   let routedModel = requested;
-  let provider = providerForModel(routedModel);
   let unknownModel = false;
+  let provider: ProviderName | null;
 
-  if (!provider) {
-    // Do not guess a provider for an id we do not know. Serve the documented
-    // default and let telemetry say so.
-    unknownModel = true;
-    routedModel = DEFAULT_MODEL;
-    provider = providerForModel(DEFAULT_MODEL)!;
+  // The operator's generic override, when it is what the console routed and it
+  // is actually configured. Otherwise fall through to normal resolution.
+  if (aiApi && requested === aiApi && env.hasSecret('ai_api')) {
+    provider = 'ai_api';
+  } else {
+    provider = providerForModel(routedModel);
+    if (!provider) {
+      // Do not guess a provider for an id we do not know. Serve the documented
+      // default and let telemetry say so.
+      unknownModel = true;
+      routedModel = DEFAULT_MODEL;
+      provider = providerForModel(DEFAULT_MODEL)!;
+    }
   }
 
   const primary: ChainEntry = {
@@ -172,27 +184,50 @@ export function buildChain(model: string, env: Env): Resolution {
     role: 'primary',
   };
 
-  if (env.hasSecret(provider)) {
-    return { chain: withFailover(primary, env), routedModel, unknownModel, routedProviderUnavailable: false };
+  // The ceiling binds the primary, not just failover. A route above it is
+  // refused outright: the whole value of a ceiling is that it survives a
+  // misroute, so "the console said so" is not an argument here.
+  if (TIER_ORDER[primary.tier] > ceilingRank) {
+    return {
+      chain: eligible(null, ceilingRank, env),
+      routedModel,
+      unknownModel,
+      routedProviderUnavailable: false,
+      routeAboveCeiling: true,
+    };
   }
 
-  // Routed provider has no secret. Everything at or below its tier may serve;
+  // Failover may never cost more than the routed primary, and never more than
+  // the ceiling. Whichever is stricter wins.
+  const cap = Math.min(TIER_ORDER[primary.tier], ceilingRank);
+
+  if (env.hasSecret(provider)) {
+    return {
+      chain: [primary, ...eligible(provider, cap, env)],
+      routedModel,
+      unknownModel,
+      routedProviderUnavailable: false,
+      routeAboveCeiling: false,
+    };
+  }
+
+  // Routed provider has no secret. Everything at or below the cap may serve;
   // nothing above it may. If that leaves nothing, the chain is empty and the
   // caller answers honestly rather than inventing a reply.
-  const chain = failoversFor(primary, env);
-  return { chain, routedModel, unknownModel, routedProviderUnavailable: true };
+  return {
+    chain: eligible(provider, cap, env),
+    routedModel,
+    unknownModel,
+    routedProviderUnavailable: true,
+    routeAboveCeiling: false,
+  };
 }
 
-function withFailover(primary: ChainEntry, env: Env): ChainEntry[] {
-  return [primary, ...failoversFor(primary, env)];
-}
-
-/** Configured providers, no more expensive than `primary`, cheapest first. */
-function failoversFor(primary: ChainEntry, env: Env): ChainEntry[] {
-  const ceiling = TIER_ORDER[primary.tier];
-  return ALL.filter((p) => p !== primary.provider)
+/** Configured providers at or below `cap`, excluding `exclude`, cheapest first. */
+function eligible(exclude: ProviderName | null, cap: number, env: Env): ChainEntry[] {
+  return ALL.filter((p) => p !== exclude)
     .filter((p) => env.hasSecret(p))
-    .filter((p) => TIER_ORDER[PROVIDER_TIER[p]] <= ceiling)
+    .filter((p) => TIER_ORDER[PROVIDER_TIER[p]] <= cap)
     .sort((a, b) => TIER_ORDER[PROVIDER_TIER[a]] - TIER_ORDER[PROVIDER_TIER[b]])
     .map((p) => ({
       provider: p,

@@ -31,8 +31,10 @@
 import { createClient } from "jsr:@supabase/supabase-js@2";
 import {
   buildChain,
+  DEFAULT_CEILING,
   DEFAULT_MODEL,
   type ChainEntry,
+  type CostTier,
   type ProviderName,
 } from "./routing.ts";
 
@@ -72,31 +74,50 @@ async function activePrompt(promptVersion: string, lang: string): Promise<string
   return FALLBACK_PROMPT.replaceAll("{{lang}}", lang);
 }
 
-// Routing changes are rare and reads are not free, so the routed model is cached
+// Routing changes are rare and reads are not free, so the routing is cached
 // briefly. This is a cache, not state we rely on: instances are ephemeral, so a
 // stale entry costs at most CONFIG_TTL_MS of delay on a routing flip.
 const CONFIG_TTL_MS = 60_000;
-let routedCache: { model: string; at: number } | null = null;
+let routedCache: { routing: Routing; at: number } | null = null;
 
-/** The model the OPR console routed for the `general` capability. Never throws:
- *  an unreachable config plane serves the documented default rather than an
- *  error, and is not cached, so the next request re-reads. */
-async function routedModel(): Promise<string> {
+type Routing = { model: string; ceiling: CostTier };
+
+const TIERS: CostTier[] = ["cheap", "standard", "premium"];
+const isTier = (v: unknown): v is CostTier => typeof v === "string" && (TIERS as string[]).includes(v);
+
+/** What the OPR console routed for the `general` capability: the model, and the
+ *  cost ceiling the coach may not exceed.
+ *
+ *  Never throws. An unreachable config plane serves the documented default at
+ *  the default ceiling rather than erroring, and that answer is not cached, so
+ *  the next request re-reads instead of being stuck with it.
+ *
+ *  An absent or malformed ceiling falls back to DEFAULT_CEILING rather than to
+ *  "unlimited": a config plane that cannot tell us the limit is not permission
+ *  to spend. */
+async function routing(): Promise<Routing> {
   const now = Date.now();
-  if (routedCache && now - routedCache.at < CONFIG_TTL_MS) return routedCache.model;
+  if (routedCache && now - routedCache.at < CONFIG_TTL_MS) return routedCache.routing;
   try {
     const { data } = await serviceClient()
       .from("system_config")
       .select("config")
       .eq("id", "active")
       .maybeSingle();
-    const m = (data?.config as { models?: { general?: unknown } } | null)?.models?.general;
+    const cfg = data?.config as
+      | { models?: { general?: unknown }; coachCostCeiling?: unknown }
+      | null;
+    const m = cfg?.models?.general;
     if (typeof m === "string" && m.trim()) {
-      routedCache = { model: m.trim(), at: now };
-      return routedCache.model;
+      const routed: Routing = {
+        model: m.trim(),
+        ceiling: isTier(cfg?.coachCostCeiling) ? cfg.coachCostCeiling : DEFAULT_CEILING,
+      };
+      routedCache = { routing: routed, at: now };
+      return routed;
     }
   } catch (_) { /* fall through to the default, uncached */ }
-  return DEFAULT_MODEL;
+  return { model: DEFAULT_MODEL, ceiling: DEFAULT_CEILING };
 }
 
 /** Strip <think>…</think> blocks reasoning models prepend to replies. */
@@ -246,16 +267,25 @@ Deno.serve(async (req) => {
     const system = await activePrompt(promptVersion, lang);
     const history: Msg[] = messages.slice(-12); // bound the context
 
-    const routed = await routedModel();
-    const resolution = buildChain(routed, {
+    const routed = await routing();
+    const resolution = buildChain(routed.model, {
       hasSecret,
       aiApiModel: Deno.env.get("AI_API_MODEL"),
+      ceiling: routed.ceiling,
     });
     const chain = resolution.chain.map(toProvider);
 
     if (resolution.unknownModel) {
       // The console routed something we cannot serve. Someone must see this.
-      posthog("coach_unknown_model", { requested: routed, served: resolution.routedModel });
+      posthog("coach_unknown_model", { requested: routed.model, served: resolution.routedModel });
+    }
+    if (resolution.routeAboveCeiling) {
+      // The console asked to spend above the hard rule. Refused, and said so.
+      posthog("coach_route_above_ceiling", {
+        routedModel: resolution.routedModel,
+        ceiling: routed.ceiling,
+        served: resolution.chain[0]?.provider ?? null,
+      });
     }
     if (resolution.routedProviderUnavailable) {
       posthog("coach_routed_provider_unavailable", {
