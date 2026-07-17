@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { TextInput, View } from 'react-native';
+import { Image, TextInput, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -11,11 +11,13 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
-import { content } from '@/services/content';
+import { content, contentAssetUrl } from '@/services/content';
 import { answerMatches } from '@/utils/score';
 
-// The corpus carries no per-item icon (it is app chrome, not content), so derive
-// one from the French word, with a neutral fallback for future vocab.
+// The image resolution chain (CF-24, Phase 6b): an authored `imageRef` wins,
+// the five derivable glyphs below are the fallback, and a neutral glyph closes
+// the chain. This is what uncaps Voice Flash past five hardcoded icons: new
+// vocab ships with a picture reference instead of needing a new app build.
 function iconFor(fr: string): IconName {
   const n = fr.toLowerCase();
   if (n.includes('café')) return 'cup';
@@ -45,6 +47,10 @@ export default function VoiceFlash() {
   const [vfPartial, setVfPartial] = useState('');
   const [vfHeard, setVfHeard] = useState<SttResult | null>(null);
   const [promptOn, setPromptOn] = useState(false);
+  // Image refs that failed to load this session — those items fall back to the
+  // glyph chain instead of rendering a broken source. Keyed by URL, so moving
+  // to the next item never needs a reset.
+  const [badImgs, setBadImgs] = useState<Set<string>>(() => new Set());
   const promptTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Items now come from the corpus, snapshotted at mount.
@@ -266,9 +272,27 @@ export default function VoiceFlash() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginBottom: 16,
+                    overflow: 'hidden',
                   }}
                 >
-                  <Icon name={iconFor(item.fr)} size={72} color={t.acc} />
+                  {(() => {
+                    // imageRef → derivable glyph → generic glyph (iconFor's own
+                    // fallback). A failed load joins badImgs and drops to the
+                    // glyph on the next render, so a dead URL costs one frame,
+                    // never a broken image.
+                    const imgUrl = contentAssetUrl(item.imageRef);
+                    return imgUrl && !badImgs.has(imgUrl) ? (
+                      <Image
+                        source={{ uri: imgUrl }}
+                        resizeMode="cover"
+                        style={{ width: 112, height: 112 }}
+                        onError={() => setBadImgs((s) => new Set(s).add(imgUrl))}
+                        accessibilityLabel={item.en}
+                      />
+                    ) : (
+                      <Icon name={iconFor(item.fr)} size={72} color={t.acc} />
+                    );
+                  })()}
                 </View>
               ) : null}
               <TX font="serifI" size={30} role="display" center style={{ marginBottom: 12 }}>

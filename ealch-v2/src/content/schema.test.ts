@@ -299,6 +299,22 @@ test('unknown drill kinds are rejected', () => {
   ok(issues.some((i) => /unknown drill/.test(i.message)));
 });
 
+test('imageRef: absent and null are fine, a storage-relative path is fine', () => {
+  strictEqual(validateItem(item()).length, 0);
+  strictEqual(validateItem(item({ imageRef: null })).length, 0);
+  strictEqual(validateItem(item({ imageRef: 'images/objets/cafe.webp' })).length, 0);
+});
+
+test('imageRef: leading slash, .., uppercase and non-strings are rejected', () => {
+  for (const bad of ['/images/cafe.webp', 'images/../secrets.png', 'Images/Cafe.webp']) {
+    ok(
+      validateItem(item({ imageRef: bad })).some((i) => /imageRef/.test(i.message)),
+      `"${bad}" should be rejected`
+    );
+  }
+  ok(validateItem(item({ imageRef: 7 as never })).some((i) => /imageRef/.test(i.message)));
+});
+
 test('required item fields are all enforced', () => {
   for (const k of ['id', 'kind', 'level', 'theme', 'fr', 'en', 'tags', 'drills', 'version'] as const) {
     const broken = item();

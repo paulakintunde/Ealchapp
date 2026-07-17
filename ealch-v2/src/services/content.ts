@@ -55,6 +55,14 @@ const STORAGE_BASE = ENV.supabaseUrl
   ? `${ENV.supabaseUrl.replace(/\/$/, '')}/storage/v1/object/public/content`
   : '';
 
+/** Resolve a storage-relative asset ref (Item.imageRef, later audioRef) to a
+ *  fetchable URL, or null when the app runs unconfigured — callers must treat
+ *  null as "no asset" and fall back, never render a broken source. */
+export function contentAssetUrl(ref: string | null | undefined): string | null {
+  if (!ref || !STORAGE_BASE) return null;
+  return `${STORAGE_BASE}/${ref}`;
+}
+
 type ContentState = {
   hydrated: boolean;
   corpus: Corpus;

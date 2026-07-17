@@ -190,6 +190,10 @@ export const LESSON_ID_RE = new RegExp(`^(${BANDS_RE})\\.\\d{2}\\.l\\d+$`);
 export const SCENARIO_ID_RE = new RegExp(`^sc\\.(${BANDS_RE})\\.[a-z0-9-]+\\.\\d{3,}$`);
 /** Themes group the corpus for batch review and for themed drills. */
 export const THEME_RE = /^[a-z0-9-]+$/;
+/** Storage-relative asset paths (imageRef): lowercase segments, no leading
+ *  slash, no '..' — this string becomes part of a URL the app fetches, so the
+ *  shape is validated even before an asset manifest can prove it resolves. */
+export const IMAGE_REF_RE = /^(?!\/)(?!.*\.\.)[a-z0-9][a-z0-9/_.-]*$/;
 
 export function itemId(level: Level, theme: string, seq: number): string {
   return `fr.${level}.${theme}.${String(seq).padStart(3, '0')}`;
@@ -375,6 +379,14 @@ export type Item = {
   drills: DrillKind[];
   /** Null until Phase 7. Device TTS speaks `fr` in the meantime. */
   audioRef?: string | null;
+  /** Storage-relative path to this item's picture (CF-24), e.g.
+   *  'images/objets/cafe.webp' under the public content bucket. This is what
+   *  uncaps Voice Flash past the five derivable icons: the renderer resolves
+   *  imageRef first, falls back to the built-in glyph set, then a generic icon.
+   *  Optional and null-able like audioRef — most items have no picture, and
+   *  that is not an error. Once the snapshot carries an asset manifest, publish
+   *  fails a dangling imageRef the same way it fails a dangling itemId. */
+  imageRef?: string | null;
   /** Where the words are inside `audioRef`. Absent means the file can only be
    *  played from the top — see AudioSegment. */
   segments?: AudioSegment[];
@@ -901,6 +913,12 @@ export function validateItem(v: unknown, path = 'item'): Issue[] {
   }
   if (it.segments !== undefined) out.push(...validateSegments(it.segments, `${path}.segments`));
   if (it.assetKey !== undefined && !isStr(it.assetKey)) push('assetKey must be a non-empty string when present');
+  if (it.imageRef !== undefined && it.imageRef !== null) {
+    if (!isStr(it.imageRef)) push('imageRef must be a non-empty string or null when present');
+    else if (!IMAGE_REF_RE.test(it.imageRef)) {
+      push(`imageRef "${it.imageRef}" must be a storage-relative path (lowercase, no leading slash, no ..)`);
+    }
+  }
   if (it.provenance !== undefined) out.push(...validateProvenance(it.provenance, `${path}.provenance`));
 
   return out;
