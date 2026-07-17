@@ -281,6 +281,50 @@ export function shouldAdopt(manifest: Manifest, currentVersion: number, bucket: 
   return bucket < Math.min(100, Math.max(0, rollout));
 }
 
+/* ─── The trusted cache (cold-start perf budget, master plan Phase 2) ──────── */
+
+// The cached snapshot was fully verified — checksum, structure, version — the
+// moment it was WRITTEN. Re-running validateCorpus over the whole corpus on
+// every cold start re-does that work on the paint-gating path: per-entity
+// validation, duplicate-id sets and the referential walks are O(corpus) and sit
+// between the user and first paint. So the read path trusts the write path:
+// an O(1) shape check gates the paint, and the full validation re-runs AFTER
+// paint, demoting a corrupted cache from "slow every launch" to "detected one
+// frame later, rolled back to seed".
+
+/** The metadata written alongside the cached snapshot text. Its PRESENCE is the
+ *  commit marker: text without meta (a torn write, or a cache from before this
+ *  scheme) is treated as no cache at all. */
+export type CacheMeta = { version: number; checksum: string };
+
+export function isCacheMeta(v: unknown): v is CacheMeta {
+  if (!v || typeof v !== 'object') return false;
+  const m = v as Record<string, unknown>;
+  return typeof m.version === 'number' && typeof m.checksum === 'string';
+}
+
+/** The O(1) stand-in for validateCorpus on the paint path: is this parsed value
+ *  shaped like a corpus at all? Catches the torn/truncated/wrong-key cache
+ *  without walking a single entity. Everything deeper waits until after paint. */
+export function looksLikeCorpus(v: unknown): v is Corpus {
+  if (!v || typeof v !== 'object') return false;
+  const c = v as Record<string, unknown>;
+  return (
+    typeof c.version === 'number' &&
+    Array.isArray(c.units) &&
+    Array.isArray(c.lessons) &&
+    Array.isArray(c.items)
+  );
+}
+
+/** The hard ceiling on snapshot bytes, enforced on BOTH ends: publish refuses
+ *  to produce a snapshot the app would refuse, and the app refuses to parse a
+ *  download past it (a multi-MB parse + verify is a main-thread stall and a
+ *  low-end-Android OOM window). Heavy media never belongs in the snapshot —
+ *  audio ships via the asset manifest (Phase 4) precisely so this number can
+ *  hold. Raising it is a deliberate decision, not a fix for a fat corpus. */
+export const MAX_SNAPSHOT_BYTES = 4 * 1024 * 1024;
+
 export type VerifyResult =
   | { ok: true; corpus: Corpus }
   | { ok: false; reason: 'parse' | 'checksum' | 'invalid' | 'version' };

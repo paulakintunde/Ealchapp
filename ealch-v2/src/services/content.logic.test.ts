@@ -13,9 +13,12 @@ import { validateCorpus, type Corpus, type Item, type Lesson, type Unit } from '
 import {
   getItem,
   getScenario,
+  isCacheMeta,
   isManifest,
   lessonsOfUnit,
+  looksLikeCorpus,
   manifestIsNewer,
+  MAX_SNAPSHOT_BYTES,
   mergeCorpus,
   scenariosFor,
   selectItems,
@@ -338,4 +341,32 @@ test('shouldAdopt clamps out-of-range rollout and refuses NaN', () => {
   ok(shouldAdopt(m(250), 2, 99)); // clamped to 100
   ok(!shouldAdopt(m(-5), 2, 0)); // clamped to 0
   ok(!shouldAdopt(m(NaN), 2, 0)); // refuse, do not default
+});
+
+/* ─── The trusted cache — paint-path primitives (Phase 2 perf budget) ──────── */
+
+test('isCacheMeta demands the commit-marker shape', () => {
+  ok(isCacheMeta({ version: 3, checksum: 'abc' }));
+  ok(!isCacheMeta(null));
+  ok(!isCacheMeta({ version: 3 }));
+  ok(!isCacheMeta({ version: '3', checksum: 'abc' }));
+});
+
+test('looksLikeCorpus is the O(1) gate: shape yes, contents unexamined', () => {
+  // What it MUST catch: the torn or wrong-key cache that would crash a merge.
+  ok(!looksLikeCorpus(null));
+  ok(!looksLikeCorpus('{"version":1'));
+  ok(!looksLikeCorpus({ version: 1, units: [], lessons: [] })); // items missing
+  ok(!looksLikeCorpus({ version: 'x', units: [], lessons: [], items: [] }));
+  // What it deliberately does NOT catch: invalid entities. That is
+  // validateCorpus's job, deferred to after paint — this stays O(1).
+  ok(looksLikeCorpus({ version: 1, units: [], lessons: [], items: [] }));
+  ok(looksLikeCorpus({ version: 1, units: [{ garbage: true }], lessons: [], items: [] }));
+});
+
+test('the snapshot ceiling is a real number and the current seed clears it', () => {
+  // The ceiling exists on both ends (publish refuses to produce, the app
+  // refuses to parse); this pins it against accidental edits to something
+  // meaninglessly small or absurdly large.
+  ok(MAX_SNAPSHOT_BYTES >= 1024 * 1024 && MAX_SNAPSHOT_BYTES <= 16 * 1024 * 1024);
 });

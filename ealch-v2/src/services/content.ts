@@ -13,19 +13,23 @@
 // keeps: config.ts degrades to defaults, useProgress treats a corrupt log as
 // "no progress yet". A corrupt content cache must likewise mean "seed only",
 // never a crash.
+import { InteractionManager } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { ENV } from './env';
 import seedJson from '@/content/seed.json';
 import type { Corpus, DrillKind, Item, Lesson, Level, Scenario, Track, Unit } from '@/content/schema';
-import { isValidCorpus, validateCorpus } from '@/content/schema';
+import { validateCorpus } from '@/content/schema';
 import {
   getItem,
   getLesson,
   getScenario,
   getUnit,
+  isCacheMeta,
   isManifest,
   lessonsOfUnit,
+  looksLikeCorpus,
+  MAX_SNAPSHOT_BYTES,
   mergeCorpus,
   scenariosFor,
   selectItems,
@@ -36,7 +40,16 @@ import {
 } from './content.logic';
 
 const SEED = seedJson as Corpus;
+// The RAW verified snapshot text, byte-for-byte as downloaded. Caching the text
+// rather than a re-stringified object drops one full-corpus serialization and
+// one in-memory copy from the OTA apply path. (Caches written by older builds
+// hold a re-stringified corpus under this key with no meta row — the read path
+// treats those as absent and the next fetch simply re-downloads. One redundant
+// download per upgraded install, once.)
 const CACHE_KEY = 'ealch-content-snapshot';
+// Written AFTER the text, read BEFORE it: its presence is the commit marker
+// that says "the bytes under CACHE_KEY passed the full verify when written".
+const CACHE_META_KEY = 'ealch-content-snapshot-meta';
 const BUCKET_KEY = 'ealch-rollout-bucket';
 const STORAGE_BASE = ENV.supabaseUrl
   ? `${ENV.supabaseUrl.replace(/\/$/, '')}/storage/v1/object/public/content`
@@ -79,14 +92,35 @@ export async function initContent(): Promise<void> {
   if (initStarted) return;
   initStarted = true;
 
+  let adopted: Corpus | null = null;
   try {
-    const cached = await readCache();
-    if (cached) cachedSnapshotVersion = cached.version;
-    useContent.getState().setCorpus(mergeCorpus(SEED, cached));
+    adopted = await readCache();
+    if (adopted) cachedSnapshotVersion = adopted.version;
+    useContent.getState().setCorpus(mergeCorpus(SEED, adopted));
   } catch {
     // Seed already stands as the initial corpus; nothing more to do.
   } finally {
     useContent.getState().setHydrated();
+  }
+
+  // The full structural validation of the cache, AFTER paint (the perf budget:
+  // readCache only shape-checked in O(1); validateCorpus walks every entity and
+  // does not belong between the user and first paint). The cache passed this
+  // exact validation when written, so failure here means storage corrupted it
+  // since — roll back to the seed and purge, exactly as if it had never been.
+  if (adopted) {
+    const suspect = adopted;
+    void new Promise<void>((r) => InteractionManager.runAfterInteractions(() => r())).then(async () => {
+      if (validateCorpus(suspect).length === 0) return;
+      await AsyncStorage.multiRemove([CACHE_KEY, CACHE_META_KEY]).catch(() => {});
+      // Roll back only if the corpus we painted is still the one we are
+      // invalidating — a refreshFromRemote that landed meanwhile has already
+      // replaced it with a freshly verified one, which must stand.
+      if (useContent.getState().corpus.version === suspect.version) {
+        cachedSnapshotVersion = 0;
+        useContent.getState().setCorpus(SEED);
+      }
+    });
   }
 
   // Fire-and-forget. The result of an OTA fetch is seen on the NEXT launch at
@@ -127,14 +161,25 @@ async function rolloutBucket(): Promise<number> {
   }
 }
 
-/** Read and validate the cached snapshot. A cache that fails validation is
- *  treated as absent — the seed backstops it. */
+/** Read the cached snapshot, trusting the write-time verification: meta must
+ *  be present and coherent (the commit marker) and the parsed value must pass
+ *  the O(1) shape check — nothing deeper runs here, because this sits on the
+ *  paint-gating path. The full validateCorpus re-runs after paint (initContent)
+ *  and rolls back if storage corrupted the bytes since they were written.
+ *  Anything short of coherent — no meta, no text, version disagreement, parse
+ *  failure, wrong shape — is simply no cache; the seed backstops it. */
 async function readCache(): Promise<Corpus | null> {
   try {
-    const raw = await AsyncStorage.getItem(CACHE_KEY);
-    if (!raw) return null;
+    const [metaRaw, raw] = await AsyncStorage.multiGet([CACHE_META_KEY, CACHE_KEY]).then((kv) => [
+      kv[0][1],
+      kv[1][1],
+    ]);
+    if (!metaRaw || !raw) return null;
+    const meta = JSON.parse(metaRaw);
+    if (!isCacheMeta(meta)) return null;
     const parsed = JSON.parse(raw);
-    return isValidCorpus(parsed) ? parsed : null;
+    if (!looksLikeCorpus(parsed) || parsed.version !== meta.version) return null;
+    return parsed;
   } catch {
     return null;
   }
@@ -163,15 +208,32 @@ export async function refreshFromRemote(): Promise<void> {
     if (!snapRes.ok) return;
     const text = await snapRes.text();
 
+    // The size ceiling, consumer side. Publish refuses to produce a snapshot
+    // past this, so hitting it here means the channel is serving something no
+    // publish produced — refuse before spending a multi-MB parse on it.
+    if (text.length > MAX_SNAPSHOT_BYTES) return;
+
+    // Verify + merge run over the whole corpus on the JS thread — a real stall
+    // at target corpus size if it lands mid-animation. This fetch is already
+    // fire-and-forget, so defer the expensive part until the UI is idle.
+    await new Promise<void>((r) => InteractionManager.runAfterInteractions(() => r()));
+
     // validateCorpus is injected — content.logic stays a type-only pure island.
     const verified = verifySnapshot(text, manifest, validateCorpus);
     if (!verified.ok) return; // parse/checksum/invalid/version — keep what we have
 
-    // Cache the raw snapshot, then upgrade the live corpus so this session sees
-    // it too. Cache write and live update are independent: a failed write must
-    // not stop the in-memory upgrade.
+    // Cache the RAW verified text — the exact bytes that just passed the
+    // checksum — never a re-stringify of the parsed object (that was a second
+    // full-corpus serialization and a second full-corpus string held live, on
+    // a path the memory-spike finding already indicts). Meta is written after
+    // the text: its presence commits the pair, so a torn write reads as no
+    // cache rather than as unverified bytes.
     try {
-      await AsyncStorage.setItem(CACHE_KEY, JSON.stringify(verified.corpus));
+      await AsyncStorage.setItem(CACHE_KEY, text);
+      await AsyncStorage.setItem(
+        CACHE_META_KEY,
+        JSON.stringify({ version: verified.corpus.version, checksum: manifest.checksum })
+      );
       cachedSnapshotVersion = verified.corpus.version;
     } catch {
       // Out of space or unwritable — the live upgrade below still applies for

@@ -28,6 +28,10 @@ import { describeTarget } from './env';
 import { contentItems } from '../src/db/schema';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
 import { stableStringify, sha256, uploadToStorage } from './snapshot-utils.ts';
+// The app's own ceiling: a device REFUSES to parse a snapshot past this, so
+// producing one would publish bytes no phone will adopt. One number, app-side,
+// imported — never restated here.
+import { MAX_SNAPSHOT_BYTES } from '../../ealch-v2/src/services/content.logic.ts';
 // THE canonical schema — the same file the app, the tests and the generator read.
 // Imported, never copied: a copy drifts, and a drift means this script can ship
 // content the app cannot render.
@@ -419,6 +423,15 @@ async function main() {
 
   // ── 6. Bytes ───────────────────────────────────────────────────────────
   const snapshotJson = stableStringify(corpus);
+  if (snapshotJson.length > MAX_SNAPSHOT_BYTES) {
+    await pool.end();
+    die(
+      `snapshot is ${snapshotJson.length} bytes — past the app's ${MAX_SNAPSHOT_BYTES}-byte ceiling; devices will refuse it.\n` +
+        '  Heavy media belongs in the audio asset manifest, not the snapshot. If the corpus has\n' +
+        '  genuinely outgrown the ceiling, raise MAX_SNAPSHOT_BYTES in content.logic.ts as a\n' +
+        '  DECISION (it is a perf and OOM budget on low-end devices), then republish.'
+    );
+  }
   const checksum = sha256(snapshotJson);
   const path = `snapshots/v${version}.json`;
   const counts = {
