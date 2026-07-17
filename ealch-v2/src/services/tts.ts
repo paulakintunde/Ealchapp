@@ -1,10 +1,48 @@
 // TTS port. Default provider is the on-device French voice via expo-speech
 // (works offline, zero config). When remote config selects ElevenLabs/Azure,
 // audio is synthesised server-side through the tts Edge Function.
+import { Platform } from 'react-native';
 import * as Speech from 'expo-speech';
 import { getConfig } from './config';
 
 let speaking = false;
+
+// The set of voice identifiers this device actually has, loaded once and cached.
+// A configured Camille voice id is a PREFERENCE, not a requirement: device voices
+// vary by manufacturer, OS version and downloaded language packs, so an id chosen
+// on one phone may be absent on another. Passing an unknown `voice:` to
+// Speech.speak is silently ignored by the engine on some devices and errors on
+// others, so we only ever pass an id we have confirmed is installed here, and
+// otherwise fall back to language-only (which is exactly today's behavior).
+let voiceIds: Set<string> | null = null;
+let voiceLoadStarted = false;
+
+function loadVoices(): void {
+  if (voiceLoadStarted) return;
+  voiceLoadStarted = true;
+  Speech.getAvailableVoicesAsync()
+    .then((vs) => {
+      voiceIds = new Set(vs.map((v) => v.identifier));
+    })
+    .catch(() => {
+      // Engine not ready or unsupported — leave null; resolver returns undefined
+      // and callers speak language-only. A later call retries via the flag reset.
+      voiceLoadStarted = false;
+    });
+}
+
+/** The configured device voice for this platform, but only if the engine has
+ *  confirmed the device actually has it. Undefined means "speak language-only". */
+function resolveVoice(): string | undefined {
+  loadVoices();
+  const cfg = getConfig().ttsVoice;
+  const id = Platform.OS === 'ios' ? cfg.ios : Platform.OS === 'android' ? cfg.android : null;
+  if (!id) return undefined;
+  // Until the voice list has loaded we withhold the id rather than risk passing
+  // one the device lacks; the next utterance uses it once the set is known.
+  if (!voiceIds || !voiceIds.has(id)) return undefined;
+  return id;
+}
 
 // Android's TextToSpeech service can be transiently "not bound": right after the
 // app process starts, and again whenever the OS reclaims the idle bound service.
@@ -66,9 +104,13 @@ export const tts = {
         // Stopping an unbound engine is a no-op warning; ignore it.
       }
       speaking = true;
+      const voice = resolveVoice();
       try {
         Speech.speak(text, {
           language: 'fr-FR',
+          // The chosen Camille voice when the device has it; omitted otherwise so
+          // the engine uses its default fr-FR voice (see resolveVoice).
+          ...(voice ? { voice } : {}),
           // Explicit rate wins (the player/dictation speed pickers set it, where
           // 1.0 is the engine's normal speed); `slow` is the legacy shortcut.
           rate: opts.rate ?? (opts.slow ? 0.7 : 0.95),

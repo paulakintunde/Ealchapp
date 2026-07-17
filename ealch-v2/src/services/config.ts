@@ -44,6 +44,15 @@ export type RemoteConfig = {
   ttsProvider: 'device' | 'elevenlabs' | 'azure';
   sttProvider: 'device' | 'edge';
   failoverToastVisible: boolean;
+  /** The chosen device voice for the Camille narration (CF-04, Blocker 4). This
+   *  is the `camilleVoiceId` resolver's app-side landing: the Ops Console records
+   *  Paul's audition pick in `ai_models.meta` as {androidVoice, iosVoice} and the
+   *  routing sync surfaces it here. Split by platform because device voice ids do
+   *  NOT cross platforms. Null on both until a pick is recorded; tts.ts then
+   *  speaks language-only, exactly as it does today. A device that lacks the
+   *  named id also falls back to language-only — the id is a preference, never a
+   *  requirement (see tts.ts). */
+  ttsVoice: { android: string | null; ios: string | null };
 };
 
 const DEFAULTS: RemoteConfig = {
@@ -54,6 +63,7 @@ const DEFAULTS: RemoteConfig = {
   ttsProvider: 'device',
   sttProvider: 'device',
   failoverToastVisible: true,
+  ttsVoice: { android: null, ios: null },
 };
 
 const CACHE_KEY = 'ealch-remote-config';
