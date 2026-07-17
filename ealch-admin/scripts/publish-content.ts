@@ -21,13 +21,13 @@
 //   pnpm content:publish --dry-run    validate + report, write and upload nothing
 //   pnpm content:publish --no-upload  everything except the Storage upload
 import './env';
-import { createHash } from 'node:crypto';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { getTableColumns } from 'drizzle-orm';
 import { describeTarget } from './env';
 import { contentItems } from '../src/db/schema';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
+import { stableStringify, sha256, uploadToStorage } from './snapshot-utils.ts';
 // THE canonical schema — the same file the app, the tests and the generator read.
 // Imported, never copied: a copy drifts, and a drift means this script can ship
 // content the app cannot render.
@@ -43,12 +43,25 @@ import {
   type Unit,
 } from '../../ealch-v2/src/content/schema.ts';
 
-const args = new Set(process.argv.slice(2));
+const argv = process.argv.slice(2);
+const args = new Set(argv);
 const DRY_RUN = args.has('--dry-run');
 const NO_UPLOAD = args.has('--no-upload') || DRY_RUN;
 
+// --rollout <0..100>: the share of devices that adopt this snapshot (staged
+// rollout, master plan Phase 2 OTA safety). Each install holds a stable random
+// bucket 0-99 and adopts only when bucket < rollout. Default 100 = everyone.
+// Ramp a risky publish: --rollout 10, then content:rollout 50 / 100 to widen
+// WITHOUT republishing. content:rollout 0 is the kill switch (halts adoption);
+// content:rollback heals devices that already took a bad version.
+const rolloutIx = argv.indexOf('--rollout');
+const ROLLOUT = rolloutIx === -1 ? 100 : Number(argv[rolloutIx + 1]);
+if (!Number.isInteger(ROLLOUT) || ROLLOUT < 0 || ROLLOUT > 100) {
+  console.error(`\n✖ --rollout must be an integer 0..100, got "${argv[rolloutIx + 1]}"\n`);
+  process.exit(1);
+}
+
 const SEED_PATH = resolve(process.cwd(), '../ealch-v2/src/content/seed.json');
-const BUCKET = 'content';
 
 /* ─── helpers ────────────────────────────────────────────────────────────── */
 
@@ -61,18 +74,9 @@ function die(msg: string): never {
   process.exit(1);
 }
 
-/** Stable JSON. Key order must not depend on row order, or an unchanged corpus
- *  produces a different checksum and a spurious git diff every single publish. */
-function stableStringify(v: unknown): string {
-  return JSON.stringify(v, (_k, val) => {
-    if (val && typeof val === 'object' && !Array.isArray(val)) {
-      return Object.fromEntries(Object.entries(val as object).sort(([a], [b]) => a.localeCompare(b)));
-    }
-    return val;
-  });
-}
-
-const sha256 = (s: string) => createHash('sha256').update(s, 'utf8').digest('hex');
+// stableStringify + sha256 + Storage I/O live in snapshot-utils.ts, shared
+// with rollback-content.ts: two copies of the byte contract is how the app's
+// checksum verification quietly diverges from what publishing produces.
 
 /* ─── The projection guard ───────────────────────────────────────────────── */
 
@@ -430,7 +434,11 @@ async function main() {
     scenarios: seed.scenarios.length,
   };
 
-  const manifest = { version, path, checksum, counts, publishedAt: new Date().toISOString() };
+  // `rollout` is the staged-rollout gate the app honors (content.logic.ts
+  // shouldAdopt): a device adopts only if its stable bucket < rollout. Written
+  // even at 100 so the field's presence is the norm, not the exception.
+  const manifest = { version, path, checksum, rollout: ROLLOUT, counts, publishedAt: new Date().toISOString() };
+  if (ROLLOUT < 100) console.log(`  staged rollout: ${ROLLOUT}% of devices adopt v${version}`);
 
   // ── 7. What changed ────────────────────────────────────────────────────
   console.log('\n  ── diff ──');
@@ -470,17 +478,26 @@ async function main() {
           '  Re-run with --no-upload to generate seed.json without publishing over the air.'
       );
     }
-    await upload(url, key, path, snapshotJson);
+    await uploadToStorage(url, key, path, snapshotJson);
     // The manifest is written LAST and points at a snapshot that is already
     // there. A client that reads the manifest must never be told about bytes
     // that have not finished uploading.
-    await upload(url, key, 'manifest.json', JSON.stringify(manifest, null, 2));
+    await uploadToStorage(url, key, 'manifest.json', JSON.stringify(manifest, null, 2));
     console.log(`\n  ↑ uploaded ${path} and manifest.json`);
   } else {
     console.log('\n  (--no-upload: Storage untouched)');
   }
 
-  // ── 9. Record it. The DB is the version counter. ───────────────────────
+  // ── 9. The committed mirror, BEFORE the counter ────────────────────────
+  // Written before the content_snapshots insert on purpose (publish atomicity,
+  // master plan Phase 2): a crash between the two now leaves a fresher mirror
+  // than the counter, which the next publish simply overwrites — harmless. The
+  // old order could record a version whose committed mirror never landed.
+  mkdirSync(dirname(SEED_PATH), { recursive: true });
+  writeFileSync(SEED_PATH, JSON.stringify(seed, null, 2) + '\n', 'utf8');
+  console.log(`  ✎ ${SEED_PATH}`);
+
+  // ── 10. Record it. The DB is the version counter. ──────────────────────
   await pool.query(
     `insert into content_snapshots (version, path, checksum, counts, seed_counts)
      values ($1, $2, $3, $4, $5)`,
@@ -488,39 +505,14 @@ async function main() {
   );
   await pool.end();
 
-  // ── 10. The committed mirror ───────────────────────────────────────────
-  mkdirSync(dirname(SEED_PATH), { recursive: true });
-  writeFileSync(SEED_PATH, JSON.stringify(seed, null, 2) + '\n', 'utf8');
-  console.log(`  ✎ ${SEED_PATH}`);
-
   console.log(`\n✓ published v${version}\n`);
 }
 
-async function upload(baseUrl: string, key: string, path: string, body: string) {
-  // Send the key in BOTH headers. New-style secret keys (sb_secret_…) are NOT
-  // JWTs, so Storage's gateway rejects them in `Authorization: Bearer` with
-  // "Invalid Compact JWS" — it validates that header as a JWT. The `apikey`
-  // header is where the new format authenticates. Legacy service_role JWTs work
-  // in either, so setting both is correct for both key formats.
-  const res = await fetch(`${baseUrl}/storage/v1/object/${BUCKET}/${path}`, {
-    method: 'POST',
-    headers: {
-      apikey: key,
-      Authorization: `Bearer ${key}`,
-      'Content-Type': 'application/json',
-      'Cache-Control': 'max-age=300',
-      'x-upsert': 'true',
-    },
-    body,
-  });
-  if (!res.ok) {
-    // Throw rather than die(): die() calls process.exit while the pg pool is
-    // still open, which on Windows aborts with a native UV_HANDLE_CLOSING panic
-    // mid-teardown. main()'s catch reports it cleanly. The snapshot row is
-    // inserted AFTER upload, so a failed upload leaves no orphan version.
-    throw new Error(`Storage upload failed for ${path}: HTTP ${res.status} ${await res.text()}`);
-  }
-}
+// upload() moved to snapshot-utils.ts (uploadToStorage), shared with the
+// rollout and rollback scripts. It throws rather than die()s: die() exits with
+// the pg pool open, which on Windows aborts with a native UV_HANDLE_CLOSING
+// panic mid-teardown; main()'s catch reports it cleanly, and the snapshot row
+// is inserted after upload so a failed upload leaves no orphan version.
 
 main().catch((e) => {
   console.error(e);

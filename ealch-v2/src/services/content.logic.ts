@@ -226,18 +226,59 @@ const SHA256_K = [
   0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2,
 ];
 
-export type Manifest = { version: number; path: string; checksum: string };
+export type Manifest = {
+  version: number;
+  path: string;
+  checksum: string;
+  /** Staged rollout: the share of devices (0-100) that should adopt this
+   *  version. Absent means 100 — every manifest published before the field
+   *  existed rolled out to everyone, so absence keeps meaning that. 0 is the
+   *  KILL SWITCH: nobody adopts, everyone freezes on what they hold. */
+  rollout?: number;
+};
 
 export function isManifest(v: unknown): v is Manifest {
   if (!v || typeof v !== 'object') return false;
   const m = v as Record<string, unknown>;
-  return typeof m.version === 'number' && typeof m.path === 'string' && typeof m.checksum === 'string';
+  return (
+    typeof m.version === 'number' &&
+    typeof m.path === 'string' &&
+    typeof m.checksum === 'string' &&
+    // A malformed rollout rejects the whole manifest rather than being
+    // defaulted: a publisher that writes junk here should look broken at the
+    // next fetch, not silently roll out to everyone.
+    (m.rollout === undefined || typeof m.rollout === 'number')
+  );
 }
 
 /** Should we bother downloading? Only if the manifest offers a strictly newer
  *  version than we already hold. */
 export function manifestIsNewer(manifest: Manifest, currentVersion: number): boolean {
   return manifest.version > currentVersion;
+}
+
+/**
+ * The adoption decision, whole: strictly newer AND inside the rollout.
+ *
+ * `bucket` is the device's stable lot number, 0-99, drawn once per install and
+ * persisted (content.ts). A device adopts when bucket < rollout, so raising
+ * the rollout only ever ADDS devices — the 10% who took v9 at rollout 10 are
+ * the same devices inside 50 and 100, and nobody flaps between versions when
+ * the number moves.
+ *
+ * What this can and cannot do:
+ *   rollout 10  — a bad publish reaches ~10% of devices instead of all of them
+ *   rollout 0   — the kill switch: adoption halts; devices keep what they hold
+ *   rollback    — this gate cannot HEAL a device that already adopted a bad
+ *                 version (versions only ever rise, deliberately — see
+ *                 manifestIsNewer). Healing is publishing the last good
+ *                 snapshot AS A NEW VERSION: ealch-admin content:rollback.
+ */
+export function shouldAdopt(manifest: Manifest, currentVersion: number, bucket: number): boolean {
+  if (!manifestIsNewer(manifest, currentVersion)) return false;
+  const rollout = manifest.rollout === undefined ? 100 : manifest.rollout;
+  if (!Number.isFinite(rollout)) return false;
+  return bucket < Math.min(100, Math.max(0, rollout));
 }
 
 export type VerifyResult =

@@ -26,10 +26,10 @@ import {
   getUnit,
   isManifest,
   lessonsOfUnit,
-  manifestIsNewer,
   mergeCorpus,
   scenariosFor,
   selectItems,
+  shouldAdopt,
   unitsInTrack,
   verifySnapshot,
   type ItemQuery,
@@ -37,6 +37,7 @@ import {
 
 const SEED = seedJson as Corpus;
 const CACHE_KEY = 'ealch-content-snapshot';
+const BUCKET_KEY = 'ealch-rollout-bucket';
 const STORAGE_BASE = ENV.supabaseUrl
   ? `${ENV.supabaseUrl.replace(/\/$/, '')}/storage/v1/object/public/content`
   : '';
@@ -106,6 +107,26 @@ export async function contentCacheInfo(): Promise<{ bytes: number } | null> {
   }
 }
 
+/** This install's staged-rollout lot number, 0-99: drawn once, persisted, and
+ *  compared against the manifest's rollout share (see shouldAdopt). Uniform by
+ *  construction and stable across launches, so raising a rollout only ever
+ *  adds devices. If storage is unreadable, 99 — the most conservative lot,
+ *  which adopts only at full rollout. */
+async function rolloutBucket(): Promise<number> {
+  try {
+    const raw = await AsyncStorage.getItem(BUCKET_KEY);
+    if (raw !== null) {
+      const n = Number(raw);
+      if (Number.isInteger(n) && n >= 0 && n < 100) return n;
+    }
+    const drawn = Math.floor(Math.random() * 100);
+    await AsyncStorage.setItem(BUCKET_KEY, String(drawn));
+    return drawn;
+  } catch {
+    return 99;
+  }
+}
+
 /** Read and validate the cached snapshot. A cache that fails validation is
  *  treated as absent — the seed backstops it. */
 async function readCache(): Promise<Corpus | null> {
@@ -132,8 +153,11 @@ export async function refreshFromRemote(): Promise<void> {
 
     // Compare against the cached SNAPSHOT version, not the merged corpus version:
     // a seed-only install has no snapshot (0) and must fetch even when the
-    // manifest's version equals the seed's.
-    if (!manifestIsNewer(manifest, cachedSnapshotVersion)) return;
+    // manifest's version equals the seed's. And honor the staged rollout: this
+    // install adopts only if its persisted lot falls inside the manifest's
+    // rollout share (rollout 0 is the kill switch — everyone freezes on what
+    // they hold; see shouldAdopt in content.logic.ts for the full contract).
+    if (!shouldAdopt(manifest, cachedSnapshotVersion, await rolloutBucket())) return;
 
     const snapRes = await fetch(`${STORAGE_BASE}/${manifest.path}`, { cache: 'no-store' as RequestCache });
     if (!snapRes.ok) return;

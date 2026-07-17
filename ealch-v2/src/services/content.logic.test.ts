@@ -13,12 +13,14 @@ import { validateCorpus, type Corpus, type Item, type Lesson, type Unit } from '
 import {
   getItem,
   getScenario,
+  isManifest,
   lessonsOfUnit,
   manifestIsNewer,
   mergeCorpus,
   scenariosFor,
   selectItems,
   sha256Hex,
+  shouldAdopt,
   stableStringify,
   unitsInTrack,
   verifySnapshot,
@@ -285,4 +287,55 @@ test('manifestIsNewer only fires on a strictly higher version', () => {
   ok(manifestIsNewer(m(3), 2));
   ok(!manifestIsNewer(m(2), 2));
   ok(!manifestIsNewer(m(1), 2));
+});
+
+/* ─── Staged rollout — the OTA safety gate (master plan Phase 2) ──────────── */
+
+test('isManifest tolerates absent rollout, accepts numbers, rejects junk', () => {
+  const base = { version: 1, path: 'p', checksum: 'c' };
+  // Absent = the pre-rollout manifests already in the field.
+  ok(isManifest(base));
+  ok(isManifest({ ...base, rollout: 0 }));
+  ok(isManifest({ ...base, rollout: 100 }));
+  // Junk rejects the WHOLE manifest: a publisher writing garbage here should
+  // look broken at the next fetch, not silently roll out to everyone.
+  ok(!isManifest({ ...base, rollout: '50' }));
+  ok(!isManifest({ ...base, rollout: null }));
+});
+
+test('shouldAdopt: absent rollout means everyone (the back-compat contract)', () => {
+  const m: Manifest = { version: 3, path: 'p', checksum: 'c' };
+  ok(shouldAdopt(m, 2, 0));
+  ok(shouldAdopt(m, 2, 99));
+});
+
+test('shouldAdopt gates by lot: bucket < rollout, boundary exact', () => {
+  const m = (rollout: number): Manifest => ({ version: 3, path: 'p', checksum: 'c', rollout });
+  // At 50, lots 0..49 adopt and 50..99 wait — raising the number only ever
+  // ADDS devices; nobody who adopted can fall back out.
+  ok(shouldAdopt(m(50), 2, 49));
+  ok(!shouldAdopt(m(50), 2, 50));
+  ok(shouldAdopt(m(100), 2, 99));
+});
+
+test('shouldAdopt: rollout 0 is the kill switch — nobody adopts, whatever their lot', () => {
+  const m: Manifest = { version: 3, path: 'p', checksum: 'c', rollout: 0 };
+  ok(!shouldAdopt(m, 2, 0));
+  ok(!shouldAdopt(m, 2, 99));
+});
+
+test('shouldAdopt never overrides version monotonicity', () => {
+  // A full rollout of an older or equal version is still a no: healing a bad
+  // adoption is content:rollback (old bytes as a NEW version), never a
+  // downgrade — the cache and merge paths assume versions only rise.
+  const m: Manifest = { version: 2, path: 'p', checksum: 'c', rollout: 100 };
+  ok(!shouldAdopt(m, 2, 0));
+  ok(!shouldAdopt(m, 3, 0));
+});
+
+test('shouldAdopt clamps out-of-range rollout and refuses NaN', () => {
+  const m = (rollout: number): Manifest => ({ version: 3, path: 'p', checksum: 'c', rollout });
+  ok(shouldAdopt(m(250), 2, 99)); // clamped to 100
+  ok(!shouldAdopt(m(-5), 2, 0)); // clamped to 0
+  ok(!shouldAdopt(m(NaN), 2, 0)); // refuse, do not default
 });

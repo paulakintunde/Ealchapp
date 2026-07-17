@@ -16,6 +16,8 @@
     "content:spine": "tsx scripts/update-spine.ts",
     "content:practice": "tsx scripts/author-practice.ts",
     "content:publish": "tsx scripts/publish-content.ts",
+    "content:rollout": "tsx scripts/set-rollout.ts",
+    "content:rollback": "tsx scripts/rollback-content.ts",
     "test:e2e": "playwright test"
   },
   "dependencies": {
