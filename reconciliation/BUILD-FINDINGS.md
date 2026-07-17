@@ -13,7 +13,7 @@ blocking unless it says so.
 
 ## BF-01 — There is a third skill vocabulary, and CF-13 did not cover it
 
-**Found:** 2026-07-16, while implementing `SCHEMA-BUILD-PROMPT.md` (Phase 1.B schema delta).
+**Found:** 2026-07-16, while implementing the schema build (the Phase 1.B schema delta; its build prompt is retired — `reconciliation/EALCH-MASTER-BUILD.md` Phase 1 is the live spec).
 **Relates to:** CF-13 (Item skill taxonomy: CO/CE/PO/PE vs read/write/speak/listen).
 **Status:** Open. Not blocking. Needs a product/pedagogy decision before the corpus is authored.
 

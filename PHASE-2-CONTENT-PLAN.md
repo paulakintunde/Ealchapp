@@ -186,4 +186,4 @@ M1 is small and high-information — do it first. M2/M3 can proceed in parallel 
 
 ---
 
-*Supersedes the schema/delivery/audio sections of `CONTENT-CURRICULUM-AND-GENERATION-PLAN.md` (its curriculum, master prompt and QA pipeline are adopted). Scopes down `OPR-CONTENT-STUDIO-SPEC.md` to a lean review console for this phase. Builds entirely on the Phase 1 foundation (`PHASE-1-FOUNDATION-PROMPT.md`).*
+*Supersedes the schema/delivery/audio sections of `CONTENT-CURRICULUM-AND-GENERATION-PLAN.md` (its curriculum, master prompt and QA pipeline are adopted). Scopes down `OPR-CONTENT-STUDIO-SPEC.md` to a lean review console for this phase. Builds entirely on the Phase 1 foundation (see `reconciliation/EALCH-MASTER-BUILD.md`, Phase 1).*
