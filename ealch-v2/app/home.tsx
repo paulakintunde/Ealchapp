@@ -161,11 +161,12 @@ export default function Home() {
   // missed this week, from the error log, most-missed first. Nothing is seeded,
   // so a fresh install shows an honest empty state, never three invented flaws.
   const weaknesses = useMemo(() => topWeaknesses(errors, today, 7), [errors, today]);
-  // Deterministic daily rotation — the same real word for everyone on a given
-  // date, no backend. Was « la flânerie », hardcoded here and in the overlay.
-  // Keyed on `today`, not []: the word turns over at the local midnight that
-  // localDay() names, and an empty key would freeze it for the process lifetime.
-  const wod = useMemo(() => wordOfDay(), [today]);
+  // Deterministic daily rotation, per level (Phase 6b): the same real word for
+  // every learner AT THIS LEVEL on a given date, no backend. Was « la flânerie »
+  // hardcoded, then one global literary pool — noise to a beginner. Keyed on
+  // `today` and `level`: the word turns over at the local midnight localDay()
+  // names, and again when placement moves the learner's level.
+  const wod = useMemo(() => wordOfDay(level), [today, level]);
   const weakRows = useMemo(() => openWeakRows(router, openSheet), [router, openSheet]);
 
   return (
