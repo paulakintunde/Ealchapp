@@ -5,17 +5,9 @@
 // like, with nothing behind it. It is gone: the review queue is now the real one,
 // scheduled from the attempt log (progress.logic.ts srsCards/dueCards) and read
 // by app/smartreview.tsx and app/review.tsx.
-import type { Lang } from '@/store/useStore';
-
-// Placement — one adaptive question, answer-sensitive estimate.
-export function placementQuestion(lang: Lang) {
-  const fr = lang === 'fr';
-  return {
-    prompt: fr ? '« Tu es allé en France ? » — Répondez au passé composé :' : '“Tu es allé en France?” — Reply in the passé composé:',
-    opts: ["Oui, j'y suis allé l'été dernier.", 'Oui, je suis allé à France.', "Oui, j'ai allé en France hier."],
-    // index 0 is correct → estimate rises
-  };
-}
+// The one-question fake-adaptive placement fixture that lived here is gone
+// with the screen that read it: app/placement.tsx now draws a real question
+// bank from the corpus and grades it in progress.logic.ts (placementEstimate).
 
 // Dictation drives its sentences from the corpus now (content.itemsFor
 // ('dictation')); the old hardcoded three-sentence fixture that lived here is
