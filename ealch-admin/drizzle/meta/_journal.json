@@ -43,6 +43,13 @@
       "when": 1784214932011,
       "tag": "0005_content_items_spine",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1784311378860,
+      "tag": "0006_audio_assets",
+      "breakpoints": true
     }
   ]
 }

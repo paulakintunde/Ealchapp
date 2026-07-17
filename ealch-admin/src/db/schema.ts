@@ -388,6 +388,37 @@ export const contentSnapshots = pgTable('content_snapshots', {
   publishedAt: timestamp('published_at', { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [index('snapshots_published_idx').on(t.publishedAt)]);
 
+/**
+ * One rendered audio clip per (item, voice). The Storage-backed registry the
+ * app's clip cache resolves against — same contract as content_snapshots: the
+ * DB row is the truth about what audio is live, `path` locates the bytes in
+ * the public `content` bucket, and `checksum` (sha256 of the exact uploaded
+ * bytes) is what lets the app prove the clip it downloaded is the clip that
+ * was published, not a truncated or tampered file.
+ *
+ * `itemId` is the TEXT corpus key ('fr.a1.cafe.001'), not a uuid — audio hangs
+ * off the same stable public id the SRS and attempt log key on, and it dies
+ * with the item. `voiceId` names the rendered voice (a device voice id today,
+ * an Azure/Camille voice name in Phase 7); one item may carry clips in several
+ * voices, hence the composite uniqueness rather than item-unique.
+ */
+export const audioAssets = pgTable('audio_assets', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  itemId: text('item_id').notNull().references(() => contentItems.id, { onDelete: 'cascade' }),
+  /** Path within the public `content` Storage bucket. */
+  path: text('path').notNull(),
+  /** sha256 of the exact bytes uploaded. */
+  checksum: text('checksum').notNull(),
+  voiceId: text('voice_id').notNull(),
+  /** Clip length. Nullable: known only after a render pipeline measures it. */
+  durationMs: integer('duration_ms'),
+  publishedBy: uuid('published_by').references(() => adminUsers.id, { onDelete: 'set null' }),
+  publishedAt: timestamp('published_at', { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [
+  index('audio_assets_item_idx').on(t.itemId),
+  uniqueIndex('audio_assets_item_voice_uq').on(t.itemId, t.voiceId),
+]);
+
 // ── AI routing ─────────────────────────────────────────────────────────────
 export const aiCapabilities = pgTable('ai_capabilities', {
   id: uuid('id').primaryKey().defaultRandom(),
