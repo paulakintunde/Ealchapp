@@ -9,15 +9,16 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { content } from '@/services/content';
 import { useProgress } from '@/store/useProgress';
-import { itemsPracticed } from '@/store/progress.logic';
+import { foldCards, itemsPracticed, masteredItems } from '@/store/progress.logic';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import type { Track } from '@/content/schema';
 
-// Den progress is now REAL: a unit's "learned" count is how many of the items its
-// lessons teach have been answered correctly at least once, read from the attempt
-// log (progress.logic.ts). No fabricated "2 done" or 55% bars — a unit reads 0/N
-// until the learner actually gets its words right, and shows a check only when
-// every one is met (review §den).
+// Den progress is REAL and now honest about the difference between MET and
+// MASTERED (Phase 5, CF-03). The bar and the "learned" count track MET — items
+// answered correctly at least once — so it fills from the first right answer.
+// The mastered count (recognise AND produce held for weeks) rides alongside, and
+// the completion check is reserved for the real milestone: every item mastered.
+// No fabricated bars: a unit reads 0/N until the learner actually earns it.
 
 export default function Den() {
   const t = useTheme();
@@ -39,16 +40,25 @@ export default function Den() {
   const list = byTrack[denTab];
   const ready = list.filter((u) => u.lessonIds.length > 0).length;
 
-  // The set of items the learner has met correctly, and a per-unit view over it:
-  // a unit's items are everything its lessons teach, so its progress is honest —
-  // it can only fill as real drills log correct attempts against those ids.
+  // Two honest numbers per unit, not one. MET is "you got it right at least
+  // once" (early progress — it fills from the first correct answer). MASTERED is
+  // retention: recognise AND produce both held for weeks (progress.logic). If the
+  // bar were driven by mastery alone it would read 0/N for the first three weeks
+  // of daily practice — the exact D1–D14 window where a blank bar makes people
+  // quit — so MET drives the bar and the mastered count rides alongside it. The
+  // check is reserved for the real milestone: every item mastered.
   const attempts = useProgress((s) => s.attempts);
   const met = useMemo(() => itemsPracticed(attempts), [attempts]);
+  const mastered = useMemo(() => masteredItems(foldCards(attempts)), [attempts]);
   const progressOf = (unitId: string) => {
     const ids = new Set(content.lessonsOf(unitId).flatMap((l) => l.itemIds));
-    let mastered = 0;
-    for (const id of ids) if (met.has(id)) mastered += 1;
-    return { total: ids.size, mastered };
+    let metN = 0;
+    let masteredN = 0;
+    for (const id of ids) {
+      if (met.has(id)) metN += 1;
+      if (mastered.has(id)) masteredN += 1;
+    }
+    return { total: ids.size, met: metN, mastered: masteredN };
   };
 
   const tabs: { id: Track; name: string }[] = [
@@ -136,9 +146,9 @@ export default function Den() {
         <View style={{ gap: 9 }}>
           {list.map((u) => {
             const hasLesson = u.lessonIds.length > 0;
-            const prog = hasLesson ? progressOf(u.id) : { total: 0, mastered: 0 };
+            const prog = hasLesson ? progressOf(u.id) : { total: 0, met: 0, mastered: 0 };
             const done = prog.total > 0 && prog.mastered === prog.total;
-            const started = prog.mastered > 0;
+            const started = prog.met > 0;
             const onPress = () => {
               if (hasLesson) router.push({ pathname: '/lesson', params: { key: u.lessonIds[0] } });
             };
@@ -168,9 +178,12 @@ export default function Den() {
                     {/* Real per-unit progress, only once it has words to track. */}
                     {hasLesson && prog.total > 0 && !done ? (
                       <View style={{ marginTop: 9, gap: 5 }}>
-                        <ProgressBar pct={(prog.mastered / prog.total) * 100} height={3} color={t.acc} track={t.line(10)} />
+                        {/* The bar tracks MET, so it fills from the first correct
+                            answer instead of staying empty for three weeks. */}
+                        <ProgressBar pct={(prog.met / prog.total) * 100} height={3} color={t.acc} track={t.line(10)} />
                         <TX role="meta" color={started ? t.accTx : t.txSubtle}>
-                          {T.denLearned.replace('{n}', String(prog.mastered)).replace('{m}', String(prog.total))}
+                          {T.denLearned.replace('{n}', String(prog.met)).replace('{m}', String(prog.total))}
+                          {prog.mastered > 0 ? '  ·  ' + T.denMastered.replace('{k}', String(prog.mastered)) : ''}
                         </TX>
                       </View>
                     ) : null}

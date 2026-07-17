@@ -69,6 +69,7 @@ export type Strings = {
   startQuiz: string; quizPassed: string; quizFailed: string; retry: string; qNext: string; backToDen: string;
   lessonDone: string; lessonSoon: string; builderTag: string; sbSkipSay: string;
   denLearned: string;
+  denMastered: string;
   examplesT: string; tableT: string; errorsT: string; audioT: string; videoT: string; subsT: string;
   sayFr: string; transEn: string; orTypeT: string; checkT: string;
   correctT: string; incorrectT: string; nextCard: string; vfDoneT: string;
@@ -235,6 +236,7 @@ export const T: Record<Lang, Strings> = {
     startQuiz: 'Commencer le quiz', quizPassed: 'RÉUSSI', quizFailed: 'Pas encore', retry: 'Réessayer', qNext: 'Suivant', backToDen: 'Retour au cursus',
     lessonDone: 'Terminer la leçon', lessonSoon: 'Leçon bientôt disponible', builderTag: 'CONSTRUCTEUR', sbSkipSay: 'Passer',
     denLearned: '{n} / {m} appris',
+    denMastered: '{k} maîtrisés',
     examplesT: 'Exemples & usages', tableT: 'Tableau', errorsT: 'Erreurs communes', audioT: 'Pratique audio', videoT: 'Vidéo — la bouche en 3D', subsT: 'Sous-leçons',
     sayFr: 'Dites-le en français', transEn: 'Traduisez en anglais', orTypeT: 'ou écrivez votre réponse', checkT: 'Vérifier',
     correctT: 'Correct !', incorrectT: 'Pas tout à fait : ', nextCard: 'Carte suivante', vfDoneT: 'Session terminée',
@@ -463,6 +465,7 @@ export const T: Record<Lang, Strings> = {
     startQuiz: 'Start the quiz', quizPassed: 'PASSED', quizFailed: 'Not yet', retry: 'Retry', qNext: 'Next', backToDen: 'Back to curriculum',
     lessonDone: 'Finish the lesson', lessonSoon: 'Lesson coming soon', builderTag: 'BUILDER', sbSkipSay: 'Skip',
     denLearned: '{n} / {m} learned',
+    denMastered: '{k} mastered',
     examplesT: 'Examples & use cases', tableT: 'Table', errorsT: 'Common errors', audioT: 'Audio practice', videoT: 'Video — the mouth in 3D', subsT: 'Sub-lessons',
     sayFr: 'Say it in French', transEn: 'Translate to English', orTypeT: 'or type your answer', checkT: 'Check',
     correctT: 'Correct!', incorrectT: 'Not quite: ', nextCard: 'Next card', vfDoneT: 'Session complete',
