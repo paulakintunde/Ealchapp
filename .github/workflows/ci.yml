@@ -1,0 +1,167 @@
+# CC-A — the CI slice. Runs on every PR and on pushes to the build branch.
+#
+# This is the substrate the master plan says every phase ships through
+# (reconciliation/EALCH-MASTER-BUILD.md, "Cross-cutting workstream CC-A").
+# Phases 0 and 1 both shipped before it existed, with their invariants checked
+# by hand; from here, the checks below are the machine-enforced versions:
+#
+#   - tsc --noEmit on both repos (the admin one also proves the cross-repo
+#     TS import surface stays resolvable — see the note in
+#     ealch-v2/src/content/curriculum.ts for how that breaks)
+#   - node --test for the pure islands, which INCLUDES enum-parity.test.ts
+#     (the app-union vs Drizzle-pgEnum check with the intentional c2 asymmetry)
+#     — do not filter it out of the glob
+#   - the Phase 0 honesty gates (no fabricated card number, no price literal
+#     outside pricing.ts, no literal SRS ladder in copy)
+#   - a byte ceiling on seed.json (the seed is the bounded offline-first
+#     subset; the OTA snapshot is where the corpus grows)
+#   - content:publish --dry-run against the canonical DB, when the
+#     DATABASE_URL secret is configured (see that job's note)
+#
+# Not covered here (still open in CC-A): expo-updates/release-model, eas.json
+# channels + submit config, the toolchain-proof eas build, project identity.
+
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [build/ealch-v2-expo]
+
+jobs:
+  app:
+    name: ealch-v2 · typecheck + tests + honesty gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: ealch-v2
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Node 24: the test suite runs .ts files through `node --test`
+          # directly (type-stripping), which needs a modern runtime. Keep in
+          # step with the version developers run locally.
+          node-version: 24
+          cache: npm
+          cache-dependency-path: ealch-v2/package-lock.json
+
+      - run: npm ci
+
+      - name: typecheck
+        run: npm run typecheck
+
+      - name: pure-island tests (includes enum parity)
+        run: npm test
+
+      - name: honesty gates (Phase 0 invariants)
+        # Each grep must find NOTHING. These are the acceptance criteria from
+        # Phase 0 of the master plan, made permanent: a hit means a fabrication
+        # is back. Explanatory comments in the codebase are deliberately written
+        # WITHOUT these literals so this stays mechanically checkable.
+        run: |
+          fail=0
+          if grep -rn "4212" app src; then
+            echo "::error::fabricated card number found (Phase 0 / CF-23)"; fail=1
+          fi
+          if grep -rn '\$79\|\$9\.99\|6\.58\|£69\|CA\$99\|79 €' app src --include='*.ts' --include='*.tsx' | grep -v 'src/content/pricing.ts'; then
+            echo "::error::price literal outside src/content/pricing.ts (Phase 0 price matrix rule)"; fail=1
+          fi
+          if grep -rn '1 → 3 → 7\|1 -> 3 -> 7' app src; then
+            echo "::error::literal SRS ladder in copy (Phase 0 / CF-21)"; fail=1
+          fi
+          exit $fail
+
+      - name: seed.json byte ceiling
+        # The seed is the bounded offline-first subset committed to git; corpus
+        # growth belongs to the OTA snapshot, not this file. Ceiling: 256 KiB
+        # (~12x the 20 KB it is today). If this trips legitimately, the answer
+        # is a smaller seed-cut in ealch-admin/scripts/seed-cut.config.ts, not
+        # a bigger ceiling — raising it needs a deliberate decision recorded in
+        # the master plan.
+        run: |
+          node -e '
+            const max = 262144;
+            const size = require("fs").statSync("src/content/seed.json").size;
+            console.log(`seed.json: ${size} bytes (ceiling ${max})`);
+            if (size > max) { console.error("seed.json exceeds the documented ceiling"); process.exit(1); }
+          '
+
+  admin:
+    name: ealch-admin · typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: ealch-admin
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: ealch-admin/pnpm-lock.yaml
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: typecheck (includes the cross-repo import surface)
+        # This job type-checks every ealch-v2 file the admin imports
+        # (schema.ts, progress-schema.ts, curriculum.ts → progress.logic.ts),
+        # so it is the gate that catches an app-side change breaking the
+        # publish pipeline's one canonical TS contract.
+        run: pnpm run typecheck
+
+  publish-dry-run:
+    name: content:publish --dry-run (needs DATABASE_URL secret)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: ealch-admin
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: check for secret
+        id: gate
+        # The dry run refuses to invent a database: publish-content.ts dies
+        # without DATABASE_URL by design (it must read the canonical DB, never
+        # PGlite). Until the repo secret is configured this job succeeds with a
+        # notice instead of failing every PR — but the master plan's intent is
+        # that it becomes a REQUIRED status check once the secret exists.
+        # Configure it: repo Settings → Secrets and variables → Actions →
+        # DATABASE_URL (read access to the canonical Postgres is enough).
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "::notice::DATABASE_URL secret not configured — dry-run skipped. Set it to arm this gate."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: pnpm/action-setup@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: ealch-admin/pnpm-lock.yaml
+
+      - run: pnpm install --frozen-lockfile
+        if: steps.gate.outputs.run == 'true'
+
+      - name: content:publish --dry-run
+        if: steps.gate.outputs.run == 'true'
+        run: pnpm run content:publish -- --dry-run
