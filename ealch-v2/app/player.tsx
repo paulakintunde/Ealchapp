@@ -110,7 +110,7 @@ export default function Player() {
           setPlaying(false);
           if (!logged.current) {
             logged.current = true;
-            logSession('player', total);
+            logSession('player');
           }
         }
       },
@@ -139,6 +139,10 @@ export default function Player() {
   const go = (target: number) => {
     const next = Math.max(0, Math.min(total - 1, target));
     sound.play('tap');
+    // Seeking back into the track re-arms the session log: a genuine second
+    // play-through to the end should count, but `logged` only clears on restart,
+    // so without this a skip-back-then-replay would finish silently.
+    if (next < total - 1) logged.current = false;
     setIx(next);
     tts.stop();
     if (playingRef.current) speakLine(next);
