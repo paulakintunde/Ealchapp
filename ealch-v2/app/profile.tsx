@@ -102,8 +102,11 @@ export default function Profile() {
   const openSheet = useUI((s) => s.openSheet);
 
   const today = localDay();
-  const run = streak(sessions, today, freeze);
-  const dots = weekDots(sessions, today);
+  // Each of these folds the whole session log; memoize on the slices they read
+  // so an unrelated re-render (a text-field keystroke, a theme toggle) doesn't
+  // rebuild a Set over the log. Matches home, which is already memoized.
+  const run = useMemo(() => streak(sessions, today, freeze), [sessions, today, freeze]);
+  const dots = useMemo(() => weekDots(sessions, today), [sessions, today]);
   const todayIx = mondayIndex(today);
   const monday = shiftDay(today, -todayIx);
 
@@ -118,7 +121,10 @@ export default function Profile() {
 
   // Minutes practised on each day of THIS calendar week, Monday-first — the same
   // week the dots above the chart cover. Bars scale to the busiest day.
-  const weekMins = Array.from({ length: 7 }, (_, i) => minutesToday(sessions, shiftDay(monday, i)));
+  const weekMins = useMemo(
+    () => Array.from({ length: 7 }, (_, i) => minutesToday(sessions, shiftDay(monday, i))),
+    [sessions, monday]
+  );
   const maxMin = Math.max(1, ...weekMins);
 
   // The set of days actually practised, so the month calendar marks real days
