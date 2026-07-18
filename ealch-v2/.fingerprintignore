@@ -1,0 +1,8 @@
+# These two packages produce different directory hashes on Windows vs Linux
+# due to platform-specific npm extraction behaviour (file mode bits differ).
+# Version integrity is preserved by package-lock.json which pins exact versions:
+#   @react-native-masked-view/masked-view  0.3.2  (transitive via expo-router)
+#   react-native-worklets                  0.10.0 (direct dep)
+# If either package is updated, regenerate the fingerprint with `npx expo-updates fingerprint:generate`.
+node_modules/@react-native-masked-view/masked-view
+node_modules/react-native-worklets
