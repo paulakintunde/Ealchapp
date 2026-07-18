@@ -1,2 +1,8 @@
 # Playwright MCP scratch output — console logs, page snapshots, screenshots
 .playwright-mcp/
+
+# Markdown docs/scratch — planning prompts, audits, notes. The 46 .md files
+# already tracked stay tracked (git does not untrack on ignore); this only
+# stops NEW .md from cluttering status/commits. To track a new one anyway:
+# git add -f <file>.md
+*.md

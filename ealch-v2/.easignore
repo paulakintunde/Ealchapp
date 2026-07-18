@@ -23,3 +23,6 @@ web-build/
 # Local noise
 *.log
 .DS_Store
+
+# Markdown docs never belong in a build upload (README/AGENTS/CLAUDE/etc.)
+*.md
