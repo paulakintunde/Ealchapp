@@ -108,7 +108,7 @@ export type AppState = {
   setAppLang: (id: string) => void;
   setField: <K extends keyof AppState>(k: K, v: AppState[K]) => void;
   signIn: (email?: string, name?: string) => void;
-  signOut: () => void;
+  signOut: () => Promise<void>;
   /** Wipe every persisted field back to first-launch defaults. Used by account deletion. */
   eraseLocalData: () => Promise<void>;
   completeOnboarding: (level: string) => void;
@@ -216,8 +216,14 @@ export const useStore = create<AppState>()(
       setField: (k, v) => set({ [k]: v } as Partial<AppState>),
       signIn: (email, name) =>
         set({ signedIn: true, email: email ?? get().email, userName: name ?? get().userName }),
-      signOut: () =>
-        set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest' }),
+      signOut: async () => {
+        set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest' });
+        // The session, attempt and error logs live in their own store and are a
+        // record of what THIS account did. Leaving them on the device would hand
+        // the next person to sign in the previous user's streak, minutes and
+        // weakness history. Account deletion already does this; sign-out must too.
+        await useProgress.getState().eraseProgress();
+      },
       eraseLocalData: async () => {
         // Pending reminders reference an account that is about to stop existing.
         try {
