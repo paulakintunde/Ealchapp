@@ -128,7 +128,7 @@ export default function Dictation() {
     if (last) {
       sound.play('ding');
       setDcDone(true);
-      logSession('dictation', sentences.length);
+      logSession('dictation');
     } else {
       sound.play('tap');
       setDcIx((i) => i + 1);

@@ -78,7 +78,7 @@ export default function Review() {
     const next = ix + 1;
     if (next >= total) {
       sound.play('ding');
-      logSession('review', total);
+      logSession('review');
       setDone(true);
     } else {
       sound.play('tap');

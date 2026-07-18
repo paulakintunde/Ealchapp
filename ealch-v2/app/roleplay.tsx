@@ -163,7 +163,7 @@ export default function Roleplay() {
     } else {
       setIx(nTurns);
       sound.play('success');
-      logSession('roleplay', nTurns);
+      logSession('roleplay');
     }
   };
 

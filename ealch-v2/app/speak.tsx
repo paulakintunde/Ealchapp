@@ -147,7 +147,7 @@ export default function Speak() {
 
   const endSession = () => {
     sound.play('tap');
-    logSession('speak', coachIx + 1);
+    logSession('speak');
     router.push('/feedback');
   };
 

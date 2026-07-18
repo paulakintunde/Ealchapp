@@ -109,7 +109,7 @@ export default function Placement() {
     // Finished: grade, write the level the rest of the app reads, log the time.
     const graded = placementEstimate(answers);
     setField('level', graded);
-    logSession('placement', n);
+    logSession('placement');
     setEst(graded);
   };
 

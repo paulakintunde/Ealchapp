@@ -8,6 +8,7 @@ import {
   applyGrade,
   attemptsToday,
   cardKey,
+  clampMinutes,
   composeSession,
   DAILY_REVIEW_CAP,
   dueBacklog,
@@ -51,11 +52,32 @@ const TODAY = '2026-07-14'; // a Tuesday
 const day = (delta: number) => shiftDay(TODAY, delta);
 
 /** A session on the day `delta` days from TODAY. */
-const s = (delta: number, minutes = 5, items = 1): SessionEntry => ({
+const s = (delta: number, minutes = 5): SessionEntry => ({
   date: day(delta),
   activity: 'flashcards',
   minutes,
-  items,
+});
+
+// ── clampMinutes ──
+
+test('clampMinutes passes a believable session straight through', () => {
+  strictEqual(clampMinutes(8), 8);
+  strictEqual(clampMinutes(0), 0);
+  strictEqual(clampMinutes(60), 60);
+});
+
+test('clampMinutes caps an app-left-open duration at the ceiling', () => {
+  // A three-hour lunch with the drill still on screen must not reach the ring.
+  strictEqual(clampMinutes(180), 60);
+  strictEqual(clampMinutes(60.1), 60);
+});
+
+test('clampMinutes collapses a backwards clock or broken timer to zero', () => {
+  // A device clock that moved backwards mid-session yields a negative span; the
+  // writer's Math.max(1, …) floor then makes it a 1-minute session, never < 0.
+  strictEqual(clampMinutes(-5), 0);
+  strictEqual(clampMinutes(Number.NaN), 0);
+  strictEqual(clampMinutes(Number.POSITIVE_INFINITY), 0);
 });
 
 // ── localDay ──

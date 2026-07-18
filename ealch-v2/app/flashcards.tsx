@@ -97,7 +97,7 @@ export default function Flashcards() {
     });
     const lastCard = cardIx + 1 >= deckLen;
     answerTimer.current = setTimeout(() => setCardIx((i) => i + 1), 220);
-    if (lastCard) logSession('flashcards', deckLen);
+    if (lastCard) logSession('flashcards');
   };
 
   const flipDir = () => {

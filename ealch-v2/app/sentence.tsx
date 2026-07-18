@@ -190,7 +190,7 @@ export default function Sentence() {
     if (normalizeFr(typed) === normalizeFr(sbTarget)) {
       sound.play('ding');
       setPhase('passed');
-      logSession('sentence', 1);
+      logSession('sentence');
       // One attempt per completion. The write step is what gates the pass, so it
       // is always correct here; but if the SAY step captured a real utterance,
       // carry ITS transcript/score as the signal — it is the graded response.

@@ -181,7 +181,7 @@ export default function VoiceFlash() {
     setVfCorrect(null);
     setVfHeard(null);
     setVfPartial('');
-    if (lastItem) logSession('voiceflash', total);
+    if (lastItem) logSession('voiceflash');
   };
 
   const restart = () => {

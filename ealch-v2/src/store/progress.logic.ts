@@ -29,7 +29,6 @@ export type SessionEntry = {
   date: string;
   activity: Activity;
   minutes: number;
-  items: number;
 };
 
 /** The last lesson the user opened and did not finish — what the hero offers to
@@ -87,6 +86,21 @@ export function daysBetween(from: string, to: string): number {
 /** Monday-first weekday index (0 = Monday … 6 = Sunday), matching T.dayLetters. */
 export function mondayIndex(day: string): number {
   return (new Date(dayToUTC(day)).getUTCDay() + 6) % 7;
+}
+
+/** A single drill session longer than this is not practice — it is an app left
+ *  open in the background. The app's own daily goals top out at 20 minutes, so
+ *  60 is already generous; the cap only exists to catch a foreground-timing miss
+ *  or a device clock that jumped, before either can reach the goal ring. */
+export const MAX_SESSION_MINUTES = 60;
+
+/** Clamp a raw measured duration to a believable session length. A negative
+ *  input — a device clock moved backwards mid-session — collapses to 0; the
+ *  writer's `Math.max(1, …)` floor then makes it a 1-minute session, never a
+ *  negative one. NaN/Infinity from a broken clock likewise collapse to 0. */
+export function clampMinutes(minutes: number): number {
+  if (!Number.isFinite(minutes) || minutes < 0) return 0;
+  return Math.min(minutes, MAX_SESSION_MINUTES);
 }
 
 /** Minutes practised on `today`. */

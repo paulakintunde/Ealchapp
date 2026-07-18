@@ -298,7 +298,7 @@ export default function LessonScreen() {
     sound.play('tap');
     if (quiz.length === 0) {
       // No quiz on this lesson: sitting the content is the completion.
-      logSession('lesson', 1);
+      logSession('lesson');
       clearResume();
       router.back();
       return;
@@ -329,7 +329,7 @@ export default function LessonScreen() {
       sound.play(quizScore >= passMark ? 'ding' : 'tap');
       setPhase('done');
       // Logged on a fail too: the streak records showing up, not scoring.
-      logSession('lesson', quiz.length);
+      logSession('lesson');
       // Reaching the end of the quiz is finishing the lesson, pass or fail — the
       // hero should stop offering to resume what you just completed.
       clearResume();

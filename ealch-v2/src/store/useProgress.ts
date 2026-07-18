@@ -1,8 +1,9 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+import { AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { localDay, migrateProgressToV2, type Activity, type AttemptEntry, type AttemptInput, type ErrorEvent, type ErrorInput, type ResumeState, type SessionEntry } from './progress.logic';
+import { clampMinutes, localDay, migrateProgressToV2, type Activity, type AttemptEntry, type AttemptInput, type ErrorEvent, type ErrorInput, type ResumeState, type SessionEntry } from './progress.logic';
 
 // The session log — the record that the user showed up — and the attempt log —
 // the record of what they got right or wrong, per item. Every number on the
@@ -26,7 +27,7 @@ export type ProgressState = {
 
   setHydrated: () => void;
   /** The session writer. A drill screen calls this when the user finishes it. */
-  logSession: (activity: Activity, minutes: number, items: number) => void;
+  logSession: (activity: Activity, minutes: number) => void;
   /** The attempt writer. A drill calls this once per graded item, the moment it
    *  grades one — not at the end — so a mid-drill exit still keeps what was done.
    *  `date` is stamped here, like a session. */
@@ -73,7 +74,7 @@ export const useProgress = create<ProgressState>()(
 
       clearResume: () => set({ resume: null }),
 
-      logSession: (activity, minutes, items) => {
+      logSession: (activity, minutes) => {
         const entry: SessionEntry = {
           // The local day is stamped here, at write time, in the timezone the
           // user practised in. See the note on SessionEntry.date.
@@ -81,8 +82,10 @@ export const useProgress = create<ProgressState>()(
           activity,
           // Finishing a drill is worth at least a minute; a zero-minute session
           // would light a week dot while adding nothing to the goal ring.
-          minutes: Math.max(1, Math.round(minutes)),
-          items: Math.max(0, Math.round(items)),
+          // clampMinutes is the backstop below the hook's foreground timing: even
+          // if an AppState transition is ever missed, no single session can write
+          // an app-left-open duration into the ring.
+          minutes: Math.max(1, Math.round(clampMinutes(minutes))),
         };
         const next = [...get().sessions, entry];
         set({ sessions: next.length > MAX_SESSIONS ? next.slice(-MAX_SESSIONS) : next });
@@ -145,20 +148,41 @@ export const useProgress = create<ProgressState>()(
 
 /** Times a screen visit and logs it once the user finishes.
  *
- *  Minutes are measured, never assumed: the clock starts when the screen mounts
- *  and stops when the drill reports completion. Hardcoding a per-activity
- *  duration would reintroduce exactly the class of lie this engine exists to
- *  remove. The clock restarts after each log, so a redo on the same screen is
- *  timed from the redo, not from the mount. */
-export function useSessionLog(): (activity: Activity, items: number) => void {
-  const startedAt = useRef(Date.now());
+ *  Minutes are measured, never assumed, and only FOREGROUND minutes count: the
+ *  clock banks the time the screen was actually visible and stops while the app
+ *  is backgrounded. Measuring raw wall-clock instead would log a three-hour
+ *  lunch break as three hours of practice — reintroducing exactly the class of
+ *  lie this engine exists to remove. The clock restarts after each log, so a
+ *  redo on the same screen is timed from the redo, not from the mount. */
+export function useSessionLog(): (activity: Activity) => void {
+  // Foreground time banked from segments that have already closed.
+  const accumulatedMs = useRef(0);
+  // Start of the currently open foreground segment; null while backgrounded.
+  const segmentStart = useRef<number | null>(Date.now());
   const logSession = useProgress((s) => s.logSession);
 
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (next) => {
+      if (next === 'active') {
+        // Returning to the foreground reopens the clock.
+        if (segmentStart.current === null) segmentStart.current = Date.now();
+      } else if (segmentStart.current !== null) {
+        // Going to background/inactive: bank the open segment and stop the clock.
+        accumulatedMs.current += Date.now() - segmentStart.current;
+        segmentStart.current = null;
+      }
+    });
+    return () => sub.remove();
+  }, []);
+
   return useCallback(
-    (activity: Activity, items: number) => {
-      const now = Date.now();
-      logSession(activity, (now - startedAt.current) / 60_000, items);
-      startedAt.current = now;
+    (activity: Activity) => {
+      const openMs = segmentStart.current !== null ? Date.now() - segmentStart.current : 0;
+      const minutes = (accumulatedMs.current + openMs) / 60_000;
+      logSession(activity, minutes);
+      // Restart the clock for a redo on the same screen.
+      accumulatedMs.current = 0;
+      segmentStart.current = Date.now();
     },
     [logSession]
   );
