@@ -152,6 +152,12 @@ export default function Den() {
             const onPress = () => {
               if (hasLesson) router.push({ pathname: '/lesson', params: { key: u.lessonIds[0] } });
             };
+            // A unit can declare 'narrated' before its script is written (schema.ts's
+            // own comment on Lesson.narration) — only offer the Den's spoken mode once
+            // a lesson actually carries both the feature flag and the script.
+            const narratedLesson = hasLesson
+              ? content.lessonsOf(u.id).find((l) => l.narration && l.features?.includes('narrated'))
+              : undefined;
             return (
               <Press
                 key={u.id}
@@ -193,7 +199,20 @@ export default function Den() {
                       {T.uSoon}
                     </TX>
                   ) : (
-                    <Icon name="chevronRight" size={13} color={t.accTx} strokeWidth={1.6} />
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                      {narratedLesson ? (
+                        <Press
+                          cue="tap"
+                          onPress={() => router.push({ pathname: '/narrated', params: { key: narratedLesson.id } })}
+                          style={{ paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12, borderWidth: 1, borderColor: t.accA(45), backgroundColor: t.accA(10) }}
+                        >
+                          <TX font="semi" role="eyebrow" ls={1.2} color={t.accTx}>
+                            {T.narrCta}
+                          </TX>
+                        </Press>
+                      ) : null}
+                      <Icon name="chevronRight" size={13} color={t.accTx} strokeWidth={1.6} />
+                    </View>
                   )}
                 </View>
               </Press>
