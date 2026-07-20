@@ -1,7 +1,7 @@
-import { useMemo, type ReactNode } from 'react';
-import { LayoutAnimation, Platform, ScrollView, UIManager, View } from 'react-native';
+import { useCallback, useMemo, type ReactNode } from 'react';
+import { LayoutAnimation, Platform, ScrollView, UIManager, View, useWindowDimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useRouter } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle } from 'react-native-svg';
 import { TX } from '@/components/Type';
@@ -13,14 +13,16 @@ import { useT } from '@/i18n/useT';
 import { greetSlot } from '@/i18n/strings';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
-import { composeSession, goalTarget, introEligible, localDay, minutesToday, resumeIsFresh, streak, topWeaknesses } from '@/store/progress.logic';
+import { composeSession, goalTarget, greetDue, greetState, introEligible, localDay, minutesToday, resumeIsFresh, streak, topWeaknesses } from '@/store/progress.logic';
 import { selectItems } from '@/services/content.logic';
 import { useUI } from '@/store/useUI';
 import { playlists } from '@/content/playlists';
 import { useContent } from '@/services/content';
-import { wordOfDay } from '@/content/wordOfDay';
+import { wordOfDay, dayOfYear } from '@/content/wordOfDay';
+import { pickGreeting } from '@/content/greetings';
 import { openWeakRows } from '@/content/weakness';
 import { tts } from '@/services';
+import type { ExamFormat } from '@/content/schema';
 
 // LayoutAnimation must be opted into on old-architecture Android; on the new
 // architecture the setter is absent and the fold animates without it.
@@ -35,6 +37,10 @@ const RING_C = 2 * Math.PI * RING_R; // 87.96 — the real circumference, not a 
 // reorder one and you must reorder the other, or TCF inherits DELF's caption.
 // The third chip was a generic "TCF"; the exam Ealch targets is TCF Canada.
 const EXAMS = ['TEF Canada', 'TCF Canada', 'DELF B2'];
+// Chip display order does not have to match EXAM_FORMATS' declared order
+// (schema.ts) — this is the one place the two are joined, index-aligned to
+// EXAMS/T.examMeta above, not to the enum.
+const EXAM_CHIP_FORMATS: ExamFormat[] = ['tef_canada', 'tcf_canada', 'delf_b2'];
 
 /** `pct` is progress toward the daily goal, 0–1. It used to be a fixed
  *  strokeDashoffset of 18, tuned by eye to look like the hardcoded "12/15". */
@@ -74,7 +80,15 @@ export default function Home() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { userName, lang, setAppLang, freeze, pace, level, browseOpen, setField } = useStore();
+  // The Today strip crams three columns (goal / streak / review) into one row.
+  // At full size that's comfortable on a typical phone; on a genuinely narrow
+  // one (iPhone SE-class, ~375pt, or the sub-360pt Android devices common in
+  // the PPP-Africa market this app targets) the same fixed sizes crowd or
+  // wrap. 360 is the threshold: the smallest common Android width sits right
+  // at it, so anything narrower gets the compact numbers/padding below.
+  const { width: winWidth } = useWindowDimensions();
+  const narrowStrip = winWidth < 360;
+  const { userName, lang, setAppLang, freeze, pace, level, sound, browseOpen, setField } = useStore();
   const sessions = useProgress((s) => s.sessions);
   const attempts = useProgress((s) => s.attempts);
   const errors = useProgress((s) => s.errors);
@@ -108,6 +122,41 @@ export default function Home() {
   const goal = goalTarget(pace);
   const done = useMemo(() => minutesToday(sessions, today), [sessions, today]);
   const run = useMemo(() => streak(sessions, today, freeze), [sessions, today, freeze]);
+
+  // Camille says hello when home comes into focus, tuned to how long the
+  // learner has been away: 'new' the first time, 'recent' after a short gap,
+  // 'away' after a while (greetState over the session log). Preloaded so it is
+  // Camille's voice from the first word (tts.prime warms the device voice list
+  // before speaking). The hello repeats at most once every 2 hours (greetDue
+  // over the persisted lastGreetAt), however many times home is opened or the
+  // app restarts inside the window — which is why this is a focus effect, not
+  // a mount effect: home stays mounted under pushed drills, and a return after
+  // the window must greet again. State is read via getState at fire time so
+  // the callback needs no log deps and never re-fires on unrelated re-renders.
+  useFocusEffect(
+    useCallback(() => {
+      if (!useStore.getState().sound) return;
+      if (!greetDue(useStore.getState().lastGreetAt, Date.now())) return;
+      const line = pickGreeting(greetState(useProgress.getState().sessions, localDay()), dayOfYear());
+      if (!line) return;
+      let cancelled = false;
+      const timer = setTimeout(() => {
+        if (cancelled) return;
+        void tts.prime().then(() => {
+          if (cancelled) return;
+          // Stamped when the hello actually plays, not on focus, so a cancelled
+          // greeting (left home during the delay) stays due for the next visit.
+          useStore.getState().setField('lastGreetAt', Date.now());
+          void tts.speak(line);
+        });
+      }, 650);
+      return () => {
+        cancelled = true;
+        clearTimeout(timer);
+        tts.stop();
+      };
+    }, [])
+  );
 
   // "2 freeze" is not English. The grant is 1 today, but it will not always be.
   const freezeLine = (run.freezesLeft === 1 ? T.freezeShort : T.freezeShortPl).replace(
@@ -216,32 +265,34 @@ export default function Home() {
           </View>
         </View>
 
-        {/* Today strip */}
+        {/* Today strip — goal / streak / review. Numbers and padding compact on
+            narrow screens (narrowStrip) so three columns stay comfortable
+            instead of crowding or wrapping; the layout shape is unchanged. */}
         <View style={{ minHeight: 66, paddingVertical: 8, borderRadius: 20, borderWidth: 1, borderColor: t.accA(28), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', marginBottom: 14, overflow: 'hidden' }}>
-          <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14 }}>
+          <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: narrowStrip ? 7 : 10, paddingHorizontal: narrowStrip ? 10 : 14 }}>
             <Ring color={t.acc} track={t.line(10)} pct={done / goal} />
-            <View>
-              <TX font="bold" role="bodySm">
+            <View style={{ flex: 1, minWidth: 0 }}>
+              <TX font="bold" role="bodySm" size={narrowStrip ? 13 : undefined} numberOfLines={1}>
                 {done}
-                <TX role="bodySm" color={t.txSubtle} font="semi">/{goal} min</TX>
+                <TX role="bodySm" size={narrowStrip ? 13 : undefined} color={t.txSubtle} font="semi">/{goal} min</TX>
               </TX>
-              <TX font="semi" role="eyebrow" color={t.txMuted}>
+              <TX font="semi" role="eyebrow" size={narrowStrip ? 10 : undefined} color={t.txMuted} numberOfLines={1}>
                 {T.goalWord}
               </TX>
             </View>
           </Press>
           <View style={{ width: 1, backgroundColor: t.line(8), marginVertical: 13 }} />
-          <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 0.9, flexDirection: 'row', alignItems: 'center', gap: 9, paddingHorizontal: 14 }}>
+          <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 0.9, flexDirection: 'row', alignItems: 'center', gap: narrowStrip ? 6 : 9, paddingHorizontal: narrowStrip ? 10 : 14 }}>
             {run.days > 0 ? (
               <>
-                <TX font="serif" size={25} role="display" color={t.accTx}>
+                <TX font="serif" size={narrowStrip ? 20 : 25} role="display" color={t.accTx}>
                   {run.days}
                 </TX>
                 <View style={{ flex: 1, minWidth: 0 }}>
-                  <TX font="semi" role="meta">
+                  <TX font="semi" role="meta" size={narrowStrip ? 11 : undefined} numberOfLines={1}>
                     {T.daysWord} <TX role="meta" color={t.accTx}>✦</TX>
                   </TX>
-                  <TX font="semi" role="eyebrow" color={t.txMuted}>
+                  <TX font="semi" role="eyebrow" size={narrowStrip ? 10 : undefined} color={t.txMuted} numberOfLines={1}>
                     {freezeLine}
                   </TX>
                 </View>
@@ -249,25 +300,25 @@ export default function Home() {
             ) : (
               // Day zero is not a failure and does not get shamed with a 0.
               <View style={{ flex: 1, minWidth: 0 }}>
-                <TX font="semi" role="meta">
+                <TX font="semi" role="meta" size={narrowStrip ? 11 : undefined} numberOfLines={1}>
                   {T.dayOne}
                 </TX>
-                <TX font="semi" role="eyebrow" color={t.txMuted}>
+                <TX font="semi" role="eyebrow" size={narrowStrip ? 10 : undefined} color={t.txMuted} numberOfLines={1}>
                   {freezeLine}
                 </TX>
               </View>
             )}
           </Press>
           <View style={{ width: 1, backgroundColor: t.line(8), marginVertical: 13 }} />
-          <Press cue={null} onPress={() => router.push('/smartreview')} style={{ flex: 1.1, flexDirection: 'row', alignItems: 'center', gap: 9, paddingHorizontal: 14, backgroundColor: t.accA(8) }}>
-            <TX font="serif" size={25} role="display" color={t.accTx}>
+          <Press cue={null} onPress={() => router.push('/smartreview')} style={{ flex: 1.1, flexDirection: 'row', alignItems: 'center', gap: narrowStrip ? 6 : 9, paddingHorizontal: narrowStrip ? 10 : 14, backgroundColor: t.accA(8) }}>
+            <TX font="serif" size={narrowStrip ? 20 : 25} role="display" color={t.accTx}>
               {revNum}
             </TX>
             <View style={{ flex: 1, minWidth: 0 }}>
-              <TX font="semi" role="meta">
+              <TX font="semi" role="meta" size={narrowStrip ? 11 : undefined} numberOfLines={1}>
                 {revLabel}
               </TX>
-              <TX font="bold" role="eyebrow" color={t.accTx}>
+              <TX font="bold" role="eyebrow" size={narrowStrip ? 10 : undefined} color={t.accTx} numberOfLines={1}>
                 {revSub}
               </TX>
             </View>
@@ -374,6 +425,16 @@ export default function Home() {
           badge={<Badge label={T.skillListen + ' · ' + T.skillWrite} color={skillBlue.c} bg={skillBlue.bg} />}
           sub={T.dictRowSub}
         />
+        {/* Theme parcours row */}
+        <DrillRow
+          onPress={() => router.push('/themes')}
+          glow={t.accA(20)}
+          leadColor={t.accA(12)}
+          lead={<Icon name="book" size={19} color={t.acc} strokeWidth={1.7} />}
+          title={T.byThemeT}
+          badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />}
+          sub={T.byThemeS}
+        />
 
         {/* Browse fold */}
         <Press onPress={toggleBrowse} style={{ marginTop: 26, minHeight: 48, paddingVertical: 8, borderRadius: 24, borderWidth: 1, borderColor: t.line(12), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
@@ -435,7 +496,11 @@ export default function Home() {
             <SectionHead title={T.examiner} right="TEF · TCF · DELF" />
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -20 }} contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}>
               {EXAMS.map((name, i) => (
-                <Press key={i} onPress={() => router.push('/speak')} style={{ width: 224, minHeight: 118, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18 }}>
+                <Press
+                  key={i}
+                  onPress={() => router.push({ pathname: '/exam', params: { format: EXAM_CHIP_FORMATS[i] } })}
+                  style={{ width: 224, minHeight: 118, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18 }}
+                >
                   <TX font="semi" role="eyebrow" ls={2.2} color={t.accTx} style={{ marginBottom: 8 }}>
                     SIMULATION
                   </TX>

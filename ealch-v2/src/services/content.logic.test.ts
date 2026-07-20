@@ -11,6 +11,12 @@ import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { validateCorpus, type Corpus, type Item, type Lesson, type Unit } from '../content/schema.ts';
 import {
+  anchorForItem,
+  examSeriesFor,
+  examTasksOfSeries,
+  formatAnchor,
+  getExamSeries,
+  getExamTask,
   getItem,
   getScenario,
   isCacheMeta,
@@ -21,6 +27,8 @@ import {
   MAX_SNAPSHOT_BYTES,
   mergeArticleTiles,
   mergeCorpus,
+  parseAnchor,
+  resolveAnchor,
   scenariosFor,
   selectItems,
   sha256Hex,
@@ -202,6 +210,75 @@ test('lessonsOfUnit drops links to lessons that are not present', () => {
   deepStrictEqual(lessonsOfUnit(c, 'sons.01').map((l) => l.id), ['sons.01.l1']);
 });
 
+/* ─── positional deep-link anchors ──────────────────────────────────────── */
+
+const anchorLesson: Lesson = {
+  ...lesson('a1.04.l1', 'a1.04', 1),
+  sections: [
+    { type: 'teach', title: 't', body: 'b' },
+    { type: 'practice', title: 'Practice', skill: 'read', itemIds: ['fr.a1.cafe.001', 'fr.a1.cafe.002'] },
+  ],
+};
+const anchorCorpus: Corpus = {
+  version: 5,
+  units: [unit('a1.04', 1, ['a1.04.l1'])],
+  lessons: [anchorLesson],
+  items: [item('fr.a1.cafe.001'), item('fr.a1.cafe.002')],
+};
+
+test('formatAnchor and parseAnchor round-trip', () => {
+  const a = { lessonId: 'a1.04.l1', sectionIndex: 1, itemIndex: 0 };
+  deepStrictEqual(parseAnchor(formatAnchor(a)), a);
+});
+
+test('parseAnchor rejects a malformed string', () => {
+  strictEqual(parseAnchor('not-an-anchor'), null);
+  strictEqual(parseAnchor('a1.04.l1#s1'), null);
+  strictEqual(parseAnchor('a1.04.l1#sX.0'), null);
+});
+
+test('anchorForItem finds an item inside a practice section by position', () => {
+  deepStrictEqual(anchorForItem(anchorLesson, 'fr.a1.cafe.002'), {
+    lessonId: 'a1.04.l1',
+    sectionIndex: 1,
+    itemIndex: 1,
+  });
+});
+
+test('anchorForItem returns null when the lesson does not teach the item', () => {
+  strictEqual(anchorForItem(anchorLesson, 'fr.a1.does.not.exist'), null);
+});
+
+test('resolveAnchor resolves a practice-section anchor to its lesson, section, and item', () => {
+  const anchor = anchorForItem(anchorLesson, 'fr.a1.cafe.002')!;
+  const resolved = resolveAnchor(anchorCorpus, anchor);
+  ok(resolved);
+  strictEqual(resolved!.lesson.id, 'a1.04.l1');
+  strictEqual(resolved!.section.type, 'practice');
+  strictEqual(resolved!.item?.id, 'fr.a1.cafe.002');
+});
+
+test('resolveAnchor resolves a non-practice section with no item', () => {
+  const resolved = resolveAnchor(anchorCorpus, { lessonId: 'a1.04.l1', sectionIndex: 0, itemIndex: 0 });
+  ok(resolved);
+  strictEqual(resolved!.section.type, 'teach');
+  strictEqual(resolved!.item, null);
+});
+
+test('resolveAnchor fails closed on a missing lesson, out-of-range section, or out-of-range item', () => {
+  strictEqual(resolveAnchor(anchorCorpus, { lessonId: 'no.such.lesson', sectionIndex: 0, itemIndex: 0 }), null);
+  strictEqual(resolveAnchor(anchorCorpus, { lessonId: 'a1.04.l1', sectionIndex: 9, itemIndex: 0 }), null);
+  strictEqual(resolveAnchor(anchorCorpus, { lessonId: 'a1.04.l1', sectionIndex: 1, itemIndex: 9 }), null);
+  // Non-practice section with a nonzero item index has nothing to resolve.
+  strictEqual(resolveAnchor(anchorCorpus, { lessonId: 'a1.04.l1', sectionIndex: 0, itemIndex: 1 }), null);
+});
+
+test('resolveAnchor invalidates on a corpusVersion mismatch — a stale anchor fails closed, not wrong', () => {
+  const anchor = anchorForItem(anchorLesson, 'fr.a1.cafe.001')!;
+  ok(resolveAnchor(anchorCorpus, anchor, { atCorpusVersion: anchorCorpus.version }));
+  strictEqual(resolveAnchor(anchorCorpus, anchor, { atCorpusVersion: anchorCorpus.version - 1 }), null);
+});
+
 /* ─── scenarios ──────────────────────────────────────────────────────────── */
 
 const scen = (id: string, level: 'a1' | 'a2' | 'b1', theme: string) => ({
@@ -220,6 +297,78 @@ test('mergeCorpus overlays scenarios by id, and a seed scenario survives', () =>
   strictEqual(merged.scenarios.length, 2);
   ok(getScenario(merged, 'sc.a1.marche.001'), 'the bundled scenario must not vanish');
   ok(getScenario(merged, 'sc.a2.cafe.001'));
+});
+
+test('mergeCorpus overlays domains/themes/packs/examTasks/examSeries/playlists/templates — regression for the four-touchpoint bug', () => {
+  // These five arrays existed on Corpus and were validated, but mergeCorpus
+  // never learned to overlay them: a snapshot carrying any of them would
+  // merge back down to the seed's empty floor. This is the direct guard for
+  // that fix, extended to cover playlists/templates so the same class of bug
+  // cannot silently recur for the next optional array.
+  const seed: Corpus = {
+    version: 1, units: [], lessons: [], items: [],
+    domains: [{ slug: 'vie-quotidienne', title: 'Daily life', order: 1 }],
+    themes: [{ slug: 'cafe', title: 'Café', domain: 'vie-quotidienne', levelRange: ['a1', 'a1'], examFlag: false, immigFlag: false, subThemes: [] }],
+    packs: [{ id: 'pack.a1.cafe', theme: 'cafe', level: 'a1', goal: 'g', modeTargets: {}, status: 'published' }],
+    examTasks: [{ id: 'exam.tcf_canada.2024a.co_mcq.001', format: 'tcf_canada', variant: '2024a', taskType: 'co_mcq', skill: 'CO', level: 'a1', formatVersion: 'v1', prompt: 'p', timingS: 60 }],
+    examSeries: [{ id: 'series.tcf_canada.2024a.1', format: 'tcf_canada', variant: '2024a', seriesNo: 1, taskIds: [] }],
+    playlists: [{ id: 'pl.sons.la-voix', minLevel: 'sons', word: 'W', tag: 'T', glow: 'g', labelFr: 'f', labelEn: 'e', topicFr: 'tf', topicEn: 'te', tracks: [{ id: 't1', title: 'T', lines: [{ fr: 'f', en: 'e' }] }], version: 1, status: 'published' }],
+    templates: [{ id: 'tpl.item.verb-conjugation-drill', target: 'item', name: 'N', description: 'd', levels: ['a1'], promptSkeleton: 'p', example: 'e', version: 1, status: 'published' }],
+  };
+  const snap: Corpus = { version: 2, units: [], lessons: [], items: [] };
+  const merged = mergeCorpus(seed, snap);
+  strictEqual(merged.domains?.length, 1, 'domain must survive the merge');
+  strictEqual(merged.themes?.length, 1, 'theme must survive the merge');
+  strictEqual(merged.packs?.length, 1, 'pack must survive the merge');
+  strictEqual(merged.examTasks?.length, 1, 'exam task must survive the merge');
+  strictEqual(merged.examSeries?.length, 1, 'exam series must survive the merge');
+  strictEqual(merged.playlists?.length, 1, 'playlist must survive the merge');
+  strictEqual(merged.templates?.length, 1, 'template must survive the merge');
+});
+
+test('getExamTask/getExamSeries/examSeriesFor/examTasksOfSeries resolve the exam corpus', () => {
+  const corpus: Corpus = {
+    version: 1, units: [], lessons: [], items: [],
+    examTasks: [
+      { id: 'exam.tcf_canada.2024a.co_mcq.001', format: 'tcf_canada', variant: '2024a', taskType: 'co_mcq', skill: 'CO', level: 'b1', formatVersion: 'v1', prompt: 'p', timingS: 60 },
+      { id: 'exam.tcf_canada.2024a.ce_mcq.001', format: 'tcf_canada', variant: '2024a', taskType: 'ce_mcq', skill: 'CE', level: 'b1', formatVersion: 'v1', prompt: 'p', timingS: 60 },
+    ],
+    examSeries: [
+      { id: 'series.tcf_canada.2024a.1', format: 'tcf_canada', variant: '2024a', seriesNo: 1, taskIds: ['exam.tcf_canada.2024a.co_mcq.001', 'exam.tcf_canada.2024a.ce_mcq.001'] },
+      { id: 'series.delf_b2.2024a.1', format: 'delf_b2', variant: '2024a', seriesNo: 1, taskIds: [] },
+    ],
+  };
+  ok(getExamTask(corpus, 'exam.tcf_canada.2024a.co_mcq.001'));
+  strictEqual(getExamTask(corpus, 'exam.nope.001'), null);
+  ok(getExamSeries(corpus, 'series.tcf_canada.2024a.1'));
+  strictEqual(examSeriesFor(corpus, 'tcf_canada').length, 1);
+  strictEqual(examSeriesFor(corpus, 'delf_b2').length, 1);
+  strictEqual(examSeriesFor(corpus, 'tef_canada').length, 0);
+  deepStrictEqual(
+    examTasksOfSeries(corpus, 'series.tcf_canada.2024a.1').map((t) => t.id),
+    ['exam.tcf_canada.2024a.co_mcq.001', 'exam.tcf_canada.2024a.ce_mcq.001']
+  );
+  // A series listing a task that has not published yet yields fewer tasks,
+  // not a blank entry — same posture as lessonsOfUnit.
+  const withDangling: Corpus = {
+    ...corpus,
+    examSeries: [{ id: 'series.tcf_canada.2024a.1', format: 'tcf_canada', variant: '2024a', seriesNo: 1, taskIds: ['exam.tcf_canada.2024a.co_mcq.001', 'exam.ghost.999'] }],
+  };
+  strictEqual(examTasksOfSeries(withDangling, 'series.tcf_canada.2024a.1').length, 1);
+});
+
+test('mergeCorpus overlays domains/themes by slug, snapshot winning conflicts', () => {
+  const seed: Corpus = {
+    version: 1, units: [], lessons: [], items: [],
+    domains: [{ slug: 'vie-quotidienne', title: 'OLD', order: 1 }],
+  };
+  const snap: Corpus = {
+    version: 2, units: [], lessons: [], items: [],
+    domains: [{ slug: 'vie-quotidienne', title: 'NEW', order: 1 }, { slug: 'travail', title: 'Work', order: 2 }],
+  };
+  const merged = mergeCorpus(seed, snap);
+  strictEqual(merged.domains?.length, 2);
+  strictEqual(merged.domains?.find((d) => d.slug === 'vie-quotidienne')?.title, 'NEW');
 });
 
 test('scenariosFor filters by level and theme', () => {

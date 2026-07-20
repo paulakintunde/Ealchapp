@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 6,
   "units": [
     {
       "id": "sons.01",
@@ -110,20 +110,6 @@
       ]
     },
     {
-      "id": "a1.01",
-      "seq": 1,
-      "sub": "greetings & politeness — bonjour, merci",
-      "canDo": "Can greet someone, ask how they are, and take leave, politely or informally",
-      "level": "a1",
-      "title": "Les salutations",
-      "track": "a1",
-      "themes": [
-        "salutations",
-        "politesse"
-      ],
-      "lessonIds": []
-    },
-    {
       "id": "a1.02",
       "seq": 2,
       "sub": "numbers 0–100",
@@ -135,6 +121,22 @@
         "nombres"
       ],
       "lessonIds": []
+    },
+    {
+      "id": "a1.01",
+      "seq": 1,
+      "sub": "greetings & politeness — bonjour, merci",
+      "canDo": "Can greet someone, ask how they are, and take leave, politely or informally",
+      "level": "a1",
+      "title": "Les salutations",
+      "track": "a1",
+      "themes": [
+        "salutations",
+        "politesse"
+      ],
+      "lessonIds": [
+        "a1.01.l1"
+      ]
     },
     {
       "id": "a1.03",
@@ -672,6 +674,385 @@
           ]
         }
       ]
+    },
+    {
+      "id": "a1.01.l1",
+      "seq": 1,
+      "tag": "A1 · LEÇON 01",
+      "intro": "French greetings split along one line: tu or vous. Get that right, and « bonjour », « merci » and « au revoir » carry you through almost any first exchange.",
+      "level": "a1",
+      "title": "Les salutations",
+      "unitId": "a1.01",
+      "itemIds": [
+        "fr.a1.salutations.001",
+        "fr.a1.salutations.002",
+        "fr.a1.salutations.003",
+        "fr.a1.salutations.004",
+        "fr.a1.salutations.005",
+        "fr.a1.salutations.006",
+        "fr.a1.salutations.007",
+        "fr.a1.salutations.008",
+        "fr.a1.salutations.009",
+        "fr.a1.salutations.010",
+        "fr.a1.salutations.011",
+        "fr.a1.salutations.012",
+        "fr.a1.salutations.013",
+        "fr.a1.salutations.014",
+        "fr.a1.salutations.015",
+        "fr.a1.salutations.016",
+        "fr.a1.salutations.017",
+        "fr.a1.salutations.018",
+        "fr.a1.salutations.019",
+        "fr.a1.salutations.020"
+      ],
+      "version": 1,
+      "sections": [
+        {
+          "cols": [
+            "Moment",
+            "What the French say"
+          ],
+          "rows": [
+            [
+              "Morning to early evening, anyone",
+              "Bonjour"
+            ],
+            [
+              "Evening, on arriving",
+              "Bonsoir"
+            ],
+            [
+              "Casual, with friends",
+              "Salut"
+            ],
+            [
+              "Leaving, any register",
+              "Au revoir"
+            ],
+            [
+              "Casual goodbye",
+              "Salut / À bientôt"
+            ],
+            [
+              "Right before bed",
+              "Bonne nuit"
+            ]
+          ],
+          "type": "table",
+          "title": "When to say what"
+        },
+        {
+          "type": "examples",
+          "title": "Examples",
+          "examples": [
+            {
+              "en": "Hello madam, how are you?",
+              "fr": "Bonjour madame, comment allez-vous ?",
+              "note": "Formal — a stranger, a shopkeeper, anyone you address as vous."
+            },
+            {
+              "en": "Hi! How’s it going?",
+              "fr": "Salut ! Comment ça va ?",
+              "note": "Informal — friends, family, anyone you’d address as tu."
+            },
+            {
+              "en": "Thank you very much. — You’re very welcome.",
+              "fr": "Merci beaucoup. — Je vous en prie.",
+              "note": "The formal reply to merci; de rien is the everyday one."
+            }
+          ]
+        },
+        {
+          "type": "useCases",
+          "cases": [
+            {
+              "en": "Hello, a baguette, please.",
+              "fr": "Bonjour, une baguette, s’il vous plaît.",
+              "situation": "Walking into a boulangerie"
+            },
+            {
+              "en": "Hi, nice to meet you!",
+              "fr": "Salut, enchanté !",
+              "situation": "Meeting a friend’s friend"
+            },
+            {
+              "en": "Thank you all, goodbye.",
+              "fr": "Merci à tous, au revoir.",
+              "situation": "Leaving a work meeting"
+            },
+            {
+              "en": "See you tomorrow, good night!",
+              "fr": "À demain, bonne nuit !",
+              "situation": "Ending a call with family"
+            }
+          ],
+          "title": "Where you’ll use this"
+        },
+        {
+          "type": "commonErrors",
+          "title": "Common errors",
+          "errors": [
+            {
+              "why": "Salut is strictly informal — using it with someone you’d address as vous reads as overly familiar.",
+              "right": "« Bonjour »",
+              "wrong": "« Salut » to your boss"
+            },
+            {
+              "why": "De rien is casual; the formal reply to merci in a professional context is je vous en prie.",
+              "right": "« Je vous en prie »",
+              "wrong": "« De rien » to a client"
+            },
+            {
+              "why": "French switches to bonsoir once evening starts — bonjour then sounds like you didn’t notice the time.",
+              "right": "« Bonsoir »",
+              "wrong": "« Bonjour » after dark"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "skill": "speak",
+          "title": "Practice",
+          "itemIds": [
+            "fr.a1.salutations.001",
+            "fr.a1.salutations.002",
+            "fr.a1.salutations.003",
+            "fr.a1.salutations.004",
+            "fr.a1.salutations.005",
+            "fr.a1.salutations.006",
+            "fr.a1.salutations.007",
+            "fr.a1.salutations.008",
+            "fr.a1.salutations.009",
+            "fr.a1.salutations.010",
+            "fr.a1.salutations.011",
+            "fr.a1.salutations.012",
+            "fr.a1.salutations.013",
+            "fr.a1.salutations.014",
+            "fr.a1.salutations.015",
+            "fr.a1.salutations.016",
+            "fr.a1.salutations.017",
+            "fr.a1.salutations.018",
+            "fr.a1.salutations.019",
+            "fr.a1.salutations.020"
+          ]
+        },
+        {
+          "type": "quiz",
+          "title": "Quiz",
+          "questions": [
+            {
+              "q": "You’re greeting your boss at 9am. You say…",
+              "opts": [
+                "Salut",
+                "Bonjour",
+                "Bonsoir"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Which is the informal way to say goodbye?",
+              "opts": [
+                "Au revoir",
+                "Salut",
+                "Bonne nuit"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "A colleague says « Merci beaucoup » at work. The formal reply is…",
+              "opts": [
+                "De rien",
+                "Je vous en prie",
+                "Pardon"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "« Comment allez-vous ? » is asked…",
+              "opts": [
+                "To a close friend",
+                "To someone you address as vous",
+                "Only in the morning"
+              ],
+              "correct": 1
+            }
+          ]
+        }
+      ],
+      "features": [
+        "narrated"
+      ],
+      "narration": {
+        "camilleVoiceId": "camille-fr-ca-01",
+        "ratioEnFr": 0.7,
+        "stages": [
+          {
+            "stage": "warm",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "Hi, I’m Camille. Today we’ll learn the three French phrases you’ll use in almost every conversation: hello, thank you, and goodbye."
+              },
+              {
+                "voice": "fr",
+                "text": "Bonjour !"
+              },
+              {
+                "voice": "en",
+                "text": "That’s “bonjour”. It works any time from the morning until early evening, with anyone."
+              },
+              {
+                "kind": "repeat",
+                "itemId": "fr.a1.salutations.001"
+              }
+            ]
+          },
+          {
+            "stage": "focus",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "Before we go further, one distinction matters more than any single word: how formal you’re being."
+              },
+              {
+                "voice": "en",
+                "text": "French has two ways to say “you”. “Tu” is for friends, family, and people your own age. “Vous” is for everyone else: a stranger, a shopkeeper, someone older than you."
+              },
+              {
+                "voice": "en",
+                "text": "Get that one thing right, and the rest of the conversation takes care of itself."
+              }
+            ]
+          },
+          {
+            "stage": "input",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "Listen to a short exchange. First, the formal version, between two people who don’t know each other."
+              },
+              {
+                "voice": "fr",
+                "text": "Bonjour madame, comment allez-vous ?"
+              },
+              {
+                "voice": "en",
+                "text": "Hello madam, how are you? That’s “comment allez-vous”, the formal way to ask, because it’s spoken to someone you’d address as “vous”."
+              },
+              {
+                "voice": "en",
+                "text": "Now the informal version, between two friends."
+              },
+              {
+                "voice": "fr",
+                "text": "Salut ! Ça va bien, merci, et toi ?"
+              },
+              {
+                "voice": "en",
+                "text": "Hi! I’m doing well, thank you, and you? Notice it ends in “et toi”, the informal you, because it’s answering a friend."
+              },
+              {
+                "kind": "repeat",
+                "itemId": "fr.a1.salutations.015"
+              }
+            ]
+          },
+          {
+            "stage": "practice",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "Let’s build these one at a time. Repeat each line after Camille."
+              },
+              {
+                "voice": "fr",
+                "text": "Merci"
+              },
+              {
+                "kind": "repeat",
+                "itemId": "fr.a1.salutations.004"
+              },
+              {
+                "voice": "fr",
+                "text": "Au revoir"
+              },
+              {
+                "kind": "repeat",
+                "itemId": "fr.a1.salutations.006"
+              },
+              {
+                "voice": "fr",
+                "text": "Enchanté"
+              },
+              {
+                "kind": "repeat",
+                "itemId": "fr.a1.salutations.017"
+              }
+            ]
+          },
+          {
+            "stage": "produce",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "Your turn, from English to French. Someone you don’t know greets you in the evening. What do you say back?"
+              },
+              {
+                "kind": "produce",
+                "itemId": "fr.a1.salutations.002",
+                "expected": "Bonsoir",
+                "gradeAs": "produce"
+              },
+              {
+                "voice": "en",
+                "text": "And if a friend asks how it’s going, casually, how do you answer?"
+              },
+              {
+                "kind": "produce",
+                "itemId": "fr.a1.salutations.020",
+                "expected": "Ça va bien, merci, et toi ?",
+                "gradeAs": "produce"
+              }
+            ]
+          },
+          {
+            "stage": "check",
+            "segments": [
+              {
+                "voice": "fr",
+                "text": "Comment vous appelez-vous ?"
+              },
+              {
+                "voice": "en",
+                "text": "Camille just asked, formally, what your name is. If this were the first time you’d met someone, what would you say back, once you’d told them your name?"
+              },
+              {
+                "kind": "check",
+                "itemId": "fr.a1.salutations.017",
+                "expected": "Enchanté",
+                "gradeAs": "discriminate"
+              }
+            ]
+          },
+          {
+            "stage": "cheat",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "Quick recap before you go: “bonjour” for hello, “merci” for thank you, “au revoir” for goodbye, “s’il vous plaît” for please, formally. Use “vous” with strangers, “tu” with friends."
+              },
+              {
+                "voice": "en",
+                "text": "That’s enough to greet, thank, and take your leave anywhere in France."
+              },
+              {
+                "voice": "fr",
+                "text": "À bientôt !"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "items": [
@@ -805,6 +1186,81 @@
       "version": 1
     },
     {
+      "id": "fr.a1.objets.001",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "objets",
+      "fr": "un café",
+      "en": "a coffee",
+      "gender": "m",
+      "tags": [],
+      "drills": [
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.objets.002",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "objets",
+      "fr": "une maison",
+      "en": "a house",
+      "gender": "f",
+      "tags": [],
+      "drills": [
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.objets.003",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "objets",
+      "fr": "un livre",
+      "en": "a book",
+      "gender": "m",
+      "tags": [],
+      "drills": [
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.objets.004",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "objets",
+      "fr": "le soleil",
+      "en": "the sun",
+      "gender": "m",
+      "tags": [],
+      "drills": [
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.objets.005",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "objets",
+      "fr": "une voiture",
+      "en": "a car",
+      "gender": "f",
+      "tags": [],
+      "drills": [
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
       "id": "fr.a1.cafe.020",
       "kind": "sentence",
       "level": "a1",
@@ -815,6 +1271,51 @@
       "tags": [],
       "drills": [
         "sentence"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.dictee.001",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "dictee",
+      "fr": "Il a mangé ses croissants avec sa sœur.",
+      "en": "He ate his croissants with his sister.",
+      "notes": "“ses” — possessive, not “ces”",
+      "tags": [],
+      "drills": [
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.dictee.002",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "dictee",
+      "fr": "Nous allons à la plage demain.",
+      "en": "We are going to the beach tomorrow.",
+      "notes": "“à” takes a grave accent",
+      "tags": [],
+      "drills": [
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.dictee.003",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "dictee",
+      "fr": "J’achète du pain à la boulangerie.",
+      "en": "I buy bread at the bakery.",
+      "notes": "“achète” — è before a silent syllable",
+      "tags": [],
+      "drills": [
+        "dictation"
       ],
       "audioRef": null,
       "version": 1
@@ -908,6 +1409,126 @@
       ],
       "audioRef": null,
       "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.001",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je parle français.",
+      "en": "I speak French.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "grammarPoints": [
+        "present-er"
+      ],
+      "verbCheck": {
+        "tense": "présent",
+        "number": "s",
+        "person": "1",
+        "infinitive": "parler"
+      }
+    },
+    {
+      "id": "fr.a2.verbes.002",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu regardes la télé.",
+      "en": "You watch TV.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "grammarPoints": [
+        "present-er"
+      ],
+      "verbCheck": {
+        "tense": "présent",
+        "number": "s",
+        "person": "2",
+        "infinitive": "regarder"
+      }
+    },
+    {
+      "id": "fr.a2.verbes.003",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous finissons nos devoirs.",
+      "en": "We finish our homework.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "grammarPoints": [
+        "present-ir"
+      ],
+      "verbCheck": {
+        "tense": "présent",
+        "number": "p",
+        "person": "1",
+        "infinitive": "finir"
+      }
+    },
+    {
+      "id": "fr.a2.verbes.004",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle attend le bus.",
+      "en": "She waits for the bus.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "grammarPoints": [
+        "present-re"
+      ],
+      "verbCheck": {
+        "tense": "présent",
+        "number": "s",
+        "person": "3",
+        "infinitive": "attendre"
+      }
+    },
+    {
+      "id": "fr.a2.verbes.005",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils vendent des fruits au marché.",
+      "en": "They sell fruit at the market.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "grammarPoints": [
+        "present-re"
+      ],
+      "verbCheck": {
+        "tense": "présent",
+        "number": "p",
+        "person": "3",
+        "infinitive": "vendre"
+      }
     },
     {
       "id": "fr.a1.cafe.013",
@@ -1213,214 +1834,433 @@
       "version": 1
     },
     {
-      "id": "fr.a1.dictee.001",
+      "id": "fr.a1.salutations.001",
+      "kind": "word",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Bonjour",
+      "en": "Hello / Good morning",
+      "ipa": "/bɔ̃.ʒuʁ/",
+      "example": {
+        "en": "Hello, madam.",
+        "fr": "Bonjour, madame."
+      },
+      "tags": [
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.002",
+      "kind": "word",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Bonsoir",
+      "en": "Good evening",
+      "ipa": "/bɔ̃.swaʁ/",
+      "example": {
+        "en": "Good evening, everyone.",
+        "fr": "Bonsoir, tout le monde."
+      },
+      "tags": [
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.003",
+      "kind": "word",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Salut",
+      "en": "Hi / Bye",
+      "ipa": "/sa.ly/",
+      "example": {
+        "en": "Hi, how’s it going?",
+        "fr": "Salut, ça va ?"
+      },
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.004",
+      "kind": "word",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Merci",
+      "en": "Thank you",
+      "ipa": "/mɛʁ.si/",
+      "example": {
+        "en": "Thank you for your help.",
+        "fr": "Merci pour votre aide."
+      },
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.005",
+      "kind": "word",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Pardon",
+      "en": "Sorry / Excuse me",
+      "ipa": "/paʁ.dɔ̃/",
+      "example": {
+        "en": "Sorry, I’m late.",
+        "fr": "Pardon, je suis en retard."
+      },
+      "tags": [
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.006",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Au revoir",
+      "en": "Goodbye",
+      "ipa": "/o ʁə.vwaʁ/",
+      "example": {
+        "en": "Goodbye, see you soon!",
+        "fr": "Au revoir, à bientôt !"
+      },
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.007",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Bonne nuit",
+      "en": "Good night",
+      "ipa": "/bɔn nɥi/",
+      "example": {
+        "en": "Good night, sleep well.",
+        "fr": "Bonne nuit, dors bien."
+      },
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.008",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "À bientôt",
+      "en": "See you soon",
+      "ipa": "/a bjɛ̃.to/",
+      "example": {
+        "en": "See you soon, I hope!",
+        "fr": "À bientôt, j’espère !"
+      },
+      "tags": [
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.009",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "À demain",
+      "en": "See you tomorrow",
+      "ipa": "/a də.mɛ̃/",
+      "example": {
+        "en": "See you tomorrow, at the office.",
+        "fr": "À demain, au bureau."
+      },
+      "tags": [
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.010",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "S’il vous plaît",
+      "en": "Please (formal)",
+      "ipa": "/sil vu plɛ/",
+      "example": {
+        "en": "A coffee, please.",
+        "fr": "Un café, s’il vous plaît."
+      },
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.011",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "S’il te plaît",
+      "en": "Please (informal)",
+      "ipa": "/sil tə plɛ/",
+      "example": {
+        "en": "Pass me the salt, please.",
+        "fr": "Passe-moi le sel, s’il te plaît."
+      },
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.012",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Merci beaucoup",
+      "en": "Thank you very much",
+      "ipa": "/mɛʁ.si bo.ku/",
+      "example": {
+        "en": "Thank you very much for the gift.",
+        "fr": "Merci beaucoup pour le cadeau."
+      },
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.013",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "De rien",
+      "en": "You’re welcome",
+      "ipa": "/də ʁjɛ̃/",
+      "example": {
+        "en": "“Thank you!” “You’re welcome.”",
+        "fr": "« Merci ! » « De rien. »"
+      },
+      "tags": [
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.014",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Excusez-moi",
+      "en": "Excuse me",
+      "ipa": "/ɛk.sky.ze mwa/",
+      "example": {
+        "en": "Excuse me, where is the restroom?",
+        "fr": "Excusez-moi, où sont les toilettes ?"
+      },
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.015",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Comment allez-vous ?",
+      "en": "How are you? (formal)",
+      "ipa": "/kɔ.mɑ̃ ta.le vu/",
+      "example": {
+        "en": "Hello! How are you?",
+        "fr": "Bonjour ! Comment allez-vous ?"
+      },
+      "tags": [
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.016",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Comment ça va ?",
+      "en": "How’s it going? (informal)",
+      "ipa": "/kɔ.mɑ̃ sa va/",
+      "example": {
+        "en": "Hi! How’s it going?",
+        "fr": "Salut ! Comment ça va ?"
+      },
+      "tags": [
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.017",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Enchanté",
+      "en": "Nice to meet you",
+      "ipa": "/ɑ̃.ʃɑ̃.te/",
+      "example": {
+        "en": "Nice to meet you, my name is Paul.",
+        "fr": "Enchanté, je m’appelle Paul."
+      },
+      "notes": "Agrees with the speaker’s gender: enchanté (m), enchantée (f) — same pronunciation.",
+      "tags": [
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.018",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Comment vous appelez-vous ?",
+      "en": "What is your name? (formal)",
+      "ipa": "/kɔ.mɑ̃ vu.za.pə.le.vu/",
+      "example": {
+        "en": "Hello, what is your name?",
+        "fr": "Bonjour, comment vous appelez-vous ?"
+      },
+      "tags": [
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.salutations.019",
       "kind": "sentence",
       "level": "a1",
-      "theme": "dictee",
-      "fr": "Il a mangé ses croissants avec sa sœur.",
-      "en": "He ate his croissants with his sister.",
-      "notes": "“ses” — possessive, not “ces”",
-      "tags": [],
-      "drills": [
-        "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a1.dictee.002",
-      "kind": "sentence",
-      "level": "a1",
-      "theme": "dictee",
-      "fr": "Nous allons à la plage demain.",
-      "en": "We are going to the beach tomorrow.",
-      "notes": "“à” takes a grave accent",
-      "tags": [],
-      "drills": [
-        "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a1.dictee.003",
-      "kind": "sentence",
-      "level": "a1",
-      "theme": "dictee",
-      "fr": "J’achète du pain à la boulangerie.",
-      "en": "I buy bread at the bakery.",
-      "notes": "“achète” — è before a silent syllable",
-      "tags": [],
-      "drills": [
-        "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a1.objets.001",
-      "kind": "phrase",
-      "level": "a1",
-      "theme": "objets",
-      "fr": "un café",
-      "en": "a coffee",
-      "gender": "m",
-      "tags": [],
-      "drills": [
-        "voiceflash"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a1.objets.002",
-      "kind": "phrase",
-      "level": "a1",
-      "theme": "objets",
-      "fr": "une maison",
-      "en": "a house",
-      "gender": "f",
-      "tags": [],
-      "drills": [
-        "voiceflash"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a1.objets.003",
-      "kind": "phrase",
-      "level": "a1",
-      "theme": "objets",
-      "fr": "un livre",
-      "en": "a book",
-      "gender": "m",
-      "tags": [],
-      "drills": [
-        "voiceflash"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a1.objets.004",
-      "kind": "phrase",
-      "level": "a1",
-      "theme": "objets",
-      "fr": "le soleil",
-      "en": "the sun",
-      "gender": "m",
-      "tags": [],
-      "drills": [
-        "voiceflash"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a1.objets.005",
-      "kind": "phrase",
-      "level": "a1",
-      "theme": "objets",
-      "fr": "une voiture",
-      "en": "a car",
-      "gender": "f",
-      "tags": [],
-      "drills": [
-        "voiceflash"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a2.verbes.001",
-      "kind": "sentence",
-      "level": "a2",
-      "theme": "verbes",
-      "fr": "Je parle français.",
-      "en": "I speak French.",
+      "theme": "salutations",
+      "fr": "Je m’appelle Claire, et vous ?",
+      "en": "My name is Claire, and you?",
       "tags": [],
       "drills": [
         "sentence",
         "review"
       ],
       "audioRef": null,
-      "version": 1,
-      "grammarPoints": [
-        "present-er"
-      ]
+      "version": 1
     },
     {
-      "id": "fr.a2.verbes.002",
+      "id": "fr.a1.salutations.020",
       "kind": "sentence",
-      "level": "a2",
-      "theme": "verbes",
-      "fr": "Tu regardes la télé.",
-      "en": "You watch TV.",
+      "level": "a1",
+      "theme": "salutations",
+      "fr": "Ça va bien, merci, et toi ?",
+      "en": "I’m doing well, thank you, and you?",
       "tags": [],
       "drills": [
         "sentence",
         "review"
       ],
       "audioRef": null,
-      "version": 1,
-      "grammarPoints": [
-        "present-er"
-      ]
-    },
-    {
-      "id": "fr.a2.verbes.003",
-      "kind": "sentence",
-      "level": "a2",
-      "theme": "verbes",
-      "fr": "Nous finissons nos devoirs.",
-      "en": "We finish our homework.",
-      "tags": [],
-      "drills": [
-        "sentence",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1,
-      "grammarPoints": [
-        "present-ir"
-      ]
-    },
-    {
-      "id": "fr.a2.verbes.004",
-      "kind": "sentence",
-      "level": "a2",
-      "theme": "verbes",
-      "fr": "Elle attend le bus.",
-      "en": "She waits for the bus.",
-      "tags": [],
-      "drills": [
-        "sentence",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1,
-      "grammarPoints": [
-        "present-re"
-      ]
-    },
-    {
-      "id": "fr.a2.verbes.005",
-      "kind": "sentence",
-      "level": "a2",
-      "theme": "verbes",
-      "fr": "Ils vendent des fruits au marché.",
-      "en": "They sell fruit at the market.",
-      "tags": [],
-      "drills": [
-        "sentence",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1,
-      "grammarPoints": [
-        "present-re"
-      ]
+      "version": 1
     }
   ],
   "scenarios": [

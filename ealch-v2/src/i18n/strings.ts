@@ -25,6 +25,14 @@ export type Strings = {
   freshHeroTitle: string; freshHeroSub: string; freshShort: string;
   found: string; denT: string; denS: string;
   cardsT: string; cardsS: string; cardsTag: string; unitsWord: string;
+  // Theme parcours (Par thème): browser, detail and themed drill headers.
+  themesTag: string; themesTitle: string; themesSub: string; allLevels: string;
+  themeWeekTag: string; themeTag: string; wordsWord: string;
+  stepNames: { decouvrir: string; construire: string; prononcer: string; ecouter: string; scene: string };
+  stepSubs: { decouvrir: string; construire: string; prononcer: string; ecouter: string; scene: string };
+  stepOf: string; lockedTag: string; inProgressTag: string; finaleTag: string; doneTag: string; newTag: string;
+  noContent: string; levelWord: string; parcoursHead: string; themeContinue: string;
+  byThemeT: string; byThemeS: string;
   tabListen: string; tabSpeak: string; tabProfile: string; tabCoach: string;
   /** Spoken names for the FR/EN toggle — 'FR' and 'EN' alone are two bare letters to a screen reader. */
   appLangNames: { fr: string; en: string };
@@ -59,6 +67,12 @@ export type Strings = {
   register: string; registerBody: string; registerEnd: string;
   go: string; grammarTag: string; grammarBody: string; askCamille: string;
   examMeta: string[]; errorIssues: string[];
+  /** The copyright/non-affiliation guardrail (Gate H) — shown wherever exam
+   *  content renders, per EALCH-MASTER-BUILD.md's Phase 8 requirement that
+   *  the disclaimer be visible, not just present as an i18n key. */
+  examDisclaimer: string;
+  examNone: string; examSubmit: string; examModelAnswer: string; examGrading: string;
+  examUngraded: string; examPracticeEstimate: string; examReviewLesson: string; examSeriesDone: string;
   trackTitle: string; trackMeta: string;
   reminders: string; dailyAlarm: string; dailyAlarmSub: string;
   notifLabels: NotifLabel[];
@@ -69,6 +83,7 @@ export type Strings = {
   voiceT: string; voiceS: string; sbT: string; sbS: string; rpT: string; rpS: string;
   startQuiz: string; quizPassed: string; quizFailed: string; retry: string; qNext: string; backToDen: string;
   lessonDone: string; lessonSoon: string; builderTag: string; sbSkipSay: string; sbNextSentence: string;
+  practiceGotIt: string; practiceMissed: string;
   denLearned: string;
   denMastered: string;
   examplesT: string; tableT: string; errorsT: string; audioT: string; videoT: string; subsT: string;
@@ -78,6 +93,8 @@ export type Strings = {
   learnT: string; arrangeT: string; sayItT: string; writeItT: string; wellDone: string;
   chooseLevel: string; startRp: string; rpDoneT: string; rpDoneS: string; rpYourLine: string; rpTag: string; rpReport: string; rpNotHeard: string;
   rpYourTurn: string; rpRespond: string; rpModel: string;
+  narrTag: string; narrCta: string; narrRepeat: string; narrYourTurn: string; narrCheck: string;
+  narrSkip: string; narrDoneT: string; narrDoneS: string;
   bannerText: string;
   uDone: string; uLock: string; uSoon: string; denLessonsReady: string;
 
@@ -179,6 +196,14 @@ export const T: Record<Lang, Strings> = {
     freshHeroTitle: 'Des mots nouveaux', freshHeroSub: '{n} mots choisis pour aujourd’hui', freshShort: '{n} nouveaux',
     found: 'Les fondations', denT: 'Le coin des débutants', denS: 'Sons · A1 · A2 — le cursus complet',
     cardsT: 'Cartes mémoire', cardsS: '{n} cartes · à réviser', cardsTag: 'RAPPEL · CARTES', unitsWord: 'UNITÉS',
+    themesTag: 'PRATIQUE · PAR THÈME', themesTitle: 'Choisissez votre scène.',
+    themesSub: 'Des situations réelles, en cinq étapes. Camille vous attend à la fin.', allLevels: 'Tous',
+    themeWeekTag: 'THÈME DE LA SEMAINE', themeTag: 'THÈME', wordsWord: 'mots',
+    stepNames: { decouvrir: 'Découvrir', construire: 'Construire', prononcer: 'Prononcer', ecouter: 'Écouter', scene: 'La scène' },
+    stepSubs: { decouvrir: 'Cartes, les mots de la scène', construire: 'Phrases, assembler et demander', prononcer: 'Flash vocal, dites-le à voix haute', ecouter: 'La dictée, écoutez et écrivez', scene: 'Jeu de rôle, la scène finale' },
+    stepOf: 'ÉTAPE {a} / {b}', lockedTag: 'VERROUILLÉ', inProgressTag: 'EN COURS', finaleTag: 'FINALE', doneTag: 'TERMINÉ', newTag: 'NOUVEAU',
+    noContent: 'Pas encore de contenu', levelWord: 'NIVEAU', parcoursHead: 'LE PARCOURS · {n} ÉTAPES', themeContinue: 'Continuer',
+    byThemeT: 'Par thème', byThemeS: 'Scènes réelles, cinq étapes chacune',
     tabListen: 'ÉCOUTE', tabSpeak: 'PARLE', tabProfile: 'PROFIL', tabCoach: 'COACH',
     appLangNames: { fr: 'Français', en: 'Anglais' },
     practice: 'Pratiquer à voix haute', phrase: 'PHRASE', next: 'SUIVANTE',
@@ -226,6 +251,12 @@ export const T: Record<Lang, Strings> = {
     askCamille: 'Demandez à Camille →',
     // Index-aligned to EXAMS in app/home.tsx: TEF Canada · TCF Canada · DELF B2.
     examMeta: ['Expression orale · 15 min · chrono', 'Compréhension · une seule écoute', "L'examinateur vous interrompt"],
+    examDisclaimer: "Exercices originaux inspirés du format officiel. Non publiés ni approuvés par France Éducation international, le CCI Paris Île-de-France ni aucun organisme examinateur. Résultats donnés à titre indicatif, non équivalents à un score officiel.",
+    examNone: 'Aucun examen blanc disponible pour le moment. Revenez après votre prochaine mise à jour.',
+    examSubmit: 'Valider', examModelAnswer: 'RÉPONSE MODÈLE', examGrading: 'Correction en cours…',
+    examUngraded: 'Correction indisponible. Votre réponse est enregistrée ; réessayez plus tard.',
+    examPracticeEstimate: "Estimation d'entraînement, pas un score officiel",
+    examReviewLesson: 'Revoir la leçon →', examSeriesDone: 'Épreuve terminée',
     errorIssues: ['Liaison omise. Il faut enchaîner : un‿allongé.', '« Je voudrais » est le registre attendu avec le personnel.', 'Une pause de 1,8 s : vous avez traduit dans votre tête. On va travailler ça.'],
     trackTitle: 'Les voyelles nasales', trackMeta: 'La Voix · 2 min · B1',
     reminders: 'Rappels de pratique', dailyAlarm: 'Alarme quotidienne', dailyAlarmSub: 'Votre séance vous appelle',
@@ -241,6 +272,7 @@ export const T: Record<Lang, Strings> = {
     voiceT: 'Flash vocal', voiceS: 'image → voix · traduction', sbT: 'Phrases', sbS: 'apprendre · dire · écrire', rpT: 'Jeu de rôle', rpS: 'conversation IA · A1 → B2',
     startQuiz: 'Commencer le quiz', quizPassed: 'RÉUSSI', quizFailed: 'Pas encore', retry: 'Réessayer', qNext: 'Suivant', backToDen: 'Retour au cursus',
     lessonDone: 'Terminer la leçon', lessonSoon: 'Leçon bientôt disponible', builderTag: 'CONSTRUCTEUR', sbSkipSay: 'Passer', sbNextSentence: 'Phrase suivante',
+    practiceGotIt: 'Je savais', practiceMissed: 'Raté',
     denLearned: '{n} / {m} appris',
     denMastered: '{k} maîtrisés',
     examplesT: 'Exemples & usages', tableT: 'Tableau', errorsT: 'Erreurs communes', audioT: 'Pratique audio', videoT: 'Vidéo — la bouche en 3D', subsT: 'Sous-leçons',
@@ -250,6 +282,8 @@ export const T: Record<Lang, Strings> = {
     learnT: 'Apprenez ces mots', arrangeT: 'Arrangez la phrase', sayItT: 'Dites-la à voix haute', writeItT: 'Écrivez-la', wellDone: 'Bravo, phrase acquise',
     chooseLevel: 'Choisissez votre niveau', startRp: 'Commencer la conversation', rpDoneT: 'Scène terminée', rpDoneS: 'Camille : « Votre marchand vous adore. »', rpYourLine: 'VOTRE RÉPLIQUE — À DIRE À VOIX HAUTE', rpTag: 'JEU DE RÔLE', rpReport: 'Le rapport →', rpNotHeard: 'Pas entendu, votre réplique est affichée.',
     rpYourTurn: 'À VOUS', rpRespond: 'Répondez en français, puis vérifiez', rpModel: 'Réponse modèle',
+    narrTag: 'LEÇON NARRÉE', narrCta: 'Narré', narrRepeat: 'Répétez après Camille', narrYourTurn: 'À vous, dites-le', narrCheck: 'Répondez à la question de Camille',
+    narrSkip: 'Passer', narrDoneT: 'Leçon terminée', narrDoneS: 'Camille vous a guidé à travers les sept étapes.',
     bannerText: 'Votre séance de {t} vous attend : Au Café, 4 min. Camille est prête.',
     uDone: 'ACQUIS', uLock: '···', uSoon: 'BIENTÔT', denLessonsReady: '{n} leçons prêtes',
 
@@ -418,6 +452,14 @@ export const T: Record<Lang, Strings> = {
     freshHeroTitle: 'New words', freshHeroSub: '{n} words picked for today', freshShort: '{n} new',
     found: 'Foundations', denT: "Beginners' Den", denS: 'Sounds · A1 · A2 — the full curriculum',
     cardsT: 'Flashcards', cardsS: '{n} cards · due now', cardsTag: 'RECALL · FLASHCARDS', unitsWord: 'UNITS',
+    themesTag: 'PRACTICE · BY THEME', themesTitle: 'Choose your scene.',
+    themesSub: 'Real situations, five steps each. Camille waits at the end.', allLevels: 'All',
+    themeWeekTag: 'THEME OF THE WEEK', themeTag: 'THEME', wordsWord: 'words',
+    stepNames: { decouvrir: 'Discover', construire: 'Build', prononcer: 'Pronounce', ecouter: 'Listen', scene: 'The scene' },
+    stepSubs: { decouvrir: 'Flashcards, the words of the scene', construire: 'Sentences, assemble and ask', prononcer: 'Voice flash, say it out loud', ecouter: 'Dictation, listen and write', scene: 'Role play, the final scene' },
+    stepOf: 'STEP {a} / {b}', lockedTag: 'LOCKED', inProgressTag: 'IN PROGRESS', finaleTag: 'FINALE', doneTag: 'DONE', newTag: 'NEW',
+    noContent: 'No content yet', levelWord: 'LEVEL', parcoursHead: 'THE PATHWAY · {n} STEPS', themeContinue: 'Continue',
+    byThemeT: 'By theme', byThemeS: 'Real scenes, five steps each',
     tabListen: 'LISTEN', tabSpeak: 'SPEAK', tabProfile: 'PROFILE', tabCoach: 'COACH',
     appLangNames: { fr: 'French', en: 'English' },
     practice: 'Practice out loud', phrase: 'PHRASE', next: 'NEXT',
@@ -465,6 +507,12 @@ export const T: Record<Lang, Strings> = {
     askCamille: 'Ask Camille why →',
     // Index-aligned to EXAMS in app/home.tsx: TEF Canada · TCF Canada · DELF B2.
     examMeta: ['Speaking · 15 min · timed', 'Listening · single play', 'The examiner interrupts you'],
+    examDisclaimer: 'Original practice items modeled on the official format. Not published or endorsed by France Éducation international, CCI Paris Île-de-France, or any exam board. Results are practice estimates only, not equivalent to an official score.',
+    examNone: 'No mock exams available yet. Check back after your next update.',
+    examSubmit: 'Submit', examModelAnswer: 'MODEL ANSWER', examGrading: 'Grading…',
+    examUngraded: 'Grading unavailable. Your response was saved; try again later.',
+    examPracticeEstimate: 'Practice estimate, not an official score',
+    examReviewLesson: 'Review the lesson →', examSeriesDone: 'Mock exam complete',
     errorIssues: ['Liaison dropped. It should flow as un‿allongé.', '« Je voudrais » is the expected register with staff.', 'A 1.8s pause: you translated in your head. We will drill this.'],
     trackTitle: 'The nasal vowels', trackMeta: 'La Voix · 2 min · B1',
     reminders: 'Practice reminders', dailyAlarm: 'Daily alarm', dailyAlarmSub: 'Your session calls you',
@@ -480,6 +528,7 @@ export const T: Record<Lang, Strings> = {
     voiceT: 'Voice Flash', voiceS: 'image → voice · translation', sbT: 'Sentences', sbS: 'learn · say · write', rpT: 'Role Play', rpS: 'AI conversation · A1 → B2',
     startQuiz: 'Start the quiz', quizPassed: 'PASSED', quizFailed: 'Not yet', retry: 'Retry', qNext: 'Next', backToDen: 'Back to curriculum',
     lessonDone: 'Finish the lesson', lessonSoon: 'Lesson coming soon', builderTag: 'BUILDER', sbSkipSay: 'Skip', sbNextSentence: 'Next sentence',
+    practiceGotIt: 'I knew it', practiceMissed: 'Missed it',
     denLearned: '{n} / {m} learned',
     denMastered: '{k} mastered',
     examplesT: 'Examples & use cases', tableT: 'Table', errorsT: 'Common errors', audioT: 'Audio practice', videoT: 'Video — the mouth in 3D', subsT: 'Sub-lessons',
@@ -489,6 +538,8 @@ export const T: Record<Lang, Strings> = {
     learnT: 'Learn these words', arrangeT: 'Arrange the sentence', sayItT: 'Say it out loud', writeItT: 'Write it', wellDone: 'Bravo, sentence mastered',
     chooseLevel: 'Choose your level', startRp: 'Start the conversation', rpDoneT: 'Scene complete', rpDoneS: 'Camille: "Your market vendor adores you."', rpYourLine: 'YOUR LINE — SAY IT ALOUD', rpTag: 'ROLE PLAY', rpReport: 'The report →', rpNotHeard: 'Not heard, your line is shown.',
     rpYourTurn: 'YOUR TURN', rpRespond: 'Respond in French, then check', rpModel: 'Model reply',
+    narrTag: 'NARRATED LESSON', narrCta: 'Narrated', narrRepeat: 'Repeat after Camille', narrYourTurn: 'Your turn, say it', narrCheck: "Answer Camille's question",
+    narrSkip: 'Skip', narrDoneT: 'Lesson complete', narrDoneS: 'Camille walked you through all seven stages.',
     bannerText: 'Your {t} session is waiting: Au Café, 4 min. Camille is ready.',
     uDone: 'DONE', uLock: '···', uSoon: 'SOON', denLessonsReady: '{n} lessons ready',
 

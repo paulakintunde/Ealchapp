@@ -11,7 +11,7 @@
 // resolved here. The one runtime thing verifySnapshot needs — the structural
 // validator — is passed IN (see `validate` below). Same spirit as
 // progress.logic.ts: this file stays a pure island.
-import type { Corpus, DrillKind, Item, Lesson, Level, Scenario, Track, Unit } from '../content/schema';
+import type { Corpus, DrillKind, ExamFormat, ExamSeries, ExamTask, Item, Lesson, LessonSection, Level, Scenario, Track, Unit } from '../content/schema';
 
 /* ─── merge ──────────────────────────────────────────────────────────────── */
 
@@ -38,8 +38,29 @@ function overlay<T extends { id: string }>(base: T[], over: T[]): T[] {
   return [...m.values()];
 }
 
+/** Same overlay-by-key merge as `overlay`, for the rows keyed by something
+ *  other than `id` — Domain and Theme are keyed by `slug`, matching how
+ *  validateCorpus dedupes them. */
+function overlayBy<T>(base: T[], over: T[], key: (r: T) => string): T[] {
+  const m = new Map<string, T>();
+  for (const r of base) m.set(key(r), r);
+  for (const r of over) m.set(key(r), r);
+  return [...m.values()];
+}
+
 /** Overlay `snapshot` onto `seed`. A null/undefined snapshot returns the seed
- *  unchanged. The result carries the higher version. */
+ *  unchanged. The result carries the higher version.
+ *
+ * Every Corpus array must be listed here, including the ones that are
+ * optional on the type. Adding a new top-level Corpus array is a genuine
+ * four-touchpoint change (the type, EMPTY_CORPUS, this function, and the
+ * publish seed-cut) and this was the touchpoint that went missing when
+ * domains/themes/packs/examTasks/examSeries were added: they existed on
+ * Corpus and were validated, but this function still only overlaid
+ * items/lessons/units/scenarios, so any snapshot carrying them would merge
+ * back down to the seed's empty floor and silently ship nothing. Fixed here
+ * for those five and extended for playlists/templates so the same class of
+ * bug cannot recur for the next array either. */
 export function mergeCorpus(seed: Corpus, snapshot: Corpus | null | undefined): Corpus {
   if (!snapshot) return seed;
   return {
@@ -47,8 +68,15 @@ export function mergeCorpus(seed: Corpus, snapshot: Corpus | null | undefined): 
     items: overlay(seed.items, snapshot.items),
     lessons: overlay(seed.lessons, snapshot.lessons),
     units: overlay(seed.units, snapshot.units),
-    // A seed written before scenarios existed has no scenarios array; default it.
+    // A seed written before any of these existed has no such array; default it.
     scenarios: overlay(seed.scenarios ?? [], snapshot.scenarios ?? []),
+    domains: overlayBy(seed.domains ?? [], snapshot.domains ?? [], (d) => d.slug),
+    themes: overlayBy(seed.themes ?? [], snapshot.themes ?? [], (t) => t.slug),
+    packs: overlay(seed.packs ?? [], snapshot.packs ?? []),
+    examTasks: overlay(seed.examTasks ?? [], snapshot.examTasks ?? []),
+    examSeries: overlay(seed.examSeries ?? [], snapshot.examSeries ?? []),
+    playlists: overlay(seed.playlists ?? [], snapshot.playlists ?? []),
+    templates: overlay(seed.templates ?? [], snapshot.templates ?? []),
   };
 }
 
@@ -149,6 +177,29 @@ export function scenariosFor(corpus: Corpus, q: { level?: Level; theme?: string 
   );
 }
 
+export function getExamTask(corpus: Corpus, id: string): ExamTask | null {
+  return (corpus.examTasks ?? []).find((t) => t.id === id) ?? null;
+}
+
+export function getExamSeries(corpus: Corpus, id: string): ExamSeries | null {
+  return (corpus.examSeries ?? []).find((s) => s.id === id) ?? null;
+}
+
+/** Mock papers for a format, in seriesNo order — the exam-intro screen's list. */
+export function examSeriesFor(corpus: Corpus, format: ExamFormat): ExamSeries[] {
+  return (corpus.examSeries ?? []).filter((s) => s.format === format).sort((a, b) => a.seriesNo - b.seriesNo);
+}
+
+/** A series's tasks, resolved and in the series's own order — a series
+ *  listing a task that has not published yet simply yields fewer tasks
+ *  rather than a blank entry, same posture as lessonsOfUnit. */
+export function examTasksOfSeries(corpus: Corpus, seriesId: string): ExamTask[] {
+  const series = getExamSeries(corpus, seriesId);
+  if (!series) return [];
+  const byId = indexById(corpus.examTasks ?? []);
+  return series.taskIds.map((id) => byId.get(id)).filter((t): t is ExamTask => !!t);
+}
+
 /** The lessons of a unit, in seq order, resolved and filtered to what exists.
  *  A unit may list a lesson that has not published yet; that link simply yields
  *  nothing rather than a blank row. */
@@ -160,6 +211,73 @@ export function lessonsOfUnit(corpus: Corpus, unitId: string): Lesson[] {
     .map((id) => byId.get(id))
     .filter((l): l is Lesson => !!l)
     .sort((a, b) => a.seq - b.seq);
+}
+
+/* ─── positional deep-link anchors (Phase 2.E) ───────────────────────────── */
+//
+// A mistaken attempt during a drill should be able to point back at the exact
+// lesson block it came from, not just name the item — so a review flow can
+// jump straight to where something is taught. The anchor is POSITIONAL,
+// `<lessonId>#s<n>.<k>` (section index, item index within that section's
+// itemIds), derived purely from array position rather than a stored id. It is
+// NEVER an SRS key — SRS keys stay itemId (progress.logic.ts), because item
+// identity is stable but a lesson's section order and itemIds are not: an
+// author can reorder or re-author a lesson at any time. A caller that wants a
+// stale anchor to fail closed rather than silently point at the wrong block
+// should stash the corpus version alongside it and pass it back as
+// `atCorpusVersion` — resolveAnchor treats any mismatch as "not found."
+
+export type LessonAnchor = { lessonId: string; sectionIndex: number; itemIndex: number };
+
+const ANCHOR_RE = /^(.+)#s(\d+)\.(\d+)$/;
+
+/** Format an anchor. Pure string join — pair with resolveAnchor to confirm it
+ *  actually points at something before using it. */
+export function formatAnchor(a: LessonAnchor): string {
+  return `${a.lessonId}#s${a.sectionIndex}.${a.itemIndex}`;
+}
+
+/** Parse an anchor string's shape. Does not confirm the target exists. */
+export function parseAnchor(anchor: string): LessonAnchor | null {
+  const m = ANCHOR_RE.exec(anchor);
+  if (!m) return null;
+  return { lessonId: m[1], sectionIndex: Number(m[2]), itemIndex: Number(m[3]) };
+}
+
+/** The anchor for an item's first appearance in one of this lesson's practice
+ *  sections, or null if the lesson does not teach it there. */
+export function anchorForItem(lesson: Lesson, itemId: string): LessonAnchor | null {
+  for (let s = 0; s < lesson.sections.length; s++) {
+    const section = lesson.sections[s];
+    if (section.type !== 'practice') continue;
+    const k = section.itemIds.indexOf(itemId);
+    if (k !== -1) return { lessonId: lesson.id, sectionIndex: s, itemIndex: k };
+  }
+  return null;
+}
+
+/** Resolve an anchor against the live corpus. Fails closed (returns null) on
+ *  ANY mismatch — missing lesson, out-of-range section, out-of-range item, or
+ *  (when `atCorpusVersion` is passed) a corpus that has moved on since the
+ *  anchor was minted. A resolved non-practice section has no item. */
+export function resolveAnchor(
+  corpus: Corpus,
+  anchor: LessonAnchor,
+  opts: { atCorpusVersion?: number } = {}
+): { lesson: Lesson; section: LessonSection; item: Item | null } | null {
+  if (opts.atCorpusVersion !== undefined && opts.atCorpusVersion !== corpus.version) return null;
+  const lesson = getLesson(corpus, anchor.lessonId);
+  if (!lesson) return null;
+  const section = lesson.sections[anchor.sectionIndex];
+  if (!section) return null;
+  if (section.type === 'practice') {
+    const itemId = section.itemIds[anchor.itemIndex];
+    if (itemId === undefined) return null;
+    const item = getItem(corpus, itemId);
+    return item ? { lesson, section, item } : null;
+  }
+  if (anchor.itemIndex !== 0) return null;
+  return { lesson, section, item: null };
 }
 
 /* ─── snapshot verification ──────────────────────────────────────────────── */

@@ -18,9 +18,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { ENV } from './env';
 import seedJson from '@/content/seed.json';
-import type { Corpus, DrillKind, Item, Lesson, Level, Scenario, Track, Unit } from '@/content/schema';
+import type { Corpus, DrillKind, ExamFormat, Item, Lesson, Level, Scenario, Track, Unit } from '@/content/schema';
 import { validateCorpus } from '@/content/schema';
 import {
+  anchorForItem,
+  examSeriesFor,
+  examTasksOfSeries,
+  formatAnchor,
+  getExamSeries,
+  getExamTask,
   getItem,
   getLesson,
   getScenario,
@@ -31,6 +37,8 @@ import {
   looksLikeCorpus,
   MAX_SNAPSHOT_BYTES,
   mergeCorpus,
+  parseAnchor,
+  resolveAnchor,
   scenariosFor,
   selectItems,
   shouldAdopt,
@@ -271,4 +279,25 @@ export const content = {
   scenario: (id: string): Scenario | null => getScenario(useContent.getState().corpus, id),
   scenarios: (q?: { level?: Level; theme?: string }): Scenario[] =>
     scenariosFor(useContent.getState().corpus, q),
+  examTask: (id: string) => getExamTask(useContent.getState().corpus, id),
+  examSeriesOne: (id: string) => getExamSeries(useContent.getState().corpus, id),
+  examSeriesFor: (format: ExamFormat) => examSeriesFor(useContent.getState().corpus, format),
+  examTasksOf: (seriesId: string) => examTasksOfSeries(useContent.getState().corpus, seriesId),
+  /** The positional deep-link anchor for an item inside a lesson's practice
+   *  section, formatted as `<lessonId>#s<n>.<k>` — or null when the lesson
+   *  doesn't teach that item there. Stashed on the attempt log so a review
+   *  list can later jump back to the exact block (Phase 2.E). */
+  anchorFor: (lesson: Lesson, itemId: string): string | null => {
+    const a = anchorForItem(lesson, itemId);
+    return a ? formatAnchor(a) : null;
+  },
+  /** Resolve an anchor string against the LIVE corpus. Returns null on any
+   *  malformed string or on any mismatch (missing lesson/section/item, or a
+   *  corpus that has moved on since the anchor was minted) — a stale deep
+   *  link fails closed, it never lands on the wrong block. */
+  resolveAnchorStr: (anchor: string): ReturnType<typeof resolveAnchor> => {
+    const parsed = parseAnchor(anchor);
+    if (!parsed) return null;
+    return resolveAnchor(useContent.getState().corpus, parsed);
+  },
 };

@@ -29,14 +29,15 @@ import { test } from 'node:test';
 import {
   CONTENT_STATUSES,
   DRILL_KINDS,
-  EXAM_FAMILIES,
-  EXAM_SECTIONS,
+  EXAM_FORMATS,
+  EXAM_TASK_TYPES,
   EXAM_SKILLS,
   ITEM_KINDS,
   LEVELS,
   MODALITIES,
   REGISTERS,
   SCORE_BANDS,
+  TEMPLATE_TARGETS,
 } from './schema.ts';
 import { ENTITLEMENT_SOURCES, PLANS } from './progress-schema.ts';
 
@@ -70,8 +71,8 @@ test('app value lists and Drizzle pgEnums hold the same values', () => {
   deepStrictEqual(dbEnum('content_status'), [...CONTENT_STATUSES], 'CONTENT_STATUSES ↔ content_status');
   deepStrictEqual(dbEnum('modality'), [...MODALITIES], 'MODALITIES ↔ modality');
   deepStrictEqual(dbEnum('register'), [...REGISTERS], 'REGISTERS ↔ register');
-  deepStrictEqual(dbEnum('exam_family'), [...EXAM_FAMILIES], 'EXAM_FAMILIES ↔ exam_family');
-  deepStrictEqual(dbEnum('exam_section'), [...EXAM_SECTIONS], 'EXAM_SECTIONS ↔ exam_section');
+  deepStrictEqual(dbEnum('exam_format'), [...EXAM_FORMATS], 'EXAM_FORMATS ↔ exam_format');
+  deepStrictEqual(dbEnum('exam_task_type'), [...EXAM_TASK_TYPES], 'EXAM_TASK_TYPES ↔ exam_task_type');
   deepStrictEqual(dbEnum('exam_skill'), [...EXAM_SKILLS], 'EXAM_SKILLS ↔ exam_skill');
 });
 
@@ -125,6 +126,24 @@ test('content_level keeps c2 and LEVELS does not — the one deliberate asymmetr
   const dbLevels = dbEnum('content_level');
   deepStrictEqual(dbLevels, [...LEVELS, 'c2'], 'content_level must be LEVELS plus exactly c2');
   ok(!(LEVELS as readonly string[]).includes('c2'), 'the app must never author c2 content');
+});
+
+test('content_kind carries playlist and template — the two new content_units document kinds', () => {
+  // content_kind has no full-parity app-side counterpart to diff against: it is
+  // the admin's document-level discriminator for content_units rows (scenario |
+  // drill | dictation | curriculum_unit | lesson | vocabulary | playlist |
+  // template), while TEMPLATE_TARGETS answers a different question — what kind
+  // of corpus row a TEMPLATE produces (item | lesson | scenario | examTask |
+  // playlist). The two lists genuinely disagree on 'item'/'examTask' (relational
+  // rows with no content_units document of their own) and 'drill'/'dictation'/
+  // 'curriculum_unit'/'vocabulary' (document kinds no template targets today),
+  // for the same reason ENTITLEMENT_SOURCES above is asserted rather than
+  // diffed. What IS asserted: both new content_kind values this phase added
+  // are really there, so a rename is a red test rather than a silent drift.
+  const kinds = dbEnum('content_kind');
+  ok(kinds.includes('playlist'), "content_kind must carry 'playlist'");
+  ok(kinds.includes('template'), "content_kind must carry 'template'");
+  ok(TEMPLATE_TARGETS.includes('playlist'), "TEMPLATE_TARGETS must carry 'playlist' — a template can author one");
 });
 
 test('the c2 CHECK constraint that enforces the asymmetry actually exists', () => {

@@ -13,28 +13,35 @@ import { test } from 'node:test';
 import {
   DRILL_KINDS,
   EMPTY_CORPUS,
-  EXAM_SECTIONS,
+  EXAM_TASK_TYPES,
   EXAM_SKILLS,
   LESSON_ID_RE,
   LEVELS,
   MODALITIES,
+  NARRATION_STAGES,
   PRACTICE_SKILLS,
   REGISTERS,
   SCORE_BANDS,
+  TEMPLATE_TARGETS,
   UNIT_ID_RE,
   formatIssues,
   examSeriesId,
   examTaskId,
+  examTaskSkill,
   isValidCorpus,
   isValidDomain,
   isValidExamSeries,
   isValidExamTask,
   isValidItem,
   isValidPack,
+  isValidPlaylist,
+  isValidTemplate,
   isValidTheme,
   itemId,
   lessonId,
   packId,
+  playlistId,
+  templateId,
   unitBand,
   unitId,
   unitOfLesson,
@@ -45,18 +52,23 @@ import {
   validateItem,
   validateLesson,
   validatePack,
+  validatePlaylist,
   validateScenario,
+  validateTemplate,
   validateTheme,
   validateUnit,
   type AudioSegment,
   type Corpus,
+  type ContentTemplate,
   type Domain,
   type ExamSeries,
   type ExamTask,
   type Item,
   type Lesson,
+  type LessonNarration,
   type LessonSection,
   type Pack,
+  type Playlist,
   type PracticeSkill,
   type Theme,
   type Unit,
@@ -153,10 +165,11 @@ const withSection = (s: LessonSection) => validateLesson(lesson({ sections: [s] 
 
 /** A closed (machine-markable) task: listening/reading, with questions. */
 const closedTask = (over: Partial<ExamTask> = {}): ExamTask => ({
-  id: 'exam.tcf.2024a.co.001',
-  family: 'tcf',
+  id: 'exam.tcf_canada.2024a.co_mcq.001',
+  format: 'tcf_canada',
   variant: '2024a',
-  section: 'co',
+  taskType: 'co_mcq',
+  skill: 'CO',
   level: 'b1',
   formatVersion: 'tcf-2024.1',
   prompt: 'Écoutez le dialogue et répondez.',
@@ -167,10 +180,11 @@ const closedTask = (over: Partial<ExamTask> = {}): ExamTask => ({
 
 /** An open (human-marked) task: speaking/writing, with a rubric. */
 const openTask = (over: Partial<ExamTask> = {}): ExamTask => ({
-  id: 'exam.delf.2024a.ee.001',
-  family: 'delf',
+  id: 'exam.delf_b2.2024a.pe_essay.001',
+  format: 'delf_b2',
   variant: '2024a',
-  section: 'ee',
+  taskType: 'pe_essay',
+  skill: 'PE',
   level: 'b1',
   formatVersion: 'delf-2020.2',
   prompt: 'Vous écrivez à votre propriétaire pour signaler une fuite.',
@@ -186,11 +200,50 @@ const openTask = (over: Partial<ExamTask> = {}): ExamTask => ({
 });
 
 const series = (over: Partial<ExamSeries> = {}): ExamSeries => ({
-  id: 'series.tcf.2024a.1',
-  family: 'tcf',
+  id: 'series.tcf_canada.2024a.1',
+  format: 'tcf_canada',
   variant: '2024a',
   seriesNo: 1,
-  taskIds: ['exam.tcf.2024a.co.001'],
+  taskIds: ['exam.tcf_canada.2024a.co_mcq.001'],
+  ...over,
+});
+
+const playlist = (over: Partial<Playlist> = {}): Playlist => ({
+  id: 'pl.sons.la-voix',
+  minLevel: 'sons',
+  word: 'La Voix',
+  tag: 'DEEP-DIVE',
+  glow: 'rgba(214,160,96,0.28)',
+  labelFr: 'Prononciation en profondeur',
+  labelEn: 'Pronunciation Deep-Dives',
+  topicFr: 'voyelles nasales',
+  topicEn: 'nasal vowels',
+  tracks: [{ id: 'la-voix-t1', title: 'Les voyelles nasales', lines: [{ fr: 'un bon vin blanc', en: 'a good white wine' }] }],
+  version: 1,
+  status: 'draft',
+  ...over,
+});
+
+const template = (over: Partial<ContentTemplate> = {}): ContentTemplate => ({
+  id: 'tpl.item.verb-conjugation-drill',
+  target: 'item',
+  name: 'Verb conjugation drill',
+  description: 'A sentence that opens with a specific conjugated form, gated by the conjugation checker.',
+  levels: ['a1', 'a2'],
+  promptSkeleton: 'Write a {{level}} sentence about {{theme}} that opens with the {{person}} {{tense}} of {{infinitive}}.',
+  example: 'Je mange une pomme tous les matins.',
+  version: 1,
+  status: 'draft',
+  ...over,
+});
+
+const narration = (over: Partial<LessonNarration> = {}): LessonNarration => ({
+  camilleVoiceId: 'camille-fr-ca-01',
+  ratioEnFr: 0.7,
+  stages: [
+    { stage: 'warm', segments: [{ voice: 'en', text: 'Ever ordered a coffee and frozen up? Let’s fix that.' }] },
+    { stage: 'focus', segments: [{ voice: 'fr', text: 'Je voudrais un café.' }] },
+  ],
   ...over,
 });
 
@@ -221,7 +274,7 @@ test('the new value lists exist and hold what the rest of the phase assumes', ()
   deepStrictEqual([...MODALITIES], ['recognise', 'produce', 'discriminate']);
   deepStrictEqual([...REGISTERS], ['familier', 'courant', 'soutenu']);
   deepStrictEqual([...EXAM_SKILLS], ['CO', 'CE', 'PO', 'PE']);
-  deepStrictEqual([...EXAM_SECTIONS], ['co', 'ce', 'eo', 'ee']);
+  deepStrictEqual([...EXAM_TASK_TYPES], ['co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'pe_short', 'pe_essay']);
 });
 
 test('the shipped drill-kind strings are append-only', () => {
@@ -361,6 +414,19 @@ test('an item with NONE of the spine still validates — this is the whole seed'
   for (const k of ['skill', 'register', 'canDo', 'grammarPoints', 'modality', 'provenance'] as const) {
     strictEqual(bare[k], undefined, `the base fixture must not set ${k}`);
   }
+});
+
+test('verbCheck is optional but shape-checked when present (Phase 2.D)', () => {
+  deepStrictEqual(validateItem(item({ verbCheck: { infinitive: 'parler', tense: 'présent', person: '1', number: 's' } })), []);
+  // mood is optional (defaults to indicatif in the gate, not here — schema.ts stays type-only).
+  deepStrictEqual(
+    validateItem(item({ verbCheck: { infinitive: 'finir', tense: 'présent', mood: 'indicatif', person: '1', number: 'p' } })),
+    []
+  );
+  ok(validateItem(item({ verbCheck: { tense: 'présent', person: '1', number: 's' } as never })).length > 0, 'infinitive required');
+  ok(validateItem(item({ verbCheck: { infinitive: 'parler', person: '1', number: 's' } as never })).length > 0, 'tense required');
+  ok(validateItem(item({ verbCheck: { infinitive: 'parler', tense: 'présent', person: '4', number: 's' } as never })).length > 0, 'person must be 1|2|3');
+  ok(validateItem(item({ verbCheck: { infinitive: 'parler', tense: 'présent', person: '1', number: 'x' } as never })).length > 0, 'number must be s|p');
 });
 
 test('the spine is checked for TYPE when present, and only then', () => {
@@ -774,19 +840,20 @@ test('a well-formed closed task and open task both validate', () => {
   deepStrictEqual(validateExamTask(closedTask()), []);
   deepStrictEqual(validateExamTask(openTask()), []);
   ok(isValidExamTask(closedTask()));
-  strictEqual(examTaskId('tcf', '2024a', 'co', 1), 'exam.tcf.2024a.co.001');
-  strictEqual(examSeriesId('tcf', '2024a', 1), 'series.tcf.2024a.1');
+  strictEqual(examTaskId('tcf_canada', '2024a', 'co_mcq', 1), 'exam.tcf_canada.2024a.co_mcq.001');
+  strictEqual(examSeriesId('tcf_canada', '2024a', 1), 'series.tcf_canada.2024a.1');
 });
 
 test('an OPEN task without a rubric is rejected — nothing could mark it', () => {
   // The rule from the Examiner spec. A prompt with no rubric does not produce a
   // score, it produces an opinion, and the candidate cannot tell the difference.
-  for (const section of ['eo', 'ee'] as const) {
-    const t = openTask({ id: `exam.delf.2024a.${section}.001`, section });
+  for (const taskType of ['po_monologue', 'po_interaction', 'pe_short', 'pe_essay'] as const) {
+    const skill = examTaskSkill(taskType);
+    const t = openTask({ id: `exam.delf_b2.2024a.${taskType}.001`, taskType, skill });
     const issues = validateExamTask({ ...t, rubric: undefined });
-    ok(issues.some((i) => /MUST have a rubric/.test(i.message)), `${section} without rubric`);
+    ok(issues.some((i) => /MUST have a rubric/.test(i.message)), `${taskType} without rubric`);
     const noModel = validateExamTask({ ...t, modelAnswer: undefined });
-    ok(noModel.some((i) => /MUST have a modelAnswer/.test(i.message)), `${section} without modelAnswer`);
+    ok(noModel.some((i) => /MUST have a modelAnswer/.test(i.message)), `${taskType} without modelAnswer`);
   }
 });
 
@@ -815,12 +882,17 @@ test('an exam task needs a clock', () => {
   ok(validateExamTask(closedTask({ timingS: -30 })).length > 0);
 });
 
-test('an exam task id must agree with its family, variant and section', () => {
-  const issues = validateExamTask(closedTask({ id: 'exam.tcf.2024a.co.001', family: 'delf', section: 'ce', variant: 'x' }));
-  ok(issues.some((i) => /id family .* disagrees/.test(i.message)));
-  ok(issues.some((i) => /id section .* disagrees/.test(i.message)));
+test('an exam task id must agree with its format, variant and taskType', () => {
+  const issues = validateExamTask(closedTask({ id: 'exam.tcf_canada.2024a.co_mcq.001', format: 'delf_b2', taskType: 'ce_mcq', skill: 'CE', variant: 'x' }));
+  ok(issues.some((i) => /id format .* disagrees/.test(i.message)));
+  ok(issues.some((i) => /id taskType .* disagrees/.test(i.message)));
   ok(issues.some((i) => /id variant .* disagrees/.test(i.message)));
-  ok(validateExamTask(closedTask({ id: 'exam.toefl.2024a.co.001' as never })).length > 0, 'unknown family');
+  ok(validateExamTask(closedTask({ id: 'exam.toefl.2024a.co_mcq.001' as never })).length > 0, 'unknown format');
+});
+
+test('an exam task skill must agree with its taskType', () => {
+  const issues = validateExamTask(closedTask({ skill: 'PE' }));
+  ok(issues.some((i) => /skill "PE" disagrees with taskType "co_mcq"/.test(i.message)));
 });
 
 test('a rubric criterion must be able to move the score', () => {
@@ -872,14 +944,14 @@ test('a well-formed series validates, and an empty one does not', () => {
 });
 
 test('seriesNo is 1..5 and must agree with the id', () => {
-  ok(validateExamSeries(series({ id: 'series.tcf.2024a.6', seriesNo: 6 })).length > 0);
+  ok(validateExamSeries(series({ id: 'series.tcf_canada.2024a.6', seriesNo: 6 })).length > 0);
   ok(validateExamSeries(series({ seriesNo: 0 })).length > 0);
-  const issues = validateExamSeries(series({ id: 'series.tcf.2024a.1', seriesNo: 2 }));
+  const issues = validateExamSeries(series({ id: 'series.tcf_canada.2024a.1', seriesNo: 2 }));
   ok(issues.some((i) => /disagrees with seriesNo/.test(i.message)));
 });
 
 test('a series must not sit the same task twice', () => {
-  const issues = validateExamSeries(series({ taskIds: ['exam.tcf.2024a.co.001', 'exam.tcf.2024a.co.001'] }));
+  const issues = validateExamSeries(series({ taskIds: ['exam.tcf_canada.2024a.co_mcq.001', 'exam.tcf_canada.2024a.co_mcq.001'] }));
   ok(issues.some((i) => /appears twice — a candidate would sit it twice/.test(i.message)));
 });
 
@@ -1072,9 +1144,43 @@ test('a series pointing at an unknown task is caught', () => {
   // A mock exam that is shorter than it claims, and the candidate cannot tell.
   const issues = validateCorpus(corpus({
     examTasks: [closedTask()],
-    examSeries: [series({ taskIds: ['exam.tcf.2024a.co.001', 'exam.tcf.2024a.ce.009'] })],
+    examSeries: [series({ taskIds: ['exam.tcf_canada.2024a.co_mcq.001', 'exam.tcf_canada.2024a.ce_mcq.009'] })],
   }));
-  ok(issues.some((i) => /series "series\.tcf\.2024a\.1" references unknown exam task "exam\.tcf\.2024a\.ce\.009"/.test(i.message)));
+  ok(issues.some((i) => /series "series\.tcf_canada\.2024a\.1" references unknown exam task "exam\.tcf_canada\.2024a\.ce_mcq\.009"/.test(i.message)));
+});
+
+test('a lesson skill must be a real exam skill when present', () => {
+  deepStrictEqual(validateLesson(lesson({ skill: 'PE' })), []);
+  ok(validateLesson(lesson({ skill: 'listen' as never })).some((i) => /skill must be one of/.test(i.message)));
+});
+
+test('a scenario standing in for an exam task must point at a real PO task', () => {
+  deepStrictEqual(
+    validateCorpus(corpus({
+      scenarios: [scenario({ exam: { format: 'tcf_canada', taskId: 'exam.tcf_canada.2024a.po_interaction.001' } })],
+      examTasks: [closedTask({ id: 'exam.tcf_canada.2024a.po_interaction.001', taskType: 'po_interaction', skill: 'PO', rubric: { criteria: [{ key: 'k', label: 'L', maxPoints: 5 }] }, modelAnswer: 'x', items: undefined })],
+    })),
+    []
+  );
+  const unknownTask = validateCorpus(corpus({
+    scenarios: [scenario({ exam: { format: 'tcf_canada', taskId: 'exam.tcf_canada.2024a.po_interaction.999' } })],
+  }));
+  ok(unknownTask.some((i) => /exam\.taskId references unknown exam task/.test(i.message)));
+  const wrongTaskType = validateCorpus(corpus({
+    scenarios: [scenario({ exam: { format: 'tcf_canada', taskId: 'exam.tcf_canada.2024a.co_mcq.001' } })],
+    examTasks: [closedTask({ id: 'exam.tcf_canada.2024a.co_mcq.001' })],
+  }));
+  ok(wrongTaskType.some((i) => /is a "co_mcq" task, not a PO task/.test(i.message)));
+});
+
+test('an exam task pointing at an unknown item is caught', () => {
+  // A miss that decomposes into nothing — the SRS never learns which atom to
+  // review. Same failure shape as a series pointing at an unknown task, one
+  // join deeper.
+  const issues = validateCorpus(corpus({
+    examTasks: [closedTask({ targetItemIds: ['fr.b1.marche.999'] })],
+  }));
+  ok(issues.some((i) => /exam task "exam\.tcf_canada\.2024a\.co_mcq\.001" targets unknown item "fr\.b1\.marche\.999"/.test(i.message)));
 });
 
 test('duplicate ids are caught for every new entity', () => {
@@ -1098,8 +1204,8 @@ test('an id may not be shared by two different KINDS of entity', () => {
   // the obvious thing to write — silently loses one of the two.
   const clash = validateCorpus(corpus({
     examTasks: [closedTask()],
-    examSeries: [series({ id: 'series.tcf.2024a.1', taskIds: ['exam.tcf.2024a.co.001'] })],
-    packs: [pack({ id: 'series.tcf.2024a.1' as never })],
+    examSeries: [series({ id: 'series.tcf_canada.2024a.1', taskIds: ['exam.tcf_canada.2024a.co_mcq.001'] })],
+    packs: [pack({ id: 'series.tcf_canada.2024a.1' as never })],
   }));
   ok(clash.some((i) => /is used by more than one kind of entity/.test(i.message)));
 });
@@ -1125,4 +1231,180 @@ test('formatIssues renders something a human can act on', () => {
   const out = formatIssues(validateItem(item({ drills: [] })));
   ok(out.includes('item:'));
   ok(out.includes('drills must not be empty'));
+});
+
+/* ─── playlists ──────────────────────────────────────────────────────────── */
+
+test('a well-formed playlist validates', () => {
+  deepStrictEqual(validatePlaylist(playlist()), []);
+  ok(isValidPlaylist(playlist()));
+});
+
+test('a playlist id must match pl.<level>.<slug>', () => {
+  ok(validatePlaylist(playlist({ id: 'la-voix' })).some((i) => /must match pl\.<level>\.<slug>/.test(i.message)));
+  strictEqual(playlistId('sons', 'la-voix'), 'pl.sons.la-voix');
+});
+
+test('a playlist needs at least one track, and every track needs non-empty lines', () => {
+  ok(validatePlaylist(playlist({ tracks: [] })).some((i) => /tracks must be a non-empty array/.test(i.message)));
+  ok(validatePlaylist(playlist({ tracks: [{ id: 't1', title: 'T', lines: [] }] }))
+    .some((i) => /lines must be a non-empty array/.test(i.message)));
+});
+
+test('duplicate track ids within one playlist are rejected', () => {
+  const dup = playlist({ tracks: [playlist().tracks[0], { ...playlist().tracks[0] }] });
+  ok(validatePlaylist(dup).some((i) => /track ids must not repeat/.test(i.message)));
+});
+
+test('validatePlaylist never throws on garbage', () => {
+  for (const junk of [null, undefined, 42, 'x', [], {}]) {
+    ok(Array.isArray(validatePlaylist(junk)));
+  }
+});
+
+/* ─── content templates ──────────────────────────────────────────────────── */
+
+test('a well-formed template validates', () => {
+  deepStrictEqual(validateTemplate(template()), []);
+  ok(isValidTemplate(template()));
+});
+
+test('TEMPLATE_TARGETS covers every corpus kind a template can author', () => {
+  deepStrictEqual([...TEMPLATE_TARGETS], ['item', 'lesson', 'scenario', 'examTask', 'playlist']);
+});
+
+test('a template id must match tpl.<target>.<slug> and agree with its own target field', () => {
+  ok(validateTemplate(template({ id: 'verb-conjugation-drill' })).some((i) => /must match tpl\.<target>\.<slug>/.test(i.message)));
+  ok(validateTemplate(template({ id: 'tpl.lesson.verb-conjugation-drill' }))
+    .some((i) => /does not match its own target "item"/.test(i.message)));
+  strictEqual(templateId('item', 'verb-conjugation-drill'), 'tpl.item.verb-conjugation-drill');
+});
+
+test('a template must declare at least one level it is fit to author at', () => {
+  ok(validateTemplate(template({ levels: [] })).some((i) => /levels must be a non-empty array/.test(i.message)));
+});
+
+test('template drills/sections are type-checked when present, and absent is fine', () => {
+  deepStrictEqual(validateTemplate(template({ drills: ['flashcard'] })), []);
+  ok(validateTemplate(template({ drills: ['not-a-drill'] as never })).some((i) => /drills must all be one of/.test(i.message)));
+  deepStrictEqual(validateTemplate(template({ target: 'lesson', id: 'tpl.lesson.den-narrated-teach', sections: ['teach'] })), []);
+});
+
+test('validateTemplate never throws on garbage', () => {
+  for (const junk of [null, undefined, 42, 'x', [], {}]) {
+    ok(Array.isArray(validateTemplate(junk)));
+  }
+});
+
+/* ─── narration ──────────────────────────────────────────────────────────── */
+
+test('a lesson with a well-formed narration script validates', () => {
+  deepStrictEqual(validateLesson(lesson({ narration: narration() })), []);
+});
+
+test('camilleVoiceId and ratioEnFr are required', () => {
+  ok(validateLesson(lesson({ narration: narration({ camilleVoiceId: '' as never }) })).some((i) => /camilleVoiceId is required/.test(i.message)));
+  ok(validateLesson(lesson({ narration: narration({ ratioEnFr: 1.5 }) })).some((i) => /ratioEnFr must be a number between 0 and 1/.test(i.message)));
+});
+
+test('narration stages must appear in NARRATION_STAGES order', () => {
+  const outOfOrder = narration({
+    stages: [
+      { stage: 'focus', segments: [{ voice: 'fr', text: 'x' }] },
+      { stage: 'warm', segments: [{ voice: 'en', text: 'y' }] },
+    ],
+  });
+  ok(validateLesson(lesson({ narration: outOfOrder })).some((i) => /out of order/.test(i.message)));
+});
+
+test('a repeated stage is rejected — it is out of order against itself', () => {
+  const repeated = narration({
+    stages: [
+      { stage: 'focus', segments: [{ voice: 'fr', text: 'x' }] },
+      { stage: 'focus', segments: [{ voice: 'fr', text: 'y' }] },
+    ],
+  });
+  ok(validateLesson(lesson({ narration: repeated })).some((i) => /out of order/.test(i.message)));
+});
+
+test('a narration stage needs at least one segment', () => {
+  const empty = narration({ stages: [{ stage: 'warm', segments: [] }] });
+  ok(validateLesson(lesson({ narration: empty })).some((i) => /segments must be a non-empty array/.test(i.message)));
+});
+
+test('a narration segment needs a real voice and text', () => {
+  const bad = narration({ stages: [{ stage: 'warm', segments: [{ voice: 'de', text: 'x' } as never] }] });
+  ok(validateLesson(lesson({ narration: bad })).some((i) => /voice must be 'fr' or 'en'/.test(i.message)));
+});
+
+test('segments and interactions can mix freely within one stage, distinguished by shape', () => {
+  const mixed = narration({
+    stages: [{
+      stage: 'produce',
+      segments: [
+        { voice: 'en', text: 'Now you try.' },
+        { kind: 'produce', itemId: 'fr.a1.cafe.001', expected: 'Je voudrais un café', gradeAs: 'produce' },
+      ],
+    }],
+  });
+  deepStrictEqual(validateLesson(lesson({ narration: mixed })), []);
+});
+
+test('an interaction kind must be repeat, produce or check', () => {
+  const bad = narration({ stages: [{ stage: 'check', segments: [{ kind: 'quiz' } as never] }] });
+  ok(validateLesson(lesson({ narration: bad })).some((i) => /kind must be one of 'repeat' \| 'produce' \| 'check'/.test(i.message)));
+});
+
+test('an interaction itemId must be a well-formed item id when present', () => {
+  const bad = narration({ stages: [{ stage: 'produce', segments: [{ kind: 'produce', itemId: 'not-an-id' }] }] });
+  ok(validateLesson(lesson({ narration: bad })).some((i) => /is not a valid item id/.test(i.message)));
+  const noItem = narration({ stages: [{ stage: 'check', segments: [{ kind: 'check', expected: 'oui' }] }] });
+  deepStrictEqual(validateLesson(lesson({ narration: noItem })), []);
+});
+
+test('gradeAs must be a real modality when present', () => {
+  const bad = narration({ stages: [{ stage: 'produce', segments: [{ kind: 'produce', gradeAs: 'guessing' as never }] }] });
+  ok(validateLesson(lesson({ narration: bad })).some((i) => /gradeAs must be one of/.test(i.message)));
+});
+
+test('a narration interaction referencing an unknown corpus item is caught at the corpus level', () => {
+  const l = lesson({
+    narration: narration({
+      stages: [
+        { stage: 'warm', segments: [{ voice: 'en', text: 'x' }] },
+        { stage: 'produce', segments: [{ kind: 'produce', itemId: 'fr.a1.cafe.999' }] },
+      ],
+    }),
+  });
+  const c = corpus({ lessons: [l], units: [unit({ lessonIds: [l.id] })] });
+  ok(validateCorpus(c).some((i) => /narration references unknown item "fr\.a1\.cafe\.999"/.test(i.message)));
+  const good = corpus({
+    lessons: [{ ...l, narration: narration({ stages: [
+      { stage: 'warm', segments: [{ voice: 'en', text: 'x' }] },
+      { stage: 'produce', segments: [{ kind: 'produce', itemId: 'fr.a1.cafe.001' }] },
+    ] }) }],
+    units: [unit({ lessonIds: [l.id] })],
+  });
+  deepStrictEqual(validateCorpus(good), []);
+});
+
+test('validateLesson never throws on a garbage narration field', () => {
+  for (const junk of [null, 42, 'x', [], {}]) {
+    ok(Array.isArray(validateLesson(lesson({ narration: junk as never }))));
+  }
+});
+
+/* ─── playlists and templates at the corpus level ────────────────────────── */
+
+test('a corpus carrying playlists and templates validates', () => {
+  deepStrictEqual(validateCorpus(corpus({ playlists: [playlist()], templates: [template()] })), []);
+});
+
+test('duplicate playlist and template ids are caught at the corpus level', () => {
+  ok(validateCorpus(corpus({ playlists: [playlist(), playlist()] })).some((i) => /duplicate playlist id/.test(i.message)));
+  ok(validateCorpus(corpus({ templates: [template(), template()] })).some((i) => /duplicate template id/.test(i.message)));
+});
+
+test('a v0 corpus still validates with playlists/templates entirely absent', () => {
+  deepStrictEqual(validateCorpus({ version: 1, units: [], lessons: [], items: [] }), []);
 });

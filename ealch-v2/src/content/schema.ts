@@ -100,16 +100,16 @@ export type PracticeSkill = (typeof PRACTICE_SKILLS)[number];
  * The exam taxonomy, per item. Compréhension/Production × Orale/Écrite — the
  * four skills every TEF/TCF/DELF paper is built from.
  *
- *   CO  compréhension orale     listening   → EXAM_SECTIONS 'co'  ≈ PracticeSkill 'listen'
- *   CE  compréhension écrite    reading     → EXAM_SECTIONS 'ce'  ≈ PracticeSkill 'read'
- *   PO  production orale        speaking    → EXAM_SECTIONS 'eo'  ≈ PracticeSkill 'speak'
- *   PE  production écrite       writing     → EXAM_SECTIONS 'ee'  ≈ PracticeSkill 'write'
+ *   CO  compréhension orale     listening   → co_mcq                ≈ PracticeSkill 'listen'
+ *   CE  compréhension écrite    reading     → ce_mcq                ≈ PracticeSkill 'read'
+ *   PO  production orale        speaking    → po_monologue/po_interaction ≈ PracticeSkill 'speak'
+ *   PE  production écrite       writing     → pe_short/pe_essay     ≈ PracticeSkill 'write'
  *
  * The mapping is a correspondence, not an identity, which is exactly why both
- * lists exist. EXAM_SECTIONS uses the French paper's own labels (eo/ee, épreuve
- * orale/écrite) because that is what candidates and past papers call them, and
- * an item's skill is a property of the item while a section is a property of the
- * paper. Do not collapse them.
+ * lists exist: an item's skill is a property of the item, while an ExamTask's
+ * taskType is a property of the paper (there are two PO task types and two PE
+ * task types, all mapping onto one skill each — see examTaskSkill). Do not
+ * collapse them.
  */
 export const EXAM_SKILLS = ['CO', 'CE', 'PO', 'PE'] as const;
 export type ExamSkill = (typeof EXAM_SKILLS)[number];
@@ -130,14 +130,38 @@ export type Modality = (typeof MODALITIES)[number];
 export const REGISTERS = ['familier', 'courant', 'soutenu'] as const;
 export type Register = (typeof REGISTERS)[number];
 
-/** The exam families we author toward. */
-export const EXAM_FAMILIES = ['tef', 'tcf', 'delf', 'dalf'] as const;
-export type ExamFamily = (typeof EXAM_FAMILIES)[number];
+/** The exam formats we author toward. Canada-first launch set only — no bare
+ *  'tef'/'tcf'/'delf' and no 'dalf': each value is a specific paper a
+ *  candidate actually sits, because "TEF" alone is not one exam (TEF Canada
+ *  and TEF Naturalisation differ in sections and marking). */
+export const EXAM_FORMATS = ['delf_b2', 'tef_canada', 'tcf_canada'] as const;
+export type ExamFormat = (typeof EXAM_FORMATS)[number];
 
-/** The sections of an exam paper. See the note on EXAM_SKILLS for how these
- *  correspond to the per-item taxonomy, and why they are not the same list. */
-export const EXAM_SECTIONS = ['co', 'ce', 'eo', 'ee'] as const;
-export type ExamSection = (typeof EXAM_SECTIONS)[number];
+/** The task types an exam paper is built from — finer-grained than EXAM_SKILLS
+ *  because one skill can be tested by more than one task shape (PO has a
+ *  monologue and an interaction task; PE has a short and an essay task). See
+ *  examTaskSkill() for the taskType → skill mapping, and the note on
+ *  EXAM_SKILLS for why the two lists are not collapsed into one. */
+export const EXAM_TASK_TYPES = ['co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'pe_short', 'pe_essay'] as const;
+export type ExamTaskType = (typeof EXAM_TASK_TYPES)[number];
+
+/** taskType → skill. The single place this correspondence is encoded — every
+ *  other place that needs a task's skill (SRS decomposition, due-skill
+ *  grouping, remediation lookup) calls this instead of re-deriving it. */
+export function examTaskSkill(taskType: ExamTaskType): ExamSkill {
+  switch (taskType) {
+    case 'co_mcq':
+      return 'CO';
+    case 'ce_mcq':
+      return 'CE';
+    case 'po_monologue':
+    case 'po_interaction':
+      return 'PO';
+    case 'pe_short':
+    case 'pe_essay':
+      return 'PE';
+  }
+}
 
 export const SECTION_TYPES = [
   'teach',
@@ -411,6 +435,24 @@ export type Item = {
   canDo?: string;
   /** Grammar this item exercises: 'passe-compose', 'subjonctif-present'. */
   grammarPoints?: string[];
+  /** Deterministic French gate target (Phase 2.D): the specific conjugated
+   *  form `fr` is claimed to open with. Checked against a real conjugator
+   *  (verbecc) in the publish pipeline — `fr` must START WITH one of the
+   *  forms it produces for (infinitive, mood, tense, person, number), so a
+   *  typo'd or plain wrong conjugation fails publish instead of shipping.
+   *  Optional, like the rest of the exam/SRS spine above: absence is not an
+   *  error, it just means this item isn't gated on conjugation correctness. */
+  verbCheck?: {
+    /** The infinitive the conjugator looks up, e.g. 'parler'. */
+    infinitive: string;
+    /** The conjugator's own tense key, e.g. 'présent', 'passé composé'. */
+    tense: string;
+    /** The conjugator's own mood key. Defaults to 'indicatif' when absent —
+     *  every item authored so far tests the indicative. */
+    mood?: string;
+    person: '1' | '2' | '3';
+    number: 's' | 'p';
+  };
   /** How this item is exercised. The SRS keys on (itemId, modality), never on
    *  itemId alone — recognising and producing are different memories. */
   modality?: Modality;
@@ -500,12 +542,202 @@ export type Lesson = {
   /** The Role Play scenario that exercises this lesson's ground, when one
    *  exists. Resolved against corpus scenarios by validateCorpus. */
   scenarioId?: string;
+  /** The spoken script Camille performs for a 'narrated' lesson (Phase 7).
+   *  See LessonNarration. Optional and independent of `features` — a lesson
+   *  can declare the 'narrated' feature before its script is written, and a
+   *  script can exist in review before the feature is turned on, which is
+   *  why presence here is never inferred from `features` or vice versa. */
+  narration?: LessonNarration;
+  /** Which exam skill this lesson remediates, when it exists to prep one —
+   *  most lessons teach vocabulary/grammar with no exam tie, so this is
+   *  absent far more often than present. It is the join dueExamSkills()
+   *  (progress.logic.ts) uses to turn a missed PO/PE exam skill into a real
+   *  lesson deep-link, keyed on (skill, level) — see the note there on why a
+   *  missing lesson is a real failure, not a silently dropped one. */
+  skill?: ExamSkill;
   provenance?: Provenance;
 };
 
 /** What a lesson can offer beyond reading it. Order here is display order. */
 export const LESSON_FEATURES = ['narrated', 'minimalPairs', 'roleplay', 'voiceflash'] as const;
 export type LessonFeature = (typeof LESSON_FEATURES)[number];
+
+/* ─── Narration: the Den's spoken-lesson script ──────────────────────────── */
+
+// A Lesson is read. A NARRATED lesson is performed: Camille walks the learner
+// through it stage by stage, in voice, before the learner ever touches
+// `sections[]` directly. That makes narration a SCRIPT over a lesson's
+// content rather than the content itself — it has its own pacing, it can
+// address the learner in English scaffolding before switching to French
+// mid-stage, and it carries its own checkpoints. Storing it here, now, means
+// narration can be authored, reviewed, gated and shipped OTA long before
+// Phase 7 (the Den's native player) exists to perform it — the same
+// "cache layer first, screen wiring when a consumer needs it" sequencing this
+// codebase already used for `audio_assets` and the deep-link anchor primitives.
+
+// SCHEMA CORRECTION, 2026-07-18: an earlier pass of this file shipped a
+// different narration shape (hook/teach/model/guidedPractice/checkpoint/
+// freePractice/recap stages, markup-string-free structured segments with no
+// voice/timing fields). That was designed without reading the locked schema
+// this codebase had already settled on. The authoritative shape below is
+// transcribed verbatim from `reconciliation/EALCH-MASTER-BUILD.md`, Phase 7,
+// "Narration schema (additive, land the shape before authoring — HIGH note
+// 25)" — the actively-maintained engineering doc that supersedes the older
+// content-planning drafts (including `AUDIO-LESSON-SCRIPT-SYSTEM.md`'s own
+// §7, which proposed a third, markup-string `{stage, script}` shape). The
+// `[FR]…[/FR]` markup from that doc survives as the AUTHORING format a
+// `parseNarration` pass compiles into the structured segments below before
+// they ever reach this schema — the markup is not stored here.
+
+/** The seven Den stages a narrated lesson walks through, in order — the same
+ *  seven the Den's guided-narrated-lesson structure names elsewhere
+ *  (warm-up → focus → input/story → practice → produce → check →
+ *  cheat-sheet). A lesson need not author every stage yet (the same
+ *  contract-required-storage-optional pattern as `Item.skill`/`modality`),
+ *  but whichever ARE present must appear in this order: the player walks
+ *  the array, and a narrated lesson that checks before it teaches is not a
+ *  shorter lesson, it is a broken one. */
+export const NARRATION_STAGES = ['warm', 'focus', 'input', 'practice', 'produce', 'check', 'cheat'] as const;
+export type NarrationStageKind = (typeof NARRATION_STAGES)[number];
+
+/** One spoken line inside a stage. `voice` picks which device/cloud voice
+ *  speaks it — a stage routinely scaffolds in English before switching to
+ *  French mid-explanation, so this is per-segment, not per-stage. `startMs`/
+ *  `endMs` locate it inside `audioRef` once Phase 4 renders real audio;
+ *  absent means device TTS speaks `text` directly. */
+export type NarrationSegment = {
+  voice: 'en' | 'fr';
+  text: string;
+  audioRef?: string | null;
+  startMs?: number;
+  endMs?: number;
+};
+
+/** A point where the learner acts rather than listens. `repeat` asks them to
+ *  echo the preceding segment; `produce` asks for their own line; `check` is
+ *  a markable comprehension question. `itemId`, when present, is what this
+ *  interaction drills — resolved against corpus items by validateCorpus,
+ *  exactly like a `practice` LessonSection's itemIds, because a narration
+ *  stage that drills a dangling item is the same silent-blank-drill failure
+ *  that rule exists to prevent. `gradeAs` is the modality `logAttempt`
+ *  should record it under (Phase 5's SRS keys on (itemId, modality)). */
+export type NarrationInteraction = {
+  kind: 'repeat' | 'produce' | 'check';
+  itemId?: string;
+  /** What a correct spoken/written answer should contain, for `produce`/
+   *  `check` interactions scored against a fixed expectation. */
+  expected?: string;
+  gradeAs?: Modality;
+};
+
+/** A stage's content is one ordered list mixing spoken segments and
+ *  interactions — an interaction is not a trailing afterthought bolted onto
+ *  a segment list, it can sit anywhere a stage actually pauses to ask
+ *  something. Distinguished by shape: a `NarrationInteraction` always
+ *  carries `kind`; a `NarrationSegment` never does. */
+export type NarrationStage = {
+  stage: NarrationStageKind;
+  segments: (NarrationSegment | NarrationInteraction)[];
+};
+
+/** `camilleVoiceId` pins the brand voice per lesson (resolved by the Phase 4
+ *  TTS Edge Function; device `expo-speech` is the offline fallback and
+ *  ignores it). `ratioEnFr` records the authored English:French balance the
+ *  CEFR-adaptive authoring brief targets per level (~70/30 at A1-A2, ~20/80
+ *  at B1-B2, ~0/100 at C1-C2) — stored so a publish-time check can flag a
+ *  script that drifted from its own level's target. */
+export type LessonNarration = {
+  camilleVoiceId: string;
+  stages: NarrationStage[];
+  ratioEnFr: number;
+};
+
+/** Distinguishes a `NarrationInteraction` from a `NarrationSegment` inside a
+ *  stage's mixed segments array — a `NarrationInteraction` always carries
+ *  `kind`, a `NarrationSegment` never does. Exported for the Den player
+ *  (Phase 7), which walks this same union at runtime. */
+export function isNarrationInteraction(v: object): v is NarrationInteraction {
+  return 'kind' in v;
+}
+
+function validateNarrationSegment(v: unknown, path: string): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  const s = v as Partial<NarrationSegment>;
+  if (s.voice !== 'fr' && s.voice !== 'en') push("voice must be 'fr' or 'en'");
+  if (!isStr(s.text)) push('text is required');
+  if (s.audioRef !== undefined && s.audioRef !== null && !isStr(s.audioRef)) {
+    push('audioRef must be a string or null when present');
+  }
+  for (const k of ['startMs', 'endMs'] as const) {
+    if (s[k] !== undefined && (typeof s[k] !== 'number' || !Number.isInteger(s[k]) || s[k]! < 0)) {
+      push(`${k} must be an integer >= 0 when present`);
+    }
+  }
+  return out;
+}
+
+function validateNarrationInteraction(v: object, path: string): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  const i = v as Partial<NarrationInteraction>;
+  if (i.kind !== 'repeat' && i.kind !== 'produce' && i.kind !== 'check') {
+    push("kind must be one of 'repeat' | 'produce' | 'check'");
+  }
+  if (i.itemId !== undefined && (!isStr(i.itemId) || !ITEM_ID_RE.test(i.itemId))) {
+    push(`itemId "${String(i.itemId)}" is not a valid item id`);
+  }
+  if (i.expected !== undefined && !isStr(i.expected)) push('expected must be a non-empty string when present');
+  if (i.gradeAs !== undefined && !oneOf(MODALITIES, i.gradeAs)) {
+    push(`gradeAs must be one of ${MODALITIES.join(' | ')}`);
+  }
+  return out;
+}
+
+function validateNarration(v: unknown, path: string): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null || isArr(v)) return [{ path, message: 'not an object' }];
+  const n = v as Partial<LessonNarration>;
+  if (!isStr(n.camilleVoiceId)) push('camilleVoiceId is required');
+  if (typeof n.ratioEnFr !== 'number' || n.ratioEnFr < 0 || n.ratioEnFr > 1) {
+    push('ratioEnFr must be a number between 0 and 1');
+  }
+  if (!isArr(n.stages)) {
+    push('stages must be an array');
+    return out;
+  }
+  let prevRank = -1;
+  n.stages.forEach((st, i) => {
+    if (typeof st !== 'object' || st === null) {
+      push(`stages[${i}] is not an object`);
+      return;
+    }
+    const stage = st as Partial<NarrationStage>;
+    const rank = (NARRATION_STAGES as readonly string[]).indexOf(stage.stage as string);
+    if (rank < 0) push(`stages[${i}].stage must be one of ${NARRATION_STAGES.join(', ')}`);
+    else if (rank <= prevRank) {
+      push(`stages[${i}].stage "${stage.stage}" is out of order — narration stages must follow ${NARRATION_STAGES.join(' → ')}`);
+    } else {
+      prevRank = rank;
+    }
+    if (!isArr(stage.segments) || stage.segments.length === 0) {
+      push(`stages[${i}].segments must be a non-empty array`);
+    } else {
+      stage.segments.forEach((seg, j) => {
+        const segPath = `${path}.stages[${i}].segments[${j}]`;
+        if (typeof seg !== 'object' || seg === null || isArr(seg)) {
+          push(`${segPath} is not an object`);
+        } else if (isNarrationInteraction(seg)) {
+          out.push(...validateNarrationInteraction(seg, segPath));
+        } else {
+          out.push(...validateNarrationSegment(seg, segPath));
+        }
+      });
+    }
+  });
+  return out;
+}
 
 /**
  * A Unit CONTAINS lessons. The Den's tree is units; the lessons live inside.
@@ -581,8 +813,116 @@ export type Scenario = {
   title: string;
   turns: ScenarioTurn[];
   version: number;
+  /** When present, this role-play doubles as the stimulus for a PO
+   *  (production orale) exam task — a live conversation is the natural shape
+   *  for po_interaction, so it is reused rather than re-authored as a static
+   *  ExamTask.stimulus. The referenced task must exist and be a po_* taskType
+   *  — checked in validateCorpus alongside the rest of the exam referential
+   *  integrity. Not a remediation link (that is Lesson.skill) — this is the
+   *  opposite direction: a scenario standing IN for an exam task. */
+  exam?: { format: ExamFormat; taskId: string };
   provenance?: Provenance;
 };
+
+/* ─── Playlist: a listening set ──────────────────────────────────────────── */
+
+// A Playlist is neither an Item (atomic, drilled) nor a Lesson (read, taught)
+// nor a Scenario (a dialogue the learner produces one turn at a time) — it is
+// a set the learner LISTENS to, straight through, with no interaction beyond
+// play. Before this it lived as a hardcoded array in `content/playlists.ts`,
+// entirely outside the DB, the publish pipeline, and every gate that protects
+// the rest of the corpus. Promoting it here means a playlist can be authored,
+// gated (the same em-dash/register/level-fit rules as anything else) and
+// shipped OTA like the rest of the content instead of requiring an app-store
+// release to add a new one.
+
+/** 'pl.<level>.<slug>' — pl.sons.la-voix, pl.b1.argot. Derived from LEVELS
+ *  like every other id regex; `minLevel` on the type is the authored
+ *  listening floor, the id's level is where authoring filed it. */
+export const PLAYLIST_ID_RE = new RegExp(`^pl\\.(${BANDS_RE})\\.[a-z0-9-]+$`);
+
+export function playlistId(level: Level, slug: string): string {
+  return `pl.${level}.${slug}`;
+}
+
+export type PlaylistTrack = {
+  /** Stable id: '<playlistId>-t<seq>'. */
+  id: string;
+  /** French track title, shown as the now-playing heading in the player. */
+  title: string;
+  /** The lines spoken in order. `fr` is what TTS (or Phase 4 real audio)
+   *  says; `en` is the gloss. Raw lines, not itemIds — a playlist track is
+   *  authored prose meant to be heard in sequence, not a themed pull from
+   *  the corpus, which is why it needs no referential check against items. */
+  lines: { fr: string; en: string }[];
+};
+
+export type Playlist = {
+  id: string;
+  /** The lowest band this playlist is honest listening for. Argot at a1
+   *  would be noise; this is the declaration a level-aware feed reads. */
+  minLevel: Level;
+  /** The serif French word painted on the card (La Voix, Argot…). */
+  word: string;
+  /** Eyebrow tag (DEEP-DIVE, PARIS…). */
+  tag: string;
+  /** Card gradient, literal rgba — a playlist is theme-independent, matching
+   *  the fixed-color sibling cards it sits beside. */
+  glow: string;
+  labelFr: string;
+  labelEn: string;
+  /** The meta topic ('nasal vowels'); the count shown on the card is always
+   *  derived from `tracks.length`, never stored. */
+  topicFr: string;
+  topicEn: string;
+  tracks: PlaylistTrack[];
+  version: number;
+  status: ContentStatus;
+  provenance?: Provenance;
+};
+
+function validatePlaylistTrack(v: unknown, path: string): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null || isArr(v)) return [{ path, message: 'not an object' }];
+  const t = v as Partial<PlaylistTrack>;
+  if (!isStr(t.id)) push('id is required');
+  if (!isStr(t.title)) push('title is required');
+  if (!isArr(t.lines) || t.lines.length === 0) push('lines must be a non-empty array');
+  else {
+    t.lines.forEach((ln, i) => {
+      if (typeof ln !== 'object' || ln === null || !isStr((ln as { fr?: unknown }).fr) || !isStr((ln as { en?: unknown }).en)) {
+        push(`lines[${i}] must be { fr, en } strings`);
+      }
+    });
+  }
+  return out;
+}
+
+export function validatePlaylist(v: unknown, path = 'playlist'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null) return [{ path, message: 'not an object' }];
+  const p = v as Partial<Playlist>;
+
+  if (!isStr(p.id)) push('id is required');
+  else if (!PLAYLIST_ID_RE.test(p.id)) push(`id "${p.id}" must match pl.<level>.<slug>`);
+  if (!oneOf(LEVELS, p.minLevel)) push(`minLevel must be one of ${LEVELS.join(' | ')}`);
+  for (const k of ['word', 'tag', 'glow', 'labelFr', 'labelEn', 'topicFr', 'topicEn'] as const) {
+    if (!isStr(p[k])) push(`${k} is required`);
+  }
+  if (!isArr(p.tracks) || p.tracks.length === 0) push('tracks must be a non-empty array');
+  else {
+    p.tracks.forEach((t, i) => out.push(...validatePlaylistTrack(t, `${path}.tracks[${i}]`)));
+    const trackIds = p.tracks.map((t) => (t as Partial<PlaylistTrack>).id).filter(isStr);
+    if (new Set(trackIds).size !== trackIds.length) push('track ids must not repeat within a playlist');
+  }
+  if (typeof p.version !== 'number' || !Number.isFinite(p.version)) push('version must be a number');
+  if (!oneOf(CONTENT_STATUSES, p.status)) push(`status must be one of ${CONTENT_STATUSES.join(' | ')}`);
+  if (p.provenance !== undefined) out.push(...validateProvenance(p.provenance, `${path}.provenance`));
+
+  return out;
+}
 
 /* ─── Domain and Theme: the catalogue ────────────────────────────────────── */
 
@@ -678,6 +1018,100 @@ export type Pack = {
   provenance?: Provenance;
 };
 
+/* ─── Content templates: the antidote to one-size-fits-all ──────────────── */
+
+// A Pack says WHAT to author next: "the a1 café pack, six roleplay turns". A
+// ContentTemplate says HOW — which shape the result must take, and the prompt
+// skeleton a generator fills in to get there. Without this, every generation
+// script hand-codes its own one-off prompt and its own one-off shape, which is
+// exactly the "same generic prompt with a topic swapped in" failure mode: a
+// verb-conjugation drill and a café roleplay turn are pedagogically different
+// authoring problems and need genuinely different instructions, not the same
+// instructions pointed at a different theme. A template is a named, versioned,
+// reusable authoring pattern that a generation job REFERENCES rather than
+// reinvents, and that a human editor can pick from a list instead of copying
+// whichever old script looked close enough.
+
+export const TEMPLATE_TARGETS = ['item', 'lesson', 'scenario', 'examTask', 'playlist'] as const;
+export type TemplateTarget = (typeof TEMPLATE_TARGETS)[number];
+
+/** 'tpl.<target>.<slug>' — tpl.item.verb-conjugation-drill,
+ *  tpl.lesson.den-narrated-teach. The target is embedded in the id so a
+ *  mismatched `target` field (a lesson template claiming to produce items)
+ *  is catchable by inspection, not just by trusting the field. */
+export const TEMPLATE_ID_RE = new RegExp(`^tpl\\.(${TEMPLATE_TARGETS.join('|')})\\.[a-z0-9-]+$`);
+
+export function templateId(target: TemplateTarget, slug: string): string {
+  return `tpl.${target}.${slug}`;
+}
+
+export type ContentTemplate = {
+  id: string;
+  target: TemplateTarget;
+  name: string;
+  /** What a human choosing between sibling templates for the same target
+   *  needs to know before picking this one. */
+  description: string;
+  /** Levels this template is fit to author at. A discriminate minimal-pair
+   *  template has nothing useful to say about c1 register nuance; a template
+   *  that claims every level is usually a template that fits none of them
+   *  well, which is precisely the one-size-fits-all failure this exists to
+   *  name and prevent. */
+  levels: Level[];
+  /** The generation prompt skeleton, with named {{placeholder}} slots a
+   *  caller fills from the curriculum target (theme, canDo, recycled
+   *  vocabulary, register). This is what makes a template a genuinely
+   *  different authoring PATH rather than the same prompt with a topic
+   *  swapped in. */
+  promptSkeleton: string;
+  /** A worked example of the shape this template must produce, so a
+   *  reviewer — human or the LLM-judge gate — has something concrete to
+   *  check output against, not just a type. */
+  example: string;
+  /** Narrower than `target` alone implies, when it needs to be: an 'item'
+   *  template authored for voiceflash vocabulary should not also claim
+   *  dictation eligibility just because both are drills on items. */
+  drills?: DrillKind[];
+  sections?: SectionType[];
+  version: number;
+  status: ContentStatus;
+  provenance?: Provenance;
+};
+
+export function validateTemplate(v: unknown, path = 'template'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null) return [{ path, message: 'not an object' }];
+  const t = v as Partial<ContentTemplate>;
+
+  if (!oneOf(TEMPLATE_TARGETS, t.target)) push(`target must be one of ${TEMPLATE_TARGETS.join(' | ')}`);
+  if (!isStr(t.id)) push('id is required');
+  else if (!TEMPLATE_ID_RE.test(t.id)) push(`id "${t.id}" must match tpl.<target>.<slug>`);
+  else if (oneOf(TEMPLATE_TARGETS, t.target) && !t.id.startsWith(`tpl.${t.target}.`)) {
+    push(`id "${t.id}" does not match its own target "${t.target}"`);
+  }
+  if (!isStr(t.name)) push('name is required');
+  if (!isStr(t.description)) push('description is required');
+  if (!isArr(t.levels) || t.levels.length === 0 || t.levels.some((l) => !oneOf(LEVELS, l))) {
+    push(`levels must be a non-empty array drawn from ${LEVELS.join(' | ')}`);
+  }
+  if (!isStr(t.promptSkeleton)) push('promptSkeleton is required');
+  if (!isStr(t.example)) push('example is required');
+  if (t.drills !== undefined) {
+    if (!isArr(t.drills)) push('drills must be an array when present');
+    else if (t.drills.some((d) => !oneOf(DRILL_KINDS, d))) push(`drills must all be one of ${DRILL_KINDS.join(' | ')}`);
+  }
+  if (t.sections !== undefined) {
+    if (!isArr(t.sections)) push('sections must be an array when present');
+    else if (t.sections.some((s) => !oneOf(SECTION_TYPES, s))) push(`sections must all be one of ${SECTION_TYPES.join(' | ')}`);
+  }
+  if (typeof t.version !== 'number' || !Number.isFinite(t.version)) push('version must be a number');
+  if (!oneOf(CONTENT_STATUSES, t.status)) push(`status must be one of ${CONTENT_STATUSES.join(' | ')}`);
+  if (t.provenance !== undefined) out.push(...validateProvenance(t.provenance, `${path}.provenance`));
+
+  return out;
+}
+
 /* ─── Exam entities ──────────────────────────────────────────────────────── */
 
 // An ExamTask is one task off one paper: a TCF listening question, a DELF B1
@@ -686,30 +1120,34 @@ export type Pack = {
 // under a clock. Forcing it into either loses the two properties that make it an
 // exam at all: the timing, and the rubric.
 //
-// The sections these belong to (co/ce/eo/ee) split cleanly in two, and the split
-// is what the validators below care about:
-//   · CLOSED tasks (co, ce) have right answers. A QCM can be marked by a machine.
-//   · OPEN   tasks (eo, ee) do not. Someone judges them against a rubric, and
-//     without one there is no such thing as a score — only an opinion.
+// The task types these belong to split cleanly in two, and the split is what
+// the validators below care about:
+//   · CLOSED tasks (co_mcq, ce_mcq) have right answers. A QCM can be marked by
+//     a machine.
+//   · OPEN   tasks (po_monologue, po_interaction, pe_short, pe_essay) do not.
+//     Someone (or, per the grading pipeline, a model grounded in a rubric and
+//     model answer) judges them, and without one there is no such thing as a
+//     score — only an opinion.
 
-/** 'exam.<family>.<variant>.<section>.<seq>' — exam.tcf.2024a.co.001 */
+/** 'exam.<format>.<variant>.<taskType>.<seq>' — exam.tcf_canada.2024a.co_mcq.001 */
 export const EXAM_TASK_ID_RE = new RegExp(
-  `^exam\\.(${EXAM_FAMILIES.join('|')})\\.[a-z0-9-]+\\.(${EXAM_SECTIONS.join('|')})\\.\\d{3,}$`
+  `^exam\\.(${EXAM_FORMATS.join('|')})\\.[a-z0-9-]+\\.(${EXAM_TASK_TYPES.join('|')})\\.\\d{3,}$`
 );
-/** 'series.<family>.<variant>.<n>' — series.tcf.2024a.1 */
-export const EXAM_SERIES_ID_RE = new RegExp(`^series\\.(${EXAM_FAMILIES.join('|')})\\.[a-z0-9-]+\\.[1-5]$`);
+/** 'series.<format>.<variant>.<n>' — series.tcf_canada.2024a.1 */
+export const EXAM_SERIES_ID_RE = new RegExp(`^series\\.(${EXAM_FORMATS.join('|')})\\.[a-z0-9-]+\\.[1-5]$`);
 
-export function examTaskId(family: ExamFamily, variant: string, section: ExamSection, seq: number): string {
-  return `exam.${family}.${variant}.${section}.${String(seq).padStart(3, '0')}`;
+export function examTaskId(format: ExamFormat, variant: string, taskType: ExamTaskType, seq: number): string {
+  return `exam.${format}.${variant}.${taskType}.${String(seq).padStart(3, '0')}`;
 }
-export function examSeriesId(family: ExamFamily, variant: string, seriesNo: number): string {
-  return `series.${family}.${variant}.${seriesNo}`;
+export function examSeriesId(format: ExamFormat, variant: string, seriesNo: number): string {
+  return `series.${format}.${variant}.${seriesNo}`;
 }
 
-/** Sections whose answers a machine can mark. The rest need a human and a rubric. */
-export const CLOSED_SECTIONS = ['co', 'ce'] as const;
-export const OPEN_SECTIONS = ['eo', 'ee'] as const;
-const isOpenSection = (v: unknown): boolean => (OPEN_SECTIONS as readonly string[]).includes(v as string);
+/** Task types whose answers a machine can mark. The rest need a rubric and a
+ *  model answer — see OPEN_TASK_TYPES below and the grading pipeline. */
+export const CLOSED_TASK_TYPES = ['co_mcq', 'ce_mcq'] as const;
+export const OPEN_TASK_TYPES = ['po_monologue', 'po_interaction', 'pe_short', 'pe_essay'] as const;
+const isOpenTaskType = (v: unknown): boolean => (OPEN_TASK_TYPES as readonly string[]).includes(v as string);
 
 /** A multiple-choice question. Same shape and same trap as the quiz section. */
 export type QcmItem = { q: string; opts: string[]; correct: number; why?: string };
@@ -741,12 +1179,21 @@ export type ResponseSpec = {
 export type ScoringBandRule = { band: ScoreBand; minPoints: number };
 
 export type ExamTask = {
-  /** 'exam.<family>.<variant>.<section>.<seq>' */
+  /** 'exam.<format>.<variant>.<taskType>.<seq>' */
   id: string;
-  family: ExamFamily;
-  /** The paper this came from: '2024a', 'blanc-03'. */
+  format: ExamFormat;
+  /** The paper this came from: '2024a', 'blanc-03'. Distinct from formatVersion
+   *  below — variant identifies which of several PARALLEL mock papers this is
+   *  (see ExamSeries.seriesNo), formatVersion identifies which edition of the
+   *  exam board's spec it was written against. Losing either collapses two
+   *  different questions ("which paper?" vs "is this paper stale?") into one. */
   variant: string;
-  section: ExamSection;
+  taskType: ExamTaskType;
+  /** Derived from taskType via examTaskSkill(), and validated to match it —
+   *  stored rather than computed on read because it is what the SRS
+   *  decomposition and due-skill grouping key off, and both happen far from
+   *  any code that also has the taskType in scope. */
+  skill: ExamSkill;
   /**
    * The band this task tests. A SCORE band, not a content Level: exams are CEFR
    * -scored, 'sons' is our own pronunciation track and no paper has ever tested
@@ -767,27 +1214,39 @@ export type ExamTask = {
    */
   formatVersion: string;
   prompt: string;
-  /** Closed sections only: the questions to mark. */
+  /** Closed task types only: the questions to mark. */
   items?: QcmItem[];
   responseSpec?: ResponseSpec;
-  /** Open sections only, and REQUIRED there — see validateExamTask. */
+  /** Open task types only, and REQUIRED there — see validateExamTask. */
   rubric?: Rubric;
-  /** Open sections only, and required there: what a good answer looks like. */
+  /** Open task types only, and required there: what a good answer looks like. */
   modelAnswer?: string;
   examinerNotes?: string[];
   /** Seconds allowed. An exam task without a clock is a worksheet. */
   timingS: number;
   scoringMap?: ScoringBandRule[];
+  /**
+   * Closed task types only. Which corpus items this task is really testing, so
+   * a miss can decompose into the atoms that need review instead of just
+   * logging "got question 3 wrong" and losing the thread back to the SRS. See
+   * decomposeExamMiss() in progress.logic.ts. Every id must resolve against
+   * Corpus.items — checked in validateCorpus, same pattern as
+   * ExamSeries.taskIds resolving against ExamTask ids.
+   */
+  targetItemIds?: string[];
   provenance?: Provenance;
 };
 
 /** A full mock sitting: the ordered tasks that make up one paper. */
 export type ExamSeries = {
-  /** 'series.<family>.<variant>.<n>' */
+  /** 'series.<format>.<variant>.<n>' */
   id: string;
-  family: ExamFamily;
+  format: ExamFormat;
   variant: string;
-  /** 1..5. Five mock papers per variant, per the examiner spec. */
+  /** 1..5. Five parallel mock papers per variant — "parallel," never
+   *  "equated": difficulty is expert-judged, not psychometrically balanced
+   *  from sitting data, so scores reported off any of them are practice
+   *  estimates, not equated bands. */
   seriesNo: number;
   /** Ordered. Must all resolve — checked in validateCorpus. */
   taskIds: string[];
@@ -814,6 +1273,8 @@ export type Corpus = {
   packs?: Pack[];
   examTasks?: ExamTask[];
   examSeries?: ExamSeries[];
+  playlists?: Playlist[];
+  templates?: ContentTemplate[];
 };
 
 export const EMPTY_CORPUS: Corpus = {
@@ -827,6 +1288,8 @@ export const EMPTY_CORPUS: Corpus = {
   packs: [],
   examTasks: [],
   examSeries: [],
+  playlists: [],
+  templates: [],
 };
 
 /* ─── Validation ─────────────────────────────────────────────────────────── */
@@ -920,6 +1383,17 @@ export function validateItem(v: unknown, path = 'item'): Issue[] {
     }
   }
   if (it.provenance !== undefined) out.push(...validateProvenance(it.provenance, `${path}.provenance`));
+  if (it.verbCheck !== undefined) {
+    const vc = it.verbCheck as Partial<NonNullable<Item['verbCheck']>>;
+    if (typeof vc !== 'object' || vc === null) push('verbCheck must be an object when present');
+    else {
+      if (!isStr(vc.infinitive)) push('verbCheck.infinitive is required when verbCheck is present');
+      if (!isStr(vc.tense)) push('verbCheck.tense is required when verbCheck is present');
+      if (vc.mood !== undefined && !isStr(vc.mood)) push('verbCheck.mood must be a non-empty string when present');
+      if (vc.person !== '1' && vc.person !== '2' && vc.person !== '3') push("verbCheck.person must be '1', '2', or '3'");
+      if (vc.number !== 's' && vc.number !== 'p') push("verbCheck.number must be 's' or 'p'");
+    }
+  }
 
   return out;
 }
@@ -1116,6 +1590,12 @@ export function validateLesson(v: unknown, path = 'lesson'): Issue[] {
       push(`scenarioId "${String(l.scenarioId)}" is not a valid scenario id`);
     }
   }
+  if (l.narration !== undefined) {
+    out.push(...validateNarration(l.narration, `${path}.narration`));
+  }
+  if (l.skill !== undefined && !oneOf(EXAM_SKILLS, l.skill)) {
+    push(`skill must be one of ${EXAM_SKILLS.join(' | ')} when present`);
+  }
   if (l.provenance !== undefined) out.push(...validateProvenance(l.provenance, `${path}.provenance`));
 
   return out;
@@ -1206,6 +1686,14 @@ export function validateScenario(v: unknown, path = 'scenario'): Issue[] {
 
   if (!isStr(s.title)) push('title is required');
   if (typeof s.version !== 'number' || !Number.isFinite(s.version)) push('version must be a number');
+  if (s.exam !== undefined) {
+    const e = s.exam as Partial<{ format: unknown; taskId: unknown }>;
+    if (!oneOf(EXAM_FORMATS, e.format)) push(`exam.format must be one of ${EXAM_FORMATS.join(' | ')}`);
+    if (!isStr(e.taskId) || !EXAM_TASK_ID_RE.test(e.taskId)) push('exam.taskId is not a valid exam task id');
+    // Resolving taskId against corpus.examTasks and checking it is a po_* task
+    // needs the exam task set, which this function does not have — done in
+    // validateCorpus alongside the rest of the exam referential integrity.
+  }
   if (s.provenance !== undefined) out.push(...validateProvenance(s.provenance, `${path}.provenance`));
 
   if (!isArr(s.turns)) push('turns must be an array');
@@ -1401,19 +1889,23 @@ export function validateExamTask(v: unknown, path = 'examTask'): Issue[] {
   const t = v as Partial<ExamTask>;
 
   if (!isStr(t.id)) push('id is required');
-  else if (!EXAM_TASK_ID_RE.test(t.id)) push(`id "${t.id}" must match exam.<family>.<variant>.<section>.<seq>`);
+  else if (!EXAM_TASK_ID_RE.test(t.id)) push(`id "${t.id}" must match exam.<format>.<variant>.<taskType>.<seq>`);
 
-  if (!oneOf(EXAM_FAMILIES, t.family)) push(`family must be one of ${EXAM_FAMILIES.join(' | ')}`);
-  if (!oneOf(EXAM_SECTIONS, t.section)) push(`section must be one of ${EXAM_SECTIONS.join(' | ')}`);
+  if (!oneOf(EXAM_FORMATS, t.format)) push(`format must be one of ${EXAM_FORMATS.join(' | ')}`);
+  if (!oneOf(EXAM_TASK_TYPES, t.taskType)) push(`taskType must be one of ${EXAM_TASK_TYPES.join(' | ')}`);
+  if (!oneOf(EXAM_SKILLS, t.skill)) push(`skill must be one of ${EXAM_SKILLS.join(' | ')}`);
+  else if (oneOf(EXAM_TASK_TYPES, t.taskType) && t.skill !== examTaskSkill(t.taskType as ExamTaskType)) {
+    push(`skill "${t.skill}" disagrees with taskType "${t.taskType}" (expected "${examTaskSkill(t.taskType as ExamTaskType)}")`);
+  }
   // SCORE_BANDS, not LEVELS: a paper can test c2 and no paper tests 'sons'.
   if (!oneOf(SCORE_BANDS, t.level)) push(`level must be one of ${SCORE_BANDS.join(' | ')}`);
   if (!isStr(t.variant)) push('variant is required');
 
-  // The id encodes family and section, as everywhere else in this file.
+  // The id encodes format and taskType, as everywhere else in this file.
   if (isStr(t.id) && EXAM_TASK_ID_RE.test(t.id)) {
-    const [, family, variant, section] = t.id.split('.');
-    if (t.family && family !== t.family) push(`id family "${family}" disagrees with family "${t.family}"`);
-    if (t.section && section !== t.section) push(`id section "${section}" disagrees with section "${t.section}"`);
+    const [, format, variant, taskType] = t.id.split('.');
+    if (t.format && format !== t.format) push(`id format "${format}" disagrees with format "${t.format}"`);
+    if (t.taskType && taskType !== t.taskType) push(`id taskType "${taskType}" disagrees with taskType "${t.taskType}"`);
     if (t.variant && variant !== t.variant) push(`id variant "${variant}" disagrees with variant "${t.variant}"`);
   }
 
@@ -1430,22 +1922,34 @@ export function validateExamTask(v: unknown, path = 'examTask'): Issue[] {
   // answer. Without them nothing can mark it — not a human, not a model. It is
   // not a partially-authored task, it is a prompt that produces an opinion and
   // calls it a score, and the candidate cannot tell the difference.
-  if (isOpenSection(t.section)) {
+  if (isOpenTaskType(t.taskType)) {
     if (t.rubric === undefined) {
-      push(`section "${t.section}" is an open task and MUST have a rubric — nothing can mark it otherwise`);
+      push(`taskType "${t.taskType}" is an open task and MUST have a rubric — nothing can mark it otherwise`);
     }
     if (!isStr(t.modelAnswer)) {
-      push(`section "${t.section}" is an open task and MUST have a modelAnswer`);
+      push(`taskType "${t.taskType}" is an open task and MUST have a modelAnswer`);
     }
   }
   if (t.rubric !== undefined) out.push(...validateRubric(t.rubric, `${path}.rubric`));
 
-  // Closed sections carry the questions. Marking is the whole point of them, so
-  // a co/ce task with nothing to mark is an empty paper that scores 0/0.
-  if (!isOpenSection(t.section) && oneOf(EXAM_SECTIONS, t.section)) {
-    if (t.items === undefined) push(`section "${t.section}" is a closed task and MUST have items to mark`);
+  // Closed task types carry the questions. Marking is the whole point of them,
+  // so a co_mcq/ce_mcq task with nothing to mark is an empty paper that scores 0/0.
+  if (!isOpenTaskType(t.taskType) && oneOf(EXAM_TASK_TYPES, t.taskType)) {
+    if (t.items === undefined) push(`taskType "${t.taskType}" is a closed task and MUST have items to mark`);
   }
   if (t.items !== undefined) out.push(...validateQcm(t.items, `${path}.items`));
+
+  // targetItemIds is how a miss decomposes back into the SRS — see the type.
+  // Closed task types only: open tasks have no per-item right answer to blame.
+  if (t.targetItemIds !== undefined) {
+    if (!isArr(t.targetItemIds) || t.targetItemIds.some((id) => !isStr(id))) {
+      push('targetItemIds must be an array of strings when present');
+    } else if (isOpenTaskType(t.taskType) && t.targetItemIds.length > 0) {
+      push(`taskType "${t.taskType}" is open and cannot decompose into item atoms — targetItemIds must be empty`);
+    }
+    // Referential resolution against corpus.items happens in validateCorpus,
+    // which has the item set in scope; this function validates one task alone.
+  }
 
   if (t.responseSpec !== undefined) {
     const rs = t.responseSpec as Partial<ResponseSpec>;
@@ -1516,9 +2020,9 @@ export function validateExamSeries(v: unknown, path = 'examSeries'): Issue[] {
   const s = v as Partial<ExamSeries>;
 
   if (!isStr(s.id)) push('id is required');
-  else if (!EXAM_SERIES_ID_RE.test(s.id)) push(`id "${s.id}" must match series.<family>.<variant>.<1-5>`);
+  else if (!EXAM_SERIES_ID_RE.test(s.id)) push(`id "${s.id}" must match series.<format>.<variant>.<1-5>`);
 
-  if (!oneOf(EXAM_FAMILIES, s.family)) push(`family must be one of ${EXAM_FAMILIES.join(' | ')}`);
+  if (!oneOf(EXAM_FORMATS, s.format)) push(`format must be one of ${EXAM_FORMATS.join(' | ')}`);
   if (!isStr(s.variant)) push('variant is required');
 
   if (typeof s.seriesNo !== 'number' || !Number.isInteger(s.seriesNo) || s.seriesNo < 1 || s.seriesNo > 5) {
@@ -1526,8 +2030,8 @@ export function validateExamSeries(v: unknown, path = 'examSeries'): Issue[] {
   }
 
   if (isStr(s.id) && EXAM_SERIES_ID_RE.test(s.id)) {
-    const [, family, variant, no] = s.id.split('.');
-    if (s.family && family !== s.family) push(`id family "${family}" disagrees with family "${s.family}"`);
+    const [, format, variant, no] = s.id.split('.');
+    if (s.format && format !== s.format) push(`id format "${format}" disagrees with format "${s.format}"`);
     if (s.variant && variant !== s.variant) push(`id variant "${variant}" disagrees with variant "${s.variant}"`);
     if (s.seriesNo !== undefined && no !== String(s.seriesNo)) {
       push(`id series number "${no}" disagrees with seriesNo "${s.seriesNo}"`);
@@ -1573,12 +2077,17 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   const packs = co.packs ?? [];
   const examTasks = co.examTasks ?? [];
   const examSeries = co.examSeries ?? [];
+  const playlists = co.playlists ?? [];
+  const templates = co.templates ?? [];
 
   if (!isArr(co.units) || !isArr(co.lessons) || !isArr(co.items) || !isArr(scenarios)) {
     return [{ path, message: 'units, lessons, items and scenarios must all be arrays' }];
   }
   if (!isArr(domains) || !isArr(themes) || !isArr(packs) || !isArr(examTasks) || !isArr(examSeries)) {
     return [{ path, message: 'domains, themes, packs, examTasks and examSeries must be arrays when present' }];
+  }
+  if (!isArr(playlists) || !isArr(templates)) {
+    return [{ path, message: 'playlists and templates must be arrays when present' }];
   }
 
   co.items.forEach((it, i) => out.push(...validateItem(it, `${path}.items[${i}]`)));
@@ -1590,6 +2099,8 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   packs.forEach((p, i) => out.push(...validatePack(p, `${path}.packs[${i}]`)));
   examTasks.forEach((t, i) => out.push(...validateExamTask(t, `${path}.examTasks[${i}]`)));
   examSeries.forEach((s, i) => out.push(...validateExamSeries(s, `${path}.examSeries[${i}]`)));
+  playlists.forEach((p, i) => out.push(...validatePlaylist(p, `${path}.playlists[${i}]`)));
+  templates.forEach((t, i) => out.push(...validateTemplate(t, `${path}.templates[${i}]`)));
 
   // Duplicate ids: the later one silently wins in any Map-based lookup, so two
   // different items can share a key and the SRS schedules a ghost.
@@ -1615,6 +2126,8 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   dupes(packs.map((p) => p.id).filter(isStr), 'pack');
   dupes(examTasks.map((t) => t.id).filter(isStr), 'exam task');
   dupes(examSeries.map((s) => s.id).filter(isStr), 'exam series');
+  dupes(playlists.map((p) => p.id).filter(isStr), 'playlist');
+  dupes(templates.map((t) => t.id).filter(isStr), 'template');
 
   const itemSet = new Set(itemIds);
   const lessonSet = new Set(lessonIds);
@@ -1639,6 +2152,20 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
               message: `lesson "${l.id}" practice section references unknown item "${id}"`,
             });
           }
+        }
+      }
+    }
+    // A narration interaction's itemId is the same join as a `practice`
+    // section's itemIds, and fails the same way when it dangles: a drill
+    // Camille narrates into that has nothing behind it.
+    for (const st of isArr(l.narration?.stages) ? l.narration!.stages : []) {
+      for (const seg of isArr(st?.segments) ? st.segments : []) {
+        const id = (seg as { itemId?: unknown } | undefined)?.itemId;
+        if (isStr(id) && !itemSet.has(id)) {
+          out.push({
+            path: `${path}.lessons`,
+            message: `lesson "${l.id}" narration references unknown item "${id}"`,
+          });
         }
       }
     }
@@ -1734,6 +2261,32 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
     }
   }
 
+  // A task pointing at an item that does not exist is a miss that decomposes
+  // into nothing — the SRS never learns which atom to review. Same failure
+  // shape as a dangling taskId above, one join deeper.
+  for (const t of examTasks) {
+    for (const id of isArr(t.targetItemIds) ? t.targetItemIds : []) {
+      if (isStr(id) && !itemSet.has(id)) {
+        out.push({ path: `${path}.examTasks`, message: `exam task "${t.id}" targets unknown item "${id}"` });
+      }
+    }
+  }
+
+  // A scenario claiming to stand in for an exam task must point at a REAL
+  // po_* task, or the Examiner opens a role-play that scores nothing.
+  const examTaskById = new Map(examTasks.map((t) => [t.id, t]));
+  for (const s of scenarios) {
+    if (!s.exam) continue;
+    const task = examTaskById.get(s.exam.taskId);
+    if (!task) {
+      out.push({ path: `${path}.scenarios`, message: `scenario "${s.id}" exam.taskId references unknown exam task "${s.exam.taskId}"` });
+    } else if (task.taskType !== 'po_monologue' && task.taskType !== 'po_interaction') {
+      out.push({ path: `${path}.scenarios`, message: `scenario "${s.id}" exam.taskId "${s.exam.taskId}" is a "${task.taskType}" task, not a PO task` });
+    } else if (task.format !== s.exam.format) {
+      out.push({ path: `${path}.scenarios`, message: `scenario "${s.id}" exam.format "${s.exam.format}" disagrees with task "${s.exam.taskId}"'s format "${task.format}"` });
+    }
+  }
+
   // Ids must be unique ACROSS entity types too, not just within one. Every id in
   // this corpus shares one namespace the moment anything builds a single lookup
   // map over "all content", which is the obvious thing to write. Prefixes make
@@ -1741,7 +2294,8 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   // you want defended by nothing.
   const allIds = [...itemIds, ...lessonIds, ...unitIds, ...scenarios.map((s) => s.id).filter(isStr),
     ...packs.map((p) => p.id).filter(isStr), ...examTasks.map((t) => t.id).filter(isStr),
-    ...examSeries.map((s) => s.id).filter(isStr)];
+    ...examSeries.map((s) => s.id).filter(isStr), ...playlists.map((p) => p.id).filter(isStr),
+    ...templates.map((t) => t.id).filter(isStr)];
   const seenGlobal = new Set<string>();
   const collided = new Set<string>();
   for (const id of allIds) {
@@ -1764,6 +2318,8 @@ export const isValidItem = (v: unknown): v is Item => validateItem(v).length ===
 export const isValidLesson = (v: unknown): v is Lesson => validateLesson(v).length === 0;
 export const isValidUnit = (v: unknown): v is Unit => validateUnit(v).length === 0;
 export const isValidScenario = (v: unknown): v is Scenario => validateScenario(v).length === 0;
+export const isValidPlaylist = (v: unknown): v is Playlist => validatePlaylist(v).length === 0;
+export const isValidTemplate = (v: unknown): v is ContentTemplate => validateTemplate(v).length === 0;
 export const isValidCorpus = (v: unknown): v is Corpus => validateCorpus(v).length === 0;
 
 /** Render issues for a human — the publish script's abort message, and the
