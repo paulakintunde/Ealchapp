@@ -10,6 +10,10 @@ import { relTime } from '@/lib/format';
 import { KIND_META, STATUS_META, chipStyle } from '../meta';
 import MetaForm from './MetaForm';
 import BodyEditor from './BodyEditor';
+import PlaylistBodyEditor from './PlaylistBodyEditor';
+import ScenarioBodyEditor from './ScenarioBodyEditor';
+import LessonBodyEditor from './LessonBodyEditor';
+import TemplateBodyEditor from './TemplateBodyEditor';
 import WorkflowCard from './WorkflowCard';
 import RestoreButton from './RestoreButton';
 import styles from './editor.module.css';
@@ -83,11 +87,39 @@ export default async function ContentEditorPage({
           </section>
 
           <section className={styles.card}>
-            <div className={styles.cardTitle}>Body</div>
-            <div className={styles.cardSub}>
-              Raw pack JSON — intro + sections. Saving keeps the pack in draft.
-            </div>
-            <BodyEditor unitId={unit.id} initialJson={bodyJson} canWrite={canWrite} />
+            {unit.kind === 'playlist' ? (
+              <>
+                <div className={styles.cardTitle}>Playlist</div>
+                <div className={styles.cardSub}>Card metadata and tracks. Saving keeps the playlist in draft.</div>
+                <PlaylistBodyEditor unitId={unit.id} initialBody={unit.body} canWrite={canWrite} />
+              </>
+            ) : unit.kind === 'scenario' ? (
+              <>
+                <div className={styles.cardTitle}>Role Play</div>
+                <div className={styles.cardSub}>Turn-by-turn dialogue. Saving keeps the scenario in draft.</div>
+                <ScenarioBodyEditor unitId={unit.id} initialBody={unit.body} canWrite={canWrite} />
+              </>
+            ) : unit.kind === 'lesson' ? (
+              <>
+                <div className={styles.cardTitle}>The Den</div>
+                <div className={styles.cardSub}>Sections, items and narration. Saving keeps the lesson in draft.</div>
+                <LessonBodyEditor unitId={unit.id} initialBody={unit.body} canWrite={canWrite} />
+              </>
+            ) : unit.kind === 'template' ? (
+              <>
+                <div className={styles.cardTitle}>Template</div>
+                <div className={styles.cardSub}>A reusable authoring pattern. Saving keeps it in draft.</div>
+                <TemplateBodyEditor unitId={unit.id} initialBody={unit.body} canWrite={canWrite} />
+              </>
+            ) : (
+              <>
+                <div className={styles.cardTitle}>Body</div>
+                <div className={styles.cardSub}>
+                  Raw pack JSON — intro + sections. Saving keeps the pack in draft.
+                </div>
+                <BodyEditor unitId={unit.id} initialJson={bodyJson} canWrite={canWrite} />
+              </>
+            )}
           </section>
         </div>
 
@@ -97,6 +129,7 @@ export default async function ContentEditorPage({
             status={unit.status}
             canWrite={canWrite}
             canPublish={canPublish}
+            scheduledPublishAt={unit.scheduledPublishAt?.toISOString() ?? null}
           />
 
           <section className={styles.card}>

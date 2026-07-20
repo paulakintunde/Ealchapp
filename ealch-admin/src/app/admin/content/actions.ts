@@ -88,6 +88,262 @@ export async function createUnit(): Promise<ActionResult> {
   redirect(`${LIST_PATH}/${newId}`);
 }
 
+/** '+ New playlist' — creates an empty draft playlist and redirects to its
+ *  editor. `body` is a real, minimal-but-valid Playlist (matching
+ *  ealch-v2's schema.ts shape) rather than an arbitrary blank object, so
+ *  PlaylistBodyEditor always has a well-formed starting point. */
+export async function createPlaylist(): Promise<ActionResult> {
+  let newId: string;
+  try {
+    const session = await auth();
+    assertCan(session?.user.role, 'content.write');
+    const adminId = session!.user.id;
+    const d = await db();
+
+    const title = 'Untitled playlist';
+    const base = slugify(title);
+    let slug = base;
+    for (let i = 2; ; i++) {
+      const [taken] = await d
+        .select({ id: schema.contentUnits.id })
+        .from(schema.contentUnits)
+        .where(eq(schema.contentUnits.slug, slug))
+        .limit(1);
+      if (!taken) break;
+      slug = `${base}-${i}`;
+    }
+
+    const [row] = await d
+      .insert(schema.contentUnits)
+      .values({
+        slug,
+        title,
+        kind: 'playlist',
+        level: 'a1',
+        locale: 'fr',
+        status: 'draft',
+        body: {
+          id: `pl.a1.${slug}`,
+          minLevel: 'a1',
+          word: title,
+          tag: '',
+          glow: 'rgba(150,150,150,0.28)',
+          labelFr: '',
+          labelEn: '',
+          topicFr: '',
+          topicEn: '',
+          tracks: [],
+          version: 1,
+          status: 'draft',
+        },
+        version: 1,
+        authorId: adminId,
+      })
+      .returning({ id: schema.contentUnits.id });
+
+    await audit({
+      adminId,
+      action: 'content.create',
+      entityType: 'content_unit',
+      entityId: row.id,
+      after: { slug, title, kind: 'playlist', level: 'a1', status: 'draft' },
+    });
+    revalidatePath(LIST_PATH);
+    revalidatePath('/admin/content/playlists');
+    newId = row.id;
+  } catch (e) {
+    return fail(e);
+  }
+  redirect(`${LIST_PATH}/${newId}`);
+}
+
+/** '+ New roleplay' — creates an empty draft scenario and redirects to its
+ *  editor. `body` is a real, minimal Scenario (schema.ts shape) with one
+ *  blank turn, so ScenarioBodyEditor always opens onto something editable
+ *  rather than an empty array with no obvious next step. */
+export async function createRoleplay(): Promise<ActionResult> {
+  let newId: string;
+  try {
+    const session = await auth();
+    assertCan(session?.user.role, 'content.write');
+    const adminId = session!.user.id;
+    const d = await db();
+
+    const title = 'Untitled roleplay';
+    const base = slugify(title);
+    let slug = base;
+    for (let i = 2; ; i++) {
+      const [taken] = await d
+        .select({ id: schema.contentUnits.id })
+        .from(schema.contentUnits)
+        .where(eq(schema.contentUnits.slug, slug))
+        .limit(1);
+      if (!taken) break;
+      slug = `${base}-${i}`;
+    }
+
+    const [row] = await d
+      .insert(schema.contentUnits)
+      .values({
+        slug,
+        title,
+        kind: 'scenario',
+        level: 'a1',
+        locale: 'fr',
+        status: 'draft',
+        body: {
+          id: `sc.a1.${slug}.001`,
+          level: 'a1',
+          theme: slug,
+          title,
+          turns: [{ ai: '', en: '', user: '' }],
+          version: 1,
+        },
+        version: 1,
+        authorId: adminId,
+      })
+      .returning({ id: schema.contentUnits.id });
+
+    await audit({
+      adminId,
+      action: 'content.create',
+      entityType: 'content_unit',
+      entityId: row.id,
+      after: { slug, title, kind: 'scenario', level: 'a1', status: 'draft' },
+    });
+    revalidatePath(LIST_PATH);
+    revalidatePath('/admin/content/roleplay');
+    newId = row.id;
+  } catch (e) {
+    return fail(e);
+  }
+  redirect(`${LIST_PATH}/${newId}`);
+}
+
+/** '+ New Den lesson' — creates an empty draft lesson and redirects to its
+ *  editor. `unitId`/`id` are left for the author to fill in (LessonBodyEditor
+ *  exposes both) since a lesson's home unit isn't yet pickable from a
+ *  curriculum tree — that lands in Workstream 3 Phase 4. */
+export async function createDenLesson(): Promise<ActionResult> {
+  let newId: string;
+  try {
+    const session = await auth();
+    assertCan(session?.user.role, 'content.write');
+    const adminId = session!.user.id;
+    const d = await db();
+
+    const title = 'Untitled lesson';
+    const base = slugify(title);
+    let slug = base;
+    for (let i = 2; ; i++) {
+      const [taken] = await d
+        .select({ id: schema.contentUnits.id })
+        .from(schema.contentUnits)
+        .where(eq(schema.contentUnits.slug, slug))
+        .limit(1);
+      if (!taken) break;
+      slug = `${base}-${i}`;
+    }
+
+    const [row] = await d
+      .insert(schema.contentUnits)
+      .values({
+        slug,
+        title,
+        kind: 'lesson',
+        level: 'a1',
+        locale: 'fr',
+        status: 'draft',
+        body: {
+          id: '', unitId: '', seq: 1, title, level: 'a1', tag: '', intro: '',
+          sections: [], itemIds: [], version: 1,
+        },
+        version: 1,
+        authorId: adminId,
+      })
+      .returning({ id: schema.contentUnits.id });
+
+    await audit({
+      adminId,
+      action: 'content.create',
+      entityType: 'content_unit',
+      entityId: row.id,
+      after: { slug, title, kind: 'lesson', level: 'a1', status: 'draft' },
+    });
+    revalidatePath(LIST_PATH);
+    revalidatePath('/admin/content/den');
+    newId = row.id;
+  } catch (e) {
+    return fail(e);
+  }
+  redirect(`${LIST_PATH}/${newId}`);
+}
+
+/** '+ New template' — creates an empty draft ContentTemplate and redirects
+ *  to its editor. Defaults target='item' since items are the highest-volume
+ *  authoring surface; the author changes it before saving if not. */
+export async function createTemplate(): Promise<ActionResult> {
+  let newId: string;
+  try {
+    const session = await auth();
+    assertCan(session?.user.role, 'content.write');
+    const adminId = session!.user.id;
+    const d = await db();
+
+    const title = 'Untitled template';
+    const base = slugify(title);
+    let slug = base;
+    for (let i = 2; ; i++) {
+      const [taken] = await d
+        .select({ id: schema.contentUnits.id })
+        .from(schema.contentUnits)
+        .where(eq(schema.contentUnits.slug, slug))
+        .limit(1);
+      if (!taken) break;
+      slug = `${base}-${i}`;
+    }
+
+    const [row] = await d
+      .insert(schema.contentUnits)
+      .values({
+        slug,
+        title,
+        kind: 'template',
+        level: 'a1',
+        locale: 'fr',
+        status: 'draft',
+        body: {
+          id: `tpl.item.${slug}`,
+          target: 'item',
+          name: title,
+          description: '',
+          levels: ['a1'],
+          promptSkeleton: '',
+          example: '',
+          version: 1,
+          status: 'draft',
+        },
+        version: 1,
+        authorId: adminId,
+      })
+      .returning({ id: schema.contentUnits.id });
+
+    await audit({
+      adminId,
+      action: 'content.create',
+      entityType: 'content_unit',
+      entityId: row.id,
+      after: { slug, title, kind: 'template', status: 'draft' },
+    });
+    revalidatePath(LIST_PATH);
+    revalidatePath('/admin/content/templates');
+    newId = row.id;
+  } catch (e) {
+    return fail(e);
+  }
+  redirect(`${LIST_PATH}/${newId}`);
+}
+
 // ── Review queue ────────────────────────────────────────────────────────────
 
 export async function resolveFlag(flagId: string): Promise<ActionResult> {
@@ -360,6 +616,33 @@ export async function archiveUnit(unitId: string): Promise<ActionResult> {
     });
     revalidatePath(LIST_PATH);
     revalidatePath(`${LIST_PATH}/${unitId}`);
+    return { ok: true };
+  } catch (e) {
+    return fail(e);
+  }
+}
+
+// ── Scheduling (Phase 5) — see the note on items/actions.ts's setItemSchedule ──
+
+export async function setUnitSchedule(unitId: string, at: string): Promise<ActionResult> {
+  try {
+    const session = await auth();
+    assertCan(session?.user.role, 'content.write');
+    const d = await db();
+    const [unit] = await d.select().from(schema.contentUnits).where(eq(schema.contentUnits.id, unitId)).limit(1);
+    if (!unit) return { ok: false, error: 'Pack not found' };
+
+    const scheduledPublishAt = at ? new Date(at) : null;
+    if (at && Number.isNaN(scheduledPublishAt?.getTime())) return { ok: false, error: 'Invalid date' };
+
+    await d.update(schema.contentUnits).set({ scheduledPublishAt, updatedAt: new Date() }).where(eq(schema.contentUnits.id, unitId));
+    await audit({
+      adminId: session!.user.id, action: 'content.set_schedule', entityType: 'content_unit', entityId: unitId,
+      before: { scheduledPublishAt: unit.scheduledPublishAt }, after: { scheduledPublishAt },
+    });
+    revalidatePath(LIST_PATH);
+    revalidatePath(`${LIST_PATH}/${unitId}`);
+    revalidatePath('/admin/content/schedule');
     return { ok: true };
   } catch (e) {
     return fail(e);

@@ -20,7 +20,7 @@ export type ContentLevel = (typeof contentLevel)['enumValues'][number];
 export type ContentLocale = (typeof userLocale)['enumValues'][number];
 
 export const KINDS: ContentKind[] = [
-  'scenario', 'drill', 'dictation', 'curriculum_unit', 'lesson', 'vocabulary',
+  'scenario', 'drill', 'dictation', 'curriculum_unit', 'lesson', 'vocabulary', 'playlist', 'template',
 ];
 export const STATUSES: ContentStatus[] = ['draft', 'in_review', 'published', 'archived'];
 // 'sons' first: it is the pronunciation track, and it precedes A1.
@@ -39,6 +39,11 @@ export const KIND_META: Record<ContentKind, { label: string; color: string }> = 
   // A themed PACK of corpus items, reviewed as one unit of work — nobody reviews
   // 8000 vocabulary rows one at a time. The rows live in content_items.
   vocabulary: { label: 'Vocab pack', color: '#B5762A' },
+  // A listening set — real French lines, played straight through.
+  playlist: { label: 'Playlist', color: '#3A7CA5' },
+  // A reusable authoring pattern a generation job references instead of
+  // reinventing its own one-off prompt and shape.
+  template: { label: 'Template', color: '#8E6C3A' },
 };
 
 export const STATUS_META: Record<ContentStatus, { label: string; color: string }> = {

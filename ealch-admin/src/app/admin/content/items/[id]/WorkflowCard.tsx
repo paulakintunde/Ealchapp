@@ -1,22 +1,23 @@
 'use client';
-// Workflow — Save draft → Submit for review → Publish → Archive.
-// Publish needs content.publish (ops+): content editors see a disabled
-// button with the 'Ops approval required' hint.
+// Workflow — Save (in EditorShell) → Submit for review → Publish → Archive.
+// Same shape as ../[id]/WorkflowCard.tsx for content_units, driving
+// content_items through the identical draft → in_review → published →
+// archived states.
 import { useState, useTransition } from 'react';
 import { useToast } from '@/components/toast';
-import { STATUSES, STATUS_META, type ContentStatus } from '../meta';
-import { archiveUnit, publishUnit, setUnitSchedule, submitForReview } from '../actions';
+import { ITEM_STATUSES, ITEM_STATUS_META, type ItemStatus } from '../meta';
+import { archiveItem, publishItem, setItemSchedule, submitItemForReview } from '../actions';
 import styles from './editor.module.css';
 
 export default function WorkflowCard({
-  unitId,
+  itemId,
   status,
   canWrite,
   canPublish,
   scheduledPublishAt,
 }: {
-  unitId: string;
-  status: ContentStatus;
+  itemId: string;
+  status: ItemStatus;
   canWrite: boolean;
   canPublish: boolean;
   scheduledPublishAt?: string | null;
@@ -27,26 +28,26 @@ export default function WorkflowCard({
 
   const saveSchedule = () =>
     startTransition(async () => {
-      const res = await setUnitSchedule(unitId, when ? new Date(when).toISOString() : '');
+      const res = await setItemSchedule(itemId, when ? new Date(when).toISOString() : '');
       toast(res.ok ? (when ? 'Schedule set' : 'Schedule cleared') : res.error);
     });
 
   const submit = () =>
     startTransition(async () => {
-      const res = await submitForReview(unitId);
+      const res = await submitItemForReview(itemId);
       toast(res.ok ? 'Submitted for review' : res.error);
     });
 
   const publish = () =>
     startTransition(async () => {
-      const res = await publishUnit(unitId);
-      toast(res.ok ? `"${res.title}" v${res.version} published` : res.error);
+      const res = await publishItem(itemId);
+      toast(res.ok ? 'Item published' : res.error);
     });
 
   const archive = () =>
     startTransition(async () => {
-      const res = await archiveUnit(unitId);
-      toast(res.ok ? 'Pack archived' : res.error);
+      const res = await archiveItem(itemId);
+      toast(res.ok ? 'Item archived' : res.error);
     });
 
   return (
@@ -55,11 +56,11 @@ export default function WorkflowCard({
       <div className={styles.cardSub}>Draft → in review → published → archived</div>
 
       <div className={styles.flow}>
-        {STATUSES.map((s, i) => (
+        {ITEM_STATUSES.map((s, i) => (
           <span key={s} style={{ display: 'contents' }}>
             {i > 0 && <span className={styles.flowArrow}>→</span>}
             <span className={`${styles.flowStep} ${s === status ? styles.flowStepActive : ''}`}>
-              {STATUS_META[s].label}
+              {ITEM_STATUS_META[s].label}
             </span>
           </span>
         ))}
@@ -92,9 +93,7 @@ export default function WorkflowCard({
         )}
 
         {status === 'archived' && (
-          <span className={styles.hint}>
-            Archived — save the body to start a new draft.
-          </span>
+          <span className={styles.hint}>Archived.</span>
         )}
 
         {!canWrite && status !== 'archived' && (

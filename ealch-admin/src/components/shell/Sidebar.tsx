@@ -27,6 +27,7 @@ const NAV_GROUPS: { label: string; items: { href: string; label: string; icon: s
     items: [
       { href: '/admin/notifications', label: 'Notifications', icon: IC.bell },
       { href: '/admin/content', label: 'Content', icon: IC.doc },
+      { href: '/admin/curriculum', label: 'Curriculum', icon: IC.doc },
     ],
   },
   {
