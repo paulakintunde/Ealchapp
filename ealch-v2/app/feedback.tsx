@@ -4,12 +4,14 @@ import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle } from 'react-native-svg';
 import { TX } from '@/components/Type';
+import { Icon } from '@/components/Icon';
 import { Press, ProgressBar, FocusHeader } from '@/components/ui';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useProgress } from '@/store/useProgress';
 import { localDay, statsByItem, weakSpots, type Activity, type AttemptVerdict } from '@/store/progress.logic';
 import { content } from '@/services/content';
+import { parseAnchor } from '@/services/content.logic';
 
 // Le Rapport — the honest version. Every number here is a view over the attempt
 // log (progress.logic.ts); nothing is sampled or hardcoded. Before this the whole
@@ -99,6 +101,11 @@ export default function Feedback() {
           seen: s.seen,
           correct: Math.round(s.ratio * s.seen),
           lastVerdict: s.lastVerdict,
+          // Only set when the most recent attempt came from a lesson's practice
+          // section (lesson.tsx's self-rated Got-it/Missed-it). Standalone-drill
+          // attempts (flashcards, voiceflash, …) have no lesson block to point
+          // back to, and that is a normal, expected case — not a bug.
+          anchor: s.lastAnchor,
         };
       });
 
@@ -183,8 +190,9 @@ export default function Feedback() {
             </TX>
             {report.weak.length ? (
               <View style={{ gap: 10, marginBottom: 30 }}>
-                {report.weak.map((w) => (
-                  <View key={w.itemId} style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, padding: 15, paddingHorizontal: 17 }}>
+                {report.weak.map((w) => {
+                  const rowStyle = { borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, padding: 15, paddingHorizontal: 17 } as const;
+                  const inner = (
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
                       <View style={{ flex: 1, minWidth: 0 }}>
                         <TX font="serifI" role="titleLg" size={19} style={{ marginBottom: 3 }}>
@@ -202,9 +210,38 @@ export default function Feedback() {
                         </TX>
                         <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: verdictColor(w.lastVerdict) }} />
                       </View>
+                      {/* Only present when the last attempt anchors to a real
+                          lesson block — a visual cue this row can be tapped,
+                          not just decoration on every row. */}
+                      {w.anchor ? <Icon name="arrowRight" size={14} color={t.txNonText} strokeWidth={1.6} /> : null}
                     </View>
-                  </View>
-                ))}
+                  );
+                  // Tappable only when an anchor exists (a lesson-practice
+                  // attempt). A standalone-drill weak item (flashcards,
+                  // voiceflash, …) has nowhere to jump to and stays a plain
+                  // row, exactly as before this feature existed.
+                  if (w.anchor) {
+                    const anchor = w.anchor;
+                    return (
+                      <Press
+                        key={w.itemId}
+                        cue={null}
+                        onPress={() => {
+                          const parsed = parseAnchor(anchor);
+                          if (parsed) router.push({ pathname: '/lesson', params: { key: parsed.lessonId, at: anchor } });
+                        }}
+                        style={rowStyle}
+                      >
+                        {inner}
+                      </Press>
+                    );
+                  }
+                  return (
+                    <View key={w.itemId} style={rowStyle}>
+                      {inner}
+                    </View>
+                  );
+                })}
               </View>
             ) : (
               <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), padding: 18, marginBottom: 30 }}>

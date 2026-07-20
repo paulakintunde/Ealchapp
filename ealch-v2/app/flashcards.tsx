@@ -14,6 +14,8 @@ import { useStore } from '@/store/useStore';
 import { composeSession, introEligible, localDay } from '@/store/progress.logic';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
+import { LEVELS, type Level } from '@/content/schema';
+import { themeMeta } from '@/content/themeMeta';
 
 export default function Flashcards() {
   const t = useTheme();
@@ -31,13 +33,18 @@ export default function Flashcards() {
   // capped by what today's review load left room for (composeSession). Grading
   // a card logs an attempt, which is exactly how a new word enters the SRS —
   // so home's "new words" hero leads here.
-  const { deck: deckMode } = useLocalSearchParams<{ deck?: string }>();
+  // `?theme=&level=` narrows the deck to one parcours step (theme detail's
+  // Découvrir); without it the deck is the whole flashcard-eligible corpus.
+  const { deck: deckMode, theme, level } = useLocalSearchParams<{ deck?: string; theme?: string; level?: string }>();
   const deck = useMemo(() => {
-    const all = content.itemsFor('flashcard');
+    const q = theme
+      ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) }
+      : undefined;
+    const all = content.itemsFor('flashcard', q);
     if (deckMode !== 'new') return all;
     const { attempts } = useProgress.getState();
     return composeSession(attempts, introEligible(all, useStore.getState().level), localDay()).fresh;
-  }, [deckMode]);
+  }, [deckMode, theme, level]);
 
   const [cardIx, setCardIx] = useState(0);
   const [flipped, setFlipped] = useState(false);
@@ -138,7 +145,11 @@ export default function Flashcards() {
         end={{ x: 0.5, y: 0.5 }}
         style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 340 }}
       />
-      <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={T.cardsTag} />
+      <FocusHeader
+        onClose={() => (theme ? router.back() : router.replace('/home'))}
+        onSettings={() => router.push('/settings')}
+        title={theme ? `${themeMeta(theme).fr.toUpperCase()} · ${T.stepNames.decouvrir.toUpperCase()}` : T.cardsTag}
+      />
 
       <View style={{ flex: 1, paddingHorizontal: 24, paddingBottom: insets.bottom + 24 }}>
         {/* Direction toggle */}

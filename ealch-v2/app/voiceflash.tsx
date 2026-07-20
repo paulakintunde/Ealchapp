@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Image, TextInput, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader, ProgressBar } from '@/components/ui';
@@ -12,6 +12,7 @@ import { useT } from '@/i18n/useT';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { content, contentAssetUrl } from '@/services/content';
+import { LEVELS, type Level } from '@/content/schema';
 import { answerMatches } from '@/utils/score';
 
 // The image resolution chain (CF-24, Phase 6b): an authored `imageRef` wins,
@@ -53,8 +54,17 @@ export default function VoiceFlash() {
   const [badImgs, setBadImgs] = useState<Set<string>>(() => new Set());
   const promptTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Items now come from the corpus, snapshotted at mount.
-  const items = useMemo(() => content.itemsFor('voiceflash'), []);
+  // Items now come from the corpus, snapshotted at mount. `?theme=&level=`
+  // narrows the run to one parcours step (theme detail's Prononcer).
+  const { theme, level } = useLocalSearchParams<{ theme?: string; level?: string }>();
+  const items = useMemo(
+    () =>
+      content.itemsFor(
+        'voiceflash',
+        theme ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) } : undefined
+      ),
+    [theme, level]
+  );
 
   // Leaving mid-drill must not leave the recognizer listening, TTS speaking, or
   // the prompt timer firing setState after unmount.
@@ -182,6 +192,21 @@ export default function VoiceFlash() {
     setVfHeard(null);
     setVfPartial('');
     if (lastItem) logSession('voiceflash');
+  };
+
+  // Re-attempt the SAME card right now — distinct from `restart` (whole deck)
+  // and from `vfNext` (moves on). Deliberately leaves vfIx and vfScore alone:
+  // this is another try at the word just missed, not a new card and not a
+  // do-over of the whole session. The retry attempt logs normally through
+  // whichever path the learner uses next (mic, typed, or self-rated) — no
+  // special-cased logging here, same as any other attempt at this item.
+  const retryItem = () => {
+    sound.play('tap');
+    setVfPhase('ask');
+    setVfTyped('');
+    setVfCorrect(null);
+    setVfHeard(null);
+    setVfPartial('');
   };
 
   const restart = () => {
@@ -397,6 +422,47 @@ export default function VoiceFlash() {
                     >
                       <TX font="semi" role="body" color={t.accInk}>
                         {T.vfGot}
+                      </TX>
+                    </Press>
+                  </View>
+                ) : vfCorrect === false ? (
+                  // A real miss (mic-scored or typed, not self-assessed — that
+                  // path is vfCorrect === null above): offer another go at
+                  // THIS card, not just moving on past it.
+                  <View style={{ flexDirection: 'row', gap: 10, marginTop: 16, alignSelf: 'stretch' }}>
+                    <Press
+                      onPress={retryItem}
+                      cue={null}
+                      style={{
+                        flex: 1,
+                        minHeight: 46,
+                        paddingVertical: 6,
+                        borderRadius: 23,
+                        borderWidth: 1,
+                        borderColor: t.line(16),
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <TX font="semi" role="body">
+                        {T.retry}
+                      </TX>
+                    </Press>
+                    <Press
+                      onPress={vfNext}
+                      cue={null}
+                      style={{
+                        flex: 1,
+                        minHeight: 46,
+                        paddingVertical: 6,
+                        borderRadius: 23,
+                        backgroundColor: t.acc,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <TX font="semi" role="body" color={t.accInk}>
+                        {T.nextCard}
                       </TX>
                     </Press>
                   </View>

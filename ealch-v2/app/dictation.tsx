@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, TextInput, View, type NativeSyntheticEvent, type TextInputSelectionChangeEventData } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { LEVELS, type Level } from '@/content/schema';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 import { TX } from '@/components/Type';
@@ -26,7 +27,16 @@ export default function Dictation() {
   const inputRef = useRef<TextInput>(null);
 
   // Dictation items from the corpus: { fr (the sentence), en, notes (the tip) }.
-  const sentences = useMemo(() => content.itemsFor('dictation'), []);
+  // `?theme=&level=` narrows the run to one parcours step (theme detail's Écouter).
+  const { theme, level } = useLocalSearchParams<{ theme?: string; level?: string }>();
+  const sentences = useMemo(
+    () =>
+      content.itemsFor(
+        'dictation',
+        theme ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) } : undefined
+      ),
+    [theme, level]
+  );
 
   const logSession = useSessionLog();
   const logAttempt = useProgress((s) => s.logAttempt);

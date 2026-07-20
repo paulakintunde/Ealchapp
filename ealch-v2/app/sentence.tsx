@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, ScrollView, TextInput, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { LEVELS, type Level } from '@/content/schema';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
@@ -63,11 +64,20 @@ export default function Sentence() {
   // the drill). It used to be `itemsFor('sentence')[0]`: one fixed sentence,
   // forever. The day picks the starting sentence, deterministically, and
   // "next sentence" walks the deck from there.
+  // `?theme=&level=` narrows the deck to one parcours step (theme detail's
+  // Construire); the themed cut skips the level line, which is the filter.
+  const { theme, level } = useLocalSearchParams<{ theme?: string; level?: string }>();
   const deck = useMemo(() => {
+    if (theme) {
+      return content.itemsFor(
+        'sentence',
+        { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) }
+      );
+    }
     const all = content.itemsFor('sentence');
     const lined = introEligible(all, useStore.getState().level);
     return lined.length ? lined : all;
-  }, []);
+  }, [theme, level]);
   const [deckIx, setDeckIx] = useState(() => (deck.length ? dayOfYear() % deck.length : 0));
   const item = deck.length ? deck[deckIx % deck.length] : undefined;
   const sbTarget = item?.fr ?? '';

@@ -17,10 +17,12 @@ import { PushBanner } from '@/components/PushBanner';
 import { BottomSheet } from '@/components/BottomSheet';
 import { DictionaryOverlay } from '@/components/DictionaryOverlay';
 import { ErrorScreen } from '@/components/ErrorScreen';
-import { refreshConfig } from '@/services';
+import { refreshConfig, tts } from '@/services';
 import { useProgress } from '@/store/useProgress';
 import { useContent, initContent } from '@/services/content';
 import { installErrorHandlers, logError } from '@/services/errors';
+import { useAuthSession } from '@/services/session';
+import { useForegroundSync } from '@/services/sync';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -73,10 +75,16 @@ export default function RootLayout() {
   const ready = fontsLoaded && hydrated && progressHydrated && contentHydrated;
   const t = useTheme();
   useAlarmWatcher();
+  useAuthSession();
+  useForegroundSync();
 
   useEffect(() => {
     refreshConfig();
     void initContent();
+    // Warm the device voice list at launch so the home greeting (and the first
+    // drill utterance) speak in the configured voice from the first word rather
+    // than the language-only fallback. Fire-and-forget; home awaits it too.
+    void tts.prime();
   }, []);
 
   useEffect(() => {
@@ -116,6 +124,8 @@ export default function RootLayout() {
               <Stack.Screen name="profile" />
               <Stack.Screen name="settings" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="delete-account" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="themes" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="theme" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="flashcards" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="voiceflash" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="sentence" options={{ animation: 'slide_from_right' }} />
@@ -125,6 +135,8 @@ export default function RootLayout() {
               <Stack.Screen name="review" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="placement" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="downloads" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="exam" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="exam-task" options={{ animation: 'slide_from_right' }} />
             </Stack>
             <PushBanner />
             <BottomSheet />

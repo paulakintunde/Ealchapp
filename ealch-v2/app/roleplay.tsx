@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
@@ -47,7 +47,14 @@ export default function Roleplay() {
   const logSession = useSessionLog();
   const logAttempt = useProgress((s) => s.logAttempt);
 
-  const [level, setLevel] = useState<RpLevel>('A1');
+  // `?theme=&level=` opens the parcours scene for that theme/band directly;
+  // without params this stays the standalone marché role play.
+  const { theme: themeQ, level: levelQ } = useLocalSearchParams<{ theme?: string; level?: string }>();
+  const rpTheme = themeQ || 'marche';
+  const [level, setLevel] = useState<RpLevel>(() => {
+    const up = (levelQ ?? '').toUpperCase() as RpLevel;
+    return LEVELS.includes(up) ? up : 'A1';
+  });
   const [live, setLive] = useState(false);
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [ix, setIx] = useState(0);
@@ -60,7 +67,7 @@ export default function Roleplay() {
 
   // Scenarios come from the corpus now (the "Au marché" role play, one per level).
   // B1/B2 ship over the air, so a seed-only install may not have them yet.
-  const scenarios = useMemo(() => content.scenarios({ theme: 'marche' }), []);
+  const scenarios = useMemo(() => content.scenarios({ theme: rpTheme }), [rpTheme]);
   const scenario = useMemo(
     () => scenarios.find((s) => s.level === (level.toLowerCase() as Level)),
     [scenarios, level]

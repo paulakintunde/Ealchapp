@@ -15,27 +15,35 @@ let speaking = false;
 // others, so we only ever pass an id we have confirmed is installed here, and
 // otherwise fall back to language-only (which is exactly today's behavior).
 let voiceIds: Set<string> | null = null;
-let voiceLoadStarted = false;
+let voicesReady: Promise<void> | null = null;
 
-function loadVoices(): void {
-  if (voiceLoadStarted) return;
-  voiceLoadStarted = true;
-  Speech.getAvailableVoicesAsync()
+/** Load the device voice list once, memoized as a PROMISE so a caller can await
+ *  readiness (the home greeting does, so Camille speaks from the first word
+ *  rather than the fr-FR default while the list is still loading). Resolves even
+ *  on failure — voiceIds stays null and the resolver falls back to
+ *  language-only. A failure clears the memo so a later call can retry. */
+function loadVoices(): Promise<void> {
+  if (voicesReady) return voicesReady;
+  voicesReady = Speech.getAvailableVoicesAsync()
     .then((vs) => {
       voiceIds = new Set(vs.map((v) => v.identifier));
     })
     .catch(() => {
-      // Engine not ready or unsupported — leave null; resolver returns undefined
-      // and callers speak language-only. A later call retries via the flag reset.
-      voiceLoadStarted = false;
+      // Engine not ready or unsupported — allow a later retry.
+      voicesReady = null;
     });
+  return voicesReady;
 }
 
-/** The configured device voice for this platform, but only if the engine has
- *  confirmed the device actually has it. Undefined means "speak language-only". */
-function resolveVoice(): string | undefined {
+/** The configured device voice for this platform and language, but only if the
+ *  engine has confirmed the device actually has it. Undefined means "speak
+ *  language-only". Camille has ONE identity but TWO locale-bound voice ids — a
+ *  device voice never crosses locales, so `ttsVoice` (French) and `ttsVoiceEn`
+ *  (English) are resolved from separate config, never from one id passed to
+ *  both languages. */
+function resolveVoice(lang: 'fr-FR' | 'en-US'): string | undefined {
   loadVoices();
-  const cfg = getConfig().ttsVoice;
+  const cfg = lang === 'fr-FR' ? getConfig().ttsVoice : getConfig().ttsVoiceEn;
   const id = Platform.OS === 'ios' ? cfg.ios : Platform.OS === 'android' ? cfg.android : null;
   if (!id) return undefined;
   // Until the voice list has loaded we withhold the id rather than risk passing
@@ -56,7 +64,10 @@ export const tts = {
   isSpeaking: () => speaking,
 
   /**
-   * Speak French text. `slow` uses a lower rate for comprehension practice.
+   * Speak text. `lang` picks the voice language, defaulting to French so every
+   * existing call site (which never passed one) keeps speaking fr-FR exactly as
+   * before; narration's EN scaffolding segments (Phase 7) pass 'en-US'. `slow`
+   * uses a lower rate for comprehension practice.
    *
    * `onError` is distinct from `onDone`: a caller that spends something on
    * playback (Dictation's 3-play budget) must be able to tell "it played" from
@@ -67,7 +78,13 @@ export const tts = {
    */
   async speak(
     text: string,
-    opts: { slow?: boolean; rate?: number; onDone?: () => void; onError?: () => void } = {}
+    opts: {
+      lang?: 'fr-FR' | 'en-US';
+      slow?: boolean;
+      rate?: number;
+      onDone?: () => void;
+      onError?: () => void;
+    } = {}
   ): Promise<void> {
     const provider = getConfig().ttsProvider;
     // For device (default) we use expo-speech directly. Remote providers would
@@ -77,6 +94,7 @@ export const tts = {
       // Remote synthesis path is wired for production; device speech is used as
       // the guaranteed fallback here so playback always works.
     }
+    const lang = opts.lang ?? 'fr-FR';
     const done = opts.onDone;
     const fail = opts.onError ?? opts.onDone;
 
@@ -104,16 +122,19 @@ export const tts = {
         // Stopping an unbound engine is a no-op warning; ignore it.
       }
       speaking = true;
-      const voice = resolveVoice();
+      const voice = resolveVoice(lang);
       try {
         Speech.speak(text, {
-          language: 'fr-FR',
-          // The chosen Camille voice when the device has it; omitted otherwise so
-          // the engine uses its default fr-FR voice (see resolveVoice).
+          language: lang,
+          // The chosen Camille voice for THIS language, when the device has it;
+          // omitted otherwise so the engine uses its language default (see
+          // resolveVoice).
           ...(voice ? { voice } : {}),
           // Explicit rate wins (the player/dictation speed pickers set it, where
           // 1.0 is the engine's normal speed); `slow` is the legacy shortcut.
-          rate: opts.rate ?? (opts.slow ? 0.7 : 0.95),
+          // Floor is 0.75 — below that the engine's phoneme stretching reads as
+          // distorted rather than merely slow (HIGH note 36).
+          rate: opts.rate ?? (opts.slow ? 0.75 : 0.95),
           onStart: () => {
             started = true;
           },
@@ -161,5 +182,14 @@ export const tts = {
       // ignore
     }
     speaking = false;
+  },
+
+  /** Warm the device voice list so the next `speak` can use the configured voice
+   *  immediately instead of the language-only fallback. Fire-and-forget at app
+   *  start (a head start), or `await` it right before an utterance that must be
+   *  in the right voice from the first word (the home greeting). Resolves even if
+   *  the engine is not ready — the caller just gets language-only. */
+  prime(): Promise<void> {
+    return loadVoices();
   },
 };
