@@ -26,6 +26,8 @@ import { dirname, resolve } from 'node:path';
 import { getTableColumns } from 'drizzle-orm';
 import { describeTarget } from './env';
 import { contentItems } from '../src/db/schema';
+import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCLED_VOCAB_FLOOR } from '../src/lib/vocab';
+import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
 import { stableStringify, sha256, uploadToStorage } from './snapshot-utils.ts';
 // The app's own ceiling: a device REFUSES to parse a snapshot past this, so
@@ -40,9 +42,12 @@ import {
   unitBand,
   validateCorpus,
   type Corpus,
+  type ExamSeries,
+  type ExamTask,
   type Item,
   type Lesson,
   type LessonSection,
+  type Playlist,
   type Scenario,
   type Unit,
 } from '../../ealch-v2/src/content/schema.ts';
@@ -82,6 +87,33 @@ function die(msg: string): never {
 // with rollback-content.ts: two copies of the byte contract is how the app's
 // checksum verification quietly diverges from what publishing produces.
 
+type GateReport = { checked: number; issues: { id: string; message: string }[]; skipped?: string };
+
+/** Runs one of the gates/*.py subprocess gates and returns its parsed report,
+ *  or `{ error }` if the subprocess itself could not be run. Used only by
+ *  ADVISORY gates (4c): unlike the hard-fail conjugation gate, a failure to
+ *  run must never die() — it degrades to a warning in the gate list, same as
+ *  any other advisory finding. */
+async function runPythonGate(
+  scriptRelPath: string,
+  payload: unknown
+): Promise<GateReport | { error: string }> {
+  const { spawnSync } = await import('node:child_process');
+  const python = process.env.PYTHON_BIN || 'python';
+  const gatePath = resolve(process.cwd(), scriptRelPath);
+  const result = spawnSync(python, [gatePath], { input: JSON.stringify(payload), encoding: 'utf8' });
+  if (result.error || result.status !== 0) {
+    return {
+      error: result.error?.message ?? `python exited ${result.status}${result.stderr ? `: ${result.stderr.trim()}` : ''}`,
+    };
+  }
+  try {
+    return JSON.parse(result.stdout) as GateReport;
+  } catch {
+    return { error: `non-JSON output: ${result.stdout.slice(0, 200)}` };
+  }
+}
+
 /* ─── The projection guard ───────────────────────────────────────────────── */
 
 // The failure this exists to stop: this script hand-picks columns. It is an
@@ -114,13 +146,21 @@ function die(msg: string): never {
 //     assetKey), add them to the SELECT, the mapper and PROJECTED_ITEM_COLUMNS.
 //     Blocked on the Phase 7 audio pipeline actually producing timings.
 //
-//   Domain, Theme, Pack, ExamTask, ExamSeries     (Corpus.domains/…/examSeries)
+//   Domain, Theme, Pack     (Corpus.domains/themes/packs)
 //     No tables at all. validateCorpus treats the arrays as empty, so a corpus
-//     without them is valid and the app sees no catalogue and no exams.
+//     without them is valid and the app sees no catalogue.
 //     Sequenced later by design (the plan scopes tables and data out of this
 //     pass). DONE = tables + a read here + the arrays on the emitted Corpus.
 //     NOTE for whoever does it: unlike content_items, there is no guard holding
 //     these honest. Nothing will tell you the arrays are empty.
+//
+//   ExamTask, ExamSeries     (Corpus.examTasks/examSeries)
+//     DONE (Phase 8 gap-closure) — read below, mapped onto the full `corpus`
+//     object. Deliberately NOT added to the seed cut (`seed`, step 5): exam
+//     content is b1/b2-banded and the seed cut today only bundles a1/a2/sons
+//     content, so it ships via the network snapshot like any other exam-band
+//     content would, not the offline-bundled binary. Provenance columns are
+//     WITHHELD the same way Item's are — see WITHHELD_ITEM_COLUMNS.
 //
 //   Item.provenance                                (schema.ts: Provenance)
 //     NOT debt — a decision. The columns exist and are deliberately withheld;
@@ -134,14 +174,15 @@ function die(msg: string): never {
 /** Columns projected into the Item the app receives. */
 const PROJECTED_ITEM_COLUMNS = new Set([
   'id', 'kind', 'level', 'theme', 'fr', 'en', 'ipa', 'gender', 'example', 'notes',
-  'tags', 'drills', 'audio_ref', 'version',
-  'skill', 'register', 'can_do', 'grammar_points', 'modality',
+  'tags', 'drills', 'audio_ref', 'image_ref', 'segments', 'asset_key', 'version',
+  'skill', 'register', 'can_do', 'grammar_points', 'modality', 'verb_check',
 ]);
 
 /** Columns deliberately NOT shipped, each with the reason it stays behind. */
 const WITHHELD_ITEM_COLUMNS = new Set([
   'status',        // publish-time filter; every shipped row is 'published' by definition
   'published_at',  // editorial history, not content
+  'scheduled_publish_at', // a future publish TIME (Workstream 3 Phase 5) — editorial queue state, not content
   'pack_id',       // an internal review grouping; the app finds items by level+theme
   'created_at',    // ditto
   'updated_at',    // ditto
@@ -218,19 +259,64 @@ async function main() {
   const itemRows = await pool.query(
     `select id, kind::text as kind, level::text as level, theme, fr, en, ipa,
             gender::text as gender, example, notes, tags, drills::text[] as drills,
-            audio_ref, version,
+            audio_ref, image_ref, segments, asset_key, version,
             skill::text as skill, register::text as register, can_do,
-            grammar_points, modality::text as modality
+            grammar_points, modality::text as modality, verb_check
        from content_items where status = 'published'`
   );
 
   const scenarioRows = await pool.query<{ body: Scenario }>(
     `select body from content_units where kind = 'scenario' and status = 'published'`
   );
+  const playlistRows = await pool.query<{ body: Playlist }>(
+    `select body from content_units where kind = 'playlist' and status = 'published'`
+  );
+  // Same enum-cast reasoning as content_items above: format/task_type/skill/
+  // level are custom Postgres enums, cast to text so node-postgres hands back
+  // plain strings. target_item_ids/examiner_notes are native text[] (like
+  // tags), so they parse fine uncast.
+  const examTaskRows = await pool.query(
+    `select id, format::text as format, variant, task_type::text as task_type,
+            skill::text as skill, level::text as level, format_version, prompt,
+            items, response_spec, rubric, model_answer, examiner_notes,
+            timing_s, scoring_map, target_item_ids
+       from content_exam_tasks where status = 'published'`
+  );
+  const examSeriesRows = await pool.query(
+    `select id, format::text as format, variant, series_no, task_ids
+       from content_exam_series where status = 'published'`
+  );
 
   const units: Unit[] = unitRows.rows.map((r) => r.body);
   const lessons: Lesson[] = lessonRows.rows.map((r) => r.body);
   const scenarios: Scenario[] = scenarioRows.rows.map((r) => r.body);
+  const playlists: Playlist[] = playlistRows.rows.map((r) => r.body);
+  const examTasks: ExamTask[] = examTaskRows.rows.map((r) => ({
+    id: r.id,
+    format: r.format,
+    variant: r.variant,
+    taskType: r.task_type,
+    skill: r.skill,
+    level: r.level,
+    formatVersion: r.format_version,
+    prompt: r.prompt,
+    ...(r.items ? { items: r.items } : {}),
+    ...(r.response_spec ? { responseSpec: r.response_spec } : {}),
+    ...(r.rubric ? { rubric: r.rubric } : {}),
+    ...(r.model_answer ? { modelAnswer: r.model_answer } : {}),
+    ...(r.examiner_notes?.length ? { examinerNotes: r.examiner_notes } : {}),
+    timingS: r.timing_s,
+    ...(r.scoring_map ? { scoringMap: r.scoring_map } : {}),
+    ...(r.target_item_ids?.length ? { targetItemIds: r.target_item_ids } : {}),
+    // provenance intentionally withheld — same reasoning as WITHHELD_ITEM_COLUMNS.
+  }));
+  const examSeries: ExamSeries[] = examSeriesRows.rows.map((r) => ({
+    id: r.id,
+    format: r.format,
+    variant: r.variant,
+    seriesNo: r.series_no,
+    taskIds: r.task_ids ?? [],
+  }));
   const items: Item[] = itemRows.rows.map((r) => ({
     id: r.id,
     kind: r.kind,
@@ -245,6 +331,9 @@ async function main() {
     tags: r.tags ?? [],
     drills: r.drills ?? [],
     audioRef: r.audio_ref ?? null,
+    ...(r.image_ref ? { imageRef: r.image_ref } : {}),
+    ...(r.segments ? { segments: r.segments } : {}),
+    ...(r.asset_key ? { assetKey: r.asset_key } : {}),
     version: r.version,
     // The spine. Spread-when-present, like ipa/gender above: a null column must
     // become an ABSENT key, not `skill: null`. The app's validators check
@@ -255,13 +344,19 @@ async function main() {
     ...(r.can_do ? { canDo: r.can_do } : {}),
     ...(r.grammar_points?.length ? { grammarPoints: r.grammar_points } : {}),
     ...(r.modality ? { modality: r.modality } : {}),
+    ...(r.verb_check ? { verbCheck: r.verb_check } : {}),
   }));
 
   console.log(
-    `\n  published: ${units.length} units · ${lessons.length} lessons · ${items.length} items · ${scenarios.length} scenarios`
+    `\n  published: ${units.length} units · ${lessons.length} lessons · ${items.length} items · ` +
+      `${scenarios.length} scenarios · ${playlists.length} playlists · ` +
+      `${examTasks.length} exam tasks · ${examSeries.length} exam series`
   );
 
-  if (!units.length && !lessons.length && !items.length && !scenarios.length) {
+  if (
+    !units.length && !lessons.length && !items.length && !scenarios.length && !playlists.length &&
+    !examTasks.length && !examSeries.length
+  ) {
     await pool.end();
     die('Nothing is published. Approve some content in the Ops Console first.');
   }
@@ -294,7 +389,7 @@ async function main() {
   const previous = prev.rows[0];
   const version = (previous?.version ?? 0) + 1;
 
-  const corpus: Corpus = { version, units: prunedUnits, lessons, items, scenarios };
+  const corpus: Corpus = { version, units: prunedUnits, lessons, items, scenarios, playlists, examTasks, examSeries };
 
   // ── 4. THE GATE ────────────────────────────────────────────────────────
   // Every failure below is one that does NOT crash in production. A dangling
@@ -310,6 +405,56 @@ async function main() {
     process.exit(1);
   }
   console.log('  ✓ corpus valid');
+
+  // ── 4a. RULE deterministic-french-gates (master plan Phase 2.D) ─────────
+  // A Python subprocess (publish/CI environment only — never bundled, never
+  // installed on device) checks every item carrying a `verbCheck` target
+  // against a real conjugator (verbecc). Deterministic French checkers are
+  // authoritative over any LLM-authored guess: a wrong conjugation must
+  // never reach a phone. Skipped entirely (no subprocess spawned) when
+  // nothing in this publish carries a verbCheck target — most publishes for
+  // a long while yet, until authoring backfills more of the corpus.
+  {
+    const verbTargeted = items.filter((i) => i.verbCheck);
+    if (verbTargeted.length > 0) {
+      const { spawnSync } = await import('node:child_process');
+      const python = process.env.PYTHON_BIN || 'python';
+      const gatePath = resolve(process.cwd(), 'gates/check_french.py');
+      const payload = JSON.stringify({
+        items: verbTargeted.map((i) => ({ id: i.id, fr: i.fr, verbCheck: i.verbCheck })),
+      });
+      const result = spawnSync(python, [gatePath], { input: payload, encoding: 'utf8' });
+
+      if (result.error || result.status !== 0) {
+        await pool.end();
+        die(
+          `The French conjugation gate could not run (${result.error?.message ?? `python exited ${result.status}`}).\n` +
+            (result.stderr ? `  ${result.stderr.trim()}\n` : '') +
+            '  Install its dependencies: pip install -r gates/requirements.txt\n' +
+            `  (set PYTHON_BIN if "${python}" is not the right interpreter on this machine).`
+        );
+      }
+
+      let report: { checked: number; issues: { id: string; message: string }[] };
+      try {
+        report = JSON.parse(result.stdout);
+      } catch {
+        await pool.end();
+        die(`The French conjugation gate produced non-JSON output on stdout:\n${result.stdout}\n${result.stderr}`);
+      }
+
+      if (report.issues.length) {
+        await pool.end();
+        console.error(
+          `\n✖ French conjugation gate: ${report.issues.length} of ${report.checked} checked item(s) failed. NOTHING was published.\n`
+        );
+        for (const issue of report.issues) console.error(`  · ${issue.message}`);
+        console.error('');
+        process.exit(1);
+      }
+      console.log(`  ✓ French conjugation gate: ${report.checked} item(s) checked`);
+    }
+  }
 
   // ── 4b. RULE lesson-has-practice (master plan Phase 2.B) ────────────────
   // Every published lesson must carry >=1 practice section with a non-empty,
@@ -364,18 +509,93 @@ async function main() {
       gate.push(`single-drill items (${singleDrill.length}): ${singleDrill.map((i) => i.id).join(', ')}`);
     }
 
-    // Voice Flash is a pronunciation surface; an item there without IPA ships
-    // a sound drill with no sound spec (deterministic FR→IPA pass is Phase 2).
-    const vfNoIpa = items.filter((i) => i.drills.includes('voiceflash') && !i.ipa);
-    if (vfNoIpa.length) {
-      gate.push(`voiceflash items missing ipa (${vfNoIpa.length}): ${vfNoIpa.map((i) => i.id).join(', ')}`);
-    }
-
     // imageRef shape is validated by validateCorpus; RESOLVABILITY is not yet —
     // the dangling-ref hard gate arrives with the snapshot asset manifest.
     const withImage = items.filter((i) => typeof i.imageRef === 'string' && i.imageRef.length > 0);
     if (withImage.length) {
       gate.push(`imageRef on ${withImage.length} item(s) — resolvability is not machine-checked until the asset manifest lands; verify the uploads`);
+    }
+
+    // RULE recycled-vocab (CONTENT-AUTHORING-GUIDE.md §2, Workstream 4) — advisory
+    // for now: a first real run found themes (dictee, verbes) with zero non-
+    // sentence items to recycle from at all, which a hard gate would treat as
+    // an unfixable publish blocker rather than an authoring gap. Same posture
+    // as every other rule in this block: flip to a die() once the corpus
+    // actually clears its own floor. ≥30% at a1/a2/b1, ≥25% at b2, ≥20% at c1.
+    {
+      const vocabPool = buildVocabPoolFromItems(items.filter((i) => i.kind !== 'sentence'));
+      const recycleFailing: string[] = [];
+      for (const i of items) {
+        if (i.kind !== 'sentence') continue;
+        const floor = RECYCLED_VOCAB_FLOOR[i.level];
+        if (floor === undefined) continue;
+        const tokens = tokenize(i.fr);
+        if (tokens.length === 0) continue; // degenerate/empty fr is validateCorpus's job, not this gate's
+        const pct = recycledShare(tokens, vocabPool.get(themeLevelKey(i.level, i.theme)));
+        if (pct < floor) recycleFailing.push(`${i.id}=${Math.round(pct * 100)}%(need ${Math.round(floor * 100)}%)`);
+      }
+      if (recycleFailing.length) {
+        gate.push(`recycled-vocab below §2 floor (${recycleFailing.length}): ${recycleFailing.join(', ')}`);
+      }
+    }
+
+    // Gender-lexicon gate (Workstream 4, gates/check_gender.py) — advisory:
+    // ships in the same run it lands, per the explicit decision to promote
+    // it to a hard die() only after one real publish shows zero false
+    // positives against the live corpus (the authoring guide's own §11 also
+    // currently calls gender "flag for human review pending full automation").
+    {
+      const genderTargeted = items.filter((i) => i.gender === 'm' || i.gender === 'f');
+      if (genderTargeted.length > 0) {
+        const report = await runPythonGate('gates/check_gender.py', {
+          items: genderTargeted.map((i) => ({ id: i.id, fr: i.fr, gender: i.gender })),
+        });
+        if ('error' in report) {
+          gate.push(`gender-lexicon gate could not run: ${report.error}`);
+        } else if (report.issues.length) {
+          gate.push(`gender-lexicon mismatches (${report.issues.length}): ${report.issues.map((i) => i.message).join(' | ')}`);
+        }
+      }
+    }
+
+    // IPA gate (Workstream 4, gates/check_ipa.py) — advisory, subsumes the
+    // old voiceflash-only presence check (now also covers dictation) plus an
+    // espeak-ng cross-check when the binary is present on this machine.
+    {
+      const ipaTargeted = items.filter((i) => i.drills.includes('voiceflash') || i.drills.includes('dictation'));
+      if (ipaTargeted.length > 0) {
+        const report = await runPythonGate('gates/check_ipa.py', {
+          items: ipaTargeted.map((i) => ({ id: i.id, fr: i.fr, ipa: i.ipa ?? null, drills: i.drills })),
+        });
+        if ('error' in report) {
+          gate.push(`IPA gate could not run: ${report.error}`);
+        } else {
+          if (report.skipped) gate.push(`IPA cross-check skipped: ${report.skipped}`);
+          if (report.issues.length) gate.push(`IPA issues (${report.issues.length}): ${report.issues.map((i) => i.message).join(' | ')}`);
+        }
+      }
+    }
+
+    // CEFR-fit heuristic gate (Workstream 4, src/lib/gates/cefr.ts) — a
+    // Tier-1 stand-in for the "real" classifier the master plan calls for,
+    // pure TypeScript (no subprocess), always advisory. Every flag it
+    // produces says so in its own text (`[CEFR heuristic v1]`).
+    {
+      // Same scope as the recycled-vocab gate: pools built from non-sentence
+      // (word/phrase) items, sentences scored against them — a word IS
+      // vocabulary, not something composed FROM vocabulary, so scoring one
+      // against a pool containing itself would trivially "pass" every time.
+      const pools = buildLevelPools(items.filter((i) => i.kind !== 'sentence'));
+      const freqRank = loadLexiconFreqRank();
+      const cefrFlags: string[] = [];
+      for (const i of items) {
+        if (i.kind !== 'sentence') continue;
+        const score = scoreCefrFit({ fr: i.fr, level: i.level as ItemLevel }, pools, freqRank);
+        if (score.flags.length) cefrFlags.push(`${i.id}: ${score.flags.join('; ')}`);
+      }
+      if (cefrFlags.length) {
+        gate.push(`CEFR-fit heuristic flags (${cefrFlags.length}): ${cefrFlags.join(' || ')}`);
+      }
     }
 
     if (gate.length) {
@@ -447,8 +667,14 @@ async function main() {
     ...seedUnits.map((u) => unitBand(u.id)).filter((b): b is NonNullable<typeof b> => b !== null),
   ]);
   const seedScenarios = scenarios.filter((s) => seedLevels.has(s.level));
+  // Playlists ship in the seed on the same rule as scenarios: honest listening
+  // for a level a fresh offline install actually has content for.
+  const seedPlaylists = playlists.filter((p) => seedLevels.has(p.minLevel));
 
-  const seed: Corpus = { version, units: seedUnits, lessons: seedLessons, items: seedItems, scenarios: seedScenarios };
+  const seed: Corpus = {
+    version, units: seedUnits, lessons: seedLessons, items: seedItems,
+    scenarios: seedScenarios, playlists: seedPlaylists,
+  };
 
   // The seed must be a coherent corpus IN ITS OWN RIGHT. It is what a user with
   // no network sees, so a dangling reference here is invisible until someone is
@@ -463,7 +689,8 @@ async function main() {
     process.exit(1);
   }
   console.log(
-    `  ✓ seed valid: ${seedUnits.length} units · ${seedLessons.length} lessons · ${seedItems.length} items · ${seedScenarios.length} scenarios`
+    `  ✓ seed valid: ${seedUnits.length} units · ${seedLessons.length} lessons · ${seedItems.length} items · ` +
+      `${seedScenarios.length} scenarios · ${seedPlaylists.length} playlists`
   );
 
   // ── 6. Bytes ───────────────────────────────────────────────────────────
@@ -484,12 +711,16 @@ async function main() {
     lessons: corpus.lessons.length,
     items: corpus.items.length,
     scenarios: corpus.scenarios.length,
+    playlists: (corpus.playlists ?? []).length,
+    examTasks: (corpus.examTasks ?? []).length,
+    examSeries: (corpus.examSeries ?? []).length,
   };
   const seedCounts = {
     units: seed.units.length,
     lessons: seed.lessons.length,
     items: seed.items.length,
     scenarios: seed.scenarios.length,
+    playlists: (seed.playlists ?? []).length,
   };
 
   // `rollout` is the staged-rollout gate the app honors (content.logic.ts
@@ -511,10 +742,13 @@ async function main() {
       return `${counts[k]} (${delta >= 0 ? '+' : ''}${delta})`;
     };
     console.log(`  v${previous.version} → v${version}`);
-    console.log(`    units:     ${d('units')}`);
-    console.log(`    lessons:   ${d('lessons')}`);
-    console.log(`    items:     ${d('items')}`);
-    console.log(`    scenarios: ${d('scenarios')}`);
+    console.log(`    units:      ${d('units')}`);
+    console.log(`    lessons:    ${d('lessons')}`);
+    console.log(`    items:      ${d('items')}`);
+    console.log(`    scenarios:  ${d('scenarios')}`);
+    console.log(`    playlists:  ${d('playlists')}`);
+    console.log(`    examTasks:  ${d('examTasks')}`);
+    console.log(`    examSeries: ${d('examSeries')}`);
   }
   console.log(`  checksum: ${checksum.slice(0, 16)}…`);
 
