@@ -1,0 +1,179 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeUp 0.35s ease both;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+}
+
+.sub {
+  font-size: 12px;
+  color: var(--mut);
+  margin-top: 4px;
+  max-width: 640px;
+}
+
+.newBtn {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.newBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cancelBtn {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--mut);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.inlinePanel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.input {
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 12.5px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.checkLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--mut);
+  font-size: 12.5px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.domainCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 18px;
+}
+
+.domainHead {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.domainTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.domainSlug {
+  font-size: 11px;
+  color: var(--mut);
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+.emptyThemes {
+  font-size: 12px;
+  color: var(--mut);
+  margin-top: 8px;
+}
+
+.themeGrid {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.themeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+
+.themeMain {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.themeTitle {
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.themeSlug {
+  font-size: 10.5px;
+  color: var(--mut);
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+.themeRange {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--mut);
+  white-space: nowrap;
+}
+
+.flagChip {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--acc) 12%, transparent);
+  color: var(--acc);
+}
+
+.themeCount {
+  font-size: 11px;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  color: var(--mut);
+  white-space: nowrap;
+}
