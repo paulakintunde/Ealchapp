@@ -12,6 +12,7 @@ export const ENV = {
 
   // Edge Function slugs (the client calls these; secrets are injected server-side).
   coachFunction: process.env.EXPO_PUBLIC_COACH_FN ?? 'coach',
+  gradeExamFunction: process.env.EXPO_PUBLIC_GRADE_EXAM_FN ?? 'grade-exam',
   ttsFunction: process.env.EXPO_PUBLIC_TTS_FN ?? 'tts',
   sttFunction: process.env.EXPO_PUBLIC_STT_FN ?? 'stt',
   deleteAccountFunction: process.env.EXPO_PUBLIC_DELETE_ACCOUNT_FN ?? 'delete-account',

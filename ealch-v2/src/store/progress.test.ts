@@ -11,11 +11,17 @@ import {
   clampMinutes,
   composeSession,
   DAILY_REVIEW_CAP,
+  decomposeExamMiss,
   dueBacklog,
   dueCards,
+  dueExamSkills,
   foldCards,
   gradeAttempt,
   goalTarget,
+  greetState,
+  greetDue,
+  GREET_COOLDOWN_MS,
+  GREET_RECENT_MAX_DAYS,
   introEligible,
   isConfidentWeakSpot,
   isMastered,
@@ -25,6 +31,11 @@ import {
   localDay,
   masteredItems,
   migrateProgressToV2,
+  migrateProgressToV3,
+  mintAttemptId,
+  attemptToServerRow,
+  serverRowToAttempt,
+  mergeAttempts,
   minutesToday,
   mondayIndex,
   resumeIsFresh,
@@ -44,9 +55,12 @@ import {
   wilsonLower,
   type AttemptEntry,
   type ErrorEvent,
+  type ExamResult,
   type ResumeState,
+  type ServerAttemptRow,
   type SessionEntry,
 } from './progress.logic.ts';
+import type { ExamTask, Lesson } from '../content/schema.ts';
 
 const TODAY = '2026-07-14'; // a Tuesday
 const day = (delta: number) => shiftDay(TODAY, delta);
@@ -136,6 +150,43 @@ test('goalTarget falls back to 10 rather than producing NaN', () => {
   strictEqual(goalTarget('lots'), 10);
   strictEqual(goalTarget('0 min'), 10);
   strictEqual(goalTarget(undefined as unknown as string), 10);
+});
+
+// ── greetState (home-launch greeting) ──
+
+test('greetState: no sessions is a new learner', () => {
+  strictEqual(greetState([], TODAY), 'new');
+});
+
+test('greetState: a session today is a recent return', () => {
+  strictEqual(greetState([s(0)], TODAY), 'recent');
+});
+
+test('greetState: the edge of the recent window is recent, one day past it is away', () => {
+  strictEqual(greetState([s(-GREET_RECENT_MAX_DAYS)], TODAY), 'recent');
+  strictEqual(greetState([s(-(GREET_RECENT_MAX_DAYS + 1))], TODAY), 'away');
+});
+
+test('greetState reads the most recent session, not the oldest', () => {
+  // Practised a month ago AND yesterday: the learner is a recent return.
+  strictEqual(greetState([s(-30), s(-1)], TODAY), 'recent');
+});
+
+test('greetState treats a future-dated session (a clock that jumped back) as recent', () => {
+  strictEqual(greetState([s(2)], TODAY), 'recent');
+});
+
+test('greetDue: never greeted is due; inside the 2h window is not; past it is', () => {
+  const now = 10_000_000;
+  strictEqual(greetDue(0, now), true);
+  strictEqual(greetDue(now - 1, now), false);
+  strictEqual(greetDue(now - GREET_COOLDOWN_MS + 1, now), false);
+  strictEqual(greetDue(now - GREET_COOLDOWN_MS, now), true);
+});
+
+test('greetDue: a future timestamp (clock moved back) reads as due, never mutes', () => {
+  strictEqual(greetDue(5_000, 1_000), true);
+  strictEqual(greetDue(NaN, 1_000), true);
 });
 
 // ── the empty state ──
@@ -270,6 +321,7 @@ const a = (
   verdict: AttemptEntry['verdict'] = correct ? 'good' : 'off',
   modality: AttemptEntry['modality'] = 'recognise'
 ): AttemptEntry => ({
+  id: mintAttemptId(),
   date: day(delta),
   activity: 'voiceflash',
   itemId: id,
@@ -305,6 +357,19 @@ test('statsByItem folds attempts per item, last attempt winning the last* fields
   strictEqual(pain?.seen, 1);
   strictEqual(pain?.correct, 0);
   strictEqual(pain?.ratio, 0);
+});
+
+test('statsByItem carries the last attempt\'s anchor, undefined when it had none', () => {
+  const withAnchor: AttemptEntry = { ...a('fr.a2.verbes.001', false, -1), anchor: 'a2.01.l1#s1.0' };
+  const withoutAnchor: AttemptEntry = a('fr.a2.verbes.001', true, 0); // no anchor — a standalone drill
+  const stats = statsByItem([withAnchor, withoutAnchor]);
+  // The most recent attempt had no anchor (a standalone drill), so the last*
+  // fields say so — a review list must fall back to naming the item, not keep
+  // pointing at a now-stale lesson block from an older attempt.
+  strictEqual(stats.get('fr.a2.verbes.001')?.lastAnchor, undefined);
+
+  const onlyAnchored = statsByItem([withAnchor]);
+  strictEqual(onlyAnchored.get('fr.a2.verbes.001')?.lastAnchor, 'a2.01.l1#s1.0');
 });
 
 test('weakestItems ranks the lowest ratio first', () => {
@@ -1023,4 +1088,211 @@ test('a new log reference re-folds (the store makes a new array on every attempt
   const grown = [...base, a('fr.a1.cafe.002', true, 0, 'good')]; // logAttempt's shape
   dueCards(grown, TODAY);
   strictEqual(srsFoldCount() - before, 2, 'a new reference folds again');
+});
+
+// ── migrate v2→v3 (Phase 9: id becomes required) ─────────────────────────────
+
+/** A v2-shaped attempt: has `modality`, has no `id` — exactly what every real
+ *  device's AsyncStorage held the moment this migration shipped. */
+const v2Attempt = (itemId: string, extra: Record<string, unknown> = {}) => ({
+  date: '2026-07-01',
+  activity: 'flashcards',
+  itemId,
+  expected: 'le café',
+  heard: '',
+  score: 1,
+  verdict: 'good',
+  correct: true,
+  modality: 'recognise',
+  ...extra,
+});
+
+test('migrate v2→v3 gives every legacy attempt a stable id', () => {
+  const out = migrateProgressToV3({
+    sessions: [],
+    attempts: [v2Attempt('fr.a1.cafe.001'), v2Attempt('fr.a1.cafe.002')],
+    errors: [],
+    resume: null,
+  });
+  strictEqual(out.attempts.length, 2);
+  ok(out.attempts.every((att) => typeof att.id === 'string' && att.id.length > 0));
+  // Two attempts minted in the same pass must not collide.
+  strictEqual(new Set(out.attempts.map((att) => att.id)).size, 2);
+});
+
+test('migrate v1→v3 upgrades modality and mints an id in one pass', () => {
+  // v1Attempt has neither modality nor id — the oldest shape this app ever wrote.
+  const out = migrateProgressToV3({
+    sessions: [],
+    attempts: [v1Attempt('fr.a1.cafe.001')],
+    errors: [],
+    resume: null,
+  });
+  strictEqual(out.attempts[0].modality, 'recognise');
+  ok(typeof out.attempts[0].id === 'string' && out.attempts[0].id.length > 0);
+});
+
+test('migrate v2→v3 is idempotent: a real id survives re-running the migration', () => {
+  const once = migrateProgressToV3({
+    sessions: [],
+    attempts: [v2Attempt('fr.a1.cafe.001')],
+    errors: [],
+    resume: null,
+  });
+  const twice = migrateProgressToV3(once);
+  deepStrictEqual(twice, once);
+});
+
+test('migrate v2→v3 leaves an already-present id untouched', () => {
+  const out = migrateProgressToV3({
+    sessions: [],
+    attempts: [v2Attempt('fr.a1.cafe.001', { id: 'kept-id' })],
+    errors: [],
+    resume: null,
+  });
+  strictEqual(out.attempts[0].id, 'kept-id');
+});
+
+// ── server round trip (Phase 9 sync: fold parity) ────────────────────────────
+//
+// The literal acceptance criterion: replaying the server `attempts` log
+// yields the same cards as the client fold. This proves the server row shape
+// (attemptToServerRow) loses nothing srsCards/gradeAttempt actually read.
+
+test('a log round-tripped through the server row shape folds to the same cards', () => {
+  const log: AttemptEntry[] = [
+    a('fr.a1.cafe.001', true, -10, 'good', 'recognise'),
+    a('fr.a1.cafe.001', false, -5, 'off', 'recognise'),
+    a('fr.a1.cafe.001', true, -1, 'good', 'recognise'),
+    a('fr.a1.pain.002', true, -3, 'close', 'produce'),
+  ];
+  const before = foldCards(log);
+
+  // The exact transform pullAttempts (sync.ts) applies: local → server row →
+  // (as if fetched back from PostgREST) → local again.
+  const roundTripped = log.map((att, i) =>
+    serverRowToAttempt({ ...attemptToServerRow(att), atMs: i })
+  );
+  const after = foldCards(roundTripped);
+
+  deepStrictEqual(after, before);
+});
+
+// ── mergeAttempts (Phase 9 sync: cross-device merge order) ───────────────────
+
+test('mergeAttempts dedupes by id — a pulled row already held locally is not duplicated', () => {
+  const local = [a('fr.a1.cafe.001', true, -1, 'good')];
+  const sameRow: ServerAttemptRow = { ...attemptToServerRow(local[0]), atMs: 0 };
+  const merged = mergeAttempts(local, [sameRow]);
+  strictEqual(merged.length, 1);
+  strictEqual(merged[0], local[0], 'the LOCAL object is kept, not a reconstruction of the server row');
+});
+
+test('mergeAttempts sorts a cross-device merge back into chronological order', () => {
+  // Device A logged today; device B (pulled from the server) logged three days
+  // ago. A naive append would put B's older attempt after A's newer one, which
+  // srsCards/gradeAttempt would silently misread as "practised out of order".
+  const deviceA: AttemptEntry = a('fr.a1.cafe.001', true, 0, 'good');
+  const deviceBRow: ServerAttemptRow = {
+    ...attemptToServerRow(a('fr.a1.pain.002', true, -3, 'good')),
+    atMs: 1,
+  };
+  const merged = mergeAttempts([deviceA], [deviceBRow]);
+  deepStrictEqual(
+    merged.map((att) => att.date),
+    [day(-3), day(0)]
+  );
+});
+
+test('mergeAttempts breaks a same-day tie using the server timestamp, local-only last', () => {
+  const olderPull: ServerAttemptRow = { ...attemptToServerRow(a('fr.a1.a.001', true)), atMs: 100 };
+  const newerPull: ServerAttemptRow = { ...attemptToServerRow(a('fr.a1.b.002', true)), atMs: 200 };
+  const localOnly = a('fr.a1.c.003', true);
+  const merged = mergeAttempts([localOnly], [olderPull, newerPull]);
+  deepStrictEqual(
+    merged.map((att) => att.itemId),
+    ['fr.a1.a.001', 'fr.a1.b.002', 'fr.a1.c.003']
+  );
+});
+
+// ── the exam result log (Phase 8) ──
+
+const closedExamTask = (over: Partial<ExamTask> = {}): ExamTask => ({
+  id: 'exam.tcf_canada.2024a.co_mcq.001',
+  format: 'tcf_canada',
+  variant: '2024a',
+  taskType: 'co_mcq',
+  skill: 'CO',
+  level: 'b2',
+  formatVersion: 'tcf-2024.1',
+  prompt: 'Écoutez le dialogue et répondez.',
+  items: [{ q: 'Où sont-ils ?', opts: ['À la gare', 'Au café'], correct: 1 }],
+  timingS: 90,
+  targetItemIds: ['fr.b2.marche.001', 'fr.b2.marche.002'],
+  ...over,
+});
+
+const openExamTask = (over: Partial<ExamTask> = {}): ExamTask => ({
+  id: 'exam.delf_b2.2024a.pe_essay.001',
+  format: 'delf_b2',
+  variant: '2024a',
+  taskType: 'pe_essay',
+  skill: 'PE',
+  level: 'b2',
+  formatVersion: 'delf-2020.2',
+  prompt: 'Vous écrivez à votre propriétaire pour signaler une fuite.',
+  rubric: { criteria: [{ key: 'coherence', label: 'Cohérence', maxPoints: 5 }] },
+  modelAnswer: 'Madame, Monsieur, je vous écris…',
+  timingS: 1800,
+  ...over,
+});
+
+test('decomposeExamMiss turns a missed closed task into per-item review attempts', () => {
+  const attempts = decomposeExamMiss(closedExamTask());
+  deepStrictEqual(attempts.map((a2) => a2.itemId), ['fr.b2.marche.001', 'fr.b2.marche.002']);
+  ok(attempts.every((a2) => a2.activity === 'exam-review' && a2.modality === 'recognise' && !a2.correct));
+});
+
+test('decomposeExamMiss produces nothing for an open task — there is no atom to blame', () => {
+  deepStrictEqual(decomposeExamMiss(openExamTask()), []);
+});
+
+test('decomposeExamMiss produces nothing when the task has no targetItemIds', () => {
+  deepStrictEqual(decomposeExamMiss(closedExamTask({ targetItemIds: undefined })), []);
+});
+
+const examResult = (over: Partial<ExamResult> = {}): ExamResult => ({
+  id: 'exr-1',
+  date: day(0),
+  taskId: 'exam.delf_b2.2024a.pe_essay.001',
+  format: 'delf_b2',
+  taskType: 'pe_essay',
+  skill: 'PE',
+  band: 'b2',
+  passed: false,
+  ...over,
+});
+
+test('dueExamSkills resolves an open miss to the real prep lesson via Lesson.skill', () => {
+  const prepLesson: Lesson = {
+    id: 'b2.01.l1', unitId: 'b2.01', seq: 1, title: 'PE prep', level: 'b2', tag: 'B2',
+    intro: '', sections: [{ type: 'teach', title: 'T', body: 'B' }], itemIds: [], version: 1, skill: 'PE',
+  };
+  const due = dueExamSkills([examResult()], [prepLesson]);
+  deepStrictEqual(due, [{ format: 'delf_b2', skill: 'PE', band: 'b2', prepLessonId: 'b2.01.l1' }]);
+});
+
+test('dueExamSkills reports null, not silently nothing, when no prep lesson exists', () => {
+  const due = dueExamSkills([examResult()], []);
+  deepStrictEqual(due, [{ format: 'delf_b2', skill: 'PE', band: 'b2', prepLessonId: null }]);
+});
+
+test('dueExamSkills ignores passed results and closed task types', () => {
+  deepStrictEqual(dueExamSkills([examResult({ passed: true })], []), []);
+  deepStrictEqual(dueExamSkills([examResult({ taskType: 'co_mcq', skill: 'CO' })], []), []);
+});
+
+test('dueExamSkills dedupes repeated misses at the same (format, skill, band)', () => {
+  const due = dueExamSkills([examResult({ id: 'exr-1' }), examResult({ id: 'exr-2' })], []);
+  strictEqual(due.length, 1);
 });

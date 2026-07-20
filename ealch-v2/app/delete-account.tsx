@@ -74,8 +74,15 @@ export default function DeleteAccount() {
       // authenticated way to delete a server row, and the account that reaches
       // here is an unconfirmed email sign-up with no real server data. Blocking
       // deletion outright would fail Apple 5.1.1(v) (review §2.4), so we finish
-      // with a local erase + sign-out — the deletion the user asked for. When
-      // sync (Phase 6) lands, this branch should re-authenticate first.
+      // with a local erase + sign-out — the deletion the user asked for.
+      //
+      // Phase 9 landed the identity substrate this comment used to call
+      // "Phase 6" (renumbered since), but it does not close this gap by
+      // itself: `isGuest` above still reads the locally-set `accountType`, not
+      // the verified `userId` a real session backs. A future pass that wants
+      // to re-authenticate before falling through should branch on `userId`
+      // being null, not on this error code — that is the one case where "no
+      // session" might mean "the local flag is stale", not "never signed up".
     }
 
     await eraseLocalData();

@@ -26,30 +26,46 @@ create table if not exists public.system_prompts (
 );
 
 -- Per-user profile + learning state.
+--
+-- `level` has no default (Phase 9): a value nobody chose is not a real
+-- placement, and 'B1' shipped as a fabricated default that nothing ever
+-- overwrote until a real placement flow existed. Null means "unplaced",
+-- honestly. Constrained to the app's real lowercase Level union
+-- (ealch-v2/src/content/schema.ts LEVELS) rather than the uppercase 'B1' this
+-- table used to default to. No `streak` column: it was never written by any
+-- code path — the client derives streak from the session log
+-- (progress.logic.ts) — so a server column for it could only ever be another
+-- fabricated number.
 create table if not exists public.profiles (
   id            uuid primary key references auth.users(id) on delete cascade,
   display_name  text,
-  level         text default 'B1',
+  level         text check (level is null or level in ('sons','a1','a2','b1','b2','c1')),
   goal          text,
   accent        text default 'Parisienne',
   interface_lang text default 'fr',
-  streak        int default 0,
   created_at    timestamptz not null default now()
 );
 
--- Spaced-repetition review queue (FSRS-style scheduling).
-create table if not exists public.review_items (
-  id            uuid primary key default gen_random_uuid(),
+-- Append-only attempt log (Phase 9). Replaces review_items (FSRS-shaped,
+-- zero live consumers — nothing ever queried it). Mirrors AttemptEntry
+-- (ealch-v2/src/store/progress.logic.ts), narrowed to what the SRS fold
+-- (srsCards/gradeAttempt) and Le Rapport's per-drill breakdown
+-- (app/feedback.tsx, keyed on `activity`) actually read. `id` is
+-- CLIENT-generated (mintAttemptId) and IS the idempotency key: a client can
+-- safely re-upload after a partial failure via `on conflict (id) do nothing`
+-- (see src/services/sync.ts).
+create table if not exists public.attempts (
+  id            uuid primary key,
   user_id       uuid not null references auth.users(id) on delete cascade,
-  card_type     text not null,           -- WORD | SON | GRAMMAR | CARNET
-  prompt        text not null,
-  answer        text,
-  source        text,                    -- roleplay | coach | quiz | carnet
-  due_at        timestamptz not null default now(),
-  stability     real default 1,
-  difficulty    real default 5,
-  created_at    timestamptz not null default now()
+  item_id       text not null,
+  modality      text not null check (modality in ('recognise','produce','discriminate')),
+  verdict       text not null check (verdict in ('good','close','off','none')),
+  correct       boolean not null,
+  activity      text not null,
+  day           text not null,           -- local calendar day, matches AttemptEntry.date
+  at            timestamptz not null default now()
 );
+create index if not exists attempts_user_at_idx on public.attempts (user_id, at);
 
 -- Session transcripts + daily reports.
 create table if not exists public.sessions (
@@ -68,11 +84,13 @@ create table if not exists public.sessions (
 -- horizontally scaled, so a module-scope counter would reset on every cold start
 -- and be per-instance besides — it would cap nothing while looking like it did.
 --
--- HONESTY, and this belongs in the schema rather than a ticket: until Phase 9
--- lands an identity substrate, `subject_key` is a device id or an IP, and a user
--- can change either. This is a COST LIMITER, not a security boundary. It bounds
--- runaway spend and gives Phase 10 its paywall trigger; it does not stop someone
--- determined to get more turns. Phase 9 replaces the key with auth.uid().
+-- HONESTY, and this belongs in the schema rather than a ticket: as of Phase 9,
+-- `subject_key` is `auth:<uid>` for a signed-in caller (coach/index.ts's
+-- callerUid verifies the caller's own JWT — never trusts a client-asserted
+-- id) and falls back to a device id or IP only for guests. Either way it is a
+-- COST LIMITER, not a security boundary: it bounds runaway spend and gives
+-- Phase 10 its paywall trigger, it does not stop someone signed in and
+-- determined to get more turns from simply accepting the cap.
 create table if not exists public.coach_usage (
   subject_key   text    not null,
   day           date    not null,
@@ -85,7 +103,7 @@ alter table public.coach_usage     enable row level security;
 alter table public.system_config   enable row level security;
 alter table public.system_prompts  enable row level security;
 alter table public.profiles        enable row level security;
-alter table public.review_items    enable row level security;
+alter table public.attempts        enable row level security;
 alter table public.sessions        enable row level security;
 
 -- Config: world-readable (non-sensitive), admin-writable only.
@@ -134,9 +152,14 @@ revoke all on function public.coach_bump(text, date, integer) from anon;
 revoke all on function public.coach_bump(text, date, integer) from authenticated;
 
 -- Users own their rows.
-create policy "own profile"  on public.profiles     for all using (auth.uid() = id)      with check (auth.uid() = id);
-create policy "own reviews"  on public.review_items for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
-create policy "own sessions" on public.sessions     for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy "own profile"  on public.profiles for all using (auth.uid() = id) with check (auth.uid() = id);
+create policy "own sessions" on public.sessions for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+
+-- Attempts: select + insert only, deliberately no update/delete policy —
+-- RLS enforces "append-only, never mutate" at the database level too, not
+-- just by the convention documented on AttemptLog in progress-schema.ts.
+create policy "read own attempts"   on public.attempts for select using (auth.uid() = user_id);
+create policy "insert own attempts" on public.attempts for insert with check (auth.uid() = user_id);
 
 -- Seed the active config (matches the app's built-in defaults).
 insert into public.system_config (id, config)
@@ -149,12 +172,17 @@ values ('active', '{
   "sttProvider": "device",
   "failoverToastVisible": true,
   "coachCostCeiling": "standard",
-  "coachFreeTurnsPerDay": 20
+  "coachFreeTurnsPerDay": 20,
+  "gradeFreeTurnsPerDay": 5
 }'::jsonb)
 on conflict (id) do nothing;
 
--- Note the `do nothing`: an already-seeded database does NOT gain the two coach
--- keys above from this file. That is safe by construction — the coach defaults
--- to 'standard' and 20 when a key is absent, and an absent ceiling never means
--- "unlimited". To change either on a live database, update the row (or let the
--- Phase 3 sync job write it), rather than expecting this insert to run again.
+-- Note the `do nothing`: an already-seeded database does NOT gain the coach/
+-- grading keys above from this file. That is safe by construction — coach
+-- defaults to 'standard' and 20, grading to 5, when a key is absent, and an
+-- absent ceiling never means "unlimited". To change any of these on a live
+-- database, update the row (or let the Phase 3 sync job write it), rather
+-- than expecting this insert to run again. gradeFreeTurnsPerDay is its own
+-- key, not a share of coachFreeTurnsPerDay: grade-exam's subject key is
+-- "grade:"-prefixed (see grade-exam/index.ts), so the two quotas are counted
+-- separately even though both currently live in coach_usage.

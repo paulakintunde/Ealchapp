@@ -6,6 +6,7 @@ import { ACCENTS, type Mode } from '@/theme/palette';
 // Import the service module directly (not '@/services') — the barrel pulls in
 // sound.ts, which imports this store back.
 import { notifications } from '@/services/notifications';
+import { supabase } from '@/services/supabase';
 // strings.ts only type-imports this store, so this is not a runtime cycle.
 import { T as STRINGS } from '@/i18n/strings';
 // useProgress does not import this store back, so this is not a cycle either.
@@ -71,6 +72,14 @@ export type AppState = {
   accountType: AccountType;
   signedIn: boolean;
   onboarded: boolean;
+  /** The VERIFIED Supabase auth uid, or null. Set only by setSession, which is
+   *  called only from src/services/session.ts's onAuthStateChange subscriber —
+   *  never by signIn/completeOnboarding, which are UI-flow bookkeeping and
+   *  cannot themselves prove a session exists. Distinct from `signedIn` on
+   *  purpose: `signedIn` also covers guest accounts, which have no server
+   *  session and never will. This is the identity Phase 9's sync (sync.ts) and
+   *  Phase 10's RevenueCat `Purchases.logIn(userId)` key off. */
+  userId: string | null;
 
   // billing
   currency: Currency;
@@ -87,6 +96,10 @@ export type AppState = {
   // is a grant the app makes, not a measurement of anything the user did, so
   // there is nothing to derive it from.
   freeze: number; // streak freezes available
+
+  /** Epoch ms of Camille's last spoken home greeting, 0 = never. Persisted so
+   *  the 2h cooldown (progress.logic GREET_COOLDOWN_MS) survives app restarts. */
+  lastGreetAt: number;
 
   // actions
   setHydrated: () => void;
@@ -108,6 +121,10 @@ export type AppState = {
   setAppLang: (id: string) => void;
   setField: <K extends keyof AppState>(k: K, v: AppState[K]) => void;
   signIn: (email?: string, name?: string) => void;
+  /** The single writer of `userId`. Called only from the auth-state subscriber
+   *  in src/services/session.ts, never from a screen — a screen only knows
+   *  what a form said, not what the backend verified. */
+  setSession: (userId: string | null, email: string | null) => void;
   signOut: () => Promise<void>;
   /** Wipe every persisted field back to first-launch defaults. Used by account deletion. */
   eraseLocalData: () => Promise<void>;
@@ -143,6 +160,7 @@ const initialData = () => ({
   accountType: 'guest' as AccountType,
   signedIn: false,
   onboarded: false,
+  userId: null as string | null,
 
   currency: 'USD' as Currency,
   planPick: 'yr' as Plan,
@@ -151,6 +169,8 @@ const initialData = () => ({
   // One freeze at day zero is a real starting grant, not a claim about past
   // activity — which is why it is the only progress field left in this store.
   freeze: 1,
+
+  lastGreetAt: 0,
 });
 
 export const useStore = create<AppState>()(
@@ -216,8 +236,19 @@ export const useStore = create<AppState>()(
       setField: (k, v) => set({ [k]: v } as Partial<AppState>),
       signIn: (email, name) =>
         set({ signedIn: true, email: email ?? get().email, userName: name ?? get().userName }),
+      setSession: (userId, email) =>
+        set({ userId, email: email ?? get().email }),
       signOut: async () => {
-        set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest' });
+        // Actually end the Supabase session. Before this fix, sign-out only
+        // cleared local flags — the real session survived, so a device that
+        // later gained a boot-time session check (src/services/session.ts)
+        // would have silently signed the user back in.
+        try {
+          await supabase()?.auth.signOut();
+        } catch {
+          // Local sign-out still proceeds — see the comment on the next line.
+        }
+        set({ signedIn: false, onboarded: false, email: '', userName: '', accountType: 'guest', userId: null });
         // The session, attempt and error logs live in their own store and are a
         // record of what THIS account did. Leaving them on the device would hand
         // the next person to sign in the previous user's streak, minutes and
@@ -304,6 +335,7 @@ export const useStore = create<AppState>()(
         planPick: s.planPick,
         premium: s.premium,
         freeze: s.freeze,
+        lastGreetAt: s.lastGreetAt,
       }),
       // Always flip `hydrated`, even when rehydration fails or yields no state —
       // a corrupt AsyncStorage entry must never brick startup.

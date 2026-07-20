@@ -51,8 +51,18 @@ export type RemoteConfig = {
    *  NOT cross platforms. Null on both until a pick is recorded; tts.ts then
    *  speaks language-only, exactly as it does today. A device that lacks the
    *  named id also falls back to language-only — the id is a preference, never a
-   *  requirement (see tts.ts). */
+   *  requirement (see tts.ts). FRENCH only — a device voice id is locale-bound,
+   *  so this id is never handed to an English utterance (see ttsVoiceEn). */
   ttsVoice: { android: string | null; ios: string | null };
+  /** Camille's ENGLISH voice pick (Phase 7) — additive sibling of `ttsVoice`,
+   *  same shape and same "preference, not requirement" contract, kept as its
+   *  own field rather than reshaping `ttsVoice` so the already-live French
+   *  roster (Blocker 4, `system_config` in production) never has to change
+   *  shape under it. Not yet routed through the Ops Console audition flow —
+   *  null on both until Paul runs that same process for an English voice;
+   *  until then, English narration speaks through the device's own default
+   *  en-US voice, which is the honest fallback, not a bug. */
+  ttsVoiceEn: { android: string | null; ios: string | null };
 };
 
 const DEFAULTS: RemoteConfig = {
@@ -64,6 +74,7 @@ const DEFAULTS: RemoteConfig = {
   sttProvider: 'device',
   failoverToastVisible: true,
   ttsVoice: { android: null, ios: null },
+  ttsVoiceEn: { android: null, ios: null },
 };
 
 const CACHE_KEY = 'ealch-remote-config';

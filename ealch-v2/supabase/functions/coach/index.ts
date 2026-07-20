@@ -27,6 +27,11 @@
 //
 // Deploy:  supabase functions deploy coach --no-verify-jwt
 // Secrets: supabase secrets set NVIDIA_API_KEY=... NVIDIA_AI_MODEL=... [ANTHROPIC_API_KEY=...]
+// SUPABASE_URL / SUPABASE_ANON_KEY / SUPABASE_SERVICE_ROLE_KEY are
+// auto-injected by the platform, same as every other function here — no
+// manual secret needed for the Phase 9 auth.uid() check (see callerUid).
+// --no-verify-jwt stays: this function must keep serving guests too, so the
+// platform-level JWT gate would be the wrong tool even post-Phase-9.
 
 import { createClient } from "jsr:@supabase/supabase-js@2";
 import {
@@ -144,6 +149,31 @@ function subjectKey(req: Request, deviceId: unknown): string {
   }
   const ip = (req.headers.get("x-forwarded-for") ?? "").split(",")[0]?.trim();
   return ip ? `ip:${ip}` : "anon";
+}
+
+/** Phase 9: verify the caller's own JWT (never trust a client-asserted id) and
+ *  return their auth uid, or null for a guest/unauthenticated call — which is
+ *  still allowed; only the subject key it gets downgrades to device/IP. Same
+ *  pattern as supabase/functions/delete-account/index.ts: an anon-key client
+ *  with the caller's bearer token forwarded, so an expired or forged token
+ *  simply fails getUser() rather than being trusted. SUPABASE_ANON_KEY is
+ *  auto-injected by the platform, same as SUPABASE_URL. */
+async function callerUid(req: Request): Promise<string | null> {
+  const authHeader = req.headers.get("authorization");
+  const url = Deno.env.get("SUPABASE_URL");
+  const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
+  if (!authHeader || !url || !anonKey) return null;
+  try {
+    const caller = createClient(url, anonKey, {
+      global: { headers: { Authorization: authHeader } },
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
+    const { data, error } = await caller.auth.getUser();
+    if (error || !data.user) return null;
+    return data.user.id;
+  } catch {
+    return null;
+  }
 }
 
 /** Bump the day's counter and report whether this turn is allowed.
@@ -325,7 +355,12 @@ Deno.serve(async (req) => {
     // exempt anyone: there is no paywall in the app yet, so there are no premium
     // users to spare. Phase 10 must exempt premium here when it lands, or it
     // will cap the people who paid.
-    const subject = subjectKey(req, deviceId);
+    //
+    // Phase 9: a signed-in caller gets a real per-user cap immune to device
+    // swapping, instead of the spoofable device/IP fallback. Guests keep
+    // exactly today's behavior — this is additive, not a gate.
+    const uid = await callerUid(req);
+    const subject = uid ? `auth:${uid}` : subjectKey(req, deviceId);
     const quota = await bumpTurn(subject, routed.freeTurnsPerDay);
     if (quota && !quota.allowed) {
       posthog("coach_turn_cap_reached", { used: quota.used, limit: routed.freeTurnsPerDay });

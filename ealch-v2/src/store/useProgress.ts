@@ -3,7 +3,12 @@ import { AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { clampMinutes, localDay, migrateProgressToV2, type Activity, type AttemptEntry, type AttemptInput, type ErrorEvent, type ErrorInput, type ResumeState, type SessionEntry } from './progress.logic';
+import {
+  clampMinutes, decomposeExamMiss, localDay, migrateProgressToV3, mintAttemptId, mintExamResultId,
+  type Activity, type AttemptEntry, type AttemptInput, type ErrorEvent, type ErrorInput,
+  type ExamResult, type ExamResultInput, type ResumeState, type SessionEntry,
+} from './progress.logic';
+import type { ExamTask } from '../content/schema';
 
 // The session log — the record that the user showed up — and the attempt log —
 // the record of what they got right or wrong, per item. Every number on the
@@ -16,6 +21,12 @@ export type ProgressState = {
   hydrated: boolean;
   sessions: SessionEntry[];
   attempts: AttemptEntry[];
+  /** One row per completed ExamTask attempt. Separate from `attempts`: an exam
+   *  result is a verdict on a whole task, not a graded response to one item —
+   *  see the module note in progress.logic.ts. A closed-task miss's underlying
+   *  items still land in `attempts` too, via decomposeExamMiss inside
+   *  logExamResult below. */
+  examResults: ExamResult[];
   /** The grammar skills the learner has actually missed — the raw material for
    *  home's weak-spots section. Empty on a fresh install, so the section shows an
    *  honest "nothing yet" rather than three invented weaknesses. */
@@ -32,6 +43,12 @@ export type ProgressState = {
    *  grades one — not at the end — so a mid-drill exit still keeps what was done.
    *  `date` is stamped here, like a session. */
   logAttempt: (attempt: AttemptInput) => void;
+  /** The exam-result writer. The exam-taking screen calls this once per
+   *  completed task. `task` is the ExamTask the result is against — needed
+   *  here (not just the result) because a closed-task miss decomposes into
+   *  per-item SRS attempts via decomposeExamMiss, reusing logAttempt as the
+   *  single write path rather than duplicating the trim/stamp logic. */
+  logExamResult: (result: ExamResultInput, task: ExamTask) => void;
   /** The error writer. A drill calls this the moment it can name the grammar
    *  skill a miss belongs to — the date is stamped here, like the other logs. */
   logError: (error: ErrorInput) => void;
@@ -43,6 +60,11 @@ export type ProgressState = {
   clearResume: () => void;
   /** Wipe both logs. Account deletion; not a user-facing "reset progress" yet. */
   eraseProgress: () => Promise<void>;
+  /** Overwrite the attempt log wholesale with an already-merged, already-
+   *  chronologically-sorted array (progress.logic.ts's mergeAttempts). Only
+   *  src/services/sync.ts calls this — a screen logs one attempt at a time via
+   *  logAttempt, it never replaces the whole log. */
+  replaceAttempts: (attempts: AttemptEntry[]) => void;
 };
 
 /** Roughly a decade of daily practice. A bound on the persisted blob, not a
@@ -55,6 +77,10 @@ const MAX_SESSIONS = 4000;
  *  first to fall off. */
 const MAX_ATTEMPTS = 20_000;
 
+/** Exams are sat far less often than drills, so this ceiling is generous
+ *  relative to MAX_ATTEMPTS without needing to be anywhere near it. */
+const MAX_EXAM_RESULTS = 2000;
+
 /** The error log only ever feeds a trailing-7-day ranking, so it needs no deep
  *  history — a generous ceiling that the oldest events fall off the front of. */
 const MAX_ERRORS = 4000;
@@ -65,6 +91,7 @@ export const useProgress = create<ProgressState>()(
       hydrated: false,
       sessions: [],
       attempts: [],
+      examResults: [],
       errors: [],
       resume: null,
 
@@ -93,11 +120,28 @@ export const useProgress = create<ProgressState>()(
 
       logAttempt: (attempt) => {
         const entry: AttemptEntry = {
+          id: mintAttemptId(),
           date: localDay(new Date()),
           ...attempt,
         };
         const next = [...get().attempts, entry];
         set({ attempts: next.length > MAX_ATTEMPTS ? next.slice(-MAX_ATTEMPTS) : next });
+      },
+
+      logExamResult: (result, task) => {
+        const entry: ExamResult = {
+          id: mintExamResultId(),
+          date: localDay(new Date()),
+          ...result,
+        };
+        const nextResults = [...get().examResults, entry];
+        set({ examResults: nextResults.length > MAX_EXAM_RESULTS ? nextResults.slice(-MAX_EXAM_RESULTS) : nextResults });
+
+        // A closed-task miss decomposes into per-item SRS attempts, reusing
+        // logAttempt as the single write path — see decomposeExamMiss.
+        if (!result.passed) {
+          for (const attempt of decomposeExamMiss(task)) get().logAttempt(attempt);
+        }
       },
 
       logError: (error) => {
@@ -106,8 +150,15 @@ export const useProgress = create<ProgressState>()(
         set({ errors: next.length > MAX_ERRORS ? next.slice(-MAX_ERRORS) : next });
       },
 
+      replaceAttempts: (attempts) => {
+        // The same trim MAX_ATTEMPTS applies here as in logAttempt — a merge
+        // that pulls in a large cross-device history must not silently exceed
+        // the ceiling the rest of the app assumes.
+        set({ attempts: attempts.length > MAX_ATTEMPTS ? attempts.slice(-MAX_ATTEMPTS) : attempts });
+      },
+
       eraseProgress: async () => {
-        set({ sessions: [], attempts: [], errors: [], resume: null });
+        set({ sessions: [], attempts: [], examResults: [], errors: [], resume: null });
         try {
           await useProgress.persist.clearStorage();
         } catch {
@@ -128,14 +179,22 @@ export const useProgress = create<ProgressState>()(
       //
       // The migration itself is in progress.logic.ts, not here, because this file
       // imports zustand and AsyncStorage and therefore cannot be tested; the
-      // island can. See migrateProgressToV2 and its tests.
-      version: 2,
+      // island can. See migrateProgressToV2/V3 and their tests.
+      //
+      // Version 3 (Phase 9): `id` became required on AttemptEntry, backfilled by
+      // migrateProgressToV3 exactly as `modality` was by migrateProgressToV2.
+      // sync.ts determines what still needs pushing by comparing local ids
+      // against the server's own id set on each pull, not by a stored cursor,
+      // so no other field needs seeding here.
+      version: 3,
       migrate: (persisted, version) => {
-        if (version >= 2) return persisted as ReturnType<typeof migrateProgressToV2>;
-        return migrateProgressToV2(persisted);
+        if (version >= 3) return persisted as ReturnType<typeof migrateProgressToV3>;
+        return migrateProgressToV3(persisted);
       },
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: (s) => ({ sessions: s.sessions, attempts: s.attempts, errors: s.errors, resume: s.resume }),
+      partialize: (s) => ({
+        sessions: s.sessions, attempts: s.attempts, examResults: s.examResults, errors: s.errors, resume: s.resume,
+      }),
       // Always flip `hydrated`, even when rehydration fails — a corrupt log must
       // never brick startup, it must only mean "no progress yet".
       onRehydrateStorage: () => (state, error) => {

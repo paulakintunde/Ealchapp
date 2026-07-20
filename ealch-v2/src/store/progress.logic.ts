@@ -19,7 +19,12 @@
 export type Activity =
   | 'lesson' | 'flashcards' | 'voiceflash' | 'sentence'
   | 'roleplay' | 'dictation' | 'speak' | 'player' | 'review'
-  | 'placement';
+  | 'placement' | 'narrated'
+  /** A real session: time actually spent sitting a mock exam. */
+  | 'exam'
+  /** A synthetic attempt written by decomposeExamMiss(), not a drill the user
+   *  directly opened — see the exam-to-review loop below. */
+  | 'exam-review';
 
 export type SessionEntry = {
   /** Local calendar day, 'YYYY-MM-DD' — deliberately NOT an ISO instant.
@@ -86,6 +91,46 @@ export function daysBetween(from: string, to: string): number {
 /** Monday-first weekday index (0 = Monday … 6 = Sunday), matching T.dayLetters. */
 export function mondayIndex(day: string): number {
   return (new Date(dayToUTC(day)).getUTCDay() + 6) % 7;
+}
+
+// ── Home-launch greeting state ───────────────────────────────────────────────
+//
+// How Camille greets a learner opening home: brand-new (nothing logged yet),
+// back after a short gap, or back after a while. Derived from the session log —
+// the same honest signal every other number on home reads — so it never claims a
+// return the learner didn't make. A fresh install has no sessions and reads
+// 'new'; the day boundary is the local one localDay() names.
+export type GreetState = 'new' | 'recent' | 'away';
+
+/** A gap up to this many days since the last session still counts as "recent".
+ *  Beyond it, the learner is returning after a while. */
+export const GREET_RECENT_MAX_DAYS = 3;
+
+export function greetState(
+  sessions: SessionEntry[],
+  today: string,
+  recentMax: number = GREET_RECENT_MAX_DAYS,
+): GreetState {
+  if (sessions.length === 0) return 'new';
+  let last = sessions[0].date;
+  for (const s of sessions) if (s.date > last) last = s.date;
+  // Days from the last session to today. A session dated in the future (a device
+  // clock that jumped back) yields a negative gap, which is still "recent".
+  return daysBetween(last, today) <= recentMax ? 'recent' : 'away';
+}
+
+/** Camille's spoken hello repeats at most once per this window, however many
+ *  times home is opened in between. Persisted (useStore.lastGreetAt), so an
+ *  app restart inside the window stays quiet too. */
+export const GREET_COOLDOWN_MS = 2 * 60 * 60 * 1000;
+
+/** Whether the spoken greeting is due. `lastGreetAt` is epoch ms, 0 = never
+ *  greeted. A timestamp in the future means the device clock moved backwards;
+ *  that must not mute Camille for hours, so it reads as due. */
+export function greetDue(lastGreetAt: number, now: number, cooldown: number = GREET_COOLDOWN_MS): boolean {
+  if (!Number.isFinite(lastGreetAt) || lastGreetAt <= 0) return true;
+  if (lastGreetAt > now) return true;
+  return now - lastGreetAt >= cooldown;
 }
 
 /** A single drill session longer than this is not practice — it is an app left
@@ -191,11 +236,20 @@ export function streak(sessions: SessionEntry[], today: string, freeze: number):
 // 'none'); the type is re-declared here rather than imported so this module keeps
 // its zero-runtime-import property. It is structurally identical to the Verdict
 // in utils/score.ts, so the drill screens can pass their scores straight through.
-import { ITEM_ID_RE, LEVELS, type Modality } from '../content/schema.ts';
+import {
+  ITEM_ID_RE, LEVELS, type Modality,
+  type ExamFormat, type ExamSkill, type ExamTask, type ExamTaskType, type Lesson, type ScoreBand,
+} from '../content/schema.ts';
 
 export type AttemptVerdict = 'good' | 'close' | 'off' | 'none';
 
 export type AttemptEntry = {
+  /** Stable per-attempt id, minted once at write time (see mintAttemptId) or
+   *  backfilled for legacy entries by migrateProgressToV3. Required so Phase 9
+   *  sync can upload/re-upload idempotently (it is the server primary key) and
+   *  merge a pulled server log back into the local one without duplicating —
+   *  neither of which `date` (day-granularity only) can do on its own. */
+  id: string;
   /** Local calendar day, stamped at write time — same contract as
    *  SessionEntry.date (see the note there). */
   date: string;
@@ -225,11 +279,110 @@ export type AttemptEntry = {
    *  already sitting on real devices an honest value. Contract first, storage
    *  second; see migrateProgressToV2. */
   modality: Modality;
+  /** A positional deep link (`content.logic.ts` formatAnchor/anchorForItem) —
+   *  `<lessonId>#s<n>.<k>` — present only when this attempt was graded from
+   *  inside a lesson's practice section, so a later review can jump back to
+   *  the exact block instead of only naming the item. Optional and additive:
+   *  an attempt logged from a standalone drill (flashcards, voiceflash, …)
+   *  has no lesson context to anchor to, and that absence is not an error.
+   *  Never an SRS key — SCHEDULABLE/srsCards still key on itemId+modality
+   *  only, exactly as before this field existed. */
+  anchor?: string;
 };
 
-/** Everything about an attempt except the day it happened — the store stamps
- *  `date` at write time, exactly as it does for a session. */
-export type AttemptInput = Omit<AttemptEntry, 'date'>;
+/** Everything about an attempt except its id and the day it happened — the
+ *  store stamps both at write time, exactly as it already did for `date`. */
+export type AttemptInput = Omit<AttemptEntry, 'date' | 'id'>;
+
+/** A stable per-attempt id. Not cryptographically random — it only has to be
+ *  unique enough to dedupe a sync retry, and this file is a zero-runtime-
+ *  import pure island (see the file header), so it cannot reach for a native
+ *  crypto module the way a screen or service could. */
+export function mintAttemptId(): string {
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+/**
+ * The slice of AttemptEntry the server's `attempts` table stores (Phase 9).
+ * Deliberately excludes `expected`/`heard` (reconstructed below as `''`, which
+ * this type already treats as a valid "nothing captured" value — see the
+ * comment on AttemptEntry.heard) and `anchor` (absent already means "no
+ * lesson context to anchor to", which is honestly true for a row this table
+ * never stored one for). Does NOT exclude `activity`: Le Rapport
+ * (app/feedback.tsx) buckets attempts by it, so reconstructing a pulled,
+ * cross-device attempt without a real one would mean inventing a drill type
+ * it never ran under — exactly the fabrication this codebase's own
+ * "never fabricate" rule forbids, so it is a real server column, not dropped.
+ */
+export type ServerAttemptRow = {
+  id: string;
+  itemId: string;
+  modality: Modality;
+  verdict: AttemptVerdict;
+  correct: boolean;
+  activity: Activity;
+  day: string;
+  /** Epoch ms, parsed once by the caller from the server's `timestamptz`. Only
+   *  used to order a cross-device merge — never persisted back into
+   *  AttemptEntry, which has no ms-precision field. */
+  atMs: number;
+};
+
+export function attemptToServerRow(a: AttemptEntry): Omit<ServerAttemptRow, 'atMs'> {
+  return {
+    id: a.id,
+    itemId: a.itemId,
+    modality: a.modality,
+    verdict: a.verdict,
+    correct: a.correct,
+    activity: a.activity,
+    day: a.date,
+  };
+}
+
+export function serverRowToAttempt(row: ServerAttemptRow): AttemptEntry {
+  return {
+    id: row.id,
+    date: row.day,
+    activity: row.activity,
+    itemId: row.itemId,
+    expected: '',
+    heard: '',
+    // The server does not store the graded 0..1 score, only `correct` and
+    // `verdict` (what the fold actually reads) — 1/0 is the honest collapse,
+    // not a guess: it is exactly what a boolean-scored drill already writes.
+    score: row.correct ? 1 : 0,
+    verdict: row.verdict,
+    correct: row.correct,
+    modality: row.modality,
+  };
+}
+
+/**
+ * Merge a pulled server log into the local attempt log for one user, deduped
+ * by id, re-sorted so the fold's chronological-order assumption ("the log is
+ * already append-ordered", see srsCards below) holds after a cross-device
+ * merge — a naive append would not.
+ *
+ * Local-only entries (never yet synced, no server `at`) sort by `date` next
+ * to pulled rows and, on a same-day tie, after them: day-granularity cannot
+ * resolve same-day order, and ordering already-acknowledged pulled attempts
+ * before this device's own same-day ones is the safer default.
+ */
+export function mergeAttempts(local: AttemptEntry[], pulled: ServerAttemptRow[]): AttemptEntry[] {
+  const byId = new Map(local.map((a) => [a.id, a] as const));
+  const atById = new Map<string, number>();
+  for (const row of pulled) {
+    atById.set(row.id, row.atMs);
+    if (!byId.has(row.id)) byId.set(row.id, serverRowToAttempt(row));
+  }
+  return Array.from(byId.values()).sort((a, b) => {
+    if (a.date !== b.date) return a.date < b.date ? -1 : 1;
+    const atA = atById.get(a.id) ?? Infinity;
+    const atB = atById.get(b.id) ?? Infinity;
+    return atA - atB;
+  });
+}
 
 // ── The v1 → v2 persist migration (guardrail G2) ─────────────────────────────
 //
@@ -294,6 +447,28 @@ export function migrateProgressToV2(persisted: unknown): PersistedProgress {
   };
 }
 
+/**
+ * Bring a persisted v1 or v2 blob up to v3 (Phase 9, CF-02's identity-substrate
+ * half). `id` became required on AttemptEntry above; every attempt written
+ * before this field existed has none. Same discipline as migrateProgressToV2:
+ * never throws, idempotent (an attempt that already carries an id keeps it),
+ * safe to run against a v1, v2 or v3 blob alike — it delegates to
+ * migrateProgressToV2 first, so a v1 blob is upgraded in one pass.
+ *
+ * A minted id here is never uploaded until the next real sync, so it carries
+ * no meaning beyond "this row hasn't been seen by the server yet" — exactly
+ * like a brand-new attempt's id.
+ */
+export function migrateProgressToV3(persisted: unknown): PersistedProgress {
+  const v2 = migrateProgressToV2(persisted);
+  return {
+    ...v2,
+    attempts: v2.attempts.map((a) =>
+      typeof a.id === 'string' && a.id.length > 0 ? a : { ...a, id: mintAttemptId() }
+    ),
+  };
+}
+
 /** A running recall summary for one item, folded from its attempts in order. */
 export type ItemStat = {
   itemId: string;
@@ -312,6 +487,10 @@ export type ItemStat = {
    *  moved on, but what the learner actually saw and said is preserved here. */
   lastExpected: string;
   lastHeard: string;
+  /** The most recent attempt's anchor (see AttemptEntry.anchor), when it had
+   *  one. Undefined means either no attempts carried an anchor, or the most
+   *  recent one didn't — a review list falls back to naming the item. */
+  lastAnchor?: string;
 };
 
 /** Fold the attempt log into a per-item summary. Attempts are assumed to be in
@@ -330,6 +509,7 @@ export function statsByItem(attempts: AttemptEntry[]): Map<string, ItemStat> {
       cur.lastDate = a.date;
       cur.lastExpected = a.expected;
       cur.lastHeard = a.heard;
+      cur.lastAnchor = a.anchor;
     } else {
       out.set(a.itemId, {
         itemId: a.itemId,
@@ -341,6 +521,7 @@ export function statsByItem(attempts: AttemptEntry[]): Map<string, ItemStat> {
         lastDate: a.date,
         lastExpected: a.expected,
         lastHeard: a.heard,
+        lastAnchor: a.anchor,
       });
     }
   }
@@ -905,4 +1086,125 @@ export function topWeaknesses(errors: ErrorEvent[], today: string, days = 7, lim
     .map(([skill, count]) => ({ skill, count }))
     .sort((a, b) => (b.count !== a.count ? b.count - a.count : a.skill < b.skill ? -1 : 1))
     .slice(0, Math.max(0, limit));
+}
+
+// ── The exam result log (Phase 8) ────────────────────────────────────────────
+//
+// One ExamResult per completed ExamTask attempt — the record a mock sitting
+// needs so a miss can become something more useful than a number. Two
+// completely different things happen after a miss, and both are handled here
+// rather than in a screen, so the rule lives in one place, testable without
+// react-native:
+//
+//   CLOSED (co_mcq/ce_mcq) miss → decomposeExamMiss() turns the task's
+//   targetItemIds into ordinary SRS attempts. The learner does not see an
+//   "exam result", they just find those words due for review — the exam was
+//   never really testing "can you pass this task", it was testing the atoms
+//   underneath it, and this is where that fiction gets corrected.
+//
+//   OPEN (po_*/pe_*) miss → dueExamSkills() groups misses by (format, skill,
+//   band) and resolves each to a REAL prep lesson via Lesson.skill. There is
+//   no atom to blame for a bad essay, only a skill, so this is the honest
+//   granularity: not "you got word 4 wrong", but "your B2 PE is weak, here is
+//   a B2 PE lesson" — and if no such lesson exists, that is a real failure
+//   (see the null case below), not a due-skill silently dropped on the floor.
+
+export type ExamResult = {
+  /** Stable per-result id, minted once at write time — same contract as
+   *  AttemptEntry.id. */
+  id: string;
+  /** Local calendar day, stamped at write time. */
+  date: string;
+  taskId: string;
+  seriesId?: string;
+  format: ExamFormat;
+  taskType: ExamTaskType;
+  skill: ExamSkill;
+  /** The band this task targets — ExamTask.level, copied here so a later
+   *  read never needs a corpus join to know what was being tested. */
+  band: ScoreBand;
+  /**
+   * Whether the candidate passed. For closed task types this is a plain
+   * score threshold the CALLER computes from the candidate's answers (this
+   * module never sees raw answers, only the outcome). For open task types
+   * this comes from the AI grading pipeline (the grade-exam edge function):
+   * a rubric+modelAnswer-grounded band compared against `band` — never a
+   * freeform guess, per the retired "examiner v1" lesson (a hallucinated
+   * band is worse than none — see EALCH-MASTER-BUILD.md's Phase 0 note).
+   */
+  passed: boolean;
+  /** Open task types only. Always a PRACTICE ESTIMATE, never an equated
+   *  score — see the "parallel, not equated" requirement. */
+  aiGrade?: { band: ScoreBand; feedback: string };
+};
+
+export type ExamResultInput = Omit<ExamResult, 'date' | 'id'>;
+
+/** A stable per-result id. Same non-cryptographic contract as mintAttemptId —
+ *  see the note there for why. */
+export function mintExamResultId(): string {
+  return `exr-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+const OPEN_EXAM_TASK_TYPES = new Set<ExamTaskType>(['po_monologue', 'po_interaction', 'pe_short', 'pe_essay']);
+
+/**
+ * A missed CLOSED task decomposes into its targetItemIds, each becoming a
+ * synthetic 'recognise'-modality attempt so the SRS brings it back — see the
+ * module note above. Decomposition is TASK-level, not per-question: an
+ * ExamTask's targetItemIds need not correspond 1:1 with its QcmItems (one
+ * listening dialogue can test several atoms across several questions), so
+ * "the task was missed" is the only honest signal this function has, per the
+ * master-build doc's own "a missed CO/CE task enqueues those atoms" wording.
+ *
+ * Each synthetic attempt has empty expected/heard and verdict 'off': nothing
+ * was actually asked of any one atom in isolation, the miss was on the whole
+ * task, so this is a fresh due-flag rather than a fabricated graded response.
+ * A passed task, or an open task type, has nothing to decompose.
+ */
+export function decomposeExamMiss(task: ExamTask): AttemptInput[] {
+  if (OPEN_EXAM_TASK_TYPES.has(task.taskType)) return [];
+  return (task.targetItemIds ?? []).map((itemId) => ({
+    activity: 'exam-review' as const,
+    itemId,
+    expected: '',
+    heard: '',
+    score: 0,
+    verdict: 'off' as const,
+    correct: false,
+    modality: 'recognise' as const,
+  }));
+}
+
+export type DueExamSkill = {
+  format: ExamFormat;
+  skill: ExamSkill;
+  band: ScoreBand;
+  /** The prep lesson that remediates this skill at this band, resolved via
+   *  Lesson.skill — or null when none exists. Callers MUST treat null as a
+   *  real problem, not a value to silently drop: it means an open exam task
+   *  was authored (or shipped) at a band with no upstream teaching content,
+   *  which the "content before engine" gating rule exists to prevent before
+   *  publish. Finding it here, at runtime, is the rule's last line of
+   *  defense, not its normal path. */
+  prepLessonId: string | null;
+};
+
+/**
+ * OPEN misses, grouped by (format, skill, band) — the granularity a bad essay
+ * or a shaky monologue can actually be blamed at — each resolved to the real
+ * lesson that remediates it. See the module note above for why this is a
+ * lesson-level link (Lesson.skill) and not an item-level one like the closed
+ * side: there is no atom to enqueue for an open response.
+ */
+export function dueExamSkills(results: ExamResult[], lessons: Lesson[]): DueExamSkill[] {
+  const seen = new Map<string, DueExamSkill>();
+  for (const r of results) {
+    if (!OPEN_EXAM_TASK_TYPES.has(r.taskType) || r.passed) continue;
+    const key = `${r.format}::${r.skill}::${r.band}`;
+    if (seen.has(key)) continue;
+    const lesson = lessons.find((l) => l.skill === r.skill && l.level === r.band);
+    seen.set(key, { format: r.format, skill: r.skill, band: r.band, prepLessonId: lesson?.id ?? null });
+  }
+  return [...seen.values()];
 }

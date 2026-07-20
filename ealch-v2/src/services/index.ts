@@ -3,6 +3,7 @@
 // (auth, LLM, TTS, STT, config) can be swapped without touching UI code.
 export { auth } from './auth';
 export { coach, type CoachMessage } from './llm';
+export { examGrader, type GradeRequest, type GradeResult } from './examGrader';
 export { tts } from './tts';
 export { stt, type SttResult } from './stt';
 export { sound, type Cue } from './sound';

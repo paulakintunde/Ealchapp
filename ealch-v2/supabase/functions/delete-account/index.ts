@@ -9,7 +9,7 @@
 // who they are with their own JWT; the function then escalates, deletes *that*
 // user id, and nothing else. A caller can only ever delete themselves.
 //
-// Cascade: profiles, review_items and sessions all declare
+// Cascade: profiles, attempts and sessions all declare
 // `references auth.users(id) on delete cascade` (see supabase/schema.sql), so
 // removing the auth user removes their rows in the same transaction. Any NEW
 // user-owned table MUST carry the same cascade or it will orphan data here.

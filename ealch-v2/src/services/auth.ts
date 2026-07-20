@@ -128,7 +128,7 @@ export const auth = {
    * Required by Apple 5.1.1(v) / Google Play for any app that creates accounts.
    * Deleting an auth user needs the service-role key, so the work happens in the
    * `delete-account` Edge Function (supabase/functions/delete-account) — the
-   * client only proves who it is. Rows in profiles/review_items/sessions cascade
+   * client only proves who it is. Rows in profiles/attempts/sessions cascade
    * from auth.users.
    *
    * NOTE: this deletes the *server* account. Local data is wiped separately by

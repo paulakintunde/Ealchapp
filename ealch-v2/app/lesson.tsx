@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -33,8 +33,23 @@ function SectionLabel({ text, color }: { text: string; color: string }) {
 
 /** Renders one typed lesson section. The quiz section is handled by the screen's
  *  quiz phase, not here. */
-function SectionView({ s, onPlay, playingId }: { s: LessonSection; onPlay: (id: string, text: string) => void; playingId: string | null }) {
+function SectionView({
+  s,
+  onPlay,
+  playingId,
+  onGrade,
+  graded,
+}: {
+  s: LessonSection;
+  onPlay: (id: string, text: string) => void;
+  playingId: string | null;
+  /** Practice items only: self-rated recall, "Got it" / "Missed it". */
+  onGrade: (itemId: string, correct: boolean) => void;
+  /** itemIds graded at least once this visit, so a re-tap doesn't look ignored. */
+  graded: ReadonlySet<string>;
+}) {
   const t = useTheme();
+  const T = useT();
   const label = <SectionLabel text={s.title} color={s.type === 'commonErrors' ? t.danger : t.accTx} />;
 
   switch (s.type) {
@@ -205,8 +220,11 @@ function SectionView({ s, onPlay, playingId }: { s: LessonSection; onPlay: (id: 
       );
 
     case 'practice':
-      // itemIds resolved against the corpus; a tap speaks the French. The full
-      // drill wiring lands with the SRS phase.
+      // itemIds resolved against the corpus; a tap speaks the French. Self-rated
+      // recall (the flashcards.tsx pattern: no mic, no typed answer, the learner
+      // grades their own recognition) turns listening here into a real graded
+      // attempt — the join that lets lesson study feed Le Rapport and the SRS,
+      // not just a listening pass.
       return (
         <View style={{ marginBottom: 26 }}>
           {label}
@@ -215,17 +233,38 @@ function SectionView({ s, onPlay, playingId }: { s: LessonSection; onPlay: (id: 
               const it = content.item(id);
               if (!it) return null;
               const on = playingId === id;
+              const isGraded = graded.has(id);
               return (
-                <Press key={id} cue={null} onPress={() => onPlay(id, it.fr)} style={{ minHeight: 52, paddingVertical: 6, borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 15 }}>
-                  <View style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: t.accA(12), alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon name="speaker" size={14} color={t.acc} />
+                <View key={id} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, paddingHorizontal: 15, paddingVertical: 6 }}>
+                  <Press cue={null} onPress={() => onPlay(id, it.fr)} style={{ minHeight: 52, flexDirection: 'row', alignItems: 'center', gap: 13 }}>
+                    <View style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: t.accA(12), alignItems: 'center', justifyContent: 'center' }}>
+                      <Icon name="speaker" size={14} color={t.acc} />
+                    </View>
+                    <View style={{ flex: 1 }}>
+                      <TX font="serifI" role="titleSm">{it.fr}</TX>
+                      <TX role="meta" color={t.txMuted}>{it.en}</TX>
+                    </View>
+                    <Waveform count={10} height={14} barWidth={2.5} gap={3} active={on} color={on ? t.acc : t.txNonText} />
+                  </Press>
+                  <View style={{ flexDirection: 'row', gap: 8, paddingBottom: 8, paddingTop: 2 }}>
+                    <Press
+                      cue={null}
+                      onPress={() => onGrade(id, false)}
+                      style={{ flex: 1, minHeight: 38, borderRadius: 10, borderWidth: 1, borderColor: isGraded ? t.line(8) : t.dangerA(30), backgroundColor: t.dangerA(isGraded ? 4 : 8), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 }}
+                    >
+                      <Icon name="x" size={12} color={t.danger} />
+                      <TX font="semi" role="meta" color={t.danger}>{T.practiceMissed}</TX>
+                    </Press>
+                    <Press
+                      cue={null}
+                      onPress={() => onGrade(id, true)}
+                      style={{ flex: 1, minHeight: 38, borderRadius: 10, borderWidth: 1, borderColor: isGraded ? t.line(8) : t.accA(30), backgroundColor: t.accA(isGraded ? 4 : 8), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 }}
+                    >
+                      <Icon name="check" size={12} color={t.accTx} />
+                      <TX font="semi" role="meta" color={t.accTx}>{T.practiceGotIt}</TX>
+                    </Press>
                   </View>
-                  <View style={{ flex: 1 }}>
-                    <TX font="serifI" role="titleSm">{it.fr}</TX>
-                    <TX role="meta" color={t.txMuted}>{it.en}</TX>
-                  </View>
-                  <Waveform count={10} height={14} barWidth={2.5} gap={3} active={on} color={on ? t.acc : t.txNonText} />
-                </Press>
+                </View>
               );
             })}
           </View>
@@ -243,7 +282,7 @@ export default function LessonScreen() {
   useReadingBrightness();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const params = useLocalSearchParams<{ key?: string }>();
+  const params = useLocalSearchParams<{ key?: string; at?: string }>();
 
   const raw = Array.isArray(params.key) ? params.key[0] : params.key;
   const id = raw ? LEGACY[raw] ?? raw : '';
@@ -255,12 +294,29 @@ export default function LessonScreen() {
   const setResume = useProgress((s) => s.setResume);
   const clearResume = useProgress((s) => s.clearResume);
   const logError = useProgress((s) => s.logError);
+  const logAttempt = useProgress((s) => s.logAttempt);
 
   const [phase, setPhase] = useState<'content' | 'quiz' | 'done'>('content');
   const [quizIx, setQuizIx] = useState(0);
   const [quizSel, setQuizSel] = useState<number | null>(null);
   const [quizScore, setQuizScore] = useState(0);
   const [playingId, setPlayingId] = useState<string | null>(null);
+  // itemIds self-rated this visit — purely a UI dim/highlight cue, never read
+  // back for logic. Re-grading is allowed and expected (that's how repetition
+  // works elsewhere in this app); this only stops a re-tap looking ignored.
+  const [gradedIds, setGradedIds] = useState<ReadonlySet<string>>(new Set());
+
+  // Deep-link landing (Phase 2.E consumer): an anchor in `?at=` names the exact
+  // section a review flow wants this visit to open on. `pendingScrollIx` is set
+  // once the anchor resolves against the loaded lesson; the section wrapper's
+  // onLayout below fires the actual scroll once that section's y is known
+  // (layout is async, so this cannot be done synchronously on mount) and then
+  // clears it, so a later re-layout (rotation, font-scale change) never
+  // re-triggers an unwanted jump. `highlightIx` stays set for the visit so the
+  // landing spot stays visually findable after the scroll finishes.
+  const scrollRef = useRef<ScrollView>(null);
+  const [pendingScrollIx, setPendingScrollIx] = useState<number | null>(null);
+  const [highlightIx, setHighlightIx] = useState<number | null>(null);
 
   useEffect(() => () => tts.stop(), []);
 
@@ -271,6 +327,22 @@ export default function LessonScreen() {
   useEffect(() => {
     if (L) setResume({ route: `/lesson?key=${raw ?? id}`, title: L.title, activity: 'lesson' });
   }, [L?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    const atRaw = Array.isArray(params.at) ? params.at[0] : params.at;
+    if (!atRaw || !L) return;
+    const resolved = content.resolveAnchorStr(atRaw);
+    // A stale or foreign anchor (wrong lesson, or the corpus moved on since it
+    // was minted) fails closed here exactly as resolveAnchor promises — the
+    // lesson still opens normally, it just doesn't jump anywhere.
+    if (!resolved || resolved.lesson.id !== L.id) return;
+    const sections = L.sections.filter((sec) => sec.type !== 'quiz');
+    const ix = sections.findIndex((sec) => (sec as LessonSection) === resolved.section);
+    if (ix !== -1) {
+      setPendingScrollIx(ix);
+      setHighlightIx(ix);
+    }
+  }, [L?.id, params.at]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!L) {
     return (
@@ -292,6 +364,31 @@ export default function LessonScreen() {
     sound.play('flip');
     setPlayingId(pid);
     tts.speak(text, { onDone: () => setPlayingId((p) => (p === pid ? null : p)), onError: () => setPlayingId((p) => (p === pid ? null : p)) });
+  };
+
+  // Self-rated recall on a practice item — the flashcards.tsx pattern (no mic,
+  // no typed answer, the learner's own "I knew it" / "Again"). This is the
+  // real prerequisite the deep-link anchors needed: until a lesson's practice
+  // section produced graded attempts, there was nothing for an anchor to be
+  // attached to. `anchorFor` re-derives the item's position in THIS lesson's
+  // sections every time (never stored), so it can never point at a stale
+  // block even if `L` gets re-authored between visits.
+  const gradeItem = (itemId: string, correct: boolean) => {
+    const it = content.item(itemId);
+    if (!it) return;
+    sound.play(correct ? 'success' : 'tap');
+    setGradedIds((g) => new Set(g).add(itemId));
+    logAttempt({
+      activity: 'lesson',
+      itemId,
+      expected: it.fr,
+      heard: '',
+      score: correct ? 1 : 0,
+      verdict: correct ? 'good' : 'off',
+      correct,
+      modality: 'recognise',
+      anchor: content.anchorFor(L, itemId) ?? undefined,
+    });
   };
 
   const startQuiz = () => {
@@ -356,7 +453,7 @@ export default function LessonScreen() {
         <FocusHeader onClose={() => router.back()} onSettings={() => router.push('/settings')} title={L.tag} />
       </View>
 
-      <ScrollView contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: insets.bottom + 50, paddingTop: 8 }} showsVerticalScrollIndicator={false}>
+      <ScrollView ref={scrollRef} contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: insets.bottom + 50, paddingTop: 8 }} showsVerticalScrollIndicator={false}>
         {phase === 'content' ? (
           <View>
             <TX font="serif" size={36} role="display" style={{ marginBottom: 12 }}>
@@ -367,7 +464,22 @@ export default function LessonScreen() {
             </TX>
 
             {contentSections.map((s, i) => (
-              <SectionView key={i} s={s} onPlay={play} playingId={playingId} />
+              <View
+                key={i}
+                onLayout={(e) => {
+                  if (pendingScrollIx === i) {
+                    scrollRef.current?.scrollTo({ y: Math.max(0, e.nativeEvent.layout.y - 16), animated: true });
+                    setPendingScrollIx(null);
+                  }
+                }}
+                style={
+                  highlightIx === i
+                    ? { borderRadius: 18, borderWidth: 1.5, borderColor: t.accA(40), backgroundColor: t.accA(5), padding: 10 }
+                    : undefined
+                }
+              >
+                <SectionView s={s} onPlay={play} playingId={playingId} onGrade={gradeItem} graded={gradedIds} />
+              </View>
             ))}
 
             <Press cue={null} onPress={startQuiz} style={{ minHeight: 56, paddingVertical: 6, borderRadius: 28, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
