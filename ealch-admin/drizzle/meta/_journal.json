@@ -50,6 +50,62 @@
       "when": 1784311378860,
       "tag": "0006_audio_assets",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1784353995899,
+      "tag": "0007_wild_wallop",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1784396550610,
+      "tag": "0008_content_kind_playlist_template",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1784400069502,
+      "tag": "0009_content_items_image_ref",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1784402732762,
+      "tag": "0010_content_items_segments_assetkey",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1784405273210,
+      "tag": "0011_exam_and_catalogue_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1784407414608,
+      "tag": "0012_tags_and_schedule",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1784443679804,
+      "tag": "0013_ai_models_api_model_id",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1784443779804,
+      "tag": "0014_rename_exam_taxonomy",
+      "breakpoints": true
     }
   ]
 }

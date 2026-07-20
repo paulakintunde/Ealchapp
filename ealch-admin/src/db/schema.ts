@@ -18,11 +18,18 @@ export const paymentKind = pgEnum('payment_kind', ['charge', 'refund']);
 export const campaignStatus = pgEnum('campaign_status', ['draft', 'scheduled', 'sending', 'sent', 'paused']);
 export const sendStatus = pgEnum('send_status', ['queued', 'delivered', 'opened', 'failed']);
 // 'lesson' — a rich, sectioned lesson document (ealch-v2/src/content/schema.ts: Lesson).
+//   A lesson's spoken Den script (ealch-v2/src/content/schema.ts: LessonNarration)
+//   lives inside this same row's jsonb `body`, as `body.narration` — it is a
+//   property of the lesson document, not a document of its own, so it needs no
+//   separate kind or table.
 // 'vocabulary' — a themed PACK of corpus items, reviewed as one unit of work.
 //   Nobody reviews 8000 vocabulary rows one at a time, so the pack is the document
 //   a human approves; the rows themselves live in content_items.
+// 'playlist' — a listening set (ealch-v2/src/content/schema.ts: Playlist).
+// 'template' — a reusable authoring pattern (ealch-v2/src/content/schema.ts:
+//   ContentTemplate) that a generation job references instead of reinventing.
 export const contentKind = pgEnum('content_kind', [
-  'scenario', 'drill', 'dictation', 'curriculum_unit', 'lesson', 'vocabulary',
+  'scenario', 'drill', 'dictation', 'curriculum_unit', 'lesson', 'vocabulary', 'playlist', 'template',
 ]);
 export const contentStatus = pgEnum('content_status', ['draft', 'in_review', 'published', 'archived']);
 export const flagStatus = pgEnum('flag_status', ['open', 'resolved']);
@@ -61,10 +68,16 @@ export const modality = pgEnum('modality', ['recognise', 'produce', 'discriminat
 // Saying 'tu fous quoi ?' to a border officer is grammatically perfect and a
 // social catastrophe. Register is content, not a note.
 export const register = pgEnum('register', ['familier', 'courant', 'soutenu']);
-export const examFamily = pgEnum('exam_family', ['tef', 'tcf', 'delf', 'dalf']);
-/** Sections of an exam PAPER (épreuve orale/écrite). Not examSkill — see the
- *  mapping note on EXAM_SKILLS in ealch-v2/src/content/schema.ts. */
-export const examSection = pgEnum('exam_section', ['co', 'ce', 'eo', 'ee']);
+/** Canada-first launch set only — no bare 'tef'/'tcf'/'delf' and no 'dalf':
+ *  each value is a specific paper a candidate actually sits. */
+export const examFormat = pgEnum('exam_format', ['delf_b2', 'tef_canada', 'tcf_canada']);
+/** Task TYPES an exam paper is built from — finer than examSkill because one
+ *  skill can be tested by more than one task shape (PO has a monologue and an
+ *  interaction task; PE has a short and an essay task). Not examSkill — see
+ *  the mapping note on EXAM_SKILLS in ealch-v2/src/content/schema.ts. */
+export const examTaskType = pgEnum('exam_task_type', [
+  'co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'pe_short', 'pe_essay',
+]);
 /** The per-ITEM exam taxonomy: compréhension/production × orale/écrite. */
 export const examSkill = pgEnum('exam_skill', ['CO', 'CE', 'PO', 'PE']);
 // Once content is LLM-generated, "which model produced this, against which
@@ -242,6 +255,11 @@ export const contentUnits = pgTable('content_units', {
   version: integer('version').notNull().default(1),
   authorId: uuid('author_id').references(() => adminUsers.id),
   publishedAt: timestamp('published_at', { withTimezone: true }),
+  /** Workstream 3 Phase 5 — a future publish time this pack is queued for.
+   *  Distinct from `status`: a scheduled pack still reads 'in_review' until
+   *  the scheduler actually flips it, so "approved, timed" and "approved,
+   *  live" stay two different, honest states. Null means not scheduled. */
+  scheduledPublishAt: timestamp('scheduled_publish_at', { withTimezone: true }),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 
   // ── Provenance ──
@@ -299,6 +317,16 @@ export const contentItems = pgTable('content_items', {
   drills: drillKind('drills').array().notNull(),
   /** Null until Phase 7. Device TTS speaks `fr` in the meantime. */
   audioRef: text('audio_ref'),
+  /** Storage-relative path (CF-24) — uncaps Voice Flash past the five built-in
+   *  glyphs. Mirrors the app's `Item.imageRef`; was present on the app side
+   *  since Phase 1 but missing here until now. */
+  imageRef: text('image_ref'),
+  /** `AudioSegment[]` — where the words are inside `audioRef` (La Dictée's
+   *  segment map). Mirrors the app's `Item.segments`; same gap as imageRef,
+   *  closed here for the listen-write authoring view (Phase 2). */
+  segments: jsonb('segments'),
+  /** hash(script+voice+provider+renderVersion) — see the app's `AssetKeyed`. */
+  assetKey: text('asset_key'),
   version: integer('version').notNull().default(1),
 
   // ── The exam/SRS spine ──
@@ -317,9 +345,17 @@ export const contentItems = pgTable('content_items', {
   grammarPoints: text('grammar_points').array().notNull().default([]),
   /** How the item is exercised. The SRS keys on (item, modality). */
   modality: modality('modality'),
+  /** { infinitive, tense, mood?, person, number } — the deterministic French
+   *  gate target (Phase 2.D). jsonb, not columns: it is checked by a Python
+   *  conjugator in the publish path, never queried by SQL. Nullable/optional
+   *  exactly like the rest of this spine. */
+  verbCheck: jsonb('verb_check'),
 
   status: contentStatus('status').notNull().default('draft'),
   publishedAt: timestamp('published_at', { withTimezone: true }),
+  /** Workstream 3 Phase 5 — see the note on content_units.scheduledPublishAt;
+   *  same contract, item-level. */
+  scheduledPublishAt: timestamp('scheduled_publish_at', { withTimezone: true }),
 
   /** The 'vocabulary' content_unit this item was reviewed as part of. */
   packId: uuid('pack_id').references(() => contentUnits.id, { onDelete: 'set null' }),
@@ -419,6 +455,138 @@ export const audioAssets = pgTable('audio_assets', {
   uniqueIndex('audio_assets_item_voice_uq').on(t.itemId, t.voiceId),
 ]);
 
+/**
+ * One task off one exam paper — a TCF listening question, a DELF B1 speaking
+ * prompt. Atomic and relational, deliberately NOT a content_units jsonb body:
+ * the Phase 2.A architecture decision keeps "atomic entities (items, exam
+ * tasks)" relational so the studio can query across them (e.g. "every open
+ * B2 task missing a rubric") without loading a monolith document per row.
+ * Mirrors ealch-v2/src/content/schema.ts's ExamTask exactly — see the note
+ * atop content_items about the two-file invariant this table is also bound by.
+ */
+export const contentExamTasks = pgTable('content_exam_tasks', {
+  /** 'exam.<format>.<variant>.<taskType>.<seq>' — exam.tcf_canada.2024a.co_mcq.001 */
+  id: text('id').primaryKey(),
+  format: examFormat('format').notNull(),
+  variant: text('variant').notNull(),
+  taskType: examTaskType('task_type').notNull(),
+  /** Derived from taskType (examTaskSkill in ealch-v2 schema.ts) and
+   *  validated to agree with it app-side; stored because SRS decomposition
+   *  and due-skill grouping key off it directly. */
+  skill: examSkill('skill').notNull(),
+  /** A SCORE band (user_level), not a content level — c2 is a legitimate
+   *  exam result even though no c2 CONTENT is ever authored. */
+  level: userLevel('level').notNull(),
+  /** Which published exam format this task was written against
+   *  ('tcf-2024.1') — required, so a format change marks old tasks STALE
+   *  rather than silently wrong. See the note on ExamTask.formatVersion. */
+  formatVersion: text('format_version').notNull(),
+  prompt: text('prompt').notNull(),
+  /** QcmItem[] — closed task types (co_mcq/ce_mcq) only. */
+  items: jsonb('items'),
+  responseSpec: jsonb('response_spec'),
+  /** Rubric — REQUIRED for open task types, checked app-side by
+   *  validateExamTask, not by a DB constraint (the same rule two other
+   *  fields below share, for the same reason: the check is about the pair,
+   *  not either column alone). */
+  rubric: jsonb('rubric'),
+  modelAnswer: text('model_answer'),
+  examinerNotes: text('examiner_notes').array().notNull().default([]),
+  /** Seconds allowed. An exam task without a clock is a worksheet. */
+  timingS: integer('timing_s').notNull(),
+  scoringMap: jsonb('scoring_map'),
+  /** Closed task types only — which content_items rows a miss decomposes
+   *  into. Resolved app-side by validateCorpus, same "id array, not a join
+   *  table" pattern taskIds below already uses. */
+  targetItemIds: text('target_item_ids').array().notNull().default([]),
+
+  status: contentStatus('status').notNull().default('draft'),
+  publishedAt: timestamp('published_at', { withTimezone: true }),
+
+  // ── Provenance ──
+  generatedBy: generatedBy('generated_by').notNull().default('llm'),
+  model: text('model'),
+  promptVersion: text('prompt_version'),
+  sourceRefs: jsonb('source_refs'),
+  reviewedBy: uuid('reviewed_by').references(() => adminUsers.id),
+  reviewedAt: timestamp('reviewed_at', { withTimezone: true }),
+
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [
+  index('exam_tasks_status_idx').on(t.status),
+  index('exam_tasks_format_variant_idx').on(t.format, t.variant),
+]);
+
+/** A full mock sitting: the ordered tasks that make up one paper. Mirrors
+ *  ealch-v2's ExamSeries. */
+export const contentExamSeries = pgTable('content_exam_series', {
+  /** 'series.<format>.<variant>.<n>' — series.tcf_canada.2024a.1 */
+  id: text('id').primaryKey(),
+  format: examFormat('format').notNull(),
+  variant: text('variant').notNull(),
+  /** 1..5 — five PARALLEL mock papers per variant. "Parallel," never
+   *  "equated": difficulty is expert-judged, not psychometrically balanced. */
+  seriesNo: integer('series_no').notNull(),
+  /** Ordered — references content_exam_tasks.id, resolved app-side by
+   *  validateCorpus (the same "id array, not a join table" pattern
+   *  Unit.lessonIds and Lesson.itemIds already use). */
+  taskIds: text('task_ids').array().notNull().default([]),
+  status: contentStatus('status').notNull().default('draft'),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [index('exam_series_format_variant_idx').on(t.format, t.variant)]);
+
+/**
+ * The curriculum catalogue's top of the tree — mirrors ealch-v2's Domain.
+ * Small, list-like reference data (15 rows at full scope per the locked
+ * THEME-CATALOGUE-AND-ARCHITECTURE.md catalogue), so a dedicated table
+ * rather than a content_units document: nothing about a domain is ever
+ * drafted/reviewed/published, it just exists or doesn't.
+ */
+export const contentDomains = pgTable('content_domains', {
+  /** Domain.slug IS the id — domains have no separate surrogate key,
+   *  matching how the app reads them (Theme.domain references this slug
+   *  directly, never a uuid). */
+  slug: text('slug').primaryKey(),
+  title: text('title').notNull(),
+  /** Display order — reorderable without renaming anything that points at it. */
+  order: integer('order').notNull(),
+});
+
+/** Mirrors ealch-v2's Theme. `domain` is a real FK to content_domains.slug,
+ *  not just a string the app cross-checks — the console should not be able
+ *  to save a theme pointing at a domain that does not exist, the exact
+ *  dangling reference validateCorpus otherwise catches too late to fix
+ *  cheaply. */
+export const contentThemes = pgTable('content_themes', {
+  slug: text('slug').primaryKey(),
+  title: text('title').notNull(),
+  domain: text('domain').notNull().references(() => contentDomains.slug),
+  /** Inclusive band range this theme is teachable across — two columns, not
+   *  a jsonb tuple, so "every b1 theme" is a plain WHERE clause. */
+  levelRangeLo: contentLevel('level_range_lo').notNull(),
+  levelRangeHi: contentLevel('level_range_hi').notNull(),
+  examFlag: boolean('exam_flag').notNull().default(false),
+  immigFlag: boolean('immig_flag').notNull().default(false),
+  /** Finer cuts within the theme, for generation batching. May be empty. */
+  subThemes: text('sub_themes').array().notNull().default([]),
+}, (t) => [index('themes_domain_idx').on(t.domain)]);
+
+/**
+ * The managed tag taxonomy (Workstream 3 Phase 5). `Item.tags` stays
+ * `text[]` storage-side — this table doesn't change that shape, it turns
+ * the admin's tag INPUT from free text into pick-from-list, the same way
+ * KIND_META/ITEM_STATUS_META make a value list exhaustive by construction
+ * instead of typo-prone. `weakSkill` is the handle the SRS weak-spots
+ * feature (home.tsx's topWeaknesses) keys on, when a tag names one.
+ */
+export const contentTags = pgTable('content_tags', {
+  slug: text('slug').primaryKey(),
+  label: text('label').notNull(),
+  weakSkill: text('weak_skill'),
+});
+
 // ── AI routing ─────────────────────────────────────────────────────────────
 export const aiCapabilities = pgTable('ai_capabilities', {
   id: uuid('id').primaryKey().defaultRandom(),
@@ -431,8 +599,17 @@ export const aiCapabilities = pgTable('ai_capabilities', {
 export const aiModels = pgTable('ai_models', {
   id: uuid('id').primaryKey().defaultRandom(),
   capabilityId: uuid('capability_id').notNull().references(() => aiCapabilities.id, { onDelete: 'cascade' }),
+  /** Human display label ("Claude Sonnet 4.5") — NOT necessarily what a
+   *  provider's API accepts as `model`. See apiModelId. */
   name: text('name').notNull(),
   provider: text('provider').notNull(),
+  /** The literal string sent as `model` in the provider's request body
+   *  ("claude-sonnet-5", "qwen/qwen3-235b-a22b"). Nullable and falls back to
+   *  `name` when absent (Workstream 4's routing.ts) — every pre-existing
+   *  row (general/audio, seeded as display-only mock data before any real
+   *  call path read this table) has no apiModelId and keeps working exactly
+   *  as before; only rows meant to be ACTUALLY CALLED need to set this. */
+  apiModelId: text('api_model_id'),
   meta: text('meta'),
   costLabel: text('cost_label'),
   latencyLabel: text('latency_label'),
