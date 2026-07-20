@@ -2,6 +2,8 @@
 
 Grounded in current (2026-07-15) pricing research across TTS/STT, LLM, payment processors, ads, affiliate, and competitor subscriptions. All per-user figures are modelled; assumptions are stated so you can flex them.
 
+> **Corrected 2026-07-17:** this doc originally modelled the annual tier at $59.99/yr; the shipped/pinned price is **$79/yr** (`src/content/pricing.ts`). The annual row and Premium tier line below are now stated at $79/yr, with contribution/margin recomputed using the same net-revenue formula as the rest of this table (price × 0.971 − $0.30 Stripe fee). Conclusion is unchanged: still comfortably margin-rich.
+
 ---
 
 ## Headline
@@ -68,7 +70,7 @@ The largest *leak* is not AI — it's **payment take** (30% via app stores vs ~2
 | Segment | Price | Route | Net rev | Variable COGS | **Contribution** | Margin (of net) |
 |---|---|---|---|---|---|---|
 | Global monthly | $9.99 | Stripe web | $9.40 | $0.50 | **$8.90** | 95% |
-| Global annual | $59.99/yr (=$5.00/mo) | Stripe web | $4.70/mo | $0.50 | **$4.20/mo** | 89% |
+| Global annual | $79/yr (=$6.58/mo) | Stripe web | $6.37/mo | $0.50 | **$5.87/mo** | 92% |
 | Immigration/Exam | $14.99 | Stripe web | $14.10 | $0.60 | **$13.50** | 96% |
 | Africa PPP monthly | $3.00 | Paystack | $2.93 | $0.45 | **$2.48** | 85% |
 | Africa PPP annual | $19.99/yr (=$1.67/mo) | Paystack | $1.63/mo | $0.45 | **$1.18/mo** | 72% |
@@ -103,7 +105,7 @@ Even the **worst realistic case** (heavy user, premium model, IAP 30%): $6.99 �
 
 **Tiers:**
 - **Free** — the funnel. Generous cached content (see gating map), on-device STT drills, Smart Review, a daily-capped coach. Ad-supported (Tier-1 mainly).
-- **Premium** — $9.99/mo or $59.99/yr (Western); **PPP-adjusted to ~$2–4/mo in Africa via Paystack**. Unlimited coach (cheap tier), live roleplay, all levels/themes, offline, ad-free.
+- **Premium** — $9.99/mo or $79/yr (Western); **PPP-adjusted to ~$2–4/mo in Africa via Paystack**. Unlimited coach (cheap tier), live roleplay, all levels/themes, offline, ad-free.
 - **Premium + Exam** (or an Exam add-on) — $14.99/mo or an "exam bootcamp" one-time pack, targeting the TEF/TCF/DELF immigration segment (highest willingness to pay; the market's clear gap).
 
 **Payment routing:** Stripe web (US/EU/CA) + Paystack (Africa) as primary; IAP as fallback where store rules require. Steer to web wherever currently permitted (US ≈ 0% right now).

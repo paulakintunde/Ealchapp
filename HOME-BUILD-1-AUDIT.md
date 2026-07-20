@@ -6,23 +6,55 @@
 
 ---
 
-## ⟳ Re-review — 2026-07-15
+## ⟳ Re-review — 2026-07-15 (pass 1)
 
-Re-checked every finding against the working tree. **8 commits landed since the audit** (`c357bcb` attempt log → `4d50394` Speak), including an SRS scheduler, an attempt log, and the profile honesty pass — most of that is *later phases*, not these repairs. Status of the nine findings below:
+Re-checked every finding against the working tree. **8 commits landed since the audit** (`c357bcb` attempt log → `4d50394` Speak), including an SRS scheduler, an attempt log, and the profile honesty pass — most of that is *later phases*, not these repairs. **Net at pass 1: 2 of 9 closed** (P1-2, P1-3).
 
-| Finding | Status |
-|---|---|
-| 🔴 P1-1 background time inflation | ❌ **still open** — `useSessionLog` remains unbounded |
-| 🔴 P1-2 review logs nothing | ✅ **fixed — different direction** (see note) |
-| 🔴 P1-3 cold-start flash | ✅ **fixed — exceeded** (gates on 3 stores) |
-| 🟠 P2-4 freeze copy contradiction | ❌ **still open** — copy and engine still disagree |
-| 🟠 P2-5 signOut leaves progress | ❌ **still open** |
-| 🟠 P2-6 trackLogged never resets | ❌ **still open** |
-| 🟡 P3-7 `items` written, never read | ❌ **still open** |
-| 🟡 P3-8 selectors re-run each render | ❌ **still open** |
-| 🟡 P3-9 weak spots fabricated | ⚠️ **still open — now fixable** (attempt log + `topWeaknesses` exist; home not wired to them) |
+*Pass 1's per-item table is superseded by the confirmation run below. Inline `STATUS (07-15)` notes on each finding are kept for history and re-tagged where pass 2 changed the verdict.*
 
-**Net: 2 of 9 closed.** Both P1 correctness/UX blockers that were *cheap* got done; the one P1 that needs an `AppState` listener (P1-1) did not, and it is the one that re-introduces the lie. The full repair prompt in Part 3 still stands for the seven open items — per-item status is annotated inline below.
+---
+
+## ✅ CONFIRMATION RUN (pass 2) — independent re-verification
+
+Every finding re-checked against the working tree from scratch, not carried over. **The tree has moved a long way past build-1**: `npm test` now **208/208 pass** (was 37), `typecheck` clean, and the recent log is entirely new scope (`Schema 3-9`, `Phase 0`, `CC-A`, docs) — none of it these repairs.
+
+### Status legend
+**DONE** shipped & verified · **PARTIAL** some call sites done, others not · **NOT STARTED** code unchanged since the audit · **DEFERRED** deliberately parked, decision pending · **RELOCATED** the defect survived a rewrite at a new address
+
+| # | Finding | Verdict | Evidence (current lines) |
+|---|---|---|---|
+| 🔴 P1-1 | Background time inflation | **NOT STARTED** | `useProgress.ts:143` `useRef(Date.now())` · `:149` `(now - startedAt.current) / 60_000` — no `AppState`, no `clampMinutes`; `:84` `Math.max(1, …)` is a **floor, not a cap** |
+| 🔴 P1-2 | Review logs nothing | **DONE** *(different direction)* | `review.tsx:77` `logSession('review', total)` + `:63` `logAttempt` |
+| 🔴 P1-3 | Cold-start flash | **DONE** *(exceeded)* | `_layout.tsx:73` `fontsLoaded && hydrated && progressHydrated && contentHydrated`; gate used `:83-86` |
+| 🟠 P2-4 | Freeze copy contradiction | **DEFERRED** — decision pending | `strings.ts:340`/`:568` still "1 freeze per week" · `progress.logic.ts:137` `streak(…, freeze: number)` still a static grant; no ISO-week logic |
+| 🟠 P2-5 | signOut leaks progress | **NOT STARTED** | `useStore.ts:219-220` — sets 5 account fields, never calls `eraseProgress()` |
+| 🟠 P2-6 | Player replay never re-logs | **NOT STARTED — RELOCATED** | Player was **rewritten** (fake progress tick → real TTS `speakLine`). `trackLogged` is gone; the same guard is now `logged` (`player.tsx:66`), set at `:111-114` and **still never reset**. Same defect, new address. |
+| 🟡 P3-7 | `SessionEntry.items` unread | **PARTIAL** | Values are now **honest** (`roleplay:161` passes `nTurns`, not a hardcoded `3`; `dictation`, `flashcards`, `player`, `review`, `voiceflash` all pass real counts) — but `items` (`progress.logic.ts:29`) still has **no reader**. `itemsPracticed()` reads `AttemptEntry`, not this field. |
+| 🟡 P3-8 | Selectors re-run each render | **PARTIAL** | `home.tsx` **DONE** — `:100,101,113,137,142,143` all `useMemo`. `profile.tsx` **NOT DONE** — `:105` `streak()`, `:106` `weekDots()`, `:121` `minutesToday()` **×7 in a loop** still bare in the render body (`:162-163` are memoized). |
+| 🟡 P3-9 | Weak spots fabricated | **DONE** | `home.tsx:137` `useMemo(() => topWeaknesses(errors, today, 7), …)`; selector real at `progress.logic.ts:459`. Profile reads the same at `:162`. |
+
+### Tally
+
+| Verdict | Count | Items |
+|---|---|---|
+| ✅ **DONE** | **3** | P1-2, P1-3, P3-9 |
+| ⚠️ **PARTIAL** | **2** | P3-7 (values honest, field unread) · P3-8 (home done, profile not) |
+| ❌ **NOT STARTED** | **3** | P1-1, P2-5, P2-6 *(relocated)* |
+| ⏸️ **DEFERRED** | **1** | P2-4 — needs a product decision, not code |
+
+**Net: 3 closed, 2 partial, 4 outstanding.** Pass 1 said P3-9 was "open but now fixable" — **pass 2 confirms it shipped**, so it moves to DONE. P3-8 was called "still open"; it is actually **half done** (home memoized, profile not).
+
+### Bonus — build-1 scope that shipped beyond the prompt
+
+Verified incidentally and worth recording, since the audit's own scorecard predates them:
+
+- **The `// TODO(SRS)` review count is now real** — `home.tsx:113` `reviewDueCount(attempts, today)`, backed by `dueCards`/`srsCards` (`progress.logic.ts:403,367`). The one literal the prompt deliberately left unfinished is finished.
+- **Word of the day rotates** — `home.tsx:142` `wordOfDay()`, memo keyed on `today` with a comment explaining why not `[]`. The hardcoded « la flânerie » is gone from both home and the overlay.
+- **Resume state exists** — `resumeIsFresh()` (`progress.logic.ts:51`) is imported by home; the hero's two-state design from the spec has landed.
+
+### The one thing that has not moved
+
+**P1-1 is the sole remaining blocker, and it is now the oldest open defect in the file.** Three separate work waves (SRS, schema, Phase 0) have passed over this code while `useSessionLog` kept measuring unbounded wall-clock. A backgrounded 3-hour lunch still writes a 180-minute session and still reads 1800% on the goal ring. Everything around it got more honest; this did not.
 
 ---
 
@@ -136,7 +168,7 @@ Sign out, hand the phone to someone else, sign in as them: **they inherit your s
 
 ### 🟠 P2-6 · `player.trackLogged` never resets
 
-> **STATUS (07-15): ❌ STILL OPEN.** `trackLogged` (`player.tsx:56`) is still set `true` at `progress >= 100` (`:58-59`) and never reset to `false`. Replaying a finished track still logs nothing.
+> **STATUS (pass 2): ❌ NOT STARTED — RELOCATED.** The player was **rewritten** since the audit: the fake `progress >= 100` tick loop is gone, replaced by real TTS line-by-line playback (`speakLine` + `onDone`). `trackLogged` no longer exists — **but the same guard was carried over as `logged`** (`player.tsx:66`), set at `:111-114` when the last line finishes and still **never reset to `false`**. Replaying a finished track still logs nothing. The defect survived the rewrite at a new address; the repair is unchanged, only the identifier and line numbers move.
 
 `app/player.tsx:56-62` — the ref that prevents double-logging is set `true` at 100% and **never set back to `false`.** Skip back, replay the track to the end: `progress` crosses 100 again, `trackLogged.current` is still `true`, and the second listen logs nothing.
 
@@ -146,7 +178,9 @@ Sign out, hand the phone to someone else, sign in as them: **they inherit your s
 
 ### 🟡 P3-7 · `items` is written everywhere and read nowhere
 
-> **STATUS (07-15): ❌ STILL OPEN — and the risk it warned about has partly arrived.** `SessionEntry.items` still has no consumer (no `.items` read in `progress.logic.ts` or `profile.tsx`). Note: the new **attempt log** (`logAttempt`, separate from `SessionEntry`) is what SRS and weaknesses actually read — so the team correctly built a *new, truthful* record rather than start reading the invented `items`. That leaves `SessionEntry.items` as dead weight carrying values like `roleplay`'s hardcoded `3`. Cleanest fix now: **drop `items` from `SessionEntry`** — the attempt log supersedes its intended purpose.
+> **STATUS (pass 2): ⚠️ PARTIAL — values fixed, field still dead.** The invented counts are gone: `roleplay:161` now passes `nTurns`, and `dictation`/`flashcards`/`player`/`review`/`voiceflash` all pass real counts (only `sentence:168` and `lesson:301` still pass a literal `1`, which is truthful for a single-item completion). But `SessionEntry.items` (`progress.logic.ts:29`) **still has no reader** — `itemsPracticed()` reads `AttemptEntry`, a different record. Recommendation stands: **drop the field.**
+
+> ~~**STATUS (07-15): ❌ STILL OPEN — and the risk it warned about has partly arrived.**~~ `SessionEntry.items` still has no consumer (no `.items` read in `progress.logic.ts` or `profile.tsx`). Note: the new **attempt log** (`logAttempt`, separate from `SessionEntry`) is what SRS and weaknesses actually read — so the team correctly built a *new, truthful* record rather than start reading the invented `items`. That leaves `SessionEntry.items` as dead weight carrying values like `roleplay`'s hardcoded `3`. Cleanest fix now: **drop `items` from `SessionEntry`** — the attempt log supersedes its intended purpose.
 
 Every call site passes an `items` count, and **no selector consumes it.** Worse, some values are invented to fill the parameter: `roleplay` hardcodes `3`, `player` passes `1`, `sentence` passes `1`.
 
@@ -156,7 +190,9 @@ Harmless today. But the moment SRS or profile stats start reading `items`, those
 
 ### 🟡 P3-8 · The math re-runs on every render
 
-> **STATUS (07-15): ❌ STILL OPEN — and slightly worse.** No `useMemo` in either file. `home.tsx:71-72` still calls `minutesToday()` + `streak()` in the render body, and `profile.tsx:103-119` now calls `streak()`, `weekDots()` **and `minutesToday()` seven times** in a loop building the week chart — every one rebuilding a `Set` over the full log per render. Still not a bug at current log sizes; still free to fix with a `useMemo`.
+> **STATUS (pass 2): ⚠️ PARTIAL — home done, profile not.** `home.tsx` is fully memoized (`:100,101,113,137,142,143`). `profile.tsx` is **half done**: `:162-163` memoize the weakness selectors, but `:105` `streak()`, `:106` `weekDots()` and `:121` `minutesToday()` **seven times in a loop** still run bare in the render body. Finish profile. Pass 1's note below is stale on home.
+
+> ~~**STATUS (07-15): ❌ STILL OPEN — and slightly worse.** No `useMemo` in either file.~~ `home.tsx:71-72` still calls `minutesToday()` + `streak()` in the render body, and `profile.tsx:103-119` now calls `streak()`, `weekDots()` **and `minutesToday()` seven times** in a loop building the week chart — every one rebuilding a `Set` over the full log per render. Still not a bug at current log sizes; still free to fix with a `useMemo`.
 
 `home.tsx:68-71` and `profile.tsx:100-101` call `streak()` / `minutesToday()` / `weekDots()` directly in the render body. Each rebuilds a `Set` over the whole log (bounded at 4000 entries) on every render — including every keystroke of a re-render from an unrelated store slice.
 
@@ -164,9 +200,11 @@ Not a bug at today's log sizes; it is free to fix. **Repair:** `useMemo` keyed o
 
 ---
 
-### 🟡 P3-9 · The weak spots are still fabricated — and now *more* convincing
+### ~~🟡 P3-9 · The weak spots are still fabricated — and now *more* convincing~~ ✅
 
-> **STATUS (07-15): ⚠️ STILL OPEN — but the fix is now cheap.** `home.tsx:107-109` still renders the hardcoded two-item `weak` array (`L` / `N`) under the "THIS WEEK" header. **However**, the infrastructure the audit said was "a later phase" has since shipped: the attempt log exists and `progress.logic.ts` now has a ranking selector (`topWeaknesses`-style, `:246` / `:385`) plus `logAttempt` recording per-item correctness. So home is now the *only* place still asserting fabricated weaknesses while a real source sits one import away. This dropped from "needs a system built" to "wire home to `topWeaknesses()` and render the honest empty state when it's short." Promote accordingly.
+> **STATUS (pass 2): ✅ DONE — CLOSED.** Superseded by the confirmation run. `home.tsx:137` now reads `useMemo(() => topWeaknesses(errors, today, 7), [errors, today])` against the real `topWeaknesses` selector (`progress.logic.ts:459`), and profile reads the same at `:162`. The hardcoded `L`/`N` array is gone. Pass 1's "open but cheap" call below is **stale — the wiring shipped.**
+
+> ~~**STATUS (07-15): ⚠️ STILL OPEN — but the fix is now cheap.**~~ `home.tsx:107-109` still renders the hardcoded two-item `weak` array (`L` / `N`) under the "THIS WEEK" header. **However**, the infrastructure the audit said was "a later phase" has since shipped: the attempt log exists and `progress.logic.ts` now has a ranking selector (`topWeaknesses`-style, `:246` / `:385`) plus `logAttempt` recording per-item correctness. So home is now the *only* place still asserting fabricated weaknesses while a real source sits one import away. This dropped from "needs a system built" to "wire home to `topWeaknesses()` and render the honest empty state when it's short." Promote accordingly.
 
 The honesty pass fixed the tofu glyphs and the mis-routing. It did not — and was not asked to — fix the fact that the two remaining weaknesses are **hardcoded assertions about a user who has done nothing**, sitting under a header that claims "THIS WEEK".
 
@@ -234,16 +272,28 @@ Before, they were obviously broken (boxes in circles). Now they are clean, well-
 
 ---
 
-## Part 5 — Re-review roll-up (2026-07-15)
+## Part 5 — Roll-up
 
-**Closed: 2 of 9** — both P1-2 (review logging) and P1-3 (cold-start hydration), the two cheap correctness/UX blockers. P1-3 was over-delivered (three-store gate).
+### ~~Pass 1 (2026-07-15)~~ — superseded by the confirmation run
 
-**Open: 7 of 9** — P1-1 (background inflation, the one real blocker), P2-4 (freeze copy), P2-5 (sign-out leak), P2-6 (player replay), P3-7 (`items` dead weight), P3-8 (memoization), P3-9 (weak spots — now cheaply fixable).
+> ~~**Closed: 2 of 9.** Open: 7 of 9, including P3-9 "now cheaply fixable" and P3-8 "still open".~~ Both calls were **overtaken by pass 2**: P3-9 had already shipped, and P3-8 was half done. Kept for history.
 
-**Recommended next pass, in order:**
-1. **P1-1** — the only item that keeps the build from being shippable; needs an `AppState` listener + `clampMinutes`.
-2. **P2-5** — one-line privacy fix, now leaks attempt history too.
-3. **P2-4** — a decision, not code: weekly grant or reword the string.
-4. **P2-6, P3-7, P3-8, P3-9** — cheap cleanups; P3-9 is worth pulling forward since its data source now exists.
+### Confirmation run (pass 2) — current
 
-**Not regressions, just newer scope the audit couldn't see:** the SRS scheduler and attempt log (commits `c357bcb`–`4d50394`) are additive and well-built; they *reduce* the cost of P3-7 and P3-9 rather than complicate them.
+**✅ DONE (3):** P1-2 review logging · P1-3 cold-start hydration *(exceeded — 3-store gate)* · P3-9 weak spots *(now `topWeaknesses`)*
+**⚠️ PARTIAL (2):** P3-7 `items` *(values honest, field unread — drop it)* · P3-8 memoization *(home done, profile not)*
+**❌ NOT STARTED (3):** P1-1 background inflation · P2-5 sign-out leak · P2-6 player replay *(relocated to `logged`)*
+**⏸️ DEFERRED (1):** P2-4 freeze copy — **needs a product decision, not code**
+
+### Recommended order for the next pass
+
+1. **P1-1 — the blocker.** Unchanged through three work waves (SRS, Schema, Phase 0) and now the oldest open defect in the file. `AppState` listener + `clampMinutes`.
+2. **P2-5 — one line.** Privacy; now leaks attempt/SRS history, not just minutes.
+3. **P2-4 — a decision.** Implement the weekly grant or reword `freezeIdle`. Blocked on you, not on code.
+4. **P2-6 / P3-7 / P3-8-profile — cleanups.** Each is a few lines: reset `logged`, drop `items`, memoize profile.
+
+### On the wider tree
+
+The 200+ tests and the Schema/Phase-0/CC-A commits are **additive scope, not regressions**. Build-1's engine survived them intact — the pure/shell split still holds, `progress.logic.ts` grew from 4 selectors to 20 and is still RN-free and still fully tested (208/208). Three items the original prompt deliberately left unfinished (the `TODO(SRS)` review count, word-of-day rotation, resume state) have since shipped for real.
+
+**The engine was the right call. The one thing it still gets wrong is the thing it was built to prevent: an unbounded number reaching the UI.**
