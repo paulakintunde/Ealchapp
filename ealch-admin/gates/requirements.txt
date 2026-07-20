@@ -1,0 +1,23 @@
+# Deterministic French gates (master plan Phase 2.D). Publish/CI environment
+# only — never installed on device, never bundled into the app.
+#
+#   pip install -r gates/requirements.txt
+#
+# verbecc: template-based French conjugation (the conjugator named in the
+# master build doc alongside mlconjug3). Chosen over mlconjug3 itself because
+# mlconjug3's published PyPI package ships a pretrained scikit-learn model
+# pickle that fails to unpickle against any scikit-learn newer than the one
+# it was built with (a real, reproduced incompatibility, not a hypothetical
+# one) — verbecc instead trains and caches its own small model locally on
+# first run against whatever scikit-learn is installed, so it self-heals.
+verbecc>=2.0,<3
+# Pinned to the 2.x line deliberately: check_french.py is written against the
+# 2.x API (verbecc.CompleteConjugator, .conjugate().to_json() with a
+# {"moods": {mood: {tense: [...]}}} shape). 1.x's API is materially
+# different; do not casually widen this range.
+#
+# check_gender.py and check_ipa.py (Workstream 4) need nothing here — both
+# are Python standard library only (csv, subprocess). check_ipa.py's
+# cross-check additionally needs the espeak-ng SYSTEM BINARY on PATH (not a
+# pip package; e.g. `winget install espeak-ng` / `apt install espeak-ng` /
+# `brew install espeak`) — absent, it skips the cross-check and says so.
