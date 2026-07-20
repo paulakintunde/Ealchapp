@@ -13,6 +13,8 @@ import { placementEstimate, type PlacementAnswer } from '@/store/progress.logic'
 import { content, useContent } from '@/services/content';
 import { sound, tts } from '@/services';
 import type { Item, Track } from '@/content/schema';
+import { useFeature } from '@/store/useEntitlement';
+import { track as trackEvent } from '@/services/analytics';
 
 // The honest interim placement (Phase 6, CF-16). The old screen was adaptive
 // theatre: one hardcoded question behind a fake "Q7", a 58% bar, a mocked A2
@@ -111,6 +113,10 @@ export default function Placement() {
     setField('level', graded);
     logSession('placement');
     setEst(graded);
+    // Paywall trigger point 1 (master plan): placement just wrote a level.
+    // When the graded plan reaches past the free bands, the result screen
+    // offers Première contextually — an offer card, never a hijacked flow.
+    if (graded === 'A2') trackEvent('placement_paywall_offered', { level: graded });
   };
 
   const redo = () => {
@@ -135,6 +141,8 @@ export default function Placement() {
 
   const right = answers.filter((a) => a.correct).length;
   const resCopy = est === 'A2' ? T.plResA2 : est === 'A1' ? T.plResA1 : T.plResA0;
+  const levelsAll = useFeature('levels.all');
+  const offerPremiere = est === 'A2' && !levelsAll;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -257,6 +265,26 @@ export default function Placement() {
             ) : (
               <View style={{ height: 26 }} />
             )}
+
+            {offerPremiere ? (
+              <Press
+                onPress={() => router.push({ pathname: '/paywall', params: { from: 'placement' } })}
+                style={{ alignSelf: 'stretch', borderRadius: 18, borderWidth: 1, borderColor: t.accA(40), backgroundColor: t.accA(8), paddingVertical: 14, paddingHorizontal: 16, marginBottom: 14, flexDirection: 'row', alignItems: 'center', gap: 13 }}
+              >
+                <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+                  <Icon name="star" size={15} color={t.accTx} />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <TX font="semi" role="bodySm">{T.placePwT}</TX>
+                  <TX role="meta" color={t.txMuted} style={{ marginTop: 2 }}>
+                    {T.placePwS}
+                  </TX>
+                </View>
+                <TX font="semi" role="eyebrow" ls={1.2} color={t.accTx}>
+                  {T.placePwCta}
+                </TX>
+              </Press>
+            ) : null}
 
             <Press cue={null} onPress={begin} style={{ alignSelf: 'stretch', minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
               <TX font="semi" role="body" color={t.accInk}>

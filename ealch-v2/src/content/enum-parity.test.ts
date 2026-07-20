@@ -83,19 +83,34 @@ test('PLANS is sub_plan — what the app grants and what billing sold must agree
   deepStrictEqual(dbEnum('sub_plan'), [...PLANS], 'PLANS ↔ sub_plan');
 });
 
-test('ENTITLEMENT_SOURCES has no DB counterpart yet, and that is written down', () => {
-  // Not asserted for parity, deliberately. sub_store is (app_store | play |
-  // stripe); ENTITLEMENT_SOURCES is (iap | stripe | paystack). They genuinely
-  // disagree today — 'paystack' is intended and unbuilt, and 'iap' is one value
-  // where the DB has two. Reconciling them is Phase 5's job.
+test('ENTITLEMENT_SOURCES and sub_store are related by a mapping, not parity', () => {
+  // Revisited by Phase 10, as the previous version of this test demanded. The
+  // two lists answer different questions and stay deliberately unequal:
   //
-  // A parity assertion here would be red from the day it was written, and a test
-  // that is always red is a test everyone learns to skip — including on the day
-  // it starts failing for a new reason. So this asserts the CURRENT truth
-  // instead, and will fail the moment someone changes either side, which is
-  // exactly when this decision needs revisiting.
-  deepStrictEqual(dbEnum('sub_store'), ['app_store', 'play', 'stripe']);
+  //   sub_store            = WHERE the money moved (app_store | play | stripe
+  //                          | paystack) — billing analytics granularity.
+  //   ENTITLEMENT_SOURCES  = WHICH checkout seam granted access (iap | stripe
+  //                          | paystack) — the app does not care which app
+  //                          store, so app_store and play both map to 'iap'
+  //                          (see sourceOfStore in entitlement.logic.ts and the
+  //                          revenuecat-webhook fn, which restate the same
+  //                          collapse).
+  //
+  // 'paystack' is now in BOTH lists (Phase 10 admin migration 0015): the
+  // Africa-PPP web-checkout seam, which RevenueCat cannot route, so its rows
+  // are written by their own path. Asserting the current truth of both sides
+  // keeps any further drift a red test rather than a silent disagreement.
+  deepStrictEqual(dbEnum('sub_store'), ['app_store', 'play', 'stripe', 'paystack']);
   deepStrictEqual([...ENTITLEMENT_SOURCES], ['iap', 'stripe', 'paystack']);
+});
+
+test("product_kind models the exam tier as a one-time product, not a plan", () => {
+  // Phase 10 pinned this: the $39 exam tier is a distinct product
+  // (product_purchases.product = 'exam'), NOT a sub_plan value — a one-off has
+  // no renewal lifecycle. PLANS must therefore stay free of it, and the grant
+  // travels as the 'examiner' feature on the entitlement instead.
+  deepStrictEqual(dbEnum('product_kind'), ['exam']);
+  ok(!(PLANS as readonly string[]).includes('exam'), "the exam tier must never become a sub_plan value");
 });
 
 test("SCORE_BANDS is user_level — a learner's level is an exam band, never 'sons'", () => {

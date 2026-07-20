@@ -9,12 +9,13 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { sound, coach, stt, type CoachMessage } from '@/services';
+import { track as trackEvent } from '@/services/analytics';
 import { formatTime } from '@/utils/time';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 
 // `tip` marks a reply served from the canned offline fallback rather than the
 // live coach, so the bubble can say so instead of passing it off as the coach.
-type Msg = { who: 'ai' | 'me'; text: string; time: string; tip?: boolean };
+type Msg = { who: 'ai' | 'me'; text: string; time: string; tip?: boolean; capped?: boolean };
 type CoachState = 'idle' | 'online' | 'offline';
 
 // Blinking three-dot typing indicator.
@@ -105,7 +106,7 @@ export default function Chat() {
       role: m.who === 'me' ? 'user' : 'assistant',
       content: m.text,
     }));
-    let res: { reply: string; live: boolean };
+    let res: { reply: string; live: boolean; capped?: boolean };
     try {
       res = await coach.ask(history, lang);
     } catch {
@@ -113,6 +114,14 @@ export default function Chat() {
     }
     setTyping(false);
     setCoachState(res.live ? 'online' : 'offline');
+    if (res.capped) {
+      // The backend answered: the free daily turns are spent. A truthful
+      // refusal with the Phase 10 paywall as the way past it — never a canned
+      // tip dressed up as a reply.
+      trackEvent('gate_blocked', { feature: 'coach.unlimited', from: 'chat' });
+      setMessages((cur) => [...cur, { who: 'ai', text: T.coachCapS, time: nowStamp(), capped: true }]);
+      return;
+    }
     setMessages((cur) => [...cur, { who: 'ai', text: res.reply, time: nowStamp(), tip: !res.live }]);
   };
 
@@ -170,9 +179,24 @@ export default function Chat() {
                   borderColor: me ? t.accA(35) : t.line(7),
                 }}
               >
+                {m.capped ? (
+                  <TX font="semi" role="body" lhMult={1.4} color={t.accTx} style={{ marginBottom: 2 }}>
+                    {T.coachCapT}
+                  </TX>
+                ) : null}
                 <TX role="body" lhMult={1.5} color={t.txPrimary}>
                   {m.text}
                 </TX>
+                {m.capped ? (
+                  <Press
+                    onPress={() => router.push({ pathname: '/paywall', params: { from: 'gate:coach' } })}
+                    style={{ marginTop: 10, alignSelf: 'flex-start', paddingVertical: 8, paddingHorizontal: 14, borderRadius: 15, backgroundColor: t.acc }}
+                  >
+                    <TX font="semi" role="label" color={t.accInk}>
+                      {T.coachCapCta}
+                    </TX>
+                  </Press>
+                ) : null}
               </View>
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4, paddingHorizontal: 4 }}>
                 <TX role="meta" color={t.txSubtle}>

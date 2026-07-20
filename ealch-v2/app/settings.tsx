@@ -12,6 +12,9 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useUI } from '@/store/useUI';
+import { useEntitlement, useIsPremium } from '@/store/useEntitlement';
+import { restorePurchases, purchasesStatus } from '@/services/purchases';
+import { track as trackEvent } from '@/services/analytics';
 import { sound } from '@/services';
 import { ACCENTS } from '@/theme/palette';
 import { langs } from '@/content';
@@ -112,6 +115,42 @@ export default function Settings() {
     sound.play('ding');
   };
 
+  // Phase 10: the plan card reads the REAL entitlement (RevenueCat-fed
+  // useEntitlement), never a local flag. Billing details never come from a
+  // literal — the store that sold the plan manages the payment method, and the
+  // card says which store that is.
+  const premium = useIsPremium();
+  const entitlement = useEntitlement((e) => e.entitlement);
+  const [restoreMsg, setRestoreMsg] = useState<string | null>(null);
+  const [restoring, setRestoring] = useState(false);
+
+  const planTitle = premium
+    ? entitlement.plan === 'annual'
+      ? T.planPremiereYr
+      : T.planPremiereMo
+    : T.planFree;
+  const expiryLabel =
+    premium && entitlement.expiry
+      ? (entitlement.willRenew === false ? T.endsFmt : T.renewsFmt).replace(
+          '{d}',
+          new Date(entitlement.expiry).toLocaleDateString(s.lang === 'fr' ? 'fr-FR' : 'en-US'),
+        )
+      : null;
+  const storeName =
+    entitlement.source === 'stripe' ? 'Stripe' : entitlement.source === 'paystack' ? 'Paystack' : 'App Store · Google Play';
+
+  const doRestore = async () => {
+    if (restoring) return;
+    setRestoring(true);
+    setRestoreMsg(null);
+    trackEvent('restore_started');
+    const res = await restorePurchases();
+    setRestoring(false);
+    trackEvent('restore_completed', { found: res.ok && res.premium });
+    if (!res.ok) setRestoreMsg(purchasesStatus() === 'ready' ? T.restoreFail : T.pwUnavailableT);
+    else setRestoreMsg(res.premium ? T.restoreDone : T.restoreNone);
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <View style={{ paddingTop: insets.top }}>
@@ -126,8 +165,10 @@ export default function Settings() {
         <SectionHead label={T.accountBilling.toUpperCase()} />
         <GroupTitle>{T.subscription}</GroupTitle>
 
-        {/* current plan card */}
-        <View
+        {/* Current plan — the real entitlement, tappable through to the
+            paywall (free: to subscribe; premium: to see the plan stated). */}
+        <Press
+          onPress={() => router.push({ pathname: '/paywall', params: { from: 'settings' } })}
           style={{
             borderRadius: 18,
             borderWidth: 1,
@@ -145,23 +186,73 @@ export default function Settings() {
             end={{ x: 0.3, y: 0.7 }}
             style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
           />
-          <TX font="bold" role="eyebrow" ls={2.4} color={t.accTx} style={{ marginBottom: 6 }}>
-            {T.currentPlan}
-          </TX>
-          <TX font="serifI" role="display" size={22} style={{ marginBottom: 4 }}>
-            {T.planFree}
-          </TX>
-          <TX role="label" color={t.txMuted}>
-            {T.planFreeDesc}
-          </TX>
-        </View>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ flex: 1 }}>
+              <TX font="bold" role="eyebrow" ls={2.4} color={t.accTx} style={{ marginBottom: 6 }}>
+                {T.currentPlan}
+              </TX>
+              <TX font="serifI" role="display" size={22} style={{ marginBottom: 4 }}>
+                {planTitle}
+              </TX>
+              <TX role="label" color={t.txMuted}>
+                {premium
+                  ? [expiryLabel, T.managedVia.replace('{s}', storeName)].filter(Boolean).join(' · ')
+                  : T.planFreeDesc}
+              </TX>
+            </View>
+            {!premium ? (
+              <TX font="semi" role="eyebrow" ls={1.4} color={t.accTx}>
+                {T.seePlans}
+              </TX>
+            ) : null}
+          </View>
+        </Press>
 
-        {/* The plan picker, upgrade button, billing rows and currency picker
-            stood here and sold nothing: no IAP, no receipt, and `premium` gates
-            no feature anywhere in the app. Phase 10 rebuilds them against a real
-            RevenueCat entitlement and imports the prices from
-            src/content/pricing.ts. Until a purchase can actually happen, this
-            screen states the plan and stops. */}
+        {/* Dunning notice — shown only while the store reports a failed
+            renewal charge. Access is untouched (grace period); this is the
+            "fix your payment method" nudge, not a lock. */}
+        {premium && entitlement.billingIssue ? (
+          <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.dangerA(45), backgroundColor: t.dangerA(8), padding: 14, paddingHorizontal: 16, marginBottom: 12 }}>
+            <TX font="semi" role="body" color={t.txPrimary}>
+              {T.billingIssueT}
+            </TX>
+            <TX role="label" color={t.txMuted} style={{ marginTop: 2 }}>
+              {T.billingIssueS}
+            </TX>
+          </View>
+        ) : null}
+
+        {/* Restore — the row Phase 0 deleted because it restored nothing.
+            This one runs a real RevenueCat restore and reports what it found. */}
+        <Press
+          onPress={() => void doRestore()}
+          style={{
+            minHeight: 58,
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: t.line(8),
+            backgroundColor: t.card, ...t.cardShadow,
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 14,
+            paddingHorizontal: 16,
+            paddingVertical: 10,
+            marginBottom: 12,
+          }}
+        >
+          <Icon name="restart" size={18} color={t.acc} />
+          <View style={{ flex: 1 }}>
+            <TX font="semi" role="body">
+              {T.restoreT}
+            </TX>
+            {restoreMsg ? (
+              <TX role="label" color={t.txSubtle} style={{ marginTop: 1 }}>
+                {restoreMsg}
+              </TX>
+            ) : null}
+          </View>
+          <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
+        </Press>
 
         {/* downloads */}
         <Press

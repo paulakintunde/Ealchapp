@@ -23,6 +23,7 @@ import { useContent, initContent } from '@/services/content';
 import { installErrorHandlers, logError } from '@/services/errors';
 import { useAuthSession } from '@/services/session';
 import { useForegroundSync } from '@/services/sync';
+import { useEntitlementSync } from '@/services/purchases';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -77,6 +78,9 @@ export default function RootLayout() {
   useAlarmWatcher();
   useAuthSession();
   useForegroundSync();
+  // Entitlement: cached copy first (offline honest), then RevenueCat
+  // customerInfo reconciled on boot, on foreground and on sign-in/out.
+  useEntitlementSync();
 
   useEffect(() => {
     refreshConfig();
@@ -135,6 +139,7 @@ export default function RootLayout() {
               <Stack.Screen name="review" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="placement" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="downloads" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="paywall" options={{ animation: 'slide_from_bottom' }} />
               <Stack.Screen name="exam" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="exam-task" options={{ animation: 'slide_from_right' }} />
             </Stack>

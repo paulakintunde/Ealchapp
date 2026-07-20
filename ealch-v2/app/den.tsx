@@ -12,6 +12,9 @@ import { useProgress } from '@/store/useProgress';
 import { foldCards, itemsPracticed, masteredItems } from '@/store/progress.logic';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import type { Track } from '@/content/schema';
+import { FREE_BANDS } from '@/store/entitlement.logic';
+import { useFeature } from '@/store/useEntitlement';
+import { track as trackEvent } from '@/services/analytics';
 
 // Den progress is REAL and now honest about the difference between MET and
 // MASTERED (Phase 5, CF-03). The bar and the "learned" count track MET — items
@@ -28,6 +31,13 @@ export default function Den() {
   const insets = useSafeAreaInsets();
 
   const [denTab, setDenTab] = useState<Track>('sons');
+
+  // The Phase 10 level gate: sons and A1 are free forever; everything past A1
+  // is Première ('levels.all'). The gate sits on the press, not the render —
+  // locked units stay fully visible (what you would get), they just route to
+  // the paywall instead of the lesson.
+  const levelsAll = useFeature('levels.all');
+  const tabLocked = !levelsAll && !(FREE_BANDS as readonly string[]).includes(denTab);
 
   const byTrack = useMemo(
     () => ({
@@ -150,7 +160,13 @@ export default function Den() {
             const done = prog.total > 0 && prog.mastered === prog.total;
             const started = prog.met > 0;
             const onPress = () => {
-              if (hasLesson) router.push({ pathname: '/lesson', params: { key: u.lessonIds[0] } });
+              if (!hasLesson) return;
+              if (tabLocked) {
+                trackEvent('gate_blocked', { feature: 'levels.all', from: 'den' });
+                router.push({ pathname: '/paywall', params: { from: 'gate:levels' } });
+                return;
+              }
+              router.push({ pathname: '/lesson', params: { key: u.lessonIds[0] } });
             };
             // A unit can declare 'narrated' before its script is written (schema.ts's
             // own comment on Lesson.narration) — only offer the Den's spoken mode once
@@ -200,7 +216,7 @@ export default function Den() {
                     </TX>
                   ) : (
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                      {narratedLesson ? (
+                      {narratedLesson && !tabLocked ? (
                         <Press
                           cue="tap"
                           onPress={() => router.push({ pathname: '/narrated', params: { key: narratedLesson.id } })}
@@ -211,7 +227,16 @@ export default function Den() {
                           </TX>
                         </Press>
                       ) : null}
-                      <Icon name="chevronRight" size={13} color={t.accTx} strokeWidth={1.6} />
+                      {tabLocked ? (
+                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5, paddingVertical: 5, paddingHorizontal: 9, borderRadius: 11, backgroundColor: t.accA(12) }}>
+                          <Icon name="lock" size={11} color={t.accTx} strokeWidth={2} />
+                          <TX font="bold" role="eyebrow" ls={1.2} color={t.accTx}>
+                            {T.premLockTag}
+                          </TX>
+                        </View>
+                      ) : (
+                        <Icon name="chevronRight" size={13} color={t.accTx} strokeWidth={1.6} />
+                      )}
                     </View>
                   )}
                 </View>

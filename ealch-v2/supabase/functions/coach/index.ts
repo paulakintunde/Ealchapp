@@ -114,7 +114,7 @@ async function routing(): Promise<Routing> {
       .eq("id", "active")
       .maybeSingle();
     const cfg = data?.config as
-      | { models?: { general?: unknown }; coachCostCeiling?: unknown }
+      | { models?: { general?: unknown }; coachCostCeiling?: unknown; coachFreeTurnsPerDay?: unknown }
       | null;
     const m = cfg?.models?.general;
     if (typeof m === "string" && m.trim()) {
@@ -194,6 +194,29 @@ async function bumpTurn(key: string, limit: number): Promise<{ used: number; all
     return { used: Number(row.used), allowed: !!row.allowed };
   } catch (_) {
     return null;
+  }
+}
+
+/** Phase 10: whether this auth uid holds unlimited coach turns, per the
+ *  entitlements mirror (fed by the revenuecat-webhook fn). FAIL-CLOSED to
+ *  capping: any error, missing table or missing row reads as "not exempt" —
+ *  the free cap applies, never a free unlimited. The mirror lagging a fresh
+ *  purchase by a webhook delivery is acceptable: the app's paywall state is
+ *  driven by customerInfo, and the next turn after the webhook lands is
+ *  uncapped. */
+async function hasUnlimitedCoach(uid: string): Promise<boolean> {
+  try {
+    const { data, error } = await serviceClient()
+      .from("entitlements")
+      .select("features, expiry")
+      .eq("user_id", uid)
+      .maybeSingle();
+    if (error || !data) return false;
+    const features: string[] = Array.isArray(data.features) ? data.features : [];
+    if (!features.includes("coach.unlimited")) return false;
+    return !data.expiry || new Date(data.expiry).getTime() > Date.now();
+  } catch (_) {
+    return false;
   }
 }
 
@@ -351,17 +374,19 @@ Deno.serve(async (req) => {
 
     // Check the quota before spending a provider call, not after.
     //
-    // The cap currently applies to EVERYONE, because no entitlement exists to
-    // exempt anyone: there is no paywall in the app yet, so there are no premium
-    // users to spare. Phase 10 must exempt premium here when it lands, or it
-    // will cap the people who paid.
-    //
     // Phase 9: a signed-in caller gets a real per-user cap immune to device
     // swapping, instead of the spoofable device/IP fallback. Guests keep
     // exactly today's behavior — this is additive, not a gate.
+    //
+    // Phase 10: a signed-in caller whose entitlements-mirror row carries
+    // 'coach.unlimited' skips the cap (the exemption this comment used to
+    // promise). The check is server-side against the webhook-fed mirror —
+    // never a client claim — and fails closed to capping. Guests can never be
+    // exempt: an entitlement hangs off an auth uid by construction.
     const uid = await callerUid(req);
     const subject = uid ? `auth:${uid}` : subjectKey(req, deviceId);
-    const quota = await bumpTurn(subject, routed.freeTurnsPerDay);
+    const exempt = uid ? await hasUnlimitedCoach(uid) : false;
+    const quota = exempt ? null : await bumpTurn(subject, routed.freeTurnsPerDay);
     if (quota && !quota.allowed) {
       posthog("coach_turn_cap_reached", { used: quota.used, limit: routed.freeTurnsPerDay });
       // 429 with a machine-readable reason: Phase 10 turns this into the paywall
@@ -371,7 +396,7 @@ Deno.serve(async (req) => {
         { status: 429, headers: { ...cors, "Content-Type": "application/json" } },
       );
     }
-    if (!quota) posthog("coach_quota_unavailable", { subject: subject.split(":")[0] });
+    if (!quota && !exempt) posthog("coach_quota_unavailable", { subject: subject.split(":")[0] });
 
     const system = await activePrompt(promptVersion, lang);
     const history: Msg[] = messages.slice(-12); // bound the context

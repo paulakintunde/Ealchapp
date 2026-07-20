@@ -13,8 +13,26 @@ export type CoachMessage = { role: 'user' | 'assistant'; content: string };
 /** `live` is true only when the reply came from the coach backend. When it is
  *  false the reply is a canned coaching tip served because the function was
  *  unreachable — the UI shows that honestly rather than claiming the coach is
- *  online. */
-export type CoachReply = { reply: string; live: boolean };
+ *  online. `capped` means the backend ANSWERED and said the free daily turn
+ *  allowance is spent (429 reason 'turn_cap') — that is a live, truthful
+ *  refusal, not an outage, so it must NOT degrade into a canned tip that
+ *  pretends the coach replied. Phase 10 turns it into the paywall trigger. */
+export type CoachReply = { reply: string; live: boolean; capped?: boolean };
+
+/** Whether a functions.invoke error is the coach fn's own turn-cap refusal.
+ *  FunctionsHttpError carries the Response as `context`; anything else (no
+ *  response, wrong status, unreadable body) reads as "not a cap" and falls
+ *  through to the offline path. */
+async function isTurnCap(error: unknown): Promise<boolean> {
+  try {
+    const ctx = (error as { context?: Response }).context;
+    if (!ctx || typeof ctx.status !== 'number' || ctx.status !== 429) return false;
+    const body = (await ctx.clone().json().catch(() => null)) as { reason?: string } | null;
+    return body?.reason === 'turn_cap';
+  } catch {
+    return false;
+  }
+}
 
 let fallbackIx = 0;
 
@@ -33,6 +51,7 @@ export const coach = {
           },
         });
         if (!error && data?.reply) return { reply: String(data.reply), live: true };
+        if (error && (await isTurnCap(error))) return { reply: '', live: true, capped: true };
       } catch {
         // fall through to canned reply
       }

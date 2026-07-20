@@ -11,7 +11,7 @@
 // `features` is the access vocabulary, `plan` is what was bought — see the
 // Entitlement doc in progress-schema.ts for why they are separate questions.
 
-import type { Entitlement, Plan } from '@/content/progress-schema';
+import type { Entitlement, Plan } from '../content/progress-schema.ts';
 
 /* ─── The feature vocabulary ─────────────────────────────────────────────── */
 
@@ -95,14 +95,15 @@ export function scenarioOfAttempt(itemId: string): string {
 }
 
 /** Minimal structural slice of AttemptEntry — enough to count scenarios
- *  without importing progress.logic (keeps the dependency arrow one-way). */
-export type ScenarioAttemptLike = { activity: string; day: string; itemId: string };
+ *  without importing progress.logic (keeps the dependency arrow one-way).
+ *  `date` is the local calendar day, same contract as AttemptEntry.date. */
+export type ScenarioAttemptLike = { activity: string; date: string; itemId: string };
 
 /** The distinct scenarios this user played on `day`. */
 export function scenariosPlayedOn(attempts: ScenarioAttemptLike[], day: string): Set<string> {
   const out = new Set<string>();
   for (const a of attempts) {
-    if (a.activity === 'roleplay' && a.day === day) out.add(scenarioOfAttempt(a.itemId));
+    if (a.activity === 'roleplay' && a.date === day) out.add(scenarioOfAttempt(a.itemId));
   }
   return out;
 }
@@ -144,6 +145,7 @@ export type CustomerInfoLike = {
         /** 'APP_STORE' | 'PLAY_STORE' | 'STRIPE' | ... */
         store: string;
         billingIssueDetectedAt?: string | null;
+        willRenew?: boolean;
       }
     >;
   };
@@ -190,6 +192,7 @@ export function entitlementFromCustomerInfo(userId: string, info: CustomerInfoLi
   }
 
   if (premiere?.billingIssueDetectedAt || exam?.billingIssueDetectedAt) e.billingIssue = true;
+  if (premiere && typeof premiere.willRenew === 'boolean') e.willRenew = premiere.willRenew;
 
   return e;
 }

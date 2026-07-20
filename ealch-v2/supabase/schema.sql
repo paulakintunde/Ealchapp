@@ -98,7 +98,32 @@ create table if not exists public.coach_usage (
   primary key (subject_key, day)
 );
 
+-- Entitlements mirror (Phase 10). Written ONLY by the revenuecat-webhook edge
+-- function (service role). The client NEVER reads this to grant access —
+-- RevenueCat customerInfo is the runtime entitlement authority and the app
+-- reconciles against it on every foreground, so a dropped webhook can never
+-- silently gate a paying user. Two consumers, both server-side: the coach
+-- function's premium cap exemption, and analytics/BI. `user_id` is the auth
+-- uid (same id RevenueCat is given as app_user_id); deliberately not an FK so
+-- an out-of-order webhook (before the profiles row exists) still lands.
+create table if not exists public.entitlements (
+  user_id       uuid primary key,
+  plan          text        not null default 'free',
+  features      text[]      not null default '{}',
+  source        text        not null default 'iap',
+  store         text,
+  product_id    text,
+  -- Last webhook event type (initial_purchase, renewal, cancellation,
+  -- billing_issue, expiration, ...) — an audit hint, never an access input.
+  status        text,
+  expiry        timestamptz,
+  billing_issue boolean     not null default false,
+  environment   text,
+  updated_at    timestamptz not null default now()
+);
+
 -- ── Row Level Security ──
+alter table public.entitlements    enable row level security;
 alter table public.coach_usage     enable row level security;
 alter table public.system_config   enable row level security;
 alter table public.system_prompts  enable row level security;
@@ -121,6 +146,10 @@ create policy "config readable" on public.system_config for select using (true);
 -- Quota: NO policies at all, deliberately. Only the coach function touches this,
 -- with the service role, which bypasses RLS. A client that could write its own
 -- quota row would not be a quota.
+
+-- Entitlements: NO policies at all, same stance. A client that could read its
+-- mirror row might be tempted to gate on it (stale) — and one that could write
+-- it would be minting entitlements, the exact Phase 0 defect. Service role only.
 
 -- Atomic bump: read-then-write in the function would let two concurrent turns
 -- both see 9, both conclude they are under a limit of 10, and both spend. One

@@ -17,6 +17,9 @@ export type Price = {
   yr: string;
   /** The one-off exam tier (Phase 11). Provisional outside USD — see below. */
   exam: string;
+  /** Annual vs 12 months of monthly, as a share saved ("34%"). Display copy
+   *  MUST quote this field, never a month count — see the arithmetic below. */
+  save: string;
 };
 
 /** Annual against twelve months of monthly, as a share saved:
@@ -28,11 +31,15 @@ export type Price = {
  *  annual copy must express the discount as a share, never a month count. If a
  *  price moves, redo this arithmetic and move the copy with it. */
 export const PRICES: Record<Currency, Price> = {
-  USD: { mo: '$9.99', yrmo: '$6.58', yr: '$79', exam: '$39' },
-  EUR: { mo: '9,99 €', yrmo: '6,58 €', yr: '79 €', exam: '39 €' },
-  GBP: { mo: '£8.99', yrmo: '£5.75', yr: '£69', exam: '£34.99' },
-  CAD: { mo: 'CA$12.99', yrmo: 'CA$8.25', yr: 'CA$99', exam: 'CA$49.99' },
+  USD: { mo: '$9.99', yrmo: '$6.58', yr: '$79', exam: '$39', save: '34%' },
+  EUR: { mo: '9,99 €', yrmo: '6,58 €', yr: '79 €', exam: '39 €', save: '34%' },
+  GBP: { mo: '£8.99', yrmo: '£5.75', yr: '£69', exam: '£34.99', save: '36%' },
+  CAD: { mo: 'CA$12.99', yrmo: 'CA$8.25', yr: 'CA$99', exam: 'CA$49.99', save: '36%' },
 };
+
+/** Every currency the matrix quotes, in picker order. Derived from PRICES so a
+ *  new currency row automatically reaches the paywall's picker. */
+export const CURRENCIES = Object.keys(PRICES) as Currency[];
 
 // The exam row outside USD is PROVISIONAL. $39 is the pinned decision; no source
 // states a EUR/GBP/CAD exam price, so these are derived from the ratios the

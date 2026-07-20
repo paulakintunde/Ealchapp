@@ -21,7 +21,7 @@ ALTER TABLE "content_exam_tasks" ADD COLUMN "format" "exam_format" NOT NULL;--> 
 ALTER TABLE "content_exam_tasks" ADD COLUMN "task_type" "exam_task_type" NOT NULL;--> statement-breakpoint
 ALTER TABLE "content_exam_tasks" ADD COLUMN "skill" "exam_skill" NOT NULL;--> statement-breakpoint
 ALTER TABLE "content_exam_tasks" ADD COLUMN "target_item_ids" text[] DEFAULT '{}' NOT NULL;--> statement-breakpoint
-DROP INDEX "exam_series_family_variant_idx";--> statement-breakpoint
-DROP INDEX "exam_tasks_family_variant_idx";--> statement-breakpoint
+DROP INDEX IF EXISTS "exam_series_family_variant_idx";--> statement-breakpoint
+DROP INDEX IF EXISTS "exam_tasks_family_variant_idx";--> statement-breakpoint
 CREATE INDEX "exam_series_format_variant_idx" ON "content_exam_series" USING btree ("format","variant");--> statement-breakpoint
 CREATE INDEX "exam_tasks_format_variant_idx" ON "content_exam_tasks" USING btree ("format","variant");

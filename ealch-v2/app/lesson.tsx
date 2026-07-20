@@ -13,7 +13,10 @@ import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { lessonSkill } from '@/content/curriculum';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
-import type { Lesson, LessonSection } from '@/content/schema';
+import { unitBand, type Lesson, type LessonSection } from '@/content/schema';
+import { FREE_BANDS } from '@/store/entitlement.logic';
+import { useFeature } from '@/store/useEntitlement';
+import { track as trackEvent } from '@/services/analytics';
 
 // Callers written before the corpus used short keys; map them to the real ids so
 // existing links (home's weak-spots row, etc.) keep working until they're updated.
@@ -290,6 +293,21 @@ export default function LessonScreen() {
   // shows real content rather than crashing.
   const L: Lesson | null = content.lesson(id) ?? content.units('sons').flatMap((u) => content.lessonsOf(u.id))[0] ?? null;
 
+  // The level-gate CHOKEPOINT (Phase 10). The Den's row gate is UX; this is
+  // enforcement — every route into a lesson (den, resume, placement start,
+  // deep link) lands here, so a lesson past A1 without 'levels.all' redirects
+  // to the paywall instead of rendering.
+  const levelsAll = useFeature('levels.all');
+  const bandLocked =
+    !!L && !levelsAll && !(FREE_BANDS as readonly string[]).includes(unitBand(L.unitId) ?? 'a1');
+  useEffect(() => {
+    if (bandLocked) {
+      trackEvent('gate_blocked', { feature: 'levels.all', from: 'lesson' });
+      router.replace({ pathname: '/paywall', params: { from: 'gate:levels' } });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bandLocked]);
+
   const logSession = useSessionLog();
   const setResume = useProgress((s) => s.setResume);
   const clearResume = useProgress((s) => s.clearResume);
@@ -353,6 +371,12 @@ export default function LessonScreen() {
         </View>
       </View>
     );
+  }
+
+  // Redirecting to the paywall (effect above) — render nothing in the gap so a
+  // gated lesson never flashes its content on the way out.
+  if (bandLocked) {
+    return <View style={{ flex: 1, backgroundColor: t.bg }} />;
   }
 
   const contentSections = L.sections.filter((s) => s.type !== 'quiz');

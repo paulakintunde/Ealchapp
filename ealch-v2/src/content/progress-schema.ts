@@ -168,6 +168,20 @@ export type Entitlement = {
    * free tier.
    */
   expiry?: number;
+  /**
+   * True while the store reports a failed renewal charge (RevenueCat
+   * `billingIssueDetectedAt`). The user KEEPS access — the store's grace period
+   * is the dunning window, and RevenueCat keeps the entitlement active through
+   * it — this flag only drives the "update your payment method" notice. Absent
+   * means no known issue; it must never be used to deny access.
+   */
+  billingIssue?: boolean;
+  /**
+   * Whether the store expects to renew at `expiry` (false after the user
+   * cancels but before the paid period ends). Display only — "Renews {d}" vs
+   * "Ends {d}" — never an access decision; access is `expiry` alone.
+   */
+  willRenew?: boolean;
 };
 
 /* ─── Validation ─────────────────────────────────────────────────────────── */
@@ -248,6 +262,8 @@ export function validateEntitlement(v: unknown, path = 'entitlement'): Issue[] {
   else if (e.features.some((f) => !isStr(f))) push('features must all be non-empty strings');
 
   if (e.expiry !== undefined && !isEpochMs(e.expiry)) push('expiry must be an epoch-ms integer >= 0 when present');
+  if (e.billingIssue !== undefined && typeof e.billingIssue !== 'boolean') push('billingIssue must be a boolean when present');
+  if (e.willRenew !== undefined && typeof e.willRenew !== 'boolean') push('willRenew must be a boolean when present');
 
   return out;
 }

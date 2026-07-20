@@ -12,7 +12,10 @@ import { useT } from '@/i18n/useT';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt } from '@/services';
 import { content } from '@/services/content';
-import type { Lesson } from '@/content/schema';
+import { unitBand, type Lesson } from '@/content/schema';
+import { FREE_BANDS } from '@/store/entitlement.logic';
+import { useFeature } from '@/store/useEntitlement';
+import { track as trackEvent } from '@/services/analytics';
 import {
   flattenNarration,
   langForVoice,
@@ -41,6 +44,19 @@ export default function Narrated() {
   const id = raw ?? '';
 
   const L: Lesson | null = content.lesson(id);
+
+  // Same level-gate chokepoint as lesson.tsx: a narrated lesson past A1
+  // redirects to the paywall before a word is spoken.
+  const levelsAll = useFeature('levels.all');
+  const bandLocked =
+    !!L && !levelsAll && !(FREE_BANDS as readonly string[]).includes(unitBand(L.unitId) ?? 'a1');
+  useEffect(() => {
+    if (bandLocked) {
+      trackEvent('gate_blocked', { feature: 'levels.all', from: 'narrated' });
+      router.replace({ pathname: '/paywall', params: { from: 'gate:levels' } });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bandLocked]);
 
   const logSession = useSessionLog();
   const setResume = useProgress((s) => s.setResume);
@@ -78,7 +94,9 @@ export default function Narrated() {
   // only ever acts when the step is a 'segment' — an 'interaction' step waits
   // on the mic instead (below), never on this effect.
   useEffect(() => {
-    if (!current || current.kind !== 'segment' || done) return;
+    // bandLocked: the gate effect above is mid-redirect — do not start speaking
+    // a lesson the user is about to be routed away from.
+    if (!current || current.kind !== 'segment' || done || bandLocked) return;
     setFeedback(null);
     const seg = current.segment;
     tts.speak(seg.text, {
@@ -178,6 +196,11 @@ export default function Narrated() {
         </View>
       </View>
     );
+  }
+
+  // Redirecting to the paywall (effect above) — never flash gated content.
+  if (bandLocked) {
+    return <View style={{ flex: 1, backgroundColor: t.bg }} />;
   }
 
   if (done) {

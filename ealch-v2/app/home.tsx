@@ -13,6 +13,7 @@ import { useT } from '@/i18n/useT';
 import { greetSlot } from '@/i18n/strings';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
+import { useIsPremium } from '@/store/useEntitlement';
 import { composeSession, goalTarget, greetDue, greetState, introEligible, localDay, minutesToday, resumeIsFresh, streak, topWeaknesses } from '@/store/progress.logic';
 import { selectItems } from '@/services/content.logic';
 import { useUI } from '@/store/useUI';
@@ -89,6 +90,7 @@ export default function Home() {
   const { width: winWidth } = useWindowDimensions();
   const narrowStrip = winWidth < 360;
   const { userName, lang, setAppLang, freeze, pace, level, sound, browseOpen, setField } = useStore();
+  const isPremium = useIsPremium();
   const sessions = useProgress((s) => s.sessions);
   const attempts = useProgress((s) => s.attempts);
   const errors = useProgress((s) => s.errors);
@@ -435,6 +437,25 @@ export default function Home() {
           badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />}
           sub={T.byThemeS}
         />
+
+        {/* Première entry — the persistent, non-nagging home trigger (Phase 10
+            paywall placement 3). One slim row, only while the user is free;
+            it disappears entirely once the entitlement is real. */}
+        {!isPremium ? (
+          <Press
+            onPress={() => router.push({ pathname: '/paywall', params: { from: 'home' } })}
+            style={{ marginTop: 22, minHeight: 54, borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 16, paddingVertical: 10 }}
+          >
+            <Icon name="star" size={16} color={t.accTx} />
+            <View style={{ flex: 1 }}>
+              <TX font="semi" role="bodySm">{T.homePremT}</TX>
+              <TX role="meta" color={t.txMuted} style={{ marginTop: 1 }}>
+                {T.homePremS}
+              </TX>
+            </View>
+            <Icon name="chevronRight" size={13} color={t.accTx} strokeWidth={1.6} />
+          </Press>
+        ) : null}
 
         {/* Browse fold */}
         <Press onPress={toggleBrowse} style={{ marginTop: 26, minHeight: 48, paddingVertical: 8, borderRadius: 24, borderWidth: 1, borderColor: t.line(12), flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>

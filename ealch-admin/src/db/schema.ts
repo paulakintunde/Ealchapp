@@ -12,9 +12,18 @@ export const userLevel = pgEnum('user_level', ['a1', 'a2', 'b1', 'b2', 'c1', 'c2
 export const userPlatform = pgEnum('user_platform', ['ios', 'android']);
 export const userStatus = pgEnum('user_status', ['active', 'trial', 'churn_risk', 'banned', 'deleted']);
 export const subPlan = pgEnum('sub_plan', ['free', 'monthly', 'annual']);
-export const subStore = pgEnum('sub_store', ['app_store', 'play', 'stripe']);
+// 'paystack' (Phase 10, CF-15 reconciliation): the Africa-PPP web-checkout
+// seam. RevenueCat cannot route Paystack, so a paystack row is written by its
+// own checkout path, never by the RevenueCat webhook.
+export const subStore = pgEnum('sub_store', ['app_store', 'play', 'stripe', 'paystack']);
 export const subStatus = pgEnum('sub_status', ['active', 'trialing', 'past_due', 'canceled', 'refunded']);
 export const paymentKind = pgEnum('payment_kind', ['charge', 'refund']);
+// One-time products (Phase 10/11). The $39 exam tier is deliberately NOT a
+// sub_plan value: a one-off purchase has no renewal lifecycle, and modeling it
+// as a plan would hand it dunning/churn semantics it does not have. The app's
+// PLANS list (progress-schema.ts) therefore stays free|monthly|annual, and the
+// exam grant travels as the 'examiner' feature on the entitlement.
+export const productKind = pgEnum('product_kind', ['exam']);
 export const campaignStatus = pgEnum('campaign_status', ['draft', 'scheduled', 'sending', 'sent', 'paused']);
 export const sendStatus = pgEnum('send_status', ['queued', 'delivered', 'opened', 'failed']);
 // 'lesson' — a rich, sectioned lesson document (ealch-v2/src/content/schema.ts: Lesson).
@@ -172,13 +181,36 @@ export const payments = pgTable('payments', {
   id: uuid('id').primaryKey().defaultRandom(),
   subscriptionId: uuid('subscription_id').notNull().references(() => subscriptions.id, { onDelete: 'cascade' }),
   amountCents: integer('amount_cents').notNull(),
-  currency: text('currency').notNull().default('EUR'),
+  // Free text, not an enum, on purpose: it must hold USD/EUR/GBP/CAD today and
+  // NGN the day the Paystack PPP tier ships, without a migration. Default was
+  // 'EUR' — corrected to 'USD' (Phase 10): USD is the canonical pricing row
+  // (src/content/pricing.ts) every other currency derives from.
+  currency: text('currency').notNull().default('USD'),
   kind: paymentKind('kind').notNull().default('charge'),
   status: text('status').notNull().default('paid'),
   occurredAt: timestamp('occurred_at', { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [
   index('payments_sub_idx').on(t.subscriptionId),
   index('payments_occurred_idx').on(t.occurredAt),
+]);
+
+// One-time product purchases (the Phase 11 exam tier). A row here is a grant
+// of that product's entitlement feature; refund/revocation flips `status`
+// rather than deleting the row, so the audit trail survives. Fed by the
+// RevenueCat webhook (or the Paystack path) exactly like `subscriptions` — a
+// mirror for BI, never read by the client to grant access.
+export const productPurchases = pgTable('product_purchases', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
+  product: productKind('product').notNull(),
+  store: subStore('store').notNull().default('app_store'),
+  amountCents: integer('amount_cents').notNull().default(0),
+  currency: text('currency').notNull().default('USD'),
+  status: text('status').notNull().default('paid'),
+  occurredAt: timestamp('occurred_at', { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [
+  index('product_purchases_user_idx').on(t.userId),
+  index('product_purchases_product_idx').on(t.product),
 ]);
 
 export const learningSessions = pgTable('learning_sessions', {

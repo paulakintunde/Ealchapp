@@ -84,7 +84,16 @@ export type AppState = {
   // billing
   currency: Currency;
   planPick: Plan;
-  premium: boolean;
+  /** True once the USER picked a currency. While false, the paywall may
+   *  re-derive `currency` from the device region on open, and its caption says
+   *  "detected", not "chosen". The moment setCurrency runs, detection stops
+   *  overriding and the caption flips — the old screen claimed "Detected from
+   *  your region" over a hardcoded default; this bit is what makes the claim
+   *  checkable. NOTE: `premium` used to live here. It is gone on purpose: a
+   *  stored boolean is a mintable flag (Phase 0 deleted upgrade() for exactly
+   *  that), so paid access is now DERIVED — see useEntitlement/isPremium,
+   *  fed only by RevenueCat customerInfo. */
+  currencyChosen: boolean;
 
   // progress
   //
@@ -164,7 +173,7 @@ const initialData = () => ({
 
   currency: 'USD' as Currency,
   planPick: 'yr' as Plan,
-  premium: false,
+  currencyChosen: false,
 
   // One freeze at day zero is a real starting grant, not a claim about past
   // activity — which is why it is the only progress field left in this store.
@@ -222,13 +231,16 @@ export const useStore = create<AppState>()(
         }
         return granted;
       },
-      setCurrency: (currency) => set({ currency }),
+      // The single writer of currencyChosen — a currency set any other way
+      // (region detection) must go through setField('currency', …) and leave
+      // the flag alone, or detection would masquerade as a user choice.
+      setCurrency: (currency) => set({ currency, currencyChosen: true }),
       setPlan: (planPick) => set({ planPick }),
       // No upgrade(). It was `() => set({ premium: true })`: it minted the
       // premium flag with no payment, no receipt and no entitlement, from a
-      // button in settings. Phase 10 sets `premium` from RevenueCat's
-      // customerInfo, which is the only authority that can honestly say a user
-      // has paid. Nothing else may write it.
+      // button in settings. Phase 10 went further and removed `premium` from
+      // this store entirely — paid access is derived (useEntitlement), fed
+      // only by RevenueCat customerInfo. Nothing else may claim a user paid.
       setRegion: (region) => set({ region }),
       // Non-FR/EN picks fall back to the declared default interface language (EN).
       setAppLang: (appLang) =>
@@ -279,7 +291,7 @@ export const useStore = create<AppState>()(
     }),
     {
       name: 'ealch-store',
-      version: 5,
+      version: 6,
       // v0 → v1: language used to be hardcoded French; re-derive from the device.
       // v1 → v2: 'Maya' was a hardcoded placeholder identity, never user-entered;
       // clear it so the no-name greeting applies until the user sets a real name.
@@ -290,6 +302,9 @@ export const useStore = create<AppState>()(
       // keys rather than leave a fake streak sitting in the persisted blob.
       // v4 → v5: reviewCleared is gone too — the review queue is now derived from
       // the attempt log by the scheduler (dueCards), so the manual flag is dead.
+      // v5 → v6: premium is gone — paid access is derived from the RevenueCat
+      // entitlement (useEntitlement), never stored where local code could write
+      // it. Every persisted value of it was false anyway: nothing ever set it.
       migrate: (persisted, version) => {
         const s = persisted as Partial<AppState> & Record<string, unknown>;
         if (version === 0) {
@@ -306,6 +321,9 @@ export const useStore = create<AppState>()(
         }
         if (version <= 4) {
           delete s.reviewCleared;
+        }
+        if (version <= 5) {
+          delete s.premium;
         }
         return s as AppState;
       },
@@ -333,7 +351,7 @@ export const useStore = create<AppState>()(
         onboarded: s.onboarded,
         currency: s.currency,
         planPick: s.planPick,
-        premium: s.premium,
+        currencyChosen: s.currencyChosen,
         freeze: s.freeze,
         lastGreetAt: s.lastGreetAt,
       }),

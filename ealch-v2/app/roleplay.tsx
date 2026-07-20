@@ -14,6 +14,10 @@ import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { content } from '@/services/content';
 import type { Level } from '@/content/schema';
+import { localDay } from '@/store/progress.logic';
+import { roleplayLocked } from '@/store/entitlement.logic';
+import { useEntitlement } from '@/store/useEntitlement';
+import { track as trackEvent } from '@/services/analytics';
 
 // A user turn carries what the recognizer actually heard and how it scored, so
 // the bubble can show the real utterance and its verdict — never the scripted
@@ -75,6 +79,16 @@ export default function Roleplay() {
   const turns = scenario?.turns ?? [];
   const nTurns = turns.length;
 
+  // Phase 10 free allowance: one DISTINCT scenario per day (the number
+  // planFreeDesc quotes — this gate is what makes that copy true). Continuing
+  // or retrying today's scenario stays free; a second scene routes to the
+  // paywall. Première ('roleplay.unlimited') never locks.
+  const entitlement = useEntitlement((s) => s.entitlement);
+  const attempts = useProgress((s) => s.attempts);
+  const capLocked = scenario
+    ? roleplayLocked(entitlement, attempts, localDay(new Date()), scenario.id, Date.now())
+    : false;
+
   const mounted = useRef(true);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const scrollRef = useRef<ScrollView>(null);
@@ -91,6 +105,11 @@ export default function Roleplay() {
 
   const start = () => {
     if (!nTurns) return;
+    if (capLocked) {
+      trackEvent('gate_blocked', { feature: 'roleplay.unlimited', from: 'roleplay' });
+      router.push({ pathname: '/paywall', params: { from: 'gate:roleplay' } });
+      return;
+    }
     sound.play('tap');
     const first = turns[0];
     setMsgs([{ who: 'ai', fr: first.ai, en: first.en }]);
@@ -230,13 +249,26 @@ export default function Roleplay() {
             {nTurns ? T.rpLevelNote : T.lessonSoon}
           </TX>
           <View style={{ marginTop: 'auto' }}>
+            {capLocked ? (
+              <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.accA(35), backgroundColor: t.accA(8), padding: 14, paddingHorizontal: 16, marginBottom: 12 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 3 }}>
+                  <Icon name="lock" size={13} color={t.accTx} strokeWidth={2} />
+                  <TX font="semi" role="body" color={t.accTx}>
+                    {T.gateRoleplayT}
+                  </TX>
+                </View>
+                <TX role="label" color={t.txMuted}>
+                  {T.gateRoleplayS}
+                </TX>
+              </View>
+            ) : null}
             <Press
-              cue={nTurns ? 'tap' : null}
+              cue={nTurns && !capLocked ? 'tap' : null}
               onPress={start}
               style={{ minHeight: 54, paddingVertical: 8, borderRadius: 27, backgroundColor: nTurns ? t.acc : t.line(10), alignItems: 'center', justifyContent: 'center' }}
             >
               <TX font="semi" role="bodyLg" color={nTurns ? t.accInk : t.txSubtle}>
-                {T.startRp}
+                {capLocked ? T.coachCapCta : T.startRp}
               </TX>
             </Press>
           </View>

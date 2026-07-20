@@ -10,7 +10,11 @@ export interface TxRow {
   id: string;
   customer: string;
   planLabel: string;
-  store: 'app_store' | 'play' | 'stripe';
+  // Restating the sub_store union here is what made adding 'paystack' a
+  // compile error in this file (Phase 10 migration 0015). Kept as a literal
+  // union because this is a 'use client' file that should not import the
+  // server schema module — but it must mirror schema.ts subStore exactly.
+  store: 'app_store' | 'play' | 'stripe' | 'paystack';
   amountLabel: string; // signed, pre-formatted (refunds negative)
   isRefund: boolean;
   kindLabel: string;
@@ -23,6 +27,7 @@ const STORE_TITLE: Record<TxRow['store'], string> = {
   app_store: 'App Store',
   play: 'Google Play',
   stripe: 'Stripe',
+  paystack: 'Paystack',
 };
 
 /** Tiny 14px store glyphs: apple, play triangle, stripe S. */
@@ -53,6 +58,22 @@ function StoreIcon({ store }: { store: TxRow['store'] }) {
             fill="var(--card)"
           >
             S
+          </text>
+        </svg>
+      )}
+      {store === 'paystack' && (
+        <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+          <rect width="24" height="24" rx="5" fill="currentColor" />
+          <text
+            x="12"
+            y="17"
+            textAnchor="middle"
+            fontSize="14"
+            fontWeight="700"
+            fontFamily="var(--font-ui)"
+            fill="var(--card)"
+          >
+            P
           </text>
         </svg>
       )}

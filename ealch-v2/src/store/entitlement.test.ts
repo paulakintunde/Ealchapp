@@ -20,8 +20,8 @@ import {
   scenarioOfAttempt,
   scenariosPlayedOn,
   type CustomerInfoLike,
-} from './entitlement.logic';
-import { isValidEntitlement, type Entitlement } from '@/content/progress-schema';
+} from './entitlement.logic.ts';
+import { isValidEntitlement, type Entitlement } from '../content/progress-schema.ts';
 
 const NOW = Date.parse('2026-07-19T12:00:00Z');
 const LATER_ISO = '2026-08-19T12:00:00.000Z';
@@ -82,11 +82,11 @@ test('scenarioOfAttempt strips exactly the turn suffix', () => {
 test('roleplay gate: the free allowance is breadth, not practice', () => {
   const day = '2026-07-19';
   const played = [
-    { activity: 'roleplay', day, itemId: 'sc.a1.marche.001.t0' },
-    { activity: 'roleplay', day, itemId: 'sc.a1.marche.001.t1' },
+    { activity: 'roleplay', date: day, itemId: 'sc.a1.marche.001.t0' },
+    { activity: 'roleplay', date: day, itemId: 'sc.a1.marche.001.t1' },
     // noise the counter must ignore: other activities, other days
-    { activity: 'flashcards', day, itemId: 'fr.a1.greet.001' },
-    { activity: 'roleplay', day: '2026-07-18', itemId: 'sc.a1.plage.001.t0' },
+    { activity: 'flashcards', date: day, itemId: 'fr.a1.greet.001' },
+    { activity: 'roleplay', date: '2026-07-18', itemId: 'sc.a1.plage.001.t0' },
   ];
   deepStrictEqual([...scenariosPlayedOn(played, day)], ['sc.a1.marche.001']);
   strictEqual(FREE_SCENARIOS_PER_DAY, 1);

@@ -139,3 +139,76 @@ claims forward. Both were found by grep and git, not inference.
    field at all (verified at `e349faa`). Commit 5 *added* `skill?: ExamSkill` as a new optional
    field. This matters: there is no legacy `skill` data anywhere needing migration, and CF-13's
    "reconstruct like a greenfield project" is literally accurate rather than approximately so.
+
+---
+
+## BF-02 — CF-15 vs unit-economics: the Phase 10 reconciliation, as built (2026-07-19)
+
+The master plan required this contradiction settled "before locking this phase": CF-15 says
+RevenueCat IAP-first, Stripe later, no Paystack; the unit-economics doc says web-checkout-first
+(IAP take is ~30% vs ~2-6% web, ~34% more revenue per subscriber) and names PPP-Francophone-Africa
+via Paystack as one of two defensible wedges.
+
+### What Phase 10 built (the recommendation, implemented)
+
+**RevenueCat IAP is the launch checkout, and the seam for everything else is real, not notional.**
+
+- The ONLY producer of a paid entitlement is `entitlementFromCustomerInfo` (entitlement.logic.ts),
+  and `Entitlement.source` is `iap | stripe | paystack`. A Stripe entitlement already flows through
+  RevenueCat's Stripe integration unchanged (`store: 'STRIPE'` maps to `source: 'stripe'`).
+- `sub_store` gained `'paystack'` (admin migration 0015) and the enum-parity test now documents the
+  sub_store↔ENTITLEMENT_SOURCES mapping instead of asserting the old three-value truth.
+- Paystack CANNOT ride RevenueCat, so its future path is: own checkout → own writer of the
+  entitlement cache + `entitlements` mirror row. Nothing else in the gating layer changes — every
+  gate reads features, not the checkout that granted them. That is the whole seam.
+
+### The documented cost of IAP-first (so the decision is priced, not vibes)
+
+At the pinned $79/yr annual: ~30% store take ≈ $23.70/yr/subscriber vs ~$3-5 via web checkout.
+The unit-econ doc's "~$28/yr" figure is the same claim at its blended price points. This is the
+recurring toll paid for launch velocity + store compliance. Revisit when (a) volume makes a web
+funnel worth its support surface, or (b) the Apple/Google external-link rules (in flux through
+2025-2026, US and EU diverging) settle enough to plan on. Re-verify those rules pre-launch (CC-B).
+
+### OPEN DECISION for Paul — PPP/Africa wedge scope (the plan says "do not leave it ambiguous")
+
+Phase 10 as built ships WITHOUT a Paystack PPP tier: the seam exists (source value, sub_store value,
+pluggable entitlement writer), but no NGN pricing row, no Paystack checkout, no PPP product.
+Two honest options; pick one and the docs get corrected to match:
+
+1. **Africa wedge stays in the launch thesis** → a Paystack web-checkout PPP tier (local currency,
+   ~$2-4/mo) becomes its own workstream (checkout page, webhook → entitlement writer, NGN row in
+   pricing.ts, fraud/region checks). Real scope, weeks not days.
+2. **Re-scope the wedge out of launch** → the unit-economics doc's Africa-PPP thesis moves to
+   post-launch, and its revenue model is corrected so the economics stay honest.
+
+Until Paul picks, the truthful state is "seam built, wedge unscheduled" — which is what the master
+doc stamp says.
+
+### Also pinned while in here
+
+- **The $39 exam tier is a one-time product, not a plan** (Phase 11's "pin the SKU model" decision
+  is half-answered by schema): `product_kind` enum + `product_purchases` table (migration 0015),
+  `PLANS` stays `free|monthly|annual`, and the entitlement travels as the `examiner` feature.
+  A test now enforces that 'exam' never becomes a sub_plan value. The remaining half — one-time
+  vs $14.99/mo recurring as the COMMERCIAL model, and the re-sit/repurchase story — is still
+  Paul's call before the SKU is created in the store consoles (product type is hard to change).
+- **`payments.currency` default corrected EUR→USD** (USD is the canonical pricing row); the column
+  stays free-text so NGN needs no migration.
+
+### Incidental fix recorded
+
+`drizzle/0014_rename_exam_taxonomy.sql` (authored by a parallel session, unapplied) failed against
+the live DB: it dropped the `family` columns first, which cascade-drops their indexes, then ran
+`DROP INDEX` on the already-gone indexes (42704). Fixed to `DROP INDEX IF EXISTS` (safe: the file
+was never applied anywhere, so no migration-hash journal is violated) and applied 0014+0015
+together; journal and live DB verified consistent (16 applied).
+
+### RLS backfill
+
+Seven live tables had RLS disabled (`product_purchases` from 0015, plus `audio_assets`,
+`content_domains`, `content_exam_series`, `content_exam_tasks`, `content_tags`, `content_themes`
+from earlier content migrations — the same class of exposure as the 2026-07-13 24-table P0).
+All seven now have RLS enabled with no policies (service-role only), applied live
+(`phase10_rls_backfill`). Drizzle does not manage RLS here; if a future migration recreates these
+tables, re-check.

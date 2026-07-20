@@ -115,10 +115,34 @@ export type Strings = {
   dicteeT: string; dicteeS: string; play: string; slow: string; playsLeft: string;
   writeHeard: string; check2: string; perfectNoMistakes: string; youWrote: string; correctIs: string;
   downloadsT: string; downloadsS: string; storage: string; wifiOnly: string;
-  // Paywall copy is deliberately absent until Phase 10 can gate a real
-  // entitlement: copy that names a feature the app does not gate is the defect,
-  // not the missing string. See app/settings.tsx.
+  // --- Phase 10 paywall & gating ---
+  // Every line here is backed by a real gate or a real purchase path; copy that
+  // names a feature the app does not gate is the defect (the Phase 0 rule).
+  // Two standing traps (see pricing.ts): never sell "offline" (it is free for
+  // everyone), and the annual discount is a SHARE (saveFmt), never months.
   subscription: string; currentPlan: string;
+  pwTag: string; pwTitle: string; pwLead: string;
+  pwFeatLevels: string; pwFeatLevelsS: string;
+  pwFeatCoach: string; pwFeatCoachS: string;
+  pwFeatRoleplay: string; pwFeatRoleplayS: string;
+  monthlyL: string; annualL: string; perMoShort: string; billedYear: string;
+  saveFmt: string; bestValue: string; pwTrialFmt: string;
+  pwCta: string; pwCtaGuest: string;
+  pwUnavailableT: string; pwUnavailableS: string;
+  pwSuccessT: string; pwSuccessS: string;
+  restoreT: string; restoreDone: string; restoreNone: string; restoreFail: string;
+  pwTermsAuto: string;
+  currencyT: string; detected: string; chosenByYou: string; storePricesNote: string;
+  gateLevelsT: string; gateLevelsS: string;
+  gateRoleplayT: string; gateRoleplayS: string;
+  coachCapT: string; coachCapS: string; coachCapCta: string;
+  premLockTag: string;
+  planPremiereMo: string; planPremiereYr: string;
+  renewsFmt: string; endsFmt: string;
+  billingIssueT: string; billingIssueS: string;
+  managedVia: string; seePlans: string;
+  homePremT: string; homePremS: string;
+  placePwT: string; placePwS: string; placePwCta: string;
   skillRead: string; skillListen: string; skillSpeak: string; skillWrite: string; skillCourse: string; skillVocab: string; skillReadVocab: string;
   accountBilling: string; learningSec: string; appearanceSec: string; notificationsSec: string;
 
@@ -314,6 +338,33 @@ export const T: Record<Lang, Strings> = {
     writeHeard: 'Écrivez ce que vous entendez', check2: 'Vérifier', perfectNoMistakes: 'Parfait, aucune faute', youWrote: 'Vous avez écrit', correctIs: 'La bonne réponse',
     downloadsT: 'Téléchargements', downloadsS: 'Écoutez hors connexion', storage: 'Stockage', wifiOnly: 'Wi-Fi uniquement',
     subscription: 'Abonnement', currentPlan: 'FORMULE ACTUELLE',
+    pwTag: 'EALCH PREMIÈRE', pwTitle: 'Débloquez tout le parcours',
+    pwLead: 'A2 et au-delà, coach illimité et jeux de rôle illimités. Sons et A1 restent gratuits pour toujours.',
+    pwFeatLevels: 'Tous les niveaux', pwFeatLevelsS: 'A2 et au-delà, aussi loin que vous irez',
+    pwFeatCoach: 'Coach illimité', pwFeatCoachS: 'Posez vos questions au-delà de la limite quotidienne gratuite',
+    pwFeatRoleplay: 'Jeux de rôle illimités', pwFeatRoleplayS: 'Toutes les scènes, tous les jours. En gratuit : un scénario par jour',
+    monthlyL: 'Mensuel', annualL: 'Annuel', perMoShort: '/mois', billedYear: 'facturé {p} une fois par an',
+    saveFmt: 'Économisez {p}', bestValue: 'MEILLEURE OFFRE', pwTrialFmt: 'Commence par un essai gratuit de {t}',
+    pwCta: 'Continuer', pwCtaGuest: 'Connectez-vous pour vous abonner',
+    pwUnavailableT: 'Les achats ne sont pas disponibles dans cette version',
+    pwUnavailableS: 'Cette version ne peut pas encore encaisser de paiement. Rien ne vous a été facturé.',
+    pwSuccessT: 'Bienvenue dans Première', pwSuccessS: 'Tout est débloqué. Profitez-en.',
+    restoreT: 'Restaurer les achats', restoreDone: 'Achats restaurés', restoreNone: 'Aucun achat à restaurer sur ce compte',
+    restoreFail: 'Impossible de joindre la boutique. Réessayez',
+    pwTermsAuto: "Renouvellement automatique jusqu'à annulation. Gérez ou annulez à tout moment dans les réglages de votre boutique.",
+    currencyT: 'Devise', detected: 'Détectée depuis votre région', chosenByYou: 'Choisie par vous',
+    storePricesNote: 'Les prix affichés par votre boutique sont ceux qui vous seront facturés',
+    gateLevelsT: "A2 et au-delà, c'est Première", gateLevelsS: 'Sons et A1 sont gratuits pour toujours. La suite du parcours demande Première.',
+    gateRoleplayT: "C'était votre scène gratuite du jour", gateRoleplayS: 'La pratique gratuite couvre un scénario par jour. Première retire la limite, ou revenez demain.',
+    coachCapT: 'Limite quotidienne du coach atteinte', coachCapS: 'Vos tours gratuits reviennent demain', coachCapCta: 'Illimité avec Première',
+    premLockTag: 'PREMIÈRE',
+    planPremiereMo: 'Première — Mensuel', planPremiereYr: 'Première — Annuel',
+    renewsFmt: 'Renouvellement le {d}', endsFmt: 'Se termine le {d}',
+    billingIssueT: 'Problème de paiement',
+    billingIssueS: 'Votre dernier renouvellement a échoué. Mettez à jour votre moyen de paiement dans votre boutique pour garder Première.',
+    managedVia: 'Géré par {s}', seePlans: 'Voir les formules',
+    homePremT: 'Ealch Première', homePremS: 'Tous les niveaux, coach et jeux de rôle illimités',
+    placePwT: 'Prêt pour le parcours complet', placePwS: 'Votre plan dépasse A1. Première débloque tous les niveaux qu\'il demande.', placePwCta: 'Voir Première',
     skillRead: 'LIRE', skillListen: 'ÉCOUTE', skillSpeak: 'PARLE', skillWrite: 'ÉCRIRE', skillCourse: 'COURS', skillVocab: 'VOCAB', skillReadVocab: 'LIRE · VOCAB',
     accountBilling: 'Compte & facturation', learningSec: 'Apprentissage', appearanceSec: 'Apparence', notificationsSec: 'Notifications',
 
@@ -570,6 +621,33 @@ export const T: Record<Lang, Strings> = {
     writeHeard: 'Write what you hear', check2: 'Check', perfectNoMistakes: 'Perfect, no mistakes', youWrote: 'You wrote', correctIs: 'The correct answer',
     downloadsT: 'Downloads', downloadsS: 'Listen offline', storage: 'Storage', wifiOnly: 'Wi-Fi only',
     subscription: 'Subscription', currentPlan: 'CURRENT PLAN',
+    pwTag: 'EALCH PREMIÈRE', pwTitle: 'Unlock the whole path',
+    pwLead: 'A2 and beyond, unlimited coach turns and unlimited role plays. Sons and A1 stay free forever.',
+    pwFeatLevels: 'Every level', pwFeatLevelsS: 'A2 and beyond, as far as you go',
+    pwFeatCoach: 'Unlimited coach', pwFeatCoachS: 'Ask past the free daily limit',
+    pwFeatRoleplay: 'Unlimited role plays', pwFeatRoleplayS: 'Every scene, every day. Free covers one scenario a day',
+    monthlyL: 'Monthly', annualL: 'Annual', perMoShort: '/mo', billedYear: 'billed {p} once a year',
+    saveFmt: 'Save {p}', bestValue: 'BEST VALUE', pwTrialFmt: 'Starts with a {t} free trial',
+    pwCta: 'Continue', pwCtaGuest: 'Sign in to subscribe',
+    pwUnavailableT: 'Purchases are not available in this build',
+    pwUnavailableS: 'This build cannot take payment yet. Nothing was charged.',
+    pwSuccessT: 'Welcome to Première', pwSuccessS: 'Everything is unlocked. Enjoy it.',
+    restoreT: 'Restore purchases', restoreDone: 'Purchases restored', restoreNone: 'No purchases to restore on this account',
+    restoreFail: 'Could not reach the store. Try again',
+    pwTermsAuto: 'Auto-renews until cancelled. Manage or cancel anytime in your store account settings.',
+    currencyT: 'Currency', detected: 'Detected from your region', chosenByYou: 'Chosen by you',
+    storePricesNote: 'Prices shown by your app store are what you will be charged',
+    gateLevelsT: 'A2 and beyond is Première', gateLevelsS: 'Sons and A1 are free forever. The rest of the path needs Première.',
+    gateRoleplayT: 'That was your free scene for today', gateRoleplayS: 'Free practice covers one scenario a day. Première removes the cap, or come back tomorrow.',
+    coachCapT: 'Daily coach limit reached', coachCapS: 'Your free turns are back tomorrow', coachCapCta: 'Unlimited with Première',
+    premLockTag: 'PREMIÈRE',
+    planPremiereMo: 'Première — Monthly', planPremiereYr: 'Première — Annual',
+    renewsFmt: 'Renews {d}', endsFmt: 'Ends {d}',
+    billingIssueT: 'Payment issue',
+    billingIssueS: 'Your last renewal failed. Update your payment method in your store account to keep Première.',
+    managedVia: 'Managed by {s}', seePlans: 'See plans',
+    homePremT: 'Ealch Première', homePremS: 'Every level, unlimited coach and role plays',
+    placePwT: 'Ready for the full path', placePwS: 'Your plan reaches past A1. Première unlocks every level it needs.', placePwCta: 'See Première',
     skillRead: 'READ', skillListen: 'LISTEN', skillSpeak: 'SPEAK', skillWrite: 'WRITE', skillCourse: 'COURSE', skillVocab: 'VOCAB', skillReadVocab: 'READ · VOCAB',
     accountBilling: 'Account & Billing', learningSec: 'Learning', appearanceSec: 'Appearance', notificationsSec: 'Notifications',
 
