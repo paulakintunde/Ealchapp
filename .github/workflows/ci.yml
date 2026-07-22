@@ -165,6 +165,22 @@ jobs:
       - run: pnpm install --frozen-lockfile
         if: steps.gate.outputs.run == 'true'
 
+      - uses: actions/setup-python@v5
+        # The Phase 2.D deterministic French gates (gates/check_french.py et
+        # al., master build doc §2.D) run over subprocess python, spawned by
+        # publish-content.ts via `process.env.PYTHON_BIN || 'python'`. Without
+        # this step the runner has no guaranteed `python` on PATH and the dry
+        # run dies with "No module named 'verbecc'" before it ever reaches the
+        # gate logic — see gates/requirements.txt for why verbecc (not
+        # mlconjug3) is pinned.
+        if: steps.gate.outputs.run == 'true'
+        with:
+          python-version: '3.12'
+
+      - name: install French gate dependencies
+        if: steps.gate.outputs.run == 'true'
+        run: pip install -r gates/requirements.txt
+
       - name: content:publish --dry-run
         if: steps.gate.outputs.run == 'true'
         run: pnpm run content:publish -- --dry-run
