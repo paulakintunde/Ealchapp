@@ -34,14 +34,14 @@ export async function getCachedEntitlement(userId: string): Promise<Entitlement>
 }
 
 /** Persist the latest known entitlement, keyed by user. Phase 10 calls this
- *  after every RevenueCat `customerInfo` update (purchase, restore, renewal,
+ *  after every Adapty profile update (purchase, restore, renewal,
  *  webhook-driven change) so a later offline foreground has something
  *  truthful to reconcile against before the network round trip completes. */
 export async function setCachedEntitlement(entitlement: Entitlement): Promise<void> {
   try {
     await AsyncStorage.setItem(KEY_PREFIX + entitlement.userId, JSON.stringify(entitlement));
   } catch {
-    // Best-effort cache; RevenueCat's live customerInfo remains authoritative
+    // Best-effort cache; Adapty's live profile remains authoritative
     // regardless of whether the cache write succeeded.
   }
 }

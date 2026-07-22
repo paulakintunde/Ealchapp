@@ -212,3 +212,24 @@ from earlier content migrations — the same class of exposure as the 2026-07-13
 All seven now have RLS enabled with no policies (service-role only), applied live
 (`phase10_rls_backfill`). Drizzle does not manage RLS here; if a future migration recreates these
 tables, re-check.
+
+### BF-02 addendum — CF-15 vendor amended: Adapty adopted (2026-07-22)
+
+Paul reviewed an Adapty-vs-RevenueCat comparison (current docs/pricing both sides) and chose
+**Adapty** before any RevenueCat account existed. Deciding facts: free until $5K MTR/month then 1%
+(RevenueCat: $2.5K then 1%); paywall A/B testing, builder and web paywalls included in the base
+plan (RevenueCat gates Experiments behind Pro/Enterprise) — and this phase's own spec wants paywall
+variants A/B tested; documented RevenueCat→Adapty and receipt-revalidation migration paths mean the
+choice is reversible at the cost of analytics history, not subscriptions. Known costs accepted:
+smaller vendor (~$2.5M seed, profitable) vs RevenueCat ($100M raised); iOS builds need
+`useFrameworks: 'dynamic'` + iOS 15 target (Adapty v4 uses SPM) — a real EAS-config constraint
+recorded for CC-B; webhook auth is header-only (no HMAC option), which matches what we had built
+anyway. **Paystack still unsupported by both** — the PPP wedge decision above is unaffected and
+still open.
+
+Swap executed same day: pure mapping now reads Adapty access levels (`isActive` honored, expired
+stale caches still denied locally, `store: 'adapty'` = their web/Stripe channel → `source:
+'stripe'`); adapter public API unchanged so no screen changed; `adapty-webhook` fn v1 deployed
+(merge-per-access-level, fails closed, verified 401 unauthenticated); `revenuecat-webhook` retired
+in place (dormant — no secret, 401s everything; source removed from the repo). The enum-parity
+mapping note now names adapty-webhook. Suite 431/431, tsc clean both repos, price/i18n gates clean.

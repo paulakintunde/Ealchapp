@@ -2,8 +2,8 @@
 // place, importable by screens and testable by node alone. Same discipline as
 // progress.logic.ts: no react-native, no zustand, no expo imports, ever.
 //
-// The shape of the layer (Phase 10):
-//   RevenueCat customerInfo ──entitlementFromCustomerInfo──► Entitlement
+// The shape of the layer (Phase 10, vendor amended to Adapty 2026-07-22):
+//   Adapty profile (access levels) ──entitlementFromProfile──► Entitlement
 //   Entitlement + a feature key ──hasFeature──► boolean
 //   screens ask the specific gate predicates (levelLocked, roleplayLocked),
 //   never re-derive access from `plan`.
@@ -123,32 +123,35 @@ export function roleplayLocked(
   return played.size >= FREE_SCENARIOS_PER_DAY && !played.has(scenarioId);
 }
 
-/* ─── Mapping RevenueCat customerInfo ────────────────────────────────────── */
+/* ─── Mapping the Adapty profile (access levels) ─────────────────────────── */
 
-/** The RevenueCat dashboard entitlement identifiers. Pinned here so the
+// CF-15 amendment 2026-07-22 (Paul's decision, recorded in BF-02): Adapty
+// replaced RevenueCat as the purchase infrastructure before any store account
+// existed. Only this mapping, the purchases.ts adapter and the webhook fn
+// changed — every gate still reads Entitlement.features, exactly as designed.
+
+/** The Adapty dashboard ACCESS LEVEL identifiers. Pinned here so the
  *  dashboard, the webhook fn and this mapping cannot each invent a spelling.
- *  CC-B creates these two entitlements in RevenueCat under exactly these ids. */
-export const RC_ENTITLEMENT_PREMIERE = 'premiere';
-export const RC_ENTITLEMENT_EXAM = 'exam';
+ *  CC-B creates these two access levels in Adapty under exactly these ids. */
+export const ACCESS_LEVEL_PREMIERE = 'premiere';
+export const ACCESS_LEVEL_EXAM = 'exam';
 
-/** Structural slice of RevenueCat's CustomerInfo — only what the mapping
- *  reads, so tests need no SDK and an SDK upgrade cannot silently change what
- *  we depend on. */
-export type CustomerInfoLike = {
-  entitlements: {
-    active: Record<
-      string,
-      {
-        productIdentifier: string;
-        /** ISO date string, or null for lifetime. */
-        expirationDate: string | null;
-        /** 'APP_STORE' | 'PLAY_STORE' | 'STRIPE' | ... */
-        store: string;
-        billingIssueDetectedAt?: string | null;
-        willRenew?: boolean;
-      }
-    >;
-  };
+/** Structural slice of Adapty's AdaptyProfile — only what the mapping reads,
+ *  so tests need no SDK and an SDK upgrade cannot silently change what we
+ *  depend on. Dates arrive as Date objects from the SDK but as ISO strings
+ *  from a cache/JSON round trip, so both are accepted. */
+export type AccessLevelLike = {
+  isActive: boolean;
+  vendorProductId: string;
+  /** 'app_store' | 'play_store' | 'adapty' (Adapty's own web/Stripe channel). */
+  store?: string;
+  /** Absent means lifetime — Adapty sets no expiresAt on lifetime grants. */
+  expiresAt?: Date | string | null;
+  willRenew?: boolean;
+  billingIssueDetectedAt?: Date | string | null;
+};
+export type ProfileLike = {
+  accessLevels?: Record<string, AccessLevelLike | undefined>;
 };
 
 /** Which plan a Première product identifier is. CC-B names the store products
@@ -158,38 +161,45 @@ function planOfProduct(productId: string): Plan {
   return /annual|yearly|year/i.test(productId) ? 'annual' : 'monthly';
 }
 
-function sourceOfStore(store: string): Entitlement['source'] {
-  // Paystack never flows through RevenueCat (it cannot route it — the whole
-  // reason the seam exists); a paystack entitlement is written by its own
-  // checkout path, never by this mapping.
-  return store === 'STRIPE' ? 'stripe' : 'iap';
+function sourceOfStore(store: string | undefined): Entitlement['source'] {
+  // 'adapty' is Adapty's own web-checkout channel, which bills through Stripe
+  // (or Paddle) — the web seam, not an app store. Paystack never flows through
+  // Adapty (it cannot route it — the whole reason the seam exists); a paystack
+  // entitlement is written by its own checkout path, never by this mapping.
+  return store === 'adapty' || store === 'stripe' ? 'stripe' : 'iap';
 }
 
-/** CustomerInfo → Entitlement. The ONLY producer of a non-free entitlement in
- *  the app (the webhook fn mirrors server-side, the client never reads that
- *  mirror). Pure so the whole grant surface is table-testable. */
-export function entitlementFromCustomerInfo(userId: string, info: CustomerInfoLike): Entitlement {
-  const active = info.entitlements.active;
-  const premiere = active[RC_ENTITLEMENT_PREMIERE];
-  const exam = active[RC_ENTITLEMENT_EXAM];
+const epochMs = (v: Date | string | null | undefined): number | undefined => {
+  if (v === null || v === undefined) return undefined;
+  const ms = v instanceof Date ? v.getTime() : Date.parse(v);
+  return Number.isFinite(ms) ? ms : undefined;
+};
 
-  const features: Feature[] = premiere ? featuresForPlan(planOfProduct(premiere.productIdentifier)) : [];
+/** AdaptyProfile → Entitlement. The ONLY producer of a non-free entitlement in
+ *  the app (the webhook fn mirrors server-side, the client never reads that
+ *  mirror). Pure so the whole grant surface is table-testable. An access level
+ *  with isActive false grants nothing — same as absent. */
+export function entitlementFromProfile(userId: string, profile: ProfileLike): Entitlement {
+  const levels = profile.accessLevels ?? {};
+  const activeOnly = (l: AccessLevelLike | undefined) => (l && l.isActive ? l : undefined);
+  const premiere = activeOnly(levels[ACCESS_LEVEL_PREMIERE]);
+  const exam = activeOnly(levels[ACCESS_LEVEL_EXAM]);
+
+  const features: Feature[] = premiere ? featuresForPlan(planOfProduct(premiere.vendorProductId)) : [];
   if (exam && !features.includes('examiner')) features.push('examiner');
 
   const e: Entitlement = {
     userId,
-    plan: premiere ? planOfProduct(premiere.productIdentifier) : 'free',
+    plan: premiere ? planOfProduct(premiere.vendorProductId) : 'free',
     features,
-    source: sourceOfStore((premiere ?? exam)?.store ?? ''),
+    source: sourceOfStore((premiere ?? exam)?.store),
   };
 
-  // RevenueCat reports null expirationDate for lifetime grants; a free mapping
-  // (no active entitlements) also carries no expiry. Both mean "not expiring".
-  const expiryIso = premiere?.expirationDate;
-  if (expiryIso) {
-    const ms = Date.parse(expiryIso);
-    if (Number.isFinite(ms)) e.expiry = ms;
-  }
+  // Absent expiresAt means lifetime; a free mapping (no active levels) also
+  // carries no expiry. Both mean "not expiring". A stale cached profile whose
+  // expiresAt has passed must still deny locally — hasFeature enforces it.
+  const expiry = epochMs(premiere?.expiresAt);
+  if (expiry !== undefined) e.expiry = expiry;
 
   if (premiere?.billingIssueDetectedAt || exam?.billingIssueDetectedAt) e.billingIssue = true;
   if (premiere && typeof premiere.willRenew === 'boolean') e.willRenew = premiere.willRenew;

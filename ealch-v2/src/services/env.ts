@@ -17,8 +17,9 @@ export const ENV = {
   sttFunction: process.env.EXPO_PUBLIC_STT_FN ?? 'stt',
   deleteAccountFunction: process.env.EXPO_PUBLIC_DELETE_ACCOUNT_FN ?? 'delete-account',
 
-  // RevenueCat (paywall) public SDK key — safe to ship.
-  revenueCatKey: process.env.EXPO_PUBLIC_REVENUECAT_KEY ?? '',
+  // Adapty (paywall/purchases) public SDK key — safe to ship. Replaced the
+  // RevenueCat key 2026-07-22 (CF-15 vendor amendment, BF-02).
+  adaptyKey: process.env.EXPO_PUBLIC_ADAPTY_KEY ?? '',
 
   // PostHog (analytics) public key — safe to ship.
   posthogKey: process.env.EXPO_PUBLIC_POSTHOG_KEY ?? '',

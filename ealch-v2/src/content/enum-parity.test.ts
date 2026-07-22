@@ -93,7 +93,7 @@ test('ENTITLEMENT_SOURCES and sub_store are related by a mapping, not parity', (
   //                          | paystack) — the app does not care which app
   //                          store, so app_store and play both map to 'iap'
   //                          (see sourceOfStore in entitlement.logic.ts and the
-  //                          revenuecat-webhook fn, which restate the same
+  //                          adapty-webhook fn, which restate the same
   //                          collapse).
   //
   // 'paystack' is now in BOTH lists (Phase 10 admin migration 0015): the

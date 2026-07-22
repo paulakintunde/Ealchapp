@@ -4,14 +4,14 @@
 import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import {
+  ACCESS_LEVEL_EXAM,
+  ACCESS_LEVEL_PREMIERE,
   FEATURES,
   PREMIERE_FEATURES,
   FREE_SCENARIOS_PER_DAY,
-  RC_ENTITLEMENT_EXAM,
-  RC_ENTITLEMENT_PREMIERE,
   detectCurrency,
   entitlementActive,
-  entitlementFromCustomerInfo,
+  entitlementFromProfile,
   featuresForPlan,
   hasFeature,
   isPremium,
@@ -19,7 +19,8 @@ import {
   roleplayLocked,
   scenarioOfAttempt,
   scenariosPlayedOn,
-  type CustomerInfoLike,
+  type AccessLevelLike,
+  type ProfileLike,
 } from './entitlement.logic.ts';
 import { isValidEntitlement, type Entitlement } from '../content/progress-schema.ts';
 
@@ -36,8 +37,8 @@ const premiere: Entitlement = {
   expiry: Date.parse(LATER_ISO),
 };
 
-const rcInfo = (active: CustomerInfoLike['entitlements']['active']): CustomerInfoLike => ({
-  entitlements: { active },
+const profileWith = (levels: Record<string, AccessLevelLike | undefined>): ProfileLike => ({
+  accessLevels: levels,
 });
 
 test('the free plan grants nothing and never expires', () => {
@@ -100,16 +101,19 @@ test('roleplay gate: the free allowance is breadth, not practice', () => {
   strictEqual(roleplayLocked(premiere, played, day, 'sc.a1.plage.001', NOW), false);
 });
 
-test('customerInfo with no active entitlements maps to an honest free', () => {
-  const e = entitlementFromCustomerInfo('u1', rcInfo({}));
+test('a profile with no access levels maps to an honest free', () => {
+  const e = entitlementFromProfile('u1', profileWith({}));
   deepStrictEqual(e, { userId: 'u1', plan: 'free', features: [], source: 'iap' });
   ok(isValidEntitlement(e), 'the mapping must produce a schema-valid entitlement');
+  // A profile with accessLevels entirely absent (Adapty types it optional)
+  // must read the same, not throw.
+  deepStrictEqual(entitlementFromProfile('u1', {}), e);
 });
 
 test('an active Première maps plan from the product id and carries an expiry', () => {
-  const annual = entitlementFromCustomerInfo(
+  const annual = entitlementFromProfile(
     'u1',
-    rcInfo({ [RC_ENTITLEMENT_PREMIERE]: { productIdentifier: 'ealch_premiere_annual', expirationDate: LATER_ISO, store: 'PLAY_STORE' } }),
+    profileWith({ [ACCESS_LEVEL_PREMIERE]: { isActive: true, vendorProductId: 'ealch_premiere_annual', expiresAt: LATER_ISO, store: 'play_store' } }),
   );
   strictEqual(annual.plan, 'annual');
   strictEqual(annual.source, 'iap');
@@ -117,34 +121,53 @@ test('an active Première maps plan from the product id and carries an expiry', 
   deepStrictEqual(annual.features, PREMIERE_FEATURES);
   ok(isValidEntitlement(annual));
 
-  const monthly = entitlementFromCustomerInfo(
+  // The SDK hands expiresAt as a Date object (not a string) — same result.
+  const viaDate = entitlementFromProfile(
     'u1',
-    rcInfo({ [RC_ENTITLEMENT_PREMIERE]: { productIdentifier: 'ealch_premiere_monthly', expirationDate: LATER_ISO, store: 'APP_STORE' } }),
+    profileWith({ [ACCESS_LEVEL_PREMIERE]: { isActive: true, vendorProductId: 'ealch_premiere_annual', expiresAt: new Date(LATER_ISO), store: 'play_store' } }),
+  );
+  strictEqual(viaDate.expiry, Date.parse(LATER_ISO));
+
+  const monthly = entitlementFromProfile(
+    'u1',
+    profileWith({ [ACCESS_LEVEL_PREMIERE]: { isActive: true, vendorProductId: 'ealch_premiere_monthly', expiresAt: LATER_ISO, store: 'app_store' } }),
   );
   strictEqual(monthly.plan, 'monthly');
 
   // An unrecognized product id reads as monthly — the cheaper claim.
-  const odd = entitlementFromCustomerInfo(
+  const odd = entitlementFromProfile(
     'u1',
-    rcInfo({ [RC_ENTITLEMENT_PREMIERE]: { productIdentifier: 'mystery_sku', expirationDate: LATER_ISO, store: 'APP_STORE' } }),
+    profileWith({ [ACCESS_LEVEL_PREMIERE]: { isActive: true, vendorProductId: 'mystery_sku', expiresAt: LATER_ISO, store: 'app_store' } }),
   );
   strictEqual(odd.plan, 'monthly');
 });
 
-test('a stale active row from RevenueCat still expires locally', () => {
-  // RevenueCat prunes expired entitlements from `active`, but an offline cache
-  // can hold one past its date — the expiry we mapped must then deny access.
-  const e = entitlementFromCustomerInfo(
+test('an inactive access level grants nothing, even when present', () => {
+  // Adapty keeps expired/refunded levels in the map with isActive false —
+  // presence is history, isActive is the grant.
+  const e = entitlementFromProfile(
     'u1',
-    rcInfo({ [RC_ENTITLEMENT_PREMIERE]: { productIdentifier: 'ealch_premiere_annual', expirationDate: EARLIER_ISO, store: 'APP_STORE' } }),
+    profileWith({ [ACCESS_LEVEL_PREMIERE]: { isActive: false, vendorProductId: 'ealch_premiere_annual', expiresAt: LATER_ISO, store: 'app_store' } }),
+  );
+  strictEqual(e.plan, 'free');
+  deepStrictEqual(e.features, []);
+});
+
+test('a stale cached profile still expires locally', () => {
+  // Adapty computes isActive at fetch time, but an offline cache can hold a
+  // then-active level past its date — the expiry we mapped must deny access.
+  const e = entitlementFromProfile(
+    'u1',
+    profileWith({ [ACCESS_LEVEL_PREMIERE]: { isActive: true, vendorProductId: 'ealch_premiere_annual', expiresAt: EARLIER_ISO, store: 'app_store' } }),
   );
   strictEqual(isPremium(e, NOW), false);
 });
 
-test('the exam entitlement grants examiner and nothing else', () => {
-  const e = entitlementFromCustomerInfo(
+test('the exam access level grants examiner and nothing else', () => {
+  // A lifetime grant carries no expiresAt at all.
+  const e = entitlementFromProfile(
     'u1',
-    rcInfo({ [RC_ENTITLEMENT_EXAM]: { productIdentifier: 'ealch_exam', expirationDate: null, store: 'APP_STORE' } }),
+    profileWith({ [ACCESS_LEVEL_EXAM]: { isActive: true, vendorProductId: 'ealch_exam', store: 'app_store' } }),
   );
   strictEqual(e.plan, 'free', 'the exam product is not a subscription plan');
   deepStrictEqual(e.features, ['examiner']);
@@ -154,12 +177,14 @@ test('the exam entitlement grants examiner and nothing else', () => {
   ok(isValidEntitlement(e));
 });
 
-test('Première plus exam stacks both grants', () => {
-  const e = entitlementFromCustomerInfo(
+test('Première plus exam stacks both grants; the adapty web store reads as stripe', () => {
+  // 'adapty' is the store value Adapty reports for its own web checkout,
+  // which bills through Stripe — the web seam, not an app store.
+  const e = entitlementFromProfile(
     'u1',
-    rcInfo({
-      [RC_ENTITLEMENT_PREMIERE]: { productIdentifier: 'ealch_premiere_annual', expirationDate: LATER_ISO, store: 'STRIPE' },
-      [RC_ENTITLEMENT_EXAM]: { productIdentifier: 'ealch_exam', expirationDate: null, store: 'STRIPE' },
+    profileWith({
+      [ACCESS_LEVEL_PREMIERE]: { isActive: true, vendorProductId: 'ealch_premiere_annual', expiresAt: LATER_ISO, store: 'adapty' },
+      [ACCESS_LEVEL_EXAM]: { isActive: true, vendorProductId: 'ealch_exam', store: 'adapty' },
     }),
   );
   strictEqual(e.plan, 'annual');
@@ -167,19 +192,22 @@ test('Première plus exam stacks both grants', () => {
   deepStrictEqual([...e.features].sort(), [...PREMIERE_FEATURES, 'examiner'].sort());
 });
 
-test('a billing issue flags dunning but the mapping never revokes for it', () => {
-  const e = entitlementFromCustomerInfo(
+test('billing issue and willRenew flags map through; neither revokes access', () => {
+  const e = entitlementFromProfile(
     'u1',
-    rcInfo({
-      [RC_ENTITLEMENT_PREMIERE]: {
-        productIdentifier: 'ealch_premiere_monthly',
-        expirationDate: LATER_ISO,
-        store: 'PLAY_STORE',
-        billingIssueDetectedAt: '2026-07-18T00:00:00Z',
+    profileWith({
+      [ACCESS_LEVEL_PREMIERE]: {
+        isActive: true,
+        vendorProductId: 'ealch_premiere_monthly',
+        expiresAt: LATER_ISO,
+        store: 'play_store',
+        billingIssueDetectedAt: new Date('2026-07-18T00:00:00Z'),
+        willRenew: false,
       },
     }),
   );
   strictEqual(e.billingIssue, true);
+  strictEqual(e.willRenew, false, 'cancelled-but-paid-through shows Ends, not Renews');
   ok(isPremium(e, NOW), 'grace period keeps access; the flag only drives the notice');
   ok(isValidEntitlement(e));
 });

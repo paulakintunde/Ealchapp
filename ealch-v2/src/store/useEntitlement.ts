@@ -2,11 +2,11 @@
 //
 // Deliberately NOT persisted by zustand: the durable copy lives in the
 // per-user AsyncStorage cache (src/services/entitlement.ts), written only when
-// RevenueCat customerInfo says so. This store is the in-memory read model that
+// the Adapty profile says so. This store is the in-memory read model that
 // screens subscribe to. The authority chain, per the master plan's invariant:
 //
-//   RevenueCat customerInfo  (runtime authority; refreshed on foreground)
-//     → entitlementFromCustomerInfo (pure mapping, entitlement.logic.ts)
+//   Adapty profile (access levels; runtime authority, refreshed on foreground)
+//     → entitlementFromProfile (pure mapping, entitlement.logic.ts)
 //       → setCachedEntitlement (offline reconciliation copy)
 //       → this store (what screens gate on)
 //
@@ -20,7 +20,7 @@ import { hasFeature, isPremium, type Feature } from './entitlement.logic';
 
 /** The cache key for a user who never signed in. A guest can browse the free
  *  tier; purchasing requires an account (the entitlement hangs off the Phase 9
- *  auth uid, so RevenueCat can restore it on a new device). */
+ *  auth uid, so Adapty can restore it on a new device). */
 export const ANON_USER = 'anon';
 
 const freeFor = (userId: string): Entitlement => ({ userId, plan: 'free', features: [], source: 'iap' });
@@ -29,11 +29,11 @@ type EntitlementState = {
   entitlement: Entitlement;
   /** False only before the first cache read; the default is the honest free. */
   hydrated: boolean;
-  /** The only writer. Called by purchases.ts (customerInfo) and loadFor (cache). */
+  /** The only writer. Called by purchases.ts (profile updates) and loadFor (cache). */
   setEntitlement: (e: Entitlement) => void;
   /** Swap to `userId`'s cached entitlement (sign-in/out, boot). The cache may
    *  be stale-generous; purchases.refreshEntitlement reconciles right after
-   *  whenever RevenueCat is reachable. */
+   *  whenever Adapty is reachable. */
   loadFor: (userId: string | null) => Promise<void>;
 };
 

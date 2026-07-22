@@ -98,13 +98,15 @@ create table if not exists public.coach_usage (
   primary key (subject_key, day)
 );
 
--- Entitlements mirror (Phase 10). Written ONLY by the revenuecat-webhook edge
--- function (service role). The client NEVER reads this to grant access —
--- RevenueCat customerInfo is the runtime entitlement authority and the app
+-- Entitlements mirror (Phase 10; vendor amended to Adapty 2026-07-22).
+-- Written ONLY by the adapty-webhook edge function (service role). The
+-- retired revenuecat-webhook fn remains deployed but dormant: its secret is
+-- unset, so it 401s everything. The client NEVER reads this to grant access —
+-- the Adapty profile is the runtime entitlement authority and the app
 -- reconciles against it on every foreground, so a dropped webhook can never
 -- silently gate a paying user. Two consumers, both server-side: the coach
 -- function's premium cap exemption, and analytics/BI. `user_id` is the auth
--- uid (same id RevenueCat is given as app_user_id); deliberately not an FK so
+-- uid (same id Adapty is given as customer_user_id); deliberately not an FK so
 -- an out-of-order webhook (before the profiles row exists) still lands.
 create table if not exists public.entitlements (
   user_id       uuid primary key,
