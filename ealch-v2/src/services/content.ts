@@ -47,7 +47,12 @@ import {
   type ItemQuery,
 } from './content.logic';
 
-const SEED = seedJson as Corpus;
+// Through `unknown`: a JSON import widens literals, so the catalogue's
+// levelRange [from, to] tuples arrive typed as string[] and the direct cast
+// stopped compiling the day seed.json first carried themes. The seed is
+// publish-validated (validateCorpus) before it is ever committed, which is the
+// guarantee the cast actually rests on.
+const SEED = seedJson as unknown as Corpus;
 // The RAW verified snapshot text, byte-for-byte as downloaded. Caching the text
 // rather than a re-stringified object drops one full-corpus serialization and
 // one in-memory copy from the OTA apply path. (Caches written by older builds
@@ -205,6 +210,12 @@ async function readCache(): Promise<Corpus | null> {
  *  cache, and upgrade the live corpus. Never throws. */
 export async function refreshFromRemote(): Promise<void> {
   if (!STORAGE_BASE) return; // offline / unconfigured — seed + cache only
+  // In dev, the published snapshot is routinely BEHIND the seed being hand-edited
+  // right now (content authoring lands in seed.json long before it is published),
+  // so adopting it would silently overlay in-progress local edits with old
+  // content on every cold start — see the Phase 10 sons.02/03 incident. Real
+  // installs (__DEV__ false) must still OTA-refresh normally.
+  if (__DEV__) return;
 
   try {
     const manRes = await fetch(`${STORAGE_BASE}/manifest.json`, { cache: 'no-store' as RequestCache });

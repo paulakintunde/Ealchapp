@@ -19,7 +19,10 @@ import { supabase } from './supabase';
 //                    in the coach body, where it is advisory only and ignored —
 //                    a request that can name its own provider can name the most
 //                    expensive one.
-//   models.audio   → tts. NOT wired yet; Phase 4 (CF-04) gives it a consumer.
+//   models.audio   → tts. Read SERVER-side by the tts edge function when it
+//                    names an eleven_* model (eleven_multilingual_v2 ↔
+//                    eleven_v3), same pattern as models.general: the console
+//                    flips it and the next utterance obeys, no rebuild.
 //   models.content → the generation pipeline, which runs admin-side. The app
 //                    never reads it.
 //   models.video   → reserved. Nothing reads it.
@@ -70,6 +73,13 @@ const DEFAULTS: RemoteConfig = {
   services: { fishAudio: true, azure: false, glif: false },
   models: { general: 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning', content: 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning', audio: 'fish-1', video: 'mux' },
   promptVersion: 'v1',
+  // 'device' by POLICY (approved 2026-07-21): live synthesis is the only audio
+  // path whose cost scales with installs, so it is never the default. Lesson
+  // and dictée audio ships as pre-rendered ElevenLabs clips (audioRef →
+  // audio.ts, one-time render — see ealch-admin/AUDIO-RENDER-SPEC.md); drills
+  // speak through the free device engine. Flipping this to 'elevenlabs' in the
+  // control plane enables tts.ts's live remote path — an authoring/preview
+  // tool and an emergency voice, not the shipping default.
   ttsProvider: 'device',
   sttProvider: 'device',
   failoverToastVisible: true,

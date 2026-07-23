@@ -11,7 +11,7 @@
 // resolved here. The one runtime thing verifySnapshot needs — the structural
 // validator — is passed IN (see `validate` below). Same spirit as
 // progress.logic.ts: this file stays a pure island.
-import type { Corpus, DrillKind, ExamFormat, ExamSeries, ExamTask, Item, Lesson, LessonSection, Level, Scenario, Track, Unit } from '../content/schema';
+import type { CardType, Corpus, DrillKind, ExamFormat, ExamSeries, ExamTask, Item, Lesson, LessonSection, Level, Scenario, Track, Unit } from '../content/schema';
 
 /* ─── merge ──────────────────────────────────────────────────────────────── */
 
@@ -85,9 +85,24 @@ export function mergeCorpus(seed: Corpus, snapshot: Corpus | null | undefined): 
 export type ItemQuery = {
   level?: Item['level'];
   theme?: string;
+  /** Any of these theme slugs — how a hub DOMAIN queries its deck (the
+   *  catalogue maps domain → themes; items only know their theme). Ignored
+   *  when `theme` is also set: one theme is already the narrower ask. */
+  themes?: string[];
+  /** Themed-flashcard card type. An item with no cardType IS a vocab card
+   *  (the field predates nothing — absence means the plain fr/en pair), so
+   *  querying 'vocab' matches both absent and explicit 'vocab'. */
+  cardType?: CardType;
   /** Restrict to these ids, in this order. Everything else is ignored. */
   ids?: string[];
 };
+
+/** The effective card type of an item — absence means 'vocab'. The single
+ *  place that default is encoded; the deck screen and the type-picker counts
+ *  must agree with the query filter, so all three call this. */
+export function itemCardType(it: Item): CardType {
+  return it.cardType ?? 'vocab';
+}
 
 /**
  * Items a drill may use. The drill names itself; the corpus answers. This is the
@@ -107,11 +122,14 @@ export function selectItems(corpus: Corpus, drill: DrillKind, q: ItemQuery = {})
     }
     return out;
   }
+  const themeSet = q.theme === undefined && q.themes !== undefined ? new Set(q.themes) : null;
   return corpus.items.filter(
     (it) =>
       it.drills.includes(drill) &&
       (q.level === undefined || it.level === q.level) &&
-      (q.theme === undefined || it.theme === q.theme)
+      (q.theme === undefined || it.theme === q.theme) &&
+      (themeSet === null || themeSet.has(it.theme)) &&
+      (q.cardType === undefined || itemCardType(it) === q.cardType)
   );
 }
 
