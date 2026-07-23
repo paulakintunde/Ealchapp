@@ -82,7 +82,11 @@ export default function Dictation() {
     // Spend a play only when the utterance actually COMPLETES. If there is no
     // French voice, expo-speech fires onError and the play is refunded — the
     // learner is never charged three plays for hearing nothing (review §dictation).
+    // La dictée alternates its two Québec voices, Amélie and Léo, per sentence
+    // — keyed to the sentence index so every replay of one sentence stays in
+    // one voice (and hits its stored audio).
     tts.speak(d.fr, {
+      voice: dcIx % 2 === 0 ? 'amelie' : 'leo',
       rate: dcSpeed,
       onDone: () => {
         setDcSpeaking(false);
@@ -175,7 +179,7 @@ export default function Dictation() {
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <View style={{ paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} />
+        <FocusHeader onClose={() => (theme ? router.back() : router.replace('/home'))} onSettings={() => router.push('/settings')} />
       </View>
       <ScrollView
         contentContainerStyle={{ paddingHorizontal: 24, paddingTop: 8, paddingBottom: insets.bottom + 60 }}

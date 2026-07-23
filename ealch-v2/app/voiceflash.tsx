@@ -5,29 +5,16 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader, ProgressBar } from '@/components/ui';
-import { Icon, type IconName } from '@/components/Icon';
+import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
-import { content, contentAssetUrl } from '@/services/content';
+import { content, contentAssetUrl, useContent } from '@/services/content';
 import { LEVELS, type Level } from '@/content/schema';
+import { domainMeta } from '@/content/domainMeta';
 import { answerMatches } from '@/utils/score';
-
-// The image resolution chain (CF-24, Phase 6b): an authored `imageRef` wins,
-// the five derivable glyphs below are the fallback, and a neutral glyph closes
-// the chain. This is what uncaps Voice Flash past five hardcoded icons: new
-// vocab ships with a picture reference instead of needing a new app build.
-function iconFor(fr: string): IconName {
-  const n = fr.toLowerCase();
-  if (n.includes('café')) return 'cup';
-  if (n.includes('maison')) return 'house';
-  if (n.includes('livre')) return 'vfBook';
-  if (n.includes('soleil')) return 'vfSun';
-  if (n.includes('voiture')) return 'car';
-  return 'vfBook';
-}
 
 type Phase = 'ask' | 'listening' | 'result';
 
@@ -55,7 +42,8 @@ export default function VoiceFlash() {
   const promptTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Items now come from the corpus, snapshotted at mount. `?theme=&level=`
-  // narrows the run to one parcours step (theme detail's Prononcer).
+  // narrows the run to one parcours step (theme detail's Prononcer, or a
+  // sub-theme deck opened from /voicethemes).
   const { theme, level } = useLocalSearchParams<{ theme?: string; level?: string }>();
   const items = useMemo(
     () =>
@@ -65,6 +53,16 @@ export default function VoiceFlash() {
       ),
     [theme, level]
   );
+
+  // Theme → domain, for the no-photo icon fallback below: the same 12-domain
+  // icon/color set flashcards' hub already uses, instead of guessing a glyph
+  // from the French word. One consistent glyph per domain, everywhere.
+  const catThemes = useContent((s) => s.corpus.themes);
+  const themeDomain = useMemo(() => {
+    const m = new Map<string, string>();
+    for (const th of catThemes ?? []) m.set(th.slug, th.domain);
+    return m;
+  }, [catThemes]);
 
   // Leaving mid-drill must not leave the recognizer listening, TTS speaking, or
   // the prompt timer firing setState after unmount.
@@ -232,7 +230,7 @@ export default function VoiceFlash() {
         style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 340 }}
       />
       <FocusHeader
-        onClose={() => router.replace('/home')}
+        onClose={() => (theme ? router.back() : router.replace('/home'))}
         onSettings={() => router.push('/settings')}
         title={T.vfTitle}
       />
@@ -248,7 +246,26 @@ export default function VoiceFlash() {
           </TX>
         </View>
 
-        {finished ? (
+        {total === 0 ? (
+          // Honest empty state: no items reached this deck (a stale deep
+          // link, or a theme with no voiceflash-tagged words), so there is
+          // nothing to score. The finished screen below (0/0, a Redo that
+          // just re-renders the same empty deck) would misreport a session
+          // that never ran.
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <TX font="serifI" size={26} role="display" center style={{ marginTop: 10, marginBottom: 6 }}>
+              {T.vfEmptyT}
+            </TX>
+            <TX role="bodySm" center color={t.txMuted} style={{ marginBottom: 32, maxWidth: 260 }}>
+              {T.vfEmptyS}
+            </TX>
+            <Press onPress={() => router.replace('/home')} style={{ marginTop: 16 }}>
+              <TX role="bodySm" color={t.txMuted}>
+                {T.backFeed}
+              </TX>
+            </Press>
+          </View>
+        ) : finished ? (
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <TX font="serif" size={64} role="display" color={t.accTx}>
               {vfScore} / {total}
@@ -280,7 +297,7 @@ export default function VoiceFlash() {
                 borderWidth: 1,
                 borderColor: t.line(10),
                 backgroundColor: t.card2,
-                paddingVertical: 26,
+                paddingVertical: 40,
                 paddingHorizontal: 24,
                 alignItems: 'center',
               }}
@@ -288,55 +305,59 @@ export default function VoiceFlash() {
               {vfIsFr ? (
                 <View
                   style={{
-                    width: 112,
-                    height: 112,
-                    borderRadius: 56,
+                    width: 132,
+                    height: 132,
+                    borderRadius: 66,
                     backgroundColor: t.accA(10),
                     borderWidth: 1,
                     borderColor: t.accA(30),
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: 16,
+                    marginBottom: 22,
                     overflow: 'hidden',
                   }}
                 >
                   {(() => {
-                    // imageRef → derivable glyph → generic glyph (iconFor's own
-                    // fallback). A failed load joins badImgs and drops to the
-                    // glyph on the next render, so a dead URL costs one frame,
-                    // never a broken image.
+                    // imageRef → domain glyph. A failed load joins badImgs and
+                    // drops to the glyph on the next render, so a dead URL
+                    // costs one frame, never a broken image. The glyph itself
+                    // is the item's domain icon — the same 12-icon set
+                    // flashcards' hub uses — never a guess from the word.
                     const imgUrl = contentAssetUrl(item.imageRef);
+                    const domMeta = domainMeta(themeDomain.get(item.theme) ?? '');
                     return imgUrl && !badImgs.has(imgUrl) ? (
                       <Image
                         source={{ uri: imgUrl }}
                         resizeMode="cover"
-                        style={{ width: 112, height: 112 }}
+                        style={{ width: 132, height: 132 }}
                         onError={() => setBadImgs((s) => new Set(s).add(imgUrl))}
                         accessibilityLabel={item.en}
                       />
                     ) : (
-                      <Icon name={iconFor(item.fr)} size={72} color={t.acc} />
+                      <Icon name={domMeta.icon} size={72} color={t.acc} />
                     );
                   })()}
                 </View>
               ) : null}
-              <TX font="serifI" size={30} role="display" center style={{ marginBottom: 12 }}>
+              <TX font="serifI" size={30} role="display" center style={{ marginBottom: 16 }}>
                 {vfIsFr ? item.en : item.fr}
               </TX>
               {/* Audio chip — plays the French word */}
               <Press
                 onPress={playPrompt}
                 cue={null}
+                accessibilityRole="button"
+                accessibilityLabel={T.playAudioA11y}
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
                   gap: 10,
-                  height: 36,
-                  paddingHorizontal: 15,
-                  borderRadius: 18,
+                  height: 40,
+                  paddingHorizontal: 16,
+                  borderRadius: 20,
                   borderWidth: 1,
                   borderColor: t.accA(40),
-                  marginBottom: 14,
+                  marginBottom: 18,
                 }}
               >
                 <Icon name="play" size={12} color={t.acc} />
@@ -495,6 +516,8 @@ export default function VoiceFlash() {
                 <Press
                   onPress={vfMic}
                   cue={null}
+                  accessibilityRole="button"
+                  accessibilityLabel={T.micA11y}
                   style={{
                     width: 72,
                     height: 72,

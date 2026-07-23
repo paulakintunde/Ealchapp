@@ -249,7 +249,7 @@ export default function Sentence() {
   if (!item) {
     return (
       <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} />
+        <FocusHeader onClose={() => (theme ? router.back() : router.replace('/home'))} onSettings={() => router.push('/settings')} />
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30 }}>
           <TX role="body" color={t.txMuted} center>{T.lessonSoon}</TX>
         </View>
@@ -261,7 +261,7 @@ export default function Sentence() {
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <LinearGradient colors={[t.accA(11), 'transparent']} start={{ x: 0.5, y: 0 }} end={{ x: 0.5, y: 0.5 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 260 }} />
       <View style={{ paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} title={`${T.builderTag} · ${STEP[phase]} / 4`} />
+        <FocusHeader onClose={() => (theme ? router.back() : router.replace('/home'))} onSettings={() => router.push('/settings')} title={`${T.builderTag} · ${STEP[phase]} / 4`} />
       </View>
 
       <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 24, paddingTop: 12, paddingBottom: insets.bottom + 28 }} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
@@ -289,12 +289,16 @@ export default function Sentence() {
                       <Press cue={null} onPress={() => playWord(i)} style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
                         <Icon name="play" size={12} color={t.acc} />
                       </Press>
-                      <TX font="serifI" role="titleLg" size={20} style={{ flex: 1 }}>
-                        {w.w}
-                      </TX>
-                      <TX role="label" color={t.txMuted}>
-                        {w.t}
-                      </TX>
+                      <View style={{ flex: 1 }}>
+                        <TX font="serifI" role="titleLg" size={20}>
+                          {w.w}
+                        </TX>
+                        {w.t ? (
+                          <TX role="label" color={t.txMuted} style={{ marginTop: 2 }}>
+                            {w.t}
+                          </TX>
+                        ) : null}
+                      </View>
                     </View>
                     {openWord === i ? (
                       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 14, marginTop: 12, borderTopWidth: 1, borderTopColor: t.line(7), paddingTop: 12 }}>
@@ -377,6 +381,11 @@ export default function Sentence() {
               <TX font="serifI" size={25} role="display" lhMult={1.36}>
                 « {sbTarget} »
               </TX>
+              {item?.en ? (
+                <TX font="serifI" role="bodySm" color={t.txMuted} style={{ marginTop: 10 }}>
+                  {item.en}
+                </TX>
+              ) : null}
             </View>
             {/* What the recognizer heard — rendered so the say step means
                 something. Empty until the mic returns. */}

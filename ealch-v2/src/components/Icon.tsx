@@ -39,11 +39,8 @@ export type IconName =
   | 'eyeOff'
   | 'apple'
   | 'google'
-  // Voice Flash glyphs (52x52)
-  | 'cup'
+  // Domain glyphs (52x52) — shared by domainMeta's category icons
   | 'house'
-  | 'vfBook'
-  | 'vfSun'
   | 'car';
 
 type Spec = { vb: number; stroke?: string[]; fill?: string[]; sw?: number };
@@ -111,11 +108,8 @@ const ICONS: Record<IconName, Spec> = {
     ],
   },
 
-  // Voice Flash glyphs — ported from the prototype (52x52 viewBox).
-  cup: { vb: 52, sw: 2.4, stroke: ['M8 16h32v18a8 8 0 0 1-8 8H16a8 8 0 0 1-8-8V16z', 'M40 20h6a6 6 0 0 1 0 12h-6', 'M14 8c0 3-2 3-2 6M22 8c0 3-2 3-2 6M30 8c0 3-2 3-2 6'] },
+  // Domain glyphs — ported from the prototype (52x52 viewBox).
   house: { vb: 52, sw: 2.4, stroke: ['M6 26L26 8l20 18', 'M12 24v20h28V24', 'M22 44V32h8v12'] },
-  vfBook: { vb: 52, sw: 2.4, stroke: ['M26 12c-5-4-13-4-18-2v30c5-2 13-2 18 2 5-4 13-4 18-2V10c-5-2-13-2-18 2z', 'M26 12v30'] },
-  vfSun: { vb: 52, sw: 2.4, stroke: ['M26 36a10 10 0 1 0 0-20 10 10 0 0 0 0 20z', 'M26 4v6M26 42v6M4 26h6M42 26h6M10 10l4 4M38 38l4 4M42 10l-4 4M14 38l-4 4'] },
   car: { vb: 52, sw: 2.4, stroke: ['M6 30l4-12a4 4 0 0 1 4-3h24a4 4 0 0 1 4 3l4 12', 'M4 30h44v10h-6M4 40h6M18 40h16', 'M13 40a4 4 0 1 0 0-1M39 40a4 4 0 1 0 0-1'] },
 };
 
