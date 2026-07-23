@@ -6,3 +6,6 @@
 # stops NEW .md from cluttering status/commits. To track a new one anyway:
 # git add -f <file>.md
 *.md
+
+# Camille avatar concept art exploration — large PNGs, not yet finalized.
+camille-concepts/
