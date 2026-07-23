@@ -33,6 +33,12 @@ export type Strings = {
   stepOf: string; lockedTag: string; inProgressTag: string; finaleTag: string; doneTag: string; newTag: string;
   noContent: string; levelWord: string; parcoursHead: string; themeContinue: string;
   byThemeT: string; byThemeS: string;
+  hubT: string; hubMeta: string;
+  flashHubTag: string; flashHubPick: string; ctSoon: string; ctCardsN: string; ctDicteeN: string; ctPhrasesN: string; lvlAll: string; previewT: string;
+  subThemesT: string; byTypeT: string; byTypeS: string;
+  instrVocabFr: string; instrVocabEn: string; instrGapfill: string; instrConjugation: string; instrError: string; instrGrammar: string; instrRegister: string;
+  ctVocabFrEn: string; ctVocabEnFr: string; ctGapfill: string; ctConjugation: string; ctError: string; ctGrammar: string; ctRegister: string;
+  ctVocabFrEnS: string; ctVocabEnFrS: string; ctGapfillS: string; ctConjugationS: string; ctErrorS: string; ctGrammarS: string; ctRegisterS: string;
   tabListen: string; tabSpeak: string; tabProfile: string; tabCoach: string;
   /** Spoken names for the FR/EN toggle — 'FR' and 'EN' alone are two bare letters to a screen reader. */
   appLangNames: { fr: string; en: string };
@@ -61,7 +67,9 @@ export type Strings = {
   trackDescs: { sons: string; a1: string; a2: string };
   trackLabels: { sons: string; a1: string; a2: string };
   flipHint: string; again: string; know: string;
+  flipCardA11y: string; playAudioA11y: string; micA11y: string;
   deckDone: string; deckSub: string; redo: string; backFeed: string;
+  deckEmptyT: string; deckEmptyS: string;
   frontFr: string; frontEn: string;
   vocabTag: string; vocabSub: string;
   register: string; registerBody: string; registerEnd: string;
@@ -81,15 +89,22 @@ export type Strings = {
   modeT: string; modeDark: string; modeLight: string; soundT: string; soundS: string; brightT: string; brightS: string;
   testAlarm: string; customTime: string; calendarT: string;
   voiceT: string; voiceS: string; sbT: string; sbS: string; rpT: string; rpS: string;
+  roleplayHubTag: string; rpScenesN: string;
   startQuiz: string; quizPassed: string; quizFailed: string; retry: string; qNext: string; backToDen: string;
   lessonDone: string; lessonSoon: string; builderTag: string; sbSkipSay: string; sbNextSentence: string;
   practiceGotIt: string; practiceMissed: string;
+  lessonNext: string; lessonPrev: string; lessonOverview: string; lessonSwipeHint: string;
+  lessonTapLetter: string; lessonMemo: string; lessonReplay: string; lessonNarration: string;
+  lessonTapOpen: string; lessonSwipe: string; quizWord: string; quizHint: string; quizAnswerAll: string;
+  lessonNextUp: string; lessonRestart: string;
+  flashQuestion: string; flashAnswer: string; flashReveal: string;
   denLearned: string;
   denMastered: string;
   examplesT: string; tableT: string; errorsT: string; audioT: string; videoT: string; subsT: string;
   sayFr: string; transEn: string; orTypeT: string; checkT: string;
   correctT: string; incorrectT: string; nextCard: string; vfDoneT: string;
   vfSelfT: string; vfGot: string; vfMissed: string;
+  vfEmptyT: string; vfEmptyS: string;
   learnT: string; arrangeT: string; sayItT: string; writeItT: string; wellDone: string;
   chooseLevel: string; startRp: string; rpDoneT: string; rpDoneS: string; rpYourLine: string; rpTag: string; rpReport: string; rpNotHeard: string;
   rpYourTurn: string; rpRespond: string; rpModel: string;
@@ -228,6 +243,12 @@ export const T: Record<Lang, Strings> = {
     stepOf: 'ÉTAPE {a} / {b}', lockedTag: 'VERROUILLÉ', inProgressTag: 'EN COURS', finaleTag: 'FINALE', doneTag: 'TERMINÉ', newTag: 'NOUVEAU',
     noContent: 'Pas encore de contenu', levelWord: 'NIVEAU', parcoursHead: 'LE PARCOURS · {n} ÉTAPES', themeContinue: 'Continuer',
     byThemeT: 'Par thème', byThemeS: 'Scènes réelles, cinq étapes chacune',
+    hubT: "L'entraînement", hubMeta: 'DIRE · LIRE · ÉCRIRE',
+    flashHubTag: 'CARTES · PAR THÈME', flashHubPick: 'Choisissez un jeu de cartes', ctSoon: 'À venir', ctCardsN: '{n} cartes', ctDicteeN: '{n} dictées', ctPhrasesN: '{n} phrases', lvlAll: 'Tous', previewT: 'Aperçu',
+    subThemesT: 'Les sous-thèmes', byTypeT: 'Par type de carte', byTypeS: 'Vocabulaire, conjugaison, fautes et plus',
+    instrVocabFr: "Dites-le en anglais, puis retournez", instrVocabEn: 'Dites-le en français, puis retournez', instrGapfill: 'Complétez le trou, puis retournez', instrConjugation: 'Conjuguez à voix haute, puis retournez', instrError: 'Corrigez la faute, puis retournez', instrGrammar: 'Énoncez la règle, puis retournez', instrRegister: "Donnez l'équivalent, puis retournez",
+    ctVocabFrEn: 'Vocabulaire FR → EN', ctVocabEnFr: 'Vocabulaire EN → FR', ctGapfill: 'Texte à trous', ctConjugation: 'Conjugaison', ctError: 'Chasse à la faute', ctGrammar: 'Règles de grammaire', ctRegister: 'Synonymes et registres',
+    ctVocabFrEnS: "Le français d'abord, produisez l'anglais", ctVocabEnFrS: "L'anglais d'abord, produisez le français", ctGapfillS: 'Complétez la phrase à trous', ctConjugationS: 'Verbe, temps, pronom', ctErrorS: 'Trouvez et corrigez la faute', ctGrammarS: 'Déclencheur, règle, exemples', ctRegisterS: 'Familier, courant, soutenu',
     tabListen: 'ÉCOUTE', tabSpeak: 'PARLE', tabProfile: 'PROFIL', tabCoach: 'COACH',
     appLangNames: { fr: 'Français', en: 'Anglais' },
     practice: 'Pratiquer à voix haute', phrase: 'PHRASE', next: 'SUIVANTE',
@@ -266,7 +287,9 @@ export const T: Record<Lang, Strings> = {
     },
     trackLabels: { sons: 'PRONONCIATION · MASTERCLASS', a1: 'A1 · DÉCOUVERTE', a2: 'A2 · SURVIE' },
     flipHint: 'Touchez pour retourner', again: 'Encore', know: 'Je sais',
+    flipCardA11y: 'Retourner la carte', playAudioA11y: 'Écouter la prononciation', micA11y: 'Parler dans le micro',
     deckDone: 'Paquet terminé', deckSub: 'Les cartes ratées reviendront demain, juste avant que vous les oubliiez.', redo: 'Rejouer le paquet', backFeed: 'Retour au flux',
+    deckEmptyT: 'Rien à réviser ici', deckEmptyS: "Ce thème n'a pas encore de cartes à ce niveau. Essayez un autre thème ou revenez plus tard.",
     frontFr: 'FRANÇAIS', frontEn: 'ANGLAIS',
     vocabTag: 'AVANT DE PARLER · INJECTEUR', vocabSub: 'Utilisez chacun au moins une fois, à voix haute et avec assurance.',
     register: 'REGISTRE', registerBody: 'Dites toujours', registerEnd: 'sonne comme un ordre. Les serveurs le remarquent.',
@@ -294,14 +317,21 @@ export const T: Record<Lang, Strings> = {
     modeT: 'Apparence', modeDark: 'SOMBRE', modeLight: 'CLAIR', soundT: 'Effets sonores', soundS: 'Sons de réussite, cartes et alarme', brightT: 'Éclaircir pendant la lecture', brightS: "Éclaircit un écran sombre pendant les leçons, puis le restaure",
     testAlarm: "Tester l'alarme", customTime: 'Heure personnalisée', calendarT: 'Votre calendrier',
     voiceT: 'Flash vocal', voiceS: 'image → voix · traduction', sbT: 'Phrases', sbS: 'apprendre · dire · écrire', rpT: 'Jeu de rôle', rpS: 'conversation IA · A1 → B2',
+    roleplayHubTag: 'JEU DE RÔLE · PAR THÈME', rpScenesN: '{n} scènes',
     startQuiz: 'Commencer le quiz', quizPassed: 'RÉUSSI', quizFailed: 'Pas encore', retry: 'Réessayer', qNext: 'Suivant', backToDen: 'Retour au cursus',
     lessonDone: 'Terminer la leçon', lessonSoon: 'Leçon bientôt disponible', builderTag: 'CONSTRUCTEUR', sbSkipSay: 'Passer', sbNextSentence: 'Phrase suivante',
     practiceGotIt: 'Je savais', practiceMissed: 'Raté',
+    lessonNext: 'Suivant', lessonPrev: 'Précédent', lessonOverview: 'Aperçu', lessonSwipeHint: 'Glissez pour commencer',
+    lessonTapLetter: 'Touchez une lettre pour ouvrir sa carte', lessonMemo: 'À RETENIR', lessonReplay: 'Réécouter la narration', lessonNarration: 'Narration',
+    lessonTapOpen: 'Touchez pour ouvrir', lessonSwipe: 'Glissez', quizWord: 'QUIZ', quizHint: 'Une question par carte, glissez pour avancer', quizAnswerAll: 'Répondez à toutes les questions pour voir votre résultat',
+    lessonNextUp: 'Leçon suivante', lessonRestart: 'Recommencer la leçon',
+    flashQuestion: 'QUESTION', flashAnswer: 'RÉPONSE', flashReveal: 'Touchez pour révéler',
     denLearned: '{n} / {m} appris',
     denMastered: '{k} maîtrisés',
     examplesT: 'Exemples & usages', tableT: 'Tableau', errorsT: 'Erreurs communes', audioT: 'Pratique audio', videoT: 'Vidéo — la bouche en 3D', subsT: 'Sous-leçons',
     sayFr: 'Dites-le en français', transEn: 'Traduisez en anglais', orTypeT: 'ou écrivez votre réponse', checkT: 'Vérifier',
     correctT: 'Correct !', incorrectT: 'Pas tout à fait : ', nextCard: 'Carte suivante', vfDoneT: 'Session terminée',
+    vfEmptyT: 'Rien à prononcer ici', vfEmptyS: "Ce thème n'a pas encore de mots pour Voice Flash. Essayez un autre thème ou revenez plus tard.",
     vfSelfT: 'LA RÉPONSE — ALORS ?', vfGot: "Je l'ai bien dit", vfMissed: 'Pas tout à fait',
     learnT: 'Apprenez ces mots', arrangeT: 'Arrangez la phrase', sayItT: 'Dites-la à voix haute', writeItT: 'Écrivez-la', wellDone: 'Bravo, phrase acquise',
     chooseLevel: 'Choisissez votre niveau', startRp: 'Commencer la conversation', rpDoneT: 'Scène terminée', rpDoneS: 'Camille : « Votre marchand vous adore. »', rpYourLine: 'VOTRE RÉPLIQUE — À DIRE À VOIX HAUTE', rpTag: 'JEU DE RÔLE', rpReport: 'Le rapport →', rpNotHeard: 'Pas entendu, votre réplique est affichée.',
@@ -324,9 +354,9 @@ export const T: Record<Lang, Strings> = {
     srSession: 'SESSION DE RÉVISION', srReveal: 'Voir la réponse', srAgain: 'Encore', srGot: 'Je sais',
     srDone: 'Révision terminée', srDoneS: '{n} sur {m} réussis. Les ratés reviennent bientôt.',
     srAgainNote: '« Encore » le remet dans la file.',
-    placementT: 'Vérification de niveau', placementS: 'Quelques questions de vocabulaire, une estimation honnête.', placementCta: 'Faire la vérification', estimate: 'ESTIMATION',
+    placementT: 'Vérification de niveau', placementS: 'Quelques questions de vocabulaire, une estimation claire.', placementCta: 'Faire la vérification', estimate: 'ESTIMATION',
     plWhatMean: 'Que veut dire ce mot ?',
-    plCheckNote: 'Une vérification rapide, pas un examen : une estimation honnête pour choisir votre point de départ.',
+    plCheckNote: 'Une vérification rapide, pas un examen : une estimation claire pour choisir votre point de départ.',
     plResult: 'VOTRE ESTIMATION',
     plResA0: 'On commence au début : les fondations d’abord, à votre rythme.',
     plResA1: 'Les bases sont là. On consolide le A1 et on avance.',
@@ -511,6 +541,12 @@ export const T: Record<Lang, Strings> = {
     stepOf: 'STEP {a} / {b}', lockedTag: 'LOCKED', inProgressTag: 'IN PROGRESS', finaleTag: 'FINALE', doneTag: 'DONE', newTag: 'NEW',
     noContent: 'No content yet', levelWord: 'LEVEL', parcoursHead: 'THE PATHWAY · {n} STEPS', themeContinue: 'Continue',
     byThemeT: 'By theme', byThemeS: 'Real scenes, five steps each',
+    hubT: 'Practice', hubMeta: 'SAY · READ · WRITE',
+    flashHubTag: 'FLASHCARDS · BY THEME', flashHubPick: 'Pick a deck', ctSoon: 'Coming soon', ctCardsN: '{n} cards', ctDicteeN: '{n} dictations', ctPhrasesN: '{n} sentences', lvlAll: 'All', previewT: 'Preview',
+    subThemesT: 'Sub-themes', byTypeT: 'By card type', byTypeS: 'Vocabulary, conjugation, errors and more',
+    instrVocabFr: 'Say it in English, then flip', instrVocabEn: 'Say it in French, then flip', instrGapfill: 'Fill the blank, then flip', instrConjugation: 'Conjugate aloud, then flip', instrError: 'Fix the mistake, then flip', instrGrammar: 'State the rule, then flip', instrRegister: 'Give the equivalent, then flip',
+    ctVocabFrEn: 'Vocabulary FR → EN', ctVocabEnFr: 'Vocabulary EN → FR', ctGapfill: 'Gap-fill', ctConjugation: 'Conjugation', ctError: 'Error spotting', ctGrammar: 'Grammar rules', ctRegister: 'Synonyms and register',
+    ctVocabFrEnS: 'French shown, produce the English', ctVocabEnFrS: 'English shown, produce the French', ctGapfillS: 'Fill the blank in the sentence', ctConjugationS: 'Verb, tense, pronoun', ctErrorS: 'Find and fix the mistake', ctGrammarS: 'Trigger, rule, examples', ctRegisterS: 'Informal and formal equivalents',
     tabListen: 'LISTEN', tabSpeak: 'SPEAK', tabProfile: 'PROFILE', tabCoach: 'COACH',
     appLangNames: { fr: 'French', en: 'English' },
     practice: 'Practice out loud', phrase: 'PHRASE', next: 'NEXT',
@@ -549,7 +585,9 @@ export const T: Record<Lang, Strings> = {
     },
     trackLabels: { sons: 'PRONUNCIATION · MASTERCLASS', a1: 'A1 · DISCOVERY', a2: 'A2 · SURVIVAL' },
     flipHint: 'Tap to flip', again: 'Again', know: 'Got it',
+    flipCardA11y: 'Flip card', playAudioA11y: 'Play pronunciation', micA11y: 'Speak into the microphone',
     deckDone: 'Deck complete', deckSub: "Missed cards return tomorrow, right before you'd forget them.", redo: 'Replay deck', backFeed: 'Back to feed',
+    deckEmptyT: 'Nothing to review here', deckEmptyS: 'This theme has no cards at this level yet. Try another theme, or check back later.',
     frontFr: 'FRENCH', frontEn: 'ENGLISH',
     vocabTag: 'BEFORE YOU SPEAK · INJECTOR', vocabSub: 'Use each at least once, out loud and with confidence.',
     register: 'REGISTER', registerBody: 'Always say', registerEnd: 'sounds like a demand. Waiters notice.',
@@ -577,14 +615,21 @@ export const T: Record<Lang, Strings> = {
     modeT: 'Appearance', modeDark: 'DARK', modeLight: 'LIGHT', soundT: 'Sound effects', soundS: 'Success chimes, cards & alarm', brightT: 'Boost brightness while reading', brightS: 'Lifts a dim screen during lessons, then puts it back',
     testAlarm: 'Test the alarm', customTime: 'Custom time', calendarT: 'Your calendar',
     voiceT: 'Voice Flash', voiceS: 'image → voice · translation', sbT: 'Sentences', sbS: 'learn · say · write', rpT: 'Role Play', rpS: 'AI conversation · A1 → B2',
+    roleplayHubTag: 'ROLE PLAY · BY THEME', rpScenesN: '{n} scenes',
     startQuiz: 'Start the quiz', quizPassed: 'PASSED', quizFailed: 'Not yet', retry: 'Retry', qNext: 'Next', backToDen: 'Back to curriculum',
     lessonDone: 'Finish the lesson', lessonSoon: 'Lesson coming soon', builderTag: 'BUILDER', sbSkipSay: 'Skip', sbNextSentence: 'Next sentence',
     practiceGotIt: 'I knew it', practiceMissed: 'Missed it',
+    lessonNext: 'Next', lessonPrev: 'Back', lessonOverview: 'Overview', lessonSwipeHint: 'Swipe to begin',
+    lessonTapLetter: 'Tap a letter to open its card', lessonMemo: 'MEMORIZE', lessonReplay: 'Replay narration', lessonNarration: 'Narration',
+    lessonTapOpen: 'Tap to open', lessonSwipe: 'Swipe', quizWord: 'QUIZ', quizHint: 'One question per card, swipe to move on', quizAnswerAll: 'Answer every question to see your result',
+    lessonNextUp: 'Next lesson', lessonRestart: 'Restart the lesson',
+    flashQuestion: 'QUESTION', flashAnswer: 'ANSWER', flashReveal: 'Tap to reveal',
     denLearned: '{n} / {m} learned',
     denMastered: '{k} mastered',
     examplesT: 'Examples & use cases', tableT: 'Table', errorsT: 'Common errors', audioT: 'Audio practice', videoT: 'Video — the mouth in 3D', subsT: 'Sub-lessons',
     sayFr: 'Say it in French', transEn: 'Translate to English', orTypeT: 'or type your answer', checkT: 'Check',
     correctT: 'Correct!', incorrectT: 'Not quite: ', nextCard: 'Next card', vfDoneT: 'Session complete',
+    vfEmptyT: 'Nothing to say here', vfEmptyS: 'This theme has no Voice Flash words yet. Try another theme, or check back later.',
     vfSelfT: 'THE ANSWER — HOW DID YOU DO?', vfGot: 'I said it right', vfMissed: 'Not quite',
     learnT: 'Learn these words', arrangeT: 'Arrange the sentence', sayItT: 'Say it out loud', writeItT: 'Write it', wellDone: 'Bravo, sentence mastered',
     chooseLevel: 'Choose your level', startRp: 'Start the conversation', rpDoneT: 'Scene complete', rpDoneS: 'Camille: "Your market vendor adores you."', rpYourLine: 'YOUR LINE — SAY IT ALOUD', rpTag: 'ROLE PLAY', rpReport: 'The report →', rpNotHeard: 'Not heard, your line is shown.',
@@ -607,9 +652,9 @@ export const T: Record<Lang, Strings> = {
     srSession: 'REVIEW SESSION', srReveal: 'Reveal answer', srAgain: 'Again', srGot: 'Got it',
     srDone: 'Review complete', srDoneS: '{n} of {m} right. The misses come back soon.',
     srAgainNote: '“Again” puts it back in the queue.',
-    placementT: 'Level check', placementS: 'A few vocab questions, an honest estimate.', placementCta: 'Take the check', estimate: 'ESTIMATE',
+    placementT: 'Level check', placementS: 'A few vocab questions, a clear estimate.', placementCta: 'Take the check', estimate: 'ESTIMATE',
     plWhatMean: 'What does this word mean?',
-    plCheckNote: 'A quick check, not an exam: an honest estimate to pick your starting point.',
+    plCheckNote: 'A quick check, not an exam: a clear estimate to pick your starting point.',
     plResult: 'YOUR ESTIMATE',
     plResA0: 'We start at the beginning: foundations first, at your pace.',
     plResA1: 'The basics are there. We firm up A1 and move on.',
