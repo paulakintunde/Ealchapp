@@ -220,6 +220,22 @@ export default function Home() {
   const wod = useMemo(() => wordOfDay(level), [today, level]);
   const weakRows = useMemo(() => openWeakRows(router, openSheet), [router, openSheet]);
 
+  // The six practice decks, one compact hub card each, in the old layout's
+  // top-to-bottom order (tiles, then the drill rows the grid replaces). `base`
+  // is the dark-mode tile ground; light mode ignores it (GlowTile falls back
+  // to t.card) so only the glow and disc carry each deck's colour there.
+  const hubDecks = [
+    // '/flashhub', not '/flashcards': the card opens the themed category hub
+    // (12 domains → type picker → deck); the raw whole-corpus deck remains
+    // reachable via smart review and the `?deck=new` hero deep link.
+    { key: 'flash', route: '/flashhub', base: '#0F1413', glow: t.accA(30), disc: t.accA(14), icon: <Icon name="card" size={17} color={t.acc} strokeWidth={1.7} />, badge: { label: T.skillReadVocab, c: skillGold.c, bg: skillGold.bg }, title: T.cardsT, sub: T.cardsS.replace('{n}', String(due)) },
+    { key: 'voice', route: '/voicehub', base: '#0E1116', glow: 'rgba(96,126,160,0.30)', disc: 'rgba(96,126,160,0.16)', icon: <Icon name="speaker" size={17} color={skillBlue.c} strokeWidth={1.7} />, badge: { label: T.skillSpeak, c: t.acc, bg: t.accA(16) }, title: T.voiceT, sub: T.voiceS },
+    { key: 'sentences', route: '/sentencehub', base: '#0D0B12', glow: 'rgba(139,116,190,0.28)', disc: 'rgba(139,116,190,0.16)', icon: <Icon name="pencil" size={16} color={skillPurple.c} strokeWidth={1.7} />, badge: { label: T.skillWrite, c: skillPurple.c, bg: skillPurple.bg }, title: T.sbT, sub: T.sbS },
+    { key: 'roleplay', route: '/roleplayhub', base: '#14100B', glow: t.accA(24), disc: t.accA(14), icon: <Icon name="mic" size={17} color={t.acc} strokeWidth={1.7} />, badge: { label: T.skillSpeak, c: t.acc, bg: t.accA(16) }, title: T.rpT, sub: T.rpS },
+    { key: 'dictee', route: '/dictationhub', base: '#16110B', glow: 'rgba(214,160,96,0.22)', disc: 'rgba(214,160,96,0.14)', icon: <TX font="serifI" role="titleSm" size={18} color={skillGold.c}>é</TX>, badge: { label: T.skillListen, c: skillBlue.c, bg: skillBlue.bg }, title: T.dicteeT, sub: T.dictRowSub },
+    { key: 'themes', route: '/themes', base: '#12100C', glow: t.accA(20), disc: t.accA(12), icon: <Icon name="book" size={16} color={t.acc} strokeWidth={1.7} />, badge: { label: T.skillCourse, c: skillGold.c, bg: skillGold.bg }, title: T.byThemeT, sub: T.byThemeS },
+  ];
+
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <ScrollView contentContainerStyle={{ paddingTop: insets.top + 20, paddingHorizontal: 20, paddingBottom: 130 }} showsVerticalScrollIndicator={false}>
@@ -366,77 +382,41 @@ export default function Home() {
           </View>
         </Press>
 
-        {/* Foundations */}
+        {/* Foundations — the Den keeps its own full-width tile: it is a guided
+            course, not a deck, so it does not belong inside the hub grid. */}
         <SectionHead title={T.found} right="SONS · A1 · A2" />
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
-          <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push('/den')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
-            <TileHead badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />} right={`${denUnits} ${T.unitsWord}`} />
-            <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
-              {T.denT}
-            </TX>
-            <TX role="meta" color={t.txMuted} style={{ marginTop: 5 }}>
-              {T.denS}
-            </TX>
-          </GlowTile>
-          <GlowTile base="#0F1413" glow={t.accA(30)} onPress={() => router.push('/flashcards')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
-            <TileHead badge={<Badge label={T.skillReadVocab} color={skillGold.c} bg={skillGold.bg} />} />
-            <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
-              {T.cardsT}
-            </TX>
-            <TX role="meta" color={t.txMuted} style={{ marginTop: 5 }}>
-              {T.cardsS.replace('{n}', String(due))}
-            </TX>
-          </GlowTile>
-          <GlowTile base="#0E1116" glow="rgba(96,126,160,0.30)" onPress={() => router.push('/voiceflash')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
-            <TileHead badge={<Badge label={T.skillSpeak} color={t.acc} bg={t.accA(16)} />} />
-            <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
-              {T.voiceT}
-            </TX>
-            <TX role="meta" color={t.txMuted} style={{ marginTop: 5 }}>
-              {T.voiceS}
-            </TX>
-          </GlowTile>
-          <GlowTile base="#0D0B12" glow="rgba(139,116,190,0.28)" onPress={() => router.push('/sentence')} style={{ width: '47.5%', minHeight: 148, padding: 16 }}>
-            <TileHead badge={<Badge label={T.skillWrite} color={skillPurple.c} bg={skillPurple.bg} />} />
-            <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
-              {T.sbT}
-            </TX>
-            <TX role="meta" color={t.txMuted} style={{ marginTop: 5 }}>
-              {T.sbS}
-            </TX>
-          </GlowTile>
-        </View>
+        <GlowTile base="#1A140E" glow="rgba(214,160,96,0.28)" onPress={() => router.push('/den')} style={{ width: '100%', minHeight: 118, padding: 16 }}>
+          <TileHead badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />} right={`${denUnits} ${T.unitsWord}`} />
+          <TX font="serifI" size={23} role="display" style={{ marginTop: 'auto' }}>
+            {T.denT}
+          </TX>
+          <TX role="meta" color={t.txMuted} style={{ marginTop: 5 }}>
+            {T.denS}
+          </TX>
+        </GlowTile>
 
-        {/* Role play row */}
-        <DrillRow
-          onPress={() => router.push('/roleplay')}
-          glow={t.accA(24)}
-          leadColor={t.accA(14)}
-          lead={<Icon name="mic" size={20} color={t.acc} />}
-          title={T.rpT}
-          badge={<Badge label={T.skillSpeak} color={t.acc} bg={t.accA(16)} />}
-          sub={T.rpS}
-        />
-        {/* Dictation row */}
-        <DrillRow
-          onPress={() => router.push('/dictation')}
-          glow="rgba(214,160,96,0.22)"
-          leadColor="rgba(214,160,96,0.14)"
-          lead={<TX font="serifI" role="titleLg" size={20} color={skillGold.c}>é</TX>}
-          title={T.dicteeT}
-          badge={<Badge label={T.skillListen + ' · ' + T.skillWrite} color={skillBlue.c} bg={skillBlue.bg} />}
-          sub={T.dictRowSub}
-        />
-        {/* Theme parcours row */}
-        <DrillRow
-          onPress={() => router.push('/themes')}
-          glow={t.accA(20)}
-          leadColor={t.accA(12)}
-          lead={<Icon name="book" size={19} color={t.acc} strokeWidth={1.7} />}
-          title={T.byThemeT}
-          badge={<Badge label={T.skillCourse} color={skillGold.c} bg={skillGold.bg} />}
-          sub={T.byThemeS}
-        />
+        {/* Practice hub — the six decks as compact cards, two per row. Each
+            card is only a themed door; the swipeable deck itself lives on the
+            screen it routes to, unchanged. */}
+        <SectionHead title={T.hubT} right={T.hubMeta} />
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
+          {hubDecks.map((d) => (
+            <GlowTile key={d.key} base={d.base} glow={d.glow} onPress={() => router.push(d.route as never)} style={{ width: '47.5%', minHeight: 122, padding: 14 }}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
+                <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: d.disc, alignItems: 'center', justifyContent: 'center' }}>
+                  {d.icon}
+                </View>
+                <Badge label={d.badge.label} color={d.badge.c} bg={d.badge.bg} />
+              </View>
+              <TX font="serifI" size={20} role="titleLg" numberOfLines={1} style={{ marginTop: 'auto' }}>
+                {d.title}
+              </TX>
+              <TX role="meta" color={t.txMuted} numberOfLines={1} style={{ marginTop: 4 }}>
+                {d.sub}
+              </TX>
+            </GlowTile>
+          ))}
+        </View>
 
         {/* Première entry — the persistent, non-nagging home trigger (Phase 10
             paywall placement 3). One slim row, only while the user is free;
@@ -617,29 +597,5 @@ function TileHead({ badge, right }: { badge: ReactNode; right?: string }) {
         </TX>
       ) : null}
     </View>
-  );
-}
-
-function DrillRow({ onPress, glow, lead, leadColor, title, badge, sub }: { onPress: () => void; glow: string; lead: ReactNode; leadColor: string; title: string; badge: ReactNode; sub: string }) {
-  const t = useTheme();
-  return (
-    <Press onPress={onPress} scale={0.99} style={{ marginTop: 12, minHeight: 88, paddingVertical: 8, borderRadius: 18, borderWidth: 1, borderColor: t.line(7), overflow: 'hidden', backgroundColor: t.card2, flexDirection: 'row', alignItems: 'center', gap: 16, paddingHorizontal: 20, ...t.cardShadow }}>
-      <LinearGradient colors={[glow, 'transparent']} start={{ x: 0.9, y: 0 }} end={{ x: 0.3, y: 0.8 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
-      <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: leadColor, alignItems: 'center', justifyContent: 'center' }}>
-        {lead}
-      </View>
-      <View style={{ flex: 1 }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 9 }}>
-          <TX font="serifI" role="titleLg" size={22}>
-            {title}
-          </TX>
-          {badge}
-        </View>
-        <TX role="meta" color={t.txMuted} style={{ marginTop: 3 }}>
-          {sub}
-        </TX>
-      </View>
-      <Icon name="chevronRight" size={13} color={t.txNonText} strokeWidth={1.6} />
-    </Press>
   );
 }
