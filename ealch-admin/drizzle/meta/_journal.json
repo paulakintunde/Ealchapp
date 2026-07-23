@@ -113,6 +113,20 @@
       "when": 1784529808313,
       "tag": "0015_salty_true_believers",
       "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1784675854099,
+      "tag": "0016_content_items_card_type",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1784701876944,
+      "tag": "0017_content_items_respell",
+      "breakpoints": true
     }
   ]
 }

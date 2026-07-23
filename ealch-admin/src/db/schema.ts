@@ -89,6 +89,11 @@ export const examTaskType = pgEnum('exam_task_type', [
 ]);
 /** The per-ITEM exam taxonomy: compréhension/production × orale/écrite. */
 export const examSkill = pgEnum('exam_skill', ['CO', 'CE', 'PO', 'PE']);
+/** Themed-flashcard card types. 'vocab' is the plain fr/en flip pair; the rest
+ *  are prompt-front cards (gapped sentence, conjugation cue, erroneous
+ *  sentence, rule trigger, register cue). Mirrors CARD_TYPES in
+ *  ealch-v2/src/content/schema.ts — parity-tested there. */
+export const cardType = pgEnum('card_type', ['vocab', 'gapfill', 'conjugation', 'error', 'grammar', 'register']);
 // Once content is LLM-generated, "which model produced this, against which
 // prompt, and who signed it off" stops being optional.
 export const generatedBy = pgEnum('generated_by', ['human', 'llm']);
@@ -334,6 +339,9 @@ export const contentItems = pgTable('content_items', {
   fr: text('fr').notNull(),
   en: text('en').notNull(),
   ipa: text('ipa'),
+  /** English-friendly pronunciation respelling shown on the card front under
+   *  the IPA ("bonjour" -> "bohn-ZHOOR"). Mirrors the app's Item.respell. */
+  respell: text('respell'),
   /** Nouns only. Gender is the most common beginner error in French, so it is a
    *  first-class column rather than something buried in notes. */
   gender: itemGender('gender'),
@@ -377,6 +385,12 @@ export const contentItems = pgTable('content_items', {
   grammarPoints: text('grammar_points').array().notNull().default([]),
   /** How the item is exercised. The SRS keys on (item, modality). */
   modality: modality('modality'),
+  /** Themed-flashcard deck type. Nullable like the rest of the spine — NULL
+   *  means 'vocab', the pair every pre-cardType row already is. */
+  cardType: cardType('card_type'),
+  /** The card front for non-vocab card types; `fr` stays the answer. The app
+   *  validator requires it whenever cardType is present and not 'vocab'. */
+  prompt: text('prompt'),
   /** { infinitive, tense, mood?, person, number } — the deterministic French
    *  gate target (Phase 2.D). jsonb, not columns: it is checked by a Python
    *  conjugator in the publish path, never queried by SQL. Nullable/optional
