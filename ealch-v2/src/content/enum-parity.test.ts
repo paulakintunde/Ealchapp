@@ -27,6 +27,7 @@ import { dirname, resolve } from 'node:path';
 import { deepStrictEqual, ok } from 'node:assert';
 import { test } from 'node:test';
 import {
+  CARD_TYPES,
   CONTENT_STATUSES,
   DRILL_KINDS,
   EXAM_FORMATS,
@@ -74,6 +75,7 @@ test('app value lists and Drizzle pgEnums hold the same values', () => {
   deepStrictEqual(dbEnum('exam_format'), [...EXAM_FORMATS], 'EXAM_FORMATS ↔ exam_format');
   deepStrictEqual(dbEnum('exam_task_type'), [...EXAM_TASK_TYPES], 'EXAM_TASK_TYPES ↔ exam_task_type');
   deepStrictEqual(dbEnum('exam_skill'), [...EXAM_SKILLS], 'EXAM_SKILLS ↔ exam_skill');
+  deepStrictEqual(dbEnum('card_type'), [...CARD_TYPES], 'CARD_TYPES ↔ card_type');
 });
 
 test('PLANS is sub_plan — what the app grants and what billing sold must agree', () => {

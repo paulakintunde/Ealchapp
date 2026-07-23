@@ -130,6 +130,20 @@ export type Modality = (typeof MODALITIES)[number];
 export const REGISTERS = ['familier', 'courant', 'soutenu'] as const;
 export type Register = (typeof REGISTERS)[number];
 
+/**
+ * The themed-flashcard card types — the per-type decks the flashcard hub's
+ * category picker offers. 'vocab' is the classic fr/en flip pair (drilled in
+ * both directions via the deck's FR/EN toggle); every other type is a
+ * prompt-front card: the front shows `prompt`, the back shows `fr` with `en`
+ * and `notes` behind it.
+ *
+ * SHIPPED STRING VALUES like DRILL_KINDS: append only, never rename. An absent
+ * `Item.cardType` means 'vocab' — every item authored before the field existed
+ * is a vocab pair, and that default is what keeps the shipped seed valid.
+ */
+export const CARD_TYPES = ['vocab', 'gapfill', 'conjugation', 'error', 'grammar', 'register'] as const;
+export type CardType = (typeof CARD_TYPES)[number];
+
 /** The exam formats we author toward. Canada-first launch set only — no bare
  *  'tef'/'tcf'/'delf' and no 'dalf': each value is a specific paper a
  *  candidate actually sits, because "TEF" alone is not one exam (TEF Canada
@@ -176,6 +190,14 @@ export const SECTION_TYPES = [
   'audio',
   'practice',
   'quiz',
+  // Rich course sections (first used by the Sons alphabet rebuild). SHIPPED
+  // STRING VALUES like DRILL_KINDS: append only, never rename.
+  'letterGrid',
+  'cardDeck',
+  'tapTable',
+  'vocabThemes',
+  'flashcards',
+  'roundup',
 ] as const;
 export type SectionType = (typeof SECTION_TYPES)[number];
 
@@ -389,6 +411,12 @@ export type Item = {
   fr: string;
   en: string;
   ipa?: string;
+  /** English-friendly pronunciation respelling of `fr`, shown on the card
+   *  FRONT under the IPA ("bonjour" → "bohn-ZHOOR"). House style: hyphenated
+   *  syllables, final (stressed) syllable in capitals, French u written ü,
+   *  nasals as ohn/ahn/an. Authored for short entries (up to ~3 words);
+   *  absence just means the line does not render. */
+  respell?: string;
   /** Nouns only. The single most common beginner error in French is gender,
    *  so it is a first-class field rather than something buried in `notes`. */
   gender?: 'm' | 'f';
@@ -456,6 +484,15 @@ export type Item = {
   /** How this item is exercised. The SRS keys on (itemId, modality), never on
    *  itemId alone — recognising and producing are different memories. */
   modality?: Modality;
+  /** Which themed-flashcard deck type this card belongs to. Absent means
+   *  'vocab' — the plain fr/en pair every pre-existing item already is. */
+  cardType?: CardType;
+  /** The card FRONT for non-vocab card types: the gapped sentence, the
+   *  verb + tense + pronoun cue, the erroneous sentence, the rule trigger, or
+   *  the register cue. `fr` stays the canonical French answer (and what TTS
+   *  speaks); `en` glosses it; `notes` carries the why. Required whenever
+   *  cardType is present and not 'vocab' — see validateItem. */
+  prompt?: string;
   provenance?: Provenance;
 };
 
@@ -471,7 +508,59 @@ export type Item = {
 // to put steps, use cases, hacks, cheat sheets or four-skill practice — which is
 // why `subs[]` degenerated into a list of TITLES with no content behind them.
 
-export type LessonSection =
+/**
+ * Fields every section MAY carry, regardless of type.
+ *
+ * `say` is the card's narration script: English scaffolding the reader speaks
+ * aloud (device TTS, en-US) when the learner lands on the card. It is a spoken
+ * PERFORMANCE of the card, not a copy of its text, so it is authored separately.
+ * `imageRef` names a bundled illustration (resolved by the app's lesson image
+ * map, IMAGE_REF_RE shape). Both optional: absence means a silent, text-only
+ * card, which every lesson shipped before these fields existed already is.
+ */
+export type SectionExtras = { say?: string; imageRef?: string };
+
+/** One tappable letter in a letterGrid: the glyph, its French NAME (respelled),
+ *  the SOUND it makes inside words, and one example. `memo` is the memorize
+ *  note the detail card closes on. */
+export type GridLetter = {
+  ch: string;
+  name: string;
+  ipa?: string;
+  sound: string;
+  ex: string;
+  exNote?: string;
+  memo?: string;
+};
+
+/** One card in a nested swipeable deck. Every field optional except that a
+ *  card must say SOMETHING (head, fr or body) — see validateSection. `label`
+ *  is the eyebrow, `fr` the big French line (tap to hear), `sub` the
+ *  respelling/gloss under it, `body` the teaching text. */
+export type DeckCard = {
+  label?: string;
+  head?: string;
+  fr?: string;
+  sub?: string;
+  body?: string;
+  imageRef?: string;
+};
+
+/** One row of a tapTable: the visible cells, plus the detail card a tap opens.
+ *  `say` is what the row speaks (French, fr-FR) when tapped or from the detail. */
+export type TapRow = {
+  cells: string[];
+  say?: string;
+  detail?: { title: string; body: string; say?: string };
+};
+
+export type VocabTheme = {
+  title: string;
+  imageRef?: string;
+  cards: { fr: string; sub?: string; en: string }[];
+};
+
+export type LessonSection = (
   /** Prose. The explanation itself. */
   | { type: 'teach'; title: string; body: string }
   /** Ordered procedure. For the learner who needs the ladder, not the lecture. */
@@ -505,7 +594,22 @@ export type LessonSection =
       type: 'quiz';
       title: string;
       questions: { q: string; opts: string[]; correct: number; why?: string }[];
-    };
+    }
+  /** The full A-Z as a tappable grid; each letter opens a detail card. */
+  | { type: 'letterGrid'; title: string; letters: GridLetter[] }
+  /** A nested swipeable card series inside one lesson page. `hint` is the
+   *  one-line instruction above the deck ("Swipe through each letter"). */
+  | { type: 'cardDeck'; title: string; hint?: string; cards: DeckCard[] }
+  /** A table whose rows open detail cards with audio. */
+  | { type: 'tapTable'; title: string; cols: string[]; rows: TapRow[] }
+  /** Themed vocabulary hub: theme cards that each open their own deck. */
+  | { type: 'vocabThemes'; title: string; themes: VocabTheme[] }
+  /** Flip-to-reveal flashcards embedded in the lesson. */
+  | { type: 'flashcards'; title: string; cards: { front: string; back: string; say?: string }[] }
+  /** The closing summary and congratulation card. */
+  | { type: 'roundup'; title: string; body: string; points: string[] }
+) &
+  SectionExtras;
 
 export type Lesson = {
   /** '<unitId>.l<seq>' — e.g. 'sons.03.l1' */
@@ -1369,6 +1473,16 @@ export function validateItem(v: unknown, path = 'item'): Issue[] {
   if (it.modality !== undefined && !oneOf(MODALITIES, it.modality)) {
     push(`modality must be one of ${MODALITIES.join(' | ')}`);
   }
+  if (it.cardType !== undefined && !oneOf(CARD_TYPES, it.cardType)) {
+    push(`cardType must be one of ${CARD_TYPES.join(' | ')}`);
+  }
+  if (it.prompt !== undefined && !isStr(it.prompt)) push('prompt must be a non-empty string when present');
+  if (it.respell !== undefined && !isStr(it.respell)) push('respell must be a non-empty string when present');
+  // A prompt-front card without a prompt does not fail — it silently renders as
+  // a plain vocab pair, which is the blank-drill class of bug. Refuse it here.
+  if (it.cardType !== undefined && it.cardType !== 'vocab' && !isStr(it.prompt)) {
+    push(`cardType "${it.cardType}" requires a prompt (the card front)`);
+  }
   if (it.canDo !== undefined && !isStr(it.canDo)) push('canDo must be a non-empty string when present');
   if (it.grammarPoints !== undefined) {
     if (!isArr(it.grammarPoints)) push('grammarPoints must be an array when present');
@@ -1408,6 +1522,12 @@ function validateSection(s: unknown, path: string): Issue[] {
     return [{ path, message: `type must be one of ${SECTION_TYPES.join(' | ')}` }];
   }
   if (!isStr(sec.title)) push('title is required');
+
+  // The shared extras, type-when-present on every section shape.
+  if (sec.say !== undefined && !isStr(sec.say)) push('say must be a non-empty string when present');
+  if (sec.imageRef !== undefined && (!isStr(sec.imageRef) || !IMAGE_REF_RE.test(sec.imageRef))) {
+    push(`imageRef "${String(sec.imageRef)}" must be a storage-relative asset path`);
+  }
 
   const strList = (k: string) => {
     const v = sec[k];
@@ -1524,6 +1644,143 @@ function validateSection(s: unknown, path: string): Issue[] {
           push(`questions[${i}].correct must index opts (0..${qq.opts.length - 1})`);
         }
       });
+      break;
+    }
+    case 'letterGrid': {
+      const letters = sec.letters;
+      if (!isArr(letters) || letters.length === 0) {
+        push('letters must be a non-empty array');
+        break;
+      }
+      letters.forEach((l, i) => {
+        if (typeof l !== 'object' || l === null) {
+          push(`letters[${i}] is not an object`);
+          return;
+        }
+        const g = l as Partial<GridLetter>;
+        // `ch` is the tap target painted in the grid cell: one glyph, always.
+        if (!isStr(g.ch) || g.ch.length !== 1) push(`letters[${i}].ch must be a single character`);
+        for (const f of ['name', 'sound', 'ex'] as const) {
+          if (!isStr(g[f])) push(`letters[${i}].${f} is required`);
+        }
+        for (const f of ['ipa', 'exNote', 'memo'] as const) {
+          if (g[f] !== undefined && !isStr(g[f])) push(`letters[${i}].${f} must be a non-empty string when present`);
+        }
+      });
+      break;
+    }
+    case 'cardDeck': {
+      if (sec.hint !== undefined && !isStr(sec.hint)) push('hint must be a non-empty string when present');
+      const cards = sec.cards;
+      if (!isArr(cards) || cards.length === 0) {
+        push('cards must be a non-empty array');
+        break;
+      }
+      cards.forEach((c, i) => {
+        if (typeof c !== 'object' || c === null) {
+          push(`cards[${i}] is not an object`);
+          return;
+        }
+        const d = c as Partial<DeckCard>;
+        for (const f of ['label', 'head', 'fr', 'sub', 'body'] as const) {
+          if (d[f] !== undefined && !isStr(d[f])) push(`cards[${i}].${f} must be a non-empty string when present`);
+        }
+        if (d.imageRef !== undefined && (!isStr(d.imageRef) || !IMAGE_REF_RE.test(d.imageRef))) {
+          push(`cards[${i}].imageRef must be a storage-relative asset path`);
+        }
+        // A card with no head, no French line and no body renders as an empty
+        // rectangle the learner swipes past wondering what broke.
+        if (!isStr(d.head) && !isStr(d.fr) && !isStr(d.body)) {
+          push(`cards[${i}] must carry at least one of head, fr, body`);
+        }
+      });
+      break;
+    }
+    case 'tapTable': {
+      const cols = sec.cols;
+      const rows = sec.rows;
+      if (!isArr(cols) || cols.length === 0 || cols.some((c) => !isStr(c))) {
+        push('cols must be a non-empty array of strings');
+      }
+      if (!isArr(rows) || rows.length === 0) {
+        push('rows must be a non-empty array');
+        break;
+      }
+      rows.forEach((r, i) => {
+        if (typeof r !== 'object' || r === null) {
+          push(`rows[${i}] is not an object`);
+          return;
+        }
+        const row = r as Partial<TapRow>;
+        if (!isArr(row.cells) || row.cells.some((c) => typeof c !== 'string')) {
+          push(`rows[${i}].cells must be an array of strings`);
+        } else if (isArr(cols) && row.cells.length !== cols.length) {
+          // Same ragged-table rule as 'table': misalignment reads as a bug.
+          push(`rows[${i}] has ${row.cells.length} cells but there are ${cols.length} cols`);
+        }
+        if (row.say !== undefined && !isStr(row.say)) push(`rows[${i}].say must be a non-empty string when present`);
+        if (row.detail !== undefined) {
+          const d = row.detail as Partial<NonNullable<TapRow['detail']>>;
+          if (typeof d !== 'object' || d === null) push(`rows[${i}].detail must be an object`);
+          else {
+            if (!isStr(d.title)) push(`rows[${i}].detail.title is required`);
+            if (!isStr(d.body)) push(`rows[${i}].detail.body is required`);
+            if (d.say !== undefined && !isStr(d.say)) push(`rows[${i}].detail.say must be a non-empty string when present`);
+          }
+        }
+      });
+      break;
+    }
+    case 'vocabThemes': {
+      const themes = sec.themes;
+      if (!isArr(themes) || themes.length === 0) {
+        push('themes must be a non-empty array');
+        break;
+      }
+      themes.forEach((th, i) => {
+        if (typeof th !== 'object' || th === null) {
+          push(`themes[${i}] is not an object`);
+          return;
+        }
+        const v2 = th as Partial<VocabTheme>;
+        if (!isStr(v2.title)) push(`themes[${i}].title is required`);
+        if (v2.imageRef !== undefined && (!isStr(v2.imageRef) || !IMAGE_REF_RE.test(v2.imageRef))) {
+          push(`themes[${i}].imageRef must be a storage-relative asset path`);
+        }
+        if (!isArr(v2.cards) || v2.cards.length === 0) {
+          push(`themes[${i}].cards must be a non-empty array`);
+          return;
+        }
+        v2.cards.forEach((c, j) => {
+          const card = c as Partial<{ fr: string; sub: string; en: string }>;
+          if (typeof c !== 'object' || c === null || !isStr(card.fr) || !isStr(card.en)) {
+            push(`themes[${i}].cards[${j}] must be { fr, en } strings`);
+          } else if (card.sub !== undefined && !isStr(card.sub)) {
+            push(`themes[${i}].cards[${j}].sub must be a non-empty string when present`);
+          }
+        });
+      });
+      break;
+    }
+    case 'flashcards': {
+      const cards = sec.cards;
+      if (!isArr(cards) || cards.length === 0) {
+        push('cards must be a non-empty array');
+        break;
+      }
+      cards.forEach((c, i) => {
+        const card = c as Partial<{ front: string; back: string; say: string }>;
+        if (typeof c !== 'object' || c === null || !isStr(card.front) || !isStr(card.back)) {
+          push(`cards[${i}] must be { front, back } strings`);
+        } else if (card.say !== undefined && !isStr(card.say)) {
+          push(`cards[${i}].say must be a non-empty string when present`);
+        }
+      });
+      break;
+    }
+    case 'roundup': {
+      if (!isStr(sec.body)) push('body is required');
+      strList('points');
       break;
     }
   }
