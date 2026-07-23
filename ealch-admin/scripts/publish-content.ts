@@ -173,9 +173,10 @@ async function runPythonGate(
 
 /** Columns projected into the Item the app receives. */
 const PROJECTED_ITEM_COLUMNS = new Set([
-  'id', 'kind', 'level', 'theme', 'fr', 'en', 'ipa', 'gender', 'example', 'notes',
+  'id', 'kind', 'level', 'theme', 'fr', 'en', 'ipa', 'respell', 'gender', 'example', 'notes',
   'tags', 'drills', 'audio_ref', 'image_ref', 'segments', 'asset_key', 'version',
   'skill', 'register', 'can_do', 'grammar_points', 'modality', 'verb_check',
+  'card_type', 'prompt',
 ]);
 
 /** Columns deliberately NOT shipped, each with the reason it stays behind. */
@@ -257,11 +258,12 @@ async function main() {
   // fine, which is exactly what makes the bug easy to miss. The cast tells pg to
   // treat it as a plain text array, which it does know how to parse.
   const itemRows = await pool.query(
-    `select id, kind::text as kind, level::text as level, theme, fr, en, ipa,
+    `select id, kind::text as kind, level::text as level, theme, fr, en, ipa, respell,
             gender::text as gender, example, notes, tags, drills::text[] as drills,
             audio_ref, image_ref, segments, asset_key, version,
             skill::text as skill, register::text as register, can_do,
-            grammar_points, modality::text as modality, verb_check
+            grammar_points, modality::text as modality, verb_check,
+            card_type::text as card_type, prompt
        from content_items where status = 'published'`
   );
 
@@ -325,6 +327,7 @@ async function main() {
     fr: r.fr,
     en: r.en,
     ...(r.ipa ? { ipa: r.ipa } : {}),
+    ...(r.respell ? { respell: r.respell } : {}),
     ...(r.gender ? { gender: r.gender } : {}),
     ...(r.example ? { example: r.example } : {}),
     ...(r.notes ? { notes: r.notes } : {}),
@@ -345,6 +348,8 @@ async function main() {
     ...(r.grammar_points?.length ? { grammarPoints: r.grammar_points } : {}),
     ...(r.modality ? { modality: r.modality } : {}),
     ...(r.verb_check ? { verbCheck: r.verb_check } : {}),
+    ...(r.card_type ? { cardType: r.card_type } : {}),
+    ...(r.prompt ? { prompt: r.prompt } : {}),
   }));
 
   console.log(

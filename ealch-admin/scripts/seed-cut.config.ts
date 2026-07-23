@@ -39,7 +39,19 @@ export const SEED_CUT: SeedCut = {
   // Flash and Dictation are populated OFFLINE — without them, those two drills
   // are empty until the first network fetch. 'marche' / 'salutations' / etc. have
   // no items yet; they are aspirational and simply match nothing for now.
-  themes: ['cafe', 'objets', 'dictee', 'marche', 'salutations', 'nombres', 'transport'],
+  //
+  // The next ten are the best-covered "By Theme" practice themes — their
+  // flashcard/voiceflash items were already bundled incidentally (referenced by
+  // the a1/a2 lesson units above), but their Construire/Écouter/Scène content
+  // was not, so the theme parcours showed empty steps offline. Listing them
+  // explicitly pulls in ALL of their published items (not just the
+  // lesson-referenced subset) plus their new Scène scenarios, so all five
+  // pathway steps work with no network on day one.
+  themes: [
+    'cafe', 'objets', 'dictee', 'marche', 'salutations', 'nombres', 'transport',
+    'cuisine', 'ecole', 'deplacements', 'metiers', 'corps', 'maison', 'animaux',
+    'routines', 'famille', 'sports-et-loisirs',
+  ],
 };
 
 /** Every unit id explicitly named, for the cut summary. */
