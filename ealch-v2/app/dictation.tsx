@@ -14,6 +14,7 @@ import { useProgress, useSessionLog } from '@/store/useProgress';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
+import { noteFor } from '@/services/content.logic';
 import { accentKeys, normDict } from '@/content/drills';
 import { SpeedPicker } from '@/components/SpeedPicker';
 import { F } from '@/theme/fonts';
@@ -371,7 +372,7 @@ export default function Dictation() {
                 }}
               >
                 <TX role="label" lhMult={1.67} color={t.txSecondary}>
-                  {d.notes}
+                  {noteFor(d)}
                 </TX>
               </View>
             ) : null}

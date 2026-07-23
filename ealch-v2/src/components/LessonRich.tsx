@@ -19,6 +19,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
+import { noteFor } from '@/services/content.logic';
 import { lessonImage } from '@/content/lessonImages';
 import type { GridLetter, LessonSection, TapRow, VocabTheme } from '@/content/schema';
 
@@ -664,7 +665,7 @@ export function PracticeVFView({
                 width makes RN wrap inside a known box instead of clipping. */}
             <TX font="serifI" size={28} role="display" center lhMult={1.25} style={{ width: '100%', marginBottom: 6 }}>{item.fr}</TX>
             <TX role="label" color={t.txMuted} center lhMult={1.5} style={{ width: '100%', marginBottom: 12 }}>
-              {item.en}{item.notes ? ` · ${item.notes}` : ''}
+              {item.en}{noteFor(item) ? ` · ${noteFor(item)}` : ''}
             </TX>
             {/* Audio chip — plays the French word */}
             <Press

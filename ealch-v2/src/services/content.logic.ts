@@ -169,6 +169,31 @@ export function mergeArticleTiles(tiles: SbTile[]): SbTile[] {
   return out;
 }
 
+/**
+ * An item's teaching note, for any screen that is NOT the Sentence Builder.
+ *
+ * `Item.notes` does double duty: a plain-English tip (dictation's why-tip, a
+ * flashcard's teaching note) on most items, but on an item that also drills
+ * 'sentence' it is instead a JSON-encoded `{ tiles }` payload that only
+ * `app/sentence.tsx` (see `tilesFor` there) knows how to read. An item can
+ * carry both drills at once (dual flashcard/sentence-builder content), so a
+ * screen cannot tell which shape `notes` is from the drill it is running.
+ * Anything that renders `item.notes` as prose — the flashcard back, a
+ * lesson's practice card — must go through this, or a sentence item's raw
+ * tile JSON leaks onto the card as if it were the note itself.
+ */
+export function noteFor(item: Item): string | undefined {
+  const notes = item.notes;
+  if (!notes || !notes.startsWith('{')) return notes;
+  try {
+    const parsed = JSON.parse(notes);
+    if (Array.isArray(parsed?.tiles)) return undefined;
+  } catch {
+    // Not JSON after all — treat it as a real note.
+  }
+  return notes;
+}
+
 export function getItem(corpus: Corpus, id: string): Item | null {
   return corpus.items.find((i) => i.id === id) ?? null;
 }

@@ -14,6 +14,7 @@ import { useStore } from '@/store/useStore';
 import { composeSession, introEligible, localDay } from '@/store/progress.logic';
 import { sound, tts } from '@/services';
 import { content, useContent } from '@/services/content';
+import { noteFor } from '@/services/content.logic';
 import { CARD_TYPES, LEVELS, type CardType, type Level } from '@/content/schema';
 import { themeMeta } from '@/content/themeMeta';
 import { domainMeta } from '@/content/domainMeta';
@@ -114,6 +115,9 @@ export default function Flashcards() {
   // (direction is meaningless for a deck with no vocab cards in it).
   const deckTypeLocked = cardType !== undefined && cardType !== 'vocab';
   const cardCT: CardType = card ? card.cardType ?? 'vocab' : 'vocab';
+  // Some items also drill 'sentence', where `notes` is a JSON tile payload
+  // for app/sentence.tsx, not a teaching note — see noteFor().
+  const cardNote = card ? noteFor(card) : undefined;
   const promptMode = cardCT !== 'vocab';
   const typeLabels: Record<CardType, string> = {
     vocab: frFront ? T.ctVocabFrEn : T.ctVocabEnFr,
@@ -448,9 +452,9 @@ export default function Flashcards() {
                         {card.en}
                       </TX>
                     ) : null}
-                    {card.notes ? (
+                    {cardNote ? (
                       <TX font="serifI" role="bodySm" center color={t.txMuted}>
-                        {card.notes}
+                        {cardNote}
                       </TX>
                     ) : null}
                   </View>
