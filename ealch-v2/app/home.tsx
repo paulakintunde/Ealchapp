@@ -105,6 +105,7 @@ export default function Home() {
   const corpus = useContent((s) => s.corpus);
   const openDict = useUI((s) => s.openDict);
   const openSheet = useUI((s) => s.openSheet);
+  const openVocabSheet = useUI((s) => s.openVocabSheet);
   // The fold's open/closed state persists (survives remounts) and its reveal
   // animates rather than popping in.
   const toggleBrowse = () => {
@@ -371,13 +372,23 @@ export default function Home() {
               </View>
               {/* The vocab primer — a labeled pill, not a ⋯ overflow kebab. A
                   three-dot icon reads as share/hide/report; this opens the
-                  pre-lesson vocabulary sheet, so it says so. */}
-              <Press onPress={() => openSheet('vocab')} cue="tap" style={{ height: 46, paddingHorizontal: 18, borderRadius: 23, borderWidth: 1, borderColor: t.line(20), flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                <Icon name="book" size={15} color={t.txSecondary} strokeWidth={1.7} />
-                <TX font="semi" role="body" color={t.txSecondary}>
-                  {T.vocabPrime}
-                </TX>
-              </Press>
+                  pre-lesson vocabulary sheet, so it says so.
+                  Gated on freshN, not on which hero branch is showing: a pure
+                  review day (freshN === 0) has nothing new to prime, and the
+                  listen fallback is only reached when freshN is already 0, so
+                  this condition covers both without special-casing hero.eyebrow. */}
+              {freshN > 0 ? (
+                <Press
+                  onPress={() => openVocabSheet(session.fresh.slice(0, 4).map((i) => ({ fr: i.fr, en: i.en })))}
+                  cue="tap"
+                  style={{ height: 46, paddingHorizontal: 18, borderRadius: 23, borderWidth: 1, borderColor: t.line(20), flexDirection: 'row', alignItems: 'center', gap: 8 }}
+                >
+                  <Icon name="book" size={15} color={t.txSecondary} strokeWidth={1.7} />
+                  <TX font="semi" role="body" color={t.txSecondary}>
+                    {T.vocabPrime}
+                  </TX>
+                </Press>
+              ) : null}
             </View>
           </View>
         </Press>

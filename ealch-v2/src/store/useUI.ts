@@ -3,8 +3,16 @@ import type { DictEntry } from '@/content/wordOfDay';
 
 export type SheetKind = 'vocab' | 'grammar' | null;
 
+/** One row of the vocab-primer sheet: real corpus text, not the fixed café
+ *  set the sheet used to render regardless of what the hero recommended. */
+export type VocabPrimerItem = { fr: string; en: string };
+
 type UIState = {
   sheet: SheetKind;
+  /** The words the vocab sheet renders — set by openVocabSheet from the
+   *  caller's actual session content (today's fresh items), never hardcoded
+   *  here. Stale outside a 'vocab' sheet; ignore it otherwise. */
+  vocabItems: VocabPrimerItem[];
   bannerVisible: boolean;
   bannerAt: string; // HH:MM shown in banner text
   dictOpen: boolean;
@@ -14,6 +22,7 @@ type UIState = {
   dictSaved: boolean;
 
   openSheet: (k: SheetKind) => void;
+  openVocabSheet: (items: VocabPrimerItem[]) => void;
   closeSheet: () => void;
   showBanner: (at: string) => void;
   hideBanner: () => void;
@@ -24,6 +33,7 @@ type UIState = {
 
 export const useUI = create<UIState>((set) => ({
   sheet: null,
+  vocabItems: [],
   bannerVisible: false,
   bannerAt: '19:00',
   dictOpen: false,
@@ -31,6 +41,7 @@ export const useUI = create<UIState>((set) => ({
   dictSaved: false,
 
   openSheet: (sheet) => set({ sheet }),
+  openVocabSheet: (vocabItems) => set({ sheet: 'vocab', vocabItems }),
   closeSheet: () => set({ sheet: null }),
   showBanner: (bannerAt) => set({ bannerVisible: true, bannerAt }),
   hideBanner: () => set({ bannerVisible: false }),

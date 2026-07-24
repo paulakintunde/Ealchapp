@@ -71,7 +71,7 @@ export type Strings = {
   deckDone: string; deckSub: string; redo: string; backFeed: string;
   deckEmptyT: string; deckEmptyS: string;
   frontFr: string; frontEn: string;
-  vocabTag: string; vocabSub: string;
+  vocabTag: string; vocabSub: string; vocabPrimerTitle: string;
   register: string; registerBody: string; registerEnd: string;
   go: string; grammarTag: string; grammarBody: string; askCamille: string;
   examMeta: string[]; errorIssues: string[];
@@ -292,6 +292,7 @@ export const T: Record<Lang, Strings> = {
     deckEmptyT: 'Rien à réviser ici', deckEmptyS: "Ce thème n'a pas encore de cartes à ce niveau. Essayez un autre thème ou revenez plus tard.",
     frontFr: 'FRANÇAIS', frontEn: 'ANGLAIS',
     vocabTag: 'AVANT DE PARLER · INJECTEUR', vocabSub: 'Utilisez chacun au moins une fois, à voix haute et avec assurance.',
+    vocabPrimerTitle: 'Le vocabulaire du jour',
     register: 'REGISTRE', registerBody: 'Dites toujours', registerEnd: 'sonne comme un ordre. Les serveurs le remarquent.',
     go: "J'y vais →", grammarTag: 'GRAMMAIRE · SANS QUITTER LA CONVERSATION',
     grammarBody: "La liaison relie la consonne finale muette à la voyelle qui suit. Après un, les, vous, ils, elle est obligatoire, et c'est la première chose qu'un examinateur entend.",
@@ -590,6 +591,7 @@ export const T: Record<Lang, Strings> = {
     deckEmptyT: 'Nothing to review here', deckEmptyS: 'This theme has no cards at this level yet. Try another theme, or check back later.',
     frontFr: 'FRENCH', frontEn: 'ENGLISH',
     vocabTag: 'BEFORE YOU SPEAK · INJECTOR', vocabSub: 'Use each at least once, out loud and with confidence.',
+    vocabPrimerTitle: "Today's vocabulary",
     register: 'REGISTER', registerBody: 'Always say', registerEnd: 'sounds like a demand. Waiters notice.',
     go: "Let's go →", grammarTag: 'GRAMMAR · WITHOUT LEAVING THE CONVERSATION',
     grammarBody: "A liaison links a word's silent final consonant to the vowel that follows. After un, les, vous, ils it is not optional, and dropping it is what examiners hear first.",

@@ -9,13 +9,6 @@ import { useT } from '@/i18n/useT';
 import { useUI } from '@/store/useUI';
 import { sound } from '@/services';
 
-const VOCAB = [
-  { fr: 'un café allongé', en: 'a long espresso' },
-  { fr: "une carafe d'eau", en: 'a jug of tap water (free)' },
-  { fr: "l'addition", en: 'the bill' },
-  { fr: 'sur place ou à emporter', en: 'for here or to go' },
-];
-
 const LIAISONS = [
   { fr: 'un‿allongé', hint: '« un-nallongé » — the n carries over' },
   { fr: 'les‿amis', hint: '« lé-zami » — s becomes z' },
@@ -26,7 +19,7 @@ export function BottomSheet() {
   const t = useTheme();
   const T = useT();
   const router = useRouter();
-  const { sheet, closeSheet } = useUI();
+  const { sheet, vocabItems, closeSheet } = useUI();
   const [done, setDone] = useState<Record<number, boolean>>({ 0: true });
   const y = useRef(new Animated.Value(600)).current;
   const op = useRef(new Animated.Value(0)).current;
@@ -34,6 +27,9 @@ export function BottomSheet() {
 
   useEffect(() => {
     if (sheet) {
+      // Fresh checklist per open — the words are today's, so yesterday's
+      // checkmarks (or a shorter/longer previous set) must not carry over.
+      if (sheet === 'vocab') setDone({ 0: true });
       setMounted(true);
       Animated.parallel([
         Animated.timing(y, { toValue: 0, duration: 340, useNativeDriver: true }),
@@ -86,13 +82,13 @@ export function BottomSheet() {
                 {T.vocabTag}
               </TX>
               <TX font="serif" role="display" size={28} style={{ marginBottom: 6 }}>
-                Le vocabulaire du café
+                {T.vocabPrimerTitle}
               </TX>
               <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 22 }}>
                 {T.vocabSub}
               </TX>
               <View style={{ gap: 10, marginBottom: 22 }}>
-                {VOCAB.map((v, i) => {
+                {vocabItems.map((v, i) => {
                   const on = !!done[i];
                   return (
                     <Press
