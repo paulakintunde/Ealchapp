@@ -64,8 +64,8 @@ export default function Playlists() {
                   onPress={() => router.push(`/player?playlist=${p.id}&track=${i}`)}
                   style={{ minHeight: 56, paddingVertical: 8, borderRadius: 14, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 15 }}
                 >
-                  <View style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: t.accA(12), alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon name="play" size={12} color={t.acc} />
+                  <View style={{ width: 42, height: 42, borderRadius: 21, backgroundColor: t.accA(12), alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name="play" size={17} color={t.acc} />
                   </View>
                   <View style={{ flex: 1 }}>
                     <TX font="semi" role="bodySm">

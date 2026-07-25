@@ -138,9 +138,9 @@ export default function DictationThemes() {
                   cue={null}
                   scale={0.9}
                   style={{
-                    width: 38,
-                    height: 38,
-                    borderRadius: 19,
+                    width: 53,
+                    height: 53,
+                    borderRadius: 26.5,
                     backgroundColor: isOn ? meta.disc : meta.disc,
                     borderWidth: isOn ? 1 : 0,
                     borderColor: meta.ink,
@@ -149,9 +149,9 @@ export default function DictationThemes() {
                   }}
                 >
                   {isOn ? (
-                    <Waveform count={4} height={13} barWidth={2.2} gap={2} active color={meta.ink} />
+                    <Waveform count={4} height={18} barWidth={2.9} gap={2.3} active color={meta.ink} />
                   ) : (
-                    <Icon name="play" size={13} color={meta.ink} />
+                    <Icon name="play" size={18} color={meta.ink} />
                   )}
                 </Press>
                 <View style={{ flex: 1 }}>

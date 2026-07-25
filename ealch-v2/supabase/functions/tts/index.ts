@@ -31,10 +31,11 @@
 //
 // Deploy:  supabase functions deploy tts --no-verify-jwt
 // Secrets: supabase secrets set ELEVENLABS_API_KEY=... \
-//            ELEVENLABS_VOICE_NARRATOR=TX3LPaxmHKxFdv7VOQHJ \
+//            ELEVENLABS_VOICE_LIAM=TX3LPaxmHKxFdv7VOQHJ \
 //            ELEVENLABS_VOICE_AMELIE=<voice library id> \
 //            ELEVENLABS_VOICE_LEO=<voice library id> \
 //            [ELEVENLABS_MODEL_ID=eleven_multilingual_v2 | eleven_v3]
+// (ELEVENLABS_VOICE_NARRATOR is accepted as an older alias for the same role.)
 // SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY are auto-injected by the platform.
 
 import { createClient } from "jsr:@supabase/supabase-js@2";
@@ -49,7 +50,10 @@ const b64 = (buf: ArrayBuffer) => {
   return btoa(bin);
 };
 
-type TtsResult = { audio: ArrayBuffer; format: string; provider: string };
+// voiceId is diagnostic only (echoed to the client so a role can be confirmed
+// against the actual ElevenLabs voice it resolved to) — never a secret, just
+// the public identifier ElevenLabs itself exposes.
+type TtsResult = { audio: ArrayBuffer; format: string; provider: string; voiceId?: string };
 
 // ElevenLabs premade "Liam" — energetic young male, made for social content.
 const LIAM = "TX3LPaxmHKxFdv7VOQHJ";
@@ -57,7 +61,10 @@ const LIAM = "TX3LPaxmHKxFdv7VOQHJ";
 /** Role → ElevenLabs voice id. A raw id (anything that isn't a known role) is
  *  passed through so the Ops Console can audition arbitrary voices. */
 function elevenVoiceId(voice: string): string {
-  const narrator = Deno.env.get("ELEVENLABS_VOICE_NARRATOR") ?? LIAM;
+  const narrator =
+    Deno.env.get("ELEVENLABS_VOICE_LIAM") ??
+    Deno.env.get("ELEVENLABS_VOICE_NARRATOR") ??
+    LIAM;
   switch (voice) {
     case "":
     case "narrator":
@@ -104,8 +111,9 @@ async function elevenlabs(text: string, voice: string, lang: string): Promise<Tt
   const key = Deno.env.get("ELEVENLABS_API_KEY");
   if (!key) throw new Error("no ELEVENLABS_API_KEY");
   const modelId = await elevenModelId();
+  const voiceId = elevenVoiceId(voice);
   const res = await fetch(
-    `https://api.elevenlabs.io/v1/text-to-speech/${elevenVoiceId(voice)}?output_format=mp3_44100_128`,
+    `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json", "xi-api-key": key },
@@ -123,8 +131,13 @@ async function elevenlabs(text: string, voice: string, lang: string): Promise<Tt
       signal: AbortSignal.timeout(25_000),
     },
   );
-  if (!res.ok) throw new Error(`elevenlabs ${res.status}`);
-  return { audio: await res.arrayBuffer(), format: "mp3", provider: "elevenlabs" };
+  if (!res.ok) {
+    // Surface the real reason (bad key, unknown voice id, quota) — this is
+    // ElevenLabs's own diagnostic body, not a guess.
+    const body = await res.text().catch(() => "");
+    throw new Error(`elevenlabs ${res.status}: ${body.slice(0, 300)}`);
+  }
+  return { audio: await res.arrayBuffer(), format: "mp3", provider: "elevenlabs", voiceId };
 }
 
 const ROLES = new Set(["", "narrator", "amelie", "leo"]);
@@ -192,30 +205,39 @@ Deno.serve(async (req) => {
     // lang is an ISO 639-1 hint, nothing else reaches a provider URL.
     const langCode = /^[a-z]{2}$/.test(String(lang)) ? String(lang) : "";
 
-    const chain: ((t: string, v: string) => Promise<TtsResult>)[] = [
-      (t, v) => elevenlabs(t, v, langCode),
-      customTts,
-      fishAudio,
+    // Named, not positional: a single overwritten `lastErr` hid the real
+    // ElevenLabs failure behind whichever fallback provider (unconfigured, by
+    // default) happened to fail last — this way every attempt's own reason
+    // survives into the response.
+    const chain: { name: string; fn: (t: string, v: string) => Promise<TtsResult> }[] = [
+      { name: "elevenlabs", fn: (t, v) => elevenlabs(t, v, langCode) },
+      { name: "custom", fn: customTts },
+      { name: "fish", fn: fishAudio },
     ];
     let result: TtsResult | null = null;
-    let lastErr = "";
+    const errors: string[] = [];
     for (const provider of chain) {
       try {
-        result = await provider(String(text), String(voice));
+        result = await provider.fn(String(text), String(voice));
         break;
       } catch (e) {
-        lastErr = String(e);
+        errors.push(`${provider.name}: ${e}`);
       }
     }
     if (!result) {
-      return new Response(JSON.stringify({ error: `all tts providers failed: ${lastErr}` }), {
+      return new Response(JSON.stringify({ error: "all tts providers failed", details: errors }), {
         status: 502,
         headers: { ...cors, "Content-Type": "application/json" },
       });
     }
 
     return new Response(
-      JSON.stringify({ audio: b64(result.audio), format: result.format, provider: result.provider }),
+      JSON.stringify({
+        audio: b64(result.audio),
+        format: result.format,
+        provider: result.provider,
+        ...(result.voiceId ? { voiceId: result.voiceId } : {}),
+      }),
       { headers: { ...cors, "Content-Type": "application/json" } },
     );
   } catch (e) {

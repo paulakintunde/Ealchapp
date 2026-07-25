@@ -265,18 +265,18 @@ export default function Dictation() {
                 onPress={play}
                 cue={null}
                 style={{
-                  width: 52,
-                  height: 52,
-                  borderRadius: 26,
+                  width: 73,
+                  height: 73,
+                  borderRadius: 36.5,
                   backgroundColor: dcPlays > 0 || dcSpeaking ? t.acc : t.line(16),
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
               >
                 {dcSpeaking ? (
-                  <Waveform active count={3} height={16} color={t.accInk} barWidth={3} gap={2.5} />
+                  <Waveform active count={3} height={22} color={t.accInk} barWidth={4} gap={3} />
                 ) : (
-                  <Svg width={16} height={18} viewBox="0 0 16 18" fill="none">
+                  <Svg width={22} height={25} viewBox="0 0 16 18" fill="none">
                     <Path d="M2.5 2v14l12-7z" fill={dcPlays > 0 ? t.accInk : t.txNonText} />
                   </Svg>
                 )}

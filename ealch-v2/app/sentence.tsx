@@ -286,8 +286,8 @@ export default function Sentence() {
                     style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 12, paddingHorizontal: 16 }}
                   >
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 13 }}>
-                      <Press cue={null} onPress={() => playWord(i)} style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
-                        <Icon name="play" size={12} color={t.acc} />
+                      <Press cue={null} onPress={() => playWord(i)} style={{ width: 50, height: 50, borderRadius: 25, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+                        <Icon name="play" size={17} color={t.acc} />
                       </Press>
                       <View style={{ flex: 1 }}>
                         <TX font="serifI" role="titleLg" size={20}>
@@ -302,7 +302,7 @@ export default function Sentence() {
                     </View>
                     {openWord === i ? (
                       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 14, marginTop: 12, borderTopWidth: 1, borderTopColor: t.line(7), paddingTop: 12 }}>
-                        <Waveform count={16} height={16} barWidth={2.5} gap={3} active={active} color={active ? t.acc : t.txNonText} />
+                        <Waveform count={16} height={22} barWidth={3.25} gap={3.5} active={active} color={active ? t.acc : t.txNonText} />
                         <Press
                           cue={null}
                           onPress={() => practiceWord(i)}

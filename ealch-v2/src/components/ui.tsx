@@ -223,10 +223,15 @@ export function FocusHeader({
   onClose,
   onSettings,
   title,
+  extra,
 }: {
   onClose: () => void;
   onSettings?: () => void;
   title?: string;
+  /** An optional extra action rendered left of the gear (e.g. the lesson
+   *  screen's "?" help button) — absent everywhere else, so every existing
+   *  call site renders exactly as before. */
+  extra?: ReactNode;
 }) {
   const t = useTheme();
   return (
@@ -267,23 +272,26 @@ export function FocusHeader({
       ) : (
         <View />
       )}
-      {onSettings ? (
-        <Press
-          onPress={onSettings}
-          style={{
-            width: 38,
-            height: 38,
-            borderRadius: 19,
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: t.line(6),
-          }}
-        >
-          <Icon name="gear" size={18} color={t.tx} />
-        </Press>
-      ) : (
-        <View style={{ width: 38 }} />
-      )}
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        {extra}
+        {onSettings ? (
+          <Press
+            onPress={onSettings}
+            style={{
+              width: 38,
+              height: 38,
+              borderRadius: 19,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: t.line(6),
+            }}
+          >
+            <Icon name="gear" size={18} color={t.tx} />
+          </Press>
+        ) : !extra ? (
+          <View style={{ width: 38 }} />
+        ) : null}
+      </View>
     </View>
   );
 }

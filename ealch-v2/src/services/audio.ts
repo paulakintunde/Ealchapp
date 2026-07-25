@@ -149,7 +149,15 @@ export const audio = {
    */
   async speakItem(
     item: { fr: string; audioRef?: string | null; audioChecksum?: string },
-    opts: { slow?: boolean; rate?: number; onDone?: () => void; onError?: () => void } = {}
+    opts: {
+      slow?: boolean;
+      rate?: number;
+      /** Forwarded to the TTS fallback only — a rendered clip is already
+       *  fixed to whatever language it was recorded in. */
+      lang?: 'fr-FR' | 'en-US';
+      onDone?: () => void;
+      onError?: () => void;
+    } = {}
   ): Promise<'clip' | 'tts'> {
     if (item.audioRef) {
       const uri = await resolveClip({ path: item.audioRef, checksum: item.audioChecksum });

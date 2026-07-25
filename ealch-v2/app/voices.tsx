@@ -123,8 +123,8 @@ export default function Voices() {
                   cue={null}
                   style={{ borderRadius: 14, borderWidth: 1, borderColor: on ? t.accA(60) : t.line(8), backgroundColor: on ? t.accA(8) : t.card, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 12 }}
                 >
-                  <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: on ? t.acc : t.accA(12), alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon name="play" size={13} color={on ? t.accInk : t.acc} />
+                  <View style={{ width: 48, height: 48, borderRadius: 24, backgroundColor: on ? t.acc : t.accA(12), alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name="play" size={18} color={on ? t.accInk : t.acc} />
                   </View>
                   <View style={{ flex: 1, minWidth: 0 }}>
                     <TX font="semi" role="bodySm" numberOfLines={1}>

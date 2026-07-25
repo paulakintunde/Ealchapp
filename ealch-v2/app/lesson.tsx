@@ -3,14 +3,16 @@ import { View } from 'react-native';
 import { useRouter, useLocalSearchParams, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
-import { FocusHeader } from '@/components/ui';
+import { FocusHeader, Press } from '@/components/ui';
 import { LessonPager } from '@/components/LessonPager';
+import { LessonKeyIntro } from '@/components/LessonKeyIntro';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
+import { useStore } from '@/store/useStore';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { lessonSkill } from '@/content/curriculum';
-import { sound, tts } from '@/services';
+import { sound, audio } from '@/services';
 import { content } from '@/services/content';
 import { unitBand, type Lesson, type LessonSection } from '@/content/schema';
 import { FREE_BANDS } from '@/store/entitlement.logic';
@@ -59,6 +61,15 @@ export default function LessonScreen() {
   const clearResume = useProgress((s) => s.clearResume);
   const logError = useProgress((s) => s.logError);
   const logAttempt = useProgress((s) => s.logAttempt);
+
+  // The one-time "how lessons work" tour (LessonKeyIntro): auto-shows before
+  // a user's first-ever lesson, then never again on its own. `showKeyOverride`
+  // is the lesson header's "?" reopening it later — independent of the
+  // persisted flag, so revisiting it never un-marks it as seen.
+  const lessonKeySeen = useStore((s) => s.lessonKeySeen);
+  const setLessonKeySeen = useStore((s) => s.setLessonKeySeen);
+  const [showKeyOverride, setShowKeyOverride] = useState(false);
+  const showKey = !lessonKeySeen || showKeyOverride;
 
   const [playingId, setPlayingId] = useState<string | null>(null);
   // itemIds self-rated this visit — purely a UI dim/highlight cue, never read
@@ -113,7 +124,7 @@ export default function LessonScreen() {
     return ix !== -1 ? ix : null;
   }, [L?.id, params.at]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => () => tts.stop(), []);
+  useEffect(() => () => audio.stop(), []);
 
   // The unmount stop above is not enough: pushing another route (Settings, the
   // paywall) keeps this screen mounted underneath, and the narration would
@@ -121,7 +132,7 @@ export default function LessonScreen() {
   // hard-stops it, for any route out.
   useFocusEffect(
     useCallback(() => {
-      return () => tts.stop();
+      return () => audio.stop();
     }, [])
   );
 
@@ -150,14 +161,33 @@ export default function LessonScreen() {
     return <View style={{ flex: 1, backgroundColor: t.bg }} />;
   }
 
+  if (showKey) {
+    return (
+      <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
+        <LessonKeyIntro
+          onDone={() => {
+            setLessonKeySeen(true);
+            setShowKeyOverride(false);
+          }}
+        />
+      </View>
+    );
+  }
+
   const contentSections = L.sections.filter((s) => s.type !== 'quiz');
   const quizSection = L.sections.find((s): s is Extract<LessonSection, { type: 'quiz' }> => s.type === 'quiz');
   const quiz = quizSection?.questions ?? [];
 
-  const play = (pid: string, text: string) => {
+  const play = (pid: string, text: string, audioRef?: string | null) => {
     sound.play('flip');
     setPlayingId(pid);
-    tts.speak(text, { onDone: () => setPlayingId((p) => (p === pid ? null : p)), onError: () => setPlayingId((p) => (p === pid ? null : p)) });
+    // The pre-rendered clip when the caller named one (real corpus items,
+    // once Phase 7 rendering has run — see AUDIO-RENDER-SPEC.md), live TTS
+    // otherwise; speakItem's own fallback makes this a no-op change today.
+    audio.speakItem(
+      { fr: text, audioRef },
+      { onDone: () => setPlayingId((p) => (p === pid ? null : p)), onError: () => setPlayingId((p) => (p === pid ? null : p)) }
+    );
   };
 
   // Self-rated recall on a practice item — the flashcards.tsx pattern (no mic,
@@ -236,7 +266,21 @@ export default function LessonScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <View style={{ paddingTop: insets.top }}>
-        <FocusHeader onClose={() => router.back()} onSettings={() => router.push('/settings')} title={L.tag} />
+        <FocusHeader
+          onClose={() => router.back()}
+          onSettings={() => router.push('/settings')}
+          title={L.tag}
+          extra={
+            <Press
+              cue={null}
+              onPress={() => setShowKeyOverride(true)}
+              accessibilityLabel={T.lkHelp}
+              style={{ width: 32, height: 32, borderRadius: 16, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}
+            >
+              <TX font="bold" role="label" color={t.txSecondary}>?</TX>
+            </Press>
+          }
+        />
       </View>
 
       <LessonPager

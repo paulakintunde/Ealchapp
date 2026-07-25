@@ -204,8 +204,11 @@ export default function Den() {
                             answer instead of staying empty for three weeks. */}
                         <ProgressBar pct={(prog.met / prog.total) * 100} height={3} color={t.acc} track={t.line(10)} />
                         <TX role="meta" color={started ? t.accTx : t.txSubtle}>
-                          {T.denLearned.replace('{n}', String(prog.met)).replace('{m}', String(prog.total))}
+                          {T.denLearnedPct.replace('{p}', String(Math.round((prog.met / prog.total) * 100)))}
                           {prog.mastered > 0 ? '  ·  ' + T.denMastered.replace('{k}', String(prog.mastered)) : ''}
+                        </TX>
+                        <TX role="eyebrow" color={t.txSubtle}>
+                          {T.denLearned.replace('{n}', String(prog.met)).replace('{m}', String(prog.total))}
                         </TX>
                       </View>
                     ) : null}

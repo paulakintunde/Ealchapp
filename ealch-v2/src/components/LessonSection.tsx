@@ -5,11 +5,13 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import {
   CardDeckView,
+  CheatSheetView,
   FlashcardsView,
   LetterGridView,
   PracticeVFView,
   RichImage,
   RoundupView,
+  TableView,
   TapTableView,
   VocabThemesView,
 } from '@/components/LessonRich';
@@ -39,14 +41,18 @@ export function SectionView({
   playingId,
   onGrade,
   graded,
+  showHero = true,
 }: {
   s: LessonSection;
-  onPlay: (id: string, text: string) => void;
+  onPlay: (id: string, text: string, audioRef?: string | null) => void;
   playingId: string | null;
   /** Practice items only: self-rated recall, "Got it" / "Missed it". */
   onGrade: (itemId: string, correct: boolean) => void;
   /** itemIds graded at least once this visit, so a re-tap doesn't look ignored. */
   graded: ReadonlySet<string>;
+  /** False when the pager already gave this section's image its own page
+   *  (LessonPager's hero-split) — the section body must not render it twice. */
+  showHero?: boolean;
 }) {
   const t = useTheme();
   const T = useT();
@@ -54,7 +60,7 @@ export function SectionView({
   // Every section may carry an illustration; it sits between the label and the
   // section body on all types (the rich views that place it themselves receive
   // no `hero` below).
-  const hero = <RichImage refKey={s.imageRef} />;
+  const hero = showHero ? <RichImage refKey={s.imageRef} /> : null;
 
   switch (s.type) {
     case 'teach':
@@ -156,14 +162,7 @@ export function SectionView({
       return (
         <View style={{ marginBottom: 26 }}>
           {label}
-          <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 16, gap: 10 }}>
-            {s.rows.map((r, i) => (
-              <View key={i} style={{ flexDirection: 'row', gap: 12 }}>
-                <TX font="serif" role="bodySm" color={t.accTx} style={{ width: 90 }}>{r.k}</TX>
-                <TX role="bodySm" color={t.txSecondary} style={{ flex: 1 }}>{r.v}</TX>
-              </View>
-            ))}
-          </View>
+          <CheatSheetView s={s} onPlay={onPlay} playingId={playingId} />
         </View>
       );
 
@@ -190,20 +189,7 @@ export function SectionView({
       return (
         <View style={{ marginBottom: 26 }}>
           {label}
-          <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 16 }}>
-            <View style={{ flexDirection: 'row', gap: 12, paddingBottom: 10 }}>
-              {s.cols.map((c, ci) => (
-                <TX key={ci} font="semi" role="meta" ls={1.4} color={t.accTx} style={{ flex: 1 }}>{c}</TX>
-              ))}
-            </View>
-            {s.rows.map((row, ri) => (
-              <View key={ri} style={{ flexDirection: 'row', gap: 12, paddingVertical: 9, borderTopWidth: 1, borderTopColor: t.line(6) }}>
-                {row.map((cell, ci) => (
-                  <TX key={ci} role="bodySm" lhMult={1.45} color={t.txSecondary} style={{ flex: 1 }}>{cell}</TX>
-                ))}
-              </View>
-            ))}
-          </View>
+          <TableView s={s} onPlay={onPlay} playingId={playingId} />
         </View>
       );
 
@@ -216,12 +202,12 @@ export function SectionView({
               const id = `${s.title}-${i}`;
               const on = playingId === id;
               return (
-                <Press key={i} cue={null} onPress={() => onPlay(id, str)} style={{ minHeight: 56, paddingVertical: 6, borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 15 }}>
-                  <View style={{ width: 32, height: 32, borderRadius: 16, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon name="play" size={12} color={t.acc} />
+                <Press key={i} cue={null} onPress={() => onPlay(id, str)} style={{ minHeight: 66, paddingVertical: 8, borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 15 }}>
+                  <View style={{ width: 45, height: 45, borderRadius: 22.5, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name="play" size={17} color={t.acc} />
                   </View>
                   <TX font="serifI" role="titleSm" style={{ flex: 1 }}>{str}</TX>
-                  <Waveform count={14} height={16} barWidth={2.5} gap={3} active={on} color={on ? t.acc : t.txNonText} />
+                  <Waveform count={14} height={22} barWidth={3.25} gap={3.5} active={on} color={on ? t.acc : t.txNonText} />
                 </Press>
               );
             })}

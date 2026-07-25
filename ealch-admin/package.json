@@ -20,6 +20,7 @@
     "content:generate": "tsx scripts/generate-content.ts",
     "content:rollout": "tsx scripts/set-rollout.ts",
     "content:rollback": "tsx scripts/rollback-content.ts",
+    "audio:render": "tsx scripts/render-audio.ts",
     "routing:sync": "tsx scripts/sync-routing.ts",
     "test:e2e": "playwright test"
   },

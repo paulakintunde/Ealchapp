@@ -240,9 +240,9 @@ export default function Speak() {
         <Press
           onPress={replayCoach}
           cue={null}
-          style={{ marginTop: 14, width: 44, height: 44, borderRadius: 22, borderWidth: 1, borderColor: speaking ? t.acc : t.accA(50), backgroundColor: speaking ? t.accA(12) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
+          style={{ marginTop: 16, width: 64, height: 64, borderRadius: 32, borderWidth: 1, borderColor: speaking ? t.acc : t.accA(50), backgroundColor: speaking ? t.accA(12) : 'transparent', alignItems: 'center', justifyContent: 'center' }}
         >
-          <Icon name="speaker" size={18} color={t.acc} />
+          <Icon name="speaker" size={26} color={t.acc} />
         </Press>
         {/* Say what the drill actually does: the mic scores your utterance
             against Camille's line, so this is shadowing, not a free reply. */}

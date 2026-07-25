@@ -3,7 +3,6 @@ import { LayoutAnimation, Platform, ScrollView, UIManager, View, useWindowDimens
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Circle } from 'react-native-svg';
 import { TX } from '@/components/Type';
 import { Press, Badge } from '@/components/ui';
 import { Icon } from '@/components/Icon';
@@ -14,7 +13,7 @@ import { greetSlot } from '@/i18n/strings';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
 import { useIsPremium } from '@/store/useEntitlement';
-import { composeSession, goalTarget, greetDue, greetState, introEligible, localDay, minutesToday, resumeIsFresh, streak, topWeaknesses } from '@/store/progress.logic';
+import { composeSession, greetDue, greetState, introEligible, localDay, resumeIsFresh, streak, topWeaknesses } from '@/store/progress.logic';
 import { selectItems } from '@/services/content.logic';
 import { useUI } from '@/store/useUI';
 import { playlists } from '@/content/playlists';
@@ -31,9 +30,6 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-const RING_R = 14;
-const RING_C = 2 * Math.PI * RING_R; // 87.96 — the real circumference, not a hand-tuned 88
-
 // The resolved Canada-first set. `T.examMeta` is index-aligned to this array:
 // reorder one and you must reorder the other, or TCF inherits DELF's caption.
 // The third chip was a generic "TCF"; the exam Ealch targets is TCF Canada.
@@ -42,29 +38,6 @@ const EXAMS = ['TEF Canada', 'TCF Canada', 'DELF B2'];
 // (schema.ts) — this is the one place the two are joined, index-aligned to
 // EXAMS/T.examMeta above, not to the enum.
 const EXAM_CHIP_FORMATS: ExamFormat[] = ['tef_canada', 'tcf_canada', 'delf_b2'];
-
-/** `pct` is progress toward the daily goal, 0–1. It used to be a fixed
- *  strokeDashoffset of 18, tuned by eye to look like the hardcoded "12/15". */
-function Ring({ color, track, pct }: { color: string; track: string; pct: number }) {
-  const filled = Math.max(0, Math.min(pct, 1));
-  return (
-    <Svg width={36} height={36} viewBox="0 0 36 36">
-      <Circle cx={18} cy={18} r={RING_R} fill="none" stroke={track} strokeWidth={4} />
-      <Circle
-        cx={18}
-        cy={18}
-        r={RING_R}
-        fill="none"
-        stroke={color}
-        strokeWidth={4}
-        strokeLinecap="round"
-        strokeDasharray={RING_C}
-        strokeDashoffset={RING_C * (1 - filled)}
-        transform="rotate(-90 18 18)"
-      />
-    </Svg>
-  );
-}
 
 function GlowTile({ base, glow, children, onPress, style }: { base: string; glow: string; children: ReactNode; onPress: () => void; style?: object }) {
   const t = useTheme();
@@ -81,7 +54,7 @@ export default function Home() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  // The Today strip crams three columns (goal / streak / review) into one row.
+  // The Today strip crams two columns (streak / review) into one row.
   // At full size that's comfortable on a typical phone; on a genuinely narrow
   // one (iPhone SE-class, ~375pt, or the sub-360pt Android devices common in
   // the PPP-Africa market this app targets) the same fixed sizes crowd or
@@ -89,7 +62,7 @@ export default function Home() {
   // at it, so anything narrower gets the compact numbers/padding below.
   const { width: winWidth } = useWindowDimensions();
   const narrowStrip = winWidth < 360;
-  const { userName, lang, setAppLang, freeze, pace, level, sound, browseOpen, setField } = useStore();
+  const { userName, lang, setAppLang, freeze, level, sound, browseOpen, setField } = useStore();
   const isPremium = useIsPremium();
   const sessions = useProgress((s) => s.sessions);
   const attempts = useProgress((s) => s.attempts);
@@ -114,7 +87,7 @@ export default function Home() {
   };
 
   // Every number below is a view over the session log. Nothing is seeded, so a
-  // fresh install reads 0/10 min and "Day 1 starts today" — which is the truth.
+  // fresh install reads "Day 1 starts today" — which is the truth.
   //
   // The folds are memoized because they are not cheap (`streak` walks up to 3660
   // days; `reviewDueCount` folds up to MAX_ATTEMPTS = 20k) and home re-renders on
@@ -122,8 +95,6 @@ export default function Home() {
   // is a stable 'YYYY-MM-DD' that turns over at the local midnight the logs are
   // bucketed by, so it is a sound key.
   const today = localDay();
-  const goal = goalTarget(pace);
-  const done = useMemo(() => minutesToday(sessions, today), [sessions, today]);
   const run = useMemo(() => streak(sessions, today, freeze), [sessions, today, freeze]);
 
   // Camille says hello when home comes into focus, tuned to how long the
@@ -284,24 +255,13 @@ export default function Home() {
           </View>
         </View>
 
-        {/* Today strip — goal / streak / review. Numbers and padding compact on
-            narrow screens (narrowStrip) so three columns stay comfortable
-            instead of crowding or wrapping; the layout shape is unchanged. */}
+        {/* Today strip — streak / review. The goal ring (0/20 min) was dropped:
+            it opened the same /profile route as the streak column, so it was
+            a redundant tap target, not a second source of information.
+            Numbers and padding compact on narrow screens (narrowStrip) so
+            both columns stay comfortable instead of crowding or wrapping. */}
         <View style={{ minHeight: 66, paddingVertical: 8, borderRadius: 20, borderWidth: 1, borderColor: t.accA(28), backgroundColor: t.card, ...t.cardShadow, flexDirection: 'row', marginBottom: 14, overflow: 'hidden' }}>
-          <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: narrowStrip ? 7 : 10, paddingHorizontal: narrowStrip ? 10 : 14 }}>
-            <Ring color={t.acc} track={t.line(10)} pct={done / goal} />
-            <View style={{ flex: 1, minWidth: 0 }}>
-              <TX font="bold" role="bodySm" size={narrowStrip ? 13 : undefined} numberOfLines={1}>
-                {done}
-                <TX role="bodySm" size={narrowStrip ? 13 : undefined} color={t.txSubtle} font="semi">/{goal} min</TX>
-              </TX>
-              <TX font="semi" role="eyebrow" size={narrowStrip ? 10 : undefined} color={t.txMuted} numberOfLines={1}>
-                {T.goalWord}
-              </TX>
-            </View>
-          </Press>
-          <View style={{ width: 1, backgroundColor: t.line(8), marginVertical: 13 }} />
-          <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 0.9, flexDirection: 'row', alignItems: 'center', gap: narrowStrip ? 6 : 9, paddingHorizontal: narrowStrip ? 10 : 14 }}>
+          <Press cue={null} onPress={() => router.push('/profile')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: narrowStrip ? 6 : 9, paddingHorizontal: narrowStrip ? 10 : 14 }}>
             {run.days > 0 ? (
               <>
                 <TX font="serif" size={narrowStrip ? 20 : 25} role="display" color={t.accTx}>
@@ -474,8 +434,8 @@ export default function Home() {
                   </TX>
                 </View>
               </View>
-              <Press onPress={() => tts.speak(wod.speak)} cue={null} style={{ width: 34, height: 34, borderRadius: 17, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="play" size={13} color={t.acc} />
+              <Press onPress={() => tts.speak(wod.speak)} cue={null} style={{ width: 48, height: 48, borderRadius: 24, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}>
+                <Icon name="play" size={18} color={t.acc} />
               </Press>
             </Press>
 

@@ -24,6 +24,12 @@ export const ENV = {
   // PostHog (analytics) public key — safe to ship.
   posthogKey: process.env.EXPO_PUBLIC_POSTHOG_KEY ?? '',
   posthogHost: process.env.EXPO_PUBLIC_POSTHOG_HOST ?? 'https://us.i.posthog.com',
+
+  // Pre-rendered asset CDN (Phase 7 audio, AUDIO-RENDER-SPEC.md's end-state
+  // R2 bucket) — a public base URL, no bucket credentials. Unset means "not
+  // migrated yet"; contentAssetUrl() falls back to the Supabase content
+  // bucket in that case.
+  assetBaseUrl: process.env.EXPO_PUBLIC_ASSET_BASE_URL ?? '',
 };
 
 export const hasSupabase = () => Boolean(ENV.supabaseUrl && ENV.supabaseAnonKey);

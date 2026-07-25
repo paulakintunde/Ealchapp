@@ -351,17 +351,17 @@ export default function VoiceFlash() {
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
-                  gap: 10,
-                  height: 40,
-                  paddingHorizontal: 16,
-                  borderRadius: 20,
+                  gap: 14,
+                  height: 56,
+                  paddingHorizontal: 22,
+                  borderRadius: 28,
                   borderWidth: 1,
                   borderColor: t.accA(40),
                   marginBottom: 18,
                 }}
               >
-                <Icon name="play" size={12} color={t.acc} />
-                <Waveform count={14} height={14} color={promptOn ? t.acc : t.txNonText} active={promptOn} barWidth={2.5} gap={3} />
+                <Icon name="play" size={17} color={t.acc} />
+                <Waveform count={14} height={19} color={promptOn ? t.acc : t.txNonText} active={promptOn} barWidth={3.25} gap={3} />
               </Press>
               <TX font="semi" role="meta" ls={2.6} color={t.accTx}>
                 {vfIsFr ? T.sayFr : T.transEn}

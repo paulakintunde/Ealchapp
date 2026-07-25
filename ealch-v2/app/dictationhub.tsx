@@ -128,19 +128,19 @@ export default function DictationHub() {
                   style={{
                     flexDirection: 'row',
                     alignItems: 'center',
-                    gap: 8,
+                    gap: 10,
                     alignSelf: 'flex-start',
-                    minHeight: 30,
-                    paddingVertical: 4,
-                    paddingHorizontal: 12,
-                    borderRadius: 15,
+                    minHeight: 37,
+                    paddingVertical: 5,
+                    paddingHorizontal: 15,
+                    borderRadius: 18.5,
                     borderWidth: 1,
                     borderColor: isOn ? meta.ink : t.line(14),
                     backgroundColor: isOn ? meta.disc : 'transparent',
                   }}
                 >
-                  <Icon name={isOn ? 'pause' : 'play'} size={10} color={isOn ? meta.ink : t.txMuted} />
-                  <Waveform count={9} height={10} barWidth={2} gap={2} active={isOn} color={isOn ? meta.ink : t.txNonText} />
+                  <Icon name={isOn ? 'pause' : 'play'} size={13} color={isOn ? meta.ink : t.txMuted} />
+                  <Waveform count={9} height={13} barWidth={2.5} gap={2.3} active={isOn} color={isOn ? meta.ink : t.txNonText} />
                   <TX font="semi" role="meta" ls={0.8} color={isOn ? meta.ink : t.txMuted}>
                     {isOn ? T.dcPlaying : T.previewT}
                   </TX>

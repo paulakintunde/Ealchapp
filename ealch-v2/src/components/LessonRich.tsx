@@ -3,8 +3,6 @@ import {
   Animated,
   Easing,
   Image,
-  Modal,
-  Pressable,
   ScrollView,
   View,
   useWindowDimensions,
@@ -15,9 +13,10 @@ import { TX } from '@/components/Type';
 import { Press, Badge, ProgressBar } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
+import { LessonModal } from '@/components/LessonModal';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
-import { sound, tts } from '@/services';
+import { sound } from '@/services';
 import { content } from '@/services/content';
 import { noteFor } from '@/services/content.logic';
 import { lessonImage } from '@/content/lessonImages';
@@ -37,7 +36,11 @@ import type { GridLetter, LessonSection, TapRow, VocabTheme } from '@/content/sc
 // listen control sits on its own row below.
 
 type PlayProps = {
-  onPlay: (id: string, text: string) => void;
+  /** `audioRef` is the pre-rendered clip for `text`, when the caller has a
+   *  real corpus item to name one — every current call site plays it as
+   *  authored, undefined callers simply get live TTS via speakItem's own
+   *  fallback (see audio.ts). */
+  onPlay: (id: string, text: string, audioRef?: string | null) => void;
   playingId: string | null;
 };
 
@@ -80,7 +83,7 @@ function DeckHint({ hint, ix, total }: { hint?: string; ix: number; total: numbe
 
 /** The tap-to-listen control: a proper speaker button plus the waveform that
  *  animates while its id is playing. Sits on its own row, never beside text. */
-function ListenButton({ id, text, onPlay, playingId, size = 44 }: { id: string; text: string; size?: number } & PlayProps) {
+function ListenButton({ id, text, onPlay, playingId, size = 63 }: { id: string; text: string; size?: number } & PlayProps) {
   const t = useTheme();
   const on = playingId === id;
   return (
@@ -104,45 +107,8 @@ function ListenButton({ id, text, onPlay, playingId, size = 44 }: { id: string; 
       >
         <Icon name="speaker" size={size * 0.4} color={t.acc} />
       </View>
-      <Waveform count={14} height={16} barWidth={2.5} gap={3} active={on} color={on ? t.acc : t.txNonText} />
+      <Waveform count={14} height={22} barWidth={3.25} gap={3.5} active={on} color={on ? t.acc : t.txNonText} />
     </Press>
-  );
-}
-
-/* ─── Detail sheet ───────────────────────────────────────────────────────── */
-
-// A local modal bottom sheet for the tap-to-open detail cards. RN Modal rather
-// than an absolutely-positioned overlay because these open from deep inside
-// nested ScrollViews, where an absolute overlay would clip to its card.
-function DetailSheet({ open, onClose, children }: { open: boolean; onClose: () => void; children: React.ReactNode }) {
-  const t = useTheme();
-  // Opening a sheet leaves the card's context, so whatever voice that context
-  // owned (the page narration, a playing word) hard-stops here — the sheet's
-  // own play buttons are the only audio that belongs inside it.
-  useEffect(() => {
-    if (open) tts.stop();
-  }, [open]);
-  return (
-    <Modal visible={open} transparent animationType="slide" onRequestClose={onClose}>
-      <Pressable onPress={onClose} style={{ flex: 1, backgroundColor: t.alpha(t.bgDeep, 60) }} />
-      <View
-        style={{
-          maxHeight: '78%',
-          borderTopLeftRadius: 26,
-          borderTopRightRadius: 26,
-          backgroundColor: t.sheet,
-          borderTopWidth: 1,
-          borderColor: t.line(10),
-        }}
-      >
-        <View style={{ alignItems: 'center', paddingTop: 12 }}>
-          <View style={{ width: 40, height: 4, borderRadius: 2, backgroundColor: t.line(18) }} />
-        </View>
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 24, paddingBottom: 40 }}>
-          {children}
-        </ScrollView>
-      </View>
-    </Modal>
   );
 }
 
@@ -155,13 +121,13 @@ function SpeakRow({ id, text, label, onPlay, playingId }: { id: string; text: st
     <Press
       cue={null}
       onPress={() => onPlay(id, text)}
-      style={{ minHeight: 56, borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 16, paddingVertical: 8 }}
+      style={{ minHeight: 66, borderRadius: 16, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 16, paddingVertical: 10 }}
     >
-      <View style={{ width: 32, height: 32, borderRadius: 16, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
-        <Icon name="play" size={12} color={t.acc} />
+      <View style={{ width: 45, height: 45, borderRadius: 22.5, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+        <Icon name="play" size={17} color={t.acc} />
       </View>
       <TX font="serifI" role="titleSm" style={{ flex: 1 }}>{label}</TX>
-      <Waveform count={12} height={15} barWidth={2.5} gap={3} active={on} color={on ? t.acc : t.txNonText} />
+      <Waveform count={12} height={21} barWidth={3.25} gap={3} active={on} color={on ? t.acc : t.txNonText} />
     </Press>
   );
 }
@@ -203,11 +169,11 @@ export function LetterGridView({ letters, sectionTitle, onPlay, playingId }: { l
         ))}
       </View>
 
-      <DetailSheet open={sel !== null} onClose={() => setSel(null)}>
+      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full">
         {sel ? (
           <View>
             <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 14, marginBottom: 6 }}>
-              <TX font="serif" size={72} role="display" color={t.accTx}>{sel.ch}</TX>
+              <TX font="serif" size={92} role="display" color={t.accTx}>{sel.ch}</TX>
               <View style={{ paddingBottom: 12 }}>
                 <TX font="semi" role="titleLg" ls={0.5}>{sel.name}</TX>
                 {sel.ipa ? <TX role="label" color={t.txMuted}>{sel.ipa}</TX> : null}
@@ -232,7 +198,7 @@ export function LetterGridView({ letters, sectionTitle, onPlay, playingId }: { l
             ) : null}
           </View>
         ) : null}
-      </DetailSheet>
+      </LessonModal>
     </View>
   );
 }
@@ -240,6 +206,13 @@ export function LetterGridView({ letters, sectionTitle, onPlay, playingId }: { l
 /* ─── Nested swipe deck ──────────────────────────────────────────────────── */
 
 type DeckSection = Extract<LessonSection, { type: 'cardDeck' }>;
+
+// Mirrors LessonPager's page window, one level down: a deck reachable by a
+// single swipe (current card ± 1) stays mounted, everything past that is an
+// empty same-width spacer. A lesson can carry several of these decks with
+// dozens of cards each — rendering every card in every deck up front was a
+// meaningful share of what made opening a content-heavy lesson slow.
+const CARD_WINDOW = 1;
 
 export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & PlayProps) {
   const t = useTheme();
@@ -270,6 +243,9 @@ export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & Play
         contentContainerStyle={{ paddingRight: 28 }}
       >
         {s.cards.map((c, i) => {
+          if (Math.abs(i - ix) > CARD_WINDOW) {
+            return <View key={i} style={{ width: cardW, marginRight: 12, minHeight: cardH }} />;
+          }
           const pid = `${s.title}-card-${i}`;
           return (
             <View
@@ -293,7 +269,7 @@ export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & Play
               ) : null}
               {c.fr ? (
                 <View style={{ marginBottom: c.body ? 14 : 0 }}>
-                  <ListenButton id={pid} text={c.fr} onPlay={onPlay} playingId={playingId} size={40} />
+                  <ListenButton id={pid} text={c.fr} onPlay={onPlay} playingId={playingId} size={58} />
                 </View>
               ) : null}
               {c.body ? (
@@ -355,7 +331,7 @@ export function TapTableView({ s, onPlay, playingId }: { s: TapTableSection } & 
         ))}
       </View>
 
-      <DetailSheet open={sel !== null} onClose={() => setSel(null)}>
+      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full">
         {sel?.detail ? (
           <View>
             <TX font="serif" size={28} role="display" lhMult={1.2} style={{ marginBottom: 12 }}>{sel.detail.title}</TX>
@@ -371,7 +347,138 @@ export function TapTableView({ s, onPlay, playingId }: { s: TapTableSection } & 
             ) : null}
           </View>
         ) : null}
-      </DetailSheet>
+      </LessonModal>
+    </View>
+  );
+}
+
+/* ─── Table (stacked cards, tap a row with detail → modal) ───────────────── */
+
+type TableSection = Extract<LessonSection, { type: 'table' }>;
+
+export function TableView({ s, onPlay, playingId }: { s: TableSection } & PlayProps) {
+  const t = useTheme();
+  const [sel, setSel] = useState<{ ri: number; detail: NonNullable<NonNullable<TableSection['rowDetails']>[number]> } | null>(null);
+
+  return (
+    <View>
+      <View style={{ flexDirection: 'row', gap: 12, paddingHorizontal: 4, marginBottom: 10 }}>
+        {s.cols.map((c, ci) => (
+          <TX key={ci} font="semi" role="meta" ls={1.4} color={t.accTx} style={{ flex: 1 }}>{c}</TX>
+        ))}
+      </View>
+      <View style={{ gap: 8 }}>
+        {s.rows.map((row, ri) => {
+          const detail = s.rowDetails?.[ri] ?? null;
+          return (
+            <Press
+              key={ri}
+              cue={null}
+              disabled={!detail}
+              onPress={() => {
+                if (!detail) return;
+                sound.play('flip');
+                setSel({ ri, detail });
+              }}
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 12,
+                borderRadius: 14,
+                borderWidth: 1,
+                borderColor: t.line(9),
+                backgroundColor: t.card,
+                paddingHorizontal: 16,
+                paddingVertical: 12,
+                ...t.cardShadow,
+              }}
+            >
+              {row.map((cell, ci) => (
+                <TX key={ci} role="bodySm" lhMult={1.45} color={t.txSecondary} style={{ flex: 1 }}>{cell}</TX>
+              ))}
+              {detail ? <Icon name="chevronRight" size={13} color={t.txNonText} strokeWidth={1.6} /> : null}
+            </Press>
+          );
+        })}
+      </View>
+
+      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full">
+        {sel ? (
+          <View>
+            <TX font="serif" size={28} role="display" lhMult={1.2} style={{ marginBottom: 12 }}>{sel.detail.title}</TX>
+            <TX role="body" color={t.txSecondary} lhMult={1.6} style={{ marginBottom: 16 }}>{sel.detail.body}</TX>
+            {sel.detail.say ? (
+              <SpeakRow
+                id={`${s.title}-row-${sel.ri}`}
+                text={sel.detail.say}
+                label={sel.detail.say}
+                onPlay={onPlay}
+                playingId={playingId}
+              />
+            ) : null}
+          </View>
+        ) : null}
+      </LessonModal>
+    </View>
+  );
+}
+
+/* ─── Cheat sheet (stacked cards, tap a row with detail → modal) ─────────── */
+
+type CheatSheetSection = Extract<LessonSection, { type: 'cheatSheet' }>;
+
+export function CheatSheetView({ s, onPlay, playingId }: { s: CheatSheetSection } & PlayProps) {
+  const t = useTheme();
+  const [sel, setSel] = useState<CheatSheetSection['rows'][number] | null>(null);
+
+  return (
+    <View style={{ gap: 8 }}>
+      {s.rows.map((r, i) => (
+        <Press
+          key={i}
+          cue={null}
+          disabled={!r.detail}
+          onPress={() => {
+            if (!r.detail) return;
+            sound.play('flip');
+            setSel(r);
+          }}
+          style={{
+            flexDirection: 'row',
+            gap: 12,
+            alignItems: 'center',
+            borderRadius: 14,
+            borderWidth: 1,
+            borderColor: t.line(9),
+            backgroundColor: t.card,
+            paddingHorizontal: 16,
+            paddingVertical: 12,
+            ...t.cardShadow,
+          }}
+        >
+          <TX font="serif" role="bodySm" color={t.accTx} style={{ width: 90 }}>{r.k}</TX>
+          <TX role="bodySm" color={t.txSecondary} style={{ flex: 1 }}>{r.v}</TX>
+          {r.detail ? <Icon name="chevronRight" size={13} color={t.txNonText} strokeWidth={1.6} /> : null}
+        </Press>
+      ))}
+
+      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="full">
+        {sel?.detail ? (
+          <View>
+            <TX font="serif" size={28} role="display" lhMult={1.2} style={{ marginBottom: 12 }}>{sel.detail.title}</TX>
+            <TX role="body" color={t.txSecondary} lhMult={1.6} style={{ marginBottom: 16 }}>{sel.detail.body}</TX>
+            {sel.detail.say ?? sel.say ? (
+              <SpeakRow
+                id={`${s.title}-row-${sel.k}`}
+                text={(sel.detail.say ?? sel.say)!}
+                label={sel.detail.say ?? sel.say!}
+                onPlay={onPlay}
+                playingId={playingId}
+              />
+            ) : null}
+          </View>
+        ) : null}
+      </LessonModal>
     </View>
   );
 }
@@ -430,7 +537,7 @@ export function VocabThemesView({ themes, sectionTitle, onPlay, playingId }: { t
         })}
       </View>
 
-      <DetailSheet open={sel !== null} onClose={() => setSel(null)}>
+      <LessonModal open={sel !== null} onClose={() => setSel(null)} size="sheet">
         {sel ? (
           <View>
             <TX font="serif" size={26} role="display" lhMult={1.2} style={{ marginBottom: 4 }}>{sel.title}</TX>
@@ -456,14 +563,14 @@ export function VocabThemesView({ themes, sectionTitle, onPlay, playingId }: { t
                     <TX font="serifI" size={27} role="titleLg" ls={0.4} lhMult={1.3} style={{ width: '100%' }}>{c.fr}</TX>
                     {c.sub ? <TX role="label" color={t.txMuted} ls={0.3} lhMult={1.5} style={{ width: '100%', marginTop: 6 }}>{c.sub}</TX> : null}
                     <TX role="bodySm" color={t.txSecondary} lhMult={1.5} style={{ width: '100%', marginTop: 8, marginBottom: 14 }}>{c.en}</TX>
-                    <ListenButton id={pid} text={c.fr} onPlay={onPlay} playingId={playingId} size={40} />
+                    <ListenButton id={pid} text={c.fr} onPlay={onPlay} playingId={playingId} size={58} />
                   </View>
                 );
               })}
             </ScrollView>
           </View>
         ) : null}
-      </DetailSheet>
+      </LessonModal>
     </View>
   );
 }
@@ -568,9 +675,9 @@ export function FlashcardsView({ s, onPlay, playingId }: { s: FlashSection } & P
                 <Press
                   cue={null}
                   onPress={() => onPlay(pid, card.say!)}
-                  style={{ marginTop: 22, width: 44, height: 44, borderRadius: 22, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
+                  style={{ marginTop: 24, width: 64, height: 64, borderRadius: 32, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
                 >
-                  <Icon name="speaker" size={18} color={playingId === pid ? t.accTx : t.acc} />
+                  <Icon name="speaker" size={26} color={playingId === pid ? t.accTx : t.acc} />
                 </Press>
               ) : null}
             </Animated.View>
@@ -670,11 +777,11 @@ export function PracticeVFView({
             {/* Audio chip — plays the French word */}
             <Press
               cue={null}
-              onPress={() => onPlay(pid, item.fr)}
-              style={{ flexDirection: 'row', alignItems: 'center', gap: 10, height: 36, paddingHorizontal: 15, borderRadius: 18, borderWidth: 1, borderColor: t.accA(40), marginBottom: 14 }}
+              onPress={() => onPlay(pid, item.fr, item.audioRef)}
+              style={{ flexDirection: 'row', alignItems: 'center', gap: 14, height: 50, paddingHorizontal: 21, borderRadius: 25, borderWidth: 1, borderColor: t.accA(40), marginBottom: 16 }}
             >
-              <Icon name="play" size={12} color={t.acc} />
-              <Waveform count={14} height={14} color={on ? t.acc : t.txNonText} active={on} barWidth={2.5} gap={3} />
+              <Icon name="play" size={17} color={t.acc} />
+              <Waveform count={14} height={19} color={on ? t.acc : t.txNonText} active={on} barWidth={3.25} gap={3} />
             </Press>
             <TX font="semi" role="meta" ls={2.6} color={t.accTx}>{T.sayFr}</TX>
           </View>

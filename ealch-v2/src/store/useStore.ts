@@ -49,6 +49,11 @@ export type AppState = {
   // system setting, and only on the lesson-style screens.
   brightBoost: boolean;
 
+  // The swipeable "how lessons work" intro (LessonKeyIntro) auto-shows once,
+  // ever, before the first lesson a user opens, then never again on its own —
+  // a `?` in the lesson header reopens it afterward regardless of this flag.
+  lessonKeySeen: boolean;
+
   // home: whether the "Browse" fold is expanded — a UI preference that should
   // survive remounts, not reset to collapsed on every visit.
   browseOpen: boolean;
@@ -119,6 +124,7 @@ export type AppState = {
   setAccent: (hex: string) => void;
   setSound: (on: boolean) => void;
   setBrightBoost: (on: boolean) => void;
+  setLessonKeySeen: (seen: boolean) => void;
   setAlarm: (t: string) => void;
   setClock24: (v: boolean) => void;
   setNotif: (k: keyof Notifs, v: boolean) => void;
@@ -151,6 +157,7 @@ const initialData = () => ({
   accent: ACCENTS[0].c,
 
   brightBoost: true,
+  lessonKeySeen: false,
   browseOpen: false,
 
   sound: true,
@@ -197,6 +204,7 @@ export const useStore = create<AppState>()(
       setAccent: (accent) => set({ accent }),
       setSound: (sound) => set({ sound }),
       setBrightBoost: (brightBoost) => set({ brightBoost }),
+      setLessonKeySeen: (lessonKeySeen) => set({ lessonKeySeen }),
       setAlarm: (alarmTime) => {
         set({ alarmTime });
         // scheduleDaily cancels before scheduling, so at most one is pending.
@@ -334,6 +342,7 @@ export const useStore = create<AppState>()(
         mode: s.mode,
         accent: s.accent,
         brightBoost: s.brightBoost,
+        lessonKeySeen: s.lessonKeySeen,
         browseOpen: s.browseOpen,
         sound: s.sound,
         alarmTime: s.alarmTime,

@@ -186,8 +186,8 @@ export default function Placement() {
             {/* The word — with its sound, because recognising French includes
                 recognising it spoken. Playback is on demand, never a surprise. */}
             <View style={{ borderRadius: 20, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 22, marginBottom: 20, flexDirection: 'row', alignItems: 'center', gap: 16 }}>
-              <Press cue="tap" onPress={() => tts.speak(q.item.fr)} style={{ width: 52, height: 52, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="play" size={16} color={t.accInk} />
+              <Press cue="tap" onPress={() => tts.speak(q.item.fr)} style={{ width: 73, height: 73, borderRadius: 36.5, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                <Icon name="play" size={22} color={t.accInk} />
               </Press>
               <TX font="serifI" role="display" size={30} style={{ flex: 1, minWidth: 0 }}>
                 {q.item.fr}

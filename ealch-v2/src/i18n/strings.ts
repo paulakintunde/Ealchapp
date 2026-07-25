@@ -95,10 +95,19 @@ export type Strings = {
   practiceGotIt: string; practiceMissed: string;
   lessonNext: string; lessonPrev: string; lessonOverview: string; lessonSwipeHint: string;
   lessonTapLetter: string; lessonMemo: string; lessonReplay: string; lessonNarration: string;
+  lessonListen: string; lessonListening: string;
+  lkWelcomeT: string; lkWelcomeS: string;
+  lkCountersT: string; lkCountersS: string;
+  lkListenT: string; lkListenS: string;
+  lkWaveT: string; lkWaveS: string;
+  lkTapT: string; lkTapS: string; lkTapRowLabel: string;
+  lkNavT: string; lkNavS: string;
+  lkSkip: string; lkStart: string; lkHelp: string;
   lessonTapOpen: string; lessonSwipe: string; quizWord: string; quizHint: string; quizAnswerAll: string;
   lessonNextUp: string; lessonRestart: string;
   flashQuestion: string; flashAnswer: string; flashReveal: string;
   denLearned: string;
+  denLearnedPct: string;
   denMastered: string;
   examplesT: string; tableT: string; errorsT: string; audioT: string; videoT: string; subsT: string;
   sayFr: string; transEn: string; orTypeT: string; checkT: string;
@@ -233,7 +242,7 @@ export const T: Record<Lang, Strings> = {
     resumeTag: 'REPRENDRE', beginTag: 'POUR COMMENCER', resumeSub: 'Reprenez où vous en étiez', begin: 'Commencer', vocabPrime: 'Le vocabulaire',
     reviewHeroTitle: 'À réviser', listenHeroTitle: "À l'écoute", listenHeroSub: 'De vraies phrases, une vraie voix',
     freshHeroTitle: 'Des mots nouveaux', freshHeroSub: '{n} mots choisis pour aujourd’hui', freshShort: '{n} nouveaux',
-    found: 'Les fondations', denT: 'Le coin des débutants', denS: 'Sons · A1 · A2 — le cursus complet',
+    found: 'Les fondations', denT: 'Le cours de remise à niveau', denS: 'Sons · A1 · A2 — le cursus complet',
     cardsT: 'Cartes mémoire', cardsS: '{n} cartes · à réviser', cardsTag: 'RAPPEL · CARTES', unitsWord: 'UNITÉS',
     themesTag: 'PRATIQUE · PAR THÈME', themesTitle: 'Choisissez votre scène.',
     themesSub: 'Des situations réelles, en cinq étapes. Camille vous attend à la fin.', allLevels: 'Tous',
@@ -277,8 +286,8 @@ export const T: Record<Lang, Strings> = {
     chatGreet: 'Bonjour ! Posez-moi vos questions sur le français, en français ou en anglais.',
     coachIdle: 'votre coach de français', coachOnline: 'en ligne', coachOffline: 'hors ligne · conseils enregistrés', coachTip: 'Conseil enregistré (hors ligne)',
     skills: ['FLUIDITÉ', 'PRÉCISION', 'RYTHME & LIAISONS'],
-    denTag: 'LE COIN DES DÉBUTANTS',
-    denIntro: "Un vrai cursus, du premier son jusqu'au passé composé. Aucune honte à commencer petit.",
+    denTag: 'LE COURS DE REMISE À NIVEAU',
+    denIntro: "Un vrai cursus, du premier son jusqu'au passé composé. Idéal pour se remettre à niveau.",
     denCont: 'Continuer',
     trackDescs: {
       sons: "De l'alphabet à la masterclass de prononciation : les sons avant les mots.",
@@ -324,10 +333,26 @@ export const T: Record<Lang, Strings> = {
     practiceGotIt: 'Je savais', practiceMissed: 'Raté',
     lessonNext: 'Suivant', lessonPrev: 'Précédent', lessonOverview: 'Aperçu', lessonSwipeHint: 'Glissez pour commencer',
     lessonTapLetter: 'Touchez une lettre pour ouvrir sa carte', lessonMemo: 'À RETENIR', lessonReplay: 'Réécouter la narration', lessonNarration: 'Narration',
+    lessonListen: 'Écouter', lessonListening: 'Écoute…',
+    lkWelcomeT: 'Glissez pour naviguer',
+    lkWelcomeS: "Les leçons sont un jeu de cartes, pas un long défilement. Glissez à gauche ou à droite pour changer de section — essayez maintenant.",
+    lkCountersT: 'Deux chiffres, deux compteurs',
+    lkCountersS: "Le chiffre de gauche compte les sections. Celui de droite compte chaque page que vous pouvez glisser, quiz compris — d'où la différence.",
+    lkListenT: 'Touchez pour écouter',
+    lkListenS: "Cette puce apparaît quand une section peut être écoutée. Touchez pour écouter, touchez à nouveau pour réécouter — rien ne se joue tout seul.",
+    lkWaveT: 'Barres animées = lecture en cours',
+    lkWaveS: "Là où vous voyez ceci près d'un bouton, il s'anime uniquement pendant que cet audio précis joue.",
+    lkTapT: 'Les lignes avec une flèche s\'ouvrent',
+    lkTapS: "Une ligne comme celle-ci contient plus — touchez-la pour une carte plus grande avec le détail complet. Sans flèche, c'est juste une référence.",
+    lkTapRowLabel: 'ami — friend',
+    lkNavT: 'Les boutons font pareil que le balayage',
+    lkNavS: "Précédent et Suivant en bas vous déplacent aussi. Un oubli ? Touchez le ? en haut de n'importe quelle leçon pour revoir ceci.",
+    lkSkip: 'Passer', lkStart: 'Commencer la leçon', lkHelp: 'Comment fonctionnent les leçons',
     lessonTapOpen: 'Touchez pour ouvrir', lessonSwipe: 'Glissez', quizWord: 'QUIZ', quizHint: 'Une question par carte, glissez pour avancer', quizAnswerAll: 'Répondez à toutes les questions pour voir votre résultat',
     lessonNextUp: 'Leçon suivante', lessonRestart: 'Recommencer la leçon',
     flashQuestion: 'QUESTION', flashAnswer: 'RÉPONSE', flashReveal: 'Touchez pour révéler',
     denLearned: '{n} / {m} appris',
+    denLearnedPct: '{p} % appris',
     denMastered: '{k} maîtrisés',
     examplesT: 'Exemples & usages', tableT: 'Tableau', errorsT: 'Erreurs communes', audioT: 'Pratique audio', videoT: 'Vidéo — la bouche en 3D', subsT: 'Sous-leçons',
     sayFr: 'Dites-le en français', transEn: 'Traduisez en anglais', orTypeT: 'ou écrivez votre réponse', checkT: 'Vérifier',
@@ -416,7 +441,7 @@ export const T: Record<Lang, Strings> = {
     obCalibT: 'Lisez ceci à voix haute.', obCalibS: 'Dix secondes suffisent. Lisez à voix haute et sentez le rythme, les liaisons et les voyelles nasales.',
     obCalibRec: 'Continuez à lire : rythme, liaisons, voyelles nasales', obCalibTap: 'Touchez le micro et lisez',
     obDecouverte: 'Découverte : le commencement.', obSeuil: 'Seuil : le passage.',
-    obResultA1: 'Une page blanche. Votre parcours commence au Coin des débutants : les sons d\'abord, puis les mots. Camille restera douce.',
+    obResultA1: 'Une page blanche. Votre parcours commence au Cours de remise à niveau : les sons d\'abord, puis les mots. Camille restera douce.',
     obResultB1: "Des fondations solides. D'après votre expérience, le flux de ce soir commence par les liaisons et les voyelles nasales.",
     enterEalch: 'Entrer dans Ealch',
     welcomeBack: 'BON RETOUR', helloAgain: 'Re-bonjour.', forgotPw: 'Mot de passe oublié ?', signInBtn: 'Se connecter', newHere: 'Nouveau ici ?',
@@ -495,7 +520,7 @@ export const T: Record<Lang, Strings> = {
       { label: 'Le plan de demain ?', msg: 'Quel est le plan de demain ?' },
     ],
     planFree: 'Essentiel — Gratuit',
-    planFreeDesc: 'Feed quotidien · 1 scénario par jour · Le Coin des débutants',
+    planFreeDesc: 'Feed quotidien · 1 scénario par jour · Le Cours de remise à niveau',
     offlineTag: 'HORS LIGNE',
     dlCats: ['Playlists', 'Leçons', 'Audio du coach'],
     dlSubs: ['12 leçons · 210 Mo', 'playlist · 160 Mo', '24 leçons · 340 Mo'],
@@ -532,7 +557,7 @@ export const T: Record<Lang, Strings> = {
     resumeTag: 'CONTINUE', beginTag: 'START HERE', resumeSub: 'Pick up where you left off', begin: 'Begin', vocabPrime: 'Vocab first',
     reviewHeroTitle: 'À réviser', listenHeroTitle: "À l'écoute", listenHeroSub: 'Real phrases, in a real voice',
     freshHeroTitle: 'New words', freshHeroSub: '{n} words picked for today', freshShort: '{n} new',
-    found: 'Foundations', denT: "Beginners' Den", denS: 'Sounds · A1 · A2 — the full curriculum',
+    found: 'Foundations', denT: 'Refresher Course', denS: 'Sounds · A1 · A2 — the full curriculum',
     cardsT: 'Flashcards', cardsS: '{n} cards · due now', cardsTag: 'RECALL · FLASHCARDS', unitsWord: 'UNITS',
     themesTag: 'PRACTICE · BY THEME', themesTitle: 'Choose your scene.',
     themesSub: 'Real situations, five steps each. Camille waits at the end.', allLevels: 'All',
@@ -576,8 +601,8 @@ export const T: Record<Lang, Strings> = {
     chatGreet: 'Bonjour! Ask me anything about French, in French or English.',
     coachIdle: 'your French coach', coachOnline: 'online', coachOffline: 'offline · saved tips', coachTip: 'Saved tip (offline)',
     skills: ['FLUENCY', 'ACCURACY', 'RHYTHM & LIAISONS'],
-    denTag: "BEGINNERS' DEN",
-    denIntro: 'A real curriculum, from your first sound to the past tense. No shame in starting small.',
+    denTag: 'REFRESHER COURSE',
+    denIntro: 'A real curriculum, from your first sound to the past tense, built to get you back up to speed.',
     denCont: 'Continue',
     trackDescs: {
       sons: 'From the alphabet to the pronunciation masterclass: sounds before words.',
@@ -623,10 +648,26 @@ export const T: Record<Lang, Strings> = {
     practiceGotIt: 'I knew it', practiceMissed: 'Missed it',
     lessonNext: 'Next', lessonPrev: 'Back', lessonOverview: 'Overview', lessonSwipeHint: 'Swipe to begin',
     lessonTapLetter: 'Tap a letter to open its card', lessonMemo: 'MEMORIZE', lessonReplay: 'Replay narration', lessonNarration: 'Narration',
+    lessonListen: 'Listen', lessonListening: 'Listening…',
+    lkWelcomeT: 'Swipe to move around',
+    lkWelcomeS: 'Lessons are a deck of cards, not a scroll. Swipe left or right to move between sections — try it now.',
+    lkCountersT: 'Two numbers, two counts',
+    lkCountersS: "The left number counts teaching sections. The right counts every page you can swipe through, quiz included — that's why they're different.",
+    lkListenT: 'Tap to hear it',
+    lkListenS: 'This chip appears whenever a section has something to hear. Tap it to listen, tap again to replay — nothing plays on its own.',
+    lkWaveT: 'Moving bars = playing',
+    lkWaveS: 'Wherever you see this next to a button, it animates only while that exact audio is playing.',
+    lkTapT: 'Rows with an arrow open up',
+    lkTapS: "A row like this holds more — tap it for a bigger card with the full detail. No arrow means it's just reference text.",
+    lkTapRowLabel: 'ami — friend',
+    lkNavT: 'Buttons do the same as swiping',
+    lkNavS: 'Prev and Next at the bottom move you around too. Forgot something? Tap the ? at the top of any lesson to see this again.',
+    lkSkip: 'Skip', lkStart: 'Start the lesson', lkHelp: 'How lessons work',
     lessonTapOpen: 'Tap to open', lessonSwipe: 'Swipe', quizWord: 'QUIZ', quizHint: 'One question per card, swipe to move on', quizAnswerAll: 'Answer every question to see your result',
     lessonNextUp: 'Next lesson', lessonRestart: 'Restart the lesson',
     flashQuestion: 'QUESTION', flashAnswer: 'ANSWER', flashReveal: 'Tap to reveal',
     denLearned: '{n} / {m} learned',
+    denLearnedPct: '{p}% learned',
     denMastered: '{k} mastered',
     examplesT: 'Examples & use cases', tableT: 'Table', errorsT: 'Common errors', audioT: 'Audio practice', videoT: 'Video — the mouth in 3D', subsT: 'Sub-lessons',
     sayFr: 'Say it in French', transEn: 'Translate to English', orTypeT: 'or type your answer', checkT: 'Check',
@@ -715,7 +756,7 @@ export const T: Record<Lang, Strings> = {
     obCalibT: 'Read this aloud.', obCalibS: 'Ten seconds is enough. Read it aloud and feel the rhythm, the liaisons, the nasal vowels.',
     obCalibRec: 'Keep reading: rhythm, liaisons, nasal vowels', obCalibTap: 'Tap the mic and read',
     obDecouverte: 'Découverte: the beginning.', obSeuil: 'Seuil: the threshold.',
-    obResultA1: "A clean slate. Your journey starts in the Beginners' Den: sounds first, then words. Camille will keep it gentle.",
+    obResultA1: 'A clean slate. Your journey starts in the Refresher Course: sounds first, then words. Camille will keep it gentle.',
     obResultB1: "Solid foundations. Based on your experience, tonight's feed starts with liaisons and nasal vowels.",
     enterEalch: 'Enter Ealch',
     welcomeBack: 'WELCOME BACK', helloAgain: 'Hello again.', forgotPw: 'Forgot password?', signInBtn: 'Sign in', newHere: 'New here?',
@@ -794,7 +835,7 @@ export const T: Record<Lang, Strings> = {
       { label: "What's next?", msg: "What's tomorrow's plan?" },
     ],
     planFree: 'Essential — Free',
-    planFreeDesc: "Daily feed · 1 scenario per day · Beginners' Den",
+    planFreeDesc: 'Daily feed · 1 scenario per day · Refresher Course',
     offlineTag: 'OFFLINE',
     dlCats: ['Playlists', 'Lessons', 'Coach audio'],
     dlSubs: ['12 lessons · 210 MB', 'playlist · 160 MB', '24 lessons · 340 MB'],

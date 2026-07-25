@@ -401,8 +401,8 @@ export default function Flashcards() {
                     is already the question: on EN → FR and prompt fronts the
                     French is part of the answer, so no audio there. */}
                 {!promptMode && frFront ? (
-                  <View style={{ minHeight: 52, borderRadius: 26, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18, paddingVertical: 6, marginBottom: 16 }}>
-                    <Waveform count={16} height={16} color={t.accA(55)} barWidth={2.5} gap={3.5} />
+                  <View style={{ minHeight: 70, borderRadius: 35, borderWidth: 1, borderColor: t.line(12), backgroundColor: t.card, flexDirection: 'row', alignItems: 'center', gap: 16, paddingHorizontal: 20, paddingVertical: 8, marginBottom: 16 }}>
+                    <Waveform count={16} height={22} color={t.accA(55)} barWidth={3.25} gap={4} />
                     <Press
                       onPress={() => tts.speak(card.fr)}
                       cue={null}
@@ -413,9 +413,9 @@ export default function Flashcards() {
                       // warns) and a WCAG nested-interactive-controls violation.
                       // accessibilityLabel alone still announces it to AT.
                       accessibilityLabel={T.playAudioA11y}
-                      style={{ width: 38, height: 38, borderRadius: 19, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
+                      style={{ width: 53, height: 53, borderRadius: 26.5, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
                     >
-                      <Icon name="speaker" size={16} color={t.acc} />
+                      <Icon name="speaker" size={22} color={t.acc} />
                     </Press>
                   </View>
                 ) : null}
@@ -462,8 +462,8 @@ export default function Flashcards() {
                 {/* Audio pill in the same slot as the front's, so the control
                     stays under the thumb through the flip. The back always
                     speaks the French — here it is the answer, revealed. */}
-                <View style={{ minHeight: 52, borderRadius: 26, borderWidth: 1, borderColor: t.accA(30), flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 18, paddingVertical: 6, marginBottom: 16 }}>
-                  <Waveform count={16} height={16} color={t.accA(55)} barWidth={2.5} gap={3.5} />
+                <View style={{ minHeight: 70, borderRadius: 35, borderWidth: 1, borderColor: t.accA(30), flexDirection: 'row', alignItems: 'center', gap: 16, paddingHorizontal: 20, paddingVertical: 8, marginBottom: 16 }}>
+                  <Waveform count={16} height={22} color={t.accA(55)} barWidth={3.25} gap={4} />
                   <Press
                     onPress={() => tts.speak(card.fr)}
                     cue={null}
@@ -472,9 +472,9 @@ export default function Flashcards() {
                     // Flip-card button too, and a nested <button> is invalid
                     // HTML on web (and an AT anti-pattern either platform).
                     accessibilityLabel={T.playAudioA11y}
-                    style={{ width: 38, height: 38, borderRadius: 19, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
+                    style={{ width: 53, height: 53, borderRadius: 26.5, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}
                   >
-                    <Icon name="speaker" size={18} color={t.acc} />
+                    <Icon name="speaker" size={25} color={t.acc} />
                   </Press>
                 </View>
               </Animated.View>

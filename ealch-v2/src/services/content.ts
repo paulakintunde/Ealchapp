@@ -68,12 +68,17 @@ const STORAGE_BASE = ENV.supabaseUrl
   ? `${ENV.supabaseUrl.replace(/\/$/, '')}/storage/v1/object/public/content`
   : '';
 
-/** Resolve a storage-relative asset ref (Item.imageRef, later audioRef) to a
- *  fetchable URL, or null when the app runs unconfigured — callers must treat
- *  null as "no asset" and fall back, never render a broken source. */
+/** Resolve a storage-relative asset ref (Item.imageRef, Item/section
+ *  audioRef) to a fetchable URL, or null when the app runs unconfigured —
+ *  callers must treat null as "no asset" and fall back, never render a
+ *  broken source. R2 (ENV.assetBaseUrl) wins once configured — the
+ *  AUDIO-RENDER-SPEC end-state — falling back to the Supabase content bucket
+ *  ("wave 1") so existing image refs keep resolving during the migration. */
 export function contentAssetUrl(ref: string | null | undefined): string | null {
-  if (!ref || !STORAGE_BASE) return null;
-  return `${STORAGE_BASE}/${ref}`;
+  if (!ref) return null;
+  const base = ENV.assetBaseUrl ? ENV.assetBaseUrl.replace(/\/$/, '') : STORAGE_BASE;
+  if (!base) return null;
+  return `${base}/${ref}`;
 }
 
 type ContentState = {

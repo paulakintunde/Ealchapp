@@ -199,7 +199,7 @@ export default function Player() {
             {cur.en}
           </TX>
           <View style={{ position: 'absolute', left: 20, bottom: 20 }}>
-            <Waveform count={22} height={22} barWidth={2.5} gap={3.5} active={playing} color={playing ? t.acc : t.txNonText} />
+            <Waveform count={22} height={30} barWidth={3.25} gap={4} active={playing} color={playing ? t.acc : t.txNonText} />
           </View>
         </View>
 

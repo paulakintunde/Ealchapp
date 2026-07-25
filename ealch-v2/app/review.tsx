@@ -175,8 +175,8 @@ export default function Review() {
                   {q.example.fr}
                 </TX>
               ) : null}
-              <Press onPress={() => tts.speak(q.fr)} cue={null} style={{ marginTop: 18, width: 44, height: 44, borderRadius: 22, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="speaker" size={18} color={t.acc} />
+              <Press onPress={() => tts.speak(q.fr)} cue={null} style={{ marginTop: 20, width: 64, height: 64, borderRadius: 32, borderWidth: 1, borderColor: t.accA(50), alignItems: 'center', justifyContent: 'center' }}>
+                <Icon name="speaker" size={26} color={t.acc} />
               </Press>
             </>
           ) : null}

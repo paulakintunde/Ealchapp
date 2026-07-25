@@ -518,7 +518,9 @@ export type Item = {
  * map, IMAGE_REF_RE shape). Both optional: absence means a silent, text-only
  * card, which every lesson shipped before these fields existed already is.
  */
-export type SectionExtras = { say?: string; imageRef?: string };
+/** `audioRef` is the pre-rendered clip for `say` (Phase 7's render-once
+ *  pipeline — see AUDIO-RENDER-SPEC.md); null/absent falls back to live TTS. */
+export type SectionExtras = { say?: string; imageRef?: string; audioRef?: string | null };
 
 /** One tappable letter in a letterGrid: the glyph, its French NAME (respelled),
  *  the SOUND it makes inside words, and one example. `memo` is the memorize
@@ -570,12 +572,27 @@ export type LessonSection = (
   | { type: 'useCases'; title: string; cases: { situation: string; fr: string; en: string }[] }
   /** The trick a good teacher gives you. `why` stops it being folklore. */
   | { type: 'hacks'; title: string; hacks: { hack: string; why: string }[] }
-  /** The thing you screenshot before the exam. */
-  | { type: 'cheatSheet'; title: string; rows: { k: string; v: string }[] }
+  /** The thing you screenshot before the exam. Each row is a stacked card; a
+   *  row with `detail` opens a tap-to-view card, exactly like a `tapTable` row. */
+  | {
+      type: 'cheatSheet';
+      title: string;
+      rows: { k: string; v: string; say?: string; detail?: { title: string; body: string; say?: string } }[];
+    }
   | { type: 'commonErrors'; title: string; errors: { wrong: string; right: string; why: string }[] }
   /** What to concentrate on. Deliberately short. */
   | { type: 'focus'; title: string; points: string[] }
-  | { type: 'table'; title: string; cols: string[]; rows: string[][] }
+  /** Each row is a stacked card. `rowDetails` is index-aligned with `rows`
+   *  (same index; `null`/absent = that row has no detail and stays plain) —
+   *  kept parallel rather than folded into `rows` so existing `string[][]`
+   *  content authored before this field existed keeps working unchanged. */
+  | {
+      type: 'table';
+      title: string;
+      cols: string[];
+      rows: string[][];
+      rowDetails?: ({ title: string; body: string; say?: string } | null)[];
+    }
   /** Lines to hear. Device TTS today; real audio in Phase 7. `segments` maps
    *  those lines onto a rendered file so the section can highlight and seek
    *  rather than only play; `audioRef` is the file it maps onto. */
@@ -1527,6 +1544,9 @@ function validateSection(s: unknown, path: string): Issue[] {
   if (sec.say !== undefined && !isStr(sec.say)) push('say must be a non-empty string when present');
   if (sec.imageRef !== undefined && (!isStr(sec.imageRef) || !IMAGE_REF_RE.test(sec.imageRef))) {
     push(`imageRef "${String(sec.imageRef)}" must be a storage-relative asset path`);
+  }
+  if (sec.audioRef !== undefined && sec.audioRef !== null && !isStr(sec.audioRef)) {
+    push('audioRef must be a string or null when present');
   }
 
   const strList = (k: string) => {

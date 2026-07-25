@@ -49,7 +49,7 @@ export function DictionaryOverlay() {
             {e.word}
           </TX>
           <Press onPress={() => tts.speak(e.speak)} style={{ padding: 4 }}>
-            <Icon name="speaker" size={20} color={t.acc} />
+            <Icon name="speaker" size={28} color={t.acc} />
           </Press>
         </View>
         <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>
