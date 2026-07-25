@@ -3,6 +3,7 @@ import {
   ScrollView,
   View,
   useWindowDimensions,
+  type LayoutChangeEvent,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
   type ViewStyle,
@@ -185,7 +186,12 @@ export function LessonPager({
 }: LessonPagerProps) {
   const t = useTheme();
   const T = useT();
-  const { width } = useWindowDimensions();
+  // The window's width, NOT the pager's actual rendered width: on web,
+  // AppFrame clips the app to a 430px phone-width column on wider viewports,
+  // so paging math must use the pager's own measured layout width (below),
+  // falling back to the window width only until that first layout fires.
+  const { width: windowWidth } = useWindowDimensions();
+  const [width, setWidth] = useState(windowWidth);
   const ref = useRef<ScrollView>(null);
   const [page, setPage] = useState(0);
   const hasQuiz = quiz.length > 0;
@@ -233,7 +239,9 @@ export function LessonPager({
   // defers the scroll to after the first paint so the offset lands on a laid-out
   // content view rather than a zero-width one.
   const didInit = useRef(false);
-  const onLayout = () => {
+  const onLayout = (e: LayoutChangeEvent) => {
+    const measured = e.nativeEvent.layout.width;
+    if (measured && measured !== width) setWidth(measured);
     if (didInit.current) return;
     didInit.current = true;
     if (initialIndex != null && initialIndex >= 0) {
@@ -241,7 +249,7 @@ export function LessonPager({
       const found = pages.findIndex((p) => p.kind === 'section' && p.sectionIx === initialIndex);
       const target = found >= 0 ? found : Math.min(lastPage, initialIndex + 1);
       requestAnimationFrame(() => {
-        ref.current?.scrollTo({ x: target * width, animated: false });
+        ref.current?.scrollTo({ x: target * measured, animated: false });
         setPage(target);
       });
     }

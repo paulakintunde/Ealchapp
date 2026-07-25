@@ -3,6 +3,7 @@ import {
   ScrollView,
   View,
   useWindowDimensions,
+  type LayoutChangeEvent,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
 } from 'react-native';
@@ -115,7 +116,12 @@ function NavDemo() {
 export function LessonKeyIntro({ onDone }: { onDone: () => void }) {
   const t = useTheme();
   const T = useT();
-  const { width } = useWindowDimensions();
+  // Not the window's width: on web, AppFrame clips the app to a 430px
+  // phone-width column on wider viewports, so paging math must use this
+  // card's own measured layout width, falling back to the window width only
+  // until the first onLayout fires.
+  const { width: windowWidth } = useWindowDimensions();
+  const [width, setWidth] = useState(windowWidth);
   const ref = useRef<ScrollView>(null);
   const [ix, setIx] = useState(0);
 
@@ -147,8 +153,13 @@ export function LessonKeyIntro({ onDone }: { onDone: () => void }) {
     onDone();
   };
 
+  const onLayout = (e: LayoutChangeEvent) => {
+    const measured = e.nativeEvent.layout.width;
+    if (measured && measured !== width) setWidth(measured);
+  };
+
   return (
-    <View style={{ flex: 1, backgroundColor: t.bg }}>
+    <View style={{ flex: 1, backgroundColor: t.bg }} onLayout={onLayout}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 24, paddingTop: 8, paddingBottom: 14 }}>
         <View style={{ flexDirection: 'row', gap: 5 }}>
           {cards.map((_, i) => (
