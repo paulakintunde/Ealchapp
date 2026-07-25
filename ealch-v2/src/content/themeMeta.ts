@@ -70,6 +70,8 @@ export const THEME_META: Record<string, ThemeMeta> = {
   'sports-et-loisirs': { fr: 'Le sport et les loisirs', en: 'Sports and hobbies', subFr: '', subEn: '' },
   'la-ville': { fr: 'La ville', en: 'The city', subFr: '', subEn: '' },
   'au-restaurant': { fr: 'Au restaurant', en: 'At the restaurant', subFr: '', subEn: '' },
+  'transports-quotidiens': { fr: 'Les transports du quotidien', en: 'Daily transportation', subFr: '', subEn: '' },
+  'technologie-quotidienne': { fr: 'La technologie au quotidien', en: 'Everyday technology', subFr: '', subEn: '' },
   'pays-et-nationalites': { fr: 'Les pays et les nationalités', en: 'Countries and nationalities', subFr: '', subEn: '' },
   'les-fetes': { fr: 'Les fêtes', en: 'Holidays and celebrations', subFr: '', subEn: '' },
   'noms-essentiels': { fr: 'Les noms essentiels', en: 'Essential nouns', subFr: '', subEn: '' },
