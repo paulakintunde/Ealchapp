@@ -29,6 +29,14 @@ const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as { i
 const vocabType = (it: Item) => (it.cardType ?? 'vocab') === 'vocab';
 const norm = (s: string) => s.toLowerCase().replace(/^(le |la |les |l'|un |une |des )/, '').trim();
 
+// The 2026-07 exam-vocab expansion deliberately authored separate flashcard-pool
+// and voiceflash-pool words (distinct vocabulary per drill, by design, approved
+// per-batch) rather than the paired flashcard+voiceflash convention every earlier
+// batch used. Exempting it by provenance keeps this guard live for everything
+// else — an accidental single-drill regression anywhere but this named batch
+// still fails loudly, which is the whole point of the test.
+const isSeparatePoolsBatch = (it: Item) => it.provenance?.promptVersion === 'exam-vocab-2026-07';
+
 test('every beginner vocab word is reachable by the flashcard drill', () => {
   // kind 'sentence' is exempt on purpose: dictation sentences are spelling
   // exercises and legitimately live outside the flashcard decks.
@@ -37,6 +45,7 @@ test('every beginner vocab word is reachable by the flashcard drill', () => {
       (it.level === 'a1' || it.level === 'a2') &&
       vocabType(it) &&
       (it.kind === 'word' || it.kind === 'phrase') &&
+      !isSeparatePoolsBatch(it) &&
       !it.drills.includes('flashcard')
   );
   strictEqual(
@@ -54,6 +63,7 @@ test('every beginner vocab word is reachable by the voiceflash drill', () => {
       (it.level === 'a1' || it.level === 'a2') &&
       vocabType(it) &&
       (it.kind === 'word' || it.kind === 'phrase') &&
+      !isSeparatePoolsBatch(it) &&
       !it.drills.includes('voiceflash')
   );
   strictEqual(
