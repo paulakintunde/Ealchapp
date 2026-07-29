@@ -1,0 +1,3268 @@
+{
+  "stage": "3.3",
+  "world": 3,
+  "level": "a2",
+  "title": "Le Boulevard des Contrastes",
+  "themes": [
+    "comparaisons",
+    "connecteurs-logiques",
+    "negation-et-restriction",
+    "description-personnes-objets",
+    "prepositions-essentielles",
+    "corps",
+    "objets",
+    "animaux",
+    "animaux-domestiques",
+    "paysages",
+    "meteo",
+    "rp-meteo-nature"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 453,
+  "dedupedPool": 453,
+  "selected": 453,
+  "blockCount": 14,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.a2.negation-et-restriction.110",
+          "theme": "negation-et-restriction",
+          "fr": "N'ayez pas peur.",
+          "en": "Do not be afraid.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.020",
+          "theme": "negation-et-restriction",
+          "fr": "On ne sait jamais.",
+          "en": "You never know.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.052",
+          "theme": "negation-et-restriction",
+          "fr": "Elle ne regrette rien.",
+          "en": "She regrets nothing.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.057",
+          "theme": "negation-et-restriction",
+          "fr": "Ils n'écoutent personne.",
+          "en": "They listen to no one.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.014",
+          "theme": "negation-et-restriction",
+          "fr": "Il ne se plaint jamais.",
+          "en": "He never complains.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.024",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne dis jamais merci.",
+          "en": "You never say thank you.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.060",
+          "theme": "rp-meteo-nature",
+          "fr": "Hier, il a beaucoup plu.",
+          "en": "Yesterday, it rained a lot.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.005",
+          "theme": "rp-meteo-nature",
+          "fr": "J'aime beaucoup l'automne.",
+          "en": "I really like autumn.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.031",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne travailles plus ici ?",
+          "en": "You do not work here anymore?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.075",
+          "theme": "description-personnes-objets",
+          "fr": "Les jumeaux se ressemblent beaucoup.",
+          "en": "The twins look a lot alike.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.002",
+          "theme": "negation-et-restriction",
+          "fr": "Léo ne joue pas au tennis.",
+          "en": "Léo does not play tennis.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.035",
+          "theme": "negation-et-restriction",
+          "fr": "On ne vend plus ce modèle.",
+          "en": "They no longer sell this model.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.088",
+          "theme": "description-personnes-objets",
+          "fr": "Les clés sont sur la table.",
+          "en": "The keys are on the table.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.089",
+          "theme": "description-personnes-objets",
+          "fr": "Le chat est sous la chaise.",
+          "en": "The cat is under the chair.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.033",
+          "theme": "negation-et-restriction",
+          "fr": "Elle ne joue plus du piano.",
+          "en": "She no longer plays the piano.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.121",
+          "theme": "prepositions-essentielles",
+          "fr": "Il est né près de Bordeaux.",
+          "en": "He was born near Bordeaux.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.001",
+          "theme": "negation-et-restriction",
+          "fr": "Camille ne boit pas de café.",
+          "en": "Camille does not drink coffee.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.009",
+          "theme": "negation-et-restriction",
+          "fr": "Elle ne conduit pas la nuit.",
+          "en": "She does not drive at night.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.063",
+          "theme": "negation-et-restriction",
+          "fr": "Il part sans dire au revoir.",
+          "en": "He leaves without saying goodbye.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.111",
+          "theme": "negation-et-restriction",
+          "fr": "Ne touchez pas à ce tableau.",
+          "en": "Do not touch this painting.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.091",
+          "theme": "description-personnes-objets",
+          "fr": "Le parc est derrière l'école.",
+          "en": "The park is behind the school.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.015",
+          "theme": "negation-et-restriction",
+          "fr": "Elle ne prend jamais l'avion.",
+          "en": "She never takes the plane.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.041",
+          "theme": "negation-et-restriction",
+          "fr": "Je ne supporte plus ce bruit.",
+          "en": "I cannot stand this noise anymore.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.090",
+          "theme": "description-personnes-objets",
+          "fr": "La valise est dans le placard.",
+          "en": "The suitcase is in the closet.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.025",
+          "theme": "negation-et-restriction",
+          "fr": "Il ne prend jamais de risques.",
+          "en": "He never takes risks.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.088",
+          "theme": "prepositions-essentielles",
+          "fr": "Il va partir pour Lyon demain.",
+          "en": "He is going to leave for Lyon tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.013",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne ranges jamais ta chambre.",
+          "en": "You never tidy your room.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.088",
+          "theme": "negation-et-restriction",
+          "fr": "Le film ne commence pas encore.",
+          "en": "The movie has not started yet.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.094",
+          "theme": "description-personnes-objets",
+          "fr": "La maison est de taille moyenne.",
+          "en": "The house is medium-sized.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.096",
+          "theme": "description-personnes-objets",
+          "fr": "Le miroir est cassé depuis hier.",
+          "en": "The mirror has been broken since yesterday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.017",
+          "theme": "negation-et-restriction",
+          "fr": "Vous n'arrivez jamais en retard.",
+          "en": "You are never late.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.067",
+          "theme": "negation-et-restriction",
+          "fr": "Nous préparons ce plat sans sel.",
+          "en": "We prepare this dish without salt.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.047",
+          "theme": "negation-et-restriction",
+          "fr": "Nous n'achetons rien aujourd'hui.",
+          "en": "We are not buying anything today.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.a2.rp-meteo-nature.006",
+          "theme": "rp-meteo-nature",
+          "fr": "J'aime les couleurs des feuilles.",
+          "en": "I like the colors of the leaves.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.069",
+          "theme": "description-personnes-objets",
+          "fr": "Nous sommes fiers de notre équipe.",
+          "en": "We are proud of our team.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.016",
+          "theme": "negation-et-restriction",
+          "fr": "Nous ne voyageons jamais en hiver.",
+          "en": "We never travel in winter.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.037",
+          "theme": "negation-et-restriction",
+          "fr": "Camille ne porte plus de lunettes.",
+          "en": "Camille no longer wears glasses.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.078",
+          "theme": "rp-meteo-nature",
+          "fr": "Le brouillard a disparu vers midi.",
+          "en": "The fog cleared around noon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.078",
+          "theme": "description-personnes-objets",
+          "fr": "Le quartier est tranquille le soir.",
+          "en": "The neighborhood is quiet in the evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.011",
+          "theme": "negation-et-restriction",
+          "fr": "Antoine ne répond pas au téléphone.",
+          "en": "Antoine does not answer the phone.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.021",
+          "theme": "negation-et-restriction",
+          "fr": "Marc ne rate jamais l'entraînement.",
+          "en": "Marc never misses training.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.100",
+          "theme": "description-personnes-objets",
+          "fr": "La bibliothèque est fermée le lundi.",
+          "en": "The library is closed on Mondays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.comparaisons.066",
+          "theme": "comparaisons",
+          "fr": "Il travaille mieux que son collègue.",
+          "en": "He works better than his colleague.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.093",
+          "theme": "description-personnes-objets",
+          "fr": "L'appartement est au troisième étage.",
+          "en": "The apartment is on the third floor.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.018",
+          "theme": "negation-et-restriction",
+          "fr": "Ils ne répondent jamais aux messages.",
+          "en": "They never reply to messages.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.075",
+          "theme": "rp-meteo-nature",
+          "fr": "Les feuilles jaunissaient déjà en septembre.",
+          "en": "The leaves were already turning yellow in September.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.102",
+          "theme": "negation-et-restriction",
+          "fr": "Tu n'as pas vu ce film ?",
+          "en": "You have not seen this movie?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.074",
+          "theme": "negation-et-restriction",
+          "fr": "Tu n'as pas du tout tort.",
+          "en": "You are not wrong at all.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.061",
+          "theme": "negation-et-restriction",
+          "fr": "Elle n'a ni frère ni sœur.",
+          "en": "She has neither brother nor sister.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.096",
+          "theme": "negation-et-restriction",
+          "fr": "Est-ce que tu ne viens pas ?",
+          "en": "Are you not coming?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.comparaisons.067",
+          "theme": "comparaisons",
+          "fr": "Ce film est pire que l'autre.",
+          "en": "This movie is worse than the other one.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.012",
+          "theme": "negation-et-restriction",
+          "fr": "Je ne mens jamais à mes amis.",
+          "en": "I never lie to my friends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.030",
+          "theme": "negation-et-restriction",
+          "fr": "Je ne fume plus depuis un an.",
+          "en": "I have not smoked in a year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.092",
+          "theme": "description-personnes-objets",
+          "fr": "Le cinéma est près de la gare.",
+          "en": "The cinema is near the station.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.046",
+          "theme": "negation-et-restriction",
+          "fr": "Elle n'entend rien de ce côté.",
+          "en": "She hears nothing on that side.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.107",
+          "theme": "negation-et-restriction",
+          "fr": "Je ne vais pas sortir ce soir.",
+          "en": "I am not going to go out tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.045",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne comprends rien à ce film.",
+          "en": "You do not understand anything about this movie.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.048",
+          "theme": "negation-et-restriction",
+          "fr": "Il ne reste rien dans le frigo.",
+          "en": "There is nothing left in the fridge.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.050",
+          "theme": "negation-et-restriction",
+          "fr": "Je n'ai rien contre cette idée.",
+          "en": "I have nothing against this idea.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.065",
+          "theme": "negation-et-restriction",
+          "fr": "Ce café se boit sans sucre ici.",
+          "en": "This coffee is drunk without sugar here.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.085",
+          "theme": "prepositions-essentielles",
+          "fr": "Je suis allé à la piscine hier.",
+          "en": "I went to the pool yesterday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.084",
+          "theme": "description-personnes-objets",
+          "fr": "La ferme est près de la rivière.",
+          "en": "The farm is near the river.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.comparaisons.061",
+          "theme": "comparaisons",
+          "fr": "Ma sœur court plus vite que moi.",
+          "en": "My sister runs faster than me.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.003",
+          "theme": "negation-et-restriction",
+          "fr": "Ce magasin n'ouvre pas le lundi.",
+          "en": "This shop does not open on Mondays.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.008",
+          "theme": "negation-et-restriction",
+          "fr": "Tu n'écoutes pas quand je parle.",
+          "en": "You do not listen when I speak.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.022",
+          "theme": "negation-et-restriction",
+          "fr": "Ce chien n'aboie jamais la nuit.",
+          "en": "This dog never barks at night.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.a2.negation-et-restriction.040",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne réponds plus à mes textos.",
+          "en": "You no longer reply to my texts.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.101",
+          "theme": "negation-et-restriction",
+          "fr": "Je n'ai pas terminé mon travail.",
+          "en": "I did not finish my work.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.064",
+          "theme": "rp-meteo-nature",
+          "fr": "Le vent a soufflé toute la nuit.",
+          "en": "The wind blew all night.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.081",
+          "theme": "rp-meteo-nature",
+          "fr": "La sécheresse a duré tout l'été.",
+          "en": "The drought lasted all summer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.097",
+          "theme": "description-personnes-objets",
+          "fr": "Le tapis est coloré et très doux.",
+          "en": "The rug is colorful and very soft.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.comparaisons.058",
+          "theme": "comparaisons",
+          "fr": "Mon frère est plus grand que moi.",
+          "en": "My brother is taller than me.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.comparaisons.068",
+          "theme": "comparaisons",
+          "fr": "Elle est plus jeune que son mari.",
+          "en": "She is younger than her husband.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.042",
+          "theme": "negation-et-restriction",
+          "fr": "Elle n'a plus peur des araignées.",
+          "en": "She is no longer afraid of spiders.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.055",
+          "theme": "negation-et-restriction",
+          "fr": "Tu n'invites personne à la fête ?",
+          "en": "You are not inviting anyone to the party?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.080",
+          "theme": "negation-et-restriction",
+          "fr": "Camille n'est pas du tout timide.",
+          "en": "Camille is not shy at all.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.comparaisons.084",
+          "theme": "comparaisons",
+          "fr": "Ma valise pèse plus que la tienne.",
+          "en": "My suitcase weighs more than yours.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.032",
+          "theme": "negation-et-restriction",
+          "fr": "Il n'habite plus dans ce quartier.",
+          "en": "He no longer lives in this neighborhood.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.044",
+          "theme": "negation-et-restriction",
+          "fr": "Je ne vois rien sans mes lunettes.",
+          "en": "I cannot see anything without my glasses.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.051",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne sais rien de cette histoire.",
+          "en": "You know nothing about this story.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.060",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne manges ni viande ni poisson.",
+          "en": "You eat neither meat nor fish.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.109",
+          "theme": "negation-et-restriction",
+          "fr": "Il ne va pas accepter cette offre.",
+          "en": "He is not going to accept this offer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.112",
+          "theme": "prepositions-essentielles",
+          "fr": "Le chat est passé sous la clôture.",
+          "en": "The cat went under the fence.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.063",
+          "theme": "rp-meteo-nature",
+          "fr": "Il faisait très froid ce matin-là.",
+          "en": "It was very cold that morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.115",
+          "theme": "paysages",
+          "fr": "On voit le lac depuis la terrasse.",
+          "en": "You can see the lake from the terrace.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.comparaisons.072",
+          "theme": "comparaisons",
+          "fr": "Nous avons moins de temps que vous.",
+          "en": "We have less time than you.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.004",
+          "theme": "negation-et-restriction",
+          "fr": "Mon voisin ne range pas son jardin.",
+          "en": "My neighbor does not tidy his garden.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.026",
+          "theme": "negation-et-restriction",
+          "fr": "Julie ne mange jamais de fast-food.",
+          "en": "Julie never eats fast food.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.077",
+          "theme": "negation-et-restriction",
+          "fr": "Nous ne sommes pas du tout pressés.",
+          "en": "We are not in a hurry at all.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.087",
+          "theme": "negation-et-restriction",
+          "fr": "Ce magasin n'est pas encore ouvert.",
+          "en": "This shop is not open yet.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.108",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne vas pas aimer cette nouvelle.",
+          "en": "You are not going to like this news.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.117",
+          "theme": "paysages",
+          "fr": "Nous marchons dans un champ de blé.",
+          "en": "We are walking through a wheat field.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.043",
+          "theme": "paysages",
+          "fr": "On voit la mer depuis cette colline.",
+          "en": "You can see the sea from this hill.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.066",
+          "theme": "description-personnes-objets",
+          "fr": "Mon petit frère est curieux de tout.",
+          "en": "My little brother is curious about everything.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.049",
+          "theme": "negation-et-restriction",
+          "fr": "Marc ne dit rien pendant la réunion.",
+          "en": "Marc says nothing during the meeting.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.056",
+          "theme": "negation-et-restriction",
+          "fr": "Elle n'appelle personne le week-end.",
+          "en": "She calls no one on weekends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.064",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne peux pas conduire sans permis.",
+          "en": "You cannot drive without a license.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.061",
+          "theme": "rp-meteo-nature",
+          "fr": "Le ciel était gris toute la journée.",
+          "en": "The sky was gray all day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.069",
+          "theme": "rp-meteo-nature",
+          "fr": "Les oiseaux sont partis vers le sud.",
+          "en": "The birds left for the south.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.a2.description-personnes-objets.080",
+          "theme": "description-personnes-objets",
+          "fr": "La rivière est profonde près du pont.",
+          "en": "The river is deep near the bridge.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.085",
+          "theme": "connecteurs-logiques",
+          "fr": "Il fait froid, mais le soleil brille.",
+          "en": "It is cold, but the sun is shining.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.010",
+          "theme": "negation-et-restriction",
+          "fr": "Nos enfants ne regardent pas ce film.",
+          "en": "Our children do not watch this movie.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.119",
+          "theme": "paysages",
+          "fr": "La neige couvre les toits du village.",
+          "en": "Snow covers the roofs of the village.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.objets.004",
+          "theme": "objets",
+          "fr": "Elle cherche ses clés depuis ce matin.",
+          "en": "She's been looking for her keys since this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.044",
+          "theme": "paysages",
+          "fr": "Le sentier traverse une forêt de pins.",
+          "en": "The trail goes through a pine forest.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.comparaisons.078",
+          "theme": "comparaisons",
+          "fr": "Elle parle aussi bien anglais que moi.",
+          "en": "She speaks English as well as I do.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.078",
+          "theme": "connecteurs-logiques",
+          "fr": "Nous mangeons tôt car nous avons faim.",
+          "en": "We are eating early because we are hungry.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.019",
+          "theme": "negation-et-restriction",
+          "fr": "Elles ne cuisinent jamais le week-end.",
+          "en": "They never cook on weekends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.071",
+          "theme": "rp-meteo-nature",
+          "fr": "La rivière a débordé après la tempête.",
+          "en": "The river overflowed after the storm.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.animaux.004",
+          "theme": "animaux",
+          "fr": "Le fermier vient de nourrir les poules.",
+          "en": "The farmer just fed the chickens.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.081",
+          "theme": "description-personnes-objets",
+          "fr": "La rue est bruyante pendant la journée.",
+          "en": "The street is noisy during the day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.comparaisons.065",
+          "theme": "comparaisons",
+          "fr": "Cette pomme est meilleure que la poire.",
+          "en": "This apple is better than the pear.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.072",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle apprend vite car elle écoute bien.",
+          "en": "She learns fast because she listens well.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.075",
+          "theme": "connecteurs-logiques",
+          "fr": "Il pleut, donc j'apporte mon parapluie.",
+          "en": "It is raining, so I am bringing my umbrella.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.068",
+          "theme": "rp-meteo-nature",
+          "fr": "Le soleil brillait quand je suis sorti.",
+          "en": "The sun was shining when I went out.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.073",
+          "theme": "rp-meteo-nature",
+          "fr": "Le temps a changé rapidement hier soir.",
+          "en": "The weather changed quickly last night.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.122",
+          "theme": "paysages",
+          "fr": "Le brouillard cache le sommet ce matin.",
+          "en": "The fog is hiding the summit this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.038",
+          "theme": "animaux-domestiques",
+          "fr": "Mon chien adore courir après les balles.",
+          "en": "My dog loves chasing balls.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.054",
+          "theme": "negation-et-restriction",
+          "fr": "Je ne connais personne dans cette ville.",
+          "en": "I do not know anyone in this city.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.120",
+          "theme": "paysages",
+          "fr": "Le vent souffle doucement sur la plaine.",
+          "en": "The wind blows gently across the plain.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.comparaisons.090",
+          "theme": "comparaisons",
+          "fr": "C'est le meilleur restaurant du quartier.",
+          "en": "It's the best restaurant in the neighborhood.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.060",
+          "theme": "connecteurs-logiques",
+          "fr": "Le magasin est fermé, donc nous rentrons.",
+          "en": "The store is closed, so we are going home.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.124",
+          "theme": "paysages",
+          "fr": "Un orignal traverse la route devant nous.",
+          "en": "A moose is crossing the road in front of us.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.125",
+          "theme": "paysages",
+          "fr": "Hier, nous avons visité un parc national.",
+          "en": "Yesterday, we visited a national park.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.023",
+          "theme": "negation-et-restriction",
+          "fr": "Mes parents ne regardent jamais d'horreur.",
+          "en": "My parents never watch horror movies.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.123",
+          "theme": "paysages",
+          "fr": "Nous campons près du fleuve Saint-Laurent.",
+          "en": "We are camping near the St. Lawrence River.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.066",
+          "theme": "negation-et-restriction",
+          "fr": "Camille sort sans parapluie malgré la pluie.",
+          "en": "Camille goes out without an umbrella despite the rain.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.121",
+          "theme": "paysages",
+          "fr": "Les feuilles changent de couleur en automne.",
+          "en": "The leaves change color in autumn.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.paysages.137",
+          "theme": "paysages",
+          "fr": "Le village était entouré de collines vertes.",
+          "en": "The village was surrounded by green hills.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.056",
+          "theme": "description-personnes-objets",
+          "fr": "Cette fille est sérieuse quand elle travaille.",
+          "en": "This girl is serious when she works.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.089",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous allons manger dans un nouveau restaurant.",
+          "en": "We are going to eat at a new restaurant.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.103",
+          "theme": "negation-et-restriction",
+          "fr": "Il n'est pas venu à la fête.",
+          "en": "He did not come to the party.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.a2.negation-et-restriction.093",
+          "theme": "negation-et-restriction",
+          "fr": "Tu n'as pas faim ? Si, un peu.",
+          "en": "Are you not hungry? Yes, a little.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.060",
+          "theme": "description-personnes-objets",
+          "fr": "J'ai un ami qui est très drôle.",
+          "en": "I have a friend who is very funny.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.085",
+          "theme": "description-personnes-objets",
+          "fr": "Le musée est à côté de la gare.",
+          "en": "The museum is next to the station.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.102",
+          "theme": "prepositions-essentielles",
+          "fr": "Il a mis la valise sous le lit.",
+          "en": "He put the suitcase under the bed.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.091",
+          "theme": "comparaisons",
+          "fr": "C'est le pire jour de ma semaine.",
+          "en": "It's the worst day of my week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.088",
+          "theme": "comparaisons",
+          "fr": "Il est le plus rapide de l'équipe.",
+          "en": "He is the fastest on the team.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.078",
+          "theme": "negation-et-restriction",
+          "fr": "Vous n'êtes pas du tout en retard.",
+          "en": "You are not late at all.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.089",
+          "theme": "negation-et-restriction",
+          "fr": "Léo n'a pas encore appris à nager.",
+          "en": "Léo has not yet learned to swim.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.079",
+          "theme": "negation-et-restriction",
+          "fr": "Ce film n'est pas du tout ennuyeux.",
+          "en": "This movie is not boring at all.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.104",
+          "theme": "negation-et-restriction",
+          "fr": "Elle n'est pas partie tôt ce matin.",
+          "en": "She did not leave early this morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.086",
+          "theme": "description-personnes-objets",
+          "fr": "La pharmacie est en face de l'école.",
+          "en": "The pharmacy is across from the school.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.063",
+          "theme": "comparaisons",
+          "fr": "Le train est plus rapide que le bus.",
+          "en": "The train is faster than the bus.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.069",
+          "theme": "comparaisons",
+          "fr": "Ce sac est aussi lourd que celui-là.",
+          "en": "This bag is as heavy as that one.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.070",
+          "theme": "comparaisons",
+          "fr": "Mon chat est plus calme que le tien.",
+          "en": "My cat is calmer than yours.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.075",
+          "theme": "comparaisons",
+          "fr": "Ton café est plus chaud que le mien.",
+          "en": "Your coffee is hotter than mine.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.077",
+          "theme": "comparaisons",
+          "fr": "Mon vélo est moins neuf que le tien.",
+          "en": "My bike is less new than yours.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.082",
+          "theme": "comparaisons",
+          "fr": "Il a autant de patience que sa mère.",
+          "en": "He has as much patience as his mother.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.100",
+          "theme": "comparaisons",
+          "fr": "C'est le plus petit chien du groupe.",
+          "en": "It's the smallest dog in the group.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.034",
+          "theme": "negation-et-restriction",
+          "fr": "Vous ne prenez plus le bus le matin.",
+          "en": "You no longer take the bus in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.071",
+          "theme": "negation-et-restriction",
+          "fr": "Nous n'avons pas faim, eux non plus.",
+          "en": "We are not hungry, neither are they.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.081",
+          "theme": "negation-et-restriction",
+          "fr": "Cette soupe n'est pas du tout salée.",
+          "en": "This soup is not salty at all.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.082",
+          "theme": "negation-et-restriction",
+          "fr": "Je n'ai pas encore fini mon rapport.",
+          "en": "I have not finished my report yet.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.084",
+          "theme": "negation-et-restriction",
+          "fr": "Il n'a pas encore trouvé de travail.",
+          "en": "He has not found a job yet.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.099",
+          "theme": "prepositions-essentielles",
+          "fr": "Il a rangé ses livres sur l'étagère.",
+          "en": "He put his books away on the shelf.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.110",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle a posé son sac contre la porte.",
+          "en": "She placed her bag against the door.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.paysages.145",
+          "theme": "paysages",
+          "fr": "Ils vont camper près du lac cet été.",
+          "en": "They're going to camp near the lake this summer.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.086",
+          "theme": "comparaisons",
+          "fr": "Elle est la plus jeune de la famille.",
+          "en": "She is the youngest in the family.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.106",
+          "theme": "comparaisons",
+          "fr": "C'est la plus longue rivière du pays.",
+          "en": "It's the longest river in the country.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.110",
+          "theme": "comparaisons",
+          "fr": "C'est le plus grand des trois frères.",
+          "en": "He is the tallest of the three brothers.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.083",
+          "theme": "negation-et-restriction",
+          "fr": "Tu n'as pas encore appelé le médecin.",
+          "en": "You have not called the doctor yet.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.080",
+          "theme": "comparaisons",
+          "fr": "Mon jardin est plus petit que le tien.",
+          "en": "My garden is smaller than yours.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.083",
+          "theme": "comparaisons",
+          "fr": "Ce fromage sent plus fort que l'autre.",
+          "en": "This cheese smells stronger than the other one.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.070",
+          "theme": "rp-meteo-nature",
+          "fr": "Il a fait très chaud toute la semaine.",
+          "en": "It was very hot all week.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.a2.description-personnes-objets.099",
+          "theme": "description-personnes-objets",
+          "fr": "La place du village est calme le matin.",
+          "en": "The village square is quiet in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.060",
+          "theme": "comparaisons",
+          "fr": "Il fait plus froid aujourd'hui qu'hier.",
+          "en": "It is colder today than yesterday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.071",
+          "theme": "comparaisons",
+          "fr": "Cette rue est moins large que l'avenue.",
+          "en": "This street is narrower than the avenue.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.101",
+          "theme": "comparaisons",
+          "fr": "Elle est la plus gentille de mes amies.",
+          "en": "She is the kindest of my friends.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.104",
+          "theme": "comparaisons",
+          "fr": "C'est le meilleur moment de la journée.",
+          "en": "It's the best moment of the day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.038",
+          "theme": "negation-et-restriction",
+          "fr": "Mon frère ne vit plus chez mes parents.",
+          "en": "My brother no longer lives with my parents.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.051",
+          "theme": "description-personnes-objets",
+          "fr": "Mon frère est grand, mais il est timide.",
+          "en": "My brother is tall, but he is shy.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.059",
+          "theme": "comparaisons",
+          "fr": "Cette robe est moins chère que la bleue.",
+          "en": "This dress is less expensive than the blue one.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.092",
+          "theme": "comparaisons",
+          "fr": "Elle chante le mieux de toute la classe.",
+          "en": "She sings the best in the whole class.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.069",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle est malade, donc elle reste au lit.",
+          "en": "She is sick, so she is staying in bed.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.084",
+          "theme": "connecteurs-logiques",
+          "fr": "Nous partons tôt car le voyage est long.",
+          "en": "We are leaving early because the trip is long.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.objets.122",
+          "theme": "objets",
+          "fr": "Le câble s'est débranché pendant la nuit.",
+          "en": "The cable came unplugged during the night.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.093",
+          "theme": "prepositions-essentielles",
+          "fr": "Il a garé sa voiture derrière l'immeuble.",
+          "en": "He parked his car behind the building.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.080",
+          "theme": "rp-meteo-nature",
+          "fr": "J'ai entendu le tonnerre pendant la nuit.",
+          "en": "I heard thunder during the night.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.paysages.149",
+          "theme": "paysages",
+          "fr": "On va traverser la vallée en vélo demain.",
+          "en": "We're going to cross the valley by bike tomorrow.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.065",
+          "theme": "description-personnes-objets",
+          "fr": "Cette dame âgée a de longs cheveux blancs.",
+          "en": "This elderly lady has long white hair.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.057",
+          "theme": "comparaisons",
+          "fr": "Ce livre est plus intéressant que l'autre.",
+          "en": "This book is more interesting than the other one.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.103",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle a acheté un cadeau pour son collègue.",
+          "en": "She bought a gift for her colleague.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.067",
+          "theme": "rp-meteo-nature",
+          "fr": "Nous sommes allés au lac mais il pleuvait.",
+          "en": "We went to the lake but it was raining.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.083",
+          "theme": "rp-meteo-nature",
+          "fr": "Le climat de cette région est très humide.",
+          "en": "The climate in this region is very humid.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.paysages.128",
+          "theme": "paysages",
+          "fr": "Nous avons pique-niqué près de la rivière.",
+          "en": "We had a picnic near the river.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.062",
+          "theme": "comparaisons",
+          "fr": "Cette table est aussi lourde que la chaise.",
+          "en": "This table is as heavy as the chair.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.074",
+          "theme": "comparaisons",
+          "fr": "Cette valise est plus légère que la mienne.",
+          "en": "This suitcase is lighter than mine.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.006",
+          "theme": "negation-et-restriction",
+          "fr": "Nous ne prenons pas de dessert aujourd'hui.",
+          "en": "We are not having dessert today.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.028",
+          "theme": "negation-et-restriction",
+          "fr": "Vous ne portez jamais de cravate au bureau.",
+          "en": "You never wear a tie at the office.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.119",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle a rangé les assiettes dans le placard.",
+          "en": "She put the plates away in the cupboard.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.026",
+          "theme": "animaux-domestiques",
+          "fr": "Mon frère promène son chien tous les matins.",
+          "en": "My brother walks his dog every morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.064",
+          "theme": "comparaisons",
+          "fr": "Son appartement est moins grand que le mien.",
+          "en": "His apartment is smaller than mine.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.081",
+          "theme": "comparaisons",
+          "fr": "Cette veste coûte moins cher que le manteau.",
+          "en": "This jacket costs less than the coat.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.072",
+          "theme": "rp-meteo-nature",
+          "fr": "Nous avons planté des arbres dans le jardin.",
+          "en": "We planted trees in the garden.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.076",
+          "theme": "rp-meteo-nature",
+          "fr": "Nous avons ramassé des déchets sur la plage.",
+          "en": "We picked up trash on the beach.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.paysages.116",
+          "theme": "paysages",
+          "fr": "Le ciel devient orange au coucher du soleil.",
+          "en": "The sky turns orange at sunset.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.paysages.133",
+          "theme": "paysages",
+          "fr": "Ils ont observé des baleines depuis la côte.",
+          "en": "They watched whales from the coast.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.a2.animaux-domestiques.037",
+          "theme": "animaux-domestiques",
+          "fr": "Nos amis hésitent à adopter un deuxième chat.",
+          "en": "Our friends are hesitant to adopt a second cat.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.082",
+          "theme": "description-personnes-objets",
+          "fr": "La voiture est rapide, mais elle est vieille.",
+          "en": "The car is fast, but it is old.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.036",
+          "theme": "negation-et-restriction",
+          "fr": "Ce restaurant ne sert plus de petit-déjeuner.",
+          "en": "This restaurant no longer serves breakfast.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.087",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons voyagé en Italie l'année dernière.",
+          "en": "We traveled to Italy last year.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.106",
+          "theme": "prepositions-essentielles",
+          "fr": "Ils ont voyagé sans leurs enfants cette fois.",
+          "en": "They traveled without their children this time.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.108",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons besoin de billets pour le concert.",
+          "en": "We need tickets for the concert.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.paysages.148",
+          "theme": "paysages",
+          "fr": "Vous allez adorer la vue depuis le belvédère.",
+          "en": "You're going to love the view from the lookout.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.032",
+          "theme": "animaux-domestiques",
+          "fr": "Mon voisin promène son chien avant le travail.",
+          "en": "My neighbor walks his dog before work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.053",
+          "theme": "description-personnes-objets",
+          "fr": "Le nouvel élève est sympathique et très drôle.",
+          "en": "The new student is nice and very funny.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.comparaisons.076",
+          "theme": "comparaisons",
+          "fr": "Cette chambre est aussi propre que la cuisine.",
+          "en": "This room is as clean as the kitchen.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.063",
+          "theme": "connecteurs-logiques",
+          "fr": "Il est fatigué parce qu'il travaille beaucoup.",
+          "en": "He is tired because he works a lot.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.082",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle est heureuse, c'est pourquoi elle chante.",
+          "en": "She is happy, that is why she is singing.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.090",
+          "theme": "connecteurs-logiques",
+          "fr": "Il est jeune, mais il travaille déjà beaucoup.",
+          "en": "He is young, but he already works a lot.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.objets.113",
+          "theme": "objets",
+          "fr": "Nous allons ranger les outils avant de partir.",
+          "en": "We are going to put the tools away before leaving.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.109",
+          "theme": "prepositions-essentielles",
+          "fr": "Il pense à ses examens depuis plusieurs jours.",
+          "en": "He has been thinking about his exams for several days.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.040",
+          "theme": "animaux-domestiques",
+          "fr": "Le refuge cherche des familles pour ses chiots.",
+          "en": "The shelter is looking for families for its puppies.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.120",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons réservé une chambre pour deux nuits.",
+          "en": "We booked a room for two nights.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.084",
+          "theme": "rp-meteo-nature",
+          "fr": "Il faisait beau donc nous sommes restés dehors.",
+          "en": "The weather was nice so we stayed outside.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.paysages.141",
+          "theme": "paysages",
+          "fr": "Il neigeait sur les montagnes toute la journée.",
+          "en": "It was snowing on the mountains all day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.058",
+          "theme": "description-personnes-objets",
+          "fr": "La vendeuse est toujours polie avec les clients.",
+          "en": "The saleswoman is always polite with customers.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.065",
+          "theme": "connecteurs-logiques",
+          "fr": "Nous sommes contents car le repas est délicieux.",
+          "en": "We are happy because the meal is delicious.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.077",
+          "theme": "rp-meteo-nature",
+          "fr": "Il neigeait quand nous sommes arrivés au chalet.",
+          "en": "It was snowing when we arrived at the chalet.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.animaux.001",
+          "theme": "animaux",
+          "fr": "Le panda se nourrit presque uniquement de bambou.",
+          "en": "The panda feeds almost exclusively on bamboo.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.paysages.143",
+          "theme": "paysages",
+          "fr": "Demain, nous allons visiter les chutes du Niagara.",
+          "en": "Tomorrow, we're going to visit Niagara Falls.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.paysages.136",
+          "theme": "paysages",
+          "fr": "Autrefois, ce champ était plein de fleurs sauvages.",
+          "en": "This field used to be full of wild flowers.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.005",
+          "theme": "negation-et-restriction",
+          "fr": "Cette recette ne demande pas beaucoup d'ingrédients.",
+          "en": "This recipe does not require many ingredients.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.029",
+          "theme": "animaux-domestiques",
+          "fr": "Mes voisins gardent notre chien pendant nos vacances.",
+          "en": "Our neighbors look after our dog while we're on vacation.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.064",
+          "theme": "description-personnes-objets",
+          "fr": "Le professeur est patient avec les élèves difficiles.",
+          "en": "The teacher is patient with difficult students.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.077",
+          "theme": "connecteurs-logiques",
+          "fr": "Le professeur est absent, alors les élèves attendent.",
+          "en": "The teacher is absent, so the students are waiting.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.079",
+          "theme": "rp-meteo-nature",
+          "fr": "Les fermiers attendaient la pluie depuis des semaines.",
+          "en": "The farmers had been waiting for rain for weeks.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.095",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle est fatiguée, pourtant elle continue à travailler.",
+          "en": "She is tired, yet she keeps on working.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.059",
+          "theme": "negation-et-restriction",
+          "fr": "Je n'aime ni le café ni le thé.",
+          "en": "I like neither coffee nor tea.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.093",
+          "theme": "comparaisons",
+          "fr": "C'est la plus belle maison de la rue.",
+          "en": "It's the most beautiful house on the street.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.a2.comparaisons.099",
+          "theme": "comparaisons",
+          "fr": "C'est le plat le moins épicé du menu.",
+          "en": "It's the least spicy dish on the menu.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.075",
+          "theme": "negation-et-restriction",
+          "fr": "Il n'est pas du tout fatigué ce soir.",
+          "en": "He is not tired at all tonight.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.061",
+          "theme": "description-personnes-objets",
+          "fr": "Elle a un frère qui est grand et fort.",
+          "en": "She has a brother who is tall and strong.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.095",
+          "theme": "comparaisons",
+          "fr": "C'est le plus vieux pont de la région.",
+          "en": "It's the oldest bridge in the region.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.058",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle a soif, alors elle boit de l'eau.",
+          "en": "She is thirsty, so she drinks some water.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.007",
+          "theme": "negation-et-restriction",
+          "fr": "Le train ne s'arrête pas à cette gare.",
+          "en": "The train does not stop at this station.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.corps.008",
+          "theme": "corps",
+          "fr": "Elle a un bleu sur le bras depuis hier.",
+          "en": "She has had a bruise on her arm since yesterday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.096",
+          "theme": "comparaisons",
+          "fr": "C'est la robe la plus chère du magasin.",
+          "en": "It's the most expensive dress in the store.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.098",
+          "theme": "comparaisons",
+          "fr": "C'est la ville la plus peuplée du pays.",
+          "en": "It's the most populated city in the country.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.091",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne viens pas ce soir ? Si, je viens.",
+          "en": "Are you not coming tonight? Yes, I am coming.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.116",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle va s'inscrire à un cours de danse.",
+          "en": "She is going to sign up for a dance class.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.corps.006",
+          "theme": "corps",
+          "fr": "Elle s'est fait mal au genou en courant.",
+          "en": "She hurt her knee while running.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.027",
+          "theme": "animaux-domestiques",
+          "fr": "Il y a un nouveau chat dans le quartier.",
+          "en": "There's a new cat in the neighborhood.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.061",
+          "theme": "connecteurs-logiques",
+          "fr": "Grâce à ton aide, j'ai fini mes devoirs.",
+          "en": "Thanks to your help, I finished my homework.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.070",
+          "theme": "negation-et-restriction",
+          "fr": "Elle ne vient pas ce soir, lui non plus.",
+          "en": "She is not coming tonight, neither is he.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.085",
+          "theme": "negation-et-restriction",
+          "fr": "Elle n'est pas encore arrivée à la gare.",
+          "en": "She has not arrived at the station yet.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.007",
+          "theme": "rp-meteo-nature",
+          "fr": "C'est vrai que l'été est agréable aussi.",
+          "en": "It's true that summer is pleasant too.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.096",
+          "theme": "prepositions-essentielles",
+          "fr": "J'ai besoin d'aide pour finir ce devoir.",
+          "en": "I need help to finish this homework.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.meteo.001",
+          "theme": "meteo",
+          "fr": "Il fait de plus en plus chaud chaque été.",
+          "en": "It gets hotter and hotter every summer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.corps.007",
+          "theme": "corps",
+          "fr": "Il faut se laver les dents matin et soir.",
+          "en": "You have to brush your teeth morning and night.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.085",
+          "theme": "comparaisons",
+          "fr": "C'est le plus grand bâtiment de la ville.",
+          "en": "It's the tallest building in the city.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.097",
+          "theme": "comparaisons",
+          "fr": "Mon frère est le plus fort de la famille.",
+          "en": "My brother is the strongest in the family.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.112",
+          "theme": "comparaisons",
+          "fr": "C'est le sport le plus populaire du pays.",
+          "en": "It's the most popular sport in the country.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.105",
+          "theme": "negation-et-restriction",
+          "fr": "Camille n'a pas appelé sa mère hier soir.",
+          "en": "Camille did not call her mother last night.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.031",
+          "theme": "animaux-domestiques",
+          "fr": "Ma tante hésite entre un chien et un chat.",
+          "en": "My aunt is torn between a dog and a cat.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.074",
+          "theme": "connecteurs-logiques",
+          "fr": "Grâce à son sourire, il a beaucoup d'amis.",
+          "en": "Thanks to his smile, he has many friends.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.paysages.118",
+          "theme": "paysages",
+          "fr": "Il y a beaucoup d'arbres autour du chalet.",
+          "en": "There are lots of trees around the cottage.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.paysages.139",
+          "theme": "paysages",
+          "fr": "L'eau du lac était froide même en juillet.",
+          "en": "The lake water was cold even in July.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.052",
+          "theme": "description-personnes-objets",
+          "fr": "Elle a les cheveux longs et les yeux bleus.",
+          "en": "She has long hair and blue eyes.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.089",
+          "theme": "comparaisons",
+          "fr": "C'est la voiture la moins chère du magasin.",
+          "en": "It's the cheapest car in the store.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.057",
+          "theme": "connecteurs-logiques",
+          "fr": "Il porte un manteau parce qu'il fait froid.",
+          "en": "He is wearing a coat because it is cold.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.059",
+          "theme": "connecteurs-logiques",
+          "fr": "Nous restons à la maison car il pleut fort.",
+          "en": "We are staying home because it is raining hard.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.objets.111",
+          "theme": "objets",
+          "fr": "Le chargeur est tombé, puis il s'est cassé.",
+          "en": "The charger fell, then it broke.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.a2.rp-meteo-nature.065",
+          "theme": "rp-meteo-nature",
+          "fr": "J'ai visité un parc national l'été dernier.",
+          "en": "I visited a national park last summer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux.003",
+          "theme": "animaux",
+          "fr": "Mon chien a besoin de sortir tous les jours.",
+          "en": "My dog needs to go out every day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.067",
+          "theme": "description-personnes-objets",
+          "fr": "Cet homme est un peu nerveux avant l'examen.",
+          "en": "This man is a bit nervous before the exam.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.111",
+          "theme": "comparaisons",
+          "fr": "C'est la plus petite pièce de l'appartement.",
+          "en": "It's the smallest room in the apartment.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.114",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons voyagé vers le sud pendant l'été.",
+          "en": "We traveled south during the summer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.paysages.140",
+          "theme": "paysages",
+          "fr": "On entendait le bruit de la cascade de loin.",
+          "en": "You could hear the sound of the waterfall from afar.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.046",
+          "theme": "animaux-domestiques",
+          "fr": "Les chats de la voisine dorment dehors l'été.",
+          "en": "The neighbor's cats sleep outside in the summer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.062",
+          "theme": "description-personnes-objets",
+          "fr": "C'est un homme qui porte toujours un chapeau.",
+          "en": "He is a man who always wears a hat.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.067",
+          "theme": "connecteurs-logiques",
+          "fr": "À cause du bruit, les enfants ne dorment pas.",
+          "en": "Because of the noise, the children are not sleeping.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.083",
+          "theme": "connecteurs-logiques",
+          "fr": "Le bus est plein, alors nous prenons un taxi.",
+          "en": "The bus is full, so we are taking a taxi.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.086",
+          "theme": "negation-et-restriction",
+          "fr": "Vous n'avez pas encore répondu à mon message.",
+          "en": "You have not replied to my message yet.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.113",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle a écrit une lettre à ses grands-parents.",
+          "en": "She wrote a letter to her grandparents.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.066",
+          "theme": "rp-meteo-nature",
+          "fr": "La neige a couvert les montagnes en une nuit.",
+          "en": "The snow covered the mountains overnight.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.054",
+          "theme": "description-personnes-objets",
+          "fr": "Ma tante est petite, mais elle est très forte.",
+          "en": "My aunt is short, but she is very strong.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.087",
+          "theme": "description-personnes-objets",
+          "fr": "La banque est entre le café et la boulangerie.",
+          "en": "The bank is between the café and the bakery.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.068",
+          "theme": "connecteurs-logiques",
+          "fr": "Grâce à ce livre, je comprends mieux la leçon.",
+          "en": "Thanks to this book, I understand the lesson better.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.objets.130",
+          "theme": "objets",
+          "fr": "Il a attaché le colis avec une ficelle solide.",
+          "en": "He tied the package with strong string.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.100",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle va téléphoner à son frère avant le dîner.",
+          "en": "She is going to call her brother before dinner.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.074",
+          "theme": "rp-meteo-nature",
+          "fr": "J'ai vu un orage magnifique depuis ma fenêtre.",
+          "en": "I saw a magnificent storm from my window.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.042",
+          "theme": "animaux-domestiques",
+          "fr": "Il faut prendre soin de son animal chaque jour.",
+          "en": "You have to take care of your pet every day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.045",
+          "theme": "animaux-domestiques",
+          "fr": "Le vétérinaire est en train d'examiner le chat.",
+          "en": "The vet is examining the cat right now.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.057",
+          "theme": "description-personnes-objets",
+          "fr": "Mon patron est calme, il ne parle pas beaucoup.",
+          "en": "My boss is calm, he doesn't talk much.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.063",
+          "theme": "description-personnes-objets",
+          "fr": "Ma sœur est douce, mais elle est parfois têtue.",
+          "en": "My sister is gentle, but she is sometimes stubborn.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.079",
+          "theme": "comparaisons",
+          "fr": "Ce quartier est plus calme que le centre-ville.",
+          "en": "This neighborhood is quieter than downtown.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.070",
+          "theme": "connecteurs-logiques",
+          "fr": "Le café est fermé, c'est pourquoi nous partons.",
+          "en": "The café is closed, that is why we are leaving.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.071",
+          "theme": "connecteurs-logiques",
+          "fr": "Il fait beau, alors nous marchons dans le parc.",
+          "en": "The weather is nice, so we are walking in the park.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.088",
+          "theme": "connecteurs-logiques",
+          "fr": "Nous avons acheté du pain, et aussi du fromage.",
+          "en": "We bought some bread, and also some cheese.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.072",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne comprends pas cette règle ? Moi non plus.",
+          "en": "You do not understand this rule? Me neither.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.104",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons trouvé une table près de la fenêtre.",
+          "en": "We found a table near the window.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.paysages.127",
+          "theme": "paysages",
+          "fr": "Elle a marché pendant deux heures dans le bois.",
+          "en": "She walked for two hours in the woods.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.030",
+          "theme": "animaux-domestiques",
+          "fr": "Le chat gratte doucement la porte de la cuisine.",
+          "en": "The cat gently scratches at the kitchen door.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.036",
+          "theme": "animaux-domestiques",
+          "fr": "Notre chatte vient de mettre bas dans le garage.",
+          "en": "Our cat just gave birth in the garage.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.094",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne veux pas m'accompagner ? Si, avec plaisir.",
+          "en": "You do not want to come with me? Yes, gladly.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.a2.objets.112",
+          "theme": "objets",
+          "fr": "Tu vas emprunter mon stylo pour l'examen demain.",
+          "en": "You are going to borrow my pen for tomorrow's exam.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.082",
+          "theme": "rp-meteo-nature",
+          "fr": "Nous avons observé des baleines près de la côte.",
+          "en": "We watched whales near the coast.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.076",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle a couru, c'est pourquoi elle est essoufflée.",
+          "en": "She ran, that is why she is out of breath.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.095",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons parlé de nos projets pendant le dîner.",
+          "en": "We talked about our plans during dinner.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.paysages.142",
+          "theme": "paysages",
+          "fr": "Le ciel était rouge pendant le coucher du soleil.",
+          "en": "The sky was red during sunset.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.corps.017",
+          "theme": "corps",
+          "fr": "Quand j'étais enfant, j'avais souvent des otites.",
+          "en": "When I was a child, I often had ear infections.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.041",
+          "theme": "animaux-domestiques",
+          "fr": "La dame du refuge nous a présenté plusieurs chats.",
+          "en": "The lady at the shelter introduced us to several cats.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.098",
+          "theme": "description-personnes-objets",
+          "fr": "L'immeuble est ancien, mais il est bien entretenu.",
+          "en": "The building is old, but it is well maintained.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.073",
+          "theme": "connecteurs-logiques",
+          "fr": "Nous arrivons en retard à cause de la circulation.",
+          "en": "We are arriving late because of the traffic.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.086",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle est arrivée chez ses grands-parents ce matin.",
+          "en": "She arrived at her grandparents' place this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.094",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle est revenue du marché avec des légumes frais.",
+          "en": "She came back from the market with fresh vegetables.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.097",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle s'intéresse à la peinture depuis son enfance.",
+          "en": "She has been interested in painting since her childhood.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.128",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle est allée chez le dentiste après le déjeuner.",
+          "en": "She went to the dentist's after lunch.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.paysages.130",
+          "theme": "paysages",
+          "fr": "J'ai pris beaucoup de photos pendant la randonnée.",
+          "en": "I took a lot of photos during the hike.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.028",
+          "theme": "animaux-domestiques",
+          "fr": "De temps en temps, notre chatte griffe les meubles.",
+          "en": "Every once in a while, our cat scratches the furniture.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.039",
+          "theme": "animaux-domestiques",
+          "fr": "Mon frère s'occupe du hamster pendant les vacances.",
+          "en": "My brother takes care of the hamster during the holidays.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.077",
+          "theme": "description-personnes-objets",
+          "fr": "La cuisine est spacieuse, elle a une grande fenêtre.",
+          "en": "The kitchen is spacious, it has a big window.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.089",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle parle anglais, de plus elle apprend l'espagnol.",
+          "en": "She speaks English, in addition she is learning Spanish.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.107",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle est passée par la boulangerie avant le travail.",
+          "en": "She stopped by the bakery before work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.085",
+          "theme": "rp-meteo-nature",
+          "fr": "Les enfants jouaient dans la neige toute la matinée.",
+          "en": "The children were playing in the snow all morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.paysages.146",
+          "theme": "paysages",
+          "fr": "Nous allons prendre le sentier qui longe la rivière.",
+          "en": "We're going to take the trail along the river.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.098",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle aime lire, mais elle préfère regarder des films.",
+          "en": "She likes to read, but she prefers watching movies.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.027",
+          "theme": "negation-et-restriction",
+          "fr": "Les enfants ne se couchent jamais avant vingt heures.",
+          "en": "The children never go to bed before eight p.m.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.035",
+          "theme": "animaux-domestiques",
+          "fr": "Ma copine cherche un petit chien pour son appartement.",
+          "en": "My girlfriend is looking for a small dog for her apartment.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.047",
+          "theme": "animaux-domestiques",
+          "fr": "Notre chienne apprend de nouveaux tours petit à petit.",
+          "en": "Our dog is learning new tricks little by little.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.050",
+          "theme": "animaux-domestiques",
+          "fr": "Le toilettage régulier évite les nœuds dans le pelage.",
+          "en": "Regular grooming prevents tangles in the fur.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.080",
+          "theme": "connecteurs-logiques",
+          "fr": "Grâce à cette carte, nous trouvons facilement la gare.",
+          "en": "Thanks to this map, we easily find the station.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.102",
+          "theme": "connecteurs-logiques",
+          "fr": "Ils habitent en ville, mais ils préfèrent la campagne.",
+          "en": "They live in the city, but they prefer the countryside.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.092",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons attendu devant le cinéma pendant une heure.",
+          "en": "We waited in front of the cinema for an hour.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.117",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons discuté avec le directeur après la réunion.",
+          "en": "We talked with the director after the meeting.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.paysages.147",
+          "theme": "paysages",
+          "fr": "Le soleil va bientôt se coucher derrière les collines.",
+          "en": "The sun is about to set behind the hills.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.126",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons acheté des fleurs pour notre voisine malade.",
+          "en": "We bought flowers for our sick neighbor.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.068",
+          "theme": "description-personnes-objets",
+          "fr": "Elle est optimiste, même quand la journée est difficile.",
+          "en": "She is optimistic, even when the day is hard.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.a2.animaux-domestiques.044",
+          "theme": "animaux-domestiques",
+          "fr": "Mon collègue élève des poissons rouges depuis des années.",
+          "en": "My colleague has been raising goldfish for years.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.091",
+          "theme": "connecteurs-logiques",
+          "fr": "La maison est petite, pourtant elle est très confortable.",
+          "en": "The house is small, yet it is very comfortable.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.101",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous sommes restés chez nos cousins pendant les vacances.",
+          "en": "We stayed at our cousins' place during the vacation.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.079",
+          "theme": "description-personnes-objets",
+          "fr": "Le restaurant est cher, mais la nourriture est délicieuse.",
+          "en": "The restaurant is expensive, but the food is delicious.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.094",
+          "theme": "connecteurs-logiques",
+          "fr": "Ce restaurant est cher, mais la nourriture est délicieuse.",
+          "en": "This restaurant is expensive, but the food is delicious.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.034",
+          "theme": "animaux-domestiques",
+          "fr": "La vétérinaire recommande un régime spécial pour le chaton.",
+          "en": "The vet recommends a special diet for the kitten.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.objets.121",
+          "theme": "objets",
+          "fr": "Elle va vendre son ordinateur portable la semaine prochaine.",
+          "en": "She is going to sell her laptop next week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.comparaisons.073",
+          "theme": "comparaisons",
+          "fr": "Il y a plus de monde ici que là-bas.",
+          "en": "There are more people here than over there.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.039",
+          "theme": "negation-et-restriction",
+          "fr": "Il n'y a plus de place dans la salle.",
+          "en": "There is no more room in the hall.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.comparaisons.102",
+          "theme": "comparaisons",
+          "fr": "C'est le jour le plus court de l'année.",
+          "en": "It's the shortest day of the year.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.comparaisons.109",
+          "theme": "comparaisons",
+          "fr": "C'est la saison la plus froide de l'année.",
+          "en": "It's the coldest season of the year.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.058",
+          "theme": "negation-et-restriction",
+          "fr": "Il n'y a personne dans la salle d'attente.",
+          "en": "There is no one in the waiting room.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.074",
+          "theme": "description-personnes-objets",
+          "fr": "Mon oncle est grand et il a une voix grave.",
+          "en": "My uncle is tall and has a deep voice.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.comparaisons.094",
+          "theme": "comparaisons",
+          "fr": "C'est l'élève le moins bavard de la classe.",
+          "en": "He's the least talkative student in the class.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.062",
+          "theme": "connecteurs-logiques",
+          "fr": "Le train est en retard à cause de la neige.",
+          "en": "The train is late because of the snow.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.corps.001",
+          "theme": "corps",
+          "fr": "Elle s'est cassé le bras en tombant du vélo.",
+          "en": "She broke her arm falling off her bike.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.comparaisons.108",
+          "theme": "comparaisons",
+          "fr": "C'est le magasin le plus proche de chez moi.",
+          "en": "It's the store closest to my home.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.092",
+          "theme": "negation-et-restriction",
+          "fr": "Vous n'aimez pas le poisson ? Si, j'adore ça.",
+          "en": "You do not like fish? Yes, I love it.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.objets.124",
+          "theme": "objets",
+          "fr": "J'ai fait un nouveau porte-clés pour mon fils.",
+          "en": "I made a new keychain for my son.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.paysages.135",
+          "theme": "paysages",
+          "fr": "Quand j'étais petit, j'habitais près d'un lac.",
+          "en": "When I was young, I lived near a lake.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.106",
+          "theme": "negation-et-restriction",
+          "fr": "Nous ne sommes pas allés au marché ce week-end.",
+          "en": "We did not go to the market this weekend.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.049",
+          "theme": "animaux-domestiques",
+          "fr": "Le chaton s'est calmé au bout de quelques jours.",
+          "en": "The kitten calmed down after a few days.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.comparaisons.103",
+          "theme": "comparaisons",
+          "fr": "C'est la question la plus difficile de l'examen.",
+          "en": "It's the hardest question on the exam.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.076",
+          "theme": "negation-et-restriction",
+          "fr": "Elle n'est pas du tout surprise par la nouvelle.",
+          "en": "She is not at all surprised by the news.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.paysages.131",
+          "theme": "paysages",
+          "fr": "Le guide nous a montré le sentier le plus court.",
+          "en": "The guide showed us the shortest trail.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.064",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle sourit, c'est pourquoi tout le monde l'aime.",
+          "en": "She smiles, that is why everyone likes her.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.079",
+          "theme": "connecteurs-logiques",
+          "fr": "À cause de la chaleur, ils boivent beaucoup d'eau.",
+          "en": "Because of the heat, they drink a lot of water.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.093",
+          "theme": "connecteurs-logiques",
+          "fr": "Il fait ses devoirs, et il range aussi sa chambre.",
+          "en": "He does his homework, and he also tidies his room.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.100",
+          "theme": "connecteurs-logiques",
+          "fr": "Le magasin est loin, par contre les prix sont bas.",
+          "en": "The store is far away, but the prices are low.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.paysages.144",
+          "theme": "paysages",
+          "fr": "Ce week-end, je vais faire une promenade en forêt.",
+          "en": "This weekend, I'm going to take a walk in the forest.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.101",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle fait du sport, et elle mange aussi des fruits.",
+          "en": "She does sports, and she also eats fruit.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.objets.110",
+          "theme": "objets",
+          "fr": "Il a cassé ses lunettes en tombant dans l'escalier.",
+          "en": "He broke his glasses falling down the stairs.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.105",
+          "theme": "prepositions-essentielles",
+          "fr": "Le magasin se trouve entre la pharmacie et le café.",
+          "en": "The shop is located between the pharmacy and the cafe.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.a2.meteo.004",
+          "theme": "meteo",
+          "fr": "La météo va changer de temps en temps cette semaine.",
+          "en": "The weather will change now and then this week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.105",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle range la cuisine, de plus elle lave la voiture.",
+          "en": "She is tidying the kitchen, in addition she is washing the car.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.107",
+          "theme": "connecteurs-logiques",
+          "fr": "Il a beaucoup étudié, pourtant il a raté son examen.",
+          "en": "He studied a lot, yet he failed his exam.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.122",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle a envoyé un message à son professeur hier soir.",
+          "en": "She sent a message to her teacher last night.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.objets.117",
+          "theme": "objets",
+          "fr": "Les piles sont mortes, alors la lampe ne marche plus.",
+          "en": "The batteries are dead, so the lamp doesn't work anymore.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.059",
+          "theme": "description-personnes-objets",
+          "fr": "Le nouvel employé est timide, mais il est très gentil.",
+          "en": "The new employee is shy, but he is very kind.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.076",
+          "theme": "description-personnes-objets",
+          "fr": "Elle est timide en public, mais bavarde avec ses amis.",
+          "en": "She is shy in public, but talkative with her friends.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.097",
+          "theme": "connecteurs-logiques",
+          "fr": "Nous visitons le musée, de plus nous voyons le jardin.",
+          "en": "We are visiting the museum, in addition we are seeing the garden.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.104",
+          "theme": "connecteurs-logiques",
+          "fr": "Il pleut aujourd'hui, par contre il faisait beau hier.",
+          "en": "It is raining today, but it was nice yesterday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.110",
+          "theme": "connecteurs-logiques",
+          "fr": "Il travaille le samedi, mais il se repose le dimanche.",
+          "en": "He works on Saturdays, but he rests on Sundays.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.objets.134",
+          "theme": "objets",
+          "fr": "Elle a offert une bougie parfumée à sa meilleure amie.",
+          "en": "She gave a scented candle to her best friend.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.125",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle est passée devant la mairie en allant au travail.",
+          "en": "She passed in front of the town hall on her way to work.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.070",
+          "theme": "description-personnes-objets",
+          "fr": "Ils sont paresseux le week-end, mais actifs en semaine.",
+          "en": "They are lazy on weekends, but active during the week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.095",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne comprends pas cette leçon ? Si, maintenant ça va.",
+          "en": "Do you not understand this lesson? Yes, now it is fine.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.123",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons roulé jusqu'à la montagne sans nous arrêter.",
+          "en": "We drove to the mountain without stopping.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.055",
+          "theme": "description-personnes-objets",
+          "fr": "Le vieil homme marche lentement, il a quatre-vingts ans.",
+          "en": "The old man walks slowly, he is eighty years old.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.086",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle est petite, pourtant elle joue très bien au basket.",
+          "en": "She is short, yet she plays basketball very well.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.106",
+          "theme": "connecteurs-logiques",
+          "fr": "Nous aimons la mer, mais nous adorons aussi la montagne.",
+          "en": "We like the sea, but we also love the mountains.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.048",
+          "theme": "animaux-domestiques",
+          "fr": "Ma nièce voudrait un cochon d'Inde pour son anniversaire.",
+          "en": "My niece would like a guinea pig for her birthday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.paysages.138",
+          "theme": "paysages",
+          "fr": "Mes grands-parents vivaient dans une ferme à la campagne.",
+          "en": "My grandparents lived on a farm in the countryside.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.108",
+          "theme": "connecteurs-logiques",
+          "fr": "La chambre est petite, par contre elle est très lumineuse.",
+          "en": "The room is small, but it is very bright.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.111",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle a peu d'argent, pourtant elle est toujours généreuse.",
+          "en": "She has little money, yet she is always generous.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.objets.108",
+          "theme": "objets",
+          "fr": "Nous avons acheté un nouveau parapluie parce qu'il pleuvait.",
+          "en": "We bought a new umbrella because it was raining.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.066",
+          "theme": "connecteurs-logiques",
+          "fr": "Il n'a pas d'argent, alors il ne sort pas.",
+          "en": "He has no money, so he is not going out.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.comparaisons.107",
+          "theme": "comparaisons",
+          "fr": "C'est le pire film que j'ai vu cette année.",
+          "en": "It's the worst movie I've seen this year.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.118",
+          "theme": "prepositions-essentielles",
+          "fr": "Il a couru vers la sortie dès la fin du film.",
+          "en": "He ran toward the exit as soon as the movie ended.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.comparaisons.087",
+          "theme": "comparaisons",
+          "fr": "C'est le livre le plus intéressant que j'ai lu.",
+          "en": "It's the most interesting book I've read.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.127",
+          "theme": "prepositions-essentielles",
+          "fr": "Il a besoin d'un visa pour entrer dans ce pays.",
+          "en": "He needs a visa to enter this country.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.081",
+          "theme": "connecteurs-logiques",
+          "fr": "Il a perdu ses clés, donc il ne peut pas entrer.",
+          "en": "He lost his keys, so he cannot get in.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.objets.136",
+          "theme": "objets",
+          "fr": "Il a rempli le seau d'eau pour laver la voiture.",
+          "en": "He filled the bucket with water to wash the car.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.115",
+          "theme": "prepositions-essentielles",
+          "fr": "Il a oublié ses clés sur la table de la cuisine.",
+          "en": "He forgot his keys on the kitchen table.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.paysages.132",
+          "theme": "paysages",
+          "fr": "Nous avons entendu le cri d'un huard sur le lac.",
+          "en": "We heard the cry of a loon on the lake.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.100",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne veux pas de café ? Non merci, plutôt un thé.",
+          "en": "You do not want coffee? No thanks, tea instead.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.a2.prepositions-essentielles.124",
+          "theme": "prepositions-essentielles",
+          "fr": "Il a mis les valises dans le coffre de la voiture.",
+          "en": "He put the suitcases in the trunk of the car.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.069",
+          "theme": "negation-et-restriction",
+          "fr": "Je n'aime pas ce film, et toi non plus apparemment.",
+          "en": "I do not like this movie, and neither do you apparently.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.animaux.010",
+          "theme": "animaux",
+          "fr": "J'avais un chat et il dormait toujours sur mon lit.",
+          "en": "I had a cat and it always slept on my bed.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.083",
+          "theme": "description-personnes-objets",
+          "fr": "L'usine est grande et elle est loin du centre-ville.",
+          "en": "The factory is big and it is far from downtown.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.objets.127",
+          "theme": "objets",
+          "fr": "Elle a prêté son tournevis à son voisin ce week-end.",
+          "en": "She lent her screwdriver to her neighbor this weekend.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.090",
+          "theme": "prepositions-essentielles",
+          "fr": "J'ai mis mon passeport dans mon sac avant le départ.",
+          "en": "I put my passport in my bag before departure.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.objets.003",
+          "theme": "objets",
+          "fr": "J'ai laissé mon téléphone sur la table de la cuisine.",
+          "en": "I left my phone on the kitchen table.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.033",
+          "theme": "animaux-domestiques",
+          "fr": "Notre chat a l'habitude de dormir près de la fenêtre.",
+          "en": "Our cat is used to sleeping near the window.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.098",
+          "theme": "negation-et-restriction",
+          "fr": "Elle ne sort pas ce soir ? Non, elle reste chez elle.",
+          "en": "Is she not going out tonight? No, she is staying home.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.071",
+          "theme": "description-personnes-objets",
+          "fr": "Ma grand-mère est petite, elle a quatre-vingt-dix ans.",
+          "en": "My grandmother is short, she is ninety years old.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.099",
+          "theme": "negation-et-restriction",
+          "fr": "Il ne conduit pas la voiture ? Non, il prend le train.",
+          "en": "Is he not driving the car? No, he is taking the train.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-meteo-nature.062",
+          "theme": "rp-meteo-nature",
+          "fr": "Nous avons marché dans la forêt et avons vu des cerfs.",
+          "en": "We walked in the forest and saw deer.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.comparaisons.105",
+          "theme": "comparaisons",
+          "fr": "C'est l'hôtel le moins confortable où nous avons dormi.",
+          "en": "It's the least comfortable hotel where we have slept.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.092",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle adore les chats, par contre elle a peur des chiens.",
+          "en": "She loves cats, but she is afraid of dogs.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.112",
+          "theme": "connecteurs-logiques",
+          "fr": "Ce quartier est calme, par contre il est loin du centre.",
+          "en": "This neighborhood is quiet, but it is far from downtown.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.103",
+          "theme": "connecteurs-logiques",
+          "fr": "Le film est long, pourtant les enfants ne s'ennuient pas.",
+          "en": "The movie is long, yet the children do not get bored.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.objets.115",
+          "theme": "objets",
+          "fr": "J'ai écrit mon adresse dans ce carnet la semaine dernière.",
+          "en": "I wrote my address in this notebook last week.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.109",
+          "theme": "connecteurs-logiques",
+          "fr": "Elle fait la cuisine, et son frère fait aussi la vaisselle.",
+          "en": "She is cooking, and her brother is also doing the dishes.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.objets.129",
+          "theme": "objets",
+          "fr": "Nous avons acheté de la colle forte pour réparer la chaise.",
+          "en": "We bought strong glue to fix the chair.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.paysages.129",
+          "theme": "paysages",
+          "fr": "Les enfants ont ramassé des feuilles d'érable dans le parc.",
+          "en": "The children collected maple leaves in the park.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.073",
+          "theme": "description-personnes-objets",
+          "fr": "Cette femme porte des lunettes et elle a les cheveux courts.",
+          "en": "This woman wears glasses and has short hair.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.099",
+          "theme": "connecteurs-logiques",
+          "fr": "Il est très timide, pourtant il chante devant tout le monde.",
+          "en": "He is very shy, yet he sings in front of everyone.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.072",
+          "theme": "description-personnes-objets",
+          "fr": "Le directeur est sérieux au travail, mais drôle avec ses amis.",
+          "en": "The manager is serious at work, but funny with his friends.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.negation-et-restriction.097",
+          "theme": "negation-et-restriction",
+          "fr": "Vous n'avez pas de billet ? Non, je n'en ai pas.",
+          "en": "You do not have a ticket? No, I do not.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.087",
+          "theme": "connecteurs-logiques",
+          "fr": "Il aime le café, par contre il n'aime pas le thé.",
+          "en": "He likes coffee, but he does not like tea.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.paysages.134",
+          "theme": "paysages",
+          "fr": "J'ai passé la nuit dans une tente au bord du lac.",
+          "en": "I spent the night in a tent by the lake.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.description-personnes-objets.095",
+          "theme": "description-personnes-objets",
+          "fr": "Le canapé est en bon état, mais il est un peu vieux.",
+          "en": "The couch is in good condition, but it is a bit old.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.objets.106",
+          "theme": "objets",
+          "fr": "J'ai perdu mes clés parce que j'étais pressé ce matin.",
+          "en": "I lost my keys because I was in a hurry this morning.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.objets.135",
+          "theme": "objets",
+          "fr": "J'ai pris le balai, puis j'ai nettoyé toute la cuisine.",
+          "en": "I took the broom, then I cleaned the whole kitchen.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.111",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous avons dormi dans un petit hôtel au bord de la mer.",
+          "en": "We slept in a small hotel by the sea.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.objets.125",
+          "theme": "objets",
+          "fr": "Papa a rangé la boîte à outils dans le garage hier soir.",
+          "en": "Dad put the toolbox away in the garage last night.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.objets.139",
+          "theme": "objets",
+          "fr": "J'ai réglé le réveil, alors je vais me lever tôt demain.",
+          "en": "I set the alarm clock, so I am going to get up early tomorrow.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.paysages.126",
+          "theme": "paysages",
+          "fr": "Ce matin, j'ai photographié le lever du soleil sur le lac.",
+          "en": "This morning, I photographed the sunrise over the lake.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.a2.objets.118",
+          "theme": "objets",
+          "fr": "Mon père a offert cette montre à ma mère pour son anniversaire.",
+          "en": "My father gave this watch to my mother for her birthday.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.objets.137",
+          "theme": "objets",
+          "fr": "Nous avons emprunté une échelle chez le voisin pour peindre le mur.",
+          "en": "We borrowed a ladder from the neighbor to paint the wall.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.meteo.012",
+          "theme": "meteo",
+          "fr": "Il faisait très froid hier soir, mais nous sommes sortis quand même.",
+          "en": "It was very cold last night, but we went out anyway.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.animaux-domestiques.043",
+          "theme": "animaux-domestiques",
+          "fr": "Les enfants apprennent à respecter les animaux dès le plus jeune âge.",
+          "en": "Children learn to respect animals from a very young age.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.objets.133",
+          "theme": "objets",
+          "fr": "Nous avons acheté des allumettes parce que le briquet ne marchait plus.",
+          "en": "We bought matches because the lighter no longer worked.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.objets.119",
+          "theme": "objets",
+          "fr": "Nous avons acheté une nouvelle valise parce que l'ancienne était cassée.",
+          "en": "We bought a new suitcase because the old one was broken.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.connecteurs-logiques.096",
+          "theme": "connecteurs-logiques",
+          "fr": "Il n'a pas de voiture, par contre il a un bon vélo.",
+          "en": "He does not have a car, but he has a good bike.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.objets.138",
+          "theme": "objets",
+          "fr": "Le miroir est tombé du mur, mais il ne s'est pas cassé.",
+          "en": "The mirror fell off the wall, but it didn't break.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.prepositions-essentielles.091",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle a couru jusqu'à la gare pour ne pas rater le train.",
+          "en": "She ran to the station so as not to miss the train.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.objets.116",
+          "theme": "objets",
+          "fr": "Mon frère a emprunté mes ciseaux et il ne les a pas rendus.",
+          "en": "My brother borrowed my scissors and he didn't give them back.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.meteo.011",
+          "theme": "meteo",
+          "fr": "Il a plu toute la journée, donc nous sommes restés à la maison.",
+          "en": "It rained all day, so we stayed home.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.objets.114",
+          "theme": "objets",
+          "fr": "Elle a mis ses affaires dans un grand sac, puis elle est partie.",
+          "en": "She put her things in a big bag, then she left.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.meteo.013",
+          "theme": "meteo",
+          "fr": "Le ciel était couvert ce matin, et il a neigé après le déjeuner.",
+          "en": "The sky was overcast this morning, and it snowed after lunch.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.objets.107",
+          "theme": "objets",
+          "fr": "Elle a cherché son téléphone partout, mais elle ne l'a pas trouvé.",
+          "en": "She looked for her phone everywhere, but she didn't find it.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.corps.015",
+          "theme": "corps",
+          "fr": "Je me suis cassé le poignet en faisant du ski la semaine dernière.",
+          "en": "I broke my wrist while skiing last week.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.objets.126",
+          "theme": "objets",
+          "fr": "Il a réparé la chaise avec un marteau, mais elle est encore instable.",
+          "en": "He fixed the chair with a hammer, but it is still unstable.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.objets.123",
+          "theme": "objets",
+          "fr": "Nous avons cherché la télécommande sous le canapé, puis nous l'avons trouvée.",
+          "en": "We looked for the remote control under the couch, then we found it.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.objets.132",
+          "theme": "objets",
+          "fr": "J'ai allumé mon briquet, mais le vent l'a éteint tout de suite.",
+          "en": "I lit my lighter, but the wind put it out right away.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.objets.109",
+          "theme": "objets",
+          "fr": "J'ai laissé mon portefeuille à la maison, alors je n'ai pas payé.",
+          "en": "I left my wallet at home, so I didn't pay.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.corps.016",
+          "theme": "corps",
+          "fr": "Elle avait très mal à la gorge et elle est allée voir le médecin.",
+          "en": "Her throat hurt a lot and she went to see the doctor.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.objets.120",
+          "theme": "objets",
+          "fr": "J'ai chargé mes écouteurs toute la nuit, mais ils ne fonctionnent toujours pas.",
+          "en": "I charged my headphones all night, but they still don't work.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.objets.131",
+          "theme": "objets",
+          "fr": "Elle a laissé le couteau sur la table, alors le chat l'a fait tomber.",
+          "en": "She left the knife on the table, so the cat knocked it down.",
+          "words": 15
+        },
+        {
+          "id": "fr.a2.animaux.009",
+          "theme": "animaux",
+          "fr": "Le week-end dernier, nous avons visité le zoo et nous avons vu des girafes.",
+          "en": "Last weekend, we visited the zoo and we saw giraffes.",
+          "words": 15
+        },
+        {
+          "id": "fr.a2.objets.128",
+          "theme": "objets",
+          "fr": "J'ai collé l'affiche avec du ruban adhésif parce que je n'avais pas de punaises.",
+          "en": "I stuck the poster with tape because I didn't have any thumbtacks.",
+          "words": 17
+        }
+      ]
+    }
+  ]
+}

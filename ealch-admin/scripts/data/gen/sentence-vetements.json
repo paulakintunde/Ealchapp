@@ -1,0 +1,1472 @@
+[
+  {
+    "id": "fr.a2.vetements.143",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "J'ai acheté une robe blanche pour la fête.",
+    "en": "I bought a white dress for the party.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai acheté\",\"t\":\"I bought\"},{\"w\":\"une robe blanche\",\"t\":\"a white dress\"},{\"w\":\"pour la fête.\",\"t\":\"for the party\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.144",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Elle porte un manteau gris aujourd'hui.",
+    "en": "She's wearing a gray coat today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte\",\"t\":\"she's wearing\"},{\"w\":\"un manteau gris\",\"t\":\"a gray coat\"},{\"w\":\"aujourd'hui.\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.145",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Nous allons essayer ces chaussures avant de partir.",
+    "en": "We are going to try on these shoes before leaving.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons essayer\",\"t\":\"we're going to try on\"},{\"w\":\"ces chaussures\",\"t\":\"these shoes\"},{\"w\":\"avant de partir.\",\"t\":\"before leaving\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.146",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Il a mis son écharpe parce qu'il fait froid.",
+    "en": "He put on his scarf because it's cold.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a mis\",\"t\":\"he put on\"},{\"w\":\"son écharpe\",\"t\":\"his scarf\"},{\"w\":\"parce qu'il fait froid.\",\"t\":\"because it's cold\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.147",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Ma sœur cherche une jupe grise pour l'école.",
+    "en": "My sister is looking for a gray skirt for school.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma sœur cherche\",\"t\":\"my sister is looking for\"},{\"w\":\"une jupe grise\",\"t\":\"a gray skirt\"},{\"w\":\"pour l'école.\",\"t\":\"for school\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.148",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "J'ai acheté un pantalon noir hier soir.",
+    "en": "I bought black pants last night.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai acheté\",\"t\":\"I bought\"},{\"w\":\"un pantalon noir\",\"t\":\"black pants\"},{\"w\":\"hier soir.\",\"t\":\"last night\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.149",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Tu vas porter ta veste blanche demain?",
+    "en": "Are you going to wear your white jacket tomorrow?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu vas porter\",\"t\":\"are you going to wear\"},{\"w\":\"ta veste blanche\",\"t\":\"your white jacket\"},{\"w\":\"demain?\",\"t\":\"tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.150",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Nous avons rendu les chaussures parce qu'elles étaient trop petites.",
+    "en": "We returned the shoes because they were too small.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons rendu\",\"t\":\"we returned\"},{\"w\":\"les chaussures\",\"t\":\"the shoes\"},{\"w\":\"parce qu'elles étaient\",\"t\":\"because they were\"},{\"w\":\"trop petites.\",\"t\":\"too small\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.151",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Elle a essayé trois robes avant de choisir la bleue.",
+    "en": "She tried on three dresses before choosing the blue one.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a essayé\",\"t\":\"she tried on\"},{\"w\":\"trois robes\",\"t\":\"three dresses\"},{\"w\":\"avant de choisir\",\"t\":\"before choosing\"},{\"w\":\"la bleue.\",\"t\":\"the blue one\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.152",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Il fait froid, donc je vais mettre mon pull.",
+    "en": "It's cold, so I'm going to put on my sweater.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il fait froid,\",\"t\":\"it's cold,\"},{\"w\":\"donc je vais mettre\",\"t\":\"so I'm going to put on\"},{\"w\":\"mon pull.\",\"t\":\"my sweater\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.153",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "J'ai lavé ma chemise blanche ce matin.",
+    "en": "I washed my white shirt this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai lavé\",\"t\":\"I washed\"},{\"w\":\"ma chemise blanche\",\"t\":\"my white shirt\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.154",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Cette veste grise coûte trop cher pour moi.",
+    "en": "This gray jacket costs too much for me.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette veste grise\",\"t\":\"this gray jacket\"},{\"w\":\"coûte trop cher\",\"t\":\"costs too much\"},{\"w\":\"pour moi.\",\"t\":\"for me\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.155",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Nous avons trouvé des chaussettes grises dans le magasin.",
+    "en": "We found gray socks in the store.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons trouvé\",\"t\":\"we found\"},{\"w\":\"des chaussettes grises\",\"t\":\"gray socks\"},{\"w\":\"dans le magasin.\",\"t\":\"in the store\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.156",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Elle va acheter un chapeau pour l'été.",
+    "en": "She is going to buy a hat for summer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle va acheter\",\"t\":\"she is going to buy\"},{\"w\":\"un chapeau\",\"t\":\"a hat\"},{\"w\":\"pour l'été.\",\"t\":\"for summer\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.157",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "J'ai perdu un gant pendant le voyage.",
+    "en": "I lost a glove during the trip.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai perdu\",\"t\":\"I lost\"},{\"w\":\"un gant\",\"t\":\"a glove\"},{\"w\":\"pendant le voyage.\",\"t\":\"during the trip\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.158",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Le vendeur m'a donné une taille plus grande.",
+    "en": "The salesperson gave me a bigger size.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vendeur\",\"t\":\"the salesperson\"},{\"w\":\"m'a donné\",\"t\":\"gave me\"},{\"w\":\"une taille plus grande.\",\"t\":\"a bigger size\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.159",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Nous devons échanger ce pull parce qu'il est trop petit.",
+    "en": "We need to exchange this sweater because it's too small.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous devons échanger\",\"t\":\"we need to exchange\"},{\"w\":\"ce pull\",\"t\":\"this sweater\"},{\"w\":\"parce qu'il est trop petit.\",\"t\":\"because it's too small\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.160",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Elle porte une robe blanche pour son anniversaire.",
+    "en": "She's wearing a white dress for her birthday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte\",\"t\":\"she's wearing\"},{\"w\":\"une robe blanche\",\"t\":\"a white dress\"},{\"w\":\"pour son anniversaire.\",\"t\":\"for her birthday\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.161",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "J'ai oublié mon parapluie dans le magasin.",
+    "en": "I forgot my umbrella in the store.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai oublié\",\"t\":\"I forgot\"},{\"w\":\"mon parapluie\",\"t\":\"my umbrella\"},{\"w\":\"dans le magasin.\",\"t\":\"in the store\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.162",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Il va porter un costume gris pour l'entretien.",
+    "en": "He is going to wear a gray suit for the interview.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il va porter\",\"t\":\"he is going to wear\"},{\"w\":\"un costume gris\",\"t\":\"a gray suit\"},{\"w\":\"pour l'entretien.\",\"t\":\"for the interview\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.163",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Nous avons acheté des bottes pour l'hiver.",
+    "en": "We bought boots for winter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons acheté\",\"t\":\"we bought\"},{\"w\":\"des bottes\",\"t\":\"boots\"},{\"w\":\"pour l'hiver.\",\"t\":\"for winter\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.164",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Cette chemise blanche va bien avec ton pantalon noir.",
+    "en": "This white shirt goes well with your black pants.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette chemise blanche\",\"t\":\"this white shirt\"},{\"w\":\"va bien\",\"t\":\"goes well\"},{\"w\":\"avec ton pantalon noir.\",\"t\":\"with your black pants\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.165",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "J'ai essayé ce manteau, mais il ne me va pas.",
+    "en": "I tried on this coat, but it doesn't fit me.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai essayé\",\"t\":\"I tried on\"},{\"w\":\"ce manteau,\",\"t\":\"this coat,\"},{\"w\":\"mais il ne me va pas.\",\"t\":\"but it doesn't fit me\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.166",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Elle a choisi une écharpe grise pour son père.",
+    "en": "She chose a gray scarf for her father.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a choisi\",\"t\":\"she chose\"},{\"w\":\"une écharpe grise\",\"t\":\"a gray scarf\"},{\"w\":\"pour son père.\",\"t\":\"for her father\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.167",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Nous allons faire les magasins samedi après-midi.",
+    "en": "We are going shopping Saturday afternoon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons\",\"t\":\"we are going\"},{\"w\":\"faire les magasins\",\"t\":\"shopping\"},{\"w\":\"samedi après-midi.\",\"t\":\"Saturday afternoon\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.168",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Il a rangé ses vêtements dans l'armoire.",
+    "en": "He put away his clothes in the closet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a rangé\",\"t\":\"he put away\"},{\"w\":\"ses vêtements\",\"t\":\"his clothes\"},{\"w\":\"dans l'armoire.\",\"t\":\"in the closet\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.169",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "J'ai besoin d'un nouveau maillot de bain pour les vacances.",
+    "en": "I need a new swimsuit for the vacation.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai besoin\",\"t\":\"I need\"},{\"w\":\"d'un nouveau maillot de bain\",\"t\":\"a new swimsuit\"},{\"w\":\"pour les vacances.\",\"t\":\"for the vacation\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.170",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Le pantalon est trop long, il faut le raccourcir.",
+    "en": "The pants are too long, they need to be shortened.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le pantalon\",\"t\":\"the pants\"},{\"w\":\"est trop long,\",\"t\":\"are too long,\"},{\"w\":\"il faut le raccourcir.\",\"t\":\"they need to be shortened\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.171",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Elle a mis ses lunettes de soleil avant de sortir.",
+    "en": "She put on her sunglasses before going out.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a mis\",\"t\":\"she put on\"},{\"w\":\"ses lunettes de soleil\",\"t\":\"her sunglasses\"},{\"w\":\"avant de sortir.\",\"t\":\"before going out\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.172",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Nous avons vendu nos vieux vêtements au marché.",
+    "en": "We sold our old clothes at the market.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons vendu\",\"t\":\"we sold\"},{\"w\":\"nos vieux vêtements\",\"t\":\"our old clothes\"},{\"w\":\"au marché.\",\"t\":\"at the market\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.173",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "J'ai acheté une cravate grise pour mon frère.",
+    "en": "I bought a gray tie for my brother.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai acheté\",\"t\":\"I bought\"},{\"w\":\"une cravate grise\",\"t\":\"a gray tie\"},{\"w\":\"pour mon frère.\",\"t\":\"for my brother\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.174",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Il va essayer cette chemise blanche en magasin.",
+    "en": "He is going to try on this white shirt in the store.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il va essayer\",\"t\":\"he is going to try on\"},{\"w\":\"cette chemise blanche\",\"t\":\"this white shirt\"},{\"w\":\"en magasin.\",\"t\":\"in the store\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.175",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Elle porte toujours des baskets blanches pour courir.",
+    "en": "She always wears white sneakers for running.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte toujours\",\"t\":\"she always wears\"},{\"w\":\"des baskets blanches\",\"t\":\"white sneakers\"},{\"w\":\"pour courir.\",\"t\":\"for running\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.176",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Nous avons plié les vêtements avant de partir.",
+    "en": "We folded the clothes before leaving.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons plié\",\"t\":\"we folded\"},{\"w\":\"les vêtements\",\"t\":\"the clothes\"},{\"w\":\"avant de partir.\",\"t\":\"before leaving\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.177",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "J'ai déchiré mon jean en jouant au football.",
+    "en": "I tore my jeans while playing soccer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai déchiré\",\"t\":\"I tore\"},{\"w\":\"mon jean\",\"t\":\"my jeans\"},{\"w\":\"en jouant au football.\",\"t\":\"while playing soccer\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.178",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Il fait chaud, alors elle porte une robe légère.",
+    "en": "It's hot, so she's wearing a light dress.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il fait chaud,\",\"t\":\"it's hot,\"},{\"w\":\"alors elle porte\",\"t\":\"so she's wearing\"},{\"w\":\"une robe légère.\",\"t\":\"a light dress\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.179",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Nous allons repasser les chemises ce soir.",
+    "en": "We are going to iron the shirts tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons repasser\",\"t\":\"we're going to iron\"},{\"w\":\"les chemises\",\"t\":\"the shirts\"},{\"w\":\"ce soir.\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.180",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "J'ai mis mon pyjama gris pour dormir.",
+    "en": "I put on my gray pajamas to sleep.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai mis\",\"t\":\"I put on\"},{\"w\":\"mon pyjama gris\",\"t\":\"my gray pajamas\"},{\"w\":\"pour dormir.\",\"t\":\"to sleep\"}]}"
+  },
+  {
+    "id": "fr.a2.vetements.181",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "vetements",
+    "fr": "Elle a acheté une ceinture noire avec ses bottes.",
+    "en": "She bought a black belt with her boots.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a acheté\",\"t\":\"she bought\"},{\"w\":\"une ceinture noire\",\"t\":\"a black belt\"},{\"w\":\"avec ses bottes.\",\"t\":\"with her boots\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.111",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Je pense que cette couleur te va très bien.",
+    "en": "I think this color suits you very well.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pense\",\"t\":\"I think\"},{\"w\":\"que cette couleur\",\"t\":\"that this color\"},{\"w\":\"te va très bien.\",\"t\":\"suits you very well\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.112",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Le vendeur qui m'a aidé était très patient.",
+    "en": "The salesperson who helped me was very patient.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vendeur\",\"t\":\"the salesperson\"},{\"w\":\"qui m'a aidé\",\"t\":\"who helped me\"},{\"w\":\"était très patient.\",\"t\":\"was very patient\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.113",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Si j'avais plus d'argent, j'achèterais ce manteau en cuir.",
+    "en": "If I had more money, I would buy this leather coat.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si j'avais plus d'argent,\",\"t\":\"if I had more money,\"},{\"w\":\"j'achèterais\",\"t\":\"I would buy\"},{\"w\":\"ce manteau en cuir.\",\"t\":\"this leather coat\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.114",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Quand je fais mes courses, je préfère les vêtements confortables.",
+    "en": "When I go shopping, I prefer comfortable clothes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand je fais mes courses,\",\"t\":\"when I go shopping,\"},{\"w\":\"je préfère\",\"t\":\"I prefer\"},{\"w\":\"les vêtements confortables.\",\"t\":\"comfortable clothes\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.115",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Elle porte souvent des vêtements qui reflètent sa personnalité.",
+    "en": "She often wears clothes that reflect her personality.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte souvent\",\"t\":\"she often wears\"},{\"w\":\"des vêtements\",\"t\":\"clothes\"},{\"w\":\"qui reflètent sa personnalité.\",\"t\":\"that reflect her personality\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.116",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Je trouve que les soldes attirent trop de monde.",
+    "en": "I find that sales attract too many people.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je trouve\",\"t\":\"I find\"},{\"w\":\"que les soldes attirent\",\"t\":\"that the sales attract\"},{\"w\":\"trop de monde.\",\"t\":\"too many people\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.117",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Il faut que tu essaies cette taille avant d'acheter.",
+    "en": "You need to try this size before buying.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il faut\",\"t\":\"you need to\"},{\"w\":\"que tu essaies cette taille\",\"t\":\"try this size\"},{\"w\":\"avant d'acheter.\",\"t\":\"before buying\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.118",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Bien que ce tissu soit joli, il n'est pas pratique pour l'hiver.",
+    "en": "Although this fabric is pretty, it's not practical for winter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien que ce tissu soit joli,\",\"t\":\"although this fabric is pretty,\"},{\"w\":\"il n'est pas pratique\",\"t\":\"it's not practical\"},{\"w\":\"pour l'hiver.\",\"t\":\"for winter\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.119",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Quand j'étais jeune, je détestais porter une cravate.",
+    "en": "When I was young, I hated wearing a tie.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand j'étais jeune,\",\"t\":\"when I was young,\"},{\"w\":\"je détestais porter\",\"t\":\"I hated wearing\"},{\"w\":\"une cravate.\",\"t\":\"a tie\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.120",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Le style qui me convient le mieux est assez simple.",
+    "en": "The style that suits me best is fairly simple.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le style\",\"t\":\"the style\"},{\"w\":\"qui me convient le mieux\",\"t\":\"that suits me best\"},{\"w\":\"est assez simple.\",\"t\":\"is fairly simple\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.121",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Je doute que cette veste résiste à la pluie.",
+    "en": "I doubt this jacket will hold up against the rain.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je doute\",\"t\":\"I doubt\"},{\"w\":\"que cette veste résiste\",\"t\":\"that this jacket will hold up\"},{\"w\":\"à la pluie.\",\"t\":\"against the rain\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.122",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Si tu veux économiser, achète des vêtements d'occasion.",
+    "en": "If you want to save money, buy secondhand clothes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si tu veux économiser,\",\"t\":\"if you want to save money,\"},{\"w\":\"achète\",\"t\":\"buy\"},{\"w\":\"des vêtements d'occasion.\",\"t\":\"secondhand clothes\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.123",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Elle a choisi un tissu qui ne se froisse pas facilement.",
+    "en": "She chose a fabric that doesn't wrinkle easily.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a choisi\",\"t\":\"she chose\"},{\"w\":\"un tissu\",\"t\":\"a fabric\"},{\"w\":\"qui ne se froisse pas facilement.\",\"t\":\"that doesn't wrinkle easily\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.124",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Nous devrions recycler les vêtements que nous ne portons plus.",
+    "en": "We should recycle the clothes we no longer wear.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous devrions recycler\",\"t\":\"we should recycle\"},{\"w\":\"les vêtements\",\"t\":\"the clothes\"},{\"w\":\"que nous ne portons plus.\",\"t\":\"that we no longer wear\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.125",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "C'est dommage que ce magasin n'ait pas ma taille.",
+    "en": "It's a shame that this store doesn't have my size.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est dommage\",\"t\":\"it's a shame\"},{\"w\":\"que ce magasin n'ait pas\",\"t\":\"that this store doesn't have\"},{\"w\":\"ma taille.\",\"t\":\"my size\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.126",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Je crois que la mode évolue trop vite ces derniers temps.",
+    "en": "I believe fashion changes too fast these days.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je crois\",\"t\":\"I believe\"},{\"w\":\"que la mode évolue trop vite\",\"t\":\"that fashion changes too fast\"},{\"w\":\"ces derniers temps.\",\"t\":\"these days\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.127",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Quand il pleut, je mets toujours mes bottes en caoutchouc.",
+    "en": "When it rains, I always put on my rubber boots.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand il pleut,\",\"t\":\"when it rains,\"},{\"w\":\"je mets toujours\",\"t\":\"I always put on\"},{\"w\":\"mes bottes en caoutchouc.\",\"t\":\"my rubber boots\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.128",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "L'employée m'a expliqué comment entretenir ce pull en laine.",
+    "en": "The employee explained to me how to care for this wool sweater.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'employée m'a expliqué\",\"t\":\"the employee explained to me\"},{\"w\":\"comment entretenir\",\"t\":\"how to care for\"},{\"w\":\"ce pull en laine.\",\"t\":\"this wool sweater\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.129",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Si cette chemise rétrécit au lavage, je la rapporterai.",
+    "en": "If this shirt shrinks in the wash, I will bring it back.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si cette chemise rétrécit\",\"t\":\"if this shirt shrinks\"},{\"w\":\"au lavage,\",\"t\":\"in the wash,\"},{\"w\":\"je la rapporterai.\",\"t\":\"I will bring it back\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.130",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Il est important que les vêtements soient adaptés à la saison.",
+    "en": "It is important that clothes be suited to the season.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est important\",\"t\":\"it is important\"},{\"w\":\"que les vêtements soient adaptés\",\"t\":\"that clothes be suited\"},{\"w\":\"à la saison.\",\"t\":\"to the season\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.131",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Je préfère les marques qui respectent l'environnement.",
+    "en": "I prefer brands that respect the environment.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je préfère\",\"t\":\"I prefer\"},{\"w\":\"les marques\",\"t\":\"brands\"},{\"w\":\"qui respectent l'environnement.\",\"t\":\"that respect the environment\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.132",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Bien qu'il fasse froid, elle refuse de porter un manteau.",
+    "en": "Although it's cold, she refuses to wear a coat.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien qu'il fasse froid,\",\"t\":\"although it's cold,\"},{\"w\":\"elle refuse\",\"t\":\"she refuses\"},{\"w\":\"de porter un manteau.\",\"t\":\"to wear a coat\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.133",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Le pantalon que j'ai commandé en ligne ne m'allait pas du tout.",
+    "en": "The pants I ordered online didn't fit me at all.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le pantalon\",\"t\":\"the pants\"},{\"w\":\"que j'ai commandé en ligne\",\"t\":\"that I ordered online\"},{\"w\":\"ne m'allait pas du tout.\",\"t\":\"didn't fit me at all\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.134",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Depuis qu'elle a changé de style, elle porte plus de couleurs vives.",
+    "en": "Since she changed her style, she wears more bright colors.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Depuis qu'elle a changé de style,\",\"t\":\"since she changed her style,\"},{\"w\":\"elle porte plus\",\"t\":\"she wears more\"},{\"w\":\"de couleurs vives.\",\"t\":\"bright colors\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.135",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Je pense qu'il vaut mieux investir dans des vêtements de qualité.",
+    "en": "I think it's better to invest in quality clothes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pense\",\"t\":\"I think\"},{\"w\":\"qu'il vaut mieux investir\",\"t\":\"that it's better to invest\"},{\"w\":\"dans des vêtements de qualité.\",\"t\":\"in quality clothes\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.136",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Quand nous avons visité le marché, nous avons trouvé des tissus magnifiques.",
+    "en": "When we visited the market, we found beautiful fabrics.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand nous avons visité le marché,\",\"t\":\"when we visited the market,\"},{\"w\":\"nous avons trouvé\",\"t\":\"we found\"},{\"w\":\"des tissus magnifiques.\",\"t\":\"beautiful fabrics\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.137",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Elle aimerait que ses enfants apprennent à coudre leurs propres vêtements.",
+    "en": "She would like her children to learn to sew their own clothes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle aimerait\",\"t\":\"she would like\"},{\"w\":\"que ses enfants apprennent à coudre\",\"t\":\"her children to learn to sew\"},{\"w\":\"leurs propres vêtements.\",\"t\":\"their own clothes\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.138",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Ce n'est pas parce qu'un vêtement est cher qu'il est de bonne qualité.",
+    "en": "It's not because a piece of clothing is expensive that it's good quality.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce n'est pas\",\"t\":\"it's not\"},{\"w\":\"parce qu'un vêtement est cher\",\"t\":\"because a piece of clothing is expensive\"},{\"w\":\"qu'il est de bonne qualité.\",\"t\":\"that it's good quality\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.139",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Si j'avais su qu'il pleuvrait, j'aurais pris mon imperméable.",
+    "en": "If I had known it would rain, I would have taken my raincoat.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si j'avais su qu'il pleuvrait,\",\"t\":\"if I had known it would rain,\"},{\"w\":\"j'aurais pris\",\"t\":\"I would have taken\"},{\"w\":\"mon imperméable.\",\"t\":\"my raincoat\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.140",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Les critiques que j'ai lues sur cette marque sont plutôt négatives.",
+    "en": "The reviews I read about this brand are rather negative.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les critiques\",\"t\":\"the reviews\"},{\"w\":\"que j'ai lues sur cette marque\",\"t\":\"I read about this brand\"},{\"w\":\"sont plutôt négatives.\",\"t\":\"are rather negative\"}]}"
+  },
+  {
+    "id": "fr.b1.vetements.141",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "vetements",
+    "fr": "Une fois que tu auras essayé ce tissu, tu comprendras pourquoi je l'aime.",
+    "en": "Once you've tried this fabric, you'll understand why I like it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Une fois que tu auras essayé ce tissu,\",\"t\":\"once you've tried this fabric,\"},{\"w\":\"tu comprendras\",\"t\":\"you'll understand\"},{\"w\":\"pourquoi je l'aime.\",\"t\":\"why I like it\"}]}"
+  }
+]

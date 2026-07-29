@@ -1,0 +1,1196 @@
+{
+  "stage": "6.3",
+  "world": 6,
+  "level": "c1",
+  "title": "Le Cabinet Professionnel",
+  "themes": [
+    "francais-professionnel-avance"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 165,
+  "dedupedPool": 165,
+  "selected": 165,
+  "blockCount": 5,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.c1.francais-professionnel-avance.132",
+          "theme": "francais-professionnel-avance",
+          "fr": "Il se pourrait que je me sois trompé.",
+          "en": "It is possible that I got it wrong.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.065",
+          "theme": "francais-professionnel-avance",
+          "fr": "Sur ce point, je préfère réserver ma réponse.",
+          "en": "On that point, I would rather hold my answer.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.067",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous y sommes presque, encore un petit effort.",
+          "en": "We are almost there, just one more push.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.068",
+          "theme": "francais-professionnel-avance",
+          "fr": "Faisons un tour de table, deux minutes chacun.",
+          "en": "Let's go around the table, two minutes each.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.131",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le repas était, comment dire, un peu original.",
+          "en": "The meal was, how shall I put it, a little unusual.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.069",
+          "theme": "francais-professionnel-avance",
+          "fr": "Concrètement, qui assure le suivi de ce chantier?",
+          "en": "In concrete terms, who is handling the follow-up on this project?",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.001",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je vous confirme la livraison pour jeudi prochain.",
+          "en": "I am confirming delivery for next Thursday.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.133",
+          "theme": "francais-professionnel-avance",
+          "fr": "Disons que sa réaction m'a un peu surpris.",
+          "en": "Let's say his reaction surprised me a little.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.138",
+          "theme": "francais-professionnel-avance",
+          "fr": "On va dire que la soirée était plutôt calme.",
+          "en": "Let's just say the evening was rather quiet.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.002",
+          "theme": "francais-professionnel-avance",
+          "fr": "On se donne jusqu'à vendredi midi pour trancher.",
+          "en": "Let's give ourselves until Friday noon to make the call.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.135",
+          "theme": "francais-professionnel-avance",
+          "fr": "Il semblerait que la décision ait déjà été prise.",
+          "en": "It would seem the decision has already been made.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.009",
+          "theme": "francais-professionnel-avance",
+          "fr": "Qui prend en charge le suivi auprès du fournisseur?",
+          "en": "Who is handling the follow-up with the supplier?",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.071",
+          "theme": "francais-professionnel-avance",
+          "fr": "Cette clause nous expose trop, il faut la réécrire.",
+          "en": "This clause exposes us too much, it needs to be rewritten.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.012",
+          "theme": "francais-professionnel-avance",
+          "fr": "Chaque action doit avoir un responsable et une date.",
+          "en": "Every action item needs an owner and a date.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.003",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le rapport final sera déposé lundi matin, sans faute.",
+          "en": "The final report will be submitted Monday morning, without fail.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.072",
+          "theme": "francais-professionnel-avance",
+          "fr": "Ce chiffre ne correspond pas à nos échanges précédents.",
+          "en": "That figure does not match our earlier discussions.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.073",
+          "theme": "francais-professionnel-avance",
+          "fr": "Qui présente le dossier au comité la semaine prochaine?",
+          "en": "Who is presenting the file to the committee next week?",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.134",
+          "theme": "francais-professionnel-avance",
+          "fr": "J'aurais préféré que tu me préviennes avant, franchement.",
+          "en": "Frankly, I would have preferred you to warn me beforehand.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.007",
+          "theme": "francais-professionnel-avance",
+          "fr": "Faisons le point ensemble mardi pour valider l'avancement.",
+          "en": "Let's take stock together on Tuesday to confirm progress.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.011",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le comité attend nos recommandations au plus tard vendredi.",
+          "en": "The committee expects our recommendations by Friday at the latest.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.137",
+          "theme": "francais-professionnel-avance",
+          "fr": "Sauf erreur de ma part, rien n'a été signé.",
+          "en": "Unless I am mistaken, nothing has been signed.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.004",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je reviens vers vous d'ici la fin de semaine.",
+          "en": "I will get back to you by the weekend.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.070",
+          "theme": "francais-professionnel-avance",
+          "fr": "Passons au vote, sauf si quelqu'un s'y oppose.",
+          "en": "Let's move to a vote, unless someone objects.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.010",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je note l'engagement et je vous relance jeudi matin.",
+          "en": "I am noting the commitment and I will follow up with you Thursday morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.008",
+          "theme": "francais-professionnel-avance",
+          "fr": "L'échéance du trente reste ferme, je vous le garantis.",
+          "en": "The deadline of the thirtieth stays firm, I guarantee it.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.074",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous avons une marge de manœuvre, mais elle est mince.",
+          "en": "We have some room to maneuver, but it is thin.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.139",
+          "theme": "francais-professionnel-avance",
+          "fr": "Votre projet, si j'ose dire, manque encore de maturité.",
+          "en": "Your project, if I may say so, still lacks maturity.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.064",
+          "theme": "francais-professionnel-avance",
+          "fr": "Commençons d'abord par valider ensemble l'ordre du jour.",
+          "en": "Let's start by approving the agenda together.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.077",
+          "theme": "francais-professionnel-avance",
+          "fr": "Reprenons ce dossier lundi matin avec des chiffres à jour.",
+          "en": "Let's pick this file back up Monday morning with updated figures.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.143",
+          "theme": "francais-professionnel-avance",
+          "fr": "En quelque sorte, son absence répondait déjà à la question.",
+          "en": "In a way, her absence already answered the question.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.006",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je m'engage à vous livrer une version préliminaire mercredi.",
+          "en": "I commit to delivering you a preliminary version on Wednesday.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.075",
+          "theme": "francais-professionnel-avance",
+          "fr": "Votre offre est recevable, mais elle reste sous nos attentes.",
+          "en": "Your offer is worth considering, but it still falls short of our expectations.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.066",
+          "theme": "francais-professionnel-avance",
+          "fr": "Votre proposition mérite vraiment qu'on s'y attarde davantage.",
+          "en": "Your proposal truly deserves a closer look.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.c1.francais-professionnel-avance.016",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le suivi budgétaire se fera désormais chaque quinzaine, sans exception.",
+          "en": "Budget tracking will now happen every two weeks, no exceptions.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.022",
+          "theme": "francais-professionnel-avance",
+          "fr": "Tant que le contrat n'est pas signé, rien ne démarre.",
+          "en": "Until the contract is signed, nothing gets started.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.142",
+          "theme": "francais-professionnel-avance",
+          "fr": "Il se peut que j'aie mal interprété son long silence.",
+          "en": "I may have misread his long silence.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.136",
+          "theme": "francais-professionnel-avance",
+          "fr": "J'ai comme l'impression que tu me caches quelque chose.",
+          "en": "I have a feeling you are hiding something from me.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.023",
+          "theme": "francais-professionnel-avance",
+          "fr": "On s'était engagés à livrer en mars, tenons cette parole.",
+          "en": "We committed to delivering in March, let's keep that word.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.080",
+          "theme": "francais-professionnel-avance",
+          "fr": "Si vous bougez sur le prix, nous bougerons sur les délais.",
+          "en": "If you move on price, we will move on timelines.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.014",
+          "theme": "francais-professionnel-avance",
+          "fr": "Si l'échéance glisse encore, il faudra en aviser le client.",
+          "en": "If the deadline slips again, we will have to notify the client.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.145",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je serais tenté de dire que nous avons frôlé la catastrophe.",
+          "en": "I would be tempted to say we came close to disaster.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.078",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le procès-verbal vous sera transmis au plus tard demain midi.",
+          "en": "The minutes will be sent to you by noon tomorrow at the latest.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.018",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous avons convenu d'un jalon intermédiaire le quinze du mois.",
+          "en": "We agreed on an interim milestone on the fifteenth of the month.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.086",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je note votre désaccord, il figurera tel quel au compte rendu.",
+          "en": "I am noting your disagreement, it will appear as such in the minutes.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.141",
+          "theme": "francais-professionnel-avance",
+          "fr": "J'aurais tendance à penser que sa réponse cachait autre chose.",
+          "en": "I would tend to think his answer was hiding something else.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.147",
+          "theme": "francais-professionnel-avance",
+          "fr": "Il est fort possible que nous ayons manqué une belle occasion.",
+          "en": "It is quite possible that we missed a great opportunity.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.017",
+          "theme": "francais-professionnel-avance",
+          "fr": "Marie s'occupe du volet juridique et me tient informé vendredi.",
+          "en": "Marie is handling the legal piece and will update me on Friday.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.020",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le client attend une réponse formelle avant la fin du trimestre.",
+          "en": "The client expects a formal answer before the end of the quarter.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.021",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je bloque une rencontre de suivi dans deux semaines, même heure.",
+          "en": "I am booking a follow-up meeting in two weeks, same time.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.034",
+          "theme": "francais-professionnel-avance",
+          "fr": "Chaque retard non signalé complique le travail de toute l'équipe.",
+          "en": "Every unreported delay makes the whole team's work harder.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.084",
+          "theme": "francais-professionnel-avance",
+          "fr": "Sauf objection, je considère que nous avons un accord de principe.",
+          "en": "Unless anyone objects, I take it we have an agreement in principle.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.005",
+          "theme": "francais-professionnel-avance",
+          "fr": "Pouvez-vous me confirmer l'échéancier révisé par écrit aujourd'hui?",
+          "en": "Can you confirm the revised timeline in writing today?",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.015",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je préfère promettre moins et livrer exactement ce qui est convenu.",
+          "en": "I would rather promise less and deliver exactly what was agreed.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.029",
+          "theme": "francais-professionnel-avance",
+          "fr": "La phase pilote se termine le dix, le déploiement suit immédiatement.",
+          "en": "The pilot phase ends on the tenth, and rollout follows immediately.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.076",
+          "theme": "francais-professionnel-avance",
+          "fr": "Entendons-nous d'abord sur le périmètre, ensuite nous parlerons budget.",
+          "en": "Let's agree on the scope first, then we will talk budget.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.013",
+          "theme": "francais-professionnel-avance",
+          "fr": "Avant de conclure, récapitulons les engagements pris par chacun aujourd'hui.",
+          "en": "Before we wrap up, let's recap the commitments each person made today.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.028",
+          "theme": "francais-professionnel-avance",
+          "fr": "Vous recevrez un rappel automatique quarante-huit heures avant chaque jalon.",
+          "en": "You will receive an automatic reminder forty-eight hours before each milestone.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.035",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le point hebdomadaire de vendredi servira à vérifier chaque engagement pris.",
+          "en": "Friday's weekly check-in will be used to verify every commitment made.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.082",
+          "theme": "francais-professionnel-avance",
+          "fr": "Quelles seraient vos conditions pour ramener l'échéance au premier trimestre?",
+          "en": "What would your conditions be to bring the deadline back to the first quarter?",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.140",
+          "theme": "francais-professionnel-avance",
+          "fr": "Ce n'est pas faux, mais ce n'est pas entièrement vrai.",
+          "en": "That is not wrong, but it is not entirely true either.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.025",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le tableau de bord sera mis à jour tous les lundis matin.",
+          "en": "The dashboard will be updated every Monday morning.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.090",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je crains que cette option ne soit pas viable à long terme.",
+          "en": "I am afraid that option is not viable in the long run.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.085",
+          "theme": "francais-professionnel-avance",
+          "fr": "Il me semble prématuré d'annoncer quoi que ce soit aux équipes.",
+          "en": "It seems premature to me to announce anything to the teams.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.149",
+          "theme": "francais-professionnel-avance",
+          "fr": "Sauf erreur de ma part, la réunion aurait été déplacée à jeudi.",
+          "en": "Unless I am mistaken, the meeting has apparently been moved to Thursday.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.024",
+          "theme": "francais-professionnel-avance",
+          "fr": "Prévoyons une marge de trois jours au cas où les tests dérapent.",
+          "en": "Let's build in a three-day buffer in case testing goes sideways.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.079",
+          "theme": "francais-professionnel-avance",
+          "fr": "Pouvons-nous convenir d'un point d'étape toutes les deux semaines?",
+          "en": "Can we agree on a progress check every two weeks?",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.c1.francais-professionnel-avance.031",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je m'assure que le fournisseur confirme ses délais par écrit demain.",
+          "en": "I will make sure the supplier confirms their lead times in writing tomorrow.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.098",
+          "theme": "francais-professionnel-avance",
+          "fr": "Votre lecture du contrat diffère de la nôtre sur un point essentiel.",
+          "en": "Your reading of the contract differs from ours on one key point.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.096",
+          "theme": "francais-professionnel-avance",
+          "fr": "Vous conviendrez que ce risque doit être partagé entre les deux parties.",
+          "en": "You will agree that this risk should be shared between both parties.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.030",
+          "theme": "francais-professionnel-avance",
+          "fr": "Dites-moi franchement si ce délai vous semble réaliste pour votre équipe.",
+          "en": "Tell me frankly whether this timeline seems realistic for your team.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.027",
+          "theme": "francais-professionnel-avance",
+          "fr": "Sans validation de votre part mercredi, le calendrier sera décalé d'autant.",
+          "en": "Without your sign-off on Wednesday, the schedule will shift by the same amount.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.019",
+          "theme": "francais-professionnel-avance",
+          "fr": "Pour éviter tout malentendu, je consignerai nos décisions dans le compte rendu.",
+          "en": "To avoid any misunderstanding, I will record our decisions in the minutes.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.153",
+          "theme": "francais-professionnel-avance",
+          "fr": "Sans être spécialiste, je dirais que ce contrat mérite une relecture attentive.",
+          "en": "Without being an expert, I would say this contract deserves a careful rereading.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.081",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je suggère qu'on acte ce point et qu'on passe au suivant.",
+          "en": "I suggest we record this point as settled and move on to the next.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.095",
+          "theme": "francais-professionnel-avance",
+          "fr": "À ce stade, je préfère ne pas m'engager sur un montant précis.",
+          "en": "At this stage, I would rather not commit to a specific amount.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.148",
+          "theme": "francais-professionnel-avance",
+          "fr": "J'ai le vague sentiment que cette histoire ne s'arrêtera pas là.",
+          "en": "I have a vague feeling this story will not end there.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.102",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous touchons à un point de blocage, prenons le temps de le nommer.",
+          "en": "We are hitting a sticking point, let's take the time to name it.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.146",
+          "theme": "francais-professionnel-avance",
+          "fr": "J'aurais cru que la nouvelle serait mieux passée auprès de l'équipe.",
+          "en": "I would have thought the news would have gone down better with the team.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.150",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je crains que nous n'ayons pas été parfaitement clairs sur ce point.",
+          "en": "I am afraid we were not perfectly clear on that point.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.114",
+          "theme": "francais-professionnel-avance",
+          "fr": "Merci à tous, la prochaine rencontre aura lieu le douze à neuf heures.",
+          "en": "Thank you everyone, the next meeting will take place on the twelfth at nine o'clock.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.092",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je propose une pause de dix minutes avant d'aborder le volet financier.",
+          "en": "I suggest a ten minute break before we tackle the financial section.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.087",
+          "theme": "francais-professionnel-avance",
+          "fr": "J'entends vos réserves, et je pense que nous pouvons les lever ensemble.",
+          "en": "I hear your reservations, and I think we can resolve them together.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.152",
+          "theme": "francais-professionnel-avance",
+          "fr": "Il se trouve que j'aurais quelques réserves sur la méthode employée ici.",
+          "en": "As it happens, I would have a few reservations about the method used here.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.108",
+          "theme": "francais-professionnel-avance",
+          "fr": "Qui veut bien prendre les notes et faire circuler le relevé de décisions?",
+          "en": "Who is willing to take notes and circulate the decision log?",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.033",
+          "theme": "francais-professionnel-avance",
+          "fr": "Relancez-les poliment aujourd'hui, puis plus fermement s'il le faut jeudi.",
+          "en": "Follow up with them politely today, then more firmly on Thursday if needed.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.103",
+          "theme": "francais-professionnel-avance",
+          "fr": "Si je comprends bien, vous demandez une exclusivité de deux ans en échange.",
+          "en": "If I understand correctly, you are asking for two years of exclusivity in exchange.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.104",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous sommes prêts à revoir les modalités de paiement si le volume augmente.",
+          "en": "We are willing to revisit the payment terms if the volume goes up.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.105",
+          "theme": "francais-professionnel-avance",
+          "fr": "Il serait prudent de prévoir une clause de sortie pour chacune des parties.",
+          "en": "It would be prudent to include an exit clause for each of the parties.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.144",
+          "theme": "francais-professionnel-avance",
+          "fr": "Il se pourrait que nous ayons légèrement sous-estimé l'ampleur du problème.",
+          "en": "It is possible that we slightly underestimated the scale of the problem.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.083",
+          "theme": "francais-professionnel-avance",
+          "fr": "Restons-en aux faits, les chiffres du dernier trimestre parlent d'eux-mêmes.",
+          "en": "Let's stick to the facts, last quarter's numbers speak for themselves.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.053",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous avons pris un engagement ferme envers le ministère, et il sera respecté.",
+          "en": "We made a firm commitment to the ministry, and it will be honoured.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.101",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous ne signerons rien tant que la clause de résiliation restera aussi floue.",
+          "en": "We will not sign anything while the termination clause remains this vague.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.099",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je vous remercie d'avoir accepté cette rencontre dans des délais aussi courts.",
+          "en": "Thank you for agreeing to this meeting on such short notice.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.093",
+          "theme": "francais-professionnel-avance",
+          "fr": "Votre contre-offre nous rapproche, mais l'écart reste important sur les volumes.",
+          "en": "Your counteroffer brings us closer, but the gap on volumes remains significant.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.032",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nos engagements envers le conseil d'administration ne laissent aucune marge d'erreur.",
+          "en": "Our commitments to the board leave no room for error.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.094",
+          "theme": "francais-professionnel-avance",
+          "fr": "Permettez-moi de reformuler votre proposition pour être certain de bien la comprendre.",
+          "en": "Allow me to restate your proposal to make sure I understand it correctly.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.112",
+          "theme": "francais-professionnel-avance",
+          "fr": "En résumé, vous financez le déploiement et nous assumons la formation des utilisateurs.",
+          "en": "To sum up, you fund the rollout and we take on user training.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.089",
+          "theme": "francais-professionnel-avance",
+          "fr": "Ce calendrier me semble serré, surtout si les validations juridiques prennent du retard.",
+          "en": "That timeline seems tight, especially if legal approvals fall behind.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.110",
+          "theme": "francais-professionnel-avance",
+          "fr": "Chacun devra défendre son budget devant le comité, préparez vos arguments dès maintenant.",
+          "en": "Everyone will have to defend their budget before the committee, so start preparing your arguments now.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.c1.francais-professionnel-avance.151",
+          "theme": "francais-professionnel-avance",
+          "fr": "C'est surtout le ton du courriel qui m'a paru un peu sec.",
+          "en": "It was mainly the tone of the email that struck me as a bit curt.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.097",
+          "theme": "francais-professionnel-avance",
+          "fr": "Qu'est-ce qui vous empêcherait de signer d'ici la fin du mois?",
+          "en": "What would keep you from signing by the end of the month?",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.154",
+          "theme": "francais-professionnel-avance",
+          "fr": "À moins que je ne me trompe, elle n'a jamais vraiment dit oui.",
+          "en": "Unless I am wrong, she never really said yes.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.091",
+          "theme": "francais-professionnel-avance",
+          "fr": "Est-ce que tout le monde a bien reçu le dossier envoyé hier soir?",
+          "en": "Did everyone receive the file that was sent last night?",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.026",
+          "theme": "francais-professionnel-avance",
+          "fr": "J'aimerais qu'on fige le périmètre avant de s'engager sur une date.",
+          "en": "I would like us to lock the scope before committing to a date.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.047",
+          "theme": "francais-professionnel-avance",
+          "fr": "On ne peut pas promettre au client une date qu'on sait déjà intenable.",
+          "en": "We can't promise the client a date we already know is untenable.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.157",
+          "theme": "francais-professionnel-avance",
+          "fr": "Tout porte à croire que l'affaire aurait pu être réglée bien plus tôt.",
+          "en": "Everything suggests the matter could have been settled much earlier.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.160",
+          "theme": "francais-professionnel-avance",
+          "fr": "Il y a fort à parier que la réponse officielle se fasse encore attendre.",
+          "en": "It is a safe bet the official answer will be a while yet.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.115",
+          "theme": "francais-professionnel-avance",
+          "fr": "Cette concession est notre dernier geste, je tiens à ce que ce soit clair.",
+          "en": "This concession is our final move, I want that to be clear.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.155",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je ne dirais pas que c'est raté, disons que le résultat reste perfectible.",
+          "en": "I would not say it failed, let's say the result leaves room for improvement.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.158",
+          "theme": "francais-professionnel-avance",
+          "fr": "Mettons que ce soit vrai, cela ne changerait pas grand-chose à notre plan.",
+          "en": "Suppose it is true, it would not change much about our plan.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.049",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le comité de pilotage voudra savoir pourquoi le jalon d'avril a été manqué.",
+          "en": "The steering committee will want to know why the April milestone was missed.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.057",
+          "theme": "francais-professionnel-avance",
+          "fr": "Si tout le monde tient sa partie, nous livrerons avec une semaine d'avance.",
+          "en": "If everyone holds up their end, we will deliver a week early.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.088",
+          "theme": "francais-professionnel-avance",
+          "fr": "Avant de trancher, j'aimerais entendre l'avis de chacun autour de la table.",
+          "en": "Before deciding, I would like to hear everyone's view around the table.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.100",
+          "theme": "francais-professionnel-avance",
+          "fr": "J'aimerais qu'on inscrive noir sur blanc la date de livraison du prototype.",
+          "en": "I would like the prototype delivery date put down in black and white.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.107",
+          "theme": "francais-professionnel-avance",
+          "fr": "Donnez-moi jusqu'à jeudi et je reviens vers vous avec une proposition révisée.",
+          "en": "Give me until Thursday and I will come back to you with a revised proposal.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.111",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je préfère un accord solide dans deux semaines qu'une entente bâclée demain matin.",
+          "en": "I would rather have a solid agreement in two weeks than a rushed deal tomorrow morning.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.109",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous avons dépassé l'heure prévue, je propose de reporter les deux derniers points.",
+          "en": "We are past the scheduled time, I suggest postponing the last two items.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.048",
+          "theme": "francais-professionnel-avance",
+          "fr": "Faites-moi un état d'avancement en deux lignes chaque mercredi, ça suffira largement.",
+          "en": "Send me a two-line progress update every Wednesday, that will be plenty.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.116",
+          "theme": "francais-professionnel-avance",
+          "fr": "Ce montant dépasse mon mandat, je dois consulter ma direction avant de vous répondre.",
+          "en": "That amount exceeds my mandate, I have to consult my leadership before I answer you.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.113",
+          "theme": "francais-professionnel-avance",
+          "fr": "Rien ne sera entériné aujourd'hui, cette rencontre sert uniquement à explorer les options.",
+          "en": "Nothing will be ratified today, this meeting is only meant to explore the options.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.060",
+          "theme": "francais-professionnel-avance",
+          "fr": "J'attends encore trois confirmations, après quoi je pourrai vous donner une date définitive.",
+          "en": "I am still waiting on three confirmations, after which I can give you a final date.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.054",
+          "theme": "francais-professionnel-avance",
+          "fr": "Votre équipe peut-elle absorber cette charge sans compromettre les autres échéances du trimestre?",
+          "en": "Can your team absorb this workload without jeopardizing the quarter's other deadlines?",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.044",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je vous relancerai lundi si je n'ai pas reçu votre retour d'ici là.",
+          "en": "I will follow up with you Monday if I haven't received your feedback by then.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.162",
+          "theme": "francais-professionnel-avance",
+          "fr": "Pour ne rien te cacher, je doute qu'il ait lu le document en entier.",
+          "en": "To be frank with you, I doubt he read the whole document.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.161",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je ne voudrais pas m'avancer, mais il se peut que le vol soit annulé.",
+          "en": "I would not want to speak too soon, but the flight may be cancelled.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.159",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je ne suis pas certain qu'il ait saisi toute la portée de sa remarque.",
+          "en": "I am not certain he grasped the full weight of his remark.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.106",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous pourrions couper la poire en deux et fixer l'échéance à la mi-avril.",
+          "en": "We could split the difference and set the deadline for mid April.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.156",
+          "theme": "francais-professionnel-avance",
+          "fr": "Si je ne m'abuse, c'est vous qui aviez proposé cette solution en premier.",
+          "en": "If I am not mistaken, you were the one who proposed this solution first.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.038",
+          "theme": "francais-professionnel-avance",
+          "fr": "Concrètement, qui fait quoi d'ici vendredi, et à qui rend-on des comptes ensuite?",
+          "en": "Concretely, who does what by Friday, and who do we report to afterward?",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.056",
+          "theme": "francais-professionnel-avance",
+          "fr": "La revue de mi-parcours nous dira si l'échéancier initial tient toujours la route.",
+          "en": "The midpoint review will tell us whether the original schedule still holds up.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.055",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je vous demande simplement de me prévenir dès que vous voyez un risque de dérapage.",
+          "en": "I am simply asking you to warn me as soon as you see a risk of slippage.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.039",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je veux bien avancer la date, à condition qu'on réduise le périmètre en conséquence.",
+          "en": "I am willing to move the date up, provided we trim the scope accordingly.",
+          "words": 15
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.c1.francais-professionnel-avance.042",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous nous étions entendus sur une livraison progressive, et je compte bien m'y tenir.",
+          "en": "We had agreed on a phased delivery, and I fully intend to stick to it.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.117",
+          "theme": "francais-professionnel-avance",
+          "fr": "Votre argument se défend, mais il repose sur des projections que personne n'a validées.",
+          "en": "Your argument has merit, but it rests on projections that no one has validated.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.121",
+          "theme": "francais-professionnel-avance",
+          "fr": "Si la clause de confidentialité vous convient, il ne reste que la question des garanties.",
+          "en": "If the confidentiality clause works for you, only the question of guarantees remains.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.037",
+          "theme": "francais-professionnel-avance",
+          "fr": "Si nous ne recevons pas les données mardi, je devrai repousser la présentation au conseil.",
+          "en": "If we don't receive the data on Tuesday, I will have to push back the board presentation.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.062",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le report demandé par le fournisseur nous oblige à revoir toutes les échéances en cascade.",
+          "en": "The postponement requested by the supplier forces us to rework all the downstream deadlines.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.120",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le compte rendu mentionnera les trois options étudiées et les raisons de notre choix final.",
+          "en": "The minutes will note the three options considered and the reasons for our final choice.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.052",
+          "theme": "francais-professionnel-avance",
+          "fr": "À partir de maintenant, tout changement de date devra être approuvé par les deux gestionnaires.",
+          "en": "From now on, any date change will have to be approved by both managers.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.061",
+          "theme": "francais-professionnel-avance",
+          "fr": "Mettons par écrit qui valide quoi, sinon nous reparlerons des mêmes points la semaine prochaine.",
+          "en": "Let's put in writing who approves what, otherwise we will rehash the same points next week.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.118",
+          "theme": "francais-professionnel-avance",
+          "fr": "Sur la question des pénalités, laissez-moi vérifier ce que notre service juridique peut accepter.",
+          "en": "On the question of penalties, let me check what our legal department can accept.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.163",
+          "theme": "francais-professionnel-avance",
+          "fr": "On aurait pu, me semble-t-il, présenter les choses avec un peu plus de tact.",
+          "en": "We could, it seems to me, have presented things with a little more tact.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.045",
+          "theme": "francais-professionnel-avance",
+          "fr": "Pour être clair, la date de mise en production n'est plus négociable à ce stade.",
+          "en": "To be clear, the go-live date is no longer negotiable at this stage.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.043",
+          "theme": "francais-professionnel-avance",
+          "fr": "Si le jalon de septembre tombe, c'est tout le calendrier de l'automne qui bascule.",
+          "en": "If the September milestone falls through, the whole fall schedule tips over.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.164",
+          "theme": "francais-professionnel-avance",
+          "fr": "Il n'est pas exclu que le directeur ait déjà pris sa décision sans nous consulter.",
+          "en": "It cannot be ruled out that the director already made his decision without consulting us.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.036",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je vous propose de fixer une échéance intermédiaire pour ne pas tout découvrir à la fin.",
+          "en": "I suggest we set an interim deadline so we don't discover everything at the end.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.046",
+          "theme": "francais-professionnel-avance",
+          "fr": "J'assumerai le retard auprès de la direction, mais j'ai besoin de votre appui technique.",
+          "en": "I will own the delay with senior management, but I need your technical support.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.124",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nous acceptons vos conditions sur la livraison, à condition que la pénalité de retard soit plafonnée.",
+          "en": "We accept your delivery terms, provided that the late penalty is capped.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.165",
+          "theme": "francais-professionnel-avance",
+          "fr": "Ce qui me gêne, c'est moins le retard que la manière dont il l'a annoncé.",
+          "en": "What bothers me is less the delay than the way he announced it.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.123",
+          "theme": "francais-professionnel-avance",
+          "fr": "Ce point figure à l'ordre du jour depuis trois réunions, il est temps de le régler.",
+          "en": "This item has been on the agenda for three meetings, it is time to settle it.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.041",
+          "theme": "francais-professionnel-avance",
+          "fr": "Avant de m'engager sur ce délai, j'ai besoin de valider la disponibilité de mon équipe.",
+          "en": "Before committing to that timeline, I need to confirm my team's availability.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.059",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le suivi ne s'arrête pas à la livraison, il couvre aussi le premier mois d'exploitation.",
+          "en": "Follow-up doesn't end at delivery, it also covers the first month of operation.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.122",
+          "theme": "francais-professionnel-avance",
+          "fr": "Nos deux équipes ne mesurent pas le risque de la même façon, c'est précisément le problème.",
+          "en": "Our two teams do not assess the risk the same way, and that is exactly the problem.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.058",
+          "theme": "francais-professionnel-avance",
+          "fr": "Convenons d'un signal d'alarme clair, un retard de deux jours déclenche une rencontre d'urgence.",
+          "en": "Let's agree on a clear alarm signal, a two-day delay triggers an emergency meeting.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.051",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je préférerais annoncer un report aujourd'hui plutôt qu'une mauvaise surprise le jour de la livraison.",
+          "en": "I would rather announce a postponement today than a bad surprise on delivery day.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.125",
+          "theme": "francais-professionnel-avance",
+          "fr": "Mettons cette question de côté pour l'instant, elle mérite une rencontre dédiée avec les équipes juridiques.",
+          "en": "Let's set that question aside for now, it deserves a dedicated meeting with the legal teams.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.119",
+          "theme": "francais-professionnel-avance",
+          "fr": "Pour être tout à fait transparent, notre conseil d'administration n'approuvera jamais une exclusivité aussi longue.",
+          "en": "To be completely transparent, our board will never approve such a long exclusivity.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.040",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le procès-verbal précisera les responsables, les livrables et les dates convenues pour chacune des décisions prises.",
+          "en": "The minutes will specify the owners, deliverables and agreed dates for each decision made.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.126",
+          "theme": "francais-professionnel-avance",
+          "fr": "Le silence de votre équipe sur ce point m'inquiète un peu, je ne vous le cache pas.",
+          "en": "Your team's silence on this point worries me a little, I will not hide it from you.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.128",
+          "theme": "francais-professionnel-avance",
+          "fr": "Avant de lever la séance, je veux m'assurer que chacun repart avec des actions claires et datées.",
+          "en": "Before we adjourn, I want to make sure everyone leaves with clear and dated action items.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.050",
+          "theme": "francais-professionnel-avance",
+          "fr": "Entendons-nous dès maintenant sur ce qui se passera concrètement si la livraison finale glisse d'une semaine.",
+          "en": "Let's agree right now on what happens concretely if the final delivery slips by a week.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.130",
+          "theme": "francais-professionnel-avance",
+          "fr": "Ce que je vous propose, c'est un engagement ferme sur les volumes et une révision annuelle des tarifs.",
+          "en": "What I am offering is a firm commitment on volumes and an annual rate review.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.127",
+          "theme": "francais-professionnel-avance",
+          "fr": "Je vous rejoins sur le fond, mais la forme de l'annonce mérite d'être retravaillée avec les communications.",
+          "en": "I agree with you on the substance, but the framing of the announcement needs more work with communications.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.063",
+          "theme": "francais-professionnel-avance",
+          "fr": "D'ici notre prochaine rencontre, je veux que chacun ait documenté l'avancement de ses dossiers dans l'outil commun.",
+          "en": "By our next meeting, I want everyone to have documented the progress of their files in the shared tool.",
+          "words": 20
+        },
+        {
+          "id": "fr.c1.francais-professionnel-avance.129",
+          "theme": "francais-professionnel-avance",
+          "fr": "Si nous n'arrivons pas à un terrain d'entente aujourd'hui, il faudra remonter le dossier au comité de direction.",
+          "en": "If we cannot find common ground today, the file will have to go up to the executive committee.",
+          "words": 21
+        }
+      ]
+    }
+  ]
+}

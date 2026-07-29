@@ -1,0 +1,3823 @@
+{
+  "stage": "2.2",
+  "world": 2,
+  "level": "a1",
+  "title": "Le Carrefour des Questions",
+  "themes": [
+    "questions",
+    "questions-du-quotidien",
+    "expressions-utiles",
+    "expressions-frequentes",
+    "faux-amis",
+    "mots-essentiels"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 531,
+  "dedupedPool": 531,
+  "selected": 531,
+  "blockCount": 17,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.a1.questions-du-quotidien.079",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui parle ?",
+          "en": "Who is speaking?",
+          "words": 2
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.066",
+          "theme": "expressions-frequentes",
+          "fr": "Fais attention !",
+          "en": "Be careful!",
+          "words": 2
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.094",
+          "theme": "questions-du-quotidien",
+          "fr": "Où es-tu ?",
+          "en": "Where are you?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.076",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui es-tu ?",
+          "en": "Who are you?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.096",
+          "theme": "questions-du-quotidien",
+          "fr": "Où vas-tu ?",
+          "en": "Where are you going?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.078",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui est là ?",
+          "en": "Who is there?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.084",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui a faim ?",
+          "en": "Who is hungry?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.091",
+          "theme": "questions-du-quotidien",
+          "fr": "Que dis-tu ?",
+          "en": "What are you saying?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions.338",
+          "theme": "questions",
+          "fr": "Tu as faim ?",
+          "en": "Are you hungry?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.085",
+          "theme": "questions-du-quotidien",
+          "fr": "Que fais-tu ?",
+          "en": "What are you doing?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.086",
+          "theme": "questions-du-quotidien",
+          "fr": "Que veux-tu ?",
+          "en": "What do you want?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.064",
+          "theme": "expressions-frequentes",
+          "fr": "Tu as raison.",
+          "en": "You are right.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.089",
+          "theme": "questions-du-quotidien",
+          "fr": "Quoi de neuf ?",
+          "en": "What's new?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.077",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui êtes-vous ?",
+          "en": "Who are you?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.095",
+          "theme": "questions-du-quotidien",
+          "fr": "Où habites-tu ?",
+          "en": "Where do you live?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.104",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand pars-tu ?",
+          "en": "When are you leaving?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.119",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment ça va ?",
+          "en": "How's it going?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.137",
+          "theme": "questions-du-quotidien",
+          "fr": "C'est combien ?",
+          "en": "How much is it?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.083",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui habite ici ?",
+          "en": "Who lives here?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.090",
+          "theme": "questions-du-quotidien",
+          "fr": "Tu manges quoi ?",
+          "en": "What are you eating?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.100",
+          "theme": "questions-du-quotidien",
+          "fr": "Où allons-nous ?",
+          "en": "Where are we going?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.115",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment vas-tu ?",
+          "en": "How are you?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.087",
+          "theme": "questions-du-quotidien",
+          "fr": "Que cherches-tu ?",
+          "en": "What are you looking for?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.092",
+          "theme": "questions-du-quotidien",
+          "fr": "Que regardes-tu ?",
+          "en": "What are you watching?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.127",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi ris-tu ?",
+          "en": "Why are you laughing?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.098",
+          "theme": "questions-du-quotidien",
+          "fr": "Où travailles-tu ?",
+          "en": "Where do you work?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.105",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand arrives-tu ?",
+          "en": "When do you arrive?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.132",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien ça coûte ?",
+          "en": "How much does that cost?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.138",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien pèses-tu ?",
+          "en": "How much do you weigh?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions.347",
+          "theme": "questions",
+          "fr": "Vous partez déjà ?",
+          "en": "Are you leaving already?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.131",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi cries-tu ?",
+          "en": "Why are you shouting?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.116",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment allez-vous ?",
+          "en": "How are you?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.125",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi pleures-tu ?",
+          "en": "Why are you crying?",
+          "words": 3
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.a1.questions-du-quotidien.103",
+          "theme": "questions-du-quotidien",
+          "fr": "D'où viens-tu ?",
+          "en": "Where do you come from?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.097",
+          "theme": "questions-du-quotidien",
+          "fr": "Où est la gare ?",
+          "en": "Where is the train station?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.102",
+          "theme": "questions-du-quotidien",
+          "fr": "Où est ton sac ?",
+          "en": "Where is your bag?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.088",
+          "theme": "expressions-frequentes",
+          "fr": "Ça dépend de toi.",
+          "en": "It depends on you.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.082",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui aime le café ?",
+          "en": "Who likes coffee?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.101",
+          "theme": "questions-du-quotidien",
+          "fr": "Où est la sortie ?",
+          "en": "Where is the exit?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.054",
+          "theme": "expressions-frequentes",
+          "fr": "Ça va bien, merci.",
+          "en": "I'm doing well, thank you.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.081",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui est ton frère ?",
+          "en": "Who is your brother?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.113",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand est la fête ?",
+          "en": "When is the party?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.073",
+          "theme": "expressions-frequentes",
+          "fr": "Je voudrais un thé.",
+          "en": "I would like a tea.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.114",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand pleut-il ici ?",
+          "en": "When does it rain here?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.107",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand finit le cours ?",
+          "en": "When does the class end?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.108",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand est la réunion ?",
+          "en": "When is the meeting?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.110",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand est ton examen ?",
+          "en": "When is your exam?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.078",
+          "theme": "expressions-frequentes",
+          "fr": "Excusez-moi du retard.",
+          "en": "Sorry for being late.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.117",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment t'appelles-tu ?",
+          "en": "What is your name?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.123",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment va ta famille ?",
+          "en": "How is your family?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.126",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi es-tu triste ?",
+          "en": "Why are you sad?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions.329",
+          "theme": "questions",
+          "fr": "Avez-vous des enfants ?",
+          "en": "Do you have children?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.128",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi es-tu content ?",
+          "en": "Why are you happy?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.130",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi es-tu fatigué ?",
+          "en": "Why are you tired?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.134",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien coûte ce billet ?",
+          "en": "How much does this ticket cost?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.089",
+          "theme": "expressions-frequentes",
+          "fr": "Merci beaucoup ! De rien.",
+          "en": "Thank you very much! You're welcome.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.051",
+          "theme": "expressions-frequentes",
+          "fr": "Il faut partir maintenant.",
+          "en": "We have to leave now.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions.221",
+          "theme": "questions",
+          "fr": "Où habites-tu exactement ?",
+          "en": "Where exactly do you live?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.118",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment vous appelez-vous ?",
+          "en": "What is your name?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions.330",
+          "theme": "questions",
+          "fr": "Travaillez-vous le samedi ?",
+          "en": "Do you work on Saturdays?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.106",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand est ton anniversaire ?",
+          "en": "When is your birthday?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.129",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi pars-tu maintenant ?",
+          "en": "Why are you leaving now?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.076",
+          "theme": "expressions-frequentes",
+          "fr": "Je voudrais un renseignement.",
+          "en": "I would like some information.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.questions.212",
+          "theme": "questions",
+          "fr": "Que cherchez-vous exactement ?",
+          "en": "What exactly are you looking for?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.057",
+          "theme": "expressions-frequentes",
+          "fr": "J'ai besoin d'eau.",
+          "en": "I need water.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.062",
+          "theme": "expressions-frequentes",
+          "fr": "J'ai peur du noir.",
+          "en": "I'm afraid of the dark.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.a1.questions-du-quotidien.145",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que tu dors ?",
+          "en": "Are you sleeping?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.139",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que tu viens ?",
+          "en": "Are you coming?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.058",
+          "theme": "expressions-frequentes",
+          "fr": "Tu as besoin d'aide ?",
+          "en": "Do you need help?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.060",
+          "theme": "expressions-frequentes",
+          "fr": "J'ai envie de dormir.",
+          "en": "I feel like sleeping.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.192",
+          "theme": "questions",
+          "fr": "Qui es-tu, au juste ?",
+          "en": "Who are you, exactly?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.065",
+          "theme": "expressions-frequentes",
+          "fr": "J'ai tort, excuse-moi.",
+          "en": "I'm wrong, sorry.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.133",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien d'argent as-tu ?",
+          "en": "How much money do you have?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.053",
+          "theme": "expressions-frequentes",
+          "fr": "Il faut fermer la porte.",
+          "en": "You need to close the door.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.343",
+          "theme": "questions",
+          "fr": "Tu as fini tes devoirs ?",
+          "en": "Have you finished your homework?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.097",
+          "theme": "expressions-frequentes",
+          "fr": "Pas de problème pour moi.",
+          "en": "No problem for me.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.194",
+          "theme": "questions",
+          "fr": "Qui vient dîner ce soir ?",
+          "en": "Who is coming for dinner tonight?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.112",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand rentres-tu ce soir ?",
+          "en": "When are you coming home tonight?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.094",
+          "theme": "expressions-frequentes",
+          "fr": "Je t'aiderai avec plaisir.",
+          "en": "I will help you gladly.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.230",
+          "theme": "questions",
+          "fr": "Où mangeons-nous ce soir ?",
+          "en": "Where are we eating tonight?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.236",
+          "theme": "questions",
+          "fr": "Quand arrives-tu à Paris ?",
+          "en": "When do you arrive in Paris?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.109",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand pars-tu en vacances ?",
+          "en": "When are you going on vacation?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.052",
+          "theme": "expressions-frequentes",
+          "fr": "Il faut manger des légumes.",
+          "en": "You have to eat vegetables.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.055",
+          "theme": "expressions-frequentes",
+          "fr": "Comment ça va aujourd'hui ?",
+          "en": "How are you today?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.059",
+          "theme": "expressions-frequentes",
+          "fr": "Nous avons besoin de repos.",
+          "en": "We need rest.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.067",
+          "theme": "expressions-frequentes",
+          "fr": "Fais attention à la voiture.",
+          "en": "Watch out for the car.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.086",
+          "theme": "expressions-frequentes",
+          "fr": "Tu viens demain ? Ça dépend.",
+          "en": "Are you coming tomorrow? It depends.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.244",
+          "theme": "questions",
+          "fr": "Quand aura lieu la réunion ?",
+          "en": "When will the meeting take place?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.111",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand est le prochain train ?",
+          "en": "When is the next train?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.135",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien d'enfants avez-vous ?",
+          "en": "How many children do you have?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.136",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien fait deux plus deux ?",
+          "en": "How much is two plus two?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.122",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment s'appelle ce village ?",
+          "en": "What is this village called?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.093",
+          "theme": "expressions-frequentes",
+          "fr": "Avec plaisir, à quelle heure ?",
+          "en": "Gladly, what time?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.232",
+          "theme": "questions",
+          "fr": "Où sont passées mes lunettes ?",
+          "en": "Where did my glasses go?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.281",
+          "theme": "questions",
+          "fr": "Combien ça coûte, ce manteau ?",
+          "en": "How much does this coat cost?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.121",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment vient-elle au travail ?",
+          "en": "How does she get to work?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.255",
+          "theme": "questions",
+          "fr": "Comment fait-on cette recette ?",
+          "en": "How do you make this recipe?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.273",
+          "theme": "questions",
+          "fr": "Pourquoi choisis-tu ce métier ?",
+          "en": "Why are you choosing this profession?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.295",
+          "theme": "questions",
+          "fr": "Quelle est ton adresse exacte ?",
+          "en": "What is your exact address?",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.a1.questions.303",
+          "theme": "questions",
+          "fr": "Quels films aimes-tu regarder ?",
+          "en": "What movies do you like to watch?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.075",
+          "theme": "expressions-frequentes",
+          "fr": "Je voudrais parler au directeur.",
+          "en": "I would like to speak to the manager.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-utiles.235",
+          "theme": "expressions-utiles",
+          "fr": "Bref, tout est réglé maintenant.",
+          "en": "Anyway, everything is settled now.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.074",
+          "theme": "expressions-frequentes",
+          "fr": "Je voudrais réserver une chambre.",
+          "en": "I would like to book a room.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.202",
+          "theme": "questions",
+          "fr": "Qui habite dans cet appartement ?",
+          "en": "Who lives in this apartment?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.325",
+          "theme": "questions",
+          "fr": "Aimez-vous la cuisine italienne ?",
+          "en": "Do you like Italian cuisine?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.254",
+          "theme": "questions",
+          "fr": "Comment tu trouves ce restaurant ?",
+          "en": "What do you think of this restaurant?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.277",
+          "theme": "questions",
+          "fr": "Pourquoi étudiez-vous la médecine ?",
+          "en": "Why are you studying medicine?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions.299",
+          "theme": "questions",
+          "fr": "Quelles langues parles-tu couramment ?",
+          "en": "Which languages do you speak fluently?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.088",
+          "theme": "questions-du-quotidien",
+          "fr": "Qu'est-ce que c'est ?",
+          "en": "What is this?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.068",
+          "theme": "expressions-frequentes",
+          "fr": "J'ai hâte de te voir.",
+          "en": "I can't wait to see you.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.140",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que c'est vrai ?",
+          "en": "Is that true?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.141",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que tu as faim ?",
+          "en": "Are you hungry?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.146",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que tu es prêt ?",
+          "en": "Are you ready?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.061",
+          "theme": "expressions-frequentes",
+          "fr": "Elle a envie d'un café.",
+          "en": "She feels like having a coffee.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.147",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que ça te plaît ?",
+          "en": "Do you like it?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.056",
+          "theme": "expressions-frequentes",
+          "fr": "Ça va, ne t'inquiète pas.",
+          "en": "It's okay, don't worry.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.069",
+          "theme": "expressions-frequentes",
+          "fr": "Un café, s'il vous plaît.",
+          "en": "A coffee, please.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.200",
+          "theme": "questions",
+          "fr": "Qui t'a donné ce numéro ?",
+          "en": "Who gave you this number?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.124",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment vas-tu à l'école ?",
+          "en": "How do you get to school?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.149",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que tu as compris ?",
+          "en": "Did you understand?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-utiles.276",
+          "theme": "expressions-utiles",
+          "fr": "Ça y est, le train arrive.",
+          "en": "There it is, the train is arriving.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.210",
+          "theme": "questions",
+          "fr": "Que penses-tu de ce film ?",
+          "en": "What do you think of this movie?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.099",
+          "theme": "questions-du-quotidien",
+          "fr": "Où est le bureau de poste ?",
+          "en": "Where is the post office?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.143",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que je peux entrer ?",
+          "en": "May I come in?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.203",
+          "theme": "questions",
+          "fr": "Qui a gagné le match hier ?",
+          "en": "Who won the game yesterday?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.080",
+          "theme": "expressions-frequentes",
+          "fr": "Excuse-moi, je t'ai dérangé.",
+          "en": "Sorry, I disturbed you.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.090",
+          "theme": "expressions-frequentes",
+          "fr": "De rien, c'était un plaisir.",
+          "en": "You're welcome, it was a pleasure.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.199",
+          "theme": "questions",
+          "fr": "Qui est cette femme là-bas ?",
+          "en": "Who is that woman over there?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.080",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui vient avec nous ce soir ?",
+          "en": "Who is coming with us tonight?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.224",
+          "theme": "questions",
+          "fr": "Où as-tu acheté cette veste ?",
+          "en": "Where did you buy this jacket?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.231",
+          "theme": "questions",
+          "fr": "Où as-tu rencontré ton mari ?",
+          "en": "Where did you meet your husband?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.071",
+          "theme": "expressions-frequentes",
+          "fr": "Asseyez-vous, s'il vous plaît.",
+          "en": "Please sit down.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.a1.expressions-utiles.239",
+          "theme": "expressions-utiles",
+          "fr": "Tu exagères quand même un peu.",
+          "en": "You're exaggerating a bit, all the same.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.337",
+          "theme": "questions",
+          "fr": "Tu viens avec nous au cinéma ?",
+          "en": "Are you coming with us to the movies?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.345",
+          "theme": "questions",
+          "fr": "Tu te sens mieux aujourd'hui ?",
+          "en": "Do you feel better today?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.091",
+          "theme": "expressions-frequentes",
+          "fr": "De rien, appelle-moi si besoin.",
+          "en": "You're welcome, call me if you need to.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.240",
+          "theme": "questions",
+          "fr": "Quand vas-tu chez le dentiste ?",
+          "en": "When are you going to the dentist?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.349",
+          "theme": "questions",
+          "fr": "On se retrouve devant la gare ?",
+          "en": "Shall we meet in front of the station?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.142",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que vous parlez anglais ?",
+          "en": "Do you speak English?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.079",
+          "theme": "expressions-frequentes",
+          "fr": "Excusez-moi, je ne comprends pas.",
+          "en": "Excuse me, I don't understand.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.197",
+          "theme": "questions",
+          "fr": "Qui s'occupe des enfants demain ?",
+          "en": "Who is taking care of the children tomorrow?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.235",
+          "theme": "questions",
+          "fr": "Où passez-vous Noël cette année ?",
+          "en": "Where are you spending Christmas this year?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.280",
+          "theme": "questions",
+          "fr": "Combien de temps dure le trajet ?",
+          "en": "How long does the trip take?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.120",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment est le temps aujourd'hui ?",
+          "en": "How is the weather today?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-utiles.261",
+          "theme": "expressions-utiles",
+          "fr": "Elle avait raison depuis le début.",
+          "en": "She was right from the start.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.261",
+          "theme": "questions",
+          "fr": "Comment était le voyage en train ?",
+          "en": "How was the train trip?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.278",
+          "theme": "questions",
+          "fr": "Combien coûte ce billet de train ?",
+          "en": "How much does this train ticket cost?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-utiles.301",
+          "theme": "expressions-utiles",
+          "fr": "Deux cuillères de sucre, ça suffit.",
+          "en": "Two spoons of sugar, that's enough.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.248",
+          "theme": "questions",
+          "fr": "Quand pouvez-vous livrer le colis ?",
+          "en": "When can you deliver the package?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.300",
+          "theme": "questions",
+          "fr": "Quel jour sommes-nous aujourd'hui ?",
+          "en": "What day is it today?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.077",
+          "theme": "expressions-frequentes",
+          "fr": "Excusez-moi, où sont les toilettes ?",
+          "en": "Excuse me, where is the restroom?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.092",
+          "theme": "expressions-frequentes",
+          "fr": "Tu veux venir dîner ? Avec plaisir !",
+          "en": "Do you want to come for dinner? With pleasure!",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.196",
+          "theme": "questions",
+          "fr": "Qui parle français dans ta famille ?",
+          "en": "Who speaks French in your family?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.260",
+          "theme": "questions",
+          "fr": "Comment peut-on réserver une table ?",
+          "en": "How can we book a table?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.198",
+          "theme": "questions",
+          "fr": "Qui a téléphoné pendant mon absence ?",
+          "en": "Who called while I was away?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.205",
+          "theme": "questions",
+          "fr": "Qui organise la fête d'anniversaire ?",
+          "en": "Who is organizing the birthday party?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.237",
+          "theme": "questions",
+          "fr": "Quand commence le cours de français ?",
+          "en": "When does the French class start?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.246",
+          "theme": "questions",
+          "fr": "Quand ferme la boulangerie le lundi ?",
+          "en": "When does the bakery close on Mondays?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.252",
+          "theme": "questions",
+          "fr": "Comment vas-tu depuis ton opération ?",
+          "en": "How are you since your operation?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.258",
+          "theme": "questions",
+          "fr": "Comment as-tu appris cette nouvelle ?",
+          "en": "How did you learn this news?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.344",
+          "theme": "questions",
+          "fr": "Ta sœur habite toujours à Marseille ?",
+          "en": "Does your sister still live in Marseille?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.249",
+          "theme": "questions",
+          "fr": "Quand termine ton contrat de travail ?",
+          "en": "When does your work contract end?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.259",
+          "theme": "questions",
+          "fr": "Comment se passe ton nouveau travail ?",
+          "en": "How is your new job going?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.271",
+          "theme": "questions",
+          "fr": "Pourquoi préfères-tu habiter en ville ?",
+          "en": "Why do you prefer to live in the city?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.239",
+          "theme": "questions",
+          "fr": "Quand ouvrent les magasins le dimanche ?",
+          "en": "When do the shops open on Sundays?",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.a1.questions.241",
+          "theme": "questions",
+          "fr": "Quand est ton anniversaire cette année ?",
+          "en": "When is your birthday this year?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.335",
+          "theme": "questions",
+          "fr": "Voyagez-vous souvent pour votre travail ?",
+          "en": "Do you travel often for work?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.faux-amis.203",
+          "theme": "faux-amis",
+          "fr": "Actuellement, les prix du pain augmentent.",
+          "en": "Currently, bread prices are rising.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions.331",
+          "theme": "questions",
+          "fr": "Connaissez-vous un bon médecin généraliste ?",
+          "en": "Do you know a good general practitioner?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.faux-amis.286",
+          "theme": "faux-amis",
+          "fr": "Ce restaurant italien est vraiment formidable.",
+          "en": "This Italian restaurant is really wonderful.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.faux-amis.202",
+          "theme": "faux-amis",
+          "fr": "Nous cherchons actuellement un nouvel appartement.",
+          "en": "We are currently looking for a new apartment.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.093",
+          "theme": "questions-du-quotidien",
+          "fr": "Qu'est-ce qu'il y a ?",
+          "en": "What's wrong?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.063",
+          "theme": "expressions-frequentes",
+          "fr": "Le chien a peur de l'orage.",
+          "en": "The dog is afraid of thunderstorms.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.150",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que je peux t'aider ?",
+          "en": "Can I help you?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.209",
+          "theme": "questions",
+          "fr": "Qu'est-ce qui se passe ici ?",
+          "en": "What is happening here?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.050",
+          "theme": "expressions-frequentes",
+          "fr": "Il y a beaucoup de monde ici.",
+          "en": "There are a lot of people here.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.087",
+          "theme": "expressions-frequentes",
+          "fr": "Ça dépend du temps qu'il fait.",
+          "en": "It depends on the weather.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.293",
+          "theme": "expressions-utiles",
+          "fr": "J'ai envie de manger une glace.",
+          "en": "I feel like eating ice cream.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.324",
+          "theme": "questions",
+          "fr": "Voulez-vous un café ou un thé ?",
+          "en": "Would you like coffee or tea?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.096",
+          "theme": "expressions-frequentes",
+          "fr": "Pas de problème, je m'en occupe.",
+          "en": "No problem, I'll take care of it.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.204",
+          "theme": "expressions-utiles",
+          "fr": "J'ai hâte de partir en vacances.",
+          "en": "I can't wait to go on vacation.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.214",
+          "theme": "questions",
+          "fr": "Que fait ton frère dans la vie ?",
+          "en": "What does your brother do for a living?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.070",
+          "theme": "expressions-frequentes",
+          "fr": "Fermez la porte, s'il vous plaît.",
+          "en": "Please close the door.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.205",
+          "theme": "expressions-utiles",
+          "fr": "Elle a hâte de revoir sa famille.",
+          "en": "She can't wait to see her family again.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.278",
+          "theme": "expressions-utiles",
+          "fr": "On se retrouve à midi, ça marche?",
+          "en": "We meet at noon, does that work?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.226",
+          "theme": "questions",
+          "fr": "Où peut-on garer la voiture ici ?",
+          "en": "Where can we park the car here?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.253",
+          "theme": "questions",
+          "fr": "Comment se rend-on à l'aéroport ?",
+          "en": "How do you get to the airport?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.341",
+          "theme": "questions",
+          "fr": "Tu veux encore un peu de gâteau ?",
+          "en": "Do you want a bit more cake?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.346",
+          "theme": "questions",
+          "fr": "Tu as pensé à fermer la fenêtre ?",
+          "en": "Did you remember to close the window?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.148",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que vous avez des enfants ?",
+          "en": "Do you have children?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.226",
+          "theme": "expressions-utiles",
+          "fr": "En fait, la réunion a été annulée.",
+          "en": "Actually, the meeting was cancelled.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.201",
+          "theme": "questions",
+          "fr": "Qui va préparer le dîner ce soir ?",
+          "en": "Who is going to make dinner tonight?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.234",
+          "theme": "questions",
+          "fr": "Où se trouve la salle de réunion ?",
+          "en": "Where is the meeting room?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.301",
+          "theme": "questions",
+          "fr": "Quelle est la date de ton examen ?",
+          "en": "What is the date of your exam?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.302",
+          "theme": "questions",
+          "fr": "Quel est le numéro de ta chambre ?",
+          "en": "What is your room number?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.279",
+          "theme": "expressions-utiles",
+          "fr": "Ça marche pour moi, à demain alors.",
+          "en": "That works for me, see you tomorrow then.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.294",
+          "theme": "expressions-utiles",
+          "fr": "Elle a envie de changer de travail.",
+          "en": "She feels like changing jobs.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.faux-amis.271",
+          "theme": "faux-amis",
+          "fr": "Mon fils passe son bac cette année.",
+          "en": "My son is taking his baccalaureate exam this year.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.a1.questions.204",
+          "theme": "questions",
+          "fr": "Qui peut m'aider avec mes valises ?",
+          "en": "Who can help me with my suitcases?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.227",
+          "theme": "questions",
+          "fr": "Où travaille ta sœur en ce moment ?",
+          "en": "Where does your sister work right now?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.296",
+          "theme": "questions",
+          "fr": "Quels sont tes projets pour l'été ?",
+          "en": "What are your plans for the summer?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.222",
+          "theme": "questions",
+          "fr": "Où est la pharmacie la plus proche ?",
+          "en": "Where is the nearest pharmacy?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.262",
+          "theme": "questions",
+          "fr": "Comment s'écrit ton nom de famille ?",
+          "en": "How is your last name spelled?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.291",
+          "theme": "questions",
+          "fr": "Combien vous dois-je pour le repas ?",
+          "en": "How much do I owe you for the meal?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.085",
+          "theme": "expressions-frequentes",
+          "fr": "Tant pis, on essaiera une autre fois.",
+          "en": "Too bad, we'll try another time.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.faux-amis.274",
+          "theme": "faux-amis",
+          "fr": "Elle a une figure ronde et souriante.",
+          "en": "She has a round, smiling face.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.247",
+          "theme": "questions",
+          "fr": "Quand est-ce que nous nous revoyons ?",
+          "en": "When are we seeing each other again?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.257",
+          "theme": "expressions-utiles",
+          "fr": "C'est dommage, le concert est complet.",
+          "en": "It's a shame, the concert is sold out.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.268",
+          "theme": "expressions-utiles",
+          "fr": "Fais attention à la marche en sortant.",
+          "en": "Watch out for the step on your way out.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.264",
+          "theme": "questions",
+          "fr": "Pourquoi es-tu en retard aujourd'hui ?",
+          "en": "Why are you late today?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.268",
+          "theme": "questions",
+          "fr": "Pourquoi as-tu annulé le rendez-vous ?",
+          "en": "Why did you cancel the appointment?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.283",
+          "theme": "questions",
+          "fr": "Combien de jours restez-vous à Paris ?",
+          "en": "How many days are you staying in Paris?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.332",
+          "theme": "questions",
+          "fr": "Prenez-vous du sucre dans votre café ?",
+          "en": "Do you take sugar in your coffee?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.225",
+          "theme": "expressions-utiles",
+          "fr": "Elle est belge, en fait, pas française.",
+          "en": "She's Belgian, actually, not French.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.223",
+          "theme": "questions",
+          "fr": "Où allez-vous en vacances cette année ?",
+          "en": "Where are you going on vacation this year?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.243",
+          "theme": "questions",
+          "fr": "Quand rentrez-vous du travail ce soir ?",
+          "en": "When are you getting home from work tonight?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.285",
+          "theme": "questions",
+          "fr": "Combien de kilomètres jusqu'à la gare ?",
+          "en": "How many kilometers to the station?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.348",
+          "theme": "questions",
+          "fr": "Ton père travaille encore à la banque ?",
+          "en": "Does your father still work at the bank?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.faux-amis.193",
+          "theme": "faux-amis",
+          "fr": "Nous allons assister au concert ce soir.",
+          "en": "We are going to attend the concert tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.220",
+          "theme": "questions",
+          "fr": "Que faut-il apporter pour la randonnée ?",
+          "en": "What do we need to bring for the hike?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.219",
+          "theme": "expressions-utiles",
+          "fr": "Tant mieux, le magasin est encore ouvert.",
+          "en": "Great, the store is still open.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.299",
+          "theme": "expressions-utiles",
+          "fr": "Ça suffit, les enfants, arrêtez de crier.",
+          "en": "That's enough, kids, stop shouting.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.263",
+          "theme": "questions",
+          "fr": "Comment ça va avec ton nouveau collègue ?",
+          "en": "How is it going with your new colleague?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.267",
+          "theme": "questions",
+          "fr": "Pourquoi tu ne réponds pas au téléphone ?",
+          "en": "Why aren't you answering the phone?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.334",
+          "theme": "questions",
+          "fr": "Habitez-vous seul ou avec votre famille ?",
+          "en": "Do you live alone or with your family?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-utiles.271",
+          "theme": "expressions-utiles",
+          "fr": "Elle fait toujours attention à son budget.",
+          "en": "She always pays attention to her budget.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.336",
+          "theme": "questions",
+          "fr": "Reconnaissez-vous cet homme sur la photo ?",
+          "en": "Do you recognize this man in the photo?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.faux-amis.300",
+          "theme": "faux-amis",
+          "fr": "Le boulanger fait un excellent pain complet.",
+          "en": "The baker makes an excellent whole wheat bread.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.faux-amis.205",
+          "theme": "faux-amis",
+          "fr": "Mes parents vivent actuellement à la campagne.",
+          "en": "My parents currently live in the countryside.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.questions.304",
+          "theme": "questions",
+          "fr": "Quelle couleur préférez-vous pour la cuisine ?",
+          "en": "What color do you prefer for the kitchen?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.faux-amis.328",
+          "theme": "faux-amis",
+          "fr": "Sa lecture préférée reste les romans policiers.",
+          "en": "Her favorite reading remains detective novels.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.a1.faux-amis.207",
+          "theme": "faux-amis",
+          "fr": "Le magasin est actuellement fermé pour rénovation.",
+          "en": "The shop is currently closed for renovation.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.faux-amis.262",
+          "theme": "faux-amis",
+          "fr": "Les touristes ignorent souvent les coutumes locales.",
+          "en": "Tourists are often unaware of local customs.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.faux-amis.293",
+          "theme": "faux-amis",
+          "fr": "Nous pourrions éventuellement partir plus tôt demain.",
+          "en": "We could possibly leave earlier tomorrow.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.faux-amis.200",
+          "theme": "faux-amis",
+          "fr": "Actuellement, je travaille dans une petite entreprise.",
+          "en": "Currently, I work in a small company.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.faux-amis.295",
+          "theme": "faux-amis",
+          "fr": "Il pourrait éventuellement nous rejoindre au restaurant.",
+          "en": "He could possibly join us at the restaurant.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.048",
+          "theme": "expressions-frequentes",
+          "fr": "Il y a du pain sur la table.",
+          "en": "There is bread on the table.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.049",
+          "theme": "expressions-frequentes",
+          "fr": "Il y a un chat dans le jardin.",
+          "en": "There is a cat in the garden.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.230",
+          "theme": "expressions-utiles",
+          "fr": "Au fait, où as-tu acheté ce sac?",
+          "en": "By the way, where did you buy this bag?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.323",
+          "theme": "expressions-utiles",
+          "fr": "J'ai l'habitude de me lever tôt.",
+          "en": "I'm used to getting up early.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.082",
+          "theme": "expressions-frequentes",
+          "fr": "Tu es en retard ? Ça ne fait rien.",
+          "en": "You're late? It doesn't matter.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.208",
+          "theme": "expressions-utiles",
+          "fr": "Tu choisis le film, ça m'est égal.",
+          "en": "You choose the movie, I don't mind.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.339",
+          "theme": "questions",
+          "fr": "Ça te dit d'aller marcher un peu ?",
+          "en": "Do you feel like going for a walk?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.072",
+          "theme": "expressions-frequentes",
+          "fr": "Passez-moi le sel, s'il vous plaît.",
+          "en": "Please pass me the salt.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.081",
+          "theme": "expressions-frequentes",
+          "fr": "Ça ne fait rien, ne t'inquiète pas.",
+          "en": "It's okay, don't worry.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.264",
+          "theme": "expressions-utiles",
+          "fr": "Tu as tort de t'inquiéter comme ça.",
+          "en": "You're wrong to worry like that.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions-du-quotidien.144",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce qu'il fait beau aujourd'hui ?",
+          "en": "Is the weather nice today?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.214",
+          "theme": "expressions-utiles",
+          "fr": "Si elle ne veut pas venir, tant pis.",
+          "en": "If she doesn't want to come, too bad.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.242",
+          "theme": "expressions-utiles",
+          "fr": "Tu aurais tout de même pu m'appeler.",
+          "en": "You could have called me all the same.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.263",
+          "theme": "expressions-utiles",
+          "fr": "Tu as raison, ce plat sent très bon.",
+          "en": "You're right, this dish smells very good.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.238",
+          "theme": "questions",
+          "fr": "Quand est-ce que tu pars en voyage ?",
+          "en": "When are you leaving on your trip?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.340",
+          "theme": "questions",
+          "fr": "Tu es prêt pour l'examen de demain ?",
+          "en": "Are you ready for tomorrow's exam?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.342",
+          "theme": "questions",
+          "fr": "Il fait beau chez toi en ce moment ?",
+          "en": "Is the weather nice where you are right now?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.350",
+          "theme": "questions",
+          "fr": "Tu as vu le nouveau film au cinéma ?",
+          "en": "Have you seen the new movie at the theater?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.200",
+          "theme": "expressions-utiles",
+          "fr": "J'ai du mal à comprendre cette leçon.",
+          "en": "I have trouble understanding this lesson.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.221",
+          "theme": "expressions-utiles",
+          "fr": "À mon avis, il vaut mieux partir tôt.",
+          "en": "In my opinion, it's better to leave early.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.224",
+          "theme": "expressions-utiles",
+          "fr": "En fait, je n'ai jamais visité Paris.",
+          "en": "Actually, I've never visited Paris.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.228",
+          "theme": "expressions-utiles",
+          "fr": "Au fait, tu as des nouvelles de Marc?",
+          "en": "By the way, do you have any news from Marc?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.246",
+          "theme": "expressions-utiles",
+          "fr": "On va rater le début, de toute façon.",
+          "en": "We're going to miss the beginning, anyway.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.249",
+          "theme": "expressions-utiles",
+          "fr": "Ça dépend du temps qu'il fera demain.",
+          "en": "It depends on the weather tomorrow.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.241",
+          "theme": "faux-amis",
+          "fr": "Il a demandé son chemin à un passant.",
+          "en": "He asked a passerby for directions.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.217",
+          "theme": "expressions-utiles",
+          "fr": "Tant mieux si tu as réussi ton examen.",
+          "en": "So much the better if you passed your exam.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.329",
+          "theme": "expressions-utiles",
+          "fr": "J'ai confiance en toi, tu vas réussir.",
+          "en": "I trust you, you're going to succeed.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.217",
+          "theme": "faux-amis",
+          "fr": "Sa peau est sensible au soleil en été.",
+          "en": "Her skin is sensitive to the sun in summer.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.a1.faux-amis.280",
+          "theme": "faux-amis",
+          "fr": "Toute la journée, il a plu sans arrêt.",
+          "en": "All day long, it rained without stopping.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.219",
+          "theme": "questions",
+          "fr": "Qu'est-ce que tu attends pour partir ?",
+          "en": "What are you waiting for to leave?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.233",
+          "theme": "expressions-utiles",
+          "fr": "Bref, la soirée s'est très bien passée.",
+          "en": "Anyway, the evening went very well.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.236",
+          "theme": "expressions-utiles",
+          "fr": "Il pleut, mais on va sortir quand même.",
+          "en": "It's raining, but we're going out anyway.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.327",
+          "theme": "expressions-utiles",
+          "fr": "Elle se fait du souci pour ses examens.",
+          "en": "She worries about her exams.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.258",
+          "theme": "faux-amis",
+          "fr": "J'ignore l'heure exacte de son arrivée.",
+          "en": "I do not know the exact time of his arrival.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.197",
+          "theme": "expressions-utiles",
+          "fr": "Ça vaut le coup d'essayer ce restaurant.",
+          "en": "It's worth trying this restaurant.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.218",
+          "theme": "questions",
+          "fr": "Que préférez-vous, le train ou l'avion ?",
+          "en": "Which do you prefer, the train or the plane?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.296",
+          "theme": "expressions-utiles",
+          "fr": "J'ai besoin de repos après cette semaine.",
+          "en": "I need rest after this week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.263",
+          "theme": "faux-amis",
+          "fr": "J'ignorais que ce magasin fermait si tôt.",
+          "en": "I did not know that this shop closed so early.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.266",
+          "theme": "faux-amis",
+          "fr": "Elle a passé son examen de conduite hier.",
+          "en": "She took her driving test yesterday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.299",
+          "theme": "faux-amis",
+          "fr": "J'achète toujours du pain frais le matin.",
+          "en": "I always buy fresh bread in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.233",
+          "theme": "questions",
+          "fr": "Où puis-je acheter des billets de train ?",
+          "en": "Where can I buy train tickets?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.272",
+          "theme": "questions",
+          "fr": "Pourquoi n'avez-vous pas mangé ce matin ?",
+          "en": "Why didn't you eat this morning?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.095",
+          "theme": "expressions-frequentes",
+          "fr": "Tu peux venir plus tard ? Pas de problème.",
+          "en": "Can you come later? No problem.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.250",
+          "theme": "expressions-utiles",
+          "fr": "Ça dépend, es-tu libre samedi ou dimanche?",
+          "en": "It depends, are you free Saturday or Sunday?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.270",
+          "theme": "expressions-utiles",
+          "fr": "Fais attention à ne pas renverser le café.",
+          "en": "Be careful not to spill the coffee.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.282",
+          "theme": "expressions-utiles",
+          "fr": "Tu peux garder mon livre, pas de problème.",
+          "en": "You can keep my book, no problem.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.228",
+          "theme": "faux-amis",
+          "fr": "Tu dois attendre ton tour avant de parler.",
+          "en": "You must wait for your turn before speaking.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.261",
+          "theme": "faux-amis",
+          "fr": "Il ignore totalement les règles de ce jeu.",
+          "en": "He is totally unaware of the rules of this game.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.333",
+          "theme": "questions",
+          "fr": "Avez-vous besoin d'aide avec vos bagages ?",
+          "en": "Do you need help with your luggage?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.202",
+          "theme": "expressions-utiles",
+          "fr": "Nous avons du mal à trouver un appartement.",
+          "en": "We're having trouble finding an apartment.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.258",
+          "theme": "expressions-utiles",
+          "fr": "C'est vraiment dommage d'annuler le voyage.",
+          "en": "It's really a shame to cancel the trip.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.192",
+          "theme": "faux-amis",
+          "fr": "Je vais assister à la réunion demain matin.",
+          "en": "I am going to attend the meeting tomorrow morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.226",
+          "theme": "faux-amis",
+          "fr": "Mon père attend le facteur tous les matins.",
+          "en": "My father waits for the mailman every morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.313",
+          "theme": "faux-amis",
+          "fr": "Le pont est assez large pour deux voitures.",
+          "en": "The bridge is wide enough for two cars.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.213",
+          "theme": "questions",
+          "fr": "Qu'est-ce que vous recommandez comme plat ?",
+          "en": "What dish do you recommend?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.207",
+          "theme": "expressions-utiles",
+          "fr": "Les enfants ont hâte d'ouvrir leurs cadeaux.",
+          "en": "The children can't wait to open their gifts.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.223",
+          "theme": "expressions-utiles",
+          "fr": "À mon avis, tu devrais parler au professeur.",
+          "en": "In my opinion, you should talk to the teacher.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.307",
+          "theme": "expressions-utiles",
+          "fr": "Tant qu'à faire, invitons aussi les voisins.",
+          "en": "While we're at it, let's invite the neighbors too.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.220",
+          "theme": "faux-amis",
+          "fr": "Cette plante est sensible au froid en hiver.",
+          "en": "This plant is sensitive to cold in winter.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.278",
+          "theme": "faux-amis",
+          "fr": "Le vent froid piquait la figure des skieurs.",
+          "en": "The cold wind stung the skiers' faces.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.292",
+          "theme": "expressions-utiles",
+          "fr": "Ça te dirait de faire une promenade dimanche?",
+          "en": "Would you feel like going for a walk on Sunday?",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.a1.faux-amis.255",
+          "theme": "faux-amis",
+          "fr": "Malgré sa déception, elle a gardé le sourire.",
+          "en": "Despite her disappointment, she kept smiling.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.259",
+          "theme": "faux-amis",
+          "fr": "Elle ignore encore le résultat de son examen.",
+          "en": "She still does not know the result of her exam.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.273",
+          "theme": "faux-amis",
+          "fr": "Sa figure était rouge après la longue course.",
+          "en": "His face was red after the long run.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.310",
+          "theme": "faux-amis",
+          "fr": "Cette avenue est très large et bien éclairée.",
+          "en": "This avenue is very wide and well lit.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.257",
+          "theme": "questions",
+          "fr": "Comment payez-vous, en espèces ou par carte ?",
+          "en": "How are you paying, in cash or by card?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.260",
+          "theme": "expressions-utiles",
+          "fr": "Tu as raison, il vaut mieux partir maintenant.",
+          "en": "You're right, it's better to leave now.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.201",
+          "theme": "faux-amis",
+          "fr": "Il habite actuellement à Lyon avec sa famille.",
+          "en": "He currently lives in Lyon with his family.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.224",
+          "theme": "faux-amis",
+          "fr": "Elle attend un appel important de son médecin.",
+          "en": "She is waiting for an important call from her doctor.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.225",
+          "theme": "faux-amis",
+          "fr": "Attends-moi ici, je reviens dans cinq minutes.",
+          "en": "Wait for me here, I will be back in five minutes.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.260",
+          "theme": "faux-amis",
+          "fr": "Nous ignorons pourquoi le train est en retard.",
+          "en": "We do not know why the train is late.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.283",
+          "theme": "faux-amis",
+          "fr": "C'était une journée fatigante mais très utile.",
+          "en": "It was a tiring but very useful day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.245",
+          "theme": "questions",
+          "fr": "Quand as-tu commencé à apprendre le français ?",
+          "en": "When did you start learning French?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.206",
+          "theme": "expressions-utiles",
+          "fr": "Nous avons hâte de commencer le nouveau projet.",
+          "en": "We can't wait to start the new project.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-utiles.300",
+          "theme": "expressions-utiles",
+          "fr": "Ça suffit pour aujourd'hui, on continue demain.",
+          "en": "That's enough for today, we'll continue tomorrow.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.215",
+          "theme": "faux-amis",
+          "fr": "Ma petite sœur est très sensible aux critiques.",
+          "en": "My little sister is very sensitive to criticism.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.233",
+          "theme": "faux-amis",
+          "fr": "Elle reste toujours tard au bureau le vendredi.",
+          "en": "She always stays late at the office on Fridays.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.322",
+          "theme": "questions",
+          "fr": "Avez-vous une chambre disponible pour ce soir ?",
+          "en": "Do you have a room available for tonight?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.231",
+          "theme": "faux-amis",
+          "fr": "Nous restons chez ma tante pendant les vacances.",
+          "en": "We are staying at my aunt's during the holidays.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.204",
+          "theme": "faux-amis",
+          "fr": "Elle étudie actuellement le droit à l'université.",
+          "en": "She is currently studying law at university.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.218",
+          "theme": "faux-amis",
+          "fr": "Il est sensible aux compliments de ses collègues.",
+          "en": "He is sensitive to compliments from his colleagues.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.219",
+          "theme": "faux-amis",
+          "fr": "Les enfants sont souvent sensibles au bruit fort.",
+          "en": "Children are often sensitive to loud noise.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.227",
+          "theme": "faux-amis",
+          "fr": "Les touristes attendent le guide devant le musée.",
+          "en": "The tourists are waiting for the guide in front of the museum.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.234",
+          "theme": "faux-amis",
+          "fr": "Les enfants doivent rester près de leurs parents.",
+          "en": "The children must stay close to their parents.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.questions.305",
+          "theme": "questions",
+          "fr": "Quelle direction dois-je prendre pour la mairie ?",
+          "en": "Which direction should I take for the town hall?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.240",
+          "theme": "faux-amis",
+          "fr": "Nous devons demander la permission avant de partir.",
+          "en": "We must ask for permission before leaving.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.287",
+          "theme": "faux-amis",
+          "fr": "Nous avons passé des vacances formidables en Grèce.",
+          "en": "We had a wonderful vacation in Greece.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.330",
+          "theme": "faux-amis",
+          "fr": "La patronne du restaurant connaît tous ses employés.",
+          "en": "The restaurant's female boss knows all her employees.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.252",
+          "theme": "faux-amis",
+          "fr": "Sa déception était visible après le mauvais résultat.",
+          "en": "Her disappointment was visible after the bad result.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.311",
+          "theme": "faux-amis",
+          "fr": "Il porte toujours des vêtements larges et confortables.",
+          "en": "He always wears wide, comfortable clothes.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.294",
+          "theme": "faux-amis",
+          "fr": "Éventuellement, elle changera de métier l'année prochaine.",
+          "en": "Possibly, she will change jobs next year.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.296",
+          "theme": "faux-amis",
+          "fr": "On pourrait éventuellement reporter la réunion à vendredi.",
+          "en": "We could possibly postpone the meeting to Friday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.faux-amis.297",
+          "theme": "faux-amis",
+          "fr": "Éventuellement, nous prendrons un autre chemin plus court.",
+          "en": "Possibly, we will take another shorter route.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.084",
+          "theme": "expressions-frequentes",
+          "fr": "Il n'y a plus de gâteau ? Tant pis.",
+          "en": "There's no more cake? Oh well.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.a1.expressions-utiles.209",
+          "theme": "expressions-utiles",
+          "fr": "Ça m'est égal de manger tôt ou tard.",
+          "en": "It's all the same to me whether we eat early or late.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.290",
+          "theme": "expressions-utiles",
+          "fr": "Ça te dit d'aller au cinéma ce soir?",
+          "en": "Do you feel like going to the movies tonight?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.215",
+          "theme": "questions",
+          "fr": "Qu'est-ce que tu as fait hier soir ?",
+          "en": "What did you do last night?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.203",
+          "theme": "expressions-utiles",
+          "fr": "Tu as du mal à prononcer ce mot, non?",
+          "en": "You're having trouble pronouncing that word, right?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.201",
+          "theme": "expressions-utiles",
+          "fr": "Elle a du mal à se réveiller le matin.",
+          "en": "She has trouble waking up in the morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.220",
+          "theme": "expressions-utiles",
+          "fr": "À mon avis, ce plan ne va pas marcher.",
+          "en": "In my opinion, this plan isn't going to work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.275",
+          "theme": "expressions-utiles",
+          "fr": "Ça y est, j'ai enfin fini mes devoirs.",
+          "en": "That's it, I've finally finished my homework.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.285",
+          "theme": "expressions-utiles",
+          "fr": "Il fait trop chaud, je n'en peux plus.",
+          "en": "It's too hot, I can't stand it anymore.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.245",
+          "theme": "faux-amis",
+          "fr": "On m'a demandé mon nom et mon adresse.",
+          "en": "I was asked my name and my address.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.307",
+          "theme": "questions",
+          "fr": "Est-ce que tu viens à la fête samedi ?",
+          "en": "Are you coming to the party on Saturday?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.309",
+          "theme": "questions",
+          "fr": "Est-ce que tu as des frères et sœurs ?",
+          "en": "Do you have any brothers or sisters?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.196",
+          "theme": "expressions-utiles",
+          "fr": "Ce film est long, mais ça vaut le coup.",
+          "en": "This movie is long, but it's worth it.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.248",
+          "theme": "expressions-utiles",
+          "fr": "Tu viens ce soir? Ça dépend de l'heure.",
+          "en": "Are you coming tonight? It depends on the time.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.225",
+          "theme": "questions",
+          "fr": "Où se trouve la gare, s'il vous plaît ?",
+          "en": "Where is the train station, please?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.194",
+          "theme": "expressions-utiles",
+          "fr": "Ça ne fait rien si tu arrives en retard.",
+          "en": "It's fine if you arrive late.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.228",
+          "theme": "questions",
+          "fr": "Où avez-vous mis les clés de la maison ?",
+          "en": "Where did you put the house keys?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.326",
+          "theme": "questions",
+          "fr": "Savez-vous où se trouve l'arrêt de bus ?",
+          "en": "Do you know where the bus stop is?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.286",
+          "theme": "expressions-utiles",
+          "fr": "Elle n'en peut plus de ce bruit constant.",
+          "en": "She can't stand this constant noise anymore.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.297",
+          "theme": "expressions-utiles",
+          "fr": "Tu as besoin d'aide pour porter ces sacs?",
+          "en": "Do you need help carrying these bags?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.304",
+          "theme": "faux-amis",
+          "fr": "Il ne reste plus de pain dans la cuisine.",
+          "en": "There is no more bread left in the kitchen.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.211",
+          "theme": "questions",
+          "fr": "Qu'est-ce que tu étudies à l'université ?",
+          "en": "What do you study at university?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.216",
+          "theme": "questions",
+          "fr": "Que dit le médecin à propos de ta santé ?",
+          "en": "What does the doctor say about your health?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.319",
+          "theme": "questions",
+          "fr": "Est-ce que le musée est ouvert le lundi ?",
+          "en": "Is the museum open on Mondays?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.215",
+          "theme": "expressions-utiles",
+          "fr": "Tant pis, on ira au cinéma une autre fois.",
+          "en": "Too bad, we'll go to the movies another time.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.256",
+          "theme": "expressions-utiles",
+          "fr": "C'est dommage que tu ne puisses pas venir.",
+          "en": "It's a shame you can't come.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.319",
+          "theme": "expressions-utiles",
+          "fr": "Ça vaut la peine d'attendre encore un peu.",
+          "en": "It's worth waiting a little longer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.320",
+          "theme": "expressions-utiles",
+          "fr": "Elle a fait de son mieux pendant l'examen.",
+          "en": "She did her best during the exam.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.275",
+          "theme": "faux-amis",
+          "fr": "Le froid lui a rendu la figure toute pâle.",
+          "en": "The cold made his face all pale.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.302",
+          "theme": "faux-amis",
+          "fr": "Ce pain est encore chaud, il sort du four.",
+          "en": "This bread is still warm, it just came out of the oven.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.316",
+          "theme": "faux-amis",
+          "fr": "Elle a envie de voyager en Italie cet été.",
+          "en": "She wants to travel to Italy this summer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.242",
+          "theme": "questions",
+          "fr": "Quand est-ce que le train part pour Lyon ?",
+          "en": "When does the train leave for Lyon?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.266",
+          "theme": "expressions-utiles",
+          "fr": "J'ai eu tort, le magasin était bien ouvert.",
+          "en": "I was wrong, the store was indeed open.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.197",
+          "theme": "faux-amis",
+          "fr": "Tu peux assister à la cérémonie si tu veux.",
+          "en": "You can attend the ceremony if you want.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.a1.faux-amis.315",
+          "theme": "faux-amis",
+          "fr": "J'ai envie de manger une glace au chocolat.",
+          "en": "I feel like eating a chocolate ice cream.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.193",
+          "theme": "expressions-utiles",
+          "fr": "Tu as oublié ton parapluie, ça ne fait rien.",
+          "en": "You forgot your umbrella, it doesn't matter.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.262",
+          "theme": "expressions-utiles",
+          "fr": "Nous avons eu raison de réserver à l'avance.",
+          "en": "We were right to book in advance.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.280",
+          "theme": "expressions-utiles",
+          "fr": "Si tu veux changer la date, ça marche aussi.",
+          "en": "If you want to change the date, that works too.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.305",
+          "theme": "expressions-utiles",
+          "fr": "Tant qu'à faire, autant partir tôt le matin.",
+          "en": "Since we're at it, we might as well leave early in the morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.195",
+          "theme": "faux-amis",
+          "fr": "Mon frère va assister au mariage de son ami.",
+          "en": "My brother is going to attend his friend's wedding.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.242",
+          "theme": "faux-amis",
+          "fr": "Tu peux demander de l'aide à ton professeur.",
+          "en": "You can ask your teacher for help.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.285",
+          "theme": "faux-amis",
+          "fr": "Après une dure journée, il aime lire un peu.",
+          "en": "After a hard day, he likes to read a little.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.331",
+          "theme": "faux-amis",
+          "fr": "Son patron lui a donné trois jours de congé.",
+          "en": "Her boss gave her three days off.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.269",
+          "theme": "questions",
+          "fr": "Pourquoi est-ce que le train est en retard ?",
+          "en": "Why is the train late?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.211",
+          "theme": "expressions-utiles",
+          "fr": "Ça m'est complètement égal ce qu'ils pensent.",
+          "en": "I really don't care what they think.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.313",
+          "theme": "expressions-utiles",
+          "fr": "En tout cas, il faudra revenir un autre jour.",
+          "en": "In any case, we'll have to come back another day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.232",
+          "theme": "faux-amis",
+          "fr": "Il faut rester calme même en cas de problème.",
+          "en": "You must stay calm even in case of a problem.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.279",
+          "theme": "faux-amis",
+          "fr": "J'ai passé une excellente journée à la plage.",
+          "en": "I spent an excellent day at the beach.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.312",
+          "theme": "faux-amis",
+          "fr": "La rivière devient plus large près de la mer.",
+          "en": "The river becomes wider near the sea.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.298",
+          "theme": "expressions-utiles",
+          "fr": "Nous avons besoin de plus de temps pour finir.",
+          "en": "We need more time to finish.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.302",
+          "theme": "expressions-utiles",
+          "fr": "Ce n'est pas grave, on recommencera plus tard.",
+          "en": "It's not a big deal, we'll start again later.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.330",
+          "theme": "expressions-utiles",
+          "fr": "Elle a confiance en son équipe pour ce projet.",
+          "en": "She trusts her team for this project.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.270",
+          "theme": "faux-amis",
+          "fr": "Il a passé un entretien pour un nouvel emploi.",
+          "en": "He had an interview for a new job.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.319",
+          "theme": "faux-amis",
+          "fr": "Les enfants ont envie de jouer dans le jardin.",
+          "en": "The children feel like playing in the garden.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.290",
+          "theme": "questions",
+          "fr": "Combien de fois par semaine fais-tu du sport ?",
+          "en": "How many times a week do you exercise?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.218",
+          "theme": "expressions-utiles",
+          "fr": "Elle a trouvé un travail, tant mieux pour elle.",
+          "en": "She found a job, good for her.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.247",
+          "theme": "faux-amis",
+          "fr": "Elle a blessé son doigt en coupant des légumes.",
+          "en": "She injured her finger while cutting vegetables.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.264",
+          "theme": "faux-amis",
+          "fr": "On ignore encore la cause exacte de l'accident.",
+          "en": "The exact cause of the accident is still unknown.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.315",
+          "theme": "questions",
+          "fr": "Est-ce que vous acceptez les cartes de crédit ?",
+          "en": "Do you accept credit cards?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.247",
+          "theme": "expressions-utiles",
+          "fr": "De toute façon, il faut que je parte maintenant.",
+          "en": "Anyway, I have to leave now.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.254",
+          "theme": "expressions-utiles",
+          "fr": "Franchement, je m'en fiche du résultat du match.",
+          "en": "Frankly, I don't care about the result of the match.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.325",
+          "theme": "expressions-utiles",
+          "fr": "Nous avons l'habitude du bruit dans ce quartier.",
+          "en": "We're used to the noise in this neighborhood.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.198",
+          "theme": "faux-amis",
+          "fr": "Ils vont assister à un match de football samedi.",
+          "en": "They are going to attend a football match on Saturday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.253",
+          "theme": "faux-amis",
+          "fr": "Ce fut une grande déception pour toute l'équipe.",
+          "en": "It was a great disappointment for the whole team.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.269",
+          "theme": "faux-amis",
+          "fr": "Tu vas passer ton examen d'anglais demain matin.",
+          "en": "You are going to take your English exam tomorrow morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.245",
+          "theme": "expressions-utiles",
+          "fr": "De toute façon, le magasin est fermé le dimanche.",
+          "en": "Anyway, the store is closed on Sundays.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.194",
+          "theme": "faux-amis",
+          "fr": "Elle veut assister à la conférence sur le climat.",
+          "en": "She wants to attend the conference on climate.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.a1.faux-amis.290",
+          "theme": "faux-amis",
+          "fr": "Ils ont fait un travail formidable sur ce projet.",
+          "en": "They did a wonderful job on this project.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.323",
+          "theme": "questions",
+          "fr": "Pouvez-vous m'indiquer le chemin vers la banque ?",
+          "en": "Can you show me the way to the bank?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.327",
+          "theme": "questions",
+          "fr": "Avons-nous assez de temps pour visiter le musée ?",
+          "en": "Do we have enough time to visit the museum?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.289",
+          "theme": "expressions-utiles",
+          "fr": "Ça nous fait plaisir de vous accueillir chez nous.",
+          "en": "It's a pleasure for us to welcome you to our home.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.318",
+          "theme": "faux-amis",
+          "fr": "Il a envie de changer de travail depuis longtemps.",
+          "en": "He has wanted to change jobs for a long time.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.243",
+          "theme": "expressions-utiles",
+          "fr": "Le repas était simple, mais tout de même délicieux.",
+          "en": "The meal was simple, but delicious all the same.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.239",
+          "theme": "faux-amis",
+          "fr": "Elle demande toujours des conseils à sa grand-mère.",
+          "en": "She always asks her grandmother for advice.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.268",
+          "theme": "faux-amis",
+          "fr": "Nous devons passer un test médical avant le voyage.",
+          "en": "We must take a medical test before the trip.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.282",
+          "theme": "faux-amis",
+          "fr": "Sa journée commence toujours à six heures du matin.",
+          "en": "Her day always starts at six in the morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.307",
+          "theme": "faux-amis",
+          "fr": "L'euro est la monnaie utilisée dans plusieurs pays.",
+          "en": "The euro is the currency used in several countries.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.272",
+          "theme": "faux-amis",
+          "fr": "Les candidats passent l'examen dans la grande salle.",
+          "en": "The candidates take the exam in the large room.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.328",
+          "theme": "questions",
+          "fr": "Pourriez-vous répéter la question, s'il vous plaît ?",
+          "en": "Could you repeat the question, please?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-utiles.331",
+          "theme": "expressions-utiles",
+          "fr": "Nous avons confiance en l'avenir de cette entreprise.",
+          "en": "We have confidence in the future of this company.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.265",
+          "theme": "faux-amis",
+          "fr": "Je vais passer mon examen de français lundi prochain.",
+          "en": "I am going to take my French exam next Monday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.281",
+          "theme": "faux-amis",
+          "fr": "Nous avons une longue journée de travail devant nous.",
+          "en": "We have a long day of work ahead of us.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.314",
+          "theme": "faux-amis",
+          "fr": "Nous cherchons une table large pour toute la famille.",
+          "en": "We are looking for a wide table for the whole family.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.274",
+          "theme": "questions",
+          "fr": "Pourquoi est-il si difficile de trouver un logement ?",
+          "en": "Why is it so hard to find housing?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.287",
+          "theme": "questions",
+          "fr": "Combien de temps faut-il pour apprendre le français ?",
+          "en": "How long does it take to learn French?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.243",
+          "theme": "faux-amis",
+          "fr": "Les clients demandent souvent le prix avant d'acheter.",
+          "en": "Customers often ask the price before buying.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.221",
+          "theme": "faux-amis",
+          "fr": "Marie a toujours été sensible aux problèmes des autres.",
+          "en": "Marie has always been sensitive to other people's problems.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.256",
+          "theme": "faux-amis",
+          "fr": "La déception des supporters était grande après la défaite.",
+          "en": "The fans' disappointment was great after the defeat.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.277",
+          "theme": "faux-amis",
+          "fr": "Sa figure fatiguée montrait les longues heures de travail.",
+          "en": "His tired face showed the long hours of work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.292",
+          "theme": "faux-amis",
+          "fr": "Son nouveau roman est formidable, je le recommande vraiment.",
+          "en": "Her new novel is wonderful, I really recommend it.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.faux-amis.212",
+          "theme": "faux-amis",
+          "fr": "Cette librairie organise une rencontre avec un auteur samedi.",
+          "en": "This bookshop is organizing a meeting with an author on Saturday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.questions.217",
+          "theme": "questions",
+          "fr": "Qu'est-ce qu'il y a dans ce sac ?",
+          "en": "What is in this bag?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.312",
+          "theme": "expressions-utiles",
+          "fr": "En tout cas, moi je n'y crois pas trop.",
+          "en": "In any case, I don't really believe it.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-frequentes.083",
+          "theme": "expressions-frequentes",
+          "fr": "Ça ne fait rien si tu ne peux pas venir.",
+          "en": "It's fine if you can't come.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.210",
+          "theme": "expressions-utiles",
+          "fr": "Il pleut ou il fait beau, ça m'est égal.",
+          "en": "Whether it rains or shines, I don't care.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.306",
+          "theme": "faux-amis",
+          "fr": "Je n'ai pas de monnaie pour payer le bus.",
+          "en": "I do not have change to pay for the bus.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.195",
+          "theme": "expressions-utiles",
+          "fr": "Il a cassé le verre, mais ça ne fait rien.",
+          "en": "He broke the glass, but it doesn't matter.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.questions.276",
+          "theme": "questions",
+          "fr": "Pourquoi le bus ne s'arrête-t-il pas ici ?",
+          "en": "Why doesn't the bus stop here?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.252",
+          "theme": "expressions-utiles",
+          "fr": "Je m'en fiche de ce que les autres pensent.",
+          "en": "I don't care what other people think.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.253",
+          "theme": "expressions-utiles",
+          "fr": "Il pleut? Je m'en fiche, j'ai un parapluie.",
+          "en": "It's raining? I don't care, I have an umbrella.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.a1.expressions-utiles.265",
+          "theme": "expressions-utiles",
+          "fr": "Il a eu tort de ne pas écouter ses parents.",
+          "en": "He was wrong not to listen to his parents.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.281",
+          "theme": "expressions-utiles",
+          "fr": "Pas de problème, je peux t'aider ce week-end.",
+          "en": "No problem, I can help you this weekend.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.238",
+          "theme": "expressions-utiles",
+          "fr": "C'est cher, mais je vais l'acheter quand même.",
+          "en": "It's expensive, but I'm going to buy it anyway.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.291",
+          "theme": "expressions-utiles",
+          "fr": "Ça vous dit de prendre un café après le cours?",
+          "en": "Do you feel like grabbing a coffee after class?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.315",
+          "theme": "expressions-utiles",
+          "fr": "À vrai dire, ce plat ne me plaît pas beaucoup.",
+          "en": "To tell the truth, I don't like this dish much.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.229",
+          "theme": "faux-amis",
+          "fr": "On attend le train de huit heures sur le quai.",
+          "en": "We are waiting for the eight o'clock train on the platform.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.questions.270",
+          "theme": "questions",
+          "fr": "Pourquoi ta sœur ne vient-elle pas à la fête ?",
+          "en": "Why isn't your sister coming to the party?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.277",
+          "theme": "expressions-utiles",
+          "fr": "Ça y est, elle a réussi son permis de conduire.",
+          "en": "That's it, she passed her driving test.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.308",
+          "theme": "expressions-utiles",
+          "fr": "Il pleuvait, du coup on est restés à la maison.",
+          "en": "It was raining, so we stayed home.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.317",
+          "theme": "faux-amis",
+          "fr": "Nous avons envie de rester à la maison ce soir.",
+          "en": "We feel like staying home tonight.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.questions.320",
+          "theme": "questions",
+          "fr": "Est-ce que tu as pris ton médicament ce matin ?",
+          "en": "Did you take your medicine this morning?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.272",
+          "theme": "expressions-utiles",
+          "fr": "Je me suis rendu compte de mon erreur trop tard.",
+          "en": "I realized my mistake too late.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.305",
+          "theme": "faux-amis",
+          "fr": "Le vendeur m'a rendu la monnaie sur vingt euros.",
+          "en": "The seller gave me change from twenty euros.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.questions.229",
+          "theme": "questions",
+          "fr": "Où se trouve le bureau de poste le plus proche ?",
+          "en": "Where is the nearest post office?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.questions.321",
+          "theme": "questions",
+          "fr": "Est-ce que nous devons changer de train à Lyon ?",
+          "en": "Do we need to change trains in Lyon?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.234",
+          "theme": "expressions-utiles",
+          "fr": "Bref, je crois qu'il vaut mieux changer de sujet.",
+          "en": "Anyway, I think it's better to change the subject.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.259",
+          "theme": "expressions-utiles",
+          "fr": "C'est dommage qu'il fasse si mauvais aujourd'hui.",
+          "en": "It's a shame the weather is so bad today.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.246",
+          "theme": "faux-amis",
+          "fr": "Le joueur s'est blessé au genou pendant le match.",
+          "en": "The player injured his knee during the match.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.323",
+          "theme": "faux-amis",
+          "fr": "Elle range ses livres dans le coin de sa chambre.",
+          "en": "She stores her books in the corner of her room.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.324",
+          "theme": "faux-amis",
+          "fr": "Le chat dort toujours dans le même coin du salon.",
+          "en": "The cat always sleeps in the same corner of the living room.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.questions.351",
+          "theme": "questions",
+          "fr": "Ça va aller pour le rendez-vous chez le médecin ?",
+          "en": "Will it be okay for the doctor's appointment?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.198",
+          "theme": "expressions-utiles",
+          "fr": "Le voyage est cher, mais ça vaut vraiment le coup.",
+          "en": "The trip is expensive, but it's really worth it.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.212",
+          "theme": "expressions-utiles",
+          "fr": "Le bus est parti, tant pis, on prendra le suivant.",
+          "en": "The bus has left, too bad, we'll take the next one.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.306",
+          "theme": "expressions-utiles",
+          "fr": "Tant qu'à faire des courses, achète aussi du pain.",
+          "en": "While you're at it shopping, buy some bread too.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.328",
+          "theme": "expressions-utiles",
+          "fr": "Mes parents se font du souci quand je voyage seul.",
+          "en": "My parents worry when I travel alone.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.249",
+          "theme": "faux-amis",
+          "fr": "Le chien a blessé le facteur d'une petite morsure.",
+          "en": "The dog injured the mailman with a small bite.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.276",
+          "theme": "faux-amis",
+          "fr": "L'enfant avait de la peinture sur toute la figure.",
+          "en": "The child had paint all over his face.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.320",
+          "theme": "faux-amis",
+          "fr": "Elle a envie d'un café avant de partir travailler.",
+          "en": "She feels like having a coffee before going to work.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.questions.314",
+          "theme": "questions",
+          "fr": "Est-ce que tu as réservé une table au restaurant ?",
+          "en": "Did you book a table at the restaurant?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.questions.275",
+          "theme": "questions",
+          "fr": "Pourquoi as-tu changé d'avis à la dernière minute ?",
+          "en": "Why did you change your mind at the last minute?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.questions.316",
+          "theme": "questions",
+          "fr": "Est-ce que ta mère travaille toujours à l'hôpital ?",
+          "en": "Does your mother still work at the hospital?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.216",
+          "theme": "expressions-utiles",
+          "fr": "Il fait beau demain? Tant mieux pour le pique-nique.",
+          "en": "Nice weather tomorrow? All the better for the picnic.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.316",
+          "theme": "expressions-utiles",
+          "fr": "À vrai dire, je préférerais rester chez moi ce soir.",
+          "en": "To tell the truth, I'd rather stay home tonight.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 15,
+      "items": [
+        {
+          "id": "fr.a1.faux-amis.309",
+          "theme": "faux-amis",
+          "fr": "La petite monnaie s'accumule souvent au fond du sac.",
+          "en": "Small change often piles up at the bottom of the bag.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.283",
+          "theme": "expressions-utiles",
+          "fr": "Pas de problème pour changer l'horaire de la réunion.",
+          "en": "No problem changing the meeting schedule.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.301",
+          "theme": "faux-amis",
+          "fr": "Nous mangeons du pain avec le fromage à chaque repas.",
+          "en": "We eat bread with cheese at every meal.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.questions.306",
+          "theme": "questions",
+          "fr": "Quel bus faut-il prendre pour aller au centre-ville ?",
+          "en": "Which bus do you need to take to go downtown?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.291",
+          "theme": "faux-amis",
+          "fr": "La vue depuis le sommet de la montagne est formidable.",
+          "en": "The view from the mountain summit is wonderful.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.222",
+          "theme": "expressions-utiles",
+          "fr": "Ce restaurant est, à mon avis, le meilleur du quartier.",
+          "en": "This restaurant is, in my opinion, the best in the neighborhood.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.216",
+          "theme": "faux-amis",
+          "fr": "Ce sujet est sensible, il faut en parler avec prudence.",
+          "en": "This topic is sensitive, we must talk about it carefully.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.235",
+          "theme": "faux-amis",
+          "fr": "Vous restez encore une semaine à Paris pour le travail.",
+          "en": "You are staying another week in Paris for work.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.329",
+          "theme": "faux-amis",
+          "fr": "Mon patron m'a félicité pour mon travail cette semaine.",
+          "en": "My boss congratulated me for my work this week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.257",
+          "theme": "faux-amis",
+          "fr": "Nous avons vécu une petite déception ce matin au bureau.",
+          "en": "We experienced a small disappointment this morning at the office.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.303",
+          "theme": "faux-amis",
+          "fr": "Elle coupe le pain en petites tranches pour les enfants.",
+          "en": "She cuts the bread into small slices for the children.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.269",
+          "theme": "expressions-utiles",
+          "fr": "Il faut faire attention aux voitures en traversant la rue.",
+          "en": "You have to watch out for cars when crossing the street.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.284",
+          "theme": "faux-amis",
+          "fr": "Les enfants ont passé la journée chez leurs grands-parents.",
+          "en": "The children spent the day at their grandparents' house.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.210",
+          "theme": "faux-amis",
+          "fr": "Nous allons à la librairie pour acheter des livres scolaires.",
+          "en": "We are going to the bookshop to buy school books.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.213",
+          "theme": "faux-amis",
+          "fr": "Il travaille comme vendeur dans une librairie du centre-ville.",
+          "en": "He works as a salesman in a downtown bookshop.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.327",
+          "theme": "faux-amis",
+          "fr": "Le professeur encourage la lecture chaque soir avant de dormir.",
+          "en": "The teacher encourages reading every evening before sleeping.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.289",
+          "theme": "faux-amis",
+          "fr": "Le nouveau professeur de musique est formidable avec les enfants.",
+          "en": "The new music teacher is wonderful with children.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.faux-amis.244",
+          "theme": "faux-amis",
+          "fr": "Ma fille me demande une nouvelle bicyclette pour son anniversaire.",
+          "en": "My daughter is asking me for a new bicycle for her birthday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-utiles.303",
+          "theme": "expressions-utiles",
+          "fr": "Tu t'es trompé de route? Ce n'est pas grave.",
+          "en": "You took the wrong road? It's not a big deal.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.questions.310",
+          "theme": "questions",
+          "fr": "Est-ce qu'il y a un supermarché près d'ici ?",
+          "en": "Is there a supermarket near here?",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.questions.312",
+          "theme": "questions",
+          "fr": "Est-ce que tu peux m'aider à porter ce sac ?",
+          "en": "Can you help me carry this bag?",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.244",
+          "theme": "expressions-utiles",
+          "fr": "De toute façon, je n'avais pas envie d'y aller.",
+          "en": "Anyway, I didn't feel like going there.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.284",
+          "theme": "expressions-utiles",
+          "fr": "Je n'en peux plus, j'ai marché toute la journée.",
+          "en": "I can't take it anymore, I've walked all day.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.309",
+          "theme": "expressions-utiles",
+          "fr": "Le train était annulé, du coup j'ai pris le bus.",
+          "en": "The train was cancelled, so I took the bus.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.326",
+          "theme": "expressions-utiles",
+          "fr": "Ne te fais pas de souci, tout va bien se passer.",
+          "en": "Don't worry, everything will go well.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.254",
+          "theme": "faux-amis",
+          "fr": "Il a du mal à cacher sa déception après l'examen.",
+          "en": "He has trouble hiding his disappointment after the exam.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.326",
+          "theme": "faux-amis",
+          "fr": "La lecture de ce roman m'a pris toute la semaine.",
+          "en": "Reading this novel took me the whole week.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.267",
+          "theme": "expressions-utiles",
+          "fr": "Elle n'a pas tort, il fait vraiment froid ce matin.",
+          "en": "She's not wrong, it's really cold this morning.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.314",
+          "theme": "expressions-utiles",
+          "fr": "À vrai dire, je n'ai pas beaucoup dormi cette nuit.",
+          "en": "To tell the truth, I didn't sleep much last night.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.317",
+          "theme": "expressions-utiles",
+          "fr": "Ça vaut la peine de relire la leçon avant l'examen.",
+          "en": "It's worth rereading the lesson before the exam.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.287",
+          "theme": "expressions-utiles",
+          "fr": "Ça me fait plaisir de te revoir après tout ce temps.",
+          "en": "It makes me happy to see you again after all this time.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.questions.311",
+          "theme": "questions",
+          "fr": "Est-ce que vous savez à quelle heure part le train ?",
+          "en": "Do you know what time the train leaves?",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.240",
+          "theme": "expressions-utiles",
+          "fr": "Il est jeune, mais il conduit tout de même très bien.",
+          "en": "He's young, but he drives very well all the same.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 16,
+      "items": [
+        {
+          "id": "fr.a1.expressions-utiles.295",
+          "theme": "expressions-utiles",
+          "fr": "Nous avons envie de partir à la montagne ce week-end.",
+          "en": "We feel like going to the mountains this weekend.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.206",
+          "theme": "faux-amis",
+          "fr": "Actuellement, il n'y a pas de train direct pour Nice.",
+          "en": "Currently, there is no direct train to Nice.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.236",
+          "theme": "faux-amis",
+          "fr": "Mon chat aime rester près de la fenêtre l'après-midi.",
+          "en": "My cat likes to stay near the window in the afternoon.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.267",
+          "theme": "faux-amis",
+          "fr": "Les élèves passent leurs examens à la fin de l'année.",
+          "en": "The students take their exams at the end of the year.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.322",
+          "theme": "faux-amis",
+          "fr": "Il y a une belle boulangerie au coin de cette avenue.",
+          "en": "There is a nice bakery on the corner of this avenue.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.questions.318",
+          "theme": "questions",
+          "fr": "Est-ce que vous avez encore des places pour ce soir ?",
+          "en": "Do you still have seats for tonight?",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.273",
+          "theme": "expressions-utiles",
+          "fr": "Elle s'est rendu compte qu'elle avait oublié ses clés.",
+          "en": "She realized she had forgotten her keys.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.322",
+          "theme": "expressions-utiles",
+          "fr": "Nous avons fait de notre mieux pour arriver à l'heure.",
+          "en": "We did our best to arrive on time.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.questions.313",
+          "theme": "questions",
+          "fr": "Est-ce que le petit-déjeuner est inclus dans le prix ?",
+          "en": "Is breakfast included in the price?",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.231",
+          "theme": "expressions-utiles",
+          "fr": "Au fait, le magasin ferme à dix-neuf heures aujourd'hui.",
+          "en": "By the way, the store closes at seven pm today.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.237",
+          "theme": "expressions-utiles",
+          "fr": "Elle est fatiguée, mais elle vient quand même à la fête.",
+          "en": "She's tired, but she's coming to the party anyway.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.199",
+          "theme": "faux-amis",
+          "fr": "Sophie a assisté à la fête d'anniversaire de sa cousine.",
+          "en": "Sophie attended her cousin's birthday party.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.questions.317",
+          "theme": "questions",
+          "fr": "Est-ce que tu connais un bon dentiste dans le quartier ?",
+          "en": "Do you know a good dentist in the neighborhood?",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.308",
+          "theme": "faux-amis",
+          "fr": "Elle demande de la monnaie pour ce billet de vingt euros.",
+          "en": "She is asking for change for this twenty euro bill.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.208",
+          "theme": "faux-amis",
+          "fr": "J'ai acheté ce roman dans une petite librairie du quartier.",
+          "en": "I bought this novel in a small neighborhood bookshop.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.288",
+          "theme": "expressions-utiles",
+          "fr": "Ça lui fait plaisir de recevoir des nouvelles de sa famille.",
+          "en": "It makes her happy to hear news from her family.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.209",
+          "theme": "faux-amis",
+          "fr": "La librairie près de chez moi vend aussi des cartes postales.",
+          "en": "The bookshop near my house also sells postcards.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.faux-amis.298",
+          "theme": "faux-amis",
+          "fr": "Le voyage pourrait éventuellement être annulé à cause de la météo.",
+          "en": "The trip could possibly be cancelled because of the weather.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-utiles.304",
+          "theme": "expressions-utiles",
+          "fr": "Ce n'est pas grave si le gâteau n'est pas parfait.",
+          "en": "It's not a big deal if the cake isn't perfect.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.expressions-utiles.321",
+          "theme": "expressions-utiles",
+          "fr": "Fais de ton mieux, c'est tout ce qu'on te demande.",
+          "en": "Do your best, that's all we ask of you.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.expressions-utiles.229",
+          "theme": "expressions-utiles",
+          "fr": "Au fait, j'ai oublié de te dire, la fête est samedi.",
+          "en": "By the way, I forgot to tell you, the party is Saturday.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.faux-amis.325",
+          "theme": "faux-amis",
+          "fr": "Au coin de la rue, il y a un petit café sympathique.",
+          "en": "On the corner of the street, there is a nice little cafe.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.expressions-utiles.232",
+          "theme": "expressions-utiles",
+          "fr": "Bref, on a raté le train et on est arrivés en retard.",
+          "en": "Anyway, we missed the train and arrived late.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.expressions-utiles.318",
+          "theme": "expressions-utiles",
+          "fr": "Ce n'est pas grand, mais ça vaut la peine de visiter.",
+          "en": "It's not big, but it's worth visiting.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.expressions-utiles.274",
+          "theme": "expressions-utiles",
+          "fr": "Tu vas te rendre compte que ce n'est pas si difficile.",
+          "en": "You'll realize it's not that hard.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.faux-amis.288",
+          "theme": "faux-amis",
+          "fr": "C'est une idée formidable pour la fête de fin d'année.",
+          "en": "That is a great idea for the end of year party.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.faux-amis.251",
+          "theme": "faux-amis",
+          "fr": "Mon frère s'est blessé à la main en jouant au football.",
+          "en": "My brother injured his hand while playing football.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.faux-amis.237",
+          "theme": "faux-amis",
+          "fr": "Nous sommes restés trois jours à l'hôtel près de la plage.",
+          "en": "We stayed three days at the hotel near the beach.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.expressions-utiles.227",
+          "theme": "expressions-utiles",
+          "fr": "Je pensais qu'il faisait froid, mais en fait il fait chaud.",
+          "en": "I thought it was cold, but actually it's hot.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.expressions-utiles.310",
+          "theme": "expressions-utiles",
+          "fr": "Elle a raté son réveil, du coup elle est arrivée en retard.",
+          "en": "She missed her alarm, so she arrived late.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.faux-amis.250",
+          "theme": "faux-amis",
+          "fr": "L'ouvrier s'est blessé au dos en portant une caisse lourde.",
+          "en": "The worker injured his back while carrying a heavy box.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.expressions-utiles.241",
+          "theme": "expressions-utiles",
+          "fr": "C'était difficile, mais on a tout de même terminé le projet.",
+          "en": "It was hard, but we finished the project all the same.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.expressions-utiles.324",
+          "theme": "expressions-utiles",
+          "fr": "Elle a l'habitude de prendre le métro pour aller au travail.",
+          "en": "She's used to taking the subway to go to work.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 17,
+      "items": [
+        {
+          "id": "fr.a1.expressions-utiles.213",
+          "theme": "expressions-utiles",
+          "fr": "Tant pis pour lui, il n'a qu'à arriver à l'heure.",
+          "en": "Too bad for him, he just has to arrive on time.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.expressions-utiles.255",
+          "theme": "expressions-utiles",
+          "fr": "Elle dit qu'elle s'en fiche, mais je n'y crois pas.",
+          "en": "She says she doesn't care, but I don't believe it.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.expressions-utiles.199",
+          "theme": "expressions-utiles",
+          "fr": "Ça vaut le coup de se lever tôt pour voir le lever du soleil.",
+          "en": "It's worth getting up early to see the sunrise.",
+          "words": 14
+        }
+      ]
+    }
+  ]
+}

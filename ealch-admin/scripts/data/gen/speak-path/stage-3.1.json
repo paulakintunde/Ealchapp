@@ -1,0 +1,4350 @@
+{
+  "stage": "3.1",
+  "world": 3,
+  "level": "a2",
+  "title": "La Rue des Souvenirs",
+  "themes": [
+    "recits-au-passe",
+    "verbes-essentiels",
+    "verbes-du-quotidien",
+    "temps-et-frequence",
+    "heure-et-date",
+    "dictee",
+    "verbes",
+    "routines",
+    "expressions-frequentes",
+    "nombres",
+    "expressions-de-quantite",
+    "mots-essentiels"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 605,
+  "dedupedPool": 604,
+  "selected": 604,
+  "blockCount": 19,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.a2.mots-essentiels.006",
+          "theme": "mots-essentiels",
+          "fr": "Ferme la porte.",
+          "en": "Close the door.",
+          "words": 3
+        },
+        {
+          "id": "fr.a2.mots-essentiels.008",
+          "theme": "mots-essentiels",
+          "fr": "Mets ton manteau.",
+          "en": "Put on your coat.",
+          "words": 3
+        },
+        {
+          "id": "fr.a2.verbes.001",
+          "theme": "verbes",
+          "fr": "Je parle français.",
+          "en": "I speak French.",
+          "words": 3
+        },
+        {
+          "id": "fr.a2.mots-essentiels.005",
+          "theme": "mots-essentiels",
+          "fr": "Éteins la lumière.",
+          "en": "Turn off the light.",
+          "words": 3
+        },
+        {
+          "id": "fr.a2.mots-essentiels.007",
+          "theme": "mots-essentiels",
+          "fr": "Range tes affaires.",
+          "en": "Put your things away.",
+          "words": 3
+        },
+        {
+          "id": "fr.a2.mots-essentiels.009",
+          "theme": "mots-essentiels",
+          "fr": "Prends ton parapluie.",
+          "en": "Take your umbrella.",
+          "words": 3
+        },
+        {
+          "id": "fr.a2.heure-et-date.035",
+          "theme": "heure-et-date",
+          "fr": "Il est midi dix.",
+          "en": "It's ten past noon.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.verbes.004",
+          "theme": "verbes",
+          "fr": "Elle attend le bus.",
+          "en": "She waits for the bus.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.verbes.002",
+          "theme": "verbes",
+          "fr": "Tu regardes la télé.",
+          "en": "You watch TV.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.mots-essentiels.004",
+          "theme": "mots-essentiels",
+          "fr": "Je cherche mes clés.",
+          "en": "I'm looking for my keys.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.heure-et-date.036",
+          "theme": "heure-et-date",
+          "fr": "Il est minuit vingt.",
+          "en": "It's twenty past midnight.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.nombres.031",
+          "theme": "nombres",
+          "fr": "Soustrais cinq de dix.",
+          "en": "Subtract five from ten.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.nombres.032",
+          "theme": "nombres",
+          "fr": "Multiplie sept par huit.",
+          "en": "Multiply seven by eight.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.heure-et-date.002",
+          "theme": "heure-et-date",
+          "fr": "Nous sommes le combien ?",
+          "en": "What's the date?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.heure-et-date.090",
+          "theme": "heure-et-date",
+          "fr": "Le train arrive bientôt.",
+          "en": "The train is arriving soon.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.033",
+          "theme": "verbes-essentiels",
+          "fr": "Attention, tu vas tomber !",
+          "en": "Careful, you're going to fall!",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.041",
+          "theme": "verbes-essentiels",
+          "fr": "Elle veut devenir médecin.",
+          "en": "She wants to become a doctor.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.verbes.003",
+          "theme": "verbes",
+          "fr": "Nous finissons nos devoirs.",
+          "en": "We finish our homework.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.nombres.030",
+          "theme": "nombres",
+          "fr": "Additionne ces deux nombres.",
+          "en": "Add these two numbers together.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.064",
+          "theme": "expressions-frequentes",
+          "fr": "Il a tort de mentir.",
+          "en": "He is wrong to lie.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.058",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il se met à pleuvoir.",
+          "en": "It's starting to rain.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.033",
+          "theme": "heure-et-date",
+          "fr": "Il est une heure dix.",
+          "en": "It's ten past one.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.020",
+          "theme": "heure-et-date",
+          "fr": "Il est midi moins dix.",
+          "en": "It's ten to noon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.027",
+          "theme": "heure-et-date",
+          "fr": "Il est six heures cinq.",
+          "en": "It's five past six.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.031",
+          "theme": "heure-et-date",
+          "fr": "Il est dix heures huit.",
+          "en": "It's ten oh-eight.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.024",
+          "theme": "heure-et-date",
+          "fr": "Il est trois heures dix.",
+          "en": "It's ten past three.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.084",
+          "theme": "heure-et-date",
+          "fr": "Il va neiger cette nuit.",
+          "en": "It's going to snow tonight.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.052",
+          "theme": "expressions-frequentes",
+          "fr": "Ça va aller mieux demain.",
+          "en": "It's going to get better tomorrow.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.021",
+          "theme": "nombres",
+          "fr": "Divise ce nombre en deux.",
+          "en": "Divide this number in two.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.060",
+          "theme": "expressions-frequentes",
+          "fr": "Elle a peur des araignées.",
+          "en": "She is afraid of spiders.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.025",
+          "theme": "nombres",
+          "fr": "Dix moins trois font sept.",
+          "en": "Ten minus three makes seven.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.038",
+          "theme": "nombres",
+          "fr": "J'ai économisé cent euros.",
+          "en": "I saved a hundred euros.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.021",
+          "theme": "heure-et-date",
+          "fr": "Il est minuit moins vingt.",
+          "en": "It's twenty to midnight.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.a2.heure-et-date.028",
+          "theme": "heure-et-date",
+          "fr": "Il est sept heures treize.",
+          "en": "It's seven thirteen.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.094",
+          "theme": "heure-et-date",
+          "fr": "On en discutera plus tard.",
+          "en": "We'll discuss it later.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.024",
+          "theme": "nombres",
+          "fr": "Deux plus deux font quatre.",
+          "en": "Two plus two makes four.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.025",
+          "theme": "heure-et-date",
+          "fr": "Il est quatre heures vingt.",
+          "en": "It's twenty past four.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.070",
+          "theme": "heure-et-date",
+          "fr": "Quelle est la date exacte ?",
+          "en": "What's the exact date?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.092",
+          "theme": "heure-et-date",
+          "fr": "J'espère te revoir bientôt.",
+          "en": "I hope to see you again soon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.150",
+          "theme": "heure-et-date",
+          "fr": "Mieux vaut tard que jamais.",
+          "en": "Better late than never.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.048",
+          "theme": "nombres",
+          "fr": "Quel est votre code postal ?",
+          "en": "What is your postal code?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.034",
+          "theme": "heure-et-date",
+          "fr": "Il est deux heures quarante.",
+          "en": "It's two forty.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.059",
+          "theme": "verbes-essentiels",
+          "fr": "Tu entends ce bruit bizarre ?",
+          "en": "Do you hear that strange noise?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.026",
+          "theme": "nombres",
+          "fr": "Trois fois quatre font douze.",
+          "en": "Three times four makes twelve.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.028",
+          "theme": "nombres",
+          "fr": "Combien font cinq plus cinq ?",
+          "en": "How much is five plus five?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.036",
+          "theme": "nombres",
+          "fr": "Il aura bientôt quarante ans.",
+          "en": "He will soon be forty.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.041",
+          "theme": "nombres",
+          "fr": "Je voudrais payer en espèces.",
+          "en": "I would like to pay in cash.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.053",
+          "theme": "nombres",
+          "fr": "Il habite au cinquième étage.",
+          "en": "He lives on the fifth floor.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.068",
+          "theme": "heure-et-date",
+          "fr": "En quelle année sommes-nous ?",
+          "en": "What year is it?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.076",
+          "theme": "heure-et-date",
+          "fr": "Le colis arrive après-demain.",
+          "en": "The package arrives the day after tomorrow.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.093",
+          "theme": "heure-et-date",
+          "fr": "Le film va bientôt commencer.",
+          "en": "The movie is about to start soon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.040",
+          "theme": "verbes-essentiels",
+          "fr": "Nous devons partir avant midi.",
+          "en": "We must leave before noon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.091",
+          "theme": "heure-et-date",
+          "fr": "Bientôt, ce sera les vacances.",
+          "en": "Soon, it will be the holidays.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.031",
+          "theme": "verbes-essentiels",
+          "fr": "Il conduit prudemment en ville.",
+          "en": "He drives carefully in the city.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.080",
+          "theme": "heure-et-date",
+          "fr": "Avant-hier, il neigeait encore.",
+          "en": "The day before yesterday, it was still snowing.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.106",
+          "theme": "heure-et-date",
+          "fr": "Je le connais depuis longtemps.",
+          "en": "I've known him for a long time.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.053",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle prendra une décision demain.",
+          "en": "She will make a decision tomorrow.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.063",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous sortirons dîner samedi soir.",
+          "en": "We will go out for dinner on Saturday night.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.032",
+          "theme": "verbes-essentiels",
+          "fr": "Nous voyageons souvent en Europe.",
+          "en": "We often travel in Europe.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.034",
+          "theme": "expressions-de-quantite",
+          "fr": "Toutes les places sont réservées.",
+          "en": "All the seats are reserved.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.nombres.040",
+          "theme": "nombres",
+          "fr": "Vous acceptez la carte bancaire ?",
+          "en": "Do you accept card payments?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.006",
+          "theme": "verbes-essentiels",
+          "fr": "Elle descend l'escalier doucement.",
+          "en": "She goes down the stairs slowly.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.028",
+          "theme": "verbes-essentiels",
+          "fr": "Elle trouve toujours une solution.",
+          "en": "She always finds a solution.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.085",
+          "theme": "heure-et-date",
+          "fr": "Maintenant, il faut se concentrer.",
+          "en": "Now, we need to focus.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.139",
+          "theme": "heure-et-date",
+          "fr": "Le mois prochain, nous déménageons.",
+          "en": "Next month, we're moving.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.heure-et-date.111",
+          "theme": "heure-et-date",
+          "fr": "Elle revient dans quelques instants.",
+          "en": "She'll be back in a few moments.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.a2.expressions-de-quantite.040",
+          "theme": "expressions-de-quantite",
+          "fr": "Il n'y a aucun problème.",
+          "en": "There is no problem at all.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.074",
+          "theme": "heure-et-date",
+          "fr": "J'ai vu Sophie hier soir.",
+          "en": "I saw Sophie last night.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.071",
+          "theme": "heure-et-date",
+          "fr": "On se voit à quelle date ?",
+          "en": "What date are we meeting?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.012",
+          "theme": "heure-et-date",
+          "fr": "Il est midi moins le quart.",
+          "en": "It's a quarter to noon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.040",
+          "theme": "heure-et-date",
+          "fr": "Il est neuf heures du soir.",
+          "en": "It's nine in the evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.041",
+          "theme": "heure-et-date",
+          "fr": "Il est six heures du matin.",
+          "en": "It's six in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.048",
+          "theme": "temps-et-frequence",
+          "fr": "Le vol décolle tôt le matin.",
+          "en": "The flight takes off early in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.063",
+          "theme": "expressions-frequentes",
+          "fr": "Elle a raison de partir tôt.",
+          "en": "She is right to leave early.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.083",
+          "theme": "expressions-frequentes",
+          "fr": "Le prix dépend de la saison.",
+          "en": "The price depends on the season.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.039",
+          "theme": "verbes-essentiels",
+          "fr": "Que penses-tu de ce projet ?",
+          "en": "What do you think of this project?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.045",
+          "theme": "expressions-de-quantite",
+          "fr": "Il n'a laissé aucun message.",
+          "en": "He left no message at all.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.029",
+          "theme": "heure-et-date",
+          "fr": "Il est huit heures dix-sept.",
+          "en": "It's eight seventeen.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.045",
+          "theme": "heure-et-date",
+          "fr": "Il est onze heures du matin.",
+          "en": "It's eleven in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.003",
+          "theme": "verbes-essentiels",
+          "fr": "Elle a dansé toute la soirée.",
+          "en": "She danced all evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.051",
+          "theme": "verbes-essentiels",
+          "fr": "Peux-tu me prêter ton stylo ?",
+          "en": "Can you lend me your pen?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.036",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a fini tous ses devoirs.",
+          "en": "She finished all her homework.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.013",
+          "theme": "heure-et-date",
+          "fr": "Il est minuit moins le quart.",
+          "en": "It's a quarter to midnight.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.018",
+          "theme": "heure-et-date",
+          "fr": "Il est sept heures moins dix.",
+          "en": "It's ten to seven.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.061",
+          "theme": "heure-et-date",
+          "fr": "Le bus part dans dix minutes.",
+          "en": "The bus leaves in ten minutes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.072",
+          "theme": "heure-et-date",
+          "fr": "On se voit le douze décembre.",
+          "en": "We're meeting on December twelfth.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.098",
+          "theme": "heure-et-date",
+          "fr": "Il faut réagir tout de suite.",
+          "en": "We need to react right away.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.103",
+          "theme": "heure-et-date",
+          "fr": "Il a plu pendant trois jours.",
+          "en": "It rained for three days.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.048",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je viens de finir mes devoirs.",
+          "en": "I have just finished my homework.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.033",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a rangé toute la chambre.",
+          "en": "She tidied the whole room.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.070",
+          "theme": "expressions-de-quantite",
+          "fr": "La moitié du gâteau a disparu.",
+          "en": "Half of the cake has disappeared.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.014",
+          "theme": "heure-et-date",
+          "fr": "Il est trois heures moins dix.",
+          "en": "It's ten to three.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.015",
+          "theme": "heure-et-date",
+          "fr": "Il est cinq heures moins cinq.",
+          "en": "It's five to five.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.019",
+          "theme": "heure-et-date",
+          "fr": "Il est neuf heures moins cinq.",
+          "en": "It's five to nine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.023",
+          "theme": "heure-et-date",
+          "fr": "Il est onze heures moins cinq.",
+          "en": "It's five to eleven.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.026",
+          "theme": "heure-et-date",
+          "fr": "Il est cinq heures vingt-cinq.",
+          "en": "It's twenty-five past five.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.030",
+          "theme": "heure-et-date",
+          "fr": "Il est neuf heures vingt-deux.",
+          "en": "It's nine twenty-two.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.032",
+          "theme": "heure-et-date",
+          "fr": "Il est onze heures vingt-huit.",
+          "en": "It's eleven twenty-eight.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.060",
+          "theme": "verbes-du-quotidien",
+          "fr": "Mets ce dossier sur mon bureau.",
+          "en": "Put that file on my desk.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.a2.expressions-frequentes.065",
+          "theme": "expressions-frequentes",
+          "fr": "Nous avons raison sur ce point.",
+          "en": "We are right about this point.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.029",
+          "theme": "verbes-essentiels",
+          "fr": "Il donne des cours de français.",
+          "en": "He gives French lessons.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.038",
+          "theme": "verbes-essentiels",
+          "fr": "J'espère avoir de bonnes notes.",
+          "en": "I hope to get good grades.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.016",
+          "theme": "heure-et-date",
+          "fr": "Il est huit heures moins vingt.",
+          "en": "It's twenty to eight.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.054",
+          "theme": "heure-et-date",
+          "fr": "À quelle heure arrive l'avion ?",
+          "en": "What time does the plane arrive?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.057",
+          "theme": "heure-et-date",
+          "fr": "À quelle heure ouvre le musée ?",
+          "en": "What time does the museum open?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.105",
+          "theme": "heure-et-date",
+          "fr": "Depuis lundi, il ne pleut plus.",
+          "en": "Since Monday, it hasn't rained anymore.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.046",
+          "theme": "verbes-essentiels",
+          "fr": "Nous avons décidé de partir tôt.",
+          "en": "We decided to leave early.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.053",
+          "theme": "verbes-essentiels",
+          "fr": "Il porte un manteau bleu marine.",
+          "en": "He is wearing a navy blue coat.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.054",
+          "theme": "verbes-essentiels",
+          "fr": "Je vais envoyer ce colis demain.",
+          "en": "I'm going to send this package tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.001",
+          "theme": "heure-et-date",
+          "fr": "Savez-vous quelle heure il est ?",
+          "en": "Do you know what time it is?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.049",
+          "theme": "heure-et-date",
+          "fr": "Le film commence à vingt heures.",
+          "en": "The movie starts at eight PM.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.082",
+          "theme": "heure-et-date",
+          "fr": "Cet après-midi sera très chargé.",
+          "en": "This afternoon will be very busy.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes.005",
+          "theme": "verbes",
+          "fr": "Ils vendent des fruits au marché.",
+          "en": "They sell fruit at the market.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.081",
+          "theme": "verbes-du-quotidien",
+          "fr": "Tu crois vraiment qu'il viendra ?",
+          "en": "Do you really believe he will come?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.010",
+          "theme": "verbes-essentiels",
+          "fr": "Nous avons beaucoup ri hier soir.",
+          "en": "We laughed a lot last night.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.012",
+          "theme": "verbes-essentiels",
+          "fr": "Mon oncle enseigne dans un lycée.",
+          "en": "My uncle teaches at a high school.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.035",
+          "theme": "verbes-essentiels",
+          "fr": "Il s'habille rapidement le matin.",
+          "en": "He gets dressed quickly in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.050",
+          "theme": "verbes-essentiels",
+          "fr": "Elle garde les enfants le samedi.",
+          "en": "She babysits the children on Saturdays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.052",
+          "theme": "verbes-essentiels",
+          "fr": "Nous payons le loyer chaque mois.",
+          "en": "We pay the rent every month.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.058",
+          "theme": "verbes-essentiels",
+          "fr": "Il répond à toutes les questions.",
+          "en": "He answers all the questions.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.038",
+          "theme": "heure-et-date",
+          "fr": "Il est sept heures quarante-cinq.",
+          "en": "It's seven forty-five.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.048",
+          "theme": "heure-et-date",
+          "fr": "À quelle heure commence le film ?",
+          "en": "What time does the movie start?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.118",
+          "theme": "heure-et-date",
+          "fr": "Peux-tu annuler mon rendez-vous ?",
+          "en": "Can you cancel my appointment?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.147",
+          "theme": "heure-et-date",
+          "fr": "Prends ton temps, rien ne presse.",
+          "en": "Take your time, there's no rush.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.069",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous disons souvent la même chose.",
+          "en": "We often say the same thing.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.042",
+          "theme": "verbes-essentiels",
+          "fr": "Continuez tout droit jusqu'au feu.",
+          "en": "Keep going straight until the light.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.048",
+          "theme": "verbes-essentiels",
+          "fr": "Montre-moi tes photos de vacances.",
+          "en": "Show me your vacation photos.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.079",
+          "theme": "heure-et-date",
+          "fr": "Le magasin était fermé avant-hier.",
+          "en": "The shop was closed the day before yesterday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.046",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je vais bientôt changer de travail.",
+          "en": "I am soon going to change jobs.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recits-au-passe.065",
+          "theme": "recits-au-passe",
+          "fr": "Nous sommes rentrés très tard hier.",
+          "en": "We got home very late yesterday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.035",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous avons attendu toute la soirée.",
+          "en": "We waited all evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.nombres.027",
+          "theme": "nombres",
+          "fr": "Vingt divisé par quatre égale cinq.",
+          "en": "Twenty divided by four equals five.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.a2.heure-et-date.037",
+          "theme": "heure-et-date",
+          "fr": "Il est trois heures cinquante-cinq.",
+          "en": "It's three fifty-five.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.101",
+          "theme": "heure-et-date",
+          "fr": "J'ai attendu pendant vingt minutes.",
+          "en": "I waited for twenty minutes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.102",
+          "theme": "heure-et-date",
+          "fr": "Pendant les vacances, je me repose.",
+          "en": "During the holidays, I rest.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.115",
+          "theme": "heure-et-date",
+          "fr": "Le gâteau cuit en quarante minutes.",
+          "en": "The cake bakes in forty minutes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.055",
+          "theme": "verbes-du-quotidien",
+          "fr": "Fais attention en traversant la rue.",
+          "en": "Be careful when crossing the street.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.081",
+          "theme": "temps-et-frequence",
+          "fr": "Nous nous appelons dès que possible.",
+          "en": "We call each other as soon as possible.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.036",
+          "theme": "verbes-essentiels",
+          "fr": "Dépêchons-nous, le train va partir !",
+          "en": "Let's hurry, the train is about to leave!",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.045",
+          "theme": "verbes-essentiels",
+          "fr": "Elle sourit toujours en nous voyant.",
+          "en": "She always smiles when she sees us.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.055",
+          "theme": "verbes-essentiels",
+          "fr": "Nous allons visiter le musée samedi.",
+          "en": "We are going to visit the museum on Saturday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.084",
+          "theme": "expressions-de-quantite",
+          "fr": "Tellement de gens rêvent de voyager.",
+          "en": "So many people dream of traveling.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.nombres.045",
+          "theme": "nombres",
+          "fr": "Quel est votre numéro de téléphone ?",
+          "en": "What is your phone number?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.056",
+          "theme": "heure-et-date",
+          "fr": "À quelle heure commence la réunion ?",
+          "en": "What time does the meeting start?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recits-au-passe.077",
+          "theme": "recits-au-passe",
+          "fr": "Nous avons acheté une nouvelle table.",
+          "en": "We bought a new table.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recits-au-passe.080",
+          "theme": "recits-au-passe",
+          "fr": "Elle a couru dix kilomètres dimanche.",
+          "en": "She ran ten kilometers on Sunday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recits-au-passe.099",
+          "theme": "recits-au-passe",
+          "fr": "Elle portait toujours une robe bleue.",
+          "en": "She always wore a blue dress.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.050",
+          "theme": "heure-et-date",
+          "fr": "À quelle heure ferme la boulangerie ?",
+          "en": "What time does the bakery close?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.065",
+          "theme": "heure-et-date",
+          "fr": "Mon anniversaire est le quinze avril.",
+          "en": "My birthday is on April fifteenth.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.075",
+          "theme": "heure-et-date",
+          "fr": "Après-demain, nous partons en voyage.",
+          "en": "The day after tomorrow, we're leaving on a trip.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.heure-et-date.131",
+          "theme": "heure-et-date",
+          "fr": "Dépêchons-nous, le film va commencer.",
+          "en": "Let's hurry, the movie is about to start.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.084",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous pourrions partir plus tôt demain.",
+          "en": "We could leave earlier tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.054",
+          "theme": "expressions-frequentes",
+          "fr": "Elle a besoin de nouvelles chaussures.",
+          "en": "She needs new shoes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.nombres.050",
+          "theme": "nombres",
+          "fr": "Laissez-moi votre numéro de téléphone.",
+          "en": "Leave me your phone number.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.nombres.054",
+          "theme": "nombres",
+          "fr": "Elle est arrivée en deuxième position.",
+          "en": "She finished in second place.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.067",
+          "theme": "expressions-frequentes",
+          "fr": "Elle fait attention à son alimentation.",
+          "en": "She pays attention to her diet.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.075",
+          "theme": "expressions-frequentes",
+          "fr": "Nous voudrions visiter le musée demain.",
+          "en": "We would like to visit the museum tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.002",
+          "theme": "verbes-essentiels",
+          "fr": "Nous chantons ensemble tous les samedis.",
+          "en": "We sing together every Saturday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recits-au-passe.089",
+          "theme": "recits-au-passe",
+          "fr": "Mes parents travaillaient dans une usine.",
+          "en": "My parents worked in a factory.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recits-au-passe.098",
+          "theme": "recits-au-passe",
+          "fr": "Nous habitions dans un petit appartement.",
+          "en": "We lived in a small apartment.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.025",
+          "theme": "verbes-essentiels",
+          "fr": "Elle écoute son professeur avec attention.",
+          "en": "She listens to her teacher attentively.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.015",
+          "theme": "verbes-essentiels",
+          "fr": "Elle déjeune rapidement entre deux réunions.",
+          "en": "She has a quick lunch between two meetings.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.019",
+          "theme": "expressions-de-quantite",
+          "fr": "Plusieurs personnes attendent devant la porte.",
+          "en": "Several people are waiting outside the door.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.dictee.089",
+          "theme": "dictee",
+          "fr": "Les élèves écoutent attentivement le professeur.",
+          "en": "The students listen attentively to the teacher.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.076",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous connaissons cette histoire depuis longtemps.",
+          "en": "We have known this story for a long time.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.a2.recits-au-passe.057",
+          "theme": "recits-au-passe",
+          "fr": "Ce matin, j'ai raté le bus.",
+          "en": "This morning, I missed the bus.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.037",
+          "theme": "nombres",
+          "fr": "J'ai eu vingt-cinq ans hier.",
+          "en": "I turned twenty-five yesterday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.087",
+          "theme": "heure-et-date",
+          "fr": "Je t'appelle tout à l'heure.",
+          "en": "I'll call you in a bit.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.149",
+          "theme": "heure-et-date",
+          "fr": "Le temps, c'est de l'argent.",
+          "en": "Time is money.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.049",
+          "theme": "verbes-essentiels",
+          "fr": "Le chat se cache sous le lit.",
+          "en": "The cat is hiding under the bed.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.088",
+          "theme": "heure-et-date",
+          "fr": "On en parlera tout à l'heure.",
+          "en": "We'll talk about it in a bit.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.087",
+          "theme": "verbes-du-quotidien",
+          "fr": "Sais-tu où se trouve la gare ?",
+          "en": "Do you know where the station is?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.062",
+          "theme": "expressions-frequentes",
+          "fr": "Il a peur de parler en public.",
+          "en": "He is afraid of speaking in public.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.075",
+          "theme": "recits-au-passe",
+          "fr": "J'ai lavé la voiture ce matin.",
+          "en": "I washed the car this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.083",
+          "theme": "recits-au-passe",
+          "fr": "J'ai adopté un chat au refuge.",
+          "en": "I adopted a cat at the shelter.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.001",
+          "theme": "verbes-essentiels",
+          "fr": "Il vend sa voiture ce mois-ci.",
+          "en": "He is selling his car this month.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.033",
+          "theme": "nombres",
+          "fr": "La moitié de vingt, c'est dix.",
+          "en": "Half of twenty is ten.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.129",
+          "theme": "heure-et-date",
+          "fr": "Merci d'être arrivé à l'heure.",
+          "en": "Thank you for arriving on time.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.049",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle vient d'arriver à la gare.",
+          "en": "She has just arrived at the station.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.088",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il saura la vérité tôt ou tard.",
+          "en": "He will know the truth sooner or later.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.059",
+          "theme": "expressions-frequentes",
+          "fr": "As-tu envie de sortir ce soir ?",
+          "en": "Do you feel like going out tonight?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.034",
+          "theme": "verbes-essentiels",
+          "fr": "Il s'assoit près de la fenêtre.",
+          "en": "He sits down near the window.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.096",
+          "theme": "heure-et-date",
+          "fr": "Je te rejoins un peu plus tard.",
+          "en": "I'll join you a bit later.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.148",
+          "theme": "heure-et-date",
+          "fr": "Il ne faut pas perdre de temps.",
+          "en": "We mustn't waste time.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.051",
+          "theme": "expressions-frequentes",
+          "fr": "Il ne faut pas oublier les clés.",
+          "en": "You must not forget the keys.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.070",
+          "theme": "recits-au-passe",
+          "fr": "Il est né dans un petit village.",
+          "en": "He was born in a small village.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.084",
+          "theme": "recits-au-passe",
+          "fr": "Elle a gagné le match de tennis.",
+          "en": "She won the tennis match.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.023",
+          "theme": "nombres",
+          "fr": "Un quart d'heure, ça passe vite.",
+          "en": "A quarter of an hour goes by fast.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.035",
+          "theme": "nombres",
+          "fr": "Elle vient d'avoir dix-huit ans.",
+          "en": "She just turned eighteen.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.081",
+          "theme": "heure-et-date",
+          "fr": "On peut se voir cet après-midi ?",
+          "en": "Can we meet this afternoon?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.083",
+          "theme": "heure-et-date",
+          "fr": "Cette nuit, j'ai très mal dormi.",
+          "en": "Last night, I slept very badly.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.061",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il est sorti sans dire au revoir.",
+          "en": "He left without saying goodbye.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.058",
+          "theme": "expressions-frequentes",
+          "fr": "Il a envie de changer de travail.",
+          "en": "He feels like changing jobs.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.101",
+          "theme": "recits-au-passe",
+          "fr": "Il faisait très chaud ce jour-là.",
+          "en": "It was very hot that day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.007",
+          "theme": "expressions-de-quantite",
+          "fr": "Donne-moi encore un peu de temps.",
+          "en": "Give me a little more time.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.020",
+          "theme": "nombres",
+          "fr": "Elle a mangé la moitié du gâteau.",
+          "en": "She ate half of the cake.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.039",
+          "theme": "nombres",
+          "fr": "Ça revient à vingt euros en tout.",
+          "en": "That comes to twenty euros in total.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.008",
+          "theme": "heure-et-date",
+          "fr": "Il est six heures moins le quart.",
+          "en": "It's a quarter to six.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.a2.heure-et-date.011",
+          "theme": "heure-et-date",
+          "fr": "Il est dix heures moins le quart.",
+          "en": "It's a quarter to ten.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.086",
+          "theme": "heure-et-date",
+          "fr": "On y va maintenant ou plus tard ?",
+          "en": "Are we going now or later?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.120",
+          "theme": "heure-et-date",
+          "fr": "Le train a dix minutes de retard.",
+          "en": "The train is ten minutes late.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.061",
+          "theme": "expressions-frequentes",
+          "fr": "Nous avons peur de rater le train.",
+          "en": "We are afraid of missing the train.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.069",
+          "theme": "expressions-frequentes",
+          "fr": "Elle a hâte de partir en vacances.",
+          "en": "She can't wait to go on vacation.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.029",
+          "theme": "nombres",
+          "fr": "Le résultat de ce calcul est faux.",
+          "en": "The result of this calculation is wrong.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.004",
+          "theme": "heure-et-date",
+          "fr": "Il est deux heures moins le quart.",
+          "en": "It's a quarter to two.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.007",
+          "theme": "heure-et-date",
+          "fr": "Il est cinq heures moins le quart.",
+          "en": "It's a quarter to five.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.009",
+          "theme": "heure-et-date",
+          "fr": "Il est huit heures moins le quart.",
+          "en": "It's a quarter to eight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.010",
+          "theme": "heure-et-date",
+          "fr": "Il est neuf heures moins le quart.",
+          "en": "It's a quarter to nine.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.063",
+          "theme": "heure-et-date",
+          "fr": "Le cours se termine à midi trente.",
+          "en": "The class ends at twelve thirty.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.066",
+          "theme": "heure-et-date",
+          "fr": "Quelle est la date de la réunion ?",
+          "en": "What's the date of the meeting?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.067",
+          "theme": "heure-et-date",
+          "fr": "La réunion est le vingt-deux juin.",
+          "en": "The meeting is on June twenty-second.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.043",
+          "theme": "verbes-essentiels",
+          "fr": "Notre équipe a gagné le match hier.",
+          "en": "Our team won the game yesterday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.005",
+          "theme": "heure-et-date",
+          "fr": "Il est trois heures moins le quart.",
+          "en": "It's a quarter to three.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.017",
+          "theme": "heure-et-date",
+          "fr": "Il est dix heures moins vingt-cinq.",
+          "en": "It's twenty-five to ten.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.022",
+          "theme": "heure-et-date",
+          "fr": "Il est six heures moins vingt-cinq.",
+          "en": "It's twenty-five to six.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes.009",
+          "theme": "verbes",
+          "fr": "Je révise mes leçons tous les soirs.",
+          "en": "I review my lessons every evening.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.057",
+          "theme": "expressions-frequentes",
+          "fr": "Nous avons envie de voyager cet été.",
+          "en": "We feel like traveling this summer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.081",
+          "theme": "expressions-frequentes",
+          "fr": "Si personne ne veut venir, tant pis.",
+          "en": "If nobody wants to come, too bad.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.060",
+          "theme": "recits-au-passe",
+          "fr": "Il a oublié son parapluie au bureau.",
+          "en": "He forgot his umbrella at the office.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.044",
+          "theme": "expressions-de-quantite",
+          "fr": "Aucun bruit ne sortait de la maison.",
+          "en": "Not a single sound came from the house.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.034",
+          "theme": "nombres",
+          "fr": "J'aurai vingt ans l'année prochaine.",
+          "en": "I will turn twenty next year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.056",
+          "theme": "nombres",
+          "fr": "Il est arrivé troisième à la course.",
+          "en": "He finished third in the race.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.006",
+          "theme": "heure-et-date",
+          "fr": "Il est quatre heures moins le quart.",
+          "en": "It's a quarter to four.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.053",
+          "theme": "heure-et-date",
+          "fr": "Le train part à seize heures trente.",
+          "en": "The train leaves at four thirty PM.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.069",
+          "theme": "heure-et-date",
+          "fr": "Nous sommes en deux mille vingt-six.",
+          "en": "It's twenty twenty-six.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.141",
+          "theme": "heure-et-date",
+          "fr": "Le mois dernier est passé très vite.",
+          "en": "Last month went by very quickly.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.047",
+          "theme": "temps-et-frequence",
+          "fr": "Nous avons changé l'horaire du dîner.",
+          "en": "We changed the dinner schedule.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.076",
+          "theme": "expressions-frequentes",
+          "fr": "Excusez-moi de vous déranger si tard.",
+          "en": "Sorry to bother you so late.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.072",
+          "theme": "recits-au-passe",
+          "fr": "Elle a réussi son examen de français.",
+          "en": "She passed her French exam.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.073",
+          "theme": "recits-au-passe",
+          "fr": "Nous avons regardé un film hier soir.",
+          "en": "We watched a movie last night.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.030",
+          "theme": "verbes-essentiels",
+          "fr": "Mon père répare la voiture au garage.",
+          "en": "My father repairs the car at the garage.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.a2.verbes-essentiels.057",
+          "theme": "verbes-essentiels",
+          "fr": "Elle demande son chemin à un passant.",
+          "en": "She asks a passerby for directions.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.125",
+          "theme": "heure-et-date",
+          "fr": "Je suis arrivé dix minutes en avance.",
+          "en": "I arrived ten minutes early.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.083",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous pensions que tu étais déjà parti.",
+          "en": "We thought you had already left.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.046",
+          "theme": "temps-et-frequence",
+          "fr": "Elle règle son réveil pour six heures.",
+          "en": "She sets her alarm for six o'clock.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.059",
+          "theme": "temps-et-frequence",
+          "fr": "La pharmacie ferme plus tôt le samedi.",
+          "en": "The pharmacy closes earlier on Saturdays.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.056",
+          "theme": "verbes-essentiels",
+          "fr": "J'attends le bus depuis vingt minutes.",
+          "en": "I've been waiting for the bus for twenty minutes.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.010",
+          "theme": "expressions-de-quantite",
+          "fr": "Il reste assez d'essence pour rentrer.",
+          "en": "There is enough fuel left to get home.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.018",
+          "theme": "nombres",
+          "fr": "Coupe la pizza en quatre parts égales.",
+          "en": "Cut the pizza into four equal parts.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.003",
+          "theme": "heure-et-date",
+          "fr": "Quel jour et quelle date sommes-nous ?",
+          "en": "What day and date is it?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.059",
+          "theme": "heure-et-date",
+          "fr": "Mon rendez-vous est à quatorze heures.",
+          "en": "My appointment is at two PM.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.112",
+          "theme": "heure-et-date",
+          "fr": "Le repas sera prêt dans vingt minutes.",
+          "en": "The meal will be ready in twenty minutes.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.142",
+          "theme": "heure-et-date",
+          "fr": "L'année prochaine, j'aurai trente ans.",
+          "en": "Next year, I'll be thirty.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.071",
+          "theme": "verbes-du-quotidien",
+          "fr": "Parlez plus lentement, s'il vous plaît.",
+          "en": "Speak more slowly, please.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.088",
+          "theme": "temps-et-frequence",
+          "fr": "Il finira bientôt son projet, j'espère.",
+          "en": "He will finish his project soon, I hope.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.076",
+          "theme": "recits-au-passe",
+          "fr": "Elle est partie en vacances en juillet.",
+          "en": "She went on vacation in July.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.102",
+          "theme": "recits-au-passe",
+          "fr": "Nous prenions le train tous les matins.",
+          "en": "We used to take the train every morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.109",
+          "theme": "recits-au-passe",
+          "fr": "Les rues étaient désertes tôt le matin.",
+          "en": "The streets were deserted early in the morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.013",
+          "theme": "verbes-essentiels",
+          "fr": "Je dois étudier pour mon examen demain.",
+          "en": "I have to study for my exam tomorrow.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.037",
+          "theme": "verbes-essentiels",
+          "fr": "N'oublie pas ton parapluie aujourd'hui.",
+          "en": "Don't forget your umbrella today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.022",
+          "theme": "expressions-de-quantite",
+          "fr": "Il reste quelques places pour ce cours.",
+          "en": "There are a few seats left for this class.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.068",
+          "theme": "expressions-de-quantite",
+          "fr": "La moitié des invités sont déjà partis.",
+          "en": "Half of the guests have already left.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.nombres.043",
+          "theme": "nombres",
+          "fr": "L'entrée est gratuite pour les enfants.",
+          "en": "Admission is free for children.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.051",
+          "theme": "heure-et-date",
+          "fr": "La boulangerie ferme à dix-neuf heures.",
+          "en": "The bakery closes at seven PM.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.104",
+          "theme": "heure-et-date",
+          "fr": "Pendant combien de temps as-tu étudié ?",
+          "en": "For how long did you study?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.136",
+          "theme": "heure-et-date",
+          "fr": "La semaine dernière a été très chargée.",
+          "en": "Last week was very busy.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.dictee.086",
+          "theme": "dictee",
+          "fr": "Mon fils commence l'école demain matin.",
+          "en": "My son starts school tomorrow morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.056",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle fait semblant de ne pas comprendre.",
+          "en": "She pretends not to understand.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.057",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous avons mis deux heures pour arriver.",
+          "en": "It took us two hours to arrive.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.066",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle restera chez nous jusqu'à dimanche.",
+          "en": "She will stay at our place until Sunday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.065",
+          "theme": "temps-et-frequence",
+          "fr": "Le patron demande un rapport avant midi.",
+          "en": "The boss is asking for a report before noon.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.074",
+          "theme": "expressions-frequentes",
+          "fr": "Je voudrais changer mon billet de train.",
+          "en": "I would like to change my train ticket.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.078",
+          "theme": "expressions-frequentes",
+          "fr": "Ça ne fait rien, on recommencera demain.",
+          "en": "It's okay, we'll start again tomorrow.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.086",
+          "theme": "recits-au-passe",
+          "fr": "Elle avait les cheveux longs et bouclés.",
+          "en": "She had long, curly hair.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.a2.recits-au-passe.094",
+          "theme": "recits-au-passe",
+          "fr": "Le village était très calme le dimanche.",
+          "en": "The village was very quiet on Sundays.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.106",
+          "theme": "recits-au-passe",
+          "fr": "Nous étions très proches de nos voisins.",
+          "en": "We were very close to our neighbors.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.007",
+          "theme": "verbes-essentiels",
+          "fr": "Le dimanche, elle se réveille très tard.",
+          "en": "On Sundays, she wakes up very late.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.022",
+          "theme": "verbes-essentiels",
+          "fr": "Il éteint son téléphone avant de dormir.",
+          "en": "He turns off his phone before sleeping.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.006",
+          "theme": "expressions-de-quantite",
+          "fr": "Peu de gens savent parler trois langues.",
+          "en": "Few people know how to speak three languages.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.021",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a changé de travail plusieurs fois.",
+          "en": "She changed jobs several times.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.064",
+          "theme": "heure-et-date",
+          "fr": "Quelle est la date de ton anniversaire ?",
+          "en": "What's the date of your birthday?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes.061",
+          "theme": "verbes",
+          "fr": "Ils habitent à Montréal depuis deux ans.",
+          "en": "They have been living in Montreal for two years.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.086",
+          "theme": "expressions-frequentes",
+          "fr": "Elle a accepté l'invitation avec plaisir.",
+          "en": "She accepted the invitation gladly.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.050",
+          "theme": "expressions-de-quantite",
+          "fr": "Certains plats sont trop épicés pour moi.",
+          "en": "Some dishes are too spicy for me.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.110",
+          "theme": "heure-et-date",
+          "fr": "Dans trois semaines, ce sera les examens.",
+          "en": "In three weeks, it will be exams.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.137",
+          "theme": "heure-et-date",
+          "fr": "On se revoit la semaine prochaine, alors.",
+          "en": "See you next week, then.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.routines.004",
+          "theme": "routines",
+          "fr": "D'habitude, nous dînons vers vingt heures.",
+          "en": "We usually have dinner around eight in the evening.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes.012",
+          "theme": "verbes",
+          "fr": "Nous finissons nos devoirs avant le dîner.",
+          "en": "We finish our homework before dinner.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.050",
+          "theme": "verbes-du-quotidien",
+          "fr": "Ils venaient nous voir tous les dimanches.",
+          "en": "They used to come see us every Sunday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.079",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous croyons que ce plan peut fonctionner.",
+          "en": "We believe this plan can work.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.059",
+          "theme": "recits-au-passe",
+          "fr": "Nous avons visité le musée samedi dernier.",
+          "en": "We visited the museum last Saturday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.047",
+          "theme": "verbes-essentiels",
+          "fr": "Le professeur explique la règle deux fois.",
+          "en": "The teacher explains the rule twice.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.060",
+          "theme": "verbes-essentiels",
+          "fr": "Il offre des fleurs pour son anniversaire.",
+          "en": "He gives flowers for her birthday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.027",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous nous voyons chaque fois que possible.",
+          "en": "We see each other whenever possible.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.057",
+          "theme": "expressions-de-quantite",
+          "fr": "La plupart des enfants aiment le chocolat.",
+          "en": "Most children like chocolate.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.heure-et-date.135",
+          "theme": "heure-et-date",
+          "fr": "La semaine prochaine, je pars en vacances.",
+          "en": "Next week, I'm going on vacation.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes.073",
+          "theme": "verbes",
+          "fr": "Tu as rempli tous les papiers nécessaires.",
+          "en": "You filled out all the necessary papers.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.079",
+          "theme": "temps-et-frequence",
+          "fr": "Il continue à travailler malgré la fatigue.",
+          "en": "He keeps working despite the fatigue.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.080",
+          "theme": "temps-et-frequence",
+          "fr": "Elle a beaucoup voyagé pendant sa jeunesse.",
+          "en": "She traveled a lot during her youth.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.087",
+          "theme": "temps-et-frequence",
+          "fr": "Nous restons en contact malgré la distance.",
+          "en": "We stay in touch despite the distance.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.017",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous avons visité plusieurs villes cet été.",
+          "en": "We visited several cities this summer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.048",
+          "theme": "expressions-de-quantite",
+          "fr": "Certains jours, je préfère rester chez moi.",
+          "en": "Some days, I prefer to stay home.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.073",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous voudrions réserver une table pour deux.",
+          "en": "We would like to book a table for two.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.095",
+          "theme": "recits-au-passe",
+          "fr": "J'aimais beaucoup lire des bandes dessinées.",
+          "en": "I loved reading comic books.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.009",
+          "theme": "verbes-essentiels",
+          "fr": "Nous essayons un nouveau restaurant ce soir.",
+          "en": "We are trying a new restaurant tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.058",
+          "theme": "expressions-de-quantite",
+          "fr": "La plupart des magasins ferment le dimanche.",
+          "en": "Most shops close on Sundays.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.dictee.106",
+          "theme": "dictee",
+          "fr": "L'horaire des cours change chaque trimestre.",
+          "en": "The class schedule changes every term.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.a2.temps-et-frequence.071",
+          "theme": "temps-et-frequence",
+          "fr": "Nous avons attendu pendant presque une heure.",
+          "en": "We waited for almost an hour.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.072",
+          "theme": "temps-et-frequence",
+          "fr": "Ils se disputent rarement devant les enfants.",
+          "en": "They rarely argue in front of the children.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.085",
+          "theme": "temps-et-frequence",
+          "fr": "Il attend son visa depuis plusieurs semaines.",
+          "en": "He has been waiting for his visa for several weeks.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.069",
+          "theme": "recits-au-passe",
+          "fr": "Nous avons mangé au restaurant vendredi soir.",
+          "en": "We ate at the restaurant on Friday evening.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.023",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a posé quelques questions au professeur.",
+          "en": "She asked the teacher a few questions.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.026",
+          "theme": "expressions-de-quantite",
+          "fr": "Chaque élève doit rendre son devoir vendredi.",
+          "en": "Each student must hand in their homework on Friday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes.071",
+          "theme": "verbes",
+          "fr": "Elle vérifiait ses documents avant de partir.",
+          "en": "She used to check her documents before leaving.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes.076",
+          "theme": "verbes",
+          "fr": "Nous choisissons un logement près du travail.",
+          "en": "We are choosing housing near work.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.075",
+          "theme": "verbes-du-quotidien",
+          "fr": "Vous devrez signer ce document avant vendredi.",
+          "en": "You will have to sign this document before Friday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.052",
+          "theme": "temps-et-frequence",
+          "fr": "Nous partons en vacances la semaine prochaine.",
+          "en": "We are leaving on vacation next week.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.084",
+          "theme": "temps-et-frequence",
+          "fr": "Nous nous croisons souvent dans les escaliers.",
+          "en": "We often run into each other on the stairs.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.108",
+          "theme": "recits-au-passe",
+          "fr": "Il conduisait très prudemment sur l'autoroute.",
+          "en": "He drove very carefully on the highway.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.111",
+          "theme": "recits-au-passe",
+          "fr": "Elle travaillait comme infirmière à l'hôpital.",
+          "en": "She worked as a nurse at the hospital.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recits-au-passe.112",
+          "theme": "recits-au-passe",
+          "fr": "Il faisait toujours beau pendant nos vacances.",
+          "en": "The weather was always nice during our vacations.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.056",
+          "theme": "expressions-de-quantite",
+          "fr": "La plupart de mes collègues sont sympathiques.",
+          "en": "Most of my colleagues are nice.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.dictee.097",
+          "theme": "dictee",
+          "fr": "Le professeur corrige les dictées le vendredi.",
+          "en": "The teacher corrects the dictations on Fridays.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes.058",
+          "theme": "verbes",
+          "fr": "Nous cherchons un emploi dans la construction.",
+          "en": "We are looking for a job in construction.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.016",
+          "theme": "verbes-essentiels",
+          "fr": "Ils dînent au restaurant pour son anniversaire.",
+          "en": "They are having dinner at a restaurant for his birthday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.verbes.064",
+          "theme": "verbes",
+          "fr": "Nous avons déménagé dans un nouvel appartement.",
+          "en": "We moved into a new apartment.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.077",
+          "theme": "expressions-frequentes",
+          "fr": "Excusez-moi, pourriez-vous répéter la question ?",
+          "en": "Excuse me, could you repeat the question?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.052",
+          "theme": "expressions-de-quantite",
+          "fr": "Certaines langues sont plus faciles à apprendre.",
+          "en": "Some languages are easier to learn.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.dictee.112",
+          "theme": "dictee",
+          "fr": "Les élèves rendent leurs devoirs avant vendredi.",
+          "en": "The students hand in their homework before Friday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.091",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous avons quelques minutes, pas plusieurs heures.",
+          "en": "We have a few minutes, not several hours.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.068",
+          "theme": "expressions-frequentes",
+          "fr": "Faites attention aux marches, elles sont glissantes.",
+          "en": "Be careful of the steps, they are slippery.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.053",
+          "theme": "expressions-frequentes",
+          "fr": "Ça ne va pas du tout ce matin.",
+          "en": "Things are not going well at all this morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.068",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il a dit qu'il serait en retard.",
+          "en": "He said he would be late.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.089",
+          "theme": "heure-et-date",
+          "fr": "Je te raconte ça tout à l'heure.",
+          "en": "I'll tell you about it in a bit.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.067",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai mangé la moitié de la pizza.",
+          "en": "I ate half of the pizza.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.107",
+          "theme": "heure-et-date",
+          "fr": "Il y a trois mois, j'ai déménagé.",
+          "en": "Three months ago, I moved.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.051",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il a pris le train de huit heures.",
+          "en": "He took the eight o'clock train.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.055",
+          "theme": "expressions-frequentes",
+          "fr": "Il a besoin de parler à quelqu'un.",
+          "en": "He needs to talk to someone.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.027",
+          "theme": "verbes-essentiels",
+          "fr": "Elle ferme la porte à clé le soir.",
+          "en": "She locks the door at night.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.044",
+          "theme": "verbes-essentiels",
+          "fr": "Le bébé pleure parce qu'il a faim.",
+          "en": "The baby is crying because he's hungry.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.a2.expressions-de-quantite.063",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai plein de photos de ce voyage.",
+          "en": "I have lots of photos from that trip.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.076",
+          "theme": "expressions-de-quantite",
+          "fr": "Je n'ai jamais vu autant de neige.",
+          "en": "I have never seen so much snow.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.nombres.047",
+          "theme": "nombres",
+          "fr": "J'habite au douze, rue de la Paix.",
+          "en": "I live at number twelve, rue de la Paix.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.130",
+          "theme": "heure-et-date",
+          "fr": "Le bus est rarement à l'heure ici.",
+          "en": "The bus is rarely on time here.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.059",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle s'est mise à rire sans raison.",
+          "en": "She started laughing for no reason.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.047",
+          "theme": "expressions-frequentes",
+          "fr": "Il y a un problème avec la voiture.",
+          "en": "There is a problem with the car.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.066",
+          "theme": "recits-au-passe",
+          "fr": "Il a réparé sa voiture ce week-end.",
+          "en": "He fixed his car this weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.082",
+          "theme": "recits-au-passe",
+          "fr": "Il s'est levé très tôt aujourd'hui.",
+          "en": "He got up very early today.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.032",
+          "theme": "expressions-de-quantite",
+          "fr": "Tout le monde est arrivé à l'heure.",
+          "en": "Everyone arrived on time.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.064",
+          "theme": "expressions-de-quantite",
+          "fr": "Il a plein d'amis dans le quartier.",
+          "en": "He has lots of friends in the neighbourhood.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.nombres.042",
+          "theme": "nombres",
+          "fr": "C'est deux fois plus cher qu'avant.",
+          "en": "It's twice as expensive as before.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.097",
+          "theme": "heure-et-date",
+          "fr": "Viens tout de suite, s'il te plaît.",
+          "en": "Come right away, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.127",
+          "theme": "heure-et-date",
+          "fr": "Le vol est arrivé à l'heure prévue.",
+          "en": "The flight arrived at the scheduled time.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.062",
+          "theme": "verbes-du-quotidien",
+          "fr": "Sors le chien avant qu'il ne pleuve.",
+          "en": "Take the dog out before it rains.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.067",
+          "theme": "verbes-du-quotidien",
+          "fr": "Restez assis jusqu'à la fin du film.",
+          "en": "Stay seated until the end of the movie.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.078",
+          "theme": "recits-au-passe",
+          "fr": "Il a cassé un verre dans la cuisine.",
+          "en": "He broke a glass in the kitchen.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.020",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a plusieurs façons de faire ça.",
+          "en": "There are several ways to do that.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.039",
+          "theme": "heure-et-date",
+          "fr": "Il est trois heures de l'après-midi.",
+          "en": "It's three in the afternoon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.085",
+          "theme": "expressions-frequentes",
+          "fr": "Merci pour ton aide. De rien du tout.",
+          "en": "Thanks for your help. Not at all.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.nombres.052",
+          "theme": "nombres",
+          "fr": "C'est la troisième fois que j'essaie.",
+          "en": "This is the third time I'm trying.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.042",
+          "theme": "heure-et-date",
+          "fr": "Il est sept heures et quart du matin.",
+          "en": "It's a quarter past seven in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.046",
+          "theme": "heure-et-date",
+          "fr": "Il est huit heures moins dix du soir.",
+          "en": "It's ten to eight in the evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.047",
+          "theme": "heure-et-date",
+          "fr": "Il est cinq heures et demie du matin.",
+          "en": "It's half past five in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.060",
+          "theme": "heure-et-date",
+          "fr": "À quelle heure part le bus ce matin ?",
+          "en": "What time does the bus leave this morning?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.128",
+          "theme": "heure-et-date",
+          "fr": "Essaie d'être à l'heure demain matin.",
+          "en": "Try to be on time tomorrow morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.064",
+          "theme": "temps-et-frequence",
+          "fr": "Nous avons raté le début de la séance.",
+          "en": "We missed the start of the showing.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.049",
+          "theme": "expressions-frequentes",
+          "fr": "Il faut réserver une table à l'avance.",
+          "en": "You need to book a table in advance.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.061",
+          "theme": "recits-au-passe",
+          "fr": "Tu as fini tes devoirs avant le dîner.",
+          "en": "You finished your homework before dinner.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.062",
+          "theme": "recits-au-passe",
+          "fr": "J'ai rencontré un vieil ami au marché.",
+          "en": "I met an old friend at the market.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.071",
+          "theme": "recits-au-passe",
+          "fr": "J'ai perdu mon téléphone dans le taxi.",
+          "en": "I lost my phone in the taxi.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.005",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai peu d'expérience dans ce domaine.",
+          "en": "I have little experience in this field.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.055",
+          "theme": "heure-et-date",
+          "fr": "L'avion arrive à onze heures du matin.",
+          "en": "The plane arrives at eleven in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.116",
+          "theme": "heure-et-date",
+          "fr": "J'ai pris rendez-vous chez le médecin.",
+          "en": "I made an appointment with the doctor.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.a2.expressions-frequentes.082",
+          "theme": "expressions-frequentes",
+          "fr": "Ça dépend si nous avons assez d'argent.",
+          "en": "It depends whether we have enough money.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.058",
+          "theme": "recits-au-passe",
+          "fr": "Elle a acheté du pain à la boulangerie.",
+          "en": "She bought bread at the bakery.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.017",
+          "theme": "verbes-essentiels",
+          "fr": "Il a invité toute la famille pour Noël.",
+          "en": "He invited the whole family for Christmas.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.024",
+          "theme": "verbes-essentiels",
+          "fr": "On fête la fin des examens ce vendredi.",
+          "en": "We're celebrating the end of exams this Friday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.025",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a quelques idées pour le week-end.",
+          "en": "She has a few ideas for the weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.055",
+          "theme": "expressions-de-quantite",
+          "fr": "La plupart des gens arrivent à l'heure.",
+          "en": "Most people arrive on time.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.077",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a autant de courage que son frère.",
+          "en": "She has as much courage as her brother.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.nombres.055",
+          "theme": "nombres",
+          "fr": "C'est la dernière question de l'examen.",
+          "en": "This is the last question of the exam.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.114",
+          "theme": "heure-et-date",
+          "fr": "En combien de temps peux-tu être prêt ?",
+          "en": "How quickly can you be ready?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.124",
+          "theme": "heure-et-date",
+          "fr": "Il vaut mieux arriver un peu en avance.",
+          "en": "It's better to arrive a bit early.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.045",
+          "theme": "verbes-du-quotidien",
+          "fr": "Ils sont allés en Espagne l'été dernier.",
+          "en": "They went to Spain last summer.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.086",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous ne savions pas que tu étais malade.",
+          "en": "We didn't know you were sick.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.077",
+          "theme": "temps-et-frequence",
+          "fr": "Elle fait du yoga deux fois par semaine.",
+          "en": "She does yoga twice a week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.072",
+          "theme": "expressions-frequentes",
+          "fr": "Pourriez-vous m'aider, s'il vous plaît ?",
+          "en": "Could you help me, please?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.026",
+          "theme": "verbes-essentiels",
+          "fr": "Il ouvre la fenêtre pour aérer la pièce.",
+          "en": "He opens the window to air out the room.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.052",
+          "theme": "heure-et-date",
+          "fr": "À quelle heure part le train pour Lyon ?",
+          "en": "What time does the train for Lyon leave?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.dictee.111",
+          "theme": "dictee",
+          "fr": "Elle a fait son stage dans une garderie.",
+          "en": "She did her internship at a daycare.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes.077",
+          "theme": "verbes",
+          "fr": "Elle va accompagner sa mère à l'hôpital.",
+          "en": "She is going to accompany her mother to the hospital.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.069",
+          "theme": "temps-et-frequence",
+          "fr": "Elle vit en France depuis trois ans déjà.",
+          "en": "She has already been living in France for three years.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.090",
+          "theme": "recits-au-passe",
+          "fr": "Tu jouais souvent au ballon dans la cour.",
+          "en": "You often played ball in the yard.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.078",
+          "theme": "heure-et-date",
+          "fr": "Avant-hier, j'ai reçu une bonne nouvelle.",
+          "en": "The day before yesterday, I received good news.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.100",
+          "theme": "heure-et-date",
+          "fr": "Tout de suite après le déjeuner, on part.",
+          "en": "Right after lunch, we're leaving.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.dictee.094",
+          "theme": "dictee",
+          "fr": "Mon fils a réussi son examen de français.",
+          "en": "My son passed his French exam.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.dictee.116",
+          "theme": "dictee",
+          "fr": "Le professeur a écrit la date au tableau.",
+          "en": "The teacher wrote the date on the board.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.055",
+          "theme": "temps-et-frequence",
+          "fr": "Le dernier bus passe à vingt-trois heures.",
+          "en": "The last bus comes at eleven pm.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.064",
+          "theme": "recits-au-passe",
+          "fr": "Elle est tombée dans l'escalier hier soir.",
+          "en": "She fell down the stairs last night.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.014",
+          "theme": "verbes-essentiels",
+          "fr": "Les billets coûtent plus cher le week-end.",
+          "en": "Tickets cost more on weekends.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.024",
+          "theme": "expressions-de-quantite",
+          "fr": "Il a fait quelques erreurs dans son texte.",
+          "en": "He made a few mistakes in his text.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.037",
+          "theme": "expressions-de-quantite",
+          "fr": "Tous les jeudis, nous allons à la piscine.",
+          "en": "Every Thursday, we go to the pool.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.078",
+          "theme": "expressions-de-quantite",
+          "fr": "Il gagne autant d'argent que son collègue.",
+          "en": "He earns as much money as his colleague.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.095",
+          "theme": "heure-et-date",
+          "fr": "Plus tard dans la journée, il a téléphoné.",
+          "en": "Later in the day, he called.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.138",
+          "theme": "heure-et-date",
+          "fr": "La semaine dernière, il a fait très froid.",
+          "en": "Last week, it was very cold.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.052",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous avons pris le temps de bien réfléchir.",
+          "en": "We took the time to think carefully.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.a2.temps-et-frequence.051",
+          "theme": "temps-et-frequence",
+          "fr": "Le magasin reste ouvert plus tard le jeudi.",
+          "en": "The store stays open later on Thursdays.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.062",
+          "theme": "temps-et-frequence",
+          "fr": "Elle a réservé une table pour vingt heures.",
+          "en": "She booked a table for eight pm.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.050",
+          "theme": "expressions-frequentes",
+          "fr": "Il faut du temps pour apprendre une langue.",
+          "en": "It takes time to learn a language.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.071",
+          "theme": "expressions-frequentes",
+          "fr": "Il a hâte de commencer son nouveau travail.",
+          "en": "He can't wait to start his new job.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.068",
+          "theme": "recits-au-passe",
+          "fr": "Elle a fêté son anniversaire avec ses amis.",
+          "en": "She celebrated her birthday with her friends.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.074",
+          "theme": "recits-au-passe",
+          "fr": "Il a trouvé un travail la semaine dernière.",
+          "en": "He found a job last week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.087",
+          "theme": "recits-au-passe",
+          "fr": "Nous allions à la piscine tous les samedis.",
+          "en": "We used to go to the pool every Saturday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.105",
+          "theme": "recits-au-passe",
+          "fr": "Le magasin fermait à midi pour le déjeuner.",
+          "en": "The shop closed at noon for lunch.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.018",
+          "theme": "verbes-essentiels",
+          "fr": "Mon fils dessine une maison sur le tableau.",
+          "en": "My son is drawing a house on the board.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.074",
+          "theme": "expressions-de-quantite",
+          "fr": "Combien de valises est-ce que tu emportes ?",
+          "en": "How many suitcases are you taking?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.117",
+          "theme": "heure-et-date",
+          "fr": "Notre rendez-vous est fixé à quinze heures.",
+          "en": "Our appointment is set for three PM.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.dictee.098",
+          "theme": "dictee",
+          "fr": "Elle a obtenu de bonnes notes ce trimestre.",
+          "en": "She got good grades this term.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes.059",
+          "theme": "verbes",
+          "fr": "Elle a trouvé un travail dans une clinique.",
+          "en": "She found a job at a clinic.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes.078",
+          "theme": "verbes",
+          "fr": "Ils suivaient un cours de français le soir.",
+          "en": "They were taking a French class in the evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.088",
+          "theme": "expressions-frequentes",
+          "fr": "Pas de problème, nous avons encore le temps.",
+          "en": "No problem, we still have time.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.081",
+          "theme": "recits-au-passe",
+          "fr": "Nous avons planté des fleurs dans le jardin.",
+          "en": "We planted flowers in the garden.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.004",
+          "theme": "verbes-essentiels",
+          "fr": "Elle rentre du travail vers dix-neuf heures.",
+          "en": "She gets home from work around seven p.m.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.018",
+          "theme": "expressions-de-quantite",
+          "fr": "Il a essayé plusieurs fois avant de réussir.",
+          "en": "He tried several times before succeeding.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes.069",
+          "theme": "verbes",
+          "fr": "Je consulte un médecin quand je suis malade.",
+          "en": "I see a doctor when I am sick.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.063",
+          "theme": "temps-et-frequence",
+          "fr": "Le vendeur ouvre la boutique dès huit heures.",
+          "en": "The seller opens the shop as early as eight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.066",
+          "theme": "expressions-frequentes",
+          "fr": "Il faut faire attention en traversant la rue.",
+          "en": "You must be careful when crossing the street.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.092",
+          "theme": "recits-au-passe",
+          "fr": "Elle chantait tous les matins sous la douche.",
+          "en": "She sang every morning in the shower.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.107",
+          "theme": "recits-au-passe",
+          "fr": "Elle dessinait tout le temps dans son cahier.",
+          "en": "She drew all the time in her notebook.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.dictee.088",
+          "theme": "dictee",
+          "fr": "L'institutrice a expliqué la leçon deux fois.",
+          "en": "The teacher explained the lesson twice.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.dictee.096",
+          "theme": "dictee",
+          "fr": "J'ai emprunté trois livres à la bibliothèque.",
+          "en": "I borrowed three books from the library.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes.074",
+          "theme": "verbes",
+          "fr": "Le médecin soigne les patients à la clinique.",
+          "en": "The doctor treats patients at the clinic.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.077",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il a connu des moments difficiles cette année.",
+          "en": "He went through difficult times this year.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.078",
+          "theme": "verbes-du-quotidien",
+          "fr": "Connaissez-vous un bon restaurant près d'ici ?",
+          "en": "Do you know a good restaurant near here?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.050",
+          "theme": "temps-et-frequence",
+          "fr": "La réunion a été déplacée à vendredi prochain.",
+          "en": "The meeting was moved to next Friday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.067",
+          "theme": "temps-et-frequence",
+          "fr": "Il change son emploi du temps chaque semestre.",
+          "en": "He changes his schedule every semester.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.088",
+          "theme": "recits-au-passe",
+          "fr": "Il faisait toujours ses devoirs après l'école.",
+          "en": "He always did his homework after school.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.096",
+          "theme": "recits-au-passe",
+          "fr": "Ma grand-mère faisait des gâteaux le dimanche.",
+          "en": "My grandmother used to make cakes on Sundays.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.020",
+          "theme": "verbes-essentiels",
+          "fr": "Les nouveaux élèves se présentent à la classe.",
+          "en": "The new students introduce themselves to the class.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.a2.expressions-de-quantite.073",
+          "theme": "expressions-de-quantite",
+          "fr": "Combien de pain faut-il pour douze personnes ?",
+          "en": "How much bread is needed for twelve people?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.126",
+          "theme": "heure-et-date",
+          "fr": "Elle est toujours en avance, jamais en retard.",
+          "en": "She's always early, never late.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.dictee.102",
+          "theme": "dictee",
+          "fr": "Les cours du soir commencent après le travail.",
+          "en": "The evening classes start after work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.054",
+          "theme": "temps-et-frequence",
+          "fr": "Elle prend son café avant de partir travailler.",
+          "en": "She has her coffee before leaving for work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.075",
+          "theme": "temps-et-frequence",
+          "fr": "Nous allons parfois au cinéma le vendredi soir.",
+          "en": "We sometimes go to the movies on Friday evenings.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.097",
+          "theme": "recits-au-passe",
+          "fr": "Il neigeait souvent en hiver dans cette région.",
+          "en": "It often snowed in winter in that region.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.routines.059",
+          "theme": "routines",
+          "fr": "Nous allons préparer le dîner ensemble ce soir.",
+          "en": "We are going to prepare dinner together tonight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.dictee.115",
+          "theme": "dictee",
+          "fr": "L'agente a vérifié notre carte de bibliothèque.",
+          "en": "The clerk checked our library card.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes.067",
+          "theme": "verbes",
+          "fr": "Nous allons signer le contrat de travail lundi.",
+          "en": "We are going to sign the work contract on Monday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.070",
+          "theme": "expressions-frequentes",
+          "fr": "Nous avons hâte de découvrir la nouvelle maison.",
+          "en": "We can't wait to discover the new house.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.110",
+          "theme": "recits-au-passe",
+          "fr": "Nous mangions souvent chez ma tante le dimanche.",
+          "en": "We often ate at my aunt's on Sundays.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.051",
+          "theme": "expressions-de-quantite",
+          "fr": "Certaines rues sont fermées à cause des travaux.",
+          "en": "Some streets are closed because of the roadwork.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.nombres.049",
+          "theme": "nombres",
+          "fr": "Appelez-moi au zéro un, vingt, trente, quarante.",
+          "en": "Call me at zero one, twenty, thirty, forty.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.143",
+          "theme": "heure-et-date",
+          "fr": "L'année dernière, nous avons visité le Portugal.",
+          "en": "Last year, we visited Portugal.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.dictee.123",
+          "theme": "dictee",
+          "fr": "Le directeur reçoit les parents sur rendez-vous.",
+          "en": "The principal sees parents by appointment.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes.057",
+          "theme": "verbes",
+          "fr": "Je remplis le formulaire d'immigration ce matin.",
+          "en": "I am filling out the immigration form this morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.routines.005",
+          "theme": "routines",
+          "fr": "Elle range sa chambre avant de partir travailler.",
+          "en": "She tidies her room before leaving for work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.065",
+          "theme": "verbes-du-quotidien",
+          "fr": "Ils sont restés silencieux pendant tout le repas.",
+          "en": "They stayed silent throughout the whole meal.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.072",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il voulait devenir médecin quand il était enfant.",
+          "en": "He wanted to become a doctor when he was a child.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.078",
+          "theme": "temps-et-frequence",
+          "fr": "Nous vivons dans ce quartier depuis notre mariage.",
+          "en": "We have lived in this neighborhood since our wedding.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.049",
+          "theme": "expressions-de-quantite",
+          "fr": "Certaines personnes n'aiment pas voyager en avion.",
+          "en": "Some people don't like traveling by plane.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.dictee.125",
+          "theme": "dictee",
+          "fr": "Nous avons rempli le formulaire d'inscription hier.",
+          "en": "We filled out the registration form yesterday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.heure-et-date.134",
+          "theme": "heure-et-date",
+          "fr": "Dépêchez-vous, la réunion commence dans cinq minutes.",
+          "en": "Hurry up, the meeting starts in five minutes.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recits-au-passe.104",
+          "theme": "recits-au-passe",
+          "fr": "Mon grand-père racontait souvent des histoires drôles.",
+          "en": "My grandfather often told funny stories.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes.072",
+          "theme": "verbes",
+          "fr": "Nous allons confirmer notre rendez-vous par téléphone.",
+          "en": "We are going to confirm our appointment by phone.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes.065",
+          "theme": "verbes",
+          "fr": "Elle demande des renseignements au bureau d'immigration.",
+          "en": "She is asking for information at the immigration office.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.087",
+          "theme": "expressions-frequentes",
+          "fr": "Nous vous accueillerons avec plaisir la semaine prochaine.",
+          "en": "We will gladly welcome you next week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.085",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il n'a pas pu venir à la fête.",
+          "en": "He couldn't come to the party.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.108",
+          "theme": "heure-et-date",
+          "fr": "Ça s'est passé il y a dix minutes.",
+          "en": "It happened ten minutes ago.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.086",
+          "theme": "temps-et-frequence",
+          "fr": "Elle a quitté son emploi il y a peu.",
+          "en": "She left her job recently.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.046",
+          "theme": "expressions-frequentes",
+          "fr": "Il y a trois ans, j'habitais à Paris.",
+          "en": "Three years ago, I was living in Paris.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.080",
+          "theme": "expressions-frequentes",
+          "fr": "Tant pis pour lui, il n'a pas écouté.",
+          "en": "Too bad for him, he didn't listen.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.062",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y avait plein de monde à la plage.",
+          "en": "There were lots of people at the beach.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 15,
+      "items": [
+        {
+          "id": "fr.a2.heure-et-date.122",
+          "theme": "heure-et-date",
+          "fr": "Ne sois pas en retard, s'il te plaît.",
+          "en": "Don't be late, please.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.065",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a plein de fleurs dans le jardin.",
+          "en": "There are lots of flowers in the garden.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes-essentiels.005",
+          "theme": "verbes-essentiels",
+          "fr": "Il monte dans le bus à l'arrêt suivant.",
+          "en": "He gets on the bus at the next stop.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.003",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a peu de temps libre en ce moment.",
+          "en": "She has little free time right now.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.043",
+          "theme": "expressions-de-quantite",
+          "fr": "Je n'ai aucune envie de sortir ce soir.",
+          "en": "I have no desire to go out tonight.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.082",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il a pensé à toi pendant tout le voyage.",
+          "en": "He thought of you during the whole trip.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.077",
+          "theme": "heure-et-date",
+          "fr": "On se voit après-demain, si tu es libre.",
+          "en": "See you the day after tomorrow, if you're free.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.113",
+          "theme": "heure-et-date",
+          "fr": "On peut y aller en vingt minutes à pied.",
+          "en": "We can get there in twenty minutes on foot.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.146",
+          "theme": "heure-et-date",
+          "fr": "Tous les week-ends, on va à la campagne.",
+          "en": "Every weekend, we go to the countryside.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.014",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a trop de circulation à cette heure.",
+          "en": "There is too much traffic at this hour.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.043",
+          "theme": "heure-et-date",
+          "fr": "Il est dix heures moins le quart du soir.",
+          "en": "It's a quarter to ten in the evening.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.133",
+          "theme": "heure-et-date",
+          "fr": "Dépêche-toi un peu, on va être en retard.",
+          "en": "Hurry up a little, we're going to be late.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.076",
+          "theme": "temps-et-frequence",
+          "fr": "Il n'a toujours pas répondu à mon message.",
+          "en": "He still hasn't replied to my message.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.056",
+          "theme": "expressions-frequentes",
+          "fr": "Vous avez besoin d'un stylo pour l'examen.",
+          "en": "You need a pen for the exam.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.084",
+          "theme": "expressions-frequentes",
+          "fr": "De rien, je suis content d'avoir pu aider.",
+          "en": "You're welcome, I'm glad I could help.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recits-au-passe.067",
+          "theme": "recits-au-passe",
+          "fr": "J'ai téléphoné à ma sœur après le travail.",
+          "en": "I called my sister after work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.002",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous avons un peu de temps avant le train.",
+          "en": "We have a little time before the train.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.013",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a trop de choses à faire aujourd'hui.",
+          "en": "She has too many things to do today.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.nombres.044",
+          "theme": "nombres",
+          "fr": "Le loyer est de cinq cents euros par mois.",
+          "en": "The rent is five hundred euros a month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.073",
+          "theme": "heure-et-date",
+          "fr": "La date du mariage n'est pas encore fixée.",
+          "en": "The wedding date is not set yet.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes.075",
+          "theme": "verbes",
+          "fr": "J'ai payé mes impôts avant la date limite.",
+          "en": "I paid my taxes before the deadline.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.070",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il a parlé de son projet pendant une heure.",
+          "en": "He talked about his project for an hour.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.066",
+          "theme": "temps-et-frequence",
+          "fr": "Ce mois-ci, l'équipe travaille le week-end.",
+          "en": "This month, the team is working on weekends.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recits-au-passe.079",
+          "theme": "recits-au-passe",
+          "fr": "J'ai écrit une lettre à mes grands-parents.",
+          "en": "I wrote a letter to my grandparents.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.086",
+          "theme": "expressions-de-quantite",
+          "fr": "Il ne reste plus de beurre pour les toasts.",
+          "en": "There is no more butter left for the toast.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.061",
+          "theme": "temps-et-frequence",
+          "fr": "Le cours de français a lieu tous les mardis.",
+          "en": "French class takes place every Tuesday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recits-au-passe.093",
+          "theme": "recits-au-passe",
+          "fr": "Nous n'avions pas de voiture à cette époque.",
+          "en": "We didn't have a car at that time.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.099",
+          "theme": "heure-et-date",
+          "fr": "Fais-le tout de suite, sinon tu vas oublier.",
+          "en": "Do it right away, or you'll forget.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.054",
+          "theme": "verbes-du-quotidien",
+          "fr": "Ils ont fait un long voyage l'année dernière.",
+          "en": "They took a long trip last year.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.056",
+          "theme": "temps-et-frequence",
+          "fr": "Nous devons finir avant la fin de la journée.",
+          "en": "We have to finish before the end of the day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recits-au-passe.063",
+          "theme": "recits-au-passe",
+          "fr": "Mes parents sont arrivés à l'aéroport à midi.",
+          "en": "My parents arrived at the airport at noon.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.092",
+          "theme": "dictee",
+          "fr": "Le directeur a annoncé la date de la rentrée.",
+          "en": "The principal announced the start-of-school date.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recits-au-passe.085",
+          "theme": "recits-au-passe",
+          "fr": "Quand j'étais petit, j'habitais à la campagne.",
+          "en": "When I was little, I lived in the countryside.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 16,
+      "items": [
+        {
+          "id": "fr.a2.verbes-essentiels.021",
+          "theme": "verbes-essentiels",
+          "fr": "Peux-tu allumer la télévision, s'il te plaît ?",
+          "en": "Can you turn on the television, please?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.nombres.019",
+          "theme": "nombres",
+          "fr": "Un tiers de la classe est absente aujourd'hui.",
+          "en": "A third of the class is absent today.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.119",
+          "theme": "heure-et-date",
+          "fr": "N'oublie pas ton rendez-vous chez le dentiste.",
+          "en": "Don't forget your dentist appointment.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.145",
+          "theme": "heure-et-date",
+          "fr": "Tous les mois, la facture arrive le même jour.",
+          "en": "Every month, the bill arrives on the same day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.routines.053",
+          "theme": "routines",
+          "fr": "Je vais me lever tôt demain pour aller courir.",
+          "en": "I am going to get up early tomorrow to go running.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.101",
+          "theme": "dictee",
+          "fr": "Je me suis inscrit à un cours de francisation.",
+          "en": "I registered for a francization class.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.107",
+          "theme": "dictee",
+          "fr": "Ma fille lève la main pour poser une question.",
+          "en": "My daughter raises her hand to ask a question.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.118",
+          "theme": "dictee",
+          "fr": "Nous avons choisi une école près de chez nous.",
+          "en": "We chose a school close to home.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recits-au-passe.100",
+          "theme": "recits-au-passe",
+          "fr": "Les enfants jouaient dans la rue jusqu'au soir.",
+          "en": "The children played in the street until evening.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.069",
+          "theme": "expressions-de-quantite",
+          "fr": "La moitié de la classe est absente aujourd'hui.",
+          "en": "Half of the class is absent today.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.095",
+          "theme": "dictee",
+          "fr": "La bibliothèque de l'école ouvre à huit heures.",
+          "en": "The school library opens at eight o'clock.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.117",
+          "theme": "dictee",
+          "fr": "Elle range son emploi du temps dans son cahier.",
+          "en": "She keeps her schedule in her notebook.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes.011",
+          "theme": "verbes",
+          "fr": "J'ai besoin d'un dictionnaire pour cet exercice.",
+          "en": "I need a dictionary for this exercise.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.073",
+          "theme": "temps-et-frequence",
+          "fr": "Elle change souvent d'avis à la dernière minute.",
+          "en": "She often changes her mind at the last minute.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.082",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai tellement faim que je pourrais tout manger.",
+          "en": "I'm so hungry I could eat everything.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.nombres.022",
+          "theme": "nombres",
+          "fr": "Les trois quarts des élèves ont réussi l'examen.",
+          "en": "Three quarters of the students passed the exam.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.062",
+          "theme": "heure-et-date",
+          "fr": "À quelle heure se termine le cours de français ?",
+          "en": "What time does the French class end?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.121",
+          "theme": "heure-et-date",
+          "fr": "Désolé, je vais être en retard de vingt minutes.",
+          "en": "Sorry, I'm going to be twenty minutes late.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.053",
+          "theme": "temps-et-frequence",
+          "fr": "Le concert a commencé avec dix minutes de retard.",
+          "en": "The concert started ten minutes late.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.001",
+          "theme": "expressions-de-quantite",
+          "fr": "Beaucoup de gens préfèrent le train à la voiture.",
+          "en": "Many people prefer the train to the car.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.042",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous n'avons aucune nouvelle de lui depuis lundi.",
+          "en": "We have had no news from him since Monday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.113",
+          "theme": "dictee",
+          "fr": "Mon collègue suit une formation en ligne le soir.",
+          "en": "My colleague is taking an online course in the evening.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recits-au-passe.091",
+          "theme": "recits-au-passe",
+          "fr": "Il pleuvait beaucoup pendant l'été cette année-là.",
+          "en": "It rained a lot during the summer that year.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recits-au-passe.103",
+          "theme": "recits-au-passe",
+          "fr": "Elle avait peur des chiens quand elle était jeune.",
+          "en": "She was afraid of dogs when she was young.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.heure-et-date.140",
+          "theme": "heure-et-date",
+          "fr": "Le mois dernier, j'ai commencé un nouveau travail.",
+          "en": "Last month, I started a new job.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.100",
+          "theme": "dictee",
+          "fr": "Le bulletin scolaire arrive à la fin du trimestre.",
+          "en": "The report card arrives at the end of the term.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.058",
+          "theme": "temps-et-frequence",
+          "fr": "Il consulte l'horaire des trains sur son téléphone.",
+          "en": "He checks the train schedule on his phone.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.083",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle parle tellement vite que je ne comprends rien.",
+          "en": "She speaks so fast that I don't understand anything.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes.060",
+          "theme": "verbes",
+          "fr": "Tu vas prendre rendez-vous chez le dentiste demain.",
+          "en": "You are going to make an appointment at the dentist's tomorrow.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes.063",
+          "theme": "verbes",
+          "fr": "Je travaillais dans un hôpital avant d'arriver ici.",
+          "en": "I used to work in a hospital before arriving here.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.049",
+          "theme": "temps-et-frequence",
+          "fr": "Il faut arriver quinze minutes avant le rendez-vous.",
+          "en": "You have to arrive fifteen minutes before the appointment.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.082",
+          "theme": "temps-et-frequence",
+          "fr": "Il a fini par accepter, après une longue hésitation.",
+          "en": "He eventually agreed, after a long hesitation.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.104",
+          "theme": "dictee",
+          "fr": "Nous avons payé les frais de scolarité en septembre.",
+          "en": "We paid the tuition fees in September.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 17,
+      "items": [
+        {
+          "id": "fr.a2.dictee.109",
+          "theme": "dictee",
+          "fr": "Le conseil scolaire a envoyé une lettre aux parents.",
+          "en": "The school board sent a letter to the parents.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.068",
+          "theme": "temps-et-frequence",
+          "fr": "Nous nous retrouvons de temps en temps pour déjeuner.",
+          "en": "We meet up from time to time for lunch.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.047",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle allait souvent au théâtre quand elle était jeune.",
+          "en": "She often used to go to the theater when she was young.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.090",
+          "theme": "expressions-de-quantite",
+          "fr": "Il ne reste plus de pommes, seulement quelques poires.",
+          "en": "There are no more apples left, only a few pears.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes.068",
+          "theme": "verbes",
+          "fr": "Ils ont accueilli les nouveaux arrivants à l'aéroport.",
+          "en": "They welcomed the newcomers at the airport.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.126",
+          "theme": "dictee",
+          "fr": "L'enseignant a distribué les nouveaux manuels ce matin.",
+          "en": "The teacher handed out the new textbooks this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.064",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle sortait rarement le soir quand elle était étudiante.",
+          "en": "She rarely went out in the evening when she was a student.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.103",
+          "theme": "dictee",
+          "fr": "Elle apprend le français pour trouver un meilleur emploi.",
+          "en": "She is learning French to find a better job.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.dictee.114",
+          "theme": "dictee",
+          "fr": "Nous avons demandé l'équivalence de son diplôme étranger.",
+          "en": "We requested the equivalency of his foreign diploma.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes.010",
+          "theme": "verbes",
+          "fr": "Tu comprends mieux quand le professeur donne des exemples.",
+          "en": "You understand better when the teacher gives examples.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.071",
+          "theme": "expressions-de-quantite",
+          "fr": "La moitié des élèves préfèrent l'histoire aux mathématiques.",
+          "en": "Half of the students prefer history to math.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.verbes.062",
+          "theme": "verbes",
+          "fr": "Vous allez recevoir votre carte d'assurance maladie bientôt.",
+          "en": "You are going to receive your health insurance card soon.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.085",
+          "theme": "expressions-de-quantite",
+          "fr": "Il n'y a plus de lait dans le frigo.",
+          "en": "There is no more milk in the fridge.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.070",
+          "theme": "temps-et-frequence",
+          "fr": "Il a arrêté de fumer il y a six mois.",
+          "en": "He quit smoking six months ago.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.080",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il n'a pas cru un mot de son histoire.",
+          "en": "He didn't believe a word of her story.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.074",
+          "theme": "temps-et-frequence",
+          "fr": "Je n'ai plus le temps de lire le soir.",
+          "en": "I no longer have time to read in the evening.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.048",
+          "theme": "expressions-frequentes",
+          "fr": "Il y a une pharmacie au coin de la rue.",
+          "en": "There is a pharmacy at the corner of the street.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.004",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a peu de monde au marché ce matin.",
+          "en": "There are few people at the market this morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.009",
+          "theme": "expressions-de-quantite",
+          "fr": "Il n'a pas assez d'expérience pour ce poste.",
+          "en": "He doesn't have enough experience for this job.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.079",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a autant d'amis en France qu'en Italie.",
+          "en": "She has as many friends in France as in Italy.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.087",
+          "theme": "expressions-de-quantite",
+          "fr": "Veux-tu de la viande ou du poisson ce soir ?",
+          "en": "Do you want meat or fish tonight?",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.heure-et-date.044",
+          "theme": "heure-et-date",
+          "fr": "Il est deux heures et demie de l'après-midi.",
+          "en": "It's half past two in the afternoon.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.heure-et-date.109",
+          "theme": "heure-et-date",
+          "fr": "Il y a cinq ans, je ne parlais pas français.",
+          "en": "Five years ago, I didn't speak French.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.060",
+          "theme": "temps-et-frequence",
+          "fr": "Nous nous voyons ce week-end, si tu es libre.",
+          "en": "We'll see each other this weekend, if you're free.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.089",
+          "theme": "expressions-frequentes",
+          "fr": "Il n'y a pas de problème avec cette solution.",
+          "en": "There's no problem with this solution.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.015",
+          "theme": "expressions-de-quantite",
+          "fr": "Il boit trop de café, ça l'empêche de dormir.",
+          "en": "He drinks too much coffee, it keeps him from sleeping.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.nombres.051",
+          "theme": "nombres",
+          "fr": "L'adresse exacte est le vingt-cinq de la rue.",
+          "en": "The exact address is number twenty-five on the street.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.heure-et-date.144",
+          "theme": "heure-et-date",
+          "fr": "Chaque mois, elle met un peu d'argent de côté.",
+          "en": "Every month, she puts a little money aside.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.dictee.119",
+          "theme": "dictee",
+          "fr": "Il a raté son examen, mais il va le reprendre.",
+          "en": "He failed his exam, but he's going to retake it.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.verbes.066",
+          "theme": "verbes",
+          "fr": "Tu dois montrer ta pièce d'identité à l'agent.",
+          "en": "You have to show your ID to the officer.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.heure-et-date.132",
+          "theme": "heure-et-date",
+          "fr": "Il faut se dépêcher pour ne pas rater le train.",
+          "en": "We need to hurry so we don't miss the train.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.expressions-frequentes.079",
+          "theme": "expressions-frequentes",
+          "fr": "Il a oublié son parapluie, mais ça ne fait rien.",
+          "en": "He forgot his umbrella, but it doesn't matter.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.008",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous n'avons pas assez de place dans la voiture.",
+          "en": "We don't have enough room in the car.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 18,
+      "items": [
+        {
+          "id": "fr.a2.verbes.070",
+          "theme": "verbes",
+          "fr": "Vous inscrivez vos enfants à l'école ce mois-ci.",
+          "en": "You are enrolling your children in school this month.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.057",
+          "theme": "temps-et-frequence",
+          "fr": "Le rendez-vous a été annulé à la dernière minute.",
+          "en": "The appointment was cancelled at the last minute.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.083",
+          "theme": "temps-et-frequence",
+          "fr": "Elle range sa chambre une fois par mois, au mieux.",
+          "en": "She tidies her room once a month, at best.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.routines.062",
+          "theme": "routines",
+          "fr": "Elle va appeler sa mère après avoir fini de manger.",
+          "en": "She is going to call her mother after finishing eating.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.routines.065",
+          "theme": "routines",
+          "fr": "Demain, je vais me coucher plus tôt que d'habitude.",
+          "en": "Tomorrow, I am going to go to bed earlier than usual.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.dictee.090",
+          "theme": "dictee",
+          "fr": "J'ai oublié mon cahier de mathématiques à la maison.",
+          "en": "I forgot my math notebook at home.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.heure-et-date.058",
+          "theme": "heure-et-date",
+          "fr": "À quelle heure est ton rendez-vous chez le dentiste ?",
+          "en": "What time is your dentist appointment?",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.heure-et-date.123",
+          "theme": "heure-et-date",
+          "fr": "Elle est arrivée en retard à cause de la circulation.",
+          "en": "She arrived late because of traffic.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.dictee.087",
+          "theme": "dictee",
+          "fr": "Nous avons inscrit notre fille à l'école du quartier.",
+          "en": "We enrolled our daughter in the neighborhood school.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.dictee.091",
+          "theme": "dictee",
+          "fr": "Elle range ses crayons dans sa trousse avant de partir.",
+          "en": "She puts her pencils in her pencil case before leaving.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.dictee.124",
+          "theme": "dictee",
+          "fr": "Elle a demandé un tuteur pour l'aider en mathématiques.",
+          "en": "She asked for a tutor to help her with math.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.dictee.110",
+          "theme": "dictee",
+          "fr": "J'ai obtenu mon certificat de formation le mois dernier.",
+          "en": "I got my training certificate last month.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.dictee.120",
+          "theme": "dictee",
+          "fr": "La classe de francisation a lieu deux soirs par semaine.",
+          "en": "The francization class takes place two evenings a week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.dictee.093",
+          "theme": "dictee",
+          "fr": "Nous devons acheter un nouveau sac à dos avant septembre.",
+          "en": "We need to buy a new backpack before September.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.routines.050",
+          "theme": "routines",
+          "fr": "Elle s'est habillée rapidement avant de partir au travail.",
+          "en": "She got dressed quickly before leaving for work.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.dictee.122",
+          "theme": "dictee",
+          "fr": "Nous avons signé le carnet de communication de notre fils.",
+          "en": "We signed our son's communication booklet.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.routines.054",
+          "theme": "routines",
+          "fr": "Après le travail, elle va faire les courses au supermarché.",
+          "en": "After work, she is going to do the shopping at the supermarket.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.dictee.099",
+          "theme": "dictee",
+          "fr": "Nous avons rencontré l'enseignante de notre fils hier soir.",
+          "en": "We met our son's teacher last night.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.nombres.046",
+          "theme": "nombres",
+          "fr": "Mon numéro est le zéro six, douze, treize, quatorze, quinze.",
+          "en": "My number is zero six, twelve, thirteen, fourteen, fifteen.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.routines.063",
+          "theme": "routines",
+          "fr": "Nous avons fait les courses ensemble, ensuite nous avons cuisiné.",
+          "en": "We did the shopping together, then we cooked.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.041",
+          "theme": "expressions-de-quantite",
+          "fr": "Je n'ai aucune idée de l'heure qu'il est.",
+          "en": "I have no idea what time it is.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.011",
+          "theme": "expressions-de-quantite",
+          "fr": "Il n'y a jamais assez de temps le week-end.",
+          "en": "There is never enough time on weekends.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.012",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a trop de monde dans ce magasin le samedi.",
+          "en": "There are too many people in this shop on Saturdays.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.routines.052",
+          "theme": "routines",
+          "fr": "Il a raté son bus, donc il est arrivé en retard.",
+          "en": "He missed his bus, so he arrived late.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.061",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a plein de choses à visiter dans cette ville.",
+          "en": "There are lots of things to visit in this city.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.088",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a beaucoup de monde mais pas assez de chaises.",
+          "en": "There are a lot of people but not enough chairs.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.dictee.121",
+          "theme": "dictee",
+          "fr": "J'ai révisé toute la fin de semaine avant l'examen.",
+          "en": "I studied all weekend before the exam.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.temps-et-frequence.045",
+          "theme": "temps-et-frequence",
+          "fr": "Le musée est ouvert de dix heures à dix-huit heures.",
+          "en": "The museum is open from ten to six.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.routines.058",
+          "theme": "routines",
+          "fr": "Elle a fini son travail, puis elle est rentrée à pied.",
+          "en": "She finished her work, then she went home on foot.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.053",
+          "theme": "expressions-de-quantite",
+          "fr": "Il pleut certains jours et il fait beau d'autres jours.",
+          "en": "It rains some days and is sunny other days.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.verbes-du-quotidien.074",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous devions arriver plus tôt, mais nous avons raté le bus.",
+          "en": "We were supposed to arrive earlier, but we missed the bus.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.routines.055",
+          "theme": "routines",
+          "fr": "Hier soir, nous avons dîné puis nous avons regardé un film.",
+          "en": "Last night, we had dinner then we watched a movie.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.dictee.105",
+          "theme": "dictee",
+          "fr": "Il a demandé une bourse d'études pour continuer sa formation.",
+          "en": "He applied for a scholarship to continue his training.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 19,
+      "items": [
+        {
+          "id": "fr.a2.dictee.108",
+          "theme": "dictee",
+          "fr": "Nous avons acheté des cahiers et des crayons pour la rentrée.",
+          "en": "We bought notebooks and pencils for the start of school.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.routines.051",
+          "theme": "routines",
+          "fr": "Nous avons pris le petit déjeuner ensemble, ensuite nous sommes sortis.",
+          "en": "We had breakfast together, then we went out.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.081",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y avait tellement de monde que je n'ai rien vu.",
+          "en": "There were so many people that I saw nothing.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.routines.056",
+          "theme": "routines",
+          "fr": "Il s'est couché tard parce qu'il a fini ses devoirs.",
+          "en": "He went to bed late because he finished his homework.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.routines.064",
+          "theme": "routines",
+          "fr": "Il a oublié son sac, donc il est retourné à la maison.",
+          "en": "He forgot his bag, so he went back home.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.routines.061",
+          "theme": "routines",
+          "fr": "Je me suis dépêché ce matin parce que j'étais en retard.",
+          "en": "I hurried this morning because I was late.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.routines.057",
+          "theme": "routines",
+          "fr": "Ce week-end, je vais nettoyer la maison et ranger le garage.",
+          "en": "This weekend, I am going to clean the house and tidy the garage.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.expressions-de-quantite.089",
+          "theme": "expressions-de-quantite",
+          "fr": "Tu as assez d'argent ou tu as besoin d'un peu plus ?",
+          "en": "Do you have enough money or do you need a bit more?",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.routines.049",
+          "theme": "routines",
+          "fr": "Ce matin, je me suis réveillé tôt, puis j'ai pris une douche.",
+          "en": "This morning, I woke up early, then I took a shower.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.routines.060",
+          "theme": "routines",
+          "fr": "Après s'être levé, il a bu un café et a lu le journal.",
+          "en": "After getting up, he drank a coffee and read the newspaper.",
+          "words": 14
+        }
+      ]
+    }
+  ]
+}

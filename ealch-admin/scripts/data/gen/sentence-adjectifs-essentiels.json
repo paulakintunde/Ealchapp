@@ -1,0 +1,2942 @@
+[
+  {
+    "id": "fr.a1.adjectifs-essentiels.192",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce garçon est très grand.",
+    "en": "This boy is very tall.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce garçon\",\"t\":\"this boy\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"grand.\",\"t\":\"tall\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.193",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette fille est très grande.",
+    "en": "This girl is very tall.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette fille\",\"t\":\"this girl\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"grande.\",\"t\":\"tall\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.194",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les garçons sont grands.",
+    "en": "The boys are tall.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les garçons\",\"t\":\"the boys\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"grands.\",\"t\":\"tall\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.195",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les filles sont grandes.",
+    "en": "The girls are tall.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les filles\",\"t\":\"the girls\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"grandes.\",\"t\":\"tall\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.196",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Il a une petite voiture.",
+    "en": "He has a small car.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a\",\"t\":\"he has\"},{\"w\":\"une petite\",\"t\":\"a small\"},{\"w\":\"voiture.\",\"t\":\"car\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.197",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Elle a un petit chien.",
+    "en": "She has a small dog.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a\",\"t\":\"she has\"},{\"w\":\"un petit\",\"t\":\"a small\"},{\"w\":\"chien.\",\"t\":\"dog\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.198",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Nous avons de petits problèmes.",
+    "en": "We have small problems.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons\",\"t\":\"we have\"},{\"w\":\"de petits\",\"t\":\"small\"},{\"w\":\"problèmes.\",\"t\":\"problems\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.199",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Elle porte de petites chaussures.",
+    "en": "She wears small shoes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte\",\"t\":\"she wears\"},{\"w\":\"de petites\",\"t\":\"small\"},{\"w\":\"chaussures.\",\"t\":\"shoes\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.200",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "C'est un beau jardin.",
+    "en": "It's a beautiful garden.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est un\",\"t\":\"it's a\"},{\"w\":\"beau\",\"t\":\"beautiful\"},{\"w\":\"jardin.\",\"t\":\"garden\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.201",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "C'est une belle maison.",
+    "en": "It's a beautiful house.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est une\",\"t\":\"it's a\"},{\"w\":\"belle\",\"t\":\"beautiful\"},{\"w\":\"maison.\",\"t\":\"house\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.202",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce sont de beaux tableaux.",
+    "en": "These are beautiful paintings.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce sont\",\"t\":\"these are\"},{\"w\":\"de beaux\",\"t\":\"beautiful\"},{\"w\":\"tableaux.\",\"t\":\"paintings\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.203",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce sont de belles fleurs.",
+    "en": "These are beautiful flowers.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce sont\",\"t\":\"these are\"},{\"w\":\"de belles\",\"t\":\"beautiful\"},{\"w\":\"fleurs.\",\"t\":\"flowers\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.204",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "C'est un bel arbre.",
+    "en": "It's a beautiful tree.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est un\",\"t\":\"it's a\"},{\"w\":\"bel\",\"t\":\"beautiful\"},{\"w\":\"arbre.\",\"t\":\"tree\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.205",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "J'ai acheté une nouvelle robe.",
+    "en": "I bought a new dress.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai acheté\",\"t\":\"i bought\"},{\"w\":\"une nouvelle\",\"t\":\"a new\"},{\"w\":\"robe.\",\"t\":\"dress\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.206",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Il a un nouveau vélo.",
+    "en": "He has a new bike.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a\",\"t\":\"he has\"},{\"w\":\"un nouveau\",\"t\":\"a new\"},{\"w\":\"vélo.\",\"t\":\"bike\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.207",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Nous avons de nouveaux voisins.",
+    "en": "We have new neighbors.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons\",\"t\":\"we have\"},{\"w\":\"de nouveaux\",\"t\":\"new\"},{\"w\":\"voisins.\",\"t\":\"neighbors\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.208",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Elle a de nouvelles idées.",
+    "en": "She has new ideas.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a\",\"t\":\"she has\"},{\"w\":\"de nouvelles\",\"t\":\"new\"},{\"w\":\"idées.\",\"t\":\"ideas\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.209",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "C'est un nouvel hôtel.",
+    "en": "It's a new hotel.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est un\",\"t\":\"it's a\"},{\"w\":\"nouvel\",\"t\":\"new\"},{\"w\":\"hôtel.\",\"t\":\"hotel\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.210",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Mon grand-père est vieux.",
+    "en": "My grandfather is old.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon grand-père\",\"t\":\"my grandfather\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"vieux.\",\"t\":\"old\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.211",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ma grand-mère est vieille.",
+    "en": "My grandmother is old.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma grand-mère\",\"t\":\"my grandmother\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"vieille.\",\"t\":\"old\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.212",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce sont de vieux amis.",
+    "en": "They are old friends.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce sont\",\"t\":\"they are\"},{\"w\":\"de vieux\",\"t\":\"old\"},{\"w\":\"amis.\",\"t\":\"friends\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.213",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce sont de vieilles photos.",
+    "en": "These are old photos.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce sont\",\"t\":\"these are\"},{\"w\":\"de vieilles\",\"t\":\"old\"},{\"w\":\"photos.\",\"t\":\"photos\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.214",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "C'est un vieil immeuble.",
+    "en": "It's an old building.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est un\",\"t\":\"it's an\"},{\"w\":\"vieil\",\"t\":\"old\"},{\"w\":\"immeuble.\",\"t\":\"building\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.215",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Le repas était très bon.",
+    "en": "The meal was very good.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le repas\",\"t\":\"the meal\"},{\"w\":\"était très\",\"t\":\"was very\"},{\"w\":\"bon.\",\"t\":\"good\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.216",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La soupe est bonne.",
+    "en": "The soup is good.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La soupe\",\"t\":\"the soup\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"bonne.\",\"t\":\"good\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.217",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les résultats sont bons.",
+    "en": "The results are good.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les résultats\",\"t\":\"the results\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"bons.\",\"t\":\"good\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.218",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les nouvelles sont bonnes.",
+    "en": "The news is good.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les nouvelles\",\"t\":\"the news\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"bonnes.\",\"t\":\"good\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.219",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce film est mauvais.",
+    "en": "This movie is bad.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce film\",\"t\":\"this movie\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"mauvais.\",\"t\":\"bad\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.220",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette idée est mauvaise.",
+    "en": "This idea is bad.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette idée\",\"t\":\"this idea\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"mauvaise.\",\"t\":\"bad\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.221",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les temps sont mauvais.",
+    "en": "The times are bad.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les temps\",\"t\":\"the times\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"mauvais.\",\"t\":\"bad\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.222",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les odeurs sont mauvaises dans la cuisine.",
+    "en": "The smells are bad in the kitchen.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les odeurs\",\"t\":\"the smells\"},{\"w\":\"sont mauvaises\",\"t\":\"are bad\"},{\"w\":\"dans la cuisine.\",\"t\":\"in the kitchen\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.223",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cet exercice est difficile.",
+    "en": "This exercise is difficult.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cet exercice\",\"t\":\"this exercise\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"difficile.\",\"t\":\"difficult\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.224",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces questions sont difficiles.",
+    "en": "These questions are difficult.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces questions\",\"t\":\"these questions\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"difficiles.\",\"t\":\"difficult\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.225",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette recette est facile.",
+    "en": "This recipe is easy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette recette\",\"t\":\"this recipe\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"facile.\",\"t\":\"easy\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.226",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces exercices sont faciles.",
+    "en": "These exercises are easy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces exercices\",\"t\":\"these exercises\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"faciles.\",\"t\":\"easy\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.227",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce livre est très intéressant.",
+    "en": "This book is very interesting.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce livre\",\"t\":\"this book\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"intéressant.\",\"t\":\"interesting\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.228",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette histoire est intéressante.",
+    "en": "This story is interesting.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette histoire\",\"t\":\"this story\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"intéressante.\",\"t\":\"interesting\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.229",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces cours sont intéressants.",
+    "en": "These classes are interesting.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces cours\",\"t\":\"these classes\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"intéressants.\",\"t\":\"interesting\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.230",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces émissions sont intéressantes.",
+    "en": "These shows are interesting.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces émissions\",\"t\":\"these shows\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"intéressantes.\",\"t\":\"interesting\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.231",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Il est fatigué après le travail.",
+    "en": "He is tired after work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est fatigué\",\"t\":\"he is tired\"},{\"w\":\"après le travail.\",\"t\":\"after work\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.232",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Elle est fatiguée ce soir.",
+    "en": "She is tired tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est fatiguée\",\"t\":\"she is tired\"},{\"w\":\"ce soir.\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.233",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les enfants sont fatigués.",
+    "en": "The children are tired.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants\",\"t\":\"the children\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"fatigués.\",\"t\":\"tired\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.234",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les employées sont fatiguées.",
+    "en": "The employees are tired.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les employées\",\"t\":\"the employees\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"fatiguées.\",\"t\":\"tired\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.235",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Il est content de son travail.",
+    "en": "He is happy with his job.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est content\",\"t\":\"he is happy\"},{\"w\":\"de son travail.\",\"t\":\"with his job\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.236",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Elle est contente du résultat.",
+    "en": "She is happy with the result.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est contente\",\"t\":\"she is happy\"},{\"w\":\"du résultat.\",\"t\":\"with the result\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.237",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Nous sommes contents de te voir.",
+    "en": "We are happy to see you.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous sommes contents\",\"t\":\"we are happy\"},{\"w\":\"de te voir.\",\"t\":\"to see you\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.238",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Elles sont contentes de partir.",
+    "en": "They are happy to leave.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elles sont contentes\",\"t\":\"they are happy\"},{\"w\":\"de partir.\",\"t\":\"to leave\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.239",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce restaurant est cher.",
+    "en": "This restaurant is expensive.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce restaurant\",\"t\":\"this restaurant\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"cher.\",\"t\":\"expensive\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.240",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette robe est chère.",
+    "en": "This dress is expensive.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette robe\",\"t\":\"this dress\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"chère.\",\"t\":\"expensive\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.241",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces hôtels sont chers.",
+    "en": "These hotels are expensive.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces hôtels\",\"t\":\"these hotels\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"chers.\",\"t\":\"expensive\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.242",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces places sont chères.",
+    "en": "These seats are expensive.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces places\",\"t\":\"these seats\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"chères.\",\"t\":\"expensive\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.243",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce train est rapide.",
+    "en": "This train is fast.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce train\",\"t\":\"this train\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"rapide.\",\"t\":\"fast\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.244",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces voitures sont rapides.",
+    "en": "These cars are fast.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces voitures\",\"t\":\"these cars\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"rapides.\",\"t\":\"fast\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.245",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce serveur est lent.",
+    "en": "This waiter is slow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce serveur\",\"t\":\"this waiter\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"lent.\",\"t\":\"slow\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.246",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette connexion est lente.",
+    "en": "This connection is slow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette connexion\",\"t\":\"this connection\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"lente.\",\"t\":\"slow\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.247",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces bus sont lents le matin.",
+    "en": "These buses are slow in the morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces bus\",\"t\":\"these buses\"},{\"w\":\"sont lents\",\"t\":\"are slow\"},{\"w\":\"le matin.\",\"t\":\"in the morning\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.248",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La cuisine est propre.",
+    "en": "The kitchen is clean.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La cuisine\",\"t\":\"the kitchen\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"propre.\",\"t\":\"clean\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.249",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les serviettes sont propres.",
+    "en": "The towels are clean.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les serviettes\",\"t\":\"the towels\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"propres.\",\"t\":\"clean\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.250",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La salle de bain est sale.",
+    "en": "The bathroom is dirty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La salle de bain\",\"t\":\"the bathroom\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"sale.\",\"t\":\"dirty\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.251",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ses vêtements sont sales.",
+    "en": "His clothes are dirty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses vêtements\",\"t\":\"his clothes\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"sales.\",\"t\":\"dirty\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.252",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Le café est chaud.",
+    "en": "The coffee is hot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le café\",\"t\":\"the coffee\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"chaud.\",\"t\":\"hot\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.253",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "L'eau est chaude.",
+    "en": "The water is hot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'eau\",\"t\":\"the water\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"chaude.\",\"t\":\"hot\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.254",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les jours sont chauds en été.",
+    "en": "The days are hot in summer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les jours\",\"t\":\"the days\"},{\"w\":\"sont chauds\",\"t\":\"are hot\"},{\"w\":\"en été.\",\"t\":\"in summer\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.255",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les nuits sont chaudes ici.",
+    "en": "The nights are hot here.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les nuits\",\"t\":\"the nights\"},{\"w\":\"sont chaudes\",\"t\":\"are hot\"},{\"w\":\"ici.\",\"t\":\"here\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.256",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Il fait froid aujourd'hui.",
+    "en": "It is cold today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il fait froid\",\"t\":\"it is cold\"},{\"w\":\"aujourd'hui.\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.257",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "L'eau de la mer est froide.",
+    "en": "The sea water is cold.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'eau de la mer\",\"t\":\"the sea water\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"froide.\",\"t\":\"cold\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.258",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ses mains sont froides.",
+    "en": "His hands are cold.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses mains\",\"t\":\"his hands\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"froides.\",\"t\":\"cold\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.259",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Mon frère est jeune.",
+    "en": "My brother is young.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon frère\",\"t\":\"my brother\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"jeune.\",\"t\":\"young\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.260",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces employés sont jeunes.",
+    "en": "These employees are young.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces employés\",\"t\":\"these employees\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"jeunes.\",\"t\":\"young\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.261",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "C'est une jolie robe.",
+    "en": "It's a pretty dress.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est une jolie\",\"t\":\"it's a pretty\"},{\"w\":\"robe.\",\"t\":\"dress\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.262",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "C'est un joli quartier.",
+    "en": "It's a pretty neighborhood.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est un joli\",\"t\":\"it's a pretty\"},{\"w\":\"quartier.\",\"t\":\"neighborhood\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.263",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce sont de jolies fleurs.",
+    "en": "These are pretty flowers.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce sont\",\"t\":\"these are\"},{\"w\":\"de jolies\",\"t\":\"pretty\"},{\"w\":\"fleurs.\",\"t\":\"flowers\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.264",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Le professeur est gentil.",
+    "en": "The teacher is kind.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le professeur\",\"t\":\"the teacher\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"gentil.\",\"t\":\"kind\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.265",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La vendeuse est gentille.",
+    "en": "The saleswoman is kind.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La vendeuse\",\"t\":\"the saleswoman\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"gentille.\",\"t\":\"kind\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.266",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ses collègues sont gentils.",
+    "en": "His colleagues are kind.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses collègues\",\"t\":\"his colleagues\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"gentils.\",\"t\":\"kind\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.267",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ses voisines sont gentilles.",
+    "en": "Her neighbors are kind.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses voisines\",\"t\":\"her neighbors\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"gentilles.\",\"t\":\"kind\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.268",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Il est heureux avec elle.",
+    "en": "He is happy with her.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est heureux\",\"t\":\"he is happy\"},{\"w\":\"avec elle.\",\"t\":\"with her\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.269",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Elle est heureuse de vivre ici.",
+    "en": "She is happy to live here.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est heureuse\",\"t\":\"she is happy\"},{\"w\":\"de vivre ici.\",\"t\":\"to live here\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.270",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les enfants sont heureux ce matin.",
+    "en": "The children are happy this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants\",\"t\":\"the children\"},{\"w\":\"sont heureux\",\"t\":\"are happy\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.271",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Elles sont heureuses de leur voyage.",
+    "en": "They are happy about their trip.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elles sont heureuses\",\"t\":\"they are happy\"},{\"w\":\"de leur voyage.\",\"t\":\"about their trip\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.272",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Il est triste depuis son départ.",
+    "en": "He has been sad since his departure.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est triste\",\"t\":\"he is sad\"},{\"w\":\"depuis son départ.\",\"t\":\"since his departure\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.273",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette chanson est triste.",
+    "en": "This song is sad.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette chanson\",\"t\":\"this song\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"triste.\",\"t\":\"sad\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.274",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cet homme est fort.",
+    "en": "This man is strong.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cet homme\",\"t\":\"this man\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"fort.\",\"t\":\"strong\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.275",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette équipe est forte.",
+    "en": "This team is strong.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette équipe\",\"t\":\"this team\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"forte.\",\"t\":\"strong\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.276",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces athlètes sont forts.",
+    "en": "These athletes are strong.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces athlètes\",\"t\":\"these athletes\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"forts.\",\"t\":\"strong\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.277",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ses jambes sont faibles après l'opération.",
+    "en": "His legs are weak after the surgery.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses jambes\",\"t\":\"his legs\"},{\"w\":\"sont faibles\",\"t\":\"are weak\"},{\"w\":\"après l'opération.\",\"t\":\"after the surgery\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.278",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Le quartier est très calme.",
+    "en": "The neighborhood is very quiet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le quartier\",\"t\":\"the neighborhood\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"calme.\",\"t\":\"quiet\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.279",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les rues sont calmes le dimanche.",
+    "en": "The streets are quiet on Sundays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les rues\",\"t\":\"the streets\"},{\"w\":\"sont calmes\",\"t\":\"are quiet\"},{\"w\":\"le dimanche.\",\"t\":\"on sundays\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.280",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Son collègue est sympathique.",
+    "en": "His colleague is nice.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Son collègue\",\"t\":\"his colleague\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"sympathique.\",\"t\":\"nice\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.281",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ses amies sont sympathiques.",
+    "en": "Her friends are nice.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses amies\",\"t\":\"her friends\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"sympathiques.\",\"t\":\"nice\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.282",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Le médecin est très occupé.",
+    "en": "The doctor is very busy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le médecin\",\"t\":\"the doctor\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"occupé.\",\"t\":\"busy\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.283",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La directrice est occupée ce matin.",
+    "en": "The director is busy this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La directrice\",\"t\":\"the director\"},{\"w\":\"est occupée\",\"t\":\"is busy\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.284",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette table est libre.",
+    "en": "This table is free.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette table\",\"t\":\"this table\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"libre.\",\"t\":\"free\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.285",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces places sont libres.",
+    "en": "These seats are available.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces places\",\"t\":\"these seats\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"libres.\",\"t\":\"available\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.286",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Le vase est cassé.",
+    "en": "The vase is broken.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vase\",\"t\":\"the vase\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"cassé.\",\"t\":\"broken\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.287",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La fenêtre est cassée.",
+    "en": "The window is broken.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La fenêtre\",\"t\":\"the window\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"cassée.\",\"t\":\"broken\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.288",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces verres sont cassés.",
+    "en": "These glasses are broken.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces verres\",\"t\":\"these glasses\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"cassés.\",\"t\":\"broken\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.289",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Le verre est plein.",
+    "en": "The glass is full.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le verre\",\"t\":\"the glass\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"plein.\",\"t\":\"full\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.290",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La salle est pleine de monde.",
+    "en": "The room is full of people.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La salle\",\"t\":\"the room\"},{\"w\":\"est pleine\",\"t\":\"is full\"},{\"w\":\"de monde.\",\"t\":\"of people\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.291",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Le réfrigérateur est vide.",
+    "en": "The refrigerator is empty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le réfrigérateur\",\"t\":\"the refrigerator\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"vide.\",\"t\":\"empty\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.292",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Les rues sont vides la nuit.",
+    "en": "The streets are empty at night.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les rues\",\"t\":\"the streets\"},{\"w\":\"sont vides\",\"t\":\"are empty\"},{\"w\":\"la nuit.\",\"t\":\"at night\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.293",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette jupe est courte.",
+    "en": "This skirt is short.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette jupe\",\"t\":\"this skirt\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"courte.\",\"t\":\"short\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.294",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ses cheveux sont courts.",
+    "en": "His hair is short.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses cheveux\",\"t\":\"his hair\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"courts.\",\"t\":\"short\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.295",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce film est trop long.",
+    "en": "This movie is too long.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce film\",\"t\":\"this movie\"},{\"w\":\"est trop\",\"t\":\"is too\"},{\"w\":\"long.\",\"t\":\"long\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.296",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette route est longue.",
+    "en": "This road is long.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette route\",\"t\":\"this road\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"longue.\",\"t\":\"long\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.297",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Le ciel est clair aujourd'hui.",
+    "en": "The sky is clear today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le ciel\",\"t\":\"the sky\"},{\"w\":\"est clair\",\"t\":\"is clear\"},{\"w\":\"aujourd'hui.\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.298",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La pièce est claire le matin.",
+    "en": "The room is bright in the morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La pièce\",\"t\":\"the room\"},{\"w\":\"est claire\",\"t\":\"is bright\"},{\"w\":\"le matin.\",\"t\":\"in the morning\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.299",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Le couloir est sombre.",
+    "en": "The hallway is dark.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le couloir\",\"t\":\"the hallway\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"sombre.\",\"t\":\"dark\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.300",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ces caves sont sombres.",
+    "en": "These cellars are dark.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ces caves\",\"t\":\"these cellars\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"sombres.\",\"t\":\"dark\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.301",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette famille est riche.",
+    "en": "This family is rich.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette famille\",\"t\":\"this family\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"riche.\",\"t\":\"rich\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.302",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce quartier est pauvre.",
+    "en": "This neighborhood is poor.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce quartier\",\"t\":\"this neighborhood\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"pauvre.\",\"t\":\"poor\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.303",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La solution est simple.",
+    "en": "The solution is simple.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La solution\",\"t\":\"the solution\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"simple.\",\"t\":\"simple\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.304",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce dossier est compliqué.",
+    "en": "This file is complicated.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce dossier\",\"t\":\"this file\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"compliqué.\",\"t\":\"complicated\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.305",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette ambiance est agréable.",
+    "en": "This atmosphere is pleasant.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette ambiance\",\"t\":\"this atmosphere\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"agréable.\",\"t\":\"pleasant\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.306",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce bruit est désagréable.",
+    "en": "This noise is unpleasant.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce bruit\",\"t\":\"this noise\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"désagréable.\",\"t\":\"unpleasant\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.307",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce tissu est très doux.",
+    "en": "This fabric is very soft.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce tissu\",\"t\":\"this fabric\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"doux.\",\"t\":\"soft\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.308",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette couverture est douce.",
+    "en": "This blanket is soft.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette couverture\",\"t\":\"this blanket\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"douce.\",\"t\":\"soft\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.309",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce pain est dur.",
+    "en": "This bread is hard.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce pain\",\"t\":\"this bread\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"dur.\",\"t\":\"hard\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.310",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La chaise est dure.",
+    "en": "The chair is hard.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La chaise\",\"t\":\"the chair\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"dure.\",\"t\":\"hard\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.311",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce sac est léger.",
+    "en": "This bag is light.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce sac\",\"t\":\"this bag\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"léger.\",\"t\":\"light\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.312",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette valise est légère.",
+    "en": "This suitcase is light.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette valise\",\"t\":\"this suitcase\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"légère.\",\"t\":\"light\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.313",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce carton est lourd.",
+    "en": "This box is heavy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce carton\",\"t\":\"this box\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"lourd.\",\"t\":\"heavy\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.314",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette table est lourde.",
+    "en": "This table is heavy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette table\",\"t\":\"this table\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"lourde.\",\"t\":\"heavy\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.315",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cet appartement est moderne.",
+    "en": "This apartment is modern.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cet appartement\",\"t\":\"this apartment\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"moderne.\",\"t\":\"modern\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.316",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette église est ancienne.",
+    "en": "This church is old.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette église\",\"t\":\"this church\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"ancienne.\",\"t\":\"old\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.317",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce fauteuil est confortable.",
+    "en": "This armchair is comfortable.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce fauteuil\",\"t\":\"this armchair\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"confortable.\",\"t\":\"comfortable\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.318",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cet outil est pratique.",
+    "en": "This tool is practical.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cet outil\",\"t\":\"this tool\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"pratique.\",\"t\":\"practical\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.319",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce conseil est très utile.",
+    "en": "This advice is very useful.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce conseil\",\"t\":\"this advice\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"utile.\",\"t\":\"useful\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.320",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette route est dangereuse la nuit.",
+    "en": "This road is dangerous at night.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette route\",\"t\":\"this road\"},{\"w\":\"est dangereuse\",\"t\":\"is dangerous\"},{\"w\":\"la nuit.\",\"t\":\"at night\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.321",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce quartier est sûr le soir.",
+    "en": "This neighborhood is safe in the evening.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce quartier\",\"t\":\"this neighborhood\"},{\"w\":\"est sûr\",\"t\":\"is safe\"},{\"w\":\"le soir.\",\"t\":\"in the evening\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.322",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce moteur est bruyant.",
+    "en": "This engine is noisy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce moteur\",\"t\":\"this engine\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"bruyant.\",\"t\":\"noisy\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.323",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "La bibliothèque est silencieuse.",
+    "en": "The library is silent.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La bibliothèque\",\"t\":\"the library\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"silencieuse.\",\"t\":\"silent\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.324",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce chanteur est célèbre.",
+    "en": "This singer is famous.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce chanteur\",\"t\":\"this singer\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"célèbre.\",\"t\":\"famous\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.325",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "L'entrée est gratuite le dimanche.",
+    "en": "Entry is free on Sundays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'entrée\",\"t\":\"the entrance\"},{\"w\":\"est gratuite\",\"t\":\"is free\"},{\"w\":\"le dimanche.\",\"t\":\"on sundays\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.326",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce gâteau est délicieux.",
+    "en": "This cake is delicious.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce gâteau\",\"t\":\"this cake\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"délicieux.\",\"t\":\"delicious\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.327",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette tarte est délicieuse.",
+    "en": "This tart is delicious.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette tarte\",\"t\":\"this tart\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"délicieuse.\",\"t\":\"delicious\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.328",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce thé est trop sucré.",
+    "en": "This tea is too sweet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce thé\",\"t\":\"this tea\"},{\"w\":\"est trop\",\"t\":\"is too\"},{\"w\":\"sucré.\",\"t\":\"sweet\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.329",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette sauce est salée.",
+    "en": "This sauce is salty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette sauce\",\"t\":\"this sauce\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"salée.\",\"t\":\"salty\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.330",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Ce café est amer.",
+    "en": "This coffee is bitter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce café\",\"t\":\"this coffee\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"amer.\",\"t\":\"bitter\"}]}"
+  },
+  {
+    "id": "fr.a1.adjectifs-essentiels.331",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "adjectifs-essentiels",
+    "fr": "Cette orange est bien mûre.",
+    "en": "This orange is quite ripe.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette orange\",\"t\":\"this orange\"},{\"w\":\"est bien\",\"t\":\"is quite\"},{\"w\":\"mûre.\",\"t\":\"ripe\"}]}"
+  }
+]

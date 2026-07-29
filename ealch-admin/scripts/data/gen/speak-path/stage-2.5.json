@@ -1,0 +1,4885 @@
+{
+  "stage": "2.5",
+  "world": 2,
+  "level": "a1",
+  "title": "L'Horloge et le Ciel",
+  "themes": [
+    "heure-et-date",
+    "jours-et-mois",
+    "meteo",
+    "la-ville",
+    "transports-quotidiens",
+    "deplacements",
+    "tourisme",
+    "pays-et-nationalites",
+    "douane-et-immigration",
+    "quebec-et-francophonie",
+    "rp-voyage",
+    "rp-meteo-nature",
+    "animaux",
+    "animaux-domestiques",
+    "jardinage",
+    "maison",
+    "rp-maison",
+    "rp-quotidien",
+    "paysages"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 684,
+  "dedupedPool": 678,
+  "selected": 678,
+  "blockCount": 21,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.a1.pays-et-nationalites.200",
+          "theme": "pays-et-nationalites",
+          "fr": "Il est marocain.",
+          "en": "He is Moroccan.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.198",
+          "theme": "pays-et-nationalites",
+          "fr": "Je suis canadien.",
+          "en": "I am Canadian.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.199",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle est française.",
+          "en": "She is French.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.203",
+          "theme": "pays-et-nationalites",
+          "fr": "Ils sont sénégalais.",
+          "en": "They are Senegalese.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.201",
+          "theme": "pays-et-nationalites",
+          "fr": "Nous sommes québécois.",
+          "en": "We are Quebecers.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.heure-et-date.004",
+          "theme": "heure-et-date",
+          "fr": "Tu as l'heure ?",
+          "en": "Do you have the time?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.228",
+          "theme": "pays-et-nationalites",
+          "fr": "Je viens d'Inde.",
+          "en": "I come from India.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.065",
+          "theme": "rp-meteo-nature",
+          "fr": "Le ciel est gris.",
+          "en": "The sky is gray.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.206",
+          "theme": "pays-et-nationalites",
+          "fr": "Il vient du Mali.",
+          "en": "He comes from Mali.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.heure-et-date.011",
+          "theme": "heure-et-date",
+          "fr": "Il est six heures.",
+          "en": "It's six o'clock.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.heure-et-date.014",
+          "theme": "heure-et-date",
+          "fr": "Il est dix heures.",
+          "en": "It's ten o'clock.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.maison.145",
+          "theme": "maison",
+          "fr": "Le frigo est vide.",
+          "en": "The fridge is empty.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.211",
+          "theme": "pays-et-nationalites",
+          "fr": "Il vient du Congo.",
+          "en": "He comes from Congo.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.218",
+          "theme": "pays-et-nationalites",
+          "fr": "Il vient du Japon.",
+          "en": "He comes from Japan.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.227",
+          "theme": "pays-et-nationalites",
+          "fr": "Il vient de Chine.",
+          "en": "He comes from China.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.231",
+          "theme": "pays-et-nationalites",
+          "fr": "Je viens d'Égypte.",
+          "en": "I come from Egypt.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.234",
+          "theme": "pays-et-nationalites",
+          "fr": "Je viens de Haïti.",
+          "en": "I come from Haiti.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.heure-et-date.010",
+          "theme": "heure-et-date",
+          "fr": "Il est cinq heures.",
+          "en": "It's five o'clock.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.heure-et-date.012",
+          "theme": "heure-et-date",
+          "fr": "Il est sept heures.",
+          "en": "It's seven o'clock.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.heure-et-date.013",
+          "theme": "heure-et-date",
+          "fr": "Il est neuf heures.",
+          "en": "It's nine o'clock.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.heure-et-date.015",
+          "theme": "heure-et-date",
+          "fr": "Il est onze heures.",
+          "en": "It's eleven o'clock.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.117",
+          "theme": "douane-et-immigration",
+          "fr": "Vous avez un visa ?",
+          "en": "Do you have a visa?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.219",
+          "theme": "pays-et-nationalites",
+          "fr": "Je viens du Brésil.",
+          "en": "I come from Brazil.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.222",
+          "theme": "pays-et-nationalites",
+          "fr": "Je viens d'Algérie.",
+          "en": "I come from Algeria.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.225",
+          "theme": "pays-et-nationalites",
+          "fr": "Je viens d'Espagne.",
+          "en": "I come from Spain.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.heure-et-date.008",
+          "theme": "heure-et-date",
+          "fr": "Il est trois heures.",
+          "en": "It's three o'clock.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.heure-et-date.047",
+          "theme": "heure-et-date",
+          "fr": "Demain, c'est férié.",
+          "en": "Tomorrow is a public holiday.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.204",
+          "theme": "pays-et-nationalites",
+          "fr": "Je viens du Sénégal.",
+          "en": "I come from Senegal.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.210",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle vient du Ghana.",
+          "en": "She comes from Ghana.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.213",
+          "theme": "pays-et-nationalites",
+          "fr": "Je viens du Nigeria.",
+          "en": "I come from Nigeria.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.214",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle vient du Maroc.",
+          "en": "She comes from Morocco.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.216",
+          "theme": "pays-et-nationalites",
+          "fr": "Je viens du Mexique.",
+          "en": "I come from Mexico.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.217",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle vient du Kenya.",
+          "en": "She comes from Kenya.",
+          "words": 4
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.a1.pays-et-nationalites.226",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle vient d'Italie.",
+          "en": "She comes from Italy.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.heure-et-date.009",
+          "theme": "heure-et-date",
+          "fr": "Il est quatre heures.",
+          "en": "It's four o'clock.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.062",
+          "theme": "rp-meteo-nature",
+          "fr": "Il pleut aujourd'hui.",
+          "en": "It's raining today.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.064",
+          "theme": "rp-meteo-nature",
+          "fr": "Le vent souffle fort.",
+          "en": "The wind is blowing hard.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.207",
+          "theme": "pays-et-nationalites",
+          "fr": "Nous venons du Bénin.",
+          "en": "We come from Benin.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.208",
+          "theme": "pays-et-nationalites",
+          "fr": "Ils viennent du Togo.",
+          "en": "They come from Togo.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.209",
+          "theme": "pays-et-nationalites",
+          "fr": "Je viens du Cameroun.",
+          "en": "I come from Cameroon.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.215",
+          "theme": "pays-et-nationalites",
+          "fr": "Il vient du Portugal.",
+          "en": "He comes from Portugal.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.220",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle vient de Guinée.",
+          "en": "She comes from Guinea.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.224",
+          "theme": "pays-et-nationalites",
+          "fr": "Il vient d'Allemagne.",
+          "en": "He comes from Germany.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.229",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle vient de Russie.",
+          "en": "She comes from Russia.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.230",
+          "theme": "pays-et-nationalites",
+          "fr": "Il vient d'Australie.",
+          "en": "He comes from Australia.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.246",
+          "theme": "pays-et-nationalites",
+          "fr": "Mon père est haïtien.",
+          "en": "My father is Haitian.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.079",
+          "theme": "rp-meteo-nature",
+          "fr": "La rivière coule vite.",
+          "en": "The river flows fast.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.205",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle vient de Tunisie.",
+          "en": "She comes from Tunisia.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.212",
+          "theme": "pays-et-nationalites",
+          "fr": "Nous venons du Rwanda.",
+          "en": "We come from Rwanda.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.077",
+          "theme": "rp-meteo-nature",
+          "fr": "Le ciel devient sombre.",
+          "en": "The sky is getting dark.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-voyage.074",
+          "theme": "rp-voyage",
+          "fr": "Le taxi coûte combien ?",
+          "en": "How much does the taxi cost?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.247",
+          "theme": "pays-et-nationalites",
+          "fr": "Ma sœur est américaine.",
+          "en": "My sister is American.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.248",
+          "theme": "pays-et-nationalites",
+          "fr": "Mon frère est rwandais.",
+          "en": "My brother is Rwandan.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.083",
+          "theme": "quebec-et-francophonie",
+          "fr": "Bonjour, comment ça va ?",
+          "en": "Hello, how are you?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.223",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle vient d'Angleterre.",
+          "en": "She comes from England.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.245",
+          "theme": "pays-et-nationalites",
+          "fr": "Ma mère est sénégalaise.",
+          "en": "My mother is Senegalese.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.007",
+          "theme": "rp-meteo-nature",
+          "fr": "Parfait pour se promener !",
+          "en": "Perfect for a walk!",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.098",
+          "theme": "quebec-et-francophonie",
+          "fr": "Ma famille est francophone.",
+          "en": "My family is French-speaking.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.136",
+          "theme": "douane-et-immigration",
+          "fr": "Nous cherchons nos bagages.",
+          "en": "We are looking for our luggage.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.heure-et-date.036",
+          "theme": "heure-et-date",
+          "fr": "Il est midi et demi.",
+          "en": "It's half past noon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.heure-et-date.041",
+          "theme": "heure-et-date",
+          "fr": "C'est le trois mars.",
+          "en": "It's March third.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-maison.006",
+          "theme": "rp-maison",
+          "fr": "Il y a trois pièces.",
+          "en": "There are three rooms.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.heure-et-date.024",
+          "theme": "heure-et-date",
+          "fr": "Il est midi et quart.",
+          "en": "It's a quarter past noon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.heure-et-date.037",
+          "theme": "heure-et-date",
+          "fr": "Il est minuit et demi.",
+          "en": "It's half past midnight.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-quotidien.007",
+          "theme": "rp-quotidien",
+          "fr": "Je pars à huit heures.",
+          "en": "I leave at eight.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.197",
+          "theme": "meteo",
+          "fr": "Il fait beau ce matin.",
+          "en": "It's nice weather this morning.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.a1.meteo.211",
+          "theme": "meteo",
+          "fr": "Ce soir, il va neiger.",
+          "en": "Tonight it's going to snow.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-voyage.071",
+          "theme": "rp-voyage",
+          "fr": "Le vol décolle à midi.",
+          "en": "The flight takes off at noon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.heure-et-date.025",
+          "theme": "heure-et-date",
+          "fr": "Il est minuit et quart.",
+          "en": "It's a quarter past midnight.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.066",
+          "theme": "rp-meteo-nature",
+          "fr": "Il fait froid ce matin.",
+          "en": "It's cold this morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.229",
+          "theme": "meteo",
+          "fr": "La nuit, il fait froid.",
+          "en": "At night, it's cold.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.animaux.224",
+          "theme": "animaux",
+          "fr": "L'oiseau mange le soir.",
+          "en": "The bird eats in the evening.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-voyage.083",
+          "theme": "rp-voyage",
+          "fr": "La sortie est à droite.",
+          "en": "The exit is on the right.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.heure-et-date.056",
+          "theme": "heure-et-date",
+          "fr": "On part dans deux jours.",
+          "en": "We're leaving in two days.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.071",
+          "theme": "rp-meteo-nature",
+          "fr": "La forêt est très calme.",
+          "en": "The forest is very quiet.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.085",
+          "theme": "rp-meteo-nature",
+          "fr": "La nature est belle ici.",
+          "en": "Nature is beautiful here.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.204",
+          "theme": "meteo",
+          "fr": "Mon frère aime la pluie.",
+          "en": "My brother likes rain.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.216",
+          "theme": "meteo",
+          "fr": "Le vent souffle du nord.",
+          "en": "The wind blows from the north.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.227",
+          "theme": "meteo",
+          "fr": "Le matin, il fait frais.",
+          "en": "In the morning, it's cool.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.animaux.210",
+          "theme": "animaux",
+          "fr": "Le chat grimpe le matin.",
+          "en": "The cat climbs in the morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.233",
+          "theme": "pays-et-nationalites",
+          "fr": "Il vient des États-Unis.",
+          "en": "He comes from the United States.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.maison.146",
+          "theme": "maison",
+          "fr": "Mon père répare la porte.",
+          "en": "My father is fixing the door.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.067",
+          "theme": "rp-meteo-nature",
+          "fr": "Il va faire chaud demain.",
+          "en": "It's going to be hot tomorrow.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.205",
+          "theme": "meteo",
+          "fr": "Ma sœur déteste le froid.",
+          "en": "My sister hates the cold.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.animaux.218",
+          "theme": "animaux",
+          "fr": "Le chien marche le matin.",
+          "en": "The dog walks in the morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.animaux.228",
+          "theme": "animaux",
+          "fr": "Le poisson dort le matin.",
+          "en": "The fish sleeps in the morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-voyage.075",
+          "theme": "rp-voyage",
+          "fr": "J'ai perdu mon passeport.",
+          "en": "I lost my passport.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.006",
+          "theme": "rp-meteo-nature",
+          "fr": "Il fait vingt-cinq degrés.",
+          "en": "It's twenty-five degrees.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.210",
+          "theme": "meteo",
+          "fr": "Demain, il va faire froid.",
+          "en": "Tomorrow it's going to be cold.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.animaux.249",
+          "theme": "animaux",
+          "fr": "Le cheval marche le matin.",
+          "en": "The horse walks in the morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.animaux.255",
+          "theme": "animaux",
+          "fr": "La vache regarde le matin.",
+          "en": "The cow watches in the morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-voyage.065",
+          "theme": "rp-voyage",
+          "fr": "Ma valise est très lourde.",
+          "en": "My suitcase is very heavy.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.deplacements.219",
+          "theme": "deplacements",
+          "fr": "Elle marche jusqu'au parc.",
+          "en": "She walks to the park.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.heure-et-date.040",
+          "theme": "heure-et-date",
+          "fr": "Nous sommes le premier mai.",
+          "en": "It's the first of May.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.maison.140",
+          "theme": "maison",
+          "fr": "Ma chambre est très petite.",
+          "en": "My room is very small.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.146",
+          "theme": "transports-quotidiens",
+          "fr": "Le ticket coûte deux euros.",
+          "en": "The ticket costs two euros.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.063",
+          "theme": "rp-meteo-nature",
+          "fr": "Il neige beaucoup en hiver.",
+          "en": "It snows a lot in winter.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.207",
+          "theme": "meteo",
+          "fr": "Vous sortez malgré le vent.",
+          "en": "You go out despite the wind.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.250",
+          "theme": "meteo",
+          "fr": "Il gèle souvent en janvier.",
+          "en": "It often freezes in January.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.a1.douane-et-immigration.164",
+          "theme": "douane-et-immigration",
+          "fr": "Elle voyage avec un enfant.",
+          "en": "She is traveling with a child.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.202",
+          "theme": "pays-et-nationalites",
+          "fr": "Vous êtes belge ou suisse ?",
+          "en": "Are you Belgian or Swiss?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.heure-et-date.046",
+          "theme": "heure-et-date",
+          "fr": "On se retrouve demain matin.",
+          "en": "We'll meet up tomorrow morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.086",
+          "theme": "quebec-et-francophonie",
+          "fr": "On parle français au Québec.",
+          "en": "French is spoken in Quebec.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.199",
+          "theme": "meteo",
+          "fr": "Il fait un temps magnifique.",
+          "en": "The weather is magnificent.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.124",
+          "theme": "douane-et-immigration",
+          "fr": "Nous attendons dans la file.",
+          "en": "We wait in the line.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.138",
+          "theme": "douane-et-immigration",
+          "fr": "Tu signes le formulaire ici.",
+          "en": "You sign the form here.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.140",
+          "theme": "douane-et-immigration",
+          "fr": "Elle a une assurance voyage.",
+          "en": "She has travel insurance.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.144",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier ouvre ma valise.",
+          "en": "The customs officer opens my suitcase.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-voyage.072",
+          "theme": "rp-voyage",
+          "fr": "Nous prenons l'avion demain.",
+          "en": "We are taking the plane tomorrow.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-maison.005",
+          "theme": "rp-maison",
+          "fr": "J'habite dans un appartement.",
+          "en": "I live in an apartment.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.maison.151",
+          "theme": "maison",
+          "fr": "Nous déménageons ce week-end.",
+          "en": "We are moving this weekend.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.125",
+          "theme": "transports-quotidiens",
+          "fr": "Nous montons dans le tramway.",
+          "en": "We get on the tram.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.133",
+          "theme": "transports-quotidiens",
+          "fr": "Le trajet dure vingt minutes.",
+          "en": "The trip lasts twenty minutes.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.083",
+          "theme": "rp-meteo-nature",
+          "fr": "Les nuages cachent le soleil.",
+          "en": "The clouds are hiding the sun.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.230",
+          "theme": "meteo",
+          "fr": "Le fermier surveille le ciel.",
+          "en": "The farmer watches the sky.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-voyage.070",
+          "theme": "rp-voyage",
+          "fr": "Je vais réserver une chambre.",
+          "en": "I am going to book a room.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.068",
+          "theme": "rp-meteo-nature",
+          "fr": "Le printemps commence en mars.",
+          "en": "Spring begins in March.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.219",
+          "theme": "meteo",
+          "fr": "La neige couvre les montagnes.",
+          "en": "Snow covers the mountains.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.221",
+          "theme": "meteo",
+          "fr": "La température baisse ce soir.",
+          "en": "The temperature drops tonight.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.animaux.250",
+          "theme": "animaux",
+          "fr": "Les chevaux regardent le soir.",
+          "en": "The horses watch in the evening.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.133",
+          "theme": "douane-et-immigration",
+          "fr": "Vous restez combien de jours ?",
+          "en": "How many days are you staying?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-voyage.084",
+          "theme": "rp-voyage",
+          "fr": "Je voudrais louer une voiture.",
+          "en": "I would like to rent a car.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.251",
+          "theme": "pays-et-nationalites",
+          "fr": "Il adore la cuisine japonaise.",
+          "en": "He loves Japanese cuisine.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.126",
+          "theme": "transports-quotidiens",
+          "fr": "Le conducteur ferme les portes.",
+          "en": "The driver closes the doors.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.animaux.223",
+          "theme": "animaux",
+          "fr": "Les oiseaux cherchent le matin.",
+          "en": "The birds search in the morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.139",
+          "theme": "douane-et-immigration",
+          "fr": "L'agent tamponne mon passeport.",
+          "en": "The agent stamps my passport.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.241",
+          "theme": "pays-et-nationalites",
+          "fr": "Il parle portugais et espagnol.",
+          "en": "He speaks Portuguese and Spanish.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.250",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle aime la cuisine italienne.",
+          "en": "She likes Italian cuisine.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.160",
+          "theme": "transports-quotidiens",
+          "fr": "Nous cherchons une place assise.",
+          "en": "We are looking for a seat.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.080",
+          "theme": "rp-meteo-nature",
+          "fr": "Les feuilles tombent en automne.",
+          "en": "The leaves fall in autumn.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.128",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier regarde mes bagages.",
+          "en": "The customs officer looks at my luggage.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.157",
+          "theme": "douane-et-immigration",
+          "fr": "Vous devez déclarer cet article.",
+          "en": "You must declare this item.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.a1.rp-voyage.080",
+          "theme": "rp-voyage",
+          "fr": "Je dois enregistrer mes bagages.",
+          "en": "I have to check in my luggage.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.073",
+          "theme": "rp-meteo-nature",
+          "fr": "Les fleurs poussent au printemps.",
+          "en": "Flowers grow in spring.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.225",
+          "theme": "meteo",
+          "fr": "En automne, les feuilles tombent.",
+          "en": "In autumn, the leaves fall.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.125",
+          "theme": "douane-et-immigration",
+          "fr": "Vous allez remplir ce formulaire.",
+          "en": "You are going to fill out this form.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.252",
+          "theme": "pays-et-nationalites",
+          "fr": "Nous aimons la cuisine mexicaine.",
+          "en": "We like Mexican cuisine.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.157",
+          "theme": "transports-quotidiens",
+          "fr": "Le contrôleur vérifie les billets.",
+          "en": "The ticket inspector checks the tickets.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.223",
+          "theme": "meteo",
+          "fr": "Au printemps, les fleurs poussent.",
+          "en": "In spring, the flowers grow.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.249",
+          "theme": "meteo",
+          "fr": "Le thermomètre indique zéro degré.",
+          "en": "The thermometer shows zero degrees.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.116",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier vérifie mon passeport.",
+          "en": "The customs officer checks my passport.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.148",
+          "theme": "douane-et-immigration",
+          "fr": "Nous passons la douane rapidement.",
+          "en": "We go through customs quickly.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.103",
+          "theme": "quebec-et-francophonie",
+          "fr": "La francophonie unit plusieurs pays.",
+          "en": "The Francophonie unites several countries.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.la-ville.198",
+          "theme": "la-ville",
+          "fr": "Nous cherchons une pharmacie ouverte.",
+          "en": "We are looking for an open pharmacy.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.164",
+          "theme": "transports-quotidiens",
+          "fr": "Mon abonnement mensuel expire demain.",
+          "en": "My monthly pass expires tomorrow.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.088",
+          "theme": "rp-meteo-nature",
+          "fr": "Nous protégeons les animaux sauvages.",
+          "en": "We protect wild animals.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.meteo.254",
+          "theme": "meteo",
+          "fr": "Les jardiniers plantent au printemps.",
+          "en": "Gardeners plant in spring.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.deplacements.250",
+          "theme": "deplacements",
+          "fr": "Le chauffeur conduit très prudemment.",
+          "en": "The driver drives very carefully.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.heure-et-date.052",
+          "theme": "heure-et-date",
+          "fr": "Qu'as-tu fait ce matin ?",
+          "en": "What did you do this morning?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.127",
+          "theme": "douane-et-immigration",
+          "fr": "Je n'ai rien à déclarer.",
+          "en": "I have nothing to declare.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.243",
+          "theme": "pays-et-nationalites",
+          "fr": "Je parle un peu d'arabe.",
+          "en": "I speak a little Arabic.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-quotidien.005",
+          "theme": "rp-quotidien",
+          "fr": "Je me lève à sept heures.",
+          "en": "I get up at seven.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.082",
+          "theme": "rp-meteo-nature",
+          "fr": "Le lac est gelé en hiver.",
+          "en": "The lake is frozen in winter.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.244",
+          "theme": "deplacements",
+          "fr": "L'hôpital est loin d'ici.",
+          "en": "The hospital is far from here.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.016",
+          "theme": "heure-et-date",
+          "fr": "Il est une heure et quart.",
+          "en": "It's a quarter past one.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.026",
+          "theme": "heure-et-date",
+          "fr": "Il est une heure et demie.",
+          "en": "It's half past one.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.257",
+          "theme": "meteo",
+          "fr": "Il fait nuit tôt en hiver.",
+          "en": "It gets dark early in winter.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.206",
+          "theme": "animaux",
+          "fr": "Le chat joue dans sa cage.",
+          "en": "The cat plays in its cage.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.251",
+          "theme": "animaux",
+          "fr": "La vache mange à la ferme.",
+          "en": "The cow eats on the farm.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.252",
+          "theme": "animaux",
+          "fr": "La vache boit dans le pré.",
+          "en": "The cow drinks in the meadow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.068",
+          "theme": "rp-voyage",
+          "fr": "Je cherche l'arrêt de bus.",
+          "en": "I am looking for the bus stop.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.221",
+          "theme": "pays-et-nationalites",
+          "fr": "Il vient de Côte d'Ivoire.",
+          "en": "He comes from Ivory Coast.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.020",
+          "theme": "heure-et-date",
+          "fr": "Il est six heures et quart.",
+          "en": "It's a quarter past six.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.023",
+          "theme": "heure-et-date",
+          "fr": "Il est dix heures et quart.",
+          "en": "It's a quarter past ten.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.030",
+          "theme": "heure-et-date",
+          "fr": "Il est six heures et demie.",
+          "en": "It's half past six.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.a1.heure-et-date.034",
+          "theme": "heure-et-date",
+          "fr": "Il est dix heures et demie.",
+          "en": "It's half past ten.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-maison.007",
+          "theme": "rp-maison",
+          "fr": "C'est près du centre-ville.",
+          "en": "It's close to downtown.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.204",
+          "theme": "animaux",
+          "fr": "Le chat boit sur le canapé.",
+          "en": "The cat drinks on the sofa.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.219",
+          "theme": "animaux",
+          "fr": "L'oiseau vole dans le ciel.",
+          "en": "The bird flies in the sky.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.225",
+          "theme": "animaux",
+          "fr": "Le poisson nage dans l'eau.",
+          "en": "The fish swims in the water.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.245",
+          "theme": "animaux",
+          "fr": "Le cheval court à la ferme.",
+          "en": "The horse runs on the farm.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.126",
+          "theme": "douane-et-immigration",
+          "fr": "Elle a un billet de retour.",
+          "en": "She has a return ticket.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.145",
+          "theme": "douane-et-immigration",
+          "fr": "Tu as de l'argent liquide ?",
+          "en": "Do you have cash?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.maison.103",
+          "theme": "maison",
+          "fr": "Ma maison a un grand jardin.",
+          "en": "My house has a big garden.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.jardinage.044",
+          "theme": "jardinage",
+          "fr": "Le chat dort sous le rosier.",
+          "en": "The cat is sleeping under the rose bush.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.017",
+          "theme": "heure-et-date",
+          "fr": "Il est deux heures et quart.",
+          "en": "It's a quarter past two.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.019",
+          "theme": "heure-et-date",
+          "fr": "Il est cinq heures et quart.",
+          "en": "It's a quarter past five.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.021",
+          "theme": "heure-et-date",
+          "fr": "Il est sept heures et quart.",
+          "en": "It's a quarter past seven.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.022",
+          "theme": "heure-et-date",
+          "fr": "Il est neuf heures et quart.",
+          "en": "It's a quarter past nine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.027",
+          "theme": "heure-et-date",
+          "fr": "Il est deux heures et demie.",
+          "en": "It's half past two.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.031",
+          "theme": "heure-et-date",
+          "fr": "Il est sept heures et demie.",
+          "en": "It's half past seven.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.032",
+          "theme": "heure-et-date",
+          "fr": "Il est huit heures et demie.",
+          "en": "It's half past eight.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.033",
+          "theme": "heure-et-date",
+          "fr": "Il est neuf heures et demie.",
+          "en": "It's half past nine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.035",
+          "theme": "heure-et-date",
+          "fr": "Il est onze heures et demie.",
+          "en": "It's half past eleven.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.038",
+          "theme": "heure-et-date",
+          "fr": "Le musée ouvre à dix heures.",
+          "en": "The museum opens at ten.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.049",
+          "theme": "heure-et-date",
+          "fr": "Hier, tout s'est bien passé.",
+          "en": "Yesterday, everything went well.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.151",
+          "theme": "transports-quotidiens",
+          "fr": "Je regarde le plan du métro.",
+          "en": "I look at the metro map.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.089",
+          "theme": "quebec-et-francophonie",
+          "fr": "J'aime manger de la poutine.",
+          "en": "I like to eat poutine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.116",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le bus arrive à huit heures.",
+          "en": "The bus arrives at eight o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.069",
+          "theme": "rp-meteo-nature",
+          "fr": "J'aime marcher dans le parc.",
+          "en": "I like walking in the park.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.218",
+          "theme": "meteo",
+          "fr": "La pluie tombe sur la ville.",
+          "en": "Rain falls on the city.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.228",
+          "theme": "meteo",
+          "fr": "L'après-midi, il fait chaud.",
+          "en": "In the afternoon, it's hot.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.240",
+          "theme": "meteo",
+          "fr": "Le ciel se couvre de nuages.",
+          "en": "The sky becomes covered with clouds.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.212",
+          "theme": "animaux",
+          "fr": "Le chien boit sur le canapé.",
+          "en": "The dog drinks on the sofa.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.230",
+          "theme": "animaux",
+          "fr": "Le lapin dort sur le canapé.",
+          "en": "The rabbit sleeps on the sofa.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.246",
+          "theme": "animaux",
+          "fr": "Le cheval mange dans le pré.",
+          "en": "The horse eats in the meadow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.159",
+          "theme": "douane-et-immigration",
+          "fr": "Il montre son numéro de vol.",
+          "en": "He shows his flight number.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.087",
+          "theme": "rp-voyage",
+          "fr": "Mon billet est dans mon sac.",
+          "en": "My ticket is in my bag.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.a1.pays-et-nationalites.232",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle vient d'Afrique du Sud.",
+          "en": "She comes from South Africa.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.028",
+          "theme": "heure-et-date",
+          "fr": "Il est trois heures et demie.",
+          "en": "It's half past three.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.007",
+          "theme": "rp-voyage",
+          "fr": "À environ dix minutes à pied.",
+          "en": "About ten minutes on foot.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.la-ville.206",
+          "theme": "la-ville",
+          "fr": "La poste ouvre à neuf heures.",
+          "en": "The post office opens at nine o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.167",
+          "theme": "transports-quotidiens",
+          "fr": "Le métro roule sous la ville.",
+          "en": "The metro runs under the city.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.086",
+          "theme": "rp-meteo-nature",
+          "fr": "Un écureuil grimpe à l'arbre.",
+          "en": "A squirrel is climbing the tree.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.087",
+          "theme": "rp-meteo-nature",
+          "fr": "Le vent va se calmer bientôt.",
+          "en": "The wind will calm down soon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.198",
+          "theme": "meteo",
+          "fr": "Le ciel est bleu aujourd'hui.",
+          "en": "The sky is blue today.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.224",
+          "theme": "meteo",
+          "fr": "En été, les jours sont longs.",
+          "en": "In summer, the days are long.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.203",
+          "theme": "animaux",
+          "fr": "Le chat mange dans le jardin.",
+          "en": "The cat eats in the garden.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.158",
+          "theme": "douane-et-immigration",
+          "fr": "Elle a une carte de touriste.",
+          "en": "She has a tourist card.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.085",
+          "theme": "rp-voyage",
+          "fr": "Le camping est ouvert en été.",
+          "en": "The campsite is open in summer.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.258",
+          "theme": "deplacements",
+          "fr": "J'habite loin de mon travail.",
+          "en": "I live far from my work.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.047",
+          "theme": "animaux-domestiques",
+          "fr": "Mon chat miaule fort le matin.",
+          "en": "My cat meows loudly in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.060",
+          "theme": "animaux-domestiques",
+          "fr": "Notre chien a peur des orages.",
+          "en": "Our dog is afraid of thunderstorms.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.018",
+          "theme": "heure-et-date",
+          "fr": "Il est quatre heures et quart.",
+          "en": "It's a quarter past four.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.029",
+          "theme": "heure-et-date",
+          "fr": "Il est quatre heures et demie.",
+          "en": "It's half past four.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.039",
+          "theme": "heure-et-date",
+          "fr": "C'est le combien aujourd'hui ?",
+          "en": "What's the date today?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.maison.142",
+          "theme": "maison",
+          "fr": "Je range ma chambre le samedi.",
+          "en": "I tidy my room on Saturdays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.123",
+          "theme": "transports-quotidiens",
+          "fr": "Le bus numéro douze passe ici.",
+          "en": "Bus number twelve goes by here.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.132",
+          "theme": "transports-quotidiens",
+          "fr": "Je change de ligne à Châtelet.",
+          "en": "I change lines at Châtelet.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.165",
+          "theme": "transports-quotidiens",
+          "fr": "Le vélo est attaché au poteau.",
+          "en": "The bike is locked to the pole.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.117",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il fait très froid en janvier.",
+          "en": "It is very cold in January.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.076",
+          "theme": "rp-meteo-nature",
+          "fr": "Nous allons à la plage samedi.",
+          "en": "We are going to the beach on Saturday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.084",
+          "theme": "rp-meteo-nature",
+          "fr": "Il va pleuvoir cet après-midi.",
+          "en": "It's going to rain this afternoon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.217",
+          "theme": "meteo",
+          "fr": "Le soleil brille dans le ciel.",
+          "en": "The sun shines in the sky.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.213",
+          "theme": "animaux",
+          "fr": "Le chien dort dans son panier.",
+          "en": "The dog sleeps in its basket.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.221",
+          "theme": "animaux",
+          "fr": "L'oiseau regarde sous l'arbre.",
+          "en": "The bird watches under the tree.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.236",
+          "theme": "animaux",
+          "fr": "Le hamster dort sur le canapé.",
+          "en": "The hamster sleeps on the sofa.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.131",
+          "theme": "douane-et-immigration",
+          "fr": "J'entre au Canada aujourd'hui.",
+          "en": "I am entering Canada today.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.156",
+          "theme": "douane-et-immigration",
+          "fr": "Je réserve mon vol pour lundi.",
+          "en": "I book my flight for Monday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.063",
+          "theme": "rp-voyage",
+          "fr": "Le train part à quelle heure ?",
+          "en": "What time does the train leave?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.220",
+          "theme": "deplacements",
+          "fr": "Nous prenons le tram le matin.",
+          "en": "We take the tram in the morning.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.a1.deplacements.238",
+          "theme": "deplacements",
+          "fr": "Le prochain train part à midi.",
+          "en": "The next train leaves at noon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.tourisme.069",
+          "theme": "tourisme",
+          "fr": "Vous pouvez louer un vélo ici.",
+          "en": "You can rent a bike here.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.006",
+          "theme": "heure-et-date",
+          "fr": "On est le combien aujourd'hui ?",
+          "en": "What's the date today?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.007",
+          "theme": "heure-et-date",
+          "fr": "C'est quelle date aujourd'hui ?",
+          "en": "What's today's date?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.120",
+          "theme": "transports-quotidiens",
+          "fr": "La station de métro est fermée.",
+          "en": "The metro station is closed.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.156",
+          "theme": "transports-quotidiens",
+          "fr": "Je monte dans le premier wagon.",
+          "en": "I get into the first car.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.114",
+          "theme": "quebec-et-francophonie",
+          "fr": "Je vais au marché samedi matin.",
+          "en": "I'm going to the market Saturday morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.078",
+          "theme": "rp-meteo-nature",
+          "fr": "Il fait du brouillard ce matin.",
+          "en": "It's foggy this morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.207",
+          "theme": "animaux",
+          "fr": "Le chat court avec les enfants.",
+          "en": "The cat runs with the children.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.214",
+          "theme": "animaux",
+          "fr": "Les chiens jouent dans sa cage.",
+          "en": "The dogs play in its cage.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.231",
+          "theme": "animaux",
+          "fr": "Le lapin court dans son panier.",
+          "en": "The rabbit runs in its basket.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.232",
+          "theme": "animaux",
+          "fr": "Les lapins jouent dans sa cage.",
+          "en": "The rabbits play in its cage.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.240",
+          "theme": "animaux",
+          "fr": "La tortue mange dans le jardin.",
+          "en": "The turtle eats in the garden.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.243",
+          "theme": "animaux",
+          "fr": "La tortue cherche dans sa cage.",
+          "en": "The turtle searches in its cage.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.245",
+          "theme": "deplacements",
+          "fr": "Tournez à gauche après le pont.",
+          "en": "Turn left after the bridge.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.jardinage.047",
+          "theme": "jardinage",
+          "fr": "Le soleil brille sur le potager.",
+          "en": "The sun is shining on the vegetable garden.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.jardinage.056",
+          "theme": "jardinage",
+          "fr": "Le jardin sent bon au printemps.",
+          "en": "The garden smells good in spring.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.005",
+          "theme": "heure-et-date",
+          "fr": "Quelle est la date aujourd'hui ?",
+          "en": "What is the date today?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.044",
+          "theme": "heure-et-date",
+          "fr": "Aujourd'hui est un jour spécial.",
+          "en": "Today is a special day.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.la-ville.211",
+          "theme": "la-ville",
+          "fr": "Le trottoir est trop étroit ici.",
+          "en": "The sidewalk is too narrow here.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.154",
+          "theme": "transports-quotidiens",
+          "fr": "Le parking est complet ce matin.",
+          "en": "The parking lot is full this morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.213",
+          "theme": "meteo",
+          "fr": "Quel temps fait-il aujourd'hui ?",
+          "en": "What's the weather like today?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.226",
+          "theme": "meteo",
+          "fr": "En hiver, les jours sont courts.",
+          "en": "In winter, the days are short.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.215",
+          "theme": "animaux",
+          "fr": "Le chien court avec les enfants.",
+          "en": "The dog runs with the children.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.253",
+          "theme": "animaux",
+          "fr": "Les vaches dorment sous l'arbre.",
+          "en": "The cows sleep under the tree.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.066",
+          "theme": "rp-voyage",
+          "fr": "Le bus arrive dans cinq minutes.",
+          "en": "The bus arrives in five minutes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.078",
+          "theme": "rp-voyage",
+          "fr": "Nous cherchons un plan de métro.",
+          "en": "We are looking for a metro map.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.244",
+          "theme": "pays-et-nationalites",
+          "fr": "Mon ami parle wolof et français.",
+          "en": "My friend speaks Wolof and French.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.235",
+          "theme": "deplacements",
+          "fr": "Ils vont faire du vélo dimanche.",
+          "en": "They're going to go cycling on Sunday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.163",
+          "theme": "transports-quotidiens",
+          "fr": "La route est fermée pour travaux.",
+          "en": "The road is closed for construction.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.203",
+          "theme": "meteo",
+          "fr": "Les enfants jouent dans la neige.",
+          "en": "The children play in the snow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.220",
+          "theme": "meteo",
+          "fr": "Il fait vingt degrés aujourd'hui.",
+          "en": "It's twenty degrees today.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.237",
+          "theme": "animaux",
+          "fr": "Le hamster court dans son panier.",
+          "en": "The hamster runs in its basket.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.a1.animaux.238",
+          "theme": "animaux",
+          "fr": "Les hamsters jouent dans sa cage.",
+          "en": "The hamsters play in its cage.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.239",
+          "theme": "animaux",
+          "fr": "Le hamster boit avec les enfants.",
+          "en": "The hamster drinks with the children.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.242",
+          "theme": "animaux",
+          "fr": "La tortue marche dans son panier.",
+          "en": "The turtle walks in its basket.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.247",
+          "theme": "animaux",
+          "fr": "Les chevaux boivent sous l'arbre.",
+          "en": "The horses drink under the tree.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.132",
+          "theme": "douane-et-immigration",
+          "fr": "Elle quitte le pays demain matin.",
+          "en": "She is leaving the country tomorrow morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.141",
+          "theme": "douane-et-immigration",
+          "fr": "Vous voyagez seul ou en famille ?",
+          "en": "Are you traveling alone or with family?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.062",
+          "theme": "rp-voyage",
+          "fr": "Je voudrais un billet pour Paris.",
+          "en": "I would like a ticket to Paris.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.076",
+          "theme": "rp-voyage",
+          "fr": "La chambre est au deuxième étage.",
+          "en": "The room is on the second floor.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.081",
+          "theme": "rp-voyage",
+          "fr": "Le guide parle très bien anglais.",
+          "en": "The guide speaks English very well.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.249",
+          "theme": "deplacements",
+          "fr": "Elle achète un ticket au guichet.",
+          "en": "She buys a ticket at the counter.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.tourisme.065",
+          "theme": "tourisme",
+          "fr": "Elle prend une photo du monument.",
+          "en": "She takes a photo of the monument.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.002",
+          "theme": "heure-et-date",
+          "fr": "Excusez-moi, quelle heure est-il ?",
+          "en": "Excuse me, what time is it?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.140",
+          "theme": "transports-quotidiens",
+          "fr": "Je prends toujours le même chemin.",
+          "en": "I always take the same route.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.075",
+          "theme": "rp-meteo-nature",
+          "fr": "La montagne est couverte de neige.",
+          "en": "The mountain is covered in snow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.234",
+          "theme": "meteo",
+          "fr": "Elle porte des lunettes de soleil.",
+          "en": "She wears sunglasses.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.252",
+          "theme": "meteo",
+          "fr": "Le vent glacial traverse la ville.",
+          "en": "The icy wind crosses the city.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.205",
+          "theme": "animaux",
+          "fr": "Les chats dorment dans son panier.",
+          "en": "The cats sleep in its basket.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.211",
+          "theme": "animaux",
+          "fr": "Les chiens mangent dans le jardin.",
+          "en": "The dogs eat in the garden.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.229",
+          "theme": "animaux",
+          "fr": "Les lapins mangent dans le jardin.",
+          "en": "The rabbits eat in the garden.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.233",
+          "theme": "animaux",
+          "fr": "Le lapin cherche avec les enfants.",
+          "en": "The rabbit searches with the children.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.241",
+          "theme": "animaux",
+          "fr": "Les tortues dorment sur le canapé.",
+          "en": "The turtles sleep on the sofa.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.120",
+          "theme": "douane-et-immigration",
+          "fr": "Il déclare deux bouteilles de vin.",
+          "en": "He declares two bottles of wine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.la-ville.188",
+          "theme": "la-ville",
+          "fr": "Nous habitons dans le centre-ville.",
+          "en": "We live downtown.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.la-ville.213",
+          "theme": "la-ville",
+          "fr": "Le parking est complet aujourd'hui.",
+          "en": "The parking lot is full today.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.119",
+          "theme": "transports-quotidiens",
+          "fr": "J'achète un ticket au distributeur.",
+          "en": "I buy a ticket at the machine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.122",
+          "theme": "transports-quotidiens",
+          "fr": "Je descends à la prochaine station.",
+          "en": "I get off at the next station.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.109",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les érables sont rouges en automne.",
+          "en": "The maple trees are red in autumn.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.251",
+          "theme": "meteo",
+          "fr": "Il fait vraiment froid aujourd'hui.",
+          "en": "It's really cold today.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.220",
+          "theme": "animaux",
+          "fr": "Les oiseaux chantent dans la forêt.",
+          "en": "The birds sing in the forest.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.236",
+          "theme": "deplacements",
+          "fr": "Tu vas descendre à quelle station ?",
+          "en": "Which station are you getting off at?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.jardinage.045",
+          "theme": "jardinage",
+          "fr": "Nous avons acheté un nouveau râteau.",
+          "en": "We bought a new rake.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.la-ville.222",
+          "theme": "la-ville",
+          "fr": "Les habitants se plaignent du bruit.",
+          "en": "The residents complain about the noise.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.159",
+          "theme": "transports-quotidiens",
+          "fr": "La ligne treize est très fréquentée.",
+          "en": "Line thirteen is very busy.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.a1.quebec-et-francophonie.100",
+          "theme": "quebec-et-francophonie",
+          "fr": "On parle français aussi en Belgique.",
+          "en": "French is also spoken in Belgium.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.119",
+          "theme": "quebec-et-francophonie",
+          "fr": "Nous allons visiter le musée demain.",
+          "en": "We are going to visit the museum tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.222",
+          "theme": "meteo",
+          "fr": "La température monte cet après-midi.",
+          "en": "The temperature rises this afternoon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.216",
+          "theme": "animaux",
+          "fr": "Le chien cherche derrière la maison.",
+          "en": "The dog searches behind the house.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.234",
+          "theme": "animaux",
+          "fr": "Le lapin regarde derrière la maison.",
+          "en": "The rabbit watches behind the house.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.235",
+          "theme": "animaux",
+          "fr": "Les hamsters mangent dans le jardin.",
+          "en": "The hamsters eat in the garden.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.244",
+          "theme": "animaux",
+          "fr": "Les tortues nagent avec les enfants.",
+          "en": "The turtles swim with the children.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.224",
+          "theme": "deplacements",
+          "fr": "Mon frère conduit une voiture rouge.",
+          "en": "My brother drives a red car.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.jardinage.061",
+          "theme": "jardinage",
+          "fr": "Elle taille les branches trop hautes.",
+          "en": "She trims the branches that are too tall.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.155",
+          "theme": "transports-quotidiens",
+          "fr": "Les enfants prennent le bus scolaire.",
+          "en": "The children take the school bus.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.099",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le Canada a deux langues officielles.",
+          "en": "Canada has two official languages.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.070",
+          "theme": "rp-meteo-nature",
+          "fr": "Les oiseaux chantent dans les arbres.",
+          "en": "The birds sing in the trees.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.253",
+          "theme": "meteo",
+          "fr": "Les skieurs adorent la neige fraîche.",
+          "en": "Skiers love fresh snow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.123",
+          "theme": "douane-et-immigration",
+          "fr": "L'agent frontalier pose une question.",
+          "en": "The border agent asks a question.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.249",
+          "theme": "pays-et-nationalites",
+          "fr": "J'aime beaucoup la cuisine marocaine.",
+          "en": "I really like Moroccan cuisine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.242",
+          "theme": "deplacements",
+          "fr": "Pardon, où se trouve le supermarché ?",
+          "en": "Excuse me, where is the supermarket?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.255",
+          "theme": "deplacements",
+          "fr": "Vous pouvez prendre le prochain tram.",
+          "en": "You can take the next tram.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.062",
+          "theme": "animaux-domestiques",
+          "fr": "Notre chien mord doucement ses jouets.",
+          "en": "Our dog gently bites his toys.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.la-ville.192",
+          "theme": "la-ville",
+          "fr": "La circulation est difficile le matin.",
+          "en": "Traffic is difficult in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.121",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les Québécois aiment beaucoup le café.",
+          "en": "Quebecers really like coffee.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.meteo.231",
+          "theme": "meteo",
+          "fr": "Les touristes préfèrent le beau temps.",
+          "en": "Tourists prefer nice weather.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-voyage.082",
+          "theme": "rp-voyage",
+          "fr": "Nous visitons la vieille ville demain.",
+          "en": "We are visiting the old town tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.heure-et-date.045",
+          "theme": "heure-et-date",
+          "fr": "Demain, je commence un nouveau travail.",
+          "en": "Tomorrow, I start a new job.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.animaux.208",
+          "theme": "animaux",
+          "fr": "Les chats cherchent derrière la maison.",
+          "en": "The cats search behind the house.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.152",
+          "theme": "douane-et-immigration",
+          "fr": "Elle attend son entrevue d'immigration.",
+          "en": "She is waiting for her immigration interview.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.jardinage.068",
+          "theme": "jardinage",
+          "fr": "Nous plantons des fraisiers chaque année.",
+          "en": "We plant strawberry plants every year.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.la-ville.225",
+          "theme": "la-ville",
+          "fr": "Nous marchons jusqu'au centre commercial.",
+          "en": "We walk to the shopping mall.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.la-ville.236",
+          "theme": "la-ville",
+          "fr": "Le stationnement est gratuit le dimanche.",
+          "en": "Parking is free on Sundays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.119",
+          "theme": "douane-et-immigration",
+          "fr": "Nous remplissons le formulaire de douane.",
+          "en": "We fill out the customs form.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.091",
+          "theme": "quebec-et-francophonie",
+          "fr": "Montréal est une grande ville francophone.",
+          "en": "Montreal is a large French-speaking city.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.094",
+          "theme": "quebec-et-francophonie",
+          "fr": "Nous visitons le Château Frontenac demain.",
+          "en": "We are visiting Château Frontenac tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.142",
+          "theme": "douane-et-immigration",
+          "fr": "Je vais présenter mon passeport maintenant.",
+          "en": "I am going to present my passport now.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.deplacements.216",
+          "theme": "deplacements",
+          "fr": "Je vais à l'école à pied.",
+          "en": "I go to school on foot.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.a1.animaux-domestiques.036",
+          "theme": "animaux-domestiques",
+          "fr": "J'ai deux chats à la maison.",
+          "en": "I have two cats at home.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.151",
+          "theme": "douane-et-immigration",
+          "fr": "J'ai deux valises et un sac.",
+          "en": "I have two suitcases and a bag.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-voyage.069",
+          "theme": "rp-voyage",
+          "fr": "L'hôtel est près de la gare.",
+          "en": "The hotel is near the station.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.225",
+          "theme": "deplacements",
+          "fr": "Ma sœur va au marché à pied.",
+          "en": "My sister goes to the market on foot.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.070",
+          "theme": "meteo",
+          "fr": "Il y a du soleil aujourd'hui.",
+          "en": "It's sunny today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.074",
+          "theme": "rp-meteo-nature",
+          "fr": "Le soleil se lève tôt en été.",
+          "en": "The sun rises early in summer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.081",
+          "theme": "rp-meteo-nature",
+          "fr": "J'adore le bruit de la pluie.",
+          "en": "I love the sound of the rain.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.maison.152",
+          "theme": "maison",
+          "fr": "Le lit est près de la fenêtre.",
+          "en": "The bed is close to the window.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux.222",
+          "theme": "animaux",
+          "fr": "L'oiseau dort près de l'étang.",
+          "en": "The bird sleeps near the pond.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.230",
+          "theme": "deplacements",
+          "fr": "On va au centre-ville en tram.",
+          "en": "We're going downtown by tram.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.247",
+          "theme": "deplacements",
+          "fr": "Le taxi nous emmène à l'hôtel.",
+          "en": "The taxi takes us to the hotel.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.127",
+          "theme": "transports-quotidiens",
+          "fr": "Je vais à pied jusqu'au bureau.",
+          "en": "I walk all the way to the office.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.145",
+          "theme": "transports-quotidiens",
+          "fr": "Il traverse la rue au feu vert.",
+          "en": "He crosses the street at the green light.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.223",
+          "theme": "deplacements",
+          "fr": "Elles font du vélo le week-end.",
+          "en": "They go cycling on the weekend.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.heure-et-date.048",
+          "theme": "heure-et-date",
+          "fr": "Hier, il a plu toute la journée.",
+          "en": "Yesterday, it rained all day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-voyage.006",
+          "theme": "rp-voyage",
+          "fr": "C'est tout droit, puis à gauche.",
+          "en": "It's straight ahead, then left.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.137",
+          "theme": "transports-quotidiens",
+          "fr": "Le tram s'arrête devant l'école.",
+          "en": "The tram stops in front of the school.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.144",
+          "theme": "transports-quotidiens",
+          "fr": "Je cherche la sortie de la gare.",
+          "en": "I am looking for the train station exit.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.256",
+          "theme": "meteo",
+          "fr": "Le soleil se couche tard en été.",
+          "en": "The sun sets late in summer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.115",
+          "theme": "douane-et-immigration",
+          "fr": "J'ai mon passeport dans mon sac.",
+          "en": "I have my passport in my bag.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.162",
+          "theme": "douane-et-immigration",
+          "fr": "Tu attends ton tour à la douane.",
+          "en": "You wait your turn at customs.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.243",
+          "theme": "deplacements",
+          "fr": "Le magasin est près de chez moi.",
+          "en": "The store is close to my place.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.059",
+          "theme": "animaux-domestiques",
+          "fr": "Mon chat aime dormir sur mon lit.",
+          "en": "My cat likes sleeping on my bed.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jours-et-mois.221",
+          "theme": "jours-et-mois",
+          "fr": "En hiver, la nuit tombe très tôt.",
+          "en": "In winter, night falls very early.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.128",
+          "theme": "transports-quotidiens",
+          "fr": "Mon vélo est garé devant la gare.",
+          "en": "My bike is parked in front of the train station.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.130",
+          "theme": "transports-quotidiens",
+          "fr": "Elle attend le bus sous la pluie.",
+          "en": "She waits for the bus in the rain.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.152",
+          "theme": "transports-quotidiens",
+          "fr": "Le bus est en retard aujourd'hui.",
+          "en": "The bus is late today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.215",
+          "theme": "meteo",
+          "fr": "Va-t-il pleuvoir cet après-midi ?",
+          "en": "Is it going to rain this afternoon?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.135",
+          "theme": "douane-et-immigration",
+          "fr": "Il a un permis de travail valide.",
+          "en": "He has a valid work permit.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-voyage.064",
+          "theme": "rp-voyage",
+          "fr": "Nous allons à l'aéroport en taxi.",
+          "en": "We are going to the airport by taxi.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-voyage.067",
+          "theme": "rp-voyage",
+          "fr": "Vous avez une carte de la ville ?",
+          "en": "Do you have a map of the city?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-voyage.079",
+          "theme": "rp-voyage",
+          "fr": "Le musée ferme à dix-huit heures.",
+          "en": "The museum closes at six p.m.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.217",
+          "theme": "deplacements",
+          "fr": "Tu prends le bus tous les jours ?",
+          "en": "Do you take the bus every day?",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.a1.jardinage.052",
+          "theme": "jardinage",
+          "fr": "La pluie est bonne pour le jardin.",
+          "en": "The rain is good for the garden.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.heure-et-date.050",
+          "theme": "heure-et-date",
+          "fr": "Ce matin, je me suis réveillé tôt.",
+          "en": "This morning, I woke up early.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.heure-et-date.054",
+          "theme": "heure-et-date",
+          "fr": "Ce soir, on dîne chez mes parents.",
+          "en": "Tonight, we're having dinner at my parents' place.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.195",
+          "theme": "la-ville",
+          "fr": "Je prends le métro tous les jours.",
+          "en": "I take the subway every day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.203",
+          "theme": "la-ville",
+          "fr": "Je préfère la campagne à la ville.",
+          "en": "I prefer the countryside to the city.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.207",
+          "theme": "la-ville",
+          "fr": "Le quartier est calme le week-end.",
+          "en": "The neighborhood is quiet on weekends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.090",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le sirop d'érable vient du Québec.",
+          "en": "Maple syrup comes from Quebec.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux.209",
+          "theme": "animaux",
+          "fr": "Le chat regarde près de la maison.",
+          "en": "The cat watches near the house.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux.248",
+          "theme": "animaux",
+          "fr": "Le cheval dort près de la rivière.",
+          "en": "The horse sleeps near the river.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.128",
+          "theme": "deplacements",
+          "fr": "Je prends le métro tous les matins.",
+          "en": "I take the subway every morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.129",
+          "theme": "deplacements",
+          "fr": "Le taxi nous attend devant l'hôtel.",
+          "en": "The taxi is waiting for us in front of the hotel.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.071",
+          "theme": "meteo",
+          "fr": "Le ciel devient gris avant l'orage.",
+          "en": "The sky turns grey before the storm.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.044",
+          "theme": "animaux-domestiques",
+          "fr": "Le chiot veut sortir tout de suite.",
+          "en": "The puppy wants to go out right away.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.065",
+          "theme": "animaux-domestiques",
+          "fr": "Le chien remue la queue de bonheur.",
+          "en": "The dog wags its tail with joy.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jardinage.037",
+          "theme": "jardinage",
+          "fr": "Mon père tond la pelouse le samedi.",
+          "en": "My father mows the lawn on Saturdays.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jardinage.051",
+          "theme": "jardinage",
+          "fr": "Je range mes outils dans la remise.",
+          "en": "I put my tools away in the shed.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jardinage.067",
+          "theme": "jardinage",
+          "fr": "Le petit chat joue près des fleurs.",
+          "en": "The little cat is playing near the flowers.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jours-et-mois.208",
+          "theme": "jours-et-mois",
+          "fr": "Nous partons skier au mois de mars.",
+          "en": "We are going skiing in the month of March.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.199",
+          "theme": "la-ville",
+          "fr": "Le loyer est cher dans cette ville.",
+          "en": "Rent is expensive in this city.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.230",
+          "theme": "la-ville",
+          "fr": "Je demande mon chemin à un passant.",
+          "en": "I ask a passerby for directions.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.maison.150",
+          "theme": "maison",
+          "fr": "Le loyer est cher dans ce quartier.",
+          "en": "The rent is expensive in this neighborhood.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.129",
+          "theme": "transports-quotidiens",
+          "fr": "Le train part du quai numéro trois.",
+          "en": "The train leaves from platform number three.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.158",
+          "theme": "transports-quotidiens",
+          "fr": "Il pleut, alors je prends le métro.",
+          "en": "It's raining, so I take the metro.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.106",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le carnaval a un bonhomme de neige.",
+          "en": "The carnival has a snowman.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.200",
+          "theme": "meteo",
+          "fr": "Nous sortons parce qu'il fait beau.",
+          "en": "We're going out because the weather is nice.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.238",
+          "theme": "meteo",
+          "fr": "Il fait bon vivre ici au printemps.",
+          "en": "It's nice to live here in spring.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux.227",
+          "theme": "animaux",
+          "fr": "Le poisson regarde près de l'étang.",
+          "en": "The fish watches near the pond.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux.254",
+          "theme": "animaux",
+          "fr": "La vache marche près de la rivière.",
+          "en": "The cow walks near the river.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.146",
+          "theme": "douane-et-immigration",
+          "fr": "Elle habite au Canada depuis un an.",
+          "en": "She has lived in Canada for a year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.235",
+          "theme": "pays-et-nationalites",
+          "fr": "J'habite au Canada depuis deux ans.",
+          "en": "I have been living in Canada for two years.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.222",
+          "theme": "deplacements",
+          "fr": "Ils attendent le train sur le quai.",
+          "en": "They wait for the train on the platform.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.tourisme.067",
+          "theme": "tourisme",
+          "fr": "Nous cherchons un plan de la ville.",
+          "en": "We are looking for a map of the city.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.056",
+          "theme": "animaux-domestiques",
+          "fr": "Mes voisins ont un chien très calme.",
+          "en": "My neighbors have a very calm dog.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.a1.jardinage.042",
+          "theme": "jardinage",
+          "fr": "Il faut arroser les plantes le soir.",
+          "en": "You need to water the plants in the evening.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.232",
+          "theme": "la-ville",
+          "fr": "Les rues sont désertes tôt le matin.",
+          "en": "The streets are empty early in the morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.149",
+          "theme": "transports-quotidiens",
+          "fr": "Nous attendons le train sur le quai.",
+          "en": "We wait for the train on the platform.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.088",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il neige beaucoup en hiver à Québec.",
+          "en": "It snows a lot in winter in Quebec.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.113",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le marché Jean-Talon est très animé.",
+          "en": "The Jean-Talon market is very lively.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.118",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il fait beau aujourd'hui à Montréal.",
+          "en": "The weather is nice today in Montreal.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.247",
+          "theme": "meteo",
+          "fr": "Le camion déneige la route ce matin.",
+          "en": "The truck clears the road of snow this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.122",
+          "theme": "douane-et-immigration",
+          "fr": "Je vais arriver à l'aéroport demain.",
+          "en": "I am going to arrive at the airport tomorrow.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.137",
+          "theme": "douane-et-immigration",
+          "fr": "Je réponds aux questions de l'agent.",
+          "en": "I answer the agent's questions.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.147",
+          "theme": "douane-et-immigration",
+          "fr": "Je vais chercher mon visa au bureau.",
+          "en": "I am going to get my visa at the office.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.238",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle va visiter l'Italie en juillet.",
+          "en": "She is going to visit Italy in July.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.231",
+          "theme": "deplacements",
+          "fr": "Je vais prendre le bus demain matin.",
+          "en": "I'm going to take the bus tomorrow morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.037",
+          "theme": "animaux-domestiques",
+          "fr": "Mon chien adore jouer dans le jardin.",
+          "en": "My dog loves playing in the garden.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jardinage.036",
+          "theme": "jardinage",
+          "fr": "J'arrose les tomates tous les matins.",
+          "en": "I water the tomatoes every morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.190",
+          "theme": "la-ville",
+          "fr": "Mon frère travaille près de la place.",
+          "en": "My brother works near the square.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.135",
+          "theme": "transports-quotidiens",
+          "fr": "Je valide mon billet avant de monter.",
+          "en": "I validate my ticket before boarding.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.136",
+          "theme": "transports-quotidiens",
+          "fr": "La voiture est garée dans le parking.",
+          "en": "The car is parked in the parking lot.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.085",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le Québec est une province du Canada.",
+          "en": "Quebec is a province of Canada.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.108",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le hockey est un sport populaire ici.",
+          "en": "Hockey is a popular sport here.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.111",
+          "theme": "quebec-et-francophonie",
+          "fr": "Nous mangeons de la tourtière à Noël.",
+          "en": "We eat tourtière at Christmas.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.167",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons notre adresse d'hôtel ici.",
+          "en": "We have our hotel address here.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.221",
+          "theme": "deplacements",
+          "fr": "Vous montez dans le bus numéro douze.",
+          "en": "You get on bus number twelve.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.085",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle vient du Portugal, pas d'Espagne.",
+          "en": "She's from Portugal, not Spain.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.maison.147",
+          "theme": "maison",
+          "fr": "Elle fait la vaisselle après le dîner.",
+          "en": "She does the dishes after dinner.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.139",
+          "theme": "transports-quotidiens",
+          "fr": "Le chauffeur de taxi connaît la ville.",
+          "en": "The taxi driver knows the city.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.148",
+          "theme": "transports-quotidiens",
+          "fr": "Le vélo en libre-service est pratique.",
+          "en": "The bike-share bike is convenient.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.097",
+          "theme": "quebec-et-francophonie",
+          "fr": "J'apprends le français tous les jours.",
+          "en": "I learn French every day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.201",
+          "theme": "meteo",
+          "fr": "Tu portes un chapeau contre le soleil.",
+          "en": "You wear a hat against the sun.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.241",
+          "theme": "meteo",
+          "fr": "Le ciel devient sombre avant la pluie.",
+          "en": "The sky turns dark before the rain.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.154",
+          "theme": "douane-et-immigration",
+          "fr": "Nous allons à Toronto pour le travail.",
+          "en": "We are going to Toronto for work.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-voyage.086",
+          "theme": "rp-voyage",
+          "fr": "Nous montons dans le bus numéro douze.",
+          "en": "We are getting on bus number twelve.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.236",
+          "theme": "pays-et-nationalites",
+          "fr": "Nous allons voyager en France cet été.",
+          "en": "We are going to travel to France this summer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.242",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle parle chinois et un peu français.",
+          "en": "She speaks Chinese and a little French.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.a1.deplacements.234",
+          "theme": "deplacements",
+          "fr": "Ce soir, nous allons prendre le train.",
+          "en": "Tonight we're going to take the train.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.239",
+          "theme": "deplacements",
+          "fr": "L'arrêt est juste devant la pharmacie.",
+          "en": "The stop is right in front of the pharmacy.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.251",
+          "theme": "deplacements",
+          "fr": "Nous changeons de bus au centre-ville.",
+          "en": "We change buses downtown.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.257",
+          "theme": "deplacements",
+          "fr": "La voiture est garée devant la maison.",
+          "en": "The car is parked in front of the house.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.tourisme.062",
+          "theme": "tourisme",
+          "fr": "Je vais visiter la tour Eiffel demain.",
+          "en": "I am going to visit the Eiffel Tower tomorrow.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jardinage.038",
+          "theme": "jardinage",
+          "fr": "Nous plantons des fleurs sur le balcon.",
+          "en": "We are planting flowers on the balcony.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.205",
+          "theme": "la-ville",
+          "fr": "Les rues sont propres dans ce quartier.",
+          "en": "The streets are clean in this neighborhood.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.234",
+          "theme": "la-ville",
+          "fr": "Le vieux pont relie les deux quartiers.",
+          "en": "The old bridge connects the two neighborhoods.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.maison.148",
+          "theme": "maison",
+          "fr": "Les voisins sont très bruyants le soir.",
+          "en": "The neighbors are very noisy in the evening.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.maison.153",
+          "theme": "maison",
+          "fr": "Elle passe l'aspirateur tous les jours.",
+          "en": "She vacuums every day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.134",
+          "theme": "transports-quotidiens",
+          "fr": "Les horaires sont affichés sur l'écran.",
+          "en": "The schedules are displayed on the screen.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.123",
+          "theme": "quebec-et-francophonie",
+          "fr": "La langue française est belle et riche.",
+          "en": "The French language is beautiful and rich.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.202",
+          "theme": "meteo",
+          "fr": "Elle ouvre son parapluie sous la pluie.",
+          "en": "She opens her umbrella in the rain.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.208",
+          "theme": "meteo",
+          "fr": "Ils regardent la météo à la télévision.",
+          "en": "They watch the weather forecast on TV.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.258",
+          "theme": "meteo",
+          "fr": "La météo change vite dans cette région.",
+          "en": "The weather changes fast in this region.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux.217",
+          "theme": "animaux",
+          "fr": "Les chiens regardent près de la maison.",
+          "en": "The dogs watch near the house.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.149",
+          "theme": "douane-et-immigration",
+          "fr": "Vous avez des fruits dans vos bagages ?",
+          "en": "Do you have fruit in your luggage?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.166",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier vérifie mes bagages à main.",
+          "en": "The customs officer checks my carry-on luggage.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.239",
+          "theme": "pays-et-nationalites",
+          "fr": "Je vais visiter l'Espagne au printemps.",
+          "en": "I am going to visit Spain in spring.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.229",
+          "theme": "deplacements",
+          "fr": "L'étudiant prend le métro chaque matin.",
+          "en": "The student takes the metro every morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.057",
+          "theme": "animaux-domestiques",
+          "fr": "Le chaton grimpe partout dans la maison.",
+          "en": "The kitten climbs everywhere in the house.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.189",
+          "theme": "la-ville",
+          "fr": "La bibliothèque ferme à dix-huit heures.",
+          "en": "The library closes at six p.m.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.124",
+          "theme": "transports-quotidiens",
+          "fr": "Ma carte de transport ne fonctionne pas.",
+          "en": "My transit card is not working.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.143",
+          "theme": "transports-quotidiens",
+          "fr": "Le prochain bus arrive dans dix minutes.",
+          "en": "The next bus arrives in ten minutes.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.212",
+          "theme": "meteo",
+          "fr": "La semaine prochaine, il va faire chaud.",
+          "en": "Next week it's going to be hot.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.236",
+          "theme": "meteo",
+          "fr": "Les oiseaux chantent quand il fait beau.",
+          "en": "The birds sing when the weather is nice.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.246",
+          "theme": "deplacements",
+          "fr": "Allez tout droit, puis tournez à droite.",
+          "en": "Go straight ahead, then turn right.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.tourisme.063",
+          "theme": "tourisme",
+          "fr": "Nous achetons des billets pour le musée.",
+          "en": "We are buying tickets for the museum.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jardinage.039",
+          "theme": "jardinage",
+          "fr": "Le jardinier taille les rosiers en hiver.",
+          "en": "The gardener prunes the rose bushes in winter.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jardinage.066",
+          "theme": "jardinage",
+          "fr": "Mes parents adorent jardiner le week-end.",
+          "en": "My parents love gardening on weekends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.202",
+          "theme": "la-ville",
+          "fr": "La rue principale est pleine de magasins.",
+          "en": "The main street is full of shops.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.218",
+          "theme": "la-ville",
+          "fr": "Les vélos sont interdits sur ce trottoir.",
+          "en": "Bikes are forbidden on this sidewalk.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.226",
+          "theme": "la-ville",
+          "fr": "Le prix des loyers augmente chaque année.",
+          "en": "The price of rent increases every year.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 15,
+      "items": [
+        {
+          "id": "fr.a1.transports-quotidiens.138",
+          "theme": "transports-quotidiens",
+          "fr": "Nous roulons lentement à cause du trafic.",
+          "en": "We drive slowly because of the traffic.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.122",
+          "theme": "quebec-et-francophonie",
+          "fr": "Je vais parler français avec mes voisins.",
+          "en": "I'm going to speak French with my neighbors.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.245",
+          "theme": "meteo",
+          "fr": "Vous restez au chalet pendant la tempête.",
+          "en": "You stay at the cabin during the storm.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-voyage.077",
+          "theme": "rp-voyage",
+          "fr": "Le petit-déjeuner commence à sept heures.",
+          "en": "Breakfast starts at seven o'clock.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.tourisme.041",
+          "theme": "tourisme",
+          "fr": "Nous visitons la tour Eiffel demain matin.",
+          "en": "We are visiting the Eiffel Tower tomorrow morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.084",
+          "theme": "la-ville",
+          "fr": "J'habite dans une petite ville tranquille.",
+          "en": "I live in a small, quiet town.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.070",
+          "theme": "animaux-domestiques",
+          "fr": "Mon chat préfère les croquettes au poulet.",
+          "en": "My cat prefers chicken-flavored kibble.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jardinage.058",
+          "theme": "jardinage",
+          "fr": "Les abeilles adorent les fleurs du jardin.",
+          "en": "The bees love the garden flowers.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.229",
+          "theme": "la-ville",
+          "fr": "Les immeubles sont hauts dans ce quartier.",
+          "en": "The buildings are tall in this neighborhood.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.104",
+          "theme": "quebec-et-francophonie",
+          "fr": "Mon ami québécois habite à Trois-Rivières.",
+          "en": "My Quebecois friend lives in Trois-Rivières.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.232",
+          "theme": "meteo",
+          "fr": "Nous prenons un parapluie avant de sortir.",
+          "en": "We take an umbrella before going out.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux.226",
+          "theme": "animaux",
+          "fr": "Les poissons cherchent près de la rivière.",
+          "en": "The fish search near the river.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.165",
+          "theme": "douane-et-immigration",
+          "fr": "Vous allez montrer votre billet de retour.",
+          "en": "You are going to show your return ticket.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jardinage.053",
+          "theme": "jardinage",
+          "fr": "Nous cueillons des fraises dans le potager.",
+          "en": "We are picking strawberries in the vegetable garden.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.093",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le fleuve Saint-Laurent traverse le Québec.",
+          "en": "The Saint Lawrence River crosses Quebec.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.068",
+          "theme": "animaux-domestiques",
+          "fr": "Mon chien attend patiemment devant la porte.",
+          "en": "My dog waits patiently by the door.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.heure-et-date.042",
+          "theme": "heure-et-date",
+          "fr": "Aujourd'hui, j'ai deux réunions importantes.",
+          "en": "Today, I have two important meetings.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jours-et-mois.205",
+          "theme": "jours-et-mois",
+          "fr": "Dimanche prochain, nous irons à la campagne.",
+          "en": "Next Sunday, we will go to the countryside.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.102",
+          "theme": "quebec-et-francophonie",
+          "fr": "Beaucoup de pays d'Afrique parlent français.",
+          "en": "Many African countries speak French.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.150",
+          "theme": "douane-et-immigration",
+          "fr": "Le formulaire demande mon adresse au Canada.",
+          "en": "The form asks for my address in Canada.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.160",
+          "theme": "douane-et-immigration",
+          "fr": "Nous allons remplir la déclaration en ligne.",
+          "en": "We are going to fill out the declaration online.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.deplacements.232",
+          "theme": "deplacements",
+          "fr": "Nous allons marcher jusqu'à la bibliothèque.",
+          "en": "We're going to walk to the library.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.heure-et-date.058",
+          "theme": "heure-et-date",
+          "fr": "Chaque semaine, on fait les courses ensemble.",
+          "en": "Every week, we do the shopping together.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.118",
+          "theme": "douane-et-immigration",
+          "fr": "Elle montre sa carte de résidence permanente.",
+          "en": "She shows her permanent residence card.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.meteo.243",
+          "theme": "meteo",
+          "fr": "Les enfants construisent un bonhomme de neige.",
+          "en": "The children build a snowman.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.129",
+          "theme": "douane-et-immigration",
+          "fr": "Nous visitons le Canada pendant deux semaines.",
+          "en": "We are visiting Canada for two weeks.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.jardinage.048",
+          "theme": "jardinage",
+          "fr": "Mon frère plante des carottes chaque printemps.",
+          "en": "My brother plants carrots every spring.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.la-ville.223",
+          "theme": "la-ville",
+          "fr": "La bibliothèque municipale propose des livres gratuits.",
+          "en": "The public library offers free books.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.072",
+          "theme": "rp-meteo-nature",
+          "fr": "Il y a un lac près d'ici.",
+          "en": "There is a lake near here.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.heure-et-date.055",
+          "theme": "heure-et-date",
+          "fr": "Qu'est-ce que tu fais ce soir ?",
+          "en": "What are you doing tonight?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.maison.141",
+          "theme": "maison",
+          "fr": "Il y a un canapé dans le salon.",
+          "en": "There is a sofa in the living room.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.150",
+          "theme": "transports-quotidiens",
+          "fr": "La gare est à côté de la poste.",
+          "en": "The train station is next to the post office.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.191",
+          "theme": "la-ville",
+          "fr": "Il y a un parc derrière l'école.",
+          "en": "There is a park behind the school.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 16,
+      "items": [
+        {
+          "id": "fr.a1.meteo.239",
+          "theme": "meteo",
+          "fr": "Le vent est fort près de la mer.",
+          "en": "The wind is strong near the sea.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.deplacements.252",
+          "theme": "deplacements",
+          "fr": "Il faut monter à l'avant du bus.",
+          "en": "You have to get on at the front of the bus.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rp-voyage.005",
+          "theme": "rp-voyage",
+          "fr": "Où est la gare, s'il vous plaît ?",
+          "en": "Where is the train station, please?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.169",
+          "theme": "douane-et-immigration",
+          "fr": "Tu vas signer ici, s'il te plaît.",
+          "en": "You are going to sign here, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.heure-et-date.043",
+          "theme": "heure-et-date",
+          "fr": "Qu'est-ce qu'on fait aujourd'hui ?",
+          "en": "What are we doing today?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.185",
+          "theme": "la-ville",
+          "fr": "La mairie est à côté de la banque.",
+          "en": "The town hall is next to the bank.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.tourisme.064",
+          "theme": "tourisme",
+          "fr": "L'hôtel se trouve près de la gare.",
+          "en": "The hotel is located near the station.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.121",
+          "theme": "douane-et-immigration",
+          "fr": "Tu ouvres ta valise, s'il te plaît.",
+          "en": "You open your suitcase, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.deplacements.253",
+          "theme": "deplacements",
+          "fr": "Les enfants vont à l'école en vélo.",
+          "en": "The children go to school by bike.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.tourisme.068",
+          "theme": "tourisme",
+          "fr": "Le bus part pour l'aéroport à midi.",
+          "en": "The bus leaves for the airport at noon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.063",
+          "theme": "animaux-domestiques",
+          "fr": "La chienne de ma copine adore l'eau.",
+          "en": "My girlfriend's dog loves water.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.heure-et-date.003",
+          "theme": "heure-et-date",
+          "fr": "Vous avez l'heure, s'il vous plaît ?",
+          "en": "Do you have the time, please?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.184",
+          "theme": "la-ville",
+          "fr": "Je cherche la gare, s'il vous plaît.",
+          "en": "I'm looking for the train station, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.meteo.206",
+          "theme": "meteo",
+          "fr": "On reste à la maison quand il pleut.",
+          "en": "We stay home when it rains.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.066",
+          "theme": "animaux-domestiques",
+          "fr": "Mon neveu a envie d'adopter un furet.",
+          "en": "My nephew wants to adopt a ferret.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jardinage.065",
+          "theme": "jardinage",
+          "fr": "Le jardin a besoin de plus de soleil.",
+          "en": "The garden needs more sunlight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.147",
+          "theme": "transports-quotidiens",
+          "fr": "J'habite loin de la station de métro.",
+          "en": "I live far from the metro station.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.162",
+          "theme": "transports-quotidiens",
+          "fr": "Je descends du bus à l'arrêt suivant.",
+          "en": "I get off the bus at the next stop.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.107",
+          "theme": "quebec-et-francophonie",
+          "fr": "J'aime patiner sur la glace en hiver.",
+          "en": "I like to skate on ice in winter.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.143",
+          "theme": "douane-et-immigration",
+          "fr": "Nous n'avons pas d'animaux avec nous.",
+          "en": "We do not have animals with us.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.heure-et-date.001",
+          "theme": "heure-et-date",
+          "fr": "Quelle heure est-il, s'il vous plaît ?",
+          "en": "What time is it, please?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.209",
+          "theme": "la-ville",
+          "fr": "La fontaine est au milieu de la place.",
+          "en": "The fountain is in the middle of the square.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.227",
+          "theme": "la-ville",
+          "fr": "Il faut un ticket pour prendre le bus.",
+          "en": "You need a ticket to take the bus.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.meteo.214",
+          "theme": "meteo",
+          "fr": "Fait-il beau à Montréal en ce moment ?",
+          "en": "Is it nice weather in Montreal right now?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.153",
+          "theme": "douane-et-immigration",
+          "fr": "Tu vas donner ton passeport à l'agent.",
+          "en": "You are going to give your passport to the agent.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.168",
+          "theme": "douane-et-immigration",
+          "fr": "Je n'ai pas de marchandise à déclarer.",
+          "en": "I do not have any goods to declare.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.deplacements.241",
+          "theme": "deplacements",
+          "fr": "Excusez-moi, comment on va à la gare ?",
+          "en": "Excuse me, how do we get to the station?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.069",
+          "theme": "animaux-domestiques",
+          "fr": "Ma sœur brosse son chat tous les soirs.",
+          "en": "My sister brushes her cat every evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.maison.155",
+          "theme": "maison",
+          "fr": "La salle de bains est au premier étage.",
+          "en": "The bathroom is on the first floor.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.095",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le drapeau du Québec est bleu et blanc.",
+          "en": "The Quebec flag is blue and white.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.130",
+          "theme": "douane-et-immigration",
+          "fr": "Tu vas montrer ton passeport à l'agent.",
+          "en": "You are going to show your passport to the agent.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.134",
+          "theme": "douane-et-immigration",
+          "fr": "Le motif de mon voyage est le tourisme.",
+          "en": "The reason for my trip is tourism.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux.095",
+          "theme": "animaux",
+          "fr": "Le petit chat boit du lait chaque matin.",
+          "en": "The little cat drinks milk every morning.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 17,
+      "items": [
+        {
+          "id": "fr.a1.animaux.096",
+          "theme": "animaux",
+          "fr": "Les oiseaux volent vers le sud en hiver.",
+          "en": "Birds fly south in winter.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.055",
+          "theme": "animaux-domestiques",
+          "fr": "Le lapin mange une carotte dans sa cage.",
+          "en": "The rabbit is eating a carrot in its cage.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jardinage.069",
+          "theme": "jardinage",
+          "fr": "Elle a mis des gants avant de désherber.",
+          "en": "She put on gloves before weeding.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.131",
+          "theme": "transports-quotidiens",
+          "fr": "Il y a un embouteillage sur l'autoroute.",
+          "en": "There is a traffic jam on the highway.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.142",
+          "theme": "transports-quotidiens",
+          "fr": "Elle roule à vélo pour aller au travail.",
+          "en": "She rides a bike to go to work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.096",
+          "theme": "quebec-et-francophonie",
+          "fr": "La fête nationale du Québec est en juin.",
+          "en": "Quebec's national holiday is in June.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rp-voyage.073",
+          "theme": "rp-voyage",
+          "fr": "Où sont les toilettes, s'il vous plaît ?",
+          "en": "Where are the restrooms, please?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.deplacements.218",
+          "theme": "deplacements",
+          "fr": "Il prend le métro pour aller au travail.",
+          "en": "He takes the metro to go to work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.050",
+          "theme": "animaux-domestiques",
+          "fr": "Le chien porte un petit manteau en hiver.",
+          "en": "The dog wears a little coat in winter.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.051",
+          "theme": "animaux-domestiques",
+          "fr": "Ma nièce adore brosser le pelage du chat.",
+          "en": "My niece loves brushing the cat's fur.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.058",
+          "theme": "animaux-domestiques",
+          "fr": "Ma tante promène ses deux chiens le soir.",
+          "en": "My aunt walks her two dogs in the evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.101",
+          "theme": "quebec-et-francophonie",
+          "fr": "On parle français en Suisse et en France.",
+          "en": "French is spoken in Switzerland and in France.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.061",
+          "theme": "animaux-domestiques",
+          "fr": "Le chat renverse souvent sa gamelle d'eau.",
+          "en": "The cat often knocks over its water bowl.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.214",
+          "theme": "la-ville",
+          "fr": "Je traverse le pont pour aller au travail.",
+          "en": "I cross the bridge to go to work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.168",
+          "theme": "transports-quotidiens",
+          "fr": "Je prends l'escalator pour monter au quai.",
+          "en": "I take the escalator to go up to the platform.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.171",
+          "theme": "douane-et-immigration",
+          "fr": "L'agent pose des questions sur mon séjour.",
+          "en": "The agent asks questions about my stay.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.deplacements.240",
+          "theme": "deplacements",
+          "fr": "La station de tram est fermée aujourd'hui.",
+          "en": "The tram station is closed today.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.tourisme.043",
+          "theme": "tourisme",
+          "fr": "Cette ville a beaucoup de monuments à voir.",
+          "en": "This town has a lot of monuments to see.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jardinage.059",
+          "theme": "jardinage",
+          "fr": "Mon père répare la tondeuse dans le garage.",
+          "en": "My father is fixing the lawnmower in the garage.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.208",
+          "theme": "la-ville",
+          "fr": "Nous prenons le tram pour aller au travail.",
+          "en": "We take the tram to go to work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.transports-quotidiens.153",
+          "theme": "transports-quotidiens",
+          "fr": "Elle prend sa voiture pour aller au marché.",
+          "en": "She takes her car to go to the market.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.110",
+          "theme": "quebec-et-francophonie",
+          "fr": "La cabane à sucre est ouverte au printemps.",
+          "en": "The sugar shack is open in spring.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.meteo.209",
+          "theme": "meteo",
+          "fr": "Le journal annonce de la pluie pour demain.",
+          "en": "The newspaper announces rain for tomorrow.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.155",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier demande le motif de mon séjour.",
+          "en": "The customs officer asks the reason for my stay.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.041",
+          "theme": "animaux-domestiques",
+          "fr": "Le chien aboie très fort à chaque livraison.",
+          "en": "The dog barks very loudly at every delivery.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jardinage.070",
+          "theme": "jardinage",
+          "fr": "Le jardinier arrose le potager tôt le matin.",
+          "en": "The gardener waters the vegetable garden early in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.197",
+          "theme": "la-ville",
+          "fr": "Le marché se trouve sur la place principale.",
+          "en": "The market is located on the main square.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.215",
+          "theme": "la-ville",
+          "fr": "La station de métro est fermée pour travaux.",
+          "en": "The subway station is closed for construction work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.221",
+          "theme": "la-ville",
+          "fr": "Le square est fermé après vingt-deux heures.",
+          "en": "The small park is closed after ten p.m.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.120",
+          "theme": "quebec-et-francophonie",
+          "fr": "Mon frère étudie le français à l'université.",
+          "en": "My brother studies French at university.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.170",
+          "theme": "douane-et-immigration",
+          "fr": "Elle arrive au Canada avec un visa étudiant.",
+          "en": "She is arriving in Canada with a student visa.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.237",
+          "theme": "pays-et-nationalites",
+          "fr": "Ils vont voyager au Japon l'année prochaine.",
+          "en": "They are going to travel to Japan next year.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.043",
+          "theme": "animaux-domestiques",
+          "fr": "Le vétérinaire pèse le chien à chaque visite.",
+          "en": "The vet weighs the dog at every visit.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 18,
+      "items": [
+        {
+          "id": "fr.a1.jardinage.057",
+          "theme": "jardinage",
+          "fr": "Nous devons acheter du terreau pour les pots.",
+          "en": "We need to buy potting soil for the pots.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.heure-et-date.057",
+          "theme": "heure-et-date",
+          "fr": "Chaque jour, je révise un peu de vocabulaire.",
+          "en": "Every day, I review a bit of vocabulary.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jours-et-mois.199",
+          "theme": "jours-et-mois",
+          "fr": "Lundi, je commence un nouveau travail à Lyon.",
+          "en": "Monday, I start a new job in Lyon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.231",
+          "theme": "la-ville",
+          "fr": "Le panneau indique la direction de l'hôpital.",
+          "en": "The sign shows the direction to the hospital.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.105",
+          "theme": "quebec-et-francophonie",
+          "fr": "Nous allons au carnaval de Québec en février.",
+          "en": "We are going to the Quebec Carnival in February.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.240",
+          "theme": "pays-et-nationalites",
+          "fr": "Nous parlons français et anglais à la maison.",
+          "en": "We speak French and English at home.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.046",
+          "theme": "animaux-domestiques",
+          "fr": "Les enfants donnent à manger au poisson rouge.",
+          "en": "The children feed the goldfish.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jardinage.046",
+          "theme": "jardinage",
+          "fr": "Elle porte des gants pour désherber le jardin.",
+          "en": "She wears gloves to weed the garden.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jardinage.064",
+          "theme": "jardinage",
+          "fr": "Nous avons semé des radis la semaine dernière.",
+          "en": "We planted radish seeds last week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.040",
+          "theme": "animaux-domestiques",
+          "fr": "Nos enfants nourrissent le lapin après l'école.",
+          "en": "Our children feed the rabbit after school.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jardinage.041",
+          "theme": "jardinage",
+          "fr": "Les enfants aident leur grand-mère à désherber.",
+          "en": "The children help their grandmother weed the garden.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jours-et-mois.214",
+          "theme": "jours-et-mois",
+          "fr": "En septembre, les enfants retournent à l'école.",
+          "en": "In September, the children go back to school.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.217",
+          "theme": "la-ville",
+          "fr": "Nous habitons au troisième étage d'un immeuble.",
+          "en": "We live on the third floor of a building.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.219",
+          "theme": "la-ville",
+          "fr": "La police contrôle la vitesse sur ce boulevard.",
+          "en": "The police check the speed on this boulevard.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.237",
+          "theme": "la-ville",
+          "fr": "Les habitants aiment se retrouver sur la place.",
+          "en": "Residents like to meet up on the square.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.087",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le français est la langue officielle du Québec.",
+          "en": "French is the official language of Quebec.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.064",
+          "theme": "animaux-domestiques",
+          "fr": "Mon grand-père nourrit les oiseaux chaque matin.",
+          "en": "My grandfather feeds the birds every morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jardinage.050",
+          "theme": "jardinage",
+          "fr": "Les tomates rouges sont prêtes à être cueillies.",
+          "en": "The red tomatoes are ready to be picked.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jours-et-mois.203",
+          "theme": "jours-et-mois",
+          "fr": "Vendredi, nous fêtons l'anniversaire de ma sœur.",
+          "en": "Friday, we are celebrating my sister's birthday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.la-ville.216",
+          "theme": "la-ville",
+          "fr": "Le vendeur travaille au marché tous les samedis.",
+          "en": "The vendor works at the market every Saturday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.045",
+          "theme": "animaux-domestiques",
+          "fr": "Nous changeons la litière du chat chaque semaine.",
+          "en": "We change the cat's litter every week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jardinage.043",
+          "theme": "jardinage",
+          "fr": "Ma voisine cultive des tomates et des courgettes.",
+          "en": "My neighbor grows tomatoes and zucchini.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jours-et-mois.200",
+          "theme": "jours-et-mois",
+          "fr": "Mardi prochain, nous partons en voyage d'affaires.",
+          "en": "Next Tuesday, we are leaving on a business trip.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.161",
+          "theme": "douane-et-immigration",
+          "fr": "Le contrôle des passeports est rapide aujourd'hui.",
+          "en": "Passport control is quick today.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jours-et-mois.196",
+          "theme": "jours-et-mois",
+          "fr": "Le vendredi soir, nous dînons souvent au restaurant.",
+          "en": "On Friday evenings, we often have dinner at the restaurant.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jours-et-mois.226",
+          "theme": "jours-et-mois",
+          "fr": "Le vendredi, les magasins restent ouverts plus tard.",
+          "en": "On Friday, the stores stay open later.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.meteo.248",
+          "theme": "meteo",
+          "fr": "Les agriculteurs attendent la pluie pour les champs.",
+          "en": "Farmers wait for rain for the fields.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.jours-et-mois.212",
+          "theme": "jours-et-mois",
+          "fr": "En juillet, beaucoup de Français partent en vacances.",
+          "en": "In July, many French people go on vacation.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rp-meteo-nature.005",
+          "theme": "rp-meteo-nature",
+          "fr": "Il fait beau et il y a du soleil.",
+          "en": "It's nice out and it's sunny.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rp-quotidien.006",
+          "theme": "rp-quotidien",
+          "fr": "Je bois un café et je mange du pain.",
+          "en": "I drink a coffee and eat some bread.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.la-ville.186",
+          "theme": "la-ville",
+          "fr": "Il y a beaucoup de monde dans la rue.",
+          "en": "There are a lot of people in the street.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.la-ville.204",
+          "theme": "la-ville",
+          "fr": "Le café se trouve en face de l'église.",
+          "en": "The cafe is located across from the church.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.la-ville.200",
+          "theme": "la-ville",
+          "fr": "Il y a trop de voitures dans le centre.",
+          "en": "There are too many cars downtown.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 19,
+      "items": [
+        {
+          "id": "fr.a1.transports-quotidiens.121",
+          "theme": "transports-quotidiens",
+          "fr": "Il y a beaucoup de monde dans le train.",
+          "en": "There are a lot of people on the train.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.heure-et-date.059",
+          "theme": "heure-et-date",
+          "fr": "Tous les jours, il se lève à six heures.",
+          "en": "Every day, he gets up at six o'clock.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.092",
+          "theme": "quebec-et-francophonie",
+          "fr": "La ville de Québec a un beau Vieux-Port.",
+          "en": "Quebec City has a beautiful Old Port.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jardinage.049",
+          "theme": "jardinage",
+          "fr": "Il y a beaucoup de fleurs dans ce jardin.",
+          "en": "There are a lot of flowers in this garden.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.meteo.233",
+          "theme": "meteo",
+          "fr": "Tu mets des gants parce qu'il fait froid.",
+          "en": "You put on gloves because it's cold.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.deplacements.248",
+          "theme": "deplacements",
+          "fr": "Je cherche l'arrêt de bus le plus proche.",
+          "en": "I'm looking for the nearest bus stop.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jardinage.054",
+          "theme": "jardinage",
+          "fr": "Mon oncle a un grand jardin à la campagne.",
+          "en": "My uncle has a big garden in the countryside.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.heure-et-date.051",
+          "theme": "heure-et-date",
+          "fr": "Ce matin, il n'y avait personne au bureau.",
+          "en": "This morning, there was no one at the office.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.heure-et-date.053",
+          "theme": "heure-et-date",
+          "fr": "Cet après-midi, j'ai un cours de français.",
+          "en": "This afternoon, I have a French class.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.084",
+          "theme": "quebec-et-francophonie",
+          "fr": "Je m'appelle Marie et j'habite à Montréal.",
+          "en": "My name is Marie and I live in Montreal.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.meteo.237",
+          "theme": "meteo",
+          "fr": "Le chat dort près de la fenêtre au soleil.",
+          "en": "The cat sleeps by the window in the sun.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.meteo.072",
+          "theme": "meteo",
+          "fr": "Elle met un manteau parce qu'il fait froid.",
+          "en": "She's putting on a coat because it's cold.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.038",
+          "theme": "animaux-domestiques",
+          "fr": "Le chat a besoin d'eau fraîche chaque jour.",
+          "en": "The cat needs fresh water every day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.maison.149",
+          "theme": "maison",
+          "fr": "Je ferme la fenêtre parce qu'il fait froid.",
+          "en": "I close the window because it is cold.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.meteo.244",
+          "theme": "meteo",
+          "fr": "Nous allons à la plage quand il fait chaud.",
+          "en": "We go to the beach when it's hot.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.deplacements.227",
+          "theme": "deplacements",
+          "fr": "Ma mère prend le bus pour aller au travail.",
+          "en": "My mother takes the bus to go to work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.deplacements.233",
+          "theme": "deplacements",
+          "fr": "Demain, je vais aller à l'aéroport en taxi.",
+          "en": "Tomorrow I'm going to the airport by taxi.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jours-et-mois.220",
+          "theme": "jours-et-mois",
+          "fr": "En été, il fait beau presque tous les jours.",
+          "en": "In summer, the weather is nice almost every day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.douane-et-immigration.163",
+          "theme": "douane-et-immigration",
+          "fr": "J'ai ma date de naissance sur le formulaire.",
+          "en": "I have my date of birth on the form.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.067",
+          "theme": "animaux-domestiques",
+          "fr": "Le chat noir de mon voisin chasse les souris.",
+          "en": "My neighbor's black cat hunts mice.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jardinage.040",
+          "theme": "jardinage",
+          "fr": "Elle sème des graines de basilic dans un pot.",
+          "en": "She sows basil seeds in a pot.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jours-et-mois.229",
+          "theme": "jours-et-mois",
+          "fr": "Nous avons prévu de déménager au mois de mai.",
+          "en": "We have planned to move in the month of May.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.la-ville.228",
+          "theme": "la-ville",
+          "fr": "La place du marché est très animée le samedi.",
+          "en": "The market square is very lively on Saturdays.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.deplacements.228",
+          "theme": "deplacements",
+          "fr": "Le professeur arrive à l'école à huit heures.",
+          "en": "The teacher arrives at school at eight o'clock.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.039",
+          "theme": "animaux-domestiques",
+          "fr": "Ma chatte dort toute la journée sur le canapé.",
+          "en": "My cat sleeps all day on the sofa.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.quebec-et-francophonie.112",
+          "theme": "quebec-et-francophonie",
+          "fr": "J'habite dans un petit village près de Québec.",
+          "en": "I live in a small village near Quebec City.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.042",
+          "theme": "animaux-domestiques",
+          "fr": "Ma sœur a adopté un chaton la semaine dernière.",
+          "en": "My sister adopted a kitten last week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.052",
+          "theme": "animaux-domestiques",
+          "fr": "Mon chat dort dans un panier près du radiateur.",
+          "en": "My cat sleeps in a basket near the radiator.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jours-et-mois.197",
+          "theme": "jours-et-mois",
+          "fr": "Le samedi matin, je fais les courses au marché.",
+          "en": "On Saturday mornings, I do the shopping at the market.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.maison.144",
+          "theme": "maison",
+          "fr": "Nous avons deux chambres et une salle de bains.",
+          "en": "We have two bedrooms and a bathroom.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.meteo.235",
+          "theme": "meteo",
+          "fr": "Mon voisin arrose son jardin quand il fait sec.",
+          "en": "My neighbor waters his garden when it's dry.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.meteo.242",
+          "theme": "meteo",
+          "fr": "Les routes sont glissantes à cause de la glace.",
+          "en": "The roads are slippery because of the ice.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.deplacements.226",
+          "theme": "deplacements",
+          "fr": "Mon père prend sa voiture pour aller au bureau.",
+          "en": "My father takes his car to go to the office.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 20,
+      "items": [
+        {
+          "id": "fr.a1.jardinage.062",
+          "theme": "jardinage",
+          "fr": "Le voisin nous a donné des graines de tournesol.",
+          "en": "The neighbor gave us sunflower seeds.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.la-ville.235",
+          "theme": "la-ville",
+          "fr": "Nous aimons nous promener le long de la rivière.",
+          "en": "We like to stroll along the river.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.deplacements.254",
+          "theme": "deplacements",
+          "fr": "Le dimanche, je fais une promenade dans le parc.",
+          "en": "On Sundays, I take a walk in the park.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.la-ville.233",
+          "theme": "la-ville",
+          "fr": "La ville organise un marché de Noël chaque hiver.",
+          "en": "The city organizes a Christmas market every winter.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jardinage.060",
+          "theme": "jardinage",
+          "fr": "J'ai planté des herbes aromatiques sur mon balcon.",
+          "en": "I planted herbs on my balcony.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jours-et-mois.201",
+          "theme": "jours-et-mois",
+          "fr": "Mercredi, j'ai un examen important à l'université.",
+          "en": "Wednesday, I have an important exam at the university.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.la-ville.085",
+          "theme": "la-ville",
+          "fr": "Le centre-ville est fermé aux voitures aujourd'hui.",
+          "en": "The city center is closed to cars today.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.048",
+          "theme": "animaux-domestiques",
+          "fr": "Le perroquet de mon oncle répète des mots amusants.",
+          "en": "My uncle's parrot repeats funny words.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jardinage.063",
+          "theme": "jardinage",
+          "fr": "Nous arrosons le jardin avant le coucher du soleil.",
+          "en": "We water the garden before sunset.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jours-et-mois.202",
+          "theme": "jours-et-mois",
+          "fr": "Jeudi, le médecin me reçoit à quinze heures trente.",
+          "en": "Thursday, the doctor sees me at three thirty in the afternoon.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.084",
+          "theme": "pays-et-nationalites",
+          "fr": "Mon voisin est japonais et parle très bien français.",
+          "en": "My neighbor is Japanese and speaks French very well.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jardinage.055",
+          "theme": "jardinage",
+          "fr": "Elle arrose ses plantes avec un petit arrosoir vert.",
+          "en": "She waters her plants with a small green watering can.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jours-et-mois.219",
+          "theme": "jours-et-mois",
+          "fr": "Le week-end, nous aimons faire de longues randonnées.",
+          "en": "On the weekend, we like to go on long hikes.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jours-et-mois.227",
+          "theme": "jours-et-mois",
+          "fr": "Le premier samedi du mois, nous faisons du bénévolat.",
+          "en": "On the first Saturday of the month, we volunteer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jours-et-mois.193",
+          "theme": "jours-et-mois",
+          "fr": "Nous avons rendez-vous chez le dentiste mardi prochain.",
+          "en": "We have a dentist appointment next Tuesday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.jours-et-mois.198",
+          "theme": "jours-et-mois",
+          "fr": "Le dimanche, toute la famille se retrouve pour déjeuner.",
+          "en": "On Sundays, the whole family gets together for lunch.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.maison.154",
+          "theme": "maison",
+          "fr": "Il n'y a pas d'ascenseur dans l'immeuble.",
+          "en": "There is no elevator in the building.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.pays-et-nationalites.253",
+          "theme": "pays-et-nationalites",
+          "fr": "J'ai besoin d'un visa pour aller en Chine.",
+          "en": "I need a visa to go to China.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.tourisme.066",
+          "theme": "tourisme",
+          "fr": "Il y a un office de tourisme sur la place.",
+          "en": "There is a tourist office on the square.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.jours-et-mois.192",
+          "theme": "jours-et-mois",
+          "fr": "Le lundi, je vais à la piscine avec mes amis.",
+          "en": "On Mondays, I go to the swimming pool with my friends.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.meteo.246",
+          "theme": "meteo",
+          "fr": "On annule le pique-nique à cause de la pluie.",
+          "en": "We cancel the picnic because of the rain.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.la-ville.081",
+          "theme": "la-ville",
+          "fr": "La pharmacie se trouve juste en face de la gare.",
+          "en": "The pharmacy is right across from the train station.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.053",
+          "theme": "animaux-domestiques",
+          "fr": "Fais attention au chat, il n'aime pas les câlins.",
+          "en": "Be careful with the cat, he doesn't like cuddles.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.jours-et-mois.204",
+          "theme": "jours-et-mois",
+          "fr": "Samedi, il y a un mariage dans le village voisin.",
+          "en": "Saturday, there is a wedding in the neighboring village.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.jours-et-mois.215",
+          "theme": "jours-et-mois",
+          "fr": "Le mois d'octobre annonce l'arrivée de l'automne.",
+          "en": "The month of October announces the arrival of autumn.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.jours-et-mois.230",
+          "theme": "jours-et-mois",
+          "fr": "Le rendez-vous a été déplacé de lundi à mercredi.",
+          "en": "The appointment was moved from Monday to Wednesday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.la-ville.220",
+          "theme": "la-ville",
+          "fr": "Il y a une nouvelle boulangerie près de chez moi.",
+          "en": "There is a new bakery near my place.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.049",
+          "theme": "animaux-domestiques",
+          "fr": "La chatte de ma grand-mère ronronne tout le temps.",
+          "en": "My grandmother's cat purrs all the time.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.la-ville.240",
+          "theme": "la-ville",
+          "fr": "Je préfère vivre en ville pour être proche de tout.",
+          "en": "I prefer to live in the city to be close to everything.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.animaux-domestiques.054",
+          "theme": "animaux-domestiques",
+          "fr": "Mon oncle a acheté une nouvelle laisse pour son chien.",
+          "en": "My uncle bought a new leash for his dog.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.jours-et-mois.210",
+          "theme": "jours-et-mois",
+          "fr": "Le mois de mai est parfait pour les longues promenades.",
+          "en": "The month of May is perfect for long walks.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.la-ville.238",
+          "theme": "la-ville",
+          "fr": "Le bruit de la circulation me réveille tous les matins.",
+          "en": "The noise of traffic wakes me up every morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.jours-et-mois.225",
+          "theme": "jours-et-mois",
+          "fr": "Tous les jeudis soir, nous regardons un film en famille.",
+          "en": "Every Thursday evening, we watch a movie as a family.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 21,
+      "items": [
+        {
+          "id": "fr.a1.jours-et-mois.209",
+          "theme": "jours-et-mois",
+          "fr": "En avril, les fleurs commencent à pousser dans le jardin.",
+          "en": "In April, the flowers start to grow in the garden.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.jours-et-mois.216",
+          "theme": "jours-et-mois",
+          "fr": "En novembre, les jours deviennent de plus en plus courts.",
+          "en": "In November, the days become shorter and shorter.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.la-ville.239",
+          "theme": "la-ville",
+          "fr": "La mairie organise une réunion pour les habitants du quartier.",
+          "en": "The town hall is organizing a meeting for the neighborhood residents.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.jours-et-mois.218",
+          "theme": "jours-et-mois",
+          "fr": "La semaine prochaine, j'ai trois réunions importantes au bureau.",
+          "en": "Next week, I have three important meetings at the office.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.la-ville.210",
+          "theme": "la-ville",
+          "fr": "Il y a un feu rouge au coin de la rue.",
+          "en": "There is a red light at the street corner.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.jours-et-mois.207",
+          "theme": "jours-et-mois",
+          "fr": "Le mois de février est le plus court de l'année.",
+          "en": "The month of February is the shortest of the year.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.jours-et-mois.194",
+          "theme": "jours-et-mois",
+          "fr": "Le mercredi après-midi, les enfants n'ont pas d'école.",
+          "en": "On Wednesday afternoons, the children have no school.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.jours-et-mois.211",
+          "theme": "jours-et-mois",
+          "fr": "Au mois de juin, les examens de fin d'année approchent.",
+          "en": "In the month of June, the end of year exams are approaching.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.jours-et-mois.228",
+          "theme": "jours-et-mois",
+          "fr": "Le dernier dimanche de septembre marque la fin de l'été.",
+          "en": "The last Sunday of September marks the end of summer.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.jours-et-mois.223",
+          "theme": "jours-et-mois",
+          "fr": "Tous les mardis, je vais à la bibliothèque après le travail.",
+          "en": "Every Tuesday, I go to the library after work.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.jours-et-mois.231",
+          "theme": "jours-et-mois",
+          "fr": "Chaque année, notre voyage annuel a lieu au mois de juillet.",
+          "en": "Every year, our annual trip takes place in the month of July.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.jours-et-mois.222",
+          "theme": "jours-et-mois",
+          "fr": "Chaque lundi matin, l'équipe se réunit pour planifier la semaine.",
+          "en": "Every Monday morning, the team meets to plan the week.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.jours-et-mois.213",
+          "theme": "jours-et-mois",
+          "fr": "Le mois d'août est très chaud dans le sud du pays.",
+          "en": "The month of August is very hot in the south of the country.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.jours-et-mois.206",
+          "theme": "jours-et-mois",
+          "fr": "En janvier, il fait très froid dans le nord de la France.",
+          "en": "In January, it is very cold in the north of France.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.jours-et-mois.224",
+          "theme": "jours-et-mois",
+          "fr": "Le mercredi, mon fils a son cours de musique à seize heures.",
+          "en": "On Wednesday, my son has his music class at four in the afternoon.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.jours-et-mois.217",
+          "theme": "jours-et-mois",
+          "fr": "Au mois de décembre, nous préparons les fêtes de fin d'année.",
+          "en": "In the month of December, we prepare for the end of year celebrations.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.la-ville.194",
+          "theme": "la-ville",
+          "fr": "Le commissariat de police est ouvert vingt-quatre heures sur vingt-quatre.",
+          "en": "The police station is open twenty-four hours a day.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.jours-et-mois.195",
+          "theme": "jours-et-mois",
+          "fr": "Tous les jeudis, elle prend son cours de yoga à dix-huit heures.",
+          "en": "Every Thursday, she has her yoga class at six in the evening.",
+          "words": 13
+        }
+      ]
+    }
+  ]
+}

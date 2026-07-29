@@ -1,0 +1,5118 @@
+{
+  "stage": "3.5",
+  "world": 3,
+  "level": "a2",
+  "title": "Le Bureau des Papiers",
+  "themes": [
+    "systeme-de-sante",
+    "symptomes",
+    "recherche-emploi",
+    "douane-et-immigration",
+    "immigration-et-citoyennete",
+    "examens-et-diplomes",
+    "quebec-et-francophonie",
+    "bureau",
+    "collegues",
+    "metiers",
+    "ecole",
+    "matieres",
+    "disciplines",
+    "internet",
+    "technologie-quotidienne",
+    "appareils",
+    "rp-technologie",
+    "rp-travail-etudes",
+    "rp-sante",
+    "rp-societe",
+    "gouvernement",
+    "economie",
+    "pays-et-nationalites"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 711,
+  "dedupedPool": 710,
+  "selected": 710,
+  "blockCount": 22,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.a2.rp-sante.006",
+          "theme": "rp-sante",
+          "fr": "Depuis trois jours.",
+          "en": "For three days.",
+          "words": 3
+        },
+        {
+          "id": "fr.a2.gouvernement.032",
+          "theme": "gouvernement",
+          "fr": "Il faut voter avant midi.",
+          "en": "You have to vote before noon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.disciplines.039",
+          "theme": "disciplines",
+          "fr": "J'aime beaucoup les mathématiques.",
+          "en": "I really like math.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.matieres.120",
+          "theme": "matieres",
+          "fr": "La récréation dure quinze minutes.",
+          "en": "Recess lasts fifteen minutes.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.recherche-emploi.130",
+          "theme": "recherche-emploi",
+          "fr": "Nous cherchons une personne bilingue.",
+          "en": "We are looking for a bilingual person.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.103",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le fonctionnaire vérifie mon passeport.",
+          "en": "The official checks my passport.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.118",
+          "theme": "douane-et-immigration",
+          "fr": "Je n'ai rien à déclarer.",
+          "en": "I have nothing to declare.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-societe.007",
+          "theme": "rp-societe",
+          "fr": "C'est rapide et pas cher.",
+          "en": "It's fast and cheap.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recherche-emploi.137",
+          "theme": "recherche-emploi",
+          "fr": "Le poste est à temps partiel.",
+          "en": "The position is part time.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.bureau.123",
+          "theme": "bureau",
+          "fr": "Le café était froid ce matin.",
+          "en": "The coffee was cold this morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.economie.020",
+          "theme": "economie",
+          "fr": "Le magasin est fermé le lundi.",
+          "en": "The store is closed on Mondays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.006",
+          "theme": "rp-travail-etudes",
+          "fr": "J'ai étudié pendant trois ans.",
+          "en": "I studied for three years.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.gouvernement.031",
+          "theme": "gouvernement",
+          "fr": "Notre ville a un nouveau maire.",
+          "en": "Our town has a new mayor.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.bureau.143",
+          "theme": "bureau",
+          "fr": "Le vendredi, on finit plus tôt.",
+          "en": "On Fridays, we finish earlier.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-technologie.064",
+          "theme": "rp-technologie",
+          "fr": "Tu as effacé le mauvais fichier.",
+          "en": "You deleted the wrong file.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.129",
+          "theme": "douane-et-immigration",
+          "fr": "Je viens au Canada pour étudier.",
+          "en": "I am coming to Canada to study.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.163",
+          "theme": "douane-et-immigration",
+          "fr": "Mon passeport expire dans un an.",
+          "en": "My passport expires in a year.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-technologie.066",
+          "theme": "rp-technologie",
+          "fr": "J'avais un vieux téléphone avant.",
+          "en": "I used to have an old phone.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recherche-emploi.123",
+          "theme": "recherche-emploi",
+          "fr": "Je suis disponible à temps plein.",
+          "en": "I am available full time.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.080",
+          "theme": "rp-travail-etudes",
+          "fr": "Le salaire a augmenté cette année.",
+          "en": "The salary went up this year.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.081",
+          "theme": "rp-travail-etudes",
+          "fr": "J'étais nerveux avant l'entretien.",
+          "en": "I was nervous before the interview.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.151",
+          "theme": "systeme-de-sante",
+          "fr": "Le cardiologue va vérifier mon cœur.",
+          "en": "The cardiologist is going to check my heart.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recherche-emploi.162",
+          "theme": "recherche-emploi",
+          "fr": "Mon employeur paie par dépôt direct.",
+          "en": "My employer pays by direct deposit.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.117",
+          "theme": "douane-et-immigration",
+          "fr": "Vous avez quelque chose à déclarer ?",
+          "en": "Do you have anything to declare?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recherche-emploi.121",
+          "theme": "recherche-emploi",
+          "fr": "Nous avons un entretien demain matin.",
+          "en": "We have an interview tomorrow morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.140",
+          "theme": "examens-et-diplomes",
+          "fr": "Ton dossier d'inscription est complet.",
+          "en": "Your registration file is complete.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-sante.007",
+          "theme": "rp-sante",
+          "fr": "Je vais vous prescrire des médicaments.",
+          "en": "I'm going to prescribe you some medication.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.110",
+          "theme": "quebec-et-francophonie",
+          "fr": "Beaucoup de Québécois aiment le hockey.",
+          "en": "Many Quebecers like hockey.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recherche-emploi.127",
+          "theme": "recherche-emploi",
+          "fr": "Elle travaillait dans un magasin avant.",
+          "en": "She used to work in a store before.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.107",
+          "theme": "examens-et-diplomes",
+          "fr": "Ils étudient ensemble à la bibliothèque.",
+          "en": "They study together at the library.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.110",
+          "theme": "examens-et-diplomes",
+          "fr": "On attend les résultats avec impatience.",
+          "en": "We are waiting for the results impatiently.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.bureau.133",
+          "theme": "bureau",
+          "fr": "Le stagiaire pose beaucoup de questions.",
+          "en": "The intern asks a lot of questions.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.recherche-emploi.166",
+          "theme": "recherche-emploi",
+          "fr": "Nous avons discuté du code vestimentaire.",
+          "en": "We discussed the dress code.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.a2.bureau.120",
+          "theme": "bureau",
+          "fr": "Le nouveau collègue arrive lundi prochain.",
+          "en": "The new colleague arrives next Monday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.118",
+          "theme": "examens-et-diplomes",
+          "fr": "L'université reconnaît son diplôme étranger.",
+          "en": "The university recognizes his foreign diploma.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.136",
+          "theme": "douane-et-immigration",
+          "fr": "Nous attendons notre rendez-vous biométrique.",
+          "en": "We are waiting for our biometric appointment.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.disciplines.069",
+          "theme": "disciplines",
+          "fr": "Nous choisissons nos matières avant septembre.",
+          "en": "We choose our subjects before September.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-technologie.005",
+          "theme": "rp-technologie",
+          "fr": "Il est très lent en ce moment.",
+          "en": "It's very slow right now.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-technologie.061",
+          "theme": "rp-technologie",
+          "fr": "Elle a perdu son mot de passe.",
+          "en": "She lost her password.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.124",
+          "theme": "bureau",
+          "fr": "J'ai fini ma tâche avant midi.",
+          "en": "I finished my task before noon.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.symptomes.124",
+          "theme": "symptomes",
+          "fr": "Il a vomi deux fois cette nuit.",
+          "en": "He vomited twice last night.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.119",
+          "theme": "bureau",
+          "fr": "J'ai oublié mon badge ce matin.",
+          "en": "I forgot my badge this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.113",
+          "theme": "bureau",
+          "fr": "Le bureau est fermé le week-end.",
+          "en": "The office is closed on weekends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-societe.005",
+          "theme": "rp-societe",
+          "fr": "Je pense qu'ils sont plutôt bons.",
+          "en": "I think they're pretty good.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-technologie.079",
+          "theme": "rp-technologie",
+          "fr": "Tu as cliqué sur le mauvais lien.",
+          "en": "You clicked on the wrong link.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.144",
+          "theme": "bureau",
+          "fr": "J'ai besoin d'un nouveau clavier.",
+          "en": "I need a new keyboard.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recherche-emploi.158",
+          "theme": "recherche-emploi",
+          "fr": "Nous avons un contrat de six mois.",
+          "en": "We have a six-month contract.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.066",
+          "theme": "rp-travail-etudes",
+          "fr": "Elle a obtenu son diplôme en juin.",
+          "en": "She got her diploma in June.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.121",
+          "theme": "douane-et-immigration",
+          "fr": "Mon visa est valide pour six mois.",
+          "en": "My visa is valid for six months.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.matieres.131",
+          "theme": "matieres",
+          "fr": "J'ai perdu mon manuel de grammaire.",
+          "en": "I lost my grammar textbook.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-technologie.065",
+          "theme": "rp-technologie",
+          "fr": "Vous avez installé la mise à jour ?",
+          "en": "Did you install the update?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recherche-emploi.117",
+          "theme": "recherche-emploi",
+          "fr": "Je cherche un emploi dans la vente.",
+          "en": "I am looking for a job in sales.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.128",
+          "theme": "douane-et-immigration",
+          "fr": "Quel est le motif de votre voyage ?",
+          "en": "What is the purpose of your trip?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.symptomes.154",
+          "theme": "symptomes",
+          "fr": "Tu as pris ton médicament ce matin ?",
+          "en": "Did you take your medication this morning?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-technologie.060",
+          "theme": "rp-technologie",
+          "fr": "J'ai acheté un nouveau clavier hier.",
+          "en": "I bought a new keyboard yesterday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-technologie.080",
+          "theme": "rp-technologie",
+          "fr": "Nous avons créé un compte hier soir.",
+          "en": "We created an account last night.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.084",
+          "theme": "rp-travail-etudes",
+          "fr": "J'ai déposé ma candidature en ligne.",
+          "en": "I submitted my application online.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.114",
+          "theme": "bureau",
+          "fr": "J'arrive au bureau vers huit heures.",
+          "en": "I get to the office around eight o'clock.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.122",
+          "theme": "bureau",
+          "fr": "Elle range son stylo dans le tiroir.",
+          "en": "She puts her pen away in the drawer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.042",
+          "theme": "bureau",
+          "fr": "Elle prend toujours une pause à midi.",
+          "en": "She always takes a break at noon.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.007",
+          "theme": "rp-travail-etudes",
+          "fr": "J'ai trouvé un poste assez rapidement.",
+          "en": "I found a job fairly quickly.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.101",
+          "theme": "quebec-et-francophonie",
+          "fr": "Québec est la capitale de la province.",
+          "en": "Quebec City is the capital of the province.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.138",
+          "theme": "systeme-de-sante",
+          "fr": "Le dentiste m'a fait une radiographie.",
+          "en": "The dentist took an x-ray of me.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.appareils.048",
+          "theme": "appareils",
+          "fr": "Ma tablette a planté pendant la vidéo.",
+          "en": "My tablet crashed during the video.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recherche-emploi.118",
+          "theme": "recherche-emploi",
+          "fr": "J'ai envoyé mon curriculum vitae hier.",
+          "en": "I sent my resume yesterday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recherche-emploi.143",
+          "theme": "recherche-emploi",
+          "fr": "Je dois porter un uniforme au travail.",
+          "en": "I have to wear a uniform at work.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.a2.recherche-emploi.150",
+          "theme": "recherche-emploi",
+          "fr": "Elle a de l'expérience comme bénévole.",
+          "en": "She has experience as a volunteer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recherche-emploi.161",
+          "theme": "recherche-emploi",
+          "fr": "Elle cherche un stage dans un hôpital.",
+          "en": "She is looking for an internship in a hospital.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recherche-emploi.165",
+          "theme": "recherche-emploi",
+          "fr": "Elle a une entrevue avec deux gérants.",
+          "en": "She has an interview with two managers.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recherche-emploi.173",
+          "theme": "recherche-emploi",
+          "fr": "Il a démissionné de son ancien emploi.",
+          "en": "He resigned from his former job.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.140",
+          "theme": "bureau",
+          "fr": "J'ai apporté mon déjeuner aujourd'hui.",
+          "en": "I brought my lunch today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-technologie.007",
+          "theme": "rp-technologie",
+          "fr": "Il faudrait peut-être le faire réparer.",
+          "en": "Maybe it should be repaired.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.039",
+          "theme": "technologie-quotidienne",
+          "fr": "Le livreur va arriver dans dix minutes.",
+          "en": "The delivery person is going to arrive in ten minutes.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.103",
+          "theme": "quebec-et-francophonie",
+          "fr": "En hiver, il neige beaucoup à Montréal.",
+          "en": "In winter, it snows a lot in Montreal.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.113",
+          "theme": "examens-et-diplomes",
+          "fr": "Le relevé de notes arrive par courrier.",
+          "en": "The transcript arrives by mail.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.166",
+          "theme": "systeme-de-sante",
+          "fr": "L'ambulance est arrivée en dix minutes.",
+          "en": "The ambulance arrived in ten minutes.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-societe.076",
+          "theme": "rp-societe",
+          "fr": "Enfant, je jouais souvent dans ce parc.",
+          "en": "As a child, I often played in this park.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recherche-emploi.139",
+          "theme": "recherche-emploi",
+          "fr": "Elle attend une réponse de l'employeur.",
+          "en": "She is waiting for a response from the employer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.063",
+          "theme": "rp-travail-etudes",
+          "fr": "Nous avons signé le contrat hier matin.",
+          "en": "We signed the contract yesterday morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.matieres.136",
+          "theme": "matieres",
+          "fr": "J'ai un contrôle d'orthographe vendredi.",
+          "en": "I have a spelling test on Friday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.symptomes.123",
+          "theme": "symptomes",
+          "fr": "Nous allons appeler le médecin ce matin.",
+          "en": "We are going to call the doctor this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.115",
+          "theme": "bureau",
+          "fr": "Elle va envoyer le rapport demain matin.",
+          "en": "She is going to send the report tomorrow morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.116",
+          "theme": "bureau",
+          "fr": "Nous avons rangé nos dossiers hier soir.",
+          "en": "We tidied our files last night.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.135",
+          "theme": "douane-et-immigration",
+          "fr": "L'agent a pris mes empreintes digitales.",
+          "en": "The officer took my fingerprints.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.145",
+          "theme": "examens-et-diplomes",
+          "fr": "Vous devez signer la feuille de présence.",
+          "en": "You must sign the attendance sheet.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.matieres.118",
+          "theme": "matieres",
+          "fr": "Le professeur a corrigé nos devoirs hier.",
+          "en": "The teacher corrected our homework yesterday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.matieres.132",
+          "theme": "matieres",
+          "fr": "Le professeur d'allemand parle très vite.",
+          "en": "The German teacher speaks very fast.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.145",
+          "theme": "systeme-de-sante",
+          "fr": "Nous avons attendu longtemps à l'urgence.",
+          "en": "We waited a long time at the emergency room.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.disciplines.064",
+          "theme": "disciplines",
+          "fr": "Il aime beaucoup les cours de sociologie.",
+          "en": "He likes sociology classes a lot.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.111",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le demandeur d'asile attend une décision.",
+          "en": "The asylum seeker is waiting for a decision.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.128",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons rempli le formulaire en ligne.",
+          "en": "We filled out the form online.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.065",
+          "theme": "rp-travail-etudes",
+          "fr": "J'avais un entretien la semaine dernière.",
+          "en": "I had an interview last week.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.117",
+          "theme": "bureau",
+          "fr": "Le patron était content de notre travail.",
+          "en": "The boss was happy with our work.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.135",
+          "theme": "bureau",
+          "fr": "Nous allons manger ensemble à la cantine.",
+          "en": "We are going to eat together at the cafeteria.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.108",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le Carnaval de Québec commence en février.",
+          "en": "The Quebec Winter Carnival begins in February.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.103",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous révisons la grammaire tous les soirs.",
+          "en": "We review grammar every evening.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.129",
+          "theme": "systeme-de-sante",
+          "fr": "L'infirmière a pris ma tension artérielle.",
+          "en": "The nurse took my blood pressure.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.150",
+          "theme": "systeme-de-sante",
+          "fr": "J'attends toujours l'appel du spécialiste.",
+          "en": "I'm still waiting for the specialist's call.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.160",
+          "theme": "systeme-de-sante",
+          "fr": "Je dois me reposer pendant quelques jours.",
+          "en": "I need to rest for a few days.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.a2.recherche-emploi.157",
+          "theme": "recherche-emploi",
+          "fr": "Le premier jour de travail commence lundi.",
+          "en": "The first day of work starts on Monday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.146",
+          "theme": "bureau",
+          "fr": "Elle range toujours son espace de travail.",
+          "en": "She always tidies her workspace.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.102",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le fleuve Saint-Laurent traverse le Québec.",
+          "en": "The St. Lawrence River crosses Quebec.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.146",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous avons hâte de connaître nos résultats.",
+          "en": "We can't wait to know our results.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.matieres.112",
+          "theme": "matieres",
+          "fr": "Mon professeur d'histoire est très patient.",
+          "en": "My history teacher is very patient.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.disciplines.063",
+          "theme": "disciplines",
+          "fr": "Nous avons un examen d'informatique demain.",
+          "en": "We have a computer science exam tomorrow.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.105",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il attend une réponse d'Immigration Canada.",
+          "en": "He is waiting for a response from Immigration Canada.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.127",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le juge de citoyenneté explique le serment.",
+          "en": "The citizenship judge explains the oath.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.129",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Elle attend son numéro d'assurance sociale.",
+          "en": "She is waiting for her social insurance number.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.140",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons signé les papiers du parrainage.",
+          "en": "We signed the sponsorship papers.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recherche-emploi.154",
+          "theme": "recherche-emploi",
+          "fr": "Il travaille les fins de semaine seulement.",
+          "en": "He only works weekends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.internet.041",
+          "theme": "internet",
+          "fr": "Le site internet est fermé pour maintenance.",
+          "en": "The website is down for maintenance.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.economie.022",
+          "theme": "economie",
+          "fr": "Le salaire minimum va augmenter cette année.",
+          "en": "The minimum wage is going up this year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.168",
+          "theme": "systeme-de-sante",
+          "fr": "Mon assurance ne couvre pas les médicaments.",
+          "en": "My insurance doesn't cover medications.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-sante.075",
+          "theme": "rp-sante",
+          "fr": "Nous avons attendu deux heures aux urgences.",
+          "en": "We waited two hours at the emergency room.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.145",
+          "theme": "bureau",
+          "fr": "Nous avons rencontré un nouveau client hier.",
+          "en": "We met a new client yesterday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.116",
+          "theme": "examens-et-diplomes",
+          "fr": "Le correcteur vérifie chaque copie avec soin.",
+          "en": "The grader checks each paper carefully.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.matieres.122",
+          "theme": "matieres",
+          "fr": "Les élèves écoutent le professeur en silence.",
+          "en": "The students listen to the teacher in silence.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.143",
+          "theme": "systeme-de-sante",
+          "fr": "Les infirmières s'occupent bien des patients.",
+          "en": "The nurses take good care of the patients.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.174",
+          "theme": "systeme-de-sante",
+          "fr": "Nous cherchons un nouveau médecin de famille.",
+          "en": "We are looking for a new family doctor.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-technologie.062",
+          "theme": "rp-technologie",
+          "fr": "Nous avons téléchargé l'application ce matin.",
+          "en": "We downloaded the app this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.075",
+          "theme": "rp-travail-etudes",
+          "fr": "Le directeur était absent pendant la réunion.",
+          "en": "The director was absent during the meeting.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bureau.127",
+          "theme": "bureau",
+          "fr": "Nous étions fatigués après la longue journée.",
+          "en": "We were tired after the long day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-technologie.084",
+          "theme": "rp-technologie",
+          "fr": "Nous avons acheté un ordinateur portable neuf.",
+          "en": "We bought a brand new laptop.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-technologie.085",
+          "theme": "rp-technologie",
+          "fr": "Vous avez oublié de sauvegarder votre travail.",
+          "en": "You forgot to save your work.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.134",
+          "theme": "douane-et-immigration",
+          "fr": "Je transportais deux mille dollars en espèces.",
+          "en": "I was carrying two thousand dollars in cash.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.145",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier a inspecté nos bagages rapidement.",
+          "en": "The customs officer inspected our luggage quickly.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.038",
+          "theme": "technologie-quotidienne",
+          "fr": "Nous allons commander les billets sur internet.",
+          "en": "We are going to order the tickets online.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.collegues.050",
+          "theme": "collegues",
+          "fr": "Le nouveau collègue pose beaucoup de questions.",
+          "en": "The new colleague asks a lot of questions.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.economie.041",
+          "theme": "economie",
+          "fr": "Le supermarché fait des promotions le vendredi.",
+          "en": "The supermarket has promotions on Fridays.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.appareils.012",
+          "theme": "appareils",
+          "fr": "Cette imprimante ne fonctionne plus depuis hier.",
+          "en": "This printer hasn't been working since yesterday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.135",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les Acadiens habitent surtout dans les Maritimes.",
+          "en": "The Acadians mostly live in the Maritimes.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.120",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il travaillait comme infirmier avant son arrivée.",
+          "en": "He used to work as a nurse before his arrival.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.a2.examens-et-diplomes.135",
+          "theme": "examens-et-diplomes",
+          "fr": "Vous allez recevoir votre certificat par courriel.",
+          "en": "You are going to receive your certificate by email.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.110",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Elle va demander la citoyenneté canadienne bientôt.",
+          "en": "She is going to apply for Canadian citizenship soon.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.118",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le gouvernement examine son dossier avec attention.",
+          "en": "The government is reviewing his file carefully.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.136",
+          "theme": "quebec-et-francophonie",
+          "fr": "La Louisiane garde encore des traditions françaises.",
+          "en": "Louisiana still keeps French traditions.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.recherche-emploi.153",
+          "theme": "recherche-emploi",
+          "fr": "Nous avons besoin de deux références professionnelles.",
+          "en": "We need two professional references.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.matieres.039",
+          "theme": "matieres",
+          "fr": "L'histoire raconte souvent des événements passionnants.",
+          "en": "History often recounts fascinating events.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.164",
+          "theme": "systeme-de-sante",
+          "fr": "On lui a mis un plâtre au poignet.",
+          "en": "They put a cast on his wrist.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.123",
+          "theme": "douane-et-immigration",
+          "fr": "J'ai perdu ma valise à l'aéroport.",
+          "en": "I lost my suitcase at the airport.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.symptomes.044",
+          "theme": "symptomes",
+          "fr": "Elle a de la fièvre depuis ce matin.",
+          "en": "She has had a fever since this morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.symptomes.120",
+          "theme": "symptomes",
+          "fr": "J'ai mal aux dents depuis hier soir.",
+          "en": "I've had a toothache since last night.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.internet.039",
+          "theme": "internet",
+          "fr": "Il y a un problème avec ma connexion.",
+          "en": "There's a problem with my connection.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-sante.069",
+          "theme": "rp-sante",
+          "fr": "J'ai passé une radio hier après-midi.",
+          "en": "I had an X-ray yesterday afternoon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-technologie.063",
+          "theme": "rp-technologie",
+          "fr": "Il a oublié son chargeur à la maison.",
+          "en": "He forgot his charger at home.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.145",
+          "theme": "recherche-emploi",
+          "fr": "J'ai des vacances payées après un an.",
+          "en": "I have paid vacation after one year.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.005",
+          "theme": "rp-travail-etudes",
+          "fr": "J'ai étudié l'économie à l'université.",
+          "en": "I studied economics at university.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.139",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le Cirque du Soleil est né à Montréal.",
+          "en": "Cirque du Soleil was born in Montreal.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.137",
+          "theme": "systeme-de-sante",
+          "fr": "J'ai mal aux dents depuis trois jours.",
+          "en": "My teeth have hurt for three days.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-societe.060",
+          "theme": "rp-societe",
+          "fr": "Hier, j'ai voté pour la première fois.",
+          "en": "Yesterday, I voted for the first time.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.148",
+          "theme": "recherche-emploi",
+          "fr": "Il cherche un emploi près de chez lui.",
+          "en": "He is looking for a job near his home.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.163",
+          "theme": "recherche-emploi",
+          "fr": "J'ai demandé un congé de maladie hier.",
+          "en": "I requested sick leave yesterday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.082",
+          "theme": "rp-travail-etudes",
+          "fr": "Elle a accepté le poste tout de suite.",
+          "en": "She accepted the position right away.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.collegues.024",
+          "theme": "collegues",
+          "fr": "Nous avons une pause-café à dix heures.",
+          "en": "We have a coffee break at ten.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.150",
+          "theme": "examens-et-diplomes",
+          "fr": "J'ai réussi mon examen du premier coup.",
+          "en": "I passed my exam on the first try.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.symptomes.134",
+          "theme": "symptomes",
+          "fr": "Le patient a de la difficulté à avaler.",
+          "en": "The patient has difficulty swallowing.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.appareils.045",
+          "theme": "appareils",
+          "fr": "J'ai perdu mes écouteurs dans le métro.",
+          "en": "I lost my earbuds on the subway.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.136",
+          "theme": "recherche-emploi",
+          "fr": "Il a signé son contrat de travail hier.",
+          "en": "He signed his employment contract yesterday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bureau.134",
+          "theme": "bureau",
+          "fr": "J'ai perdu mon stylo préféré au bureau.",
+          "en": "I lost my favorite pen at the office.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.106",
+          "theme": "examens-et-diplomes",
+          "fr": "J'ai obtenu mon diplôme le mois dernier.",
+          "en": "I got my diploma last month.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.158",
+          "theme": "systeme-de-sante",
+          "fr": "Le CLSC est ouvert du lundi au vendredi.",
+          "en": "The CLSC is open Monday to Friday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.159",
+          "theme": "systeme-de-sante",
+          "fr": "On peut avoir un vaccin gratuit au CLSC.",
+          "en": "You can get a free vaccine at the CLSC.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bureau.126",
+          "theme": "bureau",
+          "fr": "Le directeur va parler à toute l'équipe.",
+          "en": "The director is going to speak to the whole team.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.159",
+          "theme": "douane-et-immigration",
+          "fr": "Elle attend sa carte RP depuis six mois.",
+          "en": "She has been waiting for her PR card for six months.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.141",
+          "theme": "recherche-emploi",
+          "fr": "Mon diplôme n'est pas encore reconnu ici.",
+          "en": "My diploma is not yet recognized here.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.a2.rp-travail-etudes.067",
+          "theme": "rp-travail-etudes",
+          "fr": "Mon patron m'a félicité pour mon travail.",
+          "en": "My boss congratulated me for my work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.076",
+          "theme": "rp-travail-etudes",
+          "fr": "J'ai changé de carrière l'année dernière.",
+          "en": "I changed careers last year.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bureau.129",
+          "theme": "bureau",
+          "fr": "Je dois appeler un client cet après-midi.",
+          "en": "I have to call a client this afternoon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-societe.006",
+          "theme": "rp-societe",
+          "fr": "Oui, tous les jours pour aller au travail.",
+          "en": "Yes, every day to go to work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.102",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a réussi son examen de français hier.",
+          "en": "She passed her French exam yesterday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.110",
+          "theme": "matieres",
+          "fr": "Le cours de chimie commence à neuf heures.",
+          "en": "Chemistry class starts at nine o'clock.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.121",
+          "theme": "matieres",
+          "fr": "Mon frère a raté son contrôle de biologie.",
+          "en": "My brother failed his biology test.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.162",
+          "theme": "systeme-de-sante",
+          "fr": "Mon patron a accepté mon congé de maladie.",
+          "en": "My boss accepted my sick leave.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-sante.081",
+          "theme": "rp-sante",
+          "fr": "J'ai pris rendez-vous avec un spécialiste.",
+          "en": "I made an appointment with a specialist.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.symptomes.127",
+          "theme": "symptomes",
+          "fr": "Elle a mal aux oreilles depuis la piscine.",
+          "en": "She's had an earache since the pool.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.symptomes.135",
+          "theme": "symptomes",
+          "fr": "Mon collègue a pris un congé maladie hier.",
+          "en": "My colleague took sick leave yesterday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.disciplines.061",
+          "theme": "disciplines",
+          "fr": "Mon cousin étudie le droit à l'université.",
+          "en": "My cousin is studying law at the university.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.112",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons pris rendez-vous à l'ambassade.",
+          "en": "We made an appointment at the embassy.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.119",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Mes parents ont immigré au Canada en 2010.",
+          "en": "My parents immigrated to Canada in 2010.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.124",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Elle a réussi son examen de français oral.",
+          "en": "She passed her oral French exam.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.144",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Vous devez déclarer vos biens à la douane.",
+          "en": "You must declare your goods at customs.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.gouvernement.065",
+          "theme": "gouvernement",
+          "fr": "Le bureau des impôts ferme à seize heures.",
+          "en": "The tax office closes at four o'clock.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.154",
+          "theme": "douane-et-immigration",
+          "fr": "Il a fallu attendre longtemps à la douane.",
+          "en": "We had to wait a long time at customs.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.gouvernement.030",
+          "theme": "gouvernement",
+          "fr": "Le président parle à la télévision ce soir.",
+          "en": "The president is speaking on TV tonight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.104",
+          "theme": "quebec-et-francophonie",
+          "fr": "Nous portons une tuque quand il fait froid.",
+          "en": "We wear a toque when it's cold.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.114",
+          "theme": "matieres",
+          "fr": "Elle aime beaucoup la musique et le dessin.",
+          "en": "She really likes music and drawing.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.131",
+          "theme": "systeme-de-sante",
+          "fr": "J'ai apporté mon ordonnance à la pharmacie.",
+          "en": "I brought my prescription to the pharmacy.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.140",
+          "theme": "systeme-de-sante",
+          "fr": "L'optométriste a vérifié ma vue hier matin.",
+          "en": "The optometrist checked my eyesight yesterday morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.146",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin de garde m'a examiné rapidement.",
+          "en": "The doctor on call examined me quickly.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.141",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Elle va chercher un emploi dès son arrivée.",
+          "en": "She is going to look for a job as soon as she arrives.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.appareils.042",
+          "theme": "appareils",
+          "fr": "Mon frère a réparé la télévision hier soir.",
+          "en": "My brother repaired the television last night.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.disciplines.040",
+          "theme": "disciplines",
+          "fr": "Le cours de sciences commence à neuf heures.",
+          "en": "Science class starts at nine o'clock.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-technologie.006",
+          "theme": "rp-technologie",
+          "fr": "J'ai essayé de le redémarrer plusieurs fois.",
+          "en": "I tried restarting it several times.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.100",
+          "theme": "quebec-et-francophonie",
+          "fr": "Montréal est la plus grande ville du Québec.",
+          "en": "Montreal is the largest city in Quebec.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.116",
+          "theme": "quebec-et-francophonie",
+          "fr": "Au Québec, on dit « char » pour une voiture.",
+          "en": "In Quebec, people say « char » for a car.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.117",
+          "theme": "examens-et-diplomes",
+          "fr": "Je vais réviser mon vocabulaire ce week-end.",
+          "en": "I am going to review my vocabulary this weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.131",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous suivons un cours de préparation au TEF.",
+          "en": "We are taking a TEF prep course.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.124",
+          "theme": "matieres",
+          "fr": "Elle a obtenu une bonne note en philosophie.",
+          "en": "She got a good grade in philosophy.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.a2.systeme-de-sante.149",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin veut me référer à un spécialiste.",
+          "en": "The doctor wants to refer me to a specialist.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.116",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Elle suit des cours de francisation le soir.",
+          "en": "She takes French classes in the evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.126",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Ils habitaient en France avant de venir ici.",
+          "en": "They used to live in France before coming here.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.internet.121",
+          "theme": "internet",
+          "fr": "Ma sœur m'appelle par vidéo chaque dimanche.",
+          "en": "My sister video calls me every Sunday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.129",
+          "theme": "recherche-emploi",
+          "fr": "Le recruteur m'a posé beaucoup de questions.",
+          "en": "The recruiter asked me a lot of questions.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.159",
+          "theme": "recherche-emploi",
+          "fr": "J'ai oublié d'apporter mon curriculum vitae.",
+          "en": "I forgot to bring my resume.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.164",
+          "theme": "recherche-emploi",
+          "fr": "Le poste demande une expérience de deux ans.",
+          "en": "The position requires two years of experience.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bureau.125",
+          "theme": "bureau",
+          "fr": "Vous devez signer ce papier avant de partir.",
+          "en": "You have to sign this paper before leaving.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bureau.137",
+          "theme": "bureau",
+          "fr": "Elle a fermé son ordinateur avant de partir.",
+          "en": "She closed her computer before leaving.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.141",
+          "theme": "douane-et-immigration",
+          "fr": "Mon permis d'études expire en juin prochain.",
+          "en": "My study permit expires next June.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.appareils.016",
+          "theme": "appareils",
+          "fr": "Je dois recharger la batterie de ma tablette.",
+          "en": "I need to charge my tablet's battery.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.disciplines.067",
+          "theme": "disciplines",
+          "fr": "J'ai étudié l'architecture pendant trois ans.",
+          "en": "I studied architecture for three years.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-societe.081",
+          "theme": "rp-societe",
+          "fr": "Avant les travaux, la place était très calme.",
+          "en": "Before the construction work, the square was very quiet.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-technologie.067",
+          "theme": "rp-technologie",
+          "fr": "Elle utilisait toujours le même mot de passe.",
+          "en": "She always used the same password.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-technologie.077",
+          "theme": "rp-technologie",
+          "fr": "Le fichier était trop grand pour être envoyé.",
+          "en": "The file was too big to be sent.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.144",
+          "theme": "recherche-emploi",
+          "fr": "Elle a négocié son salaire avec le directeur.",
+          "en": "She negotiated her salary with the director.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.169",
+          "theme": "recherche-emploi",
+          "fr": "Elle travaille à la banque depuis trois mois.",
+          "en": "She has been working at the bank for three months.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.152",
+          "theme": "douane-et-immigration",
+          "fr": "Le vol de correspondance part dans une heure.",
+          "en": "The connecting flight leaves in an hour.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.109",
+          "theme": "quebec-et-francophonie",
+          "fr": "Bonhomme est le symbole du Carnaval de Québec.",
+          "en": "Bonhomme is the symbol of the Quebec Winter Carnival.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.115",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le drapeau du Québec s'appelle le fleurdelisé.",
+          "en": "The Quebec flag is called the fleurdelisé.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.105",
+          "theme": "examens-et-diplomes",
+          "fr": "Le professeur explique les règles de l'examen.",
+          "en": "The teacher explains the exam rules.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.152",
+          "theme": "systeme-de-sante",
+          "fr": "Ma tante voit un psychologue depuis deux mois.",
+          "en": "My aunt has been seeing a psychologist for two months.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.154",
+          "theme": "systeme-de-sante",
+          "fr": "Le physiothérapeute m'aide à guérir mon genou.",
+          "en": "The physiotherapist is helping me heal my knee.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.internet.140",
+          "theme": "internet",
+          "fr": "Nous avons regardé un film ensemble hier soir.",
+          "en": "We watched a movie together last night.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.131",
+          "theme": "recherche-emploi",
+          "fr": "J'ai postulé pour trois emplois cette semaine.",
+          "en": "I applied for three jobs this week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.134",
+          "theme": "recherche-emploi",
+          "fr": "Mon horaire de travail commence à huit heures.",
+          "en": "My work schedule starts at eight o'clock.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bureau.121",
+          "theme": "bureau",
+          "fr": "Nous allons discuter du projet cet après-midi.",
+          "en": "We are going to discuss the project this afternoon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bureau.131",
+          "theme": "bureau",
+          "fr": "Nous avons acheté du papier pour l'imprimante.",
+          "en": "We bought paper for the printer.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.130",
+          "theme": "douane-et-immigration",
+          "fr": "Combien de temps allez-vous rester au Canada ?",
+          "en": "How long are you going to stay in Canada?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.appareils.017",
+          "theme": "appareils",
+          "fr": "Cet appareil photo prend de très belles photos.",
+          "en": "This camera takes really beautiful photos.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.115",
+          "theme": "examens-et-diplomes",
+          "fr": "Ta moyenne générale est très bonne ce semestre.",
+          "en": "Your overall average is very good this semester.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.128",
+          "theme": "matieres",
+          "fr": "Ma sœur suit des cours particuliers en algèbre.",
+          "en": "My sister takes private lessons in algebra.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.135",
+          "theme": "matieres",
+          "fr": "Le tableau est couvert de formules de physique.",
+          "en": "The board is covered with physics formulas.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.a2.internet.122",
+          "theme": "internet",
+          "fr": "Le formulaire a refusé mon numéro de téléphone.",
+          "en": "The form rejected my phone number.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.152",
+          "theme": "recherche-emploi",
+          "fr": "J'ai passé un entretien téléphonique hier soir.",
+          "en": "I had a phone interview yesterday evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.042",
+          "theme": "technologie-quotidienne",
+          "fr": "Je vais éteindre mon téléphone avant la réunion.",
+          "en": "I am going to turn off my phone before the meeting.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.111",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les Canadiens de Montréal jouent au Centre Bell.",
+          "en": "The Montreal Canadiens play at the Bell Centre.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.138",
+          "theme": "quebec-et-francophonie",
+          "fr": "Céline Dion est une chanteuse célèbre du Québec.",
+          "en": "Céline Dion is a famous singer from Quebec.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.138",
+          "theme": "matieres",
+          "fr": "Elle a choisi l'option informatique cette année.",
+          "en": "She chose the computer science elective this year.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-societe.082",
+          "theme": "rp-societe",
+          "fr": "Les habitants ont voté contre le nouveau projet.",
+          "en": "The residents voted against the new project.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.internet.120",
+          "theme": "internet",
+          "fr": "J'utilise mon téléphone pour payer mes factures.",
+          "en": "I use my phone to pay my bills.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bureau.141",
+          "theme": "bureau",
+          "fr": "Nous avons changé de bureau la semaine dernière.",
+          "en": "We changed offices last week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.167",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier a vérifié la déclaration de devises.",
+          "en": "The customs officer checked the currency declaration.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.170",
+          "theme": "douane-et-immigration",
+          "fr": "Le formulaire demande la durée exacte du séjour.",
+          "en": "The form asks for the exact length of stay.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.099",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le Québec est une province francophone du Canada.",
+          "en": "Quebec is a francophone province of Canada.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.125",
+          "theme": "matieres",
+          "fr": "Nous avons cours d'éducation physique au gymnase.",
+          "en": "We have gym class at the gymnasium.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.126",
+          "theme": "matieres",
+          "fr": "Le laboratoire de sciences est fermé aujourd'hui.",
+          "en": "The science lab is closed today.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.143",
+          "theme": "matieres",
+          "fr": "La classe a applaudi après la présentation orale.",
+          "en": "The class applauded after the oral presentation.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.collegues.054",
+          "theme": "collegues",
+          "fr": "Nous avons discuté du budget pendant le déjeuner.",
+          "en": "We discussed the budget during lunch.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.114",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'agent d'immigration pose des questions simples.",
+          "en": "The immigration officer asks simple questions.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-societe.061",
+          "theme": "rp-societe",
+          "fr": "Le quartier a beaucoup changé depuis mon enfance.",
+          "en": "The neighborhood has changed a lot since my childhood.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-technologie.069",
+          "theme": "rp-technologie",
+          "fr": "Il travaillait sur son ordinateur tous les soirs.",
+          "en": "He used to work on his computer every evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.147",
+          "theme": "recherche-emploi",
+          "fr": "Nous avons rempli une demande d'assurance-emploi.",
+          "en": "We filled out an employment insurance application.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.151",
+          "theme": "recherche-emploi",
+          "fr": "Le directeur des ressources humaines m'a rappelé.",
+          "en": "The human resources director called me back.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.120",
+          "theme": "quebec-et-francophonie",
+          "fr": "Nous allons magasiner au centre-ville de Montréal.",
+          "en": "We are going to shop downtown in Montreal.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.132",
+          "theme": "quebec-et-francophonie",
+          "fr": "En Suisse, on parle français, allemand et italien.",
+          "en": "In Switzerland, people speak French, German, and Italian.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.144",
+          "theme": "quebec-et-francophonie",
+          "fr": "Beaucoup d'étudiants prennent le métro à Montréal.",
+          "en": "Many students take the metro in Montreal.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.129",
+          "theme": "examens-et-diplomes",
+          "fr": "Les étudiants attendent devant la salle de classe.",
+          "en": "The students are waiting in front of the classroom.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.disciplines.062",
+          "theme": "disciplines",
+          "fr": "Elle a choisi l'économie comme matière principale.",
+          "en": "She chose economics as her main subject.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.121",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Vous devez fournir une preuve de fonds suffisante.",
+          "en": "You must provide sufficient proof of funds.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.069",
+          "theme": "rp-travail-etudes",
+          "fr": "Nous avons discuté du salaire pendant l'entretien.",
+          "en": "We discussed the salary during the interview.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bureau.142",
+          "theme": "bureau",
+          "fr": "Elle prend souvent des notes pendant les réunions.",
+          "en": "She often takes notes during meetings.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.142",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons demandé une prolongation de notre visa.",
+          "en": "We requested an extension of our visa.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.126",
+          "theme": "examens-et-diplomes",
+          "fr": "Le jury annonce les résultats la semaine prochaine.",
+          "en": "The board announces the results next week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.matieres.119",
+          "theme": "matieres",
+          "fr": "Nous avons choisi l'espagnol comme deuxième langue.",
+          "en": "We chose Spanish as our second language.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.108",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le couple prépare les documents pour le parrainage.",
+          "en": "The couple is preparing the documents for sponsorship.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.a2.immigration-et-citoyennete.131",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Vous pouvez consulter le site d'Immigration Canada.",
+          "en": "You can check the Immigration Canada website.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-societe.063",
+          "theme": "rp-societe",
+          "fr": "Mes parents habitaient dans un petit village avant.",
+          "en": "My parents used to live in a small village before.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.160",
+          "theme": "recherche-emploi",
+          "fr": "Il a fait des heures supplémentaires cette semaine.",
+          "en": "He worked overtime this week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.recherche-emploi.172",
+          "theme": "recherche-emploi",
+          "fr": "Nous cherchons un poste avec des avantages sociaux.",
+          "en": "We are looking for a position with benefits.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.136",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le conseiller en immigration répond à mes questions.",
+          "en": "The immigration consultant answers my questions.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.gouvernement.060",
+          "theme": "gouvernement",
+          "fr": "Il travaille comme employé au bureau des passeports.",
+          "en": "He works as an employee at the passport office.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.053",
+          "theme": "technologie-quotidienne",
+          "fr": "Le technicien va réparer mon ordinateur demain matin.",
+          "en": "The technician is going to repair my computer tomorrow morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-sante.082",
+          "theme": "rp-sante",
+          "fr": "Le physiothérapeute m'a montré des exercices simples.",
+          "en": "The physiotherapist showed me some simple exercises.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.gouvernement.057",
+          "theme": "gouvernement",
+          "fr": "Elle a demandé sa citoyenneté canadienne cette année.",
+          "en": "She applied for her Canadian citizenship this year.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bureau.132",
+          "theme": "bureau",
+          "fr": "Elle travaille dans cette entreprise depuis deux ans.",
+          "en": "She has been working at this company for two years.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.collegues.053",
+          "theme": "collegues",
+          "fr": "Mon collègue photocopie les documents pour la réunion.",
+          "en": "My colleague photocopies the documents for the meeting.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-societe.084",
+          "theme": "rp-societe",
+          "fr": "Le facteur passait toujours vers dix heures autrefois.",
+          "en": "The mailman used to come by around ten o'clock in the past.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.disciplines.068",
+          "theme": "disciplines",
+          "fr": "Elle voulait devenir ingénieure quand elle était jeune.",
+          "en": "She wanted to become an engineer when she was young.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.102",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous allons remplir le formulaire d'immigration demain.",
+          "en": "We are going to fill out the immigration form tomorrow.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.139",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le service d'établissement aide les nouveaux arrivants.",
+          "en": "The settlement service helps newcomers.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.142",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le fonctionnaire tamponne mon passeport à la frontière.",
+          "en": "The official stamps my passport at the border.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.economie.049",
+          "theme": "economie",
+          "fr": "Nous avons économisé pour acheter une nouvelle voiture.",
+          "en": "We saved up to buy a new car.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.055",
+          "theme": "technologie-quotidienne",
+          "fr": "Elle a désactivé les notifications pendant ses vacances.",
+          "en": "She disabled notifications during her vacation.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.126",
+          "theme": "quebec-et-francophonie",
+          "fr": "Beaucoup d'immigrants suivent des cours de francisation.",
+          "en": "Many immigrants take French-language classes.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.149",
+          "theme": "examens-et-diplomes",
+          "fr": "Le comité évalue les équivalences de diplômes étrangers.",
+          "en": "The committee evaluates the equivalences of foreign diplomas.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.158",
+          "theme": "douane-et-immigration",
+          "fr": "Le certificat médical est nécessaire pour certains visas.",
+          "en": "The medical certificate is necessary for certain visas.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.148",
+          "theme": "douane-et-immigration",
+          "fr": "Le processus de résidence permanente prend plusieurs mois.",
+          "en": "The permanent residence process takes several months.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.collegues.052",
+          "theme": "collegues",
+          "fr": "Autrefois, elle travaillait dans un petit bureau tranquille.",
+          "en": "In the past, she used to work in a small quiet office.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.collegues.057",
+          "theme": "collegues",
+          "fr": "Avant, les collègues mangeaient ensemble tous les vendredis.",
+          "en": "Before, colleagues used to eat together every Friday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.symptomes.130",
+          "theme": "symptomes",
+          "fr": "Il a le ventre gonflé et il a mal.",
+          "en": "His belly is swollen and he's in pain.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.123",
+          "theme": "systeme-de-sante",
+          "fr": "J'ai mal à la tête depuis ce matin.",
+          "en": "I've had a headache since this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-sante.080",
+          "theme": "rp-sante",
+          "fr": "Ma sœur s'est cassé le bras au parc.",
+          "en": "My sister broke her arm at the park.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-technologie.068",
+          "theme": "rp-technologie",
+          "fr": "Nous n'avions pas de wifi à la maison.",
+          "en": "We didn't have wifi at home.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.155",
+          "theme": "recherche-emploi",
+          "fr": "J'ai reçu une offre d'emploi ce matin.",
+          "en": "I received a job offer this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.036",
+          "theme": "technologie-quotidienne",
+          "fr": "J'ai oublié mon mot de passe hier soir.",
+          "en": "I forgot my password last night.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.130",
+          "theme": "examens-et-diplomes",
+          "fr": "Mon fils a eu une bonne note en dictée.",
+          "en": "My son got a good grade on the dictation.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.125",
+          "theme": "symptomes",
+          "fr": "Tu as l'air fatigué, tu as bien dormi ?",
+          "en": "You look tired, did you sleep well?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.142",
+          "theme": "recherche-emploi",
+          "fr": "Il a une période d'essai de trois mois.",
+          "en": "He has a three-month probation period.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.a2.rp-travail-etudes.074",
+          "theme": "rp-travail-etudes",
+          "fr": "J'ai reçu une offre d'emploi hier soir.",
+          "en": "I received a job offer last night.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-sante.005",
+          "theme": "rp-sante",
+          "fr": "J'ai de la fièvre et je tousse beaucoup.",
+          "en": "I have a fever and I'm coughing a lot.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.gouvernement.062",
+          "theme": "gouvernement",
+          "fr": "On paie nos impôts avant la fin d'avril.",
+          "en": "We pay our taxes before the end of April.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.174",
+          "theme": "recherche-emploi",
+          "fr": "Mon contrat se termine à la fin du mois.",
+          "en": "My contract ends at the end of the month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bureau.041",
+          "theme": "bureau",
+          "fr": "Il y a une imprimante au fond du couloir.",
+          "en": "There's a printer at the end of the hallway.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.economie.021",
+          "theme": "economie",
+          "fr": "J'ai besoin d'argent pour payer le loyer.",
+          "en": "I need money to pay the rent.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.049",
+          "theme": "technologie-quotidienne",
+          "fr": "Elle va installer la mise à jour ce soir.",
+          "en": "She is going to install the update tonight.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.060",
+          "theme": "rp-travail-etudes",
+          "fr": "J'ai trouvé un emploi et je suis content.",
+          "en": "I found a job and I am happy.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.173",
+          "theme": "systeme-de-sante",
+          "fr": "Le bébé a eu tous ses vaccins cette année.",
+          "en": "The baby has had all his vaccines this year.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.136",
+          "theme": "symptomes",
+          "fr": "Tu as encore mal au genou après le match ?",
+          "en": "Does your knee still hurt after the game?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.156",
+          "theme": "symptomes",
+          "fr": "Elle a passé la nuit à tousser sans arrêt.",
+          "en": "She spent the night coughing nonstop.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.115",
+          "theme": "immigration-et-citoyennete",
+          "fr": "J'ai obtenu mon permis de travail en juin.",
+          "en": "I got my work permit in June.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-societe.073",
+          "theme": "rp-societe",
+          "fr": "Les élections ont eu lieu au mois de mars.",
+          "en": "The elections took place in March.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.156",
+          "theme": "recherche-emploi",
+          "fr": "Elle a refusé le poste à cause du salaire.",
+          "en": "She turned down the position because of the salary.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bureau.136",
+          "theme": "bureau",
+          "fr": "Le lundi, il y a toujours plus de travail.",
+          "en": "On Mondays, there's always more work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.107",
+          "theme": "quebec-et-francophonie",
+          "fr": "J'aime manger de la poutine le samedi soir.",
+          "en": "I like eating poutine on Saturday evenings.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.matieres.142",
+          "theme": "matieres",
+          "fr": "J'ai révisé toute la nuit avant mon examen.",
+          "en": "I studied all night before my exam.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.122",
+          "theme": "symptomes",
+          "fr": "Ma sœur a mal au dos après le déménagement.",
+          "en": "My sister has back pain after the move.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.149",
+          "theme": "immigration-et-citoyennete",
+          "fr": "J'ai payé les frais de traitement en ligne.",
+          "en": "I paid the processing fees online.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.126",
+          "theme": "recherche-emploi",
+          "fr": "Le salaire est de vingt dollars de l'heure.",
+          "en": "The salary is twenty dollars an hour.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.128",
+          "theme": "recherche-emploi",
+          "fr": "J'ai appelé l'agence de placement ce matin.",
+          "en": "I called the employment agency this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.050",
+          "theme": "technologie-quotidienne",
+          "fr": "Il a payé sa facture d'électricité en ligne.",
+          "en": "He paid his electricity bill online.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.119",
+          "theme": "quebec-et-francophonie",
+          "fr": "Mon chum vient d'Haïti et il parle français.",
+          "en": "My boyfriend is from Haiti and he speaks French.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.144",
+          "theme": "examens-et-diplomes",
+          "fr": "J'étais très nerveux, mais j'ai bien réussi.",
+          "en": "I was very nervous, but I did well.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.124",
+          "theme": "systeme-de-sante",
+          "fr": "Elle a de la fièvre et elle tousse beaucoup.",
+          "en": "She has a fever and she coughs a lot.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.141",
+          "theme": "systeme-de-sante",
+          "fr": "Mon grand-père est à l'hôpital depuis lundi.",
+          "en": "My grandfather has been in the hospital since Monday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.165",
+          "theme": "systeme-de-sante",
+          "fr": "Je me suis blessé au genou pendant le sport.",
+          "en": "I hurt my knee during sports.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-sante.085",
+          "theme": "rp-sante",
+          "fr": "J'ai consulté un médecin en ligne hier soir.",
+          "en": "I consulted a doctor online last night.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.132",
+          "theme": "symptomes",
+          "fr": "Elle a les yeux rouges et ça pique beaucoup.",
+          "en": "Her eyes are red and it stings a lot.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bureau.130",
+          "theme": "bureau",
+          "fr": "Le bureau voisin est plus grand que le mien.",
+          "en": "The neighboring office is bigger than mine.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.metiers.005",
+          "theme": "metiers",
+          "fr": "Mon oncle a changé de métier après vingt ans.",
+          "en": "My uncle changed careers after twenty years.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.101",
+          "theme": "examens-et-diplomes",
+          "fr": "Je dois m'inscrire à l'examen avant vendredi.",
+          "en": "I have to register for the exam before Friday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.128",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a étudié toute la nuit avant son examen.",
+          "en": "She studied all night before her exam.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.a2.rp-sante.084",
+          "theme": "rp-sante",
+          "fr": "Le résultat de la prise de sang était normal.",
+          "en": "The blood test result was normal.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.131",
+          "theme": "symptomes",
+          "fr": "Nous avons tous eu la grippe le mois dernier.",
+          "en": "We all had the flu last month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.109",
+          "theme": "immigration-et-citoyennete",
+          "fr": "J'avais un visa de visiteur l'année dernière.",
+          "en": "I had a visitor visa last year.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.130",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le douanier a fouillé ma valise à l'aéroport.",
+          "en": "The customs officer searched my suitcase at the airport.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bureau.118",
+          "theme": "bureau",
+          "fr": "Tu peux allumer l'ordinateur, s'il te plaît ?",
+          "en": "Can you turn on the computer, please?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.172",
+          "theme": "douane-et-immigration",
+          "fr": "L'agente a souri en me rendant mon passeport.",
+          "en": "The officer smiled while handing back my passport.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.047",
+          "theme": "technologie-quotidienne",
+          "fr": "J'ai perdu ma connexion pendant l'appel vidéo.",
+          "en": "I lost my connection during the video call.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.112",
+          "theme": "quebec-et-francophonie",
+          "fr": "L'année dernière, j'ai visité le Vieux-Québec.",
+          "en": "Last year, I visited Old Quebec.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.147",
+          "theme": "quebec-et-francophonie",
+          "fr": "Nous allons visiter le lac Saint-Jean cet été.",
+          "en": "We are going to visit Lac Saint-Jean this summer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.matieres.133",
+          "theme": "matieres",
+          "fr": "Il a redoublé son année scolaire l'an dernier.",
+          "en": "He repeated his school year last year.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.122",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin a examiné ma gorge et mes oreilles.",
+          "en": "The doctor examined my throat and my ears.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.132",
+          "theme": "immigration-et-citoyennete",
+          "fr": "J'ai passé mon examen médical le mois dernier.",
+          "en": "I had my medical exam last month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.137",
+          "theme": "immigration-et-citoyennete",
+          "fr": "J'avais peur pendant l'entretien avec l'agent.",
+          "en": "I was scared during the interview with the officer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.138",
+          "theme": "recherche-emploi",
+          "fr": "J'ai laissé mon numéro de téléphone au gérant.",
+          "en": "I left my phone number with the manager.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.140",
+          "theme": "recherche-emploi",
+          "fr": "Nous avons visité le salon de l'emploi samedi.",
+          "en": "We visited the job fair on Saturday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.146",
+          "theme": "recherche-emploi",
+          "fr": "Le patron m'a expliqué les règles de sécurité.",
+          "en": "The boss explained the safety rules to me.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.138",
+          "theme": "douane-et-immigration",
+          "fr": "J'ai oublié de signer la carte de déclaration.",
+          "en": "I forgot to sign the declaration card.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.143",
+          "theme": "douane-et-immigration",
+          "fr": "Le bureau d'immigration est fermé le week-end.",
+          "en": "The immigration office is closed on weekends.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.150",
+          "theme": "douane-et-immigration",
+          "fr": "L'agente a été très polie pendant l'entretien.",
+          "en": "The officer was very polite during the interview.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.161",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier m'a demandé mon adresse au Canada.",
+          "en": "The customs officer asked me for my address in Canada.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.171",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons rempli la demande de visa en ligne.",
+          "en": "We filled out the visa application online.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.043",
+          "theme": "symptomes",
+          "fr": "Il tousse depuis trois jours et il est fatigué.",
+          "en": "He's been coughing for three days and he's tired.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.123",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le soir, ma famille soupe vers dix-huit heures.",
+          "en": "In the evening, my family has supper around six o'clock.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.matieres.117",
+          "theme": "matieres",
+          "fr": "Je dois réviser ma leçon de géographie ce soir.",
+          "en": "I have to review my geography lesson tonight.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.133",
+          "theme": "systeme-de-sante",
+          "fr": "Elle a pris deux comprimés avant de se coucher.",
+          "en": "She took two pills before going to bed.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.148",
+          "theme": "systeme-de-sante",
+          "fr": "Les résultats de la prise de sang sont normaux.",
+          "en": "The blood test results are normal.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.153",
+          "theme": "systeme-de-sante",
+          "fr": "Il est important de parler de sa santé mentale.",
+          "en": "It's important to talk about your mental health.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-societe.069",
+          "theme": "rp-societe",
+          "fr": "J'ai signé la pétition pour soutenir ce projet.",
+          "en": "I signed the petition to support this project.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.economie.043",
+          "theme": "economie",
+          "fr": "Mon frère a trouvé un emploi dans une boutique.",
+          "en": "My brother found a job in a shop.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.gouvernement.056",
+          "theme": "gouvernement",
+          "fr": "J'ai rempli ma déclaration de revenus en avril.",
+          "en": "I filled out my income tax return in April.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.149",
+          "theme": "douane-et-immigration",
+          "fr": "J'avais un peu peur au contrôle des passeports.",
+          "en": "I was a little scared at passport control.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.ecole.013",
+          "theme": "ecole",
+          "fr": "Quand j'étais petite, j'aimais beaucoup l'école.",
+          "en": "When I was little, I really liked school.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-sante.066",
+          "theme": "rp-sante",
+          "fr": "Quand j'étais jeune, j'avais souvent des otites.",
+          "en": "When I was young, I often had ear infections.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.a2.rp-sante.077",
+          "theme": "rp-sante",
+          "fr": "J'ai rempli le formulaire avant mon rendez-vous.",
+          "en": "I filled out the form before my appointment.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-sante.083",
+          "theme": "rp-sante",
+          "fr": "J'ai oublié de prendre mes médicaments ce matin.",
+          "en": "I forgot to take my medications this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.145",
+          "theme": "symptomes",
+          "fr": "Elle a eu des étourdissements en sortant du lit.",
+          "en": "She got dizzy spells getting out of bed.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.125",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Je vais renouveler mon permis d'études en avril.",
+          "en": "I am going to renew my study permit in April.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-technologie.078",
+          "theme": "rp-technologie",
+          "fr": "J'ai redémarré l'ordinateur trois fois ce matin.",
+          "en": "I restarted the computer three times this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.122",
+          "theme": "recherche-emploi",
+          "fr": "Il a deux ans d'expérience dans la restauration.",
+          "en": "He has two years of experience in the restaurant industry.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.144",
+          "theme": "douane-et-immigration",
+          "fr": "J'ai apporté tous mes documents dans un dossier.",
+          "en": "I brought all my documents in a folder.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.138",
+          "theme": "examens-et-diplomes",
+          "fr": "J'ai besoin d'une attestation pour mon employeur.",
+          "en": "I need a certificate for my employer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.matieres.111",
+          "theme": "matieres",
+          "fr": "J'ai deux heures de mathématiques le lundi matin.",
+          "en": "I have two hours of math on Monday morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.matieres.127",
+          "theme": "matieres",
+          "fr": "Il a beaucoup travaillé pour son examen de latin.",
+          "en": "He worked hard for his Latin exam.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.120",
+          "theme": "systeme-de-sante",
+          "fr": "La réceptionniste m'a donné un numéro de dossier.",
+          "en": "The receptionist gave me a file number.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.138",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Ils ont soumis leur dossier avant la date limite.",
+          "en": "They submitted their file before the deadline.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.internet.119",
+          "theme": "internet",
+          "fr": "Il cherche un appartement sur un site d'annonces.",
+          "en": "He is looking for an apartment on a listings site.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.internet.134",
+          "theme": "internet",
+          "fr": "Elle prend des notes pendant la réunion en ligne.",
+          "en": "She takes notes during the online meeting.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.062",
+          "theme": "rp-travail-etudes",
+          "fr": "J'étudiais le droit avant de changer de carrière.",
+          "en": "I was studying law before changing careers.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bureau.139",
+          "theme": "bureau",
+          "fr": "Le chef d'équipe a expliqué les nouvelles règles.",
+          "en": "The team leader explained the new rules.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.124",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier a ouvert mon sac pour une inspection.",
+          "en": "The customs officer opened my bag for an inspection.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.matieres.129",
+          "theme": "matieres",
+          "fr": "Le bulletin scolaire arrive à la fin du trimestre.",
+          "en": "The report card arrives at the end of the term.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.matieres.140",
+          "theme": "matieres",
+          "fr": "Mon cahier d'arts plastiques est plein de dessins.",
+          "en": "My art notebook is full of drawings.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.collegues.051",
+          "theme": "collegues",
+          "fr": "J'ai aidé une collègue à préparer sa présentation.",
+          "en": "I helped a colleague prepare her presentation.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.170",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin a écouté mon cœur avec son stéthoscope.",
+          "en": "The doctor listened to my heart with his stethoscope.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.disciplines.065",
+          "theme": "disciplines",
+          "fr": "Ma sœur travaille dans le domaine de la pharmacie.",
+          "en": "My sister works in the field of pharmacy.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.106",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Ma famille va s'installer à Montréal en septembre.",
+          "en": "My family is going to settle in Montreal in September.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.119",
+          "theme": "recherche-emploi",
+          "fr": "Le poste est disponible à partir du mois prochain.",
+          "en": "The position is available starting next month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.113",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le Château Frontenac est un hôtel célèbre à Québec.",
+          "en": "The Château Frontenac is a famous hotel in Quebec City.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.125",
+          "theme": "quebec-et-francophonie",
+          "fr": "La loi 101 rend le français obligatoire au travail.",
+          "en": "Law 101 makes French mandatory at work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.129",
+          "theme": "quebec-et-francophonie",
+          "fr": "L'Assemblée nationale du Québec se trouve à Québec.",
+          "en": "The National Assembly of Quebec is located in Quebec City.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.134",
+          "theme": "quebec-et-francophonie",
+          "fr": "Beaucoup de gens parlent français en Côte d'Ivoire.",
+          "en": "Many people speak French in Côte d'Ivoire.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.124",
+          "theme": "examens-et-diplomes",
+          "fr": "Le directeur signe les certificats de fin d'études.",
+          "en": "The principal signs the graduation certificates.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.141",
+          "theme": "examens-et-diplomes",
+          "fr": "Ils vont passer l'examen oral la semaine prochaine.",
+          "en": "They are going to take the oral exam next week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.142",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a obtenu une bourse pour continuer ses études.",
+          "en": "She got a scholarship to continue her studies.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.172",
+          "theme": "systeme-de-sante",
+          "fr": "Je vais mieux depuis que je prends mes médicaments.",
+          "en": "I feel better since I've been taking my medication.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-societe.072",
+          "theme": "rp-societe",
+          "fr": "Avant, on connaissait tous nos voisins dans la rue.",
+          "en": "In the past, we knew all our neighbors on the street.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.a2.internet.135",
+          "theme": "internet",
+          "fr": "Nous devons créer un nouveau compte pour la banque.",
+          "en": "We have to create a new account for the bank.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.124",
+          "theme": "recherche-emploi",
+          "fr": "Mon ancien employeur m'a donné une bonne référence.",
+          "en": "My former employer gave me a good reference.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.132",
+          "theme": "douane-et-immigration",
+          "fr": "L'entretien d'immigration a duré presque une heure.",
+          "en": "The immigration interview lasted almost an hour.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.118",
+          "theme": "quebec-et-francophonie",
+          "fr": "Avant, ma blonde travaillait dans une école à Laval.",
+          "en": "Before, my girlfriend used to work at a school in Laval.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.131",
+          "theme": "quebec-et-francophonie",
+          "fr": "La Belgique est aussi un pays francophone en Europe.",
+          "en": "Belgium is also a francophone country in Europe.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.104",
+          "theme": "examens-et-diplomes",
+          "fr": "Tu vas passer le test de compréhension orale demain.",
+          "en": "You are going to take the listening comprehension test tomorrow.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.139",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous avons étudié le règlement de l'examen ensemble.",
+          "en": "We studied the exam rules together.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.118",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin de famille est très occupé cette semaine.",
+          "en": "The family doctor is very busy this week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.135",
+          "theme": "systeme-de-sante",
+          "fr": "Nous allons emmener le bébé chez le pédiatre demain.",
+          "en": "We are going to take the baby to the pediatrician tomorrow.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-sante.070",
+          "theme": "rp-sante",
+          "fr": "Le pharmacien m'a expliqué comment prendre le sirop.",
+          "en": "The pharmacist explained to me how to take the syrup.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.129",
+          "theme": "symptomes",
+          "fr": "Je vais prendre rendez-vous chez le dentiste demain.",
+          "en": "I'm going to make an appointment with the dentist tomorrow.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.142",
+          "theme": "symptomes",
+          "fr": "Ma grand-mère a des douleurs dans les articulations.",
+          "en": "My grandmother has pain in her joints.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.recherche-emploi.120",
+          "theme": "recherche-emploi",
+          "fr": "Elle a rempli le formulaire de candidature en ligne.",
+          "en": "She filled out the application form online.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.131",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons une lettre d'invitation de notre famille.",
+          "en": "We have a letter of invitation from our family.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.162",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons pris rendez-vous au bureau d'immigration.",
+          "en": "We made an appointment at the immigration office.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.166",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons voyagé avec seulement des bagages à main.",
+          "en": "We traveled with only carry-on luggage.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.ecole.007",
+          "theme": "ecole",
+          "fr": "Les élèves ont un contrôle de grammaire demain matin.",
+          "en": "The students have a grammar test tomorrow morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.117",
+          "theme": "quebec-et-francophonie",
+          "fr": "On appelle un petit magasin de quartier un dépanneur.",
+          "en": "A small neighbourhood store is called a dépanneur.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.133",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le Sénégal fait partie de la Francophonie en Afrique.",
+          "en": "Senegal is part of the Francophonie in Africa.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.137",
+          "theme": "examens-et-diplomes",
+          "fr": "Le professeur corrige les copies pendant le week-end.",
+          "en": "The teacher grades the papers over the weekend.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.collegues.049",
+          "theme": "collegues",
+          "fr": "Nous rangeons nos affaires avant de partir du bureau.",
+          "en": "We tidy up our things before leaving the office.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.127",
+          "theme": "systeme-de-sante",
+          "fr": "Ma carte d'assurance maladie expire le mois prochain.",
+          "en": "My health insurance card expires next month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.disciplines.066",
+          "theme": "disciplines",
+          "fr": "Le professeur donne un cours de statistique le lundi.",
+          "en": "The teacher gives a statistics class on Mondays.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.economie.042",
+          "theme": "economie",
+          "fr": "Nous allons économiser de l'argent pour les vacances.",
+          "en": "We are going to save money for vacation.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.internet.126",
+          "theme": "internet",
+          "fr": "Le clavier de cet ordinateur ne fonctionne plus bien.",
+          "en": "This computer's keyboard doesn't work well anymore.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.internet.133",
+          "theme": "internet",
+          "fr": "Le technicien va réparer l'imprimante cet après-midi.",
+          "en": "The technician is going to fix the printer this afternoon.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.appareils.046",
+          "theme": "appareils",
+          "fr": "Le technicien a changé la batterie de mon ordinateur.",
+          "en": "The technician changed my computer's battery.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.077",
+          "theme": "rp-travail-etudes",
+          "fr": "Elle a passé un examen difficile la semaine dernière.",
+          "en": "She took a difficult exam last week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.060",
+          "theme": "technologie-quotidienne",
+          "fr": "J'ai activé la double authentification sur mon compte.",
+          "en": "I enabled two factor authentication on my account.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.145",
+          "theme": "quebec-et-francophonie",
+          "fr": "L'accent québécois est différent de l'accent français.",
+          "en": "The Quebec accent is different from the French accent.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.matieres.130",
+          "theme": "matieres",
+          "fr": "Nous avons visité un musée pendant la sortie scolaire.",
+          "en": "We visited a museum during the school trip.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.collegues.048",
+          "theme": "collegues",
+          "fr": "Elle explique le projet à ses collègues avec patience.",
+          "en": "She explains the project to her colleagues patiently.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.153",
+          "theme": "symptomes",
+          "fr": "Ma collègue a une allergie au pollen chaque printemps.",
+          "en": "My colleague has a pollen allergy every spring.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.a2.immigration-et-citoyennete.101",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Elle a déposé sa demande de résidence permanente hier.",
+          "en": "She submitted her permanent residence application yesterday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.123",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le nouvel arrivant cherche un logement près du centre.",
+          "en": "The newcomer is looking for housing near the center.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.gouvernement.058",
+          "theme": "gouvernement",
+          "fr": "Nous devons apporter nos papiers d'identité au bureau.",
+          "en": "We have to bring our ID papers to the office.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.internet.112",
+          "theme": "internet",
+          "fr": "Je vérifie mes courriels chaque matin avant de partir.",
+          "en": "I check my emails every morning before leaving.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.pays-et-nationalites.001",
+          "theme": "pays-et-nationalites",
+          "fr": "Beaucoup de touristes viennent d'Allemagne et du Japon.",
+          "en": "Many tourists come from Germany and Japan.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.matieres.113",
+          "theme": "matieres",
+          "fr": "Nous avons un examen de géométrie la semaine prochaine.",
+          "en": "We have a geometry exam next week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.136",
+          "theme": "systeme-de-sante",
+          "fr": "Le dentiste va examiner mes dents la semaine prochaine.",
+          "en": "The dentist is going to examine my teeth next week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.167",
+          "theme": "systeme-de-sante",
+          "fr": "Les ambulanciers ont transporté le patient à l'hôpital.",
+          "en": "The paramedics transported the patient to the hospital.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-societe.077",
+          "theme": "rp-societe",
+          "fr": "Les bénévoles ont distribué des repas toute la journée.",
+          "en": "The volunteers handed out meals all day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.economie.044",
+          "theme": "economie",
+          "fr": "Quand j'étais étudiant, je travaillais à temps partiel.",
+          "en": "When I was a student, I used to work part time.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.internet.138",
+          "theme": "internet",
+          "fr": "Ma mère préfère téléphoner plutôt qu'écrire un message.",
+          "en": "My mother prefers calling rather than writing a message.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.122",
+          "theme": "quebec-et-francophonie",
+          "fr": "À midi, les Québécois dînent souvent avec des collègues.",
+          "en": "At noon, Quebecers often have lunch with colleagues.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.114",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous avons rempli le formulaire d'inscription hier soir.",
+          "en": "We filled out the registration form last night.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.134",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Elle a obtenu son passeport canadien après la cérémonie.",
+          "en": "She got her Canadian passport after the ceremony.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.internet.125",
+          "theme": "internet",
+          "fr": "Nous avons perdu la connexion pendant l'appel important.",
+          "en": "We lost the connection during the important call.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.collegues.023",
+          "theme": "collegues",
+          "fr": "Mon collègue m'aide souvent avec les dossiers difficiles.",
+          "en": "My colleague often helps me with difficult files.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.ecole.005",
+          "theme": "ecole",
+          "fr": "Le directeur a annoncé une sortie scolaire pour vendredi.",
+          "en": "The principal announced a school outing for Friday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.125",
+          "theme": "systeme-de-sante",
+          "fr": "Le pharmacien m'a expliqué comment prendre le médicament.",
+          "en": "The pharmacist explained to me how to take the medication.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.145",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le comité étudie les demandes de réfugiés chaque semaine.",
+          "en": "The committee reviews refugee claims every week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-societe.062",
+          "theme": "rp-societe",
+          "fr": "Nous avons participé au nettoyage du parc samedi dernier.",
+          "en": "We took part in the park cleanup last Saturday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.gouvernement.063",
+          "theme": "gouvernement",
+          "fr": "Le facteur a livré une lettre du gouvernement provincial.",
+          "en": "The mail carrier delivered a letter from the provincial government.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.119",
+          "theme": "douane-et-immigration",
+          "fr": "L'agent des services frontaliers a vérifié mon passeport.",
+          "en": "The border services officer checked my passport.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.135",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous allons assister à la cérémonie de citoyenneté samedi.",
+          "en": "We are going to attend the citizenship ceremony on Saturday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.122",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle prépare son dossier pour la reconnaissance des acquis.",
+          "en": "She is preparing her file for prior learning recognition.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.internet.118",
+          "theme": "internet",
+          "fr": "Nous allons signer le contrat par voie électronique demain.",
+          "en": "We are going to sign the contract electronically tomorrow.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.internet.127",
+          "theme": "internet",
+          "fr": "J'ai téléchargé une application pour apprendre le français.",
+          "en": "I downloaded an app to learn French.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.126",
+          "theme": "douane-et-immigration",
+          "fr": "Ma carte de résidence permanente arrive dans deux semaines.",
+          "en": "My permanent resident card arrives in two weeks.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.internet.144",
+          "theme": "internet",
+          "fr": "Nous cherchons un cours de français disponible sur internet.",
+          "en": "We are looking for a French course available on the internet.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.146",
+          "theme": "douane-et-immigration",
+          "fr": "Vous devez présenter votre passeport et votre visa ensemble.",
+          "en": "You must present your passport and your visa together.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.151",
+          "theme": "douane-et-immigration",
+          "fr": "Nous allons récupérer nos bagages au carrousel numéro trois.",
+          "en": "We are going to pick up our luggage at carousel number three.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.037",
+          "theme": "technologie-quotidienne",
+          "fr": "Elle a téléchargé une application pour apprendre le français.",
+          "en": "She downloaded an app to learn French.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.150",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Ils attendent leur carte d'assurance maladie avec impatience.",
+          "en": "They are impatiently waiting for their health insurance card.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.gouvernement.059",
+          "theme": "gouvernement",
+          "fr": "Le conseil municipal a ouvert un nouveau centre communautaire.",
+          "en": "The city council opened a new community centre.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 15,
+      "items": [
+        {
+          "id": "fr.a2.pays-et-nationalites.004",
+          "theme": "pays-et-nationalites",
+          "fr": "Beaucoup de touristes allemands visitent cette région chaque année.",
+          "en": "Many German tourists visit this region every year.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.137",
+          "theme": "quebec-et-francophonie",
+          "fr": "L'Organisation internationale de la Francophonie réunit plusieurs pays.",
+          "en": "The International Organisation of La Francophonie brings together several countries.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.symptomes.045",
+          "theme": "symptomes",
+          "fr": "Mon nez coule et j'ai mal à la tête.",
+          "en": "My nose is running and I have a headache.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-sante.076",
+          "theme": "rp-sante",
+          "fr": "Le vaccin ne m'a pas fait mal du tout.",
+          "en": "The vaccine didn't hurt me at all.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.recherche-emploi.149",
+          "theme": "recherche-emploi",
+          "fr": "J'ai créé un profil sur un site d'emploi.",
+          "en": "I created a profile on a job site.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.121",
+          "theme": "symptomes",
+          "fr": "Le bébé a de la fièvre et il pleure beaucoup.",
+          "en": "The baby has a fever and cries a lot.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.133",
+          "theme": "symptomes",
+          "fr": "J'ai des boutons sur le bras depuis ce matin.",
+          "en": "I've had spots on my arm since this morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.matieres.123",
+          "theme": "matieres",
+          "fr": "J'ai rendu mon exposé sur l'économie ce matin.",
+          "en": "I turned in my presentation on economics this morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.132",
+          "theme": "systeme-de-sante",
+          "fr": "Le sirop contre la toux est dans le sac blanc.",
+          "en": "The cough syrup is in the white bag.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-sante.072",
+          "theme": "rp-sante",
+          "fr": "Le médecin m'a donné un billet pour l'hôpital.",
+          "en": "The doctor gave me a note for the hospital.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-technologie.082",
+          "theme": "rp-technologie",
+          "fr": "J'étais sur mon téléphone, et le wifi a coupé.",
+          "en": "I was on my phone, and the wifi cut out.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.143",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le mont Royal offre une vue sur toute la ville.",
+          "en": "Mount Royal offers a view over the whole city.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.133",
+          "theme": "examens-et-diplomes",
+          "fr": "Je cherche un centre d'examen près de chez moi.",
+          "en": "I am looking for an exam center near my place.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.matieres.115",
+          "theme": "matieres",
+          "fr": "Il a oublié son cahier de français à la maison.",
+          "en": "He forgot his French notebook at home.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-sante.061",
+          "theme": "rp-sante",
+          "fr": "Hier, j'avais très mal au dos toute la journée.",
+          "en": "Yesterday, my back hurt all day long.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.139",
+          "theme": "symptomes",
+          "fr": "Il a des taches rouges sur la peau depuis hier.",
+          "en": "He's had red patches on his skin since yesterday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.115",
+          "theme": "internet",
+          "fr": "J'ai créé un compte pour postuler à cet emploi.",
+          "en": "I created an account to apply for this job.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.recherche-emploi.125",
+          "theme": "recherche-emploi",
+          "fr": "J'ai imprimé mon CV et ma lettre de motivation.",
+          "en": "I printed my resume and my cover letter.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.ecole.006",
+          "theme": "ecole",
+          "fr": "Range tes affaires tout de suite, s'il te plaît.",
+          "en": "Put your things away right now, please.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.142",
+          "theme": "quebec-et-francophonie",
+          "fr": "La Gaspésie est une belle région près de la mer.",
+          "en": "The Gaspésie is a beautiful region near the sea.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.147",
+          "theme": "systeme-de-sante",
+          "fr": "J'ai fait une prise de sang la semaine dernière.",
+          "en": "I had a blood test last week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-sante.060",
+          "theme": "rp-sante",
+          "fr": "J'ai attendu longtemps mais le médecin m'a reçu.",
+          "en": "I waited a long time but the doctor saw me.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-sante.074",
+          "theme": "rp-sante",
+          "fr": "J'ai eu de la difficulté à dormir cette semaine.",
+          "en": "I had trouble sleeping this week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-sante.078",
+          "theme": "rp-sante",
+          "fr": "Le médecin m'a demandé si j'avais des allergies.",
+          "en": "The doctor asked me if I had any allergies.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.122",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons reçu une lettre de l'IRCC hier matin.",
+          "en": "We received a letter from IRCC yesterday morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.070",
+          "theme": "rp-travail-etudes",
+          "fr": "Il a démissionné et il a cherché un autre poste.",
+          "en": "He resigned and looked for another position.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.metiers.008",
+          "theme": "metiers",
+          "fr": "Elle a envoyé son CV et elle attend une réponse.",
+          "en": "She sent her resume and she is waiting for a reply.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.040",
+          "theme": "technologie-quotidienne",
+          "fr": "J'ai reçu un message d'erreur sur mon ordinateur.",
+          "en": "I received an error message on my computer.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.067",
+          "theme": "technologie-quotidienne",
+          "fr": "Elle a répondu à l'appel vidéo depuis son bureau.",
+          "en": "She answered the video call from her office.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.121",
+          "theme": "systeme-de-sante",
+          "fr": "J'ai attendu deux heures dans la salle d'attente.",
+          "en": "I waited two hours in the waiting room.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.134",
+          "theme": "systeme-de-sante",
+          "fr": "Mon fils a reçu son vaccin contre la grippe hier.",
+          "en": "My son received his flu shot yesterday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.142",
+          "theme": "systeme-de-sante",
+          "fr": "Il a une chambre au troisième étage de l'hôpital.",
+          "en": "He has a room on the third floor of the hospital.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-sante.073",
+          "theme": "rp-sante",
+          "fr": "Je me suis coupé le doigt en cuisinant hier soir.",
+          "en": "I cut my finger while cooking last night.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 16,
+      "items": [
+        {
+          "id": "fr.a2.symptomes.150",
+          "theme": "symptomes",
+          "fr": "Elle s'est coupé le doigt en préparant le souper.",
+          "en": "She cut her finger preparing supper.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.155",
+          "theme": "systeme-de-sante",
+          "fr": "Je fais des exercices tous les jours pour mon dos.",
+          "en": "I do exercises every day for my back.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.126",
+          "theme": "symptomes",
+          "fr": "J'ai pris ma température, j'ai trente-neuf degrés.",
+          "en": "I took my temperature, I have thirty-nine degrees.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.137",
+          "theme": "symptomes",
+          "fr": "J'ai la gorge irritée et je parle avec difficulté.",
+          "en": "My throat is irritated and I speak with difficulty.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.140",
+          "theme": "symptomes",
+          "fr": "Le médecin a pris ma tension avant de m'ausculter.",
+          "en": "The doctor took my blood pressure before examining me.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.economie.048",
+          "theme": "economie",
+          "fr": "Le loyer de l'appartement est trop cher pour nous.",
+          "en": "The apartment's rent is too expensive for us.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.145",
+          "theme": "internet",
+          "fr": "Il a acheté des billets d'avion sur son téléphone.",
+          "en": "He bought plane tickets on his phone.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.079",
+          "theme": "rp-travail-etudes",
+          "fr": "J'ai obtenu mon permis de travail le mois dernier.",
+          "en": "I got my work permit last month.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.106",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le sirop d'érable est un produit typique du Québec.",
+          "en": "Maple syrup is a typical product of Quebec.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.125",
+          "theme": "examens-et-diplomes",
+          "fr": "J'ai perdu ma carte d'étudiant la semaine dernière.",
+          "en": "I lost my student card last week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.171",
+          "theme": "systeme-de-sante",
+          "fr": "Elle a un rhume mais elle va travailler quand même.",
+          "en": "She has a cold but she's going to work anyway.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.141",
+          "theme": "symptomes",
+          "fr": "J'ai dormi seulement deux heures et je suis épuisé.",
+          "en": "I only slept two hours and I'm exhausted.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-societe.080",
+          "theme": "rp-societe",
+          "fr": "On m'a demandé de rejoindre le conseil de quartier.",
+          "en": "I was asked to join the neighborhood council.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-technologie.071",
+          "theme": "rp-technologie",
+          "fr": "Elle a téléchargé l'application et elle l'a testée.",
+          "en": "She downloaded the app and tested it.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.recherche-emploi.133",
+          "theme": "recherche-emploi",
+          "fr": "Elle a un rendez-vous avec un conseiller en emploi.",
+          "en": "She has an appointment with an employment counselor.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.168",
+          "theme": "douane-et-immigration",
+          "fr": "J'ai eu besoin d'un interprète pendant l'entretien.",
+          "en": "I needed an interpreter during the interview.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-sante.067",
+          "theme": "rp-sante",
+          "fr": "J'ai appelé la clinique mais elle était déjà fermée.",
+          "en": "I called the clinic but it was already closed.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.132",
+          "theme": "internet",
+          "fr": "J'ai oublié d'éteindre l'ordinateur avant de sortir.",
+          "en": "I forgot to turn off the computer before leaving.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.146",
+          "theme": "quebec-et-francophonie",
+          "fr": "Mon voisin a déménagé à Trois-Rivières l'été dernier.",
+          "en": "My neighbour moved to Trois-Rivières last summer.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.collegues.055",
+          "theme": "collegues",
+          "fr": "Elle envoie un message à toute l'équipe chaque matin.",
+          "en": "She sends a message to the whole team every morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.157",
+          "theme": "systeme-de-sante",
+          "fr": "L'infirmière au téléphone m'a donné de bons conseils.",
+          "en": "The nurse on the phone gave me good advice.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.149",
+          "theme": "symptomes",
+          "fr": "Le petit garçon a une toux grasse depuis trois jours.",
+          "en": "The little boy has had a chesty cough for three days.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.disciplines.070",
+          "theme": "disciplines",
+          "fr": "Il a obtenu son diplôme en comptabilité l'an dernier.",
+          "en": "He got his accounting degree last year.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-societe.067",
+          "theme": "rp-societe",
+          "fr": "Il y avait moins de monde dans ce quartier autrefois.",
+          "en": "There used to be fewer people in this neighborhood.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-societe.074",
+          "theme": "rp-societe",
+          "fr": "Elle a proposé une réunion mais personne n'a répondu.",
+          "en": "She proposed a meeting but nobody answered.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.116",
+          "theme": "internet",
+          "fr": "Elle a pris rendez-vous chez le médecin sur internet.",
+          "en": "She made a doctor's appointment on the internet.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.142",
+          "theme": "internet",
+          "fr": "J'ai rempli ma déclaration d'impôts sur l'ordinateur.",
+          "en": "I filled out my tax return on the computer.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.bureau.147",
+          "theme": "bureau",
+          "fr": "Le service de sécurité vérifie les badges à l'entrée.",
+          "en": "The security department checks badges at the entrance.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.127",
+          "theme": "douane-et-immigration",
+          "fr": "Il a montré son passeport et sa carte d'embarquement.",
+          "en": "He showed his passport and his boarding pass.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.157",
+          "theme": "douane-et-immigration",
+          "fr": "Nous n'avons pas d'objets interdits dans nos valises.",
+          "en": "We don't have any prohibited items in our suitcases.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.141",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les touristes visitent souvent l'île d'Orléans en été.",
+          "en": "Tourists often visit Île d'Orléans in summer.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.132",
+          "theme": "examens-et-diplomes",
+          "fr": "Il a validé son année scolaire avec de bons résultats.",
+          "en": "He passed his school year with good results.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.collegues.047",
+          "theme": "collegues",
+          "fr": "Mon collègue arrive en retard et il s'excuse toujours.",
+          "en": "My colleague arrives late and always apologizes.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 17,
+      "items": [
+        {
+          "id": "fr.a2.immigration-et-citoyennete.143",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Mon frère a obtenu la double citoyenneté l'an dernier.",
+          "en": "My brother got dual citizenship last year.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.147",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Elle apprenait l'anglais et le français en même temps.",
+          "en": "She was learning English and French at the same time.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.gouvernement.064",
+          "theme": "gouvernement",
+          "fr": "Ma sœur a obtenu sa résidence permanente l'an dernier.",
+          "en": "My sister obtained her permanent residency last year.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-technologie.075",
+          "theme": "rp-technologie",
+          "fr": "Nous avons cherché une solution, mais rien n'a marché.",
+          "en": "We looked for a solution, but nothing worked.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.124",
+          "theme": "internet",
+          "fr": "Elle partage des photos de son voyage avec sa famille.",
+          "en": "She shares photos of her trip with her family.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.143",
+          "theme": "internet",
+          "fr": "Le camp de vacances a envoyé une inscription en ligne.",
+          "en": "The summer camp sent an online registration.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.139",
+          "theme": "douane-et-immigration",
+          "fr": "Les fruits frais ne sont pas autorisés à la frontière.",
+          "en": "Fresh fruit is not allowed at the border.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.153",
+          "theme": "douane-et-immigration",
+          "fr": "Mon certificat de naissance était dans mon sac à main.",
+          "en": "My birth certificate was in my handbag.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.040",
+          "theme": "internet",
+          "fr": "Je regarde des vidéos sur mon téléphone tous les soirs.",
+          "en": "I watch videos on my phone every evening.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.130",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le gouvernement du Québec a son siège dans la capitale.",
+          "en": "The Quebec government is headquartered in the capital.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.123",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous avons réussi l'oral, mais l'écrit était difficile.",
+          "en": "We passed the oral, but the written part was hard.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.matieres.144",
+          "theme": "matieres",
+          "fr": "Nous mangeons à la cantine entre midi et treize heures.",
+          "en": "We eat at the cafeteria between noon and one o'clock.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.136",
+          "theme": "internet",
+          "fr": "Le professeur a envoyé le devoir par courriel ce matin.",
+          "en": "The teacher sent the homework by email this morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.bureau.128",
+          "theme": "bureau",
+          "fr": "Elle a pris l'ascenseur pour monter au troisième étage.",
+          "en": "She took the elevator to go up to the third floor.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.120",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons rempli le formulaire d'arrivée dans l'avion.",
+          "en": "We filled out the arrival form on the plane.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.122",
+          "theme": "douane-et-immigration",
+          "fr": "Elle va demander un permis de travail le mois prochain.",
+          "en": "She is going to apply for a work permit next month.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.140",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons acheté des produits hors taxes à l'aéroport.",
+          "en": "We bought duty-free products at the airport.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.114",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le 24 juin, les Québécois fêtent la Saint-Jean-Baptiste.",
+          "en": "On June 24th, Quebecers celebrate Saint-Jean-Baptiste Day.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.119",
+          "theme": "examens-et-diplomes",
+          "fr": "Ils ont demandé l'équivalence de leur diplôme au Canada.",
+          "en": "They requested the equivalence of their diploma in Canada.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.107",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons passé l'entretien avec l'agent d'immigration.",
+          "en": "We had the interview with the immigration officer.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.113",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Tu dois apporter ton passeport et ton acte de naissance.",
+          "en": "You must bring your passport and your birth certificate.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-societe.066",
+          "theme": "rp-societe",
+          "fr": "Le conseil municipal a voté un nouveau budget hier soir.",
+          "en": "The town council voted a new budget last night.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.131",
+          "theme": "internet",
+          "fr": "Mon ordinateur était trop vieux, alors je l'ai remplacé.",
+          "en": "My computer was too old, so I replaced it.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.141",
+          "theme": "internet",
+          "fr": "Elle a oublié son identifiant pour se connecter au site.",
+          "en": "She forgot her username to log into the site.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.146",
+          "theme": "internet",
+          "fr": "Elle va suivre une formation en ligne l'année prochaine.",
+          "en": "She is going to take an online course next year.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.bureau.138",
+          "theme": "bureau",
+          "fr": "Tu dois demander la permission avant de partir plus tôt.",
+          "en": "You have to ask permission before leaving early.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.169",
+          "theme": "douane-et-immigration",
+          "fr": "Ma sœur est ma répondante pour la demande de parrainage.",
+          "en": "My sister is my sponsor for the sponsorship application.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.metiers.004",
+          "theme": "metiers",
+          "fr": "Elle vient de trouver un nouveau travail dans un hôpital.",
+          "en": "She just found a new job at a hospital.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.matieres.036",
+          "theme": "matieres",
+          "fr": "La géographie est plus intéressante que je ne le pensais.",
+          "en": "Geography is more interesting than I thought.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.148",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a traduit son diplôme pour le dossier d'immigration.",
+          "en": "She translated her diploma for the immigration file.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.recherche-emploi.167",
+          "theme": "recherche-emploi",
+          "fr": "J'ai envoyé un courriel de remerciement après l'entrevue.",
+          "en": "I sent a thank-you email after the interview.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.metiers.001",
+          "theme": "metiers",
+          "fr": "Elle vient d'obtenir un nouveau poste dans son entreprise.",
+          "en": "She just got a new position at her company.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.matieres.038",
+          "theme": "matieres",
+          "fr": "De temps en temps, nous faisons des expériences en classe.",
+          "en": "Every now and then, we do experiments in class.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 18,
+      "items": [
+        {
+          "id": "fr.a2.matieres.141",
+          "theme": "matieres",
+          "fr": "Le professeur d'éducation civique nous a expliqué le vote.",
+          "en": "The civics teacher explained voting to us.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-societe.064",
+          "theme": "rp-societe",
+          "fr": "La mairie a organisé une fête pour les nouveaux arrivants.",
+          "en": "City hall organized a party for the newcomers.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.economie.046",
+          "theme": "economie",
+          "fr": "Elle va demander une augmentation de salaire à son patron.",
+          "en": "She is going to ask her boss for a raise.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.117",
+          "theme": "internet",
+          "fr": "Le wifi de la bibliothèque est gratuit pour les étudiants.",
+          "en": "The library's wifi is free for students.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.129",
+          "theme": "internet",
+          "fr": "Elle a envoyé son curriculum vitae par courriel hier soir.",
+          "en": "She sent her resume by email last night.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.174",
+          "theme": "douane-et-immigration",
+          "fr": "Je dois présenter un certificat de police pour ma demande.",
+          "en": "I have to submit a police certificate for my application.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.052",
+          "theme": "technologie-quotidienne",
+          "fr": "Nous avons appelé nos amis en vidéo pour leur anniversaire.",
+          "en": "We video called our friends for their birthday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.130",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin m'a donné une ordonnance pour des antibiotiques.",
+          "en": "The doctor gave me a prescription for antibiotics.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.146",
+          "theme": "symptomes",
+          "fr": "Nous devons appeler l'infirmière si la fièvre monte encore.",
+          "en": "We must call the nurse if the fever rises again.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.152",
+          "theme": "symptomes",
+          "fr": "Il a des courbatures dans les jambes après le déménagement.",
+          "en": "He has sore muscles in his legs after the move.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-societe.065",
+          "theme": "rp-societe",
+          "fr": "Je faisais du bénévolat chaque week-end pendant mes études.",
+          "en": "I used to volunteer every weekend during my studies.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.appareils.043",
+          "theme": "appareils",
+          "fr": "Nous avons branché l'imprimante, mais elle ne marchait pas.",
+          "en": "We plugged in the printer, but it wasn't working.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.143",
+          "theme": "examens-et-diplomes",
+          "fr": "Le surveillant vérifie les pièces d'identité avant l'examen.",
+          "en": "The proctor checks the IDs before the exam.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.matieres.116",
+          "theme": "matieres",
+          "fr": "La bibliothèque est ouverte tous les jours sauf le dimanche.",
+          "en": "The library is open every day except Sunday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.matieres.137",
+          "theme": "matieres",
+          "fr": "Le directeur a annoncé la rentrée pour le premier septembre.",
+          "en": "The principal announced the start of school for September first.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-technologie.074",
+          "theme": "rp-technologie",
+          "fr": "Je voulais acheter une tablette, mais elle était trop chère.",
+          "en": "I wanted to buy a tablet, but it was too expensive.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.062",
+          "theme": "technologie-quotidienne",
+          "fr": "Elle va télécharger ses photos avant de changer de téléphone.",
+          "en": "She is going to download her photos before changing phones.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.matieres.139",
+          "theme": "matieres",
+          "fr": "Nous avons travaillé en groupe pour le projet de technologie.",
+          "en": "We worked in a group for the technology project.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.recherche-emploi.170",
+          "theme": "recherche-emploi",
+          "fr": "Le formulaire demande mon adresse et mon numéro de téléphone.",
+          "en": "The form asks for my address and my phone number.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.124",
+          "theme": "quebec-et-francophonie",
+          "fr": "L'Office québécois de la langue française protège le français.",
+          "en": "The Office québécois de la langue française protects French.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.123",
+          "theme": "internet",
+          "fr": "J'ai reçu une confirmation par courriel après mon inscription.",
+          "en": "I received a confirmation by email after my registration.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.appareils.041",
+          "theme": "appareils",
+          "fr": "J'ai acheté un nouvel ordinateur portable la semaine dernière.",
+          "en": "I bought a new laptop last week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.073",
+          "theme": "rp-travail-etudes",
+          "fr": "Nous avons travaillé toute la journée et nous étions fatigués.",
+          "en": "We worked all day and we were tired.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.matieres.037",
+          "theme": "matieres",
+          "fr": "En sciences, nous avons observé des plantes sous le microscope.",
+          "en": "In science class, we observed plants under the microscope.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.117",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous allons passer le test de citoyenneté la semaine prochaine.",
+          "en": "We are going to take the citizenship test next week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.internet.130",
+          "theme": "internet",
+          "fr": "Nous consultons souvent les avis avant d'acheter quelque chose.",
+          "en": "We often check reviews before buying something.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.085",
+          "theme": "rp-travail-etudes",
+          "fr": "Le formulaire était compliqué, mais je l'ai terminé rapidement.",
+          "en": "The form was complicated, but I finished it quickly.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.068",
+          "theme": "technologie-quotidienne",
+          "fr": "Nous avons fait nos démarches administratives en ligne ce matin.",
+          "en": "We handled our administrative paperwork online this morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.133",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le résident permanent ne peut pas voter aux élections fédérales.",
+          "en": "A permanent resident cannot vote in federal elections.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-societe.070",
+          "theme": "rp-societe",
+          "fr": "Le maire a inauguré la nouvelle bibliothèque la semaine dernière.",
+          "en": "The mayor inaugurated the new library last week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.matieres.134",
+          "theme": "matieres",
+          "fr": "Nous devons apporter notre calculatrice pour le cours de mathématiques.",
+          "en": "We have to bring our calculator for math class.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.121",
+          "theme": "examens-et-diplomes",
+          "fr": "Vous pouvez utiliser une calculatrice pendant l'épreuve de mathématiques.",
+          "en": "You can use a calculator during the math test.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.symptomes.144",
+          "theme": "symptomes",
+          "fr": "J'ai le nez bouché et je respire mal la nuit.",
+          "en": "My nose is blocked and I breathe badly at night.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 19,
+      "items": [
+        {
+          "id": "fr.a2.quebec-et-francophonie.140",
+          "theme": "quebec-et-francophonie",
+          "fr": "Chaque été, il y a le Festival d'été de Québec.",
+          "en": "Every summer, there is the Festival d'été de Québec.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-sante.063",
+          "theme": "rp-sante",
+          "fr": "Le médecin m'a examiné et il a écouté mon cœur.",
+          "en": "The doctor examined me and listened to my heart.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.recherche-emploi.171",
+          "theme": "recherche-emploi",
+          "fr": "J'ai coché la case pour un emploi à temps plein.",
+          "en": "I checked the box for a full-time job.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-sante.068",
+          "theme": "rp-sante",
+          "fr": "Le dentiste a trouvé une carie et il l'a soignée.",
+          "en": "The dentist found a cavity and treated it.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.symptomes.155",
+          "theme": "symptomes",
+          "fr": "J'ai eu mal au cœur en avion la semaine dernière.",
+          "en": "I felt nauseous on the plane last week.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.symptomes.128",
+          "theme": "symptomes",
+          "fr": "Mon fils a une otite, le médecin l'a examiné hier.",
+          "en": "My son has an ear infection, the doctor examined him yesterday.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.symptomes.147",
+          "theme": "symptomes",
+          "fr": "Il a une grosse bosse sur le front après sa chute.",
+          "en": "He has a big bump on his forehead after his fall.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-technologie.070",
+          "theme": "rp-technologie",
+          "fr": "J'ai envoyé le courriel, mais il n'est pas arrivé.",
+          "en": "I sent the email, but it didn't arrive.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.recherche-emploi.168",
+          "theme": "recherche-emploi",
+          "fr": "Il n'a pas encore reçu son premier chèque de paie.",
+          "en": "He has not yet received his first paycheck.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.ecole.001",
+          "theme": "ecole",
+          "fr": "Les enfants apprennent à lire dès l'âge de six ans.",
+          "en": "Children learn to read from the age of six.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.117",
+          "theme": "systeme-de-sante",
+          "fr": "J'ai un rendez-vous chez le médecin cet après-midi.",
+          "en": "I have an appointment at the doctor's this afternoon.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-sante.065",
+          "theme": "rp-sante",
+          "fr": "L'infirmière m'a pris ma tension avant de me peser.",
+          "en": "The nurse took my blood pressure before weighing me.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-societe.071",
+          "theme": "rp-societe",
+          "fr": "Mes voisins ont déménagé et je ne les ai pas revus.",
+          "en": "My neighbors moved away and I haven't seen them again.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.163",
+          "theme": "systeme-de-sante",
+          "fr": "Elle s'est cassé le bras en tombant dans l'escalier.",
+          "en": "She broke her arm falling on the stairs.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.126",
+          "theme": "systeme-de-sante",
+          "fr": "J'ai oublié ma carte d'assurance maladie à la maison.",
+          "en": "I forgot my health insurance card at home.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.symptomes.143",
+          "theme": "symptomes",
+          "fr": "Tu dois boire beaucoup d'eau quand tu as la diarrhée.",
+          "en": "You should drink lots of water when you have diarrhea.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-societe.083",
+          "theme": "rp-societe",
+          "fr": "Je suis allé voter tôt le matin pour éviter la queue.",
+          "en": "I went to vote early in the morning to avoid the line.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.133",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier a demandé si j'avais de l'argent liquide.",
+          "en": "The customs officer asked if I had cash.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.120",
+          "theme": "examens-et-diplomes",
+          "fr": "La convocation indique l'heure et le lieu de l'examen.",
+          "en": "The notice indicates the time and place of the exam.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.recherche-emploi.132",
+          "theme": "recherche-emploi",
+          "fr": "Le centre d'emploi est ouvert jusqu'à dix-sept heures.",
+          "en": "The employment center is open until five p.m.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.121",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le matin, je prends un déjeuner avec du sirop d'érable.",
+          "en": "In the morning, I have breakfast with maple syrup.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.111",
+          "theme": "examens-et-diplomes",
+          "fr": "Le candidat entre dans la salle d'examen à huit heures.",
+          "en": "The candidate enters the exam room at eight o'clock.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-sante.079",
+          "theme": "rp-sante",
+          "fr": "J'étais très stressé mais je me sens mieux aujourd'hui.",
+          "en": "I was very stressed but I feel better today.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.148",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le nouvel arrivant va s'inscrire à des cours de langue.",
+          "en": "The newcomer is going to register for language classes.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.internet.137",
+          "theme": "internet",
+          "fr": "J'ai passé deux heures à chercher un logement en ligne.",
+          "en": "I spent two hours looking for housing online.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.139",
+          "theme": "systeme-de-sante",
+          "fr": "Je porte des lunettes depuis que j'ai vu l'optométriste.",
+          "en": "I've worn glasses since I saw the optometrist.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.economie.047",
+          "theme": "economie",
+          "fr": "J'ai retiré de l'argent au guichet automatique ce matin.",
+          "en": "I withdrew money from the ATM this morning.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.128",
+          "theme": "quebec-et-francophonie",
+          "fr": "Ma carte d'assurance maladie du Québec s'appelle la RAMQ.",
+          "en": "My Quebec health insurance card is called the RAMQ.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.symptomes.138",
+          "theme": "symptomes",
+          "fr": "Elle avait mal au cœur pendant tout le voyage en autobus.",
+          "en": "She felt nauseous during the whole bus trip.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-societe.068",
+          "theme": "rp-societe",
+          "fr": "Les pompiers sont arrivés très vite et ont éteint le feu.",
+          "en": "The firefighters arrived very quickly and put out the fire.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.gouvernement.061",
+          "theme": "gouvernement",
+          "fr": "Les enfants ont visité l'hôtel de ville avec leur classe.",
+          "en": "The children visited city hall with their class.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.156",
+          "theme": "douane-et-immigration",
+          "fr": "J'ai payé des frais de douane pour mon nouvel ordinateur.",
+          "en": "I paid customs duty for my new computer.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.051",
+          "theme": "technologie-quotidienne",
+          "fr": "J'ai vérifié mon compte bancaire avant de faire cet achat.",
+          "en": "I checked my bank account before making this purchase.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 20,
+      "items": [
+        {
+          "id": "fr.a2.examens-et-diplomes.127",
+          "theme": "examens-et-diplomes",
+          "fr": "Tu dois arriver trente minutes avant le début de l'examen.",
+          "en": "You must arrive thirty minutes before the exam starts.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.169",
+          "theme": "systeme-de-sante",
+          "fr": "J'ai une assurance privée en plus de l'assurance publique.",
+          "en": "I have private insurance in addition to public insurance.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.146",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons pris le bus pour aller au centre d'immigration.",
+          "en": "We took the bus to go to the immigration center.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.appareils.047",
+          "theme": "appareils",
+          "fr": "Quand j'étais jeune, on n'avait pas de téléphone portable.",
+          "en": "When I was young, we didn't have a cell phone.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.109",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a échoué à l'épreuve écrite, mais elle va recommencer.",
+          "en": "She failed the written test, but she is going to retry.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.147",
+          "theme": "examens-et-diplomes",
+          "fr": "Le centre d'examen ferme ses portes à neuf heures précises.",
+          "en": "The exam center closes its doors at exactly nine o'clock.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.119",
+          "theme": "systeme-de-sante",
+          "fr": "Je dois prendre rendez-vous à la clinique sans rendez-vous.",
+          "en": "I need to make an appointment at the walk-in clinic.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.068",
+          "theme": "rp-travail-etudes",
+          "fr": "Je travaillais à temps partiel et j'étudiais en même temps.",
+          "en": "I was working part time and studying at the same time.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.046",
+          "theme": "technologie-quotidienne",
+          "fr": "Tu vas recevoir un code par SMS pour confirmer ton identité.",
+          "en": "You are going to receive a code by text to confirm your identity.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.064",
+          "theme": "technologie-quotidienne",
+          "fr": "Vous avez reçu une alerte de sécurité sur votre compte hier.",
+          "en": "You received a security alert on your account yesterday.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-societe.075",
+          "theme": "rp-societe",
+          "fr": "Le journal a publié une enquête sur la sécurité du quartier.",
+          "en": "The newspaper published an investigation into neighborhood safety.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.recherche-emploi.135",
+          "theme": "recherche-emploi",
+          "fr": "J'ai besoin d'un numéro d'assurance sociale pour travailler.",
+          "en": "I need a social insurance number to work.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.059",
+          "theme": "technologie-quotidienne",
+          "fr": "Ils ont commandé leurs courses en ligne pour gagner du temps.",
+          "en": "They ordered their groceries online to save time.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.immigration-et-citoyennete.104",
+          "theme": "immigration-et-citoyennete",
+          "fr": "J'ai reçu ma carte de résident permanent la semaine dernière.",
+          "en": "I received my permanent resident card last week.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.072",
+          "theme": "rp-travail-etudes",
+          "fr": "Elle voulait étudier la médecine, mais elle a choisi le droit.",
+          "en": "She wanted to study medicine, but she chose law.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.147",
+          "theme": "douane-et-immigration",
+          "fr": "Notre employeur a envoyé une lettre pour le permis de travail.",
+          "en": "Our employer sent a letter for the work permit.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.appareils.018",
+          "theme": "appareils",
+          "fr": "J'ai besoin d'un nouveau chargeur pour mon ordinateur portable.",
+          "en": "I need a new charger for my laptop.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.136",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a raté son examen de conduite, mais elle réessaie bientôt.",
+          "en": "She failed her driving test, but she is trying again soon.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-technologie.083",
+          "theme": "rp-technologie",
+          "fr": "Elle avait un problème technique, donc elle a appelé le magasin.",
+          "en": "She had a technical problem, so she called the store.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.internet.139",
+          "theme": "internet",
+          "fr": "Le site de la clinique permet de prendre rendez-vous rapidement.",
+          "en": "The clinic's website allows you to make an appointment quickly.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.078",
+          "theme": "rp-travail-etudes",
+          "fr": "Nous cherchions un stagiaire et vous avez postulé au bon moment.",
+          "en": "We were looking for an intern and you applied at the right time.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.164",
+          "theme": "douane-et-immigration",
+          "fr": "L'agent d'immigration a posé plusieurs questions sur mon emploi.",
+          "en": "The immigration officer asked several questions about my job.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.043",
+          "theme": "technologie-quotidienne",
+          "fr": "Elle a fait ses démarches en ligne pour renouveler son passeport.",
+          "en": "She did her paperwork online to renew her passport.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.057",
+          "theme": "technologie-quotidienne",
+          "fr": "Tu as éteint et rallumé ton téléphone, mais le problème continue.",
+          "en": "You turned your phone off and on again, but the problem continues.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.internet.114",
+          "theme": "internet",
+          "fr": "Mon fils regarde des tutoriels pour apprendre l'anglais en ligne.",
+          "en": "My son watches tutorials to learn English online.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-societe.079",
+          "theme": "rp-societe",
+          "fr": "La ville a construit un nouveau centre communautaire l'an dernier.",
+          "en": "The city built a new community center last year.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.056",
+          "theme": "technologie-quotidienne",
+          "fr": "Nous allons remplir notre déclaration d'impôts sur le site officiel.",
+          "en": "We are going to fill out our tax return on the official site.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.063",
+          "theme": "technologie-quotidienne",
+          "fr": "J'ai fermé toutes les applications parce que mon téléphone chauffait.",
+          "en": "I closed all the apps because my phone was overheating.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.gouvernement.055",
+          "theme": "gouvernement",
+          "fr": "Le gouvernement fédéral aide les nouveaux arrivants à trouver un emploi.",
+          "en": "The federal government helps newcomers find a job.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.internet.128",
+          "theme": "internet",
+          "fr": "Le gouvernement offre des services en ligne pour les nouveaux arrivants.",
+          "en": "The government offers online services for newcomers.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.symptomes.042",
+          "theme": "symptomes",
+          "fr": "J'ai mal à la gorge et je n'ai pas faim.",
+          "en": "My throat hurts and I have no appetite.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.collegues.056",
+          "theme": "collegues",
+          "fr": "Il a oublié son badge et il a attendu à l'accueil.",
+          "en": "He forgot his badge and waited at the reception.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.112",
+          "theme": "examens-et-diplomes",
+          "fr": "J'avais peur avant le test, mais tout s'est bien passé.",
+          "en": "I was scared before the test, but everything went well.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 21,
+      "items": [
+        {
+          "id": "fr.a2.rp-technologie.073",
+          "theme": "rp-technologie",
+          "fr": "Il a changé son mot de passe, car il était trop simple.",
+          "en": "He changed his password, because it was too simple.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.044",
+          "theme": "technologie-quotidienne",
+          "fr": "Nous avons acheté ce four sur un site de vente en ligne.",
+          "en": "We bought this oven on an online shopping site.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.161",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin m'a donné un billet pour un congé de maladie.",
+          "en": "The doctor gave me a note for sick leave.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.071",
+          "theme": "rp-travail-etudes",
+          "fr": "J'ai rempli le formulaire mais j'ai oublié de le signer.",
+          "en": "I filled out the form but forgot to sign it.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.160",
+          "theme": "douane-et-immigration",
+          "fr": "J'ai apporté une preuve de fonds pour mon visa d'études.",
+          "en": "I brought proof of funds for my study visa.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-sante.062",
+          "theme": "rp-sante",
+          "fr": "Je suis allé à la pharmacie et j'ai acheté des pastilles.",
+          "en": "I went to the pharmacy and I bought lozenges.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.105",
+          "theme": "quebec-et-francophonie",
+          "fr": "Quand j'étais petit, ma famille allait à la cabane à sucre.",
+          "en": "When I was little, my family used to go to the sugar shack.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.symptomes.151",
+          "theme": "symptomes",
+          "fr": "Je vais aller à la clinique sans rendez-vous cet après-midi.",
+          "en": "I'm going to go to the walk-in clinic this afternoon.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.108",
+          "theme": "examens-et-diplomes",
+          "fr": "Vous devez apporter une pièce d'identité le jour de l'examen.",
+          "en": "You must bring an ID on the day of the exam.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.examens-et-diplomes.134",
+          "theme": "examens-et-diplomes",
+          "fr": "La formation dure six mois et se termine par un examen final.",
+          "en": "The training lasts six months and ends with a final exam.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.128",
+          "theme": "systeme-de-sante",
+          "fr": "Je dois renouveler ma carte à la Régie de l'assurance maladie.",
+          "en": "I need to renew my card at the health insurance board.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.symptomes.148",
+          "theme": "symptomes",
+          "fr": "J'ai mal aux pieds parce que mes chaussures sont trop petites.",
+          "en": "My feet hurt because my shoes are too small.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-societe.078",
+          "theme": "rp-societe",
+          "fr": "J'ai rencontré mon voisin au marché et on a discuté longtemps.",
+          "en": "I met my neighbor at the market and we talked for a long time.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.066",
+          "theme": "technologie-quotidienne",
+          "fr": "J'ai laissé mon chargeur au bureau, alors ma batterie est vide.",
+          "en": "I left my charger at the office, so my battery is dead.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-sante.064",
+          "theme": "rp-sante",
+          "fr": "J'étais malade la semaine dernière donc je suis resté chez moi.",
+          "en": "I was sick last week so I stayed home.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-technologie.072",
+          "theme": "rp-technologie",
+          "fr": "Le wifi ne marchait pas, donc j'ai appelé le service technique.",
+          "en": "The wifi wasn't working, so I called technical support.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.065",
+          "theme": "technologie-quotidienne",
+          "fr": "Nous allons annuler la commande si le colis n'arrive pas demain.",
+          "en": "We are going to cancel the order if the package does not arrive tomorrow.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.ecole.012",
+          "theme": "ecole",
+          "fr": "Hier, mon fils a oublié son cahier de mathématiques à la maison.",
+          "en": "Yesterday, my son forgot his math notebook at home.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.pays-et-nationalites.005",
+          "theme": "pays-et-nationalites",
+          "fr": "De temps en temps, nous recevons des amis brésiliens à la maison.",
+          "en": "Every once in a while, we host Brazilian friends at home.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.quebec-et-francophonie.127",
+          "theme": "quebec-et-francophonie",
+          "fr": "J'ai reçu mon Certificat de sélection du Québec l'année dernière.",
+          "en": "I received my Quebec Selection Certificate last year.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.048",
+          "theme": "technologie-quotidienne",
+          "fr": "Nous avons rempli le formulaire quand le site a affiché une erreur.",
+          "en": "We filled out the form when the site displayed an error.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.appareils.044",
+          "theme": "appareils",
+          "fr": "Elle utilisait souvent son vieux téléphone avant d'en acheter un neuf.",
+          "en": "She often used her old phone before buying a new one.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.061",
+          "theme": "technologie-quotidienne",
+          "fr": "Nous avons signalé le problème quand l'application a cessé de fonctionner.",
+          "en": "We reported the problem when the app stopped working.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.internet.113",
+          "theme": "internet",
+          "fr": "Nous avons rempli le formulaire d'immigration sur le site du gouvernement.",
+          "en": "We filled out the immigration form on the government website.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-societe.085",
+          "theme": "rp-societe",
+          "fr": "Nous avons aidé nos voisins pendant la tempête et ils étaient reconnaissants.",
+          "en": "We helped our neighbors during the storm and they were grateful.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.137",
+          "theme": "douane-et-immigration",
+          "fr": "Le formulaire de déclaration douanière est disponible en français et en anglais.",
+          "en": "The customs declaration form is available in French and English.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.061",
+          "theme": "rp-travail-etudes",
+          "fr": "Elle a envoyé son CV mais elle n'a pas eu de réponse.",
+          "en": "She sent her CV but she did not get a reply.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-technologie.081",
+          "theme": "rp-technologie",
+          "fr": "Il a oublié son code, donc il n'a pas pu se connecter.",
+          "en": "He forgot his code, so he couldn't log in.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-technologie.076",
+          "theme": "rp-technologie",
+          "fr": "Elle a pris une photo et elle l'a envoyée tout de suite.",
+          "en": "She took a photo and sent it right away.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-travail-etudes.083",
+          "theme": "rp-travail-etudes",
+          "fr": "Nous avons eu une réunion ce matin et tout s'est bien passé.",
+          "en": "We had a meeting this morning and everything went well.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.156",
+          "theme": "systeme-de-sante",
+          "fr": "J'ai appelé Info-Santé parce que mon enfant avait de la fièvre.",
+          "en": "I called Info-Santé because my child had a fever.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.165",
+          "theme": "douane-et-immigration",
+          "fr": "Je vais renouveler mon permis de travail avant la fin de l'année.",
+          "en": "I am going to renew my work permit before the end of the year.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.173",
+          "theme": "douane-et-immigration",
+          "fr": "Le délai de traitement pour le permis d'études est de trois mois.",
+          "en": "The processing time for the study permit is three months.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 22,
+      "items": [
+        {
+          "id": "fr.a2.pays-et-nationalites.012",
+          "theme": "pays-et-nationalites",
+          "fr": "Mes parents sont nés en Haïti et ils parlaient créole à la maison.",
+          "en": "My parents were born in Haiti and they spoke Creole at home.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.economie.045",
+          "theme": "economie",
+          "fr": "Le prix de l'essence a beaucoup augmenté et les gens sont inquiets.",
+          "en": "The price of gas has gone up a lot and people are worried.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.058",
+          "theme": "technologie-quotidienne",
+          "fr": "Je vais changer d'opérateur parce que le réseau est trop faible ici.",
+          "en": "I am going to switch carriers because the signal is too weak here.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.155",
+          "theme": "douane-et-immigration",
+          "fr": "La ligne rouge est pour les personnes qui ont quelque chose à déclarer.",
+          "en": "The red line is for people who have something to declare.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.appareils.051",
+          "theme": "appareils",
+          "fr": "Nous avons vendu notre vieille imprimante et nous en avons acheté une neuve.",
+          "en": "We sold our old printer and bought a new one.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.systeme-de-sante.144",
+          "theme": "systeme-de-sante",
+          "fr": "Je suis allé à l'urgence parce que j'avais très mal au ventre.",
+          "en": "I went to the emergency room because my stomach hurt a lot.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.041",
+          "theme": "technologie-quotidienne",
+          "fr": "Ils ont changé leur mot de passe parce que le site a été piraté.",
+          "en": "They changed their password because the site was hacked.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.douane-et-immigration.125",
+          "theme": "douane-et-immigration",
+          "fr": "Nous devons passer par la ligne verte si nous n'avons rien à déclarer.",
+          "en": "We must go through the green line if we have nothing to declare.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.045",
+          "theme": "technologie-quotidienne",
+          "fr": "Le colis n'est pas encore arrivé, donc j'ai contacté le service client.",
+          "en": "The package has not arrived yet, so I contacted customer service.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.069",
+          "theme": "technologie-quotidienne",
+          "fr": "Je vais réinitialiser mon mot de passe parce que je l'ai oublié encore.",
+          "en": "I am going to reset my password because I forgot it again.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.pays-et-nationalites.014",
+          "theme": "pays-et-nationalites",
+          "fr": "Elle a vécu au Japon pendant trois ans et elle parlait un peu japonais.",
+          "en": "She lived in Japan for three years and she spoke a little Japanese.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.070",
+          "theme": "technologie-quotidienne",
+          "fr": "Ils ont installé une nouvelle imprimante, mais elle ne se connecte pas au wifi.",
+          "en": "They installed a new printer, but it does not connect to the wifi.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.appareils.050",
+          "theme": "appareils",
+          "fr": "Avant, je regardais la télévision tous les soirs, mais maintenant je préfère mon téléphone.",
+          "en": "Before, I used to watch television every evening, but now I prefer my phone.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.rp-sante.071",
+          "theme": "rp-sante",
+          "fr": "J'ai perdu ma carte d'assurance maladie donc j'en ai demandé une nouvelle.",
+          "en": "I lost my health insurance card so I requested a new one.",
+          "words": 15
+        },
+        {
+          "id": "fr.a2.pays-et-nationalites.013",
+          "theme": "pays-et-nationalites",
+          "fr": "Nous avons visité le Maroc l'été dernier et nous avons adoré la cuisine locale.",
+          "en": "We visited Morocco last summer and we loved the local cuisine.",
+          "words": 15
+        },
+        {
+          "id": "fr.a2.appareils.049",
+          "theme": "appareils",
+          "fr": "Il a oublié son chargeur à la maison et il a dû en acheter un autre.",
+          "en": "He forgot his charger at home and had to buy another one.",
+          "words": 16
+        },
+        {
+          "id": "fr.a2.technologie-quotidienne.054",
+          "theme": "technologie-quotidienne",
+          "fr": "J'ai créé un nouveau compte parce que j'avais oublié l'ancien mot de passe.",
+          "en": "I created a new account because I had forgotten the old password.",
+          "words": 16
+        }
+      ]
+    }
+  ]
+}

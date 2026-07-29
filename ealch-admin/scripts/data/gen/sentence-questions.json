@@ -1,0 +1,3362 @@
+[
+  {
+    "id": "fr.a1.questions.192",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui es-tu, au juste ?",
+    "en": "Who are you, exactly?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"es-tu,\",\"t\":\"are you,\"},{\"w\":\"au juste ?\",\"t\":\"exactly\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.193",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui est ton professeur ?",
+    "en": "Who is your teacher?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"ton professeur ?\",\"t\":\"your teacher\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.194",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui vient dîner ce soir ?",
+    "en": "Who is coming for dinner tonight?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"vient dîner\",\"t\":\"is coming to have dinner\"},{\"w\":\"ce soir ?\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.195",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui a pris mon parapluie ?",
+    "en": "Who took my umbrella?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"a pris\",\"t\":\"took\"},{\"w\":\"mon parapluie ?\",\"t\":\"my umbrella\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.196",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui parle français dans ta famille ?",
+    "en": "Who speaks French in your family?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"parle français\",\"t\":\"speaks french\"},{\"w\":\"dans ta famille ?\",\"t\":\"in your family\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.197",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui s'occupe des enfants demain ?",
+    "en": "Who is taking care of the children tomorrow?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"s'occupe des enfants\",\"t\":\"is taking care of the children\"},{\"w\":\"demain ?\",\"t\":\"tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.198",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui a téléphoné pendant mon absence ?",
+    "en": "Who called while I was away?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"a téléphoné\",\"t\":\"called\"},{\"w\":\"pendant mon absence ?\",\"t\":\"during my absence\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.199",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui est cette femme là-bas ?",
+    "en": "Who is that woman over there?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"est cette femme\",\"t\":\"is that woman\"},{\"w\":\"là-bas ?\",\"t\":\"over there\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.200",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui t'a donné ce numéro ?",
+    "en": "Who gave you this number?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"t'a donné\",\"t\":\"gave you\"},{\"w\":\"ce numéro ?\",\"t\":\"this number\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.201",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui va préparer le dîner ce soir ?",
+    "en": "Who is going to make dinner tonight?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"va préparer\",\"t\":\"is going to make\"},{\"w\":\"le dîner\",\"t\":\"the dinner\"},{\"w\":\"ce soir ?\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.202",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui habite dans cet appartement ?",
+    "en": "Who lives in this apartment?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"habite\",\"t\":\"lives\"},{\"w\":\"dans cet appartement ?\",\"t\":\"in this apartment\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.203",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui a gagné le match hier ?",
+    "en": "Who won the game yesterday?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"a gagné\",\"t\":\"won\"},{\"w\":\"le match\",\"t\":\"the game\"},{\"w\":\"hier ?\",\"t\":\"yesterday\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.204",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui peut m'aider avec mes valises ?",
+    "en": "Who can help me with my suitcases?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"peut m'aider\",\"t\":\"can help me\"},{\"w\":\"avec mes valises ?\",\"t\":\"with my suitcases\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.205",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qui organise la fête d'anniversaire ?",
+    "en": "Who is organizing the birthday party?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qui\",\"t\":\"who\"},{\"w\":\"organise\",\"t\":\"is organizing\"},{\"w\":\"la fête\",\"t\":\"the party\"},{\"w\":\"d'anniversaire ?\",\"t\":\"birthday\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.206",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Que fais-tu ce week-end ?",
+    "en": "What are you doing this weekend?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Que\",\"t\":\"what\"},{\"w\":\"fais-tu\",\"t\":\"are you doing\"},{\"w\":\"ce week-end ?\",\"t\":\"this weekend\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.207",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qu'est-ce que tu manges au petit-déjeuner ?",
+    "en": "What do you eat for breakfast?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qu'est-ce que\",\"t\":\"what\"},{\"w\":\"tu manges\",\"t\":\"do you eat\"},{\"w\":\"au petit-déjeuner ?\",\"t\":\"for breakfast\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.208",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Que voulez-vous boire ?",
+    "en": "What would you like to drink?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Que\",\"t\":\"what\"},{\"w\":\"voulez-vous\",\"t\":\"would you like\"},{\"w\":\"boire ?\",\"t\":\"to drink\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.209",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qu'est-ce qui se passe ici ?",
+    "en": "What is happening here?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qu'est-ce qui\",\"t\":\"what\"},{\"w\":\"se passe\",\"t\":\"is happening\"},{\"w\":\"ici ?\",\"t\":\"here\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.210",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Que penses-tu de ce film ?",
+    "en": "What do you think of this movie?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Que\",\"t\":\"what\"},{\"w\":\"penses-tu\",\"t\":\"do you think\"},{\"w\":\"de ce film ?\",\"t\":\"of this movie\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.211",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qu'est-ce que tu étudies à l'université ?",
+    "en": "What do you study at university?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qu'est-ce que\",\"t\":\"what\"},{\"w\":\"tu étudies\",\"t\":\"do you study\"},{\"w\":\"à l'université ?\",\"t\":\"at university\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.212",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Que cherchez-vous exactement ?",
+    "en": "What exactly are you looking for?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Que\",\"t\":\"what\"},{\"w\":\"cherchez-vous\",\"t\":\"are you looking for\"},{\"w\":\"exactement ?\",\"t\":\"exactly\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.213",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qu'est-ce que vous recommandez comme plat ?",
+    "en": "What dish do you recommend?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qu'est-ce que\",\"t\":\"what\"},{\"w\":\"vous recommandez\",\"t\":\"do you recommend\"},{\"w\":\"comme plat ?\",\"t\":\"as a dish\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.214",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Que fait ton frère dans la vie ?",
+    "en": "What does your brother do for a living?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Que fait\",\"t\":\"what does\"},{\"w\":\"ton frère\",\"t\":\"your brother\"},{\"w\":\"dans la vie ?\",\"t\":\"for a living\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.215",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qu'est-ce que tu as fait hier soir ?",
+    "en": "What did you do last night?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qu'est-ce que\",\"t\":\"what\"},{\"w\":\"tu as fait\",\"t\":\"did you do\"},{\"w\":\"hier soir ?\",\"t\":\"last night\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.216",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Que dit le médecin à propos de ta santé ?",
+    "en": "What does the doctor say about your health?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Que dit\",\"t\":\"what does say\"},{\"w\":\"le médecin\",\"t\":\"the doctor\"},{\"w\":\"à propos de\",\"t\":\"about\"},{\"w\":\"ta santé ?\",\"t\":\"your health\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.217",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qu'est-ce qu'il y a dans ce sac ?",
+    "en": "What is in this bag?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qu'est-ce qu'il\",\"t\":\"what\"},{\"w\":\"y a\",\"t\":\"is there\"},{\"w\":\"dans ce sac ?\",\"t\":\"in this bag\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.218",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Que préférez-vous, le train ou l'avion ?",
+    "en": "Which do you prefer, the train or the plane?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Que préférez-vous,\",\"t\":\"what do you prefer,\"},{\"w\":\"le train\",\"t\":\"the train\"},{\"w\":\"ou l'avion ?\",\"t\":\"or the plane\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.219",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Qu'est-ce que tu attends pour partir ?",
+    "en": "What are you waiting for to leave?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Qu'est-ce que\",\"t\":\"what\"},{\"w\":\"tu attends\",\"t\":\"are you waiting\"},{\"w\":\"pour partir ?\",\"t\":\"to leave\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.220",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Que faut-il apporter pour la randonnée ?",
+    "en": "What do we need to bring for the hike?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Que faut-il\",\"t\":\"what is needed\"},{\"w\":\"apporter\",\"t\":\"to bring\"},{\"w\":\"pour la randonnée ?\",\"t\":\"for the hike\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.221",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où habites-tu exactement ?",
+    "en": "Where exactly do you live?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où\",\"t\":\"where\"},{\"w\":\"habites-tu\",\"t\":\"do you live\"},{\"w\":\"exactement ?\",\"t\":\"exactly\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.222",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où est la pharmacie la plus proche ?",
+    "en": "Where is the nearest pharmacy?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où est\",\"t\":\"where is\"},{\"w\":\"la pharmacie\",\"t\":\"the pharmacy\"},{\"w\":\"la plus proche ?\",\"t\":\"the nearest\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.223",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où allez-vous en vacances cette année ?",
+    "en": "Where are you going on vacation this year?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où allez-vous\",\"t\":\"where are you going\"},{\"w\":\"en vacances\",\"t\":\"on vacation\"},{\"w\":\"cette année ?\",\"t\":\"this year\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.224",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où as-tu acheté cette veste ?",
+    "en": "Where did you buy this jacket?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où\",\"t\":\"where\"},{\"w\":\"as-tu acheté\",\"t\":\"did you buy\"},{\"w\":\"cette veste ?\",\"t\":\"this jacket\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.225",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où se trouve la gare, s'il vous plaît ?",
+    "en": "Where is the train station, please?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où se trouve\",\"t\":\"where is\"},{\"w\":\"la gare,\",\"t\":\"the station,\"},{\"w\":\"s'il vous plaît ?\",\"t\":\"please\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.226",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où peut-on garer la voiture ici ?",
+    "en": "Where can we park the car here?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où peut-on\",\"t\":\"where can we\"},{\"w\":\"garer la voiture\",\"t\":\"park the car\"},{\"w\":\"ici ?\",\"t\":\"here\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.227",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où travaille ta sœur en ce moment ?",
+    "en": "Where does your sister work right now?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où travaille\",\"t\":\"where does work\"},{\"w\":\"ta sœur\",\"t\":\"your sister\"},{\"w\":\"en ce moment ?\",\"t\":\"right now\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.228",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où avez-vous mis les clés de la maison ?",
+    "en": "Where did you put the house keys?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où avez-vous mis\",\"t\":\"where did you put\"},{\"w\":\"les clés\",\"t\":\"the keys\"},{\"w\":\"de la maison ?\",\"t\":\"of the house\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.229",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où se trouve le bureau de poste le plus proche ?",
+    "en": "Where is the nearest post office?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où se trouve\",\"t\":\"where is\"},{\"w\":\"le bureau de poste\",\"t\":\"the post office\"},{\"w\":\"le plus proche ?\",\"t\":\"the nearest\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.230",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où mangeons-nous ce soir ?",
+    "en": "Where are we eating tonight?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où\",\"t\":\"where\"},{\"w\":\"mangeons-nous\",\"t\":\"are we eating\"},{\"w\":\"ce soir ?\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.231",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où as-tu rencontré ton mari ?",
+    "en": "Where did you meet your husband?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où\",\"t\":\"where\"},{\"w\":\"as-tu rencontré\",\"t\":\"did you meet\"},{\"w\":\"ton mari ?\",\"t\":\"your husband\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.232",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où sont passées mes lunettes ?",
+    "en": "Where did my glasses go?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où\",\"t\":\"where\"},{\"w\":\"sont passées\",\"t\":\"did go\"},{\"w\":\"mes lunettes ?\",\"t\":\"my glasses\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.233",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où puis-je acheter des billets de train ?",
+    "en": "Where can I buy train tickets?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où puis-je acheter\",\"t\":\"where can i buy\"},{\"w\":\"des billets\",\"t\":\"tickets\"},{\"w\":\"de train ?\",\"t\":\"for the train\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.234",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où se trouve la salle de réunion ?",
+    "en": "Where is the meeting room?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où se trouve\",\"t\":\"where is\"},{\"w\":\"la salle\",\"t\":\"the room\"},{\"w\":\"de réunion ?\",\"t\":\"for meetings\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.235",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Où passez-vous Noël cette année ?",
+    "en": "Where are you spending Christmas this year?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où passez-vous\",\"t\":\"where are you spending\"},{\"w\":\"Noël\",\"t\":\"christmas\"},{\"w\":\"cette année ?\",\"t\":\"this year\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.236",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand arrives-tu à Paris ?",
+    "en": "When do you arrive in Paris?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand\",\"t\":\"when\"},{\"w\":\"arrives-tu\",\"t\":\"do you arrive\"},{\"w\":\"à Paris ?\",\"t\":\"in paris\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.237",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand commence le cours de français ?",
+    "en": "When does the French class start?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand commence\",\"t\":\"when does start\"},{\"w\":\"le cours\",\"t\":\"the class\"},{\"w\":\"de français ?\",\"t\":\"of french\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.238",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand est-ce que tu pars en voyage ?",
+    "en": "When are you leaving on your trip?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand est-ce que\",\"t\":\"when\"},{\"w\":\"tu pars\",\"t\":\"are you leaving\"},{\"w\":\"en voyage ?\",\"t\":\"on a trip\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.239",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand ouvrent les magasins le dimanche ?",
+    "en": "When do the shops open on Sundays?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand ouvrent\",\"t\":\"when do open\"},{\"w\":\"les magasins\",\"t\":\"the shops\"},{\"w\":\"le dimanche ?\",\"t\":\"on sundays\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.240",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand vas-tu chez le dentiste ?",
+    "en": "When are you going to the dentist?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand\",\"t\":\"when\"},{\"w\":\"vas-tu\",\"t\":\"are you going\"},{\"w\":\"chez le dentiste ?\",\"t\":\"to the dentist\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.241",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand est ton anniversaire cette année ?",
+    "en": "When is your birthday this year?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand est\",\"t\":\"when is\"},{\"w\":\"ton anniversaire\",\"t\":\"your birthday\"},{\"w\":\"cette année ?\",\"t\":\"this year\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.242",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand est-ce que le train part pour Lyon ?",
+    "en": "When does the train leave for Lyon?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand est-ce que\",\"t\":\"when\"},{\"w\":\"le train part\",\"t\":\"does the train leave\"},{\"w\":\"pour Lyon ?\",\"t\":\"for lyon\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.243",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand rentrez-vous du travail ce soir ?",
+    "en": "When are you getting home from work tonight?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand rentrez-vous\",\"t\":\"when are you getting home\"},{\"w\":\"du travail\",\"t\":\"from work\"},{\"w\":\"ce soir ?\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.244",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand aura lieu la réunion ?",
+    "en": "When will the meeting take place?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand\",\"t\":\"when\"},{\"w\":\"aura lieu\",\"t\":\"will take place\"},{\"w\":\"la réunion ?\",\"t\":\"the meeting\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.245",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand as-tu commencé à apprendre le français ?",
+    "en": "When did you start learning French?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand as-tu commencé\",\"t\":\"when did you start\"},{\"w\":\"à apprendre\",\"t\":\"learning\"},{\"w\":\"le français ?\",\"t\":\"french\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.246",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand ferme la boulangerie le lundi ?",
+    "en": "When does the bakery close on Mondays?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand ferme\",\"t\":\"when does close\"},{\"w\":\"la boulangerie\",\"t\":\"the bakery\"},{\"w\":\"le lundi ?\",\"t\":\"on mondays\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.247",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand est-ce que nous nous revoyons ?",
+    "en": "When are we seeing each other again?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand\",\"t\":\"when\"},{\"w\":\"est-ce que\",\"t\":\"(marker)\"},{\"w\":\"nous nous revoyons ?\",\"t\":\"are we seeing each other again\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.248",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand pouvez-vous livrer le colis ?",
+    "en": "When can you deliver the package?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand pouvez-vous\",\"t\":\"when can you\"},{\"w\":\"livrer\",\"t\":\"deliver\"},{\"w\":\"le colis ?\",\"t\":\"the package\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.249",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quand termine ton contrat de travail ?",
+    "en": "When does your work contract end?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand termine\",\"t\":\"when does end\"},{\"w\":\"ton contrat\",\"t\":\"your contract\"},{\"w\":\"de travail ?\",\"t\":\"of work\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.250",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment tu t'appelles ?",
+    "en": "What's your name?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment\",\"t\":\"how\"},{\"w\":\"tu\",\"t\":\"you\"},{\"w\":\"t'appelles ?\",\"t\":\"are called\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.251",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment allez-vous aujourd'hui ?",
+    "en": "How are you today?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment\",\"t\":\"how\"},{\"w\":\"allez-vous\",\"t\":\"are you\"},{\"w\":\"aujourd'hui ?\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.252",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment vas-tu depuis ton opération ?",
+    "en": "How are you since your operation?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment vas-tu\",\"t\":\"how are you\"},{\"w\":\"depuis\",\"t\":\"since\"},{\"w\":\"ton opération ?\",\"t\":\"your operation\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.253",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment se rend-on à l'aéroport ?",
+    "en": "How do you get to the airport?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment\",\"t\":\"how\"},{\"w\":\"se rend-on\",\"t\":\"do you get\"},{\"w\":\"à l'aéroport ?\",\"t\":\"to the airport\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.254",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment tu trouves ce restaurant ?",
+    "en": "What do you think of this restaurant?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment\",\"t\":\"how\"},{\"w\":\"tu trouves\",\"t\":\"do you find\"},{\"w\":\"ce restaurant ?\",\"t\":\"this restaurant\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.255",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment fait-on cette recette ?",
+    "en": "How do you make this recipe?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment\",\"t\":\"how\"},{\"w\":\"fait-on\",\"t\":\"do you make\"},{\"w\":\"cette recette ?\",\"t\":\"this recipe\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.256",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment s'appelle ton chien ?",
+    "en": "What is your dog's name?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment\",\"t\":\"how\"},{\"w\":\"s'appelle\",\"t\":\"is called\"},{\"w\":\"ton chien ?\",\"t\":\"your dog\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.257",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment payez-vous, en espèces ou par carte ?",
+    "en": "How are you paying, in cash or by card?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment payez-vous,\",\"t\":\"how are you paying,\"},{\"w\":\"en espèces\",\"t\":\"in cash\"},{\"w\":\"ou par carte ?\",\"t\":\"or by card\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.258",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment as-tu appris cette nouvelle ?",
+    "en": "How did you learn this news?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment\",\"t\":\"how\"},{\"w\":\"as-tu appris\",\"t\":\"did you learn\"},{\"w\":\"cette nouvelle ?\",\"t\":\"this news\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.259",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment se passe ton nouveau travail ?",
+    "en": "How is your new job going?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment se passe\",\"t\":\"how is going\"},{\"w\":\"ton nouveau\",\"t\":\"your new\"},{\"w\":\"travail ?\",\"t\":\"job\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.260",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment peut-on réserver une table ?",
+    "en": "How can we book a table?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment peut-on\",\"t\":\"how can we\"},{\"w\":\"réserver\",\"t\":\"book\"},{\"w\":\"une table ?\",\"t\":\"a table\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.261",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment était le voyage en train ?",
+    "en": "How was the train trip?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment était\",\"t\":\"how was\"},{\"w\":\"le voyage\",\"t\":\"the trip\"},{\"w\":\"en train ?\",\"t\":\"by train\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.262",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment s'écrit ton nom de famille ?",
+    "en": "How is your last name spelled?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment s'écrit\",\"t\":\"how is spelled\"},{\"w\":\"ton nom\",\"t\":\"your name\"},{\"w\":\"de famille ?\",\"t\":\"last\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.263",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Comment ça va avec ton nouveau collègue ?",
+    "en": "How is it going with your new colleague?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comment ça va\",\"t\":\"how is it going\"},{\"w\":\"avec ton nouveau\",\"t\":\"with your new\"},{\"w\":\"collègue ?\",\"t\":\"colleague\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.264",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi es-tu en retard aujourd'hui ?",
+    "en": "Why are you late today?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi\",\"t\":\"why\"},{\"w\":\"es-tu en retard\",\"t\":\"are you late\"},{\"w\":\"aujourd'hui ?\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.265",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi apprends-tu le français ?",
+    "en": "Why are you learning French?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi\",\"t\":\"why\"},{\"w\":\"apprends-tu\",\"t\":\"are you learning\"},{\"w\":\"le français ?\",\"t\":\"french\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.266",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi le magasin est-il fermé ?",
+    "en": "Why is the store closed?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi\",\"t\":\"why\"},{\"w\":\"le magasin\",\"t\":\"the store\"},{\"w\":\"est-il fermé ?\",\"t\":\"is it closed\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.267",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi tu ne réponds pas au téléphone ?",
+    "en": "Why aren't you answering the phone?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi\",\"t\":\"why\"},{\"w\":\"tu ne réponds pas\",\"t\":\"aren't you answering\"},{\"w\":\"au téléphone ?\",\"t\":\"the phone\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.268",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi as-tu annulé le rendez-vous ?",
+    "en": "Why did you cancel the appointment?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi\",\"t\":\"why\"},{\"w\":\"as-tu annulé\",\"t\":\"did you cancel\"},{\"w\":\"le rendez-vous ?\",\"t\":\"the appointment\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.269",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi est-ce que le train est en retard ?",
+    "en": "Why is the train late?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi est-ce que\",\"t\":\"why\"},{\"w\":\"le train\",\"t\":\"the train\"},{\"w\":\"est en retard ?\",\"t\":\"is late\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.270",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi ta sœur ne vient-elle pas à la fête ?",
+    "en": "Why isn't your sister coming to the party?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi ta sœur\",\"t\":\"why your sister\"},{\"w\":\"ne vient-elle pas\",\"t\":\"isn't she coming\"},{\"w\":\"à la fête ?\",\"t\":\"to the party\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.271",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi préfères-tu habiter en ville ?",
+    "en": "Why do you prefer to live in the city?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi\",\"t\":\"why\"},{\"w\":\"préfères-tu habiter\",\"t\":\"do you prefer to live\"},{\"w\":\"en ville ?\",\"t\":\"in the city\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.272",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi n'avez-vous pas mangé ce matin ?",
+    "en": "Why didn't you eat this morning?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi\",\"t\":\"why\"},{\"w\":\"n'avez-vous pas mangé\",\"t\":\"didn't you eat\"},{\"w\":\"ce matin ?\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.273",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi choisis-tu ce métier ?",
+    "en": "Why are you choosing this profession?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi\",\"t\":\"why\"},{\"w\":\"choisis-tu\",\"t\":\"are you choosing\"},{\"w\":\"ce métier ?\",\"t\":\"this profession\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.274",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi est-il si difficile de trouver un logement ?",
+    "en": "Why is it so hard to find housing?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi est-il\",\"t\":\"why is it\"},{\"w\":\"si difficile\",\"t\":\"so hard\"},{\"w\":\"de trouver\",\"t\":\"to find\"},{\"w\":\"un logement ?\",\"t\":\"housing\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.275",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi as-tu changé d'avis à la dernière minute ?",
+    "en": "Why did you change your mind at the last minute?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi\",\"t\":\"why\"},{\"w\":\"as-tu changé d'avis\",\"t\":\"did you change your mind\"},{\"w\":\"à la dernière minute ?\",\"t\":\"at the last minute\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.276",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi le bus ne s'arrête-t-il pas ici ?",
+    "en": "Why doesn't the bus stop here?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi le bus\",\"t\":\"why the bus\"},{\"w\":\"ne s'arrête-t-il pas\",\"t\":\"doesn't it stop\"},{\"w\":\"ici ?\",\"t\":\"here\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.277",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourquoi étudiez-vous la médecine ?",
+    "en": "Why are you studying medicine?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourquoi\",\"t\":\"why\"},{\"w\":\"étudiez-vous\",\"t\":\"are you studying\"},{\"w\":\"la médecine ?\",\"t\":\"medicine\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.278",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien coûte ce billet de train ?",
+    "en": "How much does this train ticket cost?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien coûte\",\"t\":\"how much does cost\"},{\"w\":\"ce billet\",\"t\":\"this ticket\"},{\"w\":\"de train ?\",\"t\":\"train\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.279",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien de frères et sœurs as-tu ?",
+    "en": "How many brothers and sisters do you have?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien de frères\",\"t\":\"how many brothers\"},{\"w\":\"et sœurs\",\"t\":\"and sisters\"},{\"w\":\"as-tu ?\",\"t\":\"do you have\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.280",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien de temps dure le trajet ?",
+    "en": "How long does the trip take?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien de temps\",\"t\":\"how long\"},{\"w\":\"dure\",\"t\":\"does last\"},{\"w\":\"le trajet ?\",\"t\":\"the trip\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.281",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien ça coûte, ce manteau ?",
+    "en": "How much does this coat cost?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien\",\"t\":\"how much\"},{\"w\":\"ça coûte,\",\"t\":\"does it cost,\"},{\"w\":\"ce manteau ?\",\"t\":\"this coat\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.282",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien de personnes viennent à la fête ?",
+    "en": "How many people are coming to the party?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien de personnes\",\"t\":\"how many people\"},{\"w\":\"viennent\",\"t\":\"are coming\"},{\"w\":\"à la fête ?\",\"t\":\"to the party\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.283",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien de jours restez-vous à Paris ?",
+    "en": "How many days are you staying in Paris?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien de jours\",\"t\":\"how many days\"},{\"w\":\"restez-vous\",\"t\":\"are you staying\"},{\"w\":\"à Paris ?\",\"t\":\"in paris\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.284",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien pèse cette valise ?",
+    "en": "How much does this suitcase weigh?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien\",\"t\":\"how much\"},{\"w\":\"pèse\",\"t\":\"does weigh\"},{\"w\":\"cette valise ?\",\"t\":\"this suitcase\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.285",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien de kilomètres jusqu'à la gare ?",
+    "en": "How many kilometers to the station?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien de kilomètres\",\"t\":\"how many kilometers\"},{\"w\":\"jusqu'à\",\"t\":\"to\"},{\"w\":\"la gare ?\",\"t\":\"the station\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.286",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien gagnes-tu par mois ?",
+    "en": "How much do you earn per month?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien\",\"t\":\"how much\"},{\"w\":\"gagnes-tu\",\"t\":\"do you earn\"},{\"w\":\"par mois ?\",\"t\":\"per month\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.287",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien de temps faut-il pour apprendre le français ?",
+    "en": "How long does it take to learn French?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien de temps\",\"t\":\"how long\"},{\"w\":\"faut-il\",\"t\":\"does it take\"},{\"w\":\"pour apprendre\",\"t\":\"to learn\"},{\"w\":\"le français ?\",\"t\":\"french\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.288",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien coûtent ces chaussures ?",
+    "en": "How much do these shoes cost?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien\",\"t\":\"how much\"},{\"w\":\"coûtent\",\"t\":\"do cost\"},{\"w\":\"ces chaussures ?\",\"t\":\"these shoes\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.289",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien d'enfants avez-vous ?",
+    "en": "How many children do you have?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien\",\"t\":\"how many\"},{\"w\":\"d'enfants\",\"t\":\"children\"},{\"w\":\"avez-vous ?\",\"t\":\"do you have\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.290",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien de fois par semaine fais-tu du sport ?",
+    "en": "How many times a week do you exercise?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien de fois\",\"t\":\"how many times\"},{\"w\":\"par semaine\",\"t\":\"a week\"},{\"w\":\"fais-tu\",\"t\":\"do you do\"},{\"w\":\"du sport ?\",\"t\":\"sports\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.291",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Combien vous dois-je pour le repas ?",
+    "en": "How much do I owe you for the meal?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Combien\",\"t\":\"how much\"},{\"w\":\"vous dois-je\",\"t\":\"do i owe you\"},{\"w\":\"pour le repas ?\",\"t\":\"for the meal\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.292",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quel âge as-tu ?",
+    "en": "How old are you?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quel\",\"t\":\"what\"},{\"w\":\"âge\",\"t\":\"age\"},{\"w\":\"as-tu ?\",\"t\":\"do you have\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.293",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quelle heure est-il maintenant ?",
+    "en": "What time is it now?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quelle heure\",\"t\":\"what time\"},{\"w\":\"est-il\",\"t\":\"is it\"},{\"w\":\"maintenant ?\",\"t\":\"now\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.294",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quel est ton plat préféré ?",
+    "en": "What is your favorite dish?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quel est\",\"t\":\"what is\"},{\"w\":\"ton plat\",\"t\":\"your dish\"},{\"w\":\"préféré ?\",\"t\":\"favorite\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.295",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quelle est ton adresse exacte ?",
+    "en": "What is your exact address?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quelle est\",\"t\":\"what is\"},{\"w\":\"ton adresse\",\"t\":\"your address\"},{\"w\":\"exacte ?\",\"t\":\"exact\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.296",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quels sont tes projets pour l'été ?",
+    "en": "What are your plans for the summer?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quels sont\",\"t\":\"what are\"},{\"w\":\"tes projets\",\"t\":\"your plans\"},{\"w\":\"pour l'été ?\",\"t\":\"for the summer\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.297",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quelle taille faites-vous ?",
+    "en": "What size are you?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quelle\",\"t\":\"what\"},{\"w\":\"taille\",\"t\":\"size\"},{\"w\":\"faites-vous ?\",\"t\":\"are you\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.298",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quel temps fait-il aujourd'hui ?",
+    "en": "What's the weather like today?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quel temps\",\"t\":\"what weather\"},{\"w\":\"fait-il\",\"t\":\"is it\"},{\"w\":\"aujourd'hui ?\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.299",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quelles langues parles-tu couramment ?",
+    "en": "Which languages do you speak fluently?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quelles langues\",\"t\":\"which languages\"},{\"w\":\"parles-tu\",\"t\":\"do you speak\"},{\"w\":\"couramment ?\",\"t\":\"fluently\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.300",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quel jour sommes-nous aujourd'hui ?",
+    "en": "What day is it today?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quel jour\",\"t\":\"what day\"},{\"w\":\"sommes-nous\",\"t\":\"are we\"},{\"w\":\"aujourd'hui ?\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.301",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quelle est la date de ton examen ?",
+    "en": "What is the date of your exam?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quelle est\",\"t\":\"what is\"},{\"w\":\"la date\",\"t\":\"the date\"},{\"w\":\"de ton examen ?\",\"t\":\"of your exam\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.302",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quel est le numéro de ta chambre ?",
+    "en": "What is your room number?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quel est\",\"t\":\"what is\"},{\"w\":\"le numéro\",\"t\":\"the number\"},{\"w\":\"de ta chambre ?\",\"t\":\"of your room\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.303",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quels films aimes-tu regarder ?",
+    "en": "What movies do you like to watch?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quels films\",\"t\":\"which movies\"},{\"w\":\"aimes-tu\",\"t\":\"do you like\"},{\"w\":\"regarder ?\",\"t\":\"to watch\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.304",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quelle couleur préférez-vous pour la cuisine ?",
+    "en": "What color do you prefer for the kitchen?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quelle couleur\",\"t\":\"what color\"},{\"w\":\"préférez-vous\",\"t\":\"do you prefer\"},{\"w\":\"pour la cuisine ?\",\"t\":\"for the kitchen\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.305",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quelle direction dois-je prendre pour la mairie ?",
+    "en": "Which direction should I take for the town hall?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quelle direction\",\"t\":\"which direction\"},{\"w\":\"dois-je prendre\",\"t\":\"should i take\"},{\"w\":\"pour la mairie ?\",\"t\":\"for the town hall\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.306",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Quel bus faut-il prendre pour aller au centre-ville ?",
+    "en": "Which bus do you need to take to go downtown?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quel bus\",\"t\":\"which bus\"},{\"w\":\"faut-il prendre\",\"t\":\"do you need to take\"},{\"w\":\"pour aller\",\"t\":\"to go\"},{\"w\":\"au centre-ville ?\",\"t\":\"downtown\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.307",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que tu viens à la fête samedi ?",
+    "en": "Are you coming to the party on Saturday?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que tu viens\",\"t\":\"are you coming\"},{\"w\":\"à la fête\",\"t\":\"to the party\"},{\"w\":\"samedi ?\",\"t\":\"on saturday\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.308",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que vous parlez anglais ?",
+    "en": "Do you speak English?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que\",\"t\":\"do\"},{\"w\":\"vous parlez\",\"t\":\"you speak\"},{\"w\":\"anglais ?\",\"t\":\"english\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.309",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que tu as des frères et sœurs ?",
+    "en": "Do you have any brothers or sisters?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que tu as\",\"t\":\"do you have\"},{\"w\":\"des frères\",\"t\":\"brothers\"},{\"w\":\"et sœurs ?\",\"t\":\"and sisters\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.310",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce qu'il y a un supermarché près d'ici ?",
+    "en": "Is there a supermarket near here?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce qu'il y a\",\"t\":\"is there\"},{\"w\":\"un supermarché\",\"t\":\"a supermarket\"},{\"w\":\"près d'ici ?\",\"t\":\"near here\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.311",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que vous savez à quelle heure part le train ?",
+    "en": "Do you know what time the train leaves?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que vous savez\",\"t\":\"do you know\"},{\"w\":\"à quelle heure\",\"t\":\"at what time\"},{\"w\":\"part le train ?\",\"t\":\"the train leaves\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.312",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que tu peux m'aider à porter ce sac ?",
+    "en": "Can you help me carry this bag?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que tu peux\",\"t\":\"can you\"},{\"w\":\"m'aider à porter\",\"t\":\"help me carry\"},{\"w\":\"ce sac ?\",\"t\":\"this bag\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.313",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que le petit-déjeuner est inclus dans le prix ?",
+    "en": "Is breakfast included in the price?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que le petit-déjeuner\",\"t\":\"is breakfast\"},{\"w\":\"est inclus\",\"t\":\"included\"},{\"w\":\"dans le prix ?\",\"t\":\"in the price\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.314",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que tu as réservé une table au restaurant ?",
+    "en": "Did you book a table at the restaurant?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que tu as réservé\",\"t\":\"did you book\"},{\"w\":\"une table\",\"t\":\"a table\"},{\"w\":\"au restaurant ?\",\"t\":\"at the restaurant\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.315",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que vous acceptez les cartes de crédit ?",
+    "en": "Do you accept credit cards?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que vous acceptez\",\"t\":\"do you accept\"},{\"w\":\"les cartes\",\"t\":\"the cards\"},{\"w\":\"de crédit ?\",\"t\":\"credit\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.316",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que ta mère travaille toujours à l'hôpital ?",
+    "en": "Does your mother still work at the hospital?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que ta mère\",\"t\":\"does your mother\"},{\"w\":\"travaille toujours\",\"t\":\"still work\"},{\"w\":\"à l'hôpital ?\",\"t\":\"at the hospital\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.317",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que tu connais un bon dentiste dans le quartier ?",
+    "en": "Do you know a good dentist in the neighborhood?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que tu connais\",\"t\":\"do you know\"},{\"w\":\"un bon dentiste\",\"t\":\"a good dentist\"},{\"w\":\"dans le quartier ?\",\"t\":\"in the neighborhood\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.318",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que vous avez encore des places pour ce soir ?",
+    "en": "Do you still have seats for tonight?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que vous avez\",\"t\":\"do you have\"},{\"w\":\"encore des places\",\"t\":\"still seats\"},{\"w\":\"pour ce soir ?\",\"t\":\"for tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.319",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que le musée est ouvert le lundi ?",
+    "en": "Is the museum open on Mondays?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que le musée\",\"t\":\"is the museum\"},{\"w\":\"est ouvert\",\"t\":\"open\"},{\"w\":\"le lundi ?\",\"t\":\"on mondays\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.320",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que tu as pris ton médicament ce matin ?",
+    "en": "Did you take your medicine this morning?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que tu as pris\",\"t\":\"did you take\"},{\"w\":\"ton médicament\",\"t\":\"your medicine\"},{\"w\":\"ce matin ?\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.321",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Est-ce que nous devons changer de train à Lyon ?",
+    "en": "Do we need to change trains in Lyon?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que nous devons\",\"t\":\"do we need to\"},{\"w\":\"changer de train\",\"t\":\"change trains\"},{\"w\":\"à Lyon ?\",\"t\":\"in lyon\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.322",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Avez-vous une chambre disponible pour ce soir ?",
+    "en": "Do you have a room available for tonight?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Avez-vous\",\"t\":\"do you have\"},{\"w\":\"une chambre disponible\",\"t\":\"an available room\"},{\"w\":\"pour ce soir ?\",\"t\":\"for tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.323",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pouvez-vous m'indiquer le chemin vers la banque ?",
+    "en": "Can you show me the way to the bank?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pouvez-vous m'indiquer\",\"t\":\"can you show me\"},{\"w\":\"le chemin\",\"t\":\"the way\"},{\"w\":\"vers la banque ?\",\"t\":\"to the bank\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.324",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Voulez-vous un café ou un thé ?",
+    "en": "Would you like coffee or tea?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Voulez-vous\",\"t\":\"would you like\"},{\"w\":\"un café\",\"t\":\"a coffee\"},{\"w\":\"ou un thé ?\",\"t\":\"or a tea\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.325",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Aimez-vous la cuisine italienne ?",
+    "en": "Do you like Italian cuisine?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Aimez-vous\",\"t\":\"do you like\"},{\"w\":\"la cuisine\",\"t\":\"the cuisine\"},{\"w\":\"italienne ?\",\"t\":\"italian\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.326",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Savez-vous où se trouve l'arrêt de bus ?",
+    "en": "Do you know where the bus stop is?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Savez-vous\",\"t\":\"do you know\"},{\"w\":\"où se trouve\",\"t\":\"where is\"},{\"w\":\"l'arrêt de bus ?\",\"t\":\"the bus stop\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.327",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Avons-nous assez de temps pour visiter le musée ?",
+    "en": "Do we have enough time to visit the museum?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Avons-nous assez\",\"t\":\"do we have enough\"},{\"w\":\"de temps\",\"t\":\"of time\"},{\"w\":\"pour visiter\",\"t\":\"to visit\"},{\"w\":\"le musée ?\",\"t\":\"the museum\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.328",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Pourriez-vous répéter la question, s'il vous plaît ?",
+    "en": "Could you repeat the question, please?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pourriez-vous répéter\",\"t\":\"could you repeat\"},{\"w\":\"la question,\",\"t\":\"the question,\"},{\"w\":\"s'il vous plaît ?\",\"t\":\"please\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.329",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Avez-vous des enfants ?",
+    "en": "Do you have children?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Avez-vous\",\"t\":\"do you have\"},{\"w\":\"des\",\"t\":\"(any)\"},{\"w\":\"enfants ?\",\"t\":\"children\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.330",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Travaillez-vous le samedi ?",
+    "en": "Do you work on Saturdays?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Travaillez-vous\",\"t\":\"do you work\"},{\"w\":\"le\",\"t\":\"on\"},{\"w\":\"samedi ?\",\"t\":\"saturdays\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.331",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Connaissez-vous un bon médecin généraliste ?",
+    "en": "Do you know a good general practitioner?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Connaissez-vous\",\"t\":\"do you know\"},{\"w\":\"un bon médecin\",\"t\":\"a good doctor\"},{\"w\":\"généraliste ?\",\"t\":\"general practitioner\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.332",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Prenez-vous du sucre dans votre café ?",
+    "en": "Do you take sugar in your coffee?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Prenez-vous\",\"t\":\"do you take\"},{\"w\":\"du sucre\",\"t\":\"sugar\"},{\"w\":\"dans votre café ?\",\"t\":\"in your coffee\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.333",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Avez-vous besoin d'aide avec vos bagages ?",
+    "en": "Do you need help with your luggage?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Avez-vous besoin\",\"t\":\"do you need\"},{\"w\":\"d'aide\",\"t\":\"help\"},{\"w\":\"avec vos bagages ?\",\"t\":\"with your luggage\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.334",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Habitez-vous seul ou avec votre famille ?",
+    "en": "Do you live alone or with your family?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Habitez-vous seul\",\"t\":\"do you live alone\"},{\"w\":\"ou avec\",\"t\":\"or with\"},{\"w\":\"votre famille ?\",\"t\":\"your family\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.335",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Voyagez-vous souvent pour votre travail ?",
+    "en": "Do you travel often for work?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Voyagez-vous\",\"t\":\"do you travel\"},{\"w\":\"souvent\",\"t\":\"often\"},{\"w\":\"pour votre travail ?\",\"t\":\"for your work\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.336",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Reconnaissez-vous cet homme sur la photo ?",
+    "en": "Do you recognize this man in the photo?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Reconnaissez-vous\",\"t\":\"do you recognize\"},{\"w\":\"cet homme\",\"t\":\"this man\"},{\"w\":\"sur la photo ?\",\"t\":\"in the photo\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.337",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Tu viens avec nous au cinéma ?",
+    "en": "Are you coming with us to the movies?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu viens\",\"t\":\"are you coming\"},{\"w\":\"avec nous\",\"t\":\"with us\"},{\"w\":\"au cinéma ?\",\"t\":\"to the movies\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.338",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Tu as faim ?",
+    "en": "Are you hungry?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu\",\"t\":\"you\"},{\"w\":\"as\",\"t\":\"are\"},{\"w\":\"faim ?\",\"t\":\"hungry\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.339",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Ça te dit d'aller marcher un peu ?",
+    "en": "Do you feel like going for a walk?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça te dit\",\"t\":\"do you feel like\"},{\"w\":\"d'aller marcher\",\"t\":\"going for a walk\"},{\"w\":\"un peu ?\",\"t\":\"a bit\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.340",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Tu es prêt pour l'examen de demain ?",
+    "en": "Are you ready for tomorrow's exam?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu es prêt\",\"t\":\"are you ready\"},{\"w\":\"pour l'examen\",\"t\":\"for the exam\"},{\"w\":\"de demain ?\",\"t\":\"tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.341",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Tu veux encore un peu de gâteau ?",
+    "en": "Do you want a bit more cake?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu veux\",\"t\":\"do you want\"},{\"w\":\"encore un peu\",\"t\":\"a bit more\"},{\"w\":\"de gâteau ?\",\"t\":\"cake\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.342",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Il fait beau chez toi en ce moment ?",
+    "en": "Is the weather nice where you are right now?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il fait beau\",\"t\":\"is the weather nice\"},{\"w\":\"chez toi\",\"t\":\"where you are\"},{\"w\":\"en ce moment ?\",\"t\":\"right now\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.343",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Tu as fini tes devoirs ?",
+    "en": "Have you finished your homework?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu\",\"t\":\"you\"},{\"w\":\"as fini\",\"t\":\"have finished\"},{\"w\":\"tes devoirs ?\",\"t\":\"your homework\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.344",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Ta sœur habite toujours à Marseille ?",
+    "en": "Does your sister still live in Marseille?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ta sœur\",\"t\":\"your sister\"},{\"w\":\"habite toujours\",\"t\":\"still lives\"},{\"w\":\"à Marseille ?\",\"t\":\"in marseille\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.345",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Tu te sens mieux aujourd'hui ?",
+    "en": "Do you feel better today?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu te sens\",\"t\":\"do you feel\"},{\"w\":\"mieux\",\"t\":\"better\"},{\"w\":\"aujourd'hui ?\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.346",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Tu as pensé à fermer la fenêtre ?",
+    "en": "Did you remember to close the window?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as pensé\",\"t\":\"did you remember\"},{\"w\":\"à fermer\",\"t\":\"to close\"},{\"w\":\"la fenêtre ?\",\"t\":\"the window\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.347",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Vous partez déjà ?",
+    "en": "Are you leaving already?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Vous\",\"t\":\"you\"},{\"w\":\"partez\",\"t\":\"are leaving\"},{\"w\":\"déjà ?\",\"t\":\"already\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.348",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Ton père travaille encore à la banque ?",
+    "en": "Does your father still work at the bank?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ton père\",\"t\":\"your father\"},{\"w\":\"travaille encore\",\"t\":\"still works\"},{\"w\":\"à la banque ?\",\"t\":\"at the bank\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.349",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "On se retrouve devant la gare ?",
+    "en": "Shall we meet in front of the station?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"On se retrouve\",\"t\":\"shall we meet\"},{\"w\":\"devant\",\"t\":\"in front of\"},{\"w\":\"la gare ?\",\"t\":\"the station\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.350",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Tu as vu le nouveau film au cinéma ?",
+    "en": "Have you seen the new movie at the theater?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as vu\",\"t\":\"have you seen\"},{\"w\":\"le nouveau film\",\"t\":\"the new movie\"},{\"w\":\"au cinéma ?\",\"t\":\"at the theater\"}]}"
+  },
+  {
+    "id": "fr.a1.questions.351",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "questions",
+    "fr": "Ça va aller pour le rendez-vous chez le médecin ?",
+    "en": "Will it be okay for the doctor's appointment?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça va aller\",\"t\":\"will it be okay\"},{\"w\":\"pour le rendez-vous\",\"t\":\"for the appointment\"},{\"w\":\"chez le médecin ?\",\"t\":\"at the doctor's\"}]}"
+  }
+]

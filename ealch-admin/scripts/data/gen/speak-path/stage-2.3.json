@@ -1,0 +1,4098 @@
+{
+  "stage": "2.3",
+  "world": 2,
+  "level": "a1",
+  "title": "Le Pont des Petits Mots",
+  "themes": [
+    "mots-de-liaison",
+    "pronoms-essentiels",
+    "prepositions-essentielles",
+    "negation-et-restriction",
+    "expressions-de-quantite",
+    "verbes-essentiels",
+    "verbes-du-quotidien",
+    "temps-et-frequence",
+    "routines",
+    "dictee"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 569,
+  "dedupedPool": 569,
+  "selected": 569,
+  "blockCount": 18,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.a1.temps-et-frequence.052",
+          "theme": "temps-et-frequence",
+          "fr": "Il est midi.",
+          "en": "It is noon.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.099",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je sais nager.",
+          "en": "I know how to swim.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.053",
+          "theme": "temps-et-frequence",
+          "fr": "Il est minuit.",
+          "en": "It is midnight.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.079",
+          "theme": "verbes-du-quotidien",
+          "fr": "Dis-moi ton nom.",
+          "en": "Tell me your name.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.004",
+          "theme": "pronoms-essentiels",
+          "fr": "Je viens de Lyon.",
+          "en": "I come from Lyon.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.057",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il vient de Paris.",
+          "en": "He comes from Paris.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.206",
+          "theme": "dictee",
+          "fr": "Tu lis ton cahier.",
+          "en": "You are reading your notebook.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.051",
+          "theme": "temps-et-frequence",
+          "fr": "Il est huit heures.",
+          "en": "It is eight o'clock.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.239",
+          "theme": "dictee",
+          "fr": "Vous mangez à midi.",
+          "en": "You eat at noon.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.085",
+          "theme": "verbes-du-quotidien",
+          "fr": "Voulez-vous du thé ?",
+          "en": "Would you like some tea?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.060",
+          "theme": "temps-et-frequence",
+          "fr": "Demain, c'est mardi.",
+          "en": "Tomorrow is Tuesday.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.054",
+          "theme": "temps-et-frequence",
+          "fr": "Quelle heure est-il ?",
+          "en": "What time is it?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.067",
+          "theme": "temps-et-frequence",
+          "fr": "Nous mangeons à midi.",
+          "en": "We eat at noon.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.012",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle chante très bien.",
+          "en": "She sings very well.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.198",
+          "theme": "dictee",
+          "fr": "Vous allez au tableau.",
+          "en": "You are going to the board.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.200",
+          "theme": "dictee",
+          "fr": "Elles vont au gymnase.",
+          "en": "They are going to the gym.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.214",
+          "theme": "dictee",
+          "fr": "Tu regardes ton livre.",
+          "en": "You look at your book.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.217",
+          "theme": "dictee",
+          "fr": "Ils aiment la musique.",
+          "en": "They like music.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.221",
+          "theme": "dictee",
+          "fr": "Il apprend l'histoire.",
+          "en": "He is learning history.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.224",
+          "theme": "dictee",
+          "fr": "Vous étudiez le sport.",
+          "en": "You are studying sport.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.090",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle connaît mon frère.",
+          "en": "She knows my brother.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.061",
+          "theme": "temps-et-frequence",
+          "fr": "Hier, c'était dimanche.",
+          "en": "Yesterday was Sunday.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.014",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle part demain matin.",
+          "en": "She leaves tomorrow morning.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.218",
+          "theme": "dictee",
+          "fr": "Elles aiment le dessin.",
+          "en": "They like drawing.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.232",
+          "theme": "dictee",
+          "fr": "Elle dessine une fleur.",
+          "en": "She draws a flower.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.081",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle vient de Marseille.",
+          "en": "She comes from Marseille.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.215",
+          "theme": "dictee",
+          "fr": "Nous aimons le français.",
+          "en": "We like French.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.061",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous prenons nos valises.",
+          "en": "We take our suitcases.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.034",
+          "theme": "verbes-essentiels",
+          "fr": "Tu choisis quel dessert ?",
+          "en": "Which dessert are you choosing?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.094",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous arrivons avant midi.",
+          "en": "We arrive before noon.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.086",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je dois partir maintenant.",
+          "en": "I have to leave now.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.248",
+          "theme": "dictee",
+          "fr": "Nous travaillons ce matin.",
+          "en": "We work this morning.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.249",
+          "theme": "dictee",
+          "fr": "Vous travaillez en groupe.",
+          "en": "You work in a group.",
+          "words": 4
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.a1.temps-et-frequence.078",
+          "theme": "temps-et-frequence",
+          "fr": "Elle parle parfois anglais.",
+          "en": "She sometimes speaks English.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.210",
+          "theme": "dictee",
+          "fr": "Vous écrivez votre adresse.",
+          "en": "You write your address.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.222",
+          "theme": "dictee",
+          "fr": "Elle apprend la géographie.",
+          "en": "She is learning geography.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.223",
+          "theme": "dictee",
+          "fr": "Nous étudions les sciences.",
+          "en": "We are studying science.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.216",
+          "theme": "dictee",
+          "fr": "Vous aimez les mathématiques.",
+          "en": "You like math.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.035",
+          "theme": "verbes-essentiels",
+          "fr": "Je comprends mieux maintenant.",
+          "en": "I understand better now.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.220",
+          "theme": "dictee",
+          "fr": "Tu apprends les mathématiques.",
+          "en": "You are learning math.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.dictee.173",
+          "theme": "dictee",
+          "fr": "J'ai un cahier neuf.",
+          "en": "I have a new notebook.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.018",
+          "theme": "negation-et-restriction",
+          "fr": "Ne parle pas si fort.",
+          "en": "Do not speak so loudly.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.103",
+          "theme": "prepositions-essentielles",
+          "fr": "J'ai besoin de repos.",
+          "en": "I need rest.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.195",
+          "theme": "dictee",
+          "fr": "Il va dans la classe.",
+          "en": "He is going into the classroom.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.196",
+          "theme": "dictee",
+          "fr": "Elle va dans la cour.",
+          "en": "She is going into the yard.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.070",
+          "theme": "temps-et-frequence",
+          "fr": "Elle arrive à l'heure.",
+          "en": "She arrives on time.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.174",
+          "theme": "dictee",
+          "fr": "Tu as un crayon rouge.",
+          "en": "You have a red pencil.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.247",
+          "theme": "dictee",
+          "fr": "Le cours finit à midi.",
+          "en": "The lesson ends at noon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.093",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je pense à toi souvent.",
+          "en": "I think of you often.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.055",
+          "theme": "temps-et-frequence",
+          "fr": "Il est neuf heures dix.",
+          "en": "It is ten past nine.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.020",
+          "theme": "negation-et-restriction",
+          "fr": "Ne mange pas trop vite.",
+          "en": "Do not eat too fast.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.175",
+          "theme": "dictee",
+          "fr": "Il a une trousse bleue.",
+          "en": "He has a blue pencil case.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.186",
+          "theme": "dictee",
+          "fr": "Ma sœur prend sa gomme.",
+          "en": "My sister takes her eraser.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.205",
+          "theme": "dictee",
+          "fr": "Je lis un livre facile.",
+          "en": "I am reading an easy book.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.228",
+          "theme": "dictee",
+          "fr": "L'élève répète son nom.",
+          "en": "The student repeats his name.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.077",
+          "theme": "temps-et-frequence",
+          "fr": "Je bois souvent du café.",
+          "en": "I often drink coffee.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.029",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai assez mangé, merci.",
+          "en": "I have eaten enough, thank you.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.033",
+          "theme": "expressions-de-quantite",
+          "fr": "Tu manges trop de sucre.",
+          "en": "You eat too much sugar.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.089",
+          "theme": "prepositions-essentielles",
+          "fr": "Le train part vers midi.",
+          "en": "The train leaves around noon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.176",
+          "theme": "dictee",
+          "fr": "Elle a un beau cartable.",
+          "en": "She has a nice backpack.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.212",
+          "theme": "dictee",
+          "fr": "L'élève écoute la leçon.",
+          "en": "The student listens to the lesson.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.080",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je parle un peu français.",
+          "en": "I speak a little French.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.092",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle croit en son projet.",
+          "en": "She believes in her project.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.059",
+          "theme": "temps-et-frequence",
+          "fr": "Aujourd'hui, c'est lundi.",
+          "en": "Today is Monday.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.002",
+          "theme": "negation-et-restriction",
+          "fr": "Je ne parle pas allemand.",
+          "en": "I do not speak German.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.026",
+          "theme": "pronoms-essentiels",
+          "fr": "Vous habitez près d'ici ?",
+          "en": "Do you live near here?",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.a1.pronoms-essentiels.051",
+          "theme": "pronoms-essentiels",
+          "fr": "Il la regarde en silence.",
+          "en": "He watches her in silence.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.073",
+          "theme": "pronoms-essentiels",
+          "fr": "Viens avec moi au marché.",
+          "en": "Come with me to the market.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.093",
+          "theme": "prepositions-essentielles",
+          "fr": "Il pleut pendant la nuit.",
+          "en": "It rains during the night.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.109",
+          "theme": "prepositions-essentielles",
+          "fr": "Il sort sans son manteau.",
+          "en": "He goes out without his coat.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.110",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle voyage par le train.",
+          "en": "She travels by train.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.183",
+          "theme": "dictee",
+          "fr": "L'élève range son cahier.",
+          "en": "The student puts away his notebook.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.194",
+          "theme": "dictee",
+          "fr": "Tu vas à la bibliothèque.",
+          "en": "You are going to the library.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.197",
+          "theme": "dictee",
+          "fr": "Nous allons à la cantine.",
+          "en": "We are going to the cafeteria.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.230",
+          "theme": "dictee",
+          "fr": "Tu dessines un beau chat.",
+          "en": "You draw a nice cat.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.077",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je dis toujours la vérité.",
+          "en": "I always tell the truth.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.097",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle peut nager très vite.",
+          "en": "She can swim very fast.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.079",
+          "theme": "temps-et-frequence",
+          "fr": "Il est toujours en retard.",
+          "en": "He is always late.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.081",
+          "theme": "temps-et-frequence",
+          "fr": "Je fais rarement du sport.",
+          "en": "I rarely exercise.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.015",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle adore voyager en été.",
+          "en": "She loves to travel in summer.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.178",
+          "theme": "dictee",
+          "fr": "Vous avez une règle jaune.",
+          "en": "You have a yellow ruler.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.187",
+          "theme": "dictee",
+          "fr": "Mon ami cherche son stylo.",
+          "en": "My friend is looking for his pen.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.245",
+          "theme": "dictee",
+          "fr": "Tu rentres avec ton frère.",
+          "en": "You go home with your brother.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.252",
+          "theme": "dictee",
+          "fr": "Les élèves lèvent la main.",
+          "en": "The students raise their hand.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.069",
+          "theme": "verbes-du-quotidien",
+          "fr": "Mets ton manteau, il pleut.",
+          "en": "Put your coat on, it's raining.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.081",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle parle avec sa voisine.",
+          "en": "She is talking with her neighbor.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.093",
+          "theme": "temps-et-frequence",
+          "fr": "Nous partons tout de suite.",
+          "en": "We are leaving right away.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.100",
+          "theme": "temps-et-frequence",
+          "fr": "J'attends depuis une heure.",
+          "en": "I have been waiting for an hour.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.019",
+          "theme": "negation-et-restriction",
+          "fr": "N'oublie pas ton parapluie.",
+          "en": "Do not forget your umbrella.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.037",
+          "theme": "verbes-essentiels",
+          "fr": "Nous habitons près du parc.",
+          "en": "We live near the park.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.013",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a beaucoup de courage.",
+          "en": "She has a lot of courage.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.011",
+          "theme": "pronoms-essentiels",
+          "fr": "Il arrive dans dix minutes.",
+          "en": "He is arriving in ten minutes.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.091",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle attend devant la gare.",
+          "en": "She is waiting in front of the station.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.180",
+          "theme": "dictee",
+          "fr": "Elles ont des stylos noirs.",
+          "en": "They have black pens.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.185",
+          "theme": "dictee",
+          "fr": "Mon frère prend son crayon.",
+          "en": "My brother takes his pencil.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.213",
+          "theme": "dictee",
+          "fr": "Je regarde le tableau noir.",
+          "en": "I look at the blackboard.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.231",
+          "theme": "dictee",
+          "fr": "Il dessine dans son cahier.",
+          "en": "He draws in his notebook.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.238",
+          "theme": "dictee",
+          "fr": "Nous mangeons à la cantine.",
+          "en": "We eat at the cafeteria.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.243",
+          "theme": "dictee",
+          "fr": "Ils partent après le sport.",
+          "en": "They leave after sport.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.a1.verbes-du-quotidien.088",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle doit finir son travail.",
+          "en": "She has to finish her work.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.089",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je connais bien ce quartier.",
+          "en": "I know this neighborhood well.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.082",
+          "theme": "temps-et-frequence",
+          "fr": "Il pleut souvent en automne.",
+          "en": "It often rains in autumn.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.005",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu parles très bien anglais.",
+          "en": "You speak English very well.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.037",
+          "theme": "pronoms-essentiels",
+          "fr": "Elles rentrent tard ce soir.",
+          "en": "They are coming home late tonight.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.058",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu les invites samedi soir ?",
+          "en": "Are you inviting them on Saturday night?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.111",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous dînons dans la cuisine.",
+          "en": "We have dinner in the kitchen.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.177",
+          "theme": "dictee",
+          "fr": "Nous avons un nouveau livre.",
+          "en": "We have a new book.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.188",
+          "theme": "dictee",
+          "fr": "Mon amie cherche sa trousse.",
+          "en": "My friend is looking for her pencil case.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.234",
+          "theme": "dictee",
+          "fr": "Vous chantez avec la classe.",
+          "en": "You sing with the class.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.084",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle veut apprendre le piano.",
+          "en": "She wants to learn piano.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.073",
+          "theme": "temps-et-frequence",
+          "fr": "Mon anniversaire est en mars.",
+          "en": "My birthday is in March.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.095",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle rentre après le travail.",
+          "en": "She comes home after work.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.208",
+          "theme": "dictee",
+          "fr": "Elle écrit une phrase courte.",
+          "en": "She writes a short sentence.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.227",
+          "theme": "dictee",
+          "fr": "Les élèves répètent la leçon.",
+          "en": "The students repeat the lesson.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.092",
+          "theme": "temps-et-frequence",
+          "fr": "Elle sourit rarement le matin.",
+          "en": "She rarely smiles in the morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.052",
+          "theme": "expressions-de-quantite",
+          "fr": "Chaque table a quatre chaises.",
+          "en": "Each table has four chairs.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.007",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu aimes vraiment le chocolat.",
+          "en": "You really like chocolate.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.099",
+          "theme": "prepositions-essentielles",
+          "fr": "Les enfants jouent aux cartes.",
+          "en": "The children are playing cards.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.179",
+          "theme": "dictee",
+          "fr": "Ils ont des feuilles blanches.",
+          "en": "They have white sheets of paper.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.095",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous pensons partir tôt demain.",
+          "en": "We are thinking of leaving early tomorrow.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.098",
+          "theme": "verbes-du-quotidien",
+          "fr": "Pouvez-vous fermer la fenêtre ?",
+          "en": "Can you close the window?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.100",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle sait parler trois langues.",
+          "en": "She knows how to speak three languages.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.084",
+          "theme": "temps-et-frequence",
+          "fr": "Elle attend depuis dix minutes.",
+          "en": "She has been waiting for ten minutes.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.051",
+          "theme": "expressions-de-quantite",
+          "fr": "Chaque enfant reçoit un cadeau.",
+          "en": "Each child receives a gift.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.025",
+          "theme": "pronoms-essentiels",
+          "fr": "Vous parlez très bien français.",
+          "en": "You speak French very well.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.118",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle habite au troisième étage.",
+          "en": "She lives on the third floor.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.192",
+          "theme": "dictee",
+          "fr": "L'institutrice ferme son livre.",
+          "en": "The teacher closes her book.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.241",
+          "theme": "dictee",
+          "fr": "Le professeur arrive en classe.",
+          "en": "The teacher arrives in class.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.063",
+          "theme": "expressions-de-quantite",
+          "fr": "Combien de langues parlez-vous ?",
+          "en": "How many languages do you speak?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.033",
+          "theme": "pronoms-essentiels",
+          "fr": "Ils préparent le dîner ensemble.",
+          "en": "They are making dinner together.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.routines.169",
+          "theme": "routines",
+          "fr": "Nous dînons ensemble en famille.",
+          "en": "We have dinner together as a family.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.184",
+          "theme": "dictee",
+          "fr": "Les élèves rangent leurs livres.",
+          "en": "The students put away their books.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.a1.dictee.226",
+          "theme": "dictee",
+          "fr": "La maîtresse explique le dessin.",
+          "en": "The teacher explains drawing.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.072",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous sortons faire une promenade.",
+          "en": "We are going out for a walk.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.019",
+          "theme": "verbes-essentiels",
+          "fr": "Je cherche mon téléphone partout.",
+          "en": "I'm looking for my phone everywhere.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.036",
+          "theme": "verbes-essentiels",
+          "fr": "Elle aime beaucoup ce restaurant.",
+          "en": "She likes this restaurant a lot.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.045",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous partons dans quelques jours.",
+          "en": "We are leaving in a few days.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.006",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu habites ici depuis longtemps ?",
+          "en": "Have you lived here for a long time?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.027",
+          "theme": "pronoms-essentiels",
+          "fr": "Vous travaillez le samedi matin ?",
+          "en": "Do you work on Saturday mornings?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.040",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu me comprends bien maintenant ?",
+          "en": "Do you understand me well now?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.211",
+          "theme": "dictee",
+          "fr": "Les élèves écoutent la maîtresse.",
+          "en": "The students listen to the teacher.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.233",
+          "theme": "dictee",
+          "fr": "Nous chantons une chanson facile.",
+          "en": "We sing an easy song.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.010",
+          "theme": "pronoms-essentiels",
+          "fr": "Il travaille beaucoup cette semaine.",
+          "en": "He is working a lot this week.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.dictee.225",
+          "theme": "dictee",
+          "fr": "Le professeur explique les mathématiques.",
+          "en": "The teacher explains math.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.083",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je veux un verre d'eau.",
+          "en": "I want a glass of water.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.074",
+          "theme": "verbes-du-quotidien",
+          "fr": "Reste ici, s'il te plaît.",
+          "en": "Stay here, please.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.065",
+          "theme": "temps-et-frequence",
+          "fr": "Je me lève à sept heures.",
+          "en": "I get up at seven.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.routines.178",
+          "theme": "routines",
+          "fr": "Je me repose le week-end.",
+          "en": "I rest on the weekend.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.062",
+          "theme": "temps-et-frequence",
+          "fr": "Le week-end, je dors tard.",
+          "en": "On weekends, I sleep late.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.083",
+          "theme": "temps-et-frequence",
+          "fr": "J'habite ici depuis un an.",
+          "en": "I have lived here for a year.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.011",
+          "theme": "negation-et-restriction",
+          "fr": "Je ne trouve pas mes clés.",
+          "en": "I cannot find my keys.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.013",
+          "theme": "negation-et-restriction",
+          "fr": "Nous n'avons plus de lait.",
+          "en": "We have no more milk.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.014",
+          "theme": "negation-et-restriction",
+          "fr": "Il ne mange rien le matin.",
+          "en": "He eats nothing in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.027",
+          "theme": "verbes-essentiels",
+          "fr": "Le train part à midi pile.",
+          "en": "The train leaves at noon sharp.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.054",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai mangé tout le gâteau.",
+          "en": "I ate the whole cake.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.056",
+          "theme": "expressions-de-quantite",
+          "fr": "Il a plu toute la journée.",
+          "en": "It rained all day.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.108",
+          "theme": "prepositions-essentielles",
+          "fr": "Le vélo est contre le mur.",
+          "en": "The bike is against the wall.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.053",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle va chez sa grand-mère.",
+          "en": "She is going to her grandmother's.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.069",
+          "theme": "temps-et-frequence",
+          "fr": "Je suis en retard ce matin.",
+          "en": "I am late this morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.003",
+          "theme": "negation-et-restriction",
+          "fr": "Tu ne manges pas de viande.",
+          "en": "You do not eat meat.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.006",
+          "theme": "negation-et-restriction",
+          "fr": "Nous n'habitons pas à Lyon.",
+          "en": "We do not live in Lyon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.039",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai plusieurs amis à Lyon.",
+          "en": "I have several friends in Lyon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.018",
+          "theme": "pronoms-essentiels",
+          "fr": "On regarde un film ce soir.",
+          "en": "We're watching a movie tonight.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.043",
+          "theme": "pronoms-essentiels",
+          "fr": "Je te vois au bureau lundi.",
+          "en": "I'll see you at the office on Monday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.074",
+          "theme": "pronoms-essentiels",
+          "fr": "C'est pour moi, ce paquet ?",
+          "en": "Is this package for me?",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.a1.prepositions-essentielles.082",
+          "theme": "prepositions-essentielles",
+          "fr": "Les clés sont dans mon sac.",
+          "en": "The keys are in my bag.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.083",
+          "theme": "prepositions-essentielles",
+          "fr": "Le chat dort sur le canapé.",
+          "en": "The cat sleeps on the couch.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.086",
+          "theme": "prepositions-essentielles",
+          "fr": "Ce cadeau est pour ma sœur.",
+          "en": "This gift is for my sister.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.055",
+          "theme": "verbes-du-quotidien",
+          "fr": "Tu viens avec nous ce soir ?",
+          "en": "Are you coming with us tonight?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.063",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je fais mes devoirs le soir.",
+          "en": "I do my homework in the evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.057",
+          "theme": "temps-et-frequence",
+          "fr": "Il est cinq heures et demie.",
+          "en": "It is half past five.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.071",
+          "theme": "temps-et-frequence",
+          "fr": "À quelle heure est le film ?",
+          "en": "What time is the movie?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.003",
+          "theme": "pronoms-essentiels",
+          "fr": "Je mange une pomme le matin.",
+          "en": "I eat an apple in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.016",
+          "theme": "pronoms-essentiels",
+          "fr": "On mange à midi aujourd'hui.",
+          "en": "We're eating at noon today.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.084",
+          "theme": "prepositions-essentielles",
+          "fr": "Le ballon est sous la table.",
+          "en": "The ball is under the table.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.098",
+          "theme": "prepositions-essentielles",
+          "fr": "Je vais au marché le samedi.",
+          "en": "I go to the market on Saturdays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.056",
+          "theme": "temps-et-frequence",
+          "fr": "Il est trois heures et quart.",
+          "en": "It is quarter past three.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.068",
+          "theme": "temps-et-frequence",
+          "fr": "Le train part à seize heures.",
+          "en": "The train leaves at four pm.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.095",
+          "theme": "temps-et-frequence",
+          "fr": "Elle a déjà fini son travail.",
+          "en": "She has already finished her work.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.009",
+          "theme": "negation-et-restriction",
+          "fr": "Elles ne sortent pas ce soir.",
+          "en": "They are not going out tonight.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.050",
+          "theme": "expressions-de-quantite",
+          "fr": "Il boit un café chaque matin.",
+          "en": "He drinks a coffee every morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.routines.158",
+          "theme": "routines",
+          "fr": "Je m'habille dans ma chambre.",
+          "en": "I get dressed in my room.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.236",
+          "theme": "dictee",
+          "fr": "Mon frère joue avec ses amis.",
+          "en": "My brother plays with his friends.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.237",
+          "theme": "dictee",
+          "fr": "Ma sœur joue à la récréation.",
+          "en": "My sister plays at recess.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.255",
+          "theme": "dictee",
+          "fr": "Je vais lever la main demain.",
+          "en": "I am going to raise my hand tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.017",
+          "theme": "negation-et-restriction",
+          "fr": "Nous n'avons pas encore mangé.",
+          "en": "We have not eaten yet.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.022",
+          "theme": "verbes-essentiels",
+          "fr": "Il lave son linge le dimanche.",
+          "en": "He washes his laundry on Sundays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.002",
+          "theme": "pronoms-essentiels",
+          "fr": "Je parle français à la maison.",
+          "en": "I speak French at home.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.087",
+          "theme": "verbes-du-quotidien",
+          "fr": "Tu dois manger avant de sortir.",
+          "en": "You must eat before going out.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.063",
+          "theme": "temps-et-frequence",
+          "fr": "Le magasin ouvre à neuf heures.",
+          "en": "The store opens at nine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.066",
+          "theme": "temps-et-frequence",
+          "fr": "Le cours commence à dix heures.",
+          "en": "Class starts at ten.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.090",
+          "theme": "temps-et-frequence",
+          "fr": "Il téléphone souvent à sa mère.",
+          "en": "He often calls his mother.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.012",
+          "theme": "verbes-essentiels",
+          "fr": "Nous regardons un film ce soir.",
+          "en": "We are watching a movie tonight.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.080",
+          "theme": "expressions-de-quantite",
+          "fr": "Je mange des céréales le matin.",
+          "en": "I eat cereal in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.045",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle t'appelle dans une minute.",
+          "en": "She's calling you in a minute.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.052",
+          "theme": "pronoms-essentiels",
+          "fr": "Il nous invite chez lui samedi.",
+          "en": "He's inviting us to his place on Saturday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.055",
+          "theme": "pronoms-essentiels",
+          "fr": "Il vous connaît déjà, je crois.",
+          "en": "He already knows you, I think.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.107",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous marchons jusqu'à la place.",
+          "en": "We walk to the square.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.a1.prepositions-essentielles.116",
+          "theme": "prepositions-essentielles",
+          "fr": "Le chien reste devant la porte.",
+          "en": "The dog stays in front of the door.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.052",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous allons au marché le samedi.",
+          "en": "We go to the market on Saturdays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.058",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous venons ici chaque week-end.",
+          "en": "We come here every weekend.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.074",
+          "theme": "temps-et-frequence",
+          "fr": "Le bureau est fermé le dimanche.",
+          "en": "The office is closed on Sundays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.080",
+          "theme": "temps-et-frequence",
+          "fr": "Nous ne sortons jamais le lundi.",
+          "en": "We never go out on Mondays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.004",
+          "theme": "negation-et-restriction",
+          "fr": "Il ne travaille pas le dimanche.",
+          "en": "He does not work on Sundays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.028",
+          "theme": "verbes-essentiels",
+          "fr": "Le bus arrive dans cinq minutes.",
+          "en": "The bus arrives in five minutes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.017",
+          "theme": "pronoms-essentiels",
+          "fr": "On part ensemble dans une heure.",
+          "en": "We're leaving together in an hour.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.028",
+          "theme": "pronoms-essentiels",
+          "fr": "Vous avez une très belle maison.",
+          "en": "You have a beautiful house.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.113",
+          "theme": "prepositions-essentielles",
+          "fr": "Mon frère travaille à la banque.",
+          "en": "My brother works at the bank.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.189",
+          "theme": "dictee",
+          "fr": "La classe est calme aujourd'hui.",
+          "en": "The class is calm today.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.235",
+          "theme": "dictee",
+          "fr": "Les enfants jouent dans la cour.",
+          "en": "The children play in the yard.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.056",
+          "theme": "verbes-du-quotidien",
+          "fr": "Mes amis viennent dîner chez moi.",
+          "en": "My friends are coming to have dinner at my place.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.096",
+          "theme": "temps-et-frequence",
+          "fr": "Je ne fume plus depuis longtemps.",
+          "en": "I haven't smoked in a long time.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.011",
+          "theme": "verbes-essentiels",
+          "fr": "Ils parlent français à la maison.",
+          "en": "They speak French at home.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.040",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a plusieurs frères et sœurs.",
+          "en": "She has several brothers and sisters.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.049",
+          "theme": "expressions-de-quantite",
+          "fr": "Chaque personne a son propre sac.",
+          "en": "Each person has their own bag.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.053",
+          "theme": "expressions-de-quantite",
+          "fr": "Chaque pays a ses propres règles.",
+          "en": "Each country has its own rules.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.053",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle nous appelle tous les soirs.",
+          "en": "She calls us every evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.060",
+          "theme": "pronoms-essentiels",
+          "fr": "Il me parle toujours en français.",
+          "en": "He always talks to me in French.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.092",
+          "theme": "prepositions-essentielles",
+          "fr": "Le jardin est derrière la maison.",
+          "en": "The garden is behind the house.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.181",
+          "theme": "dictee",
+          "fr": "Le professeur a un grand tableau.",
+          "en": "The teacher has a big board.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.182",
+          "theme": "dictee",
+          "fr": "La maîtresse a une craie blanche.",
+          "en": "The teacher has a white piece of chalk.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.190",
+          "theme": "dictee",
+          "fr": "Les enfants sont sages en classe.",
+          "en": "The children are well behaved in class.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.204",
+          "theme": "dictee",
+          "fr": "Nous allons compter jusqu'à cent.",
+          "en": "We are going to count to one hundred.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.209",
+          "theme": "dictee",
+          "fr": "Nous écrivons la date au tableau.",
+          "en": "We write the date on the board.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.219",
+          "theme": "dictee",
+          "fr": "J'apprends l'anglais cette année.",
+          "en": "I am learning English this year.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.246",
+          "theme": "dictee",
+          "fr": "La classe commence à huit heures.",
+          "en": "Class starts at eight o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.062",
+          "theme": "verbes-du-quotidien",
+          "fr": "Prends ton manteau, il fait froid.",
+          "en": "Take your coat, it's cold.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.075",
+          "theme": "temps-et-frequence",
+          "fr": "Il travaille du lundi au vendredi.",
+          "en": "He works Monday through Friday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.009",
+          "theme": "verbes-essentiels",
+          "fr": "Nous dormons huit heures par nuit.",
+          "en": "We sleep eight hours a night.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.029",
+          "theme": "verbes-essentiels",
+          "fr": "Ils sortent au cinéma le vendredi.",
+          "en": "They go out to the movies on Fridays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.008",
+          "theme": "pronoms-essentiels",
+          "fr": "Il joue au football chaque samedi.",
+          "en": "He plays soccer every Saturday.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.a1.pronoms-essentiels.047",
+          "theme": "pronoms-essentiels",
+          "fr": "Je le connais bien, ce professeur.",
+          "en": "I know him well, this teacher.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.087",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous allons chez le médecin lundi.",
+          "en": "We are going to the doctor's on Monday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.routines.181",
+          "theme": "routines",
+          "fr": "Nous nous levons tard le dimanche.",
+          "en": "We get up late on Sundays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.240",
+          "theme": "dictee",
+          "fr": "Les élèves arrivent à huit heures.",
+          "en": "The students arrive at eight o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.254",
+          "theme": "dictee",
+          "fr": "Nous levons la main pour répondre.",
+          "en": "We raise our hand to answer.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.097",
+          "theme": "temps-et-frequence",
+          "fr": "Nous jouons au foot chaque semaine.",
+          "en": "We play soccer every week.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.016",
+          "theme": "verbes-essentiels",
+          "fr": "Le cours commence dans dix minutes.",
+          "en": "The class starts in ten minutes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.038",
+          "theme": "verbes-essentiels",
+          "fr": "Il appelle sa mère chaque dimanche.",
+          "en": "He calls his mother every Sunday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.013",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle étudie la médecine à Toulouse.",
+          "en": "She is studying medicine in Toulouse.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.112",
+          "theme": "prepositions-essentielles",
+          "fr": "Le professeur écrit sur le tableau.",
+          "en": "The teacher writes on the board.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.routines.171",
+          "theme": "routines",
+          "fr": "Elle regarde la télévision le soir.",
+          "en": "She watches television in the evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.201",
+          "theme": "dictee",
+          "fr": "Le professeur va écrire au tableau.",
+          "en": "The teacher is going to write on the board.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.202",
+          "theme": "dictee",
+          "fr": "La maîtresse va expliquer la leçon.",
+          "en": "The teacher is going to explain the lesson.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.229",
+          "theme": "dictee",
+          "fr": "Je dessine sur une feuille blanche.",
+          "en": "I draw on a white sheet of paper.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.010",
+          "theme": "verbes-essentiels",
+          "fr": "Il travaille dans un bureau moderne.",
+          "en": "He works in a modern office.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.025",
+          "theme": "verbes-essentiels",
+          "fr": "Nous marchons jusqu'au centre-ville.",
+          "en": "We walk to the city center.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.074",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous achetons des légumes au marché.",
+          "en": "We buy vegetables at the market.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.031",
+          "theme": "pronoms-essentiels",
+          "fr": "Ils jouent au tennis chaque semaine.",
+          "en": "They play tennis every week.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.routines.179",
+          "theme": "routines",
+          "fr": "Elle étudie le français chaque soir.",
+          "en": "She studies French every evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.dictee.203",
+          "theme": "dictee",
+          "fr": "Les élèves vont chanter une chanson.",
+          "en": "The students are going to sing a song.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.019",
+          "theme": "pronoms-essentiels",
+          "fr": "On discute toujours après le travail.",
+          "en": "We always chat after work.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.106",
+          "theme": "prepositions-essentielles",
+          "fr": "Les enfants courent autour du jardin.",
+          "en": "The children run around the garden.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.082",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous parlons au téléphone chaque soir.",
+          "en": "We talk on the phone every evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.064",
+          "theme": "pronoms-essentiels",
+          "fr": "Il te répond toujours très rapidement.",
+          "en": "He always answers you very quickly.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.076",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous restons debout pendant le concert.",
+          "en": "We stand during the concert.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.061",
+          "theme": "expressions-de-quantite",
+          "fr": "Combien de personnes viennent ce soir ?",
+          "en": "How many people are coming tonight?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.198",
+          "theme": "mots-de-liaison",
+          "fr": "La maison est petite, mais confortable.",
+          "en": "The house is small, but comfortable.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.023",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous travaillons ensemble sur ce projet.",
+          "en": "We work together on this project.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.047",
+          "theme": "expressions-de-quantite",
+          "fr": "Prends quelques photos pendant le voyage.",
+          "en": "Take a few photos during the trip.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.022",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous aimons beaucoup la cuisine française.",
+          "en": "We love French cuisine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.051",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je vais à l'école à pied.",
+          "en": "I go to school on foot.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.096",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je peux t'aider si tu veux.",
+          "en": "I can help you if you want.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.dictee.193",
+          "theme": "dictee",
+          "fr": "Je vais à l'école ce matin.",
+          "en": "I am going to school this morning.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.a1.prepositions-essentielles.104",
+          "theme": "prepositions-essentielles",
+          "fr": "L'hôtel est loin de la plage.",
+          "en": "The hotel is far from the beach.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.070",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je sors avec mes amis ce soir.",
+          "en": "I'm going out with my friends tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.routines.180",
+          "theme": "routines",
+          "fr": "Il joue au foot avec ses amis.",
+          "en": "He plays soccer with his friends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.dictee.244",
+          "theme": "dictee",
+          "fr": "Je rentre à la maison ce soir.",
+          "en": "I go home this evening.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.085",
+          "theme": "temps-et-frequence",
+          "fr": "Il a plu pendant toute la nuit.",
+          "en": "It rained all night long.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.091",
+          "theme": "temps-et-frequence",
+          "fr": "Je n'ai jamais visité ce musée.",
+          "en": "I have never visited that museum.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.094",
+          "theme": "temps-et-frequence",
+          "fr": "Il reste encore un peu de pain.",
+          "en": "There is still a little bread left.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.098",
+          "theme": "temps-et-frequence",
+          "fr": "Il lit un livre tous les soirs.",
+          "en": "He reads a book every evening.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.003",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a beaucoup d'amis à Paris.",
+          "en": "She has a lot of friends in Paris.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.036",
+          "theme": "expressions-de-quantite",
+          "fr": "Ce café est trop fort pour moi.",
+          "en": "This coffee is too strong for me.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.120",
+          "theme": "prepositions-essentielles",
+          "fr": "Je mets le sucre dans mon café.",
+          "en": "I put sugar in my coffee.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.068",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle met la table pour le dîner.",
+          "en": "She sets the table for dinner.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.091",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je crois qu'il fait beau demain.",
+          "en": "I think it will be sunny tomorrow.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.013",
+          "theme": "verbes-essentiels",
+          "fr": "Il lit un roman avant de dormir.",
+          "en": "He reads a novel before sleeping.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.021",
+          "theme": "expressions-de-quantite",
+          "fr": "Reste un peu, il est encore tôt.",
+          "en": "Stay a little while, it's still early.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.dictee.207",
+          "theme": "dictee",
+          "fr": "Il écrit son nom sur la feuille.",
+          "en": "He writes his name on the sheet of paper.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.059",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je prends le bus tous les matins.",
+          "en": "I take the bus every morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.073",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je reste à la maison aujourd'hui.",
+          "en": "I am staying home today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.078",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle dit bonjour à tout le monde.",
+          "en": "She says hello to everyone.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.008",
+          "theme": "verbes-essentiels",
+          "fr": "Elle boit un café chaud le matin.",
+          "en": "She drinks a hot coffee in the morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.018",
+          "theme": "verbes-essentiels",
+          "fr": "Il aide sa sœur avec ses devoirs.",
+          "en": "He helps his sister with her homework.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.026",
+          "theme": "verbes-essentiels",
+          "fr": "Elle reste chez elle ce week-end.",
+          "en": "She is staying home this weekend.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.039",
+          "theme": "verbes-essentiels",
+          "fr": "Je vois mes amis chaque week-end.",
+          "en": "I see my friends every weekend.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.057",
+          "theme": "expressions-de-quantite",
+          "fr": "Tous mes amis viennent à la fête.",
+          "en": "All my friends are coming to the party.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.081",
+          "theme": "expressions-de-quantite",
+          "fr": "Ils boivent du vin avec le dîner.",
+          "en": "They drink wine with dinner.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.032",
+          "theme": "pronoms-essentiels",
+          "fr": "Ils arrivent à la gare vers midi.",
+          "en": "They arrive at the station around noon.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.088",
+          "theme": "prepositions-essentielles",
+          "fr": "Il habite en France depuis un an.",
+          "en": "He has been living in France for a year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.dictee.253",
+          "theme": "dictee",
+          "fr": "L'élève lève la main pour parler.",
+          "en": "The student raises his hand to speak.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.065",
+          "theme": "verbes-du-quotidien",
+          "fr": "Nous faisons du sport le week-end.",
+          "en": "We play sports on weekends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.071",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle sort du bureau à cinq heures.",
+          "en": "She leaves the office at five o'clock.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.058",
+          "theme": "temps-et-frequence",
+          "fr": "Il est sept heures moins le quart.",
+          "en": "It is quarter to seven.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.088",
+          "theme": "temps-et-frequence",
+          "fr": "Je mange toujours à la même heure.",
+          "en": "I always eat at the same time.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.010",
+          "theme": "negation-et-restriction",
+          "fr": "On ne fume pas dans ce restaurant.",
+          "en": "People do not smoke in this restaurant.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.a1.expressions-de-quantite.005",
+          "theme": "expressions-de-quantite",
+          "fr": "Il boit beaucoup de café le matin.",
+          "en": "He drinks a lot of coffee in the morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.044",
+          "theme": "pronoms-essentiels",
+          "fr": "Il te comprend très bien, tu sais.",
+          "en": "He understands you very well, you know.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.085",
+          "theme": "prepositions-essentielles",
+          "fr": "Je mange avec mes parents ce soir.",
+          "en": "I am eating with my parents tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.routines.160",
+          "theme": "routines",
+          "fr": "Il boit un café noir chaque matin.",
+          "en": "He drinks a black coffee every morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.routines.164",
+          "theme": "routines",
+          "fr": "Il arrive au bureau à huit heures.",
+          "en": "He arrives at the office at eight o'clock.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.060",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle prend un café avant de partir.",
+          "en": "She has a coffee before leaving.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.064",
+          "theme": "temps-et-frequence",
+          "fr": "Le magasin ferme à dix-huit heures.",
+          "en": "The store closes at six pm.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.089",
+          "theme": "temps-et-frequence",
+          "fr": "Nous nous voyons de temps en temps.",
+          "en": "We see each other from time to time.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.035",
+          "theme": "expressions-de-quantite",
+          "fr": "Il a trop de travail cette semaine.",
+          "en": "He has too much work this week.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.055",
+          "theme": "expressions-de-quantite",
+          "fr": "Tous les élèves sont dans la salle.",
+          "en": "All the students are in the room.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.075",
+          "theme": "expressions-de-quantite",
+          "fr": "Il mange du fromage après le repas.",
+          "en": "He eats cheese after the meal.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.100",
+          "theme": "prepositions-essentielles",
+          "fr": "Il revient du travail à six heures.",
+          "en": "He comes back from work at six o'clock.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.routines.174",
+          "theme": "routines",
+          "fr": "Je promène le chien tous les jours.",
+          "en": "I walk the dog every day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.054",
+          "theme": "verbes-du-quotidien",
+          "fr": "Vous allez au parc avec les enfants.",
+          "en": "You are going to the park with the children.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.064",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle fait la cuisine tous les jours.",
+          "en": "She cooks every day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.066",
+          "theme": "verbes-du-quotidien",
+          "fr": "Il fait la vaisselle après le dîner.",
+          "en": "He does the dishes after dinner.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.072",
+          "theme": "temps-et-frequence",
+          "fr": "Le samedi, nous restons à la maison.",
+          "en": "On Saturdays, we stay home.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.087",
+          "theme": "temps-et-frequence",
+          "fr": "Il y a longtemps, elle habitait ici.",
+          "en": "A long time ago, she lived here.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.015",
+          "theme": "verbes-essentiels",
+          "fr": "J'achète du pain frais chaque matin.",
+          "en": "I buy fresh bread every morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.012",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai beaucoup de chance aujourd'hui.",
+          "en": "I have a lot of luck today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.079",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous mangeons du riz avec le poulet.",
+          "en": "We eat rice with the chicken.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.035",
+          "theme": "pronoms-essentiels",
+          "fr": "Elles voyagent en Italie ce mois-ci.",
+          "en": "They are traveling in Italy this month.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.068",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu te reposes bien après le travail.",
+          "en": "You rest well after work.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.105",
+          "theme": "prepositions-essentielles",
+          "fr": "La boulangerie est près de chez moi.",
+          "en": "The bakery is near my house.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.routines.170",
+          "theme": "routines",
+          "fr": "Je range ma chambre avant de dormir.",
+          "en": "I tidy my room before sleeping.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.routines.172",
+          "theme": "routines",
+          "fr": "Il se couche vers vingt-deux heures.",
+          "en": "He goes to bed around ten in the evening.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.007",
+          "theme": "verbes-essentiels",
+          "fr": "Je mange une pomme au petit-déjeuner.",
+          "en": "I eat an apple for breakfast.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.020",
+          "theme": "verbes-essentiels",
+          "fr": "Nous prenons le métro tous les jours.",
+          "en": "We take the subway every day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.023",
+          "theme": "verbes-essentiels",
+          "fr": "Je nettoie la cuisine après le dîner.",
+          "en": "I clean the kitchen after dinner.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.024",
+          "theme": "verbes-essentiels",
+          "fr": "Elle court dans le parc chaque matin.",
+          "en": "She runs in the park every morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.002",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai beaucoup de travail aujourd'hui.",
+          "en": "I have a lot of work today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.021",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous habitons à Lyon depuis deux ans.",
+          "en": "We've lived in Lyon for two years.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.030",
+          "theme": "pronoms-essentiels",
+          "fr": "Ils habitent en Espagne depuis un an.",
+          "en": "They've lived in Spain for a year.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.a1.routines.161",
+          "theme": "routines",
+          "fr": "Nous mangeons du pain avec du beurre.",
+          "en": "We eat bread with butter.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.044",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai acheté quelques pommes au marché.",
+          "en": "I bought a few apples at the market.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.058",
+          "theme": "expressions-de-quantite",
+          "fr": "Toute la famille est réunie pour Noël.",
+          "en": "The whole family is gathered for Christmas.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.009",
+          "theme": "pronoms-essentiels",
+          "fr": "Il habite à Marseille avec sa famille.",
+          "en": "He lives in Marseille with his family.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.061",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu me donnes ton numéro de téléphone ?",
+          "en": "Will you give me your phone number?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.101",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle parle des vacances avec ses amis.",
+          "en": "She talks about the vacation with her friends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.routines.175",
+          "theme": "routines",
+          "fr": "Elle fait les courses le samedi matin.",
+          "en": "She does the grocery shopping on Saturday morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.067",
+          "theme": "verbes-du-quotidien",
+          "fr": "Je mets mes chaussures avant de sortir.",
+          "en": "I put on my shoes before going out.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.031",
+          "theme": "verbes-essentiels",
+          "fr": "Les enfants se couchent à vingt heures.",
+          "en": "The children go to bed at eight p.m.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.036",
+          "theme": "pronoms-essentiels",
+          "fr": "Elles préparent un gâteau pour la fête.",
+          "en": "They are making a cake for the party.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.057",
+          "theme": "pronoms-essentiels",
+          "fr": "Je les connais depuis l'école primaire.",
+          "en": "I've known them since elementary school.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.114",
+          "theme": "prepositions-essentielles",
+          "fr": "Les touristes visitent le musée en été.",
+          "en": "Tourists visit the museum in summer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.115",
+          "theme": "prepositions-essentielles",
+          "fr": "Je téléphone à ma mère chaque dimanche.",
+          "en": "I call my mother every Sunday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.routines.157",
+          "theme": "routines",
+          "fr": "Tu te douches rapidement avant l'école.",
+          "en": "You shower quickly before school.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.routines.165",
+          "theme": "routines",
+          "fr": "Nous travaillons de neuf heures à midi.",
+          "en": "We work from nine o'clock to noon.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.021",
+          "theme": "verbes-essentiels",
+          "fr": "Elle met ses chaussures avant de sortir.",
+          "en": "She puts on her shoes before going out.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.043",
+          "theme": "expressions-de-quantite",
+          "fr": "Attends quelques minutes, s'il te plaît.",
+          "en": "Wait a few minutes, please.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.059",
+          "theme": "expressions-de-quantite",
+          "fr": "Je connais toutes ces chansons par cœur.",
+          "en": "I know all these songs by heart.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.064",
+          "theme": "expressions-de-quantite",
+          "fr": "Combien de kilos de pommes voulez-vous ?",
+          "en": "How many kilos of apples do you want?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.076",
+          "theme": "temps-et-frequence",
+          "fr": "Nous avons rendez-vous à quatorze heures.",
+          "en": "We have an appointment at two pm.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.004",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous avons beaucoup de temps devant nous.",
+          "en": "We have a lot of time ahead of us.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.041",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous avons plusieurs livres sur ce sujet.",
+          "en": "We have several books on this subject.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.routines.177",
+          "theme": "routines",
+          "fr": "Nous nettoyons la cuisine après le dîner.",
+          "en": "We clean the kitchen after dinner.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.008",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle mange beaucoup de fruits chaque jour.",
+          "en": "She eats a lot of fruit every day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.009",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous avons beaucoup de questions pour toi.",
+          "en": "We have a lot of questions for you.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.034",
+          "theme": "pronoms-essentiels",
+          "fr": "Elles étudient à l'université de Bordeaux.",
+          "en": "They study at the university in Bordeaux.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.054",
+          "theme": "pronoms-essentiels",
+          "fr": "Je vous remercie beaucoup pour votre aide.",
+          "en": "I thank you very much for your help.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.196",
+          "theme": "mots-de-liaison",
+          "fr": "Le film était long, mais très intéressant.",
+          "en": "The movie was long, but very interesting.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.210",
+          "theme": "mots-de-liaison",
+          "fr": "Nous sommes en retard, donc dépêchons-nous.",
+          "en": "We are late, so let's hurry.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.050",
+          "theme": "pronoms-essentiels",
+          "fr": "Je la connais depuis longtemps, cette chanson.",
+          "en": "I've known this song for a long time.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.019",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai un peu d'argent sur moi.",
+          "en": "I have a bit of money on me.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.097",
+          "theme": "prepositions-essentielles",
+          "fr": "Le café est en face de la gare.",
+          "en": "The cafe is across from the station.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.015",
+          "theme": "negation-et-restriction",
+          "fr": "Je n'aime pas du tout ce dessert.",
+          "en": "I do not like this dessert at all.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.a1.expressions-de-quantite.020",
+          "theme": "expressions-de-quantite",
+          "fr": "Il a peu d'amis dans cette ville.",
+          "en": "He has few friends in this city.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.routines.090",
+          "theme": "routines",
+          "fr": "Le matin, je bois un jus d'orange.",
+          "en": "In the morning, I drink an orange juice.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.007",
+          "theme": "negation-et-restriction",
+          "fr": "Vous ne fermez pas la porte à clé.",
+          "en": "You do not lock the door.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.018",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle boit un peu de lait le matin.",
+          "en": "She drinks a little milk in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.076",
+          "theme": "expressions-de-quantite",
+          "fr": "Je fais de la salade pour ce soir.",
+          "en": "I'm making salad for tonight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.039",
+          "theme": "pronoms-essentiels",
+          "fr": "Il me voit tous les jours au parc.",
+          "en": "He sees me every day at the park.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.080",
+          "theme": "prepositions-essentielles",
+          "fr": "Je vais à l'école tous les matins.",
+          "en": "I go to school every morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.011",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a beaucoup de neige cet hiver.",
+          "en": "There is a lot of snow this winter.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.017",
+          "theme": "expressions-de-quantite",
+          "fr": "Ajoute un peu de sel dans la soupe.",
+          "en": "Add a little salt to the soup.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.048",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu le prends avec toi ce week-end ?",
+          "en": "Are you taking it with you this weekend?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.096",
+          "theme": "prepositions-essentielles",
+          "fr": "La pharmacie est à côté de l'école.",
+          "en": "The pharmacy is next to the school.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.routines.163",
+          "theme": "routines",
+          "fr": "Elle marche jusqu'à l'arrêt de bus.",
+          "en": "She walks to the bus stop.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.dictee.199",
+          "theme": "dictee",
+          "fr": "Ils vont à la maison après l'école.",
+          "en": "They are going home after school.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.094",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle pense que c'est une bonne idée.",
+          "en": "She thinks it's a good idea.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.078",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle boit de l'eau toute la journée.",
+          "en": "She drinks water all day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.routines.182",
+          "theme": "routines",
+          "fr": "Je lis un livre avant de m'endormir.",
+          "en": "I read a book before falling asleep.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.024",
+          "theme": "expressions-de-quantite",
+          "fr": "Tu as assez d'argent pour le billet ?",
+          "en": "Do you have enough money for the ticket?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.071",
+          "theme": "expressions-de-quantite",
+          "fr": "Je voudrais du pain, s'il vous plaît.",
+          "en": "I would like some bread, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.202",
+          "theme": "mots-de-liaison",
+          "fr": "Il est tard, donc je rentre chez moi.",
+          "en": "It is late, so I am going home.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.008",
+          "theme": "negation-et-restriction",
+          "fr": "Ils ne prennent pas le métro le matin.",
+          "en": "They do not take the subway in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.010",
+          "theme": "expressions-de-quantite",
+          "fr": "Il fait beaucoup de sport le week-end.",
+          "en": "He does a lot of sport on weekends.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.028",
+          "theme": "expressions-de-quantite",
+          "fr": "Avez-vous assez de lait pour le café ?",
+          "en": "Do you have enough milk for the coffee?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.063",
+          "theme": "pronoms-essentiels",
+          "fr": "Je te donne mon adresse tout de suite.",
+          "en": "I'm giving you my address right away.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.014",
+          "theme": "verbes-essentiels",
+          "fr": "Elle écrit une carte postale à sa mère.",
+          "en": "She writes a postcard to her mother.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.032",
+          "theme": "verbes-essentiels",
+          "fr": "Elle se lave les mains avant de manger.",
+          "en": "She washes her hands before eating.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.025",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous avons assez de pain pour le repas.",
+          "en": "We have enough bread for the meal.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.062",
+          "theme": "expressions-de-quantite",
+          "fr": "Combien de sucre veux-tu dans ton thé ?",
+          "en": "How much sugar do you want in your tea?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.routines.173",
+          "theme": "routines",
+          "fr": "Tu te reposes un peu après le déjeuner.",
+          "en": "You rest a little after lunch.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.dictee.191",
+          "theme": "dictee",
+          "fr": "Le directeur ouvre la porte de l'école.",
+          "en": "The principal opens the school door.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.dictee.250",
+          "theme": "dictee",
+          "fr": "Le professeur donne un livre à l'élève.",
+          "en": "The teacher gives a book to the student.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.046",
+          "theme": "expressions-de-quantite",
+          "fr": "J'ai invité quelques amis pour le dîner.",
+          "en": "I invited a few friends for dinner.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.072",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle met de la confiture sur sa tartine.",
+          "en": "She puts jam on her toast.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.117",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous partons en vacances au mois d'août.",
+          "en": "We are going on vacation in the month of August.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.a1.dictee.242",
+          "theme": "dictee",
+          "fr": "Nous partons de l'école à quatre heures.",
+          "en": "We leave school at four o'clock.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.076",
+          "theme": "pronoms-essentiels",
+          "fr": "On se retrouve chez toi vers six heures ?",
+          "en": "Shall we meet at your place around six?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.217",
+          "theme": "mots-de-liaison",
+          "fr": "Elle pleure parce que son chat a disparu.",
+          "en": "She is crying because her cat has disappeared.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.routines.176",
+          "theme": "routines",
+          "fr": "Il prépare le café pour toute la famille.",
+          "en": "He makes coffee for the whole family.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.negation-et-restriction.005",
+          "theme": "negation-et-restriction",
+          "fr": "Elle ne regarde pas la télévision le soir.",
+          "en": "She does not watch television in the evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.routines.159",
+          "theme": "routines",
+          "fr": "Elle prend son petit déjeuner à la cuisine.",
+          "en": "She has her breakfast in the kitchen.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.routines.166",
+          "theme": "routines",
+          "fr": "Je déjeune avec mes collègues à la cantine.",
+          "en": "I have lunch with my colleagues at the cafeteria.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.routines.183",
+          "theme": "routines",
+          "fr": "Elle écoute la radio en préparant le repas.",
+          "en": "She listens to the radio while preparing the meal.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.verbes-du-quotidien.075",
+          "theme": "verbes-du-quotidien",
+          "fr": "Elle reste calme même quand c'est difficile.",
+          "en": "She stays calm even when it's difficult.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.017",
+          "theme": "verbes-essentiels",
+          "fr": "Elle finit son travail vers dix-huit heures.",
+          "en": "She finishes work around six p.m.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.006",
+          "theme": "expressions-de-quantite",
+          "fr": "Tu as beaucoup de patience avec les enfants.",
+          "en": "You have a lot of patience with children.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.195",
+          "theme": "mots-de-liaison",
+          "fr": "Nous voulons sortir, mais il pleut trop fort.",
+          "en": "We want to go out, but it is raining too hard.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.034",
+          "theme": "expressions-de-quantite",
+          "fr": "Nous avons trop de bagages pour cette voiture.",
+          "en": "We have too much luggage for this car.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.041",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle m'appelle chaque matin avant huit heures.",
+          "en": "She calls me every morning before eight o'clock.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.dictee.251",
+          "theme": "dictee",
+          "fr": "La maîtresse donne une feuille à chaque élève.",
+          "en": "The teacher gives a sheet of paper to each student.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.205",
+          "theme": "mots-de-liaison",
+          "fr": "Le magasin est fermé, donc je reviendrai demain.",
+          "en": "The store is closed, so I will come back tomorrow.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.204",
+          "theme": "mots-de-liaison",
+          "fr": "Nous avons faim, donc nous allons manger maintenant.",
+          "en": "We are hungry, so we are going to eat now.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.270",
+          "theme": "mots-de-liaison",
+          "fr": "D'abord, respire profondément, ensuite pose ta question.",
+          "en": "First, breathe deeply, then ask your question.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.297",
+          "theme": "mots-de-liaison",
+          "fr": "Elle parle lentement, ainsi les élèves comprennent mieux.",
+          "en": "She speaks slowly, this way the students understand better.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.194",
+          "theme": "mots-de-liaison",
+          "fr": "Elle travaille beaucoup, mais elle reste toujours souriante.",
+          "en": "She works a lot, but she always stays smiling.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.077",
+          "theme": "expressions-de-quantite",
+          "fr": "Est-ce qu'il y a encore du café ?",
+          "en": "Is there still some coffee?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.007",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a beaucoup de bruit dans la rue.",
+          "en": "There is a lot of noise in the street.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.022",
+          "theme": "expressions-de-quantite",
+          "fr": "Parle un peu plus fort, s'il te plaît.",
+          "en": "Speak a little louder, please.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.038",
+          "theme": "expressions-de-quantite",
+          "fr": "Ne mets pas trop de sel dans la sauce.",
+          "en": "Don't put too much salt in the sauce.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.030",
+          "theme": "verbes-essentiels",
+          "fr": "Je me lève à six heures tous les matins.",
+          "en": "I get up at six o'clock every morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.routines.184",
+          "theme": "routines",
+          "fr": "Il ferme la porte à clé avant de partir.",
+          "en": "He locks the door before leaving.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.016",
+          "theme": "expressions-de-quantite",
+          "fr": "Il reste un peu de fromage dans le frigo.",
+          "en": "There is a bit of cheese left in the fridge.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.routines.154",
+          "theme": "routines",
+          "fr": "Il se lève tout de suite après le réveil.",
+          "en": "He gets up right away after the alarm.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.temps-et-frequence.099",
+          "theme": "temps-et-frequence",
+          "fr": "Elle va à la piscine une fois par semaine.",
+          "en": "She goes to the pool once a week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.verbes-essentiels.033",
+          "theme": "verbes-essentiels",
+          "fr": "Tu peux ouvrir la fenêtre, s'il te plaît ?",
+          "en": "Can you open the window, please?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.066",
+          "theme": "pronoms-essentiels",
+          "fr": "Je m'appelle Camille et j'habite à Nantes.",
+          "en": "My name is Camille and I live in Nantes.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.212",
+          "theme": "mots-de-liaison",
+          "fr": "Je reste chez moi parce que je suis malade.",
+          "en": "I am staying home because I am sick.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.prepositions-essentielles.090",
+          "theme": "prepositions-essentielles",
+          "fr": "Le magasin est entre la banque et la poste.",
+          "en": "The shop is between the bank and the post office.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.a1.expressions-de-quantite.030",
+          "theme": "expressions-de-quantite",
+          "fr": "Ça suffit, j'ai assez de problèmes comme ça.",
+          "en": "That's enough, I already have enough problems.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.065",
+          "theme": "pronoms-essentiels",
+          "fr": "Je me réveille à sept heures tous les jours.",
+          "en": "I wake up at seven o'clock every day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.027",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a assez de temps pour finir son travail.",
+          "en": "She has enough time to finish her work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.221",
+          "theme": "mots-de-liaison",
+          "fr": "Je prends un parapluie, car le ciel est gris.",
+          "en": "I am taking an umbrella, because the sky is gray.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.259",
+          "theme": "mots-de-liaison",
+          "fr": "Il ouvre la porte, puis il allume la lumière.",
+          "en": "He opens the door, then he turns on the light.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.routines.153",
+          "theme": "routines",
+          "fr": "Je me réveille à sept heures tous les matins.",
+          "en": "I wake up at seven o'clock every morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.routines.167",
+          "theme": "routines",
+          "fr": "Elle rentre à la maison vers dix-huit heures.",
+          "en": "She comes home around six in the evening.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.218",
+          "theme": "mots-de-liaison",
+          "fr": "Nous partons tôt parce que la route est longue.",
+          "en": "We are leaving early because the road is long.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.275",
+          "theme": "mots-de-liaison",
+          "fr": "Il a enfin réussi à réparer la vieille horloge.",
+          "en": "He finally managed to fix the old clock.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.routines.155",
+          "theme": "routines",
+          "fr": "Elle se lave les mains avant le petit déjeuner.",
+          "en": "She washes her hands before breakfast.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.routines.156",
+          "theme": "routines",
+          "fr": "Nous nous brossons les dents deux fois par jour.",
+          "en": "We brush our teeth twice a day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.197",
+          "theme": "mots-de-liaison",
+          "fr": "Mon frère adore le sport, mais il déteste courir.",
+          "en": "My brother loves sports, but he hates running.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.214",
+          "theme": "mots-de-liaison",
+          "fr": "Nous fermons les fenêtres parce qu'il fait froid.",
+          "en": "We are closing the windows because it is cold.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.273",
+          "theme": "mots-de-liaison",
+          "fr": "Le bus est enfin arrivé après une longue attente.",
+          "en": "The bus has finally arrived after a long wait.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.208",
+          "theme": "mots-de-liaison",
+          "fr": "Le prix a baissé, donc nous achetons deux billets.",
+          "en": "The price went down, so we are buying two tickets.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.211",
+          "theme": "mots-de-liaison",
+          "fr": "Le train est complet, donc je prendrai le suivant.",
+          "en": "The train is full, so I will take the next one.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.209",
+          "theme": "mots-de-liaison",
+          "fr": "Elle est malade, donc elle ne vient pas travailler.",
+          "en": "She is sick, so she is not coming to work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.223",
+          "theme": "mots-de-liaison",
+          "fr": "Nous annulons la sortie, car la météo est mauvaise.",
+          "en": "We are cancelling the outing, because the weather is bad.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.224",
+          "theme": "mots-de-liaison",
+          "fr": "Il faut réserver tôt, car les places sont limitées.",
+          "en": "You have to book early, because seats are limited.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.256",
+          "theme": "mots-de-liaison",
+          "fr": "Je réserve les billets, ensuite je réserve l'hôtel.",
+          "en": "I book the tickets, then I book the hotel.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.261",
+          "theme": "mots-de-liaison",
+          "fr": "Je lis le journal, puis je regarde les informations.",
+          "en": "I read the newspaper, then I watch the news.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.252",
+          "theme": "mots-de-liaison",
+          "fr": "Elle range sa chambre, ensuite elle fait ses devoirs.",
+          "en": "She tidies her room, then she does her homework.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.258",
+          "theme": "mots-de-liaison",
+          "fr": "Elle prend une douche, puis elle s'habille rapidement.",
+          "en": "She takes a shower, then she gets dressed quickly.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.240",
+          "theme": "mots-de-liaison",
+          "fr": "Il conduit prudemment, pourtant il a eu deux accidents.",
+          "en": "He drives carefully, yet he has had two accidents.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.229",
+          "theme": "mots-de-liaison",
+          "fr": "Le trajet est court, cependant la circulation est dense.",
+          "en": "The trip is short, however the traffic is heavy.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.232",
+          "theme": "mots-de-liaison",
+          "fr": "Elle semble timide, cependant elle parle bien en public.",
+          "en": "She seems shy, however she speaks well in public.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.260",
+          "theme": "mots-de-liaison",
+          "fr": "Nous préparons le dîner, puis nous invitons nos voisins.",
+          "en": "We prepare dinner, then we invite our neighbors.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.201",
+          "theme": "mots-de-liaison",
+          "fr": "Les enfants sont fatigués, mais ils veulent encore jouer.",
+          "en": "The children are tired, but they still want to play.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.325",
+          "theme": "mots-de-liaison",
+          "fr": "Malgré les embouteillages, nous sommes arrivés à l'heure.",
+          "en": "Despite the traffic jams, we arrived on time.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.234",
+          "theme": "mots-de-liaison",
+          "fr": "Nous manquons de temps, cependant nous finirons ce travail.",
+          "en": "We are short on time, however we will finish this work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.231",
+          "theme": "mots-de-liaison",
+          "fr": "Le restaurant est cher, cependant la cuisine est excellente.",
+          "en": "The restaurant is expensive, however the food is excellent.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.262",
+          "theme": "mots-de-liaison",
+          "fr": "Elle apprend le vocabulaire, puis elle pratique la grammaire.",
+          "en": "She learns the vocabulary, then she practices the grammar.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.233",
+          "theme": "mots-de-liaison",
+          "fr": "Le projet avance lentement, cependant les résultats sont prometteurs.",
+          "en": "The project is moving forward slowly, however the results are promising.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 15,
+      "items": [
+        {
+          "id": "fr.a1.temps-et-frequence.086",
+          "theme": "temps-et-frequence",
+          "fr": "J'ai vécu à Paris il y a deux ans.",
+          "en": "I lived in Paris two years ago.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.073",
+          "theme": "expressions-de-quantite",
+          "fr": "Tu veux de l'eau ou du jus d'orange ?",
+          "en": "Do you want water or orange juice?",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.015",
+          "theme": "expressions-de-quantite",
+          "fr": "Je voudrais un peu de sucre, s'il te plaît.",
+          "en": "I would like a little sugar, please.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.037",
+          "theme": "expressions-de-quantite",
+          "fr": "Je ne peux pas venir, j'ai trop de devoirs.",
+          "en": "I can't come, I have too much homework.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.071",
+          "theme": "pronoms-essentiels",
+          "fr": "Mon frère s'appelle Julien et il a vingt ans.",
+          "en": "My brother's name is Julien and he is twenty.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.203",
+          "theme": "mots-de-liaison",
+          "fr": "Elle a raté le bus, donc elle arrive en retard.",
+          "en": "She missed the bus, so she is arriving late.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.219",
+          "theme": "mots-de-liaison",
+          "fr": "Il porte un manteau parce que le vent est fort.",
+          "en": "He is wearing a coat because the wind is strong.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.228",
+          "theme": "mots-de-liaison",
+          "fr": "Je bois beaucoup d'eau, car il fait très chaud.",
+          "en": "I am drinking a lot of water, because it is very hot.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.268",
+          "theme": "mots-de-liaison",
+          "fr": "D'abord, goûte la soupe avant d'ajouter du sel.",
+          "en": "First, taste the soup before adding salt.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.pronoms-essentiels.070",
+          "theme": "pronoms-essentiels",
+          "fr": "Il se rase tous les matins avant le petit-déjeuner.",
+          "en": "He shaves every morning before breakfast.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.247",
+          "theme": "mots-de-liaison",
+          "fr": "Il chante très bien, par contre il danse assez mal.",
+          "en": "He sings very well, on the other hand he dances quite badly.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.324",
+          "theme": "mots-de-liaison",
+          "fr": "Malgré ses efforts, il n'a pas obtenu la promotion.",
+          "en": "Despite his efforts, he did not get the promotion.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.200",
+          "theme": "mots-de-liaison",
+          "fr": "Il parle bien anglais, mais il écrit avec des fautes.",
+          "en": "He speaks English well, but he writes with mistakes.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.250",
+          "theme": "mots-de-liaison",
+          "fr": "Je me lève tôt, ensuite je prends mon petit-déjeuner.",
+          "en": "I get up early, then I have breakfast.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.230",
+          "theme": "mots-de-liaison",
+          "fr": "Il a peu d'expérience, cependant il apprend très vite.",
+          "en": "He has little experience, however he learns very quickly.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.267",
+          "theme": "mots-de-liaison",
+          "fr": "D'abord, nous devons finir ce dossier avant de partir.",
+          "en": "First, we have to finish this file before leaving.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.289",
+          "theme": "mots-de-liaison",
+          "fr": "Nous n'avions pas de plan, alors nous avons improvisé.",
+          "en": "We had no plan, so we improvised.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.222",
+          "theme": "mots-de-liaison",
+          "fr": "Elle a réussi son examen, car elle a beaucoup travaillé.",
+          "en": "She passed her exam, because she worked a lot.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.226",
+          "theme": "mots-de-liaison",
+          "fr": "Nous fêtons son anniversaire, car il a enfin trente ans.",
+          "en": "We are celebrating his birthday, because he is finally thirty.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.237",
+          "theme": "mots-de-liaison",
+          "fr": "Elle mange très peu, pourtant elle a beaucoup d'énergie.",
+          "en": "She eats very little, yet she has a lot of energy.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.263",
+          "theme": "mots-de-liaison",
+          "fr": "Ils garent la voiture, puis ils marchent jusqu'au stade.",
+          "en": "They park the car, then they walk to the stadium.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.274",
+          "theme": "mots-de-liaison",
+          "fr": "Après des mois de travaux, la maison est enfin terminée.",
+          "en": "After months of work, the house is finally finished.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.277",
+          "theme": "mots-de-liaison",
+          "fr": "Elle a enfin osé demander une augmentation à son patron.",
+          "en": "She finally dared to ask her boss for a raise.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.329",
+          "theme": "mots-de-liaison",
+          "fr": "Bien qu'il pleuve, nous partons quand même en randonnée.",
+          "en": "Although it is raining, we are going hiking anyway.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.322",
+          "theme": "mots-de-liaison",
+          "fr": "Malgré la fatigue, il a terminé son rapport avant minuit.",
+          "en": "Despite the fatigue, he finished his report before midnight.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.235",
+          "theme": "mots-de-liaison",
+          "fr": "L'appartement est petit, cependant il est très bien situé.",
+          "en": "The apartment is small, however it is very well located.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.248",
+          "theme": "mots-de-liaison",
+          "fr": "Le quartier est calme, par contre les magasins sont rares.",
+          "en": "The neighborhood is quiet, on the other hand shops are rare.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.227",
+          "theme": "mots-de-liaison",
+          "fr": "Le magasin est bondé, car les soldes commencent aujourd'hui.",
+          "en": "The store is packed, because the sales start today.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.251",
+          "theme": "mots-de-liaison",
+          "fr": "Nous visitons le musée, ensuite nous déjeunons près du parc.",
+          "en": "We visit the museum, then we have lunch near the park.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.239",
+          "theme": "mots-de-liaison",
+          "fr": "Nous avons peu de moyens, pourtant le projet fonctionne bien.",
+          "en": "We have few resources, yet the project is working well.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.296",
+          "theme": "mots-de-liaison",
+          "fr": "Il économise chaque mois, ainsi il pourra acheter une maison.",
+          "en": "He saves money every month, this way he will be able to buy a house.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.309",
+          "theme": "mots-de-liaison",
+          "fr": "Elle parle trois langues ; de plus, elle apprend le japonais.",
+          "en": "She speaks three languages; moreover, she is learning Japanese.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.321",
+          "theme": "mots-de-liaison",
+          "fr": "Malgré son jeune âge, elle dirige déjà une petite entreprise.",
+          "en": "Despite her young age, she already runs a small business.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 16,
+      "items": [
+        {
+          "id": "fr.a1.mots-de-liaison.254",
+          "theme": "mots-de-liaison",
+          "fr": "Nous signons le contrat, ensuite nous fêtons la bonne nouvelle.",
+          "en": "We sign the contract, then we celebrate the good news.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.330",
+          "theme": "mots-de-liaison",
+          "fr": "Bien que le sujet soit difficile, les étudiants restent attentifs.",
+          "en": "Although the subject is difficult, the students remain attentive.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.032",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a trop de bruit ici, je n'entends rien.",
+          "en": "There's too much noise here, I can't hear anything.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.216",
+          "theme": "mots-de-liaison",
+          "fr": "J'achète du pain frais parce que le nôtre est dur.",
+          "en": "I am buying fresh bread because ours is hard.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.207",
+          "theme": "mots-de-liaison",
+          "fr": "J'ai un examen demain, donc je dois étudier ce soir.",
+          "en": "I have an exam tomorrow, so I have to study tonight.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.320",
+          "theme": "mots-de-liaison",
+          "fr": "Malgré la pluie, ils ont fini le match jusqu'au bout.",
+          "en": "Despite the rain, they finished the match to the end.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.215",
+          "theme": "mots-de-liaison",
+          "fr": "Il court chaque matin parce qu'il aime rester en forme.",
+          "en": "He runs every morning because he likes staying fit.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.253",
+          "theme": "mots-de-liaison",
+          "fr": "Il coupe les légumes, ensuite il les met dans la poêle.",
+          "en": "He cuts the vegetables, then he puts them in the pan.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.220",
+          "theme": "mots-de-liaison",
+          "fr": "Je change de travail parce que le salaire était trop bas.",
+          "en": "I am changing jobs because the salary was too low.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.271",
+          "theme": "mots-de-liaison",
+          "fr": "Après trois ans d'attente, elle a enfin trouvé un emploi.",
+          "en": "After three years of waiting, she has finally found a job.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.238",
+          "theme": "mots-de-liaison",
+          "fr": "Le ciel est clair, pourtant la météo annonçait de la pluie.",
+          "en": "The sky is clear, yet the forecast announced rain.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.284",
+          "theme": "mots-de-liaison",
+          "fr": "Le procès a été long, mais finalement la justice a tranché.",
+          "en": "The trial was long, but in the end justice made a ruling.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.266",
+          "theme": "mots-de-liaison",
+          "fr": "D'abord, il vérifie ses notes, ensuite il commence à écrire.",
+          "en": "First, he checks his notes, then he starts writing.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.269",
+          "theme": "mots-de-liaison",
+          "fr": "D'abord, ils discutent du budget, puis ils signent l'accord.",
+          "en": "First, they discuss the budget, then they sign the agreement.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.213",
+          "theme": "mots-de-liaison",
+          "fr": "Elle étudie le français parce qu'elle veut voyager en France.",
+          "en": "She is studying French because she wants to travel to France.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.286",
+          "theme": "mots-de-liaison",
+          "fr": "La réunion a été annulée, alors nous sommes rentrés plus tôt.",
+          "en": "The meeting was cancelled, so we went home earlier.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.327",
+          "theme": "mots-de-liaison",
+          "fr": "Bien qu'elle soit jeune, elle prend des décisions très sages.",
+          "en": "Although she is young, she makes very wise decisions.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.328",
+          "theme": "mots-de-liaison",
+          "fr": "Bien que le loyer soit élevé, ils ont choisi cet appartement.",
+          "en": "Although the rent is high, they chose this apartment.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.272",
+          "theme": "mots-de-liaison",
+          "fr": "Nous avons cherché longtemps, et nous avons enfin trouvé la clé.",
+          "en": "We searched for a long time, and we finally found the key.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.280",
+          "theme": "mots-de-liaison",
+          "fr": "Elle a longtemps douté, mais finalement elle a accepté le poste.",
+          "en": "She doubted for a long time, but in the end she accepted the position.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.246",
+          "theme": "mots-de-liaison",
+          "fr": "Ce logiciel est puissant, par contre il est difficile à apprendre.",
+          "en": "This software is powerful, on the other hand it is hard to learn.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.255",
+          "theme": "mots-de-liaison",
+          "fr": "Elle finit ses cours, ensuite elle rentre directement à la maison.",
+          "en": "She finishes her classes, then she goes straight home.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.300",
+          "theme": "mots-de-liaison",
+          "fr": "Ce quartier est cher ; en effet, les loyers ont beaucoup augmenté.",
+          "en": "This neighborhood is expensive; indeed, rents have risen a lot.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.306",
+          "theme": "mots-de-liaison",
+          "fr": "Cet appartement est spacieux ; de plus, il a un balcon magnifique.",
+          "en": "This apartment is spacious; moreover, it has a magnificent balcony.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.265",
+          "theme": "mots-de-liaison",
+          "fr": "D'abord, elle salue ses collègues, puis elle allume son ordinateur.",
+          "en": "First, she greets her colleagues, then she turns on her computer.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.290",
+          "theme": "mots-de-liaison",
+          "fr": "Il faisait trop chaud, alors nous avons ouvert toutes les fenêtres.",
+          "en": "It was too hot, so we opened all the windows.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.319",
+          "theme": "mots-de-liaison",
+          "fr": "Elle adore les animaux, c'est pourquoi elle est devenue vétérinaire.",
+          "en": "She loves animals, that's why she became a veterinarian.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.264",
+          "theme": "mots-de-liaison",
+          "fr": "D'abord, nous choisissons la destination, ensuite nous réservons le vol.",
+          "en": "First, we choose the destination, then we book the flight.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.294",
+          "theme": "mots-de-liaison",
+          "fr": "Nous partageons les tâches ménagères, ainsi personne n'est trop fatigué.",
+          "en": "We share the household chores, this way no one is too tired.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.278",
+          "theme": "mots-de-liaison",
+          "fr": "Nous hésitions entre deux villes, mais finalement nous avons choisi Lyon.",
+          "en": "We were hesitating between two cities, but in the end we chose Lyon.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.expressions-de-quantite.026",
+          "theme": "expressions-de-quantite",
+          "fr": "Il n'y a pas assez de chaises pour tout le monde.",
+          "en": "There aren't enough chairs for everyone.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.199",
+          "theme": "mots-de-liaison",
+          "fr": "Je voudrais voyager plus, mais je n'ai pas assez d'argent.",
+          "en": "I would like to travel more, but I do not have enough money.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.287",
+          "theme": "mots-de-liaison",
+          "fr": "Elle avait mal à la tête, alors elle a pris un médicament.",
+          "en": "She had a headache, so she took a medicine.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 17,
+      "items": [
+        {
+          "id": "fr.a1.mots-de-liaison.225",
+          "theme": "mots-de-liaison",
+          "fr": "Elle porte des lunettes, car elle ne voit pas bien de loin.",
+          "en": "She wears glasses, because she does not see well from a distance.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.244",
+          "theme": "mots-de-liaison",
+          "fr": "Ma sœur adore la montagne, par contre moi je préfère la mer.",
+          "en": "My sister loves the mountains, on the other hand I prefer the sea.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.283",
+          "theme": "mots-de-liaison",
+          "fr": "Il a cherché une excuse, mais finalement il a dit la vérité.",
+          "en": "He looked for an excuse, but in the end he told the truth.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.301",
+          "theme": "mots-de-liaison",
+          "fr": "Le film est réussi ; en effet, la critique en parle très bien.",
+          "en": "The movie is a success; indeed, the critics speak very well of it.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.305",
+          "theme": "mots-de-liaison",
+          "fr": "Le magasin est populaire ; en effet, il y a toujours la queue.",
+          "en": "The store is popular; indeed, there is always a line.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.331",
+          "theme": "mots-de-liaison",
+          "fr": "Bien que le voyage soit long, les enfants ne se plaignent pas.",
+          "en": "Although the trip is long, the children do not complain.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.323",
+          "theme": "mots-de-liaison",
+          "fr": "Malgré le bruit dans la rue, les enfants se sont vite endormis.",
+          "en": "Despite the noise in the street, the children fell asleep quickly.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.245",
+          "theme": "mots-de-liaison",
+          "fr": "L'hôtel est confortable, par contre il est loin du centre-ville.",
+          "en": "The hotel is comfortable, on the other hand it is far from downtown.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.257",
+          "theme": "mots-de-liaison",
+          "fr": "Nous marchons dans le parc, puis nous nous asseyons sur un banc.",
+          "en": "We walk in the park, then we sit on a bench.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.302",
+          "theme": "mots-de-liaison",
+          "fr": "Il est très occupé ; en effet, il travaille souvent le week-end.",
+          "en": "He is very busy; indeed, he often works on weekends.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.241",
+          "theme": "mots-de-liaison",
+          "fr": "Elle habite loin du bureau, pourtant elle n'est jamais en retard.",
+          "en": "She lives far from the office, yet she is never late.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.249",
+          "theme": "mots-de-liaison",
+          "fr": "Cette voiture consomme peu, par contre elle coûte cher à l'achat.",
+          "en": "This car uses little fuel, on the other hand it is expensive to buy.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.295",
+          "theme": "mots-de-liaison",
+          "fr": "La ville a planté des arbres, ainsi les rues sont plus agréables.",
+          "en": "The city planted trees, this way the streets are more pleasant.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.326",
+          "theme": "mots-de-liaison",
+          "fr": "Bien qu'il soit fatigué, il continue de travailler jusqu'au soir.",
+          "en": "Although he is tired, he keeps working until evening.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.243",
+          "theme": "mots-de-liaison",
+          "fr": "Le petit restaurant est bon marché, par contre le service est lent.",
+          "en": "The small restaurant is cheap, on the other hand the service is slow.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.310",
+          "theme": "mots-de-liaison",
+          "fr": "Le train est rapide ; de plus, il part directement du centre-ville.",
+          "en": "The train is fast; moreover, it leaves directly from downtown.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.279",
+          "theme": "mots-de-liaison",
+          "fr": "Il voulait annuler le voyage, mais finalement il est venu avec nous.",
+          "en": "He wanted to cancel the trip, but in the end he came with us.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.314",
+          "theme": "mots-de-liaison",
+          "fr": "Elle a beaucoup de travail, c'est pourquoi elle annule notre sortie.",
+          "en": "She has a lot of work, that's why she is cancelling our outing.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.307",
+          "theme": "mots-de-liaison",
+          "fr": "Le poste offre un bon salaire ; de plus, les horaires sont flexibles.",
+          "en": "The position offers a good salary; moreover, the hours are flexible.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.242",
+          "theme": "mots-de-liaison",
+          "fr": "Le film a reçu de mauvaises critiques, pourtant la salle était pleine.",
+          "en": "The movie received bad reviews, yet the theater was full.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.304",
+          "theme": "mots-de-liaison",
+          "fr": "L'équipe progresse ; en effet, elle a gagné ses trois derniers matchs.",
+          "en": "The team is improving; indeed, it has won its last three matches.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.308",
+          "theme": "mots-de-liaison",
+          "fr": "Ce restaurant sert de bons plats ; de plus, les prix sont raisonnables.",
+          "en": "This restaurant serves good dishes; moreover, the prices are reasonable.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.298",
+          "theme": "mots-de-liaison",
+          "fr": "Nous réservons toujours à l'avance, ainsi nous trouvons de meilleurs prix.",
+          "en": "We always book in advance, this way we find better prices.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.303",
+          "theme": "mots-de-liaison",
+          "fr": "Cette recette est simple ; en effet, elle ne demande que trois ingrédients.",
+          "en": "This recipe is simple; indeed, it only requires three ingredients.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.276",
+          "theme": "mots-de-liaison",
+          "fr": "Après de longues négociations, les deux entreprises ont enfin signé l'accord.",
+          "en": "After long negotiations, the two companies finally signed the agreement.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.316",
+          "theme": "mots-de-liaison",
+          "fr": "Les prix ont beaucoup augmenté, c'est pourquoi nous changeons de fournisseur.",
+          "en": "Prices have risen a lot, that's why we are changing suppliers.",
+          "words": 12
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.285",
+          "theme": "mots-de-liaison",
+          "fr": "Il n'y avait plus de pain, alors j'ai fait des pâtes.",
+          "en": "There was no more bread, so I made pasta.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.236",
+          "theme": "mots-de-liaison",
+          "fr": "Il a étudié toute la nuit, pourtant il a échoué à l'examen.",
+          "en": "He studied all night, yet he failed the exam.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.317",
+          "theme": "mots-de-liaison",
+          "fr": "Il n'a pas dormi, c'est pourquoi il est de mauvaise humeur.",
+          "en": "He did not sleep, that's why he is in a bad mood.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.288",
+          "theme": "mots-de-liaison",
+          "fr": "Le magasin n'avait plus ma taille, alors j'ai commandé en ligne.",
+          "en": "The store no longer had my size, so I ordered online.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.291",
+          "theme": "mots-de-liaison",
+          "fr": "Le vol était retardé, alors nous avons attendu au café de l'aéroport.",
+          "en": "The flight was delayed, so we waited at the airport café.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.299",
+          "theme": "mots-de-liaison",
+          "fr": "Le climat change vite ; en effet, les hivers sont plus doux qu'avant.",
+          "en": "The climate is changing quickly; indeed, winters are milder than before.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.312",
+          "theme": "mots-de-liaison",
+          "fr": "L'hôtel offre un bon confort ; de plus, le petit-déjeuner est inclus.",
+          "en": "The hotel offers good comfort; moreover, breakfast is included.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 18,
+      "items": [
+        {
+          "id": "fr.a1.mots-de-liaison.318",
+          "theme": "mots-de-liaison",
+          "fr": "L'ascenseur est en panne, c'est pourquoi nous montons par l'escalier.",
+          "en": "The elevator is out of order, that's why we go up by the stairs.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.315",
+          "theme": "mots-de-liaison",
+          "fr": "Le pont est fermé, c'est pourquoi nous devons prendre un autre chemin.",
+          "en": "The bridge is closed, that's why we have to take another route.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.292",
+          "theme": "mots-de-liaison",
+          "fr": "Elle range ses affaires tous les soirs, ainsi elle ne perd jamais rien.",
+          "en": "She puts away her things every evening, this way she never loses anything.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.282",
+          "theme": "mots-de-liaison",
+          "fr": "Nous avons comparé plusieurs modèles, et finalement nous avons pris le moins cher.",
+          "en": "We compared several models, and in the end we took the cheapest one.",
+          "words": 13
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.281",
+          "theme": "mots-de-liaison",
+          "fr": "Le débat a duré des heures, et finalement personne n'a changé d'avis.",
+          "en": "The debate lasted for hours, and in the end no one changed their mind.",
+          "words": 14
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.293",
+          "theme": "mots-de-liaison",
+          "fr": "Il révise un peu chaque jour, ainsi il évite le stress avant l'examen.",
+          "en": "He reviews a little every day, this way he avoids stress before the exam.",
+          "words": 14
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.311",
+          "theme": "mots-de-liaison",
+          "fr": "Cette école propose de bons professeurs ; de plus, elle est proche de la maison.",
+          "en": "This school offers good teachers; moreover, it is close to home.",
+          "words": 14
+        },
+        {
+          "id": "fr.a1.mots-de-liaison.313",
+          "theme": "mots-de-liaison",
+          "fr": "Il pleut tous les jours cette semaine, c'est pourquoi je reste à l'intérieur.",
+          "en": "It rains every day this week, that's why I stay indoors.",
+          "words": 15
+        }
+      ]
+    }
+  ]
+}

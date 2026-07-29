@@ -1,0 +1,3144 @@
+{
+  "stage": "5.2",
+  "world": 5,
+  "level": "b2",
+  "title": "L'Observatoire",
+  "themes": [
+    "methode-scientifique",
+    "decouvertes",
+    "recherche",
+    "disciplines",
+    "universite",
+    "examens-et-diplomes",
+    "rp-technologie"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 436,
+  "dedupedPool": 436,
+  "selected": 436,
+  "blockCount": 14,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.b2.rp-technologie.007",
+          "theme": "rp-technologie",
+          "fr": "J'espère qu'on saura s'adapter collectivement.",
+          "en": "I hope we'll manage to adapt collectively.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.rp-technologie.006",
+          "theme": "rp-technologie",
+          "fr": "L'impact que ça pourrait avoir sur certains emplois.",
+          "en": "The impact it could have on some jobs.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.rp-technologie.005",
+          "theme": "rp-technologie",
+          "fr": "Je trouve ça fascinant, mais aussi un peu inquiétant.",
+          "en": "I find it fascinating, but also a bit worrying.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.disciplines.004",
+          "theme": "disciplines",
+          "fr": "La génétique a bouleversé notre compréhension des maladies héréditaires.",
+          "en": "Genetics has transformed our understanding of hereditary diseases.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.disciplines.001",
+          "theme": "disciplines",
+          "fr": "Les avancées en intelligence artificielle transforment de nombreux secteurs.",
+          "en": "Advances in artificial intelligence are transforming many sectors.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.recherche.137",
+          "theme": "recherche",
+          "fr": "Aussi rigoureuse que fût la méthode employée, quelques biais subsistaient.",
+          "en": "However rigorous the method used was, a few biases persisted.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.decouvertes.019",
+          "theme": "decouvertes",
+          "fr": "On ignore encore pourquoi certaines espèces ont disparu aussi soudainement.",
+          "en": "We still don't know why some species disappeared so suddenly.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.universite.002",
+          "theme": "universite",
+          "fr": "La réforme des bourses suscite un vif débat parmi les étudiants.",
+          "en": "The reform of scholarships is sparking heated debate among students.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.methode-scientifique.241",
+          "theme": "methode-scientifique",
+          "fr": "Le jury a estimé que la thèse manquait de rigueur méthodologique.",
+          "en": "The panel felt that the thesis lacked methodological rigor.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.142",
+          "theme": "examens-et-diplomes",
+          "fr": "Toute forme de tricherie entraîne l'annulation immédiate de l'épreuve.",
+          "en": "Any form of cheating results in the immediate cancellation of the exam.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.134",
+          "theme": "examens-et-diplomes",
+          "fr": "Quiconque souhaite contester sa note doit motiver sa demande par écrit.",
+          "en": "Anyone wishing to dispute their grade must justify their request in writing.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.135",
+          "theme": "examens-et-diplomes",
+          "fr": "L'examinateur a jugé que la copie méritait deux points supplémentaires.",
+          "en": "The examiner judged that the paper deserved two additional points.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.methode-scientifique.255",
+          "theme": "methode-scientifique",
+          "fr": "La chercheuse a dû défendre sa méthodologie devant un comité sceptique.",
+          "en": "The researcher had to defend her methodology before a skeptical committee.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.recherche.133",
+          "theme": "recherche",
+          "fr": "Nul ne saurait nier que cette avancée transformera la pratique clinique.",
+          "en": "No one could deny that this advance will transform clinical practice.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.recherche.003",
+          "theme": "recherche",
+          "fr": "Les chercheurs remettent en question les conclusions de l'étude précédente.",
+          "en": "The researchers are questioning the conclusions of the previous study.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.recherche.120",
+          "theme": "recherche",
+          "fr": "Il se peut que cette découverte bouleverse notre compréhension du phénomène.",
+          "en": "It's possible that this discovery will overturn our understanding of the phenomenon.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.141",
+          "theme": "examens-et-diplomes",
+          "fr": "Plus l'examen approche, plus les étudiants ressentent une pression grandissante.",
+          "en": "The closer the exam gets, the more pressure students feel.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.disciplines.023",
+          "theme": "disciplines",
+          "fr": "Quelle que soit la discipline choisie, la rigueur scientifique demeure indispensable.",
+          "en": "Whatever discipline is chosen, scientific rigor remains essential.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.methode-scientifique.258",
+          "theme": "methode-scientifique",
+          "fr": "Il conviendrait de reproduire cette expérience dans des conditions climatiques différentes.",
+          "en": "It would be appropriate to reproduce this experiment under different climatic conditions.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.146",
+          "theme": "examens-et-diplomes",
+          "fr": "Le jury a décerné la mention très bien à trois candidats seulement.",
+          "en": "The jury awarded highest honors to only three candidates.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.106",
+          "theme": "examens-et-diplomes",
+          "fr": "Le DALF C1 atteste que le candidat maîtrise un français quasi natif.",
+          "en": "The DALF C1 certifies that the candidate has near-native mastery of French.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.128",
+          "theme": "examens-et-diplomes",
+          "fr": "Il faudrait que tu demandes une copie certifiée conforme de ton diplôme.",
+          "en": "You should ask for a certified true copy of your diploma.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.disciplines.125",
+          "theme": "disciplines",
+          "fr": "Dès qu'il obtint son équivalence, il commença à exercer comme ingénieur.",
+          "en": "As soon as he got his equivalency, he began working as an engineer.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.122",
+          "theme": "examens-et-diplomes",
+          "fr": "L'ordre exige que chaque membre suive une formation continue chaque année.",
+          "en": "The order requires every member to complete continuing education every year.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.140",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle envisage de reprendre ses études à temps partiel tout en travaillant.",
+          "en": "She's considering resuming her studies part-time while working.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.recherche.135",
+          "theme": "recherche",
+          "fr": "À en croire les premières analyses, l'hypothèse initiale devra être révisée.",
+          "en": "Judging by the first analyses, the initial hypothesis will need to be revised.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.recherche.136",
+          "theme": "recherche",
+          "fr": "Force est de constater que la reproductibilité des résultats laisse à désirer.",
+          "en": "One must admit that the reproducibility of the results leaves something to be desired.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.117",
+          "theme": "examens-et-diplomes",
+          "fr": "Il se pourrait que le comité d'admission demande des documents supplémentaires.",
+          "en": "It's possible that the admissions committee will request additional documents.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.decouvertes.017",
+          "theme": "decouvertes",
+          "fr": "Cette découverte a changé la façon dont les scientifiques comprennent le cerveau.",
+          "en": "This discovery changed the way scientists understand the brain.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.130",
+          "theme": "examens-et-diplomes",
+          "fr": "L'université délivre désormais les relevés de notes en format numérique sécurisé.",
+          "en": "The university now issues transcripts in secure digital format.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.recherche.128",
+          "theme": "recherche",
+          "fr": "Le rapporteur exigea que chaque affirmation fût étayée par une référence précise.",
+          "en": "The reviewer demanded that every claim be backed by a precise reference.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.recherche.023",
+          "theme": "recherche",
+          "fr": "Il se pourrait que cette molécule présente des effets secondaires encore inconnus.",
+          "en": "It's possible that this molecule has as-yet-unknown side effects.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.disciplines.031",
+          "theme": "disciplines",
+          "fr": "Il arrive que des découvertes en physique bouleversent nos certitudes en biologie.",
+          "en": "It happens that discoveries in physics upend our certainties in biology.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.b2.examens-et-diplomes.149",
+          "theme": "examens-et-diplomes",
+          "fr": "Pour décrocher cette bourse, il faut que le dossier académique soit irréprochable.",
+          "en": "To land this scholarship, the academic record has to be flawless.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.universite.130",
+          "theme": "universite",
+          "fr": "Nonobstant les critiques, la réforme du premier cycle sera appliquée dès septembre.",
+          "en": "Notwithstanding the criticism, the undergraduate reform will be implemented starting in September.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.recherche.006",
+          "theme": "recherche",
+          "fr": "Plus l'échantillon est large, plus les conclusions statistiques gagnent en fiabilité.",
+          "en": "The larger the sample, the more the statistical conclusions gain in reliability.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.disciplines.037",
+          "theme": "disciplines",
+          "fr": "La psychologie cognitive emprunte autant à la biologie qu'aux sciences informatiques.",
+          "en": "Cognitive psychology borrows as much from biology as from computer science.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.136",
+          "theme": "examens-et-diplomes",
+          "fr": "Il est important que les enseignants se perfectionnent régulièrement dans leur domaine.",
+          "en": "It's important that teachers regularly improve their skills in their field.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.recherche.024",
+          "theme": "recherche",
+          "fr": "Les chercheurs doutent que l'échantillon retenu suffise à généraliser leurs conclusions.",
+          "en": "The researchers doubt that the sample used is enough to generalize their conclusions.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.universite.116",
+          "theme": "universite",
+          "fr": "Dès que les résultats seront affichés, les étudiants pourront consulter leur classement.",
+          "en": "As soon as the results are posted, students will be able to check their ranking.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.recherche.021",
+          "theme": "recherche",
+          "fr": "Malgré la rigueur du protocole, certains biais méthodologiques subsistent dans cette étude.",
+          "en": "Despite the rigor of the protocol, certain methodological biases persist in this study.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.109",
+          "theme": "examens-et-diplomes",
+          "fr": "Beaucoup d'universités françaises exigent un DELF B2 pour les candidatures internationales.",
+          "en": "Many French universities require a DELF B2 for international applications.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.universite.129",
+          "theme": "universite",
+          "fr": "Les chercheurs espèrent que leurs travaux seront publiés avant la conférence internationale.",
+          "en": "The researchers hope their work will be published before the international conference.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.disciplines.124",
+          "theme": "disciplines",
+          "fr": "Il aurait fallu que le gouvernement investisse davantage dans la recherche interdisciplinaire.",
+          "en": "The government should have invested more in interdisciplinary research.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.methode-scientifique.233",
+          "theme": "methode-scientifique",
+          "fr": "Il serait souhaitable que les organismes publics financent davantage la recherche fondamentale.",
+          "en": "It would be desirable for public bodies to fund basic research more.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.disciplines.115",
+          "theme": "disciplines",
+          "fr": "Il serait souhaitable que les universités collaborent davantage avec les ordres professionnels.",
+          "en": "It would be desirable for universities to collaborate more with professional orders.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.methode-scientifique.250",
+          "theme": "methode-scientifique",
+          "fr": "Le raisonnement scientifique repose sur la confrontation constante entre théorie et observation.",
+          "en": "Scientific reasoning rests on the constant confrontation between theory and observation.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.recherche.117",
+          "theme": "recherche",
+          "fr": "Quoi qu'on en dise, cette étude reste la référence dans le domaine.",
+          "en": "Whatever people say about it, this study remains the reference in the field.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.117",
+          "theme": "universite",
+          "fr": "Il n'est pas certain que la subvention soit reconduite l'an prochain.",
+          "en": "It's not certain that the grant will be renewed next year.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.124",
+          "theme": "examens-et-diplomes",
+          "fr": "Il a fallu qu'il repasse l'examen professionnel après un premier échec.",
+          "en": "He had to retake the professional exam after a first failure.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.disciplines.117",
+          "theme": "disciplines",
+          "fr": "Il n'est pas certain que cette équivalence soit accordée avant la rentrée.",
+          "en": "It's not certain that this equivalency will be granted before the start of the school year.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.recherche.141",
+          "theme": "recherche",
+          "fr": "Sitôt les données validées, l'équipe se hâta d'en informer ses partenaires.",
+          "en": "As soon as the data were validated, the team hastened to inform its partners.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.138",
+          "theme": "examens-et-diplomes",
+          "fr": "Cette attestation prouve que vous avez suivi la formation jusqu'à son terme.",
+          "en": "This certificate proves that you completed the training to the end.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.238",
+          "theme": "methode-scientifique",
+          "fr": "La technicienne a calibré l'instrument de mesure avant chaque série d'essais.",
+          "en": "The technician calibrated the measuring instrument before each series of tests.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.239",
+          "theme": "methode-scientifique",
+          "fr": "Que les résultats confirment ou non l'hypothèse, l'équipe publiera son étude.",
+          "en": "Whether or not the results confirm the hypothesis, the team will publish its study.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.253",
+          "theme": "methode-scientifique",
+          "fr": "Il aurait été préférable que l'étude porte sur un échantillon plus diversifié.",
+          "en": "It would have been preferable for the study to focus on a more diverse sample.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.129",
+          "theme": "examens-et-diplomes",
+          "fr": "Si le dossier avait été complet, la demande aurait été traitée plus rapidement.",
+          "en": "If the file had been complete, the request would have been processed more quickly.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.120",
+          "theme": "examens-et-diplomes",
+          "fr": "Quand j'aurai terminé mon baccalauréat, je poserai ma candidature à la maîtrise.",
+          "en": "When I finish my bachelor's degree, I'll apply for the master's program.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.118",
+          "theme": "universite",
+          "fr": "Pour que le projet aboutisse, chaque membre du groupe doit respecter les délais.",
+          "en": "For the project to succeed, every group member must respect the deadlines.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.123",
+          "theme": "universite",
+          "fr": "Le directeur du département craint que les effectifs ne diminuent l'an prochain.",
+          "en": "The department head fears that enrollment will decline next year.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.137",
+          "theme": "universite",
+          "fr": "Le professeur doute que l'ensemble de la promotion ait compris la démonstration.",
+          "en": "The professor doubts that the whole class understood the demonstration.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.124",
+          "theme": "universite",
+          "fr": "Quoi qu'en pensent certains professeurs, l'apprentissage en ligne a ses avantages.",
+          "en": "Whatever some professors may think, online learning has its advantages.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.131",
+          "theme": "universite",
+          "fr": "L'étudiant fut convoqué devant la commission disciplinaire pour un cas de plagiat.",
+          "en": "The student was summoned before the disciplinary committee for a case of plagiarism.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.104",
+          "theme": "examens-et-diplomes",
+          "fr": "Dès que j'aurai confirmé mon inscription, je recevrai une convocation par courriel.",
+          "en": "As soon as I've confirmed my registration, I'll receive a summons by email.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.138",
+          "theme": "universite",
+          "fr": "À peine le semestre avait-il commencé que les premières évaluations tombaient déjà.",
+          "en": "The semester had barely begun when the first assessments were already coming.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.256",
+          "theme": "methode-scientifique",
+          "fr": "Aussi rigoureuse soit-elle, aucune étude ne peut prétendre à une certitude absolue.",
+          "en": "However rigorous it may be, no study can claim absolute certainty.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.b2.disciplines.116",
+          "theme": "disciplines",
+          "fr": "Quand elle eut terminé sa thèse, elle chercha immédiatement un poste de chercheuse.",
+          "en": "Once she had finished her thesis, she immediately looked for a research position.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.009",
+          "theme": "universite",
+          "fr": "Les chercheurs invités animeront un séminaire dont le thème reste encore à préciser.",
+          "en": "The visiting researchers will lead a seminar whose topic has yet to be specified.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.115",
+          "theme": "universite",
+          "fr": "Quoique le programme soit exigeant, la plupart des étudiants parviennent à le suivre.",
+          "en": "Although the program is demanding, most students manage to keep up.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.004",
+          "theme": "universite",
+          "fr": "Il est indispensable que chaque étudiant soit informé des nouvelles modalités d'examen.",
+          "en": "It is essential that every student be informed of the new exam procedures.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.disciplines.035",
+          "theme": "disciplines",
+          "fr": "Il faudrait que davantage de jeunes femmes s'orientent vers les filières scientifiques.",
+          "en": "More young women should go into scientific fields.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.127",
+          "theme": "examens-et-diplomes",
+          "fr": "Le secrétariat scolaire conserve les dossiers des anciens élèves pendant vingt-cinq ans.",
+          "en": "The school registrar keeps former students' files for twenty-five years.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.029",
+          "theme": "methode-scientifique",
+          "fr": "Il arrive fréquemment que des données mal interprétées mènent à des conclusions erronées.",
+          "en": "It frequently happens that poorly interpreted data lead to erroneous conclusions.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.226",
+          "theme": "methode-scientifique",
+          "fr": "Le rapport indique clairement que les variables n'avaient pas été suffisamment contrôlées.",
+          "en": "The report clearly indicates that the variables had not been sufficiently controlled.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.112",
+          "theme": "examens-et-diplomes",
+          "fr": "Pour que votre diplôme soit reconnu, vous devrez fournir une traduction certifiée conforme.",
+          "en": "For your diploma to be recognized, you'll need to provide a certified true translation.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.recherche.132",
+          "theme": "recherche",
+          "fr": "Encore faut-il que les données recueillies soient représentatives de la population étudiée.",
+          "en": "The data collected still needs to be representative of the population studied.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.recherche.025",
+          "theme": "recherche",
+          "fr": "Plus les revues exigent de transparence, plus les chercheurs partagent leurs données brutes.",
+          "en": "The more journals demand transparency, the more researchers share their raw data.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.126",
+          "theme": "universite",
+          "fr": "Le conseil d'université envisage de créer une nouvelle filière en intelligence artificielle.",
+          "en": "The university council is considering creating a new program in artificial intelligence.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.227",
+          "theme": "methode-scientifique",
+          "fr": "Les scientifiques débattent encore de la meilleure façon d'interpréter ces données ambiguës.",
+          "en": "Scientists are still debating the best way to interpret this ambiguous data.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.120",
+          "theme": "universite",
+          "fr": "Il serait souhaitable que les cours magistraux soient enregistrés pour les étudiants absents.",
+          "en": "It would be desirable for lectures to be recorded for absent students.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.rp-technologie.078",
+          "theme": "rp-technologie",
+          "fr": "Aussi pratique soit-elle, cette application recueille beaucoup plus de données que nécessaire.",
+          "en": "As convenient as it is, this app collects far more data than necessary.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.023",
+          "theme": "universite",
+          "fr": "Il arrive que certains étudiants abandonnent leur cursus faute de moyens financiers suffisants.",
+          "en": "It happens that some students drop out of their program for lack of sufficient financial means.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.universite.016",
+          "theme": "universite",
+          "fr": "Certains enseignants estiment que l'évaluation continue avantage les étudiants les plus assidus.",
+          "en": "Some teachers believe that continuous assessment benefits the most diligent students.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.disciplines.129",
+          "theme": "disciplines",
+          "fr": "Il semblerait que les employeurs valorisent de plus en plus les compétences interdisciplinaires.",
+          "en": "It would seem that employers increasingly value interdisciplinary skills.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.decouvertes.035",
+          "theme": "decouvertes",
+          "fr": "Depuis la découverte des premières exoplanètes, les astronomes en ont recensé plusieurs milliers.",
+          "en": "Since the discovery of the first exoplanets, astronomers have counted several thousand of them.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.decouvertes.248",
+          "theme": "decouvertes",
+          "fr": "Faute de publications régulières, un chercheur risque de voir sa carrière universitaire ralentie.",
+          "en": "Without regular publications, a researcher risks seeing their academic career slowed down.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.251",
+          "theme": "methode-scientifique",
+          "fr": "On demande aux chercheurs de déclarer tout financement susceptible d'influencer leurs conclusions.",
+          "en": "Researchers are asked to declare any funding that could influence their conclusions.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.decouvertes.223",
+          "theme": "decouvertes",
+          "fr": "De nombreuses percées récentes résultent d'équipes de recherche réparties sur plusieurs continents.",
+          "en": "Many recent breakthroughs result from research teams spread across several continents.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.021",
+          "theme": "methode-scientifique",
+          "fr": "Il est indispensable que chaque expérience soit menée dans des conditions rigoureusement contrôlées.",
+          "en": "It is essential that every experiment be conducted under rigorously controlled conditions.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.038",
+          "theme": "methode-scientifique",
+          "fr": "La reproductibilité constitue l'un des piliers fondamentaux de toute démarche scientifique sérieuse.",
+          "en": "Reproducibility is one of the fundamental pillars of any serious scientific approach.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.disciplines.016",
+          "theme": "disciplines",
+          "fr": "Les statistiques occupent désormais une place centrale dans presque toutes les disciplines scientifiques.",
+          "en": "Statistics now occupy a central place in almost every scientific discipline.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.034",
+          "theme": "methode-scientifique",
+          "fr": "Les résultats préliminaires, bien qu'encourageants, doivent être confirmés par des essais complémentaires.",
+          "en": "The preliminary results, although encouraging, must be confirmed by additional trials.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.232",
+          "theme": "methode-scientifique",
+          "fr": "Les auteurs de l'étude reconnaissent que certaines limites méthodologiques affaiblissent leurs conclusions.",
+          "en": "The study's authors acknowledge that certain methodological limitations weaken their conclusions.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.216",
+          "theme": "methode-scientifique",
+          "fr": "Si l'on modifiait légèrement les conditions expérimentales, les résultats pourraient différer considérablement.",
+          "en": "If the experimental conditions were slightly modified, the results could differ considerably.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.methode-scientifique.020",
+          "theme": "methode-scientifique",
+          "fr": "On ne peut pas tirer de conclusion solide à partir d'un seul essai.",
+          "en": "You can't draw a solid conclusion from a single trial.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.107",
+          "theme": "examens-et-diplomes",
+          "fr": "Contrairement au TEF, le diplôme du DELF n'a pas de date d'expiration.",
+          "en": "Unlike the TEF, the DELF diploma has no expiration date.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.123",
+          "theme": "examens-et-diplomes",
+          "fr": "Sans l'agrément de l'ordre, aucun diplômé ne peut porter le titre protégé.",
+          "en": "Without the order's approval, no graduate may use the protected title.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.universite.114",
+          "theme": "universite",
+          "fr": "Il se peut que le conseil de faculté reporte la décision au mois prochain.",
+          "en": "The faculty council might postpone the decision to next month.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.119",
+          "theme": "examens-et-diplomes",
+          "fr": "Le relevé de notes définitif ne sera délivré qu'après la remise du diplôme.",
+          "en": "The final transcript will only be issued after the diploma is conferred.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.b2.universite.127",
+          "theme": "universite",
+          "fr": "Elle regrette de ne pas avoir postulé plus tôt pour le programme d'échange.",
+          "en": "She regrets not applying earlier for the exchange program.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.universite.113",
+          "theme": "universite",
+          "fr": "Le jury exige que chaque candidat expose son projet en moins de dix minutes.",
+          "en": "The panel requires each candidate to present their project in under ten minutes.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.121",
+          "theme": "recherche",
+          "fr": "L'étudiant s'étonna que son directeur de recherche refusât de valider son plan.",
+          "en": "The student was surprised that his research supervisor refused to approve his outline.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.119",
+          "theme": "recherche",
+          "fr": "Dès lors que les premiers résultats sont apparus, l'équipe a redoublé d'efforts.",
+          "en": "As soon as the first results appeared, the team redoubled its efforts.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.universite.121",
+          "theme": "universite",
+          "fr": "Malgré la fatigue accumulée, elle a terminé la rédaction de son mémoire à temps.",
+          "en": "Despite the accumulated fatigue, she finished writing her thesis on time.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.126",
+          "theme": "examens-et-diplomes",
+          "fr": "Pourriez-vous m'envoyer mon relevé de notes officiel dans les plus brefs délais ?",
+          "en": "Could you send me my official transcript as soon as possible?",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.132",
+          "theme": "examens-et-diplomes",
+          "fr": "Les résultats seront publiés en ligne dès que le jury aura terminé la correction.",
+          "en": "The results will be published online as soon as the jury has finished grading.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.methode-scientifique.019",
+          "theme": "methode-scientifique",
+          "fr": "Avant de publier ses résultats, elle a tenu compte des critiques de ses collègues.",
+          "en": "Before publishing her results, she took her colleagues' criticism into account.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.methode-scientifique.047",
+          "theme": "methode-scientifique",
+          "fr": "Il est rare qu'une seule étude suffise à établir un consensus scientifique solide.",
+          "en": "It's rare for a single study to be enough to establish solid scientific consensus.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.131",
+          "theme": "recherche",
+          "fr": "Tant que les résultats n'auront pas été confirmés, il conviendra de rester prudent.",
+          "en": "As long as the results have not been confirmed, one should remain cautious.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.universite.132",
+          "theme": "universite",
+          "fr": "Le recteur prononça un discours remarqué lors de la cérémonie de remise des diplômes.",
+          "en": "The chancellor gave a notable speech at the graduation ceremony.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.121",
+          "theme": "examens-et-diplomes",
+          "fr": "Avant d'exercer, l'ingénieure doit obtenir son permis auprès de l'ordre professionnel.",
+          "en": "Before practicing, the engineer must obtain her license from the professional order.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.139",
+          "theme": "examens-et-diplomes",
+          "fr": "Pourvu que le budget le permette, l'entreprise financera la formation de ses employés.",
+          "en": "Provided the budget allows it, the company will finance its employees' training.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.130",
+          "theme": "recherche",
+          "fr": "Il aurait fallu que les chercheurs anticipent ce biais dès la conception du protocole.",
+          "en": "The researchers should have anticipated this bias from the design of the protocol.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.decouvertes.027",
+          "theme": "decouvertes",
+          "fr": "Antoine Lavoisier a démontré que l'oxygène jouait un rôle essentiel dans la combustion.",
+          "en": "Antoine Lavoisier demonstrated that oxygen played an essential role in combustion.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.methode-scientifique.225",
+          "theme": "methode-scientifique",
+          "fr": "On ne saurait tirer de conclusion définitive à partir d'un échantillon aussi restreint.",
+          "en": "One could not draw a definitive conclusion from such a small sample.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.124",
+          "theme": "recherche",
+          "fr": "Il n'en demeure pas moins que cette théorie soulève encore de nombreuses interrogations.",
+          "en": "The fact remains that this theory still raises many questions.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.decouvertes.221",
+          "theme": "decouvertes",
+          "fr": "Il arrive qu'une découverte survienne alors que le chercheur cherchait tout autre chose.",
+          "en": "It happens that a discovery occurs while the researcher was looking for something else entirely.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.universite.006",
+          "theme": "universite",
+          "fr": "Plus le nombre de candidatures augmente, plus la sélection à l'entrée devient rigoureuse.",
+          "en": "The more the number of applications increases, the more rigorous the entrance selection becomes.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.universite.027",
+          "theme": "universite",
+          "fr": "Étant donné que les places sont limitées, les inscriptions se font désormais sur dossier.",
+          "en": "Given that spots are limited, enrollment is now based on application review.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.disciplines.034",
+          "theme": "disciplines",
+          "fr": "On reproche parfois aux sciences humaines de manquer de rigueur, ce qui reste discutable.",
+          "en": "The humanities are sometimes criticized for lacking rigor, which remains debatable.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.methode-scientifique.259",
+          "theme": "methode-scientifique",
+          "fr": "Le comité de lecture a demandé des précisions supplémentaires avant d'accepter l'article.",
+          "en": "The editorial committee asked for further clarification before accepting the article.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.disciplines.017",
+          "theme": "disciplines",
+          "fr": "On dit souvent que les mathématiques constituent le langage commun de toutes les sciences.",
+          "en": "It is often said that mathematics is the common language of all sciences.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.decouvertes.018",
+          "theme": "decouvertes",
+          "fr": "Grâce à cette invention, il est devenu possible de guérir des maladies autrefois mortelles.",
+          "en": "Thanks to this invention, it became possible to cure diseases that used to be fatal.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.methode-scientifique.052",
+          "theme": "methode-scientifique",
+          "fr": "Il est probable que certains résultats publiés ne résistent pas à une nouvelle vérification.",
+          "en": "It's likely that some published results will not hold up to a new verification.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.126",
+          "theme": "recherche",
+          "fr": "Quelles que soient les critiques, cette publication a marqué un tournant dans la discipline.",
+          "en": "Whatever the criticisms, this publication marked a turning point in the discipline.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.decouvertes.260",
+          "theme": "decouvertes",
+          "fr": "La chimie verte cherche à concevoir des procédés industriels qui polluent le moins possible.",
+          "en": "Green chemistry seeks to design industrial processes that pollute as little as possible.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.019",
+          "theme": "recherche",
+          "fr": "Il arrive que des chercheurs falsifient leurs données sous la pression de publier rapidement.",
+          "en": "It happens that researchers falsify their data under the pressure to publish quickly.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.disciplines.036",
+          "theme": "disciplines",
+          "fr": "Sans un solide bagage en mathématiques, il est difficile de progresser en physique théorique.",
+          "en": "Without a solid grounding in mathematics, it's difficult to progress in theoretical physics.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.decouvertes.030",
+          "theme": "decouvertes",
+          "fr": "L'invention du téléphone par Alexander Graham Bell a transformé les communications à distance.",
+          "en": "The invention of the telephone by Alexander Graham Bell transformed long-distance communications.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.143",
+          "theme": "recherche",
+          "fr": "Aussi convaincante soit-elle, cette démonstration mérite d'être confrontée à d'autres données.",
+          "en": "However convincing it may be, this demonstration deserves to be compared with other data.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.universite.136",
+          "theme": "universite",
+          "fr": "Il importe que les étudiants internationaux soient accompagnés dès leur arrivée sur le campus.",
+          "en": "It's important that international students be supported from the moment they arrive on campus.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.disciplines.126",
+          "theme": "disciplines",
+          "fr": "Il est peu probable que toutes les provinces reconnaissent les mêmes équivalences de diplômes.",
+          "en": "It's unlikely that all the provinces recognize the same degree equivalencies.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.b2.universite.011",
+          "theme": "universite",
+          "fr": "L'administration exige que chaque mémoire soit déposé en version numérique avant la soutenance.",
+          "en": "The administration requires that every thesis be submitted in digital form before the defense.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.010",
+          "theme": "recherche",
+          "fr": "Les chercheurs craignent que leurs données ne soient biaisées par un échantillon trop homogène.",
+          "en": "The researchers fear that their data may be biased by too homogeneous a sample.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.disciplines.021",
+          "theme": "disciplines",
+          "fr": "Pour que la recherche progresse, il faut que les disciplines collaborent davantage entre elles.",
+          "en": "For research to progress, disciplines need to collaborate more with one another.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.115",
+          "theme": "examens-et-diplomes",
+          "fr": "Sans cette reconnaissance officielle, il lui sera impossible d'exercer sa profession au Québec.",
+          "en": "Without this official recognition, it will be impossible for her to practice her profession in Quebec.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.universite.018",
+          "theme": "universite",
+          "fr": "Le syndicat étudiant a organisé une manifestation afin que la direction reconsidère sa décision.",
+          "en": "The student union organized a protest so that the administration would reconsider its decision.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.decouvertes.045",
+          "theme": "decouvertes",
+          "fr": "La découverte de la structure atomique a profondément modifié notre compréhension de la matière.",
+          "en": "The discovery of atomic structure profoundly changed our understanding of matter.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.113",
+          "theme": "examens-et-diplomes",
+          "fr": "Le traitement du dossier peut prendre plusieurs mois selon la complexité du parcours académique.",
+          "en": "Processing the file can take several months depending on the complexity of the academic path.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.methode-scientifique.237",
+          "theme": "methode-scientifique",
+          "fr": "Il n'est pas rare que deux équipes indépendantes obtiennent des résultats légèrement différents.",
+          "en": "It is not rare for two independent teams to obtain slightly different results.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.disciplines.025",
+          "theme": "disciplines",
+          "fr": "Certaines universités exigent que les étudiants soient présents dès la première semaine de cours.",
+          "en": "Some universities require students to be present from the very first week of classes.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.methode-scientifique.049",
+          "theme": "methode-scientifique",
+          "fr": "Les revues scientifiques exigent que chaque article soit examiné par des pairs avant publication.",
+          "en": "Scientific journals require that every article be reviewed by peers before publication.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.139",
+          "theme": "recherche",
+          "fr": "Quand bien même les critiques seraient fondées, l'étude conserve une valeur pédagogique certaine.",
+          "en": "Even if the criticisms were justified, the study still has definite educational value.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-technologie.072",
+          "theme": "rp-technologie",
+          "fr": "Nous avons dû nous adapter rapidement lorsque notre entreprise est passée entièrement au télétravail.",
+          "en": "We had to adapt quickly when our company switched entirely to remote work.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.universite.024",
+          "theme": "universite",
+          "fr": "Plus les débouchés professionnels sont incertains, plus les étudiants hésitent à choisir cette filière.",
+          "en": "The more uncertain the job prospects, the more students hesitate to choose this program.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.decouvertes.219",
+          "theme": "decouvertes",
+          "fr": "Une bonne hypothèse doit pouvoir être testée et, éventuellement, réfutée par de nouvelles observations.",
+          "en": "A good hypothesis must be testable and, potentially, refutable by new observations.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.decouvertes.261",
+          "theme": "decouvertes",
+          "fr": "Des chercheurs mettent au point des plastiques biodégradables fabriqués à partir de matières végétales.",
+          "en": "Researchers are developing biodegradable plastics made from plant materials.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.methode-scientifique.245",
+          "theme": "methode-scientifique",
+          "fr": "Les chercheurs espèrent que leurs travaux ouvriront la voie à de nouvelles applications thérapeutiques.",
+          "en": "The researchers hope their work will open the way to new therapeutic applications.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.decouvertes.240",
+          "theme": "decouvertes",
+          "fr": "Des patients atteints de maladies rares participent parfois à des essais cliniques encore expérimentaux.",
+          "en": "Patients with rare diseases sometimes participate in clinical trials that are still experimental.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.methode-scientifique.260",
+          "theme": "methode-scientifique",
+          "fr": "Les premières conclusions, bien que prometteuses, demandent à être confirmées par des études ultérieures.",
+          "en": "The initial conclusions, although promising, need to be confirmed by later studies.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.decouvertes.213",
+          "theme": "decouvertes",
+          "fr": "Le bras robotisé conçu par des ingénieurs canadiens équipe encore certaines missions spatiales internationales.",
+          "en": "The robotic arm designed by Canadian engineers still equips certain international space missions.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.methode-scientifique.211",
+          "theme": "methode-scientifique",
+          "fr": "Le laboratoire dispose désormais d'un microscope suffisamment puissant pour observer les cellules individuellement.",
+          "en": "The laboratory now has a microscope powerful enough to observe cells individually.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche.016",
+          "theme": "recherche",
+          "fr": "Il n'est pas exclu que ces travaux ouvrent la voie à un nouveau traitement.",
+          "en": "It's not out of the question that this work will pave the way for a new treatment.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.133",
+          "theme": "universite",
+          "fr": "Elle craint que son sujet de thèse ne soit déjà traité par un autre chercheur.",
+          "en": "She fears her thesis topic may already have been tackled by another researcher.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.020",
+          "theme": "universite",
+          "fr": "À condition que le jury valide son sujet, elle commencera sa thèse à la rentrée.",
+          "en": "Provided the committee approves her topic, she will start her thesis in the fall.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.145",
+          "theme": "examens-et-diplomes",
+          "fr": "Malgré son trac, elle a réussi à garder son calme pendant toute l'épreuve orale.",
+          "en": "Despite her stage fright, she managed to stay calm throughout the whole oral exam.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.015",
+          "theme": "universite",
+          "fr": "Dès lors que l'étudiant valide ses crédits, il peut s'inscrire au semestre suivant.",
+          "en": "As soon as the student validates their credits, they can enroll for the following semester.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.disciplines.130",
+          "theme": "disciplines",
+          "fr": "Elle rédigea sa thèse en un temps record, ce qui surprit tout le corps professoral.",
+          "en": "She wrote her thesis in record time, which surprised the entire faculty.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.144",
+          "theme": "examens-et-diplomes",
+          "fr": "Le surveillant a exigé que les téléphones soient rangés avant le début de l'épreuve.",
+          "en": "The proctor required that phones be put away before the exam started.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.150",
+          "theme": "examens-et-diplomes",
+          "fr": "Ses parents étaient si fiers qu'ils ont pleuré pendant toute la remise des diplômes.",
+          "en": "His parents were so proud that they cried during the whole graduation ceremony.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.122",
+          "theme": "universite",
+          "fr": "À supposer que la bourse soit accordée, elle pourra financer son séjour à l'étranger.",
+          "en": "Assuming the scholarship is granted, she'll be able to fund her stay abroad.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.decouvertes.249",
+          "theme": "decouvertes",
+          "fr": "Un graphique bien conçu permet de communiquer des résultats complexes en un coup d'œil.",
+          "en": "A well designed graph makes it possible to communicate complex results at a glance.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.007",
+          "theme": "universite",
+          "fr": "Le doyen craint que la réforme des bourses ne décourage les étudiants les plus modestes.",
+          "en": "The dean fears that the scholarship reform will discourage the least well-off students.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.decouvertes.207",
+          "theme": "decouvertes",
+          "fr": "Roberta Bondar est devenue la première femme canadienne à voyager dans l'espace en 1992.",
+          "en": "Roberta Bondar became the first Canadian woman to travel to space in 1992.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.013",
+          "theme": "universite",
+          "fr": "Il se peut que l'université délocalise certains cursus vers le nouveau site de recherche.",
+          "en": "It's possible that the university will relocate some programs to the new research site.",
+          "words": 15
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.b2.universite.134",
+          "theme": "universite",
+          "fr": "Le service des bourses demande que les justificatifs soient fournis avant la fin du mois.",
+          "en": "The scholarship office requires supporting documents to be submitted before the end of the month.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.118",
+          "theme": "examens-et-diplomes",
+          "fr": "Une fois inscrite, l'étudiante devra choisir ses cours avant la date limite d'inscription.",
+          "en": "Once enrolled, the student will have to choose her courses before the registration deadline.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.125",
+          "theme": "examens-et-diplomes",
+          "fr": "Une fois inscrit au tableau de l'ordre, le nouveau membre peut enfin pratiquer légalement.",
+          "en": "Once registered on the order's roster, the new member can finally practice legally.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.148",
+          "theme": "examens-et-diplomes",
+          "fr": "La cérémonie de remise des diplômes aura lieu le mois prochain dans le grand amphithéâtre.",
+          "en": "The graduation ceremony will take place next month in the main lecture hall.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.015",
+          "theme": "recherche",
+          "fr": "Le rapporteur a exigé que les auteurs précisent les limites de leur étude avant publication.",
+          "en": "The reviewer demanded that the authors specify the limitations of their study before publication.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.027",
+          "theme": "recherche",
+          "fr": "Certains scientifiques estiment que la pression à publier nuit à la qualité de la recherche.",
+          "en": "Some scientists believe that the pressure to publish harms the quality of research.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.131",
+          "theme": "examens-et-diplomes",
+          "fr": "Si vous contestez votre note, vous disposez de dix jours ouvrables pour déposer une demande.",
+          "en": "If you dispute your grade, you have ten business days to file a request.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.114",
+          "theme": "recherche",
+          "fr": "Bien que son hypothèse ait été critiquée, elle a continué ses recherches sans se décourager.",
+          "en": "Although her hypothesis was criticized, she continued her research without getting discouraged.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.012",
+          "theme": "universite",
+          "fr": "Non seulement le campus manque de logements, mais les loyers alentour ne cessent d'augmenter.",
+          "en": "Not only does the campus lack housing, but rents in the surrounding area keep rising.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.207",
+          "theme": "methode-scientifique",
+          "fr": "Dès que les premiers résultats furent connus, l'équipe organisa une réunion pour en discuter.",
+          "en": "As soon as the first results were known, the team organized a meeting to discuss them.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.025",
+          "theme": "universite",
+          "fr": "Le comité a exigé que les résultats des élections étudiantes soient rendus publics sans délai.",
+          "en": "The committee demanded that the results of the student elections be made public without delay.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.046",
+          "theme": "methode-scientifique",
+          "fr": "Bien que l'expérience ait été rigoureusement menée, un facteur imprévu a faussé les résultats.",
+          "en": "Although the experiment was rigorously conducted, an unforeseen factor skewed the results.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.118",
+          "theme": "recherche",
+          "fr": "Si le comité avait accordé plus de temps, les chercheurs auraient pu approfondir leur analyse.",
+          "en": "If the committee had granted more time, the researchers could have deepened their analysis.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.119",
+          "theme": "universite",
+          "fr": "Le laboratoire recherche des volontaires afin de mener une étude sur le sommeil des étudiants.",
+          "en": "The lab is looking for volunteers to conduct a study on students' sleep.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.051",
+          "theme": "methode-scientifique",
+          "fr": "Tant que l'hypothèse n'a pas été testée expérimentalement, elle demeure une simple supposition.",
+          "en": "As long as the hypothesis has not been tested experimentally, it remains a mere supposition.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.111",
+          "theme": "examens-et-diplomes",
+          "fr": "L'évaluation comparative des études permet de faire reconnaître un diplôme obtenu à l'étranger.",
+          "en": "The comparative evaluation of studies makes it possible to have a diploma earned abroad recognized.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.decouvertes.228",
+          "theme": "decouvertes",
+          "fr": "Le rendement des panneaux solaires s'est nettement amélioré au cours des vingt dernières années.",
+          "en": "The efficiency of solar panels has notably improved over the last twenty years.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.205",
+          "theme": "methode-scientifique",
+          "fr": "Le chercheur a soigneusement noté chaque étape de son protocole avant de commencer l'expérience.",
+          "en": "The researcher carefully noted every step of his protocol before starting the experiment.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.230",
+          "theme": "methode-scientifique",
+          "fr": "Le chercheur principal doute que l'on puisse généraliser ces conclusions à d'autres populations.",
+          "en": "The lead researcher doubts these conclusions can be generalized to other populations.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.012",
+          "theme": "recherche",
+          "fr": "Non seulement l'article a été refusé, mais les évaluateurs ont jugé la méthodologie insuffisante.",
+          "en": "Not only was the article rejected, but the reviewers also judged the methodology insufficient.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.disciplines.026",
+          "theme": "disciplines",
+          "fr": "La physique théorique fascine autant qu'elle intimide, tant ses concepts échappent à l'intuition.",
+          "en": "Theoretical physics is as fascinating as it is intimidating, so much do its concepts defy intuition.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.112",
+          "theme": "universite",
+          "fr": "Même si les effectifs augmentent chaque année, les moyens alloués à la faculté restent inchangés.",
+          "en": "Even though enrollment grows every year, the funding allocated to the department stays unchanged.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.139",
+          "theme": "universite",
+          "fr": "L'université ambitionne de figurer parmi les meilleurs établissements de recherche d'ici dix ans.",
+          "en": "The university aims to rank among the best research institutions within ten years.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.214",
+          "theme": "methode-scientifique",
+          "fr": "Les étudiants apprennent dès la première année à distinguer une hypothèse d'une simple intuition.",
+          "en": "Students learn from the first year to distinguish a hypothesis from a simple intuition.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.017",
+          "theme": "universite",
+          "fr": "Quelle que soit la filière choisie, un stage en entreprise demeure obligatoire en troisième année.",
+          "en": "Whatever the chosen program, an internship is mandatory in the third year.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.140",
+          "theme": "recherche",
+          "fr": "Si tant est que l'on puisse généraliser ces résultats, ils ouvrent des perspectives intéressantes.",
+          "en": "If these results can be generalized at all, they open up interesting perspectives.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.125",
+          "theme": "universite",
+          "fr": "Les étudiants souhaitent que les modalités d'évaluation soient précisées dès le début du semestre.",
+          "en": "Students want the assessment criteria to be clarified at the start of the semester.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.252",
+          "theme": "methode-scientifique",
+          "fr": "Les données recueillies sur le terrain ont ensuite été comparées à celles obtenues en laboratoire.",
+          "en": "The data collected in the field was then compared to that obtained in the lab.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.007",
+          "theme": "recherche",
+          "fr": "Le comité d'éthique exige que chaque participant donne son consentement éclairé avant l'expérience.",
+          "en": "The ethics committee requires that every participant give informed consent before the experiment.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.103",
+          "theme": "examens-et-diplomes",
+          "fr": "Les places pour la session de novembre se remplissent rapidement, alors inscrivez-vous sans tarder.",
+          "en": "Spots for the November session fill up quickly, so register without delay.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.116",
+          "theme": "examens-et-diplomes",
+          "fr": "L'admission conditionnelle vous permet de commencer vos cours pendant que votre dossier est traité.",
+          "en": "Conditional admission lets you start your courses while your file is being processed.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.disciplines.039",
+          "theme": "disciplines",
+          "fr": "Les étudiants doivent choisir leur discipline avant que les inscriptions ne se clôturent en juillet.",
+          "en": "Students must choose their discipline before registration closes in July.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.229",
+          "theme": "methode-scientifique",
+          "fr": "Une fois les données collectées, l'équipe a passé plusieurs semaines à les analyser statistiquement.",
+          "en": "Once the data was collected, the team spent several weeks analyzing it statistically.",
+          "words": 15
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.b2.methode-scientifique.234",
+          "theme": "methode-scientifique",
+          "fr": "La communauté scientifique accueille avec prudence toute découverte qui n'a pas encore été confirmée.",
+          "en": "The scientific community cautiously welcomes any discovery that has not yet been confirmed.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.053",
+          "theme": "methode-scientifique",
+          "fr": "Avant de tirer une conclusion, il faut écarter toute autre explication possible des données observées.",
+          "en": "Before drawing a conclusion, one must rule out every other possible explanation for the observed data.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.decouvertes.226",
+          "theme": "decouvertes",
+          "fr": "Des fossiles de dinosaures exceptionnellement bien conservés continuent d'être mis au jour en Alberta.",
+          "en": "Exceptionally well preserved dinosaur fossils continue to be unearthed in Alberta.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.008",
+          "theme": "recherche",
+          "fr": "Bien que cette hypothèse ait longtemps fait consensus, plusieurs études récentes la remettent en cause.",
+          "en": "Although this hypothesis long enjoyed consensus, several recent studies are calling it into question.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.108",
+          "theme": "examens-et-diplomes",
+          "fr": "Pour obtenir le DALF, il faut réussir les quatre épreuves : compréhension, expression, orale et écrite.",
+          "en": "To obtain the DALF, you must pass all four sections: comprehension, expression, oral, and written.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.022",
+          "theme": "universite",
+          "fr": "Malgré les efforts de la présidence, le classement international de l'établissement continue de reculer.",
+          "en": "Despite the efforts of the president's office, the institution's international ranking keeps falling.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.037",
+          "theme": "methode-scientifique",
+          "fr": "Il faut que les chercheurs déclarent tout conflit d'intérêts susceptible d'influencer leurs conclusions.",
+          "en": "Researchers must disclose any conflict of interest likely to influence their conclusions.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.005",
+          "theme": "recherche",
+          "fr": "Il est essentiel que la méthodologie soit décrite avec suffisamment de précision pour être reproductible.",
+          "en": "It is essential that the methodology be described precisely enough to be reproducible.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.decouvertes.246",
+          "theme": "decouvertes",
+          "fr": "Le nouveau musée des sciences propose une exposition consacrée aux grandes découvertes du siècle dernier.",
+          "en": "The new science museum offers an exhibit devoted to the great discoveries of the last century.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.123",
+          "theme": "recherche",
+          "fr": "Alors même que les résultats semblaient prometteurs, l'équipe a préféré attendre une seconde vérification.",
+          "en": "Even though the results seemed promising, the team preferred to wait for a second verification.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.004",
+          "theme": "recherche",
+          "fr": "Quoique les résultats préliminaires soient prometteurs, l'équipe se garde de tirer des conclusions hâtives.",
+          "en": "Although the preliminary results are promising, the team refrains from drawing hasty conclusions.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.decouvertes.242",
+          "theme": "decouvertes",
+          "fr": "Certains laboratoires cherchent à imiter la photosynthèse des plantes afin de produire un carburant propre.",
+          "en": "Some laboratories are trying to imitate plant photosynthesis in order to produce a clean fuel.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.universite.135",
+          "theme": "universite",
+          "fr": "Quelles que soient les difficultés rencontrées, elle a toujours privilégié le dialogue avec ses professeurs.",
+          "en": "Whatever difficulties she faced, she always favored dialogue with her professors.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.methode-scientifique.212",
+          "theme": "methode-scientifique",
+          "fr": "Il aurait fallu prélever un échantillon plus important pour que l'étude soit statistiquement représentative.",
+          "en": "A larger sample would have needed to be taken for the study to be statistically representative.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.disciplines.006",
+          "theme": "disciplines",
+          "fr": "Il est essentiel que les étudiants soient conscients des liens entre les différentes disciplines scientifiques.",
+          "en": "It is essential that students be aware of the connections between the different scientific disciplines.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche.017",
+          "theme": "recherche",
+          "fr": "Étant donné que les crédits de recherche diminuent, plusieurs laboratoires envisagent de fusionner leurs équipes.",
+          "en": "Given that research funding is decreasing, several labs are considering merging their teams.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.disciplines.118",
+          "theme": "disciplines",
+          "fr": "Plus les disciplines scientifiques se spécialisent, plus il devient nécessaire de développer des approches interdisciplinaires.",
+          "en": "The more scientific disciplines specialize, the more necessary it becomes to develop interdisciplinary approaches.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.101",
+          "theme": "examens-et-diplomes",
+          "fr": "Il faut que je m'inscrive à l'examen du TEF avant la fin du mois.",
+          "en": "I need to register for the TEF exam before the end of the month.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche.028",
+          "theme": "recherche",
+          "fr": "Il n'empêche que cette étude reste, à ce jour, la plus complète sur le sujet.",
+          "en": "Still, this study remains, to this day, the most complete one on the subject.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.143",
+          "theme": "examens-et-diplomes",
+          "fr": "Si tu révisais un peu chaque soir, tu n'aurais pas à tout apprendre la veille.",
+          "en": "If you reviewed a little every night, you wouldn't have to cram everything the night before.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.133",
+          "theme": "examens-et-diplomes",
+          "fr": "Bien qu'elle ait révisé sérieusement, elle n'a obtenu que la moyenne à l'écrit.",
+          "en": "Although she studied seriously, she only got a pass grade on the written exam.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.universite.128",
+          "theme": "universite",
+          "fr": "Il faudra que le comité tranche avant la fin du mois sur la question des frais.",
+          "en": "The committee will have to settle the question of fees before the end of the month.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.105",
+          "theme": "examens-et-diplomes",
+          "fr": "Il vaut mieux que vous arriviez une demi-heure avant le début de l'épreuve écrite.",
+          "en": "It's better that you arrive half an hour before the written exam starts.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche.138",
+          "theme": "recherche",
+          "fr": "Le jury s'assura que la thèse répondait à toutes les exigences avant de l'accepter.",
+          "en": "The committee made sure the thesis met all the requirements before accepting it.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.102",
+          "theme": "examens-et-diplomes",
+          "fr": "Avant de te présenter à l'épreuve, vérifie que ta pièce d'identité est encore valide.",
+          "en": "Before showing up for the test, check that your ID is still valid.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.universite.019",
+          "theme": "universite",
+          "fr": "Il n'est pas rare que les amphithéâtres soient bondés dès la première semaine de cours.",
+          "en": "It's not uncommon for lecture halls to be packed from the first week of classes.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.110",
+          "theme": "examens-et-diplomes",
+          "fr": "Quoi qu'il en soit, le niveau B2 reste largement suffisant pour étudier à l'université.",
+          "en": "Be that as it may, level B2 remains largely sufficient to study at university.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.147",
+          "theme": "examens-et-diplomes",
+          "fr": "Grâce à ses excellents résultats, elle a décroché une bourse d'études pour l'an prochain.",
+          "en": "Thanks to her excellent results, she landed a scholarship for next year.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.disciplines.022",
+          "theme": "disciplines",
+          "fr": "Beaucoup d'étudiants ignorent que la biochimie combine à la fois la biologie et la chimie.",
+          "en": "Many students don't realize that biochemistry combines both biology and chemistry.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.114",
+          "theme": "examens-et-diplomes",
+          "fr": "Même si son diplôme est équivalent, elle doit tout de même passer un examen de compétence.",
+          "en": "Even though her diploma is equivalent, she still has to take a competency exam.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche.134",
+          "theme": "recherche",
+          "fr": "L'équipe s'attendait à ce que les premiers essais échouent, ce qui explique leur prudence.",
+          "en": "The team expected the first trials to fail, which explains their caution.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.220",
+          "theme": "methode-scientifique",
+          "fr": "La revue a refusé l'article parce que les auteurs n'avaient pas précisé leur méthodologie.",
+          "en": "The journal rejected the article because the authors had not specified their methodology.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.254",
+          "theme": "methode-scientifique",
+          "fr": "Le physicien affirme que toute théorie doit pouvoir être mise à l'épreuve par l'expérience.",
+          "en": "The physicist maintains that every theory must be capable of being tested by experiment.",
+          "words": 16
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.b2.methode-scientifique.246",
+          "theme": "methode-scientifique",
+          "fr": "Bien qu'elle fût encore étudiante, elle a coécrit un article publié dans une revue reconnue.",
+          "en": "Although she was still a student, she co-wrote an article published in a recognized journal.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-technologie.069",
+          "theme": "rp-technologie",
+          "fr": "Je doute que ce site respecte réellement les normes de protection des données qu'il annonce.",
+          "en": "I doubt that this website really complies with the data protection standards it advertises.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche.127",
+          "theme": "recherche",
+          "fr": "À supposer que les fonds soient débloqués à temps, le projet pourrait démarrer dès l'automne.",
+          "en": "Supposing the funds are released in time, the project could start as early as fall.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche.122",
+          "theme": "recherche",
+          "fr": "Pour peu que l'on dispose de données fiables, l'analyse statistique peut se révéler concluante.",
+          "en": "As long as one has reliable data, statistical analysis can prove conclusive.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.224",
+          "theme": "methode-scientifique",
+          "fr": "Pour financer ses recherches, elle a dû présenter un dossier détaillé devant un jury d'experts.",
+          "en": "To fund her research, she had to present a detailed file before a panel of experts.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.236",
+          "theme": "methode-scientifique",
+          "fr": "On exige désormais que les données brutes soient rendues publiques en même temps que l'article.",
+          "en": "Raw data must now be made public at the same time as the article.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche.018",
+          "theme": "recherche",
+          "fr": "Pour que l'étude soit publiée, il faudra que les auteurs répondent aux objections des relecteurs.",
+          "en": "For the study to be published, the authors will need to respond to the reviewers' objections.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.023",
+          "theme": "methode-scientifique",
+          "fr": "Bien que l'hypothèse semblât prometteuse, les résultats obtenus n'ont pas permis de la confirmer.",
+          "en": "Although the hypothesis seemed promising, the results obtained did not make it possible to confirm it.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.021",
+          "theme": "decouvertes",
+          "fr": "Albert Einstein a bouleversé la physique moderne en publiant sa théorie de la relativité en 1905.",
+          "en": "Albert Einstein revolutionized modern physics by publishing his theory of relativity in 1905.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.031",
+          "theme": "decouvertes",
+          "fr": "Grâce à la découverte de l'insuline, des millions de diabétiques ont pu être soignés efficacement.",
+          "en": "Thanks to the discovery of insulin, millions of diabetics have been able to be treated effectively.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.disciplines.121",
+          "theme": "disciplines",
+          "fr": "Le comité d'évaluation exige que chaque candidat présente un dossier complet avant la date limite.",
+          "en": "The evaluation committee requires each candidate to submit a complete file before the deadline.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche.014",
+          "theme": "recherche",
+          "fr": "Quel que soit le protocole retenu, il faudra reproduire l'expérience plusieurs fois pour la valider.",
+          "en": "Whatever protocol is chosen, the experiment will need to be repeated several times to validate it.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.041",
+          "theme": "methode-scientifique",
+          "fr": "Il importe que les mesures soient prises plusieurs fois afin de limiter les erreurs de manipulation.",
+          "en": "It matters that measurements be taken several times in order to limit handling errors.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.050",
+          "theme": "methode-scientifique",
+          "fr": "Il ne faut jamais confondre une opinion personnelle avec un fait établi par la démarche scientifique.",
+          "en": "One must never confuse a personal opinion with a fact established by the scientific approach.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.027",
+          "theme": "methode-scientifique",
+          "fr": "Avant que les résultats ne soient publiés, ils doivent passer par un comité de relecture scientifique.",
+          "en": "Before the results are published, they must go through a scientific peer-review committee.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.213",
+          "theme": "methode-scientifique",
+          "fr": "Bien que les premières mesures parussent cohérentes, l'équipe a préféré les vérifier une seconde fois.",
+          "en": "Although the first measurements seemed consistent, the team preferred to verify them a second time.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.disciplines.127",
+          "theme": "disciplines",
+          "fr": "Quoique le processus soit long, la plupart des candidats finissent par obtenir leur permis d'exercice.",
+          "en": "Although the process is long, most candidates eventually get their practicing licence.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.217",
+          "theme": "methode-scientifique",
+          "fr": "Le directeur du laboratoire insiste pour que chaque manipulation soit consignée dans un cahier de bord.",
+          "en": "The lab director insists that every manipulation be recorded in a logbook.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.033",
+          "theme": "methode-scientifique",
+          "fr": "Une bonne méthodologie exige que chaque variable soit clairement définie avant le début de l'expérience.",
+          "en": "A good methodology requires that each variable be clearly defined before the experiment begins.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.universite.111",
+          "theme": "universite",
+          "fr": "Bien qu'elle ait obtenu son diplôme avec mention, elle hésite encore sur son orientation professionnelle.",
+          "en": "Although she graduated with honors, she's still unsure about her career path.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.252",
+          "theme": "decouvertes",
+          "fr": "Une autre équipe a repris l'expérience dans des conditions identiques et confirmé les résultats initiaux.",
+          "en": "Another team repeated the experiment under identical conditions and confirmed the initial results.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.218",
+          "theme": "methode-scientifique",
+          "fr": "Malgré des années de recherche, personne n'était parvenu à expliquer ce phénomène de façon satisfaisante.",
+          "en": "Despite years of research, no one had managed to explain this phenomenon satisfactorily.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.235",
+          "theme": "methode-scientifique",
+          "fr": "Le chercheur a présenté ses travaux devant un public de spécialistes qui ont soulevé plusieurs objections.",
+          "en": "The researcher presented his work to an audience of specialists who raised several objections.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.248",
+          "theme": "methode-scientifique",
+          "fr": "Avant de diffuser ses résultats, l'équipe a préféré attendre une réplication indépendante de l'expérience.",
+          "en": "Before releasing its results, the team preferred to wait for an independent replication of the experiment.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.037",
+          "theme": "decouvertes",
+          "fr": "L'invention de la technique CRISPR a ouvert des perspectives inédites en matière de modification génétique.",
+          "en": "The invention of the CRISPR technique opened up unprecedented possibilities in genetic modification.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.256",
+          "theme": "decouvertes",
+          "fr": "Les satellites météorologiques suivent la trajectoire des ouragans bien avant qu'ils n'atteignent les côtes.",
+          "en": "Weather satellites track the path of hurricanes well before they reach the coasts.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.229",
+          "theme": "decouvertes",
+          "fr": "Les progrès des batteries au lithium ont rendu les voitures électriques plus abordables et plus performantes.",
+          "en": "Advances in lithium batteries have made electric cars more affordable and more efficient.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.228",
+          "theme": "methode-scientifique",
+          "fr": "Il faudrait que chaque laboratoire adopte des normes communes afin de faciliter la comparaison des résultats.",
+          "en": "Each laboratory would need to adopt common standards to make comparing results easier.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.disciplines.009",
+          "theme": "disciplines",
+          "fr": "Les universités encouragent de plus en plus les étudiants à combiner plusieurs disciplines dans leur parcours.",
+          "en": "Universities increasingly encourage students to combine several disciplines in their studies.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.222",
+          "theme": "decouvertes",
+          "fr": "Avant de commercialiser une invention, il faut déposer une demande de brevet auprès des autorités compétentes.",
+          "en": "Before marketing an invention, one must file a patent application with the relevant authorities.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.245",
+          "theme": "decouvertes",
+          "fr": "Chaque printemps, des élèves présentent des expériences originales lors de la foire scientifique de leur école.",
+          "en": "Every spring, students present original experiments at their school's science fair.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.250",
+          "theme": "decouvertes",
+          "fr": "Un échantillon trop restreint peut conduire à des conclusions trompeuses, même si la méthode semble rigoureuse.",
+          "en": "A sample that is too small can lead to misleading conclusions, even if the method seems rigorous.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-technologie.073",
+          "theme": "rp-technologie",
+          "fr": "Il semblerait que cette faille de sécurité ait exposé les renseignements personnels de milliers d'utilisateurs.",
+          "en": "It appears that this security flaw exposed the personal information of thousands of users.",
+          "words": 16
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.b2.disciplines.012",
+          "theme": "disciplines",
+          "fr": "Certains chercheurs estiment que la frontière entre les disciplines scientifiques devient de plus en plus floue.",
+          "en": "Some researchers believe that the boundary between scientific disciplines is becoming increasingly blurred.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.257",
+          "theme": "decouvertes",
+          "fr": "En surveillant en permanence l'activité d'un volcan, les scientifiques espèrent anticiper la prochaine éruption.",
+          "en": "By continuously monitoring a volcano's activity, scientists hope to anticipate the next eruption.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.237",
+          "theme": "decouvertes",
+          "fr": "Plusieurs créatures des grands fonds marins produisent elles-mêmes leur propre lumière pour attirer leurs proies.",
+          "en": "Several deep sea creatures produce their own light to attract their prey.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.disciplines.015",
+          "theme": "disciplines",
+          "fr": "Bien qu'elle soit passionnante, la neurobiologie demeure une discipline exigeante et peu accessible aux débutants.",
+          "en": "Although fascinating, neurobiology remains a demanding discipline that is not very accessible to beginners.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-technologie.079",
+          "theme": "rp-technologie",
+          "fr": "Le développement rapide des technologies rend parfois difficile de distinguer une information fiable d'une rumeur.",
+          "en": "The rapid development of technology sometimes makes it hard to tell reliable information from a rumor.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.217",
+          "theme": "decouvertes",
+          "fr": "Les chercheurs doivent souvent rédiger plusieurs demandes avant d'obtenir le financement nécessaire à leurs travaux.",
+          "en": "Researchers often have to write several applications before obtaining the funding needed for their work.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.041",
+          "theme": "decouvertes",
+          "fr": "Sans la découverte de la pénicilline, de nombreuses infections aujourd'hui bénignes auraient longtemps été mortelles.",
+          "en": "Without the discovery of penicillin, many infections that are benign today would long have been fatal.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.231",
+          "theme": "decouvertes",
+          "fr": "Dans certaines usines, des robots autonomes effectuent désormais des tâches jugées trop répétitives pour des employés.",
+          "en": "In some factories, autonomous robots now perform tasks deemed too repetitive for employees.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.253",
+          "theme": "decouvertes",
+          "fr": "En combinant la biologie et l'informatique, certains chercheurs modélisent la propagation des maladies sur ordinateur.",
+          "en": "By combining biology and computer science, some researchers model the spread of diseases on a computer.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.methode-scientifique.022",
+          "theme": "methode-scientifique",
+          "fr": "Avant de valider une théorie, les scientifiques exigent qu'elle soit confirmée par plusieurs expériences indépendantes.",
+          "en": "Before validating a theory, scientists require it to be confirmed by several independent experiments.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.218",
+          "theme": "decouvertes",
+          "fr": "Pour isoler une seule variable, les scientifiques contrôlent soigneusement toutes les autres conditions de l'expérience.",
+          "en": "To isolate a single variable, scientists carefully control all the other conditions of the experiment.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.232",
+          "theme": "decouvertes",
+          "fr": "En manipulant la matière à l'échelle moléculaire, les nanotechnologies ouvrent des possibilités jusqu'ici inimaginables.",
+          "en": "By manipulating matter at the molecular scale, nanotechnologies open up possibilities previously unimaginable.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.decouvertes.216",
+          "theme": "decouvertes",
+          "fr": "Certains résultats prometteurs ne parviennent jamais à être reproduits lorsque d'autres laboratoires tentent l'expérience.",
+          "en": "Some promising results never manage to be reproduced when other laboratories attempt the experiment.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-technologie.061",
+          "theme": "rp-technologie",
+          "fr": "Il serait souhaitable que les organismes publics simplifient davantage leurs plateformes numériques pour les nouveaux arrivants.",
+          "en": "It would be desirable for public agencies to further simplify their digital platforms for newcomers.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-technologie.067",
+          "theme": "rp-technologie",
+          "fr": "À moins que vous ne configuriez correctement vos paramètres de confidentialité, vos informations resteront visibles publiquement.",
+          "en": "Unless you configure your privacy settings correctly, your information will remain publicly visible.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.disciplines.114",
+          "theme": "disciplines",
+          "fr": "Bien que la reconnaissance des diplômes étrangers reste compliquée, plusieurs provinces canadiennes ont simplifié leurs démarches.",
+          "en": "Although recognition of foreign degrees remains complicated, several Canadian provinces have simplified their procedures.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-technologie.071",
+          "theme": "rp-technologie",
+          "fr": "Bien que l'intelligence artificielle facilite plusieurs tâches quotidiennes, elle soulève aussi des questions éthiques importantes.",
+          "en": "Although artificial intelligence makes many everyday tasks easier, it also raises important ethical questions.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.universite.026",
+          "theme": "universite",
+          "fr": "Il se pourrait que la fusion des deux facultés soit annoncée avant la fin de l'année.",
+          "en": "It's possible that the merger of the two faculties will be announced before the end of the year.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.examens-et-diplomes.137",
+          "theme": "examens-et-diplomes",
+          "fr": "Après avoir obtenu son diplôme, il a continué à se former tout au long de sa carrière.",
+          "en": "After earning his diploma, he kept training throughout his career.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.025",
+          "theme": "decouvertes",
+          "fr": "James Watson et Francis Crick ont décrit la structure en double hélice de l'ADN en 1953.",
+          "en": "James Watson and Francis Crick described the double-helix structure of DNA in 1953.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.disciplines.013",
+          "theme": "disciplines",
+          "fr": "Il n'est pas rare qu'un étudiant change de discipline après sa première année d'université.",
+          "en": "It's not unusual for a student to change disciplines after their first year of university.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.disciplines.024",
+          "theme": "disciplines",
+          "fr": "Il semble que les étudiants s'orientent de plus en plus vers les sciences de l'environnement.",
+          "en": "It seems that students are increasingly turning toward environmental sciences.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.036",
+          "theme": "methode-scientifique",
+          "fr": "Pour éviter tout biais, les patients ne savent pas s'ils reçoivent le médicament ou le placebo.",
+          "en": "To avoid any bias, patients don't know whether they are receiving the medication or the placebo.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.039",
+          "theme": "decouvertes",
+          "fr": "Stephen Hawking a consacré une grande partie de sa carrière à l'étude théorique des trous noirs.",
+          "en": "Stephen Hawking devoted a large part of his career to the theoretical study of black holes.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.universite.021",
+          "theme": "universite",
+          "fr": "L'université a mis en place un tutorat pour que les nouveaux étudiants s'adaptent plus facilement.",
+          "en": "The university set up a tutoring program so that new students could adapt more easily.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.036",
+          "theme": "decouvertes",
+          "fr": "C'est en observant la fermentation que Louis Pasteur a jeté les bases de la microbiologie moderne.",
+          "en": "It was by observing fermentation that Louis Pasteur laid the foundations of modern microbiology.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.recherche.116",
+          "theme": "recherche",
+          "fr": "Bien qu'elle sache que son directeur ne sera pas convaincu, elle défend sa méthode avec assurance.",
+          "en": "Although she knows her supervisor won't be convinced, she defends her method with confidence.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.recherche.022",
+          "theme": "recherche",
+          "fr": "Le financement a été accordé à condition que les résultats soient rendus publics dans les deux ans.",
+          "en": "The funding was granted on condition that the results be made public within two years.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.212",
+          "theme": "decouvertes",
+          "fr": "En 1921, une équipe de Toronto a isolé une hormone qui allait transformer le traitement du diabète.",
+          "en": "In 1921, a team from Toronto isolated a hormone that would transform the treatment of diabetes.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.024",
+          "theme": "methode-scientifique",
+          "fr": "Pour qu'une expérience soit fiable, il faut qu'elle puisse être reproduite par d'autres laboratoires.",
+          "en": "For an experiment to be reliable, it must be reproducible in other laboratories.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.254",
+          "theme": "decouvertes",
+          "fr": "Des biologistes passent parfois des mois sur le terrain à observer une espèce dans son milieu naturel.",
+          "en": "Biologists sometimes spend months in the field observing a species in its natural habitat.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.244",
+          "theme": "methode-scientifique",
+          "fr": "Il faut que le protocole expérimental prévoie un groupe témoin pour isoler l'effet réel du traitement.",
+          "en": "The experimental protocol must include a control group to isolate the treatment's real effect.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.222",
+          "theme": "methode-scientifique",
+          "fr": "Il est peu probable que ces résultats préliminaires se confirment lors des essais à plus grande échelle.",
+          "en": "It is unlikely that these preliminary results will be confirmed in larger-scale trials.",
+          "words": 17
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.b2.rp-technologie.070",
+          "theme": "rp-technologie",
+          "fr": "Il vaudrait mieux que tu sauvegardes régulièrement ton travail, au cas où le système tomberait en panne.",
+          "en": "You'd better save your work regularly, in case the system crashes.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.disciplines.029",
+          "theme": "disciplines",
+          "fr": "Bien que la médecine attire chaque année des milliers de candidats, seule une minorité obtient une place.",
+          "en": "Although medicine attracts thousands of candidates every year, only a minority get a place.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.universite.014",
+          "theme": "universite",
+          "fr": "Le conseil scientifique a rejeté le projet, bien qu'il ait été soutenu par plusieurs professeurs influents.",
+          "en": "The scientific council rejected the project, even though it had been supported by several influential professors.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.044",
+          "theme": "methode-scientifique",
+          "fr": "Avant de généraliser une conclusion, il convient de vérifier qu'elle s'applique à des contextes différents.",
+          "en": "Before generalizing a conclusion, it is worth checking that it applies to different contexts.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.024",
+          "theme": "decouvertes",
+          "fr": "Wilhelm Röntgen a découvert les rayons X presque par accident, en manipulant un tube à décharge électrique.",
+          "en": "Wilhelm Röntgen discovered X-rays almost by accident, while handling an electric discharge tube.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.029",
+          "theme": "decouvertes",
+          "fr": "La découverte des ondes gravitationnelles en 2015 a confirmé une prédiction d'Einstein vieille d'un siècle.",
+          "en": "The discovery of gravitational waves in 2015 confirmed a century-old prediction by Einstein.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.231",
+          "theme": "methode-scientifique",
+          "fr": "Dès qu'un résultat surprenant apparaît, les scientifiques cherchent d'abord à écarter une erreur de mesure.",
+          "en": "As soon as a surprising result appears, scientists first try to rule out a measurement error.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.recherche.020",
+          "theme": "recherche",
+          "fr": "Cette découverte suscite d'autant plus d'intérêt qu'elle contredit un paradigme établi depuis des décennies.",
+          "en": "This discovery is generating all the more interest because it contradicts a paradigm established decades ago.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.053",
+          "theme": "decouvertes",
+          "fr": "La conquête spatiale a permis de nombreuses découvertes qui n'auraient jamais été possibles depuis la Terre.",
+          "en": "The space race enabled many discoveries that would never have been possible from Earth.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.238",
+          "theme": "decouvertes",
+          "fr": "L'usage excessif des antibiotiques favorise l'apparition de bactéries de plus en plus difficiles à combattre.",
+          "en": "The excessive use of antibiotics favors the emergence of bacteria that are increasingly difficult to fight.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.025",
+          "theme": "methode-scientifique",
+          "fr": "Les chercheurs comparent toujours un groupe témoin à un groupe expérimental afin d'isoler la variable étudiée.",
+          "en": "Researchers always compare a control group to an experimental group in order to isolate the variable being studied.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.208",
+          "theme": "methode-scientifique",
+          "fr": "Il se peut que les chercheurs doivent revoir entièrement leur modèle si les nouvelles données le contredisent.",
+          "en": "It's possible that the researchers will have to completely revise their model if the new data contradicts it.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.universite.008",
+          "theme": "universite",
+          "fr": "À moins que le ministère ne débloque des fonds supplémentaires, la rénovation de la bibliothèque sera reportée.",
+          "en": "Unless the ministry releases additional funds, the library renovation will be postponed.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.221",
+          "theme": "methode-scientifique",
+          "fr": "Le professeur explique que la science avance souvent par essais et erreurs plutôt que par intuitions soudaines.",
+          "en": "The professor explains that science often advances by trial and error rather than by sudden intuitions.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.028",
+          "theme": "decouvertes",
+          "fr": "Dmitri Mendeleïev a élaboré le tableau périodique en laissant des cases vides pour des éléments encore inconnus.",
+          "en": "Dmitri Mendeleev developed the periodic table, leaving blank spaces for elements still unknown.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.206",
+          "theme": "decouvertes",
+          "fr": "Sandford Fleming, ingénieur canadien, a proposé au dix-neuvième siècle le découpage du monde en fuseaux horaires.",
+          "en": "Sandford Fleming, a Canadian engineer, proposed in the nineteenth century the division of the world into time zones.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.220",
+          "theme": "decouvertes",
+          "fr": "Les revues scientifiques exigent que chaque étude décrive précisément sa méthode afin qu'elle puisse être vérifiée.",
+          "en": "Scientific journals require that each study precisely describe its method so that it can be verified.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.040",
+          "theme": "methode-scientifique",
+          "fr": "Les scientifiques formulent d'abord une hypothèse avant de concevoir un protocole expérimental capable de la tester.",
+          "en": "Scientists first formulate a hypothesis before designing an experimental protocol capable of testing it.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.219",
+          "theme": "methode-scientifique",
+          "fr": "Il importe que les chercheurs présentent leurs conclusions avec toute la prudence qu'exige la démarche scientifique.",
+          "en": "It matters that researchers present their conclusions with all the caution the scientific approach requires.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.disciplines.123",
+          "theme": "disciplines",
+          "fr": "Bien que les frais de scolarité soient élevés, de nombreux étudiants internationaux choisissent d'étudier au Québec.",
+          "en": "Although tuition fees are high, many international students choose to study in Quebec.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.methode-scientifique.045",
+          "theme": "methode-scientifique",
+          "fr": "Les chercheurs doivent consigner chaque étape de leur protocole afin que l'expérience puisse être reproduite fidèlement.",
+          "en": "Researchers must record each step of their protocol so that the experiment can be reliably reproduced.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.227",
+          "theme": "decouvertes",
+          "fr": "Des fouilles archéologiques ont révélé des outils témoignant du savoir-faire technique des premiers habitants du territoire.",
+          "en": "Archaeological digs revealed tools attesting to the technical know-how of the territory's first inhabitants.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-technologie.066",
+          "theme": "rp-technologie",
+          "fr": "Quoique ce logiciel soit gratuit, il comporte certaines limites qui deviennent vite frustrantes pour un usage professionnel.",
+          "en": "Although this software is free, it has certain limitations that quickly become frustrating for professional use.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.disciplines.033",
+          "theme": "disciplines",
+          "fr": "Le doyen souhaite que les étudiants développent une véritable culture scientifique générale, quelle que soit leur spécialité.",
+          "en": "The dean wants students to develop a genuine general scientific culture, whatever their specialty.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.disciplines.019",
+          "theme": "disciplines",
+          "fr": "Il se peut que l'intelligence artificielle redéfinisse complètement certaines disciplines scientifiques dans les décennies à venir.",
+          "en": "It's possible that artificial intelligence will completely redefine certain scientific disciplines in the coming decades.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-technologie.068",
+          "theme": "rp-technologie",
+          "fr": "Plus les services administratifs se numérisent, plus il devient essentiel de maîtriser certaines compétences informatiques de base.",
+          "en": "The more administrative services go digital, the more essential it becomes to master certain basic computer skills.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.decouvertes.023",
+          "theme": "decouvertes",
+          "fr": "C'est en étudiant des petits pois que Gregor Mendel a posé les bases de la génétique moderne.",
+          "en": "It was by studying peas that Gregor Mendel laid the foundations of modern genetics.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.249",
+          "theme": "methode-scientifique",
+          "fr": "Il se pourrait que les fonds alloués à ce projet soient insuffisants pour mener l'étude à terme.",
+          "en": "It's possible that the funds allocated to this project are insufficient to bring the study to completion.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.disciplines.007",
+          "theme": "disciplines",
+          "fr": "Quoi qu'on en pense, la chimie organique reste l'une des matières les plus redoutées des étudiants.",
+          "en": "Whatever people may think about it, organic chemistry remains one of the subjects students dread most.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.209",
+          "theme": "methode-scientifique",
+          "fr": "La chercheuse souhaitait que son collègue relise l'article avant qu'elle ne le soumette à la revue.",
+          "en": "The researcher wanted her colleague to reread the article before she submitted it to the journal.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.universite.005",
+          "theme": "universite",
+          "fr": "Quoi qu'il en soit, le conseil d'administration devra statuer sur la hausse des frais d'inscription.",
+          "en": "Be that as it may, the board of directors will have to rule on the tuition fee increase.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recherche.013",
+          "theme": "recherche",
+          "fr": "Dès que les données seront validées, l'équipe soumettra son article à une revue à comité de lecture.",
+          "en": "As soon as the data are validated, the team will submit its article to a peer-reviewed journal.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.026",
+          "theme": "methode-scientifique",
+          "fr": "Il ne suffit pas d'observer un phénomène, encore faut-il pouvoir l'expliquer par un mécanisme précis.",
+          "en": "It's not enough to observe a phenomenon; one must also be able to explain it through a precise mechanism.",
+          "words": 18
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.b2.methode-scientifique.043",
+          "theme": "methode-scientifique",
+          "fr": "Il se peut qu'une théorie largement acceptée soit un jour remise en question par de nouvelles données.",
+          "en": "It's possible that a widely accepted theory will one day be called into question by new data.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.028",
+          "theme": "methode-scientifique",
+          "fr": "Une hypothèse qui ne peut être réfutée par aucune expérience n'appartient pas au domaine de la science.",
+          "en": "A hypothesis that cannot be refuted by any experiment does not belong to the domain of science.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.022",
+          "theme": "decouvertes",
+          "fr": "Charles Darwin a mis des années à rassembler les preuves qui allaient fonder la théorie de l'évolution.",
+          "en": "Charles Darwin spent years gathering the evidence that would go on to found the theory of evolution.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.040",
+          "theme": "decouvertes",
+          "fr": "La radioactivité, découverte à la fin du dix-neuvième siècle, a ouvert la voie à la physique nucléaire.",
+          "en": "Radioactivity, discovered at the end of the nineteenth century, opened the way to nuclear physics.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.242",
+          "theme": "methode-scientifique",
+          "fr": "Après avoir formulé son hypothèse, la chercheuse a conçu un protocole capable de la mettre à l'épreuve.",
+          "en": "After formulating her hypothesis, the researcher designed a protocol capable of testing it.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recherche.009",
+          "theme": "recherche",
+          "fr": "À moins que de nouveaux financements ne soient trouvés, le projet risque d'être abandonné l'an prochain.",
+          "en": "Unless new funding is found, the project risks being abandoned next year.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.disciplines.014",
+          "theme": "disciplines",
+          "fr": "Avant de s'inscrire en médecine, il vaut mieux qu'un étudiant ait suivi un solide parcours scientifique.",
+          "en": "Before enrolling in medicine, it's better for a student to have followed a solid scientific track.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recherche.026",
+          "theme": "recherche",
+          "fr": "Afin que d'autres équipes puissent vérifier ces résultats, le code source a été rendu accessible en ligne.",
+          "en": "So that other teams can verify these results, the source code has been made accessible online.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.disciplines.032",
+          "theme": "disciplines",
+          "fr": "Plus une discipline se spécialise, plus il devient difficile pour un non-initié d'en comprendre les enjeux.",
+          "en": "The more a discipline specializes, the harder it becomes for an outsider to understand its stakes.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.215",
+          "theme": "methode-scientifique",
+          "fr": "Le comité d'éthique exige que chaque participant donne son consentement avant le début de l'essai clinique.",
+          "en": "The ethics committee requires each participant to give consent before the clinical trial begins.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recherche.125",
+          "theme": "recherche",
+          "fr": "Bien qu'ayant consacré des années à ce sujet, le professeur reconnaît volontiers les limites de son travail.",
+          "en": "Although having devoted years to this subject, the professor readily admits the limits of his work.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recherche.129",
+          "theme": "recherche",
+          "fr": "Loin de se laisser décourager par l'échec de sa première expérience, elle en tira des enseignements précieux.",
+          "en": "Far from letting herself be discouraged by the failure of her first experiment, she drew valuable lessons from it.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.223",
+          "theme": "methode-scientifique",
+          "fr": "Les chercheurs ont dû recommencer l'expérience après qu'un défaut dans l'appareillage eut faussé les mesures.",
+          "en": "The researchers had to restart the experiment after a fault in the equipment had skewed the measurements.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.disciplines.027",
+          "theme": "disciplines",
+          "fr": "Bien qu'on associe souvent la chimie aux laboratoires, elle intervient aussi dans la cuisine et l'agriculture.",
+          "en": "Although chemistry is often associated with laboratories, it also plays a role in cooking and agriculture.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.233",
+          "theme": "decouvertes",
+          "fr": "Le coût du séquençage d'un génome humain a considérablement chuté depuis le lancement du projet génome humain.",
+          "en": "The cost of sequencing a human genome has dropped considerably since the launch of the Human Genome Project.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.235",
+          "theme": "decouvertes",
+          "fr": "Un nouveau télescope installé en orbite capte des images de galaxies situées à des milliards d'années-lumière.",
+          "en": "A new telescope placed in orbit captures images of galaxies located billions of light years away.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.255",
+          "theme": "decouvertes",
+          "fr": "Le baromètre a permis, dès le dix-septième siècle, de mesurer pour la première fois la pression atmosphérique.",
+          "en": "The barometer made it possible, from the seventeenth century onward, to measure atmospheric pressure for the first time.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.disciplines.119",
+          "theme": "disciplines",
+          "fr": "Pour que son dossier soit traité rapidement, elle a fourni tous les documents demandés dès la première visite.",
+          "en": "For her file to be processed quickly, she provided all the requested documents on her very first visit.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.048",
+          "theme": "decouvertes",
+          "fr": "C'est presque par hasard qu'Alexander Fleming a remarqué qu'une moisissure empêchait la croissance de bactéries.",
+          "en": "It was almost by chance that Alexander Fleming noticed that a mold was preventing the growth of bacteria.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.243",
+          "theme": "methode-scientifique",
+          "fr": "Certains résultats furent contestés dès leur publication, ce qui provoqua un vif débat au sein de la discipline.",
+          "en": "Some results were contested as soon as they were published, which sparked a lively debate within the discipline.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.261",
+          "theme": "methode-scientifique",
+          "fr": "La rigueur scientifique exige que l'on distingue nettement les faits observés des interprétations qu'on en tire.",
+          "en": "Scientific rigor demands that observed facts be clearly distinguished from the interpretations drawn from them.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-technologie.084",
+          "theme": "rp-technologie",
+          "fr": "Une fois que j'aurai terminé cette formation en programmation, je pourrai postuler à des postes plus techniques.",
+          "en": "Once I've finished this programming course, I'll be able to apply for more technical positions.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.048",
+          "theme": "methode-scientifique",
+          "fr": "Pour que les résultats soient jugés fiables, il faut que l'expérience soit répétée par des équipes indépendantes.",
+          "en": "For the results to be judged reliable, the experiment must be repeated by independent teams.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.247",
+          "theme": "decouvertes",
+          "fr": "La plupart des demandes de subvention sont rejetées dès la première tentative, même lorsque le projet est solide.",
+          "en": "Most grant applications are rejected on the first attempt, even when the project is solid.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.030",
+          "theme": "methode-scientifique",
+          "fr": "Les scientifiques doivent veiller à ce que leurs propres attentes n'influencent pas les résultats de l'expérience.",
+          "en": "Scientists must make sure that their own expectations do not influence the results of the experiment.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-technologie.080",
+          "theme": "rp-technologie",
+          "fr": "Avant que je ne comprenne comment fonctionnait cet algorithme, j'avais l'impression de perdre un temps considérable.",
+          "en": "Before I understood how this algorithm worked, I felt like I was wasting a considerable amount of time.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.044",
+          "theme": "decouvertes",
+          "fr": "L'internet, né de recherches militaires et universitaires, a fini par transformer la vie quotidienne du monde entier.",
+          "en": "The internet, born out of military and academic research, eventually transformed daily life around the world.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.032",
+          "theme": "methode-scientifique",
+          "fr": "Il est essentiel que l'échantillon étudié soit suffisamment large pour que les résultats aient une valeur statistique.",
+          "en": "It is essential that the sample studied be large enough for the results to have statistical value.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.052",
+          "theme": "decouvertes",
+          "fr": "La théorie de la relativité générale a mis plusieurs décennies avant d'être pleinement vérifiée par les scientifiques.",
+          "en": "The theory of general relativity took several decades before being fully verified by scientists.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.disciplines.010",
+          "theme": "disciplines",
+          "fr": "Bien que la physique et les mathématiques soient étroitement liées, elles exigent des façons de penser très différentes.",
+          "en": "Although physics and mathematics are closely linked, they require very different ways of thinking.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.043",
+          "theme": "decouvertes",
+          "fr": "La mécanique quantique a introduit des concepts si étranges que même ses fondateurs peinaient à les accepter pleinement.",
+          "en": "Quantum mechanics introduced concepts so strange that even its founders struggled to fully accept them.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.211",
+          "theme": "decouvertes",
+          "fr": "Ursula Franklin a analysé des dents de lait pour mesurer la contamination radioactive laissée par les essais nucléaires.",
+          "en": "Ursula Franklin analyzed baby teeth to measure the radioactive contamination left by nuclear tests.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.230",
+          "theme": "decouvertes",
+          "fr": "Les chercheurs espèrent qu'un jour, un ordinateur quantique résoudra des problèmes hors de portée des machines actuelles.",
+          "en": "Researchers hope that one day a quantum computer will solve problems beyond the reach of current machines.",
+          "words": 18
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.b2.decouvertes.263",
+          "theme": "decouvertes",
+          "fr": "Certains algorithmes aident désormais les médecins à repérer des maladies dès les premiers signes visibles sur une image.",
+          "en": "Some algorithms now help doctors detect diseases from the earliest signs visible on an image.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-technologie.082",
+          "theme": "rp-technologie",
+          "fr": "Malgré les avertissements répétés, plusieurs personnes continuent d'utiliser le même mot de passe pour tous leurs comptes.",
+          "en": "Despite repeated warnings, many people keep using the same password for all their accounts.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.methode-scientifique.055",
+          "theme": "methode-scientifique",
+          "fr": "Quelle que soit la discipline, la démarche scientifique repose toujours sur l'observation, l'hypothèse et l'expérimentation.",
+          "en": "Whatever the discipline, the scientific approach always rests on observation, hypothesis, and experimentation.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.disciplines.038",
+          "theme": "disciplines",
+          "fr": "Que l'on préfère les sciences exactes ou les sciences humaines, chaque discipline exige une véritable rigueur intellectuelle.",
+          "en": "Whether one prefers the exact sciences or the humanities, every discipline demands genuine intellectual rigor.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.decouvertes.241",
+          "theme": "decouvertes",
+          "fr": "Grâce à l'impression tridimensionnelle, il est désormais possible de fabriquer des prothèses sur mesure, couche après couche.",
+          "en": "Thanks to three dimensional printing, it is now possible to manufacture custom prosthetics, layer by layer.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.disciplines.120",
+          "theme": "disciplines",
+          "fr": "Il se pourrait que l'immigration économique favorise davantage les professions réglementées comme le génie ou la comptabilité.",
+          "en": "It's possible that economic immigration favours regulated professions like engineering or accounting even more.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.disciplines.020",
+          "theme": "disciplines",
+          "fr": "Contrairement à ce que l'on croit souvent, la géologie ne se limite pas à l'étude des roches.",
+          "en": "Contrary to what people often think, geology is not limited to the study of rocks.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.disciplines.028",
+          "theme": "disciplines",
+          "fr": "Il est peu probable qu'un seul chercheur maîtrise à la fois la physique, la chimie et la biologie.",
+          "en": "It's unlikely that a single researcher would master physics, chemistry, and biology all at once.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.recherche.115",
+          "theme": "recherche",
+          "fr": "Bien qu'il n'ait pas eu accès à toutes les archives, l'historien parvint à reconstituer les faits.",
+          "en": "Although he did not have access to all the archives, the historian managed to reconstruct the facts.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.rp-technologie.075",
+          "theme": "rp-technologie",
+          "fr": "C'est à force d'utiliser ce genre d'application que j'ai fini par comprendre son véritable fonctionnement.",
+          "en": "It was only through repeated use of this kind of app that I finally understood how it really works.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.decouvertes.251",
+          "theme": "decouvertes",
+          "fr": "Avant qu'un essai sur des sujets humains puisse commencer, un comité d'éthique doit en approuver le protocole.",
+          "en": "Before a trial on human subjects can begin, an ethics committee must approve its protocol.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.methode-scientifique.210",
+          "theme": "methode-scientifique",
+          "fr": "On aurait pu croire que ce phénomène s'expliquait facilement, mais la réalité s'est révélée bien plus complexe.",
+          "en": "One might have thought this phenomenon was easy to explain, but reality turned out to be far more complex.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.methode-scientifique.257",
+          "theme": "methode-scientifique",
+          "fr": "Les scientifiques ont fini par admettre que leur modèle initial ne rendait pas compte de tous les cas observés.",
+          "en": "Scientists eventually admitted that their initial model did not account for all the observed cases.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.disciplines.005",
+          "theme": "disciplines",
+          "fr": "Bien qu'elle ait toujours été douée en lettres, elle a finalement choisi de se spécialiser en physique quantique.",
+          "en": "Although she had always been gifted in the humanities, she ultimately chose to specialize in quantum physics.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.methode-scientifique.054",
+          "theme": "methode-scientifique",
+          "fr": "Les scientifiques doivent distinguer avec soin ce qui relève de l'observation et ce qui relève de l'interprétation.",
+          "en": "Scientists must carefully distinguish what belongs to observation from what belongs to interpretation.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.decouvertes.032",
+          "theme": "decouvertes",
+          "fr": "La théorie de la dérive des continents, longtemps rejetée, a fini par être confirmée par la tectonique des plaques.",
+          "en": "The theory of continental drift, long rejected, was eventually confirmed by plate tectonics.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.decouvertes.215",
+          "theme": "decouvertes",
+          "fr": "Avant d'être publiés, les résultats d'une étude scientifique sont examinés par d'autres chercheurs du même domaine.",
+          "en": "Before being published, the results of a scientific study are examined by other researchers in the same field.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.decouvertes.239",
+          "theme": "decouvertes",
+          "fr": "Une campagne mondiale de vaccination a permis d'éradiquer complètement la variole à la fin des années soixante-dix.",
+          "en": "A worldwide vaccination campaign made it possible to completely eradicate smallpox in the late 1970s.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.decouvertes.262",
+          "theme": "decouvertes",
+          "fr": "Les agences spatiales suivent de près les débris qui s'accumulent en orbite afin de protéger les satellites actifs.",
+          "en": "Space agencies closely track the debris accumulating in orbit in order to protect active satellites.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.disciplines.122",
+          "theme": "disciplines",
+          "fr": "Bien qu'elle soit infirmière depuis dix ans en Algérie, elle doit repasser plusieurs examens pour exercer au Canada.",
+          "en": "Although she has been a nurse in Algeria for ten years, she has to retake several exams to practice in Canada.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.decouvertes.236",
+          "theme": "decouvertes",
+          "fr": "Certains micro-organismes survivent dans des sources d'eau bouillante là où toute autre forme de vie serait détruite.",
+          "en": "Some microorganisms survive in boiling water springs where any other form of life would be destroyed.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.decouvertes.244",
+          "theme": "decouvertes",
+          "fr": "Des milliers de bénévoles participent en ligne à des projets de science citoyenne en classant des images de galaxies.",
+          "en": "Thousands of volunteers participate online in citizen science projects by classifying images of galaxies.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.methode-scientifique.039",
+          "theme": "methode-scientifique",
+          "fr": "Bien que les statistiques révèlent une tendance nette, elles ne permettent pas toujours d'en identifier la cause exacte.",
+          "en": "Although statistics reveal a clear trend, they do not always allow us to identify its exact cause.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.decouvertes.258",
+          "theme": "decouvertes",
+          "fr": "Certains systèmes d'alerte détectent les premières secousses d'un séisme quelques secondes avant qu'il ne soit ressenti.",
+          "en": "Some warning systems detect the first tremors of an earthquake a few seconds before it is felt.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.disciplines.030",
+          "theme": "disciplines",
+          "fr": "Bien qu'elles semblent éloignées, l'astronomie et la philosophie partagent une même interrogation sur l'origine du monde.",
+          "en": "Although they seem far apart, astronomy and philosophy share the same question about the origin of the world.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.methode-scientifique.240",
+          "theme": "methode-scientifique",
+          "fr": "Les statisticiens ont recommandé d'augmenter la taille de l'échantillon pour renforcer la puissance statistique de l'étude.",
+          "en": "The statisticians recommended increasing the sample size to strengthen the study's statistical power.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.methode-scientifique.031",
+          "theme": "methode-scientifique",
+          "fr": "Quand bien même une corrélation apparaît clairement dans les données, elle ne prouve pas nécessairement un lien de causalité.",
+          "en": "Even though a correlation clearly appears in the data, it does not necessarily prove a causal link.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.decouvertes.259",
+          "theme": "decouvertes",
+          "fr": "Convaincre le public de faire confiance à une nouvelle découverte exige souvent autant de pédagogie que de rigueur scientifique.",
+          "en": "Convincing the public to trust a new discovery often requires as much pedagogy as scientific rigor.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.disciplines.128",
+          "theme": "disciplines",
+          "fr": "Afin que les nouveaux arrivants s'intègrent plus facilement au marché du travail, plusieurs organismes offrent des stages rémunérés.",
+          "en": "So that newcomers can integrate into the labour market more easily, several organizations offer paid internships.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.decouvertes.049",
+          "theme": "decouvertes",
+          "fr": "Les avancées récentes en intelligence artificielle sont souvent comparées, par leur portée, aux grandes découvertes scientifiques du siècle dernier.",
+          "en": "Recent advances in artificial intelligence are often compared, in scope, to the great scientific discoveries of the last century.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.recherche.011",
+          "theme": "recherche",
+          "fr": "Il se peut que ces résultats s'expliquent par un facteur que l'étude n'a pas pris en compte.",
+          "en": "It's possible that these results are explained by a factor the study did not account for.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.recherche.142",
+          "theme": "recherche",
+          "fr": "C'est à se demander si la pression de publier ne nuit pas à la qualité même du travail scientifique.",
+          "en": "One has to wonder whether the pressure to publish is not harming the very quality of scientific work.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.disciplines.113",
+          "theme": "disciplines",
+          "fr": "Bien que son diplôme ait été obtenu à l'étranger, il a fini par être reconnu par l'ordre professionnel.",
+          "en": "Although his degree was earned abroad, it was eventually recognized by the professional order.",
+          "words": 20
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.b2.rp-technologie.074",
+          "theme": "rp-technologie",
+          "fr": "Pour peu qu'on néglige la mise à jour de ses logiciels, on s'expose davantage aux tentatives de piratage.",
+          "en": "If you neglect to update your software even a little, you become more exposed to hacking attempts.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.decouvertes.034",
+          "theme": "decouvertes",
+          "fr": "La découverte du boson de Higgs en 2012 a permis de confirmer un pan entier de la physique des particules.",
+          "en": "The discovery of the Higgs boson in 2012 made it possible to confirm an entire branch of particle physics.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.disciplines.008",
+          "theme": "disciplines",
+          "fr": "Pour qu'un étudiant réussisse en biologie moléculaire, il faut qu'il maîtrise d'abord les bases de la chimie.",
+          "en": "For a student to succeed in molecular biology, they must first master the basics of chemistry.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.universite.003",
+          "theme": "universite",
+          "fr": "Bien que le taux d'échec en première année reste élevé, l'université refuse de réformer ses méthodes d'enseignement.",
+          "en": "Although the first-year failure rate remains high, the university refuses to reform its teaching methods.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.decouvertes.033",
+          "theme": "decouvertes",
+          "fr": "L'atterrissage sur la Lune en 1969 reste l'une des plus grandes prouesses scientifiques et techniques de l'histoire.",
+          "en": "The Moon landing in 1969 remains one of the greatest scientific and technical feats in history.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.decouvertes.047",
+          "theme": "decouvertes",
+          "fr": "La cartographie du génome humain, achevée au début des années deux mille, a marqué une étape majeure de la génétique.",
+          "en": "The mapping of the human genome, completed in the early two-thousands, marked a major milestone in genetics.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.decouvertes.208",
+          "theme": "decouvertes",
+          "fr": "Chris Hadfield a commandé la Station spatiale internationale et s'est fait connaître du grand public grâce à ses vidéos.",
+          "en": "Chris Hadfield commanded the International Space Station and became known to the general public through his videos.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.disciplines.131",
+          "theme": "disciplines",
+          "fr": "Que l'on soit ingénieur, médecin ou comptable, il faut souvent prouver ses compétences à nouveau en immigrant au Canada.",
+          "en": "Whether you're an engineer, a doctor, or an accountant, you often have to prove your skills again when you immigrate to Canada.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.decouvertes.051",
+          "theme": "decouvertes",
+          "fr": "On ignore encore aujourd'hui tout ce que la découverte des cellules souches pourrait un jour rendre possible en médecine.",
+          "en": "Even today, we still don't know everything the discovery of stem cells might one day make possible in medicine.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.rp-technologie.064",
+          "theme": "rp-technologie",
+          "fr": "Si les autorités n'avaient pas numérisé ce processus, il aurait fallu se déplacer plusieurs fois pour déposer un dossier.",
+          "en": "If the authorities hadn't digitized this process, it would have taken several trips to submit a file.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.methode-scientifique.247",
+          "theme": "methode-scientifique",
+          "fr": "Le simple fait d'observer un participant peut modifier son comportement, ce que les scientifiques appellent un biais d'observation.",
+          "en": "The mere fact of observing a participant can change their behavior, which scientists call an observation bias.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.rp-technologie.081",
+          "theme": "rp-technologie",
+          "fr": "Il est probable que la reconnaissance faciale devienne encore plus répandue dans les services publics au cours des prochaines années.",
+          "en": "It's likely that facial recognition will become even more widespread in public services over the coming years.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.decouvertes.054",
+          "theme": "decouvertes",
+          "fr": "Il aura fallu des siècles d'observations patientes pour que les astronomes comprennent enfin la véritable structure du système solaire.",
+          "en": "It took centuries of patient observation for astronomers to finally understand the true structure of the solar system.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.universite.010",
+          "theme": "universite",
+          "fr": "Pour peu qu'on s'y prenne à l'avance, obtenir un stage à l'étranger n'a rien d'impossible.",
+          "en": "As long as you plan ahead, getting an internship abroad is far from impossible.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.decouvertes.243",
+          "theme": "decouvertes",
+          "fr": "Reproduire l'énergie du soleil grâce à la fusion nucléaire reste l'un des plus grands défis de la physique actuelle.",
+          "en": "Reproducing the sun's energy through nuclear fusion remains one of the greatest challenges of current physics.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.methode-scientifique.042",
+          "theme": "methode-scientifique",
+          "fr": "On ne peut affirmer qu'un résultat est significatif que si sa probabilité d'être dû au hasard est suffisamment faible.",
+          "en": "One can only claim that a result is significant if its probability of being due to chance is sufficiently low.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.methode-scientifique.206",
+          "theme": "methode-scientifique",
+          "fr": "Selon lui, aucune théorie ne mérite d'être acceptée tant qu'elle n'a pas résisté à plusieurs tentatives de réfutation.",
+          "en": "According to him, no theory deserves to be accepted until it has withstood several attempts at refutation.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.decouvertes.020",
+          "theme": "decouvertes",
+          "fr": "Isaac Newton a formulé la loi de la gravitation universelle après avoir observé la chute d'une pomme, selon la légende.",
+          "en": "Isaac Newton formulated the law of universal gravitation after watching an apple fall, according to legend.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.decouvertes.234",
+          "theme": "decouvertes",
+          "fr": "La technologie à ARN messager, étudiée depuis des décennies, a permis de mettre au point des vaccins en un temps record.",
+          "en": "Messenger RNA technology, studied for decades, made it possible to develop vaccines in record time.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.rp-technologie.076",
+          "theme": "rp-technologie",
+          "fr": "Étant donné que le service en ligne était inaccessible, j'ai dû me rendre directement au bureau pour régler la situation.",
+          "en": "Since the online service was unavailable, I had to go directly to the office to resolve the situation.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.rp-technologie.062",
+          "theme": "rp-technologie",
+          "fr": "Depuis que j'ai commencé à travailler à distance, j'ai dû apprendre à utiliser plusieurs outils de collaboration en ligne.",
+          "en": "Since I started working remotely, I've had to learn how to use several online collaboration tools.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.decouvertes.042",
+          "theme": "decouvertes",
+          "fr": "L'invention du microscope a permis aux scientifiques d'observer pour la première fois des organismes invisibles à l'œil nu.",
+          "en": "The invention of the microscope allowed scientists to observe, for the first time, organisms invisible to the naked eye.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.disciplines.011",
+          "theme": "disciplines",
+          "fr": "C'est en troisième année que les étudiants doivent choisir une spécialisation, qu'il s'agisse de géologie ou d'astrophysique.",
+          "en": "It's in the third year that students must choose a specialization, whether geology or astrophysics.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.decouvertes.225",
+          "theme": "decouvertes",
+          "fr": "Des sources hydrothermales situées au fond de l'océan abritent des formes de vie qui se passent totalement de lumière solaire.",
+          "en": "Hydrothermal vents on the ocean floor host forms of life that do entirely without sunlight.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.rp-technologie.063",
+          "theme": "rp-technologie",
+          "fr": "Le fait que nos données personnelles circulent autant sur Internet m'inquiète, même si je comprends les avantages de ces services.",
+          "en": "The fact that our personal data circulates so much online worries me, even though I understand the benefits of these services.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.rp-technologie.085",
+          "theme": "rp-technologie",
+          "fr": "Il arrive que les algorithmes de recommandation renforcent nos opinions plutôt que de nous exposer à des points de vue différents.",
+          "en": "Recommendation algorithms sometimes reinforce our opinions rather than exposing us to different points of view.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.disciplines.018",
+          "theme": "disciplines",
+          "fr": "Afin que les étudiants saisissent bien la portée de la génétique, le cours commence toujours par des notions de biologie cellulaire.",
+          "en": "So that students fully grasp the scope of genetics, the course always begins with notions of cell biology.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.rp-technologie.077",
+          "theme": "rp-technologie",
+          "fr": "Il faudrait que les écoles enseignent davantage la sécurité numérique, plutôt que de se contenter d'enseigner l'usage des logiciels.",
+          "en": "Schools should teach more digital security, rather than simply teaching how to use software.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.decouvertes.046",
+          "theme": "decouvertes",
+          "fr": "Bien qu'il n'ait jamais reçu de formation scientifique formelle, Benjamin Franklin a mené des expériences déterminantes sur l'électricité.",
+          "en": "Although he never received formal scientific training, Benjamin Franklin conducted decisive experiments on electricity.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.decouvertes.026",
+          "theme": "decouvertes",
+          "fr": "Galilée a été le premier à observer les lunes de Jupiter grâce à une lunette astronomique qu'il avait lui-même perfectionnée.",
+          "en": "Galileo was the first to observe Jupiter's moons thanks to a telescope he had improved himself.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.decouvertes.210",
+          "theme": "decouvertes",
+          "fr": "John Polanyi, chimiste à l'Université de Toronto, a reçu le prix Nobel pour ses travaux sur la dynamique des réactions chimiques.",
+          "en": "John Polanyi, a chemist at the University of Toronto, received the Nobel Prize for his work on the dynamics of chemical reactions.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.methode-scientifique.035",
+          "theme": "methode-scientifique",
+          "fr": "Il n'est pas rare que des chercheurs modifient légèrement leur protocole en cours d'expérience, ce qui peut fausser les résultats.",
+          "en": "It's not unusual for researchers to slightly modify their protocol during an experiment, which can skew the results.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.rp-technologie.060",
+          "theme": "rp-technologie",
+          "fr": "Bien que je sois plutôt à l'aise avec la technologie, ce nouveau système de gestion administrative me pose encore des difficultés.",
+          "en": "Even though I'm fairly comfortable with technology, this new administrative management system still gives me trouble.",
+          "words": 22
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.b2.decouvertes.224",
+          "theme": "decouvertes",
+          "fr": "En analysant des carottes de glace prélevées en Antarctique, les climatologues reconstituent le climat d'il y a des milliers d'années.",
+          "en": "By analyzing ice cores taken in Antarctica, climatologists reconstruct the climate of thousands of years ago.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.decouvertes.214",
+          "theme": "decouvertes",
+          "fr": "Des physiciens ont installé un détecteur de neutrinos au fond d'une mine de l'Ontario pour observer des particules presque insaisissables.",
+          "en": "Physicists installed a neutrino detector at the bottom of an Ontario mine to observe nearly elusive particles.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.rp-technologie.065",
+          "theme": "rp-technologie",
+          "fr": "Il n'est pas rare que les entreprises exigent désormais une connaissance de base des outils numériques, même pour des postes peu spécialisés.",
+          "en": "It's not uncommon for companies to now require basic knowledge of digital tools, even for low-skilled positions.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.decouvertes.050",
+          "theme": "decouvertes",
+          "fr": "La découverte de nouveaux vaccins pendant la pandémie a démontré la rapidité que peut atteindre la recherche scientifique lorsqu'elle est mondialement mobilisée.",
+          "en": "The discovery of new vaccines during the pandemic demonstrated the speed scientific research can reach when mobilized worldwide.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.decouvertes.209",
+          "theme": "decouvertes",
+          "fr": "Willard Boyle a partagé le prix Nobel de physique pour l'invention du capteur qui équipe aujourd'hui la plupart des appareils photo numériques.",
+          "en": "Willard Boyle shared the Nobel Prize in Physics for inventing the sensor that now equips most digital cameras.",
+          "words": 24
+        },
+        {
+          "id": "fr.b2.decouvertes.038",
+          "theme": "decouvertes",
+          "fr": "Bien qu'elle ait mis longtemps à être acceptée, la théorie du big bang demeure aujourd'hui le modèle dominant de l'origine de l'univers.",
+          "en": "Although it took a long time to be accepted, the big bang theory remains today the dominant model of the universe's origin.",
+          "words": 26
+        },
+        {
+          "id": "fr.b2.rp-technologie.083",
+          "theme": "rp-technologie",
+          "fr": "Ce n'est pas parce qu'un site paraît officiel qu'il l'est réellement, d'où l'importance de vérifier l'adresse avant d'y entrer des informations.",
+          "en": "A site looking official doesn't mean it actually is, which is why it's important to check the address before entering any information.",
+          "words": 29
+        }
+      ]
+    }
+  ]
+}

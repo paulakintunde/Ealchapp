@@ -1,0 +1,2942 @@
+[
+  {
+    "id": "fr.a1.faux-amis.192",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Je vais assister à la réunion demain matin.",
+    "en": "I am going to attend the meeting tomorrow morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais assister à\",\"t\":\"i am going to attend\"},{\"w\":\"la réunion\",\"t\":\"the meeting\"},{\"w\":\"demain matin.\",\"t\":\"tomorrow morning\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.193",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous allons assister au concert ce soir.",
+    "en": "We are going to attend the concert tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons assister au\",\"t\":\"we are going to attend the\"},{\"w\":\"concert\",\"t\":\"concert\"},{\"w\":\"ce soir.\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.194",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle veut assister à la conférence sur le climat.",
+    "en": "She wants to attend the conference on climate.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle veut assister à\",\"t\":\"she wants to attend\"},{\"w\":\"la conférence\",\"t\":\"the conference\"},{\"w\":\"sur le climat.\",\"t\":\"on climate\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.195",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Mon frère va assister au mariage de son ami.",
+    "en": "My brother is going to attend his friend's wedding.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon frère va assister au\",\"t\":\"my brother is going to attend the\"},{\"w\":\"mariage\",\"t\":\"wedding\"},{\"w\":\"de son ami.\",\"t\":\"of his friend\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.196",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Les étudiants doivent assister à tous les cours.",
+    "en": "The students must attend all the classes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les étudiants\",\"t\":\"the students\"},{\"w\":\"doivent assister à\",\"t\":\"must attend\"},{\"w\":\"tous les cours.\",\"t\":\"all the classes\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.197",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Tu peux assister à la cérémonie si tu veux.",
+    "en": "You can attend the ceremony if you want.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu peux assister à\",\"t\":\"you can attend\"},{\"w\":\"la cérémonie\",\"t\":\"the ceremony\"},{\"w\":\"si tu veux.\",\"t\":\"if you want\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.198",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Ils vont assister à un match de football samedi.",
+    "en": "They are going to attend a football match on Saturday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils vont assister à\",\"t\":\"they are going to attend\"},{\"w\":\"un match de football\",\"t\":\"a football match\"},{\"w\":\"samedi.\",\"t\":\"on saturday\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.199",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Sophie a assisté à la fête d'anniversaire de sa cousine.",
+    "en": "Sophie attended her cousin's birthday party.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Sophie a assisté à\",\"t\":\"sophie attended\"},{\"w\":\"la fête d'anniversaire\",\"t\":\"the birthday party\"},{\"w\":\"de sa cousine.\",\"t\":\"of her cousin\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.200",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Actuellement, je travaille dans une petite entreprise.",
+    "en": "Currently, I work in a small company.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Actuellement,\",\"t\":\"currently\"},{\"w\":\"je travaille\",\"t\":\"i work\"},{\"w\":\"dans une petite entreprise.\",\"t\":\"in a small company\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.201",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il habite actuellement à Lyon avec sa famille.",
+    "en": "He currently lives in Lyon with his family.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il habite actuellement\",\"t\":\"he currently lives\"},{\"w\":\"à Lyon\",\"t\":\"in lyon\"},{\"w\":\"avec sa famille.\",\"t\":\"with his family\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.202",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous cherchons actuellement un nouvel appartement.",
+    "en": "We are currently looking for a new apartment.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous cherchons actuellement\",\"t\":\"we are currently looking for\"},{\"w\":\"un nouvel\",\"t\":\"a new\"},{\"w\":\"appartement.\",\"t\":\"apartment\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.203",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Actuellement, les prix du pain augmentent.",
+    "en": "Currently, bread prices are rising.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Actuellement,\",\"t\":\"currently\"},{\"w\":\"les prix du pain\",\"t\":\"the price of bread\"},{\"w\":\"augmentent.\",\"t\":\"are rising\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.204",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle étudie actuellement le droit à l'université.",
+    "en": "She is currently studying law at university.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle étudie actuellement\",\"t\":\"she is currently studying\"},{\"w\":\"le droit\",\"t\":\"law\"},{\"w\":\"à l'université.\",\"t\":\"at university\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.205",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Mes parents vivent actuellement à la campagne.",
+    "en": "My parents currently live in the countryside.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mes parents\",\"t\":\"my parents\"},{\"w\":\"vivent actuellement\",\"t\":\"currently live\"},{\"w\":\"à la campagne.\",\"t\":\"in the countryside\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.206",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Actuellement, il n'y a pas de train direct pour Nice.",
+    "en": "Currently, there is no direct train to Nice.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Actuellement,\",\"t\":\"currently\"},{\"w\":\"il n'y a pas de train direct\",\"t\":\"there is no direct train\"},{\"w\":\"pour Nice.\",\"t\":\"to nice\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.207",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le magasin est actuellement fermé pour rénovation.",
+    "en": "The shop is currently closed for renovation.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le magasin\",\"t\":\"the shop\"},{\"w\":\"est actuellement fermé\",\"t\":\"is currently closed\"},{\"w\":\"pour rénovation.\",\"t\":\"for renovation\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.208",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "J'ai acheté ce roman dans une petite librairie du quartier.",
+    "en": "I bought this novel in a small neighborhood bookshop.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai acheté ce roman\",\"t\":\"i bought this novel\"},{\"w\":\"dans une petite librairie\",\"t\":\"in a small bookshop\"},{\"w\":\"du quartier.\",\"t\":\"of the neighborhood\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.209",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "La librairie près de chez moi vend aussi des cartes postales.",
+    "en": "The bookshop near my house also sells postcards.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La librairie\",\"t\":\"the bookshop\"},{\"w\":\"près de chez moi\",\"t\":\"near my house\"},{\"w\":\"vend aussi des cartes postales.\",\"t\":\"also sells postcards\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.210",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous allons à la librairie pour acheter des livres scolaires.",
+    "en": "We are going to the bookshop to buy school books.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons à la librairie\",\"t\":\"we are going to the bookshop\"},{\"w\":\"pour acheter\",\"t\":\"to buy\"},{\"w\":\"des livres scolaires.\",\"t\":\"school books\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.211",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le propriétaire de la librairie connaît tous ses clients.",
+    "en": "The bookshop owner knows all his customers.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le propriétaire\",\"t\":\"the owner\"},{\"w\":\"de la librairie\",\"t\":\"of the bookshop\"},{\"w\":\"connaît tous ses clients.\",\"t\":\"knows all his customers\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.212",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Cette librairie organise une rencontre avec un auteur samedi.",
+    "en": "This bookshop is organizing a meeting with an author on Saturday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette librairie organise\",\"t\":\"this bookshop is organizing\"},{\"w\":\"une rencontre avec un auteur\",\"t\":\"a meeting with an author\"},{\"w\":\"samedi.\",\"t\":\"on saturday\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.213",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il travaille comme vendeur dans une librairie du centre-ville.",
+    "en": "He works as a salesman in a downtown bookshop.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il travaille comme vendeur\",\"t\":\"he works as a salesman\"},{\"w\":\"dans une librairie\",\"t\":\"in a bookshop\"},{\"w\":\"du centre-ville.\",\"t\":\"downtown\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.214",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "La librairie ferme à dix-neuf heures le samedi.",
+    "en": "The bookshop closes at seven in the evening on Saturdays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La librairie ferme\",\"t\":\"the bookshop closes\"},{\"w\":\"à dix-neuf heures\",\"t\":\"at seven pm\"},{\"w\":\"le samedi.\",\"t\":\"on saturdays\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.215",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Ma petite sœur est très sensible aux critiques.",
+    "en": "My little sister is very sensitive to criticism.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma petite sœur\",\"t\":\"my little sister\"},{\"w\":\"est très sensible\",\"t\":\"is very sensitive\"},{\"w\":\"aux critiques.\",\"t\":\"to criticism\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.216",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Ce sujet est sensible, il faut en parler avec prudence.",
+    "en": "This topic is sensitive, we must talk about it carefully.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce sujet est sensible,\",\"t\":\"this topic is sensitive\"},{\"w\":\"il faut en parler\",\"t\":\"we must talk about it\"},{\"w\":\"avec prudence.\",\"t\":\"carefully\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.217",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Sa peau est sensible au soleil en été.",
+    "en": "Her skin is sensitive to the sun in summer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Sa peau\",\"t\":\"her skin\"},{\"w\":\"est sensible au soleil\",\"t\":\"is sensitive to the sun\"},{\"w\":\"en été.\",\"t\":\"in summer\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.218",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il est sensible aux compliments de ses collègues.",
+    "en": "He is sensitive to compliments from his colleagues.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est sensible\",\"t\":\"he is sensitive\"},{\"w\":\"aux compliments\",\"t\":\"to compliments\"},{\"w\":\"de ses collègues.\",\"t\":\"from his colleagues\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.219",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Les enfants sont souvent sensibles au bruit fort.",
+    "en": "Children are often sensitive to loud noise.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants\",\"t\":\"children\"},{\"w\":\"sont souvent sensibles\",\"t\":\"are often sensitive\"},{\"w\":\"au bruit fort.\",\"t\":\"to loud noise\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.220",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Cette plante est sensible au froid en hiver.",
+    "en": "This plant is sensitive to cold in winter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette plante\",\"t\":\"this plant\"},{\"w\":\"est sensible au froid\",\"t\":\"is sensitive to cold\"},{\"w\":\"en hiver.\",\"t\":\"in winter\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.221",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Marie a toujours été sensible aux problèmes des autres.",
+    "en": "Marie has always been sensitive to other people's problems.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Marie\",\"t\":\"marie\"},{\"w\":\"a toujours été sensible\",\"t\":\"has always been sensitive\"},{\"w\":\"aux problèmes des autres.\",\"t\":\"to other people's problems\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.222",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "J'attends le bus depuis vingt minutes.",
+    "en": "I have been waiting for the bus for twenty minutes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'attends\",\"t\":\"i am waiting for\"},{\"w\":\"le bus\",\"t\":\"the bus\"},{\"w\":\"depuis vingt minutes.\",\"t\":\"for twenty minutes\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.223",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous attendons nos amis devant le cinéma.",
+    "en": "We are waiting for our friends in front of the cinema.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous attendons\",\"t\":\"we are waiting for\"},{\"w\":\"nos amis\",\"t\":\"our friends\"},{\"w\":\"devant le cinéma.\",\"t\":\"in front of the cinema\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.224",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle attend un appel important de son médecin.",
+    "en": "She is waiting for an important call from her doctor.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle attend\",\"t\":\"she is waiting for\"},{\"w\":\"un appel important\",\"t\":\"an important call\"},{\"w\":\"de son médecin.\",\"t\":\"from her doctor\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.225",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Attends-moi ici, je reviens dans cinq minutes.",
+    "en": "Wait for me here, I will be back in five minutes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Attends-moi ici,\",\"t\":\"wait for me here\"},{\"w\":\"je reviens\",\"t\":\"i will come back\"},{\"w\":\"dans cinq minutes.\",\"t\":\"in five minutes\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.226",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Mon père attend le facteur tous les matins.",
+    "en": "My father waits for the mailman every morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon père attend\",\"t\":\"my father waits for\"},{\"w\":\"le facteur\",\"t\":\"the mailman\"},{\"w\":\"tous les matins.\",\"t\":\"every morning\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.227",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Les touristes attendent le guide devant le musée.",
+    "en": "The tourists are waiting for the guide in front of the museum.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les touristes attendent\",\"t\":\"the tourists are waiting for\"},{\"w\":\"le guide\",\"t\":\"the guide\"},{\"w\":\"devant le musée.\",\"t\":\"in front of the museum\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.228",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Tu dois attendre ton tour avant de parler.",
+    "en": "You must wait for your turn before speaking.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu dois attendre\",\"t\":\"you must wait for\"},{\"w\":\"ton tour\",\"t\":\"your turn\"},{\"w\":\"avant de parler.\",\"t\":\"before speaking\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.229",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "On attend le train de huit heures sur le quai.",
+    "en": "We are waiting for the eight o'clock train on the platform.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"On attend\",\"t\":\"we are waiting for\"},{\"w\":\"le train de huit heures\",\"t\":\"the eight o'clock train\"},{\"w\":\"sur le quai.\",\"t\":\"on the platform\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.230",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Je vais rester à la maison ce week-end.",
+    "en": "I am going to stay home this weekend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais rester\",\"t\":\"i am going to stay\"},{\"w\":\"à la maison\",\"t\":\"home\"},{\"w\":\"ce week-end.\",\"t\":\"this weekend\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.231",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous restons chez ma tante pendant les vacances.",
+    "en": "We are staying at my aunt's during the holidays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous restons\",\"t\":\"we are staying\"},{\"w\":\"chez ma tante\",\"t\":\"at my aunt's\"},{\"w\":\"pendant les vacances.\",\"t\":\"during the holidays\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.232",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il faut rester calme même en cas de problème.",
+    "en": "You must stay calm even in case of a problem.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il faut rester calme\",\"t\":\"you must stay calm\"},{\"w\":\"même en cas\",\"t\":\"even in case\"},{\"w\":\"de problème.\",\"t\":\"of a problem\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.233",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle reste toujours tard au bureau le vendredi.",
+    "en": "She always stays late at the office on Fridays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle reste toujours tard\",\"t\":\"she always stays late\"},{\"w\":\"au bureau\",\"t\":\"at the office\"},{\"w\":\"le vendredi.\",\"t\":\"on fridays\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.234",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Les enfants doivent rester près de leurs parents.",
+    "en": "The children must stay close to their parents.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants\",\"t\":\"the children\"},{\"w\":\"doivent rester\",\"t\":\"must stay\"},{\"w\":\"près de leurs parents.\",\"t\":\"close to their parents\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.235",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Vous restez encore une semaine à Paris pour le travail.",
+    "en": "You are staying another week in Paris for work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Vous restez encore une semaine\",\"t\":\"you are staying another week\"},{\"w\":\"à Paris\",\"t\":\"in paris\"},{\"w\":\"pour le travail.\",\"t\":\"for work\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.236",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Mon chat aime rester près de la fenêtre l'après-midi.",
+    "en": "My cat likes to stay near the window in the afternoon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon chat aime rester\",\"t\":\"my cat likes to stay\"},{\"w\":\"près de la fenêtre\",\"t\":\"near the window\"},{\"w\":\"l'après-midi.\",\"t\":\"in the afternoon\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.237",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous sommes restés trois jours à l'hôtel près de la plage.",
+    "en": "We stayed three days at the hotel near the beach.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous sommes restés trois jours\",\"t\":\"we stayed three days\"},{\"w\":\"à l'hôtel\",\"t\":\"at the hotel\"},{\"w\":\"près de la plage.\",\"t\":\"near the beach\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.238",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Je vais demander l'heure à ce monsieur.",
+    "en": "I am going to ask this gentleman the time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais demander\",\"t\":\"i am going to ask\"},{\"w\":\"l'heure\",\"t\":\"the time\"},{\"w\":\"à ce monsieur.\",\"t\":\"to this gentleman\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.239",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle demande toujours des conseils à sa grand-mère.",
+    "en": "She always asks her grandmother for advice.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle demande toujours\",\"t\":\"she always asks\"},{\"w\":\"des conseils\",\"t\":\"for advice\"},{\"w\":\"à sa grand-mère.\",\"t\":\"from her grandmother\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.240",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous devons demander la permission avant de partir.",
+    "en": "We must ask for permission before leaving.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous devons demander\",\"t\":\"we must ask for\"},{\"w\":\"la permission\",\"t\":\"permission\"},{\"w\":\"avant de partir.\",\"t\":\"before leaving\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.241",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il a demandé son chemin à un passant.",
+    "en": "He asked a passerby for directions.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a demandé\",\"t\":\"he asked for\"},{\"w\":\"son chemin\",\"t\":\"directions\"},{\"w\":\"à un passant.\",\"t\":\"from a passerby\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.242",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Tu peux demander de l'aide à ton professeur.",
+    "en": "You can ask your teacher for help.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu peux demander\",\"t\":\"you can ask for\"},{\"w\":\"de l'aide\",\"t\":\"help\"},{\"w\":\"à ton professeur.\",\"t\":\"from your teacher\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.243",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Les clients demandent souvent le prix avant d'acheter.",
+    "en": "Customers often ask the price before buying.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les clients demandent souvent\",\"t\":\"customers often ask\"},{\"w\":\"le prix\",\"t\":\"the price\"},{\"w\":\"avant d'acheter.\",\"t\":\"before buying\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.244",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Ma fille me demande une nouvelle bicyclette pour son anniversaire.",
+    "en": "My daughter is asking me for a new bicycle for her birthday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma fille me demande\",\"t\":\"my daughter is asking me for\"},{\"w\":\"une nouvelle bicyclette\",\"t\":\"a new bicycle\"},{\"w\":\"pour son anniversaire.\",\"t\":\"for her birthday\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.245",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "On m'a demandé mon nom et mon adresse.",
+    "en": "I was asked my name and my address.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"On m'a demandé\",\"t\":\"i was asked for\"},{\"w\":\"mon nom\",\"t\":\"my name\"},{\"w\":\"et mon adresse.\",\"t\":\"and my address\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.246",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le joueur s'est blessé au genou pendant le match.",
+    "en": "The player injured his knee during the match.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le joueur\",\"t\":\"the player\"},{\"w\":\"s'est blessé au genou\",\"t\":\"injured his knee\"},{\"w\":\"pendant le match.\",\"t\":\"during the match\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.247",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle a blessé son doigt en coupant des légumes.",
+    "en": "She injured her finger while cutting vegetables.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a blessé\",\"t\":\"she injured\"},{\"w\":\"son doigt\",\"t\":\"her finger\"},{\"w\":\"en coupant des légumes.\",\"t\":\"while cutting vegetables\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.248",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Attention, ce couteau peut te blesser.",
+    "en": "Be careful, this knife can injure you.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Attention,\",\"t\":\"be careful\"},{\"w\":\"ce couteau\",\"t\":\"this knife\"},{\"w\":\"peut te blesser.\",\"t\":\"can injure you\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.249",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le chien a blessé le facteur d'une petite morsure.",
+    "en": "The dog injured the mailman with a small bite.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chien a blessé\",\"t\":\"the dog injured\"},{\"w\":\"le facteur\",\"t\":\"the mailman\"},{\"w\":\"d'une petite morsure.\",\"t\":\"with a small bite\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.250",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "L'ouvrier s'est blessé au dos en portant une caisse lourde.",
+    "en": "The worker injured his back while carrying a heavy box.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'ouvrier\",\"t\":\"the worker\"},{\"w\":\"s'est blessé au dos\",\"t\":\"injured his back\"},{\"w\":\"en portant une caisse lourde.\",\"t\":\"while carrying a heavy box\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.251",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Mon frère s'est blessé à la main en jouant au football.",
+    "en": "My brother injured his hand while playing football.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon frère\",\"t\":\"my brother\"},{\"w\":\"s'est blessé à la main\",\"t\":\"injured his hand\"},{\"w\":\"en jouant au football.\",\"t\":\"while playing football\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.252",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Sa déception était visible après le mauvais résultat.",
+    "en": "Her disappointment was visible after the bad result.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Sa déception\",\"t\":\"her disappointment\"},{\"w\":\"était visible\",\"t\":\"was visible\"},{\"w\":\"après le mauvais résultat.\",\"t\":\"after the bad result\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.253",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Ce fut une grande déception pour toute l'équipe.",
+    "en": "It was a great disappointment for the whole team.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce fut\",\"t\":\"it was\"},{\"w\":\"une grande déception\",\"t\":\"a great disappointment\"},{\"w\":\"pour toute l'équipe.\",\"t\":\"for the whole team\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.254",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il a du mal à cacher sa déception après l'examen.",
+    "en": "He has trouble hiding his disappointment after the exam.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a du mal\",\"t\":\"he has trouble\"},{\"w\":\"à cacher sa déception\",\"t\":\"hiding his disappointment\"},{\"w\":\"après l'examen.\",\"t\":\"after the exam\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.255",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Malgré sa déception, elle a gardé le sourire.",
+    "en": "Despite her disappointment, she kept smiling.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Malgré sa déception,\",\"t\":\"despite her disappointment\"},{\"w\":\"elle a gardé\",\"t\":\"she kept\"},{\"w\":\"le sourire.\",\"t\":\"smiling\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.256",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "La déception des supporters était grande après la défaite.",
+    "en": "The fans' disappointment was great after the defeat.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La déception des supporters\",\"t\":\"the fans' disappointment\"},{\"w\":\"était grande\",\"t\":\"was great\"},{\"w\":\"après la défaite.\",\"t\":\"after the defeat\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.257",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous avons vécu une petite déception ce matin au bureau.",
+    "en": "We experienced a small disappointment this morning at the office.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons vécu\",\"t\":\"we experienced\"},{\"w\":\"une petite déception\",\"t\":\"a small disappointment\"},{\"w\":\"ce matin au bureau.\",\"t\":\"this morning at the office\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.258",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "J'ignore l'heure exacte de son arrivée.",
+    "en": "I do not know the exact time of his arrival.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ignore\",\"t\":\"i do not know\"},{\"w\":\"l'heure exacte\",\"t\":\"the exact time\"},{\"w\":\"de son arrivée.\",\"t\":\"of his arrival\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.259",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle ignore encore le résultat de son examen.",
+    "en": "She still does not know the result of her exam.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle ignore encore\",\"t\":\"she still does not know\"},{\"w\":\"le résultat\",\"t\":\"the result\"},{\"w\":\"de son examen.\",\"t\":\"of her exam\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.260",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous ignorons pourquoi le train est en retard.",
+    "en": "We do not know why the train is late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous ignorons\",\"t\":\"we do not know\"},{\"w\":\"pourquoi le train\",\"t\":\"why the train\"},{\"w\":\"est en retard.\",\"t\":\"is late\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.261",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il ignore totalement les règles de ce jeu.",
+    "en": "He is totally unaware of the rules of this game.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il ignore totalement\",\"t\":\"he is totally unaware of\"},{\"w\":\"les règles\",\"t\":\"the rules\"},{\"w\":\"de ce jeu.\",\"t\":\"of this game\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.262",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Les touristes ignorent souvent les coutumes locales.",
+    "en": "Tourists are often unaware of local customs.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les touristes\",\"t\":\"tourists\"},{\"w\":\"ignorent souvent\",\"t\":\"are often unaware of\"},{\"w\":\"les coutumes locales.\",\"t\":\"local customs\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.263",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "J'ignorais que ce magasin fermait si tôt.",
+    "en": "I did not know that this shop closed so early.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ignorais\",\"t\":\"i did not know\"},{\"w\":\"que ce magasin fermait\",\"t\":\"that this shop closed\"},{\"w\":\"si tôt.\",\"t\":\"so early\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.264",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "On ignore encore la cause exacte de l'accident.",
+    "en": "The exact cause of the accident is still unknown.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"On ignore encore\",\"t\":\"we still do not know\"},{\"w\":\"la cause exacte\",\"t\":\"the exact cause\"},{\"w\":\"de l'accident.\",\"t\":\"of the accident\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.265",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Je vais passer mon examen de français lundi prochain.",
+    "en": "I am going to take my French exam next Monday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais passer\",\"t\":\"i am going to take\"},{\"w\":\"mon examen de français\",\"t\":\"my french exam\"},{\"w\":\"lundi prochain.\",\"t\":\"next monday\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.266",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle a passé son examen de conduite hier.",
+    "en": "She took her driving test yesterday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a passé\",\"t\":\"she took\"},{\"w\":\"son examen de conduite\",\"t\":\"her driving test\"},{\"w\":\"hier.\",\"t\":\"yesterday\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.267",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Les élèves passent leurs examens à la fin de l'année.",
+    "en": "The students take their exams at the end of the year.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les élèves passent\",\"t\":\"the students take\"},{\"w\":\"leurs examens\",\"t\":\"their exams\"},{\"w\":\"à la fin de l'année.\",\"t\":\"at the end of the year\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.268",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous devons passer un test médical avant le voyage.",
+    "en": "We must take a medical test before the trip.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous devons passer\",\"t\":\"we must take\"},{\"w\":\"un test médical\",\"t\":\"a medical test\"},{\"w\":\"avant le voyage.\",\"t\":\"before the trip\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.269",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Tu vas passer ton examen d'anglais demain matin.",
+    "en": "You are going to take your English exam tomorrow morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu vas passer\",\"t\":\"you are going to take\"},{\"w\":\"ton examen d'anglais\",\"t\":\"your english exam\"},{\"w\":\"demain matin.\",\"t\":\"tomorrow morning\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.270",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il a passé un entretien pour un nouvel emploi.",
+    "en": "He had an interview for a new job.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a passé\",\"t\":\"he had\"},{\"w\":\"un entretien\",\"t\":\"an interview\"},{\"w\":\"pour un nouvel emploi.\",\"t\":\"for a new job\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.271",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Mon fils passe son bac cette année.",
+    "en": "My son is taking his baccalaureate exam this year.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon fils\",\"t\":\"my son\"},{\"w\":\"passe son bac\",\"t\":\"is taking his baccalaureate exam\"},{\"w\":\"cette année.\",\"t\":\"this year\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.272",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Les candidats passent l'examen dans la grande salle.",
+    "en": "The candidates take the exam in the large room.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les candidats\",\"t\":\"the candidates\"},{\"w\":\"passent l'examen\",\"t\":\"take the exam\"},{\"w\":\"dans la grande salle.\",\"t\":\"in the large room\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.273",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Sa figure était rouge après la longue course.",
+    "en": "His face was red after the long run.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Sa figure\",\"t\":\"his face\"},{\"w\":\"était rouge\",\"t\":\"was red\"},{\"w\":\"après la longue course.\",\"t\":\"after the long run\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.274",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle a une figure ronde et souriante.",
+    "en": "She has a round, smiling face.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a\",\"t\":\"she has\"},{\"w\":\"une figure ronde\",\"t\":\"a round face\"},{\"w\":\"et souriante.\",\"t\":\"and smiling\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.275",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le froid lui a rendu la figure toute pâle.",
+    "en": "The cold made his face all pale.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le froid\",\"t\":\"the cold\"},{\"w\":\"lui a rendu la figure\",\"t\":\"made his face\"},{\"w\":\"toute pâle.\",\"t\":\"all pale\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.276",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "L'enfant avait de la peinture sur toute la figure.",
+    "en": "The child had paint all over his face.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'enfant avait\",\"t\":\"the child had\"},{\"w\":\"de la peinture\",\"t\":\"paint\"},{\"w\":\"sur toute la figure.\",\"t\":\"all over his face\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.277",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Sa figure fatiguée montrait les longues heures de travail.",
+    "en": "His tired face showed the long hours of work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Sa figure fatiguée\",\"t\":\"his tired face\"},{\"w\":\"montrait\",\"t\":\"showed\"},{\"w\":\"les longues heures de travail.\",\"t\":\"the long hours of work\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.278",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le vent froid piquait la figure des skieurs.",
+    "en": "The cold wind stung the skiers' faces.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vent froid\",\"t\":\"the cold wind\"},{\"w\":\"piquait\",\"t\":\"stung\"},{\"w\":\"la figure des skieurs.\",\"t\":\"the skiers' faces\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.279",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "J'ai passé une excellente journée à la plage.",
+    "en": "I spent an excellent day at the beach.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai passé\",\"t\":\"i spent\"},{\"w\":\"une excellente journée\",\"t\":\"an excellent day\"},{\"w\":\"à la plage.\",\"t\":\"at the beach\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.280",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Toute la journée, il a plu sans arrêt.",
+    "en": "All day long, it rained without stopping.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Toute la journée,\",\"t\":\"all day long\"},{\"w\":\"il a plu\",\"t\":\"it rained\"},{\"w\":\"sans arrêt.\",\"t\":\"without stopping\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.281",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous avons une longue journée de travail devant nous.",
+    "en": "We have a long day of work ahead of us.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons\",\"t\":\"we have\"},{\"w\":\"une longue journée de travail\",\"t\":\"a long day of work\"},{\"w\":\"devant nous.\",\"t\":\"ahead of us\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.282",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Sa journée commence toujours à six heures du matin.",
+    "en": "Her day always starts at six in the morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Sa journée\",\"t\":\"her day\"},{\"w\":\"commence toujours\",\"t\":\"always starts\"},{\"w\":\"à six heures du matin.\",\"t\":\"at six in the morning\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.283",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "C'était une journée fatigante mais très utile.",
+    "en": "It was a tiring but very useful day.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'était\",\"t\":\"it was\"},{\"w\":\"une journée fatigante\",\"t\":\"a tiring day\"},{\"w\":\"mais très utile.\",\"t\":\"but very useful\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.284",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Les enfants ont passé la journée chez leurs grands-parents.",
+    "en": "The children spent the day at their grandparents' house.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants\",\"t\":\"the children\"},{\"w\":\"ont passé la journée\",\"t\":\"spent the day\"},{\"w\":\"chez leurs grands-parents.\",\"t\":\"at their grandparents' house\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.285",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Après une dure journée, il aime lire un peu.",
+    "en": "After a hard day, he likes to read a little.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Après une dure journée,\",\"t\":\"after a hard day\"},{\"w\":\"il aime lire\",\"t\":\"he likes to read\"},{\"w\":\"un peu.\",\"t\":\"a little\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.286",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Ce restaurant italien est vraiment formidable.",
+    "en": "This Italian restaurant is really wonderful.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce restaurant italien\",\"t\":\"this italian restaurant\"},{\"w\":\"est vraiment\",\"t\":\"is really\"},{\"w\":\"formidable.\",\"t\":\"wonderful\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.287",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous avons passé des vacances formidables en Grèce.",
+    "en": "We had a wonderful vacation in Greece.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons passé\",\"t\":\"we had\"},{\"w\":\"des vacances formidables\",\"t\":\"a wonderful vacation\"},{\"w\":\"en Grèce.\",\"t\":\"in greece\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.288",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "C'est une idée formidable pour la fête de fin d'année.",
+    "en": "That is a great idea for the end of year party.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est une idée formidable\",\"t\":\"that is a great idea\"},{\"w\":\"pour la fête\",\"t\":\"for the party\"},{\"w\":\"de fin d'année.\",\"t\":\"end of year\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.289",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le nouveau professeur de musique est formidable avec les enfants.",
+    "en": "The new music teacher is wonderful with children.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le nouveau professeur de musique\",\"t\":\"the new music teacher\"},{\"w\":\"est formidable\",\"t\":\"is wonderful\"},{\"w\":\"avec les enfants.\",\"t\":\"with children\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.290",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Ils ont fait un travail formidable sur ce projet.",
+    "en": "They did a wonderful job on this project.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils ont fait\",\"t\":\"they did\"},{\"w\":\"un travail formidable\",\"t\":\"a wonderful job\"},{\"w\":\"sur ce projet.\",\"t\":\"on this project\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.291",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "La vue depuis le sommet de la montagne est formidable.",
+    "en": "The view from the mountain summit is wonderful.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La vue\",\"t\":\"the view\"},{\"w\":\"depuis le sommet de la montagne\",\"t\":\"from the mountain summit\"},{\"w\":\"est formidable.\",\"t\":\"is wonderful\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.292",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Son nouveau roman est formidable, je le recommande vraiment.",
+    "en": "Her new novel is wonderful, I really recommend it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Son nouveau roman\",\"t\":\"her new novel\"},{\"w\":\"est formidable,\",\"t\":\"is wonderful\"},{\"w\":\"je le recommande vraiment.\",\"t\":\"i really recommend it\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.293",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous pourrions éventuellement partir plus tôt demain.",
+    "en": "We could possibly leave earlier tomorrow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous pourrions\",\"t\":\"we could\"},{\"w\":\"éventuellement partir\",\"t\":\"possibly leave\"},{\"w\":\"plus tôt demain.\",\"t\":\"earlier tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.294",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Éventuellement, elle changera de métier l'année prochaine.",
+    "en": "Possibly, she will change jobs next year.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Éventuellement,\",\"t\":\"possibly\"},{\"w\":\"elle changera de métier\",\"t\":\"she will change jobs\"},{\"w\":\"l'année prochaine.\",\"t\":\"next year\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.295",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il pourrait éventuellement nous rejoindre au restaurant.",
+    "en": "He could possibly join us at the restaurant.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pourrait\",\"t\":\"he could\"},{\"w\":\"éventuellement nous rejoindre\",\"t\":\"possibly join us\"},{\"w\":\"au restaurant.\",\"t\":\"at the restaurant\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.296",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "On pourrait éventuellement reporter la réunion à vendredi.",
+    "en": "We could possibly postpone the meeting to Friday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"On pourrait éventuellement reporter\",\"t\":\"we could possibly postpone\"},{\"w\":\"la réunion\",\"t\":\"the meeting\"},{\"w\":\"à vendredi.\",\"t\":\"to friday\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.297",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Éventuellement, nous prendrons un autre chemin plus court.",
+    "en": "Possibly, we will take another shorter route.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Éventuellement,\",\"t\":\"possibly\"},{\"w\":\"nous prendrons un autre chemin\",\"t\":\"we will take another route\"},{\"w\":\"plus court.\",\"t\":\"shorter\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.298",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le voyage pourrait éventuellement être annulé à cause de la météo.",
+    "en": "The trip could possibly be cancelled because of the weather.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le voyage pourrait éventuellement\",\"t\":\"the trip could possibly\"},{\"w\":\"être annulé\",\"t\":\"be cancelled\"},{\"w\":\"à cause de la météo.\",\"t\":\"because of the weather\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.299",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "J'achète toujours du pain frais le matin.",
+    "en": "I always buy fresh bread in the morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'achète toujours\",\"t\":\"i always buy\"},{\"w\":\"du pain frais\",\"t\":\"fresh bread\"},{\"w\":\"le matin.\",\"t\":\"in the morning\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.300",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le boulanger fait un excellent pain complet.",
+    "en": "The baker makes an excellent whole wheat bread.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le boulanger fait\",\"t\":\"the baker makes\"},{\"w\":\"un excellent\",\"t\":\"an excellent\"},{\"w\":\"pain complet.\",\"t\":\"whole wheat bread\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.301",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous mangeons du pain avec le fromage à chaque repas.",
+    "en": "We eat bread with cheese at every meal.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous mangeons du pain\",\"t\":\"we eat bread\"},{\"w\":\"avec le fromage\",\"t\":\"with cheese\"},{\"w\":\"à chaque repas.\",\"t\":\"at every meal\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.302",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Ce pain est encore chaud, il sort du four.",
+    "en": "This bread is still warm, it just came out of the oven.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce pain\",\"t\":\"this bread\"},{\"w\":\"est encore chaud,\",\"t\":\"is still warm\"},{\"w\":\"il sort du four.\",\"t\":\"it just came out of the oven\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.303",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle coupe le pain en petites tranches pour les enfants.",
+    "en": "She cuts the bread into small slices for the children.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle coupe le pain\",\"t\":\"she cuts the bread\"},{\"w\":\"en petites tranches\",\"t\":\"into small slices\"},{\"w\":\"pour les enfants.\",\"t\":\"for the children\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.304",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il ne reste plus de pain dans la cuisine.",
+    "en": "There is no more bread left in the kitchen.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il ne reste plus\",\"t\":\"there is no more\"},{\"w\":\"de pain\",\"t\":\"bread\"},{\"w\":\"dans la cuisine.\",\"t\":\"in the kitchen\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.305",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le vendeur m'a rendu la monnaie sur vingt euros.",
+    "en": "The seller gave me change from twenty euros.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vendeur\",\"t\":\"the seller\"},{\"w\":\"m'a rendu la monnaie\",\"t\":\"gave me change\"},{\"w\":\"sur vingt euros.\",\"t\":\"from twenty euros\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.306",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Je n'ai pas de monnaie pour payer le bus.",
+    "en": "I do not have change to pay for the bus.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je n'ai pas\",\"t\":\"i do not have\"},{\"w\":\"de monnaie\",\"t\":\"change\"},{\"w\":\"pour payer le bus.\",\"t\":\"to pay for the bus\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.307",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "L'euro est la monnaie utilisée dans plusieurs pays.",
+    "en": "The euro is the currency used in several countries.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'euro\",\"t\":\"the euro\"},{\"w\":\"est la monnaie\",\"t\":\"is the currency\"},{\"w\":\"utilisée dans plusieurs pays.\",\"t\":\"used in several countries\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.308",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle demande de la monnaie pour ce billet de vingt euros.",
+    "en": "She is asking for change for this twenty euro bill.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle demande\",\"t\":\"she is asking\"},{\"w\":\"de la monnaie\",\"t\":\"for change\"},{\"w\":\"pour ce billet de vingt euros.\",\"t\":\"for this twenty euro bill\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.309",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "La petite monnaie s'accumule souvent au fond du sac.",
+    "en": "Small change often piles up at the bottom of the bag.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La petite monnaie\",\"t\":\"small change\"},{\"w\":\"s'accumule souvent\",\"t\":\"often piles up\"},{\"w\":\"au fond du sac.\",\"t\":\"at the bottom of the bag\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.310",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Cette avenue est très large et bien éclairée.",
+    "en": "This avenue is very wide and well lit.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette avenue\",\"t\":\"this avenue\"},{\"w\":\"est très large\",\"t\":\"is very wide\"},{\"w\":\"et bien éclairée.\",\"t\":\"and well lit\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.311",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il porte toujours des vêtements larges et confortables.",
+    "en": "He always wears wide, comfortable clothes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il porte toujours\",\"t\":\"he always wears\"},{\"w\":\"des vêtements larges\",\"t\":\"wide clothes\"},{\"w\":\"et confortables.\",\"t\":\"and comfortable\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.312",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "La rivière devient plus large près de la mer.",
+    "en": "The river becomes wider near the sea.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La rivière\",\"t\":\"the river\"},{\"w\":\"devient plus large\",\"t\":\"becomes wider\"},{\"w\":\"près de la mer.\",\"t\":\"near the sea\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.313",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le pont est assez large pour deux voitures.",
+    "en": "The bridge is wide enough for two cars.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le pont\",\"t\":\"the bridge\"},{\"w\":\"est assez large\",\"t\":\"is wide enough\"},{\"w\":\"pour deux voitures.\",\"t\":\"for two cars\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.314",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous cherchons une table large pour toute la famille.",
+    "en": "We are looking for a wide table for the whole family.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous cherchons\",\"t\":\"we are looking for\"},{\"w\":\"une table large\",\"t\":\"a wide table\"},{\"w\":\"pour toute la famille.\",\"t\":\"for the whole family\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.315",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "J'ai envie de manger une glace au chocolat.",
+    "en": "I feel like eating a chocolate ice cream.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai envie\",\"t\":\"i feel like\"},{\"w\":\"de manger\",\"t\":\"eating\"},{\"w\":\"une glace au chocolat.\",\"t\":\"a chocolate ice cream\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.316",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle a envie de voyager en Italie cet été.",
+    "en": "She wants to travel to Italy this summer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a envie\",\"t\":\"she wants\"},{\"w\":\"de voyager\",\"t\":\"to travel\"},{\"w\":\"en Italie cet été.\",\"t\":\"to italy this summer\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.317",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Nous avons envie de rester à la maison ce soir.",
+    "en": "We feel like staying home tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons envie\",\"t\":\"we feel like\"},{\"w\":\"de rester\",\"t\":\"staying\"},{\"w\":\"à la maison ce soir.\",\"t\":\"home tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.318",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il a envie de changer de travail depuis longtemps.",
+    "en": "He has wanted to change jobs for a long time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a envie\",\"t\":\"he has wanted\"},{\"w\":\"de changer de travail\",\"t\":\"to change jobs\"},{\"w\":\"depuis longtemps.\",\"t\":\"for a long time\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.319",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Les enfants ont envie de jouer dans le jardin.",
+    "en": "The children feel like playing in the garden.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants\",\"t\":\"the children\"},{\"w\":\"ont envie de jouer\",\"t\":\"feel like playing\"},{\"w\":\"dans le jardin.\",\"t\":\"in the garden\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.320",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle a envie d'un café avant de partir travailler.",
+    "en": "She feels like having a coffee before going to work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a envie d'un café\",\"t\":\"she feels like having a coffee\"},{\"w\":\"avant de partir\",\"t\":\"before going\"},{\"w\":\"travailler.\",\"t\":\"to work\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.321",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le magasin se trouve au coin de la rue.",
+    "en": "The shop is on the corner of the street.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le magasin\",\"t\":\"the shop\"},{\"w\":\"se trouve\",\"t\":\"is\"},{\"w\":\"au coin de la rue.\",\"t\":\"on the corner of the street\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.322",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Il y a une belle boulangerie au coin de cette avenue.",
+    "en": "There is a nice bakery on the corner of this avenue.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il y a\",\"t\":\"there is\"},{\"w\":\"une belle boulangerie\",\"t\":\"a nice bakery\"},{\"w\":\"au coin de cette avenue.\",\"t\":\"on the corner of this avenue\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.323",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Elle range ses livres dans le coin de sa chambre.",
+    "en": "She stores her books in the corner of her room.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle range\",\"t\":\"she stores\"},{\"w\":\"ses livres\",\"t\":\"her books\"},{\"w\":\"dans le coin de sa chambre.\",\"t\":\"in the corner of her room\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.324",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le chat dort toujours dans le même coin du salon.",
+    "en": "The cat always sleeps in the same corner of the living room.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chat\",\"t\":\"the cat\"},{\"w\":\"dort toujours\",\"t\":\"always sleeps\"},{\"w\":\"dans le même coin du salon.\",\"t\":\"in the same corner of the living room\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.325",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Au coin de la rue, il y a un petit café sympathique.",
+    "en": "On the corner of the street, there is a nice little cafe.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Au coin de la rue,\",\"t\":\"on the corner of the street\"},{\"w\":\"il y a\",\"t\":\"there is\"},{\"w\":\"un petit café sympathique.\",\"t\":\"a nice little cafe\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.326",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "La lecture de ce roman m'a pris toute la semaine.",
+    "en": "Reading this novel took me the whole week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La lecture\",\"t\":\"reading\"},{\"w\":\"de ce roman\",\"t\":\"this novel\"},{\"w\":\"m'a pris toute la semaine.\",\"t\":\"took me the whole week\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.327",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Le professeur encourage la lecture chaque soir avant de dormir.",
+    "en": "The teacher encourages reading every evening before sleeping.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le professeur\",\"t\":\"the teacher\"},{\"w\":\"encourage la lecture\",\"t\":\"encourages reading\"},{\"w\":\"chaque soir avant de dormir.\",\"t\":\"every evening before sleeping\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.328",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Sa lecture préférée reste les romans policiers.",
+    "en": "Her favorite reading remains detective novels.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Sa lecture préférée\",\"t\":\"her favorite reading\"},{\"w\":\"reste\",\"t\":\"remains\"},{\"w\":\"les romans policiers.\",\"t\":\"detective novels\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.329",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Mon patron m'a félicité pour mon travail cette semaine.",
+    "en": "My boss congratulated me for my work this week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon patron\",\"t\":\"my boss\"},{\"w\":\"m'a félicité\",\"t\":\"congratulated me\"},{\"w\":\"pour mon travail cette semaine.\",\"t\":\"for my work this week\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.330",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "La patronne du restaurant connaît tous ses employés.",
+    "en": "The restaurant's female boss knows all her employees.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La patronne\",\"t\":\"the boss\"},{\"w\":\"du restaurant\",\"t\":\"of the restaurant\"},{\"w\":\"connaît tous ses employés.\",\"t\":\"knows all her employees\"}]}"
+  },
+  {
+    "id": "fr.a1.faux-amis.331",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "faux-amis",
+    "fr": "Son patron lui a donné trois jours de congé.",
+    "en": "Her boss gave her three days off.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Son patron\",\"t\":\"her boss\"},{\"w\":\"lui a donné\",\"t\":\"gave her\"},{\"w\":\"trois jours de congé.\",\"t\":\"three days off\"}]}"
+  }
+]

@@ -1,0 +1,1196 @@
+{
+  "stage": "1.5",
+  "world": 1,
+  "level": "sons",
+  "title": "La Musique de la Phrase",
+  "themes": [
+    "rythme"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 165,
+  "dedupedPool": 165,
+  "selected": 165,
+  "blockCount": 5,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.sons.rythme.003",
+          "theme": "rythme",
+          "fr": "Tu lis trop.",
+          "en": "You read too much.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.002",
+          "theme": "rythme",
+          "fr": "Le chat dort.",
+          "en": "The cat is sleeping.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.007",
+          "theme": "rythme",
+          "fr": "Tout va bien.",
+          "en": "Everything is fine.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.001",
+          "theme": "rythme",
+          "fr": "Il fait froid.",
+          "en": "It's cold.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.008",
+          "theme": "rythme",
+          "fr": "Il arrive tard.",
+          "en": "He arrives late.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.006",
+          "theme": "rythme",
+          "fr": "Je pars bientôt.",
+          "en": "I'm leaving soon.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.069",
+          "theme": "rythme",
+          "fr": "Elle dort déjà ?",
+          "en": "Is she already asleep?",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.064",
+          "theme": "rythme",
+          "fr": "Tu viens demain ?",
+          "en": "Are you coming tomorrow?",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.066",
+          "theme": "rythme",
+          "fr": "Il pleut encore ?",
+          "en": "Is it still raining?",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.005",
+          "theme": "rythme",
+          "fr": "Il neige beaucoup.",
+          "en": "It's snowing a lot.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.065",
+          "theme": "rythme",
+          "fr": "Vous partez déjà ?",
+          "en": "Are you leaving already?",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.rythme.071",
+          "theme": "rythme",
+          "fr": "Tu as le temps ?",
+          "en": "Do you have time?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.004",
+          "theme": "rythme",
+          "fr": "C'est trop chaud.",
+          "en": "It's too hot.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.016",
+          "theme": "rythme",
+          "fr": "Ce plat sent bon.",
+          "en": "This dish smells good.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.067",
+          "theme": "rythme",
+          "fr": "C'est trop tard ?",
+          "en": "Is it too late?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.076",
+          "theme": "rythme",
+          "fr": "On part ce soir ?",
+          "en": "Are we leaving tonight?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.009",
+          "theme": "rythme",
+          "fr": "Le temps est gris.",
+          "en": "The weather is gray.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.010",
+          "theme": "rythme",
+          "fr": "Le repas est prêt.",
+          "en": "The meal is ready.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.011",
+          "theme": "rythme",
+          "fr": "Tu viens trop tard.",
+          "en": "You're coming too late.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.068",
+          "theme": "rythme",
+          "fr": "Tu m'entends bien ?",
+          "en": "Can you hear me okay?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.013",
+          "theme": "rythme",
+          "fr": "Mon chat mange trop.",
+          "en": "My cat eats too much.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.077",
+          "theme": "rythme",
+          "fr": "Il fait trop chaud ?",
+          "en": "Is it too hot?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.015",
+          "theme": "rythme",
+          "fr": "Mon voisin parle fort.",
+          "en": "My neighbour talks loudly.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.074",
+          "theme": "rythme",
+          "fr": "Le petit dort encore ?",
+          "en": "Is the little one still sleeping?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.073",
+          "theme": "rythme",
+          "fr": "Vous avez une question ?",
+          "en": "Do you have a question?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.014",
+          "theme": "rythme",
+          "fr": "Il pleut beaucoup dehors.",
+          "en": "It's raining a lot outside.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.rythme.021",
+          "theme": "rythme",
+          "fr": "Mon dos me fait mal.",
+          "en": "My back hurts.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.012",
+          "theme": "rythme",
+          "fr": "J'ai froid aux pieds.",
+          "en": "My feet are cold.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.070",
+          "theme": "rythme",
+          "fr": "Est-ce que tu viens ?",
+          "en": "Are you coming?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.023",
+          "theme": "rythme",
+          "fr": "Le vent se lève enfin.",
+          "en": "The wind is finally picking up.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.072",
+          "theme": "rythme",
+          "fr": "Est-ce que ça marche ?",
+          "en": "Does it work?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.162",
+          "theme": "rythme",
+          "fr": "Il fait beau, on sort.",
+          "en": "The weather is nice, we're going out.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.079",
+          "theme": "rythme",
+          "fr": "Tu veux un autre café ?",
+          "en": "Do you want another coffee?",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.sons.rythme.082",
+          "theme": "rythme",
+          "fr": "Il est déjà trop tard ?",
+          "en": "Is it already too late?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.020",
+          "theme": "rythme",
+          "fr": "Tu pars toujours si tôt.",
+          "en": "You always leave so early.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.084",
+          "theme": "rythme",
+          "fr": "Tu prends le grand sac ?",
+          "en": "Are you taking the big bag?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.131",
+          "theme": "rythme",
+          "fr": "Le temps passe vite ici.",
+          "en": "Time goes by fast here.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.085",
+          "theme": "rythme",
+          "fr": "On se voit demain matin ?",
+          "en": "Are we meeting tomorrow morning?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.019",
+          "theme": "rythme",
+          "fr": "Je bois un chocolat chaud.",
+          "en": "I'm drinking a hot chocolate.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.024",
+          "theme": "rythme",
+          "fr": "Elle porte un chapeau blanc.",
+          "en": "She wears a white hat.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.128",
+          "theme": "rythme",
+          "fr": "Mon petit frère dort encore.",
+          "en": "My little brother is still sleeping.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.018",
+          "theme": "rythme",
+          "fr": "Le grand lit est confortable.",
+          "en": "The big bed is comfortable.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.081",
+          "theme": "rythme",
+          "fr": "Vous fermez bientôt ce soir ?",
+          "en": "Are you closing soon tonight?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.022",
+          "theme": "rythme",
+          "fr": "Il reste debout très longtemps.",
+          "en": "He stays standing for a very long time.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.144",
+          "theme": "rythme",
+          "fr": "Il neige beaucoup cette semaine.",
+          "en": "It's snowing a lot this week.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.rythme.075",
+          "theme": "rythme",
+          "fr": "Est-ce que c'est loin ?",
+          "en": "Is it far?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.125",
+          "theme": "rythme",
+          "fr": "Le soir, je lis un peu.",
+          "en": "In the evening, I read a little.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.078",
+          "theme": "rythme",
+          "fr": "Est-ce que tu aimes ça ?",
+          "en": "Do you like that?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.080",
+          "theme": "rythme",
+          "fr": "Est-ce que le bus arrive ?",
+          "en": "Is the bus coming?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.091",
+          "theme": "rythme",
+          "fr": "Il reste un peu de soupe ?",
+          "en": "Is there a little soup left?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.127",
+          "theme": "rythme",
+          "fr": "Il fait trop froid ce soir.",
+          "en": "It's too cold tonight.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.025",
+          "theme": "rythme",
+          "fr": "Le loup court dans les bois.",
+          "en": "The wolf runs in the woods.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.083",
+          "theme": "rythme",
+          "fr": "Est-ce que ton frère vient ?",
+          "en": "Is your brother coming?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.087",
+          "theme": "rythme",
+          "fr": "Vous voulez un peu de pain ?",
+          "en": "Would you like a little bread?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.093",
+          "theme": "rythme",
+          "fr": "On prend le train ce matin ?",
+          "en": "Are we taking the train this morning?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.029",
+          "theme": "rythme",
+          "fr": "Le toit est couvert de neige.",
+          "en": "The roof is covered in snow.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.130",
+          "theme": "rythme",
+          "fr": "Ce soir, il rentre très tard.",
+          "en": "Tonight, he's coming home very late.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.163",
+          "theme": "rythme",
+          "fr": "Tu parles fort, le bébé dort.",
+          "en": "You're talking loudly, the baby is sleeping.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.017",
+          "theme": "rythme",
+          "fr": "L'air froid pique fort dehors.",
+          "en": "The cold air bites hard outside.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.027",
+          "theme": "rythme",
+          "fr": "Le train part dans un instant.",
+          "en": "The train leaves in a moment.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.028",
+          "theme": "rythme",
+          "fr": "Je rentre tard tous les soirs.",
+          "en": "I come home late every evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.031",
+          "theme": "rythme",
+          "fr": "Elle prend son temps le matin.",
+          "en": "She takes her time in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.032",
+          "theme": "rythme",
+          "fr": "Un chat blanc traverse la rue.",
+          "en": "A white cat crosses the street.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.099",
+          "theme": "rythme",
+          "fr": "Tu gardes une place pour moi ?",
+          "en": "Are you saving a seat for me?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.140",
+          "theme": "rythme",
+          "fr": "Le vent souffle fort ce matin.",
+          "en": "The wind is blowing hard this morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.145",
+          "theme": "rythme",
+          "fr": "Le chat dort toute la journée.",
+          "en": "The cat sleeps all day long.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.sons.rythme.148",
+          "theme": "rythme",
+          "fr": "Je travaille trop, je dors mal.",
+          "en": "I work too much, I sleep badly.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.089",
+          "theme": "rythme",
+          "fr": "Tu peux passer chez moi demain ?",
+          "en": "Can you come by my place tomorrow?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.132",
+          "theme": "rythme",
+          "fr": "En hiver, les jours sont courts.",
+          "en": "In winter, the days are short.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.150",
+          "theme": "rythme",
+          "fr": "Le soir, la ville devient calme.",
+          "en": "In the evening, the city becomes calm.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.026",
+          "theme": "rythme",
+          "fr": "Il fait chaud depuis trois jours.",
+          "en": "It's been hot for three days.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.158",
+          "theme": "rythme",
+          "fr": "Le magasin ouvre tard le dimanche.",
+          "en": "The store opens late on Sundays.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.153",
+          "theme": "rythme",
+          "fr": "Nous mangeons tôt, vers six heures.",
+          "en": "We eat early, around six o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.rythme.030",
+          "theme": "rythme",
+          "fr": "Il met du sirop dans l'eau.",
+          "en": "He puts syrup in the water.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.086",
+          "theme": "rythme",
+          "fr": "Est-ce que tu as bien dormi ?",
+          "en": "Did you sleep well?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.090",
+          "theme": "rythme",
+          "fr": "Est-ce que ça coûte trop cher ?",
+          "en": "Does it cost too much?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.033",
+          "theme": "rythme",
+          "fr": "Le petit chat grimpe sur le lit.",
+          "en": "The little cat climbs onto the bed.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.039",
+          "theme": "rythme",
+          "fr": "Elle achète un fruit et du pain.",
+          "en": "She buys a fruit and some bread.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.138",
+          "theme": "rythme",
+          "fr": "Le café est trop chaud pour moi.",
+          "en": "The coffee is too hot for me.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.159",
+          "theme": "rythme",
+          "fr": "Je lis le soir, avant de dormir.",
+          "en": "I read in the evening, before going to sleep.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.038",
+          "theme": "rythme",
+          "fr": "Il attend son ami devant le port.",
+          "en": "He waits for his friend in front of the port.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.040",
+          "theme": "rythme",
+          "fr": "Le temps passe vite quand on rit.",
+          "en": "Time flies when you laugh.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.088",
+          "theme": "rythme",
+          "fr": "Est-ce que le magasin est ouvert ?",
+          "en": "Is the store open?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.142",
+          "theme": "rythme",
+          "fr": "Le train part à midi, sans retard.",
+          "en": "The train leaves at noon, with no delay.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.034",
+          "theme": "rythme",
+          "fr": "Ce gros manteau gris est trop grand.",
+          "en": "This big gray coat is too large.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.156",
+          "theme": "rythme",
+          "fr": "Le lac reste froid, même en juillet.",
+          "en": "The lake stays cold, even in July.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.036",
+          "theme": "rythme",
+          "fr": "Nous partons trop tard pour le train.",
+          "en": "We're leaving too late for the train.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.133",
+          "theme": "rythme",
+          "fr": "Le grand magasin ferme à huit heures.",
+          "en": "The big store closes at eight o'clock.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.152",
+          "theme": "rythme",
+          "fr": "Il pleut depuis ce matin, sans arrêt.",
+          "en": "It's been raining since this morning, nonstop.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.035",
+          "theme": "rythme",
+          "fr": "Le repas sera prêt dans vingt minutes.",
+          "en": "The meal will be ready in twenty minutes.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.151",
+          "theme": "rythme",
+          "fr": "Mon voisin chante fort sous la douche.",
+          "en": "My neighbour sings loudly in the shower.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.154",
+          "theme": "rythme",
+          "fr": "Le petit chien attend devant la porte.",
+          "en": "The little dog waits in front of the door.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.037",
+          "theme": "rythme",
+          "fr": "Ce grand pont traverse un fleuve profond.",
+          "en": "This big bridge crosses a deep river.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.126",
+          "theme": "rythme",
+          "fr": "Le matin, je bois mon café tranquillement.",
+          "en": "In the morning, I drink my coffee calmly.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.165",
+          "theme": "rythme",
+          "fr": "Les feuilles tombent, le vent les emporte.",
+          "en": "The leaves are falling, the wind carries them away.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.rythme.096",
+          "theme": "rythme",
+          "fr": "Est-ce que le petit a bien mangé ?",
+          "en": "Did the little one eat well?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.048",
+          "theme": "rythme",
+          "fr": "Le chat gris saute du lit au tapis.",
+          "en": "The gray cat jumps from the bed to the rug.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.149",
+          "theme": "rythme",
+          "fr": "Le pain est chaud, il sort du four.",
+          "en": "The bread is warm, it's just out of the oven.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.092",
+          "theme": "rythme",
+          "fr": "Est-ce que vous habitez près d'ici ?",
+          "en": "Do you live near here?",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.sons.rythme.094",
+          "theme": "rythme",
+          "fr": "Est-ce que tu veux venir avec nous ?",
+          "en": "Do you want to come with us?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.097",
+          "theme": "rythme",
+          "fr": "Tu crois qu'il va pleuvoir ce soir ?",
+          "en": "Do you think it will rain tonight?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.107",
+          "theme": "rythme",
+          "fr": "Tu as vu mes clés quelque part ici ?",
+          "en": "Have you seen my keys anywhere around here?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.043",
+          "theme": "rythme",
+          "fr": "Il est trop tard pour sortir ce soir.",
+          "en": "It's too late to go out tonight.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.101",
+          "theme": "rythme",
+          "fr": "On peut laisser les sacs dans l'auto ?",
+          "en": "Can we leave the bags in the car?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.129",
+          "theme": "rythme",
+          "fr": "Après le repas, on marche dans le parc.",
+          "en": "After the meal, we walk in the park.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.137",
+          "theme": "rythme",
+          "fr": "Mon fils est petit, mais il court vite.",
+          "en": "My son is small, but he runs fast.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.157",
+          "theme": "rythme",
+          "fr": "On parle trop vite, il ne comprend pas.",
+          "en": "We speak too fast, he doesn't understand.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.041",
+          "theme": "rythme",
+          "fr": "Je mets mon manteau quand il fait froid.",
+          "en": "I put on my coat when it's cold.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.045",
+          "theme": "rythme",
+          "fr": "Un vent froid descend sur le vieux port.",
+          "en": "A cold wind comes down on the old port.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.100",
+          "theme": "rythme",
+          "fr": "Est-ce que ta sœur travaille ce samedi ?",
+          "en": "Does your sister work this Saturday?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.164",
+          "theme": "rythme",
+          "fr": "Le repas est prêt, tout le monde arrive.",
+          "en": "The meal is ready, everyone is coming.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.098",
+          "theme": "rythme",
+          "fr": "Est-ce que vous partez tôt demain matin ?",
+          "en": "Are you leaving early tomorrow morning?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.135",
+          "theme": "rythme",
+          "fr": "Le samedi, on dort un peu plus longtemps.",
+          "en": "On Saturdays, we sleep a little longer.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.141",
+          "theme": "rythme",
+          "fr": "En été, on mange dehors, sur la terrasse.",
+          "en": "In summer, we eat outside, on the patio.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.047",
+          "theme": "rythme",
+          "fr": "Je prends toujours trop de temps le matin.",
+          "en": "I always take too much time in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.139",
+          "theme": "rythme",
+          "fr": "Après le travail, elle passe chez sa mère.",
+          "en": "After work, she stops by her mother's place.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.044",
+          "theme": "rythme",
+          "fr": "Nous prenons un repas chaud tous les soirs.",
+          "en": "We have a hot meal every evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.143",
+          "theme": "rythme",
+          "fr": "Ma grande sœur habite loin, près de Québec.",
+          "en": "My big sister lives far away, near Quebec City.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.103",
+          "theme": "rythme",
+          "fr": "Tu penses que le magasin est encore ouvert ?",
+          "en": "Do you think the store is still open?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.105",
+          "theme": "rythme",
+          "fr": "Vous voulez prendre un café avant le cours ?",
+          "en": "Would you like to have a coffee before class?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.042",
+          "theme": "rythme",
+          "fr": "Le petit garçon joue devant la grande maison.",
+          "en": "The little boy plays in front of the big house.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.109",
+          "theme": "rythme",
+          "fr": "Elle vient avec nous au marché demain matin ?",
+          "en": "Is she coming to the market with us tomorrow morning?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.136",
+          "theme": "rythme",
+          "fr": "Il parle doucement, mais tout le monde écoute.",
+          "en": "He speaks softly, but everyone listens.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.095",
+          "theme": "rythme",
+          "fr": "Vous avez déjà mangé quelque chose aujourd'hui ?",
+          "en": "Have you already eaten something today?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.147",
+          "theme": "rythme",
+          "fr": "Le prof parle lentement, et nous répétons ensemble.",
+          "en": "The teacher speaks slowly, and we repeat together.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.046",
+          "theme": "rythme",
+          "fr": "Mon grand frère travaille beaucoup depuis le printemps.",
+          "en": "My big brother has been working a lot since spring.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.rythme.055",
+          "theme": "rythme",
+          "fr": "Il reste un peu de riz dans le plat.",
+          "en": "There's a little rice left in the dish.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.102",
+          "theme": "rythme",
+          "fr": "Est-ce que tu as le temps de passer ?",
+          "en": "Do you have time to stop by?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.116",
+          "theme": "rythme",
+          "fr": "Il y a une pharmacie près de la gare ?",
+          "en": "Is there a pharmacy near the station?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.112",
+          "theme": "rythme",
+          "fr": "On a le temps de manger avant le film ?",
+          "en": "Do we have time to eat before the movie?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.160",
+          "theme": "rythme",
+          "fr": "Le bébé pleure la nuit, puis il se calme.",
+          "en": "The baby cries at night, then he settles down.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.049",
+          "theme": "rythme",
+          "fr": "Elle boit un chocolat chaud au coin du feu.",
+          "en": "She drinks a hot chocolate by the fire.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.sons.rythme.104",
+          "theme": "rythme",
+          "fr": "Est-ce que le film commence à sept heures ?",
+          "en": "Does the movie start at seven?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.114",
+          "theme": "rythme",
+          "fr": "Tu crois que la neige va tomber cette nuit ?",
+          "en": "Do you think it will snow tonight?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.122",
+          "theme": "rythme",
+          "fr": "Tu penses que ce petit resto est trop cher ?",
+          "en": "Do you think this little restaurant is too expensive?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.050",
+          "theme": "rythme",
+          "fr": "Il gèle trop fort pour marcher dans les bois.",
+          "en": "It's freezing too hard to walk in the woods.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.051",
+          "theme": "rythme",
+          "fr": "Mon ami part demain matin pour un long voyage.",
+          "en": "My friend leaves tomorrow morning for a long trip.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.053",
+          "theme": "rythme",
+          "fr": "Le dîner est servi depuis un long moment déjà.",
+          "en": "Dinner has been served for a long while already.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.134",
+          "theme": "rythme",
+          "fr": "Chaque matin, je prends le bus, puis le métro.",
+          "en": "Every morning, I take the bus, then the metro.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.106",
+          "theme": "rythme",
+          "fr": "Est-ce que vous venez souper chez nous samedi ?",
+          "en": "Are you coming for supper at our place on Saturday?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.052",
+          "theme": "rythme",
+          "fr": "Nous restons au chaud quand le vent devient fort.",
+          "en": "We stay warm when the wind gets strong.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.110",
+          "theme": "rythme",
+          "fr": "Vous pensez que le colis va arriver demain matin ?",
+          "en": "Do you think the package will arrive tomorrow morning?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.155",
+          "theme": "rythme",
+          "fr": "Elle arrive toujours en retard, mais elle s'excuse.",
+          "en": "She always arrives late, but she apologizes.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.161",
+          "theme": "rythme",
+          "fr": "Nous partons bientôt, le temps de fermer la maison.",
+          "en": "We're leaving soon, just enough time to close up the house.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.054",
+          "theme": "rythme",
+          "fr": "Elle rentre souvent tard après son cours de français.",
+          "en": "She often comes home late after her French class.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.rythme.117",
+          "theme": "rythme",
+          "fr": "Est-ce que ton ami joue au hockey ce soir ?",
+          "en": "Is your friend playing hockey tonight?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.118",
+          "theme": "rythme",
+          "fr": "Il y a un bus pour le centre après minuit ?",
+          "en": "Is there a bus to downtown after midnight?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.062",
+          "theme": "rythme",
+          "fr": "Je prends un fruit et du riz blanc au dîner.",
+          "en": "I have a fruit and some white rice at dinner.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.108",
+          "theme": "rythme",
+          "fr": "Est-ce qu'il reste des billets pour ce soir ?",
+          "en": "Are there any tickets left for tonight?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.056",
+          "theme": "rythme",
+          "fr": "Le grand pont est fermé depuis le mois d'août.",
+          "en": "The big bridge has been closed since the month of August.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.115",
+          "theme": "rythme",
+          "fr": "Est-ce que vous prenez la carte dans ce café ?",
+          "en": "Do you take cards at this café?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.061",
+          "theme": "rythme",
+          "fr": "Le vent du nord souffle très fort sur le champ.",
+          "en": "The north wind blows very hard over the field.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.111",
+          "theme": "rythme",
+          "fr": "Est-ce que tu peux garder les enfants ce soir ?",
+          "en": "Can you watch the kids tonight?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.063",
+          "theme": "rythme",
+          "fr": "Il est tard, le petit village dort sous la neige.",
+          "en": "It's late, the little village sleeps under the snow.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.113",
+          "theme": "rythme",
+          "fr": "Est-ce que le train part toujours à neuf heures ?",
+          "en": "Does the train still leave at nine?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.057",
+          "theme": "rythme",
+          "fr": "Le petit chien court après le chat dans le jardin.",
+          "en": "The little dog runs after the cat in the garden.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.146",
+          "theme": "rythme",
+          "fr": "On part demain, très tôt, avant le lever du soleil.",
+          "en": "We leave tomorrow, very early, before sunrise.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.124",
+          "theme": "rythme",
+          "fr": "On peut poser une question pendant la pause ce matin ?",
+          "en": "Can we ask a question during the break this morning?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.120",
+          "theme": "rythme",
+          "fr": "Vous croyez que la banque ouvre avant dix heures demain ?",
+          "en": "Do you think the bank opens before ten tomorrow?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.059",
+          "theme": "rythme",
+          "fr": "Nous marchons longtemps dans les champs quand il fait beau.",
+          "en": "We walk a long time in the fields when the weather is nice.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.rythme.123",
+          "theme": "rythme",
+          "fr": "Est-ce que ton ami arrive avant la fin du cours ?",
+          "en": "Will your friend arrive before the end of class?",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.rythme.058",
+          "theme": "rythme",
+          "fr": "J'ai trop froid ce matin, je reste sous les draps.",
+          "en": "I'm too cold this morning, I'm staying under the covers.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.rythme.119",
+          "theme": "rythme",
+          "fr": "Est-ce que tu veux marcher un peu avant le souper ?",
+          "en": "Do you want to walk a bit before supper?",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.rythme.060",
+          "theme": "rythme",
+          "fr": "Mon grand-père se repose toujours un peu après le repas.",
+          "en": "My grandfather always rests a little after the meal.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.rythme.121",
+          "theme": "rythme",
+          "fr": "Est-ce que les enfants peuvent jouer dehors encore un peu ?",
+          "en": "Can the kids play outside a little longer?",
+          "words": 11
+        }
+      ]
+    }
+  ]
+}

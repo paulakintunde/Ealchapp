@@ -1,0 +1,1953 @@
+{
+  "stage": "2.4",
+  "world": 2,
+  "level": "a1",
+  "title": "Le Café du Marché",
+  "themes": [
+    "cafe",
+    "au-restaurant",
+    "marche",
+    "cuisine",
+    "nombres",
+    "argent-quotidien",
+    "objets",
+    "courses",
+    "rp-repas",
+    "rp-achats"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 271,
+  "dedupedPool": 269,
+  "selected": 269,
+  "blockCount": 9,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.a1.nombres.026",
+          "theme": "nombres",
+          "fr": "Il a soixante ans.",
+          "en": "He is sixty years old.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.nombres.028",
+          "theme": "nombres",
+          "fr": "Ça coûte dix euros.",
+          "en": "That costs ten euros.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-achats.005",
+          "theme": "rp-achats",
+          "fr": "Je cherche du lait.",
+          "en": "I'm looking for milk.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.au-restaurant.192",
+          "theme": "au-restaurant",
+          "fr": "Mon steak est froid.",
+          "en": "My steak is cold.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.nombres.037",
+          "theme": "nombres",
+          "fr": "Elle a trois enfants.",
+          "en": "She has three children.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.objets.024",
+          "theme": "objets",
+          "fr": "Où sont mes lunettes ?",
+          "en": "Where are my glasses?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.cafe.028",
+          "theme": "cafe",
+          "fr": "Vous avez une terrasse ?",
+          "en": "Do you have a terrace?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.au-restaurant.171",
+          "theme": "au-restaurant",
+          "fr": "Nous sommes quatre personnes.",
+          "en": "There are four of us.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.nombres.025",
+          "theme": "nombres",
+          "fr": "Quel âge a-t-il ?",
+          "en": "How old is he?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.nombres.024",
+          "theme": "nombres",
+          "fr": "Quel âge a-t-elle ?",
+          "en": "How old is she?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-achats.007",
+          "theme": "rp-achats",
+          "fr": "Non, c'est tout, merci.",
+          "en": "No, that's all, thanks.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.au-restaurant.191",
+          "theme": "au-restaurant",
+          "fr": "La soupe est trop salée.",
+          "en": "The soup is too salty.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-repas.007",
+          "theme": "rp-repas",
+          "fr": "Je reviens tout de suite.",
+          "en": "I'll be right back.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.au-restaurant.174",
+          "theme": "au-restaurant",
+          "fr": "Voici la carte des plats.",
+          "en": "Here is the menu.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.cuisine.257",
+          "theme": "cuisine",
+          "fr": "Il aime les plats épicés.",
+          "en": "He likes spicy dishes.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.cafe.140",
+          "theme": "cafe",
+          "fr": "Le café coûte trois euros.",
+          "en": "The coffee costs three euros.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.argent-quotidien.031",
+          "theme": "argent-quotidien",
+          "fr": "Mon compte est à découvert.",
+          "en": "My account is overdrawn.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.au-restaurant.188",
+          "theme": "au-restaurant",
+          "fr": "Ce plat contient du gluten.",
+          "en": "This dish contains gluten.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.cafe.124",
+          "theme": "cafe",
+          "fr": "Je paie par carte bancaire.",
+          "en": "I pay by bank card.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.marche.159",
+          "theme": "marche",
+          "fr": "Je préfère les légumes bio.",
+          "en": "I prefer organic vegetables.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.objets.183",
+          "theme": "objets",
+          "fr": "Cette colle sent très fort.",
+          "en": "This glue smells very strong.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.argent-quotidien.029",
+          "theme": "argent-quotidien",
+          "fr": "Elle paie toujours par carte.",
+          "en": "She always pays by card.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.nombres.029",
+          "theme": "nombres",
+          "fr": "Le billet coûte quinze euros.",
+          "en": "The ticket costs fifteen euros.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.au-restaurant.178",
+          "theme": "au-restaurant",
+          "fr": "Elle commande le poulet rôti.",
+          "en": "She orders the roast chicken.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.au-restaurant.179",
+          "theme": "au-restaurant",
+          "fr": "Il choisit le poisson grillé.",
+          "en": "He chooses the grilled fish.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.objets.188",
+          "theme": "objets",
+          "fr": "Cette bougie sent la vanille.",
+          "en": "This candle smells like vanilla.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.au-restaurant.208",
+          "theme": "au-restaurant",
+          "fr": "Le serveur débarrasse la table.",
+          "en": "The waiter clears the table.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.cafe.126",
+          "theme": "cafe",
+          "fr": "Ce café est vraiment délicieux.",
+          "en": "This coffee is really delicious.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.au-restaurant.180",
+          "theme": "au-restaurant",
+          "fr": "Nous voulons deux steaks frites.",
+          "en": "We want two steak and fries.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.cafe.128",
+          "theme": "cafe",
+          "fr": "Le serveur est très sympathique.",
+          "en": "The waiter is very friendly.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.cafe.131",
+          "theme": "cafe",
+          "fr": "Elle commande un chocolat chaud.",
+          "en": "She orders a hot chocolate.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.au-restaurant.190",
+          "theme": "au-restaurant",
+          "fr": "Avez-vous des plats végétariens ?",
+          "en": "Do you have vegetarian dishes?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.au-restaurant.194",
+          "theme": "au-restaurant",
+          "fr": "Pouvez-vous réchauffer mon plat ?",
+          "en": "Can you reheat my dish?",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.a1.cafe.139",
+          "theme": "cafe",
+          "fr": "Nous discutons pendant une heure.",
+          "en": "We chat for an hour.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.cuisine.230",
+          "theme": "cuisine",
+          "fr": "Nous préparons le dîner ensemble.",
+          "en": "We prepare dinner together.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.marche.176",
+          "theme": "marche",
+          "fr": "Je cherche des champignons frais.",
+          "en": "I am looking for fresh mushrooms.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.nombres.038",
+          "theme": "nombres",
+          "fr": "Il reste quatre places disponibles.",
+          "en": "There are four seats left.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.argent-quotidien.028",
+          "theme": "argent-quotidien",
+          "fr": "Je n'ai plus de monnaie.",
+          "en": "I don't have any change left.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-achats.006",
+          "theme": "rp-achats",
+          "fr": "C'est au fond, à gauche.",
+          "en": "It's at the back, on the left.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.166",
+          "theme": "objets",
+          "fr": "Tu as un stylo pour moi?",
+          "en": "Do you have a pen for me?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.215",
+          "theme": "au-restaurant",
+          "fr": "Ce plat est un peu épicé.",
+          "en": "This dish is a bit spicy.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.176",
+          "theme": "au-restaurant",
+          "fr": "Quel est le plat du jour ?",
+          "en": "What is today's special?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.189",
+          "theme": "au-restaurant",
+          "fr": "Je ne mange pas de viande.",
+          "en": "I don't eat meat.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.argent-quotidien.041",
+          "theme": "argent-quotidien",
+          "fr": "Le loyer est dû le premier.",
+          "en": "The rent is due on the first.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.175",
+          "theme": "au-restaurant",
+          "fr": "Je regarde le menu du jour.",
+          "en": "I am looking at today's menu.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.160",
+          "theme": "objets",
+          "fr": "Mes clés sont sur la table.",
+          "en": "My keys are on the table.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cafe.130",
+          "theme": "cafe",
+          "fr": "Je bois mon café sans sucre.",
+          "en": "I drink my coffee without sugar.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cafe.133",
+          "theme": "cafe",
+          "fr": "Le café ouvre à sept heures.",
+          "en": "The café opens at seven o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.165",
+          "theme": "objets",
+          "fr": "Le chargeur est près du lit.",
+          "en": "The charger is near the bed.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.argent-quotidien.033",
+          "theme": "argent-quotidien",
+          "fr": "Tu peux me prêter dix euros ?",
+          "en": "Can you lend me ten euros?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.nombres.027",
+          "theme": "nombres",
+          "fr": "Mon père a soixante-cinq ans.",
+          "en": "My father is sixty-five years old.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.nombres.030",
+          "theme": "nombres",
+          "fr": "Le total est de trente euros.",
+          "en": "The total is thirty euros.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.nombres.032",
+          "theme": "nombres",
+          "fr": "J'ai acheté cinq livres hier.",
+          "en": "I bought five books yesterday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-repas.006",
+          "theme": "rp-repas",
+          "fr": "Un verre de vin rouge, merci.",
+          "en": "A glass of red wine, thanks.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.202",
+          "theme": "au-restaurant",
+          "fr": "La carte des vins est longue.",
+          "en": "The wine list is long.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.191",
+          "theme": "marche",
+          "fr": "Je choisis un melon bien mûr.",
+          "en": "I choose a nice ripe melon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.168",
+          "theme": "objets",
+          "fr": "Elle porte un grand sac noir.",
+          "en": "She carries a big black bag.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.205",
+          "theme": "objets",
+          "fr": "Ce sac appartient à ma tante.",
+          "en": "This bag belongs to my aunt.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.004",
+          "theme": "marche",
+          "fr": "Le marché ouvre à huit heures.",
+          "en": "The market opens at eight.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.argent-quotidien.034",
+          "theme": "argent-quotidien",
+          "fr": "La baguette coûte un euro dix.",
+          "en": "The baguette costs one euro ten.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.argent-quotidien.050",
+          "theme": "argent-quotidien",
+          "fr": "Mon frère me doit vingt euros.",
+          "en": "My brother owes me twenty euros.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.184",
+          "theme": "au-restaurant",
+          "fr": "Nous buvons de l'eau minérale.",
+          "en": "We drink mineral water.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.183",
+          "theme": "marche",
+          "fr": "Le marché sent bon les épices.",
+          "en": "The market smells good of spices.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.194",
+          "theme": "objets",
+          "fr": "Le réveil sonne à sept heures.",
+          "en": "The alarm clock rings at seven o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.177",
+          "theme": "au-restaurant",
+          "fr": "Je prends une salade en entrée.",
+          "en": "I'll have a salad for a starter.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cafe.136",
+          "theme": "cafe",
+          "fr": "Le serveur nous donne la carte.",
+          "en": "The waiter gives us the menu.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.a1.cuisine.233",
+          "theme": "cuisine",
+          "fr": "Je découpe le pain en tranches.",
+          "en": "I cut the bread into slices.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.164",
+          "theme": "marche",
+          "fr": "Je paie en espèces au marchand.",
+          "en": "I pay the merchant in cash.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.168",
+          "theme": "marche",
+          "fr": "Le panier est plein de légumes.",
+          "en": "The basket is full of vegetables.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.164",
+          "theme": "objets",
+          "fr": "Ce sont mes lunettes de soleil.",
+          "en": "These are my sunglasses.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.189",
+          "theme": "objets",
+          "fr": "Le balai est derrière la porte.",
+          "en": "The broom is behind the door.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.argent-quotidien.039",
+          "theme": "argent-quotidien",
+          "fr": "Il paie ses achats sans contact.",
+          "en": "He pays for his purchases contactless.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.201",
+          "theme": "au-restaurant",
+          "fr": "Le menu enfant coûte huit euros.",
+          "en": "The kids' menu costs eight euros.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cafe.125",
+          "theme": "cafe",
+          "fr": "Mon ami arrive dans dix minutes.",
+          "en": "My friend arrives in ten minutes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cafe.132",
+          "theme": "cafe",
+          "fr": "Nous attendons nos amis au café.",
+          "en": "We wait for our friends at the café.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cuisine.256",
+          "theme": "cuisine",
+          "fr": "Tu cuisines souvent le week-end.",
+          "en": "You cook often on the weekend.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.185",
+          "theme": "marche",
+          "fr": "Je demande le prix des asperges.",
+          "en": "I ask the price of the asparagus.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.nombres.033",
+          "theme": "nombres",
+          "fr": "Nous sommes sept dans la famille.",
+          "en": "There are seven of us in the family.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.185",
+          "theme": "au-restaurant",
+          "fr": "Le serveur apporte du pain frais.",
+          "en": "The waiter brings fresh bread.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cafe.119",
+          "theme": "cafe",
+          "fr": "Nous nous asseyons à la terrasse.",
+          "en": "We sit down on the terrace.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cuisine.224",
+          "theme": "cuisine",
+          "fr": "Elle épluche les pommes de terre.",
+          "en": "She peels the potatoes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.154",
+          "theme": "marche",
+          "fr": "Combien coûte un kilo de tomates?",
+          "en": "How much does a kilo of tomatoes cost?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.179",
+          "theme": "marche",
+          "fr": "Les abricots sont mûrs et sucrés.",
+          "en": "The apricots are ripe and sweet.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.189",
+          "theme": "marche",
+          "fr": "Cette échoppe vend du miel local.",
+          "en": "This stall sells local honey.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.170",
+          "theme": "au-restaurant",
+          "fr": "La réservation est à vingt heures.",
+          "en": "The reservation is at eight o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.172",
+          "theme": "au-restaurant",
+          "fr": "Le restaurant est complet ce soir.",
+          "en": "The restaurant is full tonight.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.210",
+          "theme": "au-restaurant",
+          "fr": "La salle est calme et confortable.",
+          "en": "The dining room is quiet and comfortable.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cafe.143",
+          "theme": "cafe",
+          "fr": "Le serveur passe entre les tables.",
+          "en": "The waiter passes between the tables.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cuisine.241",
+          "theme": "cuisine",
+          "fr": "Tu prépares une salade de tomates.",
+          "en": "You prepare a tomato salad.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.195",
+          "theme": "marche",
+          "fr": "Les radis sont croquants et frais.",
+          "en": "The radishes are crunchy and fresh.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.argent-quotidien.037",
+          "theme": "argent-quotidien",
+          "fr": "Nous partageons la facture en deux.",
+          "en": "We're splitting the bill in two.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.argent-quotidien.047",
+          "theme": "argent-quotidien",
+          "fr": "Le serveur nous apporte l'addition.",
+          "en": "The waiter brings us the check.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.196",
+          "theme": "au-restaurant",
+          "fr": "Nous partageons l'addition en deux.",
+          "en": "We split the bill in two.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cafe.127",
+          "theme": "cafe",
+          "fr": "Nous partageons une part de gâteau.",
+          "en": "We share a slice of cake.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cuisine.249",
+          "theme": "cuisine",
+          "fr": "Elle prépare un gâteau au chocolat.",
+          "en": "She makes a chocolate cake.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.178",
+          "theme": "marche",
+          "fr": "Cette laitue vient du jardin local.",
+          "en": "This lettuce comes from the local garden.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.163",
+          "theme": "objets",
+          "fr": "Mon portefeuille est dans ma poche.",
+          "en": "My wallet is in my pocket.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cafe.120",
+          "theme": "cafe",
+          "fr": "Le serveur apporte deux cafés noirs.",
+          "en": "The waiter brings two black coffees.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.162",
+          "theme": "marche",
+          "fr": "Le poissonnier vend du saumon frais.",
+          "en": "The fishmonger sells fresh salmon.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.a1.argent-quotidien.045",
+          "theme": "argent-quotidien",
+          "fr": "Ils paient l'électricité chaque mois.",
+          "en": "They pay the electricity bill every month.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.argent-quotidien.048",
+          "theme": "argent-quotidien",
+          "fr": "Nous avons dépensé tout notre budget.",
+          "en": "We spent our whole budget.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.200",
+          "theme": "au-restaurant",
+          "fr": "Nous préférons une table en terrasse.",
+          "en": "We prefer a table on the terrace.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.206",
+          "theme": "au-restaurant",
+          "fr": "Le plateau de fromages est délicieux.",
+          "en": "The cheese platter is delicious.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.212",
+          "theme": "au-restaurant",
+          "fr": "Nous mangeons ici tous les dimanches.",
+          "en": "We eat here every Sunday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.184",
+          "theme": "marche",
+          "fr": "Ce vendeur accepte la carte bancaire.",
+          "en": "This vendor accepts credit cards.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.202",
+          "theme": "objets",
+          "fr": "La boussole indique toujours le nord.",
+          "en": "The compass always points north.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.218",
+          "theme": "au-restaurant",
+          "fr": "Nous réservons une table sur internet.",
+          "en": "We book a table online.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.argent-quotidien.042",
+          "theme": "argent-quotidien",
+          "fr": "Nous économisons pour un nouveau canapé.",
+          "en": "We're saving up for a new sofa.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.181",
+          "theme": "marche",
+          "fr": "Le boulanger vend des baguettes chaudes.",
+          "en": "The baker sells warm baguettes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.187",
+          "theme": "marche",
+          "fr": "Le fermier vend ses légumes directement.",
+          "en": "The farmer sells his vegetables directly.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.marche.199",
+          "theme": "marche",
+          "fr": "Les clients discutent avec les vendeurs.",
+          "en": "The customers chat with the vendors.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.objets.173",
+          "theme": "objets",
+          "fr": "Nous allons acheter une nouvelle valise.",
+          "en": "We are going to buy a new suitcase.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.203",
+          "theme": "au-restaurant",
+          "fr": "Le chef prépare une spécialité régionale.",
+          "en": "The chef prepares a regional specialty.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.au-restaurant.204",
+          "theme": "au-restaurant",
+          "fr": "Ce restaurant sert une cuisine italienne.",
+          "en": "This restaurant serves Italian cuisine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.cuisine.255",
+          "theme": "cuisine",
+          "fr": "Nous mettons les restes au réfrigérateur.",
+          "en": "We put the leftovers in the fridge.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.nombres.036",
+          "theme": "nombres",
+          "fr": "J'ai deux chats et un chien.",
+          "en": "I have two cats and a dog.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.021",
+          "theme": "objets",
+          "fr": "J'ai perdu mes clés ce matin.",
+          "en": "I lost my keys this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.argent-quotidien.036",
+          "theme": "argent-quotidien",
+          "fr": "Elle a mis cent euros de côté.",
+          "en": "She put aside a hundred euros.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.200",
+          "theme": "marche",
+          "fr": "J'aime le marché en plein air.",
+          "en": "I like the open-air market.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.025",
+          "theme": "objets",
+          "fr": "Ce sac est trop lourd pour moi.",
+          "en": "This bag is too heavy for me.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.227",
+          "theme": "cuisine",
+          "fr": "Il ajoute du sel dans la soupe.",
+          "en": "He adds salt to the soup.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.247",
+          "theme": "cuisine",
+          "fr": "Il verse le lait dans la tasse.",
+          "en": "He pours the milk into the cup.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.190",
+          "theme": "objets",
+          "fr": "Le seau est plein d'eau froide.",
+          "en": "The bucket is full of cold water.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.nombres.041",
+          "theme": "nombres",
+          "fr": "C'est ma deuxième tasse de café.",
+          "en": "This is my second cup of coffee.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cafe.141",
+          "theme": "cafe",
+          "fr": "Tu prends du lait dans ton café?",
+          "en": "Do you take milk in your coffee?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.251",
+          "theme": "cuisine",
+          "fr": "Tu ajoutes du sucre dans le thé.",
+          "en": "You add sugar to the tea.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.174",
+          "theme": "marche",
+          "fr": "Le vendeur me donne un bon prix.",
+          "en": "The vendor gives me a good price.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.181",
+          "theme": "objets",
+          "fr": "As-tu un tournevis dans ton sac?",
+          "en": "Do you have a screwdriver in your bag?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.200",
+          "theme": "objets",
+          "fr": "Ce timbre vient d'un autre pays.",
+          "en": "This stamp comes from another country.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.182",
+          "theme": "au-restaurant",
+          "fr": "Je prends un café après le repas.",
+          "en": "I'll have a coffee after the meal.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.229",
+          "theme": "cuisine",
+          "fr": "Elle met le beurre dans la poêle.",
+          "en": "She puts the butter in the pan.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.246",
+          "theme": "cuisine",
+          "fr": "Tu écrases l'ail avec un couteau.",
+          "en": "You crush the garlic with a knife.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.a1.cuisine.248",
+          "theme": "cuisine",
+          "fr": "Je fais griller le pain le matin.",
+          "en": "I toast the bread in the morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cafe.026",
+          "theme": "cafe",
+          "fr": "Je prends un café et un croissant.",
+          "en": "I’ll have a coffee and a croissant.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.nombres.035",
+          "theme": "nombres",
+          "fr": "Compte les chaises, s'il te plaît.",
+          "en": "Count the chairs, please.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.nombres.040",
+          "theme": "nombres",
+          "fr": "C'est mon premier jour de travail.",
+          "en": "This is my first day of work.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.169",
+          "theme": "au-restaurant",
+          "fr": "Avez-vous une table pour ce soir ?",
+          "en": "Do you have a table for tonight?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.151",
+          "theme": "marche",
+          "fr": "Je vais au marché le samedi matin.",
+          "en": "I go to the market on Saturday morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.169",
+          "theme": "objets",
+          "fr": "J'aime bien ce petit carnet rouge.",
+          "en": "I really like this little red notebook.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.192",
+          "theme": "objets",
+          "fr": "La lampe de mon bureau est cassée.",
+          "en": "My desk lamp is broken.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.044",
+          "theme": "au-restaurant",
+          "fr": "Le dessert est inclus dans le menu.",
+          "en": "Dessert is included in the menu.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.183",
+          "theme": "au-restaurant",
+          "fr": "Elle demande un verre de vin rouge.",
+          "en": "She asks for a glass of red wine.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.199",
+          "theme": "au-restaurant",
+          "fr": "Cette table est près de la fenêtre.",
+          "en": "This table is near the window.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.231",
+          "theme": "cuisine",
+          "fr": "Tu goûtes la sauce avant de servir.",
+          "en": "You taste the sauce before serving.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.244",
+          "theme": "cuisine",
+          "fr": "Elle sert le café après le dessert.",
+          "en": "She serves coffee after dessert.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.005",
+          "theme": "marche",
+          "fr": "J'aime acheter du fromage au marché.",
+          "en": "I like buying cheese at the market.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.argent-quotidien.038",
+          "theme": "argent-quotidien",
+          "fr": "Mon salaire tombe le trente du mois.",
+          "en": "My paycheck comes on the thirtieth of the month.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.argent-quotidien.049",
+          "theme": "argent-quotidien",
+          "fr": "Elle range ses reçus dans un tiroir.",
+          "en": "She keeps her receipts in a drawer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.198",
+          "theme": "au-restaurant",
+          "fr": "Le service est compris dans le prix.",
+          "en": "Service is included in the price.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cafe.134",
+          "theme": "cafe",
+          "fr": "Tu veux un croissant ou une tartine?",
+          "en": "Do you want a croissant or a slice of bread?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.235",
+          "theme": "cuisine",
+          "fr": "Nous mettons la table pour le repas.",
+          "en": "We set the table for the meal.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.243",
+          "theme": "cuisine",
+          "fr": "Je réchauffe la soupe au micro-onde.",
+          "en": "I heat up the soup in the microwave.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.252",
+          "theme": "cuisine",
+          "fr": "Il pèse la farine avant de cuisiner.",
+          "en": "He weighs the flour before cooking.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.177",
+          "theme": "marche",
+          "fr": "Le marchand de fruits crie les prix.",
+          "en": "The fruit seller calls out the prices.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.180",
+          "theme": "marche",
+          "fr": "Je mets les courgettes dans mon sac.",
+          "en": "I put the zucchini in my bag.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.206",
+          "theme": "objets",
+          "fr": "Les clés de la voiture sont perdues.",
+          "en": "The car keys are lost.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.168",
+          "theme": "cuisine",
+          "fr": "Je mange une pomme après le déjeuner.",
+          "en": "I eat an apple after lunch.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.207",
+          "theme": "au-restaurant",
+          "fr": "Nous finissons le repas avec un café.",
+          "en": "We finish the meal with a coffee.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.214",
+          "theme": "au-restaurant",
+          "fr": "La cuisine ferme à vingt-deux heures.",
+          "en": "The kitchen closes at ten p.m.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.172",
+          "theme": "marche",
+          "fr": "Le marché est très animé le dimanche.",
+          "en": "The market is very lively on Sundays.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.192",
+          "theme": "marche",
+          "fr": "Les artichauts sont chers ce mois-ci.",
+          "en": "Artichokes are expensive this month.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.195",
+          "theme": "au-restaurant",
+          "fr": "L'addition, s'il vous plaît, monsieur.",
+          "en": "The bill, please, sir.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cafe.118",
+          "theme": "cafe",
+          "fr": "Elle prend un croissant avec son café.",
+          "en": "She has a croissant with her coffee.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cafe.123",
+          "theme": "cafe",
+          "fr": "Monsieur, l'addition, s'il vous plaît.",
+          "en": "Sir, the bill, please.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cafe.138",
+          "theme": "cafe",
+          "fr": "Elle laisse un pourboire sur la table.",
+          "en": "She leaves a tip on the table.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.a1.cuisine.225",
+          "theme": "cuisine",
+          "fr": "Nous mélangeons la farine et les œufs.",
+          "en": "We mix the flour and the eggs.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.228",
+          "theme": "cuisine",
+          "fr": "Je lave les légumes avant de cuisiner.",
+          "en": "I wash the vegetables before cooking.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.237",
+          "theme": "cuisine",
+          "fr": "Il choisit des fruits frais au marché.",
+          "en": "He chooses fresh fruit at the market.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.160",
+          "theme": "marche",
+          "fr": "Le fromager coupe un morceau de comté.",
+          "en": "The cheesemonger cuts a piece of comté cheese.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.180",
+          "theme": "objets",
+          "fr": "Papa répare la chaise avec un marteau.",
+          "en": "Dad fixes the chair with a hammer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.184",
+          "theme": "objets",
+          "fr": "Il attache le paquet avec une ficelle.",
+          "en": "He ties the package with a string.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.argent-quotidien.030",
+          "theme": "argent-quotidien",
+          "fr": "Nous devons payer le loyer aujourd'hui.",
+          "en": "We need to pay the rent today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.argent-quotidien.043",
+          "theme": "argent-quotidien",
+          "fr": "Elle vérifie son solde tous les matins.",
+          "en": "She checks her balance every morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.197",
+          "theme": "au-restaurant",
+          "fr": "Je laisse un pourboire pour le serveur.",
+          "en": "I leave a tip for the waiter.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.216",
+          "theme": "au-restaurant",
+          "fr": "J'aime beaucoup ce dessert au chocolat.",
+          "en": "I really like this chocolate dessert.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cafe.121",
+          "theme": "cafe",
+          "fr": "Tu préfères la terrasse ou l'intérieur?",
+          "en": "Do you prefer the terrace or inside?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.240",
+          "theme": "cuisine",
+          "fr": "Nous achetons du pain à la boulangerie.",
+          "en": "We buy bread at the bakery.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.250",
+          "theme": "cuisine",
+          "fr": "Nous coupons les oignons pour la soupe.",
+          "en": "We cut the onions for the soup.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.254",
+          "theme": "cuisine",
+          "fr": "Elle nettoie la cuisine après le repas.",
+          "en": "She cleans the kitchen after the meal.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.174",
+          "theme": "objets",
+          "fr": "Mes écouteurs ne marchent plus du tout.",
+          "en": "My headphones don't work at all anymore.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.186",
+          "theme": "objets",
+          "fr": "Elle allume son briquet pour la bougie.",
+          "en": "She lights her lighter for the candle.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.205",
+          "theme": "au-restaurant",
+          "fr": "La sauce accompagne très bien la viande.",
+          "en": "The sauce goes very well with the meat.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.239",
+          "theme": "cuisine",
+          "fr": "Elle cuisine du poulet avec des légumes.",
+          "en": "She cooks chicken with vegetables.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.245",
+          "theme": "cuisine",
+          "fr": "Nous mangeons des fruits pour le goûter.",
+          "en": "We eat fruit for the afternoon snack.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.158",
+          "theme": "marche",
+          "fr": "Cette pastèque est trop grosse pour moi.",
+          "en": "This watermelon is too big for me.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.177",
+          "theme": "objets",
+          "fr": "Où est la télécommande de la télévision?",
+          "en": "Where is the TV remote control?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.223",
+          "theme": "cuisine",
+          "fr": "Je coupe les carottes en petits morceaux.",
+          "en": "I cut the carrots into small pieces.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cuisine.234",
+          "theme": "cuisine",
+          "fr": "Elle range les assiettes dans le placard.",
+          "en": "She puts the plates away in the cupboard.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.nombres.039",
+          "theme": "nombres",
+          "fr": "Range les douze assiettes dans le placard.",
+          "en": "Put the twelve plates away in the cupboard.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.au-restaurant.173",
+          "theme": "au-restaurant",
+          "fr": "Le serveur nous accueille avec un sourire.",
+          "en": "The waiter greets us with a smile.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.155",
+          "theme": "marche",
+          "fr": "Les fraises sont très fraîches aujourd'hui.",
+          "en": "The strawberries are very fresh today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.objets.195",
+          "theme": "objets",
+          "fr": "Ma calculatrice reste toujours dans mon sac.",
+          "en": "My calculator always stays in my bag.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cafe.142",
+          "theme": "cafe",
+          "fr": "Nous rencontrons des amis ici chaque semaine.",
+          "en": "We meet friends here every week.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.188",
+          "theme": "marche",
+          "fr": "J'aime marchander poliment avec les vendeurs.",
+          "en": "I like bargaining politely with the vendors.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.marche.167",
+          "theme": "marche",
+          "fr": "Nous choisissons des poivrons rouges et verts.",
+          "en": "We choose red and green peppers.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.cafe.129",
+          "theme": "cafe",
+          "fr": "Il y a une table libre là-bas.",
+          "en": "There is a free table over there.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.cafe.144",
+          "theme": "cafe",
+          "fr": "J'ai soif, je commande de l'eau.",
+          "en": "I'm thirsty, I order water.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.173",
+          "theme": "marche",
+          "fr": "J'ai besoin d'un kilo d'oignons.",
+          "en": "I need a kilo of onions.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.a1.objets.162",
+          "theme": "objets",
+          "fr": "Il y a un parapluie dans le sac.",
+          "en": "There is an umbrella in the bag.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.171",
+          "theme": "objets",
+          "fr": "Il y a des piles dans le tiroir.",
+          "en": "There are batteries in the drawer.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.argent-quotidien.026",
+          "theme": "argent-quotidien",
+          "fr": "J'ai besoin d'argent pour le bus.",
+          "en": "I need money for the bus.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.argent-quotidien.040",
+          "theme": "argent-quotidien",
+          "fr": "J'ai oublié ma carte à la maison.",
+          "en": "I forgot my card at home.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.nombres.031",
+          "theme": "nombres",
+          "fr": "Il y a trois pommes sur la table.",
+          "en": "There are three apples on the table.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.207",
+          "theme": "objets",
+          "fr": "Il y a un trou dans mon parapluie.",
+          "en": "There is a hole in my umbrella.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.cafe.020",
+          "theme": "cafe",
+          "fr": "Je voudrais un café s'il vous plaît",
+          "en": "I would like a coffee, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.cafe.027",
+          "theme": "cafe",
+          "fr": "Je voudrais un thé, s’il vous plaît.",
+          "en": "I would like a tea, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.cafe.137",
+          "theme": "cafe",
+          "fr": "J'aime m'asseoir près de la fenêtre.",
+          "en": "I like to sit near the window.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.au-restaurant.043",
+          "theme": "au-restaurant",
+          "fr": "Une table pour deux, s'il vous plaît.",
+          "en": "A table for two, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.au-restaurant.217",
+          "theme": "au-restaurant",
+          "fr": "Le vin blanc va bien avec le poisson.",
+          "en": "White wine goes well with fish.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.198",
+          "theme": "marche",
+          "fr": "Le marché se trouve près de l'église.",
+          "en": "The market is located near the church.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.172",
+          "theme": "objets",
+          "fr": "La montre de mon père est très belle.",
+          "en": "My father's watch is very beautiful.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.179",
+          "theme": "objets",
+          "fr": "La boîte à outils est dans le garage.",
+          "en": "The toolbox is in the garage.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.argent-quotidien.027",
+          "theme": "argent-quotidien",
+          "fr": "Le distributeur est au coin de la rue.",
+          "en": "The ATM is on the street corner.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.nombres.034",
+          "theme": "nombres",
+          "fr": "Il y a vingt étudiants dans la classe.",
+          "en": "There are twenty students in the class.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.176",
+          "theme": "objets",
+          "fr": "Le câble est trop court pour la prise.",
+          "en": "The cable is too short for the outlet.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.argent-quotidien.032",
+          "theme": "argent-quotidien",
+          "fr": "Il y a une longue file au distributeur.",
+          "en": "There's a long line at the ATM.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.argent-quotidien.046",
+          "theme": "argent-quotidien",
+          "fr": "Je dois retirer de l'argent avant midi.",
+          "en": "I need to withdraw money before noon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.cuisine.253",
+          "theme": "cuisine",
+          "fr": "Je choisis un menu simple pour ce soir.",
+          "en": "I choose a simple menu for tonight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.169",
+          "theme": "marche",
+          "fr": "Cet étal vend des olives et des épices.",
+          "en": "This stall sells olives and spices.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.167",
+          "theme": "objets",
+          "fr": "Nous avons besoin d'une lampe de poche.",
+          "en": "We need a flashlight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.196",
+          "theme": "objets",
+          "fr": "Cette gomme n'efface plus rien du tout.",
+          "en": "This eraser doesn't erase anything at all anymore.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.204",
+          "theme": "objets",
+          "fr": "Est-ce que je peux emprunter ton stylo?",
+          "en": "Can I borrow your pen?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.cafe.145",
+          "theme": "cafe",
+          "fr": "Nous restons à l'intérieur car il pleut.",
+          "en": "We stay inside because it's raining.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.cuisine.226",
+          "theme": "cuisine",
+          "fr": "Tu fais cuire le riz dans une casserole.",
+          "en": "You cook the rice in a pot.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.166",
+          "theme": "marche",
+          "fr": "Le marchand met les oranges dans un sac.",
+          "en": "The merchant puts the oranges in a bag.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.186",
+          "theme": "marche",
+          "fr": "Les poires sont dans une caisse en bois.",
+          "en": "The pears are in a wooden crate.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.175",
+          "theme": "objets",
+          "fr": "C'est l'ordinateur portable de ma soeur.",
+          "en": "This is my sister's laptop.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.182",
+          "theme": "objets",
+          "fr": "Le ruban adhésif est collé sur la table.",
+          "en": "The tape is stuck on the table.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.191",
+          "theme": "objets",
+          "fr": "L'échelle est trop haute pour le garage.",
+          "en": "The ladder is too tall for the garage.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.argent-quotidien.044",
+          "theme": "argent-quotidien",
+          "fr": "J'ai rendez-vous avec mon banquier lundi.",
+          "en": "I have an appointment with my banker on Monday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.cuisine.242",
+          "theme": "cuisine",
+          "fr": "Il aime manger du fromage après le repas.",
+          "en": "He likes to eat cheese after the meal.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.a1.marche.165",
+          "theme": "marche",
+          "fr": "Avez-vous de la monnaie pour vingt euros?",
+          "en": "Do you have change for twenty euros?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.196",
+          "theme": "marche",
+          "fr": "Ce marchand vend aussi des œufs de ferme.",
+          "en": "This merchant also sells farm eggs.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.argent-quotidien.035",
+          "theme": "argent-quotidien",
+          "fr": "Je garde toujours un peu d'argent liquide.",
+          "en": "I always keep a bit of cash on hand.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.171",
+          "theme": "marche",
+          "fr": "Les clients font la queue devant le stand.",
+          "en": "The customers line up in front of the stall.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.194",
+          "theme": "marche",
+          "fr": "J'apporte mon propre sac pour les courses.",
+          "en": "I bring my own bag for shopping.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.198",
+          "theme": "objets",
+          "fr": "L'agrafeuse est vide, il faut des agrafes.",
+          "en": "The stapler is empty, it needs staples.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.157",
+          "theme": "marche",
+          "fr": "Le vendeur pèse les légumes sur la balance.",
+          "en": "The vendor weighs the vegetables on the scale.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.175",
+          "theme": "marche",
+          "fr": "Les cerises sont un peu chères aujourd'hui.",
+          "en": "The cherries are a bit expensive today.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.au-restaurant.181",
+          "theme": "au-restaurant",
+          "fr": "Le dessert préféré des enfants est la glace.",
+          "en": "The children's favorite dessert is ice cream.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.190",
+          "theme": "marche",
+          "fr": "Le marché couvert est ouvert tous les jours.",
+          "en": "The covered market is open every day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.199",
+          "theme": "objets",
+          "fr": "Il met la lettre dans une enveloppe blanche.",
+          "en": "He puts the letter in a white envelope.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.marche.193",
+          "theme": "marche",
+          "fr": "Le vendeur emballe le poisson dans du papier.",
+          "en": "The vendor wraps the fish in paper.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.170",
+          "theme": "objets",
+          "fr": "Mon frère utilise mes ciseaux tous les jours.",
+          "en": "My brother uses my scissors every day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.208",
+          "theme": "objets",
+          "fr": "Ma carte d'identité est dans le portefeuille.",
+          "en": "My ID card is in the wallet.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.210",
+          "theme": "objets",
+          "fr": "Nous rangeons les outils dans la boîte grise.",
+          "en": "We put the tools away in the grey box.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.201",
+          "theme": "objets",
+          "fr": "Nous regardons la carte pour trouver la route.",
+          "en": "We look at the map to find the route.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.objets.209",
+          "theme": "objets",
+          "fr": "Ce chargeur ne correspond pas à mon téléphone.",
+          "en": "This charger doesn't match my phone.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.cuisine.258",
+          "theme": "cuisine",
+          "fr": "Je préfère les légumes frais aux légumes surgelés.",
+          "en": "I prefer fresh vegetables to frozen vegetables.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.au-restaurant.168",
+          "theme": "au-restaurant",
+          "fr": "Je voudrais réserver une table pour deux personnes.",
+          "en": "I would like to book a table for two people.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.au-restaurant.186",
+          "theme": "au-restaurant",
+          "fr": "Y a-t-il des noix dans ce plat ?",
+          "en": "Are there nuts in this dish?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.au-restaurant.193",
+          "theme": "au-restaurant",
+          "fr": "Ce n'est pas ce que j'ai commandé.",
+          "en": "This is not what I ordered.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.au-restaurant.211",
+          "theme": "au-restaurant",
+          "fr": "Il y a une chaise haute pour le bébé.",
+          "en": "There is a high chair for the baby.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.cuisine.236",
+          "theme": "cuisine",
+          "fr": "Tu bois un verre d'eau avec le repas.",
+          "en": "You drink a glass of water with the meal.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.cuisine.232",
+          "theme": "cuisine",
+          "fr": "Il verse l'huile d'olive sur la salade.",
+          "en": "He pours olive oil on the salad.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.objets.178",
+          "theme": "objets",
+          "fr": "Mon porte-clés a la forme d'une étoile.",
+          "en": "My keychain is shaped like a star.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.objets.193",
+          "theme": "objets",
+          "fr": "Le miroir de la salle de bain est sale.",
+          "en": "The bathroom mirror is dirty.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.nombres.042",
+          "theme": "nombres",
+          "fr": "C'est la première fois que je viens ici.",
+          "en": "This is the first time I've come here.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.cafe.122",
+          "theme": "cafe",
+          "fr": "Ils commandent un thé et un jus d'orange.",
+          "en": "They order a tea and an orange juice.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.cuisine.238",
+          "theme": "cuisine",
+          "fr": "Je fais bouillir de l'eau pour les pâtes.",
+          "en": "I boil water for the pasta.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.objets.203",
+          "theme": "objets",
+          "fr": "Mon sac à dos est trop lourd aujourd'hui.",
+          "en": "My backpack is too heavy today.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.objets.187",
+          "theme": "objets",
+          "fr": "Nous n'avons plus d'allumettes à la maison.",
+          "en": "We don't have any matches left at home.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.marche.182",
+          "theme": "marche",
+          "fr": "J'achète un bouquet de tulipes pour ma mère.",
+          "en": "I am buying a bunch of tulips for my mother.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.objets.185",
+          "theme": "objets",
+          "fr": "Le couteau est dans le tiroir de la cuisine.",
+          "en": "The knife is in the kitchen drawer.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.a1.objets.197",
+          "theme": "objets",
+          "fr": "La règle de mon fils est en plastique jaune.",
+          "en": "My son's ruler is yellow plastic.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.au-restaurant.209",
+          "theme": "au-restaurant",
+          "fr": "Puis-je avoir une serviette, s'il vous plaît ?",
+          "en": "May I have a napkin, please?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.marche.170",
+          "theme": "marche",
+          "fr": "Je goûte un morceau de fromage avant d'acheter.",
+          "en": "I taste a piece of cheese before buying.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.marche.001",
+          "theme": "marche",
+          "fr": "Le marchand vend des fruits frais tous les matins.",
+          "en": "The vendor sells fresh fruit every morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.marche.156",
+          "theme": "marche",
+          "fr": "Je voudrais un kilo de carottes, s'il vous plaît.",
+          "en": "I would like a kilo of carrots, please.",
+          "words": 10
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2818 @@
+{
+  "stage": "5.1",
+  "world": 5,
+  "level": "b2",
+  "title": "Le Col des Idées",
+  "themes": [
+    "philosophie",
+    "ethique",
+    "opinions-et-avis",
+    "comparaisons",
+    "connecteurs-logiques",
+    "negation-et-restriction",
+    "conseils-et-suggestions",
+    "projets-et-futur",
+    "recits-au-passe",
+    "expressions-de-quantite",
+    "pronoms-essentiels",
+    "heure-et-date",
+    "prepositions-essentielles"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 390,
+  "dedupedPool": 390,
+  "selected": 390,
+  "blockCount": 12,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.b2.heure-et-date.006",
+          "theme": "heure-et-date",
+          "fr": "En temps voulu, tu sauras tout.",
+          "en": "In due time, you'll know everything.",
+          "words": 6
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.002",
+          "theme": "negation-et-restriction",
+          "fr": "Il n'existe aucune solution simple.",
+          "en": "There exists no simple solution.",
+          "words": 6
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.003",
+          "theme": "negation-et-restriction",
+          "fr": "Cette explication n'apporte aucune certitude.",
+          "en": "This explanation brings no certainty.",
+          "words": 6
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.020",
+          "theme": "negation-et-restriction",
+          "fr": "Personne n'a jamais compris cette règle.",
+          "en": "No one has ever understood this rule.",
+          "words": 7
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.008",
+          "theme": "expressions-de-quantite",
+          "fr": "Cet article soulève une foule de questions.",
+          "en": "This article raises a great many questions.",
+          "words": 7
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.007",
+          "theme": "negation-et-restriction",
+          "fr": "Ce logiciel ne fonctionne que sur ordinateur.",
+          "en": "This software only works on computer.",
+          "words": 7
+        },
+        {
+          "id": "fr.b2.heure-et-date.007",
+          "theme": "heure-et-date",
+          "fr": "Il faut agir en temps et en heure.",
+          "en": "We need to act at the right time.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.014",
+          "theme": "negation-et-restriction",
+          "fr": "Nous ne parlons plus jamais de ce sujet.",
+          "en": "We never talk about that subject anymore.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.006",
+          "theme": "negation-et-restriction",
+          "fr": "Ce contrat ne mentionne ni prix ni durée.",
+          "en": "This contract mentions neither price nor duration.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.005",
+          "theme": "negation-et-restriction",
+          "fr": "Ni Camille ni Léo ne connaissent la réponse.",
+          "en": "Neither Camille nor Léo knows the answer.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.011",
+          "theme": "negation-et-restriction",
+          "fr": "Nous préférons ne voir personne ce week-end.",
+          "en": "We prefer to see no one this weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.010",
+          "theme": "expressions-de-quantite",
+          "fr": "Autant que je sache, la réunion est reportée.",
+          "en": "As far as I know, the meeting has been postponed.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.021",
+          "theme": "negation-et-restriction",
+          "fr": "Ils ne veulent plus jamais revivre cette expérience.",
+          "en": "They never want to relive this experience again.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.001",
+          "theme": "negation-et-restriction",
+          "fr": "Nous ne rencontrons aucune difficulté avec ce logiciel.",
+          "en": "We are encountering no difficulty with this software.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.005",
+          "theme": "expressions-de-quantite",
+          "fr": "On a reçu un tas de messages ce matin.",
+          "en": "We received loads of messages this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.heure-et-date.002",
+          "theme": "heure-et-date",
+          "fr": "Sur le long terme, ce choix est le bon.",
+          "en": "In the long term, this choice is the right one.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.heure-et-date.003",
+          "theme": "heure-et-date",
+          "fr": "D'un jour à l'autre, tout peut changer.",
+          "en": "From one day to the next, everything can change.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.002",
+          "theme": "expressions-de-quantite",
+          "fr": "Il reste pas mal d'argent sur le compte.",
+          "en": "There is still quite a bit of money left in the account.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.013",
+          "theme": "expressions-de-quantite",
+          "fr": "Il ne nous reste qu'à attendre la réponse.",
+          "en": "All we have left to do is wait for the answer.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.heure-et-date.005",
+          "theme": "heure-et-date",
+          "fr": "Du jour au lendemain, elle a changé de vie.",
+          "en": "Overnight, she changed her life.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.018",
+          "theme": "negation-et-restriction",
+          "fr": "Ce village n'a plus ni école ni boulangerie.",
+          "en": "This village no longer has a school or a bakery.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.022",
+          "theme": "negation-et-restriction",
+          "fr": "Cette maison ne fait plus aucun bruit la nuit.",
+          "en": "This house no longer makes any noise at night.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.006",
+          "theme": "expressions-de-quantite",
+          "fr": "Il connaît un tas d'anecdotes sur cette ville.",
+          "en": "He knows loads of anecdotes about this city.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.pronoms-essentiels.009",
+          "theme": "pronoms-essentiels",
+          "fr": "Nos valises sont ici ; les vôtres sont là-bas.",
+          "en": "Our suitcases are here; yours are over there.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.014",
+          "theme": "expressions-de-quantite",
+          "fr": "Autant de gens aiment ce plat que le détestent.",
+          "en": "As many people like this dish as hate it.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.heure-et-date.004",
+          "theme": "heure-et-date",
+          "fr": "Il vit au jour le jour, sans vraiment planifier.",
+          "en": "He lives day to day, without really planning.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.013",
+          "theme": "negation-et-restriction",
+          "fr": "Camille regrette de ne pas avoir appelé plus tôt.",
+          "en": "Camille regrets not having called earlier.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.012",
+          "theme": "negation-et-restriction",
+          "fr": "Le médecin lui conseille de ne boire aucun alcool.",
+          "en": "The doctor advises him not to drink any alcohol.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.001",
+          "theme": "expressions-de-quantite",
+          "fr": "Tout compte fait, nous avons pris la bonne décision.",
+          "en": "All things considered, we made the right decision.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.008",
+          "theme": "negation-et-restriction",
+          "fr": "Ce formulaire ne peut pas être envoyé sans signature.",
+          "en": "This form cannot be sent without a signature.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.pronoms-essentiels.014",
+          "theme": "pronoms-essentiels",
+          "fr": "Chacun a ses soucis ; les leurs semblent plus légers.",
+          "en": "Everyone has their worries; theirs seem lighter.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.025",
+          "theme": "negation-et-restriction",
+          "fr": "Ils n'ont choisi ni l'un ni l'autre.",
+          "en": "They chose neither one nor the other.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.004",
+          "theme": "negation-et-restriction",
+          "fr": "Ce plat n'est ni trop épicé ni trop fade.",
+          "en": "This dish is neither too spicy nor too bland.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.b2.negation-et-restriction.010",
+          "theme": "negation-et-restriction",
+          "fr": "Elle a décidé de ne rien dire à ses parents.",
+          "en": "She decided not to say anything to her parents.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.024",
+          "theme": "negation-et-restriction",
+          "fr": "Elle n'a lu que les premières pages du roman.",
+          "en": "She only read the first pages of the novel.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.017",
+          "theme": "negation-et-restriction",
+          "fr": "Je n'ai plus aucune envie de discuter avec lui.",
+          "en": "I no longer have any desire to talk with him.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.pronoms-essentiels.013",
+          "theme": "pronoms-essentiels",
+          "fr": "Ce ne sont pas nos affaires, ce sont les leurs.",
+          "en": "Those aren't our things, they're theirs.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.023",
+          "theme": "negation-et-restriction",
+          "fr": "Je ne connais personne qui n'aime pas la musique.",
+          "en": "I know no one who does not like music.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.pronoms-essentiels.006",
+          "theme": "pronoms-essentiels",
+          "fr": "Ce ne sont pas leurs valises, ce sont les nôtres.",
+          "en": "Those aren't their suitcases, they're ours.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.007",
+          "theme": "expressions-de-quantite",
+          "fr": "Il a reçu une foule de conseils avant l'entretien.",
+          "en": "He received a wealth of advice before the interview.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.heure-et-date.008",
+          "theme": "heure-et-date",
+          "fr": "Les jours se suivent et ne se ressemblent pas ici.",
+          "en": "Every day is different here.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.012",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle ne garde que les photos qu'elle aime vraiment.",
+          "en": "She only keeps the photos she really likes.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.016",
+          "theme": "negation-et-restriction",
+          "fr": "Elle ne fait confiance à personne et ne partage rien.",
+          "en": "She trusts no one and shares nothing.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.philosophie.014",
+          "theme": "philosophie",
+          "fr": "Sartre soutient que l'homme est condamné à être libre.",
+          "en": "Sartre argues that man is condemned to be free.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.ethique.036",
+          "theme": "ethique",
+          "fr": "Il vaut mieux reconnaître une erreur que de la dissimuler.",
+          "en": "It's better to admit a mistake than to hide it.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.054",
+          "theme": "prepositions-essentielles",
+          "fr": "Quoi qu'il arrive, nous resterons fidèles à nos principes.",
+          "en": "Whatever happens, we will remain true to our principles.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.ethique.014",
+          "theme": "ethique",
+          "fr": "Certains estiment que la fin ne justifie jamais les moyens.",
+          "en": "Some believe the end never justifies the means.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.056",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle craint que ce désaccord ne nuise à leur collaboration.",
+          "en": "She fears that this disagreement might harm their collaboration.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.058",
+          "theme": "prepositions-essentielles",
+          "fr": "Malgré ses réserves, elle a accepté de participer au débat.",
+          "en": "Despite her reservations, she agreed to take part in the debate.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.ethique.037",
+          "theme": "ethique",
+          "fr": "Ce test sur des animaux soulève de sérieuses questions éthiques.",
+          "en": "This animal testing raises serious ethical questions.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.projets-et-futur.035",
+          "theme": "projets-et-futur",
+          "fr": "Nous consoliderons nos acquis avant d'envisager de nouveaux projets.",
+          "en": "We will consolidate our achievements before considering new projects.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.ethique.034",
+          "theme": "ethique",
+          "fr": "Le règlement intérieur interdit tout conflit d'intérêts non déclaré.",
+          "en": "The internal rules prohibit any undeclared conflict of interest.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.projets-et-futur.036",
+          "theme": "projets-et-futur",
+          "fr": "Ils surmonteront ces obstacles grâce à leur détermination sans faille.",
+          "en": "They will overcome these obstacles thanks to their unwavering determination.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.philosophie.037",
+          "theme": "philosophie",
+          "fr": "Ce philosophe distingue soigneusement le savoir de la simple croyance.",
+          "en": "This philosopher carefully distinguishes knowledge from mere belief.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.ethique.211",
+          "theme": "ethique",
+          "fr": "Les électeurs se méfient des candidats soupçonnés de financement occulte.",
+          "en": "Voters distrust candidates suspected of secret financing.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.ethique.254",
+          "theme": "ethique",
+          "fr": "Certains estiment que la publicité comparative frôle parfois la diffamation.",
+          "en": "Some believe comparative advertising sometimes borders on defamation.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.ethique.219",
+          "theme": "ethique",
+          "fr": "Beaucoup jugent scandaleux que certains dirigeants échappent à toute sanction.",
+          "en": "Many find it scandalous that some leaders escape any sanction.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.033",
+          "theme": "conseils-et-suggestions",
+          "fr": "Je suggérerais que nous revoyions entièrement notre stratégie de communication.",
+          "en": "I would suggest that we completely revise our communication strategy.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.004",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a un tas de vieux papiers sur ce bureau.",
+          "en": "There is a pile of old papers on this desk.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.003",
+          "theme": "expressions-de-quantite",
+          "fr": "Il a fallu pas mal de patience pour finir ce puzzle.",
+          "en": "It took quite a lot of patience to finish this puzzle.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.011",
+          "theme": "expressions-de-quantite",
+          "fr": "Elle a tellement changé que je ne l'ai pas reconnue.",
+          "en": "She has changed so much that I didn't recognize her.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.009",
+          "theme": "expressions-de-quantite",
+          "fr": "Il a une foule de détails à vérifier avant de partir.",
+          "en": "He has a great many details to check before leaving.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.019",
+          "theme": "negation-et-restriction",
+          "fr": "Nous n'avons plus aucune nouvelle de lui depuis son départ.",
+          "en": "We have no more news from him since he left.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.073",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle veille à ce que chacun ait accès aux mêmes ressources.",
+          "en": "She makes sure that everyone has access to the same resources.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.053",
+          "theme": "prepositions-essentielles",
+          "fr": "Il vaut mieux que vous vous appuyiez sur des sources vérifiées.",
+          "en": "It's better that you rely on verified sources.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.063",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle regrette de ne pas avoir tenu compte de cet avertissement.",
+          "en": "She regrets not having taken this warning into account.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.b2.philosophie.030",
+          "theme": "philosophie",
+          "fr": "Selon certains, penser, c'est déjà exister d'une certaine manière.",
+          "en": "According to some, to think is already to exist in a certain way.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.032",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il serait peut-être judicieux d'externaliser cette partie du projet.",
+          "en": "It might be wise to outsource this part of the project.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.ethique.017",
+          "theme": "ethique",
+          "fr": "Le journaliste refuse de révéler ses sources, quitte à être poursuivi.",
+          "en": "The journalist refuses to reveal his sources, even at the risk of being prosecuted.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.ethique.046",
+          "theme": "ethique",
+          "fr": "Il est rare qu'une entreprise admette ouvertement ses erreurs passées.",
+          "en": "It's rare for a company to openly admit its past mistakes.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.projets-et-futur.038",
+          "theme": "projets-et-futur",
+          "fr": "Elle transmettra son savoir-faire à la génération suivante avec fierté.",
+          "en": "She will pass on her expertise to the next generation with pride.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.ethique.210",
+          "theme": "ethique",
+          "fr": "L'entreprise a licencié le cadre reconnu coupable de harcèlement moral.",
+          "en": "The company fired the executive found guilty of moral harassment.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.037",
+          "theme": "conseils-et-suggestions",
+          "fr": "Je suggérerais que vous consultiez plusieurs devis avant de vous décider.",
+          "en": "I would suggest that you get several quotes before deciding.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.ethique.035",
+          "theme": "ethique",
+          "fr": "On ne saurait excuser cette fraude, quelles que soient les circonstances.",
+          "en": "This fraud cannot be excused, whatever the circumstances.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.ethique.042",
+          "theme": "ethique",
+          "fr": "Il est essentiel que la recherche reste transparente sur ses financements.",
+          "en": "It's essential that research remain transparent about its funding.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.comparaisons.024",
+          "theme": "comparaisons",
+          "fr": "Son argumentation est plus rigoureuse que celle avancée par ses détracteurs.",
+          "en": "His argument is more rigorous than the one put forward by his critics.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.ethique.038",
+          "theme": "ethique",
+          "fr": "Le tribunal exige que toutes les preuves obtenues illégalement soient écartées.",
+          "en": "The court demands that all illegally obtained evidence be excluded.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.projets-et-futur.032",
+          "theme": "projets-et-futur",
+          "fr": "Nous relèverons ce défi ensemble, quelles que soient les difficultés rencontrées.",
+          "en": "We will rise to this challenge together, whatever difficulties we encounter.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.philosophie.012",
+          "theme": "philosophie",
+          "fr": "Certains penseurs doutent que la réalité existe indépendamment de notre perception.",
+          "en": "Some thinkers doubt that reality exists independently of our perception.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.028",
+          "theme": "opinions-et-avis",
+          "fr": "Selon moi, la mondialisation a bouleversé durablement les habitudes de consommation.",
+          "en": "In my opinion, globalization has permanently disrupted consumption habits.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.projets-et-futur.026",
+          "theme": "projets-et-futur",
+          "fr": "Elle va consacrer son année sabbatique à approfondir ses connaissances linguistiques.",
+          "en": "She's going to devote her sabbatical year to deepening her language knowledge.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.ethique.040",
+          "theme": "ethique",
+          "fr": "Beaucoup jugent inacceptable que les grandes entreprises polluent sans être sanctionnées.",
+          "en": "Many consider it unacceptable for big companies to pollute without being punished.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.ethique.246",
+          "theme": "ethique",
+          "fr": "Certains estiment que les algorithmes de recommandation exploitent nos faiblesses psychologiques.",
+          "en": "Some believe recommendation algorithms exploit our psychological weaknesses.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.heure-et-date.001",
+          "theme": "heure-et-date",
+          "fr": "Il y a une éternité qu'on ne s'est pas vus.",
+          "en": "It's been ages since we've seen each other.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.philosophie.018",
+          "theme": "philosophie",
+          "fr": "Nul ne sait avec certitude ce qui nous attend après la mort.",
+          "en": "No one knows with certainty what awaits us after death.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.059",
+          "theme": "prepositions-essentielles",
+          "fr": "Il se peut que la décision dépende de facteurs qui nous échappent.",
+          "en": "It may be that the decision depends on factors beyond our control.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.philosophie.029",
+          "theme": "philosophie",
+          "fr": "La question de savoir si nous avons un libre arbitre reste ouverte.",
+          "en": "The question of whether we have free will remains open.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.030",
+          "theme": "ethique",
+          "fr": "Nous devons nous assurer que personne ne soit lésé par cette décision.",
+          "en": "We must make sure that no one is harmed by this decision.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.032",
+          "theme": "ethique",
+          "fr": "Il est difficile de tracer la limite entre prudence et lâcheté morale.",
+          "en": "It's hard to draw the line between caution and moral cowardice.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.comparaisons.036",
+          "theme": "comparaisons",
+          "fr": "C'est la réforme la plus ambitieuse que ce gouvernement ait entreprise.",
+          "en": "It's the most ambitious reform this government has undertaken.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.projets-et-futur.023",
+          "theme": "projets-et-futur",
+          "fr": "Ils vont engager une procédure judiciaire si aucun accord n'est trouvé.",
+          "en": "They're going to initiate legal proceedings if no agreement is reached.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.034",
+          "theme": "conseils-et-suggestions",
+          "fr": "On pourrait envisager de louer un logement plus proche du centre-ville.",
+          "en": "We could consider renting a place closer to downtown.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.philosophie.023",
+          "theme": "philosophie",
+          "fr": "Que resterait-il de notre identité si la mémoire venait à disparaître ?",
+          "en": "What would remain of our identity if memory were to disappear?",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.060",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle s'efforce de rester fidèle à ses convictions malgré les critiques.",
+          "en": "She strives to remain true to her convictions despite the criticism.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.comparaisons.026",
+          "theme": "comparaisons",
+          "fr": "Ce dispositif s'avère nettement plus performant que celui qu'il remplace.",
+          "en": "This device proves noticeably more efficient than the one it replaces.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.049",
+          "theme": "ethique",
+          "fr": "Certains estiment qu'aucune technologie n'est neutre sur le plan éthique.",
+          "en": "Some believe that no technology is neutral from an ethical standpoint.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.205",
+          "theme": "ethique",
+          "fr": "Le comité de déontologie a rejeté la demande faute de preuves suffisantes.",
+          "en": "The ethics committee rejected the request for lack of sufficient evidence.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.236",
+          "theme": "ethique",
+          "fr": "Le rédacteur en chef exige que chaque source soit citée avant publication.",
+          "en": "The editor-in-chief requires every source to be cited before publication.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.016",
+          "theme": "ethique",
+          "fr": "Il est peu probable que cette entreprise renonce à ses pratiques douteuses.",
+          "en": "It's unlikely that this company will give up its questionable practices.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.b2.ethique.221",
+          "theme": "ethique",
+          "fr": "Le jury doit rendre un verdict impartial, même sous la pression médiatique.",
+          "en": "The jury must reach an impartial verdict, even under media pressure.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.philosophie.010",
+          "theme": "philosophie",
+          "fr": "Certains philosophes soutiennent que le libre arbitre n'est qu'une illusion.",
+          "en": "Some philosophers argue that free will is just an illusion.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.043",
+          "theme": "ethique",
+          "fr": "Cacher la vérité par pur intérêt personnel reste, à ses yeux, impardonnable.",
+          "en": "Hiding the truth out of pure self-interest remains, in her eyes, unforgivable.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.230",
+          "theme": "ethique",
+          "fr": "Certains estiment que la peine capitale ne dissuade pas réellement le crime.",
+          "en": "Some believe the death penalty doesn't really deter crime.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.philosophie.244",
+          "theme": "philosophie",
+          "fr": "Que la vérité dérange ne devrait jamais dispenser quiconque de la rechercher.",
+          "en": "That the truth is disturbing should never excuse anyone from seeking it.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.projets-et-futur.037",
+          "theme": "projets-et-futur",
+          "fr": "Je m'installerai définitivement à l'étranger une fois ma situation stabilisée.",
+          "en": "I will settle abroad permanently once my situation has stabilized.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.234",
+          "theme": "ethique",
+          "fr": "Le comité olympique a suspendu l'athlète après un contrôle antidopage positif.",
+          "en": "The Olympic committee suspended the athlete after a positive doping test.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.255",
+          "theme": "ethique",
+          "fr": "Le tribunal a estimé que l'entreprise avait sciemment trompé ses actionnaires.",
+          "en": "The court found that the company had knowingly deceived its shareholders.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.projets-et-futur.029",
+          "theme": "projets-et-futur",
+          "fr": "Elle poursuivra ses recherches tant que les résultats ne seront pas concluants.",
+          "en": "She will continue her research as long as the results are not conclusive.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.038",
+          "theme": "conseils-et-suggestions",
+          "fr": "Nous pourrions envisager une approche différente si celle-ci ne fonctionne pas.",
+          "en": "We could consider a different approach if this one doesn't work.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.comparaisons.021",
+          "theme": "comparaisons",
+          "fr": "Les résultats obtenus sont bien meilleurs que ceux escomptés par les chercheurs.",
+          "en": "The results obtained are far better than those expected by the researchers.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.064",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous doutons que cette proposition tienne compte des besoins réels du personnel.",
+          "en": "We doubt that this proposal takes into account the actual needs of the staff.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.237",
+          "theme": "ethique",
+          "fr": "Un actionnaire minoritaire a intenté un recours pour dénoncer une gestion opaque.",
+          "en": "A minority shareholder filed a lawsuit to expose opaque management.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.035",
+          "theme": "conseils-et-suggestions",
+          "fr": "Que penseriez-vous d'instaurer une réunion hebdomadaire pour suivre l'avancement ?",
+          "en": "What would you think of setting up a weekly meeting to track progress?",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.philosophie.039",
+          "theme": "philosophie",
+          "fr": "Vivre une vie authentique suppose, selon certains, d'assumer pleinement ses choix.",
+          "en": "Living an authentic life implies, according to some, fully owning one's choices.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.projets-et-futur.028",
+          "theme": "projets-et-futur",
+          "fr": "Nous entreprendrons cette réforme dès que les conditions économiques s'y prêteront.",
+          "en": "We will undertake this reform as soon as economic conditions allow.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.026",
+          "theme": "ethique",
+          "fr": "Il faut que les algorithmes soient audités pour éviter toute discrimination cachée.",
+          "en": "Algorithms must be audited to avoid any hidden discrimination.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.212",
+          "theme": "ethique",
+          "fr": "Le médecin doit obtenir le consentement éclairé du patient avant toute intervention.",
+          "en": "The doctor must obtain the patient's informed consent before any procedure.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.projets-et-futur.034",
+          "theme": "projets-et-futur",
+          "fr": "Vous bénéficierez d'une reconnaissance méritée lorsque vos efforts porteront leurs fruits.",
+          "en": "You will receive well-deserved recognition when your efforts bear fruit.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.philosophie.242",
+          "theme": "philosophie",
+          "fr": "Le philosophe reconnut volontiers que sa théorie laissait certaines questions sans réponse.",
+          "en": "The philosopher readily admitted that his theory left certain questions unanswered.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.228",
+          "theme": "ethique",
+          "fr": "La direction hésite à sanctionner un employé performant malgré son comportement inapproprié.",
+          "en": "Management hesitates to sanction a high-performing employee despite his inappropriate behavior.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.ethique.238",
+          "theme": "ethique",
+          "fr": "Le directeur des ressources humaines doit garantir la confidentialité des plaintes internes.",
+          "en": "The HR director must guarantee the confidentiality of internal complaints.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.philosophie.043",
+          "theme": "philosophie",
+          "fr": "Nietzsche estimait que certaines valeurs traditionnelles freinaient l'épanouissement de l'individu.",
+          "en": "Nietzsche believed that certain traditional values hindered individual flourishing.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.016",
+          "theme": "expressions-de-quantite",
+          "fr": "Il y a tellement de choix qu'on ne sait plus quoi prendre.",
+          "en": "There are so many choices that we no longer know what to pick.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.009",
+          "theme": "negation-et-restriction",
+          "fr": "Elle m'a conseillé de ne pas signer ce contrat tout de suite.",
+          "en": "She advised me not to sign this contract right away.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.015",
+          "theme": "expressions-de-quantite",
+          "fr": "La moitié de la classe a trop de retard pour rattraper le reste.",
+          "en": "Half the class is too far behind to catch up with the rest.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.philosophie.022",
+          "theme": "philosophie",
+          "fr": "Beaucoup pensent que la quête de sens est propre à l'être humain.",
+          "en": "Many think that the quest for meaning is unique to human beings.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.066",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle a fini par renoncer à ses ambitions au profit de sa famille.",
+          "en": "She eventually gave up her ambitions for the sake of her family.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.philosophie.036",
+          "theme": "philosophie",
+          "fr": "Rien ne prouve que l'univers ait un but ou une finalité quelconque.",
+          "en": "Nothing proves that the universe has any purpose or aim.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.024",
+          "theme": "ethique",
+          "fr": "Il n'est pas rare que des chercheurs trichent pour publier plus vite.",
+          "en": "It's not uncommon for researchers to cheat in order to publish faster.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.philosophie.044",
+          "theme": "philosophie",
+          "fr": "Il n'est pas évident que la technologie rende les hommes plus libres.",
+          "en": "It's not obvious that technology makes people more free.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.244",
+          "theme": "ethique",
+          "fr": "L'entreprise a promis d'indemniser les victimes de la fuite de données.",
+          "en": "The company promised to compensate victims of the data breach.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.comparaisons.035",
+          "theme": "comparaisons",
+          "fr": "C'est le pire scénario que les analystes aient envisagé jusqu'à présent.",
+          "en": "It's the worst scenario the analysts have envisioned so far.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.b2.ethique.020",
+          "theme": "ethique",
+          "fr": "Il serait injuste que seuls les plus riches aient accès à ce traitement.",
+          "en": "It would be unjust if only the richest had access to this treatment.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.067",
+          "theme": "prepositions-essentielles",
+          "fr": "Il faut que vous soyez attentifs aux détails avant de signer ce contrat.",
+          "en": "You need to be attentive to the details before signing this contract.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.041",
+          "theme": "ethique",
+          "fr": "Le médecin a dû choisir entre sauver un patient et respecter le protocole.",
+          "en": "The doctor had to choose between saving a patient and following protocol.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.comparaisons.027",
+          "theme": "comparaisons",
+          "fr": "L'impact de cette mesure sera moindre que ne le craignent certains experts.",
+          "en": "The impact of this measure will be smaller than some experts fear.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.023",
+          "theme": "ethique",
+          "fr": "Avant de publier cet article, la rédaction a vérifié chaque fait avec soin.",
+          "en": "Before publishing this article, the editorial team carefully checked every fact.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.028",
+          "theme": "ethique",
+          "fr": "Un lanceur d'alerte prend souvent de grands risques pour dénoncer des abus.",
+          "en": "A whistleblower often takes great risks to expose abuses.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.039",
+          "theme": "ethique",
+          "fr": "Elle refuse d'espionner ses employés, même si cela pourrait limiter le vol.",
+          "en": "She refuses to spy on her employees, even if it could limit theft.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.philosophie.015",
+          "theme": "philosophie",
+          "fr": "Bien que la mort soit inévitable, la philosophie nous aide à l'apprivoiser.",
+          "en": "Although death is inevitable, philosophy helps us come to terms with it.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.philosophie.024",
+          "theme": "philosophie",
+          "fr": "Aristote considérait que la vertu s'acquiert par la pratique et l'habitude.",
+          "en": "Aristotle considered that virtue is acquired through practice and habit.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.235",
+          "theme": "ethique",
+          "fr": "Elle refuse de témoigner contre son ami, quitte à être elle-même inquiétée.",
+          "en": "She refuses to testify against her friend, even if it means being investigated herself.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.projets-et-futur.033",
+          "theme": "projets-et-futur",
+          "fr": "Elle renforcera sa position au sein de l'entreprise grâce à sa persévérance.",
+          "en": "She will strengthen her position within the company thanks to her perseverance.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.027",
+          "theme": "ethique",
+          "fr": "Elle craint que son silence ne soit interprété comme une forme de complicité.",
+          "en": "She fears that her silence might be interpreted as a form of complicity.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.045",
+          "theme": "ethique",
+          "fr": "Elle doute qu'un robot puisse un jour prendre des décisions vraiment morales.",
+          "en": "She doubts that a robot could one day truly make moral decisions.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.027",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il serait judicieux que vous vérifiiez les avis avant de réserver ce logement.",
+          "en": "It would be wise for you to check the reviews before booking this accommodation.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.projets-et-futur.025",
+          "theme": "projets-et-futur",
+          "fr": "Nous allons transmettre nos observations au conseil avant qu'il ne se réunisse.",
+          "en": "We're going to submit our observations to the council before it convenes.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.051",
+          "theme": "prepositions-essentielles",
+          "fr": "Il est essentiel que nous nous adaptions à ces nouvelles conditions de travail.",
+          "en": "It is essential that we adapt to these new working conditions.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.070",
+          "theme": "prepositions-essentielles",
+          "fr": "Elle s'est adressée directement au directeur afin d'obtenir une réponse rapide.",
+          "en": "She spoke directly to the director in order to get a quick answer.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.comparaisons.020",
+          "theme": "comparaisons",
+          "fr": "Ce phénomène s'avère plus complexe que ne le suggéraient les premières analyses.",
+          "en": "This phenomenon proves more complex than the initial analyses suggested.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.036",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il serait peut-être préférable d'attendre les résultats avant de vous prononcer.",
+          "en": "It might be preferable to wait for the results before making a statement.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.062",
+          "theme": "prepositions-essentielles",
+          "fr": "Il importe que les négociations aboutissent avant que la situation ne s'aggrave.",
+          "en": "It matters that the negotiations succeed before the situation worsens.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.074",
+          "theme": "prepositions-essentielles",
+          "fr": "Malgré le désaccord initial, ils sont parvenus à un compromis grâce au dialogue.",
+          "en": "Despite the initial disagreement, they reached a compromise thanks to dialogue.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.222",
+          "theme": "ethique",
+          "fr": "Il est rare qu'un lanceur d'alerte ne subisse aucune conséquence professionnelle.",
+          "en": "It is rare for a whistleblower to suffer no professional consequences.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.comparaisons.028",
+          "theme": "comparaisons",
+          "fr": "Cette hypothèse paraît plus plausible que celle défendue jusqu'ici par la majorité.",
+          "en": "This hypothesis seems more plausible than the one defended so far by the majority.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.026",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il conviendrait mieux de reporter ce voyage tant que la situation reste incertaine.",
+          "en": "It would be more appropriate to postpone this trip as long as the situation remains uncertain.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.philosophie.031",
+          "theme": "philosophie",
+          "fr": "Ce raisonnement suppose que l'esprit et le corps soient deux substances distinctes.",
+          "en": "This reasoning assumes that mind and body are two distinct substances.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.comparaisons.023",
+          "theme": "comparaisons",
+          "fr": "Cette réforme suscite davantage de controverse que la précédente n'en avait suscité.",
+          "en": "This reform is stirring up more controversy than the previous one had stirred up.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.031",
+          "theme": "conseils-et-suggestions",
+          "fr": "Que penseriez-vous d'organiser un sondage auprès des employés avant toute décision ?",
+          "en": "What would you think of organizing a survey among the employees before any decision?",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.223",
+          "theme": "ethique",
+          "fr": "Le vérificateur a découvert que les comptes avaient été maquillés pendant trois ans.",
+          "en": "The auditor discovered that the accounts had been doctored for three years.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.013",
+          "theme": "ethique",
+          "fr": "Une entreprise doit parfois choisir entre le profit immédiat et ses principes moraux.",
+          "en": "A company must sometimes choose between short-term profit and its moral principles.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.comparaisons.034",
+          "theme": "comparaisons",
+          "fr": "Cette découverte constitue l'avancée la plus significative que la discipline ait connue.",
+          "en": "This discovery constitutes the most significant advance the field has known.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.022",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il serait souhaitable que les employés soient informés des changements dès que possible.",
+          "en": "It would be desirable for the employees to be informed of the changes as soon as possible.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.recits-au-passe.024",
+          "theme": "recits-au-passe",
+          "fr": "Une fois le contrat signé, les deux entreprises ont officiellement scellé leur partenariat.",
+          "en": "Once the contract was signed, the two companies officially sealed their partnership.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.projets-et-futur.021",
+          "theme": "projets-et-futur",
+          "fr": "Nous allons solliciter un entretien auprès de la direction pour exposer nos revendications.",
+          "en": "We're going to request a meeting with management to lay out our demands.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.b2.conseils-et-suggestions.020",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il conviendrait de consulter un spécialiste avant de prendre une décision aussi importante.",
+          "en": "It would be appropriate to consult a specialist before making such an important decision.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.209",
+          "theme": "ethique",
+          "fr": "Un fonctionnaire ne devrait jamais accepter un cadeau susceptible d'influencer sa décision.",
+          "en": "A civil servant should never accept a gift that might influence their decision.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.021",
+          "theme": "ethique",
+          "fr": "L'entreprise a été accusée d'avoir dissimulé des informations essentielles aux actionnaires.",
+          "en": "The company was accused of having hidden essential information from shareholders.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.047",
+          "theme": "ethique",
+          "fr": "La déontologie médicale interdit au praticien de divulguer les informations de ses patients.",
+          "en": "Medical ethics forbids the practitioner from disclosing patient information.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.242",
+          "theme": "ethique",
+          "fr": "Les autorités sanitaires doivent arbitrer entre la liberté individuelle et la sécurité collective.",
+          "en": "Health authorities must balance individual freedom against collective safety.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.ethique.215",
+          "theme": "ethique",
+          "fr": "Un client mécontent menace de dénoncer publiquement les pratiques commerciales douteuses du magasin.",
+          "en": "An unhappy customer threatens to publicly expose the store's questionable business practices.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.022",
+          "theme": "opinions-et-avis",
+          "fr": "Je suis convaincu que le développement des technologies transforme profondément nos rapports humains.",
+          "en": "I am convinced that the development of technology is profoundly transforming our human relationships.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.pronoms-essentiels.003",
+          "theme": "pronoms-essentiels",
+          "fr": "Il a pris son manteau, et j'ai pris le mien, pas le sien.",
+          "en": "He took his coat, and I took mine, not his.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.020",
+          "theme": "expressions-de-quantite",
+          "fr": "Plus il y a de choix, plus les gens mettent de temps à décider.",
+          "en": "The more choices there are, the longer people take to decide.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.055",
+          "theme": "prepositions-essentielles",
+          "fr": "Il est peu probable que le contrat soit signé avant la fin du mois.",
+          "en": "It is unlikely that the contract will be signed before the end of the month.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.052",
+          "theme": "prepositions-essentielles",
+          "fr": "Bien qu'elle soit opposée à cette réforme, elle a voté en sa faveur.",
+          "en": "Although she is opposed to this reform, she voted in favor of it.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.negation-et-restriction.015",
+          "theme": "negation-et-restriction",
+          "fr": "Ils ne mangent ni viande ni poisson, et ils ne boivent jamais d'alcool.",
+          "en": "They eat neither meat nor fish, and they never drink alcohol.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.comparaisons.029",
+          "theme": "comparaisons",
+          "fr": "Le bilan de cette année s'avère meilleur que celui de l'année précédente.",
+          "en": "This year's results turn out better than last year's.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.philosophie.020",
+          "theme": "philosophie",
+          "fr": "Ce philosophe remet en question l'idée même d'un moi stable et permanent.",
+          "en": "This philosopher questions the very idea of a stable, permanent self.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.philosophie.011",
+          "theme": "philosophie",
+          "fr": "Descartes affirme qu'il ne peut douter de l'existence de sa propre pensée.",
+          "en": "Descartes claims that he cannot doubt the existence of his own thought.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.075",
+          "theme": "prepositions-essentielles",
+          "fr": "Il semble peu probable qu'elle renonce à son poste sans y être contrainte.",
+          "en": "It seems unlikely that she would give up her position without being forced to.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.015",
+          "theme": "ethique",
+          "fr": "Le comité d'éthique doit se prononcer avant que l'essai clinique ne débute.",
+          "en": "The ethics committee must rule before the clinical trial begins.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.072",
+          "theme": "prepositions-essentielles",
+          "fr": "Il aurait fallu que nous tenions compte des avis de tous avant de trancher.",
+          "en": "We should have taken everyone's opinions into account before deciding.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.239",
+          "theme": "ethique",
+          "fr": "Il est difficile de rester impartial lorsqu'on juge le travail d'un proche.",
+          "en": "It's hard to stay impartial when judging the work of someone close to you.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.076",
+          "theme": "prepositions-essentielles",
+          "fr": "Nous tenons à ce que ce projet réponde aux attentes de tous les partenaires.",
+          "en": "We are keen for this project to meet the expectations of all the partners.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.216",
+          "theme": "ethique",
+          "fr": "L'infirmière a insisté pour que la douleur du patient soit prise au sérieux.",
+          "en": "The nurse insisted that the patient's pain be taken seriously.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.029",
+          "theme": "ethique",
+          "fr": "Il semble que les normes déontologiques varient beaucoup d'un pays à l'autre.",
+          "en": "It seems that professional ethics standards vary a lot from one country to another.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.023",
+          "theme": "conseils-et-suggestions",
+          "fr": "Mieux vaudrait attendre la fin de la réunion avant d'aborder ce sujet délicat.",
+          "en": "It would be better to wait until the end of the meeting before bringing up this delicate subject.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.048",
+          "theme": "ethique",
+          "fr": "Pour que la justice soit crédible, elle doit s'appliquer à tous sans exception.",
+          "en": "For justice to be credible, it must apply to everyone without exception.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.022",
+          "theme": "ethique",
+          "fr": "Peu importe que la loi l'autorise, cette expérience pose un vrai problème moral.",
+          "en": "Regardless of whether the law allows it, this experiment poses a real moral problem.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.philosophie.021",
+          "theme": "philosophie",
+          "fr": "Il n'est pas certain que le langage détermine entièrement notre façon de penser.",
+          "en": "It's not certain that language entirely determines our way of thinking.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.025",
+          "theme": "opinions-et-avis",
+          "fr": "À mon sens, la lecture demeure un moyen privilégié d'enrichir son esprit critique.",
+          "en": "In my view, reading remains a privileged way to enrich one's critical thinking.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recits-au-passe.027",
+          "theme": "recits-au-passe",
+          "fr": "Le conseil municipal a voté la construction du pont après de longs débats houleux.",
+          "en": "The city council voted for the bridge's construction after long, heated debates.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.071",
+          "theme": "prepositions-essentielles",
+          "fr": "Bien que le marché évolue vite, l'entreprise reste fidèle à sa stratégie initiale.",
+          "en": "Although the market is changing fast, the company remains true to its initial strategy.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.213",
+          "theme": "ethique",
+          "fr": "Le stagiaire a hésité avant de signaler l'erreur de facturation à son superviseur.",
+          "en": "The intern hesitated before reporting the billing error to his supervisor.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.233",
+          "theme": "ethique",
+          "fr": "L'usine a été poursuivie pour avoir déversé des produits toxiques dans la rivière.",
+          "en": "The factory was prosecuted for dumping toxic products into the river.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.037",
+          "theme": "connecteurs-logiques",
+          "fr": "D'une part, la croissance ralentit, d'autre part, le chômage recommence à augmenter.",
+          "en": "On the one hand, growth is slowing, on the other hand, unemployment is starting to rise again.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.projets-et-futur.031",
+          "theme": "projets-et-futur",
+          "fr": "Je m'efforcerai de concilier vie professionnelle et vie familiale au fil des années.",
+          "en": "I will strive to balance professional and family life over the years.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.b2.ethique.025",
+          "theme": "ethique",
+          "fr": "Ce cadre a démissionné plutôt que de cautionner une décision qu'il jugeait immorale.",
+          "en": "This executive resigned rather than endorse a decision he considered immoral.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.245",
+          "theme": "ethique",
+          "fr": "Le conseil scolaire débat de la pertinence d'installer des caméras dans les couloirs.",
+          "en": "The school board is debating whether it's appropriate to install cameras in the hallways.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.comparaisons.022",
+          "theme": "comparaisons",
+          "fr": "La situation économique demeure moins préoccupante qu'on ne l'affirme dans les médias.",
+          "en": "The economic situation remains less worrying than is claimed in the media.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.208",
+          "theme": "ethique",
+          "fr": "La chercheuse a refusé de falsifier ses résultats malgré la pression de son directeur.",
+          "en": "The researcher refused to falsify her results despite pressure from her director.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.220",
+          "theme": "ethique",
+          "fr": "L'avocate a démissionné plutôt que de défendre une cause qu'elle jugeait injustifiable.",
+          "en": "The lawyer resigned rather than defend a cause she considered unjustifiable.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.252",
+          "theme": "ethique",
+          "fr": "L'organisation caritative a été accusée d'avoir détourné une partie des dons collectés.",
+          "en": "The charity was accused of embezzling part of the donations it collected.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.projets-et-futur.030",
+          "theme": "projets-et-futur",
+          "fr": "Ils s'engageront pleinement dans ce projet si les moyens nécessaires leur sont accordés.",
+          "en": "They will commit fully to this project if the necessary resources are granted to them.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.068",
+          "theme": "prepositions-essentielles",
+          "fr": "Quoiqu'elle soit consciente des risques, elle a choisi d'investir dans cette entreprise.",
+          "en": "Although she is aware of the risks, she chose to invest in this company.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.204",
+          "theme": "ethique",
+          "fr": "Un employé qui dénonce une fraude interne mérite d'être protégé contre les représailles.",
+          "en": "An employee who reports internal fraud deserves protection from retaliation.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.206",
+          "theme": "ethique",
+          "fr": "Certains estiment que la publicité ciblée sur les enfants pose un problème éthique réel.",
+          "en": "Some believe that advertising targeted at children raises a real ethical problem.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.021",
+          "theme": "conseils-et-suggestions",
+          "fr": "Je vous suggérerais de relire attentivement les clauses du contrat avant de vous engager.",
+          "en": "I would suggest that you carefully reread the contract clauses before committing.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.philosophie.230",
+          "theme": "philosophie",
+          "fr": "Aussi séduisante soit-elle, cette théorie ne résiste pas longtemps à un examen rigoureux.",
+          "en": "However appealing it may be, this theory does not hold up long under rigorous examination.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.231",
+          "theme": "ethique",
+          "fr": "L'agent d'immigration doit traiter chaque dossier avec la même rigueur, sans favoritisme.",
+          "en": "The immigration officer must treat every file with the same rigor, without favoritism.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.247",
+          "theme": "ethique",
+          "fr": "L'inspecteur du travail a relevé plusieurs manquements graves à la sécurité des employés.",
+          "en": "The labor inspector noted several serious breaches of employee safety.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.philosophie.035",
+          "theme": "philosophie",
+          "fr": "Il faudrait que nous acceptions l'incertitude comme une part inévitable de la connaissance.",
+          "en": "We would need to accept uncertainty as an inevitable part of knowledge.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.comparaisons.025",
+          "theme": "comparaisons",
+          "fr": "Les négociations se sont révélées plus laborieuses que les diplomates ne l'avaient anticipé.",
+          "en": "The negotiations turned out to be more laborious than the diplomats had anticipated.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.024",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il serait préférable que vous consultiez un conseiller financier avant d'investir cette somme.",
+          "en": "It would be preferable for you to consult a financial advisor before investing this amount.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.025",
+          "theme": "conseils-et-suggestions",
+          "fr": "Je vous conseille vivement de garder une trace écrite de toutes vos démarches administratives.",
+          "en": "I strongly advise you to keep a written record of all your administrative procedures.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.207",
+          "theme": "ethique",
+          "fr": "Le gouvernement a promis de renforcer la transparence dans l'attribution des contrats publics.",
+          "en": "The government promised to strengthen transparency in awarding public contracts.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.259",
+          "theme": "ethique",
+          "fr": "Un employeur ne peut légalement congédier un salarié pour avoir dénoncé une pratique illégale.",
+          "en": "An employer cannot legally dismiss an employee for reporting an illegal practice.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.030",
+          "theme": "opinions-et-avis",
+          "fr": "Je souscris entièrement à cette analyse concernant les effets du numérique sur la concentration.",
+          "en": "I fully subscribe to this analysis concerning the effects of digital technology on concentration.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.224",
+          "theme": "ethique",
+          "fr": "Certains parents s'interrogent sur la pertinence de surveiller les messages de leurs adolescents.",
+          "en": "Some parents wonder whether it's appropriate to monitor their teenagers' messages.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.018",
+          "theme": "ethique",
+          "fr": "Certains scientifiques s'inquiètent de ce que l'intelligence artificielle échappe à tout contrôle.",
+          "en": "Some scientists worry that artificial intelligence may escape all control.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.ethique.203",
+          "theme": "ethique",
+          "fr": "Le conseil d'administration a exigé une enquête indépendante après des allégations de favoritisme.",
+          "en": "The board demanded an independent investigation after allegations of favoritism.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.projets-et-futur.020",
+          "theme": "projets-et-futur",
+          "fr": "Je vais entreprendre des démarches administratives afin de régulariser ma situation avant la rentrée.",
+          "en": "I'm going to undertake administrative procedures in order to sort out my situation before the start of the school year.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.027",
+          "theme": "connecteurs-logiques",
+          "fr": "Le climat s'étant considérablement réchauffé, les agriculteurs doivent adapter leurs cultures en conséquence.",
+          "en": "As the climate has warmed considerably, farmers must adapt their crops accordingly.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.philosophie.246",
+          "theme": "philosophie",
+          "fr": "Plutôt que d'opposer raison et émotion, certains philosophes contemporains préfèrent penser leur complémentarité.",
+          "en": "Rather than opposing reason and emotion, some contemporary philosophers prefer to think of their complementarity.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.comparaisons.038",
+          "theme": "comparaisons",
+          "fr": "C'est l'argument le plus convaincant que l'on ait avancé dans ce débat.",
+          "en": "It's the most convincing argument put forward in this debate.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.033",
+          "theme": "ethique",
+          "fr": "Elle a menti pour protéger son collègue, bien qu'elle sache que c'était mal.",
+          "en": "She lied to protect her colleague, although she knew it was wrong.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.comparaisons.032",
+          "theme": "comparaisons",
+          "fr": "Ce discours demeure le plus mémorable que l'on ait entendu lors de ce sommet.",
+          "en": "This speech remains the most memorable one heard during this summit.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.013",
+          "theme": "philosophie",
+          "fr": "Pour Kant, il est impossible que la raison seule nous révèle la chose en soi.",
+          "en": "For Kant, it's impossible for reason alone to reveal the thing-in-itself to us.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.235",
+          "theme": "philosophie",
+          "fr": "Un philosophe grec affirma qu'une vie sans examen ne mérite pas d'être vécue.",
+          "en": "A Greek philosopher stated that an unexamined life is not worth living.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.026",
+          "theme": "philosophie",
+          "fr": "Ce n'est pas parce qu'une idée est ancienne qu'elle est nécessairement fausse.",
+          "en": "It's not because an idea is old that it is necessarily false.",
+          "words": 15
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.b2.comparaisons.033",
+          "theme": "comparaisons",
+          "fr": "C'est la crise la plus grave que ce secteur ait traversée depuis des décennies.",
+          "en": "It's the most serious crisis this sector has gone through in decades.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.019",
+          "theme": "philosophie",
+          "fr": "Pour que la liberté ait un sens, il faut qu'elle s'accompagne de responsabilité.",
+          "en": "For freedom to have meaning, it must be accompanied by responsibility.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.comparaisons.030",
+          "theme": "comparaisons",
+          "fr": "Ce fut sans doute la décision la plus judicieuse que le conseil ait jamais prise.",
+          "en": "It was undoubtedly the wisest decision the board had ever made.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.057",
+          "theme": "prepositions-essentielles",
+          "fr": "Pour que le projet aboutisse, il faut que chacun s'engage à respecter les délais.",
+          "en": "For the project to succeed, everyone must commit to meeting the deadlines.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.248",
+          "theme": "ethique",
+          "fr": "Il serait injuste de pénaliser toute l'équipe pour la faute d'une seule personne.",
+          "en": "It would be unfair to penalize the whole team for one person's mistake.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.033",
+          "theme": "philosophie",
+          "fr": "Il serait absurde de croire que la vérité dépend uniquement de l'opinion de chacun.",
+          "en": "It would be absurd to believe that truth depends solely on everyone's opinion.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.042",
+          "theme": "philosophie",
+          "fr": "Cette théorie remet en cause l'idée que l'homme agit toujours de façon rationnelle.",
+          "en": "This theory challenges the idea that man always acts rationally.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.217",
+          "theme": "ethique",
+          "fr": "Le professeur soupçonne deux étudiants d'avoir copié leur travail l'un sur l'autre.",
+          "en": "The teacher suspects two students of copying each other's work.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.250",
+          "theme": "ethique",
+          "fr": "Le notaire est tenu de révéler tout conflit d'intérêts avant de rédiger un contrat.",
+          "en": "A notary must disclose any conflict of interest before drafting a contract.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.comparaisons.037",
+          "theme": "comparaisons",
+          "fr": "Ce fut la période la moins prospère que l'entreprise ait connue depuis sa fondation.",
+          "en": "It was the least prosperous period the company had known since its founding.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.029",
+          "theme": "opinions-et-avis",
+          "fr": "J'estime que le débat public gagnerait à s'appuyer davantage sur des faits vérifiés.",
+          "en": "I believe that public debate would benefit from relying more on verified facts.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.041",
+          "theme": "philosophie",
+          "fr": "Il est peu vraisemblable que le hasard seul explique l'ordre observé dans l'univers.",
+          "en": "It's quite unlikely that chance alone explains the order observed in the universe.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.241",
+          "theme": "ethique",
+          "fr": "Le bénévole a préféré se retirer plutôt que de fermer les yeux sur des irrégularités.",
+          "en": "The volunteer preferred to step down rather than turn a blind eye to irregularities.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.243",
+          "theme": "ethique",
+          "fr": "Un policier ne devrait jamais abuser de son autorité, même face à un suspect hostile.",
+          "en": "A police officer should never abuse his authority, even facing a hostile suspect.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.260",
+          "theme": "ethique",
+          "fr": "Certains croient que le silence face à l'injustice équivaut à une forme de complicité.",
+          "en": "Some believe that silence in the face of injustice amounts to a form of complicity.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.028",
+          "theme": "philosophie",
+          "fr": "Il est peu probable que deux personnes perçoivent le monde exactement de la même façon.",
+          "en": "It's unlikely that two people perceive the world in exactly the same way.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.024",
+          "theme": "opinions-et-avis",
+          "fr": "Il me semble que la surconsommation constitue l'un des principaux défis de notre époque.",
+          "en": "It seems to me that overconsumption is one of the main challenges of our time.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recits-au-passe.026",
+          "theme": "recits-au-passe",
+          "fr": "Après avoir hésité pendant des semaines, elle s'est enfin décidée à changer de carrière.",
+          "en": "After hesitating for weeks, she finally decided to change careers.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.022",
+          "theme": "connecteurs-logiques",
+          "fr": "Du fait de sa longue expérience, elle a été choisie pour diriger l'équipe internationale.",
+          "en": "Owing to her extensive experience, she was chosen to lead the international team.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.021",
+          "theme": "opinions-et-avis",
+          "fr": "À mes yeux, la réussite scolaire ne dépend pas uniquement des notes obtenues aux examens.",
+          "en": "In my eyes, academic success doesn't depend solely on the grades obtained in exams.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.038",
+          "theme": "opinions-et-avis",
+          "fr": "Tu as raison de souligner que l'éducation reste le meilleur levier contre les inégalités.",
+          "en": "You're right to point out that education remains the best lever against inequality.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.249",
+          "theme": "philosophie",
+          "fr": "Le penseur des Lumières combattit toute forme de dogmatisme religieux au nom de la raison.",
+          "en": "The Enlightenment thinker fought every form of religious dogmatism in the name of reason.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.250",
+          "theme": "philosophie",
+          "fr": "Un idéal politique qui ignore les contraintes de la réalité risque de rester lettre morte.",
+          "en": "A political ideal that ignores the constraints of reality risks remaining a dead letter.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.232",
+          "theme": "ethique",
+          "fr": "Un traducteur assermenté est tenu de rendre fidèlement les propos, même s'ils le choquent.",
+          "en": "A sworn translator must render statements faithfully, even if they find them shocking.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.204",
+          "theme": "philosophie",
+          "fr": "Le philosophe soutint que la beauté n'existe pas indépendamment du regard qui la contemple.",
+          "en": "The philosopher argued that beauty does not exist independently of the gaze that contemplates it.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.248",
+          "theme": "philosophie",
+          "fr": "Comment pourrait-on prétendre juger une époque passée avec les seules valeurs de la nôtre ?",
+          "en": "How could one claim to judge a past era using only the values of our own?",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.225",
+          "theme": "ethique",
+          "fr": "L'agence de presse a présenté ses excuses après avoir diffusé une information non vérifiée.",
+          "en": "The press agency apologized after airing unverified information.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.227",
+          "theme": "ethique",
+          "fr": "Il serait souhaitable que les entreprises publient leurs émissions de gaz à effet de serre.",
+          "en": "It would be desirable for companies to publish their greenhouse gas emissions.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.036",
+          "theme": "opinions-et-avis",
+          "fr": "Il est indéniable que les réseaux sociaux ont modifié la manière dont l'information circule.",
+          "en": "It is undeniable that social media has changed the way information circulates.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.projets-et-futur.027",
+          "theme": "projets-et-futur",
+          "fr": "Lorsque j'aurai obtenu mon diplôme, je consacrerai mes efforts à bâtir une carrière durable.",
+          "en": "Once I have my degree, I will devote my efforts to building a lasting career.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.226",
+          "theme": "ethique",
+          "fr": "Le maire a été contraint de démissionner après la révélation de conflits d'intérêts répétés.",
+          "en": "The mayor was forced to resign after repeated conflicts of interest came to light.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.034",
+          "theme": "opinions-et-avis",
+          "fr": "Je rejoins entièrement ton point de vue sur l'importance de préserver le patrimoine culturel.",
+          "en": "I fully agree with your point of view on the importance of preserving cultural heritage.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recits-au-passe.023",
+          "theme": "recits-au-passe",
+          "fr": "Malgré la fatigue accumulée, elle a terminé le marathon sous les applaudissements de la foule.",
+          "en": "Despite her accumulated fatigue, she finished the marathon to the applause of the crowd.",
+          "words": 15
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.b2.projets-et-futur.024",
+          "theme": "projets-et-futur",
+          "fr": "Je vais rédiger un rapport détaillé afin que la direction puisse prendre une décision éclairée.",
+          "en": "I'm going to write a detailed report so that management can make an informed decision.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.214",
+          "theme": "ethique",
+          "fr": "La compagnie pharmaceutique a été accusée d'avoir minimisé les effets secondaires de son médicament.",
+          "en": "The pharmaceutical company was accused of downplaying its drug's side effects.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.256",
+          "theme": "ethique",
+          "fr": "Il arrive que des fonctionnaires ferment les yeux sur des irrégularités par crainte de représailles.",
+          "en": "Officials sometimes turn a blind eye to irregularities for fear of retaliation.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.ethique.240",
+          "theme": "ethique",
+          "fr": "La plateforme a été critiquée pour avoir laissé circuler de fausses informations pendant la campagne.",
+          "en": "The platform was criticized for letting false information circulate during the campaign.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.026",
+          "theme": "opinions-et-avis",
+          "fr": "Je considère que les inégalités sociales freinent considérablement l'accès à une éducation de qualité.",
+          "en": "I believe that social inequalities considerably hinder access to quality education.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.philosophie.034",
+          "theme": "philosophie",
+          "fr": "Plusieurs philosophes se demandent si l'intelligence artificielle pourrait un jour penser par elle-même.",
+          "en": "Several philosophers wonder whether artificial intelligence could one day think for itself.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.032",
+          "theme": "connecteurs-logiques",
+          "fr": "Malgré des investissements considérables, la qualité du service n'a guère progressé ces dernières années.",
+          "en": "Despite considerable investment, the quality of the service has hardly improved in recent years.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.034",
+          "theme": "connecteurs-logiques",
+          "fr": "En revanche, les petites entreprises peinent à suivre le rythme imposé par cette nouvelle réglementation.",
+          "en": "On the other hand, small businesses are struggling to keep up with the pace imposed by this new regulation.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recits-au-passe.029",
+          "theme": "recits-au-passe",
+          "fr": "Grâce à l'aide de ses voisins, elle a pu déménager en un seul week-end.",
+          "en": "Thanks to her neighbors' help, she managed to move in a single weekend.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.017",
+          "theme": "expressions-de-quantite",
+          "fr": "La plupart du temps, il n'y a pas assez de monde pour ouvrir ce guichet.",
+          "en": "Most of the time, there aren't enough people to open this counter.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.philosophie.213",
+          "theme": "philosophie",
+          "fr": "Le juge dut trancher entre la lettre de la loi et l'esprit de la justice.",
+          "en": "The judge had to decide between the letter of the law and the spirit of justice.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.philosophie.017",
+          "theme": "philosophie",
+          "fr": "Il se peut que la conscience ne soit rien d'autre qu'un produit du cerveau.",
+          "en": "It may be that consciousness is nothing more than a product of the brain.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.018",
+          "theme": "expressions-de-quantite",
+          "fr": "Avec tellement de monde et si peu de temps, la fête a été un peu chaotique.",
+          "en": "With so many people and so little time, the party was a bit chaotic.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.065",
+          "theme": "prepositions-essentielles",
+          "fr": "Il est rare qu'un tel accord soit conclu sans concessions de part et d'autre.",
+          "en": "It is rare for such an agreement to be reached without concessions on both sides.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.philosophie.016",
+          "theme": "philosophie",
+          "fr": "Platon croyait que le monde sensible n'est qu'une pâle copie du monde des idées.",
+          "en": "Plato believed that the sensory world is only a pale copy of the world of ideas.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.ethique.251",
+          "theme": "ethique",
+          "fr": "Un citoyen a le devoir de signaler un danger public, même au prix de son confort.",
+          "en": "A citizen has a duty to report a public danger, even at the cost of their own comfort.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.philosophie.038",
+          "theme": "philosophie",
+          "fr": "Il n'est pas exclu que notre perception du temps soit une construction de l'esprit.",
+          "en": "It's not ruled out that our perception of time is a construction of the mind.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recits-au-passe.038",
+          "theme": "recits-au-passe",
+          "fr": "Il régnait un silence pesant dans la salle quand le juge a enfin annoncé le verdict.",
+          "en": "A heavy silence hung over the room when the judge finally announced the verdict.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.030",
+          "theme": "conseils-et-suggestions",
+          "fr": "Nous pourrions envisager de reporter le lancement du produit jusqu'à la fin de l'étude.",
+          "en": "We could consider postponing the product launch until the end of the study.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.philosophie.221",
+          "theme": "philosophie",
+          "fr": "Le philosophe des Lumières prôna l'usage de la raison contre les préjugés de son temps.",
+          "en": "The Enlightenment philosopher championed the use of reason against the prejudices of his time.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.029",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il vaudrait mieux, à mon avis, que vous preniez le temps de réfléchir avant de répondre.",
+          "en": "In my opinion, it would be better for you to take the time to think before responding.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.philosophie.027",
+          "theme": "philosophie",
+          "fr": "Épicure enseignait que le bonheur consiste à se libérer de la peur et du désir excessif.",
+          "en": "Epicurus taught that happiness consists in freeing oneself from fear and excessive desire.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.philosophie.045",
+          "theme": "philosophie",
+          "fr": "La philosophie ne cherche pas tant à donner des réponses qu'à mieux poser les questions.",
+          "en": "Philosophy does not seek so much to give answers as to better formulate the questions.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.032",
+          "theme": "opinions-et-avis",
+          "fr": "Il me semble difficile de nier que le changement climatique modifie déjà nos modes de vie.",
+          "en": "It seems hard to deny that climate change is already changing our ways of life.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.philosophie.032",
+          "theme": "philosophie",
+          "fr": "On ne peut pas prouver que le monde extérieur existe réellement en dehors de notre esprit.",
+          "en": "One cannot prove that the outside world really exists outside our mind.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recits-au-passe.021",
+          "theme": "recits-au-passe",
+          "fr": "Après s'être longuement excusé, il a fini par convaincre son ancien patron de le reprendre.",
+          "en": "After apologizing at length, he finally managed to convince his former boss to take him back.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.ethique.031",
+          "theme": "ethique",
+          "fr": "Le philosophe soutient qu'aucune fin, si noble soit-elle, ne justifie n'importe quel moyen.",
+          "en": "The philosopher argues that no end, however noble, justifies just any means.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.ethique.257",
+          "theme": "ethique",
+          "fr": "La journaliste a protégé l'identité de son informateur, même sous la menace d'une poursuite.",
+          "en": "The journalist protected her source's identity, even under threat of prosecution.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.033",
+          "theme": "connecteurs-logiques",
+          "fr": "Alors que la demande ne cesse de croître, l'offre demeure largement insuffisante sur ce marché.",
+          "en": "Whereas demand keeps growing, supply remains largely insufficient in this market.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.ethique.249",
+          "theme": "ethique",
+          "fr": "La chercheuse a publié ses données brutes pour permettre à d'autres de vérifier ses conclusions.",
+          "en": "The researcher published her raw data to let others verify her conclusions.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.philosophie.256",
+          "theme": "philosophie",
+          "fr": "Le philosophe préféra abandonner sa thèse plutôt que d'ignorer les objections qu'on lui opposait.",
+          "en": "The philosopher preferred to abandon his thesis rather than ignore the objections raised against it.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.038",
+          "theme": "connecteurs-logiques",
+          "fr": "En dépit des critiques, le gouvernement maintient son projet de loi sans y apporter de modification.",
+          "en": "Despite the criticism, the government is maintaining its bill without making any changes to it.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.033",
+          "theme": "opinions-et-avis",
+          "fr": "Contrairement à ce que tu affirmes, la lecture numérique ne remplace pas totalement le livre papier.",
+          "en": "Contrary to what you claim, digital reading doesn't completely replace paper books.",
+          "words": 16
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.b2.connecteurs-logiques.036",
+          "theme": "connecteurs-logiques",
+          "fr": "Bien qu'elle dispose de moyens limités, l'association parvient néanmoins à mener de nombreux projets.",
+          "en": "Although it has limited resources, the association nevertheless manages to carry out numerous projects.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.024",
+          "theme": "connecteurs-logiques",
+          "fr": "Les ventes ont chuté ce trimestre, de ce fait la direction envisage une nouvelle stratégie commerciale.",
+          "en": "Sales fell this quarter, and as a result management is considering a new business strategy.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.026",
+          "theme": "connecteurs-logiques",
+          "fr": "Grâce à une politique environnementale ambitieuse, la ville a nettement réduit sa pollution en dix ans.",
+          "en": "Thanks to an ambitious environmental policy, the city has significantly reduced its pollution in ten years.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.027",
+          "theme": "opinions-et-avis",
+          "fr": "Il me paraît indéniable que le patrimoine culturel mérite d'être préservé pour les générations futures.",
+          "en": "It seems undeniable to me that cultural heritage deserves to be preserved for future generations.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.031",
+          "theme": "opinions-et-avis",
+          "fr": "Je ne partage guère cette opinion, car la mondialisation a aussi permis de réduire certaines inégalités.",
+          "en": "I hardly share this opinion, because globalization has also helped reduce certain inequalities.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.020",
+          "theme": "connecteurs-logiques",
+          "fr": "Étant donné que les négociations ont échoué, les deux entreprises ont dû revoir entièrement leur stratégie.",
+          "en": "Given that the negotiations failed, the two companies had to completely rethink their strategy.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.philosophie.240",
+          "theme": "philosophie",
+          "fr": "L'individu qui agit uniquement par intérêt personnel peut-il encore être qualifié de moralement responsable ?",
+          "en": "Can an individual who acts only out of self-interest still be called morally responsible?",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.030",
+          "theme": "connecteurs-logiques",
+          "fr": "Certes, la réforme apporte des avantages certains, néanmoins elle suscite une vive opposition parmi les employés.",
+          "en": "Admittedly, the reform brings certain benefits, nevertheless it is provoking strong opposition among employees.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.ethique.044",
+          "theme": "ethique",
+          "fr": "Nul n'a le droit de mettre en danger la vie d'autrui pour son propre profit.",
+          "en": "No one has the right to endanger another's life for their own profit.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.philosophie.025",
+          "theme": "philosophie",
+          "fr": "Il semblerait que le temps ne s'écoule pas de la même façon pour tout le monde.",
+          "en": "It would seem that time does not flow the same way for everyone.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.philosophie.210",
+          "theme": "philosophie",
+          "fr": "Il n'appartient qu'à chacun de définir ce qui rend son existence digne d'être vécue.",
+          "en": "It is up to each person alone to define what makes their existence worth living.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.comparaisons.031",
+          "theme": "comparaisons",
+          "fr": "C'est l'un des défis les plus redoutables auxquels l'humanité ait jamais dû faire face.",
+          "en": "It's one of the most daunting challenges humanity has ever had to face.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.philosophie.251",
+          "theme": "philosophie",
+          "fr": "Ce n'est pas parce qu'une pratique est ancienne qu'elle échappe à toute critique morale.",
+          "en": "A practice being old does not mean it escapes all moral criticism.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.recits-au-passe.020",
+          "theme": "recits-au-passe",
+          "fr": "Bien qu'il ait plu toute la matinée, les organisateurs ont maintenu la fête au grand air.",
+          "en": "Although it had rained all morning, the organizers kept the outdoor party going.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.023",
+          "theme": "connecteurs-logiques",
+          "fr": "C'est la raison pour laquelle le conseil municipal a décidé de revoir l'ensemble du dossier.",
+          "en": "That is the reason why the town council decided to review the entire matter.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.philosophie.040",
+          "theme": "philosophie",
+          "fr": "Le doute méthodique de Descartes ne vise pas à nier la réalité, mais à la fonder solidement.",
+          "en": "Descartes's methodical doubt does not aim to deny reality, but to firmly ground it.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.061",
+          "theme": "prepositions-essentielles",
+          "fr": "Bien qu'il ait longtemps hésité entre deux carrières, il s'est finalement décidé pour le droit.",
+          "en": "Although he had long hesitated between two careers, he finally settled on law.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.021",
+          "theme": "connecteurs-logiques",
+          "fr": "Dans la mesure où le budget a été réduit, plusieurs projets seront reportés à l'année prochaine.",
+          "en": "Since the budget has been cut, several projects will be postponed to next year.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.philosophie.227",
+          "theme": "philosophie",
+          "fr": "Encore faudrait-il s'entendre sur ce que signifie réellement le mot bonheur avant d'en débattre.",
+          "en": "One would still need to agree on what the word happiness truly means before debating it.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.ethique.261",
+          "theme": "ethique",
+          "fr": "La banque a reconnu avoir facturé des frais cachés à des milliers de clients pendant des années.",
+          "en": "The bank admitted to charging hidden fees to thousands of customers for years.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.029",
+          "theme": "connecteurs-logiques",
+          "fr": "Bien que les négociations aient échoué, les deux parties gardent l'espoir de parvenir à un accord.",
+          "en": "Although the negotiations failed, both parties still hope to reach an agreement.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.ethique.258",
+          "theme": "ethique",
+          "fr": "Le conseil d'éthique de l'hôpital doit se prononcer avant tout essai clinique impliquant des enfants.",
+          "en": "The hospital's ethics board must rule before any clinical trial involving children.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.projets-et-futur.022",
+          "theme": "projets-et-futur",
+          "fr": "Elle va renoncer à cette opportunité, bien qu'elle soit prometteuse, pour rester auprès de sa famille.",
+          "en": "She's going to give up this opportunity, even though it's promising, to stay close to her family.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.020",
+          "theme": "opinions-et-avis",
+          "fr": "Il me paraît évident que la transition écologique exige des efforts considérables de la part de chacun.",
+          "en": "It seems obvious to me that the ecological transition requires considerable effort from everyone.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.035",
+          "theme": "opinions-et-avis",
+          "fr": "Je doute fortement que la croissance économique suffise à elle seule à garantir le bien-être collectif.",
+          "en": "I strongly doubt that economic growth alone is enough to guarantee collective well-being.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.philosophie.234",
+          "theme": "philosophie",
+          "fr": "Bien des philosophes politiques s'accordent à dire qu'aucun pouvoir ne devrait échapper à tout contrôle.",
+          "en": "Many political philosophers agree that no power should escape all oversight.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.031",
+          "theme": "connecteurs-logiques",
+          "fr": "Non seulement cette politique a échoué à réduire le chômage, mais elle a également creusé les inégalités.",
+          "en": "Not only did this policy fail to reduce unemployment, but it also widened inequalities.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.ethique.253",
+          "theme": "ethique",
+          "fr": "Le pilote a refusé de décoller malgré les pressions de la compagnie, invoquant la sécurité des passagers.",
+          "en": "The pilot refused to take off despite pressure from the airline, citing passenger safety.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.philosophie.211",
+          "theme": "philosophie",
+          "fr": "Avant d'accepter une opinion comme vraie, encore faudrait-il se demander sur quels fondements elle repose.",
+          "en": "Before accepting an opinion as true, one would still need to ask what foundations it rests on.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.philosophie.225",
+          "theme": "philosophie",
+          "fr": "Pour bien argumenter, il ne suffit pas d'avoir raison, il faut encore savoir convaincre son interlocuteur.",
+          "en": "To argue well, it is not enough to be right, one must also know how to convince the other person.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.ethique.229",
+          "theme": "ethique",
+          "fr": "Le vétérinaire refuse de pratiquer une intervention qu'il juge inutile, même à la demande du propriétaire.",
+          "en": "The vet refuses to perform a procedure he considers unnecessary, even at the owner's request.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.028",
+          "theme": "connecteurs-logiques",
+          "fr": "Ce chercheur jouit d'une grande crédibilité, si bien que ses conclusions sont rarement remises en question.",
+          "en": "This researcher enjoys great credibility, so much so that his conclusions are rarely questioned.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.philosophie.238",
+          "theme": "philosophie",
+          "fr": "Plus on approfondit une question philosophique, plus on découvre à quel point elle résiste aux réponses simples.",
+          "en": "The more one delves into a philosophical question, the more one discovers how much it resists simple answers.",
+          "words": 17
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.b2.recits-au-passe.036",
+          "theme": "recits-au-passe",
+          "fr": "Elle travaillait sans relâche depuis des semaines quand son entreprise a finalement décroché le contrat tant attendu.",
+          "en": "She had been working tirelessly for weeks when her company finally landed the long-awaited contract.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.philosophie.215",
+          "theme": "philosophie",
+          "fr": "À supposer que l'intelligence artificielle devienne un jour consciente, quels droits faudrait-il alors lui accorder ?",
+          "en": "Supposing artificial intelligence were to become conscious one day, what rights would then have to be granted to it?",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.ethique.019",
+          "theme": "ethique",
+          "fr": "Le médecin est tenu de respecter la volonté du patient, même s'il n'est pas d'accord.",
+          "en": "The doctor is required to respect the patient's wishes, even if he disagrees.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recits-au-passe.028",
+          "theme": "recits-au-passe",
+          "fr": "Il a posé le pied sur le quai et a aussitôt cherché son billet dans toutes ses poches.",
+          "en": "He set foot on the platform and immediately searched all his pockets for his ticket.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.prepositions-essentielles.069",
+          "theme": "prepositions-essentielles",
+          "fr": "Il n'est pas certain que les négociations parviennent à un accord avant la fin de l'année.",
+          "en": "It is not certain that the negotiations will reach an agreement before the end of the year.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.037",
+          "theme": "opinions-et-avis",
+          "fr": "Je ne suis guère convaincu par cet argument, tant les situations varient d'un pays à l'autre.",
+          "en": "I am hardly convinced by this argument, as situations vary so much from one country to another.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.philosophie.206",
+          "theme": "philosophie",
+          "fr": "Rares sont ceux qui osent remettre en cause les valeurs qu'on leur a inculquées dès l'enfance.",
+          "en": "Few are those who dare to question the values instilled in them since childhood.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.philosophie.236",
+          "theme": "philosophie",
+          "fr": "Il ne va pas de soi que le progrès technique s'accompagne toujours d'un progrès moral équivalent.",
+          "en": "It is not a given that technical progress is always accompanied by an equivalent moral progress.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.philosophie.252",
+          "theme": "philosophie",
+          "fr": "La question de savoir si la fin justifie les moyens continue de diviser les philosophes de la morale.",
+          "en": "The question of whether the end justifies the means continues to divide moral philosophers.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.philosophie.255",
+          "theme": "philosophie",
+          "fr": "Une démocratie affaiblie par l'indifférence de ses citoyens perd peu à peu sa capacité à se défendre.",
+          "en": "A democracy weakened by the indifference of its citizens gradually loses its capacity to defend itself.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.philosophie.253",
+          "theme": "philosophie",
+          "fr": "Il faudrait sans doute plus d'humilité intellectuelle pour reconnaître l'étendue de ce que l'on ignore.",
+          "en": "It would no doubt take more intellectual humility to recognize the extent of what one does not know.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recits-au-passe.031",
+          "theme": "recits-au-passe",
+          "fr": "Pendant que la ville dormait encore, les pêcheurs quittaient déjà le port pour une longue journée en mer.",
+          "en": "While the city was still asleep, the fishermen were already leaving the harbor for a long day at sea.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.035",
+          "theme": "connecteurs-logiques",
+          "fr": "Il convient par ailleurs de souligner que ces mesures n'ont produit aucun effet mesurable jusqu'à présent.",
+          "en": "It should also be noted that these measures have produced no measurable effect so far.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recits-au-passe.025",
+          "theme": "recits-au-passe",
+          "fr": "Il a fallu attendre la tombée de la nuit pour que les secouristes retrouvent enfin les randonneurs égarés.",
+          "en": "They had to wait until nightfall for the rescuers to finally find the lost hikers.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.philosophie.254",
+          "theme": "philosophie",
+          "fr": "L'idée que chacun est l'unique artisan de sa réussite néglige souvent le poids des circonstances sociales.",
+          "en": "The idea that everyone is the sole architect of their success often overlooks the weight of social circumstances.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.conseils-et-suggestions.028",
+          "theme": "conseils-et-suggestions",
+          "fr": "Je vous recommanderais de diversifier vos sources de revenus plutôt que de tout risquer sur un seul projet.",
+          "en": "I would recommend that you diversify your sources of income rather than risking everything on a single project.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.philosophie.237",
+          "theme": "philosophie",
+          "fr": "Ce serait une erreur de croire que la tolérance implique l'acceptation de toutes les opinions sans distinction.",
+          "en": "It would be a mistake to believe that tolerance implies accepting every opinion without distinction.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.philosophie.245",
+          "theme": "philosophie",
+          "fr": "Une éducation qui ne développe pas l'esprit critique risque de produire des citoyens dociles plutôt qu'éclairés.",
+          "en": "An education that does not develop critical thinking risks producing docile citizens rather than enlightened ones.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.philosophie.224",
+          "theme": "philosophie",
+          "fr": "Nombre de penseurs estiment que la technologie, loin de nous libérer, a redéfini de nouvelles formes de dépendance.",
+          "en": "Many thinkers believe that technology, far from freeing us, has redefined new forms of dependence.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.philosophie.229",
+          "theme": "philosophie",
+          "fr": "Le débat entre partisans du déterminisme strict et défenseurs de la liberté individuelle n'est toujours pas tranché.",
+          "en": "The debate between supporters of strict determinism and defenders of individual freedom is still not settled.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recits-au-passe.033",
+          "theme": "recits-au-passe",
+          "fr": "Bien qu'il connaisse la région comme sa poche, il s'est égaré en pleine forêt ce soir-là.",
+          "en": "Although he knew the region like the back of his hand, he got lost deep in the forest that evening.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.philosophie.217",
+          "theme": "philosophie",
+          "fr": "Quoi qu'on en pense, l'idée d'un progrès moral continu reste discutable au regard de l'histoire.",
+          "en": "Whatever one thinks of it, the idea of continuous moral progress remains debatable in light of history.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.recits-au-passe.022",
+          "theme": "recits-au-passe",
+          "fr": "Dès que la nouvelle s'est répandue dans le village, tout le monde s'est précipité vers la mairie.",
+          "en": "As soon as the news spread through the village, everyone rushed to the town hall.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.philosophie.232",
+          "theme": "philosophie",
+          "fr": "Une loi injuste garde-t-elle malgré tout une autorité légitime du simple fait qu'elle est une loi ?",
+          "en": "Does an unjust law still keep legitimate authority simply because it is a law?",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.ethique.218",
+          "theme": "ethique",
+          "fr": "La ville a été critiquée pour avoir attribué le marché à l'entreprise du maire sans appel d'offres.",
+          "en": "The city was criticized for awarding the contract to the mayor's company without a tender.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.recits-au-passe.035",
+          "theme": "recits-au-passe",
+          "fr": "Tandis que les invités discutaient encore au salon, la mariée s'est éclipsée un instant pour appeler sa mère.",
+          "en": "While the guests were still chatting in the living room, the bride slipped away for a moment to call her mother.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.connecteurs-logiques.025",
+          "theme": "connecteurs-logiques",
+          "fr": "Étant donné l'ampleur des dégâts, il faudra sans doute plusieurs mois avant que le quartier ne soit reconstruit.",
+          "en": "Given the extent of the damage, it will probably take several months before the neighborhood is rebuilt.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.philosophie.222",
+          "theme": "philosophie",
+          "fr": "Il serait présomptueux de croire que notre génération a réglé les grandes questions que se posait déjà l'Antiquité.",
+          "en": "It would be presumptuous to believe that our generation has settled the great questions Antiquity was already asking.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.philosophie.223",
+          "theme": "philosophie",
+          "fr": "Tant que la justice ne sera pas la même pour tous, on pourra difficilement parler de société véritablement égalitaire.",
+          "en": "As long as justice is not the same for everyone, it will be hard to speak of a truly egalitarian society.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.philosophie.259",
+          "theme": "philosophie",
+          "fr": "L'obligation morale de dire la vérité admet-elle des exceptions lorsque la vérité risque de blesser gravement autrui ?",
+          "en": "Does the moral obligation to tell the truth allow exceptions when the truth risks seriously hurting others?",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.philosophie.241",
+          "theme": "philosophie",
+          "fr": "Un système économique fondé sur la seule concurrence néglige, selon certains, la dimension solidaire de la vie en société.",
+          "en": "An economic system based solely on competition neglects, according to some, the cooperative dimension of life in society.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.opinions-et-avis.023",
+          "theme": "opinions-et-avis",
+          "fr": "Ce qui est certain, c'est que le télétravail redéfinit progressivement l'équilibre entre vie professionnelle et vie privée.",
+          "en": "What is certain is that remote work is gradually redefining the balance between professional and personal life.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.philosophie.212",
+          "theme": "philosophie",
+          "fr": "Certains soutiennent qu'une œuvre d'art n'a de valeur que par le sens que le spectateur lui prête.",
+          "en": "Some argue that a work of art has value only through the meaning the viewer lends it.",
+          "words": 20
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.b2.philosophie.218",
+          "theme": "philosophie",
+          "fr": "Le citoyen a le devoir de s'informer avant de voter, faute de quoi la démocratie perd tout son sens.",
+          "en": "The citizen has a duty to become informed before voting, otherwise democracy loses all meaning.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.philosophie.219",
+          "theme": "philosophie",
+          "fr": "Peu importe que l'on soit croyant ou non, la question du sens de la souffrance traverse toutes les cultures.",
+          "en": "Regardless of whether one is a believer or not, the question of the meaning of suffering runs through every culture.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.philosophie.231",
+          "theme": "philosophie",
+          "fr": "L'histoire des idées montre que ce qui paraissait une évidence à une époque peut sembler absurde à une autre.",
+          "en": "The history of ideas shows that what seemed obvious in one era can seem absurd in another.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.philosophie.205",
+          "theme": "philosophie",
+          "fr": "Il se pourrait bien que nos décisions les plus libres soient en réalité dictées par des causes que nous ignorons.",
+          "en": "It could well be that our freest decisions are in reality dictated by causes we are unaware of.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.philosophie.228",
+          "theme": "philosophie",
+          "fr": "Il arrive que l'on préfère une belle illusion à une vérité inconfortable, et cela pose une vraie question morale.",
+          "en": "It happens that one prefers a beautiful illusion to an uncomfortable truth, and that raises a real moral question.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.recits-au-passe.032",
+          "theme": "recits-au-passe",
+          "fr": "Comme elle hésitait depuis des mois entre deux carrières, l'annonce de sa mutation a fini par trancher la question.",
+          "en": "Since she had been hesitating for months between two careers, the announcement of her transfer finally settled the matter.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.recits-au-passe.034",
+          "theme": "recits-au-passe",
+          "fr": "Le village vivait autrefois du commerce maritime, mais l'arrivée du chemin de fer a tout changé en quelques années.",
+          "en": "The village once lived off maritime trade, but the arrival of the railway changed everything within a few years.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.philosophie.258",
+          "theme": "philosophie",
+          "fr": "Certains estiment que la souffrance, aussi absurde paraisse-t-elle, peut néanmoins avoir un sens pour celui qui la traverse.",
+          "en": "Some believe that suffering, however absurd it may seem, can nevertheless have meaning for the one who goes through it.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.expressions-de-quantite.019",
+          "theme": "expressions-de-quantite",
+          "fr": "Il ne reste que la moitié des billets, alors qu'il y a plein de gens sur la liste d'attente.",
+          "en": "Only half the tickets are left, even though there are lots of people on the waiting list.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.philosophie.220",
+          "theme": "philosophie",
+          "fr": "Ce n'est qu'en perdant quelque chose que l'on mesure vraiment la place qu'il occupait dans notre vie.",
+          "en": "It is only by losing something that one truly measures the place it occupied in our life.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.philosophie.257",
+          "theme": "philosophie",
+          "fr": "Il serait naïf de croire que l'accès à l'information suffit, à lui seul, à rendre les citoyens plus lucides.",
+          "en": "It would be naive to believe that access to information alone is enough to make citizens more clear-sighted.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.philosophie.216",
+          "theme": "philosophie",
+          "fr": "Il est rare qu'une découverte scientifique ne bouleverse pas, d'une manière ou d'une autre, notre vision du monde.",
+          "en": "It is rare for a scientific discovery not to shake up, in one way or another, our vision of the world.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.philosophie.214",
+          "theme": "philosophie",
+          "fr": "Pour peu qu'on y réfléchisse sérieusement, la frontière entre l'homme et la machine paraît de moins en moins nette.",
+          "en": "If one thinks about it seriously for even a moment, the line between man and machine seems less and less clear.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.philosophie.243",
+          "theme": "philosophie",
+          "fr": "Il n'est pas exagéré d'affirmer que la manière dont une société traite ses membres les plus vulnérables la définit.",
+          "en": "It is not an exaggeration to say that how a society treats its most vulnerable members defines it.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.recits-au-passe.030",
+          "theme": "recits-au-passe",
+          "fr": "Alors qu'elle contemplait le coucher du soleil depuis le balcon, elle a reçu la nouvelle qui allait bouleverser sa vie.",
+          "en": "As she was watching the sunset from the balcony, she received the news that would upend her life.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.recits-au-passe.037",
+          "theme": "recits-au-passe",
+          "fr": "Comme la grève des trains paralysait tout le pays, des milliers de voyageurs ont dû improviser un autre moyen de transport.",
+          "en": "Since the train strike was paralyzing the whole country, thousands of travelers had to improvise another means of transport.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.philosophie.247",
+          "theme": "philosophie",
+          "fr": "Il se peut que le sentiment de justice précède, chez l'enfant, toute théorie morale explicite qu'on pourrait lui enseigner.",
+          "en": "It may be that the sense of justice precedes, in a child, any explicit moral theory one could teach them.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.philosophie.226",
+          "theme": "philosophie",
+          "fr": "Une vie entièrement gouvernée par la peur du jugement d'autrui perd, selon plusieurs penseurs, une grande part de sa liberté.",
+          "en": "A life entirely governed by fear of others' judgment loses, according to several thinkers, much of its freedom.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.philosophie.260",
+          "theme": "philosophie",
+          "fr": "Loin de s'opposer, liberté individuelle et responsabilité envers autrui se définissent en réalité l'une par rapport à l'autre.",
+          "en": "Far from being opposites, individual freedom and responsibility toward others are in fact defined in relation to each other.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.philosophie.207",
+          "theme": "philosophie",
+          "fr": "Quand bien même la mort serait la fin de tout, cela n'ôterait rien à la valeur de ce que nous vivons.",
+          "en": "Even if death were the end of everything, that would take nothing away from the value of what we live.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.philosophie.209",
+          "theme": "philosophie",
+          "fr": "Cette théorie politique repose sur l'idée que chacun renonce à une part de sa liberté au profit de la sécurité collective.",
+          "en": "This political theory rests on the idea that everyone gives up a part of their freedom for the sake of collective security.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.philosophie.233",
+          "theme": "philosophie",
+          "fr": "Sans qu'on s'en rende toujours compte, nos jugements moraux sont souvent influencés par nos émotions plutôt que par la raison.",
+          "en": "Without our always realizing it, our moral judgments are often influenced by our emotions rather than by reason.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.philosophie.239",
+          "theme": "philosophie",
+          "fr": "Il conviendrait de distinguer la liberté de faire ce que l'on veut de la liberté de vouloir ce que l'on fait.",
+          "en": "One should distinguish the freedom to do what one wants from the freedom to want what one does.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.philosophie.203",
+          "theme": "philosophie",
+          "fr": "Si l'on admettait que la morale n'est qu'une convention sociale, il faudrait alors renoncer à toute notion de progrès moral.",
+          "en": "If one admitted that morality is only a social convention, one would then have to give up any notion of moral progress.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.philosophie.201",
+          "theme": "philosophie",
+          "fr": "Bien qu'on ne puisse jamais démontrer l'existence d'autrui avec certitude, nous agissons chaque jour comme si elle allait de soi.",
+          "en": "Although one can never prove the existence of others with certainty, we act every day as if it were self-evident.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.philosophie.202",
+          "theme": "philosophie",
+          "fr": "Pour qu'une société soit juste, il ne suffit pas que les lois soient égales, encore faut-il qu'elles soient appliquées équitablement.",
+          "en": "For a society to be just, it is not enough for laws to be equal, they must also be applied fairly.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.philosophie.208",
+          "theme": "philosophie",
+          "fr": "On a longtemps cru que seul l'être humain était capable de raisonnement abstrait, une certitude que la science remet aujourd'hui en doute.",
+          "en": "For a long time it was believed that only human beings were capable of abstract reasoning, a certainty that science now questions.",
+          "words": 24
+        }
+      ]
+    }
+  ]
+}

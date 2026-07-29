@@ -1,0 +1,1787 @@
+[
+  {
+    "id": "fr.a1.marche.151",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Je vais au marché le samedi matin.",
+    "en": "I go to the market on Saturday morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je vais\", \"t\": \"I go\"}, {\"w\": \"au marché\", \"t\": \"to the market\"}, {\"w\": \"le samedi matin.\", \"t\": \"on Saturday morning\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.152",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le marché ouvre à huit heures.",
+    "en": "The market opens at eight o'clock.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le marché\", \"t\": \"the market\"}, {\"w\": \"ouvre\", \"t\": \"opens\"}, {\"w\": \"à huit heures.\", \"t\": \"at eight o'clock\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.153",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "J'achète des pommes rouges.",
+    "en": "I am buying red apples.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'achète\", \"t\": \"I buy\"}, {\"w\": \"des pommes\", \"t\": \"some apples\"}, {\"w\": \"rouges.\", \"t\": \"red\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.154",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Combien coûte un kilo de tomates?",
+    "en": "How much does a kilo of tomatoes cost?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Combien coûte\", \"t\": \"how much does it cost\"}, {\"w\": \"un kilo\", \"t\": \"a kilo\"}, {\"w\": \"de tomates?\", \"t\": \"of tomatoes\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.155",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Les fraises sont très fraîches aujourd'hui.",
+    "en": "The strawberries are very fresh today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Les fraises\", \"t\": \"the strawberries\"}, {\"w\": \"sont très fraîches\", \"t\": \"are very fresh\"}, {\"w\": \"aujourd'hui.\", \"t\": \"today\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.156",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Je voudrais un kilo de carottes, s'il vous plaît.",
+    "en": "I would like a kilo of carrots, please.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je voudrais\", \"t\": \"I would like\"}, {\"w\": \"un kilo\", \"t\": \"a kilo\"}, {\"w\": \"de carottes,\", \"t\": \"of carrots\"}, {\"w\": \"s'il vous plaît.\", \"t\": \"please\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.157",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le vendeur pèse les légumes sur la balance.",
+    "en": "The vendor weighs the vegetables on the scale.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le vendeur\", \"t\": \"the vendor\"}, {\"w\": \"pèse\", \"t\": \"weighs\"}, {\"w\": \"les légumes\", \"t\": \"the vegetables\"}, {\"w\": \"sur la balance.\", \"t\": \"on the scale\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.158",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Cette pastèque est trop grosse pour moi.",
+    "en": "This watermelon is too big for me.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Cette pastèque\", \"t\": \"this watermelon\"}, {\"w\": \"est trop grosse\", \"t\": \"is too big\"}, {\"w\": \"pour moi.\", \"t\": \"for me\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.159",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Je préfère les légumes bio.",
+    "en": "I prefer organic vegetables.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je préfère\", \"t\": \"I prefer\"}, {\"w\": \"les légumes\", \"t\": \"the vegetables\"}, {\"w\": \"bio.\", \"t\": \"organic\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.160",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le fromager coupe un morceau de comté.",
+    "en": "The cheesemonger cuts a piece of comté cheese.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le fromager\", \"t\": \"the cheesemonger\"}, {\"w\": \"coupe\", \"t\": \"cuts\"}, {\"w\": \"un morceau\", \"t\": \"a piece\"}, {\"w\": \"de comté.\", \"t\": \"of comté cheese\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.161",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "J'aime l'odeur du pain frais.",
+    "en": "I like the smell of fresh bread.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'aime\", \"t\": \"I like\"}, {\"w\": \"l'odeur\", \"t\": \"the smell\"}, {\"w\": \"du pain frais.\", \"t\": \"of fresh bread\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.162",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le poissonnier vend du saumon frais.",
+    "en": "The fishmonger sells fresh salmon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le poissonnier\", \"t\": \"the fishmonger\"}, {\"w\": \"vend\", \"t\": \"sells\"}, {\"w\": \"du saumon frais.\", \"t\": \"fresh salmon\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.163",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Les fleurs sentent très bon.",
+    "en": "The flowers smell very good.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Les fleurs\", \"t\": \"the flowers\"}, {\"w\": \"sentent\", \"t\": \"smell\"}, {\"w\": \"très bon.\", \"t\": \"very good\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.164",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Je paie en espèces au marchand.",
+    "en": "I pay the merchant in cash.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je paie\", \"t\": \"I pay\"}, {\"w\": \"en espèces\", \"t\": \"in cash\"}, {\"w\": \"au marchand.\", \"t\": \"to the merchant\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.165",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Avez-vous de la monnaie pour vingt euros?",
+    "en": "Do you have change for twenty euros?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Avez-vous\", \"t\": \"do you have\"}, {\"w\": \"de la monnaie\", \"t\": \"change\"}, {\"w\": \"pour vingt euros?\", \"t\": \"for twenty euros\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.166",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le marchand met les oranges dans un sac.",
+    "en": "The merchant puts the oranges in a bag.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le marchand\", \"t\": \"the merchant\"}, {\"w\": \"met\", \"t\": \"puts\"}, {\"w\": \"les oranges\", \"t\": \"the oranges\"}, {\"w\": \"dans un sac.\", \"t\": \"in a bag\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.167",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Nous choisissons des poivrons rouges et verts.",
+    "en": "We choose red and green peppers.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Nous choisissons\", \"t\": \"we choose\"}, {\"w\": \"des poivrons\", \"t\": \"some peppers\"}, {\"w\": \"rouges et verts.\", \"t\": \"red and green\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.168",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le panier est plein de légumes.",
+    "en": "The basket is full of vegetables.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le panier\", \"t\": \"the basket\"}, {\"w\": \"est plein\", \"t\": \"is full\"}, {\"w\": \"de légumes.\", \"t\": \"of vegetables\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.169",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Cet étal vend des olives et des épices.",
+    "en": "This stall sells olives and spices.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Cet étal\", \"t\": \"this stall\"}, {\"w\": \"vend\", \"t\": \"sells\"}, {\"w\": \"des olives\", \"t\": \"olives\"}, {\"w\": \"et des épices.\", \"t\": \"and spices\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.170",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Je goûte un morceau de fromage avant d'acheter.",
+    "en": "I taste a piece of cheese before buying.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je goûte\", \"t\": \"I taste\"}, {\"w\": \"un morceau\", \"t\": \"a piece\"}, {\"w\": \"de fromage\", \"t\": \"of cheese\"}, {\"w\": \"avant d'acheter.\", \"t\": \"before buying\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.171",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Les clients font la queue devant le stand.",
+    "en": "The customers line up in front of the stall.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Les clients\", \"t\": \"the customers\"}, {\"w\": \"font la queue\", \"t\": \"line up\"}, {\"w\": \"devant le stand.\", \"t\": \"in front of the stall\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.172",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le marché est très animé le dimanche.",
+    "en": "The market is very lively on Sundays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le marché\", \"t\": \"the market\"}, {\"w\": \"est très animé\", \"t\": \"is very lively\"}, {\"w\": \"le dimanche.\", \"t\": \"on Sundays\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.173",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "J'ai besoin d'un kilo d'oignons.",
+    "en": "I need a kilo of onions.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'ai besoin\", \"t\": \"I need\"}, {\"w\": \"d'un kilo\", \"t\": \"a kilo\"}, {\"w\": \"d'oignons.\", \"t\": \"of onions\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.174",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le vendeur me donne un bon prix.",
+    "en": "The vendor gives me a good price.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le vendeur\", \"t\": \"the vendor\"}, {\"w\": \"me donne\", \"t\": \"gives me\"}, {\"w\": \"un bon prix.\", \"t\": \"a good price\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.175",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Les cerises sont un peu chères aujourd'hui.",
+    "en": "The cherries are a bit expensive today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Les cerises\", \"t\": \"the cherries\"}, {\"w\": \"sont un peu chères\", \"t\": \"are a bit expensive\"}, {\"w\": \"aujourd'hui.\", \"t\": \"today\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.176",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Je cherche des champignons frais.",
+    "en": "I am looking for fresh mushrooms.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je cherche\", \"t\": \"I am looking for\"}, {\"w\": \"des champignons\", \"t\": \"mushrooms\"}, {\"w\": \"frais.\", \"t\": \"fresh\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.177",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le marchand de fruits crie les prix.",
+    "en": "The fruit seller calls out the prices.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le marchand de fruits\", \"t\": \"the fruit seller\"}, {\"w\": \"crie\", \"t\": \"calls out\"}, {\"w\": \"les prix.\", \"t\": \"the prices\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.178",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Cette laitue vient du jardin local.",
+    "en": "This lettuce comes from the local garden.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Cette laitue\", \"t\": \"this lettuce\"}, {\"w\": \"vient\", \"t\": \"comes\"}, {\"w\": \"du jardin local.\", \"t\": \"from the local garden\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.179",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Les abricots sont mûrs et sucrés.",
+    "en": "The apricots are ripe and sweet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Les abricots\", \"t\": \"the apricots\"}, {\"w\": \"sont mûrs\", \"t\": \"are ripe\"}, {\"w\": \"et sucrés.\", \"t\": \"and sweet\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.180",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Je mets les courgettes dans mon sac.",
+    "en": "I put the zucchini in my bag.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je mets\", \"t\": \"I put\"}, {\"w\": \"les courgettes\", \"t\": \"the zucchini\"}, {\"w\": \"dans mon sac.\", \"t\": \"in my bag\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.181",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le boulanger vend des baguettes chaudes.",
+    "en": "The baker sells warm baguettes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le boulanger\", \"t\": \"the baker\"}, {\"w\": \"vend\", \"t\": \"sells\"}, {\"w\": \"des baguettes chaudes.\", \"t\": \"warm baguettes\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.182",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "J'achète un bouquet de tulipes pour ma mère.",
+    "en": "I am buying a bunch of tulips for my mother.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'achète\", \"t\": \"I buy\"}, {\"w\": \"un bouquet\", \"t\": \"a bunch\"}, {\"w\": \"de tulipes\", \"t\": \"of tulips\"}, {\"w\": \"pour ma mère.\", \"t\": \"for my mother\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.183",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le marché sent bon les épices.",
+    "en": "The market smells good of spices.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le marché\", \"t\": \"the market\"}, {\"w\": \"sent bon\", \"t\": \"smells good\"}, {\"w\": \"les épices.\", \"t\": \"of spices\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.184",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Ce vendeur accepte la carte bancaire.",
+    "en": "This vendor accepts credit cards.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Ce vendeur\", \"t\": \"this vendor\"}, {\"w\": \"accepte\", \"t\": \"accepts\"}, {\"w\": \"la carte bancaire.\", \"t\": \"credit cards\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.185",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Je demande le prix des asperges.",
+    "en": "I ask the price of the asparagus.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je demande\", \"t\": \"I ask\"}, {\"w\": \"le prix\", \"t\": \"the price\"}, {\"w\": \"des asperges.\", \"t\": \"of the asparagus\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.186",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Les poires sont dans une caisse en bois.",
+    "en": "The pears are in a wooden crate.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Les poires\", \"t\": \"the pears\"}, {\"w\": \"sont\", \"t\": \"are\"}, {\"w\": \"dans une caisse en bois.\", \"t\": \"in a wooden crate\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.187",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le fermier vend ses légumes directement.",
+    "en": "The farmer sells his vegetables directly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le fermier\", \"t\": \"the farmer\"}, {\"w\": \"vend\", \"t\": \"sells\"}, {\"w\": \"ses légumes\", \"t\": \"his vegetables\"}, {\"w\": \"directement.\", \"t\": \"directly\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.188",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "J'aime marchander poliment avec les vendeurs.",
+    "en": "I like bargaining politely with the vendors.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'aime\", \"t\": \"I like\"}, {\"w\": \"marchander poliment\", \"t\": \"bargaining politely\"}, {\"w\": \"avec les vendeurs.\", \"t\": \"with the vendors\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.189",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Cette échoppe vend du miel local.",
+    "en": "This stall sells local honey.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Cette échoppe\", \"t\": \"this stall\"}, {\"w\": \"vend\", \"t\": \"sells\"}, {\"w\": \"du miel local.\", \"t\": \"local honey\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.190",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le marché couvert est ouvert tous les jours.",
+    "en": "The covered market is open every day.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le marché couvert\", \"t\": \"the covered market\"}, {\"w\": \"est ouvert\", \"t\": \"is open\"}, {\"w\": \"tous les jours.\", \"t\": \"every day\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.191",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Je choisis un melon bien mûr.",
+    "en": "I choose a nice ripe melon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je choisis\", \"t\": \"I choose\"}, {\"w\": \"un melon\", \"t\": \"a melon\"}, {\"w\": \"bien mûr.\", \"t\": \"nicely ripe\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.192",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Les artichauts sont chers ce mois-ci.",
+    "en": "Artichokes are expensive this month.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Les artichauts\", \"t\": \"the artichokes\"}, {\"w\": \"sont chers\", \"t\": \"are expensive\"}, {\"w\": \"ce mois-ci.\", \"t\": \"this month\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.193",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le vendeur emballe le poisson dans du papier.",
+    "en": "The vendor wraps the fish in paper.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le vendeur\", \"t\": \"the vendor\"}, {\"w\": \"emballe\", \"t\": \"wraps\"}, {\"w\": \"le poisson\", \"t\": \"the fish\"}, {\"w\": \"dans du papier.\", \"t\": \"in paper\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.194",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "J'apporte mon propre sac pour les courses.",
+    "en": "I bring my own bag for shopping.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'apporte\", \"t\": \"I bring\"}, {\"w\": \"mon propre sac\", \"t\": \"my own bag\"}, {\"w\": \"pour les courses.\", \"t\": \"for shopping\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.195",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Les radis sont croquants et frais.",
+    "en": "The radishes are crunchy and fresh.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Les radis\", \"t\": \"the radishes\"}, {\"w\": \"sont croquants\", \"t\": \"are crunchy\"}, {\"w\": \"et frais.\", \"t\": \"and fresh\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.196",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Ce marchand vend aussi des œufs de ferme.",
+    "en": "This merchant also sells farm eggs.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Ce marchand\", \"t\": \"this merchant\"}, {\"w\": \"vend aussi\", \"t\": \"also sells\"}, {\"w\": \"des œufs de ferme.\", \"t\": \"farm eggs\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.197",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Je prends deux kilos de pommes de terre.",
+    "en": "I'll take two kilos of potatoes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je prends\", \"t\": \"I take\"}, {\"w\": \"deux kilos\", \"t\": \"two kilos\"}, {\"w\": \"de pommes de terre.\", \"t\": \"of potatoes\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.198",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le marché se trouve près de l'église.",
+    "en": "The market is located near the church.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le marché\", \"t\": \"the market\"}, {\"w\": \"se trouve\", \"t\": \"is located\"}, {\"w\": \"près de l'église.\", \"t\": \"near the church\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.199",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Les clients discutent avec les vendeurs.",
+    "en": "The customers chat with the vendors.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Les clients\", \"t\": \"the customers\"}, {\"w\": \"discutent\", \"t\": \"chat\"}, {\"w\": \"avec les vendeurs.\", \"t\": \"with the vendors\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.200",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "J'aime le marché en plein air.",
+    "en": "I like the open-air market.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'aime\", \"t\": \"I like\"}, {\"w\": \"le marché\", \"t\": \"the market\"}, {\"w\": \"en plein air.\", \"t\": \"open-air\"}]}"
+  },
+  {
+    "id": "fr.a1.marche.201",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "marche",
+    "fr": "Le vendeur me rend la monnaie.",
+    "en": "The vendor gives me back the change.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le vendeur\", \"t\": \"the vendor\"}, {\"w\": \"me rend\", \"t\": \"gives me back\"}, {\"w\": \"la monnaie.\", \"t\": \"the change\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.115",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Je suis allé au marché ce matin.",
+    "en": "I went to the market this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je suis allé\", \"t\": \"I went\"}, {\"w\": \"au marché\", \"t\": \"to the market\"}, {\"w\": \"ce matin.\", \"t\": \"this morning\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.116",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "J'ai acheté un kilo de pommes parce qu'elles étaient en promotion.",
+    "en": "I bought a kilo of apples because they were on sale.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'ai acheté\", \"t\": \"I bought\"}, {\"w\": \"un kilo de pommes\", \"t\": \"a kilo of apples\"}, {\"w\": \"parce qu'elles étaient\", \"t\": \"because they were\"}, {\"w\": \"en promotion.\", \"t\": \"on sale\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.117",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Le vendeur m'a donné un bon prix, alors j'ai acheté deux kilos.",
+    "en": "The vendor gave me a good price, so I bought two kilos.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le vendeur\", \"t\": \"the vendor\"}, {\"w\": \"m'a donné un bon prix,\", \"t\": \"gave me a good price,\"}, {\"w\": \"alors\", \"t\": \"so\"}, {\"w\": \"j'ai acheté deux kilos.\", \"t\": \"I bought two kilos\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.118",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Nous avons visité plusieurs stands avant de choisir.",
+    "en": "We visited several stalls before choosing.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Nous avons visité\", \"t\": \"we visited\"}, {\"w\": \"plusieurs stands\", \"t\": \"several stalls\"}, {\"w\": \"avant de choisir.\", \"t\": \"before choosing\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.119",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "J'ai goûté le fromage, mais je n'ai rien acheté.",
+    "en": "I tasted the cheese, but I didn't buy anything.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'ai goûté\", \"t\": \"I tasted\"}, {\"w\": \"le fromage,\", \"t\": \"the cheese,\"}, {\"w\": \"mais\", \"t\": \"but\"}, {\"w\": \"je n'ai rien acheté.\", \"t\": \"I didn't buy anything\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.120",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Elle va acheter des fleurs pour l'anniversaire de sa mère.",
+    "en": "She is going to buy flowers for her mother's birthday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Elle va acheter\", \"t\": \"she is going to buy\"}, {\"w\": \"des fleurs\", \"t\": \"flowers\"}, {\"w\": \"pour l'anniversaire\", \"t\": \"for the birthday\"}, {\"w\": \"de sa mère.\", \"t\": \"of her mother\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.121",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Le marchand a pesé les tomates puis il a annoncé le prix.",
+    "en": "The merchant weighed the tomatoes then he announced the price.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le marchand\", \"t\": \"the merchant\"}, {\"w\": \"a pesé les tomates\", \"t\": \"weighed the tomatoes\"}, {\"w\": \"puis\", \"t\": \"then\"}, {\"w\": \"il a annoncé le prix.\", \"t\": \"he announced the price\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.122",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Nous allons faire les courses au marché demain.",
+    "en": "We are going to do the shopping at the market tomorrow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Nous allons faire\", \"t\": \"we are going to do\"}, {\"w\": \"les courses\", \"t\": \"the shopping\"}, {\"w\": \"au marché demain.\", \"t\": \"at the market tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.123",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "J'ai payé en espèces parce que le vendeur n'acceptait pas la carte.",
+    "en": "I paid in cash because the vendor didn't accept cards.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'ai payé en espèces\", \"t\": \"I paid in cash\"}, {\"w\": \"parce que le vendeur\", \"t\": \"because the vendor\"}, {\"w\": \"n'acceptait pas la carte.\", \"t\": \"didn't accept cards\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.124",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Le poissonnier a vendu tout son saumon avant midi.",
+    "en": "The fishmonger sold all his salmon before noon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le poissonnier\", \"t\": \"the fishmonger\"}, {\"w\": \"a vendu\", \"t\": \"sold\"}, {\"w\": \"tout son saumon\", \"t\": \"all his salmon\"}, {\"w\": \"avant midi.\", \"t\": \"before noon\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.125",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Je vais comparer les prix entre les différents stands.",
+    "en": "I am going to compare the prices between the different stalls.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je vais comparer\", \"t\": \"I am going to compare\"}, {\"w\": \"les prix\", \"t\": \"the prices\"}, {\"w\": \"entre les différents stands.\", \"t\": \"between the different stalls\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.126",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Elle a trouvé des fraises moins chères sur un autre étal.",
+    "en": "She found cheaper strawberries at another stall.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Elle a trouvé\", \"t\": \"she found\"}, {\"w\": \"des fraises moins chères\", \"t\": \"cheaper strawberries\"}, {\"w\": \"sur un autre étal.\", \"t\": \"at another stall\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.127",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Nous avons marchandé poliment, mais le prix n'a pas changé.",
+    "en": "We bargained politely, but the price didn't change.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Nous avons marchandé poliment,\", \"t\": \"we bargained politely,\"}, {\"w\": \"mais\", \"t\": \"but\"}, {\"w\": \"le prix n'a pas changé.\", \"t\": \"the price didn't change\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.128",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "J'ai oublié mon sac réutilisable, alors j'ai dû en acheter un.",
+    "en": "I forgot my reusable bag, so I had to buy one.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'ai oublié\", \"t\": \"I forgot\"}, {\"w\": \"mon sac réutilisable,\", \"t\": \"my reusable bag,\"}, {\"w\": \"alors\", \"t\": \"so\"}, {\"w\": \"j'ai dû en acheter un.\", \"t\": \"I had to buy one\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.129",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Le fermier va apporter des légumes frais la semaine prochaine.",
+    "en": "The farmer is going to bring fresh vegetables next week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le fermier va apporter\", \"t\": \"the farmer is going to bring\"}, {\"w\": \"des légumes frais\", \"t\": \"fresh vegetables\"}, {\"w\": \"la semaine prochaine.\", \"t\": \"next week\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.130",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "J'ai demandé si les œufs venaient d'une ferme locale.",
+    "en": "I asked if the eggs came from a local farm.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'ai demandé\", \"t\": \"I asked\"}, {\"w\": \"si les œufs venaient\", \"t\": \"if the eggs came\"}, {\"w\": \"d'une ferme locale.\", \"t\": \"from a local farm\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.131",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Le boulanger a vendu toutes ses baguettes avant neuf heures.",
+    "en": "The baker sold all his baguettes before nine o'clock.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le boulanger\", \"t\": \"the baker\"}, {\"w\": \"a vendu\", \"t\": \"sold\"}, {\"w\": \"toutes ses baguettes\", \"t\": \"all his baguettes\"}, {\"w\": \"avant neuf heures.\", \"t\": \"before nine o'clock\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.132",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Nous avons acheté des olives, puis nous sommes allés voir le fromager.",
+    "en": "We bought some olives, then we went to see the cheesemonger.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Nous avons acheté\", \"t\": \"we bought\"}, {\"w\": \"des olives,\", \"t\": \"some olives,\"}, {\"w\": \"puis\", \"t\": \"then\"}, {\"w\": \"nous sommes allés voir le fromager.\", \"t\": \"we went to see the cheesemonger\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.133",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Elle a choisi un melon parfumé, mais il était un peu cher.",
+    "en": "She chose a fragrant melon, but it was a bit expensive.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Elle a choisi\", \"t\": \"she chose\"}, {\"w\": \"un melon parfumé,\", \"t\": \"a fragrant melon,\"}, {\"w\": \"mais\", \"t\": \"but\"}, {\"w\": \"il était un peu cher.\", \"t\": \"it was a bit expensive\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.134",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Je vais retourner au marché samedi prochain.",
+    "en": "I am going to go back to the market next Saturday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je vais retourner\", \"t\": \"I am going to go back\"}, {\"w\": \"au marché\", \"t\": \"to the market\"}, {\"w\": \"samedi prochain.\", \"t\": \"next Saturday\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.135",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Les clients ont fait la queue parce que le stand était populaire.",
+    "en": "The customers lined up because the stall was popular.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Les clients ont fait la queue\", \"t\": \"the customers lined up\"}, {\"w\": \"parce que le stand\", \"t\": \"because the stall\"}, {\"w\": \"était populaire.\", \"t\": \"was popular\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.136",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "J'ai vérifié la fraîcheur du poisson avant de l'acheter.",
+    "en": "I checked the freshness of the fish before buying it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'ai vérifié\", \"t\": \"I checked\"}, {\"w\": \"la fraîcheur du poisson\", \"t\": \"the freshness of the fish\"}, {\"w\": \"avant de l'acheter.\", \"t\": \"before buying it\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.137",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Nous avons rempli le panier de légumes de saison.",
+    "en": "We filled the basket with seasonal vegetables.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Nous avons rempli\", \"t\": \"we filled\"}, {\"w\": \"le panier\", \"t\": \"the basket\"}, {\"w\": \"de légumes de saison.\", \"t\": \"with seasonal vegetables\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.138",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Le vendeur a offert un kilo gratuit pour deux kilos achetés.",
+    "en": "The vendor offered a free kilo for two kilos purchased.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le vendeur a offert\", \"t\": \"the vendor offered\"}, {\"w\": \"un kilo gratuit\", \"t\": \"a free kilo\"}, {\"w\": \"pour deux kilos achetés.\", \"t\": \"for two kilos purchased\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.139",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Je vais demander l'origine de ces cerises.",
+    "en": "I am going to ask about the origin of these cherries.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Je vais demander\", \"t\": \"I am going to ask\"}, {\"w\": \"l'origine\", \"t\": \"the origin\"}, {\"w\": \"de ces cerises.\", \"t\": \"of these cherries\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.140",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Elle a payé par carte, puis elle a rangé les courses dans son sac.",
+    "en": "She paid by card, then she put the shopping in her bag.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Elle a payé par carte,\", \"t\": \"she paid by card,\"}, {\"w\": \"puis\", \"t\": \"then\"}, {\"w\": \"elle a rangé les courses\", \"t\": \"she put the shopping\"}, {\"w\": \"dans son sac.\", \"t\": \"in her bag\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.141",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Nous avons discuté avec le fermier de ses méthodes de culture.",
+    "en": "We talked with the farmer about his farming methods.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Nous avons discuté\", \"t\": \"we talked\"}, {\"w\": \"avec le fermier\", \"t\": \"with the farmer\"}, {\"w\": \"de ses méthodes de culture.\", \"t\": \"about his farming methods\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.142",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "J'ai trouvé le marché plus animé que la semaine dernière.",
+    "en": "I found the market busier than last week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'ai trouvé\", \"t\": \"I found\"}, {\"w\": \"le marché plus animé\", \"t\": \"the market busier\"}, {\"w\": \"que la semaine dernière.\", \"t\": \"than last week\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.143",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Le marchand va augmenter ses prix le mois prochain.",
+    "en": "The merchant is going to raise his prices next month.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le marchand va augmenter\", \"t\": \"the merchant is going to raise\"}, {\"w\": \"ses prix\", \"t\": \"his prices\"}, {\"w\": \"le mois prochain.\", \"t\": \"next month\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.144",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "J'ai acheté trop de légumes, alors j'ai partagé avec mon voisin.",
+    "en": "I bought too many vegetables, so I shared with my neighbor.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'ai acheté trop de légumes,\", \"t\": \"I bought too many vegetables,\"}, {\"w\": \"alors\", \"t\": \"so\"}, {\"w\": \"j'ai partagé\", \"t\": \"I shared\"}, {\"w\": \"avec mon voisin.\", \"t\": \"with my neighbor\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.145",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Elle va essayer un nouveau stand de fromages.",
+    "en": "She is going to try a new cheese stall.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Elle va essayer\", \"t\": \"she is going to try\"}, {\"w\": \"un nouveau stand\", \"t\": \"a new stall\"}, {\"w\": \"de fromages.\", \"t\": \"of cheeses\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.146",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Nous avons attendu longtemps, mais le vendeur nous a bien servis.",
+    "en": "We waited a long time, but the vendor served us well.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Nous avons attendu longtemps,\", \"t\": \"we waited a long time,\"}, {\"w\": \"mais\", \"t\": \"but\"}, {\"w\": \"le vendeur\", \"t\": \"the vendor\"}, {\"w\": \"nous a bien servis.\", \"t\": \"served us well\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.147",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "J'ai laissé un pourboire au jeune vendeur de fruits.",
+    "en": "I left a tip for the young fruit seller.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"J'ai laissé\", \"t\": \"I left\"}, {\"w\": \"un pourboire\", \"t\": \"a tip\"}, {\"w\": \"au jeune vendeur de fruits.\", \"t\": \"for the young fruit seller\"}]}"
+  },
+  {
+    "id": "fr.a2.marche.148",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "marche",
+    "fr": "Le marché va fermer plus tôt à cause de la pluie.",
+    "en": "The market is going to close earlier because of the rain.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\": [{\"w\": \"Le marché va fermer\", \"t\": \"the market is going to close\"}, {\"w\": \"plus tôt\", \"t\": \"earlier\"}, {\"w\": \"à cause de la pluie.\", \"t\": \"because of the rain\"}]}"
+  }
+]

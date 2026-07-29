@@ -1,0 +1,3095 @@
+{
+  "stage": "5.4",
+  "world": 5,
+  "level": "b2",
+  "title": "L'Arête des Affaires",
+  "themes": [
+    "affaires",
+    "economie",
+    "collegues",
+    "gouvernement",
+    "droit",
+    "recherche-emploi",
+    "argent-quotidien",
+    "rp-travail-etudes",
+    "immigration-et-citoyennete",
+    "quebec-et-francophonie",
+    "douane-et-immigration",
+    "rp-etiquette"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 429,
+  "dedupedPool": 429,
+  "selected": 429,
+  "blockCount": 13,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.b2.rp-travail-etudes.005",
+          "theme": "rp-travail-etudes",
+          "fr": "Je suis en lice pour une promotion.",
+          "en": "I'm in the running for a promotion.",
+          "words": 7
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.007",
+          "theme": "rp-travail-etudes",
+          "fr": "Ça implique aussi beaucoup plus de responsabilités.",
+          "en": "It also involves a lot more responsibilities.",
+          "words": 7
+        },
+        {
+          "id": "fr.b2.rp-etiquette.007",
+          "theme": "rp-etiquette",
+          "fr": "Je vous remercie de le prendre aussi bien.",
+          "en": "Thank you for taking it so well.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.006",
+          "theme": "rp-travail-etudes",
+          "fr": "Je serais responsable d'une équipe de cinq personnes.",
+          "en": "I would be responsible for a team of five people.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.affaires.014",
+          "theme": "affaires",
+          "fr": "Les analystes doutent que cette fusion soit vraiment bénéfique.",
+          "en": "Analysts doubt that this merger is truly beneficial.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.affaires.009",
+          "theme": "affaires",
+          "fr": "Les actionnaires exigent que le conseil justifie chaque dépense.",
+          "en": "The shareholders demand that the board justify every expense.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.affaires.007",
+          "theme": "affaires",
+          "fr": "Il faudra que nous revoyions entièrement notre stratégie commerciale.",
+          "en": "We will need to completely rethink our business strategy.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.economie.013",
+          "theme": "economie",
+          "fr": "L'entreprise a dû se restructurer pour éviter la faillite.",
+          "en": "The company had to restructure to avoid bankruptcy.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.collegues.014",
+          "theme": "collegues",
+          "fr": "Mon supérieur exige que chaque rapport soit rendu avant midi.",
+          "en": "My supervisor demands that every report be submitted before noon.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.rp-etiquette.006",
+          "theme": "rp-etiquette",
+          "fr": "Certains collègues se sont plaints du bruit dans votre bureau.",
+          "en": "Some colleagues have complained about the noise in your office.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.collegues.101",
+          "theme": "collegues",
+          "fr": "Le directeur exigea que chacun remette son rapport avant midi.",
+          "en": "The director demanded that everyone hand in their report before noon.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.affaires.001",
+          "theme": "affaires",
+          "fr": "L’entreprise envisage de se lancer sur le marché international.",
+          "en": "The company is considering entering the international market.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.072",
+          "theme": "rp-travail-etudes",
+          "fr": "Le comité estima que le projet méritait davantage de financement.",
+          "en": "The committee felt that the project deserved more funding.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.collegues.113",
+          "theme": "collegues",
+          "fr": "La directrice annonça que l'équipe recevrait une prime exceptionnelle.",
+          "en": "The director announced that the team would receive an exceptional bonus.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.082",
+          "theme": "rp-travail-etudes",
+          "fr": "Il vaudrait mieux que tu réfléchisses davantage avant de démissionner.",
+          "en": "You'd better think more before resigning.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.gouvernement.051",
+          "theme": "gouvernement",
+          "fr": "Le scrutin de dimanche déterminera la composition du nouveau Parlement.",
+          "en": "Sunday's vote will determine the composition of the new Parliament.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.affaires.006",
+          "theme": "affaires",
+          "fr": "Bien que les résultats soient encourageants, la direction reste prudente.",
+          "en": "Although the results are encouraging, management remains cautious.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.affaires.023",
+          "theme": "affaires",
+          "fr": "Afin que le projet aboutisse, chaque service doit collaborer étroitement.",
+          "en": "For the project to succeed, every department must work closely together.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.economie.115",
+          "theme": "economie",
+          "fr": "Pourvu que les négociations aboutissent, l'entreprise évitera la faillite.",
+          "en": "Provided the negotiations succeed, the company will avoid bankruptcy.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.collegues.016",
+          "theme": "collegues",
+          "fr": "Il semble que certains collègues évitent délibérément les tâches difficiles.",
+          "en": "It seems that some colleagues deliberately avoid difficult tasks.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.affaires.024",
+          "theme": "affaires",
+          "fr": "Les investisseurs hésitent tant que la situation politique reste incertaine.",
+          "en": "Investors are hesitating as long as the political situation remains uncertain.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.gouvernement.095",
+          "theme": "gouvernement",
+          "fr": "Quoi que décide le conseil municipal, certains habitants resteront insatisfaits.",
+          "en": "Whatever the city council decides, some residents will remain dissatisfied.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.affaires.011",
+          "theme": "affaires",
+          "fr": "Il est peu probable que ce partenariat aboutisse avant l'été.",
+          "en": "It is unlikely that this partnership will succeed before summer.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.rp-etiquette.005",
+          "theme": "rp-etiquette",
+          "fr": "J'aimerais aborder un sujet un peu délicat, si vous permettez.",
+          "en": "I'd like to bring up a somewhat delicate subject, if you don't mind.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.affaires.026",
+          "theme": "affaires",
+          "fr": "Une fois que le bilan sera publié, les actionnaires se réuniront.",
+          "en": "Once the results are published, the shareholders will meet.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.affaires.010",
+          "theme": "affaires",
+          "fr": "Dès lors que le contrat sera signé, la production pourra commencer.",
+          "en": "Once the contract is signed, production can begin.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.gouvernement.015",
+          "theme": "gouvernement",
+          "fr": "Une fois la loi votée, elle sera soumise au Conseil constitutionnel.",
+          "en": "Once the law is passed, it will be submitted to the Constitutional Council.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.affaires.022",
+          "theme": "affaires",
+          "fr": "Le rapport annuel révèle des chiffres que personne n'avait anticipés.",
+          "en": "The annual report reveals figures that no one had anticipated.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.084",
+          "theme": "rp-travail-etudes",
+          "fr": "Le jury délibéra longtemps avant d'annoncer les résultats du concours.",
+          "en": "The panel deliberated for a long time before announcing the competition results.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.collegues.023",
+          "theme": "collegues",
+          "fr": "Depuis qu'elle a été promue, certains collègues la jalousent ouvertement.",
+          "en": "Since she was promoted, some colleagues openly resent her.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.affaires.029",
+          "theme": "affaires",
+          "fr": "Le comité recommande que la direction revoie sa politique de recrutement.",
+          "en": "The committee recommends that management review its hiring policy.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.droit.014",
+          "theme": "droit",
+          "fr": "Le tribunal a finalement reconnu l'entreprise responsable de la pollution.",
+          "en": "The court ultimately found the company responsible for the pollution.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.droit.020",
+          "theme": "droit",
+          "fr": "Les avocats de la défense contestent la recevabilité de certaines preuves.",
+          "en": "The defense lawyers are challenging the admissibility of certain evidence.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.b2.gouvernement.050",
+          "theme": "gouvernement",
+          "fr": "Les sénateurs dont les mandats expirent cette année devront se représenter.",
+          "en": "The senators whose terms expire this year will have to run again.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.gouvernement.053",
+          "theme": "gouvernement",
+          "fr": "Les manifestants réclament que le gouvernement retire son projet de réforme.",
+          "en": "The protesters are demanding that the government withdraw its reform bill.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.economie.104",
+          "theme": "economie",
+          "fr": "Tant que la productivité n'augmentera pas, les salaires resteront stagnants.",
+          "en": "As long as productivity doesn't increase, wages will remain stagnant.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.economie.049",
+          "theme": "economie",
+          "fr": "La dette publique continue de croître, ce qui inquiète plusieurs économistes.",
+          "en": "Public debt keeps growing, which worries several economists.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.081",
+          "theme": "rp-travail-etudes",
+          "fr": "Le chercheur publia ses résultats malgré les critiques de certains collègues.",
+          "en": "The researcher published his findings despite criticism from some colleagues.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.gouvernement.007",
+          "theme": "gouvernement",
+          "fr": "Si le référendum était organisé, la participation resterait sans doute faible.",
+          "en": "If the referendum were held, turnout would probably remain low.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.economie.005",
+          "theme": "economie",
+          "fr": "Si les taux d'intérêt baissaient, les entreprises emprunteraient plus facilement.",
+          "en": "If interest rates fell, companies would borrow more easily.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.affaires.139",
+          "theme": "affaires",
+          "fr": "L'entreprise fit paraître un communiqué pour rassurer ses partenaires commerciaux.",
+          "en": "The company issued a statement to reassure its business partners.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.collegues.017",
+          "theme": "collegues",
+          "fr": "Nous avons dû négocier pour que les responsabilités soient réparties équitablement.",
+          "en": "We had to negotiate so that responsibilities would be shared fairly.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.droit.115",
+          "theme": "droit",
+          "fr": "Le fonctionnaire, quoique compréhensif, ne pouvait déroger aux exigences du programme.",
+          "en": "The civil servant, though understanding, could not deviate from the program's requirements.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.collegues.012",
+          "theme": "collegues",
+          "fr": "Elle craint que son collègue ne prenne le mérite de son travail.",
+          "en": "She fears that her colleague might take credit for her work.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.droit.021",
+          "theme": "droit",
+          "fr": "Il se peut que l'affaire soit renvoyée devant une autre juridiction.",
+          "en": "The case might be referred to another court.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.008",
+          "theme": "affaires",
+          "fr": "Quoi qu'il arrive, nous respecterons les délais fixés par le client.",
+          "en": "Whatever happens, we will meet the deadlines set by the client.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.013",
+          "theme": "affaires",
+          "fr": "À moins que les prix ne baissent, les ventes continueront de chuter.",
+          "en": "Unless prices fall, sales will keep dropping.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.016",
+          "theme": "affaires",
+          "fr": "Il se peut que l'entreprise doive licencier une partie du personnel.",
+          "en": "It is possible the company will have to lay off part of its staff.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.collegues.009",
+          "theme": "collegues",
+          "fr": "Nous avons besoin que tout le monde soit présent pour cette décision.",
+          "en": "We need everyone to be present for this decision.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.economie.003",
+          "theme": "economie",
+          "fr": "L'inflation a fait grimper le prix des produits de première nécessité.",
+          "en": "Inflation has driven up the price of basic necessities.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.collegues.013",
+          "theme": "collegues",
+          "fr": "Pour que le projet avance, il faudrait que la communication s'améliore.",
+          "en": "For the project to move forward, communication would need to improve.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.gouvernement.003",
+          "theme": "gouvernement",
+          "fr": "Malgré les critiques, la ministre a maintenu sa position sur la réforme.",
+          "en": "Despite the criticism, the minister stuck to her position on the reform.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.020",
+          "theme": "affaires",
+          "fr": "Il semble que les concurrents aient déjà anticipé cette baisse des prix.",
+          "en": "It seems the competitors have already anticipated this price drop.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.012",
+          "theme": "affaires",
+          "fr": "Pourvu que les négociations se passent bien, l'accord sera conclu demain.",
+          "en": "Provided the negotiations go well, the deal will be concluded tomorrow.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.019",
+          "theme": "affaires",
+          "fr": "Bien que le chiffre d'affaires ait progressé, les marges restent faibles.",
+          "en": "Although revenue has grown, margins remain thin.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.gouvernement.013",
+          "theme": "gouvernement",
+          "fr": "Quoi qu'en pense l'opinion publique, le gouvernement maintient sa réforme.",
+          "en": "Whatever public opinion thinks about it, the government is maintaining its reform.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.gouvernement.020",
+          "theme": "gouvernement",
+          "fr": "Le rapport dénonce une gestion opaque des fonds publics par certains élus.",
+          "en": "The report denounces opaque management of public funds by certain officials.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.030",
+          "theme": "affaires",
+          "fr": "Tant que les coûts de production augmenteront, les prix ne baisseront pas.",
+          "en": "As long as production costs keep rising, prices will not fall.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.droit.015",
+          "theme": "droit",
+          "fr": "Bien que l'accusé ait plaidé non coupable, les preuves semblent accablantes.",
+          "en": "Although the defendant pleaded not guilty, the evidence seems overwhelming.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.collegues.107",
+          "theme": "collegues",
+          "fr": "Le directeur insista pour que le nouveau protocole soit appliqué sans délai.",
+          "en": "The director insisted that the new protocol be applied without delay.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.droit.023",
+          "theme": "droit",
+          "fr": "Le tribunal administratif a annulé l'arrêté municipal pour vice de procédure.",
+          "en": "The administrative court overturned the municipal order due to a procedural flaw.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.027",
+          "theme": "affaires",
+          "fr": "Bien que la concurrence soit rude, cette marque conserve une clientèle fidèle.",
+          "en": "Although competition is fierce, this brand keeps a loyal customer base.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.economie.052",
+          "theme": "economie",
+          "fr": "Les experts doutent que la réforme fiscale suffise à relancer la consommation.",
+          "en": "Experts doubt that the tax reform will be enough to revive consumption.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.collegues.112",
+          "theme": "collegues",
+          "fr": "Il est regrettable que certains collègues n'osent pas exprimer leur désaccord.",
+          "en": "It's unfortunate that some colleagues don't dare express their disagreement.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.rp-etiquette.077",
+          "theme": "rp-etiquette",
+          "fr": "À peine eut-elle terminé son discours que l'assemblée applaudit chaleureusement.",
+          "en": "She had barely finished her speech when the assembly applauded warmly.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.collegues.118",
+          "theme": "collegues",
+          "fr": "Il se peut que la restructuration entraîne des tensions entre certains services.",
+          "en": "It's possible that the restructuring will cause tension between some departments.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.b2.argent-quotidien.010",
+          "theme": "argent-quotidien",
+          "fr": "Le relevé fait apparaître plusieurs prélèvements que nous n'avions pas autorisés.",
+          "en": "The statement shows several direct debits that we had not authorized.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.collegues.109",
+          "theme": "collegues",
+          "fr": "Il faudrait que la hiérarchie tienne davantage compte des remarques du personnel.",
+          "en": "Management should take employees' remarks into greater account.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.gouvernement.019",
+          "theme": "gouvernement",
+          "fr": "Les collectivités locales attendent que l'État précise le montant des subventions.",
+          "en": "Local governments are waiting for the State to specify the amount of the subsidies.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.gouvernement.023",
+          "theme": "gouvernement",
+          "fr": "Les partis d'opposition dénoncent un manque de transparence dans les négociations.",
+          "en": "The opposition parties denounce a lack of transparency in the negotiations.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.018",
+          "theme": "affaires",
+          "fr": "Les cadres craignent que la restructuration n'entraîne des suppressions de postes.",
+          "en": "Executives fear that the restructuring will lead to job cuts.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.collegues.119",
+          "theme": "collegues",
+          "fr": "Bien que le désaccord parût insurmontable, les deux équipes finirent par coopérer.",
+          "en": "Although the disagreement seemed insurmountable, the two teams eventually cooperated.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.recherche-emploi.098",
+          "theme": "recherche-emploi",
+          "fr": "Une fois le préavis terminé, il pourra officiellement commencer son nouveau poste.",
+          "en": "Once the notice period is over, he will officially be able to start his new job.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.gouvernement.014",
+          "theme": "gouvernement",
+          "fr": "Les électeurs, dont beaucoup se disent déçus, pourraient bouder les urnes dimanche.",
+          "en": "Voters, many of whom say they are disappointed, may stay away from the polls on Sunday.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.123",
+          "theme": "affaires",
+          "fr": "Une fois que les négociations seront terminées, un communiqué officiel sera publié.",
+          "en": "Once the negotiations are finished, an official statement will be published.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.affaires.132",
+          "theme": "affaires",
+          "fr": "Le président déclara que l'entreprise poursuivrait son expansion à l'international.",
+          "en": "The president declared that the company would continue its international expansion.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.collegues.106",
+          "theme": "collegues",
+          "fr": "Il semblerait que certains collègues préfèrent travailler seuls plutôt qu'en équipe.",
+          "en": "It would seem that some colleagues prefer to work alone rather than in a team.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.economie.014",
+          "theme": "economie",
+          "fr": "Tant que la demande mondiale restera faible, les exportations continueront de stagner.",
+          "en": "As long as global demand remains weak, exports will continue to stagnate.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.droit.112",
+          "theme": "droit",
+          "fr": "La commission conclut que la discrimination alléguée n'était pas suffisamment prouvée.",
+          "en": "The commission concluded that the alleged discrimination was not sufficiently proven.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.economie.112",
+          "theme": "economie",
+          "fr": "À moins que les exportations ne repartent, la balance commerciale restera déficitaire.",
+          "en": "Unless exports pick back up, the trade balance will remain in deficit.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.recherche-emploi.088",
+          "theme": "recherche-emploi",
+          "fr": "Le comité de sélection exige que chaque candidat fournisse trois références professionnelles.",
+          "en": "The selection committee requires each candidate to provide three professional references.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.economie.110",
+          "theme": "economie",
+          "fr": "Quelle que soit la conjoncture économique, certaines entreprises parviennent toujours à prospérer.",
+          "en": "Whatever the economic climate, some companies always manage to thrive.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.collegues.002",
+          "theme": "collegues",
+          "fr": "Il faut que nous trouvions un compromis avant la fin de la réunion.",
+          "en": "We need to find a compromise before the end of the meeting.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.collegues.008",
+          "theme": "collegues",
+          "fr": "Ma collègue a fini par admettre qu'elle avait sous-estimé le projet.",
+          "en": "My colleague eventually admitted that she had underestimated the project.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.collegues.003",
+          "theme": "collegues",
+          "fr": "Mon collègue s'est plaint que la charge de travail soit mal répartie.",
+          "en": "My colleague complained that the workload is poorly distributed.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.rp-etiquette.068",
+          "theme": "rp-etiquette",
+          "fr": "Encore faut-il que l'on sache distinguer la franchise de la grossièreté.",
+          "en": "Still, one must know how to distinguish frankness from rudeness.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.114",
+          "theme": "economie",
+          "fr": "Ce fut la pire récession que le pays connut depuis la Grande Dépression.",
+          "en": "It was the worst recession the country had known since the Great Depression.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.011",
+          "theme": "economie",
+          "fr": "Le PIB a progressé de manière plus rapide que prévu au premier trimestre.",
+          "en": "GDP grew faster than expected in the first quarter.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.affaires.133",
+          "theme": "affaires",
+          "fr": "Il aurait fallu anticiper la hausse des coûts avant de signer ce contrat.",
+          "en": "We should have anticipated the rise in costs before signing this contract.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.droit.097",
+          "theme": "droit",
+          "fr": "Il importe que chaque employé soit informé de ses droits dès son embauche.",
+          "en": "It matters that every employee is informed of their rights from the moment they are hired.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.collegues.022",
+          "theme": "collegues",
+          "fr": "Il est essentiel que les collègues se respectent, même en cas de désaccord.",
+          "en": "It is essential that colleagues respect each other, even in case of disagreement.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.collegues.019",
+          "theme": "collegues",
+          "fr": "À moins que la direction ne change de politique, les tensions vont continuer.",
+          "en": "Unless management changes its policy, the tensions will continue.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.gouvernement.008",
+          "theme": "gouvernement",
+          "fr": "Le décret publié hier au Journal officiel entrera en vigueur dans trois mois.",
+          "en": "The decree published yesterday in the Official Journal will take effect in three months.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.argent-quotidien.009",
+          "theme": "argent-quotidien",
+          "fr": "Elle a dû renoncer à son projet de rénovation faute de financement suffisant.",
+          "en": "She had to give up her renovation project for lack of sufficient financing.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.collegues.006",
+          "theme": "collegues",
+          "fr": "Depuis que nous avons changé de service, l'ambiance s'est nettement améliorée.",
+          "en": "Since we changed departments, the atmosphere has clearly improved.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.collegues.020",
+          "theme": "collegues",
+          "fr": "Elle a préféré démissionner plutôt que de continuer à subir ce climat hostile.",
+          "en": "She preferred to resign rather than continue putting up with this hostile climate.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.004",
+          "theme": "economie",
+          "fr": "Bien que l'inflation ralentisse, le pouvoir d'achat des ménages reste fragile.",
+          "en": "Although inflation is slowing, households' purchasing power remains fragile.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.collegues.120",
+          "theme": "collegues",
+          "fr": "Il aurait mieux valu que la direction consultât le personnel avant de décider.",
+          "en": "It would have been better if management had consulted the staff before deciding.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.recherche-emploi.115",
+          "theme": "recherche-emploi",
+          "fr": "Elle espère décrocher un poste permanent une fois sa période d'essai terminée.",
+          "en": "She hopes to land a permanent position once her probation period is over.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.b2.collegues.104",
+          "theme": "collegues",
+          "fr": "Elle proposa une solution qui satisfit finalement tous les membres de l'équipe.",
+          "en": "She proposed a solution that ultimately satisfied every team member.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.collegues.122",
+          "theme": "collegues",
+          "fr": "Le comité conclut que la réorganisation ne convenait à aucun des deux services.",
+          "en": "The committee concluded that the reorganization suited neither department.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.gouvernement.021",
+          "theme": "gouvernement",
+          "fr": "Tant que le budget ne sera pas voté, les nouvelles mesures resteront suspendues.",
+          "en": "As long as the budget is not passed, the new measures will remain suspended.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.006",
+          "theme": "economie",
+          "fr": "Le marché boursier a chuté après l'annonce des résultats décevants du trimestre.",
+          "en": "The stock market fell after the disappointing quarterly results were announced.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.068",
+          "theme": "rp-travail-etudes",
+          "fr": "Le rapport annuel révéla que les effectifs avaient augmenté de quinze pour cent.",
+          "en": "The annual report revealed that staff numbers had grown by fifteen percent.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.gouvernement.017",
+          "theme": "gouvernement",
+          "fr": "Malgré les promesses électorales, le taux de confiance envers les élus reste bas.",
+          "en": "Despite the campaign promises, trust in elected officials remains low.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.argent-quotidien.015",
+          "theme": "argent-quotidien",
+          "fr": "Une fois le prêt remboursé, ils comptent investir dans un petit local commercial.",
+          "en": "Once the loan is paid off, they plan to invest in a small commercial space.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.droit.103",
+          "theme": "droit",
+          "fr": "Le comité recommanda que la procédure d'appel fût simplifiée pour les demandeurs.",
+          "en": "The committee recommended that the appeal procedure be simplified for applicants.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.affaires.017",
+          "theme": "affaires",
+          "fr": "Avant que le marché ne se retourne, il vaut mieux diversifier nos investissements.",
+          "en": "Before the market turns, it is better to diversify our investments.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.droit.043",
+          "theme": "droit",
+          "fr": "La victime, dont l'avocat a plaidé pendant deux heures, attend toujours réparation.",
+          "en": "The victim, whose lawyer pleaded for two hours, is still waiting for compensation.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.affaires.127",
+          "theme": "affaires",
+          "fr": "Pour autant que les délais soient respectés, le projet pourra démarrer dès janvier.",
+          "en": "As long as the deadlines are met, the project can start as early as January.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.gouvernement.018",
+          "theme": "gouvernement",
+          "fr": "Le président a nommé un nouveau ministre afin de relancer la réforme administrative.",
+          "en": "The president appointed a new minister in order to revive the administrative reform.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.010",
+          "theme": "economie",
+          "fr": "Malgré la reprise économique, le taux de chômage reste élevé dans certaines régions.",
+          "en": "Despite the economic recovery, unemployment remains high in some regions.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.droit.017",
+          "theme": "droit",
+          "fr": "La cour a estimé que la peine prononcée en première instance était disproportionnée.",
+          "en": "The court ruled that the sentence handed down at first instance was disproportionate.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.108",
+          "theme": "economie",
+          "fr": "Les syndicats exigent que les négociations salariales reprennent avant la fin du mois.",
+          "en": "The unions demand that wage negotiations resume before the end of the month.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.droit.119",
+          "theme": "droit",
+          "fr": "Il convient que chaque citoyen connaisse ses recours en cas d'injustice administrative.",
+          "en": "Every citizen should know their options for recourse in the event of administrative injustice.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.gouvernement.101",
+          "theme": "gouvernement",
+          "fr": "Le premier ministre annonça que le pays traverserait une période de réformes profondes.",
+          "en": "The prime minister announced that the country would go through a period of deep reforms.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.070",
+          "theme": "rp-travail-etudes",
+          "fr": "Dès que le contrat sera signé, les nouveaux employés pourront commencer leur formation.",
+          "en": "As soon as the contract is signed, the new employees will be able to start their training.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.008",
+          "theme": "economie",
+          "fr": "Les négociations salariales entre le patronat et les syndicats ont repris cette semaine.",
+          "en": "Wage negotiations between employers and unions resumed this week.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.016",
+          "theme": "economie",
+          "fr": "Le secteur du bâtiment souffre depuis que les taux hypothécaires ont fortement augmenté.",
+          "en": "The construction sector has been suffering since mortgage rates rose sharply.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.recherche-emploi.102",
+          "theme": "recherche-emploi",
+          "fr": "Malgré plusieurs refus, il persiste à chercher un emploi correspondant à ses compétences.",
+          "en": "Despite several rejections, he keeps looking for a job matching his skills.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.098",
+          "theme": "economie",
+          "fr": "Il est indispensable que les entreprises adaptent leur stratégie face à la mondialisation.",
+          "en": "It is essential that businesses adapt their strategy in the face of globalization.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.recherche-emploi.108",
+          "theme": "recherche-emploi",
+          "fr": "Le service des ressources humaines cherche des candidats capables de s'adapter rapidement.",
+          "en": "The human resources department is looking for candidates able to adapt quickly.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.recherche-emploi.118",
+          "theme": "recherche-emploi",
+          "fr": "Il vaudrait mieux que vous prépariez des exemples concrets pour illustrer vos compétences.",
+          "en": "It would be better if you prepared concrete examples to illustrate your skills.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.affaires.125",
+          "theme": "affaires",
+          "fr": "Les investisseurs attendent que la société publie ses résultats avant de prendre position.",
+          "en": "Investors are waiting for the company to publish its results before taking a position.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.collegues.025",
+          "theme": "collegues",
+          "fr": "Bien que nous soyons souvent en désaccord, nous parvenons toujours à collaborer efficacement.",
+          "en": "Although we often disagree, we always manage to collaborate effectively.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.047",
+          "theme": "economie",
+          "fr": "Il faudrait que les entreprises investissent davantage dans la recherche et le développement.",
+          "en": "Companies should invest more in research and development.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.gouvernement.099",
+          "theme": "gouvernement",
+          "fr": "Le rapport recommande que les municipalités disposent d'une plus grande autonomie budgétaire.",
+          "en": "The report recommends that municipalities be given greater budgetary autonomy.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.recherche-emploi.095",
+          "theme": "recherche-emploi",
+          "fr": "Les employeurs préfèrent souvent les candidats qui ont su démontrer une certaine polyvalence.",
+          "en": "Employers often prefer candidates who have shown a certain versatility.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.affaires.119",
+          "theme": "affaires",
+          "fr": "Les employés redoutent que la restructuration ne touche plusieurs départements dès l'automne.",
+          "en": "Employees fear that the restructuring will affect several departments from autumn onward.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.affaires.113",
+          "theme": "affaires",
+          "fr": "Le directeur financier expliqua que les résultats du trimestre dépassaient toutes les attentes.",
+          "en": "The CFO explained that the quarter's results exceeded all expectations.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.103",
+          "theme": "economie",
+          "fr": "Il conviendrait que les pouvoirs publics soutiennent davantage les secteurs les plus fragilisés.",
+          "en": "Public authorities should provide more support to the most vulnerable sectors.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.economie.053",
+          "theme": "economie",
+          "fr": "Les investisseurs, dont la confiance s'était effondrée, reviennent progressivement sur le marché.",
+          "en": "Investors, whose confidence had collapsed, are gradually returning to the market.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.b2.economie.100",
+          "theme": "economie",
+          "fr": "Si la banque centrale relevait ses taux directeurs, l'inflation pourrait ralentir considérablement.",
+          "en": "If the central bank raised its key rates, inflation could slow down considerably.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.argent-quotidien.023",
+          "theme": "argent-quotidien",
+          "fr": "Certains experts recommandent de privilégier l'épargne de précaution avant tout autre investissement.",
+          "en": "Some experts recommend prioritizing emergency savings before any other investment.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.affaires.131",
+          "theme": "affaires",
+          "fr": "Les cadres supérieurs souhaiteraient que la direction communique davantage sur ses objectifs stratégiques.",
+          "en": "Senior managers would like management to communicate more about its strategic goals.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.affaires.025",
+          "theme": "affaires",
+          "fr": "Il n'est pas certain que la banque accorde ce prêt à l'entreprise.",
+          "en": "It is not certain that the bank will grant this loan to the company.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche-emploi.122",
+          "theme": "recherche-emploi",
+          "fr": "Il se peut que le poste soit pourvu avant même la fin des entretiens.",
+          "en": "It's possible the position will be filled even before the interviews are over.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.024",
+          "theme": "collegues",
+          "fr": "Le conflit s'est envenimé parce que personne n'a voulu céder du terrain.",
+          "en": "The conflict worsened because no one was willing to give ground.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.021",
+          "theme": "affaires",
+          "fr": "Quel que soit le résultat du vote, le projet sera relancé l'an prochain.",
+          "en": "Whatever the outcome of the vote, the project will be relaunched next year.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.001",
+          "theme": "collegues",
+          "fr": "Bien que mon collègue soit compétent, il a du mal à respecter les délais.",
+          "en": "Although my colleague is competent, he struggles to meet deadlines.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.007",
+          "theme": "collegues",
+          "fr": "Il aurait fallu que le chef d'équipe intervienne plus tôt dans le conflit.",
+          "en": "The team leader should have intervened earlier in the conflict.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-etiquette.085",
+          "theme": "rp-etiquette",
+          "fr": "Ce fut avec une grande dignité qu'elle accepta les excuses de son collègue.",
+          "en": "It was with great dignity that she accepted her colleague's apology.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.080",
+          "theme": "rp-travail-etudes",
+          "fr": "À peine avait-elle terminé son stage qu'on lui proposa un contrat permanent.",
+          "en": "She had barely finished her internship when she was offered a permanent contract.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.024",
+          "theme": "droit",
+          "fr": "Il n'est pas rare que les délais judiciaires s'étendent sur plusieurs années.",
+          "en": "It is not uncommon for court delays to stretch over several years.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.005",
+          "theme": "collegues",
+          "fr": "Le manager a insisté pour que chacun fasse un effort supplémentaire ce mois-ci.",
+          "en": "The manager insisted that everyone make an extra effort this month.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.028",
+          "theme": "affaires",
+          "fr": "Il aurait fallu anticiper cette crise avant qu'elle ne touche tous les marchés.",
+          "en": "This crisis should have been anticipated before it hit every market.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.116",
+          "theme": "collegues",
+          "fr": "Il fallait que quelqu'un prenne les devants avant que la situation ne dégénère.",
+          "en": "Someone had to take the initiative before the situation got out of hand.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche-emploi.096",
+          "theme": "recherche-emploi",
+          "fr": "À moins que vous n'ayez déjà un contrat signé, continuez à postuler activement.",
+          "en": "Unless you already have a signed contract, keep applying actively.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.136",
+          "theme": "affaires",
+          "fr": "Dès que le nouveau siège social ouvrira ses portes, l'équipe y sera transférée.",
+          "en": "As soon as the new head office opens its doors, the team will be transferred there.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.026",
+          "theme": "droit",
+          "fr": "Pour que le jugement soit exécutoire, il doit d'abord être signifié aux parties.",
+          "en": "For the judgment to be enforceable, it must first be formally notified to the parties.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.004",
+          "theme": "affaires",
+          "fr": "Il serait judicieux de tenir compte de l'avis des actionnaires avant de trancher.",
+          "en": "It would be wise to take the shareholders' views into account before deciding.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.010",
+          "theme": "collegues",
+          "fr": "Bien qu'il soit le plus expérimenté, il refuse toujours de partager ses méthodes.",
+          "en": "Although he is the most experienced, he still refuses to share his methods.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.016",
+          "theme": "droit",
+          "fr": "Il est essentiel que chaque partie soit représentée par un avocat lors du procès.",
+          "en": "It is essential that each party be represented by a lawyer during the trial.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.015",
+          "theme": "affaires",
+          "fr": "Bien qu'elle ait négocié fermement, elle n'a pas obtenu de meilleures conditions.",
+          "en": "Although she negotiated firmly, she did not get better terms.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.111",
+          "theme": "collegues",
+          "fr": "Quoiqu'il soit réticent au changement, il a fini par adopter le nouveau logiciel.",
+          "en": "Although he is reluctant to change, he eventually adopted the new software.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.117",
+          "theme": "droit",
+          "fr": "Il arriva que le témoin se rétractât devant la cour, bouleversant tout le procès.",
+          "en": "It happened that the witness recanted before the court, upending the whole trial.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.124",
+          "theme": "affaires",
+          "fr": "Le fournisseur exige que le paiement soit effectué dans un délai de trente jours.",
+          "en": "The supplier requires payment to be made within thirty days.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.129",
+          "theme": "affaires",
+          "fr": "Le rapport annuel indique que les charges ont augmenté plus vite que les revenus.",
+          "en": "The annual report indicates that expenses have grown faster than revenue.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.066",
+          "theme": "rp-travail-etudes",
+          "fr": "Après avoir longuement hésité, elle a fini par accepter une mutation à l'étranger.",
+          "en": "After hesitating for a long time, she finally accepted a transfer abroad.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.economie.015",
+          "theme": "economie",
+          "fr": "Le gouvernement souhaite que les banques facilitent l'accès au crédit pour les PME.",
+          "en": "The government wants banks to make it easier for SMEs to access credit.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.argent-quotidien.024",
+          "theme": "argent-quotidien",
+          "fr": "En cas de litige avec sa banque, tout client peut saisir gratuitement le médiateur.",
+          "en": "In the event of a dispute with their bank, any customer can contact the ombudsman free of charge.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.122",
+          "theme": "affaires",
+          "fr": "Il n'est pas exclu que l'entreprise doive revoir entièrement son modèle économique.",
+          "en": "It is not ruled out that the company will have to entirely rethink its business model.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.126",
+          "theme": "affaires",
+          "fr": "Il semblerait que la concurrence ait déjà lancé un produit similaire sur le marché.",
+          "en": "It would seem that the competition has already launched a similar product on the market.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.gouvernement.011",
+          "theme": "gouvernement",
+          "fr": "Il semble que les négociations entre la majorité et l'opposition aient enfin abouti.",
+          "en": "It seems that negotiations between the majority and the opposition have finally succeeded.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.gouvernement.012",
+          "theme": "gouvernement",
+          "fr": "L'Assemblée nationale a rejeté l'amendement proposé par les députés de l'opposition.",
+          "en": "The National Assembly rejected the amendment proposed by opposition MPs.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.b2.economie.018",
+          "theme": "economie",
+          "fr": "Les économistes s'accordent à dire que la spéculation a aggravé la crise financière.",
+          "en": "Economists agree that speculation worsened the financial crisis.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.economie.050",
+          "theme": "economie",
+          "fr": "La multinationale a délocalisé une partie de sa production afin de réduire ses coûts.",
+          "en": "The multinational relocated part of its production in order to cut costs.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.096",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Une fois que j'aurai prêté serment, je pourrai enfin demander mon passeport canadien.",
+          "en": "Once I have taken the oath, I will finally be able to apply for my Canadian passport.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.099",
+          "theme": "droit",
+          "fr": "Le juge, après avoir entendu les deux parties, rendit son verdict le lendemain matin.",
+          "en": "The judge, after hearing both parties, delivered his verdict the following morning.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.economie.009",
+          "theme": "economie",
+          "fr": "Il est essentiel que les jeunes entreprises bénéficient d'un accès facilité au crédit.",
+          "en": "It is essential that young companies have easier access to credit.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.116",
+          "theme": "droit",
+          "fr": "Pourvu que le dossier soit complet, la demande sera traitée dans les délais habituels.",
+          "en": "Provided the file is complete, the application will be processed within the usual timeframe.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.065",
+          "theme": "rp-travail-etudes",
+          "fr": "Il est essentiel que nous anticipions les difficultés avant que le projet ne commence.",
+          "en": "It's essential that we anticipate difficulties before the project starts.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.069",
+          "theme": "rp-travail-etudes",
+          "fr": "Il aurait fallu que la direction consulte les employés avant de modifier les horaires.",
+          "en": "Management should have consulted employees before changing the schedule.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.economie.048",
+          "theme": "economie",
+          "fr": "Les analystes s'attendent à ce que la croissance économique reprenne au second semestre.",
+          "en": "Analysts expect economic growth to pick up in the second half of the year.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.105",
+          "theme": "collegues",
+          "fr": "Pour que la collaboration fonctionne, il faut que chacun accepte de faire des compromis.",
+          "en": "For the collaboration to work, everyone must agree to make compromises.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.106",
+          "theme": "droit",
+          "fr": "Quoiqu'il eût rempli toutes les formalités, son visa fut refusé sans explication claire.",
+          "en": "Although he had completed all the formalities, his visa was refused without a clear explanation.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.074",
+          "theme": "rp-travail-etudes",
+          "fr": "Le professeur souligna que la rigueur comptait autant que la créativité dans ce domaine.",
+          "en": "The professor pointed out that rigor mattered as much as creativity in this field.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.economie.099",
+          "theme": "economie",
+          "fr": "Quoique les salaires aient légèrement progressé, le pouvoir d'achat continue de s'éroder.",
+          "en": "Although wages have risen slightly, purchasing power continues to erode.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.128",
+          "theme": "affaires",
+          "fr": "Tant que le litige ne sera pas réglé, les deux entreprises éviteront toute collaboration.",
+          "en": "As long as the dispute isn't resolved, the two companies will avoid any collaboration.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.gouvernement.010",
+          "theme": "gouvernement",
+          "fr": "Plus les tensions entre les partis s'intensifient, plus il devient difficile de gouverner.",
+          "en": "The more tensions between the parties intensify, the harder it becomes to govern.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.economie.012",
+          "theme": "economie",
+          "fr": "À condition que l'inflation reste maîtrisée, la banque centrale pourrait baisser ses taux.",
+          "en": "Provided that inflation stays under control, the central bank could lower its rates.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.100",
+          "theme": "collegues",
+          "fr": "Bien qu'elle occupe un poste important, elle reste toujours disponible pour ses collègues.",
+          "en": "Although she holds an important position, she always remains available for her colleagues.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.110",
+          "theme": "collegues",
+          "fr": "Après une longue discussion, les deux collègues finirent par trouver un terrain d'entente.",
+          "en": "After a long discussion, the two colleagues finally found common ground.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.economie.105",
+          "theme": "economie",
+          "fr": "L'entreprise, dont les bénéfices avaient chuté, dut licencier une partie de son personnel.",
+          "en": "The company, whose profits had dropped, had to lay off part of its staff.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.064",
+          "theme": "rp-travail-etudes",
+          "fr": "Le candidat, dont le parcours impressionnait le jury, fut finalement retenu pour le poste.",
+          "en": "The candidate, whose background impressed the panel, was finally selected for the position.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.134",
+          "theme": "affaires",
+          "fr": "Que les résultats soient bons ou mauvais, la direction devra en assumer la responsabilité.",
+          "en": "Whether the results are good or bad, management will have to take responsibility for them.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.gouvernement.016",
+          "theme": "gouvernement",
+          "fr": "La commission d'enquête a été chargée de déterminer les responsabilités dans cette affaire.",
+          "en": "The inquiry commission was tasked with determining responsibility in this affair.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.economie.102",
+          "theme": "economie",
+          "fr": "Dès lors que les investisseurs perdirent confiance, la bourse s'effondra en quelques jours.",
+          "en": "As soon as investors lost confidence, the stock market collapsed within a few days.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche-emploi.106",
+          "theme": "recherche-emploi",
+          "fr": "Avant de signer le contrat, assurez-vous de bien comprendre les avantages sociaux proposés.",
+          "en": "Before signing the contract, make sure you fully understand the benefits offered.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche-emploi.121",
+          "theme": "recherche-emploi",
+          "fr": "Les entreprises exigent de plus en plus que les candidats maîtrisent les outils numériques.",
+          "en": "Companies increasingly require candidates to master digital tools.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.argent-quotidien.001",
+          "theme": "argent-quotidien",
+          "fr": "Avant d'investir dans ce fonds, il conviendrait d'évaluer sérieusement les risques encourus.",
+          "en": "Before investing in this fund, it would be wise to seriously assess the risks involved.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.119",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le ministère exige que chaque demandeur passe des tests biométriques dans un centre autorisé.",
+          "en": "The ministry requires every applicant to undergo biometric testing at an authorized center.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.gouvernement.094",
+          "theme": "gouvernement",
+          "fr": "Le ministre expliqua que la réforme visait avant tout à moderniser l'administration publique.",
+          "en": "The minister explained that the reform aimed above all to modernize the public administration.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.077",
+          "theme": "rp-travail-etudes",
+          "fr": "L'entreprise, qui traversait une période difficile, dut licencier une partie de son personnel.",
+          "en": "The company, which was going through a hard time, had to lay off part of its staff.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.gouvernement.005",
+          "theme": "gouvernement",
+          "fr": "Il est peu probable que le gouvernement obtienne une majorité absolue aux prochaines élections.",
+          "en": "It is unlikely that the government will win an absolute majority in the next elections.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.collegues.117",
+          "theme": "collegues",
+          "fr": "Elle rédigea un courriel détaillé afin que tous les collègues fussent informés des changements.",
+          "en": "She drafted a detailed email so that all colleagues would be informed of the changes.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.102",
+          "theme": "droit",
+          "fr": "Il est regrettable que tant de nouveaux arrivants ignorent leurs droits fondamentaux au travail.",
+          "en": "It is regrettable that so many newcomers are unaware of their fundamental rights at work.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.recherche-emploi.094",
+          "theme": "recherche-emploi",
+          "fr": "Pour que votre candidature se démarque, il vaut mieux personnaliser chaque lettre de motivation.",
+          "en": "For your application to stand out, it's better to personalize every cover letter.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.b2.recherche-emploi.116",
+          "theme": "recherche-emploi",
+          "fr": "Le formulaire de candidature demande que vous précisiez vos disponibilités dès la première page.",
+          "en": "The application form requires you to specify your availability starting on the first page.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.085",
+          "theme": "rp-travail-etudes",
+          "fr": "Pourvu que le financement soit maintenu, le laboratoire poursuivra ses recherches l'an prochain.",
+          "en": "As long as the funding is maintained, the lab will continue its research next year.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.affaires.137",
+          "theme": "affaires",
+          "fr": "Les actionnaires minoritaires craignent que leurs intérêts ne soient négligés lors de la fusion.",
+          "en": "Minority shareholders fear their interests will be neglected during the merger.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.108",
+          "theme": "immigration-et-citoyennete",
+          "fr": "La double citoyenneté est autorisée au Canada, contrairement à ce que pensent certains immigrants.",
+          "en": "Dual citizenship is allowed in Canada, contrary to what some immigrants think.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.economie.101",
+          "theme": "economie",
+          "fr": "Les experts redoutent que la spéculation immobilière ne fragilise davantage le marché du logement.",
+          "en": "Experts fear that real estate speculation is further weakening the housing market.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.098",
+          "theme": "droit",
+          "fr": "Quoique la loi protège les locataires, certains propriétaires trouvent des moyens de la contourner.",
+          "en": "Although the law protects tenants, some landlords find ways to get around it.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.109",
+          "theme": "droit",
+          "fr": "Bien que la médiation soit souvent recommandée, certains couples préfèrent trancher devant un juge.",
+          "en": "Although mediation is often recommended, some couples prefer to settle things before a judge.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.gouvernement.093",
+          "theme": "gouvernement",
+          "fr": "Il importe que les citoyens soient informés des décisions qui affectent directement leur quotidien.",
+          "en": "It matters that citizens are informed of decisions that directly affect their daily lives.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.104",
+          "theme": "droit",
+          "fr": "Bien que le salaire minimum ait augmenté, plusieurs employeurs continuent de le contourner illégalement.",
+          "en": "Although the minimum wage has increased, several employers keep getting around it illegally.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.argent-quotidien.004",
+          "theme": "argent-quotidien",
+          "fr": "Le conseiller financier recommande de diversifier son portefeuille afin de limiter les pertes potentielles.",
+          "en": "The financial advisor recommends diversifying one's portfolio in order to limit potential losses.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.gouvernement.098",
+          "theme": "gouvernement",
+          "fr": "Il est essentiel que les fonctionnaires reçoivent une formation adaptée aux nouvelles procédures numériques.",
+          "en": "It's essential that civil servants receive training adapted to the new digital procedures.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.droit.025",
+          "theme": "droit",
+          "fr": "Le procureur a requis une peine de prison ferme à l'encontre de l'accusé.",
+          "en": "The prosecutor requested a firm prison sentence against the defendant.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.collegues.018",
+          "theme": "collegues",
+          "fr": "Mon collègue a reconnu son erreur, ce qui a apaisé la tension dans l'équipe.",
+          "en": "My colleague acknowledged his mistake, which eased the tension within the team.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.economie.107",
+          "theme": "economie",
+          "fr": "Il n'est pas exclu que la récession se prolonge au delà du premier semestre.",
+          "en": "It's not out of the question that the recession will extend beyond the first half of the year.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche-emploi.110",
+          "theme": "recherche-emploi",
+          "fr": "Il est rare qu'un employeur rappelle un candidat le jour même de l'entrevue.",
+          "en": "It's rare for an employer to call a candidate back the same day as the interview.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.076",
+          "theme": "rp-travail-etudes",
+          "fr": "Il n'est pas rare que les jeunes diplômés doutent de leur choix de carrière.",
+          "en": "It's not uncommon for young graduates to doubt their career choice.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.gouvernement.002",
+          "theme": "gouvernement",
+          "fr": "Le débat parlementaire a duré jusqu'à l'aube sans qu'aucun accord soit trouvé.",
+          "en": "The parliamentary debate went on until dawn without any agreement being reached.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.gouvernement.024",
+          "theme": "gouvernement",
+          "fr": "La motion de censure déposée par l'opposition n'a pas recueilli assez de voix.",
+          "en": "The motion of no confidence filed by the opposition did not gather enough votes.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.collegues.102",
+          "theme": "collegues",
+          "fr": "Il aurait fallu que la direction anticipe ce conflit avant qu'il ne s'aggrave.",
+          "en": "Management should have anticipated this conflict before it worsened.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.collegues.004",
+          "theme": "collegues",
+          "fr": "Quoiqu'elle soit nouvelle dans l'équipe, elle a déjà gagné la confiance de tous.",
+          "en": "Although she is new to the team, she has already earned everyone's trust.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.gouvernement.004",
+          "theme": "gouvernement",
+          "fr": "Bien que le projet de loi ait été amendé, l'opposition continue de le contester.",
+          "en": "Although the bill was amended, the opposition continues to contest it.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.073",
+          "theme": "rp-travail-etudes",
+          "fr": "Pour peu qu'on lui laisse un peu d'autonomie, il se montre extrêmement productif.",
+          "en": "Given just a little autonomy, he proves extremely productive.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-etiquette.072",
+          "theme": "rp-etiquette",
+          "fr": "Le maître d'hôtel s'inclina légèrement avant de conduire les invités à leur table.",
+          "en": "The head waiter bowed slightly before leading the guests to their table.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.affaires.005",
+          "theme": "affaires",
+          "fr": "La direction a fini par céder aux exigences des syndicats après des mois de tension.",
+          "en": "Management eventually gave in to the unions' demands after months of tension.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.economie.007",
+          "theme": "economie",
+          "fr": "Plus le coût de la vie augmente, plus les salariés réclament des hausses de salaire.",
+          "en": "The more the cost of living rises, the more employees demand pay raises.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.economie.111",
+          "theme": "economie",
+          "fr": "Le rapport suggère que la reprise soit plus lente que prévu dans les pays émergents.",
+          "en": "The report suggests that the recovery will be slower than expected in emerging countries.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.affaires.120",
+          "theme": "affaires",
+          "fr": "L'analyste financier annonça que la valeur des actions avait chuté de dix pour cent.",
+          "en": "The financial analyst announced that the share value had dropped by ten percent.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche-emploi.099",
+          "theme": "recherche-emploi",
+          "fr": "Elle craignait que son manque d'expérience ne joue en sa défaveur pendant l'entrevue.",
+          "en": "She was afraid her lack of experience would work against her during the interview.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche-emploi.119",
+          "theme": "recherche-emploi",
+          "fr": "Le marché du travail évolue si vite qu'il faut sans cesse actualiser ses compétences.",
+          "en": "The job market changes so fast that you must constantly update your skills.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.collegues.108",
+          "theme": "collegues",
+          "fr": "Bien que la charge de travail soit lourde, elle parvient toujours à garder le sourire.",
+          "en": "Although the workload is heavy, she always manages to keep smiling.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.061",
+          "theme": "rp-travail-etudes",
+          "fr": "Le directeur exigea que chaque employé remette son rapport avant la fin de la journée.",
+          "en": "The director demanded that each employee submit his report before the end of the day.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.argent-quotidien.016",
+          "theme": "argent-quotidien",
+          "fr": "L'inflation érode le pouvoir d'achat des retraités plus rapidement que celui des actifs.",
+          "en": "Inflation erodes retirees' purchasing power more quickly than that of working people.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.argent-quotidien.025",
+          "theme": "argent-quotidien",
+          "fr": "Ils ont réussi à négocier un taux plus avantageux en mettant les banques en concurrence.",
+          "en": "They managed to negotiate a more favorable rate by pitting the banks against each other.",
+          "words": 15
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.b2.droit.107",
+          "theme": "droit",
+          "fr": "Il est essentiel que l'employeur documente chaque incident lié à la sécurité au travail.",
+          "en": "It is essential that the employer document every incident related to workplace safety.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche-emploi.089",
+          "theme": "recherche-emploi",
+          "fr": "Quoique son expérience soit limitée, elle a su convaincre le jury grâce à sa motivation.",
+          "en": "Although her experience is limited, she managed to convince the panel with her motivation.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.droit.108",
+          "theme": "droit",
+          "fr": "Le tribunal exigea que les deux parties présentassent leurs preuves avant la fin du mois.",
+          "en": "The court demanded that both parties present their evidence before the end of the month.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.affaires.114",
+          "theme": "affaires",
+          "fr": "Il conviendrait que chaque service présente un bilan détaillé avant la fin de l'exercice.",
+          "en": "Each department should present a detailed report before the end of the fiscal year.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.argent-quotidien.012",
+          "theme": "argent-quotidien",
+          "fr": "La banque exige un justificatif de revenus avant d'accorder tout crédit à la consommation.",
+          "en": "The bank requires proof of income before granting any consumer credit.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.argent-quotidien.022",
+          "theme": "argent-quotidien",
+          "fr": "Malgré une gestion rigoureuse de leur budget, ils peinent encore à joindre les deux bouts.",
+          "en": "Despite carefully managing their budget, they still struggle to make ends meet.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-etiquette.063",
+          "theme": "rp-etiquette",
+          "fr": "Dès qu'elle fut présentée à l'assemblée, elle salua chacun avec une politesse remarquable.",
+          "en": "As soon as she was introduced to the assembly, she greeted everyone with remarkable politeness.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.affaires.138",
+          "theme": "affaires",
+          "fr": "À supposer que l'accord soit ratifié, la production pourrait débuter dès le mois prochain.",
+          "en": "Assuming the agreement is ratified, production could start as early as next month.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-etiquette.081",
+          "theme": "rp-etiquette",
+          "fr": "Elle rédigea une lettre de remerciement si élégante que tous les invités en furent touchés.",
+          "en": "She wrote such an elegant thank-you letter that all the guests were touched by it.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.067",
+          "theme": "rp-travail-etudes",
+          "fr": "Quoiqu'il soit très qualifié, il peine à trouver un emploi correspondant à ses compétences.",
+          "en": "Although he is highly qualified, he struggles to find a job matching his skills.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.075",
+          "theme": "rp-travail-etudes",
+          "fr": "Si le budget avait été approuvé plus tôt, nous aurions pu embaucher davantage de personnel.",
+          "en": "If the budget had been approved earlier, we could have hired more staff.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche-emploi.104",
+          "theme": "recherche-emploi",
+          "fr": "Pourvu que vous soyez disponible dès lundi, le poste pourrait vous être offert cette semaine.",
+          "en": "Provided you're available starting Monday, the position could be offered to you this week.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.droit.110",
+          "theme": "droit",
+          "fr": "Il faudrait que les autorités révisent ce règlement, jugé obsolète par la plupart des experts.",
+          "en": "The authorities should revise this regulation, considered obsolete by most experts.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche-emploi.120",
+          "theme": "recherche-emploi",
+          "fr": "Une fois qu'elle eut soumis sa candidature, elle attendit patiemment une réponse du recruteur.",
+          "en": "Once she had submitted her application, she waited patiently for a response from the recruiter.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.gouvernement.106",
+          "theme": "gouvernement",
+          "fr": "Le conseil des ministres examina les mesures destinées à soutenir les familles à faible revenu.",
+          "en": "The cabinet examined the measures intended to support low-income families.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.affaires.118",
+          "theme": "affaires",
+          "fr": "Pour que la fusion réussisse, il faudra harmoniser les cultures d'entreprise des deux sociétés.",
+          "en": "For the merger to succeed, the corporate cultures of both companies will need to be harmonized.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.gouvernement.110",
+          "theme": "gouvernement",
+          "fr": "Il n'est pas certain que la population adhère pleinement à cette nouvelle orientation politique.",
+          "en": "It is not certain that the population will fully embrace this new political direction.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.argent-quotidien.018",
+          "theme": "argent-quotidien",
+          "fr": "Le fisc nous a demandé de justifier certaines dépenses figurant sur notre déclaration de revenus.",
+          "en": "The tax authorities asked us to justify certain expenses appearing on our income tax return.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.economie.097",
+          "theme": "economie",
+          "fr": "Après la crise de 2008, de nombreuses banques durent revoir entièrement leur politique de crédit.",
+          "en": "After the 2008 crisis, many banks had to completely rethink their credit policy.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.gouvernement.100",
+          "theme": "gouvernement",
+          "fr": "À moins que le budget ne soit révisé, plusieurs services publics devront réduire leurs effectifs.",
+          "en": "Unless the budget is revised, several public services will have to reduce their staff.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche-emploi.084",
+          "theme": "recherche-emploi",
+          "fr": "Le recruteur souhaitait que je détaille mes réalisations les plus marquantes lors de l'entretien.",
+          "en": "The recruiter wanted me to detail my most notable achievements during the interview.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.affaires.115",
+          "theme": "affaires",
+          "fr": "Si les actionnaires avaient été consultés plus tôt, la décision aurait sans doute été différente.",
+          "en": "If the shareholders had been consulted earlier, the decision would probably have been different.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.117",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Les motifs d'ordre humanitaire permettent parfois de régulariser un statut autrement voué au refus.",
+          "en": "Humanitarian and compassionate grounds sometimes make it possible to regularize a status otherwise doomed to refusal.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.droit.114",
+          "theme": "droit",
+          "fr": "Il n'est pas exclu que la nouvelle réglementation modifie profondément les critères d'admissibilité.",
+          "en": "It is not out of the question that the new regulation will profoundly change the eligibility criteria.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.affaires.121",
+          "theme": "affaires",
+          "fr": "Quoi que décide le conseil, les salariés exigent davantage de transparence sur les décisions prises.",
+          "en": "Whatever the board decides, the employees demand more transparency about the decisions made.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.100",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le programme des candidats des provinces permet à une province de désigner des travailleurs qualifiés.",
+          "en": "The provincial nominee program allows a province to designate skilled workers.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.gouvernement.108",
+          "theme": "gouvernement",
+          "fr": "Tant que les délais de traitement resteront aussi longs, les demandeurs continueront de s'impatienter.",
+          "en": "As long as processing times remain this long, applicants will keep getting impatient.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.collegues.114",
+          "theme": "collegues",
+          "fr": "Pourvu que la nouvelle organisation soit bien expliquée, les employés devraient s'y adapter facilement.",
+          "en": "As long as the new organization is well explained, employees should adapt to it easily.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.gouvernement.107",
+          "theme": "gouvernement",
+          "fr": "Il faudrait que les autorités locales et fédérales collaborent davantage sur les questions de logement.",
+          "en": "Local and federal authorities should collaborate more on housing issues.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.gouvernement.109",
+          "theme": "gouvernement",
+          "fr": "Le gouvernement souhaite que la réforme administrative soit mise en œuvre avant les prochaines élections.",
+          "en": "The government wants the administrative reform to be implemented before the next elections.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.104",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Les autorités craignent que certains demandeurs ne fournissent de faux documents pour accélérer leur dossier.",
+          "en": "The authorities fear that some applicants may submit false documents to speed up their file.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.recherche-emploi.100",
+          "theme": "recherche-emploi",
+          "fr": "Le processus de recrutement comprend généralement un entretien téléphonique suivi d'une rencontre en personne.",
+          "en": "The hiring process generally includes a phone interview followed by an in-person meeting.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.economie.020",
+          "theme": "economie",
+          "fr": "L'usine a fermé ses portes, ce qui a plongé toute la région dans la crise.",
+          "en": "The factory closed down, which plunged the whole region into crisis.",
+          "words": 16
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.b2.economie.017",
+          "theme": "economie",
+          "fr": "Il n'est pas certain que la reprise se poursuive au-delà de l'année prochaine.",
+          "en": "It is not certain that the recovery will continue beyond next year.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-etiquette.070",
+          "theme": "rp-etiquette",
+          "fr": "Il aurait fallu que je m'excuse plus tôt, avant que la situation ne s'envenime.",
+          "en": "I should have apologized sooner, before the situation got worse.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-etiquette.062",
+          "theme": "rp-etiquette",
+          "fr": "Il eût été plus courtois de prévenir vos hôtes avant de modifier l'heure du dîner.",
+          "en": "It would have been more courteous to inform your hosts before changing the dinner time.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.092",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le certificat de police que l'ambassade exige doit être daté de moins de six mois.",
+          "en": "The police certificate the embassy requires must be dated less than six months ago.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.economie.019",
+          "theme": "economie",
+          "fr": "Bien que les salaires aient augmenté, ils n'ont pas suivi le rythme de l'inflation.",
+          "en": "Although wages have risen, they have not kept pace with inflation.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.droit.019",
+          "theme": "droit",
+          "fr": "C'est en vertu de cette loi que le tribunal a pu annuler la décision administrative.",
+          "en": "It is by virtue of this law that the court was able to overturn the administrative decision.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche-emploi.107",
+          "theme": "recherche-emploi",
+          "fr": "Elle a fini par accepter le poste, bien que le salaire fût inférieur à ses attentes.",
+          "en": "She ended up accepting the position, although the salary was lower than she expected.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.gouvernement.009",
+          "theme": "gouvernement",
+          "fr": "C'est grâce à une coalition fragile que le gouvernement a pu faire adopter le budget.",
+          "en": "It is thanks to a fragile coalition that the government managed to get the budget passed.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.argent-quotidien.011",
+          "theme": "argent-quotidien",
+          "fr": "Plutôt que de s'endetter davantage, ils ont décidé de reporter l'achat de la voiture.",
+          "en": "Rather than getting further into debt, they decided to postpone buying the car.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.argent-quotidien.017",
+          "theme": "argent-quotidien",
+          "fr": "Ils ont contracté un emprunt sur vingt-cinq ans pour financer l'achat de leur maison.",
+          "en": "They took out a twenty-five-year loan to finance the purchase of their house.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche-emploi.112",
+          "theme": "recherche-emploi",
+          "fr": "Le candidat a insisté pour que son portfolio soit examiné avant la fin de l'entretien.",
+          "en": "The candidate insisted that his portfolio be reviewed before the end of the interview.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.collegues.015",
+          "theme": "collegues",
+          "fr": "Bien que la réunion ait mal commencé, nous avons fini par trouver un terrain d'entente.",
+          "en": "Although the meeting got off to a bad start, we eventually found common ground.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.droit.022",
+          "theme": "droit",
+          "fr": "Bien que la loi ait été votée, son application reste soumise à un décret d'application.",
+          "en": "Although the law was passed, its implementation is still subject to an implementing decree.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.argent-quotidien.013",
+          "theme": "argent-quotidien",
+          "fr": "À moins que les prix ne baissent, nous devrons revoir notre budget vacances à la baisse.",
+          "en": "Unless prices go down, we will have to revise our vacation budget downward.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche-emploi.085",
+          "theme": "recherche-emploi",
+          "fr": "Il faudrait que vous mettiez à jour votre curriculum vitae avant de postuler à ce poste.",
+          "en": "You should update your résumé before applying for this position.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche-emploi.109",
+          "theme": "recherche-emploi",
+          "fr": "Tant que vous n'aurez pas passé l'entretien final, votre embauche ne sera pas confirmée.",
+          "en": "Until you've had the final interview, your hiring won't be confirmed.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.079",
+          "theme": "rp-travail-etudes",
+          "fr": "Nous regrettons que vous n'ayez pas pu assister à l'entretien prévu la semaine dernière.",
+          "en": "We regret that you were unable to attend the interview scheduled last week.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.collegues.011",
+          "theme": "collegues",
+          "fr": "Le désaccord entre les deux équipes vient du fait que les objectifs n'étaient pas clairs.",
+          "en": "The disagreement between the two teams stems from the fact that the objectives weren't clear.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-etiquette.076",
+          "theme": "rp-etiquette",
+          "fr": "Si délicate que soit la situation, il convient de garder son calme et de rester courtois.",
+          "en": "However delicate the situation, one should keep calm and remain courteous.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.droit.118",
+          "theme": "droit",
+          "fr": "Bien que les employés se soient plaints à maintes reprises, la direction n'a rien changé.",
+          "en": "Although the employees complained many times, management changed nothing.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.argent-quotidien.003",
+          "theme": "argent-quotidien",
+          "fr": "Bien qu'elle dispose d'une épargne confortable, elle hésite à placer son argent en bourse.",
+          "en": "Although she has a comfortable savings amount, she hesitates to invest her money in the stock market.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.collegues.103",
+          "theme": "collegues",
+          "fr": "Quoique le projet ait pris du retard, l'équipe est parvenue à respecter l'échéance finale.",
+          "en": "Although the project fell behind, the team managed to meet the final deadline.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.095",
+          "theme": "immigration-et-citoyennete",
+          "fr": "La Commission de l'immigration et du statut de réfugié entendra ma cause le mois prochain.",
+          "en": "The Immigration and Refugee Board will hear my case next month.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche-emploi.105",
+          "theme": "recherche-emploi",
+          "fr": "L'agence de placement l'a aidée à cibler des offres correspondant réellement à son profil.",
+          "en": "The staffing agency helped her target job offers that truly matched her profile.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.droit.018",
+          "theme": "droit",
+          "fr": "Le juge a exigé que les deux parties fournissent l'ensemble des documents avant l'audience.",
+          "en": "The judge demanded that both parties provide all the documents before the hearing.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche-emploi.114",
+          "theme": "recherche-emploi",
+          "fr": "Après plusieurs mois de chômage, il a fini par retrouver un emploi stable dans son domaine.",
+          "en": "After several months of unemployment, he finally found a stable job in his field.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.071",
+          "theme": "rp-travail-etudes",
+          "fr": "Elle rédige actuellement sa thèse tout en travaillant à mi-temps dans un cabinet d'avocats.",
+          "en": "She's currently writing her thesis while working part-time at a law firm.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.collegues.115",
+          "theme": "collegues",
+          "fr": "Bien qu'il ait été promu récemment, il continue de traiter ses anciens collègues avec égard.",
+          "en": "Although he was recently promoted, he continues to treat his former colleagues with regard.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.argent-quotidien.002",
+          "theme": "argent-quotidien",
+          "fr": "Le taux d'endettement des ménages continue de progresser malgré la hausse des taux d'intérêt.",
+          "en": "The household debt ratio keeps rising despite the increase in interest rates.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.collegues.099",
+          "theme": "collegues",
+          "fr": "Bien que mon collègue ait beaucoup d'expérience, il continue de demander conseil à ses pairs.",
+          "en": "Although my colleague is very experienced, he still asks his peers for advice.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.collegues.121",
+          "theme": "collegues",
+          "fr": "Quand bien même la pression serait forte, elle refuse de sacrifier la qualité de son travail.",
+          "en": "Even if the pressure were strong, she refuses to sacrifice the quality of her work.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.argent-quotidien.019",
+          "theme": "argent-quotidien",
+          "fr": "Tant qu'elle n'aura pas remboursé sa dette étudiante, elle préfère éviter tout nouvel emprunt.",
+          "en": "As long as she has not paid off her student debt, she prefers to avoid any new borrowing.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.economie.109",
+          "theme": "economie",
+          "fr": "Malgré les mesures d'austérité, le déficit public ne cessa de se creuser durant cette période.",
+          "en": "Despite the austerity measures, the public deficit kept growing during this period.",
+          "words": 16
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.b2.rp-travail-etudes.078",
+          "theme": "rp-travail-etudes",
+          "fr": "Quelles que soient les raisons de son départ, elle a toujours été respectée par ses collègues.",
+          "en": "Whatever the reasons for her departure, she has always been respected by her colleagues.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.argent-quotidien.006",
+          "theme": "argent-quotidien",
+          "fr": "La hausse du coût de la vie contraint de nombreux ménages à revoir leurs priorités budgétaires.",
+          "en": "The rise in the cost of living is forcing many households to reconsider their budget priorities.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.argent-quotidien.014",
+          "theme": "argent-quotidien",
+          "fr": "Nombreux sont les épargnants qui préfèrent la sécurité du livret à la rentabilité de la bourse.",
+          "en": "Many savers prefer the safety of a savings account to the profitability of the stock market.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.droit.044",
+          "theme": "droit",
+          "fr": "Les magistrats redoutent que la réforme de la justice n'allonge encore les délais de procédure.",
+          "en": "Magistrates fear that the justice reform will further lengthen procedural delays.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.116",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le comité d'appel examinera votre dossier pourvu que vous ayez respecté le délai de soumission.",
+          "en": "The appeal committee will review your file provided that you met the submission deadline.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.gouvernement.103",
+          "theme": "gouvernement",
+          "fr": "Pourvu que les négociations aboutissent, la réforme entrera en vigueur avant la fin de l'année.",
+          "en": "Provided the negotiations succeed, the reform will take effect before the end of the year.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche-emploi.103",
+          "theme": "recherche-emploi",
+          "fr": "Le recruteur m'a demandé pourquoi j'avais quitté mon précédent emploi après seulement six mois.",
+          "en": "The recruiter asked me why I had left my previous job after only six months.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.063",
+          "theme": "rp-travail-etudes",
+          "fr": "Quand bien même elle aurait accepté cette offre, elle aurait dû déménager dans une autre ville.",
+          "en": "Even if she had accepted this offer, she would have had to move to another city.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.economie.021",
+          "theme": "economie",
+          "fr": "Bien que le gouvernement ait réduit les impôts, la consommation des ménages n'a guère progressé.",
+          "en": "Although the government cut taxes, household consumption barely increased.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.091",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Mon conjoint m'a parrainé pour la résidence permanente après notre mariage célébré à l'étranger.",
+          "en": "My spouse sponsored me for permanent residence after our marriage, which was celebrated abroad.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-etiquette.073",
+          "theme": "rp-etiquette",
+          "fr": "Bien qu'elle fût pressée, elle prit le temps de remercier chaque membre du jury individuellement.",
+          "en": "Although she was in a hurry, she took the time to thank each jury member individually.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.recherche-emploi.113",
+          "theme": "recherche-emploi",
+          "fr": "Certains recruteurs s'attendent à ce que vous posiez des questions pertinentes en fin d'entrevue.",
+          "en": "Some recruiters expect you to ask relevant questions at the end of the interview.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.argent-quotidien.020",
+          "theme": "argent-quotidien",
+          "fr": "Ce n'est qu'après avoir comparé plusieurs simulations qu'ils ont choisi leur assurance emprunteur.",
+          "en": "It was only after comparing several simulations that they chose their loan insurance.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.droit.042",
+          "theme": "droit",
+          "fr": "À moins que de nouveaux éléments ne soient présentés, le procès devrait se conclure cette semaine.",
+          "en": "Unless new evidence is presented, the trial should conclude this week.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-etiquette.065",
+          "theme": "rp-etiquette",
+          "fr": "Il serait souhaitable que chacun s'exprime avec mesure, quelles que soient les tensions du moment.",
+          "en": "It would be desirable for everyone to express themselves with restraint, whatever tensions there might be at the moment.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.economie.106",
+          "theme": "economie",
+          "fr": "Pour peu que les taux d'intérêt remontent, de nombreux ménages peineront à rembourser leur emprunt.",
+          "en": "If interest rates go up even slightly, many households will struggle to repay their loans.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.gouvernement.052",
+          "theme": "gouvernement",
+          "fr": "Le porte-parole du gouvernement a précisé que la mesure ne concernerait que les grandes entreprises.",
+          "en": "The government spokesperson specified that the measure would only apply to large companies.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.affaires.116",
+          "theme": "affaires",
+          "fr": "Le conseil d'administration se réunit chaque trimestre afin d'évaluer la performance de l'entreprise.",
+          "en": "The board of directors meets every quarter to evaluate the company's performance.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.argent-quotidien.008",
+          "theme": "argent-quotidien",
+          "fr": "Quand bien même les taux baisseraient, l'accès au crédit resterait difficile pour les foyers modestes.",
+          "en": "Even if rates were to fall, access to credit would remain difficult for lower-income households.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.affaires.130",
+          "theme": "affaires",
+          "fr": "Bien que l'entreprise ait traversé une période difficile, elle est parvenue à redresser sa trésorerie.",
+          "en": "Although the company went through a difficult period, it managed to turn around its cash position.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.099",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Bien que le processus soit long, la plupart des demandeurs finissent par obtenir une réponse favorable.",
+          "en": "Although the process is long, most applicants eventually get a favorable answer.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.gouvernement.104",
+          "theme": "gouvernement",
+          "fr": "Les analystes estiment que le gouvernement devra composer avec une opposition de plus en plus organisée.",
+          "en": "Analysts believe the government will have to deal with an increasingly organized opposition.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.affaires.112",
+          "theme": "affaires",
+          "fr": "Quoique le marché soit instable, la direction maintient ses prévisions de croissance pour l'an prochain.",
+          "en": "Although the market is unstable, management maintains its growth forecasts for next year.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.collegues.021",
+          "theme": "collegues",
+          "fr": "Pourvu que le nouveau responsable écoute les préoccupations de l'équipe, la situation devrait s'arranger.",
+          "en": "As long as the new manager listens to the team's concerns, the situation should improve.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.gouvernement.096",
+          "theme": "gouvernement",
+          "fr": "Pour peu que la participation électorale baisse encore, la légitimité du scrutin sera remise en question.",
+          "en": "If voter turnout drops any further, the legitimacy of the vote will be called into question.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.economie.096",
+          "theme": "economie",
+          "fr": "Bien que le gouvernement ait promis de réduire le chômage, les statistiques récentes montrent le contraire.",
+          "en": "Although the government promised to reduce unemployment, recent statistics show the opposite.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.gouvernement.097",
+          "theme": "gouvernement",
+          "fr": "Le gouvernement s'efforce de simplifier les démarches sans pour autant compromettre la sécurité des données.",
+          "en": "The government is trying to simplify procedures without compromising data security.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.affaires.117",
+          "theme": "affaires",
+          "fr": "Malgré la baisse des ventes, les responsables restent convaincus que la stratégie actuelle portera ses fruits.",
+          "en": "Despite falling sales, the managers remain convinced that the current strategy will pay off.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.109",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'inadmissibilité criminelle peut empêcher un résident permanent de conserver son statut, même après plusieurs années.",
+          "en": "Criminal inadmissibility can prevent a permanent resident from keeping their status, even after several years.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.gouvernement.022",
+          "theme": "gouvernement",
+          "fr": "Le gouvernement s'est engagé à ce que la réforme n'entre pas en vigueur avant janvier.",
+          "en": "The government has committed to the reform not taking effect before January.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.droit.105",
+          "theme": "droit",
+          "fr": "Il se peut que le délai de traitement soit prolongé en raison du grand nombre de dossiers.",
+          "en": "The processing time may be extended due to the large number of files.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.droit.111",
+          "theme": "droit",
+          "fr": "Pour autant que je sache, aucune loi n'oblige un employeur à justifier un refus d'embauche.",
+          "en": "As far as I know, no law requires an employer to justify a refusal to hire.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-etiquette.069",
+          "theme": "rp-etiquette",
+          "fr": "Pour peu qu'on manque de tact, une remarque anodine peut vite être perçue comme une offense.",
+          "en": "If one lacks tact even slightly, an innocuous remark can quickly be seen as an offense.",
+          "words": 17
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.b2.recherche-emploi.093",
+          "theme": "recherche-emploi",
+          "fr": "Bien qu'elle ait été licenciée l'an dernier, elle a rebondi grâce à une reconversion réussie.",
+          "en": "Although she was laid off last year, she bounced back thanks to a successful career change.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.argent-quotidien.021",
+          "theme": "argent-quotidien",
+          "fr": "Le médiateur bancaire a été saisi après l'échec des négociations entre le client et la banque.",
+          "en": "The banking ombudsman was called in after negotiations between the customer and the bank failed.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.recherche-emploi.083",
+          "theme": "recherche-emploi",
+          "fr": "Bien que j'aie envoyé une trentaine de candidatures, je n'ai reçu que deux réponses positives.",
+          "en": "Although I sent about thirty applications, I only received two positive responses.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.gouvernement.006",
+          "theme": "gouvernement",
+          "fr": "Le Premier ministre a annoncé qu'il proposerait une réforme du système de retraite dès la rentrée.",
+          "en": "The Prime Minister announced that he would propose a pension system reform in the fall.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.089",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Bien qu'elle ait obtenu un permis de travail, elle attend toujours son numéro d'assurance sociale.",
+          "en": "Although she got a work permit, she is still waiting for her social insurance number.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.118",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Bien que la révocation de la citoyenneté soit rare, elle demeure possible en cas de fraude avérée.",
+          "en": "Although revocation of citizenship is rare, it remains possible in cases of proven fraud.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.098",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il se peut que votre dossier soit retardé si les documents fournis sont incomplets ou mal traduits.",
+          "en": "Your file may be delayed if the documents provided are incomplete or poorly translated.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.recherche-emploi.091",
+          "theme": "recherche-emploi",
+          "fr": "Il est essentiel que votre lettre de motivation reflète les valeurs de l'entreprise que vous visez.",
+          "en": "It is essential that your cover letter reflects the values of the company you're targeting.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.recherche-emploi.097",
+          "theme": "recherche-emploi",
+          "fr": "Le salon de l'emploi a attiré des centaines de chercheurs d'emploi venus rencontrer des recruteurs.",
+          "en": "The job fair attracted hundreds of job seekers who came to meet recruiters.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.083",
+          "theme": "rp-travail-etudes",
+          "fr": "Bien qu'elle n'ait aucune expérience préalable, elle a rapidement gagné la confiance de son équipe.",
+          "en": "Although she had no prior experience, she quickly earned her team's trust.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.103",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Quoiqu'il ait vécu illégalement dans le pays pendant deux ans, il a finalement régularisé son statut.",
+          "en": "Although he had lived in the country illegally for two years, he eventually regularized his status.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.recherche-emploi.101",
+          "theme": "recherche-emploi",
+          "fr": "Il aurait fallu que je négocie mon salaire dès la première offre plutôt que d'accepter immédiatement.",
+          "en": "I should have negotiated my salary at the first offer rather than accepting immediately.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.affaires.135",
+          "theme": "affaires",
+          "fr": "Le service juridique recommande que le litige soit réglé à l'amiable plutôt que devant les tribunaux.",
+          "en": "The legal department recommends that the dispute be resolved amicably rather than in court.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-etiquette.084",
+          "theme": "rp-etiquette",
+          "fr": "Tant que vous n'aurez pas été présenté officiellement, évitez d'appeler votre supérieur par son prénom.",
+          "en": "As long as you haven't been officially introduced, avoid calling your superior by their first name.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.droit.113",
+          "theme": "droit",
+          "fr": "Bien que le locataire ait signalé le problème à plusieurs reprises, aucune réparation n'a été effectuée.",
+          "en": "Although the tenant reported the problem several times, no repair was made.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.060",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les Filles du Roy débarquèrent en Nouvelle-France au dix-septième siècle pour peupler la colonie naissante.",
+          "en": "The King's Daughters landed in New France in the seventeenth century to help populate the fledgling colony.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.120",
+          "theme": "immigration-et-citoyennete",
+          "fr": "S'il avait rempli le formulaire correctement, son dossier n'aurait pas été retourné pour erreur administrative.",
+          "en": "If he had filled out the form correctly, his file would not have been returned for an administrative error.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.recherche-emploi.092",
+          "theme": "recherche-emploi",
+          "fr": "Le conseiller en emploi lui a suggéré de développer son réseau professionnel avant de reprendre les entretiens.",
+          "en": "The employment counsellor suggested she build her professional network before resuming interviews.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.097",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le gouvernement encourage les résidents permanents à s'intégrer en apprenant l'une des deux langues officielles.",
+          "en": "The government encourages permanent residents to integrate by learning one of the two official languages.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-etiquette.083",
+          "theme": "rp-etiquette",
+          "fr": "Pour que la soirée se déroule sans accroc, il faudrait que chacun respecte scrupuleusement les horaires convenus.",
+          "en": "For the evening to go smoothly, everyone would need to scrupulously respect the agreed schedule.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.123",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Malgré les obstacles administratifs, la plupart des familles réunifiées estiment que l'attente en valait la peine.",
+          "en": "Despite the administrative obstacles, most reunited families feel that the wait was worth it.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.gouvernement.102",
+          "theme": "gouvernement",
+          "fr": "Il se pourrait que la nouvelle politique migratoire modifie les critères d'admissibilité à la résidence permanente.",
+          "en": "The new migration policy might change the eligibility criteria for permanent residency.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.122",
+          "theme": "immigration-et-citoyennete",
+          "fr": "La cérémonie de citoyenneté se déroulera dans la salle communale, où les nouveaux citoyens prêteront serment ensemble.",
+          "en": "The citizenship ceremony will take place in the community hall, where the new citizens will take the oath together.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.gouvernement.105",
+          "theme": "gouvernement",
+          "fr": "Bien que la procédure paraisse simple, elle décourage souvent les demandeurs les moins familiers avec l'administration.",
+          "en": "Although the procedure seems simple, it often discourages applicants less familiar with administration.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.droit.101",
+          "theme": "droit",
+          "fr": "À moins que le litige ne soit résolu à l'amiable, l'affaire sera portée devant le tribunal.",
+          "en": "Unless the dispute is resolved amicably, the case will be brought before the court.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recherche-emploi.123",
+          "theme": "recherche-emploi",
+          "fr": "Le chasseur de têtes lui a proposé un poste qu'elle n'aurait jamais envisagé par elle-même.",
+          "en": "The headhunter offered her a position she would never have considered on her own.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recherche-emploi.117",
+          "theme": "recherche-emploi",
+          "fr": "Bien qu'il n'ait aucune lettre de recommandation, il a obtenu l'emploi grâce à son entretien.",
+          "en": "Although he had no letter of recommendation, he got the job thanks to his interview.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.110",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Avant que le juge ne rende sa décision, l'avocat a présenté de nouvelles preuves à l'audience.",
+          "en": "Before the judge ruled, the lawyer presented new evidence at the hearing.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.droit.095",
+          "theme": "droit",
+          "fr": "Bien que le contrat ait été signé dans les règles, l'employeur refuse d'en respecter les termes.",
+          "en": "Although the contract was signed properly, the employer refuses to respect its terms.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recherche-emploi.111",
+          "theme": "recherche-emploi",
+          "fr": "Comme elle avait déjà de l'expérience en gestion de projet, elle a obtenu le poste sans difficulté.",
+          "en": "Since she already had experience in project management, she got the job without difficulty.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.114",
+          "theme": "immigration-et-citoyennete",
+          "fr": "La ministre a annoncé que le seuil d'immigration économique serait révisé à la hausse l'an prochain.",
+          "en": "The minister announced that the economic immigration threshold would be revised upward next year.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.121",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'agent des services frontaliers lui a demandé de déclarer tous les biens qu'elle rapportait au pays.",
+          "en": "The border services officer asked her to declare all the goods she was bringing back into the country.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-etiquette.066",
+          "theme": "rp-etiquette",
+          "fr": "Une fois que les invités furent tous arrivés, la maîtresse de maison proposa un toast en leur honneur.",
+          "en": "Once all the guests had arrived, the hostess proposed a toast in their honor.",
+          "words": 18
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.b2.immigration-et-citoyennete.111",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le taux de refus des demandes de visa temporaire a augmenté depuis que les critères ont été resserrés.",
+          "en": "The refusal rate for temporary visa applications has risen since the criteria were tightened.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-etiquette.079",
+          "theme": "rp-etiquette",
+          "fr": "Quand bien même vous seriez pressé, il est préférable de ne pas couper la parole à votre interlocuteur.",
+          "en": "Even if you were in a hurry, it's preferable not to interrupt the person you're speaking with.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.recherche-emploi.087",
+          "theme": "recherche-emploi",
+          "fr": "Après avoir décroché un entretien, elle a passé des heures à se préparer aux questions les plus fréquentes.",
+          "en": "After landing an interview, she spent hours preparing for the most common questions.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.droit.100",
+          "theme": "droit",
+          "fr": "Pour que la demande de citoyenneté soit acceptée, il faut que tous les critères de résidence soient remplis.",
+          "en": "For the citizenship application to be accepted, all residency criteria must be met.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.069",
+          "theme": "quebec-et-francophonie",
+          "fr": "Bien qu'elle fût minoritaire, la communauté anglophone de Montréal a longtemps dominé l'économie de la ville.",
+          "en": "Although it was a minority, Montreal's English-speaking community long dominated the city's economy.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.droit.096",
+          "theme": "droit",
+          "fr": "Bien qu'elle possédât tous les documents requis, l'agent d'immigration lui a demandé un délai supplémentaire.",
+          "en": "Although she possessed all the required documents, the immigration officer asked her for extra time.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.argent-quotidien.005",
+          "theme": "argent-quotidien",
+          "fr": "Si nous avions anticipé cette dépense imprévue, nous n'aurions pas dû puiser dans notre épargne de précaution.",
+          "en": "If we had anticipated this unexpected expense, we would not have had to dip into our emergency savings.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.106",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Pour renouveler ma carte de résident permanent, je dois prouver que j'ai respecté mon obligation de résidence.",
+          "en": "To renew my permanent resident card, I must prove that I met my residency obligation.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.economie.113",
+          "theme": "economie",
+          "fr": "Les analystes s'interrogent sur la capacité du gouvernement à contenir l'inflation sans nuire à la croissance.",
+          "en": "Analysts are questioning the government's ability to control inflation without harming growth.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.105",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le juge a rendu une décision favorable, estimant que le renvoi constituerait un préjudice excessif pour la famille.",
+          "en": "The judge issued a favorable decision, finding that the removal would constitute an excessive hardship for the family.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.112",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Les services d'établissement offrent gratuitement des cours de langue aux nouveaux arrivants qui en font la demande.",
+          "en": "Settlement services offer free language classes to newcomers who request them.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-etiquette.074",
+          "theme": "rp-etiquette",
+          "fr": "Il importe que les nouveaux employés se familiarisent avec les codes vestimentaires de l'entreprise dès leur arrivée.",
+          "en": "It matters that new employees become familiar with the company's dress code as soon as they arrive.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.107",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il serait souhaitable que les nouveaux citoyens participent activement à la vie démocratique de leur pays d'adoption.",
+          "en": "It would be desirable for new citizens to actively participate in the democratic life of their adopted country.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.061",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il aurait fallu que le gouvernement fédéral consulte davantage les provinces avant de rapatrier la Constitution en 1982.",
+          "en": "The federal government should have consulted the provinces more before repatriating the Constitution in 1982.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.087",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il est essentiel que les nouveaux arrivants comprennent leurs droits et leurs obligations dès leur installation au pays.",
+          "en": "It is essential that newcomers understand their rights and obligations as soon as they settle in the country.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.067",
+          "theme": "quebec-et-francophonie",
+          "fr": "Afin que les nouveaux arrivants s'intègrent plus facilement, le gouvernement québécois finance des cours de francisation intensifs.",
+          "en": "So that newcomers can integrate more easily, the Quebec government funds intensive francization courses.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.economie.051",
+          "theme": "economie",
+          "fr": "C'est en misant sur l'innovation que cette start-up a réussi à s'imposer sur le marché.",
+          "en": "It is by betting on innovation that this start-up managed to establish itself in the market.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.062",
+          "theme": "rp-travail-etudes",
+          "fr": "Il se peut que la direction décide de restructurer le service entier d'ici la fin de l'année.",
+          "en": "It's possible that management will decide to restructure the whole department by year's end.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.113",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il aurait fallu que je dépose ma demande de permis d'études trois mois avant le début des cours.",
+          "en": "I should have filed my study permit application three months before classes started.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.094",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si j'avais su que l'examen médical prendrait autant de temps, j'aurais pris rendez-vous plus tôt.",
+          "en": "If I had known the medical exam would take so long, I would have booked an appointment earlier.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.085",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si vous échouiez à l'examen de citoyenneté, vous pourriez le repasser après un délai fixé par l'agent.",
+          "en": "If you failed the citizenship exam, you could retake it after a delay set by the officer.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.recherche-emploi.086",
+          "theme": "recherche-emploi",
+          "fr": "Si j'avais su que le marché du travail serait aussi compétitif, j'aurais commencé ma recherche plus tôt.",
+          "en": "If I had known the job market would be this competitive, I would have started my search earlier.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.argent-quotidien.007",
+          "theme": "argent-quotidien",
+          "fr": "Il n'est pas rare que les jeunes actifs peinent à constituer un apport pour leur premier achat immobilier.",
+          "en": "It is not uncommon for young working adults to struggle to build up a down payment for their first property purchase.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.rp-etiquette.067",
+          "theme": "rp-etiquette",
+          "fr": "Il n'est pas rare que l'on froisse involontairement un interlocuteur en ignorant les usages de sa culture.",
+          "en": "It's not rare to unintentionally offend someone by ignoring the customs of their culture.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.rp-etiquette.082",
+          "theme": "rp-etiquette",
+          "fr": "Il se peut que votre franchise soit mal interprétée dans une culture où l'on privilégie les sous-entendus.",
+          "en": "Your frankness may be misinterpreted in a culture where implication is preferred.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.093",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'agent d'immigration a exigé que je fournisse une preuve de fonds suffisante avant de traiter mon dossier.",
+          "en": "The immigration officer required me to provide sufficient proof of funds before processing my file.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.115",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Quand elle reçut enfin sa lettre de confirmation, elle comprit que des années d'attente touchaient à leur fin.",
+          "en": "When she finally received her confirmation letter, she realized that years of waiting were coming to an end.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.090",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Les demandeurs d'asile doivent démontrer qu'ils craignent avec raison d'être persécutés dans leur pays d'origine.",
+          "en": "Asylum seekers must show that they have a well-founded fear of persecution in their country of origin.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.recherche-emploi.090",
+          "theme": "recherche-emploi",
+          "fr": "Dès que l'offre d'emploi sera publiée, je soumettrai ma candidature accompagnée d'une lettre de motivation personnalisée.",
+          "en": "As soon as the job posting is published, I will submit my application along with a personalized cover letter.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.059",
+          "theme": "quebec-et-francophonie",
+          "fr": "Même si le Québec avait voté pour la souveraineté en 1995, les modalités exactes de la séparation demeuraient incertaines.",
+          "en": "Even if Quebec had voted for sovereignty in 1995, the exact terms of separation remained uncertain.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.economie.116",
+          "theme": "economie",
+          "fr": "Face à la hausse constante des coûts de production, plusieurs usines envisagent de délocaliser une partie de leur activité.",
+          "en": "Faced with constantly rising production costs, several factories are considering relocating part of their operations.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.056",
+          "theme": "quebec-et-francophonie",
+          "fr": "Quoique le français soit la seule langue officielle du Québec, plusieurs langues autochtones y sont parlées depuis des millénaires.",
+          "en": "Although French is the only official language of Quebec, several Indigenous languages have been spoken there for millennia.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.073",
+          "theme": "quebec-et-francophonie",
+          "fr": "Quand bien même le Québec demeurerait une province canadienne, sa spécificité culturelle continuerait d'influencer le reste du pays.",
+          "en": "Even if Quebec were to remain a Canadian province, its cultural distinctiveness would keep influencing the rest of the country.",
+          "words": 19
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.b2.rp-etiquette.075",
+          "theme": "rp-etiquette",
+          "fr": "On ne saurait trop insister sur l'importance d'une poignée de main ferme lors d'un entretien d'embauche.",
+          "en": "One cannot overstate the importance of a firm handshake during a job interview.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.102",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'agente m'a informé que mon appel devant la Section d'appel de l'immigration serait entendu en audience.",
+          "en": "The officer informed me that my appeal before the Immigration Appeal Division would be heard at a hearing.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.gouvernement.092",
+          "theme": "gouvernement",
+          "fr": "Bien que le projet de loi ait suscité de vives critiques, le gouvernement a décidé de le maintenir tel quel.",
+          "en": "Although the bill sparked strong criticism, the government decided to keep it unchanged.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.rp-etiquette.080",
+          "theme": "rp-etiquette",
+          "fr": "Le protocole exige que l'on s'adresse à un ambassadeur par son titre officiel, quelle que soit la circonstance.",
+          "en": "Protocol requires that an ambassador be addressed by their official title, whatever the circumstance.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.088",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le score de mon profil Entrée express a chuté après la dernière ronde d'invitations, ce qui m'inquiète beaucoup.",
+          "en": "My Express Entry profile score dropped after the last round of invitations, which worries me a lot.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.057",
+          "theme": "quebec-et-francophonie",
+          "fr": "Jacques Cartier explora le fleuve Saint-Laurent en 1534 et posa les bases de ce qui deviendrait la Nouvelle-France.",
+          "en": "Jacques Cartier explored the Saint Lawrence River in 1534 and laid the foundations of what would become New France.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.101",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Dès que j'aurai atteint les mille quatre-vingt-quinze jours de présence physique, je déposerai ma demande de citoyenneté.",
+          "en": "As soon as I have reached the one thousand and ninety-five days of physical presence, I will file my citizenship application.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.066",
+          "theme": "quebec-et-francophonie",
+          "fr": "Louis Hébert et sa famille s'installèrent près de Québec et devinrent parmi les premiers colons agriculteurs de la colonie.",
+          "en": "Louis Hébert and his family settled near Quebec City and became among the colony's first farmer settlers.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.072",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il semblerait que le mot « chialer », très courant au Québec, provienne d'un vieux verbe français tombé en désuétude ailleurs.",
+          "en": "It would seem that the word 'chialer', very common in Quebec, comes from an old French verb that fell out of use elsewhere.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.rp-etiquette.064",
+          "theme": "rp-etiquette",
+          "fr": "Bien que le protocole diplomatique paraisse suranné à certains, il continue de régir les échanges officiels entre chefs d'État.",
+          "en": "Although diplomatic protocol may seem outdated to some, it still governs official exchanges between heads of state.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.070",
+          "theme": "quebec-et-francophonie",
+          "fr": "Pour que la Francophonie reste vivante, il faudra que les jeunes générations continuent de transmettre la langue à leurs enfants.",
+          "en": "For the Francophonie to remain alive, young generations will need to keep passing the language on to their children.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.063",
+          "theme": "quebec-et-francophonie",
+          "fr": "Dès que la Charte de la langue française fut promulguée, l'affichage unilingue anglais commença à disparaître des rues montréalaises.",
+          "en": "As soon as the Charter of the French Language was enacted, unilingual English signage began disappearing from Montreal's streets.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.rp-etiquette.071",
+          "theme": "rp-etiquette",
+          "fr": "Quelle que soit la gravité de l'erreur, mieux vaut présenter ses excuses avec sincérité que de se justifier sans fin.",
+          "en": "Whatever the seriousness of the mistake, it's better to offer sincere apologies than to endlessly justify oneself.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.086",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Quand le juge de la citoyenneté eut vérifié tous les documents, il annonça que la cérémonie aurait lieu le mois suivant.",
+          "en": "When the citizenship judge had verified all the documents, he announced that the ceremony would take place the following month.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.058",
+          "theme": "quebec-et-francophonie",
+          "fr": "Pour peu qu'on s'y intéresse vraiment, on découvre que la Francophonie compte des locuteurs sur presque tous les continents.",
+          "en": "As soon as one really takes an interest, one discovers that the Francophonie has speakers on nearly every continent.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.071",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les patriotes se soulevèrent en 1837 contre le pouvoir colonial britannique, un épisode que l'on enseigne encore dans les écoles.",
+          "en": "The Patriotes rose up in 1837 against British colonial rule, an episode still taught in schools today.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.rp-travail-etudes.060",
+          "theme": "rp-travail-etudes",
+          "fr": "Bien que j'aie obtenu mon diplôme il y a cinq ans, je n'ai jamais exercé dans mon domaine d'études.",
+          "en": "Although I got my degree five years ago, I've never worked in my field of study.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.rp-etiquette.078",
+          "theme": "rp-etiquette",
+          "fr": "Nombreux sont ceux qui ignorent qu'il est malvenu de commencer à manger avant que l'hôte n'ait levé son verre.",
+          "en": "Many people don't know that it's improper to start eating before the host has raised their glass.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.074",
+          "theme": "quebec-et-francophonie",
+          "fr": "L'Acte de Québec de 1774 accorda aux Canadiens français certains droits religieux et civils qu'ils avaient perdus après la Conquête.",
+          "en": "The Quebec Act of 1774 granted French Canadians certain religious and civil rights they had lost after the Conquest.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.053",
+          "theme": "quebec-et-francophonie",
+          "fr": "Si la loi 101 n'avait pas été adoptée, il est probable que le visage linguistique de Montréal serait aujourd'hui très différent.",
+          "en": "If Bill 101 had not been adopted, it is likely that Montreal's linguistic landscape would be very different today.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.065",
+          "theme": "quebec-et-francophonie",
+          "fr": "Quelle que soit l'opinion qu'on ait sur la question linguistique, personne ne peut nier l'importance historique du français au Canada.",
+          "en": "Whatever opinion one holds on the language question, no one can deny the historical importance of French in Canada.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.055",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il n'est pas rare que les linguistes s'intéressent au québécois pour son vocabulaire archaïque hérité du français du dix-septième siècle.",
+          "en": "It is not rare for linguists to take interest in Quebec French for its archaic vocabulary inherited from seventeenth-century French.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.062",
+          "theme": "quebec-et-francophonie",
+          "fr": "Bien que la chanson québécoise ait longtemps été éclipsée par la musique française, des artistes comme Charlebois lui ont donné une identité propre.",
+          "en": "Although Quebec chanson was long overshadowed by French music, artists like Charlebois gave it its own identity.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.064",
+          "theme": "quebec-et-francophonie",
+          "fr": "Certains estiment que sans l'apport massif de l'immigration francophone, le poids démographique du français continuerait de décliner en Amérique du Nord.",
+          "en": "Some believe that without the massive contribution of French-speaking immigration, French's demographic weight would keep declining in North America.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.068",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il se pourrait que l'accent québécois d'aujourd'hui ressemble davantage au français parlé sous l'Ancien Régime qu'à celui de Paris.",
+          "en": "It could well be that today's Quebec accent resembles the French spoken under the Ancien Régime more than that of Paris.",
+          "words": 24
+        },
+        {
+          "id": "fr.b2.rp-etiquette.061",
+          "theme": "rp-etiquette",
+          "fr": "Quoi que vous pensiez de cette coutume, il convient de vous y plier lorsque vous êtes invité chez des gens que vous connaissez peu.",
+          "en": "Whatever you think of this custom, it's proper to comply with it when you're invited to the home of people you barely know.",
+          "words": 24
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.084",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Pour obtenir la citoyenneté, il faut avoir résidé physiquement au Canada pendant au moins trois ans au cours des cinq années précédant la demande.",
+          "en": "To obtain citizenship, you must have physically resided in Canada for at least three years within the five years preceding the application.",
+          "words": 24
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.052",
+          "theme": "quebec-et-francophonie",
+          "fr": "Lorsque le général de Gaulle prononça son célèbre « Vive le Québec libre » en 1967, il provoqua une crise diplomatique entre la France et le Canada.",
+          "en": "When General de Gaulle uttered his famous 'Vive le Québec libre' in 1967, he triggered a diplomatic crisis between France and Canada.",
+          "words": 25
+        },
+        {
+          "id": "fr.b2.rp-etiquette.060",
+          "theme": "rp-etiquette",
+          "fr": "Bien qu'il soit tout à fait normal de tutoyer ses collègues aujourd'hui, certains cadres préfèrent conserver le vouvoiement par respect de la hiérarchie.",
+          "en": "Although it's quite normal to use \"tu\" with colleagues today, some executives prefer to keep using \"vous\" out of respect for hierarchy.",
+          "words": 25
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.051",
+          "theme": "quebec-et-francophonie",
+          "fr": "Bien que la Révolution tranquille ait modernisé le Québec en quelques années à peine, elle n'a pas réglé toutes les tensions identitaires de la province.",
+          "en": "Although the Quiet Revolution modernized Quebec in barely a few years, it did not resolve all of the province's identity tensions.",
+          "words": 26
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.075",
+          "theme": "quebec-et-francophonie",
+          "fr": "Pour qu'on comprenne vraiment la complexité identitaire du Québec, il faut avoir vécu, ne serait-ce qu'un temps, entre les deux solitudes linguistiques du pays.",
+          "en": "To truly understand Quebec's identity complexity, one must have lived, if only briefly, between the country's two linguistic solitudes.",
+          "words": 27
+        },
+        {
+          "id": "fr.b2.immigration-et-citoyennete.083",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Bien que ma demande de résidence permanente ait été soumise il y a huit mois, je n'ai toujours pas reçu de réponse de l'agence d'immigration.",
+          "en": "Although my permanent residence application was submitted eight months ago, I still haven't received a reply from the immigration agency.",
+          "words": 28
+        },
+        {
+          "id": "fr.b2.quebec-et-francophonie.054",
+          "theme": "quebec-et-francophonie",
+          "fr": "Bien qu'ils vivent à des milliers de kilomètres les uns des autres, les francophones du Manitoba, de la Louisiane et de la Belgique partagent un attachement commun à leur langue.",
+          "en": "Although they live thousands of kilometres apart, francophones in Manitoba, Louisiana, and Belgium share a common attachment to their language.",
+          "words": 31
+        }
+      ]
+    }
+  ]
+}

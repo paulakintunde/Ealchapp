@@ -1,0 +1,4823 @@
+{
+  "stage": "4.5",
+  "world": 4,
+  "level": "b1",
+  "title": "Le Palais des Portes",
+  "themes": [
+    "immigration-et-citoyennete",
+    "systeme-de-sante",
+    "droit",
+    "douane-et-immigration",
+    "quebec-et-francophonie",
+    "symptomes",
+    "soins",
+    "bien-etre",
+    "rp-sante",
+    "tourisme",
+    "hebergement",
+    "transports-quotidiens",
+    "deplacements",
+    "la-ville",
+    "paysages",
+    "meteo",
+    "animaux",
+    "animaux-domestiques",
+    "rp-voyage",
+    "rp-meteo-nature"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 670,
+  "dedupedPool": 669,
+  "selected": 669,
+  "blockCount": 21,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.b1.rp-sante.006",
+          "theme": "rp-sante",
+          "fr": "Ça sera prêt dans dix minutes.",
+          "en": "It'll be ready in ten minutes.",
+          "words": 6
+        },
+        {
+          "id": "fr.b1.rp-sante.005",
+          "theme": "rp-sante",
+          "fr": "J'ai une ordonnance à faire préparer.",
+          "en": "I have a prescription to fill.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.hebergement.014",
+          "theme": "hebergement",
+          "fr": "Le check-in commence à quatorze heures.",
+          "en": "Check-in starts at two o'clock in the afternoon.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.hebergement.019",
+          "theme": "hebergement",
+          "fr": "Nous devons rendre les clés avant midi.",
+          "en": "We must return the keys before noon.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.rp-voyage.005",
+          "theme": "rp-voyage",
+          "fr": "Savez-vous pourquoi le vol est retardé ?",
+          "en": "Do you know why the flight is delayed?",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.hebergement.010",
+          "theme": "hebergement",
+          "fr": "Nous avons demandé une chambre non-fumeur.",
+          "en": "We asked for a non-smoking room.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.rp-voyage.006",
+          "theme": "rp-voyage",
+          "fr": "Ils viennent d'annoncer un problème technique.",
+          "en": "They just announced a technical problem.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.paysages.021",
+          "theme": "paysages",
+          "fr": "Les vaches paissent tranquillement dans le pré.",
+          "en": "The cows graze peacefully in the meadow.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.tourisme.021",
+          "theme": "tourisme",
+          "fr": "Le circuit touristique dure environ trois heures.",
+          "en": "The tourist tour lasts about three hours.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.paysages.014",
+          "theme": "paysages",
+          "fr": "La brume matinale enveloppe doucement les prairies.",
+          "en": "The morning mist gently blankets the meadows.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.symptomes.004",
+          "theme": "symptomes",
+          "fr": "J'ai mal au ventre depuis ce matin.",
+          "en": "I've had a stomach ache since this morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.paysages.010",
+          "theme": "paysages",
+          "fr": "Les falaises tombent à pic dans la mer.",
+          "en": "The cliffs drop straight down into the sea.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.rp-voyage.007",
+          "theme": "rp-voyage",
+          "fr": "J'ai une correspondance à ne pas rater.",
+          "en": "I have a connection I can't miss.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.075",
+          "theme": "rp-meteo-nature",
+          "fr": "Je doute qu'il fasse beau demain matin.",
+          "en": "I doubt it will be nice out tomorrow morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.hebergement.020",
+          "theme": "hebergement",
+          "fr": "L'ascenseur est en panne depuis ce matin.",
+          "en": "The elevator has been out of order since this morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.006",
+          "theme": "rp-meteo-nature",
+          "fr": "Il paraît qu'un gros orage arrive samedi.",
+          "en": "Apparently a big storm is coming Saturday.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.tourisme.023",
+          "theme": "tourisme",
+          "fr": "Le parc national est ouvert toute l'année.",
+          "en": "The national park is open all year round.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.063",
+          "theme": "rp-meteo-nature",
+          "fr": "Le vent souffle très fort depuis ce matin.",
+          "en": "The wind has been blowing very hard since this morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.paysages.015",
+          "theme": "paysages",
+          "fr": "Un petit pont de pierre traverse le torrent.",
+          "en": "A small stone bridge crosses the torrent.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.hebergement.026",
+          "theme": "hebergement",
+          "fr": "Le room service est disponible jusqu'à minuit.",
+          "en": "Room service is available until midnight.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.007",
+          "theme": "rp-meteo-nature",
+          "fr": "Vous devriez peut-être le reporter à dimanche.",
+          "en": "Maybe you should postpone it to Sunday.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.paysages.017",
+          "theme": "paysages",
+          "fr": "Le vent souffle fort sur le plateau désertique.",
+          "en": "The wind blows hard across the desert plateau.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.tourisme.010",
+          "theme": "tourisme",
+          "fr": "Cette plage attire beaucoup de touristes en été.",
+          "en": "This beach attracts many tourists in summer.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.paysages.012",
+          "theme": "paysages",
+          "fr": "Le chemin de randonnée serpente entre les rochers.",
+          "en": "The hiking trail winds between the rocks.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.soins.021",
+          "theme": "soins",
+          "fr": "Tu devrais montrer cette égratignure à un médecin.",
+          "en": "You should show that scratch to a doctor.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.tourisme.025",
+          "theme": "tourisme",
+          "fr": "Nous cherchons un endroit calme pour pique-niquer.",
+          "en": "We are looking for a quiet spot to have a picnic.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.118",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons passé la frontière sans aucun problème.",
+          "en": "We crossed the border without any problem.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.soins.030",
+          "theme": "soins",
+          "fr": "Le chirurgien nous a rassurés avant l'intervention.",
+          "en": "The surgeon reassured us before the surgery.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.tourisme.019",
+          "theme": "tourisme",
+          "fr": "La cathédrale attire des visiteurs du monde entier.",
+          "en": "The cathedral attracts visitors from all over the world.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.080",
+          "theme": "rp-meteo-nature",
+          "fr": "Le vent glacial traverse mon manteau sans problème.",
+          "en": "The icy wind cuts right through my coat.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.hebergement.087",
+          "theme": "hebergement",
+          "fr": "Nous cherchons un logement qui accepte les animaux.",
+          "en": "We're looking for housing that allows pets.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.droit.002",
+          "theme": "droit",
+          "fr": "Il est interdit de stationner ici sans autorisation.",
+          "en": "It's forbidden to park here without a permit.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.soins.027",
+          "theme": "soins",
+          "fr": "Le médecin traitant connaît tout mon dossier médical.",
+          "en": "My family doctor knows my whole medical file.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.b1.droit.013",
+          "theme": "droit",
+          "fr": "Le vendeur doit respecter les droits du consommateur.",
+          "en": "The seller must respect consumer rights.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.hebergement.021",
+          "theme": "hebergement",
+          "fr": "Le camping dispose de sanitaires propres et modernes.",
+          "en": "The campsite has clean, modern restroom facilities.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.tourisme.012",
+          "theme": "tourisme",
+          "fr": "Le marché local vend des produits artisanaux typiques.",
+          "en": "The local market sells typical handmade products.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.108",
+          "theme": "douane-et-immigration",
+          "fr": "Mon conjoint me parraine pour la résidence permanente.",
+          "en": "My spouse is sponsoring me for permanent residency.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.symptomes.112",
+          "theme": "symptomes",
+          "fr": "Elle voudrait que le spécialiste revoie son diagnostic.",
+          "en": "She would like the specialist to review her diagnosis.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.078",
+          "theme": "rp-meteo-nature",
+          "fr": "Les agriculteurs surveillent le ciel avant les récoltes.",
+          "en": "Farmers watch the sky before the harvests.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.120",
+          "theme": "douane-et-immigration",
+          "fr": "Les nouveaux arrivants doivent passer un examen médical.",
+          "en": "New arrivals must undergo a medical exam.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.tourisme.014",
+          "theme": "tourisme",
+          "fr": "La carte touristique indique tous les monuments importants.",
+          "en": "The tourist map shows all the important monuments.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.soins.108",
+          "theme": "soins",
+          "fr": "Le psychologue propose des séances par vidéoconférence maintenant.",
+          "en": "The psychologist now offers video conference sessions.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.060",
+          "theme": "rp-meteo-nature",
+          "fr": "Je pense qu'il va pleuvoir cet après-midi.",
+          "en": "I think it's going to rain this afternoon.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.droit.045",
+          "theme": "droit",
+          "fr": "Il a reçu une amende pour excès de vitesse.",
+          "en": "He got a fine for speeding.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.113",
+          "theme": "douane-et-immigration",
+          "fr": "J'avais oublié mon visa dans mon autre sac.",
+          "en": "I had forgotten my visa in my other bag.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-voyage.080",
+          "theme": "rp-voyage",
+          "fr": "Le douanier veut que je lui montre mon visa.",
+          "en": "The customs officer wants me to show him my visa.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.tourisme.013",
+          "theme": "tourisme",
+          "fr": "Ils ont pris un bateau pour traverser le lac.",
+          "en": "They took a boat to cross the lake.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-sante.007",
+          "theme": "rp-sante",
+          "fr": "Je dois prendre ça combien de fois par jour ?",
+          "en": "How many times a day do I take this?",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.droit.015",
+          "theme": "droit",
+          "fr": "Le testament a été lu devant toute la famille.",
+          "en": "The will was read in front of the whole family.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.005",
+          "theme": "rp-meteo-nature",
+          "fr": "Vous avez vu les prévisions pour ce week-end ?",
+          "en": "Did you see the forecast for this weekend?",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.099",
+          "theme": "transports-quotidiens",
+          "fr": "Bien qu'il soit tard, le métro circule encore.",
+          "en": "Although it is late, the metro is still running.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.symptomes.005",
+          "theme": "symptomes",
+          "fr": "Mon frère éternue sans arrêt à cause du pollen.",
+          "en": "My brother keeps sneezing because of the pollen.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.tourisme.008",
+          "theme": "tourisme",
+          "fr": "Le guide nous a expliqué l'histoire du château.",
+          "en": "The guide explained the history of the castle to us.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.hebergement.011",
+          "theme": "hebergement",
+          "fr": "Le Wi-Fi est gratuit dans tout l'établissement.",
+          "en": "The Wi-Fi is free throughout the establishment.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.paysages.011",
+          "theme": "paysages",
+          "fr": "On aperçoit un vieux moulin au bord du ruisseau.",
+          "en": "You can see an old mill by the stream.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.tourisme.009",
+          "theme": "tourisme",
+          "fr": "J'aimerais louer un vélo pour explorer la ville.",
+          "en": "I would like to rent a bike to explore the city.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.tourisme.020",
+          "theme": "tourisme",
+          "fr": "J'ai acheté des cartes postales pour ma famille.",
+          "en": "I bought postcards for my family.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.081",
+          "theme": "transports-quotidiens",
+          "fr": "Quand il neige, les trains ont souvent du retard.",
+          "en": "When it snows, the trains are often late.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.paysages.109",
+          "theme": "paysages",
+          "fr": "Je doute que ce sentier soit accessible en hiver.",
+          "en": "I doubt this trail is accessible in winter.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.symptomes.099",
+          "theme": "symptomes",
+          "fr": "Le médecin doute que ce soit une simple allergie.",
+          "en": "The doctor doubts it's a simple allergy.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.106",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier a fouillé mes bagages à la frontière.",
+          "en": "The customs officer searched my luggage at the border.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.tourisme.024",
+          "theme": "tourisme",
+          "fr": "Les enfants ont adoré le spectacle son et lumière.",
+          "en": "The children loved the sound and light show.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.droit.005",
+          "theme": "droit",
+          "fr": "Le locataire doit respecter les termes de son bail.",
+          "en": "The tenant must respect the terms of his lease.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.140",
+          "theme": "douane-et-immigration",
+          "fr": "Elle craignait que sa demande de visa soit refusée.",
+          "en": "She was afraid her visa application would be refused.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-voyage.069",
+          "theme": "rp-voyage",
+          "fr": "Elle a peur de rater sa correspondance à Francfort.",
+          "en": "She's afraid of missing her connection in Frankfurt.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.paysages.001",
+          "theme": "paysages",
+          "fr": "Du sommet, on aperçoit toute la vallée en contrebas.",
+          "en": "From the summit, you can see the whole valley below.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.b1.soins.020",
+          "theme": "soins",
+          "fr": "Le pharmacien m'a expliqué comment prendre ce sirop.",
+          "en": "The pharmacist explained to me how to take this syrup.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.079",
+          "theme": "rp-meteo-nature",
+          "fr": "Je suis content que la canicule soit enfin terminée.",
+          "en": "I'm glad the heat wave is finally over.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.soins.111",
+          "theme": "soins",
+          "fr": "Je dois passer un test auditif la semaine prochaine.",
+          "en": "I have to take a hearing test next week.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.soins.115",
+          "theme": "soins",
+          "fr": "Le dentiste a trouvé une carie pendant le nettoyage.",
+          "en": "The dentist found a cavity during the cleaning.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bien-etre.028",
+          "theme": "bien-etre",
+          "fr": "Vous devriez sortir marcher un peu après le déjeuner.",
+          "en": "You should go for a short walk after lunch.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.soins.122",
+          "theme": "soins",
+          "fr": "Le dermatologue veut que je revienne dans trois mois.",
+          "en": "The dermatologist wants me to come back in three months.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.tourisme.073",
+          "theme": "tourisme",
+          "fr": "Je pense que ce quartier mérite une visite tranquille.",
+          "en": "I think this neighborhood deserves a peaceful visit.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.symptomes.014",
+          "theme": "symptomes",
+          "fr": "Mes oreilles sifflent depuis le concert de samedi soir.",
+          "en": "My ears have been ringing since Saturday night's concert.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-voyage.071",
+          "theme": "rp-voyage",
+          "fr": "Le chauffeur nous a demandé où nous voulions descendre.",
+          "en": "The driver asked us where we wanted to get off.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.tourisme.065",
+          "theme": "tourisme",
+          "fr": "Il faut que tu confirmes ta réservation avant vendredi.",
+          "en": "You need to confirm your reservation before Friday.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.tourisme.071",
+          "theme": "tourisme",
+          "fr": "Tu devrais goûter la spécialité locale avant de partir.",
+          "en": "You should try the local specialty before leaving.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.tourisme.022",
+          "theme": "tourisme",
+          "fr": "Nous avons pris beaucoup de photos pendant notre séjour.",
+          "en": "We took many photos during our stay.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.074",
+          "theme": "rp-meteo-nature",
+          "fr": "Le lac gèle complètement chaque hiver dans cette région.",
+          "en": "The lake freezes completely every winter in this region.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.155",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Je pense que le processus prendra encore plusieurs mois.",
+          "en": "I think the process will still take several months.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.143",
+          "theme": "douane-et-immigration",
+          "fr": "Le formulaire IMM doit être signé devant un commissaire.",
+          "en": "The IMM form must be signed in front of a commissioner.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.172",
+          "theme": "systeme-de-sante",
+          "fr": "Le psychologue reçoit ses patients deux fois par semaine.",
+          "en": "The psychologist sees his patients twice a week.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-sante.066",
+          "theme": "rp-sante",
+          "fr": "Le pharmacien m'a expliqué comment prendre ce médicament.",
+          "en": "The pharmacist explained to me how to take this medication.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.paysages.008",
+          "theme": "paysages",
+          "fr": "Des vignes couvrent les collines aux alentours du village.",
+          "en": "Vineyards cover the hills around the village.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.068",
+          "theme": "rp-meteo-nature",
+          "fr": "Le brouillard rend la conduite dangereuse sur cette route.",
+          "en": "The fog makes driving dangerous on this road.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.soins.113",
+          "theme": "soins",
+          "fr": "Le nutritionniste m'a proposé un nouveau plan alimentaire.",
+          "en": "The nutritionist suggested a new eating plan for me.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.101",
+          "theme": "douane-et-immigration",
+          "fr": "Vous devez présenter votre passeport à l'agent frontalier.",
+          "en": "You must show your passport to the border agent.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.077",
+          "theme": "rp-meteo-nature",
+          "fr": "Il faudrait planter les tomates après les dernières gelées.",
+          "en": "We should plant the tomatoes after the last frosts.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.076",
+          "theme": "rp-meteo-nature",
+          "fr": "Quand le soleil se couche, la température baisse rapidement.",
+          "en": "When the sun sets, the temperature drops quickly.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-sante.078",
+          "theme": "rp-sante",
+          "fr": "Mon physiothérapeute me suit depuis mon accident au travail.",
+          "en": "My physiotherapist has been treating me since my accident at work.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-voyage.064",
+          "theme": "rp-voyage",
+          "fr": "Nous cherchons un hôtel qui accepte les animaux domestiques.",
+          "en": "We are looking for a hotel that accepts pets.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-voyage.082",
+          "theme": "rp-voyage",
+          "fr": "Si le vol est retardé, nous manquerons notre correspondance.",
+          "en": "If the flight is delayed, we'll miss our connection.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.hebergement.089",
+          "theme": "hebergement",
+          "fr": "Nous devrions lire le règlement intérieur avant d'emménager.",
+          "en": "We should read the house rules before moving in.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.droit.003",
+          "theme": "droit",
+          "fr": "La loi protège les locataires contre les expulsions abusives.",
+          "en": "The law protects tenants from unfair evictions.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.170",
+          "theme": "systeme-de-sante",
+          "fr": "Dès que les résultats arriveront, le médecin vous contactera.",
+          "en": "As soon as the results come in, the doctor will contact you.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.droit.052",
+          "theme": "droit",
+          "fr": "Les gendarmes ont contrôlé plusieurs voitures sur l'autoroute.",
+          "en": "The gendarmes checked several cars on the highway.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.152",
+          "theme": "systeme-de-sante",
+          "fr": "Le spécialiste a confirmé le diagnostic après plusieurs tests.",
+          "en": "The specialist confirmed the diagnosis after several tests.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.111",
+          "theme": "douane-et-immigration",
+          "fr": "Nous aimerions obtenir la citoyenneté canadienne l'année prochaine.",
+          "en": "We would like to obtain Canadian citizenship next year.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.141",
+          "theme": "douane-et-immigration",
+          "fr": "Les enfants nés au Canada obtiennent automatiquement la citoyenneté.",
+          "en": "Children born in Canada automatically obtain citizenship.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.b1.symptomes.003",
+          "theme": "symptomes",
+          "fr": "Il a des vertiges quand il se lève trop vite.",
+          "en": "He gets dizzy when he stands up too quickly.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.droit.006",
+          "theme": "droit",
+          "fr": "Le notaire s'occupe de la vente de la maison.",
+          "en": "The notary is handling the sale of the house.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.droit.010",
+          "theme": "droit",
+          "fr": "La police a arrêté le suspect près de la gare.",
+          "en": "The police arrested the suspect near the train station.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.paysages.007",
+          "theme": "paysages",
+          "fr": "Le petit village est niché au fond de la vallée.",
+          "en": "The small village is nestled at the bottom of the valley.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.paysages.013",
+          "theme": "paysages",
+          "fr": "Des champs de lavande s'étendent à perte de vue.",
+          "en": "Fields of lavender stretch as far as the eye can see.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.paysages.102",
+          "theme": "paysages",
+          "fr": "Il est possible que la brume se lève avant midi.",
+          "en": "It's possible that the mist will lift before noon.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.065",
+          "theme": "rp-meteo-nature",
+          "fr": "Le ciel est couvert, mais il ne pleut pas encore.",
+          "en": "The sky is overcast, but it isn't raining yet.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.112",
+          "theme": "soins",
+          "fr": "Ma fille a reçu son vaccin contre la grippe hier.",
+          "en": "My daughter got her flu shot yesterday.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-voyage.084",
+          "theme": "rp-voyage",
+          "fr": "Je souhaite que notre chambre ait vue sur la mer.",
+          "en": "I hope our room has a sea view.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.010",
+          "theme": "bien-etre",
+          "fr": "Elle essaie de faire de l'exercice tous les jours.",
+          "en": "She tries to exercise every day.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.paysages.005",
+          "theme": "paysages",
+          "fr": "Le lac est tellement calme qu'on dirait un miroir.",
+          "en": "The lake is so calm it looks like a mirror.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.016",
+          "theme": "bien-etre",
+          "fr": "Je bois beaucoup d'eau pour rester en bonne santé.",
+          "en": "I drink a lot of water to stay healthy.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.015",
+          "theme": "bien-etre",
+          "fr": "Prendre du temps pour soi aide à réduire le stress.",
+          "en": "Taking time for yourself helps reduce stress.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.018",
+          "theme": "soins",
+          "fr": "L'infirmière m'a fait une piqûre avant l'opération.",
+          "en": "The nurse gave me a shot before the operation.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.064",
+          "theme": "rp-meteo-nature",
+          "fr": "J'espère qu'il ne neigera pas pendant notre voyage.",
+          "en": "I hope it won't snow during our trip.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.081",
+          "theme": "rp-meteo-nature",
+          "fr": "Il se pourrait que l'ouragan touche la côte samedi.",
+          "en": "The hurricane might hit the coast on Saturday.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-sante.064",
+          "theme": "rp-sante",
+          "fr": "Il faut que j'apporte ma carte d'assurance maladie.",
+          "en": "I need to bring my health insurance card.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.symptomes.111",
+          "theme": "symptomes",
+          "fr": "Bien qu'il soit épuisé, il refuse de prendre congé.",
+          "en": "Even though he's exhausted, he refuses to take time off.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.symptomes.009",
+          "theme": "symptomes",
+          "fr": "Tu as des frissons, tu devrais peut-être te reposer.",
+          "en": "You've got the chills, maybe you should rest.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.hebergement.009",
+          "theme": "hebergement",
+          "fr": "Cet hôtel propose une piscine et une salle de sport.",
+          "en": "This hotel offers a swimming pool and a gym.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.061",
+          "theme": "rp-meteo-nature",
+          "fr": "Il faut que tu prennes un parapluie avant de sortir.",
+          "en": "You need to take an umbrella before going out.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.014",
+          "theme": "bien-etre",
+          "fr": "Elle essaie de faire du sport trois fois par semaine.",
+          "en": "She tries to exercise three times a week.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.026",
+          "theme": "soins",
+          "fr": "Ils ont fait un bandage autour de sa cheville foulée.",
+          "en": "They bandaged around her sprained ankle.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.hebergement.022",
+          "theme": "hebergement",
+          "fr": "Nous avons laissé un pourboire à la femme de chambre.",
+          "en": "We left a tip for the housekeeper.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-sante.062",
+          "theme": "rp-sante",
+          "fr": "J'aimerais changer mon rendez-vous si c'est possible.",
+          "en": "I would like to change my appointment if possible.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.106",
+          "theme": "bien-etre",
+          "fr": "Nous avons pris l'habitude de marcher après le dîner.",
+          "en": "We got into the habit of walking after dinner.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.071",
+          "theme": "rp-meteo-nature",
+          "fr": "Je crois que le printemps arrive plus tôt cette année.",
+          "en": "I think spring is arriving earlier this year.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.symptomes.089",
+          "theme": "symptomes",
+          "fr": "Si j'avais plus mal, j'irais directement aux urgences.",
+          "en": "If I were in more pain, I would go straight to the emergency room.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.symptomes.092",
+          "theme": "symptomes",
+          "fr": "Je ne pensais pas que la grippe me fatiguerait autant.",
+          "en": "I didn't think the flu would tire me out so much.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.105",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons demandé un permis d'études pour notre fils.",
+          "en": "We applied for a study permit for our son.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.tourisme.066",
+          "theme": "tourisme",
+          "fr": "Je voudrais savoir si le musée est ouvert le dimanche.",
+          "en": "I would like to know if the museum is open on Sundays.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.droit.004",
+          "theme": "droit",
+          "fr": "Elle a signé le contrat après l'avoir lu attentivement.",
+          "en": "She signed the contract after reading it carefully.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.124",
+          "theme": "soins",
+          "fr": "Le médecin a insisté pour que je passe une échographie.",
+          "en": "The doctor insisted that I get an ultrasound.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.b1.paysages.098",
+          "theme": "paysages",
+          "fr": "Je pense que le paysage change beaucoup selon la saison.",
+          "en": "I think the landscape changes a lot depending on the season.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-sante.061",
+          "theme": "rp-sante",
+          "fr": "Est-ce que vous avez de la disponibilité cette semaine ?",
+          "en": "Do you have any availability this week?",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.142",
+          "theme": "douane-et-immigration",
+          "fr": "J'aurais aimé que l'entrevue se déroule plus rapidement.",
+          "en": "I would have liked the interview to go more quickly.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.hebergement.088",
+          "theme": "hebergement",
+          "fr": "Il est possible que le loyer augmente l'année prochaine.",
+          "en": "It's possible that the rent will go up next year.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.tourisme.067",
+          "theme": "tourisme",
+          "fr": "Pourriez-vous me dire comment aller à la gare routière ?",
+          "en": "Could you tell me how to get to the bus station?",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.031",
+          "theme": "soins",
+          "fr": "Vous devez garder ce pansement au sec pendant deux jours.",
+          "en": "You need to keep this bandage dry for two days.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.droit.011",
+          "theme": "droit",
+          "fr": "Le contrat de travail précise les horaires et le salaire.",
+          "en": "The employment contract specifies the hours and the salary.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.tourisme.007",
+          "theme": "tourisme",
+          "fr": "Nous avons pris le train pour visiter la région viticole.",
+          "en": "We took the train to visit the wine region.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.tourisme.026",
+          "theme": "tourisme",
+          "fr": "Ce quartier est connu pour ses nombreuses galeries d'art.",
+          "en": "This neighborhood is known for its many art galleries.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.hebergement.008",
+          "theme": "hebergement",
+          "fr": "La réceptionniste nous a donné les clés de notre chambre.",
+          "en": "The receptionist gave us the keys to our room.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.062",
+          "theme": "rp-meteo-nature",
+          "fr": "S'il faisait plus chaud, on pourrait pique-niquer dehors.",
+          "en": "If it were warmer, we could have a picnic outside.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.073",
+          "theme": "rp-meteo-nature",
+          "fr": "Les enfants aiment sauter dans les flaques après l'orage.",
+          "en": "The children love jumping in puddles after the storm.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.084",
+          "theme": "rp-meteo-nature",
+          "fr": "La rivière a débordé après trois jours de pluie continue.",
+          "en": "The river overflowed after three days of continuous rain.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.178",
+          "theme": "systeme-de-sante",
+          "fr": "Je crois que mon assurance ne couvre pas cette chirurgie.",
+          "en": "I believe my insurance doesn't cover this surgery.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.symptomes.108",
+          "theme": "symptomes",
+          "fr": "Il faut que je prenne mes médicaments avant chaque repas.",
+          "en": "I have to take my medication before every meal.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.hebergement.079",
+          "theme": "hebergement",
+          "fr": "Je doute que le propriétaire accepte de baisser le loyer.",
+          "en": "I doubt the landlord will agree to lower the rent.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.paysages.018",
+          "theme": "paysages",
+          "fr": "Des cascades se jettent depuis les hauteurs de la falaise.",
+          "en": "Waterfalls cascade down from the heights of the cliff.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.023",
+          "theme": "soins",
+          "fr": "Le médecin va vous ausculter avant de poser un diagnostic.",
+          "en": "The doctor is going to examine you before making a diagnosis.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.029",
+          "theme": "bien-etre",
+          "fr": "On dort mieux quand la chambre est fraîche et silencieuse.",
+          "en": "You sleep better when the room is cool and quiet.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.092",
+          "theme": "transports-quotidiens",
+          "fr": "Les grévistes ont bloqué la gare pendant toute la matinée.",
+          "en": "The strikers blocked the train station all morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.093",
+          "theme": "transports-quotidiens",
+          "fr": "Il est important de vérifier les horaires avant de partir.",
+          "en": "It is important to check the schedules before leaving.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.118",
+          "theme": "soins",
+          "fr": "Le médecin voudrait que je réduise ma consommation de sel.",
+          "en": "The doctor would like me to reduce my salt intake.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.096",
+          "theme": "bien-etre",
+          "fr": "Il faudrait que je prenne rendez-vous avec un psychologue.",
+          "en": "I should make an appointment with a psychologist.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.132",
+          "theme": "douane-et-immigration",
+          "fr": "Si tu voyages souvent, tu devrais demander la carte NEXUS.",
+          "en": "If you travel often, you should apply for the NEXUS card.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.tourisme.070",
+          "theme": "tourisme",
+          "fr": "Il vaudrait mieux que vous réserviez vos billets en ligne.",
+          "en": "It would be better if you booked your tickets online.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.017",
+          "theme": "soins",
+          "fr": "Je dois prendre rendez-vous chez le dentiste cette semaine.",
+          "en": "I need to make an appointment at the dentist's this week.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.droit.019",
+          "theme": "droit",
+          "fr": "Le jury a déclaré l'accusé non coupable après délibération.",
+          "en": "The jury found the defendant not guilty after deliberation.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-sante.060",
+          "theme": "rp-sante",
+          "fr": "Je voudrais prendre rendez-vous avec un médecin de famille.",
+          "en": "I would like to make an appointment with a family doctor.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.symptomes.105",
+          "theme": "symptomes",
+          "fr": "Il semble que ses symptômes se soient aggravés depuis hier.",
+          "en": "It seems his symptoms have gotten worse since yesterday.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.019",
+          "theme": "bien-etre",
+          "fr": "Tu devrais éteindre ton téléphone une heure avant de dormir.",
+          "en": "You should turn off your phone an hour before going to sleep.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.027",
+          "theme": "bien-etre",
+          "fr": "Je respire profondément quand je me sens stressé au travail.",
+          "en": "I breathe deeply when I feel stressed at work.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.paysages.100",
+          "theme": "paysages",
+          "fr": "Elle voudrait qu'on organise une randonnée jusqu'aux chutes.",
+          "en": "She would like us to organize a hike up to the falls.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.024",
+          "theme": "soins",
+          "fr": "Nous devons renouveler notre ordonnance avant la fin du mois.",
+          "en": "We need to renew our prescription before the end of the month.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.b1.droit.046",
+          "theme": "droit",
+          "fr": "Elle a porté plainte après le cambriolage de son appartement.",
+          "en": "She filed a complaint after her apartment was burgled.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.110",
+          "theme": "transports-quotidiens",
+          "fr": "Le contrôleur a vérifié que tous les billets étaient valides.",
+          "en": "The ticket inspector checked that all the tickets were valid.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.066",
+          "theme": "rp-meteo-nature",
+          "fr": "Nous devrions vérifier la météo avant de partir en randonnée.",
+          "en": "We should check the weather before going hiking.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-sante.073",
+          "theme": "rp-sante",
+          "fr": "Le médecin voudrait que je passe une radiographie du poignet.",
+          "en": "The doctor would like me to get an X-ray of my wrist.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.107",
+          "theme": "bien-etre",
+          "fr": "Il vaudrait mieux que tu consultes un spécialiste du sommeil.",
+          "en": "It would be better if you consulted a sleep specialist.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.167",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il faudrait que le comité examine ce dossier plus rapidement.",
+          "en": "The committee should examine this file more quickly.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.180",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Sans une copie certifiée, votre dossier risque d'être refusé.",
+          "en": "Without a certified copy, your file could be rejected.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.paysages.006",
+          "theme": "paysages",
+          "fr": "Les nuages s'accumulent derrière les collines depuis ce matin.",
+          "en": "Clouds have been gathering behind the hills since this morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.droit.014",
+          "theme": "droit",
+          "fr": "Il a perdu son permis de conduire après plusieurs infractions.",
+          "en": "He lost his driver's license after several offenses.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.hebergement.017",
+          "theme": "hebergement",
+          "fr": "Le propriétaire de l'appartement nous attend devant l'immeuble.",
+          "en": "The owner of the apartment is waiting for us in front of the building.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.168",
+          "theme": "systeme-de-sante",
+          "fr": "Il est important que les patients suivent bien leur traitement.",
+          "en": "It's important that patients follow their treatment properly.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.120",
+          "theme": "bien-etre",
+          "fr": "Quand nous étions stressés, nous sortions marcher dans le parc.",
+          "en": "When we were stressed, we would go walk in the park.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.hebergement.023",
+          "theme": "hebergement",
+          "fr": "Cette pension de famille sert un dîner traditionnel chaque soir.",
+          "en": "This guesthouse serves a traditional dinner every evening.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.123",
+          "theme": "soins",
+          "fr": "Ils ont transféré mon dossier médical vers la nouvelle clinique.",
+          "en": "They transferred my medical file to the new clinic.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.129",
+          "theme": "douane-et-immigration",
+          "fr": "Je dois montrer mon casier judiciaire pour compléter ma demande.",
+          "en": "I have to show my criminal record to complete my application.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.droit.007",
+          "theme": "droit",
+          "fr": "Le procès commence lundi prochain au tribunal de grande instance.",
+          "en": "The trial starts next Monday at the regional court.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.125",
+          "theme": "douane-et-immigration",
+          "fr": "Si vous obtenez la citoyenneté, vous pourrez voter aux élections.",
+          "en": "If you obtain citizenship, you will be able to vote in elections.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.173",
+          "theme": "systeme-de-sante",
+          "fr": "Nous espérons que la nouvelle clinique ouvrira ses portes bientôt.",
+          "en": "We hope the new clinic will open its doors soon.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.197",
+          "theme": "systeme-de-sante",
+          "fr": "Si tu attends trop longtemps, tes symptômes pourraient s'aggraver.",
+          "en": "If you wait too long, your symptoms could get worse.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-sante.079",
+          "theme": "rp-sante",
+          "fr": "Je voudrais savoir si cette clinique accepte de nouveaux patients.",
+          "en": "I would like to know if this clinic accepts new patients.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.hebergement.018",
+          "theme": "hebergement",
+          "fr": "Cette résidence propose des studios meublés pour les longs séjours.",
+          "en": "This residence offers furnished studios for long stays.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.193",
+          "theme": "systeme-de-sante",
+          "fr": "Le formulaire de consentement doit être signé avant l'intervention.",
+          "en": "The consent form must be signed before the procedure.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.194",
+          "theme": "systeme-de-sante",
+          "fr": "Il est essentiel que les patients comprennent bien leur diagnostic.",
+          "en": "It's essential that patients understand their diagnosis well.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.109",
+          "theme": "soins",
+          "fr": "Il vaudrait mieux que vous fassiez examiner cette toux persistante.",
+          "en": "You'd better have that persistent cough checked.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.179",
+          "theme": "systeme-de-sante",
+          "fr": "Avant de prendre ce médicament, demandez conseil à votre pharmacien.",
+          "en": "Before taking this medication, ask your pharmacist for advice.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.soins.102",
+          "theme": "soins",
+          "fr": "Mon assurance ne couvre pas cette consultation chez le dermatologue.",
+          "en": "My insurance doesn't cover this dermatologist appointment.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-voyage.081",
+          "theme": "rp-voyage",
+          "fr": "Nous avons attendu longtemps que le douanier examine nos passeports.",
+          "en": "We waited a long time for the customs officer to examine our passports.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.tourisme.018",
+          "theme": "tourisme",
+          "fr": "Nous avons goûté des spécialités régionales dans un petit restaurant.",
+          "en": "We tasted regional specialties in a small restaurant.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.hebergement.081",
+          "theme": "hebergement",
+          "fr": "Nous aimerions visiter l'appartement avant de prendre notre décision.",
+          "en": "We would like to visit the apartment before making our decision.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bien-etre.022",
+          "theme": "bien-etre",
+          "fr": "Nous essayons de limiter le sucre dans notre alimentation quotidienne.",
+          "en": "We try to limit sugar in our daily diet.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.186",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Je cherche un emploi qui corresponde à mon expérience professionnelle.",
+          "en": "I'm looking for a job that matches my professional experience.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.133",
+          "theme": "douane-et-immigration",
+          "fr": "Elle a apporté des documents supplémentaires pour prouver son adresse.",
+          "en": "She brought extra documents to prove her address.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.145",
+          "theme": "systeme-de-sante",
+          "fr": "Le pharmacien m'a expliqué comment prendre mes médicaments correctement.",
+          "en": "The pharmacist explained to me how to take my medications correctly.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.b1.quebec-et-francophonie.112",
+          "theme": "quebec-et-francophonie",
+          "fr": "La Suisse romande partage plusieurs expressions avec le français québécois.",
+          "en": "French-speaking Switzerland shares several expressions with Quebec French.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.166",
+          "theme": "systeme-de-sante",
+          "fr": "Le patient doit signer un formulaire avant toute intervention chirurgicale.",
+          "en": "The patient must sign a form before any surgical procedure.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.symptomes.012",
+          "theme": "symptomes",
+          "fr": "On dirait que j'ai attrapé un rhume ce week-end.",
+          "en": "It looks like I've caught a cold this weekend.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.paysages.108",
+          "theme": "paysages",
+          "fr": "On dirait que le lac est plus grand vu du sommet.",
+          "en": "It looks like the lake is bigger seen from the summit.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.001",
+          "theme": "symptomes",
+          "fr": "Il se sent fatigué depuis qu'il a arrêté de fumer.",
+          "en": "He has felt tired since he quit smoking.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.029",
+          "theme": "soins",
+          "fr": "On m'a mis un plâtre au bras pendant six semaines.",
+          "en": "They put a cast on my arm for six weeks.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.082",
+          "theme": "rp-meteo-nature",
+          "fr": "Nous avons dû rentrer plus tôt à cause de l'orage.",
+          "en": "We had to go home early because of the storm.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.016",
+          "theme": "symptomes",
+          "fr": "J'ai un point au côté quand je cours trop longtemps.",
+          "en": "I get a stitch in my side when I run for too long.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.083",
+          "theme": "rp-meteo-nature",
+          "fr": "Si le temps se calme, nous irons camper ce week-end.",
+          "en": "If the weather calms down, we'll go camping this weekend.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.100",
+          "theme": "transports-quotidiens",
+          "fr": "Je me demande si le tramway sera terminé avant l'été.",
+          "en": "I wonder if the tram will be finished before summer.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.113",
+          "theme": "symptomes",
+          "fr": "Je crains que ce ne soit pas seulement de la fatigue.",
+          "en": "I'm afraid it's not just fatigue.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.070",
+          "theme": "rp-meteo-nature",
+          "fr": "On annonce de fortes chutes de neige pour ce week-end.",
+          "en": "Heavy snowfall is forecast for this weekend.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bien-etre.021",
+          "theme": "bien-etre",
+          "fr": "Mon voisin fait du yoga tous les matins sur son balcon.",
+          "en": "My neighbor does yoga every morning on his balcony.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bien-etre.024",
+          "theme": "bien-etre",
+          "fr": "Il coupe son café après midi pour mieux dormir la nuit.",
+          "en": "He cuts off coffee after noon to sleep better at night.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.083",
+          "theme": "transports-quotidiens",
+          "fr": "Le bus que je prends chaque jour passe devant chez moi.",
+          "en": "The bus that I take every day goes by my house.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.103",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il faut que tu goûtes à la tourtière pendant les fêtes.",
+          "en": "You have to try tourtière during the holidays.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-sante.063",
+          "theme": "rp-sante",
+          "fr": "Le médecin m'a dit que je devrais me reposer davantage.",
+          "en": "The doctor told me I should rest more.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bien-etre.100",
+          "theme": "bien-etre",
+          "fr": "Tu devrais parler à ton patron de ta charge de travail.",
+          "en": "You should talk to your boss about your workload.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.164",
+          "theme": "immigration-et-citoyennete",
+          "fr": "La famille a fui son pays pour des raisons de sécurité.",
+          "en": "The family fled their country for safety reasons.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-voyage.079",
+          "theme": "rp-voyage",
+          "fr": "Je pense qu'il vaut mieux réserver la chambre en ligne.",
+          "en": "I think it's better to book the room online.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.051",
+          "theme": "droit",
+          "fr": "Chaque citoyen a le droit à un avocat, même sans argent.",
+          "en": "Every citizen has the right to a lawyer, even without money.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.082",
+          "theme": "transports-quotidiens",
+          "fr": "Si j'avais plus de temps, je prendrais toujours le vélo.",
+          "en": "If I had more time, I would always take the bike.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.165",
+          "theme": "systeme-de-sante",
+          "fr": "Si elle avait su, elle aurait pris rendez-vous plus tôt.",
+          "en": "If she had known, she would have made an appointment sooner.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.175",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin de garde travaille toute la nuit à l'urgence.",
+          "en": "The on-call doctor works all night in the emergency room.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.116",
+          "theme": "soins",
+          "fr": "Il faut que je fasse un bilan sanguin avant l'opération.",
+          "en": "I need to have blood work done before the surgery.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.067",
+          "theme": "rp-meteo-nature",
+          "fr": "Il est possible que la tempête arrive plus tôt que prévu.",
+          "en": "It's possible the storm will arrive earlier than expected.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.119",
+          "theme": "douane-et-immigration",
+          "fr": "Mon avocat en immigration m'a aidé à préparer le dossier.",
+          "en": "My immigration lawyer helped me prepare the file.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.028",
+          "theme": "soins",
+          "fr": "Je prends ces gouttes trois fois par jour avant les repas.",
+          "en": "I take these drops three times a day before meals.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bien-etre.025",
+          "theme": "bien-etre",
+          "fr": "Ma sœur tient un journal pour exprimer ce qu'elle ressent.",
+          "en": "My sister keeps a journal to express what she feels.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-voyage.065",
+          "theme": "rp-voyage",
+          "fr": "Pourrais-tu vérifier l'horaire des bus avant qu'on parte ?",
+          "en": "Could you check the bus schedule before we leave?",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.hebergement.084",
+          "theme": "hebergement",
+          "fr": "Bien que l'appartement soit petit, il est très bien situé.",
+          "en": "Although the apartment is small, it's very well located.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-voyage.076",
+          "theme": "rp-voyage",
+          "fr": "Le guide nous a expliqué comment utiliser le plan du métro.",
+          "en": "The guide explained to us how to use the metro map.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.tourisme.068",
+          "theme": "tourisme",
+          "fr": "Bien qu'il pleuve, nous avons décidé de faire la randonnée.",
+          "en": "Even though it's raining, we decided to go on the hike.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.b1.rp-meteo-nature.085",
+          "theme": "rp-meteo-nature",
+          "fr": "J'aimerais que le climat soit plus stable dans cette région.",
+          "en": "I'd like the climate to be more stable in this region.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.097",
+          "theme": "symptomes",
+          "fr": "Il vaudrait mieux que vous restiez chez vous jusqu'à demain.",
+          "en": "It would be better if you stayed home until tomorrow.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bien-etre.118",
+          "theme": "bien-etre",
+          "fr": "Le thérapeute m'a demandé de noter mes émotions chaque jour.",
+          "en": "The therapist asked me to write down my emotions every day.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bien-etre.017",
+          "theme": "bien-etre",
+          "fr": "Le week-end, nous aimons marcher en forêt pour nous détendre.",
+          "en": "On weekends, we like to walk in the forest to relax.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.049",
+          "theme": "droit",
+          "fr": "Il faut présenter une pièce d'identité pour retirer ce colis.",
+          "en": "You must show ID to pick up this package.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.072",
+          "theme": "rp-meteo-nature",
+          "fr": "Il vaudrait mieux annuler la sortie s'il continue à pleuvoir.",
+          "en": "It would be better to cancel the outing if it keeps raining.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.143",
+          "theme": "systeme-de-sante",
+          "fr": "Ma sœur souhaite qu'on lui prescrive un traitement plus doux.",
+          "en": "My sister wishes they would prescribe her a gentler treatment.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.107",
+          "theme": "symptomes",
+          "fr": "Elle a l'impression que son état empire malgré le traitement.",
+          "en": "She has the impression that her condition is worsening despite the treatment.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.110",
+          "theme": "soins",
+          "fr": "On m'a conseillé de consulter un cardiologue pour ma tension.",
+          "en": "I was advised to see a cardiologist about my blood pressure.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.121",
+          "theme": "soins",
+          "fr": "J'ai téléchargé mes résultats d'analyse sur le portail santé.",
+          "en": "I downloaded my test results on the health portal.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bien-etre.098",
+          "theme": "bien-etre",
+          "fr": "Mon médecin m'a conseillé de réduire ma consommation de café.",
+          "en": "My doctor advised me to reduce my coffee consumption.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.tourisme.072",
+          "theme": "tourisme",
+          "fr": "Nous aimerions que le guide nous explique l'histoire du site.",
+          "en": "We would like the guide to explain the history of the site to us.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.015",
+          "theme": "soins",
+          "fr": "Il vaut mieux prendre rendez-vous avant que la douleur empire.",
+          "en": "It's better to make an appointment before the pain gets worse.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.022",
+          "theme": "soins",
+          "fr": "Elle a pris rendez-vous avec un kinésithérapeute pour son dos.",
+          "en": "She made an appointment with a physiotherapist for her back.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.tourisme.015",
+          "theme": "tourisme",
+          "fr": "Nous nous sommes perdus dans les petites rues du centre-ville.",
+          "en": "We got lost in the small streets of the city center.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-sante.067",
+          "theme": "rp-sante",
+          "fr": "Je pense que je devrais consulter un spécialiste pour mon dos.",
+          "en": "I think I should see a specialist for my back.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.132",
+          "theme": "droit",
+          "fr": "Il faut que le propriétaire répare le chauffage avant l'hiver.",
+          "en": "The landlord needs to fix the heating before winter.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.paysages.114",
+          "theme": "paysages",
+          "fr": "Bien qu'il pleuve, les touristes continuent d'explorer le parc.",
+          "en": "Even though it's raining, the tourists keep exploring the park.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.104",
+          "theme": "soins",
+          "fr": "Nous avons appelé une infirmière à domicile pour ma grand-mère.",
+          "en": "We called a home nurse for my grandmother.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.173",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le médecin a vérifié que je n'avais aucune maladie contagieuse.",
+          "en": "The doctor checked that I had no contagious illness.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.130",
+          "theme": "droit",
+          "fr": "Elle voudrait savoir si son visa de travail peut être prolongé.",
+          "en": "She would like to know if her work visa can be extended.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.124",
+          "theme": "douane-et-immigration",
+          "fr": "Le poste frontalier ferme à vingt-deux heures les jours fériés.",
+          "en": "The border crossing closes at ten p.m. on public holidays.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.hebergement.085",
+          "theme": "hebergement",
+          "fr": "Si le voisin continuait à faire du bruit, je porterais plainte.",
+          "en": "If the neighbor kept making noise, I would file a complaint.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.181",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin lui a conseillé de se reposer pendant quelques jours.",
+          "en": "The doctor advised him to rest for a few days.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-sante.076",
+          "theme": "rp-sante",
+          "fr": "Je crois que ma prescription est expirée depuis le mois dernier.",
+          "en": "I believe my prescription expired last month.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-sante.085",
+          "theme": "rp-sante",
+          "fr": "Je préfère consulter en ligne quand mon horaire est trop chargé.",
+          "en": "I prefer to consult online when my schedule is too busy.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.098",
+          "theme": "symptomes",
+          "fr": "Depuis qu'elle a changé de médicament, ses vertiges ont diminué.",
+          "en": "Since she changed medication, her dizziness has lessened.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.103",
+          "theme": "soins",
+          "fr": "Il faudrait que tu ailles voir un ophtalmologiste pour tes yeux.",
+          "en": "You should go see an eye doctor about your eyes.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.114",
+          "theme": "soins",
+          "fr": "Si tu avais mal au dos, je te conseillerais un kinésithérapeute.",
+          "en": "If you had back pain, I would recommend a physiotherapist.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.150",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il faut que vous remplissiez le formulaire avant la date limite.",
+          "en": "You need to fill out the form before the deadline.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.150",
+          "theme": "douane-et-immigration",
+          "fr": "Le rendez-vous biométrique a été reporté à la semaine prochaine.",
+          "en": "The biometrics appointment has been postponed to next week.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.101",
+          "theme": "quebec-et-francophonie",
+          "fr": "Au Québec, on dit « magasiner » au lieu de « faire du shopping ».",
+          "en": "In Quebec, people say 'magasiner' instead of 'go shopping'.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.paysages.113",
+          "theme": "paysages",
+          "fr": "Ma tante voudrait déménager à la campagne pour profiter du calme.",
+          "en": "My aunt would like to move to the countryside to enjoy the quiet.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.b1.systeme-de-sante.140",
+          "theme": "systeme-de-sante",
+          "fr": "Nous avons attendu deux heures avant que le médecin nous reçoive.",
+          "en": "We waited two hours before the doctor saw us.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.154",
+          "theme": "systeme-de-sante",
+          "fr": "Il se peut que votre assurance privée couvre les soins dentaires.",
+          "en": "It may be that your private insurance covers dental care.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.183",
+          "theme": "systeme-de-sante",
+          "fr": "L'hôpital a ouvert une nouvelle aile pour les soins pédiatriques.",
+          "en": "The hospital opened a new wing for pediatric care.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.soins.107",
+          "theme": "soins",
+          "fr": "Tu as pensé à renouveler ton assurance maladie avant de voyager ?",
+          "en": "Did you think about renewing your health insurance before traveling?",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.129",
+          "theme": "droit",
+          "fr": "Le formulaire de demande d'asile doit être rempli avec précision.",
+          "en": "The asylum application form must be filled out precisely.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-voyage.068",
+          "theme": "rp-voyage",
+          "fr": "Dès que nous aurons récupéré nos bagages, nous prendrons un taxi.",
+          "en": "As soon as we have picked up our luggage, we will take a taxi.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.091",
+          "theme": "transports-quotidiens",
+          "fr": "Je crois que le covoiturage réduit vraiment la pollution en ville.",
+          "en": "I believe that carpooling really reduces pollution in the city.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.149",
+          "theme": "systeme-de-sante",
+          "fr": "Si le médecin l'exige, l'infirmière prendra ta tension artérielle.",
+          "en": "If the doctor requires it, the nurse will take your blood pressure.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.160",
+          "theme": "systeme-de-sante",
+          "fr": "Les urgences sont réservées aux cas graves, pas aux petits rhumes.",
+          "en": "The emergency room is reserved for serious cases, not minor colds.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.088",
+          "theme": "symptomes",
+          "fr": "Le médecin pense que je devrais me reposer pendant quelques jours.",
+          "en": "The doctor thinks I should rest for a few days.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.153",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous étudiions le français tous les soirs pour réussir l'entrevue.",
+          "en": "We used to study French every evening to pass the interview.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.119",
+          "theme": "droit",
+          "fr": "Elle a rempli une demande de résidence permanente le mois dernier.",
+          "en": "She filled out a permanent residence application last month.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.120",
+          "theme": "droit",
+          "fr": "Le propriétaire ne peut pas augmenter le loyer sans préavis écrit.",
+          "en": "The landlord cannot raise the rent without written notice.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.140",
+          "theme": "droit",
+          "fr": "Il se peut que votre demande de citoyenneté prenne plusieurs mois.",
+          "en": "Your citizenship application may take several months.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.127",
+          "theme": "douane-et-immigration",
+          "fr": "Il faudrait que je fasse renouveler mon passeport avant le voyage.",
+          "en": "I would need to get my passport renewed before the trip.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.144",
+          "theme": "douane-et-immigration",
+          "fr": "Après avoir attendu deux heures, nous avons enfin passé la douane.",
+          "en": "After waiting two hours, we finally got through customs.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bien-etre.018",
+          "theme": "bien-etre",
+          "fr": "Elle médite dix minutes chaque matin avant de commencer sa journée.",
+          "en": "She meditates for ten minutes every morning before starting her day.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.097",
+          "theme": "transports-quotidiens",
+          "fr": "Si tu rates ta correspondance, il faudra attendre le train suivant.",
+          "en": "If you miss your connection, you will have to wait for the next train.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.136",
+          "theme": "systeme-de-sante",
+          "fr": "Elle attend son rendez-vous chez le dentiste depuis trois semaines.",
+          "en": "She has been waiting for her dentist appointment for three weeks.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.121",
+          "theme": "douane-et-immigration",
+          "fr": "On m'a envoyé en inspection secondaire pour vérifier mes documents.",
+          "en": "I was sent to secondary inspection to have my documents checked.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.130",
+          "theme": "douane-et-immigration",
+          "fr": "Nous attendions notre tour dans la file de contrôle des passeports.",
+          "en": "We were waiting our turn in the passport control line.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.134",
+          "theme": "douane-et-immigration",
+          "fr": "Le gouvernement exige que les demandeurs passent un test de langue.",
+          "en": "The government requires applicants to take a language test.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.050",
+          "theme": "droit",
+          "fr": "Le tribunal a rendu son jugement après trois heures de délibération.",
+          "en": "The court delivered its verdict after three hours of deliberation.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.101",
+          "theme": "transports-quotidiens",
+          "fr": "La compagnie a annoncé que les tarifs allaient augmenter en janvier.",
+          "en": "The company announced that fares were going to increase in January.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.paysages.105",
+          "theme": "paysages",
+          "fr": "Vous devriez visiter la Gaspésie si vous aimez les paysages côtiers.",
+          "en": "You should visit the Gaspésie if you like coastal landscapes.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.paysages.115",
+          "theme": "paysages",
+          "fr": "Je crois que cette vallée était autrefois recouverte par un glacier.",
+          "en": "I believe this valley used to be covered by a glacier.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.tourisme.017",
+          "theme": "tourisme",
+          "fr": "Il est conseillé de porter de bonnes chaussures pour cette randonnée.",
+          "en": "It is advisable to wear good shoes for this hike.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.141",
+          "theme": "systeme-de-sante",
+          "fr": "Il est possible que le laboratoire envoie les résultats par courriel.",
+          "en": "It's possible that the lab will send the results by email.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.095",
+          "theme": "symptomes",
+          "fr": "Le pharmacien m'a conseillé de consulter si les symptômes persistent.",
+          "en": "The pharmacist advised me to see a doctor if the symptoms persist.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.100",
+          "theme": "symptomes",
+          "fr": "Si tu continues à tousser ainsi, tu devrais consulter un spécialiste.",
+          "en": "If you keep coughing like this, you should see a specialist.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.122",
+          "theme": "douane-et-immigration",
+          "fr": "Ils ont pris mes empreintes digitales lors de l'entrevue biométrique.",
+          "en": "They took my fingerprints during the biometric interview.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.164",
+          "theme": "systeme-de-sante",
+          "fr": "La physiothérapeute m'a montré des exercices pour soulager mon épaule.",
+          "en": "The physiotherapist showed me exercises to relieve my shoulder.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.106",
+          "theme": "symptomes",
+          "fr": "Nous aimerions que vous nous rappeliez dès que les résultats arrivent.",
+          "en": "We would like you to call us back as soon as the results arrive.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.b1.droit.125",
+          "theme": "droit",
+          "fr": "Le tribunal des petites créances traite les litiges de faible montant.",
+          "en": "Small claims court handles disputes of low value.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.103",
+          "theme": "douane-et-immigration",
+          "fr": "Elle attend son entrevue pour la résidence permanente depuis six mois.",
+          "en": "She has been waiting for her permanent residency interview for six months.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.hebergement.082",
+          "theme": "hebergement",
+          "fr": "Il vaudrait mieux que vous lisiez attentivement chaque clause du bail.",
+          "en": "It would be better for you to read each clause of the lease carefully.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.hebergement.007",
+          "theme": "hebergement",
+          "fr": "Il vaudrait mieux annuler la réservation si nous arrivons après minuit.",
+          "en": "We'd better cancel the reservation if we arrive after midnight.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.116",
+          "theme": "transports-quotidiens",
+          "fr": "Quand on habite loin du centre, la voiture reste souvent indispensable.",
+          "en": "When you live far from the center, the car often remains essential.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.139",
+          "theme": "droit",
+          "fr": "Elle a demandé un délai supplémentaire pour rassembler tous ses papiers.",
+          "en": "She asked for extra time to gather all her papers.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.102",
+          "theme": "douane-et-immigration",
+          "fr": "J'ai rempli le formulaire de déclaration douanière avant l'atterrissage.",
+          "en": "I filled out the customs declaration form before landing.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.139",
+          "theme": "systeme-de-sante",
+          "fr": "Le système de santé public couvre la plupart des consultations médicales.",
+          "en": "The public health system covers most medical consultations.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.184",
+          "theme": "systeme-de-sante",
+          "fr": "Les personnes âgées bénéficient souvent d'un suivi médical plus régulier.",
+          "en": "Elderly people often benefit from more regular medical follow-up.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bien-etre.115",
+          "theme": "bien-etre",
+          "fr": "Elle aimerait suivre une thérapie de groupe pour partager son expérience.",
+          "en": "She would like to join group therapy to share her experience.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.159",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Avant de prêter serment, les nouveaux citoyens répètent l'hymne national.",
+          "en": "Before taking the oath, new citizens repeat the national anthem.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.198",
+          "theme": "immigration-et-citoyennete",
+          "fr": "En attendant la réponse, elle vit avec un statut temporaire renouvelable.",
+          "en": "While waiting for the response, she lives with a renewable temporary status.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.115",
+          "theme": "douane-et-immigration",
+          "fr": "Le renouvellement de ma carte de résident permanent prend plusieurs mois.",
+          "en": "Renewing my permanent resident card takes several months.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.138",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons reçu une lettre confirmant notre statut de résident permanent.",
+          "en": "We received a letter confirming our permanent resident status.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.158",
+          "theme": "systeme-de-sante",
+          "fr": "Le gouvernement encourage les citoyens à se faire vacciner chaque automne.",
+          "en": "The government encourages citizens to get vaccinated every fall.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-sante.070",
+          "theme": "rp-sante",
+          "fr": "Je suis allergique à certains antibiotiques, alors je le précise toujours.",
+          "en": "I am allergic to certain antibiotics, so I always mention it.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.111",
+          "theme": "transports-quotidiens",
+          "fr": "Si on partageait davantage nos trajets, on économiserait beaucoup d'argent.",
+          "en": "If we shared our trips more, we would save a lot of money.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.172",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'examen médical est obligatoire pour toute personne qui souhaite immigrer.",
+          "en": "The medical exam is mandatory for anyone who wishes to immigrate.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.134",
+          "theme": "droit",
+          "fr": "Nous aimerions obtenir un rendez-vous avec un conseiller juridique gratuit.",
+          "en": "We would like to get an appointment with a free legal advisor.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.droit.145",
+          "theme": "droit",
+          "fr": "La commission scolaire exige un certificat de naissance pour l'inscription.",
+          "en": "The school board requires a birth certificate for enrollment.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.148",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il semble que les Suisses romands comprennent facilement l'accent québécois.",
+          "en": "It seems that French-speaking Swiss easily understand the Quebec accent.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.176",
+          "theme": "systeme-de-sante",
+          "fr": "Il faudrait consulter un optométriste avant d'acheter de nouvelles lunettes.",
+          "en": "You should see an optometrist before buying new glasses.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.174",
+          "theme": "immigration-et-citoyennete",
+          "fr": "La vérification du casier judiciaire peut retarder le traitement du dossier.",
+          "en": "The criminal record check can delay the processing of the file.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.133",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les enfants québécois commencent souvent le cégep après leur secondaire cinq.",
+          "en": "Quebec children often start cégep after their fifth year of high school.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.195",
+          "theme": "systeme-de-sante",
+          "fr": "Nous aimerions que le gouvernement investisse davantage dans la santé mentale.",
+          "en": "We would like the government to invest more in mental health.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.167",
+          "theme": "systeme-de-sante",
+          "fr": "Les infirmières travaillent souvent de longues heures dans les hôpitaux publics.",
+          "en": "Nurses often work long hours in public hospitals.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.219",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le multiculturalisme est une valeur que le pays affirme protéger officiellement.",
+          "en": "Multiculturalism is a value the country officially claims to protect.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.189",
+          "theme": "systeme-de-sante",
+          "fr": "Les étudiants internationaux doivent souscrire une assurance santé avant leur arrivée.",
+          "en": "International students must take out health insurance before their arrival.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.symptomes.093",
+          "theme": "symptomes",
+          "fr": "Mon patron m'a demandé si j'avais encore de la fièvre.",
+          "en": "My boss asked me if I still had a fever.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.108",
+          "theme": "bien-etre",
+          "fr": "Quand j'ai des soucis, j'écris dans un carnet le soir.",
+          "en": "When I have worries, I write in a notebook at night.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.030",
+          "theme": "bien-etre",
+          "fr": "Écouter de la musique douce m'aide à me calmer le soir.",
+          "en": "Listening to soft music helps me calm down in the evening.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.soins.099",
+          "theme": "soins",
+          "fr": "Tu devrais boire plus d'eau si tu veux te sentir mieux.",
+          "en": "You should drink more water if you want to feel better.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.symptomes.017",
+          "theme": "symptomes",
+          "fr": "Vous avez l'air pâle, est-ce que vous vous sentez bien ?",
+          "en": "You look pale, do you feel okay?",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.b1.paysages.009",
+          "theme": "paysages",
+          "fr": "En hiver, la plaine se couvre d'une fine couche de givre.",
+          "en": "In winter, the plain becomes covered with a thin layer of frost.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-meteo-nature.069",
+          "theme": "rp-meteo-nature",
+          "fr": "Si tu avais un manteau plus chaud, tu n'aurais pas froid.",
+          "en": "If you had a warmer coat, you wouldn't be cold.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.symptomes.090",
+          "theme": "symptomes",
+          "fr": "Elle craint que sa toux ne soit le signe d'une bronchite.",
+          "en": "She fears her cough might be a sign of bronchitis.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.097",
+          "theme": "bien-etre",
+          "fr": "Si j'avais plus de temps, je ferais du yoga chaque matin.",
+          "en": "If I had more time, I would do yoga every morning.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.soins.025",
+          "theme": "soins",
+          "fr": "L'hôpital se trouve juste à côté de la pharmacie de garde.",
+          "en": "The hospital is right next to the on-call pharmacy.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.008",
+          "theme": "droit",
+          "fr": "Les parents se sont mis d'accord sur la garde des enfants.",
+          "en": "The parents agreed on custody of the children.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.111",
+          "theme": "bien-etre",
+          "fr": "Si on dormait plus tôt, on aurait plus d'énergie le matin.",
+          "en": "If we went to sleep earlier, we would have more energy in the morning.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.110",
+          "theme": "douane-et-immigration",
+          "fr": "L'agent d'immigration m'a demandé la raison de mon voyage.",
+          "en": "The immigration officer asked me the reason for my trip.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-voyage.073",
+          "theme": "rp-voyage",
+          "fr": "Si tu perds ton passeport, va tout de suite à l'ambassade.",
+          "en": "If you lose your passport, go straight to the embassy.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.paysages.019",
+          "theme": "paysages",
+          "fr": "Le phare se dresse tout seul au bout de la pointe rocheuse.",
+          "en": "The lighthouse stands alone at the end of the rocky point.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.symptomes.006",
+          "theme": "symptomes",
+          "fr": "Elle a des rougeurs sur les bras et ça la démange beaucoup.",
+          "en": "She has redness on her arms and it itches a lot.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.136",
+          "theme": "droit",
+          "fr": "Si tu signes ce document sans le lire, tu prends un risque.",
+          "en": "If you sign this document without reading it, you're taking a risk.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.tourisme.069",
+          "theme": "tourisme",
+          "fr": "Si j'avais plus de temps, je resterais une semaine de plus.",
+          "en": "If I had more time, I would stay one more week.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.018",
+          "theme": "droit",
+          "fr": "Il a dû payer une caution avant de pouvoir sortir de prison.",
+          "en": "He had to pay bail before he could get out of prison.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.symptomes.104",
+          "theme": "symptomes",
+          "fr": "Le médecin m'a demandé si la douleur irradiait vers le bras.",
+          "en": "The doctor asked me if the pain radiated toward the arm.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.117",
+          "theme": "droit",
+          "fr": "Le locataire a le droit de demander une copie du bail signé.",
+          "en": "The tenant has the right to request a copy of the signed lease.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.114",
+          "theme": "douane-et-immigration",
+          "fr": "Si j'avais su, j'aurais rempli le formulaire en ligne avant.",
+          "en": "If I had known, I would have filled out the form online beforehand.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-voyage.063",
+          "theme": "rp-voyage",
+          "fr": "Le douanier m'a demandé si j'avais quelque chose à déclarer.",
+          "en": "The customs officer asked me if I had anything to declare.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.symptomes.013",
+          "theme": "symptomes",
+          "fr": "Il a des courbatures partout après son cours de sport d'hier.",
+          "en": "He's sore all over after yesterday's sports class.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.hebergement.025",
+          "theme": "hebergement",
+          "fr": "Nous cherchons un gîte pour passer le week-end à la campagne.",
+          "en": "We are looking for a cottage to spend the weekend in the countryside.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-sante.069",
+          "theme": "rp-sante",
+          "fr": "Le dentiste veut que je revienne dans six mois pour un suivi.",
+          "en": "The dentist wants me to come back in six months for a follow-up.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-voyage.077",
+          "theme": "rp-voyage",
+          "fr": "Il serait plus simple de louer un vélo pour visiter la ville.",
+          "en": "It would be simpler to rent a bike to visit the city.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.023",
+          "theme": "bien-etre",
+          "fr": "Elle prend l'air chaque jour, même quand il fait froid dehors.",
+          "en": "She goes outside for fresh air every day, even when it's cold out.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-sante.077",
+          "theme": "rp-sante",
+          "fr": "L'assistante m'a demandé de patienter dans la salle d'attente.",
+          "en": "The assistant asked me to wait in the waiting room.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.113",
+          "theme": "bien-etre",
+          "fr": "Il faut absolument que je ralentisse un peu mon rythme de vie.",
+          "en": "I absolutely need to slow down my pace of life a little.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.117",
+          "theme": "bien-etre",
+          "fr": "Si je me sentais anxieux, j'appellerais un ami pour en parler.",
+          "en": "If I felt anxious, I would call a friend to talk about it.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.145",
+          "theme": "douane-et-immigration",
+          "fr": "Il se peut que votre dossier soit transféré à un autre bureau.",
+          "en": "Your file might be transferred to another office.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.020",
+          "theme": "bien-etre",
+          "fr": "Manger des légumes frais aide à garder un bon niveau d'énergie.",
+          "en": "Eating fresh vegetables helps maintain a good energy level.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.paysages.097",
+          "theme": "paysages",
+          "fr": "Mon frère aimerait que je l'accompagne en canot sur la rivière.",
+          "en": "My brother would like me to go with him by canoe on the river.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.153",
+          "theme": "systeme-de-sante",
+          "fr": "Quand j'étais enfant, j'avais peur des piqûres chez le médecin.",
+          "en": "When I was a child, I was afraid of shots at the doctor's.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.soins.119",
+          "theme": "soins",
+          "fr": "Elle a reçu un appel de l'hôpital pour confirmer son opération.",
+          "en": "She got a call from the hospital to confirm her surgery.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.102",
+          "theme": "bien-etre",
+          "fr": "Depuis qu'elle a commencé la thérapie, elle se sent plus calme.",
+          "en": "Since she started therapy, she feels calmer.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.104",
+          "theme": "douane-et-immigration",
+          "fr": "Si vous avez plus de dix mille dollars, vous devez le déclarer.",
+          "en": "If you have more than ten thousand dollars, you must declare it.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.b1.tourisme.011",
+          "theme": "tourisme",
+          "fr": "Nous devons acheter les billets à l'avance pour éviter la queue.",
+          "en": "We need to buy the tickets in advance to avoid the line.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.tourisme.016",
+          "theme": "tourisme",
+          "fr": "Le sommet de la montagne offre une vue magnifique sur la vallée.",
+          "en": "The mountain summit offers a magnificent view of the valley.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.148",
+          "theme": "systeme-de-sante",
+          "fr": "Je doute que la liste d'attente diminue avant l'année prochaine.",
+          "en": "I doubt the waiting list will shrink before next year.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.163",
+          "theme": "systeme-de-sante",
+          "fr": "J'aimerais que le système de santé réduise les délais d'attente.",
+          "en": "I would like the health system to reduce wait times.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.196",
+          "theme": "systeme-de-sante",
+          "fr": "La clinique sans rendez-vous ferme à dix-huit heures en semaine.",
+          "en": "The walk-in clinic closes at 6 p.m. on weekdays.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.symptomes.094",
+          "theme": "symptomes",
+          "fr": "Bien qu'elle ait pris des médicaments, sa migraine ne passe pas.",
+          "en": "Even though she took medication, her migraine won't go away.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.symptomes.103",
+          "theme": "symptomes",
+          "fr": "Pourvu que la fièvre baisse avant la nuit, on évitera l'urgence.",
+          "en": "Provided the fever drops before nightfall, we'll avoid the ER.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.symptomes.109",
+          "theme": "symptomes",
+          "fr": "Si j'étais vous, je consulterais avant que ça ne devienne grave.",
+          "en": "If I were you, I'd see a doctor before it gets serious.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.soins.101",
+          "theme": "soins",
+          "fr": "Elle attend les résultats de sa prise de sang depuis deux jours.",
+          "en": "She has been waiting for her blood test results for two days.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.hebergement.077",
+          "theme": "hebergement",
+          "fr": "Si j'avais plus d'argent, je louerais un appartement plus grand.",
+          "en": "If I had more money, I would rent a bigger apartment.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.124",
+          "theme": "quebec-et-francophonie",
+          "fr": "On aurait aimé rester plus longtemps au Festival d'été de Québec.",
+          "en": "We would have liked to stay longer at the Quebec City Summer Festival.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.soins.106",
+          "theme": "soins",
+          "fr": "J'aimerais changer de pharmacie parce que celle-ci est trop loin.",
+          "en": "I would like to change pharmacies because this one is too far.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.218",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Après avoir obtenu sa citoyenneté, il s'est enfin senti chez lui.",
+          "en": "After getting his citizenship, he finally felt at home.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.222",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'agente nous a félicités chaleureusement à la fin de l'entrevue.",
+          "en": "The officer warmly congratulated us at the end of the interview.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.131",
+          "theme": "douane-et-immigration",
+          "fr": "Le statut de réfugié lui a été accordé après une longue audience.",
+          "en": "Refugee status was granted to him after a long hearing.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.hebergement.076",
+          "theme": "hebergement",
+          "fr": "Il faut que tu contactes le propriétaire avant de signer le bail.",
+          "en": "You need to contact the landlord before signing the lease.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.026",
+          "theme": "bien-etre",
+          "fr": "Passer du temps avec des amis nous rend plus heureux au quotidien.",
+          "en": "Spending time with friends makes us happier day to day.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.016",
+          "theme": "droit",
+          "fr": "Elle a signé une procuration pour que son frère gère ses affaires.",
+          "en": "She signed a power of attorney so that her brother could manage her affairs.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.hebergement.024",
+          "theme": "hebergement",
+          "fr": "Il faut appeler la réception si vous avez besoin de quelque chose.",
+          "en": "You need to call the front desk if you need anything.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.106",
+          "theme": "transports-quotidiens",
+          "fr": "Je pense qu'il faudrait plus de pistes cyclables dans cette ville.",
+          "en": "I think there should be more bike lanes in this city.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.soins.120",
+          "theme": "soins",
+          "fr": "Tu ne devrais pas arrêter ce traitement sans en parler au médecin.",
+          "en": "You shouldn't stop this treatment without talking to the doctor about it.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.109",
+          "theme": "douane-et-immigration",
+          "fr": "Quand je suis arrivé au Canada, je ne parlais pas encore français.",
+          "en": "When I arrived in Canada, I couldn't speak French yet.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.112",
+          "theme": "douane-et-immigration",
+          "fr": "Les voyageurs qui n'ont rien à déclarer empruntent la ligne verte.",
+          "en": "Travelers who have nothing to declare take the green line.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.paysages.016",
+          "theme": "paysages",
+          "fr": "Les touristes prennent des photos du coucher de soleil sur la baie.",
+          "en": "The tourists are taking photos of the sunset over the bay.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.soins.019",
+          "theme": "soins",
+          "fr": "Nous attendons notre tour dans la salle d'attente depuis une heure.",
+          "en": "We've been waiting our turn in the waiting room for an hour.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.hebergement.027",
+          "theme": "hebergement",
+          "fr": "Nous avons trouvé un logement charmant grâce à un site de location.",
+          "en": "We found a charming place to stay thanks to a rental website.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.103",
+          "theme": "transports-quotidiens",
+          "fr": "Ce que je préfère dans le train, c'est pouvoir lire tranquillement.",
+          "en": "What I like best about the train is being able to read quietly.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.135",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin m'a recommandé de consulter un spécialiste pour mon dos.",
+          "en": "The doctor recommended I see a specialist for my back.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.169",
+          "theme": "systeme-de-sante",
+          "fr": "Mon collègue pense que la clinique privée coûte trop cher pour lui.",
+          "en": "My colleague thinks the private clinic is too expensive for him.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.177",
+          "theme": "systeme-de-sante",
+          "fr": "La salle d'attente était pleine quand nous sommes arrivés ce matin.",
+          "en": "The waiting room was full when we arrived this morning.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.symptomes.091",
+          "theme": "symptomes",
+          "fr": "Il faudrait que tu prennes rendez-vous avant que la douleur empire.",
+          "en": "You should make an appointment before the pain gets worse.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.099",
+          "theme": "bien-etre",
+          "fr": "Quand j'étais plus jeune, je dormais beaucoup mieux qu'aujourd'hui.",
+          "en": "When I was younger, I used to sleep much better than today.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.156",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il est possible que votre dossier soit transféré à un autre bureau.",
+          "en": "It's possible your file will be transferred to another office.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.b1.droit.143",
+          "theme": "droit",
+          "fr": "Le locataire et le propriétaire ont réglé le différend à l'amiable.",
+          "en": "The tenant and landlord settled the dispute amicably.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-voyage.062",
+          "theme": "rp-voyage",
+          "fr": "Si vous aviez plus de temps, quel pays visiteriez-vous en premier ?",
+          "en": "If you had more time, which country would you visit first?",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.017",
+          "theme": "droit",
+          "fr": "L'assurance a refusé de rembourser les dégâts causés par l'accident.",
+          "en": "The insurance company refused to reimburse the damage caused by the accident.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.hebergement.015",
+          "theme": "hebergement",
+          "fr": "Cette auberge est idéale pour les voyageurs qui ont un petit budget.",
+          "en": "This hostel is ideal for travelers on a small budget.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.hebergement.016",
+          "theme": "hebergement",
+          "fr": "Nous avons changé de chambre parce que la nôtre était trop bruyante.",
+          "en": "We changed rooms because ours was too noisy.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.053",
+          "theme": "droit",
+          "fr": "Le suspect a le droit de garder le silence pendant l'interrogatoire.",
+          "en": "The suspect has the right to remain silent during questioning.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.paysages.112",
+          "theme": "paysages",
+          "fr": "Il semble que les feuilles changent de couleur plus tôt cette année.",
+          "en": "It seems the leaves are changing color earlier this year.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-sante.081",
+          "theme": "rp-sante",
+          "fr": "Le médecin a suggéré que je fasse plus attention à mon alimentation.",
+          "en": "The doctor suggested that I pay more attention to my diet.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.109",
+          "theme": "bien-etre",
+          "fr": "Elle a pris un congé pour se remettre d'un épuisement professionnel.",
+          "en": "She took time off to recover from burnout.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.090",
+          "theme": "transports-quotidiens",
+          "fr": "Le conducteur nous a expliqué pourquoi le train avait pris du retard.",
+          "en": "The driver explained to us why the train had been delayed.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.paysages.104",
+          "theme": "paysages",
+          "fr": "Le fermier craint que la sécheresse n'abîme les récoltes cette année.",
+          "en": "The farmer fears the drought will damage the crops this year.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.paysages.116",
+          "theme": "paysages",
+          "fr": "Pour que les visiteurs profitent du paysage, le sentier a été élargi.",
+          "en": "So that visitors can enjoy the scenery, the trail was widened.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.198",
+          "theme": "systeme-de-sante",
+          "fr": "Le chirurgien a expliqué les risques avant de procéder à l'opération.",
+          "en": "The surgeon explained the risks before proceeding with the surgery.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.110",
+          "theme": "bien-etre",
+          "fr": "Je crois que la respiration profonde aide vraiment à calmer l'anxiété.",
+          "en": "I believe deep breathing really helps calm anxiety.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.107",
+          "theme": "douane-et-immigration",
+          "fr": "Il faut que vous apportiez votre certificat de naissance à l'entrevue.",
+          "en": "You need to bring your birth certificate to the interview.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.soins.016",
+          "theme": "soins",
+          "fr": "Le médecin lui a recommandé de faire plus attention à son alimentation.",
+          "en": "The doctor recommended that he pay more attention to his diet.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.hebergement.013",
+          "theme": "hebergement",
+          "fr": "Nous partons demain matin, alors nous devons faire les valises ce soir.",
+          "en": "We are leaving tomorrow morning, so we need to pack tonight.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.113",
+          "theme": "transports-quotidiens",
+          "fr": "J'aimerais savoir pourquoi cette ligne de métro est toujours en retard.",
+          "en": "I would like to know why this metro line is always late.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.146",
+          "theme": "systeme-de-sante",
+          "fr": "Il faudrait que tu appelles la clinique pour confirmer ton rendez-vous.",
+          "en": "You should call the clinic to confirm your appointment.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.soins.117",
+          "theme": "soins",
+          "fr": "Nous avons attendu presque trois heures à la clinique sans rendez-vous.",
+          "en": "We waited almost three hours at the walk-in clinic.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.151",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si j'avais plus d'expérience canadienne, ma demande serait plus solide.",
+          "en": "If I had more Canadian experience, my application would be stronger.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.161",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le juge de la citoyenneté a expliqué les valeurs démocratiques du pays.",
+          "en": "The citizenship judge explained the country's democratic values.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.181",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Les cours de francisation nous ont beaucoup aidés à trouver du travail.",
+          "en": "The French classes helped us a lot in finding work.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.tourisme.004",
+          "theme": "tourisme",
+          "fr": "Les touristes viennent de découvrir un petit café caché dans une ruelle.",
+          "en": "The tourists just discovered a small café hidden down an alley.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.paysages.110",
+          "theme": "paysages",
+          "fr": "Les scientifiques craignent que le glacier ne fonde plus vite que prévu.",
+          "en": "Scientists fear the glacier is melting faster than expected.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.155",
+          "theme": "systeme-de-sante",
+          "fr": "Le CLSC propose des services gratuits pour les familles à faible revenu.",
+          "en": "The community health centre offers free services for low-income families.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.101",
+          "theme": "bien-etre",
+          "fr": "Je pense qu'il est nécessaire que nous prenions une pause régulièrement.",
+          "en": "I think it's necessary that we take a break regularly.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.135",
+          "theme": "douane-et-immigration",
+          "fr": "J'ignorais qu'il fallait déclarer les produits alimentaires à la douane.",
+          "en": "I didn't know food products had to be declared at customs.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.hebergement.080",
+          "theme": "hebergement",
+          "fr": "Quand tu emménageras, pense à relever les compteurs dès le premier jour.",
+          "en": "When you move in, remember to note the meter readings from the first day.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.hebergement.006",
+          "theme": "hebergement",
+          "fr": "L'appartement que nous avons loué donnait sur une petite cour tranquille.",
+          "en": "The apartment we rented looked out over a quiet little courtyard.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.088",
+          "theme": "transports-quotidiens",
+          "fr": "Si le tramway n'existait pas, la ville serait beaucoup plus embouteillée.",
+          "en": "If the tram did not exist, the city would be much more congested.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.108",
+          "theme": "transports-quotidiens",
+          "fr": "Il semble que la nouvelle application indique les horaires en temps réel.",
+          "en": "It seems that the new app shows real-time schedules.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.paysages.107",
+          "theme": "paysages",
+          "fr": "Le photographe attend que la lumière soit parfaite pour prendre la photo.",
+          "en": "The photographer waits for the light to be perfect to take the photo.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.b1.paysages.111",
+          "theme": "paysages",
+          "fr": "Si nous partions maintenant, nous arriverions avant la tombée de la nuit.",
+          "en": "If we left now, we would arrive before nightfall.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.162",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous aimerions garder notre nationalité d'origine en plus de la nouvelle.",
+          "en": "We would like to keep our original nationality in addition to the new one.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.116",
+          "theme": "droit",
+          "fr": "Vous devez renouveler votre permis de travail avant la date d'expiration.",
+          "en": "You must renew your work permit before the expiration date.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.187",
+          "theme": "systeme-de-sante",
+          "fr": "Je voudrais que vous m'expliquiez les effets secondaires de ce médicament.",
+          "en": "I would like you to explain the side effects of this medication to me.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.191",
+          "theme": "systeme-de-sante",
+          "fr": "Si le patient refuse le traitement, le médecin doit respecter sa décision.",
+          "en": "If the patient refuses treatment, the doctor must respect their decision.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.104",
+          "theme": "bien-etre",
+          "fr": "Avant, je travaillais le week-end, mais maintenant je me repose davantage.",
+          "en": "Before, I used to work on weekends, but now I rest more.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.175",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il se peut que l'agent vous demande une empreinte digitale supplémentaire.",
+          "en": "The officer might ask you for an additional fingerprint.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.150",
+          "theme": "systeme-de-sante",
+          "fr": "Beaucoup de patients préfèrent la télémédecine parce que c'est plus rapide.",
+          "en": "Many patients prefer telemedicine because it's faster.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.128",
+          "theme": "droit",
+          "fr": "Si vous êtes congédié sans raison valable, vous pouvez déposer une plainte.",
+          "en": "If you are dismissed without valid reason, you can file a complaint.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.131",
+          "theme": "droit",
+          "fr": "Le comité des droits de la personne examine les plaintes de discrimination.",
+          "en": "The human rights committee reviews discrimination complaints.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-voyage.085",
+          "theme": "rp-voyage",
+          "fr": "Le steward nous a conseillé d'attacher notre ceinture avant l'atterrissage.",
+          "en": "The flight attendant advised us to fasten our seatbelt before landing.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.182",
+          "theme": "systeme-de-sante",
+          "fr": "Si j'étais malade, je préférerais consulter par téléphone plutôt que sortir.",
+          "en": "If I were sick, I would rather consult by phone than go out.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bien-etre.116",
+          "theme": "bien-etre",
+          "fr": "Nous avons appris des techniques de relaxation pendant l'atelier au travail.",
+          "en": "We learned relaxation techniques during the workshop at work.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.176",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Pendant l'entrevue, essayez de répondre calmement même si vous êtes nerveux.",
+          "en": "During the interview, try to answer calmly even if you're nervous.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.191",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons échangé notre permis de conduire étranger contre un permis local.",
+          "en": "We exchanged our foreign driver's license for a local one.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.213",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le conseiller nous recommande de garder une copie de chaque document envoyé.",
+          "en": "The consultant recommends we keep a copy of every document sent.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.123",
+          "theme": "droit",
+          "fr": "Le syndicat a négocié de meilleures conditions de travail pour les employés.",
+          "en": "The union negotiated better working conditions for the employees.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.133",
+          "theme": "droit",
+          "fr": "L'agent d'immigration a demandé des preuves supplémentaires pour le dossier.",
+          "en": "The immigration officer asked for additional proof for the file.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.137",
+          "theme": "droit",
+          "fr": "La loi oblige l'employeur à fournir un environnement de travail sécuritaire.",
+          "en": "The law requires the employer to provide a safe work environment.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.139",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les Congolais de Kinshasa parlent aussi le français, souvent mêlé au lingala.",
+          "en": "The Congolese of Kinshasa also speak French, often mixed with Lingala.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.142",
+          "theme": "droit",
+          "fr": "Vous devez signaler tout changement d'adresse aux autorités de l'immigration.",
+          "en": "You must report any change of address to immigration authorities.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.118",
+          "theme": "quebec-et-francophonie",
+          "fr": "Après le référendum de 1995, plusieurs débats sur l'indépendance ont continué.",
+          "en": "After the 1995 referendum, several debates about independence continued.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.185",
+          "theme": "systeme-de-sante",
+          "fr": "Il semble que le vaccin soit maintenant disponible dans toutes les pharmacies.",
+          "en": "It seems the vaccine is now available in all pharmacies.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.203",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous espérions que notre profil obtiendrait assez de points pour être invités.",
+          "en": "We were hoping our profile would score enough points to be invited.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.117",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les Haïtiens forment l'une des plus grandes communautés francophones d'Amérique.",
+          "en": "Haitians make up one of the largest French-speaking communities in the Americas.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.paysages.118",
+          "theme": "paysages",
+          "fr": "Les autorités souhaitent que le parc reste protégé pour les générations futures.",
+          "en": "Authorities want the park to remain protected for future generations.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.157",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Quand j'aurai obtenu ma résidence permanente, je pourrai enfin voyager librement.",
+          "en": "Once I have my permanent residence, I'll finally be able to travel freely.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.189",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le conseiller bancaire nous a expliqué les différents types de comptes disponibles.",
+          "en": "The bank advisor explained the different types of accounts available.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.136",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il faudrait que le gouvernement protège davantage les langues autochtones du Québec.",
+          "en": "The government should protect Quebec's Indigenous languages more.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.183",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'organisme communautaire propose de l'aide pour remplir les formulaires gratuitement.",
+          "en": "The community organization offers free help filling out forms.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.142",
+          "theme": "quebec-et-francophonie",
+          "fr": "L'Organisation internationale de la Francophonie regroupe des pays des cinq continents.",
+          "en": "The International Organisation of La Francophonie brings together countries from five continents.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.192",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Chaque printemps, les nouveaux arrivants doivent produire leur première déclaration de revenus.",
+          "en": "Every spring, newcomers must file their first tax return.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.droit.009",
+          "theme": "droit",
+          "fr": "Le témoin a raconté ce qu'il avait vu la nuit du vol.",
+          "en": "The witness recounted what he had seen the night of the theft.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 15,
+      "items": [
+        {
+          "id": "fr.b1.rp-voyage.074",
+          "theme": "rp-voyage",
+          "fr": "Je ne suis pas sûr que ce train s'arrête à cette gare.",
+          "en": "I'm not sure this train stops at this station.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.bien-etre.105",
+          "theme": "bien-etre",
+          "fr": "Si tu te sens dépassé, n'hésite pas à demander de l'aide.",
+          "en": "If you feel overwhelmed, don't hesitate to ask for help.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.152",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le permis de travail de mon mari expire à la fin du mois.",
+          "en": "My husband's work permit expires at the end of the month.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.hebergement.012",
+          "theme": "hebergement",
+          "fr": "Il n'y a plus de serviettes propres dans la salle de bain.",
+          "en": "There are no more clean towels in the bathroom.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.bien-etre.119",
+          "theme": "bien-etre",
+          "fr": "Il se peut que je prenne un jour de congé pour me reposer.",
+          "en": "It's possible that I'll take a day off to rest.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-voyage.072",
+          "theme": "rp-voyage",
+          "fr": "Il faut que je change de l'argent avant d'aller au marché.",
+          "en": "I need to exchange money before going to the market.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.symptomes.007",
+          "theme": "symptomes",
+          "fr": "Nous avons tous les deux mal à la tête depuis l'après-midi.",
+          "en": "We've both had headaches since the afternoon.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.droit.048",
+          "theme": "droit",
+          "fr": "Le juge a fixé la date de l'audience pour le mois prochain.",
+          "en": "The judge set the hearing date for next month.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.089",
+          "theme": "transports-quotidiens",
+          "fr": "Bien que le bus soit lent, il reste moins cher que le taxi.",
+          "en": "Although the bus is slow, it remains cheaper than the taxi.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-voyage.066",
+          "theme": "rp-voyage",
+          "fr": "Il est possible que le vol soit annulé à cause de la neige.",
+          "en": "It's possible that the flight will be cancelled because of the snow.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.hebergement.083",
+          "theme": "hebergement",
+          "fr": "Mon coloc a oublié de payer sa part des charges ce mois-ci.",
+          "en": "My roommate forgot to pay his share of the utility bills this month.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.117",
+          "theme": "transports-quotidiens",
+          "fr": "Je regrette de ne pas avoir pris le train plus tôt ce matin.",
+          "en": "I regret not having taken the train earlier this morning.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.symptomes.008",
+          "theme": "symptomes",
+          "fr": "Mon collègue a la voix enrouée parce qu'il a trop parlé hier.",
+          "en": "My colleague's voice is hoarse because he talked too much yesterday.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.symptomes.015",
+          "theme": "symptomes",
+          "fr": "Ma fille a de l'urticaire depuis qu'elle a mangé des fraises.",
+          "en": "My daughter has hives since she ate strawberries.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-sante.082",
+          "theme": "rp-sante",
+          "fr": "Depuis que j'ai déménagé, je n'ai plus de médecin de famille.",
+          "en": "Since I moved, I no longer have a family doctor.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.symptomes.101",
+          "theme": "symptomes",
+          "fr": "Je suis inquiet que mon fils ait encore de la fièvre ce soir.",
+          "en": "I'm worried that my son still has a fever tonight.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.symptomes.010",
+          "theme": "symptomes",
+          "fr": "J'ai les yeux qui piquent depuis que je suis rentré du jardin.",
+          "en": "My eyes have been stinging since I got back from the garden.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.symptomes.114",
+          "theme": "symptomes",
+          "fr": "Le médecin nous a rassurés en disant que ce n'était pas grave.",
+          "en": "The doctor reassured us by saying it wasn't serious.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.soins.100",
+          "theme": "soins",
+          "fr": "J'ai pris rendez-vous à la clinique sans rendez-vous ce matin.",
+          "en": "I made an appointment at the walk-in clinic this morning.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-voyage.060",
+          "theme": "rp-voyage",
+          "fr": "Il faut que tu confirmes ton vol avant de partir à l'aéroport.",
+          "en": "You need to confirm your flight before leaving for the airport.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.droit.012",
+          "theme": "droit",
+          "fr": "Elle a demandé un divorce à l'amiable après dix ans de mariage.",
+          "en": "She filed for an amicable divorce after ten years of marriage.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.droit.141",
+          "theme": "droit",
+          "fr": "Le voisin a appelé la police parce que le bruit ne cessait pas.",
+          "en": "The neighbor called the police because the noise wouldn't stop.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.116",
+          "theme": "douane-et-immigration",
+          "fr": "Elle a présenté une demande d'asile à son arrivée à l'aéroport.",
+          "en": "She filed an asylum claim upon her arrival at the airport.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.136",
+          "theme": "douane-et-immigration",
+          "fr": "Mon oncle a été expulsé du pays après l'expiration de son visa.",
+          "en": "My uncle was deported from the country after his visa expired.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.084",
+          "theme": "transports-quotidiens",
+          "fr": "Il faut que tu achètes ton billet avant de monter dans le train.",
+          "en": "You need to buy your ticket before getting on the train.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.bien-etre.103",
+          "theme": "bien-etre",
+          "fr": "Il est possible que le manque de sommeil cause ces maux de tête.",
+          "en": "It's possible that the lack of sleep is causing these headaches.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-voyage.078",
+          "theme": "rp-voyage",
+          "fr": "Avant que le bateau ne parte, vérifie que tu as bien ton billet.",
+          "en": "Before the boat leaves, check that you have your ticket.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-voyage.067",
+          "theme": "rp-voyage",
+          "fr": "J'aimerais que vous m'indiquiez où se trouve le bureau de change.",
+          "en": "I would like you to tell me where the currency exchange office is.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.symptomes.011",
+          "theme": "symptomes",
+          "fr": "Elle a du mal à respirer quand elle monte les escaliers trop vite.",
+          "en": "She has trouble breathing when she goes up the stairs too fast.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.094",
+          "theme": "transports-quotidiens",
+          "fr": "Depuis que j'ai déménagé, je mets une heure pour aller au travail.",
+          "en": "Since I moved, it takes me an hour to get to work.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.159",
+          "theme": "systeme-de-sante",
+          "fr": "Si tu te sens mal, n'hésite pas à consulter un médecin rapidement.",
+          "en": "If you feel unwell, don't hesitate to see a doctor quickly.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.162",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin a suggéré que je fasse plus d'exercice pour ma tension.",
+          "en": "The doctor suggested I exercise more for my blood pressure.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-sante.083",
+          "theme": "rp-sante",
+          "fr": "L'infirmière m'a rassuré en m'expliquant chaque étape de l'examen.",
+          "en": "The nurse reassured me by explaining each step of the exam.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 16,
+      "items": [
+        {
+          "id": "fr.b1.bien-etre.112",
+          "theme": "bien-etre",
+          "fr": "Mon collègue a pris des congés pour s'occuper de sa santé mentale.",
+          "en": "My colleague took time off to take care of his mental health.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.102",
+          "theme": "quebec-et-francophonie",
+          "fr": "Si j'avais plus de temps, je visiterais la vieille ville de Québec.",
+          "en": "If I had more time, I would visit Old Quebec City.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.paysages.096",
+          "theme": "paysages",
+          "fr": "Bien que le sentier soit difficile, la vue au sommet vaut l'effort.",
+          "en": "Although the trail is difficult, the view at the top is worth the effort.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.paysages.119",
+          "theme": "paysages",
+          "fr": "Nous pourrions pique-niquer sur la plage si le vent tombait un peu.",
+          "en": "We could have a picnic on the beach if the wind died down a bit.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.188",
+          "theme": "systeme-de-sante",
+          "fr": "Le médecin m'a demandé de revenir dans deux semaines pour un suivi.",
+          "en": "The doctor asked me to come back in two weeks for a follow-up.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-sante.074",
+          "theme": "rp-sante",
+          "fr": "J'ai pris congé de maladie parce que je ne pouvais plus travailler.",
+          "en": "I took sick leave because I could no longer work.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.droit.146",
+          "theme": "droit",
+          "fr": "L'employeur doit remettre un relevé d'emploi dès la fin du contrat.",
+          "en": "The employer must issue a record of employment at the end of the contract.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.symptomes.018",
+          "theme": "symptomes",
+          "fr": "Il a perdu l'appétit depuis qu'il a commencé son nouveau traitement.",
+          "en": "He's lost his appetite since he started his new treatment.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.147",
+          "theme": "systeme-de-sante",
+          "fr": "Après l'opération, elle a dû rester à l'hôpital pendant une semaine.",
+          "en": "After the surgery, she had to stay in the hospital for a week.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.symptomes.102",
+          "theme": "symptomes",
+          "fr": "Elle a expliqué à l'infirmière qu'elle avait mal depuis trois jours.",
+          "en": "She explained to the nurse that she'd been in pain for three days.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.196",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons décidé de faire appel de la décision du bureau des visas.",
+          "en": "We decided to appeal the visa office's decision.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.177",
+          "theme": "immigration-et-citoyennete",
+          "fr": "J'aurais aimé que quelqu'un m'explique mieux les étapes du processus.",
+          "en": "I wish someone had explained the steps of the process to me better.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.095",
+          "theme": "transports-quotidiens",
+          "fr": "Quand les routes sont bloquées, les gens prennent le métro à la place.",
+          "en": "When the roads are blocked, people take the metro instead.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.105",
+          "theme": "quebec-et-francophonie",
+          "fr": "Mon cousin a déménagé à Montréal parce qu'il voulait étudier au cégep.",
+          "en": "My cousin moved to Montreal because he wanted to study at cégep.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.138",
+          "theme": "quebec-et-francophonie",
+          "fr": "Quand on visite Québec en février, il ne faut pas manquer le Carnaval.",
+          "en": "When you visit Quebec City in February, you shouldn't miss the Carnival.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.symptomes.110",
+          "theme": "symptomes",
+          "fr": "Le médecin a remarqué que ma tension était plus élevée que d'habitude.",
+          "en": "The doctor noticed that my blood pressure was higher than usual.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.soins.105",
+          "theme": "soins",
+          "fr": "Le médecin de famille est parti en congé, alors je vois un remplaçant.",
+          "en": "My family doctor is on leave, so I'm seeing a substitute.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.128",
+          "theme": "douane-et-immigration",
+          "fr": "Les agents ont demandé à voir la lettre d'invitation de mon employeur.",
+          "en": "The officers asked to see the invitation letter from my employer.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.140",
+          "theme": "quebec-et-francophonie",
+          "fr": "Je crois que le joual est né dans les quartiers populaires de Montréal.",
+          "en": "I believe joual was born in the working-class neighbourhoods of Montreal.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.150",
+          "theme": "quebec-et-francophonie",
+          "fr": "Si on veut comprendre le Québec, il faut connaître un peu son histoire.",
+          "en": "If you want to understand Quebec, you need to know a bit of its history.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.paysages.095",
+          "theme": "paysages",
+          "fr": "Le guide nous a expliqué comment les glaciers se forment avec le temps.",
+          "en": "The guide explained to us how glaciers form over time.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.paysages.106",
+          "theme": "paysages",
+          "fr": "Quand j'aurai économisé assez d'argent, je ferai le tour des Rocheuses.",
+          "en": "When I've saved enough money, I'll tour the Rockies.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-sante.080",
+          "theme": "rp-sante",
+          "fr": "Si j'étais toi, je prendrais rendez-vous pour ce vaccin dès maintenant.",
+          "en": "If I were you, I would book an appointment for this vaccine right now.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-sante.084",
+          "theme": "rp-sante",
+          "fr": "Il faudrait que je renouvelle ma carte d'assurance maladie avant l'été.",
+          "en": "I need to renew my health insurance card before summer.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.215",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Elle attend depuis deux ans que son mari obtienne son visa de conjoint.",
+          "en": "She has been waiting two years for her husband to get his spousal visa.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.123",
+          "theme": "douane-et-immigration",
+          "fr": "Vous ne pouvez pas travailler tant que votre permis n'est pas approuvé.",
+          "en": "You cannot work until your permit is approved.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.115",
+          "theme": "transports-quotidiens",
+          "fr": "Il paraît que la ville va construire une nouvelle station près du stade.",
+          "en": "It seems that the city is going to build a new station near the stadium.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.131",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il faut absolument que tu voies une partie des Canadiens au Centre Bell.",
+          "en": "You absolutely have to see a Canadiens game at the Bell Centre.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.149",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons déposé notre demande de résidence permanente il y a six mois.",
+          "en": "We submitted our permanent residence application six months ago.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.165",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si sa demande d'asile est acceptée, elle pourra faire venir ses enfants.",
+          "en": "If her asylum claim is accepted, she will be able to bring her children over.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.146",
+          "theme": "douane-et-immigration",
+          "fr": "Le répondant doit prouver qu'il peut subvenir aux besoins de sa famille.",
+          "en": "The sponsor must prove that he can provide for his family's needs.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.104",
+          "theme": "quebec-et-francophonie",
+          "fr": "Beaucoup de Québécois passent leurs vacances d'hiver à la cabane à sucre.",
+          "en": "Many Quebecers spend their winter vacation at the sugar shack.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.106",
+          "theme": "quebec-et-francophonie",
+          "fr": "On célèbre la Saint-Jean-Baptiste le vingt-quatre juin partout au Québec.",
+          "en": "Saint-Jean-Baptiste Day is celebrated on June 24th all over Quebec.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 17,
+      "items": [
+        {
+          "id": "fr.b1.systeme-de-sante.138",
+          "theme": "systeme-de-sante",
+          "fr": "Je pense que tu devrais renouveler ton ordonnance avant qu'elle n'expire.",
+          "en": "I think you should renew your prescription before it expires.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.184",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Grâce aux bénévoles, nous avons trouvé un appartement en moins d'un mois.",
+          "en": "Thanks to the volunteers, we found an apartment in less than a month.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.droit.135",
+          "theme": "droit",
+          "fr": "Le contrat précise que l'employé doit donner un préavis de deux semaines.",
+          "en": "The contract specifies that the employee must give two weeks' notice.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.125",
+          "theme": "quebec-et-francophonie",
+          "fr": "Depuis la loi 101, l'affichage commercial doit être en français au Québec.",
+          "en": "Since Bill 101, commercial signage must be in French in Quebec.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.126",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il se peut que les Belges disent « septante » au lieu de « soixante-dix ».",
+          "en": "Belgians might say 'septante' instead of 'soixante-dix'.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.129",
+          "theme": "quebec-et-francophonie",
+          "fr": "Si vous visitez le Vieux-Montréal, ne manquez pas la basilique Notre-Dame.",
+          "en": "If you visit Old Montreal, don't miss Notre-Dame Basilica.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.168",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Mon oncle veut parrainer ses parents pour qu'ils puissent s'installer ici.",
+          "en": "My uncle wants to sponsor his parents so they can settle here.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.149",
+          "theme": "douane-et-immigration",
+          "fr": "Mon permis de travail expire dans trois mois, alors je dois le renouveler.",
+          "en": "My work permit expires in three months, so I have to renew it.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.080",
+          "theme": "transports-quotidiens",
+          "fr": "Je pense que les transports en commun sont plus écologiques que la voiture.",
+          "en": "I think that public transportation is more eco-friendly than the car.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.133",
+          "theme": "systeme-de-sante",
+          "fr": "Il faut que vous présentiez votre carte d'assurance maladie à la réception.",
+          "en": "You need to present your health insurance card at reception.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.182",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Elle suit des cours d'intégration deux fois par semaine depuis son arrivée.",
+          "en": "She has been taking integration classes twice a week since she arrived.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.111",
+          "theme": "quebec-et-francophonie",
+          "fr": "J'aimerais que mon fils apprenne le français avant notre voyage à Bruxelles.",
+          "en": "I'd like my son to learn French before our trip to Brussels.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.141",
+          "theme": "quebec-et-francophonie",
+          "fr": "Si tu commandes une poutine, choisis un endroit qui prépare sa sauce maison.",
+          "en": "If you order poutine, choose a place that makes its own sauce.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-sante.075",
+          "theme": "rp-sante",
+          "fr": "Il vaudrait mieux que vous consultiez un optométriste pour vos maux de tête.",
+          "en": "It would be better for you to see an optometrist for your headaches.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-voyage.061",
+          "theme": "rp-voyage",
+          "fr": "Je voudrais savoir combien coûte la location d'une voiture pour une semaine.",
+          "en": "I would like to know how much a car rental costs for a week.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.144",
+          "theme": "quebec-et-francophonie",
+          "fr": "Nous aimerions que nos enfants gardent un accent québécois même à l'étranger.",
+          "en": "We'd like our children to keep a Quebec accent even abroad.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.158",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Mes parents espèrent que je réussirai le test de citoyenneté du premier coup.",
+          "en": "My parents hope I will pass the citizenship test on the first try.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.178",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il vaut mieux que tous les documents soient traduits par un traducteur agréé.",
+          "en": "It's better for all documents to be translated by a certified translator.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.117",
+          "theme": "douane-et-immigration",
+          "fr": "Il est important que votre passeport soit valide six mois après votre départ.",
+          "en": "It's important that your passport be valid six months after your departure.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.188",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Pour ouvrir un compte bancaire, il faut présenter une pièce d'identité valide.",
+          "en": "To open a bank account, you must present valid identification.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.190",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si vous voulez conduire ici, vous devrez peut-être repasser l'examen pratique.",
+          "en": "If you want to drive here, you may have to retake the practical exam.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.216",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le comité d'accueil organise une fête pour les nouveaux citoyens chaque année.",
+          "en": "The welcome committee organizes a party for new citizens every year.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.paysages.093",
+          "theme": "paysages",
+          "fr": "Il faut que nous réservions le chalet avant que la saison touristique commence.",
+          "en": "We need to book the cabin before tourist season starts.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.157",
+          "theme": "systeme-de-sante",
+          "fr": "Avant que vous ne partiez, l'infirmière vous donnera vos prochains rendez-vous.",
+          "en": "Before you leave, the nurse will give you your next appointments.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.137",
+          "theme": "douane-et-immigration",
+          "fr": "Il vaudrait mieux que vous consultiez un avocat avant de déposer votre demande.",
+          "en": "It would be better for you to consult a lawyer before filing your application.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.174",
+          "theme": "systeme-de-sante",
+          "fr": "Si vous perdez votre carte d'assurance maladie, il faut la remplacer rapidement.",
+          "en": "If you lose your health insurance card, you must replace it quickly.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.170",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous devons renouveler notre carte de résident permanent avant qu'elle n'expire.",
+          "en": "We need to renew our permanent resident card before it expires.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.210",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Depuis que nous sommes arrivés, la ville nous semble plus accueillante que prévu.",
+          "en": "Since we arrived, the city has seemed more welcoming than expected.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.droit.124",
+          "theme": "droit",
+          "fr": "Vous pouvez porter plainte si votre employeur ne respecte pas le salaire minimum.",
+          "en": "You can file a complaint if your employer does not respect the minimum wage.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.108",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il est important que les élèves apprennent l'histoire de la Révolution tranquille.",
+          "en": "It's important for students to learn about the history of the Quiet Revolution.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.217",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Pendant la cérémonie, chaque personne doit lever la main droite et prêter serment.",
+          "en": "During the ceremony, each person must raise their right hand and take the oath.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.192",
+          "theme": "systeme-de-sante",
+          "fr": "Elle travaille comme infirmière auxiliaire dans un centre de soins de longue durée.",
+          "en": "She works as an auxiliary nurse in a long-term care centre.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.201",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si le système d'entrée express change, les critères de sélection seront différents.",
+          "en": "If the Express Entry system changes, the selection criteria will be different.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 18,
+      "items": [
+        {
+          "id": "fr.b1.quebec-et-francophonie.109",
+          "theme": "quebec-et-francophonie",
+          "fr": "Si tu vas en Louisiane, tu entendras encore parler français dans certaines familles.",
+          "en": "If you go to Louisiana, you'll still hear French spoken in some families.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.160",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si tu obtiens ta citoyenneté cette année, tu pourras voter aux prochaines élections.",
+          "en": "If you get your citizenship this year, you'll be able to vote in the next elections.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.185",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il est important que les employeurs reconnaissent les diplômes obtenus à l'étranger.",
+          "en": "It's important for employers to recognize diplomas earned abroad.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.209",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le formulaire exige que vous indiquiez toutes vos adresses des dix dernières années.",
+          "en": "The form requires you to list all your addresses from the past ten years.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.104",
+          "theme": "transports-quotidiens",
+          "fr": "Si les embouteillages continuent, il faudra investir dans de nouvelles lignes de bus.",
+          "en": "If the traffic jams continue, we will need to invest in new bus lines.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.098",
+          "theme": "transports-quotidiens",
+          "fr": "Les navetteurs qui vivent en banlieue passent souvent deux heures dans les transports.",
+          "en": "Commuters who live in the suburbs often spend two hours in transit.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.118",
+          "theme": "transports-quotidiens",
+          "fr": "Les autorités espèrent que le nouveau tramway diminuera la circulation en centre-ville.",
+          "en": "The authorities hope that the new tram will reduce traffic downtown.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.195",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si vous pensez avoir été traité injustement, vous pouvez déposer une plainte officielle.",
+          "en": "If you believe you were treated unfairly, you can file an official complaint.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.200",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le gouvernement a annoncé de nouvelles mesures pour accélérer le traitement des demandes.",
+          "en": "The government announced new measures to speed up the processing of applications.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.114",
+          "theme": "quebec-et-francophonie",
+          "fr": "Quand il neige beaucoup, les Montréalais empruntent les tunnels souterrains du centre-ville.",
+          "en": "When it snows a lot, Montrealers use the underground tunnels downtown.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.208",
+          "theme": "immigration-et-citoyennete",
+          "fr": "S'ils obtenaient leur statut plus vite, ils pourraient commencer à travailler immédiatement.",
+          "en": "If they got their status faster, they could start working right away.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.102",
+          "theme": "transports-quotidiens",
+          "fr": "Il vaut mieux partir tôt quand il y a des travaux sur la ligne.",
+          "en": "It is better to leave early when there are works on the line.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.paysages.020",
+          "theme": "paysages",
+          "fr": "Après l'orage, un arc-en-ciel est apparu au-dessus de la plaine.",
+          "en": "After the storm, a rainbow appeared above the plain.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.bien-etre.114",
+          "theme": "bien-etre",
+          "fr": "Depuis que j'ai réduit les écrans le soir, je m'endors plus vite.",
+          "en": "Since I reduced screen time at night, I fall asleep faster.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.paysages.004",
+          "theme": "paysages",
+          "fr": "Il vaut mieux partir tôt si on veut éviter la foule sur le sentier.",
+          "en": "It's better to leave early if you want to avoid the crowds on the trail.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.droit.047",
+          "theme": "droit",
+          "fr": "L'avocat a conseillé à son client de ne rien signer sans le relire.",
+          "en": "The lawyer advised his client not to sign anything without rereading it.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.paysages.099",
+          "theme": "paysages",
+          "fr": "Si le temps le permettait, on camperait au bord du lac ce week-end.",
+          "en": "If the weather allowed it, we would camp by the lake this weekend.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.139",
+          "theme": "douane-et-immigration",
+          "fr": "Le douanier m'a demandé si je transportais de l'alcool ou du tabac.",
+          "en": "The customs officer asked me if I was carrying alcohol or tobacco.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.096",
+          "theme": "transports-quotidiens",
+          "fr": "Elle m'a dit qu'elle préférait marcher plutôt que d'attendre le bus.",
+          "en": "She told me that she preferred to walk rather than wait for the bus.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-sante.068",
+          "theme": "rp-sante",
+          "fr": "On m'a dit qu'il fallait attendre plusieurs mois pour ce rendez-vous.",
+          "en": "I was told I would have to wait several months for this appointment.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.148",
+          "theme": "douane-et-immigration",
+          "fr": "Bien qu'elle ait un visa valide, on lui a posé beaucoup de questions.",
+          "en": "Even though she had a valid visa, she was asked a lot of questions.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.137",
+          "theme": "quebec-et-francophonie",
+          "fr": "Ma sœur a obtenu son diplôme de cégep avant de partir étudier à Paris.",
+          "en": "My sister got her cégep diploma before leaving to study in Paris.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-sante.072",
+          "theme": "rp-sante",
+          "fr": "Si tu te sens mal, tu devrais appeler Info-Santé avant de te déplacer.",
+          "en": "If you feel unwell, you should call Info-Santé before going anywhere.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.114",
+          "theme": "transports-quotidiens",
+          "fr": "Depuis la grève, beaucoup de gens ont pris l'habitude de faire du vélo.",
+          "en": "Since the strike, many people have gotten into the habit of biking.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.symptomes.096",
+          "theme": "symptomes",
+          "fr": "J'aimerais que le médecin m'explique les résultats de la prise de sang.",
+          "en": "I would like the doctor to explain the blood test results to me.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.087",
+          "theme": "transports-quotidiens",
+          "fr": "Quand je voyage en train, je préfère avoir une place près de la fenêtre.",
+          "en": "When I travel by train, I prefer to have a seat near the window.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.107",
+          "theme": "transports-quotidiens",
+          "fr": "Quand j'étais étudiant, je prenais toujours le tram pour aller à la fac.",
+          "en": "When I was a student, I always took the tram to go to university.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.135",
+          "theme": "quebec-et-francophonie",
+          "fr": "On dit que l'hiver québécois est rude, mais les gens savent en profiter.",
+          "en": "They say Quebec winters are harsh, but people know how to enjoy them.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.220",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous devons prouver que nous avons vécu au moins trois ans dans le pays.",
+          "en": "We must prove that we have lived in the country for at least three years.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.112",
+          "theme": "transports-quotidiens",
+          "fr": "Les habitants se plaignent que le bus ne passe pas assez souvent le soir.",
+          "en": "Residents complain that the bus does not come often enough in the evening.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.paysages.094",
+          "theme": "paysages",
+          "fr": "Si j'avais plus de temps, je visiterais tous les parcs nationaux du pays.",
+          "en": "If I had more time, I would visit all the national parks in the country.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.142",
+          "theme": "systeme-de-sante",
+          "fr": "Si vous n'avez pas de médecin de famille, vous pouvez appeler Info-Santé.",
+          "en": "If you don't have a family doctor, you can call Info-Health.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.hebergement.086",
+          "theme": "hebergement",
+          "fr": "Tu devrais demander un reçu chaque fois que tu payes le loyer en espèces.",
+          "en": "You should ask for a receipt every time you pay the rent in cash.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 19,
+      "items": [
+        {
+          "id": "fr.b1.tourisme.005",
+          "theme": "tourisme",
+          "fr": "Bien que la visite guidée soit un peu chère, elle vaut vraiment le détour.",
+          "en": "Even though the guided tour is a bit pricey, it's really worth it.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.droit.144",
+          "theme": "droit",
+          "fr": "Il faut que vous conserviez vos talons de paie pendant au moins trois ans.",
+          "en": "You need to keep your pay stubs for at least three years.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.086",
+          "theme": "transports-quotidiens",
+          "fr": "Les usagers qui n'ont pas de titre de transport valide risquent une amende.",
+          "en": "Riders who do not have a valid ticket risk a fine.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.126",
+          "theme": "douane-et-immigration",
+          "fr": "Ma sœur a été refusée à la frontière parce que ses papiers étaient expirés.",
+          "en": "My sister was turned away at the border because her papers had expired.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.hebergement.005",
+          "theme": "hebergement",
+          "fr": "Si la réception est fermée, il faut appeler ce numéro pour obtenir les clés.",
+          "en": "If the front desk is closed, you have to call this number to get the keys.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.085",
+          "theme": "transports-quotidiens",
+          "fr": "Je trouve que le métro parisien est parfois trop bondé aux heures de pointe.",
+          "en": "I find that the Paris metro is sometimes too crowded during rush hour.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.109",
+          "theme": "transports-quotidiens",
+          "fr": "Bien que la voiture soit pratique, elle coûte cher en essence et en parking.",
+          "en": "Although the car is convenient, it is expensive in gas and parking.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.paysages.103",
+          "theme": "paysages",
+          "fr": "Nous avons marché jusqu'à ce que le soleil se couche derrière les montagnes.",
+          "en": "We walked until the sun set behind the mountains.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.161",
+          "theme": "systeme-de-sante",
+          "fr": "Il faut que je passe un examen médical avant de commencer mon nouvel emploi.",
+          "en": "I need to take a medical exam before starting my new job.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.134",
+          "theme": "quebec-et-francophonie",
+          "fr": "Si j'habitais en Acadie, je fêterais le quinze août avec toute la communauté.",
+          "en": "If I lived in Acadia, I would celebrate August 15th with the whole community.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.droit.121",
+          "theme": "droit",
+          "fr": "Il est conseillé de consulter un avocat avant de signer un contrat de travail.",
+          "en": "It is advisable to consult a lawyer before signing an employment contract.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.190",
+          "theme": "systeme-de-sante",
+          "fr": "Il faut prendre rendez-vous plusieurs mois à l'avance pour voir ce spécialiste.",
+          "en": "You have to book several months in advance to see this specialist.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.tourisme.006",
+          "theme": "tourisme",
+          "fr": "Nous avons pris le temps de flâner dans les petites rues du quartier historique.",
+          "en": "We took the time to wander through the little streets of the old quarter.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.156",
+          "theme": "systeme-de-sante",
+          "fr": "Elle voudrait changer de médecin de famille, mais la liste d'attente est longue.",
+          "en": "She would like to change family doctors, but the waiting list is long.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.204",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Une fois que tu auras rempli tous les critères, tu pourras soumettre ta demande.",
+          "en": "Once you've met all the criteria, you'll be able to submit your application.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.transports-quotidiens.105",
+          "theme": "transports-quotidiens",
+          "fr": "Les passagers qui attendaient sur le quai ont applaudi quand le train est arrivé.",
+          "en": "The passengers who were waiting on the platform applauded when the train arrived.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.193",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'agente des impôts m'a rappelé que certains crédits sont réservés aux résidents.",
+          "en": "The tax officer reminded me that certain credits are reserved for residents.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.221",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si tu échoues au test de citoyenneté, tu pourras le repasser après quelques mois.",
+          "en": "If you fail the citizenship test, you can retake it after a few months.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.110",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les Acadiens ont été déportés au dix-huitième siècle, mais leur culture a survécu.",
+          "en": "The Acadians were deported in the eighteenth century, but their culture survived.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.120",
+          "theme": "quebec-et-francophonie",
+          "fr": "Le sirop d'érable coule surtout au printemps, quand les nuits sont encore froides.",
+          "en": "Maple syrup flows mostly in spring, when the nights are still cold.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.147",
+          "theme": "quebec-et-francophonie",
+          "fr": "Ma grand-mère chantait souvent des chansons de Félix Leclerc quand j'étais enfant.",
+          "en": "My grandmother often sang Félix Leclerc songs when I was a child.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.hebergement.078",
+          "theme": "hebergement",
+          "fr": "Vous devez prévenir le syndic si vous constatez un dégât dans les parties communes.",
+          "en": "You must notify the building manager if you notice damage in the common areas.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.169",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le parrainage d'un conjoint prend généralement moins de temps que celui des parents.",
+          "en": "Sponsoring a spouse generally takes less time than sponsoring parents.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.179",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons fait certifier nos diplômes avant de les envoyer au bureau d'immigration.",
+          "en": "We had our diplomas certified before sending them to the immigration office.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.droit.118",
+          "theme": "droit",
+          "fr": "Si vous perdez votre emploi, il faut contacter le bureau de l'immigration rapidement.",
+          "en": "If you lose your job, you must contact the immigration office quickly.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.droit.138",
+          "theme": "droit",
+          "fr": "Le bureau d'aide juridique offre des services gratuits aux personnes à faible revenu.",
+          "en": "The legal aid office offers free services to low-income people.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.123",
+          "theme": "quebec-et-francophonie",
+          "fr": "Les Sénégalais et les Québécois partagent la langue française, mais pas le même accent.",
+          "en": "Senegalese and Quebecers share the French language, but not the same accent.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.205",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'agent m'a demandé pourquoi je voulais m'installer définitivement dans cette province.",
+          "en": "The officer asked me why I wanted to settle permanently in this province.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.212",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Nous avons pris rendez-vous avec un conseiller en immigration pour vérifier notre dossier.",
+          "en": "We made an appointment with an immigration consultant to check our file.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.166",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'avocat nous a conseillé de fournir des preuves supplémentaires pour la demande humanitaire.",
+          "en": "The lawyer advised us to provide additional evidence for the humanitarian application.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.144",
+          "theme": "systeme-de-sante",
+          "fr": "Les nouveaux arrivants doivent parfois attendre avant d'obtenir leur carte d'assurance maladie.",
+          "en": "New arrivals sometimes have to wait before getting their health insurance card.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.202",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Le programme des candidats des provinces permet à certaines régions de choisir leurs immigrants.",
+          "en": "The Provincial Nominee Program allows certain regions to choose their immigrants.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.droit.122",
+          "theme": "droit",
+          "fr": "Les nouveaux arrivants doivent présenter plusieurs documents pour obtenir leur numéro d'assurance sociale.",
+          "en": "Newcomers must present several documents to obtain their social insurance number.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 20,
+      "items": [
+        {
+          "id": "fr.b1.immigration-et-citoyennete.197",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il est rare que ce type d'appel soit traité en moins d'un an.",
+          "en": "It's rare for this kind of appeal to be processed in less than a year.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.paysages.117",
+          "theme": "paysages",
+          "fr": "Est-ce que tu saurais où se trouve le point de vue le plus proche ?",
+          "en": "Would you happen to know where the nearest viewpoint is?",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.rp-sante.071",
+          "theme": "rp-sante",
+          "fr": "Avant de partir, l'infirmière m'a remis les résultats de la prise de sang.",
+          "en": "Before leaving, the nurse gave me the blood test results.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.122",
+          "theme": "quebec-et-francophonie",
+          "fr": "Si on parle joual entre amis, ce n'est pas incorrect, c'est juste familier.",
+          "en": "If you speak joual among friends, it's not incorrect, it's just informal.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.droit.127",
+          "theme": "droit",
+          "fr": "Le médiateur a aidé le couple à trouver un accord sur la garde des enfants.",
+          "en": "The mediator helped the couple reach an agreement on child custody.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.113",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il faudrait qu'on réserve nos billets pour le Carnaval de Québec à l'avance.",
+          "en": "We should reserve our tickets for the Quebec Winter Carnival in advance.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.143",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il est rare qu'un Québécois ne connaisse pas la tourtière du Lac-Saint-Jean.",
+          "en": "It's rare for a Quebecer not to know Lac-Saint-Jean tourtière.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.134",
+          "theme": "systeme-de-sante",
+          "fr": "Si j'avais de la fièvre, j'irais directement à la clinique sans rendez-vous.",
+          "en": "If I had a fever, I would go straight to the walk-in clinic.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.171",
+          "theme": "systeme-de-sante",
+          "fr": "Elle a dû annuler son rendez-vous parce qu'elle était trop malade pour sortir.",
+          "en": "She had to cancel her appointment because she was too sick to go out.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.douane-et-immigration.147",
+          "theme": "douane-et-immigration",
+          "fr": "Nous avons dû payer des droits de douane sur les cadeaux achetés à l'étranger.",
+          "en": "We had to pay customs duties on the gifts bought abroad.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.paysages.101",
+          "theme": "paysages",
+          "fr": "Tu devrais emporter une carte, au cas où le sentier ne serait pas bien indiqué.",
+          "en": "You should bring a map, in case the trail isn't well marked.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.paysages.120",
+          "theme": "paysages",
+          "fr": "Je ne pensais pas que le désert pouvait être aussi coloré au coucher du soleil.",
+          "en": "I didn't think the desert could be so colorful at sunset.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.116",
+          "theme": "quebec-et-francophonie",
+          "fr": "Si nous avions plus de neige cette année, la tire sur la neige serait meilleure.",
+          "en": "If we had more snow this year, the maple taffy would be better.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.180",
+          "theme": "systeme-de-sante",
+          "fr": "Il faut qu'on trouve une solution pour réduire les temps d'attente aux urgences.",
+          "en": "We need to find a solution to reduce ER wait times.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.211",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Il faut absolument que le passeport soit valide six mois après la date d'entrée.",
+          "en": "The passport absolutely must be valid six months after the entry date.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.rp-voyage.075",
+          "theme": "rp-voyage",
+          "fr": "Nous avons choisi cette auberge parce qu'elle a une belle vue sur les montagnes.",
+          "en": "We chose this inn because it has a beautiful view of the mountains.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.119",
+          "theme": "quebec-et-francophonie",
+          "fr": "Il vaut mieux que vous appreniez quelques mots de joual avant d'arriver à Montréal.",
+          "en": "You'd better learn a few joual words before arriving in Montreal.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.145",
+          "theme": "quebec-et-francophonie",
+          "fr": "Depuis son arrivée à Montréal, il a appris à dire « pantoute » pour « pas du tout ».",
+          "en": "Since arriving in Montreal, he has learned to say 'pantoute' for 'not at all'.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.207",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'école a inscrit nos enfants dans une classe d'accueil pour les nouveaux arrivants.",
+          "en": "The school enrolled our children in a welcome class for newcomers.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.146",
+          "theme": "quebec-et-francophonie",
+          "fr": "Si les touristes marchent dans le Vieux-Québec en hiver, ils doivent bien s'habiller.",
+          "en": "If tourists walk in Old Quebec in winter, they must dress warmly.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.194",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Malgré ses efforts, il a été victime de discrimination lors de sa recherche d'emploi.",
+          "en": "Despite his efforts, he faced discrimination during his job search.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.199",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Contrairement à un résident permanent, un résident temporaire n'a pas le droit de vote.",
+          "en": "Unlike a permanent resident, a temporary resident does not have the right to vote.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.214",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si le dossier est incomplet, le bureau vous enverra une lettre de demande de documents.",
+          "en": "If the file is incomplete, the office will send you a letter requesting documents.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.107",
+          "theme": "quebec-et-francophonie",
+          "fr": "Quand j'étais petit, mes grands-parents me racontaient des légendes de la Nouvelle-France.",
+          "en": "When I was little, my grandparents used to tell me legends of New France.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.206",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Je préfère que mes enfants apprennent les deux langues officielles dès leur plus jeune âge.",
+          "en": "I prefer my children to learn both official languages from a young age.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.186",
+          "theme": "systeme-de-sante",
+          "fr": "Quand elle a reçu son diagnostic, elle a immédiatement pris rendez-vous chez un spécialiste.",
+          "en": "When she got her diagnosis, she immediately made an appointment with a specialist.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.128",
+          "theme": "quebec-et-francophonie",
+          "fr": "Beaucoup d'immigrants choisissent le Québec parce que le français y est la langue officielle.",
+          "en": "Many immigrants choose Quebec because French is the official language there.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.163",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Beaucoup de réfugiés attendent que leur statut soit confirmé avant de chercher un emploi stable.",
+          "en": "Many refugees wait for their status to be confirmed before looking for stable employment.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.149",
+          "theme": "quebec-et-francophonie",
+          "fr": "On m'a dit que le Cirque du Soleil a été fondé à Baie-Saint-Paul.",
+          "en": "I was told that Cirque du Soleil was founded in Baie-Saint-Paul.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.151",
+          "theme": "systeme-de-sante",
+          "fr": "Il vaut mieux que vous preniez rendez-vous le matin, il y a moins de monde.",
+          "en": "It's better if you make an appointment in the morning, there are fewer people.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.rp-voyage.070",
+          "theme": "rp-voyage",
+          "fr": "On devrait réserver l'auberge de jeunesse avant qu'il n'y ait plus de place.",
+          "en": "We should book the youth hostel before there's no room left.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.127",
+          "theme": "quebec-et-francophonie",
+          "fr": "Quand je suis allé à Québec, j'ai marché sur les remparts de la vieille ville.",
+          "en": "When I went to Quebec City, I walked on the ramparts of the old town.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.systeme-de-sante.137",
+          "theme": "systeme-de-sante",
+          "fr": "Quand tu arrives à l'urgence, il faut d'abord parler à l'infirmière au triage.",
+          "en": "When you arrive at the emergency room, you first have to speak with the triage nurse.",
+          "words": 16
+        }
+      ]
+    },
+    {
+      "block_id": 21,
+      "items": [
+        {
+          "id": "fr.b1.droit.126",
+          "theme": "droit",
+          "fr": "Il faut que tu gardes une copie de chaque document que tu envoies à l'immigration.",
+          "en": "You need to keep a copy of every document you send to immigration.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.rp-voyage.083",
+          "theme": "rp-voyage",
+          "fr": "Il faudrait que tu apportes une carte routière au cas où le GPS ne fonctionne pas.",
+          "en": "You should bring a road map in case the GPS doesn't work.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.187",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Dès que j'aurai ma carte d'assurance maladie, je prendrai rendez-vous chez le dentiste.",
+          "en": "As soon as I have my health insurance card, I'll make a dentist appointment.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.115",
+          "theme": "quebec-et-francophonie",
+          "fr": "Ma tante travaille à l'Assemblée nationale depuis qu'elle a terminé ses études de droit.",
+          "en": "My aunt has worked at the National Assembly since she finished her law studies.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.154",
+          "theme": "immigration-et-citoyennete",
+          "fr": "L'agent d'immigration nous a posé plusieurs questions sur notre projet de vie au Canada.",
+          "en": "The immigration officer asked us several questions about our life plans in Canada.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.130",
+          "theme": "quebec-et-francophonie",
+          "fr": "Mon collègue vient d'Abidjan et il dit que le français ivoirien a ses propres expressions.",
+          "en": "My colleague is from Abidjan and he says Ivorian French has its own expressions.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.121",
+          "theme": "quebec-et-francophonie",
+          "fr": "Je pense que le Cirque du Soleil a rendu la culture québécoise célèbre partout dans le monde.",
+          "en": "I think Cirque du Soleil made Quebec culture famous all over the world.",
+          "words": 17
+        },
+        {
+          "id": "fr.b1.quebec-et-francophonie.132",
+          "theme": "quebec-et-francophonie",
+          "fr": "Après la Révolution tranquille, l'Église a perdu une grande partie de son influence sur l'État.",
+          "en": "After the Quiet Revolution, the Church lost much of its influence over the state.",
+          "words": 17
+        },
+        {
+          "id": "fr.b1.immigration-et-citoyennete.171",
+          "theme": "immigration-et-citoyennete",
+          "fr": "Si vous quittez le pays trop longtemps, votre statut de résident permanent pourrait être remis en question.",
+          "en": "If you leave the country for too long, your permanent resident status could be called into question.",
+          "words": 17
+        }
+      ]
+    }
+  ]
+}

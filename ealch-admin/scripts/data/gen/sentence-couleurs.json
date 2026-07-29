@@ -1,0 +1,1409 @@
+[
+  {
+    "id": "fr.a1.couleurs.192",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "La robe rouge est très élégante.",
+    "en": "The red dress is very elegant.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La robe\",\"t\":\"the dress\"},{\"w\":\"rouge\",\"t\":\"red\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"élégante.\",\"t\":\"elegant\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.193",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Il porte une cravate rouge.",
+    "en": "He is wearing a red tie.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il porte\",\"t\":\"he wears\"},{\"w\":\"une cravate\",\"t\":\"a tie\"},{\"w\":\"rouge.\",\"t\":\"red\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.194",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les fleurs rouges sentent bon.",
+    "en": "The red flowers smell good.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les fleurs\",\"t\":\"the flowers\"},{\"w\":\"rouges\",\"t\":\"red\"},{\"w\":\"sentent bon.\",\"t\":\"smell good\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.195",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Sa voiture est rouge.",
+    "en": "His car is red.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Sa voiture\",\"t\":\"his car\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"rouge.\",\"t\":\"red\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.196",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "J'ai acheté deux ballons rouges.",
+    "en": "I bought two red balloons.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai acheté\",\"t\":\"i bought\"},{\"w\":\"deux ballons\",\"t\":\"two balloons\"},{\"w\":\"rouges.\",\"t\":\"red\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.197",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le vin rouge est sur la table.",
+    "en": "The red wine is on the table.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vin\",\"t\":\"the wine\"},{\"w\":\"rouge\",\"t\":\"red\"},{\"w\":\"est sur\",\"t\":\"is on\"},{\"w\":\"la table.\",\"t\":\"the table\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.198",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le ciel est bleu aujourd'hui.",
+    "en": "The sky is blue today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le ciel\",\"t\":\"the sky\"},{\"w\":\"est bleu\",\"t\":\"is blue\"},{\"w\":\"aujourd'hui.\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.199",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Elle a les yeux bleus.",
+    "en": "She has blue eyes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a\",\"t\":\"she has\"},{\"w\":\"les yeux\",\"t\":\"the eyes\"},{\"w\":\"bleus.\",\"t\":\"blue\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.200",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Ma chemise bleue est dans l'armoire.",
+    "en": "My blue shirt is in the closet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma chemise\",\"t\":\"my shirt\"},{\"w\":\"bleue\",\"t\":\"blue\"},{\"w\":\"est dans\",\"t\":\"is in\"},{\"w\":\"l'armoire.\",\"t\":\"the closet\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.201",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Nous avons une maison bleue.",
+    "en": "We have a blue house.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons\",\"t\":\"we have\"},{\"w\":\"une maison\",\"t\":\"a house\"},{\"w\":\"bleue.\",\"t\":\"blue\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.202",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les chaussures bleues sont confortables.",
+    "en": "The blue shoes are comfortable.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les chaussures\",\"t\":\"the shoes\"},{\"w\":\"bleues\",\"t\":\"blue\"},{\"w\":\"sont confortables.\",\"t\":\"are comfortable\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.203",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le vélo bleu appartient à mon frère.",
+    "en": "The blue bike belongs to my brother.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vélo\",\"t\":\"the bike\"},{\"w\":\"bleu\",\"t\":\"blue\"},{\"w\":\"appartient à\",\"t\":\"belongs to\"},{\"w\":\"mon frère.\",\"t\":\"my brother\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.204",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "L'herbe est verte au printemps.",
+    "en": "The grass is green in spring.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'herbe\",\"t\":\"the grass\"},{\"w\":\"est verte\",\"t\":\"is green\"},{\"w\":\"au printemps.\",\"t\":\"in spring\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.205",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Il a acheté un pull vert.",
+    "en": "He bought a green sweater.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a acheté\",\"t\":\"he bought\"},{\"w\":\"un pull\",\"t\":\"a sweater\"},{\"w\":\"vert.\",\"t\":\"green\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.206",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "La porte verte est fermée à clé.",
+    "en": "The green door is locked.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La porte\",\"t\":\"the door\"},{\"w\":\"verte\",\"t\":\"green\"},{\"w\":\"est fermée\",\"t\":\"is locked\"},{\"w\":\"à clé.\",\"t\":\"with a key\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.207",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Mes yeux sont verts.",
+    "en": "My eyes are green.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mes yeux\",\"t\":\"my eyes\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"verts.\",\"t\":\"green\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.208",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les feuilles vertes couvrent l'arbre en été.",
+    "en": "The green leaves cover the tree in summer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les feuilles\",\"t\":\"the leaves\"},{\"w\":\"vertes\",\"t\":\"green\"},{\"w\":\"couvrent\",\"t\":\"cover\"},{\"w\":\"l'arbre\",\"t\":\"the tree\"},{\"w\":\"en été.\",\"t\":\"in summer\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.209",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Sa veste verte est trop grande.",
+    "en": "Her green jacket is too big.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Sa veste\",\"t\":\"her jacket\"},{\"w\":\"verte\",\"t\":\"green\"},{\"w\":\"est trop\",\"t\":\"is too\"},{\"w\":\"grande.\",\"t\":\"big\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.210",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le taxi jaune attend devant l'hôtel.",
+    "en": "The yellow taxi is waiting in front of the hotel.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le taxi\",\"t\":\"the taxi\"},{\"w\":\"jaune\",\"t\":\"yellow\"},{\"w\":\"attend\",\"t\":\"waits\"},{\"w\":\"devant l'hôtel.\",\"t\":\"in front of the hotel\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.211",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Elle porte une jupe jaune.",
+    "en": "She is wearing a yellow skirt.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte\",\"t\":\"she wears\"},{\"w\":\"une jupe\",\"t\":\"a skirt\"},{\"w\":\"jaune.\",\"t\":\"yellow\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.212",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les fleurs jaunes poussent dans le jardin.",
+    "en": "The yellow flowers grow in the garden.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les fleurs\",\"t\":\"the flowers\"},{\"w\":\"jaunes\",\"t\":\"yellow\"},{\"w\":\"poussent\",\"t\":\"grow\"},{\"w\":\"dans le jardin.\",\"t\":\"in the garden\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.213",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Mon cahier jaune est plein de notes.",
+    "en": "My yellow notebook is full of notes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon cahier\",\"t\":\"my notebook\"},{\"w\":\"jaune\",\"t\":\"yellow\"},{\"w\":\"est plein\",\"t\":\"is full\"},{\"w\":\"de notes.\",\"t\":\"of notes\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.214",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le soleil semble jaune ce matin.",
+    "en": "The sun looks yellow this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le soleil\",\"t\":\"the sun\"},{\"w\":\"semble jaune\",\"t\":\"looks yellow\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.215",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le chat noir dort sur le canapé.",
+    "en": "The black cat sleeps on the couch.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chat\",\"t\":\"the cat\"},{\"w\":\"noir\",\"t\":\"black\"},{\"w\":\"dort\",\"t\":\"sleeps\"},{\"w\":\"sur le canapé.\",\"t\":\"on the couch\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.216",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Elle a les cheveux noirs.",
+    "en": "She has black hair.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a\",\"t\":\"she has\"},{\"w\":\"les cheveux\",\"t\":\"the hair\"},{\"w\":\"noirs.\",\"t\":\"black\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.217",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Il porte toujours un manteau noir.",
+    "en": "He always wears a black coat.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il porte toujours\",\"t\":\"he always wears\"},{\"w\":\"un manteau\",\"t\":\"a coat\"},{\"w\":\"noir.\",\"t\":\"black\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.218",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Ma valise noire est très lourde.",
+    "en": "My black suitcase is very heavy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma valise\",\"t\":\"my suitcase\"},{\"w\":\"noire\",\"t\":\"black\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"lourde.\",\"t\":\"heavy\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.219",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les chaussures noires vont avec tout.",
+    "en": "Black shoes go with everything.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les chaussures\",\"t\":\"the shoes\"},{\"w\":\"noires\",\"t\":\"black\"},{\"w\":\"vont avec tout.\",\"t\":\"go with everything\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.220",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le tableau noir est effacé.",
+    "en": "The blackboard is erased.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le tableau\",\"t\":\"the board\"},{\"w\":\"noir\",\"t\":\"black\"},{\"w\":\"est effacé.\",\"t\":\"is erased\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.221",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "La neige est blanche en hiver.",
+    "en": "Snow is white in winter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La neige\",\"t\":\"the snow\"},{\"w\":\"est blanche\",\"t\":\"is white\"},{\"w\":\"en hiver.\",\"t\":\"in winter\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.222",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Il porte une chemise blanche pour le travail.",
+    "en": "He wears a white shirt for work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il porte\",\"t\":\"he wears\"},{\"w\":\"une chemise\",\"t\":\"a shirt\"},{\"w\":\"blanche\",\"t\":\"white\"},{\"w\":\"pour le travail.\",\"t\":\"for work\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.223",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les murs blancs rendent la pièce lumineuse.",
+    "en": "The white walls make the room bright.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les murs\",\"t\":\"the walls\"},{\"w\":\"blancs\",\"t\":\"white\"},{\"w\":\"rendent la pièce\",\"t\":\"make the room\"},{\"w\":\"lumineuse.\",\"t\":\"bright\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.224",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Ma robe blanche est dans le placard.",
+    "en": "My white dress is in the closet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma robe\",\"t\":\"my dress\"},{\"w\":\"blanche\",\"t\":\"white\"},{\"w\":\"est dans\",\"t\":\"is in\"},{\"w\":\"le placard.\",\"t\":\"the closet\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.225",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le petit chien blanc court dans le jardin.",
+    "en": "The small white dog runs in the garden.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le petit chien\",\"t\":\"the small dog\"},{\"w\":\"blanc\",\"t\":\"white\"},{\"w\":\"court\",\"t\":\"runs\"},{\"w\":\"dans le jardin.\",\"t\":\"in the garden\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.226",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les nuages blancs traversent le ciel.",
+    "en": "The white clouds cross the sky.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les nuages\",\"t\":\"the clouds\"},{\"w\":\"blancs\",\"t\":\"white\"},{\"w\":\"traversent\",\"t\":\"cross\"},{\"w\":\"le ciel.\",\"t\":\"the sky\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.227",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le ciel est gris ce matin.",
+    "en": "The sky is gray this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le ciel\",\"t\":\"the sky\"},{\"w\":\"est gris\",\"t\":\"is gray\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.228",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Elle porte un manteau gris.",
+    "en": "She is wearing a gray coat.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte\",\"t\":\"she wears\"},{\"w\":\"un manteau\",\"t\":\"a coat\"},{\"w\":\"gris.\",\"t\":\"gray\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.229",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "La souris grise se cache sous la table.",
+    "en": "The gray mouse hides under the table.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La souris\",\"t\":\"the mouse\"},{\"w\":\"grise\",\"t\":\"gray\"},{\"w\":\"se cache\",\"t\":\"hides\"},{\"w\":\"sous la table.\",\"t\":\"under the table\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.230",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Ses chaussettes grises sont neuves.",
+    "en": "His gray socks are new.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses chaussettes\",\"t\":\"his socks\"},{\"w\":\"grises\",\"t\":\"gray\"},{\"w\":\"sont neuves.\",\"t\":\"are new\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.231",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le toit gris a besoin de réparation.",
+    "en": "The gray roof needs repair.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le toit\",\"t\":\"the roof\"},{\"w\":\"gris\",\"t\":\"gray\"},{\"w\":\"a besoin\",\"t\":\"needs\"},{\"w\":\"de réparation.\",\"t\":\"repair\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.232",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Ses yeux marron sont magnifiques.",
+    "en": "Her brown eyes are beautiful.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses yeux\",\"t\":\"her eyes\"},{\"w\":\"marron\",\"t\":\"brown\"},{\"w\":\"sont magnifiques.\",\"t\":\"are beautiful\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.233",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "J'ai un sac marron en cuir.",
+    "en": "I have a brown leather bag.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai\",\"t\":\"i have\"},{\"w\":\"un sac\",\"t\":\"a bag\"},{\"w\":\"marron\",\"t\":\"brown\"},{\"w\":\"en cuir.\",\"t\":\"made of leather\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.234",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les chaussures marron coûtent cher.",
+    "en": "The brown shoes are expensive.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les chaussures\",\"t\":\"the shoes\"},{\"w\":\"marron\",\"t\":\"brown\"},{\"w\":\"coûtent cher.\",\"t\":\"are expensive\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.235",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "La table marron vient d'Italie.",
+    "en": "The brown table comes from Italy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La table\",\"t\":\"the table\"},{\"w\":\"marron\",\"t\":\"brown\"},{\"w\":\"vient\",\"t\":\"comes\"},{\"w\":\"d'Italie.\",\"t\":\"from italy\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.236",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Il porte un pantalon marron aujourd'hui.",
+    "en": "He is wearing brown pants today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il porte\",\"t\":\"he wears\"},{\"w\":\"un pantalon\",\"t\":\"pants\"},{\"w\":\"marron\",\"t\":\"brown\"},{\"w\":\"aujourd'hui.\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.237",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Ses cheveux marron brillent au soleil.",
+    "en": "Her brown hair shines in the sun.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses cheveux\",\"t\":\"her hair\"},{\"w\":\"marron\",\"t\":\"brown\"},{\"w\":\"brillent\",\"t\":\"shine\"},{\"w\":\"au soleil.\",\"t\":\"in the sun\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.238",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le ballon orange roule dans la rue.",
+    "en": "The orange ball rolls in the street.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le ballon\",\"t\":\"the ball\"},{\"w\":\"orange\",\"t\":\"orange\"},{\"w\":\"roule\",\"t\":\"rolls\"},{\"w\":\"dans la rue.\",\"t\":\"in the street\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.239",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Elle aime les fleurs orange.",
+    "en": "She likes orange flowers.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle aime\",\"t\":\"she likes\"},{\"w\":\"les fleurs\",\"t\":\"the flowers\"},{\"w\":\"orange.\",\"t\":\"orange\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.240",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Mon écharpe orange est très douce.",
+    "en": "My orange scarf is very soft.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon écharpe\",\"t\":\"my scarf\"},{\"w\":\"orange\",\"t\":\"orange\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"douce.\",\"t\":\"soft\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.241",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le coucher de soleil est orange.",
+    "en": "The sunset is orange.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le coucher\",\"t\":\"the setting\"},{\"w\":\"de soleil\",\"t\":\"of the sun\"},{\"w\":\"est orange.\",\"t\":\"is orange\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.242",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les feuilles orange annoncent l'automne.",
+    "en": "The orange leaves announce autumn.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les feuilles\",\"t\":\"the leaves\"},{\"w\":\"orange\",\"t\":\"orange\"},{\"w\":\"annoncent\",\"t\":\"announce\"},{\"w\":\"l'automne.\",\"t\":\"autumn\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.243",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "La chambre de ma fille est rose.",
+    "en": "My daughter's room is pink.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La chambre\",\"t\":\"the room\"},{\"w\":\"de ma fille\",\"t\":\"of my daughter\"},{\"w\":\"est rose.\",\"t\":\"is pink\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.244",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Elle porte des chaussettes roses.",
+    "en": "She is wearing pink socks.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte\",\"t\":\"she wears\"},{\"w\":\"des chaussettes\",\"t\":\"socks\"},{\"w\":\"roses.\",\"t\":\"pink\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.245",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le gâteau rose plaît aux enfants.",
+    "en": "The pink cake pleases the children.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le gâteau\",\"t\":\"the cake\"},{\"w\":\"rose\",\"t\":\"pink\"},{\"w\":\"plaît\",\"t\":\"pleases\"},{\"w\":\"aux enfants.\",\"t\":\"the children\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.246",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Mes lunettes roses sont sur la table.",
+    "en": "My pink glasses are on the table.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mes lunettes\",\"t\":\"my glasses\"},{\"w\":\"roses\",\"t\":\"pink\"},{\"w\":\"sont sur\",\"t\":\"are on\"},{\"w\":\"la table.\",\"t\":\"the table\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.247",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Il a offert des fleurs roses à sa mère.",
+    "en": "He gave pink flowers to his mother.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a offert\",\"t\":\"he gave\"},{\"w\":\"des fleurs\",\"t\":\"flowers\"},{\"w\":\"roses\",\"t\":\"pink\"},{\"w\":\"à sa mère.\",\"t\":\"to his mother\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.248",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "La maison rose se trouve au coin de la rue.",
+    "en": "The pink house is on the corner of the street.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La maison\",\"t\":\"the house\"},{\"w\":\"rose\",\"t\":\"pink\"},{\"w\":\"se trouve\",\"t\":\"is located\"},{\"w\":\"au coin\",\"t\":\"on the corner\"},{\"w\":\"de la rue.\",\"t\":\"of the street\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.249",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le raisin violet est très sucré.",
+    "en": "The purple grape is very sweet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le raisin\",\"t\":\"the grape\"},{\"w\":\"violet\",\"t\":\"purple\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"sucré.\",\"t\":\"sweet\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.250",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Elle porte une jupe violette.",
+    "en": "She is wearing a purple skirt.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte\",\"t\":\"she wears\"},{\"w\":\"une jupe\",\"t\":\"a skirt\"},{\"w\":\"violette.\",\"t\":\"purple\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.251",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les fleurs violettes décorent le balcon.",
+    "en": "The purple flowers decorate the balcony.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les fleurs\",\"t\":\"the flowers\"},{\"w\":\"violettes\",\"t\":\"purple\"},{\"w\":\"décorent\",\"t\":\"decorate\"},{\"w\":\"le balcon.\",\"t\":\"the balcony\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.252",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Son sac violet est neuf.",
+    "en": "Her purple bag is new.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Son sac\",\"t\":\"her bag\"},{\"w\":\"violet\",\"t\":\"purple\"},{\"w\":\"est neuf.\",\"t\":\"is new\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.253",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Le ciel devient violet au coucher du soleil.",
+    "en": "The sky turns purple at sunset.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le ciel\",\"t\":\"the sky\"},{\"w\":\"devient violet\",\"t\":\"turns purple\"},{\"w\":\"au coucher du soleil.\",\"t\":\"at sunset\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.254",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Son manteau beige est très chic.",
+    "en": "Her beige coat is very stylish.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Son manteau\",\"t\":\"her coat\"},{\"w\":\"beige\",\"t\":\"beige\"},{\"w\":\"est très\",\"t\":\"is very\"},{\"w\":\"chic.\",\"t\":\"stylish\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.255",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Les murs beiges donnent une ambiance chaleureuse.",
+    "en": "The beige walls give a warm atmosphere.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les murs\",\"t\":\"the walls\"},{\"w\":\"beiges\",\"t\":\"beige\"},{\"w\":\"donnent\",\"t\":\"give\"},{\"w\":\"une ambiance chaleureuse.\",\"t\":\"a warm atmosphere\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.256",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "J'ai acheté un canapé beige pour le salon.",
+    "en": "I bought a beige sofa for the living room.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai acheté\",\"t\":\"i bought\"},{\"w\":\"un canapé\",\"t\":\"a sofa\"},{\"w\":\"beige\",\"t\":\"beige\"},{\"w\":\"pour le salon.\",\"t\":\"for the living room\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.257",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "Ses chaussures beiges vont avec la robe.",
+    "en": "Her beige shoes go with the dress.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses chaussures\",\"t\":\"her shoes\"},{\"w\":\"beiges\",\"t\":\"beige\"},{\"w\":\"vont avec\",\"t\":\"go with\"},{\"w\":\"la robe.\",\"t\":\"the dress\"}]}"
+  },
+  {
+    "id": "fr.a1.couleurs.258",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "couleurs",
+    "fr": "La chemise beige est en coton.",
+    "en": "The beige shirt is made of cotton.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La chemise\",\"t\":\"the shirt\"},{\"w\":\"beige\",\"t\":\"beige\"},{\"w\":\"est en coton.\",\"t\":\"is made of cotton\"}]}"
+  }
+]

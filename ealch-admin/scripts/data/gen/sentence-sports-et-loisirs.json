@@ -1,0 +1,1472 @@
+[
+  {
+    "id": "fr.a1.sports-et-loisirs.146",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je joue au football le week-end.",
+    "en": "I play football on the weekend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je joue\",\"t\":\"I play\"},{\"w\":\"au football\",\"t\":\"football\"},{\"w\":\"le week-end.\",\"t\":\"on the weekend\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.147",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Mon frère fait du vélo tous les jours.",
+    "en": "My brother rides a bike every day.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon frère\",\"t\":\"my brother\"},{\"w\":\"fait du vélo\",\"t\":\"rides a bike\"},{\"w\":\"tous les jours.\",\"t\":\"every day\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.148",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous nageons à la piscine municipale.",
+    "en": "We swim at the municipal pool.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous nageons\",\"t\":\"we swim\"},{\"w\":\"à la piscine\",\"t\":\"at the pool\"},{\"w\":\"municipale.\",\"t\":\"municipal\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.149",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Elle aime beaucoup le tennis.",
+    "en": "She likes tennis a lot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle aime\",\"t\":\"she likes\"},{\"w\":\"beaucoup\",\"t\":\"a lot\"},{\"w\":\"le tennis.\",\"t\":\"tennis\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.150",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Tu cours dans le parc chaque matin.",
+    "en": "You run in the park every morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu cours\",\"t\":\"you run\"},{\"w\":\"dans le parc\",\"t\":\"in the park\"},{\"w\":\"chaque matin.\",\"t\":\"every morning\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.151",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Les enfants jouent au basket dans la cour.",
+    "en": "The children play basketball in the yard.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants\",\"t\":\"the children\"},{\"w\":\"jouent au basket\",\"t\":\"play basketball\"},{\"w\":\"dans la cour.\",\"t\":\"in the yard\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.152",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Mon père regarde le match à la télévision.",
+    "en": "My father watches the match on television.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon père\",\"t\":\"my father\"},{\"w\":\"regarde le match\",\"t\":\"watches the match\"},{\"w\":\"à la télévision.\",\"t\":\"on television\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.153",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je vais au gymnase après le travail.",
+    "en": "I go to the gym after work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais\",\"t\":\"I go\"},{\"w\":\"au gymnase\",\"t\":\"to the gym\"},{\"w\":\"après le travail.\",\"t\":\"after work\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.154",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Ma sœur pratique la danse classique.",
+    "en": "My sister practices classical dance.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma sœur\",\"t\":\"my sister\"},{\"w\":\"pratique\",\"t\":\"practices\"},{\"w\":\"la danse classique.\",\"t\":\"classical dance\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.155",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous jouons aux cartes le samedi soir.",
+    "en": "We play cards on Saturday evening.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous jouons\",\"t\":\"we play\"},{\"w\":\"aux cartes\",\"t\":\"cards\"},{\"w\":\"le samedi soir.\",\"t\":\"on Saturday evening\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.156",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Il fait du yoga tous les matins.",
+    "en": "He does yoga every morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il fait\",\"t\":\"he does\"},{\"w\":\"du yoga\",\"t\":\"yoga\"},{\"w\":\"tous les matins.\",\"t\":\"every morning\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.157",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Les joueurs entrent sur le terrain.",
+    "en": "The players enter the field.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les joueurs\",\"t\":\"the players\"},{\"w\":\"entrent\",\"t\":\"enter\"},{\"w\":\"sur le terrain.\",\"t\":\"the field\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.158",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je préfère le sport en équipe.",
+    "en": "I prefer team sports.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je préfère\",\"t\":\"I prefer\"},{\"w\":\"le sport\",\"t\":\"the sport\"},{\"w\":\"en équipe.\",\"t\":\"as a team\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.159",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Elle porte un maillot de bain rouge.",
+    "en": "She wears a red swimsuit.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte\",\"t\":\"she wears\"},{\"w\":\"un maillot de bain\",\"t\":\"a swimsuit\"},{\"w\":\"rouge.\",\"t\":\"red\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.160",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous marchons dans la forêt le dimanche.",
+    "en": "We walk in the forest on Sundays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous marchons\",\"t\":\"we walk\"},{\"w\":\"dans la forêt\",\"t\":\"in the forest\"},{\"w\":\"le dimanche.\",\"t\":\"on Sundays\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.161",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Mon ami fait de la boxe deux fois par semaine.",
+    "en": "My friend does boxing twice a week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon ami\",\"t\":\"my friend\"},{\"w\":\"fait de la boxe\",\"t\":\"does boxing\"},{\"w\":\"deux fois\",\"t\":\"twice\"},{\"w\":\"par semaine.\",\"t\":\"a week\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.162",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je m'inscris au club de sport du quartier.",
+    "en": "I am signing up for the neighborhood sports club.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je m'inscris\",\"t\":\"I am signing up\"},{\"w\":\"au club de sport\",\"t\":\"for the sports club\"},{\"w\":\"du quartier.\",\"t\":\"in the neighborhood\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.163",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Le coach explique les règles du jeu.",
+    "en": "The coach explains the rules of the game.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le coach\",\"t\":\"the coach\"},{\"w\":\"explique\",\"t\":\"explains\"},{\"w\":\"les règles du jeu.\",\"t\":\"the rules of the game\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.164",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous gagnons souvent nos matchs.",
+    "en": "We often win our matches.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous gagnons\",\"t\":\"we win\"},{\"w\":\"souvent\",\"t\":\"often\"},{\"w\":\"nos matchs.\",\"t\":\"our matches\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.165",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Elle perd rarement au tennis.",
+    "en": "She rarely loses at tennis.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle perd\",\"t\":\"she loses\"},{\"w\":\"rarement\",\"t\":\"rarely\"},{\"w\":\"au tennis.\",\"t\":\"at tennis\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.166",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Mon voisin fait du jardinage chaque week-end.",
+    "en": "My neighbor does gardening every weekend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon voisin\",\"t\":\"my neighbor\"},{\"w\":\"fait du jardinage\",\"t\":\"does gardening\"},{\"w\":\"chaque week-end.\",\"t\":\"every weekend\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.167",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je lis un roman policier avant de dormir.",
+    "en": "I read a detective novel before sleeping.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je lis\",\"t\":\"I read\"},{\"w\":\"un roman policier\",\"t\":\"a detective novel\"},{\"w\":\"avant de dormir.\",\"t\":\"before sleeping\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.168",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous jouons au badminton dans le jardin.",
+    "en": "We play badminton in the garden.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous jouons\",\"t\":\"we play\"},{\"w\":\"au badminton\",\"t\":\"badminton\"},{\"w\":\"dans le jardin.\",\"t\":\"in the garden\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.169",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Il fait de la pêche près de la rivière.",
+    "en": "He goes fishing near the river.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il fait\",\"t\":\"he goes\"},{\"w\":\"de la pêche\",\"t\":\"fishing\"},{\"w\":\"près de la rivière.\",\"t\":\"near the river\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.170",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Ma mère fait de la gymnastique le mardi.",
+    "en": "My mother does gymnastics on Tuesdays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma mère\",\"t\":\"my mother\"},{\"w\":\"fait de la gymnastique\",\"t\":\"does gymnastics\"},{\"w\":\"le mardi.\",\"t\":\"on Tuesdays\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.171",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Les supporters chantent dans le stade.",
+    "en": "The fans sing in the stadium.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les supporters\",\"t\":\"the fans\"},{\"w\":\"chantent\",\"t\":\"sing\"},{\"w\":\"dans le stade.\",\"t\":\"in the stadium\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.172",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je m'entraîne trois fois par semaine.",
+    "en": "I train three times a week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je m'entraîne\",\"t\":\"I train\"},{\"w\":\"trois fois\",\"t\":\"three times\"},{\"w\":\"par semaine.\",\"t\":\"a week\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.173",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous portons des chaussures de sport neuves.",
+    "en": "We wear new sports shoes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous portons\",\"t\":\"we wear\"},{\"w\":\"des chaussures de sport\",\"t\":\"sports shoes\"},{\"w\":\"neuves.\",\"t\":\"new\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.174",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Il a mal au genou après le match.",
+    "en": "His knee hurts after the match.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a mal\",\"t\":\"it hurts\"},{\"w\":\"au genou\",\"t\":\"his knee\"},{\"w\":\"après le match.\",\"t\":\"after the match\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.175",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je bois de l'eau pendant l'entraînement.",
+    "en": "I drink water during training.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je bois\",\"t\":\"I drink\"},{\"w\":\"de l'eau\",\"t\":\"water\"},{\"w\":\"pendant l'entraînement.\",\"t\":\"during training\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.176",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Le professeur de sport siffle fort.",
+    "en": "The sports teacher whistles loudly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le professeur de sport\",\"t\":\"the sports teacher\"},{\"w\":\"siffle\",\"t\":\"whistles\"},{\"w\":\"fort.\",\"t\":\"loudly\"}]}"
+  },
+  {
+    "id": "fr.a1.sports-et-loisirs.177",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous aimons regarder les matchs entre amis.",
+    "en": "We like watching matches with friends.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous aimons\",\"t\":\"we like\"},{\"w\":\"regarder les matchs\",\"t\":\"watching matches\"},{\"w\":\"entre amis.\",\"t\":\"with friends\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.049",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Hier, j'ai joué au tennis avec mon collègue.",
+    "en": "Yesterday, I played tennis with my colleague.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Hier,\",\"t\":\"yesterday\"},{\"w\":\"j'ai joué\",\"t\":\"I played\"},{\"w\":\"au tennis\",\"t\":\"tennis\"},{\"w\":\"avec mon collègue.\",\"t\":\"with my colleague\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.050",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous avons gagné le match de football dimanche dernier.",
+    "en": "We won the football match last Sunday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons gagné\",\"t\":\"we won\"},{\"w\":\"le match de football\",\"t\":\"the football match\"},{\"w\":\"dimanche dernier.\",\"t\":\"last Sunday\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.051",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Elle s'est inscrite à un cours de danse la semaine dernière.",
+    "en": "She signed up for a dance class last week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle s'est inscrite\",\"t\":\"she signed up\"},{\"w\":\"à un cours de danse\",\"t\":\"for a dance class\"},{\"w\":\"la semaine dernière.\",\"t\":\"last week\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.052",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Je vais rejoindre un club de sport ce mois-ci.",
+    "en": "I am going to join a sports club this month.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais rejoindre\",\"t\":\"I am going to join\"},{\"w\":\"un club de sport\",\"t\":\"a sports club\"},{\"w\":\"ce mois-ci.\",\"t\":\"this month\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.053",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Il a couru un marathon l'année dernière.",
+    "en": "He ran a marathon last year.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a couru\",\"t\":\"he ran\"},{\"w\":\"un marathon\",\"t\":\"a marathon\"},{\"w\":\"l'année dernière.\",\"t\":\"last year\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.054",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous allons regarder le match ce soir ensemble.",
+    "en": "We are going to watch the match together tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons regarder\",\"t\":\"we are going to watch\"},{\"w\":\"le match\",\"t\":\"the match\"},{\"w\":\"ce soir\",\"t\":\"tonight\"},{\"w\":\"ensemble.\",\"t\":\"together\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.055",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Tu as fait de la natation pendant les vacances.",
+    "en": "You went swimming during the vacation.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as fait\",\"t\":\"you did\"},{\"w\":\"de la natation\",\"t\":\"swimming\"},{\"w\":\"pendant les vacances.\",\"t\":\"during the vacation\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.056",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Ils ont perdu le tournoi mais ils ont bien joué.",
+    "en": "They lost the tournament but they played well.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils ont perdu\",\"t\":\"they lost\"},{\"w\":\"le tournoi\",\"t\":\"the tournament\"},{\"w\":\"mais ils ont bien joué.\",\"t\":\"but they played well\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.057",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Je me suis blessé au genou pendant l'entraînement.",
+    "en": "I injured my knee during training.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je me suis blessé\",\"t\":\"I injured myself\"},{\"w\":\"au genou\",\"t\":\"in the knee\"},{\"w\":\"pendant l'entraînement.\",\"t\":\"during training\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.058",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Après le match, nous avons fêté la victoire.",
+    "en": "After the match, we celebrated the victory.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Après le match,\",\"t\":\"after the match\"},{\"w\":\"nous avons fêté\",\"t\":\"we celebrated\"},{\"w\":\"la victoire.\",\"t\":\"the victory\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.059",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Elle va commencer le yoga la semaine prochaine.",
+    "en": "She is going to start yoga next week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle va commencer\",\"t\":\"she is going to start\"},{\"w\":\"le yoga\",\"t\":\"yoga\"},{\"w\":\"la semaine prochaine.\",\"t\":\"next week\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.060",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous avons acheté de nouvelles chaussures de sport.",
+    "en": "We bought new sports shoes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons acheté\",\"t\":\"we bought\"},{\"w\":\"de nouvelles chaussures\",\"t\":\"new shoes\"},{\"w\":\"de sport.\",\"t\":\"sports\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.061",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Comme il pleuvait, nous avons annulé la randonnée.",
+    "en": "Since it was raining, we cancelled the hike.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comme il pleuvait,\",\"t\":\"since it was raining\"},{\"w\":\"nous avons annulé\",\"t\":\"we cancelled\"},{\"w\":\"la randonnée.\",\"t\":\"the hike\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.062",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Je vais m'entraîner davantage avant la compétition.",
+    "en": "I am going to train more before the competition.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais m'entraîner\",\"t\":\"I am going to train\"},{\"w\":\"davantage\",\"t\":\"more\"},{\"w\":\"avant la compétition.\",\"t\":\"before the competition\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.063",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Ils sont allés à la salle de sport ce matin.",
+    "en": "They went to the gym this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils sont allés\",\"t\":\"they went\"},{\"w\":\"à la salle de sport\",\"t\":\"to the gym\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.064",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Puisque j'aime le sport, je me suis inscrit à trois clubs.",
+    "en": "Since I like sports, I signed up for three clubs.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Puisque j'aime le sport,\",\"t\":\"since I like sports\"},{\"w\":\"je me suis inscrit\",\"t\":\"I signed up\"},{\"w\":\"à trois clubs.\",\"t\":\"for three clubs\"}]}"
+  },
+  {
+    "id": "fr.a2.sports-et-loisirs.065",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous avons visité le stade avant le grand match.",
+    "en": "We visited the stadium before the big match.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons visité\",\"t\":\"we visited\"},{\"w\":\"le stade\",\"t\":\"the stadium\"},{\"w\":\"avant le grand match.\",\"t\":\"before the big match\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.075",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je pense que le sport en équipe développe l'esprit de solidarité.",
+    "en": "I think that team sports develop a spirit of solidarity.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pense\",\"t\":\"I think\"},{\"w\":\"que le sport en équipe\",\"t\":\"that team sports\"},{\"w\":\"développe\",\"t\":\"develop\"},{\"w\":\"l'esprit de solidarité.\",\"t\":\"a spirit of solidarity\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.076",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Quand j'étais plus jeune, je jouais au football tous les week-ends.",
+    "en": "When I was younger, I played football every weekend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand j'étais plus jeune,\",\"t\":\"when I was younger\"},{\"w\":\"je jouais au football\",\"t\":\"I played football\"},{\"w\":\"tous les week-ends.\",\"t\":\"every weekend\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.077",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Si tu t'entraînes régulièrement, tu progresseras rapidement.",
+    "en": "If you train regularly, you will progress quickly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si tu t'entraînes régulièrement,\",\"t\":\"if you train regularly\"},{\"w\":\"tu progresseras\",\"t\":\"you will progress\"},{\"w\":\"rapidement.\",\"t\":\"quickly\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.078",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Le joueur qui a marqué le but est devenu le héros du match.",
+    "en": "The player who scored the goal became the hero of the match.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le joueur\",\"t\":\"the player\"},{\"w\":\"qui a marqué le but\",\"t\":\"who scored the goal\"},{\"w\":\"est devenu\",\"t\":\"became\"},{\"w\":\"le héros du match.\",\"t\":\"the hero of the match\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.079",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je trouve que la natation est le sport le plus complet.",
+    "en": "I find that swimming is the most complete sport.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je trouve\",\"t\":\"I find\"},{\"w\":\"que la natation\",\"t\":\"that swimming\"},{\"w\":\"est le sport\",\"t\":\"is the sport\"},{\"w\":\"le plus complet.\",\"t\":\"the most complete\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.080",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Elle a décidé de rejoindre un club dont les membres sont très motivés.",
+    "en": "She decided to join a club whose members are very motivated.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a décidé\",\"t\":\"she decided\"},{\"w\":\"de rejoindre un club\",\"t\":\"to join a club\"},{\"w\":\"dont les membres\",\"t\":\"whose members\"},{\"w\":\"sont très motivés.\",\"t\":\"are very motivated\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.081",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Bien que je sois fatigué, je continue à courir chaque semaine.",
+    "en": "Although I am tired, I keep running every week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien que je sois fatigué,\",\"t\":\"although I am tired\"},{\"w\":\"je continue\",\"t\":\"I keep\"},{\"w\":\"à courir\",\"t\":\"running\"},{\"w\":\"chaque semaine.\",\"t\":\"every week\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.082",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Le coach nous a dit que la discipline compte plus que le talent.",
+    "en": "The coach told us that discipline matters more than talent.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le coach nous a dit\",\"t\":\"the coach told us\"},{\"w\":\"que la discipline\",\"t\":\"that discipline\"},{\"w\":\"compte plus\",\"t\":\"matters more\"},{\"w\":\"que le talent.\",\"t\":\"than talent\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.083",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Depuis qu'il pratique le yoga, il se sent plus détendu.",
+    "en": "Since he has been practicing yoga, he feels more relaxed.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Depuis qu'il pratique le yoga,\",\"t\":\"since he has been practicing yoga\"},{\"w\":\"il se sent\",\"t\":\"he feels\"},{\"w\":\"plus détendu.\",\"t\":\"more relaxed\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.084",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Il faut que nous réservions le terrain avant samedi.",
+    "en": "We need to book the field before Saturday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il faut\",\"t\":\"it is necessary\"},{\"w\":\"que nous réservions\",\"t\":\"that we book\"},{\"w\":\"le terrain\",\"t\":\"the field\"},{\"w\":\"avant samedi.\",\"t\":\"before Saturday\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.085",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je crois que la compétition pousse les athlètes à se dépasser.",
+    "en": "I believe that competition pushes athletes to surpass themselves.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je crois\",\"t\":\"I believe\"},{\"w\":\"que la compétition\",\"t\":\"that competition\"},{\"w\":\"pousse les athlètes\",\"t\":\"pushes athletes\"},{\"w\":\"à se dépasser.\",\"t\":\"to surpass themselves\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.086",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Quand elle a gagné le tournoi, toute l'équipe était fière.",
+    "en": "When she won the tournament, the whole team was proud.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand elle a gagné le tournoi,\",\"t\":\"when she won the tournament\"},{\"w\":\"toute l'équipe\",\"t\":\"the whole team\"},{\"w\":\"était fière.\",\"t\":\"was proud\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.087",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Le sport que je préfère demande beaucoup de patience.",
+    "en": "The sport I prefer requires a lot of patience.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le sport\",\"t\":\"the sport\"},{\"w\":\"que je préfère\",\"t\":\"that I prefer\"},{\"w\":\"demande\",\"t\":\"requires\"},{\"w\":\"beaucoup de patience.\",\"t\":\"a lot of patience\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.088",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Si l'entraîneur n'était pas si exigeant, l'équipe ne progresserait pas.",
+    "en": "If the coach were not so demanding, the team would not progress.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si l'entraîneur n'était pas si exigeant,\",\"t\":\"if the coach were not so demanding\"},{\"w\":\"l'équipe\",\"t\":\"the team\"},{\"w\":\"ne progresserait pas.\",\"t\":\"would not progress\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.089",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Nous avons choisi un gymnase qui propose plusieurs activités.",
+    "en": "We chose a gym that offers several activities.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons choisi\",\"t\":\"we chose\"},{\"w\":\"un gymnase\",\"t\":\"a gym\"},{\"w\":\"qui propose\",\"t\":\"that offers\"},{\"w\":\"plusieurs activités.\",\"t\":\"several activities\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.090",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Bien qu'il se soit blessé, il a terminé la course.",
+    "en": "Although he got injured, he finished the race.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien qu'il se soit blessé,\",\"t\":\"although he got injured\"},{\"w\":\"il a terminé\",\"t\":\"he finished\"},{\"w\":\"la course.\",\"t\":\"the race\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.091",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "À mon avis, il vaut mieux pratiquer un sport en plein air.",
+    "en": "In my opinion, it is better to practice an outdoor sport.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"À mon avis,\",\"t\":\"in my opinion\"},{\"w\":\"il vaut mieux\",\"t\":\"it is better\"},{\"w\":\"pratiquer un sport\",\"t\":\"to practice a sport\"},{\"w\":\"en plein air.\",\"t\":\"outdoors\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.092",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Le club où je m'entraîne organise un tournoi chaque printemps.",
+    "en": "The club where I train organizes a tournament every spring.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le club\",\"t\":\"the club\"},{\"w\":\"où je m'entraîne\",\"t\":\"where I train\"},{\"w\":\"organise un tournoi\",\"t\":\"organizes a tournament\"},{\"w\":\"chaque printemps.\",\"t\":\"every spring\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.093",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Puisqu'elle voulait progresser, elle a changé de méthode d'entraînement.",
+    "en": "Since she wanted to progress, she changed her training method.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Puisqu'elle voulait progresser,\",\"t\":\"since she wanted to progress\"},{\"w\":\"elle a changé\",\"t\":\"she changed\"},{\"w\":\"de méthode d'entraînement.\",\"t\":\"her training method\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.094",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Je pense que les supporters influencent vraiment la performance des joueurs.",
+    "en": "I think that fans really influence the players' performance.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pense\",\"t\":\"I think\"},{\"w\":\"que les supporters\",\"t\":\"that fans\"},{\"w\":\"influencent vraiment\",\"t\":\"really influence\"},{\"w\":\"la performance des joueurs.\",\"t\":\"the players' performance\"}]}"
+  },
+  {
+    "id": "fr.b1.sports-et-loisirs.095",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "sports-et-loisirs",
+    "fr": "Quand on aime vraiment un sport, on trouve toujours le temps de le pratiquer.",
+    "en": "When you truly love a sport, you always find time to practice it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand on aime vraiment un sport,\",\"t\":\"when you truly love a sport\"},{\"w\":\"on trouve toujours\",\"t\":\"you always find\"},{\"w\":\"le temps\",\"t\":\"the time\"},{\"w\":\"de le pratiquer.\",\"t\":\"to practice it\"}]}"
+  }
+]

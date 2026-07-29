@@ -1,0 +1,250 @@
+[
+  {
+    "stage": "1.1",
+    "title": "La Porte des Lettres",
+    "level": "sons",
+    "poolSize": 165,
+    "selected": 165,
+    "blocks": 5
+  },
+  {
+    "stage": "1.2",
+    "title": "Le Bassin des Voyelles",
+    "level": "sons",
+    "poolSize": 165,
+    "selected": 165,
+    "blocks": 5
+  },
+  {
+    "stage": "1.3",
+    "title": "Le Pont des Nasales",
+    "level": "sons",
+    "poolSize": 165,
+    "selected": 165,
+    "blocks": 5
+  },
+  {
+    "stage": "1.4",
+    "title": "Le Fil des Liaisons",
+    "level": "sons",
+    "poolSize": 165,
+    "selected": 165,
+    "blocks": 5
+  },
+  {
+    "stage": "1.5",
+    "title": "La Musique de la Phrase",
+    "level": "sons",
+    "poolSize": 165,
+    "selected": 165,
+    "blocks": 5
+  },
+  {
+    "stage": "2.1",
+    "title": "La Place du Bonjour",
+    "level": "a1",
+    "poolSize": 464,
+    "selected": 458,
+    "blocks": 14
+  },
+  {
+    "stage": "2.2",
+    "title": "Le Carrefour des Questions",
+    "level": "a1",
+    "poolSize": 531,
+    "selected": 531,
+    "blocks": 17
+  },
+  {
+    "stage": "2.3",
+    "title": "Le Pont des Petits Mots",
+    "level": "a1",
+    "poolSize": 569,
+    "selected": 569,
+    "blocks": 18
+  },
+  {
+    "stage": "2.4",
+    "title": "Le Café du Marché",
+    "level": "a1",
+    "poolSize": 271,
+    "selected": 269,
+    "blocks": 9
+  },
+  {
+    "stage": "2.5",
+    "title": "L'Horloge et le Ciel",
+    "level": "a1",
+    "poolSize": 684,
+    "selected": 678,
+    "blocks": 21
+  },
+  {
+    "stage": "2.6",
+    "title": "Les Visages du Village",
+    "level": "a1",
+    "poolSize": 887,
+    "selected": 884,
+    "blocks": 27
+  },
+  {
+    "stage": "3.1",
+    "title": "La Rue des Souvenirs",
+    "level": "a2",
+    "poolSize": 605,
+    "selected": 604,
+    "blocks": 19
+  },
+  {
+    "stage": "3.2",
+    "title": "L'Avenue des Projets",
+    "level": "a2",
+    "poolSize": 714,
+    "selected": 713,
+    "blocks": 22
+  },
+  {
+    "stage": "3.3",
+    "title": "Le Boulevard des Contrastes",
+    "level": "a2",
+    "poolSize": 453,
+    "selected": 453,
+    "blocks": 14
+  },
+  {
+    "stage": "3.4",
+    "title": "Les Boutiques",
+    "level": "a2",
+    "poolSize": 637,
+    "selected": 637,
+    "blocks": 20
+  },
+  {
+    "stage": "3.5",
+    "title": "Le Bureau des Papiers",
+    "level": "a2",
+    "poolSize": 711,
+    "selected": 710,
+    "blocks": 22
+  },
+  {
+    "stage": "4.1",
+    "title": "La Tribune",
+    "level": "b1",
+    "poolSize": 959,
+    "selected": 959,
+    "blocks": 30
+  },
+  {
+    "stage": "4.2",
+    "title": "La Tour du Travail",
+    "level": "b1",
+    "poolSize": 502,
+    "selected": 501,
+    "blocks": 16
+  },
+  {
+    "stage": "4.3",
+    "title": "Les Toits des Histoires",
+    "level": "b1",
+    "poolSize": 762,
+    "selected": 762,
+    "blocks": 24
+  },
+  {
+    "stage": "4.4",
+    "title": "Le Réseau",
+    "level": "b1",
+    "poolSize": 633,
+    "selected": 632,
+    "blocks": 20
+  },
+  {
+    "stage": "4.5",
+    "title": "Le Palais des Portes",
+    "level": "b1",
+    "poolSize": 670,
+    "selected": 669,
+    "blocks": 21
+  },
+  {
+    "stage": "5.1",
+    "title": "Le Col des Idées",
+    "level": "b2",
+    "poolSize": 390,
+    "selected": 390,
+    "blocks": 12
+  },
+  {
+    "stage": "5.2",
+    "title": "L'Observatoire",
+    "level": "b2",
+    "poolSize": 436,
+    "selected": 436,
+    "blocks": 14
+  },
+  {
+    "stage": "5.3",
+    "title": "Le Belvédère des Arts",
+    "level": "b2",
+    "poolSize": 345,
+    "selected": 345,
+    "blocks": 11
+  },
+  {
+    "stage": "5.4",
+    "title": "L'Arête des Affaires",
+    "level": "b2",
+    "poolSize": 429,
+    "selected": 429,
+    "blocks": 13
+  },
+  {
+    "stage": "5.5",
+    "title": "Le Sommet Social",
+    "level": "b2",
+    "poolSize": 710,
+    "selected": 710,
+    "blocks": 22
+  },
+  {
+    "stage": "6.1",
+    "title": "Le Seuil des Nuances",
+    "level": "c1",
+    "poolSize": 165,
+    "selected": 165,
+    "blocks": 5
+  },
+  {
+    "stage": "6.2",
+    "title": "La Salle du Débat",
+    "level": "c1",
+    "poolSize": 165,
+    "selected": 165,
+    "blocks": 5
+  },
+  {
+    "stage": "6.3",
+    "title": "Le Cabinet Professionnel",
+    "level": "c1",
+    "poolSize": 165,
+    "selected": 165,
+    "blocks": 5
+  },
+  {
+    "stage": "6.4",
+    "title": "La Bibliothèque Profonde",
+    "level": "c1",
+    "poolSize": 165,
+    "selected": 165,
+    "blocks": 5
+  },
+  {
+    "stage": "6.5",
+    "title": "L'Étoile de l'Examen",
+    "level": "c1",
+    "poolSize": 165,
+    "selected": 165,
+    "blocks": 5
+  }
+]

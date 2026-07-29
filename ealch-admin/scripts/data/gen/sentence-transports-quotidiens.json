@@ -1,0 +1,2732 @@
+[
+  {
+    "id": "fr.a1.transports-quotidiens.117",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je prends le bus tous les matins.",
+    "en": "I take the bus every morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je prends\",\"t\":\"I take\"},{\"w\":\"le bus\",\"t\":\"the bus\"},{\"w\":\"tous les matins.\",\"t\":\"every morning\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.118",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le métro arrive dans deux minutes.",
+    "en": "The metro arrives in two minutes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le métro\",\"t\":\"the metro\"},{\"w\":\"arrive\",\"t\":\"arrives\"},{\"w\":\"dans deux minutes.\",\"t\":\"in two minutes\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.119",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "J'achète un ticket au distributeur.",
+    "en": "I buy a ticket at the machine.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'achète\",\"t\":\"I buy\"},{\"w\":\"un ticket\",\"t\":\"a ticket\"},{\"w\":\"au distributeur.\",\"t\":\"at the machine\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.120",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "La station de métro est fermée.",
+    "en": "The metro station is closed.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La station de métro\",\"t\":\"the metro station\"},{\"w\":\"est fermée.\",\"t\":\"is closed\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.121",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Il y a beaucoup de monde dans le train.",
+    "en": "There are a lot of people on the train.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il y a\",\"t\":\"there is\"},{\"w\":\"beaucoup de monde\",\"t\":\"a lot of people\"},{\"w\":\"dans le train.\",\"t\":\"on the train\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.122",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je descends à la prochaine station.",
+    "en": "I get off at the next station.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je descends\",\"t\":\"I get off\"},{\"w\":\"à la prochaine station.\",\"t\":\"at the next station\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.123",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le bus numéro douze passe ici.",
+    "en": "Bus number twelve goes by here.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le bus numéro douze\",\"t\":\"bus number twelve\"},{\"w\":\"passe ici.\",\"t\":\"goes by here\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.124",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Ma carte de transport ne fonctionne pas.",
+    "en": "My transit card is not working.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma carte de transport\",\"t\":\"my transit card\"},{\"w\":\"ne fonctionne pas.\",\"t\":\"is not working\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.125",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Nous montons dans le tramway.",
+    "en": "We get on the tram.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous montons\",\"t\":\"we get on\"},{\"w\":\"dans le tramway.\",\"t\":\"the tram\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.126",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le conducteur ferme les portes.",
+    "en": "The driver closes the doors.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le conducteur\",\"t\":\"the driver\"},{\"w\":\"ferme\",\"t\":\"closes\"},{\"w\":\"les portes.\",\"t\":\"the doors\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.127",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je vais à pied jusqu'au bureau.",
+    "en": "I walk all the way to the office.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais à pied\",\"t\":\"I walk\"},{\"w\":\"jusqu'au bureau.\",\"t\":\"all the way to the office\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.128",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Mon vélo est garé devant la gare.",
+    "en": "My bike is parked in front of the train station.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon vélo\",\"t\":\"my bike\"},{\"w\":\"est garé\",\"t\":\"is parked\"},{\"w\":\"devant la gare.\",\"t\":\"in front of the train station\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.129",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le train part du quai numéro trois.",
+    "en": "The train leaves from platform number three.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le train part\",\"t\":\"the train leaves\"},{\"w\":\"du quai numéro trois.\",\"t\":\"from platform number three\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.130",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Elle attend le bus sous la pluie.",
+    "en": "She waits for the bus in the rain.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle attend\",\"t\":\"she waits for\"},{\"w\":\"le bus\",\"t\":\"the bus\"},{\"w\":\"sous la pluie.\",\"t\":\"in the rain\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.131",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Il y a un embouteillage sur l'autoroute.",
+    "en": "There is a traffic jam on the highway.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il y a\",\"t\":\"there is\"},{\"w\":\"un embouteillage\",\"t\":\"a traffic jam\"},{\"w\":\"sur l'autoroute.\",\"t\":\"on the highway\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.132",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je change de ligne à Châtelet.",
+    "en": "I change lines at Châtelet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je change de ligne\",\"t\":\"I change lines\"},{\"w\":\"à Châtelet.\",\"t\":\"at Châtelet\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.133",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le trajet dure vingt minutes.",
+    "en": "The trip lasts twenty minutes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le trajet dure\",\"t\":\"the trip lasts\"},{\"w\":\"vingt minutes.\",\"t\":\"twenty minutes\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.134",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Les horaires sont affichés sur l'écran.",
+    "en": "The schedules are displayed on the screen.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les horaires\",\"t\":\"the schedules\"},{\"w\":\"sont affichés\",\"t\":\"are displayed\"},{\"w\":\"sur l'écran.\",\"t\":\"on the screen\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.135",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je valide mon billet avant de monter.",
+    "en": "I validate my ticket before boarding.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je valide\",\"t\":\"I validate\"},{\"w\":\"mon billet\",\"t\":\"my ticket\"},{\"w\":\"avant de monter.\",\"t\":\"before boarding\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.136",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "La voiture est garée dans le parking.",
+    "en": "The car is parked in the parking lot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La voiture\",\"t\":\"the car\"},{\"w\":\"est garée\",\"t\":\"is parked\"},{\"w\":\"dans le parking.\",\"t\":\"in the parking lot\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.137",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le tram s'arrête devant l'école.",
+    "en": "The tram stops in front of the school.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le tram s'arrête\",\"t\":\"the tram stops\"},{\"w\":\"devant l'école.\",\"t\":\"in front of the school\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.138",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Nous roulons lentement à cause du trafic.",
+    "en": "We drive slowly because of the traffic.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous roulons lentement\",\"t\":\"we drive slowly\"},{\"w\":\"à cause du trafic.\",\"t\":\"because of the traffic\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.139",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le chauffeur de taxi connaît la ville.",
+    "en": "The taxi driver knows the city.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chauffeur de taxi\",\"t\":\"the taxi driver\"},{\"w\":\"connaît\",\"t\":\"knows\"},{\"w\":\"la ville.\",\"t\":\"the city\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.140",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je prends toujours le même chemin.",
+    "en": "I always take the same route.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je prends toujours\",\"t\":\"I always take\"},{\"w\":\"le même chemin.\",\"t\":\"the same route\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.141",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le métro est plein aux heures de pointe.",
+    "en": "The metro is full during rush hour.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le métro est plein\",\"t\":\"the metro is full\"},{\"w\":\"aux heures de pointe.\",\"t\":\"during rush hour\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.142",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Elle roule à vélo pour aller au travail.",
+    "en": "She rides a bike to go to work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle roule à vélo\",\"t\":\"she rides a bike\"},{\"w\":\"pour aller au travail.\",\"t\":\"to go to work\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.143",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le prochain bus arrive dans dix minutes.",
+    "en": "The next bus arrives in ten minutes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le prochain bus\",\"t\":\"the next bus\"},{\"w\":\"arrive\",\"t\":\"arrives\"},{\"w\":\"dans dix minutes.\",\"t\":\"in ten minutes\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.144",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je cherche la sortie de la gare.",
+    "en": "I am looking for the train station exit.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je cherche\",\"t\":\"I am looking for\"},{\"w\":\"la sortie de la gare.\",\"t\":\"the train station exit\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.145",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Il traverse la rue au feu vert.",
+    "en": "He crosses the street at the green light.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il traverse\",\"t\":\"he crosses\"},{\"w\":\"la rue\",\"t\":\"the street\"},{\"w\":\"au feu vert.\",\"t\":\"at the green light\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.146",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le ticket coûte deux euros.",
+    "en": "The ticket costs two euros.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le ticket coûte\",\"t\":\"the ticket costs\"},{\"w\":\"deux euros.\",\"t\":\"two euros\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.147",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "J'habite loin de la station de métro.",
+    "en": "I live far from the metro station.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'habite loin\",\"t\":\"I live far\"},{\"w\":\"de la station de métro.\",\"t\":\"from the metro station\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.148",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le vélo en libre-service est pratique.",
+    "en": "The bike-share bike is convenient.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vélo en libre-service\",\"t\":\"the bike-share bike\"},{\"w\":\"est pratique.\",\"t\":\"is convenient\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.149",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Nous attendons le train sur le quai.",
+    "en": "We wait for the train on the platform.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous attendons\",\"t\":\"we wait for\"},{\"w\":\"le train\",\"t\":\"the train\"},{\"w\":\"sur le quai.\",\"t\":\"on the platform\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.150",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "La gare est à côté de la poste.",
+    "en": "The train station is next to the post office.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La gare\",\"t\":\"the train station\"},{\"w\":\"est à côté\",\"t\":\"is next\"},{\"w\":\"de la poste.\",\"t\":\"to the post office\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.151",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je regarde le plan du métro.",
+    "en": "I look at the metro map.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je regarde\",\"t\":\"I look at\"},{\"w\":\"le plan du métro.\",\"t\":\"the metro map\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.152",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le bus est en retard aujourd'hui.",
+    "en": "The bus is late today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le bus\",\"t\":\"the bus\"},{\"w\":\"est en retard\",\"t\":\"is late\"},{\"w\":\"aujourd'hui.\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.153",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Elle prend sa voiture pour aller au marché.",
+    "en": "She takes her car to go to the market.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle prend sa voiture\",\"t\":\"she takes her car\"},{\"w\":\"pour aller au marché.\",\"t\":\"to go to the market\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.154",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le parking est complet ce matin.",
+    "en": "The parking lot is full this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le parking est complet\",\"t\":\"the parking lot is full\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.155",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Les enfants prennent le bus scolaire.",
+    "en": "The children take the school bus.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants prennent\",\"t\":\"the children take\"},{\"w\":\"le bus scolaire.\",\"t\":\"the school bus\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.156",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je monte dans le premier wagon.",
+    "en": "I get into the first car.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je monte\",\"t\":\"I get in\"},{\"w\":\"dans le premier wagon.\",\"t\":\"the first train car\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.157",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le contrôleur vérifie les billets.",
+    "en": "The ticket inspector checks the tickets.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le contrôleur\",\"t\":\"the ticket inspector\"},{\"w\":\"vérifie\",\"t\":\"checks\"},{\"w\":\"les billets.\",\"t\":\"the tickets\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.158",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Il pleut, alors je prends le métro.",
+    "en": "It's raining, so I take the metro.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pleut,\",\"t\":\"it's raining,\"},{\"w\":\"alors je prends\",\"t\":\"so I take\"},{\"w\":\"le métro.\",\"t\":\"the metro\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.159",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "La ligne treize est très fréquentée.",
+    "en": "Line thirteen is very busy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La ligne treize\",\"t\":\"line thirteen\"},{\"w\":\"est très fréquentée.\",\"t\":\"is very busy\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.160",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Nous cherchons une place assise.",
+    "en": "We are looking for a seat.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous cherchons\",\"t\":\"we are looking for\"},{\"w\":\"une place assise.\",\"t\":\"a seat\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.161",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le taxi attend devant l'hôtel.",
+    "en": "The taxi waits in front of the hotel.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le taxi attend\",\"t\":\"the taxi waits\"},{\"w\":\"devant l'hôtel.\",\"t\":\"in front of the hotel\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.162",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je descends du bus à l'arrêt suivant.",
+    "en": "I get off the bus at the next stop.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je descends du bus\",\"t\":\"I get off the bus\"},{\"w\":\"à l'arrêt suivant.\",\"t\":\"at the next stop\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.163",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "La route est fermée pour travaux.",
+    "en": "The road is closed for construction.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La route est fermée\",\"t\":\"the road is closed\"},{\"w\":\"pour travaux.\",\"t\":\"for construction\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.164",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Mon abonnement mensuel expire demain.",
+    "en": "My monthly pass expires tomorrow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon abonnement mensuel\",\"t\":\"my monthly pass\"},{\"w\":\"expire demain.\",\"t\":\"expires tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.165",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le vélo est attaché au poteau.",
+    "en": "The bike is locked to the pole.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vélo est attaché\",\"t\":\"the bike is locked\"},{\"w\":\"au poteau.\",\"t\":\"to the pole\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.166",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Elle demande son chemin à un passant.",
+    "en": "She asks a passerby for directions.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle demande son chemin\",\"t\":\"she asks for directions\"},{\"w\":\"à un passant.\",\"t\":\"from a passerby\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.167",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Le métro roule sous la ville.",
+    "en": "The metro runs under the city.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le métro roule\",\"t\":\"the metro runs\"},{\"w\":\"sous la ville.\",\"t\":\"under the city\"}]}"
+  },
+  {
+    "id": "fr.a1.transports-quotidiens.168",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "transports-quotidiens",
+    "fr": "Je prends l'escalator pour monter au quai.",
+    "en": "I take the escalator to go up to the platform.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je prends l'escalator\",\"t\":\"I take the escalator\"},{\"w\":\"pour monter au quai.\",\"t\":\"to go up to the platform\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.096",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Hier, j'ai raté le bus de huit heures.",
+    "en": "Yesterday, I missed the eight o'clock bus.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Hier,\",\"t\":\"yesterday,\"},{\"w\":\"j'ai raté\",\"t\":\"I missed\"},{\"w\":\"le bus de huit heures.\",\"t\":\"the eight o'clock bus\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.097",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Je vais prendre le train demain matin.",
+    "en": "I am going to take the train tomorrow morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais prendre\",\"t\":\"I am going to take\"},{\"w\":\"le train\",\"t\":\"the train\"},{\"w\":\"demain matin.\",\"t\":\"tomorrow morning\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.098",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Elle a acheté un abonnement mensuel la semaine dernière.",
+    "en": "She bought a monthly pass last week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a acheté\",\"t\":\"she bought\"},{\"w\":\"un abonnement mensuel\",\"t\":\"a monthly pass\"},{\"w\":\"la semaine dernière.\",\"t\":\"last week\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.099",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Nous avons attendu le tram pendant vingt minutes.",
+    "en": "We waited for the tram for twenty minutes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons attendu\",\"t\":\"we waited for\"},{\"w\":\"le tram\",\"t\":\"the tram\"},{\"w\":\"pendant vingt minutes.\",\"t\":\"for twenty minutes\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.100",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Le métro est tombé en panne ce matin.",
+    "en": "The metro broke down this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le métro est tombé en panne\",\"t\":\"the metro broke down\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.101",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Je vais réserver mon billet de train ce soir.",
+    "en": "I am going to book my train ticket tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais réserver\",\"t\":\"I am going to book\"},{\"w\":\"mon billet de train\",\"t\":\"my train ticket\"},{\"w\":\"ce soir.\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.102",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Il a manqué sa correspondance à la gare.",
+    "en": "He missed his connection at the train station.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a manqué\",\"t\":\"he missed\"},{\"w\":\"sa correspondance\",\"t\":\"his connection\"},{\"w\":\"à la gare.\",\"t\":\"at the train station\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.103",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Nous allons visiter Paris en métro.",
+    "en": "We are going to visit Paris by metro.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons visiter Paris\",\"t\":\"we are going to visit Paris\"},{\"w\":\"en métro.\",\"t\":\"by metro\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.104",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "J'ai oublié ma carte de transport à la maison.",
+    "en": "I forgot my transit card at home.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai oublié\",\"t\":\"I forgot\"},{\"w\":\"ma carte de transport\",\"t\":\"my transit card\"},{\"w\":\"à la maison.\",\"t\":\"at home\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.105",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Elle a pris un taxi parce qu'il pleuvait.",
+    "en": "She took a taxi because it was raining.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a pris un taxi\",\"t\":\"she took a taxi\"},{\"w\":\"parce qu'il pleuvait.\",\"t\":\"because it was raining\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.106",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Le bus est arrivé en retard alors j'ai couru.",
+    "en": "The bus arrived late so I ran.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le bus est arrivé en retard\",\"t\":\"the bus arrived late\"},{\"w\":\"alors j'ai couru.\",\"t\":\"so I ran\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.107",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Je vais louer un vélo pour la journée.",
+    "en": "I am going to rent a bike for the day.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais louer un vélo\",\"t\":\"I am going to rent a bike\"},{\"w\":\"pour la journée.\",\"t\":\"for the day\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.108",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Ils ont annulé le train à cause de la grève.",
+    "en": "They cancelled the train because of the strike.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils ont annulé le train\",\"t\":\"they cancelled the train\"},{\"w\":\"à cause de la grève.\",\"t\":\"because of the strike\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.109",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Nous avons changé de quai au dernier moment.",
+    "en": "We changed platforms at the last minute.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons changé de quai\",\"t\":\"we changed platforms\"},{\"w\":\"au dernier moment.\",\"t\":\"at the last minute\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.110",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Je suis monté dans le mauvais bus hier.",
+    "en": "I got on the wrong bus yesterday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je suis monté\",\"t\":\"I got on\"},{\"w\":\"dans le mauvais bus\",\"t\":\"the wrong bus\"},{\"w\":\"hier.\",\"t\":\"yesterday\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.111",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Elle va prendre sa voiture demain parce que le métro est fermé.",
+    "en": "She is going to take her car tomorrow because the metro is closed.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle va prendre sa voiture demain\",\"t\":\"she is going to take her car tomorrow\"},{\"w\":\"parce que le métro est fermé.\",\"t\":\"because the metro is closed\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.112",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Le chauffeur a klaxonné à cause des embouteillages.",
+    "en": "The driver honked because of the traffic jams.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chauffeur a klaxonné\",\"t\":\"the driver honked\"},{\"w\":\"à cause des embouteillages.\",\"t\":\"because of the traffic jams\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.113",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "J'ai composté mon billet avant de monter.",
+    "en": "I stamped my ticket before boarding.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai composté\",\"t\":\"I stamped\"},{\"w\":\"mon billet\",\"t\":\"my ticket\"},{\"w\":\"avant de monter.\",\"t\":\"before boarding\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.114",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Nous avons marché jusqu'à la gare parce que le bus n'est pas venu.",
+    "en": "We walked to the train station because the bus didn't come.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons marché jusqu'à la gare\",\"t\":\"we walked to the train station\"},{\"w\":\"parce que le bus n'est pas venu.\",\"t\":\"because the bus didn't come\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.115",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Il va falloir partir plus tôt à cause du trafic.",
+    "en": "We will have to leave earlier because of the traffic.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il va falloir partir plus tôt\",\"t\":\"we will have to leave earlier\"},{\"w\":\"à cause du trafic.\",\"t\":\"because of the traffic\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.116",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "J'ai perdu mon plan de métro dans le train.",
+    "en": "I lost my metro map on the train.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai perdu\",\"t\":\"I lost\"},{\"w\":\"mon plan de métro\",\"t\":\"my metro map\"},{\"w\":\"dans le train.\",\"t\":\"on the train\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.117",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Elle a demandé son chemin parce qu'elle s'est perdue.",
+    "en": "She asked for directions because she got lost.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a demandé son chemin\",\"t\":\"she asked for directions\"},{\"w\":\"parce qu'elle s'est perdue.\",\"t\":\"because she got lost\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.118",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Le train est parti sans nous.",
+    "en": "The train left without us.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le train est parti\",\"t\":\"the train left\"},{\"w\":\"sans nous.\",\"t\":\"without us\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.119",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Je vais acheter un carnet de tickets au guichet.",
+    "en": "I am going to buy a book of tickets at the counter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais acheter\",\"t\":\"I am going to buy\"},{\"w\":\"un carnet de tickets\",\"t\":\"a book of tickets\"},{\"w\":\"au guichet.\",\"t\":\"at the counter\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.120",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Nous avons attendu longtemps parce que le tram avait du retard.",
+    "en": "We waited a long time because the tram was late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons attendu longtemps\",\"t\":\"we waited a long time\"},{\"w\":\"parce que le tram avait du retard.\",\"t\":\"because the tram was late\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.121",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Puisqu'il faisait beau, j'ai décidé d'y aller à vélo.",
+    "en": "Since the weather was nice, I decided to go there by bike.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Puisqu'il faisait beau,\",\"t\":\"since the weather was nice,\"},{\"w\":\"j'ai décidé\",\"t\":\"I decided\"},{\"w\":\"d'y aller à vélo.\",\"t\":\"to go there by bike\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.122",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Le contrôleur m'a demandé mon billet dans le train.",
+    "en": "The ticket inspector asked me for my ticket on the train.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le contrôleur m'a demandé\",\"t\":\"the ticket inspector asked me for\"},{\"w\":\"mon billet\",\"t\":\"my ticket\"},{\"w\":\"dans le train.\",\"t\":\"on the train\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.123",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Ils vont construire une nouvelle ligne de métro.",
+    "en": "They are going to build a new metro line.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils vont construire\",\"t\":\"they are going to build\"},{\"w\":\"une nouvelle ligne de métro.\",\"t\":\"a new metro line\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.124",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Comme il y avait grève, nous avons pris nos vélos.",
+    "en": "Since there was a strike, we took our bikes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comme il y avait grève,\",\"t\":\"since there was a strike,\"},{\"w\":\"nous avons pris\",\"t\":\"we took\"},{\"w\":\"nos vélos.\",\"t\":\"our bikes\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.125",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "J'ai garé ma voiture devant la station.",
+    "en": "I parked my car in front of the station.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai garé ma voiture\",\"t\":\"I parked my car\"},{\"w\":\"devant la station.\",\"t\":\"in front of the station\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.126",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Elle est arrivée en retard parce que le bus était bondé.",
+    "en": "She arrived late because the bus was crowded.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est arrivée en retard\",\"t\":\"she arrived late\"},{\"w\":\"parce que le bus était bondé.\",\"t\":\"because the bus was crowded\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.127",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Nous allons essayer le covoiturage la semaine prochaine.",
+    "en": "We are going to try carpooling next week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons essayer le covoiturage\",\"t\":\"we are going to try carpooling\"},{\"w\":\"la semaine prochaine.\",\"t\":\"next week\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.128",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Le métro a été bondé pendant toute la journée.",
+    "en": "The metro was crowded all day long.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le métro a été bondé\",\"t\":\"the metro was crowded\"},{\"w\":\"pendant toute la journée.\",\"t\":\"all day long\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.129",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Je vais descendre à la station suivante parce que je me suis trompé.",
+    "en": "I am going to get off at the next station because I made a mistake.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais descendre à la station suivante\",\"t\":\"I am going to get off at the next station\"},{\"w\":\"parce que je me suis trompé.\",\"t\":\"because I made a mistake\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.130",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Ils ont fermé la route donc nous avons pris un autre chemin.",
+    "en": "They closed the road so we took another route.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils ont fermé la route\",\"t\":\"they closed the road\"},{\"w\":\"donc nous avons pris\",\"t\":\"so we took\"},{\"w\":\"un autre chemin.\",\"t\":\"another route\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.131",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "J'ai téléchargé une application pour suivre les horaires du bus.",
+    "en": "I downloaded an app to track the bus schedules.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai téléchargé une application\",\"t\":\"I downloaded an app\"},{\"w\":\"pour suivre les horaires du bus.\",\"t\":\"to track the bus schedules\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.132",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Elle a pris le premier train pour arriver à l'heure.",
+    "en": "She took the first train to arrive on time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a pris le premier train\",\"t\":\"she took the first train\"},{\"w\":\"pour arriver à l'heure.\",\"t\":\"to arrive on time\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.133",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Puisque le parking était complet, il a garé sa voiture plus loin.",
+    "en": "Since the parking lot was full, he parked his car further away.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Puisque le parking était complet,\",\"t\":\"since the parking lot was full,\"},{\"w\":\"il a garé sa voiture\",\"t\":\"he parked his car\"},{\"w\":\"plus loin.\",\"t\":\"further away\"}]}"
+  },
+  {
+    "id": "fr.a2.transports-quotidiens.134",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "transports-quotidiens",
+    "fr": "Nous avons finalement trouvé une place assise dans le wagon.",
+    "en": "We finally found a seat in the train car.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons finalement trouvé\",\"t\":\"we finally found\"},{\"w\":\"une place assise\",\"t\":\"a seat\"},{\"w\":\"dans le wagon.\",\"t\":\"in the train car\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.080",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Je pense que les transports en commun sont plus écologiques que la voiture.",
+    "en": "I think that public transportation is more eco-friendly than the car.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pense\",\"t\":\"I think\"},{\"w\":\"que les transports en commun\",\"t\":\"that public transportation\"},{\"w\":\"sont plus écologiques\",\"t\":\"is more eco-friendly\"},{\"w\":\"que la voiture.\",\"t\":\"than the car\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.081",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Quand il neige, les trains ont souvent du retard.",
+    "en": "When it snows, the trains are often late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand il neige,\",\"t\":\"when it snows,\"},{\"w\":\"les trains ont souvent\",\"t\":\"the trains are often\"},{\"w\":\"du retard.\",\"t\":\"late\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.082",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Si j'avais plus de temps, je prendrais toujours le vélo.",
+    "en": "If I had more time, I would always take the bike.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si j'avais plus de temps,\",\"t\":\"if I had more time,\"},{\"w\":\"je prendrais toujours\",\"t\":\"I would always take\"},{\"w\":\"le vélo.\",\"t\":\"the bike\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.083",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Le bus que je prends chaque jour passe devant chez moi.",
+    "en": "The bus that I take every day goes by my house.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le bus\",\"t\":\"the bus\"},{\"w\":\"que je prends chaque jour\",\"t\":\"that I take every day\"},{\"w\":\"passe devant chez moi.\",\"t\":\"goes by my house\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.084",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Il faut que tu achètes ton billet avant de monter dans le train.",
+    "en": "You need to buy your ticket before getting on the train.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il faut que tu achètes\",\"t\":\"you need to buy\"},{\"w\":\"ton billet\",\"t\":\"your ticket\"},{\"w\":\"avant de monter dans le train.\",\"t\":\"before getting on the train\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.085",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Je trouve que le métro parisien est parfois trop bondé aux heures de pointe.",
+    "en": "I find that the Paris metro is sometimes too crowded during rush hour.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je trouve\",\"t\":\"I find\"},{\"w\":\"que le métro parisien\",\"t\":\"that the Paris metro\"},{\"w\":\"est parfois trop bondé\",\"t\":\"is sometimes too crowded\"},{\"w\":\"aux heures de pointe.\",\"t\":\"during rush hour\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.086",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Les usagers qui n'ont pas de titre de transport valide risquent une amende.",
+    "en": "Riders who do not have a valid ticket risk a fine.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les usagers\",\"t\":\"riders\"},{\"w\":\"qui n'ont pas de titre de transport valide\",\"t\":\"who do not have a valid ticket\"},{\"w\":\"risquent une amende.\",\"t\":\"risk a fine\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.087",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Quand je voyage en train, je préfère avoir une place près de la fenêtre.",
+    "en": "When I travel by train, I prefer to have a seat near the window.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand je voyage en train,\",\"t\":\"when I travel by train,\"},{\"w\":\"je préfère avoir\",\"t\":\"I prefer to have\"},{\"w\":\"une place près de la fenêtre.\",\"t\":\"a seat near the window\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.088",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Si le tramway n'existait pas, la ville serait beaucoup plus embouteillée.",
+    "en": "If the tram did not exist, the city would be much more congested.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si le tramway n'existait pas,\",\"t\":\"if the tram did not exist,\"},{\"w\":\"la ville serait\",\"t\":\"the city would be\"},{\"w\":\"beaucoup plus embouteillée.\",\"t\":\"much more congested\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.089",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Bien que le bus soit lent, il reste moins cher que le taxi.",
+    "en": "Although the bus is slow, it remains cheaper than the taxi.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien que le bus soit lent,\",\"t\":\"although the bus is slow,\"},{\"w\":\"il reste moins cher\",\"t\":\"it remains cheaper\"},{\"w\":\"que le taxi.\",\"t\":\"than the taxi\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.090",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Le conducteur nous a expliqué pourquoi le train avait pris du retard.",
+    "en": "The driver explained to us why the train had been delayed.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le conducteur nous a expliqué\",\"t\":\"the driver explained to us\"},{\"w\":\"pourquoi le train\",\"t\":\"why the train\"},{\"w\":\"avait pris du retard.\",\"t\":\"had been delayed\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.091",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Je crois que le covoiturage réduit vraiment la pollution en ville.",
+    "en": "I believe that carpooling really reduces pollution in the city.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je crois\",\"t\":\"I believe\"},{\"w\":\"que le covoiturage\",\"t\":\"that carpooling\"},{\"w\":\"réduit vraiment la pollution en ville.\",\"t\":\"really reduces pollution in the city\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.092",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Les grévistes ont bloqué la gare pendant toute la matinée.",
+    "en": "The strikers blocked the train station all morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les grévistes ont bloqué la gare\",\"t\":\"the strikers blocked the train station\"},{\"w\":\"pendant toute la matinée.\",\"t\":\"all morning\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.093",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Il est important de vérifier les horaires avant de partir.",
+    "en": "It is important to check the schedules before leaving.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est important\",\"t\":\"it is important\"},{\"w\":\"de vérifier les horaires\",\"t\":\"to check the schedules\"},{\"w\":\"avant de partir.\",\"t\":\"before leaving\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.094",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Depuis que j'ai déménagé, je mets une heure pour aller au travail.",
+    "en": "Since I moved, it takes me an hour to get to work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Depuis que j'ai déménagé,\",\"t\":\"since I moved,\"},{\"w\":\"je mets une heure\",\"t\":\"it takes me an hour\"},{\"w\":\"pour aller au travail.\",\"t\":\"to get to work\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.095",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Quand les routes sont bloquées, les gens prennent le métro à la place.",
+    "en": "When the roads are blocked, people take the metro instead.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand les routes sont bloquées,\",\"t\":\"when the roads are blocked,\"},{\"w\":\"les gens prennent le métro\",\"t\":\"people take the metro\"},{\"w\":\"à la place.\",\"t\":\"instead\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.096",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Elle m'a dit qu'elle préférait marcher plutôt que d'attendre le bus.",
+    "en": "She told me that she preferred to walk rather than wait for the bus.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle m'a dit\",\"t\":\"she told me\"},{\"w\":\"qu'elle préférait marcher\",\"t\":\"that she preferred to walk\"},{\"w\":\"plutôt que d'attendre le bus.\",\"t\":\"rather than wait for the bus\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.097",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Si tu rates ta correspondance, il faudra attendre le train suivant.",
+    "en": "If you miss your connection, you will have to wait for the next train.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si tu rates ta correspondance,\",\"t\":\"if you miss your connection,\"},{\"w\":\"il faudra attendre\",\"t\":\"you will have to wait for\"},{\"w\":\"le train suivant.\",\"t\":\"the next train\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.098",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Les navetteurs qui vivent en banlieue passent souvent deux heures dans les transports.",
+    "en": "Commuters who live in the suburbs often spend two hours in transit.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les navetteurs\",\"t\":\"commuters\"},{\"w\":\"qui vivent en banlieue\",\"t\":\"who live in the suburbs\"},{\"w\":\"passent souvent deux heures\",\"t\":\"often spend two hours\"},{\"w\":\"dans les transports.\",\"t\":\"in transit\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.099",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Bien qu'il soit tard, le métro circule encore.",
+    "en": "Although it is late, the metro is still running.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien qu'il soit tard,\",\"t\":\"although it is late,\"},{\"w\":\"le métro circule encore.\",\"t\":\"the metro is still running\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.100",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Je me demande si le tramway sera terminé avant l'été.",
+    "en": "I wonder if the tram will be finished before summer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je me demande\",\"t\":\"I wonder\"},{\"w\":\"si le tramway sera terminé\",\"t\":\"if the tram will be finished\"},{\"w\":\"avant l'été.\",\"t\":\"before summer\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.101",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "La compagnie a annoncé que les tarifs allaient augmenter en janvier.",
+    "en": "The company announced that fares were going to increase in January.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La compagnie a annoncé\",\"t\":\"the company announced\"},{\"w\":\"que les tarifs allaient augmenter\",\"t\":\"that fares were going to increase\"},{\"w\":\"en janvier.\",\"t\":\"in January\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.102",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Il vaut mieux partir tôt quand il y a des travaux sur la ligne.",
+    "en": "It is better to leave early when there are works on the line.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il vaut mieux partir tôt\",\"t\":\"it is better to leave early\"},{\"w\":\"quand il y a des travaux\",\"t\":\"when there are works\"},{\"w\":\"sur la ligne.\",\"t\":\"on the line\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.103",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Ce que je préfère dans le train, c'est pouvoir lire tranquillement.",
+    "en": "What I like best about the train is being able to read quietly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce que je préfère dans le train,\",\"t\":\"what I like best about the train,\"},{\"w\":\"c'est pouvoir lire tranquillement.\",\"t\":\"is being able to read quietly\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.104",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Si les embouteillages continuent, il faudra investir dans de nouvelles lignes de bus.",
+    "en": "If the traffic jams continue, we will need to invest in new bus lines.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si les embouteillages continuent,\",\"t\":\"if the traffic jams continue,\"},{\"w\":\"il faudra investir\",\"t\":\"we will need to invest\"},{\"w\":\"dans de nouvelles lignes de bus.\",\"t\":\"in new bus lines\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.105",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Les passagers qui attendaient sur le quai ont applaudi quand le train est arrivé.",
+    "en": "The passengers who were waiting on the platform applauded when the train arrived.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les passagers\",\"t\":\"the passengers\"},{\"w\":\"qui attendaient sur le quai\",\"t\":\"who were waiting on the platform\"},{\"w\":\"ont applaudi\",\"t\":\"applauded\"},{\"w\":\"quand le train est arrivé.\",\"t\":\"when the train arrived\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.106",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Je pense qu'il faudrait plus de pistes cyclables dans cette ville.",
+    "en": "I think there should be more bike lanes in this city.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pense\",\"t\":\"I think\"},{\"w\":\"qu'il faudrait plus de pistes cyclables\",\"t\":\"there should be more bike lanes\"},{\"w\":\"dans cette ville.\",\"t\":\"in this city\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.107",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Quand j'étais étudiant, je prenais toujours le tram pour aller à la fac.",
+    "en": "When I was a student, I always took the tram to go to university.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand j'étais étudiant,\",\"t\":\"when I was a student,\"},{\"w\":\"je prenais toujours le tram\",\"t\":\"I always took the tram\"},{\"w\":\"pour aller à la fac.\",\"t\":\"to go to university\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.108",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Il semble que la nouvelle application indique les horaires en temps réel.",
+    "en": "It seems that the new app shows real-time schedules.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il semble\",\"t\":\"it seems\"},{\"w\":\"que la nouvelle application\",\"t\":\"that the new app\"},{\"w\":\"indique les horaires en temps réel.\",\"t\":\"shows real-time schedules\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.109",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Bien que la voiture soit pratique, elle coûte cher en essence et en parking.",
+    "en": "Although the car is convenient, it is expensive in gas and parking.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien que la voiture soit pratique,\",\"t\":\"although the car is convenient,\"},{\"w\":\"elle coûte cher\",\"t\":\"it is expensive\"},{\"w\":\"en essence et en parking.\",\"t\":\"in gas and parking\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.110",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Le contrôleur a vérifié que tous les billets étaient valides.",
+    "en": "The ticket inspector checked that all the tickets were valid.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le contrôleur a vérifié\",\"t\":\"the ticket inspector checked\"},{\"w\":\"que tous les billets\",\"t\":\"that all the tickets\"},{\"w\":\"étaient valides.\",\"t\":\"were valid\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.111",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Si on partageait davantage nos trajets, on économiserait beaucoup d'argent.",
+    "en": "If we shared our trips more, we would save a lot of money.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si on partageait davantage nos trajets,\",\"t\":\"if we shared our trips more,\"},{\"w\":\"on économiserait\",\"t\":\"we would save\"},{\"w\":\"beaucoup d'argent.\",\"t\":\"a lot of money\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.112",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Les habitants se plaignent que le bus ne passe pas assez souvent le soir.",
+    "en": "Residents complain that the bus does not come often enough in the evening.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les habitants se plaignent\",\"t\":\"residents complain\"},{\"w\":\"que le bus ne passe pas assez souvent\",\"t\":\"that the bus does not come often enough\"},{\"w\":\"le soir.\",\"t\":\"in the evening\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.113",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "J'aimerais savoir pourquoi cette ligne de métro est toujours en retard.",
+    "en": "I would like to know why this metro line is always late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'aimerais savoir\",\"t\":\"I would like to know\"},{\"w\":\"pourquoi cette ligne de métro\",\"t\":\"why this metro line\"},{\"w\":\"est toujours en retard.\",\"t\":\"is always late\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.114",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Depuis la grève, beaucoup de gens ont pris l'habitude de faire du vélo.",
+    "en": "Since the strike, many people have gotten into the habit of biking.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Depuis la grève,\",\"t\":\"since the strike,\"},{\"w\":\"beaucoup de gens ont pris l'habitude\",\"t\":\"many people have gotten into the habit\"},{\"w\":\"de faire du vélo.\",\"t\":\"of biking\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.115",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Il paraît que la ville va construire une nouvelle station près du stade.",
+    "en": "It seems that the city is going to build a new station near the stadium.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il paraît\",\"t\":\"it seems\"},{\"w\":\"que la ville va construire\",\"t\":\"that the city is going to build\"},{\"w\":\"une nouvelle station près du stade.\",\"t\":\"a new station near the stadium\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.116",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Quand on habite loin du centre, la voiture reste souvent indispensable.",
+    "en": "When you live far from the center, the car often remains essential.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand on habite loin du centre,\",\"t\":\"when you live far from the center,\"},{\"w\":\"la voiture reste souvent\",\"t\":\"the car often remains\"},{\"w\":\"indispensable.\",\"t\":\"essential\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.117",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Je regrette de ne pas avoir pris le train plus tôt ce matin.",
+    "en": "I regret not having taken the train earlier this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je regrette\",\"t\":\"I regret\"},{\"w\":\"de ne pas avoir pris le train\",\"t\":\"not having taken the train\"},{\"w\":\"plus tôt ce matin.\",\"t\":\"earlier this morning\"}]}"
+  },
+  {
+    "id": "fr.b1.transports-quotidiens.118",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "transports-quotidiens",
+    "fr": "Les autorités espèrent que le nouveau tramway diminuera la circulation en centre-ville.",
+    "en": "The authorities hope that the new tram will reduce traffic downtown.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les autorités espèrent\",\"t\":\"the authorities hope\"},{\"w\":\"que le nouveau tramway\",\"t\":\"that the new tram\"},{\"w\":\"diminuera la circulation\",\"t\":\"will reduce traffic\"},{\"w\":\"en centre-ville.\",\"t\":\"downtown\"}]}"
+  }
+]

@@ -1,0 +1,3207 @@
+{
+  "level": "c1",
+  "theme": "rhetorique",
+  "count": 160,
+  "items": [
+    {
+      "id": "fr.c1.rhetorique.001",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Certes, elle a raison, mais son ton dérange.",
+      "en": "She is right, granted, but her tone is off-putting.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.002",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Entendu, le risque existe, mais il reste maîtrisable.",
+      "en": "Understood, the risk exists, but it remains manageable.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.003",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "D'accord, votre argument porte, encore faut-il le documenter.",
+      "en": "Fine, your argument lands, but you still need to back it up.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.004",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Soit, le prix baisse, mais la qualité aussi.",
+      "en": "Fair enough, the price is dropping, but so is the quality.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.005",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Sans doute, mais votre conclusion va trop loin.",
+      "en": "Perhaps so, but your conclusion goes too far.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.006",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "J'admets que le débat traîne, néanmoins il progresse réellement.",
+      "en": "I admit the debate is dragging on, yet it really is moving forward.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.007",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Assurément, la mesure séduit, mais qui va la payer?",
+      "en": "The measure is appealing, certainly, but who is going to pay for it?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.008",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Votre remarque est juste, mais elle ne prouve rien.",
+      "en": "Your point is fair, but it proves nothing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.009",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Admettons même que j'exagère, le problème demeure pourtant entier.",
+      "en": "Even supposing I am exaggerating, the problem still remains untouched.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.010",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Certes, la ville investit, mais toujours aux mauvais endroits.",
+      "en": "The city is investing, granted, but always in the wrong places.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.011",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Bien sûr, l'erreur est humaine, cela dit elle se répète.",
+      "en": "Of course, to err is human, that said, this mistake keeps happening.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.012",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Évidemment, le sujet divise, il n'en reste pas moins urgent.",
+      "en": "Obviously the issue is divisive, but it is no less urgent for that.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.013",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Je ne nie pas ses efforts, pourtant le résultat déçoit.",
+      "en": "I do not deny his efforts, yet the result is disappointing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.014",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "On peut l'entendre, mais gardons-nous d'en tirer une règle générale.",
+      "en": "That is a fair point, but let us not turn it into a general rule.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.015",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Personne ne conteste le talent du maire, mais est-ce suffisant?",
+      "en": "Nobody disputes the mayor's talent, but is that enough?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.016",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Je vous l'accorde, il travaille, n'empêche qu'il arrive toujours en retard.",
+      "en": "I grant you he works hard, still, he always shows up late.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.017",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Vous n'avez pas tort, sauf que les chiffres disent autre chose.",
+      "en": "You are not wrong, except that the numbers say otherwise.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.018",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Je veux bien croire au hasard, reste que cela fait beaucoup.",
+      "en": "I am willing to believe in coincidence, still, that is a lot of coincidences.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.019",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Soit, j'ai perdu ce débat, mais mon idée avance quand même.",
+      "en": "Fine, I lost that debate, but my idea is gaining ground anyway.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.020",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Votre objection se tient, sauf qu'elle ignore complètement le principal intéressé.",
+      "en": "Your objection holds up, except that it completely ignores the person most affected.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.021",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Il est vrai que le télétravail isole, toutefois il libère du temps.",
+      "en": "It is true that remote work is isolating, however it frees up time.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.022",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Mettons que le marché se calme, toujours est-il que les loyers étouffent.",
+      "en": "Say the market does cool down, the fact remains that rents are suffocating people.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.023",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Effectivement, le rapport est long, il reste que personne ne le lit.",
+      "en": "The report is indeed long, and yet nobody reads it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.024",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Bien sûr, la critique est facile, cela dit certaines critiques visent juste.",
+      "en": "Of course criticism is easy, that said, some criticism hits the mark.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.025",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Nul ne conteste que l'hiver coûte cher, cependant on peut mieux planifier.",
+      "en": "Nobody disputes that winter is expensive, however we could plan better.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.026",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "J'admets que l'application est pratique, néanmoins elle collecte trop de données personnelles.",
+      "en": "I admit the app is convenient, nevertheless it collects too much personal data.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.027",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Certes, l'intelligence artificielle rédige vite, il n'en demeure pas moins qu'elle invente parfois.",
+      "en": "Granted, artificial intelligence writes quickly, the fact remains that it sometimes makes things up.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.028",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Je reconnais volontiers mes torts, mais ce n'est pas une raison pour crier.",
+      "en": "I readily acknowledge my mistakes, but that is no reason to shout.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.029",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "D'accord, le musée est gratuit le dimanche, encore faudrait-il réellement pouvoir y entrer.",
+      "en": "Fine, the museum is free on Sundays, but you would actually need to be able to get in.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.030",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Supposons même que les ventes doublent, il faudrait encore convaincre les principaux investisseurs.",
+      "en": "Even supposing sales double, we would still have to convince the main investors.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.031",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Il se peut que je me trompe, toujours est-il que personne ne répond.",
+      "en": "I may be wrong, but the fact is, nobody is answering.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.032",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "La réforme part d'une bonne intention, je le concède, mais l'intention ne suffit pas.",
+      "en": "The reform comes from a good intention, I concede that, but intention is not enough.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.033",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "On ne saurait nier le charme du quartier, pour autant les loyers restent indécents.",
+      "en": "There is no denying the neighbourhood's charm, but that does not make the rents any less indecent.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.034",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Vous avez raison de défendre le vélo, mais tout le monde ne pédale pas.",
+      "en": "You are right to stand up for cycling, but not everyone rides a bike.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.035",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est entendu, la concurrence stimule l'innovation, faut-il pour autant sacrifier tous les petits commerces?",
+      "en": "Agreed, competition drives innovation, but does that mean we should sacrifice every small business?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.036",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Je comprends l'argument économique, mais il serait abusif d'en conclure que tout va bien.",
+      "en": "I understand the economic argument, but it would be a stretch to conclude that everything is fine.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.037",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Force est de reconnaître que l'équipe a progressé, mais le championnat se gagne en défense.",
+      "en": "It must be acknowledged that the team has improved, but championships are won on defence.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.038",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Loin de moi l'idée de nier la crise, mais la panique n'a jamais rien réglé.",
+      "en": "Far be it from me to deny the crisis, but panic has never solved anything.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.039",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Admettons que la taxe carbone pèse sur les familles, cela ne justifie pas de l'abandonner.",
+      "en": "Granted, the carbon tax weighs on families, but that does not justify scrapping it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.040",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Il est vrai que les urgences débordent, toutefois fermer des lits n'arrangera rien du tout.",
+      "en": "It is true that emergency rooms are overflowing, however closing beds will fix nothing at all.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.041",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Quand bien même vous auriez raison sur le fond, la forme ruine complètement votre plaidoyer.",
+      "en": "Even if you were right on the substance, the delivery completely ruins your case.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.042",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Certes, les réseaux sociaux rapprochent les gens, il n'en demeure pas moins qu'ils polarisent les débats.",
+      "en": "Social media does bring people together, granted, but the fact remains that it polarizes debate.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.043",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Je ne conteste pas la sincérité du ministre, je dis simplement que son plan manque d'ambition.",
+      "en": "I am not questioning the minister's sincerity, I am simply saying his plan lacks ambition.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.044",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Sans doute l'immigration soulève-t-elle des questions légitimes, mais elle demeure une chance pour nos régions vieillissantes.",
+      "en": "Immigration no doubt raises legitimate questions, but it remains an opportunity for our aging regions.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.045",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Personne ne conteste que le nucléaire comporte des risques, est-ce une raison pour tout arrêter demain?",
+      "en": "Nobody disputes that nuclear power carries risks, but is that a reason to shut everything down tomorrow?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.046",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "En dépit de ses défauts évidents, ce projet de loi répond à une urgence bien réelle.",
+      "en": "In spite of its obvious flaws, this bill addresses a very real emergency.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.047",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Évidemment, réduire la vitesse en ville dérange, il n'en reste pas moins que cela sauve des vies.",
+      "en": "Obviously, lowering speed limits in the city annoys people, but it remains true that it saves lives.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.048",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Je vous l'accorde, le budget est serré cette année, n'empêche que certaines dépenses relèvent du pur gaspillage.",
+      "en": "I grant you the budget is tight this year, still, some spending amounts to pure waste.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.049",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "On peut concéder que l'uniforme scolaire simplifie les matins, mais il ne réglera jamais vraiment le harcèlement.",
+      "en": "One can concede that school uniforms simplify mornings, but they will never really solve bullying.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.050",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Vous dites que la culture coûte cher, je réponds qu'une société sans culture paie bien plus cher.",
+      "en": "You say culture is expensive, I answer that a society without culture pays far more.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.051",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Il faut bien avouer que le débat était brouillon, pourtant une idée forte a fini par émerger.",
+      "en": "Admittedly the debate was messy, yet one strong idea eventually emerged.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.052",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Je veux bien admettre que le streaming a sauvé la musique, reste que les artistes touchent des miettes.",
+      "en": "I will admit that streaming saved the music industry, still, artists are paid crumbs.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.053",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Certes, le nouvel aéroport promet des milliers d'emplois, encore faudrait-il savoir combien survivront à l'automatisation dans dix ans.",
+      "en": "Granted, the new airport promises thousands of jobs, but we would need to know how many will survive automation in ten years.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.054",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Mettons que la ville double les pistes cyclables, il restera à convaincre les gens de les utiliser l'hiver.",
+      "en": "Say the city doubles its bike lanes, it will still have to convince people to use them in winter.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.055",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Nul ne nie que les enseignants méritent mieux, cependant une grève illimitée pénalise d'abord les élèves les plus fragiles.",
+      "en": "Nobody denies that teachers deserve better, however an open-ended strike hurts the most vulnerable students first.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.056",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Vous me direz que le marché immobilier finira par s'ajuster, soit, mais combien de familles tiendront jusque là?",
+      "en": "You will tell me the housing market will eventually correct itself, fine, but how many families will hold on until then?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.057",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Quand bien même la banque centrale baisserait ses taux demain matin, l'accès à la propriété resterait hors de portée.",
+      "en": "Even if the central bank cut rates tomorrow morning, home ownership would remain out of reach.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.058",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "En dépit des sommes considérables investies depuis dix ans, le fleuve reste pollué, et personne ne semble s'en émouvoir.",
+      "en": "Despite the considerable sums invested over the past ten years, the river is still polluted, and nobody seems moved by it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.059",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "On aura beau répéter que la jeunesse est distraite, elle se mobilise davantage que ses aînés au même âge.",
+      "en": "People can keep repeating that young people are distracted, they still mobilize more than their elders did at the same age.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.060",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Je comprends que les agriculteurs se sentent abandonnés, malgré tout, bloquer les routes chaque semaine finit par lasser l'opinion publique.",
+      "en": "I understand that farmers feel abandoned, even so, blocking roads every week ends up wearing out public opinion.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.061",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Que la transition énergétique coûte cher, je l'accorde volontiers, mais chaque année d'attente alourdit la facture que paieront nos enfants.",
+      "en": "That the energy transition is costly, I readily grant, but every year of waiting adds to the bill our children will pay.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.062",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Vous soutenez que la gratuité des transports est utopique, or plusieurs villes l'ont adoptée sans que leur réseau ne s'effondre.",
+      "en": "You maintain that free public transit is utopian, and yet several cities have adopted it without their networks collapsing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.063",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "À quoi bon débattre si personne n'écoute vraiment ?",
+      "en": "What's the point of debating if nobody really listens?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.064",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Qui oserait encore défendre une position aussi fragile ?",
+      "en": "Who would still dare to defend such a shaky position?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.065",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Faut-il rappeler une telle évidence à chaque débat ?",
+      "en": "Do we have to restate something so obvious at every debate?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.066",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "En dépit de ses efforts, rien n'a changé.",
+      "en": "Despite his efforts, nothing has changed.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.067",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Comment peut-on encore ignorer un argument aussi solide ?",
+      "en": "How can anyone still ignore such a solid argument?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.068",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Quand bien même il s'excuserait, le mal est fait.",
+      "en": "Even if he were to apologize, the damage is done.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.069",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Qui pourrait nier que le débat s'est enfin apaisé ?",
+      "en": "Who could deny that the debate has finally calmed down?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.070",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "À supposer que tu aies raison, que proposes-tu ensuite ?",
+      "en": "Supposing you are right, what do you propose next?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.071",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Est-il vraiment besoin de préciser que personne n'y croyait ?",
+      "en": "Is it really necessary to point out that nobody believed it?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.072",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ne serait-il pas temps d'écouter enfin les principaux concernés ?",
+      "en": "Isn't it about time we finally listened to the people most affected?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.073",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Sous prétexte que c'est compliqué, on ne ferait donc rien ?",
+      "en": "So because it's complicated, we would just do nothing?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.074",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Pour peu qu'on l'écoute, son raisonnement tient parfaitement la route.",
+      "en": "If you actually listen to him, his reasoning holds up perfectly.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.075",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Comment expliquer un tel silence après des promesses aussi claires ?",
+      "en": "How do you explain such silence after such clear promises?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.076",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Que répondre à ceux qui refusent d'entendre le moindre argument ?",
+      "en": "What can you say to people who refuse to hear a single argument?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.077",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Si tant est que ce sondage soit fiable, restons prudents.",
+      "en": "Assuming this poll is even reliable, let's stay cautious.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.078",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "En dépit des critiques, elle a maintenu chacune de ses positions.",
+      "en": "Despite the criticism, she stood by every one of her positions.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.079",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Qui oserait prétendre que tout va bien dans nos hôpitaux aujourd'hui ?",
+      "en": "Who would dare claim that everything is fine in our hospitals today?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.080",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Quand bien même on doublerait le budget, le problème resterait entier.",
+      "en": "Even if we doubled the budget, the problem would remain untouched.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.081",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "À quoi bon multiplier les rapports si personne ne les lit ?",
+      "en": "What's the point of producing report after report if nobody reads them?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.082",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Peut-on sérieusement croire que ce compromis va satisfaire les deux camps ?",
+      "en": "Can anyone seriously believe this compromise will satisfy both sides?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.083",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Faut-il attendre une nouvelle crise pour prendre enfin ce dossier au sérieux ?",
+      "en": "Must we wait for another crisis before finally taking this issue seriously?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.084",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Sous prétexte que la tradition l'exige, devrions-nous donc renoncer à tout changement ?",
+      "en": "Just because tradition demands it, should we therefore give up on any change?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.085",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "À supposer que le projet aboutisse, qui en assumera le coût réel ?",
+      "en": "Supposing the project succeeds, who will bear its real cost?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.086",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Comment ne pas s'interroger sur les véritables motivations d'un revirement aussi soudain ?",
+      "en": "How can one not question the true motives behind such a sudden reversal?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.087",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "N'est-il pas paradoxal de prôner la transparence en cachant les chiffres essentiels ?",
+      "en": "Isn't it paradoxical to preach transparency while hiding the key figures?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.088",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Il n'a convaincu personne dans la salle, en dépit d'une éloquence pourtant remarquable.",
+      "en": "He convinced nobody in the room, despite genuinely remarkable eloquence.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.089",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Son application prendrait des années, quand bien même la loi serait votée demain.",
+      "en": "Its implementation would take years, even if the law were passed tomorrow.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.090",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Pourquoi faudrait-il forcément choisir entre la croissance et l'environnement, comme si c'était inévitable ?",
+      "en": "Why should we necessarily have to choose between growth and the environment, as if that were inevitable?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.091",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Depuis quand le simple fait d'être majoritaire dispenserait-il un gouvernement de se justifier ?",
+      "en": "Since when does simply holding a majority excuse a government from justifying itself?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.092",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "En admettant que les chiffres soient exacts, la conclusion ne s'impose pas forcément.",
+      "en": "Even granting that the figures are accurate, the conclusion does not necessarily follow.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.093",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Est-ce vraiment le moment de rouvrir un débat que tout le monde croyait clos ?",
+      "en": "Is this really the moment to reopen a debate everyone thought was settled?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.094",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Pour peu que la salle soit acquise, le moindre slogan passe pour un argument.",
+      "en": "As long as the room is already won over, the flimsiest slogan passes for an argument.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.095",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Faute d'un vrai contre-argument, il s'est contenté d'attaquer la personne plutôt que les idées.",
+      "en": "Lacking a real counterargument, he settled for attacking the person rather than the ideas.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.096",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Qui peut affirmer, sans l'ombre d'un doute, que cette mesure produira les effets annoncés ?",
+      "en": "Who can state, beyond a shadow of a doubt, that this measure will deliver the promised effects?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.097",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Au risque de me répéter, aucune réforme ne tiendra sans l'adhésion des premiers concernés.",
+      "en": "At the risk of repeating myself, no reform will hold without the support of those most affected.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.098",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Quitte à froisser certains collègues, je préfère poser la question qui fâche dès ce soir.",
+      "en": "Even if it ruffles some colleagues, I would rather raise the awkward question tonight.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.099",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Comment justifier de telles dépenses quand les services publics manquent de tout depuis des années ?",
+      "en": "How can such spending be justified when public services have been short of everything for years?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.100",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Si tant est qu'un consensus existe, encore faudrait-il que quelqu'un accepte de le formuler clairement.",
+      "en": "If a consensus even exists, someone would still have to be willing to state it clearly.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.101",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "N'est-ce pas curieux que les mêmes qui réclamaient le débat refusent aujourd'hui d'y participer publiquement ?",
+      "en": "Isn't it odd that the very people who demanded the debate now refuse to take part in it publicly?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.102",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "À force de repousser sans cesse la discussion, ne risque-t-on pas de la rendre impossible ?",
+      "en": "By endlessly postponing the discussion, aren't we running the risk of making it impossible?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.103",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "En admettant même que l'opposition exagère, cela ne rend pas les chiffres du gouvernement plus crédibles.",
+      "en": "Even granting that the opposition exaggerates, that does not make the government's figures any more credible.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.104",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Sommes-nous prêts à sacrifier des décennies d'acquis sociaux au nom d'une urgence que personne ne définit ?",
+      "en": "Are we ready to sacrifice decades of social gains in the name of an emergency nobody defines?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.105",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Le projet a finalement été adopté, malgré les réserves exprimées par la quasi-totalité des experts consultés.",
+      "en": "The project was finally adopted, despite the reservations expressed by nearly all the experts consulted.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.106",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Dès lors que l'on refuse le débat contradictoire, comment s'étonner que la défiance gagne du terrain ?",
+      "en": "Once you refuse open debate, how can you be surprised that distrust keeps gaining ground?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.107",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Vous dites vouloir dialoguer, soit, mais où étiez-vous quand nous avons proposé une table ronde publique ?",
+      "en": "You say you want dialogue, fine, but where were you when we proposed a public round table?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.108",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Admettons un instant que la fraude soit marginale, est-ce une raison suffisante pour renoncer à s'y attaquer ?",
+      "en": "Let's grant for a moment that the fraud is marginal, is that reason enough to give up tackling it?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.109",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Même si chaque foyer réduisait demain sa consommation, cela suffirait-il à compenser l'inaction des grands groupes industriels ?",
+      "en": "Even if every household cut its consumption tomorrow, would that be enough to offset the inaction of big industrial groups?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.110",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Vous invoquez la liberté de choix, mais quelle liberté reste-t-il à ceux qui n'ont aucune autre option ?",
+      "en": "You invoke freedom of choice, but what freedom is left for those who have no other option?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.111",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Faute de données fiables sur le sujet, comment voulez-vous que le public se forge une opinion éclairée ?",
+      "en": "Without reliable data on the subject, how do you expect the public to form an informed opinion?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.112",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Combien de temps encore allons-nous tolérer que des décisions aussi lourdes se prennent sans la moindre consultation publique ?",
+      "en": "How much longer are we going to tolerate such weighty decisions being made without the slightest public consultation?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.113",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Si la mesure est aussi efficace qu'on le prétend, pourquoi aucun des pays voisins ne l'a-t-il encore adoptée ?",
+      "en": "If the measure is as effective as claimed, why has none of the neighbouring countries adopted it yet?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.114",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Dût-elle y laisser sa carrière, elle redira demain devant la commission ce qu'elle a toujours dit en privé.",
+      "en": "Even if it costs her career, she will repeat before the committee tomorrow what she has always said in private.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.115",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "On nous promet la transparence depuis dix ans, alors pourquoi faut-il chaque fois une fuite pour apprendre l'essentiel ?",
+      "en": "We have been promised transparency for ten years, so why does it always take a leak for us to learn what matters?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.116",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Malgré un calendrier particulièrement serré, le comité a tenu à entendre chacune des parties avant de rendre son avis.",
+      "en": "Despite a particularly tight schedule, the committee insisted on hearing each party before issuing its opinion.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.117",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Vous avez peut-être raison sur le fond, mais la manière dont vous le dites dessert complètement votre cause, non ?",
+      "en": "You may be right on substance, but doesn't the way you say it completely undermine your cause?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.118",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Une fois qu'on a gratté le vernis des slogans, que reste-t-il vraiment de ce programme présenté comme si ambitieux ?",
+      "en": "Once you scratch off the varnish of the slogans, what is really left of this supposedly ambitious program?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.119",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Encore faudrait-il, pour que ce plan ait la moindre chance de fonctionner, que chaque partenaire fasse un premier pas.",
+      "en": "For this plan to have the slightest chance of working, each partner would still have to take a first step.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.120",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "À moins d'un revirement spectaculaire, comment imaginer que les deux délégations parviennent à un accord avant la fin du mois ?",
+      "en": "Barring a spectacular reversal, how can we imagine the two delegations reaching an agreement before the end of the month?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.121",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Vous nous reprochez d'aller trop vite, soit, mais que disiez-vous l'an dernier quand nous prenions justement le temps de consulter ?",
+      "en": "You accuse us of moving too fast, fine, but what were you saying last year when we were precisely taking the time to consult?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.122",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Si personne n'ose poser la question qui dérange, à quoi servent au juste ces grandes conférences internationales que nous finançons ?",
+      "en": "If nobody dares ask the uncomfortable question, what exactly is the point of these big international conferences we fund?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.123",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Dès lors que chaque camp campe sur ses positions, est-il surprenant que le public finisse par se détourner du débat ?",
+      "en": "When each side digs into its positions, is it surprising that the public ends up turning away from the debate?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.124",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ce qui compte vraiment, c'est la cohérence globale.",
+      "en": "What really matters is overall coherence.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.125",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est précisément là que tout votre raisonnement s'effondre.",
+      "en": "That is precisely where your whole argument falls apart.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.126",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Voilà l'argument que nos adversaires redoutent le plus.",
+      "en": "That is the argument our opponents fear the most.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.127",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ce sont les faits qui parlent, pas moi.",
+      "en": "It is the facts talking, not me.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.128",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Là réside toute la faiblesse de votre thèse.",
+      "en": "Therein lies the whole weakness of your thesis.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.129",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est le ton du débat qui me gêne profondément.",
+      "en": "It is the tone of the debate that deeply bothers me.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.130",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ce que je refuse, c'est qu'on caricature ma position.",
+      "en": "What I refuse is having my position caricatured.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.131",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Tel est le paradoxe que personne ne veut admettre.",
+      "en": "Such is the paradox that no one wants to admit.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.132",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Je monte au créneau pour une raison, défendre l'essentiel.",
+      "en": "I am stepping up for one reason, to defend what matters most.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.133",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est justement cette nuance qui change tout le débat.",
+      "en": "It is precisely this nuance that changes the whole debate.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.134",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ce dont il faut parler, c'est du financement du projet.",
+      "en": "What we need to talk about is the project's funding.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.135",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Une chose est sûre, personne n'a lu ce rapport.",
+      "en": "One thing is certain, nobody has read this report.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.136",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est par la précision des exemples qu'un argument devient convaincant.",
+      "en": "It is through precise examples that an argument becomes convincing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.137",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Votre long silence sur la santé, c'est cela qui m'inquiète.",
+      "en": "Your long silence on health care, that is what worries me.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.138",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "L'important, ce n'est pas de gagner, c'est de convaincre durablement.",
+      "en": "What matters is not winning, it is convincing people for the long term.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.139",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ce n'est pas la réforme que je rejette, c'est sa brutalité.",
+      "en": "It is not the reform I reject, it is its harshness.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.140",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est bien la question du logement qui décidera de cette élection.",
+      "en": "It really is the housing issue that will decide this election.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.141",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "S'il y a un point où je vous rejoins, c'est celui-là.",
+      "en": "If there is one point where I agree with you, it is that one.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.142",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Voilà précisément pourquoi votre comparaison avec la Suède ne tient pas.",
+      "en": "That is precisely why your comparison with Sweden does not hold up.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.143",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ce à quoi je m'oppose, c'est à la précipitation du gouvernement.",
+      "en": "What I object to is the government's haste.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.144",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Si ce débat s'enlise, c'est parce que chacun campe sur ses positions.",
+      "en": "If this debate is stalling, it is because everyone is digging in.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.145",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est au moment même où l'on doute qu'il faut vérifier ses sources.",
+      "en": "It is at the very moment you have doubts that you need to check your sources.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.146",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ce que personne n'ose dire, c'est que cette mesure coûtera très cher.",
+      "en": "What no one dares to say is that this measure will cost a great deal.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.147",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "La vraie question, ce n'est pas le coût, c'est l'urgence d'agir maintenant.",
+      "en": "The real question is not the cost, it is the urgency of acting now.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.148",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est cette contradiction, et elle seule, qui fragilise l'ensemble de votre discours.",
+      "en": "It is this contradiction, and this alone, that weakens your entire argument.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.149",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ce qui m'étonne le plus, c'est que personne n'ait consulté les premiers concernés.",
+      "en": "What surprises me most is that nobody consulted the people directly affected.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.150",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est dans les détails du texte que se cachent les vrais reculs sociaux.",
+      "en": "It is in the details of the bill that the real social setbacks are hiding.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.151",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Il y a une chose que je ne céderai jamais, c'est la transparence.",
+      "en": "There is one thing I will never give up, and that is transparency.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.152",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Le mépris des élites, voilà ce qui détourne les gens du débat public.",
+      "en": "Contempt from the elites, that is what drives people away from public debate.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.153",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est ainsi qu'on transforme une simple anecdote en un argument de mauvaise foi.",
+      "en": "That is how you turn a simple anecdote into a bad faith argument.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.154",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ce dont on ne parle presque jamais, c'est du travail invisible des aidants familiaux.",
+      "en": "What we almost never talk about is the invisible work of family caregivers.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.155",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est justement parce que la situation est grave qu'il faut garder la tête froide.",
+      "en": "It is precisely because the situation is serious that we must keep a cool head.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.156",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Ce ne sont pas les intentions qui comptent en politique, ce sont les résultats.",
+      "en": "It is not intentions that count in politics, it is results.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.157",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est à l'aune de ses effets concrets qu'il faudra juger cette réforme des retraites.",
+      "en": "It is by its concrete effects that this pension reform will have to be judged.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.158",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "La liberté d'expression, tel est le principe que nous devons défendre avant toute chose.",
+      "en": "Freedom of expression, that is the principle we must defend above all else.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.159",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "Le vrai problème n'est pas que vous ayez tort, c'est que vous refusez toute écoute.",
+      "en": "The real problem is not that you are wrong, it is that you refuse to listen at all.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.rhetorique.160",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "rhetorique",
+      "fr": "C'est en confrontant nos désaccords que nous finirons par dégager une position commune et solide.",
+      "en": "It is by confronting our disagreements that we will eventually reach a common and solid position.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2492 @@
+{
+  "stage": "5.3",
+  "world": 5,
+  "level": "b2",
+  "title": "Le Belvédère des Arts",
+  "themes": [
+    "musees",
+    "litterature",
+    "traditions",
+    "journalisme",
+    "reseaux-sociaux",
+    "rp-loisirs",
+    "rp-societe"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 345,
+  "dedupedPool": 345,
+  "selected": 345,
+  "blockCount": 11,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.b2.rp-societe.005",
+          "theme": "rp-societe",
+          "fr": "C'est un sujet qui me préoccupe énormément.",
+          "en": "It's a subject that concerns me enormously.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.rp-societe.006",
+          "theme": "rp-societe",
+          "fr": "Il faudrait investir davantage dans l'éducation publique.",
+          "en": "We should invest more in public education.",
+          "words": 8
+        },
+        {
+          "id": "fr.b2.rp-societe.007",
+          "theme": "rp-societe",
+          "fr": "J'espère que les décideurs politiques finiront par agir.",
+          "en": "I hope policymakers will eventually act.",
+          "words": 9
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.001",
+          "theme": "reseaux-sociaux",
+          "fr": "Les réseaux sociaux ont profondément changé notre façon de communiquer.",
+          "en": "Social media has profoundly changed the way we communicate.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.traditions.002",
+          "theme": "traditions",
+          "fr": "Ces célébrations reflètent des croyances qui remontent à plusieurs siècles.",
+          "en": "These celebrations reflect beliefs that go back several centuries.",
+          "words": 10
+        },
+        {
+          "id": "fr.b2.litterature.009",
+          "theme": "litterature",
+          "fr": "Plus on avance dans ce roman, plus l'intrigue devient complexe.",
+          "en": "The further one goes into this novel, the more complex the plot becomes.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.litterature.120",
+          "theme": "litterature",
+          "fr": "Le critique regretta que l'intrigue ne fût pas mieux construite.",
+          "en": "The critic regretted that the plot was not better constructed.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.journalisme.002",
+          "theme": "journalisme",
+          "fr": "La rédaction doit tenir compte de l'impact de chaque publication.",
+          "en": "The editorial team has to take into account the impact of every article they publish.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.traditions.024",
+          "theme": "traditions",
+          "fr": "Que cette fête survive encore aujourd'hui tient presque du miracle.",
+          "en": "The fact that this festival still survives today is almost a miracle.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.rp-loisirs.006",
+          "theme": "rp-loisirs",
+          "fr": "Le scénario manquait de profondeur, malgré une bonne mise en scène.",
+          "en": "The plot lacked depth, despite good direction.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.litterature.004",
+          "theme": "litterature",
+          "fr": "Bien que ce roman soit ancien, ses thèmes restent étonnamment actuels.",
+          "en": "Although this novel is old, its themes remain surprisingly relevant today.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.traditions.015",
+          "theme": "traditions",
+          "fr": "On ignore encore d'où provient exactement cette coutume si particulière.",
+          "en": "We still do not know exactly where this very particular custom comes from.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.journalisme.027",
+          "theme": "journalisme",
+          "fr": "Il est peu probable que cette rumeur trouve une confirmation officielle.",
+          "en": "It's unlikely that this rumour will receive official confirmation.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.rp-loisirs.082",
+          "theme": "rp-loisirs",
+          "fr": "Quels que soient vos goûts musicaux, cette playlist saura vous surprendre.",
+          "en": "Whatever your musical tastes, this playlist will surprise you.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.journalisme.020",
+          "theme": "journalisme",
+          "fr": "Quoique cette source soit anonyme, ses informations se sont révélées exactes.",
+          "en": "Although this source is anonymous, its information turned out to be accurate.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.143",
+          "theme": "reseaux-sociaux",
+          "fr": "Quand bien même cette pratique serait légale, elle demeure éthiquement contestable.",
+          "en": "Even if this practice were legal, it remains ethically questionable.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.musees.006",
+          "theme": "musees",
+          "fr": "Le conservateur souhaiterait que davantage de visiteurs découvrent l'art contemporain.",
+          "en": "The curator would like more visitors to discover contemporary art.",
+          "words": 11
+        },
+        {
+          "id": "fr.b2.rp-loisirs.007",
+          "theme": "rp-loisirs",
+          "fr": "On peut ne pas être d'accord là-dessus, chacun son avis.",
+          "en": "We can disagree on that, to each their own opinion.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.musees.014",
+          "theme": "musees",
+          "fr": "Il se peut que cette pièce ait été volée pendant la guerre.",
+          "en": "It is possible that this piece was stolen during the war.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.litterature.002",
+          "theme": "litterature",
+          "fr": "Bien qu'il soit dense, ce roman mérite d'être lu attentivement.",
+          "en": "Although it's dense, this novel deserves to be read carefully.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.musees.002",
+          "theme": "musees",
+          "fr": "Malgré la foule, elle a réussi à admirer chaque tableau avec attention.",
+          "en": "Despite the crowd, she managed to admire every painting closely.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.musees.004",
+          "theme": "musees",
+          "fr": "Bien que ce musée soit peu connu, il possède une collection remarquable.",
+          "en": "Although this museum is little known, it has a remarkable collection.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.litterature.145",
+          "theme": "litterature",
+          "fr": "L'auteur aurait souhaité que son dernier roman parût sous un pseudonyme.",
+          "en": "The author would have wished for his last novel to be published under a pseudonym.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.traditions.012",
+          "theme": "traditions",
+          "fr": "Les historiens doutent que ce rite remonte réellement à l'époque celtique.",
+          "en": "Historians doubt that this rite really dates back to Celtic times.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.126",
+          "theme": "reseaux-sociaux",
+          "fr": "Il est peu probable que cette tendance s'essouffle avant plusieurs années.",
+          "en": "It's unlikely that this trend will fade before several years.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.138",
+          "theme": "reseaux-sociaux",
+          "fr": "Il se pourrait que cette réglementation soit adoptée dès l'année prochaine.",
+          "en": "This regulation could be adopted as early as next year.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.litterature.011",
+          "theme": "litterature",
+          "fr": "Il aurait fallu que l'éditeur revoie certains passages avant la publication.",
+          "en": "The editor should have reviewed certain passages before publication.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.litterature.025",
+          "theme": "litterature",
+          "fr": "Il importe que chaque génération redécouvre les grands classiques à sa façon.",
+          "en": "It matters that each generation rediscover the great classics in its own way.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.musees.008",
+          "theme": "musees",
+          "fr": "Le musée a acquis cette toile dont la provenance restait longtemps incertaine.",
+          "en": "The museum acquired this canvas whose origin remained uncertain for a long time.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.litterature.003",
+          "theme": "litterature",
+          "fr": "L'auteure aborde des thèmes universels à travers une intrigue très personnelle.",
+          "en": "The author addresses universal themes through a deeply personal plot.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.musees.012",
+          "theme": "musees",
+          "fr": "Les chercheurs doutent que cette sculpture date réellement de l'époque romaine.",
+          "en": "Researchers doubt that this sculpture really dates from the Roman era.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.traditions.009",
+          "theme": "traditions",
+          "fr": "Il aurait été impensable, autrefois, que cette fête se déroule sans procession.",
+          "en": "In the past, it would have been unthinkable for this festival to take place without a procession.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.litterature.019",
+          "theme": "litterature",
+          "fr": "Cet essai remet en question plusieurs idées reçues sur la littérature classique.",
+          "en": "This essay calls into question several commonly held ideas about classical literature.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.b2.traditions.013",
+          "theme": "traditions",
+          "fr": "Cette célébration, aussi codifiée soit-elle, laisse une place à l'improvisation.",
+          "en": "This celebration, however codified it may be, leaves room for improvisation.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.journalisme.004",
+          "theme": "journalisme",
+          "fr": "Il est indispensable que les journalistes protègent l'identité de leurs sources.",
+          "en": "It's essential that journalists protect the identity of their sources.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.journalisme.007",
+          "theme": "journalisme",
+          "fr": "Certains lecteurs doutent que cette enquête ait été menée en toute impartialité.",
+          "en": "Some readers doubt that this investigation was conducted with complete impartiality.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.traditions.005",
+          "theme": "traditions",
+          "fr": "Il est indispensable que chaque génération transmette ces coutumes à la suivante.",
+          "en": "It is essential that each generation pass these customs on to the next.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.journalisme.131",
+          "theme": "journalisme",
+          "fr": "Il est indispensable que les rédactions forment leurs équipes à la cybersécurité.",
+          "en": "It is essential that newsrooms train their teams in cybersecurity.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.musees.015",
+          "theme": "musees",
+          "fr": "Plus l'exposition avançait, plus les visiteurs semblaient captivés par les œuvres.",
+          "en": "The further the exhibition went, the more visitors seemed captivated by the artworks.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.musees.005",
+          "theme": "musees",
+          "fr": "Il est essentiel que les œuvres fragiles soient conservées à température constante.",
+          "en": "It is essential that fragile artworks be kept at a constant temperature.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.musees.011",
+          "theme": "musees",
+          "fr": "Malgré les restrictions budgétaires, le musée a réussi à financer cette rénovation.",
+          "en": "Despite budget restrictions, the museum managed to finance this renovation.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.musees.003",
+          "theme": "musees",
+          "fr": "Le conservateur tient compte des remarques des visiteurs pour améliorer le parcours.",
+          "en": "The curator takes visitors' feedback into account to improve the layout.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.musees.010",
+          "theme": "musees",
+          "fr": "C'est un conservateur passionné qui a réorganisé entièrement les salles permanentes.",
+          "en": "It is a passionate curator who entirely reorganized the permanent rooms.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.journalisme.009",
+          "theme": "journalisme",
+          "fr": "Il est regrettable que certains médias privilégient le sensationnalisme à l'analyse.",
+          "en": "It's regrettable that some media outlets favour sensationalism over analysis.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.traditions.006",
+          "theme": "traditions",
+          "fr": "Cette fête, dont l'origine reste incertaine, mêle influences païennes et chrétiennes.",
+          "en": "This festival, whose origin remains uncertain, blends pagan and Christian influences.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.journalisme.003",
+          "theme": "journalisme",
+          "fr": "Bien que cet article soit bien documenté, plusieurs experts contestent ses conclusions.",
+          "en": "Although this article is well documented, several experts dispute its conclusions.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.litterature.022",
+          "theme": "litterature",
+          "fr": "Cette biographie, aussi fouillée soit-elle, laisse plusieurs zones d'ombre inexpliquées.",
+          "en": "This biography, thorough as it may be, leaves several unexplained gray areas.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.142",
+          "theme": "reseaux-sociaux",
+          "fr": "Les journalistes doutent que ces chiffres reflètent réellement l'engagement des utilisateurs.",
+          "en": "Journalists doubt these figures truly reflect user engagement.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.litterature.134",
+          "theme": "litterature",
+          "fr": "Cette nouvelle génération d'écrivains renouvelle profondément les codes du roman traditionnel.",
+          "en": "This new generation of writers is profoundly renewing the conventions of the traditional novel.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.traditions.023",
+          "theme": "traditions",
+          "fr": "Certains anthropologues estiment que ce rituel remplissait autrefois une fonction sociale précise.",
+          "en": "Some anthropologists believe that this ritual once served a specific social function.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.014",
+          "theme": "reseaux-sociaux",
+          "fr": "Certains utilisateurs doutent que les plateformes prennent réellement en compte leurs signalements.",
+          "en": "Some users doubt that platforms really take their reports into account.",
+          "words": 12
+        },
+        {
+          "id": "fr.b2.rp-loisirs.005",
+          "theme": "rp-loisirs",
+          "fr": "Je l'ai vu ce week-end, et j'ai été assez déçu.",
+          "en": "I saw it this weekend, and I was pretty disappointed.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.journalisme.013",
+          "theme": "journalisme",
+          "fr": "Il se peut que ce scoop change le cours de l'enquête judiciaire.",
+          "en": "This scoop may change the course of the judicial investigation.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.journalisme.016",
+          "theme": "journalisme",
+          "fr": "Il n'est pas certain que ce témoignage suffise à prouver les faits.",
+          "en": "It's not certain that this testimony is enough to prove the facts.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.019",
+          "theme": "musees",
+          "fr": "Cette œuvre, que l'on croyait perdue, a été retrouvée dans une cave.",
+          "en": "This work, which was believed lost, was found in a cellar.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.025",
+          "theme": "musees",
+          "fr": "L'artiste dont les œuvres sont exposées ici vit désormais à l'étranger.",
+          "en": "The artist whose works are exhibited here now lives abroad.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.017",
+          "theme": "musees",
+          "fr": "Il n'est pas rare que certaines œuvres restent des décennies en réserve.",
+          "en": "It is not uncommon for some works to remain in storage for decades.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.005",
+          "theme": "litterature",
+          "fr": "L'auteur dont on parle tant cette année n'avait jamais publié auparavant.",
+          "en": "The author everyone is talking about so much this year had never published before.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.016",
+          "theme": "litterature",
+          "fr": "Il se pourrait que ce manuscrit inédit change notre vision de cet auteur.",
+          "en": "This unpublished manuscript could change our view of this author.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.024",
+          "theme": "litterature",
+          "fr": "Ce poème, que l'on croyait perdu, a resurgi dans les archives familiales.",
+          "en": "This poem, believed lost, resurfaced in the family archives.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.016",
+          "theme": "reseaux-sociaux",
+          "fr": "Il se peut que cette tendance disparaisse aussi vite qu'elle est apparue.",
+          "en": "This trend may disappear as quickly as it appeared.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.010",
+          "theme": "litterature",
+          "fr": "Cet écrivain s'est efforcé de restituer fidèlement le langage de l'époque.",
+          "en": "This writer strove to faithfully reproduce the language of the period.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.015",
+          "theme": "litterature",
+          "fr": "Cette œuvre a été traduite dans plus de trente langues depuis sa parution.",
+          "en": "This work has been translated into more than thirty languages since its publication.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.119",
+          "theme": "litterature",
+          "fr": "Il se peut que cette réédition contienne des passages censurés à l'époque.",
+          "en": "It's possible that this reissue contains passages that were censored at the time.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.016",
+          "theme": "musees",
+          "fr": "Cette rétrospective permet de mieux saisir l'évolution du style de l'artiste.",
+          "en": "This retrospective allows a better grasp of the evolution of the artist's style.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.traditions.021",
+          "theme": "traditions",
+          "fr": "Cette tradition orale s'est transmise de bouche à oreille pendant des siècles.",
+          "en": "This oral tradition was passed down by word of mouth for centuries.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.b2.litterature.020",
+          "theme": "litterature",
+          "fr": "Le personnage principal, dont le nom n'est jamais révélé, fascine les lecteurs.",
+          "en": "The main character, whose name is never revealed, fascinates readers.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.021",
+          "theme": "musees",
+          "fr": "À moins que les fonds ne soient débloqués rapidement, la rénovation sera reportée.",
+          "en": "Unless the funds are released quickly, the renovation will be postponed.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.024",
+          "theme": "musees",
+          "fr": "Il serait souhaitable que davantage d'écoles organisent des sorties dans ce musée.",
+          "en": "It would be desirable for more schools to organize outings to this museum.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.023",
+          "theme": "litterature",
+          "fr": "L'écrivaine a longtemps hésité avant que son manuscrit ne soit finalement accepté.",
+          "en": "The writer hesitated for a long time before her manuscript was finally accepted.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.rp-loisirs.080",
+          "theme": "rp-loisirs",
+          "fr": "Nous doutons que le budget alloué suffise à financer le nouveau terrain multisport.",
+          "en": "We doubt that the budget allocated will be enough to finance the new multisport facility.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.007",
+          "theme": "musees",
+          "fr": "Quoique cette exposition ait suscité des critiques, elle a attiré une foule immense.",
+          "en": "Although this exhibition sparked criticism, it attracted an immense crowd.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.traditions.008",
+          "theme": "traditions",
+          "fr": "Plus les traditions s'effacent, plus certains villages tentent de les faire revivre.",
+          "en": "The more traditions fade away, the more some villages try to bring them back to life.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.traditions.019",
+          "theme": "traditions",
+          "fr": "Cette coutume ancestrale, que peu de gens pratiquent encore, mérite d'être préservée.",
+          "en": "This ancestral custom, which few people still practice, deserves to be preserved.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.traditions.007",
+          "theme": "traditions",
+          "fr": "Quoique certains y voient un folklore dépassé, cette coutume attire encore les foules.",
+          "en": "Although some see it as outdated folklore, this custom still draws crowds.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.traditions.025",
+          "theme": "traditions",
+          "fr": "Cette procession, longtemps interdite, a repris dès que les autorités l'ont autorisée.",
+          "en": "This procession, long forbidden, resumed as soon as the authorities allowed it.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.125",
+          "theme": "reseaux-sociaux",
+          "fr": "À peine avait-elle publié son témoignage que des centaines de commentaires affluèrent.",
+          "en": "She had barely published her testimony when hundreds of comments poured in.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.023",
+          "theme": "musees",
+          "fr": "Cette fresque, longtemps cachée sous une couche de peinture, vient d'être redécouverte.",
+          "en": "This fresco, long hidden under a layer of paint, has just been rediscovered.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.027",
+          "theme": "musees",
+          "fr": "Bien avant que la restauration ne commence, les experts ont photographié chaque détail.",
+          "en": "Well before the restoration began, the experts photographed every detail.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.rp-loisirs.062",
+          "theme": "rp-loisirs",
+          "fr": "Le metteur en scène souhaite que les acteurs improvisent davantage lors des répétitions.",
+          "en": "The director wants the actors to improvise more during rehearsals.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.146",
+          "theme": "musees",
+          "fr": "Sitôt l'exposition inaugurée, les critiques saluèrent l'audace de la scénographie retenue.",
+          "en": "As soon as the exhibition was inaugurated, critics praised the boldness of the chosen scenography.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.137",
+          "theme": "litterature",
+          "fr": "Il conviendrait que les enseignants renouvellent le corpus d'œuvres proposées aux lycéens.",
+          "en": "Teachers should renew the body of works offered to high school students.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.121",
+          "theme": "litterature",
+          "fr": "Après avoir longuement hésité, l'éditeur accepta enfin de publier ce manuscrit controversé.",
+          "en": "After hesitating for a long time, the publisher finally agreed to publish this controversial manuscript.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.traditions.027",
+          "theme": "traditions",
+          "fr": "Malgré la modernisation du village, les habitants tiennent à préserver ces rites ancestraux.",
+          "en": "Despite the modernization of the village, the residents are keen to preserve these ancestral rites.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.musees.131",
+          "theme": "musees",
+          "fr": "Il conviendrait que les écoles bénéficient d'un accès privilégié aux expositions temporaires.",
+          "en": "It would be appropriate for schools to have privileged access to temporary exhibitions.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.rp-societe.067",
+          "theme": "rp-societe",
+          "fr": "Autrefois marginal, le télétravail s'imposa progressivement comme une norme après la pandémie.",
+          "en": "Once marginal, remote work gradually established itself as a norm after the pandemic.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.120",
+          "theme": "reseaux-sociaux",
+          "fr": "Dès que le scandale éclata, plusieurs marques retirèrent leurs publicités de cette plateforme.",
+          "en": "As soon as the scandal broke, several brands withdrew their ads from this platform.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.012",
+          "theme": "litterature",
+          "fr": "Ce recueil de nouvelles, que beaucoup jugent inégal, contient néanmoins de véritables réussites.",
+          "en": "This short story collection, which many consider uneven, nevertheless contains genuine successes.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.rp-loisirs.071",
+          "theme": "rp-loisirs",
+          "fr": "Les organisateurs auraient souhaité que davantage de jeunes participent aux ateliers de céramique.",
+          "en": "The organizers would have liked more young people to take part in the ceramics workshops.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.traditions.014",
+          "theme": "traditions",
+          "fr": "Pour que cette fête conserve son sens, les organisateurs refusent toute commercialisation excessive.",
+          "en": "For this festival to keep its meaning, the organizers refuse any excessive commercialization.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.022",
+          "theme": "reseaux-sociaux",
+          "fr": "Cet influenceur exige que ses partenariats commerciaux soient clairement mentionnés dans ses vidéos.",
+          "en": "This influencer requires that his commercial partnerships be clearly stated in his videos.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.023",
+          "theme": "reseaux-sociaux",
+          "fr": "Quoique les publicités déguisées soient interdites, elles restent fréquentes sur les réseaux sociaux.",
+          "en": "Although disguised ads are banned, they remain common on social media.",
+          "words": 13
+        },
+        {
+          "id": "fr.b2.litterature.006",
+          "theme": "litterature",
+          "fr": "Il est peu probable que ce texte ait été écrit par un seul auteur.",
+          "en": "It is unlikely that this text was written by a single author.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.traditions.022",
+          "theme": "traditions",
+          "fr": "Le maire tient à ce que cette fête reste gratuite pour tous les habitants.",
+          "en": "The mayor insists that this festival remain free for all residents.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.litterature.122",
+          "theme": "litterature",
+          "fr": "Il aurait fallu que ce roman soit publié plus tôt pour rencontrer son public.",
+          "en": "This novel would have needed to be published earlier to find its audience.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.litterature.026",
+          "theme": "litterature",
+          "fr": "Cette maison d'édition privilégie les auteurs dont c'est le tout premier roman.",
+          "en": "This publishing house favors authors whose novel is their very first.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.traditions.020",
+          "theme": "traditions",
+          "fr": "À moins que la mairie ne finance l'événement, cette fête risque de disparaître.",
+          "en": "Unless the town hall finances the event, this festival risks disappearing.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.006",
+          "theme": "journalisme",
+          "fr": "Pour que ce reportage soit publié, il fallait obtenir l'accord de la direction.",
+          "en": "For this report to be published, management's approval had to be obtained.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.litterature.135",
+          "theme": "litterature",
+          "fr": "Le roman s'achève sur une ambiguïté que chaque lecteur interprète à sa manière.",
+          "en": "The novel ends on an ambiguity that each reader interprets in his own way.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.b2.musees.013",
+          "theme": "musees",
+          "fr": "Ce peintre, dont on redécouvre aujourd'hui l'œuvre, était méconnu de son vivant.",
+          "en": "This painter, whose work is being rediscovered today, was little known during his lifetime.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.musees.018",
+          "theme": "musees",
+          "fr": "Le musée envisage d'acquérir de nouvelles pièces dès que le budget le permettra.",
+          "en": "The museum plans to acquire new pieces as soon as the budget allows.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.144",
+          "theme": "reseaux-sociaux",
+          "fr": "Il aurait mieux valu qu'elle consulte un avocat avant de publier ces accusations.",
+          "en": "It would have been better for her to consult a lawyer before publishing these accusations.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.126",
+          "theme": "journalisme",
+          "fr": "Il se peut que cette fuite de données compromette l'anonymat de plusieurs sources.",
+          "en": "It's possible that this data leak compromises the anonymity of several sources.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.litterature.008",
+          "theme": "litterature",
+          "fr": "Quoi qu'en pensent les critiques, ce livre a rencontré un immense succès populaire.",
+          "en": "Whatever the critics may think of it, this book met with immense popular success.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.traditions.010",
+          "theme": "traditions",
+          "fr": "Cette coutume, que l'on croyait éteinte, a été relancée par une association locale.",
+          "en": "This custom, believed extinct, was revived by a local association.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.traditions.011",
+          "theme": "traditions",
+          "fr": "Bien avant que les touristes ne s'y intéressent, cette fête restait purement locale.",
+          "en": "Well before tourists became interested in it, this festival remained purely local.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.litterature.143",
+          "theme": "litterature",
+          "fr": "Il semblerait que cette maison d'édition ait délibérément retardé la sortie du roman.",
+          "en": "It would seem that this publishing house deliberately delayed the novel's release.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.litterature.017",
+          "theme": "litterature",
+          "fr": "Le style dépouillé de cet écrivain tranche avec la prose fleurie de ses contemporains.",
+          "en": "This writer's stripped-down style contrasts with the flowery prose of his contemporaries.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.021",
+          "theme": "journalisme",
+          "fr": "Il est essentiel que la ligne éditoriale reste distincte des intérêts de l'actionnaire.",
+          "en": "It's essential that the editorial line remain separate from the shareholder's interests.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.musees.009",
+          "theme": "musees",
+          "fr": "Les restaurateurs ont travaillé pendant des mois pour que ce tableau retrouve son éclat.",
+          "en": "The restorers worked for months so that this painting would regain its shine.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.traditions.003",
+          "theme": "traditions",
+          "fr": "Tout compte fait, ces coutumes rassemblent encore les générations autour d'un même repas.",
+          "en": "All things considered, these customs still bring generations together around the same meal.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.012",
+          "theme": "journalisme",
+          "fr": "Le rédacteur en chef exige que chaque affirmation soit appuyée par une source vérifiable.",
+          "en": "The editor-in-chief requires that every claim be backed by a verifiable source.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-loisirs.081",
+          "theme": "rp-loisirs",
+          "fr": "Le documentaire retrace la façon dont ce quartier ouvrier vit naître son fameux carnaval.",
+          "en": "The documentary traces how this working-class neighbourhood gave birth to its famous carnival.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.017",
+          "theme": "journalisme",
+          "fr": "Pour que le public garde confiance, il faut que les erreurs soient corrigées publiquement.",
+          "en": "For the public to keep trusting the press, mistakes must be corrected publicly.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.005",
+          "theme": "reseaux-sociaux",
+          "fr": "Bien qu'elle ait supprimé son compte, ses anciennes publications circulent toujours en ligne.",
+          "en": "Although she deleted her account, her old posts still circulate online.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.015",
+          "theme": "journalisme",
+          "fr": "Le fait que cette chaîne appartienne à un grand groupe industriel interroge son indépendance.",
+          "en": "The fact that this channel belongs to a large industrial group raises questions about its independence.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.007",
+          "theme": "reseaux-sociaux",
+          "fr": "Bien que cet algorithme favorise les contenus polémiques, la plateforme refuse de le modifier.",
+          "en": "Although this algorithm favours controversial content, the platform refuses to change it.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.011",
+          "theme": "journalisme",
+          "fr": "À mesure que les infox se multiplient, les rédactions renforcent leurs équipes de vérification.",
+          "en": "As fake news multiplies, newsrooms are strengthening their fact-checking teams.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.traditions.028",
+          "theme": "traditions",
+          "fr": "Cette coutume, dont on ignore souvent les origines exactes, continue de fasciner les chercheurs.",
+          "en": "This custom, whose exact origins are often unknown, continues to fascinate researchers.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.023",
+          "theme": "journalisme",
+          "fr": "Bien qu'elle travaille pour un journal indépendant, elle subit parfois des pressions politiques.",
+          "en": "Although she works for an independent newspaper, she sometimes faces political pressure.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.litterature.139",
+          "theme": "litterature",
+          "fr": "Le style de cette autrice, tantôt ironique, tantôt grave, échappe à toute classification facile.",
+          "en": "This author's style, at times ironic, at times grave, defies easy classification.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-societe.074",
+          "theme": "rp-societe",
+          "fr": "La fracture numérique touche particulièrement les personnes âgées et les foyers à faible revenu.",
+          "en": "The digital divide particularly affects elderly people and low-income households.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.129",
+          "theme": "reseaux-sociaux",
+          "fr": "Cette influenceuse regretta amèrement d'avoir accepté ce partenariat sans en vérifier l'origine.",
+          "en": "This influencer bitterly regretted accepting this partnership without checking its origin.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-loisirs.083",
+          "theme": "rp-loisirs",
+          "fr": "Il conviendrait que les responsables consultent les résidents avant de rénover le centre sportif.",
+          "en": "It would be fitting for the officials to consult residents before renovating the sports centre.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.133",
+          "theme": "reseaux-sociaux",
+          "fr": "Les spécialistes redoutent que cette dépendance ne devienne un véritable enjeu de santé publique.",
+          "en": "Experts fear this dependency could become a real public health issue.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.024",
+          "theme": "journalisme",
+          "fr": "Il faudrait que ce quotidien diversifie ses sources de financement pour préserver son indépendance.",
+          "en": "This daily newspaper would need to diversify its funding sources to preserve its independence.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.traditions.145",
+          "theme": "traditions",
+          "fr": "Tant que subsistera une famille pour la transmettre, cette tradition ne disparaîtra pas complètement.",
+          "en": "As long as one family remains to pass it on, this tradition will not completely disappear.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-societe.082",
+          "theme": "rp-societe",
+          "fr": "Tant que les inégalités salariales persisteront entre hommes et femmes, l'égalité restera incomplète.",
+          "en": "As long as wage inequalities between men and women persist, equality will remain incomplete.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.119",
+          "theme": "journalisme",
+          "fr": "Il est essentiel que les journalistes protègent leurs communications grâce à une messagerie chiffrée.",
+          "en": "It is essential that journalists protect their communications with encrypted messaging.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.rp-societe.079",
+          "theme": "rp-societe",
+          "fr": "Les mouvements citoyens ont contribué à faire évoluer les mentalités sur les questions environnementales.",
+          "en": "Citizen movements have helped shift attitudes on environmental issues.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.133",
+          "theme": "journalisme",
+          "fr": "Les lecteurs craignent que leurs données personnelles ne soient revendues à des entreprises publicitaires.",
+          "en": "Readers fear that their personal data is being resold to advertising companies.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.journalisme.135",
+          "theme": "journalisme",
+          "fr": "Il faudrait que les plateformes signalent clairement les contenus générés par une intelligence artificielle.",
+          "en": "Platforms should clearly flag content generated by artificial intelligence.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.b2.rp-societe.083",
+          "theme": "rp-societe",
+          "fr": "Les autochtones réclament depuis longtemps une reconnaissance pleine et entière de leurs droits territoriaux.",
+          "en": "Indigenous peoples have long demanded full recognition of their territorial rights.",
+          "words": 14
+        },
+        {
+          "id": "fr.b2.litterature.028",
+          "theme": "litterature",
+          "fr": "Que ce roman ait divisé la critique n'a en rien nui à ses ventes.",
+          "en": "The fact that this novel divided critics did nothing to hurt its sales.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.004",
+          "theme": "reseaux-sociaux",
+          "fr": "Bien qu'elle sache que ces images sont retouchées, elle continue à s'y comparer.",
+          "en": "Even though she knows these images are edited, she keeps comparing herself to them.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.litterature.018",
+          "theme": "litterature",
+          "fr": "Pour que ce roman garde tout son mystère, l'éditeur a limité les extraits révélés.",
+          "en": "For this novel to keep all its mystery, the publisher limited the excerpts revealed.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.journalisme.014",
+          "theme": "journalisme",
+          "fr": "Bien qu'il ait reçu des menaces, ce journaliste a refusé d'abandonner son enquête.",
+          "en": "Although he received threats, this journalist refused to abandon his investigation.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.litterature.132",
+          "theme": "litterature",
+          "fr": "Il eût été préférable que l'éditeur consultât l'auteur avant de modifier le texte.",
+          "en": "It would have been preferable for the publisher to consult the author before altering the text.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.traditions.016",
+          "theme": "traditions",
+          "fr": "Il se peut que cette tradition ait été importée par des marchands venus d'ailleurs.",
+          "en": "It is possible that this tradition was imported by merchants from elsewhere.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.traditions.026",
+          "theme": "traditions",
+          "fr": "Il importe peu que cette tradition ait évolué, tant qu'elle garde son sens profond.",
+          "en": "It matters little that this tradition has evolved, as long as it keeps its deep meaning.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.litterature.127",
+          "theme": "litterature",
+          "fr": "Il n'est pas exclu que cet auteur ait emprunté certains passages à ses contemporains.",
+          "en": "It cannot be ruled out that this author borrowed certain passages from his contemporaries.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.journalisme.136",
+          "theme": "journalisme",
+          "fr": "Le journaliste vérifia l'authenticité de la vidéo avant de la diffuser à ses abonnés.",
+          "en": "The journalist verified the authenticity of the video before broadcasting it to his subscribers.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.musees.020",
+          "theme": "musees",
+          "fr": "Les commissaires de l'exposition ont veillé à ce que chaque salle raconte une histoire.",
+          "en": "The exhibition curators made sure that each room told a story.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-loisirs.074",
+          "theme": "rp-loisirs",
+          "fr": "Le comité culturel propose que la bibliothèque reste ouverte plus tard les soirs d'été.",
+          "en": "The cultural committee proposes that the library stay open later on summer evenings.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.litterature.007",
+          "theme": "litterature",
+          "fr": "Ce roman, dont la structure narrative déroute certains lecteurs, mérite qu'on s'y attarde.",
+          "en": "This novel, whose narrative structure confuses some readers, deserves that one dwell on it.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-loisirs.075",
+          "theme": "rp-loisirs",
+          "fr": "Elle regrette de ne pas avoir persévéré dans la pratique du violon durant son adolescence.",
+          "en": "She regrets not having persevered with playing the violin during her teenage years.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-loisirs.077",
+          "theme": "rp-loisirs",
+          "fr": "Le critique estimait que la mise en scène, bien que sobre, servait admirablement le texte.",
+          "en": "The critic felt that the staging, though sober, served the text admirably.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.litterature.027",
+          "theme": "litterature",
+          "fr": "Malgré des débuts difficiles, cet écrivain a fini par s'imposer dans le paysage littéraire.",
+          "en": "Despite a difficult start, this writer eventually established himself in the literary scene.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.journalisme.005",
+          "theme": "journalisme",
+          "fr": "Quoiqu'elle ait vérifié chaque fait, la rédactrice craint d'avoir laissé passer une erreur.",
+          "en": "Even though she checked every fact, the editor fears she let a mistake slip through.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.010",
+          "theme": "reseaux-sociaux",
+          "fr": "Pour que ce mouvement gagne en visibilité, il faudrait que davantage de comptes le relaient.",
+          "en": "For this movement to gain visibility, more accounts would need to share it.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.017",
+          "theme": "reseaux-sociaux",
+          "fr": "Plusieurs études suggèrent que la comparaison permanente avec autrui nuit à l'estime de soi.",
+          "en": "Several studies suggest that constant comparison with others harms self-esteem.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.traditions.017",
+          "theme": "traditions",
+          "fr": "Bien que la fête ait perdu sa dimension religieuse, elle conserve toute sa ferveur populaire.",
+          "en": "Although the festival has lost its religious dimension, it retains all its popular fervor.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-loisirs.069",
+          "theme": "rp-loisirs",
+          "fr": "Il importe que les bénévoles se familiarisent avec le matériel avant l'ouverture du festival.",
+          "en": "It is important that the volunteers familiarize themselves with the equipment before the festival opens.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-loisirs.084",
+          "theme": "rp-loisirs",
+          "fr": "Tant qu'il restera passionné, il continuera de restaurer de vieilles bicyclettes le week-end.",
+          "en": "As long as he stays passionate, he will keep restoring old bicycles on weekends.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.019",
+          "theme": "reseaux-sociaux",
+          "fr": "Bien qu'elle sache pertinemment que ces chiffres sont exagérés, elle continue de les partager.",
+          "en": "Although she knows perfectly well these figures are exaggerated, she keeps sharing them.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.litterature.140",
+          "theme": "litterature",
+          "fr": "Malgré les réserves de certains critiques, ce roman reçut un accueil chaleureux dès sa parution.",
+          "en": "Despite some critics' reservations, this novel received a warm reception as soon as it came out.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.131",
+          "theme": "reseaux-sociaux",
+          "fr": "Quoiqu'elle ait supprimé son compte, ses propos continuent d'être cités dans plusieurs articles.",
+          "en": "Even though she deleted her account, her words are still being quoted in several articles.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-loisirs.076",
+          "theme": "rp-loisirs",
+          "fr": "Pour peu qu'on s'y intéresse vraiment, la calligraphie japonaise se révèle étonnamment accessible.",
+          "en": "With just a little genuine interest, Japanese calligraphy turns out to be surprisingly accessible.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.journalisme.019",
+          "theme": "journalisme",
+          "fr": "Les rédactions craignent que la baisse des revenus publicitaires ne menace le journalisme d'enquête.",
+          "en": "Newsrooms fear that the drop in advertising revenue threatens investigative journalism.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.musees.026",
+          "theme": "musees",
+          "fr": "Bien qu'elle soit critiquée par certains puristes, cette scénographie moderne séduit le grand public.",
+          "en": "Although it is criticized by some purists, this modern staging appeals to the general public.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.litterature.123",
+          "theme": "litterature",
+          "fr": "Cette œuvre, dont on ignore encore l'auteur véritable, continue d'alimenter les débats universitaires.",
+          "en": "This work, whose true author is still unknown, continues to fuel academic debates.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.journalisme.026",
+          "theme": "journalisme",
+          "fr": "Bien que cette photo semble authentique, la rédaction a préféré vérifier son origine avant publication.",
+          "en": "Although this photo looks authentic, the editorial team preferred to verify its origin before publishing.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.027",
+          "theme": "reseaux-sociaux",
+          "fr": "Tant que les plateformes ne changeront pas leurs pratiques, la désinformation continuera de se répandre.",
+          "en": "As long as platforms don't change their practices, disinformation will keep spreading.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.029",
+          "theme": "reseaux-sociaux",
+          "fr": "Cette association réclame que les réseaux sociaux soient tenus responsables des contenus qu'ils diffusent.",
+          "en": "This association demands that social media platforms be held accountable for the content they distribute.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-societe.065",
+          "theme": "rp-societe",
+          "fr": "La réforme des retraites, votée malgré une forte opposition syndicale, continue de susciter la controverse.",
+          "en": "The pension reform, passed despite strong union opposition, continues to spark controversy.",
+          "words": 15
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.b2.traditions.136",
+          "theme": "traditions",
+          "fr": "Les anthropologues estiment que ce type de cérémonie remplissait autrefois une fonction d'apaisement social.",
+          "en": "Anthropologists believe this type of ceremony once served a function of social appeasement.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.140",
+          "theme": "reseaux-sociaux",
+          "fr": "Il est essentiel que les entreprises assument la responsabilité des contenus diffusés sur leurs plateformes.",
+          "en": "It's essential for companies to take responsibility for the content shared on their platforms.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.journalisme.113",
+          "theme": "journalisme",
+          "fr": "Bien que cette application soit gratuite, elle collecte davantage de données personnelles que ses concurrentes.",
+          "en": "Although this app is free, it collects more personal data than its competitors.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.135",
+          "theme": "reseaux-sociaux",
+          "fr": "Il conviendrait que les utilisateurs soient mieux informés des conséquences juridiques du harcèlement en ligne.",
+          "en": "Users should be better informed of the legal consequences of online harassment.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.rp-loisirs.067",
+          "theme": "rp-loisirs",
+          "fr": "Si les subventions municipales venaient à disparaître, plusieurs ateliers de quartier fermeraient probablement leurs portes.",
+          "en": "If municipal grants were to disappear, several neighbourhood workshops would probably close down.",
+          "words": 15
+        },
+        {
+          "id": "fr.b2.litterature.013",
+          "theme": "litterature",
+          "fr": "L'intrigue repose sur un secret que le lecteur ne découvre qu'à la toute fin.",
+          "en": "The plot rests on a secret that the reader only discovers at the very end.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.litterature.118",
+          "theme": "litterature",
+          "fr": "Ce roman, publié à titre posthume, révéla un pan méconnu de l'œuvre de l'auteur.",
+          "en": "This novel, published posthumously, revealed a little-known side of the author's work.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.litterature.124",
+          "theme": "litterature",
+          "fr": "Si l'éditeur avait davantage cru en ce texte, il l'aurait sans doute mieux promu.",
+          "en": "If the publisher had believed in this text more, he would probably have promoted it better.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.musees.022",
+          "theme": "musees",
+          "fr": "Le musée met un point d'honneur à ce que ses collections restent accessibles à tous.",
+          "en": "The museum makes it a point of pride that its collections remain accessible to everyone.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.018",
+          "theme": "traditions",
+          "fr": "Il n'est pas rare que des familles entières se déplacent pour assister à cette fête.",
+          "en": "It is not uncommon for entire families to travel to attend this festival.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.litterature.141",
+          "theme": "litterature",
+          "fr": "On ignore encore si ce manuscrit fut réellement rédigé de la main de l'auteur présumé.",
+          "en": "It is still unknown whether this manuscript was actually written by the presumed author's own hand.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.004",
+          "theme": "traditions",
+          "fr": "Bien que cette tradition semble ancienne, elle n'a en réalité qu'un siècle d'existence.",
+          "en": "Although this tradition seems ancient, it is in fact only a century old.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.142",
+          "theme": "traditions",
+          "fr": "Il faudrait que l'on transmette ce savoir-faire avant qu'il ne se perde définitivement.",
+          "en": "This know-how should be passed on before it is lost forever.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.134",
+          "theme": "reseaux-sociaux",
+          "fr": "Une fois la vidéo publiée, elle se propagea à une vitesse que personne n'avait anticipée.",
+          "en": "Once the video was published, it spread at a speed no one had anticipated.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.012",
+          "theme": "reseaux-sociaux",
+          "fr": "Il n'est pas rare que les commentaires deviennent plus agressifs que le message d'origine.",
+          "en": "It's not uncommon for comments to become more aggressive than the original post.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.litterature.126",
+          "theme": "litterature",
+          "fr": "Quand bien même ce roman diviserait la critique, il mérite qu'on s'y attarde sérieusement.",
+          "en": "Even if this novel were to divide the critics, it deserves serious attention.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.008",
+          "theme": "reseaux-sociaux",
+          "fr": "Bien qu'elle ait été démentie, cette rumeur continue de se propager sur les réseaux sociaux.",
+          "en": "Although it was denied, this rumour keeps spreading on social media.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.026",
+          "theme": "reseaux-sociaux",
+          "fr": "Il faudrait que chacun réfléchisse avant de partager une information qu'il n'a pas vérifiée.",
+          "en": "Everyone should think before sharing information they haven't verified.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-loisirs.070",
+          "theme": "rp-loisirs",
+          "fr": "Malgré son emploi du temps chargé, elle trouve toujours le temps de peindre le dimanche soir.",
+          "en": "Despite her busy schedule, she always finds time to paint on Sunday evenings.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.journalisme.010",
+          "theme": "journalisme",
+          "fr": "Avant que l'article ne soit publié, chaque information a été recoupée avec une seconde source.",
+          "en": "Before the article was published, every piece of information was cross-checked with a second source.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.013",
+          "theme": "reseaux-sociaux",
+          "fr": "À mesure que le nombre d'abonnés augmente, la pression de publier régulièrement se fait sentir.",
+          "en": "As the number of subscribers grows, the pressure to post regularly builds.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.litterature.116",
+          "theme": "litterature",
+          "fr": "Bien qu'elle n'ait publié qu'un seul roman, cette autrice demeure une référence incontournable.",
+          "en": "Although she published only one novel, this author remains an essential reference.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.journalisme.123",
+          "theme": "journalisme",
+          "fr": "Il n'est pas certain que cette plateforme parvienne à limiter la diffusion des vidéos truquées.",
+          "en": "It is not certain that this platform will manage to limit the spread of doctored videos.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-loisirs.085",
+          "theme": "rp-loisirs",
+          "fr": "L'auteur, qu'on croyait oublié, connut un regain de popularité grâce à une adaptation télévisée.",
+          "en": "The author, thought to be forgotten, experienced a resurgence of popularity thanks to a television adaptation.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-loisirs.064",
+          "theme": "rp-loisirs",
+          "fr": "Nous envisagions de rejoindre un club d'astronomie avant que la pandémie ne perturbe nos projets.",
+          "en": "We were considering joining an astronomy club before the pandemic disrupted our plans.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.litterature.117",
+          "theme": "litterature",
+          "fr": "Quoi que l'on pense de son style, cet écrivain a profondément marqué la littérature contemporaine.",
+          "en": "Whatever one thinks of his style, this writer has profoundly shaped contemporary literature.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.litterature.133",
+          "theme": "litterature",
+          "fr": "Tant que les lecteurs continueront de s'identifier à ce personnage, ce roman restera un classique.",
+          "en": "As long as readers keep identifying with this character, this novel will remain a classic.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.115",
+          "theme": "reseaux-sociaux",
+          "fr": "Bien qu'elle soit consciente des risques, elle continue de partager sa localisation en temps réel.",
+          "en": "Although she is aware of the risks, she keeps sharing her location in real time.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.musees.142",
+          "theme": "musees",
+          "fr": "Le musée fit l'acquisition de cette collection privée au terme de plusieurs années de négociations.",
+          "en": "The museum acquired this private collection after several years of negotiations.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.130",
+          "theme": "traditions",
+          "fr": "Il aurait fallu que quelqu'un documente ces récits avant que les derniers témoins ne disparaissent.",
+          "en": "Someone should have documented these accounts before the last witnesses disappeared.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.litterature.128",
+          "theme": "litterature",
+          "fr": "Ce recueil de poèmes, longtemps resté inédit, parut finalement grâce à l'insistance de ses proches.",
+          "en": "This collection of poems, long unpublished, finally came out thanks to the insistence of those close to him.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.006",
+          "theme": "reseaux-sociaux",
+          "fr": "Il est essentiel que les jeunes apprennent à distinguer un contenu sponsorisé d'une opinion sincère.",
+          "en": "It's essential that young people learn to distinguish sponsored content from a genuine opinion.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.132",
+          "theme": "traditions",
+          "fr": "Bien que ce rite ait longtemps été réservé aux hommes, les femmes y participent désormais pleinement.",
+          "en": "Although this rite was long reserved for men, women now take part in it fully.",
+          "words": 16
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.b2.rp-societe.075",
+          "theme": "rp-societe",
+          "fr": "Certains estiment que le système fiscal favorise les plus fortunés au détriment de la classe moyenne.",
+          "en": "Some believe the tax system favors the wealthiest at the expense of the middle class.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.011",
+          "theme": "reseaux-sociaux",
+          "fr": "Quoiqu'elle soit consciente des dangers du harcèlement en ligne, elle continue de publier sans filtre.",
+          "en": "Even though she's aware of the dangers of online harassment, she keeps posting without filtering herself.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.024",
+          "theme": "reseaux-sociaux",
+          "fr": "Le fait que cet algorithme privilégie l'engagement plutôt que la qualité inquiète de nombreux experts.",
+          "en": "The fact that this algorithm favours engagement over quality worries many experts.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.124",
+          "theme": "reseaux-sociaux",
+          "fr": "Bien que les règles de modération existent, elles sont rarement appliquées avec la même rigueur partout.",
+          "en": "Although moderation rules exist, they're rarely applied with the same rigor everywhere.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.139",
+          "theme": "traditions",
+          "fr": "Il est peu probable que cette tradition ait traversé les siècles sans subir de transformations profondes.",
+          "en": "It's unlikely that this tradition made it through the centuries without undergoing profound changes.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.journalisme.128",
+          "theme": "journalisme",
+          "fr": "Il est regrettable que certains sites privilégient la vitesse de publication à la vérification des faits.",
+          "en": "It is regrettable that some sites prioritize publishing speed over fact-checking.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.116",
+          "theme": "reseaux-sociaux",
+          "fr": "Il aurait fallu que cette plateforme réagisse plus rapidement face à la propagation de fausses nouvelles.",
+          "en": "This platform should have reacted more quickly to the spread of fake news.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.120",
+          "theme": "traditions",
+          "fr": "Quoi qu'en pensent les jeunes générations, ces rituels continuent de rassembler les familles chaque année.",
+          "en": "Whatever the younger generations may think, these rituals still bring families together every year.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.126",
+          "theme": "traditions",
+          "fr": "À condition que la municipalité finance l'événement, la procession pourrait avoir lieu comme chaque année.",
+          "en": "Provided the town council funds the event, the procession could take place as it does every year.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.128",
+          "theme": "traditions",
+          "fr": "Plus les habitants vieillissent, plus ils craignent que personne ne reprenne l'organisation de cette fête.",
+          "en": "The older the residents get, the more they fear that no one will take over the organization of this festival.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-societe.077",
+          "theme": "rp-societe",
+          "fr": "La crise du logement, longtemps ignorée par les autorités, s'est transformée en véritable enjeu électoral.",
+          "en": "The housing crisis, long ignored by the authorities, has turned into a real electoral issue.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.litterature.131",
+          "theme": "litterature",
+          "fr": "Cette biographie, quoique fouillée, laisse subsister plusieurs zones d'ombre sur la jeunesse de l'écrivain.",
+          "en": "This biography, though thorough, leaves several gray areas about the writer's youth unresolved.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.121",
+          "theme": "traditions",
+          "fr": "Il faudrait que les autorités locales soutiennent davantage ces événements pour qu'ils ne disparaissent pas.",
+          "en": "Local authorities should support these events more so that they don't disappear.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.118",
+          "theme": "reseaux-sociaux",
+          "fr": "Si cette entreprise n'avait pas modifié son algorithme, la controverse aurait pris une ampleur considérable.",
+          "en": "If this company hadn't modified its algorithm, the controversy would have grown considerably.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.020",
+          "theme": "reseaux-sociaux",
+          "fr": "Il est probable que cette nouvelle fonctionnalité modifie profondément la manière dont on interagit en ligne.",
+          "en": "This new feature will probably profoundly change the way we interact online.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.journalisme.129",
+          "theme": "journalisme",
+          "fr": "Pour que cette enquête en ligne aboutisse, la journaliste dut recouper des centaines de documents numériques.",
+          "en": "For this online investigation to succeed, the journalist had to cross-check hundreds of digital documents.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.musees.137",
+          "theme": "musees",
+          "fr": "Cette découverte fortuite, faite lors de travaux de rénovation, bouleversa les recherches menées sur l'édifice.",
+          "en": "This chance discovery, made during renovation work, upended the research being conducted on the building.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.musees.129",
+          "theme": "musees",
+          "fr": "Le conservateur redoute que le manque de financement ne compromette la restauration de plusieurs œuvres majeures.",
+          "en": "The curator fears that the lack of funding will jeopardize the restoration of several major works.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.127",
+          "theme": "traditions",
+          "fr": "Il se pourrait que cette légende ait été inventée pour expliquer un phénomène naturel autrement incompréhensible.",
+          "en": "This legend may have been invented to explain a natural phenomenon that would otherwise be incomprehensible.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.traditions.129",
+          "theme": "traditions",
+          "fr": "Aussi discrète soit-elle devenue, cette cérémonie conserve encore une grande valeur symbolique pour la communauté.",
+          "en": "However discreet it has become, this ceremony still holds great symbolic value for the community.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.musees.134",
+          "theme": "musees",
+          "fr": "Rares sont les institutions qui parviennent à concilier ainsi rigueur scientifique et accessibilité au grand public.",
+          "en": "Few institutions manage to reconcile scientific rigor with accessibility to the general public in this way.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.rp-societe.076",
+          "theme": "rp-societe",
+          "fr": "Il faudrait que les entreprises assument une part plus importante de leur responsabilité sociale et environnementale.",
+          "en": "Companies should take on a larger share of their social and environmental responsibility.",
+          "words": 16
+        },
+        {
+          "id": "fr.b2.musees.145",
+          "theme": "musees",
+          "fr": "Le musée s'attend à ce que la fréquentation double d'ici la fin de l'exposition.",
+          "en": "The museum expects attendance to double by the end of the exhibition.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.musees.028",
+          "theme": "musees",
+          "fr": "Ce musée s'efforce de rendre l'art accessible à un public qui s'en sentait exclu.",
+          "en": "This museum strives to make art accessible to an audience that felt excluded from it.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.litterature.021",
+          "theme": "litterature",
+          "fr": "Il n'est pas certain que ce texte soit réellement de la main de l'auteur présumé.",
+          "en": "It is not certain that this text is really by the presumed author's hand.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.litterature.014",
+          "theme": "litterature",
+          "fr": "Bien que l'intrigue soit prévisible, le style de l'auteure captive du début à la fin.",
+          "en": "Although the plot is predictable, the author's style captivates from start to finish.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-loisirs.078",
+          "theme": "rp-loisirs",
+          "fr": "Il n'est pas rare que les membres du club se retrouvent au café après l'entraînement.",
+          "en": "It is not unusual for club members to meet up at the café after training.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.traditions.118",
+          "theme": "traditions",
+          "fr": "Bien qu'on la croie très ancienne, cette fête ne remonte en réalité qu'au siècle dernier.",
+          "en": "Although it's believed to be very old, this festival actually only dates back to the last century.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.traditions.144",
+          "theme": "traditions",
+          "fr": "Il se peut que cette coutume ait été introduite par des marchands venus d'un pays voisin.",
+          "en": "This custom may have been introduced by merchants from a neighboring country.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.028",
+          "theme": "reseaux-sociaux",
+          "fr": "Elle craint que sa vie privée ne soit exposée davantage à mesure qu'elle gagne en notoriété.",
+          "en": "She fears her privacy will be exposed further as she gains fame.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-loisirs.073",
+          "theme": "rp-loisirs",
+          "fr": "À moins que la météo ne s'améliore, la randonnée collective sera reportée à la semaine suivante.",
+          "en": "Unless the weather improves, the group hike will be postponed to the following week.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.musees.119",
+          "theme": "musees",
+          "fr": "Il est peu probable que cette sculpture soit rendue à son pays d'origine avant plusieurs années.",
+          "en": "It's unlikely that this sculpture will be returned to its country of origin for several years.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.139",
+          "theme": "reseaux-sociaux",
+          "fr": "Dès qu'elle comprit que ses données avaient été compromises, elle changea tous ses mots de passe.",
+          "en": "As soon as she realized her data had been compromised, she changed all her passwords.",
+          "words": 17
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.b2.journalisme.018",
+          "theme": "journalisme",
+          "fr": "Bien que la nouvelle ait été démentie par les autorités, elle continue de circuler dans la presse.",
+          "en": "Although the news was denied by the authorities, it keeps circulating in the press.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-loisirs.068",
+          "theme": "rp-loisirs",
+          "fr": "On raconte que le fondateur du club de théâtre monta sa première pièce dans une grange abandonnée.",
+          "en": "It is said that the founder of the theatre club staged his first play in an abandoned barn.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.journalisme.025",
+          "theme": "journalisme",
+          "fr": "Le journaliste a précisé que ces chiffres provenaient d'un rapport officiel, non vérifié à ce jour.",
+          "en": "The journalist clarified that these figures came from an official report, not yet verified as of today.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.musees.118",
+          "theme": "musees",
+          "fr": "Bien qu'ils fussent réticents au départ, les conservateurs finirent par accepter le prêt de l'œuvre.",
+          "en": "Although they were reluctant at first, the curators eventually agreed to lend the artwork.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.traditions.123",
+          "theme": "traditions",
+          "fr": "Les chercheurs supposent que cette coutume serait née d'un besoin de marquer le passage des saisons.",
+          "en": "Researchers suppose that this custom arose from a need to mark the passing of the seasons.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-loisirs.079",
+          "theme": "rp-loisirs",
+          "fr": "Depuis qu'elle a rejoint la troupe amateur, elle consacre presque tous ses week-ends aux répétitions.",
+          "en": "Since she joined the amateur troupe, she has been spending almost every weekend at rehearsals.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.traditions.122",
+          "theme": "traditions",
+          "fr": "Si cette tradition venait à disparaître, tout un pan de la mémoire collective s'effacerait avec elle.",
+          "en": "If this tradition were to disappear, a whole part of collective memory would fade away with it.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.traditions.119",
+          "theme": "traditions",
+          "fr": "Pour peu que l'on s'y intéresse vraiment, on découvre derrière chaque coutume une histoire fascinante.",
+          "en": "As soon as one takes a real interest, one discovers a fascinating story behind every custom.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.traditions.133",
+          "theme": "traditions",
+          "fr": "Nul ne saurait dire avec certitude d'où provient exactement cette coutume si particulière à la région.",
+          "en": "No one could say with certainty exactly where this custom, so peculiar to the region, comes from.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-societe.081",
+          "theme": "rp-societe",
+          "fr": "Le vieillissement de la population pose un défi de taille pour le financement des régimes de retraite.",
+          "en": "The aging population poses a major challenge for funding pension plans.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.traditions.143",
+          "theme": "traditions",
+          "fr": "Quoiqu'elle vive désormais loin de sa région natale, elle continue de célébrer cette fête chaque année.",
+          "en": "Although she now lives far from her home region, she continues to celebrate this festival every year.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.015",
+          "theme": "reseaux-sociaux",
+          "fr": "Avant que ce scandale n'éclate, personne n'avait remis en question l'authenticité de cette influenceuse.",
+          "en": "Before this scandal broke, no one had questioned this influencer's authenticity.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.journalisme.125",
+          "theme": "journalisme",
+          "fr": "Le journaliste comprit, en analysant les métadonnées, que cette image avait été prise dans un autre pays.",
+          "en": "The journalist realized, while analyzing the metadata, that this image had been taken in another country.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.130",
+          "theme": "reseaux-sociaux",
+          "fr": "Il faudrait que les écoles enseignent davantage l'esprit critique face à l'information diffusée en ligne.",
+          "en": "Schools would need to teach more critical thinking in the face of information shared online.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.025",
+          "theme": "reseaux-sociaux",
+          "fr": "Bien qu'il ait supprimé l'application, il continue de consulter les réseaux sociaux depuis son ordinateur.",
+          "en": "Although he deleted the app, he still checks social media from his computer.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-societe.080",
+          "theme": "rp-societe",
+          "fr": "Plutôt que de blâmer les individus, il conviendrait de s'attaquer aux causes structurelles de la pauvreté.",
+          "en": "Rather than blaming individuals, it would be fitting to tackle the structural causes of poverty.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.musees.123",
+          "theme": "musees",
+          "fr": "Le directeur du musée souhaiterait que le grand public s'approprie davantage les collections d'art autochtone.",
+          "en": "The museum's director would like the general public to make more use of the Indigenous art collections.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.musees.127",
+          "theme": "musees",
+          "fr": "Le musée dut fermer ses portes pendant plusieurs mois lorsque les infiltrations d'eau menacèrent les réserves.",
+          "en": "The museum had to close for several months when water infiltration threatened the storage rooms.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.musees.143",
+          "theme": "musees",
+          "fr": "Il importe que les visiteurs comprennent le contexte historique avant d'aborder les œuvres les plus sensibles.",
+          "en": "It's important for visitors to understand the historical context before approaching the most sensitive works.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.119",
+          "theme": "reseaux-sociaux",
+          "fr": "Les autorités exigent que les plateformes retirent tout contenu incitant à la haine dans un délai raisonnable.",
+          "en": "Authorities demand that platforms remove any content inciting hatred within a reasonable time.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.141",
+          "theme": "reseaux-sociaux",
+          "fr": "Pour peu que l'algorithme favorise les contenus polarisants, le débat public s'en trouve profondément affecté.",
+          "en": "If the algorithm favors polarizing content even slightly, public debate is deeply affected by it.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-societe.072",
+          "theme": "rp-societe",
+          "fr": "Après des décennies de silence, la société commença enfin à reconnaître les torts causés aux peuples autochtones.",
+          "en": "After decades of silence, society finally began to acknowledge the wrongs done to Indigenous peoples.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-societe.073",
+          "theme": "rp-societe",
+          "fr": "Bien que le télétravail présente des avantages indéniables, il risque d'accentuer l'isolement de certains employés.",
+          "en": "Although remote work has undeniable advantages, it risks worsening the isolation of some employees.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.litterature.125",
+          "theme": "litterature",
+          "fr": "Le narrateur, dont l'identité reste floue jusqu'aux dernières pages, brouille volontairement les repères du lecteur.",
+          "en": "The narrator, whose identity remains unclear until the last pages, deliberately blurs the reader's bearings.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.journalisme.138",
+          "theme": "journalisme",
+          "fr": "Il est probable que cette chaîne d'information continue en ligne finisse par surpasser la télévision traditionnelle.",
+          "en": "It is likely that this online-only news channel will eventually surpass traditional television.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.128",
+          "theme": "reseaux-sociaux",
+          "fr": "Le gouvernement souhaite que ces entreprises rendent des comptes sur la protection des données de leurs utilisateurs.",
+          "en": "The government wants these companies to be accountable for how they protect their users' data.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.journalisme.116",
+          "theme": "journalisme",
+          "fr": "Quoique cette image paraisse crédible, un logiciel de détection d'images truquées a révélé une manipulation numérique.",
+          "en": "Although this image looks credible, image-manipulation detection software revealed a digital manipulation.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.journalisme.122",
+          "theme": "journalisme",
+          "fr": "Bien que cette rédaction ait investi dans le journalisme de données, ses abonnements numériques continuent de baisser.",
+          "en": "Although this newsroom has invested in data journalism, its digital subscriptions keep declining.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.018",
+          "theme": "reseaux-sociaux",
+          "fr": "Bien que les modérateurs suppriment des milliers de publications chaque jour, les contenus haineux réapparaissent sans cesse.",
+          "en": "Although moderators remove thousands of posts every day, hateful content keeps reappearing.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.journalisme.124",
+          "theme": "journalisme",
+          "fr": "Tant que les grandes plateformes ne modifieront pas leurs algorithmes, la désinformation continuera de se propager rapidement.",
+          "en": "As long as the big platforms do not change their algorithms, misinformation will keep spreading quickly.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.journalisme.130",
+          "theme": "journalisme",
+          "fr": "Bien que la baladodiffusion connaisse un succès croissant, elle ne remplace pas complètement les émissions radiophoniques traditionnelles.",
+          "en": "Although podcasting is growing in popularity, it does not completely replace traditional radio shows.",
+          "words": 17
+        },
+        {
+          "id": "fr.b2.rp-loisirs.065",
+          "theme": "rp-loisirs",
+          "fr": "Il se peut que l'exposition soit prolongée jusqu'à la fin du mois, vu son succès inattendu.",
+          "en": "The exhibition may be extended until the end of the month, given its unexpected success.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-loisirs.072",
+          "theme": "rp-loisirs",
+          "fr": "C'est en observant les maîtres anciens qu'il développa peu à peu son propre style de peinture.",
+          "en": "It was by observing the old masters that he gradually developed his own painting style.",
+          "words": 18
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.b2.journalisme.141",
+          "theme": "journalisme",
+          "fr": "Il est surprenant que si peu de lecteurs vérifient la source d'un article avant de le partager.",
+          "en": "It is surprising that so few readers check an article's source before sharing it.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-societe.084",
+          "theme": "rp-societe",
+          "fr": "Face à la montée du coût de la vie, plusieurs ménages peinent désormais à joindre les deux bouts.",
+          "en": "Faced with the rising cost of living, many households now struggle to make ends meet.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.litterature.136",
+          "theme": "litterature",
+          "fr": "Bien que la critique fût partagée à sa sortie, ce roman s'imposa rapidement comme une œuvre majeure.",
+          "en": "Although critics were divided on its release, this novel quickly established itself as a major work.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.litterature.142",
+          "theme": "litterature",
+          "fr": "Quelles que soient les intentions de l'auteur, ce texte a été lu comme une critique sociale directe.",
+          "en": "Whatever the author's intentions, this text has been read as a direct social critique.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.musees.132",
+          "theme": "musees",
+          "fr": "Alors même que la pièce avait été jugée perdue, elle refit surface dans une vente aux enchères privée.",
+          "en": "Even though the piece had been considered lost, it resurfaced at a private auction.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.traditions.117",
+          "theme": "traditions",
+          "fr": "Il n'est pas certain que cette coutume ait réellement une origine religieuse, malgré ce qu'on raconte.",
+          "en": "It's not certain that this custom really has a religious origin, despite what people say.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.litterature.130",
+          "theme": "litterature",
+          "fr": "L'auteur, que l'on croyait disparu depuis des décennies, publia un dernier ouvrage juste avant sa mort.",
+          "en": "The author, thought to have vanished decades earlier, published one last work just before his death.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.traditions.140",
+          "theme": "traditions",
+          "fr": "Certains regrettent que la fête soit devenue si commerciale qu'elle en a presque perdu son sens premier.",
+          "en": "Some people regret that the festival has become so commercial that it has nearly lost its original meaning.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.009",
+          "theme": "reseaux-sociaux",
+          "fr": "Les chercheurs s'inquiètent de l'impact que les réseaux sociaux ont sur la santé mentale des adolescents.",
+          "en": "Researchers worry about the impact social media has on teenagers' mental health.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-loisirs.066",
+          "theme": "rp-loisirs",
+          "fr": "Le romancier, dont on célèbre cette année le centenaire de la naissance, reste peu connu du grand public.",
+          "en": "The novelist, whose birth centenary is being celebrated this year, remains little known to the general public.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.musees.144",
+          "theme": "musees",
+          "fr": "Cette salle, restaurée avec un soin remarquable, redonne enfin à voir la fresque dans son état d'origine.",
+          "en": "This room, restored with remarkable care, finally lets visitors see the fresco in its original state again.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.litterature.138",
+          "theme": "litterature",
+          "fr": "Cet essai, à la fois rigoureux et accessible, invite le lecteur à repenser l'histoire littéraire du pays.",
+          "en": "This essay, both rigorous and accessible, invites the reader to rethink the country's literary history.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.137",
+          "theme": "reseaux-sociaux",
+          "fr": "Bien qu'il ait été prévenu à plusieurs reprises, il n'a jamais modifié ses paramètres de confidentialité.",
+          "en": "Although he was warned several times, he never changed his privacy settings.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.021",
+          "theme": "reseaux-sociaux",
+          "fr": "Pour éviter que ses enfants ne s'exposent à des contenus inappropriés, elle a activé le contrôle parental.",
+          "en": "To stop her children from being exposed to inappropriate content, she turned on parental controls.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.journalisme.022",
+          "theme": "journalisme",
+          "fr": "Tant que les sources ne seront pas nommées, certains lecteurs mettront en doute la fiabilité de l'article.",
+          "en": "As long as the sources aren't named, some readers will question the article's reliability.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.journalisme.008",
+          "theme": "journalisme",
+          "fr": "Bien que la liberté de la presse soit garantie par la loi, des journalistes subissent encore des pressions.",
+          "en": "Although press freedom is guaranteed by law, journalists still face pressure.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.122",
+          "theme": "reseaux-sociaux",
+          "fr": "Pour que la confiance du public soit rétablie, il faudrait une transparence totale sur la collecte des données.",
+          "en": "For public trust to be restored, there would need to be total transparency about data collection.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.journalisme.134",
+          "theme": "journalisme",
+          "fr": "Bien que ce chatbot rédige des résumés d'actualité assez fiables, il continue de commettre des erreurs factuelles.",
+          "en": "Although this chatbot writes fairly reliable news summaries, it still makes factual errors.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.journalisme.121",
+          "theme": "journalisme",
+          "fr": "Le rédacteur en chef exige que chaque vidéo publiée en direct soit préalablement vérifiée par un second journaliste.",
+          "en": "The editor-in-chief requires that every video published live be verified beforehand by a second journalist.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-societe.085",
+          "theme": "rp-societe",
+          "fr": "Aussi complexe soit-elle, la question de l'immigration mérite un débat serein plutôt que des positions caricaturales.",
+          "en": "However complex it may be, the issue of immigration deserves a calm debate rather than caricatured positions.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.musees.117",
+          "theme": "musees",
+          "fr": "Bien que cette rétrospective ait été saluée par la critique, certains visiteurs lui reprochent un parcours trop dense.",
+          "en": "Although this retrospective was praised by critics, some visitors criticize it for a route that's too dense.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.123",
+          "theme": "reseaux-sociaux",
+          "fr": "Cette chercheuse affirme que l'exposition prolongée à ces plateformes accroît le risque d'anxiété chez les adolescents.",
+          "en": "This researcher states that prolonged exposure to these platforms increases the risk of anxiety among teenagers.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.journalisme.132",
+          "theme": "journalisme",
+          "fr": "Quoique ce site propose un contenu de qualité, son modèle économique repose presque entièrement sur la publicité ciblée.",
+          "en": "Although this site offers quality content, its business model relies almost entirely on targeted advertising.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.musees.133",
+          "theme": "musees",
+          "fr": "Le musée entend développer un programme éducatif afin que les jeunes générations se familiarisent avec le patrimoine local.",
+          "en": "The museum intends to develop an educational program so that younger generations become familiar with local heritage.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-societe.069",
+          "theme": "rp-societe",
+          "fr": "Il serait souhaitable que les décideurs politiques consultent davantage la société civile avant d'adopter de nouvelles lois.",
+          "en": "It would be desirable for political decision-makers to consult civil society more before passing new laws.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.journalisme.118",
+          "theme": "journalisme",
+          "fr": "Bien que les réseaux sociaux permettent une diffusion instantanée, ils favorisent aussi la propagation rapide de fausses informations.",
+          "en": "Although social media allows instant distribution, it also fuels the rapid spread of false information.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.rp-societe.066",
+          "theme": "rp-societe",
+          "fr": "Pour que l'intégration des nouveaux arrivants réussisse pleinement, il faudrait que les municipalités disposent de ressources adéquates.",
+          "en": "For the integration of newcomers to fully succeed, municipalities would need adequate resources.",
+          "words": 18
+        },
+        {
+          "id": "fr.b2.traditions.137",
+          "theme": "traditions",
+          "fr": "Pour que cette coutume survive, il faudra que les jeunes acceptent d'y consacrer un peu de leur temps.",
+          "en": "For this custom to survive, young people will need to agree to devote a little of their time to it.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.musees.120",
+          "theme": "musees",
+          "fr": "Quand bien même le budget serait revu à la hausse, la rénovation ne débuterait pas avant l'an prochain.",
+          "en": "Even if the budget were increased, the renovation would not start before next year.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.traditions.131",
+          "theme": "traditions",
+          "fr": "Dès qu'elle arriva au village, elle comprit que la fête occupait une place centrale dans la vie locale.",
+          "en": "As soon as she arrived in the village, she understood that the festival held a central place in local life.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.litterature.146",
+          "theme": "litterature",
+          "fr": "Ce texte, publié dans une revue confidentielle, ne connut le succès que bien après la mort de son auteur.",
+          "en": "This text, published in an obscure journal, did not achieve success until long after its author's death.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.traditions.135",
+          "theme": "traditions",
+          "fr": "Quand bien même la fête aurait perdu son sens religieux, elle demeure un moment fort de la vie collective.",
+          "en": "Even if the festival had lost its religious meaning, it remains a highlight of collective life.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.litterature.129",
+          "theme": "litterature",
+          "fr": "Pour peu qu'on s'intéresse à la littérature du dix-neuvième siècle, ce roman offre un témoignage précieux.",
+          "en": "For anyone with even a slight interest in nineteenth-century literature, this novel offers a valuable testimony.",
+          "words": 19
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.b2.musees.125",
+          "theme": "musees",
+          "fr": "Malgré l'affluence record, le personnel a réussi à maintenir un parcours fluide tout au long de la journée.",
+          "en": "Despite the record turnout, the staff managed to keep the route running smoothly all day long.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.journalisme.117",
+          "theme": "journalisme",
+          "fr": "Pour que ce balado touche un public plus large, l'équipe a dû revoir entièrement sa stratégie de diffusion.",
+          "en": "For this podcast to reach a wider audience, the team had to completely rethink its distribution strategy.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.litterature.144",
+          "theme": "litterature",
+          "fr": "Ce roman, dont la structure éclatée déconcerta d'abord les lecteurs, finit par s'imposer comme une œuvre culte.",
+          "en": "This novel, whose fragmented structure at first disconcerted readers, eventually established itself as a cult work.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.journalisme.115",
+          "theme": "journalisme",
+          "fr": "Il est peu probable que ce site abandonne son mur payant tant que ses revenus publicitaires ne remonteront pas.",
+          "en": "It is unlikely that this site will drop its paywall as long as its ad revenue does not recover.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.traditions.134",
+          "theme": "traditions",
+          "fr": "Il importe que chaque génération s'approprie ces traditions à sa façon plutôt que de les répéter sans réflexion.",
+          "en": "It matters that each generation makes these traditions its own rather than merely repeating them without thought.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.rp-societe.071",
+          "theme": "rp-societe",
+          "fr": "On ne saurait nier que les réseaux sociaux ont transformé la manière dont les citoyens s'informent et débattent.",
+          "en": "One cannot deny that social media has transformed the way citizens get informed and debate.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.rp-loisirs.061",
+          "theme": "rp-loisirs",
+          "fr": "Il aurait fallu réserver les places plusieurs semaines à l'avance pour assister au spectacle sans faire la queue.",
+          "en": "We would have had to book the seats several weeks in advance to attend the show without queuing.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.rp-societe.070",
+          "theme": "rp-societe",
+          "fr": "Les grandes villes attirent de plus en plus de jeunes actifs, ce qui accentue la pénurie de logements abordables.",
+          "en": "Big cities attract more and more young professionals, which worsens the shortage of affordable housing.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.traditions.146",
+          "theme": "traditions",
+          "fr": "Loin de considérer cette coutume comme dépassée, les jeunes du village s'efforcent au contraire de la faire vivre.",
+          "en": "Far from considering this custom outdated, the village's young people strive instead to keep it alive.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.journalisme.127",
+          "theme": "journalisme",
+          "fr": "Bien qu'il ait grandi avec le journal papier, ce lecteur consulte désormais toute son actualité sur son téléphone.",
+          "en": "Although he grew up with the print newspaper, this reader now gets all his news on his phone.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.132",
+          "theme": "reseaux-sociaux",
+          "fr": "Il n'est pas exclu que cette entreprise soit poursuivie pour la manière dont elle utilise les données personnelles.",
+          "en": "It's not out of the question that this company will be sued over how it uses personal data.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.musees.136",
+          "theme": "musees",
+          "fr": "Le musée s'efforce de diversifier ses collections de sorte que l'histoire de toutes les communautés soit représentée.",
+          "en": "The museum strives to diversify its collections so that the history of all communities is represented.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.rp-societe.068",
+          "theme": "rp-societe",
+          "fr": "Malgré les campagnes de sensibilisation, le racisme systémique continue d'affecter l'accès à l'emploi et au logement.",
+          "en": "Despite awareness campaigns, systemic racism continues to affect access to employment and housing.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.traditions.141",
+          "theme": "traditions",
+          "fr": "Bien qu'aucun document ne l'atteste formellement, les anciens affirment que ce rituel existait déjà au siècle dernier.",
+          "en": "Although no document formally attests to it, the elders claim this ritual already existed in the last century.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.136",
+          "theme": "reseaux-sociaux",
+          "fr": "Cette étude suggère que la comparaison constante avec autrui nuit gravement à l'estime de soi des jeunes utilisateurs.",
+          "en": "This study suggests that constant comparison with others seriously harms young users' self-esteem.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.117",
+          "theme": "reseaux-sociaux",
+          "fr": "Quoi qu'on en pense, ces outils numériques ont transformé la manière dont les entreprises communiquent avec leurs clients.",
+          "en": "Whatever one thinks of it, these digital tools have transformed how companies communicate with their customers.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.musees.140",
+          "theme": "musees",
+          "fr": "Il se pourrait que cette toile, restée inconnue du grand public, devienne la pièce maîtresse de la prochaine rétrospective.",
+          "en": "It's possible that this painting, unknown to the general public, will become the centerpiece of the next retrospective.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.rp-societe.063",
+          "theme": "rp-societe",
+          "fr": "Nombreux sont les citoyens qui estiment que la classe politique s'est éloignée des préoccupations quotidiennes de la population.",
+          "en": "Many citizens believe that the political class has drifted away from the daily concerns of the population.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.121",
+          "theme": "reseaux-sociaux",
+          "fr": "Il semblerait que certains utilisateurs préfèrent l'anonymat pour exprimer des opinions qu'ils n'oseraient pas assumer publiquement.",
+          "en": "It seems some users prefer anonymity to express opinions they wouldn't dare to publicly own.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.musees.116",
+          "theme": "musees",
+          "fr": "Le conservateur expliqua, non sans fierté, que cette toile avait traversé deux guerres avant de rejoindre les collections nationales.",
+          "en": "The curator explained, not without pride, that this painting had survived two wars before joining the national collections.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.reseaux-sociaux.127",
+          "theme": "reseaux-sociaux",
+          "fr": "Malgré les nombreuses mises en garde, les jeunes continuent de dévoiler des informations personnelles sans en mesurer les conséquences.",
+          "en": "Despite numerous warnings, young people keep revealing personal information without weighing the consequences.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.journalisme.137",
+          "theme": "journalisme",
+          "fr": "Bien que cette application soit conçue pour informer rapidement, certains utilisateurs lui reprochent de simplifier excessivement les sujets complexes.",
+          "en": "Although this app is designed to inform quickly, some users criticize it for oversimplifying complex topics.",
+          "words": 19
+        },
+        {
+          "id": "fr.b2.rp-societe.078",
+          "theme": "rp-societe",
+          "fr": "Quel que soit le gouvernement en place, la question de l'accès aux soins de santé reste un sujet sensible.",
+          "en": "Whatever government is in power, the issue of access to healthcare remains a sensitive topic.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.rp-loisirs.063",
+          "theme": "rp-loisirs",
+          "fr": "Quoique le temps ait été maussade tout le week-end, le festival en plein air a attiré une foule considérable.",
+          "en": "Although the weather was gloomy all weekend, the outdoor festival attracted a considerable crowd.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.musees.130",
+          "theme": "musees",
+          "fr": "C'est avec une émotion visible que l'artiste présenta, pour la première fois, l'ensemble de son œuvre réunie.",
+          "en": "It was with visible emotion that the artist presented, for the first time, the entirety of their reunited work.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.traditions.138",
+          "theme": "traditions",
+          "fr": "Ce fut une surprise pour tous lorsque le maire annonça le retour de la procession après des années d'absence.",
+          "en": "It was a surprise for everyone when the mayor announced the return of the procession after years of absence.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.traditions.125",
+          "theme": "traditions",
+          "fr": "Bien que l'on modernise peu à peu la cérémonie, les organisateurs refusent d'en abandonner l'esprit d'origine.",
+          "en": "Although the ceremony is being gradually modernized, the organizers refuse to abandon its original spirit.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.traditions.116",
+          "theme": "traditions",
+          "fr": "Bien qu'elle ait grandi loin de son pays d'origine, elle a toujours tenu à perpétuer les traditions familiales.",
+          "en": "Although she grew up far from her home country, she has always been keen to keep up family traditions.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.musees.141",
+          "theme": "musees",
+          "fr": "Quel que soit le format retenu, l'institution tient à ce que la médiation demeure accessible à tous les publics.",
+          "en": "Whatever format is chosen, the institution insists that mediation remain accessible to all audiences.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.musees.126",
+          "theme": "musees",
+          "fr": "La commissaire d'exposition tenait à ce que chaque pièce soit accompagnée d'un texte accessible à tous les publics.",
+          "en": "The exhibition curator insisted that each piece be accompanied by a text accessible to all audiences.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.rp-loisirs.060",
+          "theme": "rp-loisirs",
+          "fr": "Bien qu'elle n'ait jamais pratiqué l'aviron auparavant, elle s'est inscrite sans hésiter à la compétition régionale.",
+          "en": "Although she had never practised rowing before, she signed up for the regional competition without hesitation.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.musees.122",
+          "theme": "musees",
+          "fr": "Cette exposition, dont on parle déjà comme l'événement de la saison, réunit des pièces venues de dix pays différents.",
+          "en": "This exhibition, already being talked about as the event of the season, brings together pieces from ten different countries.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.journalisme.140",
+          "theme": "journalisme",
+          "fr": "Bien que le piratage de ce site ait été rapidement maîtrisé, plusieurs abonnés changèrent leur mot de passe par précaution.",
+          "en": "Although the hacking of this site was quickly contained, several subscribers changed their password as a precaution.",
+          "words": 20
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.b2.musees.138",
+          "theme": "musees",
+          "fr": "Pour que cette exposition itinérante puisse voyager d'une province à l'autre, chaque œuvre voyage dans un caisson climatisé.",
+          "en": "For this traveling exhibition to move from one province to another, each work travels in a climate-controlled crate.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.musees.135",
+          "theme": "musees",
+          "fr": "Bien qu'elle n'ait jamais suivi de formation artistique, cette bénévole guide désormais les visites avec une aisance remarquable.",
+          "en": "Although she never had any artistic training, this volunteer now guides tours with remarkable ease.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.journalisme.139",
+          "theme": "journalisme",
+          "fr": "Pour que le public distingue une information vérifiée d'une rumeur, plusieurs sites ont créé des outils de vérification automatisée.",
+          "en": "For the public to distinguish verified information from a rumor, several sites have created automated fact-checking tools.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.journalisme.120",
+          "theme": "journalisme",
+          "fr": "À mesure que les algorithmes personnalisent le contenu, certains lecteurs ne voient plus que des articles qui confirment leurs opinions.",
+          "en": "As algorithms personalize content, some readers only see articles that confirm their opinions.",
+          "words": 20
+        },
+        {
+          "id": "fr.b2.musees.139",
+          "theme": "musees",
+          "fr": "Le musée a mis sur pied un comité chargé de veiller à ce que les acquisitions respectent des critères éthiques stricts.",
+          "en": "The museum has set up a committee tasked with ensuring that acquisitions meet strict ethical criteria.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.musees.121",
+          "theme": "musees",
+          "fr": "Le musée s'est doté d'un nouveau système de climatisation afin que les œuvres les plus fragiles soient mieux préservées.",
+          "en": "The museum has equipped itself with a new climate-control system so that the most fragile works are better preserved.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.rp-societe.064",
+          "theme": "rp-societe",
+          "fr": "Quoi que l'on pense de la mondialisation, force est de constater qu'elle a profondément transformé le marché du travail.",
+          "en": "Whatever one thinks of globalization, one must acknowledge that it has profoundly transformed the labor market.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.rp-societe.060",
+          "theme": "rp-societe",
+          "fr": "Bien que le gouvernement ait multiplié les mesures sociales ces dernières années, les inégalités demeurent criantes dans plusieurs régions du pays.",
+          "en": "Although the government has multiplied social measures in recent years, inequalities remain glaring in several regions of the country.",
+          "words": 21
+        },
+        {
+          "id": "fr.b2.traditions.124",
+          "theme": "traditions",
+          "fr": "C'est en écoutant les récits de sa grand-mère qu'elle comprit à quel point cette fête comptait pour sa famille.",
+          "en": "It was while listening to her grandmother's stories that she understood how much this festival mattered to her family.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.musees.128",
+          "theme": "musees",
+          "fr": "Pour peu que l'on s'y attarde, cette fresque révèle des détails que l'on ne soupçonnerait pas au premier regard.",
+          "en": "If one lingers even a little, this fresco reveals details one would not suspect at first glance.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.journalisme.114",
+          "theme": "journalisme",
+          "fr": "Bien que l'intelligence artificielle puisse générer un article en quelques secondes, elle ne remplace pas encore le jugement d'un rédacteur.",
+          "en": "Although artificial intelligence can generate an article in a few seconds, it does not yet replace an editor's judgment.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.rp-societe.062",
+          "theme": "rp-societe",
+          "fr": "Si les pouvoirs publics avaient anticipé le vieillissement démographique, le système de santé serait aujourd'hui mieux préparé à y faire face.",
+          "en": "If public authorities had anticipated demographic aging, the healthcare system would be better prepared to deal with it today.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.journalisme.142",
+          "theme": "journalisme",
+          "fr": "Quoique les algorithmes de recommandation retiennent l'attention des internautes, ils sont aussi accusés d'enfermer chacun dans une bulle d'opinions.",
+          "en": "Although recommendation algorithms hold users' attention, they are also accused of trapping everyone in a bubble of opinions.",
+          "words": 22
+        },
+        {
+          "id": "fr.b2.musees.124",
+          "theme": "musees",
+          "fr": "Il n'est pas exclu que cette œuvre, longtemps attribuée à un anonyme, soit en réalité de la main d'un maître reconnu.",
+          "en": "It's not out of the question that this work, long attributed to an unknown artist, is in fact by a recognized master.",
+          "words": 23
+        },
+        {
+          "id": "fr.b2.rp-societe.061",
+          "theme": "rp-societe",
+          "fr": "Il n'est pas rare que les jeunes diplômés peinent à trouver un emploi correspondant à leurs qualifications, ce qui alimente un certain découragement.",
+          "en": "It's not uncommon for young graduates to struggle to find a job matching their qualifications, which fuels a certain discouragement.",
+          "words": 24
+        }
+      ]
+    }
+  ]
+}

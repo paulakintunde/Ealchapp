@@ -1,0 +1,3614 @@
+{
+  "stage": "4.2",
+  "world": 4,
+  "level": "b1",
+  "title": "La Tour du Travail",
+  "themes": [
+    "bureau",
+    "recherche-emploi",
+    "universite",
+    "examens-et-diplomes",
+    "matieres",
+    "collegues",
+    "affaires",
+    "recherche",
+    "disciplines",
+    "metiers",
+    "rp-travail-etudes",
+    "argent-quotidien"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 502,
+  "dedupedPool": 501,
+  "selected": 501,
+  "blockCount": 16,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.b1.bureau.016",
+          "theme": "bureau",
+          "fr": "La photocopieuse a besoin d'encre.",
+          "en": "The photocopier needs ink.",
+          "words": 6
+        },
+        {
+          "id": "fr.b1.bureau.015",
+          "theme": "bureau",
+          "fr": "Je dois signer ce contrat avant midi.",
+          "en": "I have to sign this contract before noon.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.affaires.020",
+          "theme": "affaires",
+          "fr": "Nous avons reçu votre facture ce matin.",
+          "en": "We received your invoice this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.recherche.101",
+          "theme": "recherche",
+          "fr": "Tu penses que cette source est fiable ?",
+          "en": "Do you think this source is reliable?",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.matieres.001",
+          "theme": "matieres",
+          "fr": "Il a toujours été doué en mathématiques.",
+          "en": "He has always been gifted at math.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.disciplines.027",
+          "theme": "disciplines",
+          "fr": "Elle préfère la géographie à l'histoire.",
+          "en": "She prefers geography to history.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.affaires.107",
+          "theme": "affaires",
+          "fr": "Mon collègue râle souvent le lundi matin.",
+          "en": "My colleague often grumbles on Monday mornings.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.affaires.110",
+          "theme": "affaires",
+          "fr": "Nous devons répondre au client avant midi.",
+          "en": "We must reply to the client before noon.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.007",
+          "theme": "rp-travail-etudes",
+          "fr": "Je commence une formation le mois prochain.",
+          "en": "I'm starting a training course next month.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.collegues.015",
+          "theme": "collegues",
+          "fr": "Nous devons finir ce dossier avant vendredi.",
+          "en": "We have to finish this file before Friday.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.collegues.018",
+          "theme": "collegues",
+          "fr": "Ma collègue préfère travailler tôt le matin.",
+          "en": "My colleague prefers to work early in the morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.affaires.119",
+          "theme": "affaires",
+          "fr": "On aimerait embaucher quelqu'un de bilingue.",
+          "en": "We would like to hire someone bilingual.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.affaires.022",
+          "theme": "affaires",
+          "fr": "Le client a demandé un remboursement complet.",
+          "en": "The customer asked for a full refund.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.006",
+          "theme": "rp-travail-etudes",
+          "fr": "Je m'intéresse beaucoup au développement web.",
+          "en": "I'm very interested in web development.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.matieres.012",
+          "theme": "matieres",
+          "fr": "Ils étudient l'informatique depuis la rentrée.",
+          "en": "They have been studying computer science since the start of the school year.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.bureau.009",
+          "theme": "bureau",
+          "fr": "Nous partageons le même bureau depuis janvier.",
+          "en": "We have shared the same office since January.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.recherche.112",
+          "theme": "recherche",
+          "fr": "J'aimerais que vous relisiez mon introduction.",
+          "en": "I would like you to reread my introduction.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.matieres.008",
+          "theme": "matieres",
+          "fr": "Elle préfère l'art plastique aux mathématiques.",
+          "en": "She prefers art to mathematics.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.matieres.020",
+          "theme": "matieres",
+          "fr": "Tu t'améliores rapidement en expression écrite.",
+          "en": "You are improving quickly in written expression.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.matieres.011",
+          "theme": "matieres",
+          "fr": "J'ai raté mon dernier examen d'économie.",
+          "en": "I failed my last economics exam.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.bureau.011",
+          "theme": "bureau",
+          "fr": "J'ai laissé un message sur ton répondeur.",
+          "en": "I left a message on your voicemail.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.metiers.008",
+          "theme": "metiers",
+          "fr": "Son grand-père était fermier toute sa vie.",
+          "en": "His grandfather was a farmer his whole life.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.universite.026",
+          "theme": "universite",
+          "fr": "Tu passeras ton oral la semaine des examens.",
+          "en": "You will take your oral exam during exam week.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.bureau.006",
+          "theme": "bureau",
+          "fr": "Peux-tu classer ces dossiers avant ce soir ?",
+          "en": "Can you file these documents before tonight?",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.bureau.018",
+          "theme": "bureau",
+          "fr": "Cette tâche demande plus de temps que prévu.",
+          "en": "This task is taking more time than expected.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.134",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous préparons le DELF B2 depuis trois mois.",
+          "en": "We have been preparing for the DELF B2 for three months.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.affaires.116",
+          "theme": "affaires",
+          "fr": "Nous avons signé le contrat hier après-midi.",
+          "en": "We signed the contract yesterday afternoon.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.bureau.007",
+          "theme": "bureau",
+          "fr": "Le photocopieur est encore en panne ce matin.",
+          "en": "The photocopier is broken again this morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.bureau.013",
+          "theme": "bureau",
+          "fr": "Le service comptable ferme à dix-sept heures.",
+          "en": "The accounting department closes at five p.m.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.bureau.019",
+          "theme": "bureau",
+          "fr": "L'ascenseur est en panne, prenons l'escalier.",
+          "en": "The elevator is out of order, let's take the stairs.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.affaires.031",
+          "theme": "affaires",
+          "fr": "Nous allons signer l'accord dès que possible.",
+          "en": "We are going to sign the agreement as soon as possible.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.collegues.013",
+          "theme": "collegues",
+          "fr": "Ma collègue m'a remplacé pendant mes vacances.",
+          "en": "My colleague replaced me while I was on vacation.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.collegues.007",
+          "theme": "collegues",
+          "fr": "Nous partageons le même bureau depuis deux ans.",
+          "en": "We've been sharing the same office for two years.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.b1.metiers.016",
+          "theme": "metiers",
+          "fr": "Je voudrais changer de métier l'année prochaine.",
+          "en": "I would like to change careers next year.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.bureau.102",
+          "theme": "bureau",
+          "fr": "Il est important que chacun respecte les délais.",
+          "en": "It's important that everyone respects the deadlines.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.bureau.017",
+          "theme": "bureau",
+          "fr": "Nous organisons une réunion d'équipe chaque lundi.",
+          "en": "We hold a team meeting every Monday.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.bureau.124",
+          "theme": "bureau",
+          "fr": "Je crois que ce collègue mériterait une promotion.",
+          "en": "I think this colleague would deserve a promotion.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.metiers.006",
+          "theme": "metiers",
+          "fr": "Elle rêve de devenir architecte depuis son enfance.",
+          "en": "She has dreamed of becoming an architect since childhood.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.metiers.009",
+          "theme": "metiers",
+          "fr": "Le pharmacien nous a conseillé un autre médicament.",
+          "en": "The pharmacist recommended a different medication to us.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.metiers.014",
+          "theme": "metiers",
+          "fr": "Elle a passé un entretien pour devenir journaliste.",
+          "en": "She went to an interview to become a journalist.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.affaires.118",
+          "theme": "affaires",
+          "fr": "Le fournisseur voudrait qu'on paie plus rapidement.",
+          "en": "The supplier would like us to pay more quickly.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.universite.019",
+          "theme": "universite",
+          "fr": "Tu dois récupérer ta carte étudiante au secrétariat.",
+          "en": "You need to pick up your student card at the registrar's office.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.affaires.026",
+          "theme": "affaires",
+          "fr": "Cette société fabrique des meubles depuis trente ans.",
+          "en": "This company has been making furniture for thirty years.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.universite.123",
+          "theme": "universite",
+          "fr": "Elle voudrait changer de groupe de travaux pratiques.",
+          "en": "She'd like to switch lab groups.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.collegues.074",
+          "theme": "collegues",
+          "fr": "Nous aimerions que la direction explique sa décision.",
+          "en": "We would like management to explain its decision.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.recherche-emploi.154",
+          "theme": "recherche-emploi",
+          "fr": "Nous vous informerons de notre décision par courriel.",
+          "en": "We will inform you of our decision by email.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.recherche-emploi.174",
+          "theme": "recherche-emploi",
+          "fr": "Le directeur veut que vous commenciez lundi prochain.",
+          "en": "The director wants you to start next Monday.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.recherche-emploi.134",
+          "theme": "recherche-emploi",
+          "fr": "Pourriez-vous m'envoyer une lettre de recommandation ?",
+          "en": "Could you send me a letter of recommendation?",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.recherche.011",
+          "theme": "recherche",
+          "fr": "Cette étude remet en question les résultats précédents.",
+          "en": "This study calls the previous results into question.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.recherche.017",
+          "theme": "recherche",
+          "fr": "Nous avons interrogé cent personnes pour notre enquête.",
+          "en": "We interviewed a hundred people for our survey.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.universite.017",
+          "theme": "universite",
+          "fr": "Le campus est fermé pendant les vacances universitaires.",
+          "en": "The campus is closed during university break.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.matieres.007",
+          "theme": "matieres",
+          "fr": "Nous avons un contrôle de littérature vendredi prochain.",
+          "en": "We have a literature test next Friday.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.metiers.007",
+          "theme": "metiers",
+          "fr": "Nous cherchons un électricien qualifié pour ce chantier.",
+          "en": "We are looking for a qualified electrician for this construction site.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.recherche.099",
+          "theme": "recherche",
+          "fr": "Elle a interviewé plusieurs professeurs pour son projet.",
+          "en": "She interviewed several professors for her project.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.bureau.100",
+          "theme": "bureau",
+          "fr": "Elle aimerait que son supérieur reconnaisse ses efforts.",
+          "en": "She would like her supervisor to recognize her efforts.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.metiers.017",
+          "theme": "metiers",
+          "fr": "Les pompiers sont intervenus rapidement après l'accident.",
+          "en": "The firefighters responded quickly after the accident.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.172",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous avons hâte de recevoir notre attestation officielle.",
+          "en": "We can't wait to receive our official certificate.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.recherche.100",
+          "theme": "recherche",
+          "fr": "Nous allons présenter nos résultats la semaine prochaine.",
+          "en": "We are going to present our results next week.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.recherche.025",
+          "theme": "recherche",
+          "fr": "Nous rédigeons actuellement la conclusion de notre rapport.",
+          "en": "We are currently writing the conclusion of our report.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.160",
+          "theme": "examens-et-diplomes",
+          "fr": "Ta candidature sera examinée par une commission spécialisée.",
+          "en": "Your application will be reviewed by a specialized committee.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.recherche-emploi.191",
+          "theme": "recherche-emploi",
+          "fr": "Nous organiserons un deuxième entretien pour les finalistes.",
+          "en": "We will organize a second interview for the finalists.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.affaires.109",
+          "theme": "affaires",
+          "fr": "Autrefois, l'entreprise vendait uniquement des produits locaux.",
+          "en": "In the past, the company only sold local products.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.affaires.112",
+          "theme": "affaires",
+          "fr": "Il se peut que le rendez-vous soit annulé.",
+          "en": "The appointment might be cancelled.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.023",
+          "theme": "affaires",
+          "fr": "Notre budget a été réduit de dix pour cent.",
+          "en": "Our budget was cut by ten percent.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.005",
+          "theme": "rp-travail-etudes",
+          "fr": "Je n'étais plus satisfait de mon poste actuel.",
+          "en": "I wasn't satisfied with my current job anymore.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.177",
+          "theme": "examens-et-diplomes",
+          "fr": "Je crains que la date limite soit déjà passée.",
+          "en": "I'm afraid the deadline has already passed.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.b1.universite.025",
+          "theme": "universite",
+          "fr": "J'ai changé de filière après ma première année.",
+          "en": "I changed majors after my first year.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.collegues.014",
+          "theme": "collegues",
+          "fr": "Il a présenté son projet devant toute l'équipe.",
+          "en": "He presented his project in front of the whole team.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.metiers.005",
+          "theme": "metiers",
+          "fr": "Le plombier est venu réparer la fuite ce matin.",
+          "en": "The plumber came to fix the leak this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.138",
+          "theme": "examens-et-diplomes",
+          "fr": "Mon diplôme n'est pas encore reconnu au Canada.",
+          "en": "My diploma is not yet recognized in Canada.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bureau.108",
+          "theme": "bureau",
+          "fr": "Je suis surpris que la réunion ait été annulée.",
+          "en": "I'm surprised the meeting was cancelled.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.collegues.017",
+          "theme": "collegues",
+          "fr": "Nous avons organisé un pot de départ pour Julie.",
+          "en": "We organized a farewell drink for Julie.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.metiers.003",
+          "theme": "metiers",
+          "fr": "Mon frère est ingénieur et il conçoit des ponts.",
+          "en": "My brother is an engineer and he designs bridges.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.metiers.010",
+          "theme": "metiers",
+          "fr": "Cette femme est pilote de ligne depuis cinq ans.",
+          "en": "This woman has been an airline pilot for five years.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche-emploi.192",
+          "theme": "recherche-emploi",
+          "fr": "Ma collègue m'a recommandé pour ce poste vacant.",
+          "en": "My colleague recommended me for this vacant position.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bureau.104",
+          "theme": "bureau",
+          "fr": "Je doute que ce dossier soit prêt avant vendredi.",
+          "en": "I doubt this file will be ready before Friday.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.collegues.019",
+          "theme": "collegues",
+          "fr": "Nous nous entendons très bien avec toute l'équipe.",
+          "en": "We get along very well with the whole team.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.metiers.015",
+          "theme": "metiers",
+          "fr": "Le facteur passe tous les matins vers huit heures.",
+          "en": "The mailman comes by every morning around eight o'clock.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bureau.020",
+          "theme": "bureau",
+          "fr": "Elle range son bureau avant de partir chaque soir.",
+          "en": "She tidies her desk before leaving every evening.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.146",
+          "theme": "examens-et-diplomes",
+          "fr": "Ils ont échoué à l'épreuve de compréhension orale.",
+          "en": "They failed the listening comprehension test.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.181",
+          "theme": "examens-et-diplomes",
+          "fr": "Si tu avais un tuteur, tu progresserais plus vite.",
+          "en": "If you had a tutor, you would progress faster.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche-emploi.163",
+          "theme": "recherche-emploi",
+          "fr": "J'espère que vous accepterez notre offre d'emploi.",
+          "en": "I hope you will accept our job offer.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche.102",
+          "theme": "recherche",
+          "fr": "Le professeur nous a demandé de résumer un article.",
+          "en": "The professor asked us to summarize an article.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.194",
+          "theme": "examens-et-diplomes",
+          "fr": "Tu devrais t'inscrire tôt, les places sont limitées.",
+          "en": "You should register early, spots are limited.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche.106",
+          "theme": "recherche",
+          "fr": "Nous cherchons un stage dans un centre de recherche.",
+          "en": "We are looking for an internship in a research center.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche-emploi.137",
+          "theme": "recherche-emploi",
+          "fr": "J'aimerais savoir si le poste est encore disponible.",
+          "en": "I would like to know if the position is still available.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche-emploi.143",
+          "theme": "recherche-emploi",
+          "fr": "Je souhaite que vous me contactiez dès que possible.",
+          "en": "I wish that you contact me as soon as possible.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.111",
+          "theme": "affaires",
+          "fr": "Elle a proposé une nouvelle idée pendant la réunion.",
+          "en": "She proposed a new idea during the meeting.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.matieres.006",
+          "theme": "matieres",
+          "fr": "Le cours de biologie commence à huit heures précises.",
+          "en": "Biology class starts at exactly eight o'clock.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.universite.021",
+          "theme": "universite",
+          "fr": "Elle travaille à temps partiel pour payer ses études.",
+          "en": "She works part-time to pay for her studies.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.collegues.009",
+          "theme": "collegues",
+          "fr": "Elle organise la réunion d'équipe chaque lundi matin.",
+          "en": "She organizes the team meeting every Monday morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bureau.117",
+          "theme": "bureau",
+          "fr": "Si nous savions plus tôt, nous changerions nos plans.",
+          "en": "If we knew earlier, we would change our plans.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.105",
+          "theme": "affaires",
+          "fr": "Le comptable vérifie les factures chaque fin de mois.",
+          "en": "The accountant checks the invoices at the end of every month.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.metiers.012",
+          "theme": "metiers",
+          "fr": "La vétérinaire soigne surtout des chats et des chiens.",
+          "en": "The vet mostly treats cats and dogs.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.021",
+          "theme": "affaires",
+          "fr": "L'entreprise cherche de nouveaux clients à l'étranger.",
+          "en": "The company is looking for new clients abroad.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.argent-quotidien.042",
+          "theme": "argent-quotidien",
+          "fr": "Elle préfère payer par virement plutôt que par chèque.",
+          "en": "She prefers to pay by bank transfer rather than by check.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.161",
+          "theme": "examens-et-diplomes",
+          "fr": "Je voudrais reporter mon examen à une date ultérieure.",
+          "en": "I would like to postpone my exam to a later date.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche.110",
+          "theme": "recherche",
+          "fr": "Le groupe a discuté des résultats pendant deux heures.",
+          "en": "The group discussed the results for two hours.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche.123",
+          "theme": "recherche",
+          "fr": "Une fois l'enquête terminée, envoie-moi les résultats.",
+          "en": "Once the survey is finished, send me the results.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.b1.affaires.115",
+          "theme": "affaires",
+          "fr": "Avant, mon équipe se réunissait dans une petite salle.",
+          "en": "Before, my team used to meet in a small room.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.matieres.017",
+          "theme": "matieres",
+          "fr": "Il trouve les sciences plus concrètes que la grammaire.",
+          "en": "He finds science more concrete than grammar.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.collegues.011",
+          "theme": "collegues",
+          "fr": "Mon nouveau collègue vient d'arriver dans l'entreprise.",
+          "en": "My new colleague just arrived at the company.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.033",
+          "theme": "affaires",
+          "fr": "Le marché est devenu très compétitif ces derniers mois.",
+          "en": "The market has become very competitive in recent months.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche.098",
+          "theme": "recherche",
+          "fr": "Je dois rendre mon travail de recherche avant vendredi.",
+          "en": "I have to hand in my research paper before Friday.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche.114",
+          "theme": "recherche",
+          "fr": "Il est possible que ce résultat change nos conclusions.",
+          "en": "It's possible that this result will change our conclusions.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.124",
+          "theme": "affaires",
+          "fr": "Si le client acceptait notre offre, nous serions ravis.",
+          "en": "If the client accepted our offer, we would be thrilled.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.collegues.012",
+          "theme": "collegues",
+          "fr": "Nous échangeons souvent des idées pendant la pause-café.",
+          "en": "We often exchange ideas during the coffee break.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.collegues.020",
+          "theme": "collegues",
+          "fr": "Mon collègue partage son bureau avec moi depuis janvier.",
+          "en": "My colleague has been sharing his office with me since January.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.180",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous avons rempli notre dossier de candidature ce matin.",
+          "en": "We filled out our application file this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche.116",
+          "theme": "recherche",
+          "fr": "Nous devons vérifier chaque chiffre avant de l'utiliser.",
+          "en": "We must check every figure before using it.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bureau.109",
+          "theme": "bureau",
+          "fr": "Si le logiciel plantait encore, il faudrait le signaler.",
+          "en": "If the software crashed again, we would need to report it.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bureau.111",
+          "theme": "bureau",
+          "fr": "Le rapport que tu as envoyé contenait plusieurs erreurs.",
+          "en": "The report you sent contained several mistakes.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.100",
+          "theme": "affaires",
+          "fr": "Notre équipe organise une réunion tous les lundis matin.",
+          "en": "Our team organizes a meeting every Monday morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.103",
+          "theme": "affaires",
+          "fr": "Il faudrait que vous signiez le document avant vendredi.",
+          "en": "You would need to sign the document before Friday.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.disciplines.029",
+          "theme": "disciplines",
+          "fr": "Mon frère veut étudier la médecine après le baccalauréat.",
+          "en": "My brother wants to study medicine after the baccalauréat.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.142",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous attendons les résultats de l'examen avec impatience.",
+          "en": "We are waiting for the exam results impatiently.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.029",
+          "theme": "affaires",
+          "fr": "L'équipe commerciale a dépassé ses objectifs ce trimestre.",
+          "en": "The sales team exceeded its targets this quarter.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche.109",
+          "theme": "recherche",
+          "fr": "Vous devez citer vos sources correctement dans le rapport.",
+          "en": "You must cite your sources correctly in the report.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.collegues.084",
+          "theme": "collegues",
+          "fr": "Il faudrait que nous révisions le planning avant vendredi.",
+          "en": "We should revise the schedule before Friday.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche-emploi.185",
+          "theme": "recherche-emploi",
+          "fr": "Le recruteur a apprécié ma motivation pendant l'entretien.",
+          "en": "The recruiter appreciated my motivation during the interview.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche-emploi.190",
+          "theme": "recherche-emploi",
+          "fr": "J'ai laissé mes coordonnées au responsable du recrutement.",
+          "en": "I left my contact information with the recruitment manager.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche-emploi.193",
+          "theme": "recherche-emploi",
+          "fr": "Si vous êtes retenu, nous vous contacterons par téléphone.",
+          "en": "If you are selected, we will contact you by phone.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.metiers.013",
+          "theme": "metiers",
+          "fr": "Mon voisin travaille comme mécanicien dans un garage local.",
+          "en": "My neighbor works as a mechanic in a local garage.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.102",
+          "theme": "affaires",
+          "fr": "Quand j'étais stagiaire, je répondais souvent au téléphone.",
+          "en": "When I was an intern, I often answered the phone.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.106",
+          "theme": "affaires",
+          "fr": "Nous avons embauché deux nouveaux employés le mois dernier.",
+          "en": "We hired two new employees last month.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.120",
+          "theme": "affaires",
+          "fr": "Le service des ressources humaines a organisé un entretien.",
+          "en": "The human resources department organized an interview.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.121",
+          "theme": "affaires",
+          "fr": "Chaque matin, je consulte mes courriels avant de commencer.",
+          "en": "Every morning, I check my emails before starting.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.156",
+          "theme": "examens-et-diplomes",
+          "fr": "Vous recevrez vos résultats par courriel dans deux semaines.",
+          "en": "You will receive your results by email in two weeks.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche.117",
+          "theme": "recherche",
+          "fr": "Si les données sont correctes, notre théorie tient toujours.",
+          "en": "If the data is correct, our theory still holds.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bureau.122",
+          "theme": "bureau",
+          "fr": "Si vous étiez disponible, pourriez-vous relire ce document ?",
+          "en": "If you were available, could you reread this document?",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.matieres.016",
+          "theme": "matieres",
+          "fr": "Vous devez rendre votre dissertation de français lundi matin.",
+          "en": "You must hand in your French essay on Monday morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.024",
+          "theme": "affaires",
+          "fr": "Ils vont présenter leur nouveau produit la semaine prochaine.",
+          "en": "They are going to present their new product next week.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.b1.disciplines.069",
+          "theme": "disciplines",
+          "fr": "Nous devons rendre notre travail de recherche avant vendredi.",
+          "en": "We have to hand in our research paper before Friday.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche-emploi.166",
+          "theme": "recherche-emploi",
+          "fr": "Nous recherchons un candidat capable de travailler en équipe.",
+          "en": "We are looking for a candidate able to work in a team.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.165",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous devons fournir une traduction certifiée de notre diplôme.",
+          "en": "We must provide a certified translation of our diploma.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.061",
+          "theme": "rp-travail-etudes",
+          "fr": "Pourriez-vous m'envoyer votre curriculum vitae avant vendredi ?",
+          "en": "Could you send me your CV before Friday?",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bureau.119",
+          "theme": "bureau",
+          "fr": "Elle pense que son travail mérite une meilleure reconnaissance.",
+          "en": "She thinks her work deserves better recognition.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.174",
+          "theme": "examens-et-diplomes",
+          "fr": "Le stage pratique est obligatoire pour obtenir la certification.",
+          "en": "The practical internship is mandatory to obtain certification.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.universite.109",
+          "theme": "universite",
+          "fr": "Tu peux emprunter un ordinateur portable au service informatique.",
+          "en": "You can borrow a laptop from the IT department.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.universite.125",
+          "theme": "universite",
+          "fr": "Nous attendons les résultats du premier semestre avec impatience.",
+          "en": "We're waiting for the first semester results impatiently.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.collegues.086",
+          "theme": "collegues",
+          "fr": "Vous devriez féliciter votre collègue pour son excellent travail.",
+          "en": "You should congratulate your colleague on his excellent work.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bureau.101",
+          "theme": "bureau",
+          "fr": "Nous devrions organiser une réunion pour clarifier les objectifs.",
+          "en": "We should organize a meeting to clarify the objectives.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.disciplines.016",
+          "theme": "disciplines",
+          "fr": "La physique et la biologie partagent certains principes fondamentaux.",
+          "en": "Physics and biology share certain fundamental principles.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.affaires.019",
+          "theme": "affaires",
+          "fr": "Les deux sociétés négocient un partenariat depuis plusieurs semaines.",
+          "en": "The two companies have been negotiating a partnership for several weeks.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.universite.114",
+          "theme": "universite",
+          "fr": "Le service de santé universitaire propose des consultations gratuites.",
+          "en": "The university health service offers free consultations.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche.022",
+          "theme": "recherche",
+          "fr": "Le directeur du laboratoire supervise plusieurs doctorants cette année.",
+          "en": "The lab director is supervising several PhD students this year.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche-emploi.189",
+          "theme": "recherche-emploi",
+          "fr": "Le gestionnaire embauche généralement les candidats les plus qualifiés.",
+          "en": "The manager generally hires the most qualified candidates.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.recherche-emploi.182",
+          "theme": "recherche-emploi",
+          "fr": "Vous devez fournir trois références professionnelles avec votre candidature.",
+          "en": "You must provide three professional references with your application.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.bureau.008",
+          "theme": "bureau",
+          "fr": "Elle a oublié son badge d'accès à la maison.",
+          "en": "She forgot her access badge at home.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche.019",
+          "theme": "recherche",
+          "fr": "Tu dois citer tes sources à la fin du rapport.",
+          "en": "You have to cite your sources at the end of the report.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.183",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle s'est présentée à l'examen malgré sa fatigue.",
+          "en": "She showed up for the exam despite her fatigue.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche.105",
+          "theme": "recherche",
+          "fr": "Il faut que tu termines ton plan avant la réunion.",
+          "en": "You need to finish your outline before the meeting.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.affaires.123",
+          "theme": "affaires",
+          "fr": "Mon patron m'a demandé de rédiger un compte rendu.",
+          "en": "My boss asked me to write up a report.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.028",
+          "theme": "universite",
+          "fr": "Elle a obtenu une bourse pour étudier à l'étranger.",
+          "en": "She got a scholarship to study abroad.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bureau.010",
+          "theme": "bureau",
+          "fr": "Le directeur a annulé la réunion de cet après-midi.",
+          "en": "The manager canceled this afternoon's meeting.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.argent-quotidien.020",
+          "theme": "argent-quotidien",
+          "fr": "Il tient à jour un tableau pour suivre ses dépenses.",
+          "en": "He keeps an updated spreadsheet to track his spending.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.collegues.008",
+          "theme": "collegues",
+          "fr": "Mon collègue arrive toujours avec un café à la main.",
+          "en": "My colleague always arrives with a coffee in hand.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.159",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous espérons obtenir la mention très bien à l'oral.",
+          "en": "We hope to get honours in the oral exam.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.179",
+          "theme": "examens-et-diplomes",
+          "fr": "Le jury vérifiera votre niveau de français à l'oral.",
+          "en": "The panel will check your level of French orally.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.060",
+          "theme": "rp-travail-etudes",
+          "fr": "Je cherche un emploi à temps plein depuis deux mois.",
+          "en": "I've been looking for a full-time job for two months.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.affaires.117",
+          "theme": "affaires",
+          "fr": "Je pense que le projet va bien avancer ce trimestre.",
+          "en": "I think the project will move forward well this quarter.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.disciplines.026",
+          "theme": "disciplines",
+          "fr": "Nous faisons de la chimie tous les mardis après-midi.",
+          "en": "We do chemistry every Tuesday afternoon.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.affaires.025",
+          "theme": "affaires",
+          "fr": "Le vendeur a proposé une réduction sur le prix total.",
+          "en": "The salesman offered a discount on the total price.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.187",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous te félicitons pour ta réussite à l'examen final.",
+          "en": "We congratulate you on your success in the final exam.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.collegues.085",
+          "theme": "collegues",
+          "fr": "Je doute que ce collègue accepte de changer d'équipe.",
+          "en": "I doubt this colleague will agree to change teams.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.b1.affaires.108",
+          "theme": "affaires",
+          "fr": "Je voudrais que tu m'aides à préparer la présentation.",
+          "en": "I would like you to help me prepare the presentation.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.matieres.010",
+          "theme": "matieres",
+          "fr": "Le professeur de musique nous a fait chanter en groupe.",
+          "en": "The music teacher had us sing as a group.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.155",
+          "theme": "examens-et-diplomes",
+          "fr": "J'ai perdu mon relevé de notes pendant le déménagement.",
+          "en": "I lost my transcript during the move.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.collegues.071",
+          "theme": "collegues",
+          "fr": "Il faudrait que tu préviennes l'équipe avant de partir.",
+          "en": "You should warn the team before leaving.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.197",
+          "theme": "recherche-emploi",
+          "fr": "Je préfère que vous m'envoyiez votre réponse par écrit.",
+          "en": "I prefer that you send me your answer in writing.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.affaires.114",
+          "theme": "affaires",
+          "fr": "Le patron demande qu'on finisse le rapport avant jeudi.",
+          "en": "The boss asks that we finish the report before Thursday.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche.015",
+          "theme": "recherche",
+          "fr": "L'équipe est en train d'analyser les premiers résultats.",
+          "en": "The team is currently analyzing the first results.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.105",
+          "theme": "universite",
+          "fr": "Si tu redoubles ta première année, tu perdras ta bourse.",
+          "en": "If you repeat your first year, you'll lose your scholarship.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.067",
+          "theme": "rp-travail-etudes",
+          "fr": "Tu penses que je devrais accepter cette offre d'emploi ?",
+          "en": "Do you think I should accept this job offer?",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bureau.096",
+          "theme": "bureau",
+          "fr": "Il faudrait que tu prépares le rapport avant la réunion.",
+          "en": "You should prepare the report before the meeting.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche.014",
+          "theme": "recherche",
+          "fr": "Il faut vérifier chaque source avant de citer un article.",
+          "en": "You need to check every source before citing an article.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.collegues.006",
+          "theme": "collegues",
+          "fr": "Ma collègue m'a proposé de déjeuner ensemble aujourd'hui.",
+          "en": "My colleague suggested we have lunch together today.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.185",
+          "theme": "examens-et-diplomes",
+          "fr": "Le taux d'échec à cette épreuve inquiète les enseignants.",
+          "en": "The failure rate on this test worries the teachers.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.103",
+          "theme": "universite",
+          "fr": "Tu devrais imprimer ton emploi du temps avant la rentrée.",
+          "en": "You should print your schedule before the start of term.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.150",
+          "theme": "recherche-emploi",
+          "fr": "Mon ancien employeur a accepté de me servir de référence.",
+          "en": "My former employer agreed to be my reference.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.180",
+          "theme": "recherche-emploi",
+          "fr": "Le candidat idéal saura gérer plusieurs tâches à la fois.",
+          "en": "The ideal candidate will know how to manage several tasks at once.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.077",
+          "theme": "rp-travail-etudes",
+          "fr": "J'espère que mon employeur acceptera ma demande de congé.",
+          "en": "I hope my employer will accept my leave request.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bureau.098",
+          "theme": "bureau",
+          "fr": "Si j'avais plus de temps, je referais cette présentation.",
+          "en": "If I had more time, I would redo this presentation.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.030",
+          "theme": "universite",
+          "fr": "Ils se retrouvent souvent à la cafétéria entre deux cours.",
+          "en": "They often meet up at the cafeteria between classes.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.032",
+          "theme": "universite",
+          "fr": "Nous devons rendre notre mémoire avant la fin du semestre.",
+          "en": "We have to hand in our thesis before the end of the semester.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.affaires.027",
+          "theme": "affaires",
+          "fr": "Nous devons renouveler notre contrat avant la fin du mois.",
+          "en": "We must renew our contract before the end of the month.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.affaires.030",
+          "theme": "affaires",
+          "fr": "Le patron a annoncé une augmentation de salaire pour tous.",
+          "en": "The boss announced a pay raise for everyone.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.182",
+          "theme": "examens-et-diplomes",
+          "fr": "Le ministère exige une preuve d'équivalence pour ce poste.",
+          "en": "The ministry requires proof of equivalency for this position.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.117",
+          "theme": "universite",
+          "fr": "Si elle valide son stage, elle obtiendra ses crédits ECTS.",
+          "en": "If she passes her internship, she'll get her ECTS credits.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.136",
+          "theme": "recherche-emploi",
+          "fr": "Il faut que vous prépariez vos réponses avant l'entretien.",
+          "en": "You need to prepare your answers before the interview.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bureau.116",
+          "theme": "bureau",
+          "fr": "Bien que le projet soit compliqué, l'équipe reste motivée.",
+          "en": "Although the project is complicated, the team stays motivated.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.matieres.013",
+          "theme": "matieres",
+          "fr": "Nous changeons de salle pour le cours d'éducation physique.",
+          "en": "We change rooms for the physical education class.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.matieres.014",
+          "theme": "matieres",
+          "fr": "Elle a obtenu la meilleure note en philosophie cette année.",
+          "en": "She got the best grade in philosophy this year.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bureau.014",
+          "theme": "bureau",
+          "fr": "Ils ont installé de nouveaux ordinateurs dans l'open space.",
+          "en": "They installed new computers in the open space.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.158",
+          "theme": "examens-et-diplomes",
+          "fr": "Le correcteur a mis longtemps à corriger toutes les copies.",
+          "en": "The grader took a long time to correct all the papers.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.190",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a fait reconnaître son diplôme d'infirmière au Québec.",
+          "en": "She got her nursing diploma recognized in Quebec.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche.118",
+          "theme": "recherche",
+          "fr": "Elle rédigeait son rapport quand l'ordinateur s'est éteint.",
+          "en": "She was writing her report when the computer turned off.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.argent-quotidien.030",
+          "theme": "argent-quotidien",
+          "fr": "Nous avons discuté du budget familial pendant tout le dîner.",
+          "en": "We discussed the family budget throughout dinner.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.b1.collegues.081",
+          "theme": "collegues",
+          "fr": "Nous préférerions que la réunion commence plus tôt le matin.",
+          "en": "We would prefer the meeting to start earlier in the morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.065",
+          "theme": "rp-travail-etudes",
+          "fr": "Elle a démissionné parce qu'elle voulait changer de secteur.",
+          "en": "She resigned because she wanted to change industries.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bureau.112",
+          "theme": "bureau",
+          "fr": "Nous aimerions que vous participiez à la formation de mardi.",
+          "en": "We would like you to attend Tuesday's training.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bureau.120",
+          "theme": "bureau",
+          "fr": "Nous voudrions que la charge de travail soit mieux répartie.",
+          "en": "We would like the workload to be better distributed.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.141",
+          "theme": "examens-et-diplomes",
+          "fr": "Le candidat qui obtient la meilleure note recevra une bourse.",
+          "en": "The candidate who gets the best grade will receive a scholarship.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.144",
+          "theme": "examens-et-diplomes",
+          "fr": "Le surveillant a distribué les copies à neuf heures précises.",
+          "en": "The proctor handed out the papers at exactly nine o'clock.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.matieres.108",
+          "theme": "matieres",
+          "fr": "Le professeur exige que chaque élève présente un exposé oral.",
+          "en": "The teacher requires every student to give an oral presentation.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.112",
+          "theme": "universite",
+          "fr": "Nous devons rendre notre dossier de stage avant les vacances.",
+          "en": "We have to hand in our internship file before the break.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.collegues.075",
+          "theme": "collegues",
+          "fr": "Tu devrais parler à ton collègue si ce comportement continue.",
+          "en": "You should talk to your colleague if this behavior continues.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.172",
+          "theme": "recherche-emploi",
+          "fr": "Elle négocie son salaire avant d'accepter l'offre définitive.",
+          "en": "She negotiates her salary before accepting the final offer.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.075",
+          "theme": "rp-travail-etudes",
+          "fr": "Nous avons discuté du salaire pendant l'entretien d'embauche.",
+          "en": "We discussed the salary during the job interview.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.076",
+          "theme": "rp-travail-etudes",
+          "fr": "Le stagiaire doit rendre compte de ses tâches chaque semaine.",
+          "en": "The intern has to report on his tasks every week.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bureau.107",
+          "theme": "bureau",
+          "fr": "Il faudrait revoir l'organisation du bureau avant la rentrée.",
+          "en": "We should review the office organization before the fall term.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche.013",
+          "theme": "recherche",
+          "fr": "Le chercheur a publié un article sur le changement climatique.",
+          "en": "The researcher published an article on climate change.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche.020",
+          "theme": "recherche",
+          "fr": "Ils ont présenté leur projet lors d'un colloque international.",
+          "en": "They presented their project at an international conference.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.affaires.034",
+          "theme": "affaires",
+          "fr": "L'associé a quitté l'entreprise pour des raisons personnelles.",
+          "en": "The partner left the company for personal reasons.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.122",
+          "theme": "universite",
+          "fr": "Nous avons un contrôle continu chaque vendredi dans ce module.",
+          "en": "We have continuous assessment every Friday in this module.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.collegues.083",
+          "theme": "collegues",
+          "fr": "Elle aimerait que son travail soit reconnu par ses supérieurs.",
+          "en": "She would like her work to be recognized by her superiors.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.disciplines.068",
+          "theme": "disciplines",
+          "fr": "Elle aimerait travailler dans le domaine de la santé publique.",
+          "en": "She would like to work in the field of public health.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.178",
+          "theme": "recherche-emploi",
+          "fr": "Il est possible que l'entretien se déroule en visioconférence.",
+          "en": "It is possible that the interview will take place by videoconference.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.argent-quotidien.019",
+          "theme": "argent-quotidien",
+          "fr": "Quand la facture est trop élevée, nous appelons le fournisseur.",
+          "en": "When the bill is too high, we call the provider.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.184",
+          "theme": "examens-et-diplomes",
+          "fr": "Il faudra attendre plusieurs semaines avant d'avoir la réponse.",
+          "en": "We'll have to wait several weeks before getting the answer.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.116",
+          "theme": "universite",
+          "fr": "Nous irons au forum des métiers pour rencontrer des recruteurs.",
+          "en": "We'll go to the career fair to meet recruiters.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.matieres.018",
+          "theme": "matieres",
+          "fr": "Nous discutons souvent de politique pendant le cours d'économie.",
+          "en": "We often discuss politics during economics class.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.139",
+          "theme": "examens-et-diplomes",
+          "fr": "J'aimerais faire évaluer mon diplôme par un organisme compétent.",
+          "en": "I would like to have my diploma evaluated by a competent organization.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.102",
+          "theme": "universite",
+          "fr": "Nous consultons souvent le portail étudiant pour voir nos notes.",
+          "en": "We often check the student portal to see our grades.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.collegues.078",
+          "theme": "collegues",
+          "fr": "Le manager souhaite que chaque employé participe à la formation.",
+          "en": "The manager wants every employee to take part in the training.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.135",
+          "theme": "recherche-emploi",
+          "fr": "Le recruteur m'a demandé de décrire mes principales compétences.",
+          "en": "The recruiter asked me to describe my main skills.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.metiers.002",
+          "theme": "metiers",
+          "fr": "Beaucoup de jeunes hésitent avant de choisir une carrière stable.",
+          "en": "Many young people hesitate before settling on a stable career.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche.018",
+          "theme": "recherche",
+          "fr": "Le laboratoire a reçu une subvention pour poursuivre ses travaux.",
+          "en": "The lab received a grant to continue its work.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.disciplines.028",
+          "theme": "disciplines",
+          "fr": "Les cours d'informatique sont devenus obligatoires dans ce lycée.",
+          "en": "Computer science classes have become mandatory in this high school.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.147",
+          "theme": "examens-et-diplomes",
+          "fr": "Le jury a félicité les candidats pour leurs excellents résultats.",
+          "en": "The panel congratulated the candidates on their excellent results.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.175",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a demandé un délai supplémentaire pour terminer son dossier.",
+          "en": "She asked for extra time to finish her file.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.b1.matieres.118",
+          "theme": "matieres",
+          "fr": "Bien que la moyenne soit basse, le professeur reste encourageant.",
+          "en": "Although the average is low, the teacher remains encouraging.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.collegues.080",
+          "theme": "collegues",
+          "fr": "Il est important que les nouveaux collègues se sentent bienvenus.",
+          "en": "It's important that new colleagues feel welcome.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.bureau.110",
+          "theme": "bureau",
+          "fr": "Elle souhaite que son équipe soit mieux informée des changements.",
+          "en": "She wants her team to be better informed about the changes.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.argent-quotidien.018",
+          "theme": "argent-quotidien",
+          "fr": "Le conseiller nous a expliqué comment réduire nos frais bancaires.",
+          "en": "The advisor explained to us how to reduce our bank fees.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.matieres.126",
+          "theme": "matieres",
+          "fr": "Le proviseur souhaite que les résultats du trimestre s'améliorent.",
+          "en": "The principal hopes the term's results will improve.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.108",
+          "theme": "universite",
+          "fr": "Le professeur référent aide les étudiants à choisir leurs options.",
+          "en": "The advising professor helps students choose their electives.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.155",
+          "theme": "recherche-emploi",
+          "fr": "Quand vous recevrez l'offre, lisez bien les conditions salariales.",
+          "en": "When you receive the offer, read the salary terms carefully.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.169",
+          "theme": "recherche-emploi",
+          "fr": "Si vous perdez votre emploi, vous pouvez demander des prestations.",
+          "en": "If you lose your job, you can apply for benefits.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.176",
+          "theme": "examens-et-diplomes",
+          "fr": "Ce diplôme équivaut à un baccalauréat selon l'organisme évaluateur.",
+          "en": "This diploma is equivalent to a bachelor's degree according to the evaluating body.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.collegues.073",
+          "theme": "collegues",
+          "fr": "Elle voudrait que ses collègues respectent ses horaires de travail.",
+          "en": "She would like her colleagues to respect her work hours.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.144",
+          "theme": "recherche-emploi",
+          "fr": "Avant de signer le contrat, lisez attentivement toutes les clauses.",
+          "en": "Before signing the contract, read all the clauses carefully.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.195",
+          "theme": "recherche-emploi",
+          "fr": "Le candidat doit démontrer qu'il maîtrise les outils informatiques.",
+          "en": "The candidate must demonstrate that they master computer tools.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.matieres.015",
+          "theme": "matieres",
+          "fr": "Le programme d'histoire couvre la Révolution française ce trimestre.",
+          "en": "The history curriculum covers the French Revolution this term.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.023",
+          "theme": "universite",
+          "fr": "Le bibliothécaire nous a montré où trouver les revues scientifiques.",
+          "en": "The librarian showed us where to find the scientific journals.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche.030",
+          "theme": "recherche",
+          "fr": "Cette découverte pourrait changer notre façon de traiter la maladie.",
+          "en": "This discovery could change the way we treat the disease.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.192",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous avons contacté un organisme pour évaluer nos études étrangères.",
+          "en": "We contacted an organization to evaluate our foreign studies.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.118",
+          "theme": "universite",
+          "fr": "Le règlement interdit d'utiliser son téléphone pendant les partiels.",
+          "en": "The rules forbid using your phone during exams.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.120",
+          "theme": "universite",
+          "fr": "Ils organisent une soirée d'intégration pour les nouveaux arrivants.",
+          "en": "They're organizing a welcome party for the newcomers.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.176",
+          "theme": "recherche-emploi",
+          "fr": "Ils cherchaient un employé bilingue pour le poste de réceptionniste.",
+          "en": "They were looking for a bilingual employee for the receptionist position.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.164",
+          "theme": "recherche-emploi",
+          "fr": "Pendant la période d'essai, votre superviseur évaluera votre travail.",
+          "en": "During the probation period, your supervisor will evaluate your work.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.argent-quotidien.024",
+          "theme": "argent-quotidien",
+          "fr": "Comme les charges augmentent, nous devons revoir notre budget mensuel.",
+          "en": "Since expenses are rising, we need to revise our monthly budget.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.universite.029",
+          "theme": "universite",
+          "fr": "Le restaurant universitaire propose un menu végétarien tous les jours.",
+          "en": "The university cafeteria offers a vegetarian menu every day.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.disciplines.070",
+          "theme": "disciplines",
+          "fr": "Mon collègue voudrait faire une maîtrise en administration des affaires.",
+          "en": "My colleague would like to do a master's degree in business administration.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.matieres.100",
+          "theme": "matieres",
+          "fr": "Le professeur souhaite que nous rendions notre dissertation avant vendredi.",
+          "en": "The teacher wants us to turn in our essay before Friday.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.disciplines.073",
+          "theme": "disciplines",
+          "fr": "Le directeur du programme souhaite que les étudiants participent davantage.",
+          "en": "The program director wants students to participate more.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.recherche-emploi.175",
+          "theme": "recherche-emploi",
+          "fr": "J'ai relu mon CV plusieurs fois avant de l'envoyer.",
+          "en": "I reread my resume several times before sending it.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.064",
+          "theme": "rp-travail-etudes",
+          "fr": "Mon contrat de travail se termine à la fin du mois.",
+          "en": "My work contract ends at the end of the month.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.014",
+          "theme": "universite",
+          "fr": "Elle a choisi de faire sa licence en biologie à Lyon.",
+          "en": "She chose to do her bachelor's degree in biology in Lyon.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.collegues.016",
+          "theme": "collegues",
+          "fr": "Mon collègue m'a formé quand j'ai commencé ce travail.",
+          "en": "My colleague trained me when I started this job.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bureau.012",
+          "theme": "bureau",
+          "fr": "Merci de mettre tout le monde en copie de ce courriel.",
+          "en": "Please copy everyone on this email.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.132",
+          "theme": "examens-et-diplomes",
+          "fr": "Est-ce que tu as reçu la convocation pour ton examen ?",
+          "en": "Did you receive the notice for your exam?",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.173",
+          "theme": "examens-et-diplomes",
+          "fr": "Il vaut mieux que tu arrives une heure avant l'épreuve.",
+          "en": "It's better if you arrive an hour before the test.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.193",
+          "theme": "examens-et-diplomes",
+          "fr": "Le résultat final dépendra de la note obtenue à l'oral.",
+          "en": "The final result will depend on the grade obtained orally.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.b1.recherche-emploi.177",
+          "theme": "recherche-emploi",
+          "fr": "Malgré mon manque d'expérience, on m'a offert le poste.",
+          "en": "Despite my lack of experience, I was offered the position.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.080",
+          "theme": "rp-travail-etudes",
+          "fr": "Mes études de droit m'ont pris beaucoup de temps libre.",
+          "en": "My law studies took up a lot of my free time.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bureau.097",
+          "theme": "bureau",
+          "fr": "Je pense que ce projet prendra plus de temps que prévu.",
+          "en": "I think this project will take more time than expected.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bureau.114",
+          "theme": "bureau",
+          "fr": "Il se peut que le directeur reporte la réunion à jeudi.",
+          "en": "The director might postpone the meeting to Thursday.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bureau.001",
+          "theme": "bureau",
+          "fr": "Nous devons finir ce rapport avant la fin de la journée.",
+          "en": "We have to finish this report by the end of the day.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.matieres.009",
+          "theme": "matieres",
+          "fr": "Tu dois choisir une option entre le latin et l'allemand.",
+          "en": "You have to choose an option between Latin and German.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.143",
+          "theme": "examens-et-diplomes",
+          "fr": "Si j'avais mieux étudié, j'aurais eu une meilleure note.",
+          "en": "If I had studied better, I would have gotten a better grade.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.163",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a passé son examen blanc hier soir avec sa tutrice.",
+          "en": "She took her practice exam last night with her tutor.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.195",
+          "theme": "examens-et-diplomes",
+          "fr": "J'ai hâte de recevoir mon diplôme officiel par la poste.",
+          "en": "I can't wait to receive my official diploma in the mail.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.062",
+          "theme": "rp-travail-etudes",
+          "fr": "Il faut que je prépare mon entretien d'embauche ce soir.",
+          "en": "I need to prepare for my job interview tonight.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.073",
+          "theme": "rp-travail-etudes",
+          "fr": "Mon collègue m'a proposé de partager le projet avec lui.",
+          "en": "My colleague offered to share the project with me.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.085",
+          "theme": "rp-travail-etudes",
+          "fr": "Il est important que tu gardes une copie de ton contrat.",
+          "en": "It's important that you keep a copy of your contract.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.136",
+          "theme": "examens-et-diplomes",
+          "fr": "Il faut que je révise la grammaire avant l'épreuve orale.",
+          "en": "I need to review grammar before the oral test.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.187",
+          "theme": "recherche-emploi",
+          "fr": "Elle a accepté le poste bien que le salaire soit modeste.",
+          "en": "She accepted the position even though the salary was modest.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.078",
+          "theme": "rp-travail-etudes",
+          "fr": "Elle a changé de métier pour se rapprocher de sa famille.",
+          "en": "She changed jobs to be closer to her family.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.027",
+          "theme": "universite",
+          "fr": "Nous préparons un exposé en groupe pour le cours de droit.",
+          "en": "We are preparing a group presentation for the law class.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.collegues.010",
+          "theme": "collegues",
+          "fr": "Nous avons fêté le départ à la retraite de notre collègue.",
+          "en": "We celebrated our colleague's retirement.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.disciplines.023",
+          "theme": "disciplines",
+          "fr": "Ma sœur étudie la biologie à l'université depuis deux ans.",
+          "en": "My sister has been studying biology at university for two years.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.disciplines.032",
+          "theme": "disciplines",
+          "fr": "Cette année, j'ai choisi l'option sciences de l'ingénieur.",
+          "en": "This year, I chose the engineering sciences option.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.189",
+          "theme": "examens-et-diplomes",
+          "fr": "Le formulaire doit être signé avant d'être envoyé au jury.",
+          "en": "The form must be signed before being sent to the panel.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.122",
+          "theme": "recherche",
+          "fr": "J'ai comparé les deux méthodes avant de choisir la mienne.",
+          "en": "I compared the two methods before choosing mine.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.107",
+          "theme": "universite",
+          "fr": "Nous partageons nos notes de cours sur un groupe en ligne.",
+          "en": "We share our class notes in an online group.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.165",
+          "theme": "recherche-emploi",
+          "fr": "Il est essentiel que votre CV soit clair et bien organisé.",
+          "en": "It is essential that your resume be clear and well organized.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.081",
+          "theme": "rp-travail-etudes",
+          "fr": "Le professeur nous a donné un exposé à préparer en groupe.",
+          "en": "The teacher gave us a presentation to prepare in a group.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.disciplines.030",
+          "theme": "disciplines",
+          "fr": "On apprend l'anatomie du corps humain en cours de biologie.",
+          "en": "We learn about human anatomy in biology class.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.matieres.117",
+          "theme": "matieres",
+          "fr": "Je crois que la biologie l'intéresse plus que la géométrie.",
+          "en": "I think biology interests her more than geometry.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.108",
+          "theme": "recherche",
+          "fr": "Je vais demander à mon directeur de mémoire un rendez-vous.",
+          "en": "I am going to ask my thesis supervisor for an appointment.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.111",
+          "theme": "recherche",
+          "fr": "Quand elle a soutenu son mémoire, tout le monde a applaudi.",
+          "en": "When she defended her thesis, everyone applauded.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.104",
+          "theme": "universite",
+          "fr": "Il faut que je récupère mon relevé de notes au secrétariat.",
+          "en": "I need to pick up my transcript from the administrative office.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.affaires.113",
+          "theme": "affaires",
+          "fr": "Si tu envoyais le devis aujourd'hui, on gagnerait du temps.",
+          "en": "If you sent the quote today, we would save time.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.argent-quotidien.025",
+          "theme": "argent-quotidien",
+          "fr": "Elle a dû attendre trois jours avant que le virement arrive.",
+          "en": "She had to wait three days before the transfer arrived.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.affaires.032",
+          "theme": "affaires",
+          "fr": "Cette start-up a levé des fonds importants l'année dernière.",
+          "en": "This start-up raised significant funding last year.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.133",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a réussi son examen de français avec une bonne mention.",
+          "en": "She passed her French exam with a good grade.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.b1.examens-et-diplomes.191",
+          "theme": "examens-et-diplomes",
+          "fr": "Il est important que tu gardes une copie de ton attestation.",
+          "en": "It's important that you keep a copy of your certificate.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.101",
+          "theme": "universite",
+          "fr": "Elle a demandé un rendez-vous avec sa directrice de mémoire.",
+          "en": "She asked for an appointment with her thesis advisor.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.111",
+          "theme": "universite",
+          "fr": "Elle a présenté son projet devant tout le groupe de travail.",
+          "en": "She presented her project in front of the whole working group.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bureau.004",
+          "theme": "bureau",
+          "fr": "Il vaut mieux prévenir ton collègue avant de partir plus tôt.",
+          "en": "It's better to give your colleague a heads-up before leaving early.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.affaires.028",
+          "theme": "affaires",
+          "fr": "Le fournisseur a livré la commande avec deux jours de retard.",
+          "en": "The supplier delivered the order two days late.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.argent-quotidien.041",
+          "theme": "argent-quotidien",
+          "fr": "Le prélèvement de l'assurance passe toujours le cinq du mois.",
+          "en": "The insurance direct debit always goes through on the fifth of the month.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.matieres.120",
+          "theme": "matieres",
+          "fr": "Il semble que le programme d'histoire ait changé cette année.",
+          "en": "It seems the history curriculum has changed this year.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.120",
+          "theme": "recherche",
+          "fr": "Nous avons besoin d'un échantillon plus grand pour être sûrs.",
+          "en": "We need a bigger sample to be sure.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.138",
+          "theme": "recherche-emploi",
+          "fr": "Nous avons publié une nouvelle offre d'emploi sur notre site.",
+          "en": "We posted a new job offer on our website.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.149",
+          "theme": "recherche-emploi",
+          "fr": "Si j'obtenais ce poste, je déménagerais dans une autre ville.",
+          "en": "If I got this job, I would move to another city.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.186",
+          "theme": "recherche-emploi",
+          "fr": "J'ai hâte de commencer ce nouvel emploi la semaine prochaine.",
+          "en": "I can't wait to start this new job next week.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.079",
+          "theme": "rp-travail-etudes",
+          "fr": "Il faudrait que nous révisions le contrat avant de le signer.",
+          "en": "We should review the contract before signing it.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bureau.123",
+          "theme": "bureau",
+          "fr": "Il vaudrait mieux que tu termines cette tâche avant la pause.",
+          "en": "It would be better if you finished this task before the break.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.024",
+          "theme": "recherche",
+          "fr": "Elle a comparé ses résultats avec ceux d'une étude précédente.",
+          "en": "She compared her results with those of a previous study.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.matieres.115",
+          "theme": "matieres",
+          "fr": "Elle craint que son bulletin ne reflète pas ses vrais efforts.",
+          "en": "She fears her report card doesn't reflect her real efforts.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.100",
+          "theme": "universite",
+          "fr": "Je dois déposer mon dossier d'inscription avant le 15 juillet.",
+          "en": "I have to submit my application file before July 15th.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.124",
+          "theme": "universite",
+          "fr": "Il faudrait que les étudiants réservent leur place à l'avance.",
+          "en": "Students should reserve their spot in advance.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.142",
+          "theme": "recherche-emploi",
+          "fr": "Elle a envoyé son dossier de candidature avant la date limite.",
+          "en": "She sent her application file before the deadline.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.184",
+          "theme": "recherche-emploi",
+          "fr": "Si le poste m'intéresse, j'enverrai ma candidature dès demain.",
+          "en": "If the position interests me, I will send my application tomorrow.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.matieres.107",
+          "theme": "matieres",
+          "fr": "Si tu travaillais un peu plus, tu aurais une meilleure moyenne.",
+          "en": "If you worked a bit harder, you would have a better average.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.107",
+          "theme": "recherche",
+          "fr": "Elle a trouvé un article qui correspond exactement à son sujet.",
+          "en": "She found an article that exactly matches her topic.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.119",
+          "theme": "recherche",
+          "fr": "Tu devrais demander l'avis de ton directeur avant de continuer.",
+          "en": "You should ask your supervisor's opinion before continuing.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.collegues.072",
+          "theme": "collegues",
+          "fr": "Si vous aviez plus de temps, pourriez-vous relire mon rapport ?",
+          "en": "If you had more time, could you proofread my report?",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.173",
+          "theme": "recherche-emploi",
+          "fr": "J'aurais aimé recevoir une réponse plus rapide de l'entreprise.",
+          "en": "I would have liked to receive a faster response from the company.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.066",
+          "theme": "rp-travail-etudes",
+          "fr": "Nous devons rendre notre rapport de stage avant la date limite.",
+          "en": "We have to hand in our internship report before the deadline.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bureau.106",
+          "theme": "bureau",
+          "fr": "Nous avons discuté d'un problème que personne n'avait remarqué.",
+          "en": "We discussed a problem that no one had noticed.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.argent-quotidien.026",
+          "theme": "argent-quotidien",
+          "fr": "Même si son salaire a augmenté, ses dépenses ont augmenté aussi.",
+          "en": "Even though her salary went up, her expenses went up too.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.020",
+          "theme": "universite",
+          "fr": "Nous avons cours magistral le lundi et travaux dirigés le jeudi.",
+          "en": "We have lecture on Mondays and tutorials on Thursdays.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.argent-quotidien.037",
+          "theme": "argent-quotidien",
+          "fr": "Elle règle toujours ses achats en ligne avec une carte prépayée.",
+          "en": "She always pays for her online purchases with a prepaid card.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.matieres.125",
+          "theme": "matieres",
+          "fr": "Si j'étais professeur, j'organiserais plus de travaux de groupe.",
+          "en": "If I were a teacher, I would organize more group work.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.103",
+          "theme": "recherche",
+          "fr": "Quand j'étais étudiant, je passais des heures à la bibliothèque.",
+          "en": "When I was a student, I used to spend hours at the library.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.196",
+          "theme": "recherche-emploi",
+          "fr": "Après plusieurs refus, elle a fini par trouver un emploi stable.",
+          "en": "After several rejections, she finally found a stable job.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.113",
+          "theme": "universite",
+          "fr": "Il vaudrait mieux que tu t'inscrives au tutorat de mathématiques.",
+          "en": "It would be better if you signed up for math tutoring.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.b1.disciplines.074",
+          "theme": "disciplines",
+          "fr": "Elle a décidé de changer de discipline après sa première session.",
+          "en": "She decided to change disciplines after her first term.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.149",
+          "theme": "examens-et-diplomes",
+          "fr": "Il faudrait que vous traduisiez votre relevé de notes en français.",
+          "en": "You would need to have your transcript translated into French.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.188",
+          "theme": "examens-et-diplomes",
+          "fr": "Si vous obtenez une bonne note, vous pourrez continuer vos études.",
+          "en": "If you get a good grade, you'll be able to continue your studies.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.matieres.110",
+          "theme": "matieres",
+          "fr": "Elle voudrait suivre des cours d'art dramatique l'année prochaine.",
+          "en": "She would like to take drama classes next year.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.113",
+          "theme": "recherche",
+          "fr": "Ils travaillaient encore sur leur enquête quand je les ai appelés.",
+          "en": "They were still working on their survey when I called them.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.collegues.070",
+          "theme": "collegues",
+          "fr": "Je pense que mon collègue devrait prendre quelques jours de repos.",
+          "en": "I think my colleague should take a few days off.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.071",
+          "theme": "rp-travail-etudes",
+          "fr": "Elle a obtenu son diplôme universitaire après quatre ans d'études.",
+          "en": "She got her university degree after four years of study.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.affaires.101",
+          "theme": "affaires",
+          "fr": "J'ai envoyé un courriel au fournisseur pour confirmer la commande.",
+          "en": "I sent an email to the supplier to confirm the order.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.016",
+          "theme": "universite",
+          "fr": "Il vaut mieux réviser régulièrement plutôt qu'à la dernière minute.",
+          "en": "It's better to study regularly than at the last minute.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.disciplines.031",
+          "theme": "disciplines",
+          "fr": "Le laboratoire de sciences se trouve au deuxième étage du bâtiment.",
+          "en": "The science lab is on the second floor of the building.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.argent-quotidien.033",
+          "theme": "argent-quotidien",
+          "fr": "Nous avons établi un budget mensuel pour mieux suivre nos dépenses.",
+          "en": "We set up a monthly budget to better track our spending.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.152",
+          "theme": "recherche-emploi",
+          "fr": "La responsable des ressources humaines m'a rappelé hier après-midi.",
+          "en": "The HR manager called me back yesterday afternoon.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.083",
+          "theme": "rp-travail-etudes",
+          "fr": "Si elle réussissait son examen, elle pourrait s'inscrire en master.",
+          "en": "If she passed her exam, she could enroll in a master's program.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.metiers.052",
+          "theme": "metiers",
+          "fr": "Le patron souhaite que nous finissions le rapport avant la réunion.",
+          "en": "The boss wants us to finish the report before the meeting.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.argent-quotidien.017",
+          "theme": "argent-quotidien",
+          "fr": "Si elle dépensait moins au restaurant, elle aurait plus d'économies.",
+          "en": "If she spent less at restaurants, she'd have more savings.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.018",
+          "theme": "universite",
+          "fr": "Je partage un appartement avec deux autres étudiants près du campus.",
+          "en": "I share an apartment with two other students near campus.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.016",
+          "theme": "recherche",
+          "fr": "Elle passe ses journées à la bibliothèque pour préparer son mémoire.",
+          "en": "She spends her days at the library preparing her thesis.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.170",
+          "theme": "examens-et-diplomes",
+          "fr": "Le préposé m'a expliqué comment remplir le formulaire d'inscription.",
+          "en": "The clerk explained to me how to fill out the registration form.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.affaires.104",
+          "theme": "affaires",
+          "fr": "Si nous avions plus de temps, nous préparerions une meilleure offre.",
+          "en": "If we had more time, we would prepare a better offer.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche.121",
+          "theme": "recherche",
+          "fr": "Le comité attend que les étudiants déposent leur dossier avant lundi.",
+          "en": "The committee expects the students to submit their file before Monday.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.bureau.121",
+          "theme": "bureau",
+          "fr": "Le nouveau responsable, qui vient d'arriver, connaît bien le secteur.",
+          "en": "The new manager, who just arrived, knows the sector well.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.matieres.112",
+          "theme": "matieres",
+          "fr": "Bien qu'il ait redoublé, il obtient maintenant d'excellents résultats.",
+          "en": "Although he repeated a year, he now gets excellent results.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.198",
+          "theme": "recherche-emploi",
+          "fr": "Le poste que j'ai obtenu correspond parfaitement à mes qualifications.",
+          "en": "The position I got matches my qualifications perfectly.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.084",
+          "theme": "rp-travail-etudes",
+          "fr": "Nous avons eu un entretien téléphonique avant l'entretien en personne.",
+          "en": "We had a phone interview before the in-person interview.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.collegues.079",
+          "theme": "collegues",
+          "fr": "Je crois que vous devriez signaler ce problème aux ressources humaines.",
+          "en": "I think you should report this problem to human resources.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.161",
+          "theme": "recherche-emploi",
+          "fr": "Le stage m'a permis d'acquérir une première expérience professionnelle.",
+          "en": "The internship allowed me to gain my first professional experience.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.181",
+          "theme": "recherche-emploi",
+          "fr": "Après mon licenciement, j'ai commencé à chercher activement du travail.",
+          "en": "After my layoff, I started actively looking for work.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.disciplines.071",
+          "theme": "disciplines",
+          "fr": "Bien que ce cours soit difficile, je trouve la démographie passionnante.",
+          "en": "Although this class is difficult, I find demography fascinating.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.179",
+          "theme": "recherche-emploi",
+          "fr": "J'ai suivi une formation pour améliorer mes compétences en informatique.",
+          "en": "I took a training course to improve my computer skills.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.metiers.004",
+          "theme": "metiers",
+          "fr": "Sophie a commencé sa carrière comme comptable dans une petite entreprise.",
+          "en": "Sophie started her career as an accountant in a small company.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.universite.024",
+          "theme": "universite",
+          "fr": "Vous pouvez emprunter jusqu'à cinq livres à la bibliothèque universitaire.",
+          "en": "You can borrow up to five books from the university library.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.disciplines.075",
+          "theme": "disciplines",
+          "fr": "Nous aimerions que vous nous expliquiez le fonctionnement de ce programme.",
+          "en": "We would like you to explain how this program works.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.recherche-emploi.141",
+          "theme": "recherche-emploi",
+          "fr": "Le comité de sélection examinera toutes les candidatures la semaine prochaine.",
+          "en": "The selection committee will review all applications next week.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.b1.examens-et-diplomes.153",
+          "theme": "examens-et-diplomes",
+          "fr": "Le centre d'examen se trouve près de la station de métro.",
+          "en": "The exam centre is near the metro station.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche-emploi.162",
+          "theme": "recherche-emploi",
+          "fr": "On m'a proposé un contrat à durée déterminée de six mois.",
+          "en": "I was offered a six month fixed term contract.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bureau.099",
+          "theme": "bureau",
+          "fr": "Bien qu'il soit fatigué, il a terminé son travail à temps.",
+          "en": "Although he is tired, he finished his work on time.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.157",
+          "theme": "examens-et-diplomes",
+          "fr": "Il a redoublé sa dernière année à cause d'un examen manqué.",
+          "en": "He repeated his last year because of a failed exam.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.127",
+          "theme": "matieres",
+          "fr": "Je ne pense pas que le latin soit encore utile aujourd'hui.",
+          "en": "I don't think Latin is still useful today.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche.021",
+          "theme": "recherche",
+          "fr": "J'ai passé deux mois à collecter des données sur le terrain.",
+          "en": "I spent two months collecting data in the field.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche.115",
+          "theme": "recherche",
+          "fr": "Est-ce que tu as trouvé assez de documents pour ton exposé ?",
+          "en": "Did you find enough documents for your presentation?",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.167",
+          "theme": "examens-et-diplomes",
+          "fr": "Tu peux consulter ta note sur le portail en ligne dès demain.",
+          "en": "You can check your grade on the online portal starting tomorrow.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bureau.105",
+          "theme": "bureau",
+          "fr": "Le collègue qui travaille à côté de moi part en congé demain.",
+          "en": "The colleague who works next to me is going on leave tomorrow.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.101",
+          "theme": "matieres",
+          "fr": "Il faudrait que tu choisisses ta filière avant la fin du mois.",
+          "en": "You would need to choose your track before the end of the month.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche-emploi.183",
+          "theme": "recherche-emploi",
+          "fr": "Nous avons refusé l'offre parce que le salaire était trop bas.",
+          "en": "We refused the offer because the salary was too low.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bureau.103",
+          "theme": "bureau",
+          "fr": "Si tu avais un souci, tu pourrais en parler à ton responsable.",
+          "en": "If you had a problem, you could talk about it with your manager.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bureau.115",
+          "theme": "bureau",
+          "fr": "Tu devrais demander à ton collègue de t'aider avec ce dossier.",
+          "en": "You should ask your colleague to help you with this file.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.argent-quotidien.016",
+          "theme": "argent-quotidien",
+          "fr": "Bien que le loyer soit élevé, ils arrivent à économiser un peu.",
+          "en": "Even though the rent is high, they manage to save a little.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche.023",
+          "theme": "recherche",
+          "fr": "Vous trouverez le résumé de l'étude sur le site du laboratoire.",
+          "en": "You will find the study's summary on the lab's website.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.105",
+          "theme": "matieres",
+          "fr": "Il est possible que le contrôle de chimie soit reporté à lundi.",
+          "en": "It's possible the chemistry test will be postponed to Monday.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.disciplines.066",
+          "theme": "disciplines",
+          "fr": "Si j'avais plus de temps, je suivrais un cours de criminologie.",
+          "en": "If I had more time, I would take a criminology class.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.019",
+          "theme": "matieres",
+          "fr": "La classe de dessin se déroule dans l'atelier du deuxième étage.",
+          "en": "The drawing class takes place in the workshop on the second floor.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche.028",
+          "theme": "recherche",
+          "fr": "J'attends encore les résultats de mon test sanguin pour l'étude.",
+          "en": "I'm still waiting for the results of my blood test for the study.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.metiers.011",
+          "theme": "metiers",
+          "fr": "Il a quitté son poste de vendeur pour ouvrir sa propre boutique.",
+          "en": "He left his job as a salesman to open his own shop.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.universite.106",
+          "theme": "universite",
+          "fr": "Elle a trouvé un job étudiant dans une librairie près du campus.",
+          "en": "She found a student job in a bookshop near campus.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.universite.110",
+          "theme": "universite",
+          "fr": "J'aimerais faire un semestre d'échange en Espagne l'an prochain.",
+          "en": "I'd like to do an exchange semester in Spain next year.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche-emploi.167",
+          "theme": "recherche-emploi",
+          "fr": "J'ai postulé à cet emploi parce que les horaires me conviennent.",
+          "en": "I applied for this job because the hours suit me.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.argent-quotidien.023",
+          "theme": "argent-quotidien",
+          "fr": "Le montant qu'elle a économisé lui permettra de partir en voyage.",
+          "en": "The amount she saved will let her go on a trip.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.argent-quotidien.029",
+          "theme": "argent-quotidien",
+          "fr": "Le banquier lui a conseillé d'ouvrir un livret pour les urgences.",
+          "en": "The banker advised her to open a savings account for emergencies.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.152",
+          "theme": "examens-et-diplomes",
+          "fr": "Si tu réussis le TCF, tu pourras déposer ta demande de résidence.",
+          "en": "If you pass the TCF, you'll be able to file your residency application.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.collegues.076",
+          "theme": "collegues",
+          "fr": "Il se pourrait que le projet soit retardé à cause du fournisseur.",
+          "en": "The project might be delayed because of the supplier.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.metiers.054",
+          "theme": "metiers",
+          "fr": "Bien qu'il soit fatigué, il continue à chercher un emploi stable.",
+          "en": "Even though he is tired, he keeps looking for a stable job.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.004",
+          "theme": "matieres",
+          "fr": "Bien qu'il déteste les maths, il obtient toujours de bonnes notes.",
+          "en": "Even though he hates math, he always gets good grades.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.universite.015",
+          "theme": "universite",
+          "fr": "Les étudiants doivent s'inscrire aux examens avant la fin du mois.",
+          "en": "Students must register for exams before the end of the month.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.argent-quotidien.022",
+          "theme": "argent-quotidien",
+          "fr": "Avant de signer le prêt, il vaut mieux lire toutes les conditions.",
+          "en": "Before signing the loan, it's better to read all the terms.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.argent-quotidien.028",
+          "theme": "argent-quotidien",
+          "fr": "Dès qu'elle reçoit son salaire, elle paie ses factures en premier.",
+          "en": "As soon as she gets paid, she pays her bills first.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.166",
+          "theme": "examens-et-diplomes",
+          "fr": "Il paraît que le taux de réussite a beaucoup augmenté cette année.",
+          "en": "Apparently the pass rate has increased a lot this year.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.b1.universite.115",
+          "theme": "universite",
+          "fr": "Tu as raté l'inscription en ligne, il faut appeler le secrétariat.",
+          "en": "You missed the online registration, you need to call the office.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.116",
+          "theme": "matieres",
+          "fr": "Il vaudrait mieux que tu révises la grammaire avant l'examen final.",
+          "en": "It would be better if you reviewed grammar before the final exam.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche.104",
+          "theme": "recherche",
+          "fr": "Si j'avais plus de temps, je ferais une recherche plus approfondie.",
+          "en": "If I had more time, I would do more thorough research.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.collegues.005",
+          "theme": "collegues",
+          "fr": "Depuis qu'elle a changé de poste, elle semble beaucoup plus motivée.",
+          "en": "Since she changed positions, she seems much more motivated.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche-emploi.139",
+          "theme": "recherche-emploi",
+          "fr": "Quand j'étais étudiant, je cherchais déjà un emploi à temps partiel.",
+          "en": "When I was a student, I was already looking for a part time job.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche-emploi.148",
+          "theme": "recherche-emploi",
+          "fr": "Le poste exige une expérience minimale de trois ans dans le domaine.",
+          "en": "The position requires at least three years of experience in the field.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche-emploi.159",
+          "theme": "recherche-emploi",
+          "fr": "J'ai discuté avec plusieurs employeurs pendant le salon de l'emploi.",
+          "en": "I talked with several employers during the job fair.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.bureau.005",
+          "theme": "bureau",
+          "fr": "Le stagiaire a dû apprendre à gérer plusieurs dossiers en même temps.",
+          "en": "The intern had to learn to manage several files at once.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.argent-quotidien.038",
+          "theme": "argent-quotidien",
+          "fr": "Mon frère économise depuis un an pour s'acheter une nouvelle voiture.",
+          "en": "My brother has been saving for a year to buy himself a new car.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.140",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle a obtenu son équivalence de diplôme après six mois de démarches.",
+          "en": "She obtained her diploma equivalency after six months of paperwork.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.104",
+          "theme": "matieres",
+          "fr": "Nous aimerions que le directeur change l'emploi du temps du vendredi.",
+          "en": "We would like the principal to change Friday's schedule.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.disciplines.067",
+          "theme": "disciplines",
+          "fr": "Il faut que tu choisisses ta spécialisation avant la fin du semestre.",
+          "en": "You need to choose your specialization before the end of the semester.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.069",
+          "theme": "rp-travail-etudes",
+          "fr": "J'aimerais suivre un cours du soir en comptabilité l'année prochaine.",
+          "en": "I would like to take an evening course in accounting next year.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.150",
+          "theme": "examens-et-diplomes",
+          "fr": "Mon employeur exige un diplôme reconnu par le ministère de l'Éducation.",
+          "en": "My employer requires a diploma recognized by the Ministry of Education.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.111",
+          "theme": "matieres",
+          "fr": "Il faut que nous rendions notre projet de technologie avant la rentrée.",
+          "en": "We need to turn in our technology project before the start of school.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche-emploi.146",
+          "theme": "recherche-emploi",
+          "fr": "Nous cherchons quelqu'un qui parle couramment le français et l'anglais.",
+          "en": "We are looking for someone who speaks French and English fluently.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.106",
+          "theme": "matieres",
+          "fr": "Bien que le cours de philosophie soit exigeant, il passionne les élèves.",
+          "en": "Although the philosophy class is demanding, it fascinates the students.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.121",
+          "theme": "matieres",
+          "fr": "Elle préférerait que les cours d'éducation physique aient lieu le matin.",
+          "en": "She would prefer gym classes to take place in the morning.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.005",
+          "theme": "matieres",
+          "fr": "Le professeur tient compte de la participation orale dans la note finale.",
+          "en": "The teacher takes class participation into account in the final grade.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.disciplines.024",
+          "theme": "disciplines",
+          "fr": "Le professeur de physique nous a donné beaucoup de devoirs cette semaine.",
+          "en": "The physics teacher gave us a lot of homework this week.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.151",
+          "theme": "examens-et-diplomes",
+          "fr": "Nous avons demandé une évaluation comparative de nos études à l'étranger.",
+          "en": "We requested a comparative evaluation of our studies abroad.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.128",
+          "theme": "matieres",
+          "fr": "Elle regrette d'avoir choisi l'option économie plutôt que l'informatique.",
+          "en": "She regrets having chosen the economics elective rather than computer science.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.metiers.053",
+          "theme": "metiers",
+          "fr": "Elle aimerait travailler à l'étranger quand elle aura terminé ses études.",
+          "en": "She would like to work abroad once she has finished her studies.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.114",
+          "theme": "matieres",
+          "fr": "Nous espérons que le conseil de classe validera notre changement d'option.",
+          "en": "We hope the class council will approve our elective change.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.123",
+          "theme": "matieres",
+          "fr": "Il est important que tu choisisses une filière qui te correspond vraiment.",
+          "en": "It's important that you choose a track that really suits you.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.affaires.018",
+          "theme": "affaires",
+          "fr": "L'entreprise a besoin d'investisseurs pour se développer à l'international.",
+          "en": "The company needs investors to expand internationally.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.113",
+          "theme": "matieres",
+          "fr": "Si le professeur d'allemand était plus patient, la classe apprendrait mieux.",
+          "en": "If the German teacher were more patient, the class would learn better.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.122",
+          "theme": "matieres",
+          "fr": "Nous aimerions comprendre pourquoi la philosophie fait peur à tant d'élèves.",
+          "en": "We would like to understand why philosophy scares so many students.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche.026",
+          "theme": "recherche",
+          "fr": "Le chercheur a passé plusieurs années à observer le comportement des dauphins.",
+          "en": "The researcher spent several years observing dolphin behavior.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche.029",
+          "theme": "recherche",
+          "fr": "Le professeur encourage ses étudiants à participer à des projets de recherche.",
+          "en": "The professor encourages his students to take part in research projects.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.recherche-emploi.157",
+          "theme": "recherche-emploi",
+          "fr": "Il faudrait que tu personnalises ta lettre de motivation pour chaque entreprise.",
+          "en": "You should tailor your cover letter for each company.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.matieres.102",
+          "theme": "matieres",
+          "fr": "Je pense que l'informatique deviendra une matière obligatoire dans quelques années.",
+          "en": "I think computer science will become a mandatory subject in a few years.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.argent-quotidien.036",
+          "theme": "argent-quotidien",
+          "fr": "Nous avons résilié notre abonnement de streaming pour réduire nos dépenses mensuelles.",
+          "en": "We cancelled our streaming subscription to cut our monthly expenses.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.b1.metiers.055",
+          "theme": "metiers",
+          "fr": "Si vous voulez vraiment ce travail, vous devriez préparer votre entretien sérieusement.",
+          "en": "If you really want this job, you should prepare your interview seriously.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.169",
+          "theme": "examens-et-diplomes",
+          "fr": "J'ai étudié toute la fin de semaine pour l'examen de mardi.",
+          "en": "I studied all weekend for Tuesday's exam.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.recherche.027",
+          "theme": "recherche",
+          "fr": "Ils ont dû refaire l'expérience à cause d'une erreur de mesure.",
+          "en": "They had to redo the experiment because of a measurement error.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.154",
+          "theme": "examens-et-diplomes",
+          "fr": "Elle suit un cours de mise à niveau avant de repasser l'examen.",
+          "en": "She's taking a refresher course before retaking the exam.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.recherche-emploi.194",
+          "theme": "recherche-emploi",
+          "fr": "J'ai remarqué que l'offre d'emploi ne précisait pas le salaire.",
+          "en": "I noticed that the job offer did not specify the salary.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.disciplines.022",
+          "theme": "disciplines",
+          "fr": "Mon frère s'intéresse à la géologie depuis qu'il est tout petit.",
+          "en": "My brother has been interested in geology since he was little.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.universite.031",
+          "theme": "universite",
+          "fr": "J'ai raté un cours important à cause d'une grève des transports.",
+          "en": "I missed an important class because of a transit strike.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.affaires.122",
+          "theme": "affaires",
+          "fr": "Il faut que nous trouvions un accord avant la fin de la semaine.",
+          "en": "We need to find an agreement before the end of the week.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.universite.022",
+          "theme": "universite",
+          "fr": "Ils ont raté le premier train et sont arrivés en retard au cours.",
+          "en": "They missed the first train and arrived late to class.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.135",
+          "theme": "examens-et-diplomes",
+          "fr": "Si tu échoues à cet examen, tu pourras le repasser dans six mois.",
+          "en": "If you fail this exam, you can retake it in six months.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.recherche-emploi.170",
+          "theme": "recherche-emploi",
+          "fr": "Je dois renouveler mon permis de travail avant la fin de l'année.",
+          "en": "I must renew my work permit before the end of the year.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.bureau.113",
+          "theme": "bureau",
+          "fr": "J'aurais préféré qu'on m'informe plus tôt du changement d'horaire.",
+          "en": "I would have preferred to be informed earlier about the schedule change.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.collegues.004",
+          "theme": "collegues",
+          "fr": "Il faut tenir compte de l'avis de chaque collègue avant de décider.",
+          "en": "You have to take each colleague's opinion into account before deciding.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.186",
+          "theme": "examens-et-diplomes",
+          "fr": "J'ai téléchargé mon relevé de notes depuis le site de l'université.",
+          "en": "I downloaded my transcript from the university website.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.collegues.077",
+          "theme": "collegues",
+          "fr": "Si j'étais toi, je demanderais de l'aide à un collègue expérimenté.",
+          "en": "If I were you, I would ask an experienced colleague for help.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.recherche-emploi.145",
+          "theme": "recherche-emploi",
+          "fr": "Il est important que le candidat arrive à l'heure pour l'entretien.",
+          "en": "It is important that the candidate arrive on time for the interview.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.recherche-emploi.168",
+          "theme": "recherche-emploi",
+          "fr": "Le service Canada m'a aidé à remplir ma demande d'assurance-emploi.",
+          "en": "Service Canada helped me fill out my employment insurance application.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.063",
+          "theme": "rp-travail-etudes",
+          "fr": "Si j'avais plus d'expérience, je postulerais à ce poste de gestion.",
+          "en": "If I had more experience, I would apply for this management position.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.137",
+          "theme": "examens-et-diplomes",
+          "fr": "Vous devez apporter une pièce d'identité valide le jour de l'examen.",
+          "en": "You must bring a valid ID on the day of the exam.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.recherche-emploi.160",
+          "theme": "recherche-emploi",
+          "fr": "Si tu veux ce poste, tu dois soigner ton apparence pour l'entretien.",
+          "en": "If you want this job, you must take care of your appearance for the interview.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.metiers.050",
+          "theme": "metiers",
+          "fr": "Je voudrais changer de métier, mais je ne sais pas par où commencer.",
+          "en": "I would like to change careers, but I don't know where to start.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.070",
+          "theme": "rp-travail-etudes",
+          "fr": "Depuis qu'il travaille à distance, il gère mieux son emploi du temps.",
+          "en": "Since he started working remotely, he manages his schedule better.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.068",
+          "theme": "rp-travail-etudes",
+          "fr": "Le directeur souhaite que tout le monde arrive à l'heure aux réunions.",
+          "en": "The director wants everyone to arrive on time to meetings.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.082",
+          "theme": "rp-travail-etudes",
+          "fr": "Je dois envoyer mon dossier de candidature avant la fin de la semaine.",
+          "en": "I have to send my application file before the end of the week.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.164",
+          "theme": "examens-et-diplomes",
+          "fr": "Le seuil de réussite pour cette épreuve est fixé à cinquante pour cent.",
+          "en": "The passing threshold for this test is set at fifty percent.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.168",
+          "theme": "examens-et-diplomes",
+          "fr": "Le comité d'évaluation demande un dossier complet avant la fin du mois.",
+          "en": "The evaluation committee requires a complete file before the end of the month.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.matieres.099",
+          "theme": "matieres",
+          "fr": "Si j'avais plus de temps, je réviserais davantage mon cours d'histoire.",
+          "en": "If I had more time, I would review my history lesson more.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.recherche-emploi.171",
+          "theme": "recherche-emploi",
+          "fr": "L'agence de recrutement m'a trouvé un poste correspondant à mon profil.",
+          "en": "The recruitment agency found me a position matching my profile.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.metiers.056",
+          "theme": "metiers",
+          "fr": "Il est possible que le poste soit déjà pourvu, alors renseigne-toi vite.",
+          "en": "It's possible the position is already filled, so find out quickly.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.162",
+          "theme": "examens-et-diplomes",
+          "fr": "Si vous ratez l'examen, vous devrez payer de nouveaux frais d'inscription.",
+          "en": "If you fail the exam, you'll have to pay new registration fees.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.metiers.051",
+          "theme": "metiers",
+          "fr": "Si j'avais plus d'expérience, je postulerais pour ce poste de responsable.",
+          "en": "If I had more experience, I would apply for this manager position.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.recherche-emploi.140",
+          "theme": "recherche-emploi",
+          "fr": "Si vous avez de l'expérience, mentionnez-la dans votre lettre de motivation.",
+          "en": "If you have experience, mention it in your cover letter.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.argent-quotidien.032",
+          "theme": "argent-quotidien",
+          "fr": "Elle a comparé plusieurs offres avant de choisir sa nouvelle banque en ligne.",
+          "en": "She compared several offers before choosing her new online bank.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 15,
+      "items": [
+        {
+          "id": "fr.b1.recherche-emploi.147",
+          "theme": "recherche-emploi",
+          "fr": "Après avoir passé l'entretien, j'ai attendu la réponse pendant deux semaines.",
+          "en": "After the interview, I waited two weeks for a response.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.argent-quotidien.040",
+          "theme": "argent-quotidien",
+          "fr": "J'ai activé les notifications pour être alerté en cas de dépense inhabituelle.",
+          "en": "I turned on notifications to be alerted in case of unusual spending.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.argent-quotidien.039",
+          "theme": "argent-quotidien",
+          "fr": "Nous devrons choisir entre partir en vacances ou changer de voiture cette année.",
+          "en": "We will have to choose between going on vacation or getting a new car this year.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.matieres.098",
+          "theme": "matieres",
+          "fr": "Bien qu'elle soit douée en mathématiques, elle trouve la physique plus difficile.",
+          "en": "Although she is talented in math, she finds physics more difficult.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.matieres.119",
+          "theme": "matieres",
+          "fr": "Si nous avions un meilleur laboratoire, les cours de sciences seraient plus concrets.",
+          "en": "If we had a better lab, science classes would be more hands-on.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.131",
+          "theme": "examens-et-diplomes",
+          "fr": "Je dois m'inscrire à l'examen du TEF avant la fin du mois.",
+          "en": "I have to register for the TEF exam before the end of the month.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.148",
+          "theme": "examens-et-diplomes",
+          "fr": "Je pense que je vais rater l'épreuve écrite si je ne révise pas.",
+          "en": "I think I'm going to fail the written test if I don't review.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.matieres.109",
+          "theme": "matieres",
+          "fr": "Je doute que l'examen d'économie soit aussi simple qu'on le dit.",
+          "en": "I doubt the economics exam is as simple as people say.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.recherche-emploi.188",
+          "theme": "recherche-emploi",
+          "fr": "Il faut que je m'inscrive au bureau de l'emploi dès aujourd'hui.",
+          "en": "I need to register at the employment office today.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.metiers.049",
+          "theme": "metiers",
+          "fr": "Il faut que tu envoies ton CV avant vendredi si tu veux ce poste.",
+          "en": "You need to send your resume before Friday if you want this job.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.145",
+          "theme": "examens-et-diplomes",
+          "fr": "Tu dois t'inscrire avant la date limite si tu veux passer le test.",
+          "en": "You have to register before the deadline if you want to take the test.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.recherche-emploi.133",
+          "theme": "recherche-emploi",
+          "fr": "J'ai mis à jour mon curriculum vitae avant de postuler à ce poste.",
+          "en": "I updated my resume before applying for this position.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.bureau.118",
+          "theme": "bureau",
+          "fr": "Il faut que le compte rendu soit envoyé avant la fin de la journée.",
+          "en": "The minutes need to be sent before the end of the day.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.074",
+          "theme": "rp-travail-etudes",
+          "fr": "Si tu ne rends pas ton mémoire à temps, tu devras redoubler l'année.",
+          "en": "If you don't hand in your thesis on time, you'll have to repeat the year.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.bureau.125",
+          "theme": "bureau",
+          "fr": "Bien que la journée ait été longue, tout le monde a gardé le sourire.",
+          "en": "Although the day was long, everyone kept smiling.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.argent-quotidien.021",
+          "theme": "argent-quotidien",
+          "fr": "Puisqu'il avait dépensé tout son salaire, il a dû emprunter à sa sœur.",
+          "en": "Since he had spent his whole paycheck, he had to borrow from his sister.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.178",
+          "theme": "examens-et-diplomes",
+          "fr": "Vous pouvez demander une révision de note si vous n'êtes pas d'accord.",
+          "en": "You can request a grade review if you disagree.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.recherche-emploi.156",
+          "theme": "recherche-emploi",
+          "fr": "Elle a décidé de changer de carrière après dix ans dans le même poste.",
+          "en": "She decided to change careers after ten years in the same position.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.universite.119",
+          "theme": "universite",
+          "fr": "J'ai oublié mon badge étudiant, je ne peux pas entrer à la bibliothèque.",
+          "en": "I forgot my student badge, I can't get into the library.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-travail-etudes.072",
+          "theme": "rp-travail-etudes",
+          "fr": "Il vaut mieux que tu relises ta lettre de motivation avant de l'envoyer.",
+          "en": "You'd better reread your cover letter before sending it.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.recherche-emploi.153",
+          "theme": "recherche-emploi",
+          "fr": "Je suis en train de mettre à jour mon profil sur le réseau professionnel.",
+          "en": "I am currently updating my profile on the professional network.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.recherche-emploi.151",
+          "theme": "recherche-emploi",
+          "fr": "Il vaut mieux que vous prépariez des questions pour la fin de l'entretien.",
+          "en": "It is better that you prepare questions for the end of the interview.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.matieres.103",
+          "theme": "matieres",
+          "fr": "Elle a décidé d'arrêter le latin parce qu'elle préfère les langues vivantes.",
+          "en": "She decided to stop Latin because she prefers modern languages.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.argent-quotidien.035",
+          "theme": "argent-quotidien",
+          "fr": "Il faudrait que je vérifie mon relevé bancaire avant de faire d'autres achats.",
+          "en": "I should check my bank statement before making any more purchases.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.recherche-emploi.158",
+          "theme": "recherche-emploi",
+          "fr": "Le salon de l'emploi attire chaque année des centaines de chercheurs d'emploi.",
+          "en": "The job fair attracts hundreds of job seekers every year.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.disciplines.065",
+          "theme": "disciplines",
+          "fr": "Je pense que l'urbanisme est une discipline très utile pour les grandes villes.",
+          "en": "I think urban planning is a very useful discipline for big cities.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.argent-quotidien.045",
+          "theme": "argent-quotidien",
+          "fr": "Depuis qu'elle utilise une application de budget, elle dépense moins sans y penser.",
+          "en": "Since she started using a budgeting app, she spends less without even thinking about it.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.examens-et-diplomes.171",
+          "theme": "examens-et-diplomes",
+          "fr": "Si elle obtient son certificat, elle pourra travailler dans le secteur de la santé.",
+          "en": "If she gets her certificate, she'll be able to work in healthcare.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.disciplines.072",
+          "theme": "disciplines",
+          "fr": "Si tu obtiens ton diplôme en agronomie, tu pourras travailler à la ferme familiale.",
+          "en": "If you get your degree in agronomy, you'll be able to work on the family farm.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.matieres.124",
+          "theme": "matieres",
+          "fr": "Bien qu'elle déteste le dessin, elle réussit toujours ses exposés d'arts plastiques.",
+          "en": "Although she hates drawing, she always succeeds in her art presentations.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.universite.121",
+          "theme": "universite",
+          "fr": "Tu devrais parler à ton tuteur si tu as du mal à suivre le rythme.",
+          "en": "You should talk to your tutor if you're struggling to keep up.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.argent-quotidien.031",
+          "theme": "argent-quotidien",
+          "fr": "J'essaie de mettre de côté une petite somme à la fin de chaque mois.",
+          "en": "I try to set aside a small amount at the end of each month.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.argent-quotidien.043",
+          "theme": "argent-quotidien",
+          "fr": "Avant de partir en voyage, nous avons changé un peu d'argent à la banque.",
+          "en": "Before leaving on our trip, we exchanged a little money at the bank.",
+          "words": 15
+        }
+      ]
+    },
+    {
+      "block_id": 16,
+      "items": [
+        {
+          "id": "fr.b1.argent-quotidien.027",
+          "theme": "argent-quotidien",
+          "fr": "Il vaut mieux mettre de l'argent de côté chaque mois plutôt que d'attendre.",
+          "en": "It's better to set money aside every month rather than wait.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.collegues.082",
+          "theme": "collegues",
+          "fr": "Si tu avais un souci avec un collègue, tu pourrais en parler à ton supérieur.",
+          "en": "If you had a problem with a colleague, you could talk to your supervisor.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.disciplines.025",
+          "theme": "disciplines",
+          "fr": "J'ai raté mon contrôle de mathématiques parce que je n'avais pas assez révisé.",
+          "en": "I failed my math test because I hadn't studied enough.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.argent-quotidien.034",
+          "theme": "argent-quotidien",
+          "fr": "Le distributeur automatique a affiché un message d'erreur au lieu de rendre ma carte.",
+          "en": "The ATM displayed an error message instead of returning my card.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.disciplines.020",
+          "theme": "disciplines",
+          "fr": "Elle a choisi de faire des études de médecine parce qu'elle veut aider les gens.",
+          "en": "She chose to study medicine because she wants to help people.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.argent-quotidien.044",
+          "theme": "argent-quotidien",
+          "fr": "Le conseiller m'a proposé une carte sans frais si je domicilie mon salaire chez eux.",
+          "en": "The advisor offered me a fee-free card if I have my salary paid directly into their bank.",
+          "words": 16
+        }
+      ]
+    }
+  ]
+}

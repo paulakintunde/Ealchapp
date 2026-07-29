@@ -1,0 +1,1196 @@
+{
+  "stage": "1.1",
+  "world": 1,
+  "level": "sons",
+  "title": "La Porte des Lettres",
+  "themes": [
+    "alphabet"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 165,
+  "dedupedPool": 165,
+  "selected": 165,
+  "blockCount": 5,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.sons.alphabet.437",
+          "theme": "alphabet",
+          "fr": "Deux T, pas un.",
+          "en": "Two Ts, not one.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.432",
+          "theme": "alphabet",
+          "fr": "Un seul L, merci.",
+          "en": "Just one L, thanks.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.433",
+          "theme": "alphabet",
+          "fr": "Ça commence par B.",
+          "en": "It starts with B.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.434",
+          "theme": "alphabet",
+          "fr": "V comme dans Victor.",
+          "en": "V as in Victor.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.388",
+          "theme": "alphabet",
+          "fr": "Attendez, je note ça.",
+          "en": "Hold on, I'm writing that down.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.387",
+          "theme": "alphabet",
+          "fr": "Je dicte mon courriel.",
+          "en": "I'll dictate my email.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.436",
+          "theme": "alphabet",
+          "fr": "Elle épelle son prénom.",
+          "en": "She spells her first name.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.435",
+          "theme": "alphabet",
+          "fr": "Votre numéro de dossier?",
+          "en": "Your file number?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.385",
+          "theme": "alphabet",
+          "fr": "Notez bien chaque lettre.",
+          "en": "Write down each letter carefully.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.430",
+          "theme": "alphabet",
+          "fr": "Épelez votre nom complet.",
+          "en": "Spell your full name.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.384",
+          "theme": "alphabet",
+          "fr": "Répétez la dernière lettre.",
+          "en": "Repeat the last letter.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.386",
+          "theme": "alphabet",
+          "fr": "Vous pouvez répéter lentement ?",
+          "en": "Can you repeat that slowly?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.alphabet.383",
+          "theme": "alphabet",
+          "fr": "C'est B comme Bernard.",
+          "en": "It's B as in Bernard.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.438",
+          "theme": "alphabet",
+          "fr": "Mon prénom prend deux L.",
+          "en": "My first name has two Ls.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.439",
+          "theme": "alphabet",
+          "fr": "Le dossier débute par D.",
+          "en": "The file starts with D.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.443",
+          "theme": "alphabet",
+          "fr": "Ça prend un accent aigu.",
+          "en": "It takes an acute accent.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.442",
+          "theme": "alphabet",
+          "fr": "Il manque une lettre ici.",
+          "en": "There is a letter missing here.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.390",
+          "theme": "alphabet",
+          "fr": "Je vous épelle mon prénom.",
+          "en": "I'll spell my first name for you.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.431",
+          "theme": "alphabet",
+          "fr": "Ça s'écrit comment, madame?",
+          "en": "How do you spell that, ma'am?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.393",
+          "theme": "alphabet",
+          "fr": "Épelez votre nom de famille.",
+          "en": "Spell your last name.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.389",
+          "theme": "alphabet",
+          "fr": "Votre code commence par quoi ?",
+          "en": "What does your code start with?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.394",
+          "theme": "alphabet",
+          "fr": "Le numéro contient une lettre.",
+          "en": "The number contains one letter.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.395",
+          "theme": "alphabet",
+          "fr": "Je confirme votre code postal.",
+          "en": "I'm confirming your postal code.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.392",
+          "theme": "alphabet",
+          "fr": "Vous avez bien noté, monsieur ?",
+          "en": "Did you write it down correctly, sir?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.382",
+          "theme": "alphabet",
+          "fr": "J'épelle mon adresse maintenant.",
+          "en": "I'll spell my address now.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.441",
+          "theme": "alphabet",
+          "fr": "Vous pouvez épeler votre prénom?",
+          "en": "Can you spell your first name?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.445",
+          "theme": "alphabet",
+          "fr": "Mon adresse contient un chiffre.",
+          "en": "My address has a number in it.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.444",
+          "theme": "alphabet",
+          "fr": "Répétez la dernière lettre, monsieur.",
+          "en": "Repeat the last letter, sir.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.alphabet.391",
+          "theme": "alphabet",
+          "fr": "Ça s'écrit avec deux t.",
+          "en": "It's spelled with two t's.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.440",
+          "theme": "alphabet",
+          "fr": "Mon nom s'écrit avec K.",
+          "en": "My name is spelled with a K.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.396",
+          "theme": "alphabet",
+          "fr": "C'est M comme Marie, madame.",
+          "en": "It's M as in Marie, ma'am.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.451",
+          "theme": "alphabet",
+          "fr": "Le M est la troisième lettre.",
+          "en": "M is the third letter.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.400",
+          "theme": "alphabet",
+          "fr": "Le code postal commence par H.",
+          "en": "The postal code starts with H.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.sons.alphabet.448",
+          "theme": "alphabet",
+          "fr": "Votre code postal débute par H?",
+          "en": "Your postal code starts with H?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.453",
+          "theme": "alphabet",
+          "fr": "Mon courriel se termine par CA.",
+          "en": "My email ends with CA.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.404",
+          "theme": "alphabet",
+          "fr": "Je répète le code pour vérifier.",
+          "en": "I'll repeat the code to check.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.398",
+          "theme": "alphabet",
+          "fr": "Je vais épeler mon nom lentement.",
+          "en": "I'm going to spell my name slowly.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.403",
+          "theme": "alphabet",
+          "fr": "Votre prénom prend un accent aigu ?",
+          "en": "Does your first name have an acute accent?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.449",
+          "theme": "alphabet",
+          "fr": "Je confirme la référence avec vous.",
+          "en": "I am confirming the reference with you.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.452",
+          "theme": "alphabet",
+          "fr": "Écrivez le nom en lettres majuscules.",
+          "en": "Write the name in capital letters.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.454",
+          "theme": "alphabet",
+          "fr": "La réceptionniste répète mon prénom doucement.",
+          "en": "The receptionist repeats my first name slowly.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.alphabet.397",
+          "theme": "alphabet",
+          "fr": "C'est un i ou un e ?",
+          "en": "Is it an i or an e?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.455",
+          "theme": "alphabet",
+          "fr": "À la banque, on épelle mon nom.",
+          "en": "At the bank, they spell my name.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.446",
+          "theme": "alphabet",
+          "fr": "À la clinique, j'épelle mon nom.",
+          "en": "At the clinic, I spell my name.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.457",
+          "theme": "alphabet",
+          "fr": "Je note le code de votre dossier.",
+          "en": "I am writing down your file code.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.399",
+          "theme": "alphabet",
+          "fr": "Excusez-moi, la ligne coupe un peu.",
+          "en": "Sorry, the line is cutting out a little.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.402",
+          "theme": "alphabet",
+          "fr": "J'ai mal entendu la deuxième lettre.",
+          "en": "I misheard the second letter.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.458",
+          "theme": "alphabet",
+          "fr": "Vous confirmez la lettre après le G?",
+          "en": "Can you confirm the letter after the G?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.405",
+          "theme": "alphabet",
+          "fr": "Mon courriel se termine par point ca.",
+          "en": "My email ends with dot ca.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.409",
+          "theme": "alphabet",
+          "fr": "La conseillère épelle le mot pour moi.",
+          "en": "The advisor spells the word for me.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.412",
+          "theme": "alphabet",
+          "fr": "Merci, je répète votre nom au complet.",
+          "en": "Thank you, I'll repeat your full name.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.461",
+          "theme": "alphabet",
+          "fr": "Votre numéro de compte finit par neuf?",
+          "en": "Your account number ends in nine?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.450",
+          "theme": "alphabet",
+          "fr": "Pouvez-vous épeler votre nom de famille?",
+          "en": "Can you spell your last name?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.408",
+          "theme": "alphabet",
+          "fr": "Attendez, je cherche un stylo pour noter.",
+          "en": "Hold on, I'm looking for a pen to write it down.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.216",
+          "theme": "alphabet",
+          "fr": "Merci de bien vouloir épeler votre prénom.",
+          "en": "Please spell your first name.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.401",
+          "theme": "alphabet",
+          "fr": "Pouvez-vous confirmer le numéro de dossier ?",
+          "en": "Can you confirm the file number?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.459",
+          "theme": "alphabet",
+          "fr": "Il épelle son adresse courriel au téléphone.",
+          "en": "He spells his email address on the phone.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.456",
+          "theme": "alphabet",
+          "fr": "Le formulaire demande votre nom en majuscules.",
+          "en": "The form asks for your name in capitals.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.224",
+          "theme": "alphabet",
+          "fr": "Le médecin traitant s'appelle docteure Bélanger.",
+          "en": "The attending doctor is called Doctor Bélanger.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.411",
+          "theme": "alphabet",
+          "fr": "Vous confirmez la réservation par courriel après ?",
+          "en": "Will you confirm the booking by email afterward?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.alphabet.414",
+          "theme": "alphabet",
+          "fr": "Il y a deux s dans mon nom.",
+          "en": "There are two s's in my name.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.410",
+          "theme": "alphabet",
+          "fr": "Mon prénom s'écrit avec un seul l.",
+          "en": "My first name is spelled with a single l.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.463",
+          "theme": "alphabet",
+          "fr": "Mon nom de famille commence par un W.",
+          "en": "My last name starts with a W.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.462",
+          "theme": "alphabet",
+          "fr": "J'écris la lettre A sur le formulaire.",
+          "en": "I write the letter A on the form.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.406",
+          "theme": "alphabet",
+          "fr": "Votre numéro de dossier, s'il vous plaît.",
+          "en": "Your file number, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.419",
+          "theme": "alphabet",
+          "fr": "Bon, je relis le numéro une dernière fois.",
+          "en": "Okay, I'll read the number back one last time.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.sons.alphabet.420",
+          "theme": "alphabet",
+          "fr": "Vous entendez bien, ou je parle plus fort ?",
+          "en": "Can you hear me alright, or should I speak louder?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.217",
+          "theme": "alphabet",
+          "fr": "Comment écrit-on le nom de votre employeur ?",
+          "en": "How do you write the name of your employer?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.253",
+          "theme": "alphabet",
+          "fr": "Dans « très », l'accent est grave, pas aigu.",
+          "en": "In 'très', the accent is grave, not acute.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.416",
+          "theme": "alphabet",
+          "fr": "Pour la réservation, je dois épeler mon nom.",
+          "en": "For the booking, I have to spell my name.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.460",
+          "theme": "alphabet",
+          "fr": "La banque vérifie l'orthographe de votre nom.",
+          "en": "The bank checks the spelling of your name.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.417",
+          "theme": "alphabet",
+          "fr": "La dame au téléphone note mon adresse complète.",
+          "en": "The lady on the phone writes down my full address.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.415",
+          "theme": "alphabet",
+          "fr": "Le service client demande mon code de référence.",
+          "en": "Customer service is asking for my reference code.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.220",
+          "theme": "alphabet",
+          "fr": "Le formulaire demande mon nom en lettres majuscules.",
+          "en": "The form asks for my name in capital letters.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.alphabet.418",
+          "theme": "alphabet",
+          "fr": "Est-ce que le mot prend un accent grave ?",
+          "en": "Does the word have a grave accent?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.413",
+          "theme": "alphabet",
+          "fr": "Vous dites S comme Sophie, c'est bien ça ?",
+          "en": "You said S as in Sophie, is that right?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.226",
+          "theme": "alphabet",
+          "fr": "Mon prénom est Yasmine, avec un Y au début.",
+          "en": "My first name is Yasmine, with a Y at the start.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.424",
+          "theme": "alphabet",
+          "fr": "Je note le code de confirmation sur un papier.",
+          "en": "I'm writing the confirmation code on a piece of paper.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.429",
+          "theme": "alphabet",
+          "fr": "Le technicien épelle le mot de passe du modem.",
+          "en": "The technician spells out the modem password.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.256",
+          "theme": "alphabet",
+          "fr": "Le mot « leçon » contient une cédille sous le C.",
+          "en": "The word 'leçon' contains a cedilla under the C.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.407",
+          "theme": "alphabet",
+          "fr": "Je vérifie l'adresse lettre par lettre, d'accord ?",
+          "en": "I'll check the address letter by letter, okay?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.242",
+          "theme": "alphabet",
+          "fr": "J'habite au douze, rue Sainte-Catherine, à Montréal.",
+          "en": "I live at twelve Sainte-Catherine Street, in Montreal.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.447",
+          "theme": "alphabet",
+          "fr": "L'agent d'immigration confirme l'orthographe du nom.",
+          "en": "The immigration officer confirms the spelling of the name.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.421",
+          "theme": "alphabet",
+          "fr": "Mon adresse courriel contient un chiffre et un point.",
+          "en": "My email address contains a number and a dot.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.223",
+          "theme": "alphabet",
+          "fr": "Notre agence s'appelle Gagnon Immobilier, avec deux G.",
+          "en": "Our agency is called Gagnon Immobilier, with two G's.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.426",
+          "theme": "alphabet",
+          "fr": "La banque vérifie les trois premières lettres du code.",
+          "en": "The bank checks the first three letters of the code.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.230",
+          "theme": "alphabet",
+          "fr": "Le prénom Étienne commence par un E accent circonflexe.",
+          "en": "The first name Étienne begins with an E with a circumflex accent.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.225",
+          "theme": "alphabet",
+          "fr": "Pouvez-vous m'indiquer l'orthographe exacte de Sherbrooke ?",
+          "en": "Can you tell me the exact spelling of Sherbrooke?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.427",
+          "theme": "alphabet",
+          "fr": "Vous pouvez me redonner la référence plus lentement, monsieur ?",
+          "en": "Can you give me the reference again more slowly, sir?",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.alphabet.228",
+          "theme": "alphabet",
+          "fr": "Je m'appelle Wassim, W, A, deux S, I, M.",
+          "en": "My name is Wassim, W, A, double S, I, M.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.428",
+          "theme": "alphabet",
+          "fr": "D'abord un p, ensuite deux l, puis un e.",
+          "en": "First a p, next two l's, then an e.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.260",
+          "theme": "alphabet",
+          "fr": "Le mot « français » a un C cédille avant le A.",
+          "en": "The word 'français' has a C with a cedilla before the A.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.422",
+          "theme": "alphabet",
+          "fr": "Pourriez-vous épeler le nom de la rue pour moi ?",
+          "en": "Could you spell the street name for me?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.218",
+          "theme": "alphabet",
+          "fr": "Je vais épeler mon nom de famille lettre par lettre.",
+          "en": "I will spell my last name letter by letter.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.425",
+          "theme": "alphabet",
+          "fr": "Au téléphone, on me demande souvent d'épeler mon nom.",
+          "en": "On the phone, people often ask me to spell my name.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.261",
+          "theme": "alphabet",
+          "fr": "L'accent circonflexe de « hôpital » se place sur le O.",
+          "en": "The circumflex accent of 'hôpital' is placed on the O.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.262",
+          "theme": "alphabet",
+          "fr": "On oublie souvent l'accent grave dans le mot « après ».",
+          "en": "The grave accent in the word 'après' is often forgotten.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.275",
+          "theme": "alphabet",
+          "fr": "Écrivez votre prénom en minuscules dans la case du bas.",
+          "en": "Write your first name in lowercase in the box at the bottom.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.239",
+          "theme": "alphabet",
+          "fr": "Mon adresse courriel utilise mon prénom suivi d'un chiffre.",
+          "en": "My email address uses my first name followed by a number.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.sons.alphabet.250",
+          "theme": "alphabet",
+          "fr": "Ma nouvelle adresse est au deux mille, rue Sherbrooke Ouest.",
+          "en": "My new address is at two thousand Sherbrooke Street West.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.282",
+          "theme": "alphabet",
+          "fr": "Pourriez-vous répéter la troisième lettre, s'il vous plaît ?",
+          "en": "Could you repeat the third letter, please?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.243",
+          "theme": "alphabet",
+          "fr": "Mon adresse est le trois cent quatre, boulevard René-Lévesque.",
+          "en": "My address is three hundred four René-Lévesque Boulevard.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.219",
+          "theme": "alphabet",
+          "fr": "Pourriez-vous confirmer l'orthographe de votre ville de naissance ?",
+          "en": "Could you confirm the spelling of your city of birth?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.alphabet.255",
+          "theme": "alphabet",
+          "fr": "On met un tréma sur le I dans le mot « maïs ».",
+          "en": "A diaeresis is placed on the I in the word 'maïs'.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.221",
+          "theme": "alphabet",
+          "fr": "Auriez-vous l'obligeance d'épeler le nom de la rue ?",
+          "en": "Would you be so kind as to spell the street name?",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.298",
+          "theme": "alphabet",
+          "fr": "Le numéro de la case postale est le neuf cent seize.",
+          "en": "The number of the post office box is nine hundred sixteen.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.423",
+          "theme": "alphabet",
+          "fr": "L'agent me demande d'épeler le nom de mon employeur.",
+          "en": "The officer asks me to spell my employer's name.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.259",
+          "theme": "alphabet",
+          "fr": "Il faut un accent aigu sur le dernier E de « santé ».",
+          "en": "You need an acute accent on the final E of 'santé'.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.252",
+          "theme": "alphabet",
+          "fr": "Le mot « élève » prend un accent aigu sur le premier E.",
+          "en": "The word 'élève' takes an acute accent on the first E.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.287",
+          "theme": "alphabet",
+          "fr": "Attendez, je note lettre par lettre pour ne pas me tromper.",
+          "en": "Wait, I'm writing it down letter by letter so I don't make a mistake.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.229",
+          "theme": "alphabet",
+          "fr": "Mon fils se prénomme Baptiste, avec un P silencieux au milieu.",
+          "en": "My son's first name is Baptiste, with a silent P in the middle.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.258",
+          "theme": "alphabet",
+          "fr": "Le mot « âge » garde toujours son accent circonflexe sur le A.",
+          "en": "The word 'âge' always keeps its circumflex accent on the A.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.289",
+          "theme": "alphabet",
+          "fr": "L'entreprise s'appelle Bélanger et Frères, sans trait d'union.",
+          "en": "The company is called Bélanger et Frères, without a hyphen.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.236",
+          "theme": "alphabet",
+          "fr": "L'adresse courriel du service contient un point avant l'arobase.",
+          "en": "The service's email address contains a dot before the at sign.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.251",
+          "theme": "alphabet",
+          "fr": "Le formulaire demande la ville de résidence : j'ai écrit Longueuil.",
+          "en": "The form asks for the city of residence: I wrote Longueuil.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.288",
+          "theme": "alphabet",
+          "fr": "Merci, j'ai bien tout noté, votre nom est correctement orthographié.",
+          "en": "Thank you, I have noted everything correctly, your name is spelled correctly.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.297",
+          "theme": "alphabet",
+          "fr": "Mon numéro de dossier contient deux lettres suivies de quatre chiffres.",
+          "en": "My file number contains two letters followed by four digits.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.233",
+          "theme": "alphabet",
+          "fr": "Mon deuxième prénom est Grégoire, comme sur mon certificat de naissance.",
+          "en": "My middle name is Grégoire, as on my birth certificate.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.234",
+          "theme": "alphabet",
+          "fr": "Mon adresse courriel est nadia, point, caron, arobase, courriel, point, ca.",
+          "en": "My email address is nadia, dot, caron, at sign, courriel, dot, ca.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.alphabet.284",
+          "theme": "alphabet",
+          "fr": "Est-ce un B ou un D que vous venez de dire ?",
+          "en": "Was that a B or a D that you just said?",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.222",
+          "theme": "alphabet",
+          "fr": "Mon nom de famille est Tremblay, avec un Y à la fin.",
+          "en": "My last name is Tremblay, with a Y at the end.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.244",
+          "theme": "alphabet",
+          "fr": "La rue s'appelle avenue du Parc, un seul mot pour Parc.",
+          "en": "The street is called Parc Avenue, one word for Parc.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.286",
+          "theme": "alphabet",
+          "fr": "Pouvez-vous préciser s'il y a un accent sur cette lettre ?",
+          "en": "Can you specify if there is an accent on that letter?",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.277",
+          "theme": "alphabet",
+          "fr": "N'oubliez pas l'apostrophe dans le nom de famille D'Amours.",
+          "en": "Don't forget the apostrophe in the last name D'Amours.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.231",
+          "theme": "alphabet",
+          "fr": "Ma sœur s'appelle Manon, un prénom court et facile à écrire.",
+          "en": "My sister is called Manon, a short and easy name to write.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.254",
+          "theme": "alphabet",
+          "fr": "Le mot « forêt » s'écrit avec un accent circonflexe sur le E.",
+          "en": "The word 'forêt' is written with a circumflex accent on the E.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.276",
+          "theme": "alphabet",
+          "fr": "Le prénom composé Jean-Baptiste s'écrit avec un trait d'union.",
+          "en": "The compound first name Jean-Baptiste is written with a hyphen.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.273",
+          "theme": "alphabet",
+          "fr": "Au téléphone, j'ai précisé : Y comme Yvonne, pas J comme Joseph.",
+          "en": "On the phone, I clarified: Y as in Yvonne, not J as in Joseph.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.290",
+          "theme": "alphabet",
+          "fr": "La clinique s'appelle Clinique Notre-Dame, avec un trait d'union.",
+          "en": "The clinic is called Clinique Notre-Dame, with a hyphen.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.296",
+          "theme": "alphabet",
+          "fr": "Répétez le code postal après le troisième chiffre, s'il vous plaît.",
+          "en": "Repeat the postal code after the third digit, please.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.279",
+          "theme": "alphabet",
+          "fr": "Sur la carte d'assurance maladie, mon nom est entièrement en majuscules.",
+          "en": "On the health insurance card, my name is entirely in capital letters.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.274",
+          "theme": "alphabet",
+          "fr": "Le formulaire d'immigration exige le nom de famille en lettres majuscules.",
+          "en": "The immigration form requires the last name in capital letters.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.sons.alphabet.292",
+          "theme": "alphabet",
+          "fr": "La caisse populaire de mon quartier s'appelle Caisse Desjardins du Plateau.",
+          "en": "My neighborhood credit union is called Caisse Desjardins du Plateau.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.237",
+          "theme": "alphabet",
+          "fr": "Mon adresse professionnelle se termine par point, gouv, point, qc, point, ca.",
+          "en": "My work email ends with dot, gouv, dot, qc, dot, ca.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.235",
+          "theme": "alphabet",
+          "fr": "Veuillez noter mon adresse électronique : theriault, tiret, francois, arobase, poste, point, net.",
+          "en": "Please note my email address: theriault, hyphen, francois, at sign, poste, dot, net.",
+          "words": 12
+        },
+        {
+          "id": "fr.sons.alphabet.263",
+          "theme": "alphabet",
+          "fr": "Le tréma du mot « Noël » sépare les sons du O et du E.",
+          "en": "The diaeresis in the word 'Noël' separates the sounds of the O and the E.",
+          "words": 13
+        },
+        {
+          "id": "fr.sons.alphabet.246",
+          "theme": "alphabet",
+          "fr": "Le code postal de mon appartement est H, deux, X, un, A, neuf.",
+          "en": "The postal code of my apartment is H2X1A9.",
+          "words": 13
+        },
+        {
+          "id": "fr.sons.alphabet.283",
+          "theme": "alphabet",
+          "fr": "Désolé, je n'ai pas bien entendu la dernière lettre de votre nom.",
+          "en": "Sorry, I didn't quite hear the last letter of your name.",
+          "words": 13
+        },
+        {
+          "id": "fr.sons.alphabet.285",
+          "theme": "alphabet",
+          "fr": "Je vais vous relire l'adresse pour être sûr que tout est correct.",
+          "en": "I will read the address back to you to make sure everything is correct.",
+          "words": 13
+        },
+        {
+          "id": "fr.sons.alphabet.291",
+          "theme": "alphabet",
+          "fr": "Le bureau de la Régie de l'assurance maladie se trouve rue Pasteur.",
+          "en": "The health insurance board office is located on Pasteur Street.",
+          "words": 13
+        },
+        {
+          "id": "fr.sons.alphabet.227",
+          "theme": "alphabet",
+          "fr": "Le prénom de ma fille est Inès, avec un accent grave sur le E.",
+          "en": "My daughter's first name is Inès, with a grave accent on the E.",
+          "words": 14
+        },
+        {
+          "id": "fr.sons.alphabet.248",
+          "theme": "alphabet",
+          "fr": "J'ai déménagé à Gatineau, une ville qui s'écrit avec un seul T.",
+          "en": "I moved to Gatineau, a city written with a single T.",
+          "words": 14
+        },
+        {
+          "id": "fr.sons.alphabet.268",
+          "theme": "alphabet",
+          "fr": "J'ai épelé mon adresse courriel avec F comme François et G comme Gaston.",
+          "en": "I spelled my email address with F as in François and G as in Gaston.",
+          "words": 14
+        },
+        {
+          "id": "fr.sons.alphabet.249",
+          "theme": "alphabet",
+          "fr": "Le chalet familial se trouve chemin de la Côte, sans lettre finale sur Côte.",
+          "en": "The family cottage is located on Côte Road, with no final letter on Côte.",
+          "words": 14
+        },
+        {
+          "id": "fr.sons.alphabet.278",
+          "theme": "alphabet",
+          "fr": "Le formulaire n'accepte pas les accents dans la case réservée au code postal.",
+          "en": "The form does not accept accents in the postal code box.",
+          "words": 14
+        },
+        {
+          "id": "fr.sons.alphabet.267",
+          "theme": "alphabet",
+          "fr": "Pour éviter les erreurs, épelez avec le code : D comme Désiré, U comme Ursule.",
+          "en": "To avoid mistakes, spell using the code: D as in Désiré, U as in Ursule.",
+          "words": 14
+        },
+        {
+          "id": "fr.sons.alphabet.294",
+          "theme": "alphabet",
+          "fr": "Mon numéro de téléphone est le cinq, un, quatre, sept, huit, deux, trois, neuf.",
+          "en": "My phone number is five, one, four, seven, eight, two, three, nine.",
+          "words": 14
+        },
+        {
+          "id": "fr.sons.alphabet.265",
+          "theme": "alphabet",
+          "fr": "Au téléphone, on épelle souvent avec des prénoms : A comme Anatole, B comme Berthe.",
+          "en": "On the phone, people often spell using first names: A as in Anatole, B as in Berthe.",
+          "words": 14
+        },
+        {
+          "id": "fr.sons.alphabet.240",
+          "theme": "alphabet",
+          "fr": "Envoyez le document à l'adresse suivante : contact, point, bureau, arobase, service, point, com.",
+          "en": "Send the document to the following address: contact, dot, bureau, at sign, service, dot, com.",
+          "words": 14
+        },
+        {
+          "id": "fr.sons.alphabet.232",
+          "theme": "alphabet",
+          "fr": "Le prénom de mon petit-fils est Quentin, avec un Q suivi d'un U.",
+          "en": "My grandson's first name is Quentin, with a Q followed by a U.",
+          "words": 15
+        },
+        {
+          "id": "fr.sons.alphabet.293",
+          "theme": "alphabet",
+          "fr": "Le nom de l'école primaire est École Jean-Moulin, avec un trait d'union.",
+          "en": "The elementary school's name is École Jean-Moulin, with a hyphen.",
+          "words": 15
+        },
+        {
+          "id": "fr.sons.alphabet.295",
+          "theme": "alphabet",
+          "fr": "Le numéro d'assurance sociale commence par un six et se termine par un zéro.",
+          "en": "The social insurance number starts with a six and ends with a zero.",
+          "words": 15
+        },
+        {
+          "id": "fr.sons.alphabet.264",
+          "theme": "alphabet",
+          "fr": "Pour épeler mon nom, je dis : T comme Thérèse, R comme Raoul, E comme Eugène.",
+          "en": "To spell my name, I say: T as in Thérèse, R as in Raoul, E as in Eugène.",
+          "words": 15
+        },
+        {
+          "id": "fr.sons.alphabet.271",
+          "theme": "alphabet",
+          "fr": "Pour ne rien confondre, j'utilise toujours V comme Victor et non W comme William.",
+          "en": "To avoid confusion, I always use V as in Victor and not W as in William.",
+          "words": 15
+        },
+        {
+          "id": "fr.sons.alphabet.281",
+          "theme": "alphabet",
+          "fr": "L'employé m'a rappelé de mettre une majuscule au début du nom de la ville.",
+          "en": "The employee reminded me to put a capital letter at the start of the city name.",
+          "words": 16
+        },
+        {
+          "id": "fr.sons.alphabet.241",
+          "theme": "alphabet",
+          "fr": "Attention, il y a un tiret bas entre mon prénom et mon nom dans mon courriel.",
+          "en": "Careful, there is an underscore between my first name and last name in my email.",
+          "words": 16
+        },
+        {
+          "id": "fr.sons.alphabet.245",
+          "theme": "alphabet",
+          "fr": "Je réside à Trois-Rivières, avec deux traits d'union dans le nom de la ville.",
+          "en": "I live in Trois-Rivières, with two hyphens in the city's name.",
+          "words": 16
+        },
+        {
+          "id": "fr.sons.alphabet.270",
+          "theme": "alphabet",
+          "fr": "Le préposé m'a demandé d'épeler avec des noms : M comme Marcel, N comme Nicolas.",
+          "en": "The clerk asked me to spell using names: M as in Marcel, N as in Nicolas.",
+          "words": 16
+        },
+        {
+          "id": "fr.sons.alphabet.247",
+          "theme": "alphabet",
+          "fr": "Notre bureau se trouve rue Notre-Dame, avec un trait d'union entre les deux mots.",
+          "en": "Our office is located on Notre-Dame Street, with a hyphen between the two words.",
+          "words": 16
+        },
+        {
+          "id": "fr.sons.alphabet.257",
+          "theme": "alphabet",
+          "fr": "Sans accent, « ou » et « où » se prononcent presque pareil mais n'ont pas le même sens.",
+          "en": "Without the accent, 'ou' and 'où' sound almost the same but do not mean the same thing.",
+          "words": 16
+        },
+        {
+          "id": "fr.sons.alphabet.280",
+          "theme": "alphabet",
+          "fr": "Vérifiez qu'il n'y a pas d'espace avant le trait d'union dans votre nom.",
+          "en": "Check that there is no space before the hyphen in your name.",
+          "words": 17
+        },
+        {
+          "id": "fr.sons.alphabet.269",
+          "theme": "alphabet",
+          "fr": "Au guichet, elle a dit : L comme Louis, I comme Irma, S comme Suzanne, T comme Thérèse.",
+          "en": "At the counter, she said: L as in Louis, I as in Irma, S as in Suzanne, T as in Thérèse.",
+          "words": 17
+        },
+        {
+          "id": "fr.sons.alphabet.238",
+          "theme": "alphabet",
+          "fr": "Il n'y a pas d'accent dans mon adresse courriel, même si mon prénom en a un.",
+          "en": "There is no accent in my email address, even though my first name has one.",
+          "words": 18
+        },
+        {
+          "id": "fr.sons.alphabet.266",
+          "theme": "alphabet",
+          "fr": "L'agent a dit : C comme Célestin, A comme Anatole, R comme Raoul, O comme Oscar, N comme Nicolas.",
+          "en": "The officer said: C as in Célestin, A as in Anatole, R as in Raoul, O as in Oscar, N as in Nicolas.",
+          "words": 19
+        },
+        {
+          "id": "fr.sons.alphabet.272",
+          "theme": "alphabet",
+          "fr": "Elle a épelé son prénom ainsi : X comme Xavier, A comme Anatole, V comme Victor, I comme Irma, E comme Eugène, R comme Raoul.",
+          "en": "She spelled her first name like this: X as in Xavier, A as in Anatole, V as in Victor, I as in Irma, E as in Eugène, R as in Raoul.",
+          "words": 24
+        }
+      ]
+    }
+  ]
+}

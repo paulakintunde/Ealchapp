@@ -1,0 +1,1196 @@
+{
+  "stage": "1.2",
+  "world": 1,
+  "level": "sons",
+  "title": "Le Bassin des Voyelles",
+  "themes": [
+    "voyelles"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 165,
+  "dedupedPool": 165,
+  "selected": 165,
+  "blockCount": 5,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.sons.voyelles.364",
+          "theme": "voyelles",
+          "fr": "Tu as tout vu.",
+          "en": "You saw everything.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.361",
+          "theme": "voyelles",
+          "fr": "Tu bois du jus.",
+          "en": "You are drinking juice.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.414",
+          "theme": "voyelles",
+          "fr": "Le café est chaud.",
+          "en": "The coffee is hot.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.420",
+          "theme": "voyelles",
+          "fr": "Le bébé dort déjà.",
+          "en": "The baby is already asleep.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.366",
+          "theme": "voyelles",
+          "fr": "Tu goûtes la soupe?",
+          "en": "Are you tasting the soup?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.367",
+          "theme": "voyelles",
+          "fr": "Vous avez du sucre?",
+          "en": "Do you have sugar?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.368",
+          "theme": "voyelles",
+          "fr": "La poule est douce.",
+          "en": "The hen is gentle.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.417",
+          "theme": "voyelles",
+          "fr": "Le gâteau est prêt.",
+          "en": "The cake is ready.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.363",
+          "theme": "voyelles",
+          "fr": "La roue tourne vite.",
+          "en": "The wheel turns fast.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.418",
+          "theme": "voyelles",
+          "fr": "Ce chapeau me plaît.",
+          "en": "I like this hat.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.365",
+          "theme": "voyelles",
+          "fr": "Le loup court partout.",
+          "en": "The wolf runs everywhere.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.421",
+          "theme": "voyelles",
+          "fr": "Le métro arrive bientôt.",
+          "en": "The metro is coming soon.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.362",
+          "theme": "voyelles",
+          "fr": "Nous roulons vers Toulouse.",
+          "en": "We are driving toward Toulouse.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.voyelles.371",
+          "theme": "voyelles",
+          "fr": "Tu as vu la lune?",
+          "en": "Did you see the moon?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.427",
+          "theme": "voyelles",
+          "fr": "Il fait beau cet été.",
+          "en": "The weather is nice this summer.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.376",
+          "theme": "voyelles",
+          "fr": "Tu coupes le pain dur.",
+          "en": "You are cutting the hard bread.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.416",
+          "theme": "voyelles",
+          "fr": "J'adore mon vélo jaune.",
+          "en": "I love my yellow bike.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.373",
+          "theme": "voyelles",
+          "fr": "Le nuage passe sur nous.",
+          "en": "The cloud passes over us.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.370",
+          "theme": "voyelles",
+          "fr": "Nous buvons du jus frais.",
+          "en": "We are drinking fresh juice.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.372",
+          "theme": "voyelles",
+          "fr": "Vous voulez du vin rouge?",
+          "en": "Would you like some red wine?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.374",
+          "theme": "voyelles",
+          "fr": "Il ouvre la lourde porte.",
+          "en": "He opens the heavy door.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.375",
+          "theme": "voyelles",
+          "fr": "Tout le monde aime Lucie.",
+          "en": "Everyone loves Lucie.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.415",
+          "theme": "voyelles",
+          "fr": "L'eau reste très fraîche.",
+          "en": "The water stays very cool.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.419",
+          "theme": "voyelles",
+          "fr": "La météo annonce l'orage.",
+          "en": "The forecast is calling for a storm.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.425",
+          "theme": "voyelles",
+          "fr": "Le bureau ferme très tôt.",
+          "en": "The office closes very early.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.369",
+          "theme": "voyelles",
+          "fr": "Tu cherches la rue Dubois?",
+          "en": "Are you looking for Dubois Street?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.423",
+          "theme": "voyelles",
+          "fr": "Le repas est presque prêt.",
+          "en": "The meal is almost ready.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.424",
+          "theme": "voyelles",
+          "fr": "Elle préfère le thé léger.",
+          "en": "She prefers weak tea.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.426",
+          "theme": "voyelles",
+          "fr": "Mon frère aime les gâteaux.",
+          "en": "My brother loves cakes.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.429",
+          "theme": "voyelles",
+          "fr": "La pâtissière vend des éclairs.",
+          "en": "The pastry chef sells eclairs.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.voyelles.382",
+          "theme": "voyelles",
+          "fr": "Il y a du sable partout.",
+          "en": "There is sand everywhere.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.384",
+          "theme": "voyelles",
+          "fr": "Le hibou dort sur le mur.",
+          "en": "The owl sleeps on the wall.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.377",
+          "theme": "voyelles",
+          "fr": "Le bus roule sur la route.",
+          "en": "The bus drives on the road.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.sons.voyelles.435",
+          "theme": "voyelles",
+          "fr": "Je me lève très tôt lundi.",
+          "en": "I get up very early on Monday.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.437",
+          "theme": "voyelles",
+          "fr": "Il regarde la télé le soir.",
+          "en": "He watches TV in the evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.422",
+          "theme": "voyelles",
+          "fr": "J'achète des œufs au marché.",
+          "en": "I buy eggs at the market.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.383",
+          "theme": "voyelles",
+          "fr": "Ma nounou habite rue du Four.",
+          "en": "My nanny lives on rue du Four.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.431",
+          "theme": "voyelles",
+          "fr": "Mon père répète la même chose.",
+          "en": "My father repeats the same thing.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.380",
+          "theme": "voyelles",
+          "fr": "La tortue avance sur la pelouse.",
+          "en": "The turtle moves forward on the lawn.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.428",
+          "theme": "voyelles",
+          "fr": "La fenêtre reste fermée l'hiver.",
+          "en": "The window stays closed in winter.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.436",
+          "theme": "voyelles",
+          "fr": "La journée commence par un café.",
+          "en": "The day starts with a coffee.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.378",
+          "theme": "voyelles",
+          "fr": "Julie écoute de la musique douce.",
+          "en": "Julie listens to soft music.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.433",
+          "theme": "voyelles",
+          "fr": "Le musée ouvre après le déjeuner.",
+          "en": "The museum opens after lunch.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.381",
+          "theme": "voyelles",
+          "fr": "Vous trouvez la lecture trop dure?",
+          "en": "Do you find the reading too hard?",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.432",
+          "theme": "voyelles",
+          "fr": "Elle choisit un beau manteau jaune.",
+          "en": "She picks a nice yellow coat.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.voyelles.434",
+          "theme": "voyelles",
+          "fr": "Tu prends le vélo ou l'auto ?",
+          "en": "Are you taking the bike or the car?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.441",
+          "theme": "voyelles",
+          "fr": "Cet hôtel est près de la mer.",
+          "en": "This hotel is near the sea.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.430",
+          "theme": "voyelles",
+          "fr": "Je mets de l'eau chaude aussi.",
+          "en": "I put in some hot water too.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.389",
+          "theme": "voyelles",
+          "fr": "La douche est au bout du couloir.",
+          "en": "The shower is at the end of the hallway.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.444",
+          "theme": "voyelles",
+          "fr": "Je répète la leçon avant le test.",
+          "en": "I go over the lesson before the test.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.443",
+          "theme": "voyelles",
+          "fr": "Je bois un chocolat chaud au café.",
+          "en": "I drink a hot chocolate at the cafe.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.390",
+          "theme": "voyelles",
+          "fr": "Tu tournes à gauche après le musée.",
+          "en": "You turn left after the museum.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.392",
+          "theme": "voyelles",
+          "fr": "Tu aimes la couleur pourpre du mur?",
+          "en": "Do you like the purple color of the wall?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.388",
+          "theme": "voyelles",
+          "fr": "Vous coupez le poulet pour le dîner?",
+          "en": "Are you cutting the chicken for dinner?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.386",
+          "theme": "voyelles",
+          "fr": "Tu mets du beurre sur tout, toujours.",
+          "en": "You put butter on everything, always.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.379",
+          "theme": "voyelles",
+          "fr": "Tu laves la voiture bleue aujourd'hui?",
+          "en": "Are you washing the blue car today?",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.442",
+          "theme": "voyelles",
+          "fr": "Elle se promène près du vieux château.",
+          "en": "She walks near the old castle.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.385",
+          "theme": "voyelles",
+          "fr": "Nous jouons aux boules sous les arbres.",
+          "en": "We play boules under the trees.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.439",
+          "theme": "voyelles",
+          "fr": "Ma mère prépare une omelette aux légumes.",
+          "en": "My mother is making a vegetable omelet.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.261",
+          "theme": "voyelles",
+          "fr": "La foule attend patiemment devant le musée.",
+          "en": "The crowd waits patiently in front of the museum.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.391",
+          "theme": "voyelles",
+          "fr": "Nous rentrons du cours de couture ensemble.",
+          "en": "We come home from sewing class together.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.387",
+          "theme": "voyelles",
+          "fr": "Lucas trouve toujours une très bonne excuse.",
+          "en": "Lucas always finds a very good excuse.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.227",
+          "theme": "voyelles",
+          "fr": "Mon cousin américain parle très bien français.",
+          "en": "My American cousin speaks French very well.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.359",
+          "theme": "voyelles",
+          "fr": "Cette analyse du dossier prendra plusieurs jours.",
+          "en": "This analysis of the file will take several days.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.271",
+          "theme": "voyelles",
+          "fr": "Sa culture générale impressionne tous ses collègues.",
+          "en": "Her general knowledge impresses all her colleagues.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.voyelles.393",
+          "theme": "voyelles",
+          "fr": "Tu veux une soupe ou du poulet rôti?",
+          "en": "Do you want soup or roast chicken?",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.sons.voyelles.448",
+          "theme": "voyelles",
+          "fr": "Elle met sa veste et ferme la porte.",
+          "en": "She puts on her jacket and closes the door.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.395",
+          "theme": "voyelles",
+          "fr": "Le journal du jour est sur le bureau.",
+          "en": "Today's newspaper is on the desk.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.399",
+          "theme": "voyelles",
+          "fr": "Le chou est moins cher que la laitue.",
+          "en": "Cabbage is cheaper than lettuce.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.440",
+          "theme": "voyelles",
+          "fr": "Après l'école, il rentre à la maison.",
+          "en": "After school, he goes home.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.398",
+          "theme": "voyelles",
+          "fr": "Ma fille joue du violon tous les jours.",
+          "en": "My daughter plays the violin every day.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.396",
+          "theme": "voyelles",
+          "fr": "Tu ajoutes du poivre moulu dans la sauce?",
+          "en": "Are you adding ground pepper to the sauce?",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.445",
+          "theme": "voyelles",
+          "fr": "J'ai laissé mon téléphone sous le canapé.",
+          "en": "I left my phone under the couch.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.229",
+          "theme": "voyelles",
+          "fr": "Le médecin examine un patient dès le matin.",
+          "en": "The doctor examines a patient starting in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.397",
+          "theme": "voyelles",
+          "fr": "Vous poussez la brouette au fond du jardin.",
+          "en": "You push the wheelbarrow to the back of the garden.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.225",
+          "theme": "voyelles",
+          "fr": "Demain matin, j'irai chercher du pain frais.",
+          "en": "Tomorrow morning, I will go get fresh bread.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.239",
+          "theme": "voyelles",
+          "fr": "Son ombre s'allonge quand le soleil descend.",
+          "en": "His shadow lengthens as the sun goes down.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.267",
+          "theme": "voyelles",
+          "fr": "La voiture bleue roule vite sur l'autoroute.",
+          "en": "The blue car drives fast on the highway.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.223",
+          "theme": "voyelles",
+          "fr": "Le peintre dessine un jardin plein de fleurs.",
+          "en": "The painter draws a garden full of flowers.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.253",
+          "theme": "voyelles",
+          "fr": "Le taureau reste immobile près de la clôture.",
+          "en": "The bull stays still near the fence.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.327",
+          "theme": "voyelles",
+          "fr": "Le grand magasin ferme tard le vendredi soir.",
+          "en": "The big store closes late on Friday evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.283",
+          "theme": "voyelles",
+          "fr": "Il pleut souvent en automne dans cette région.",
+          "en": "It rains often in the fall in this region.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.394",
+          "theme": "voyelles",
+          "fr": "Nous cherchons une jupe rouge pour ma cousine.",
+          "en": "We are looking for a red skirt for my cousin.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.311",
+          "theme": "voyelles",
+          "fr": "Vous devez arriver au bureau avant neuf heures.",
+          "en": "You must arrive at the office before nine o'clock.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.301",
+          "theme": "voyelles",
+          "fr": "Cette fraise fraîche vient tout droit du marché.",
+          "en": "This fresh strawberry comes straight from the market.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.353",
+          "theme": "voyelles",
+          "fr": "Ce nouveau système de sécurité coûte assez cher.",
+          "en": "This new security system is quite expensive.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.291",
+          "theme": "voyelles",
+          "fr": "Ce mois-ci, trois collègues partent en formation.",
+          "en": "This month, three colleagues are leaving for training.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.331",
+          "theme": "voyelles",
+          "fr": "Ce petit appartement se trouve au deuxième étage.",
+          "en": "This small apartment is on the second floor.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.299",
+          "theme": "voyelles",
+          "fr": "La secrétaire prépare le dossier avant la réunion.",
+          "en": "The secretary prepares the file before the meeting.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.213",
+          "theme": "voyelles",
+          "fr": "Les enfants dansent ensemble dans le jardin public.",
+          "en": "The children dance together in the public garden.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.255",
+          "theme": "voyelles",
+          "fr": "Son rôle principal commence dès le premier tableau.",
+          "en": "Her main role begins right from the first scene.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.221",
+          "theme": "voyelles",
+          "fr": "Le marchand ambulant vend des fruits chaque dimanche.",
+          "en": "The traveling merchant sells fruit every Sunday.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.217",
+          "theme": "voyelles",
+          "fr": "Mes parents changent souvent de restaurant le dimanche.",
+          "en": "My parents often change restaurants on Sundays.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.273",
+          "theme": "voyelles",
+          "fr": "Cette étudiante a une excellente prononciation en français.",
+          "en": "This student has excellent pronunciation in French.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.voyelles.447",
+          "theme": "voyelles",
+          "fr": "Je me repose un petit peu cet après-midi.",
+          "en": "I am resting a little bit this afternoon.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.446",
+          "theme": "voyelles",
+          "fr": "Le serveur apporte de l'eau et le dessert.",
+          "en": "The waiter brings water and the dessert.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.333",
+          "theme": "voyelles",
+          "fr": "Le repas de midi se termine vers une heure.",
+          "en": "The midday meal ends around one o'clock.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.400",
+          "theme": "voyelles",
+          "fr": "Nous avons vu une tortue dans la cour hier.",
+          "en": "We saw a turtle in the courtyard yesterday.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.403",
+          "theme": "voyelles",
+          "fr": "Mon voisin joue de la flûte sur son balcon.",
+          "en": "My neighbor plays the flute on his balcony.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.sons.voyelles.245",
+          "theme": "voyelles",
+          "fr": "Le pont relie les deux rives du long fleuve.",
+          "en": "The bridge connects the two banks of the long river.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.404",
+          "theme": "voyelles",
+          "fr": "La souris court sous la table de la cuisine.",
+          "en": "The mouse runs under the kitchen table.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.231",
+          "theme": "voyelles",
+          "fr": "Le chien du voisin aboie sans arrêt le matin.",
+          "en": "The neighbor's dog barks nonstop in the morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.247",
+          "theme": "voyelles",
+          "fr": "Le chapeau jaune reste sur la table du salon.",
+          "en": "The yellow hat stays on the living room table.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.257",
+          "theme": "voyelles",
+          "fr": "Le loup rôde autour du village toute la nuit.",
+          "en": "The wolf prowls around the village all night.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.279",
+          "theme": "voyelles",
+          "fr": "Mon neveu joue un peu de guitare chaque soir.",
+          "en": "My nephew plays a bit of guitar every evening.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.249",
+          "theme": "voyelles",
+          "fr": "Le gâteau au chocolat est prêt pour le goûter.",
+          "en": "The chocolate cake is ready for the afternoon snack.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.263",
+          "theme": "voyelles",
+          "fr": "Mon époux prépare la soupe pour tout le monde.",
+          "en": "My husband is making soup for everyone.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.402",
+          "theme": "voyelles",
+          "fr": "Tu tournes la page et tu continues la lecture.",
+          "en": "You turn the page and you keep reading.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.235",
+          "theme": "voyelles",
+          "fr": "Mon oncle habite une maison au fond du village.",
+          "en": "My uncle lives in a house at the far end of the village.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.295",
+          "theme": "voyelles",
+          "fr": "Mon avocat me donne un bon conseil chaque fois.",
+          "en": "My lawyer gives me good advice every time.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.406",
+          "theme": "voyelles",
+          "fr": "Chaque jour, tu bois une tasse de tisane douce.",
+          "en": "Every day, you drink a cup of mild herbal tea.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.233",
+          "theme": "voyelles",
+          "fr": "Le magasin vend du pain complet et des céréales.",
+          "en": "The store sells whole wheat bread and cereal.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.243",
+          "theme": "voyelles",
+          "fr": "Le violon du musicien résonne dans tout le salon.",
+          "en": "The musician's violin resonates through the whole living room.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.265",
+          "theme": "voyelles",
+          "fr": "Le hibou observe la forêt depuis la vieille tour.",
+          "en": "The owl watches the forest from the old tower.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.293",
+          "theme": "voyelles",
+          "fr": "Elle range son armoire avant de partir en voyage.",
+          "en": "She tidies her wardrobe before leaving on a trip.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.401",
+          "theme": "voyelles",
+          "fr": "Le couturier ajoute un bouton rouge sur la blouse.",
+          "en": "The tailor adds a red button to the blouse.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.450",
+          "theme": "voyelles",
+          "fr": "Le bébé se réveille avant sept heures aujourd'hui.",
+          "en": "The baby wakes up before seven today.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.211",
+          "theme": "voyelles",
+          "fr": "Le marchand vend des vêtements au marché du centre.",
+          "en": "The merchant sells clothes at the market downtown.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.287",
+          "theme": "voyelles",
+          "fr": "Ce jeune acteur joue le rôle principal cette année.",
+          "en": "This young actor plays the lead role this year.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.303",
+          "theme": "voyelles",
+          "fr": "Elle porte une chemise beige avec un pantalon noir.",
+          "en": "She is wearing a beige shirt with black pants.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.355",
+          "theme": "voyelles",
+          "fr": "Son style d'écriture a beaucoup changé cette année.",
+          "en": "Her writing style has changed a lot this year.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.285",
+          "theme": "voyelles",
+          "fr": "Le serveur apporte deux œufs pour le petit-déjeuner.",
+          "en": "The waiter brings two eggs for breakfast.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.449",
+          "theme": "voyelles",
+          "fr": "Nous mangeons des crêpes sucrées chez ma grand-mère.",
+          "en": "We eat sweet crepes at my grandmother's.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.357",
+          "theme": "voyelles",
+          "fr": "Ce symbole apparaît souvent sur les panneaux du parc.",
+          "en": "This symbol often appears on the park's signs.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.321",
+          "theme": "voyelles",
+          "fr": "Les étudiants arrivent tôt et attendent devant la porte.",
+          "en": "The students arrive early and wait in front of the door.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.269",
+          "theme": "voyelles",
+          "fr": "Le musée présente une sculpture unique du siècle dernier.",
+          "en": "The museum is showing a unique sculpture from last century.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.337",
+          "theme": "voyelles",
+          "fr": "Le premier ministre annonce de nouvelles mesures ce soir.",
+          "en": "The prime minister announces new measures this evening.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.215",
+          "theme": "voyelles",
+          "fr": "Pendant les vacances, ma tante apprend le chant traditionnel.",
+          "en": "During the holidays, my aunt is learning the traditional song.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.voyelles.438",
+          "theme": "voyelles",
+          "fr": "J'espère qu'il fera très beau ce week-end.",
+          "en": "I hope the weather will be really nice this weekend.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.407",
+          "theme": "voyelles",
+          "fr": "Tu prends le bus ou tu marches sous la pluie?",
+          "en": "Do you take the bus or walk in the rain?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.408",
+          "theme": "voyelles",
+          "fr": "Vous voulez du sucre ou du lait dans le café?",
+          "en": "Do you want sugar or milk in your coffee?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.345",
+          "theme": "voyelles",
+          "fr": "Il est fatigué, alors il va se reposer un peu.",
+          "en": "He is tired, so he is going to rest a little.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.sons.voyelles.259",
+          "theme": "voyelles",
+          "fr": "Son genou lui fait mal depuis le match de foot.",
+          "en": "His knee has hurt since the soccer match.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.323",
+          "theme": "voyelles",
+          "fr": "Le petit chat gris dort sous le grand lit blanc.",
+          "en": "The little gray cat sleeps under the big white bed.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.335",
+          "theme": "voyelles",
+          "fr": "Le fromage de chèvre se vend cher sur ce marché.",
+          "en": "Goat cheese sells for a lot at this market.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.411",
+          "theme": "voyelles",
+          "fr": "Vous avez mis la fourchette au bout de la table?",
+          "en": "Did you put the fork at the end of the table?",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.347",
+          "theme": "voyelles",
+          "fr": "Ce foie de veau se cuisine avec des oignons doux.",
+          "en": "This calf's liver is cooked with sweet onions.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.405",
+          "theme": "voyelles",
+          "fr": "Nous poussons la voiture jusqu'au bout de la rue.",
+          "en": "We push the car to the end of the street.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.309",
+          "theme": "voyelles",
+          "fr": "Il connaît la vraie raison de son retard ce matin.",
+          "en": "He knows the real reason for his lateness this morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.351",
+          "theme": "voyelles",
+          "fr": "Mon fils fait de la bicyclette tous les week-ends.",
+          "en": "My son rides his bicycle every weekend.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.413",
+          "theme": "voyelles",
+          "fr": "Il trouve un mouchoir tout doux au fond du tiroir.",
+          "en": "He finds a very soft handkerchief at the back of the drawer.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.319",
+          "theme": "voyelles",
+          "fr": "Le fermier récolte les légumes tôt le matin en été.",
+          "en": "The farmer harvests the vegetables early in the morning during summer.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.341",
+          "theme": "voyelles",
+          "fr": "Ma mère habite tout près de la mer depuis toujours.",
+          "en": "My mother has always lived right near the sea.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.349",
+          "theme": "voyelles",
+          "fr": "Le pot de confiture est resté ouvert toute la nuit.",
+          "en": "The jar of jam stayed open all night.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.409",
+          "theme": "voyelles",
+          "fr": "Ma cousine coud une jolie jupe courte pour la fête.",
+          "en": "My cousin sews a pretty short skirt for the party.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.251",
+          "theme": "voyelles",
+          "fr": "Nous sortons tôt car il fait très chaud aujourd'hui.",
+          "en": "We are leaving early because it is very hot today.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.313",
+          "theme": "voyelles",
+          "fr": "Le musée reste fermé le premier jour de chaque mois.",
+          "en": "The museum stays closed on the first day of every month.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.219",
+          "theme": "voyelles",
+          "fr": "Le vent d'automne emporte les feuilles dans le champ.",
+          "en": "The autumn wind carries the leaves across the field.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.297",
+          "theme": "voyelles",
+          "fr": "Cette boisson froide me fait beaucoup de bien en été.",
+          "en": "This cold drink does me a lot of good in summer.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.305",
+          "theme": "voyelles",
+          "fr": "C'est son anniversaire, elle a vingt ans aujourd'hui.",
+          "en": "It is her birthday, she is turning twenty today.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.410",
+          "theme": "voyelles",
+          "fr": "Le matin, nous courons autour du parc près du fleuve.",
+          "en": "In the morning, we run around the park near the river.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.241",
+          "theme": "voyelles",
+          "fr": "Nos voisins ont invité tout le monde à leur réception.",
+          "en": "Our neighbors invited everyone to their reception.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.275",
+          "theme": "voyelles",
+          "fr": "La confiture de prune que tu as achetée est délicieuse.",
+          "en": "The plum jam you bought is delicious.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.325",
+          "theme": "voyelles",
+          "fr": "Le chat blanc et gris dort tranquillement sur le tapis.",
+          "en": "The white and gray cat sleeps peacefully on the rug.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.307",
+          "theme": "voyelles",
+          "fr": "Cette semaine, je dois réparer la fenêtre de la chambre.",
+          "en": "This week, I have to repair the bedroom window.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.315",
+          "theme": "voyelles",
+          "fr": "Le boucher a préparé une commande spéciale pour la fête.",
+          "en": "The butcher prepared a special order for the party.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.281",
+          "theme": "voyelles",
+          "fr": "Le chanteur célèbre a un cœur généreux envers les autres.",
+          "en": "The famous singer has a generous heart toward others.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.339",
+          "theme": "voyelles",
+          "fr": "Le directeur de l'école organise une réunion le mercredi.",
+          "en": "The school principal organizes a meeting on Wednesday.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.412",
+          "theme": "voyelles",
+          "fr": "Nous écoutons la nouvelle chanson du groupe sur la route.",
+          "en": "We listen to the band's new song on the road.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.289",
+          "theme": "voyelles",
+          "fr": "Mon voisin arrose son jardin chaque soir après le travail.",
+          "en": "My neighbor waters his garden every evening after work.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.277",
+          "theme": "voyelles",
+          "fr": "Le facteur est vraiment très heureux de son nouveau travail.",
+          "en": "The mail carrier is really very happy with his new job.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.voyelles.343",
+          "theme": "voyelles",
+          "fr": "Sans argent, il ne peut pas payer les cent euros dus.",
+          "en": "Without money, he cannot pay the hundred euros owed.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.voyelles.329",
+          "theme": "voyelles",
+          "fr": "Le petit garçon court vite dans le couloir de l'école.",
+          "en": "The little boy runs fast down the school hallway.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.voyelles.237",
+          "theme": "voyelles",
+          "fr": "Nous avons un mouton et deux moutons de plus cette saison.",
+          "en": "We have one sheep and two more sheep this season.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.voyelles.317",
+          "theme": "voyelles",
+          "fr": "L'employée a terminé son rapport avant la réunion de midi.",
+          "en": "The employee finished her report before the noon meeting.",
+          "words": 11
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3472 @@
+{
+  "level": "sons",
+  "theme": "liaisons",
+  "count": 165,
+  "items": [
+    {
+      "id": "fr.sons.liaisons.001",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est un plaisir.",
+      "en": "It's a pleasure.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿œ̃ plɛ.ziʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.002",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est une surprise !",
+      "en": "It's a surprise!",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿yn syʁ.pʁiz"
+    },
+    {
+      "id": "fr.sons.liaisons.003",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est un ange, ce petit.",
+      "en": "He's an angel, that little one.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿œ̃.n‿ɑ̃ʒ sə pə.ti"
+    },
+    {
+      "id": "fr.sons.liaisons.004",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est un début.",
+      "en": "It's a start.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿œ̃ de.by"
+    },
+    {
+      "id": "fr.sons.liaisons.005",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est une blague ?",
+      "en": "Is that a joke?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿yn blag"
+    },
+    {
+      "id": "fr.sons.liaisons.006",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est un bon prix pour ce quartier.",
+      "en": "That's a good price for this neighbourhood.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿œ̃ bɔ̃ pʁi puʁ sə kaʁ.tje"
+    },
+    {
+      "id": "fr.sons.liaisons.007",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est une longue histoire, je te raconterai.",
+      "en": "It's a long story, I'll tell you about it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿yn lɔ̃ɡ is.twaʁ ʒə tə ʁa.kɔ̃.tə.ʁe"
+    },
+    {
+      "id": "fr.sons.liaisons.008",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est un vrai régal, ta soupe.",
+      "en": "Your soup is a real treat.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿œ̃ vʁɛ ʁe.gal ta sup"
+    },
+    {
+      "id": "fr.sons.liaisons.009",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Je crois que c'est un malentendu.",
+      "en": "I think it's a misunderstanding.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə kʁwa kə sɛ.t‿œ̃ ma.lɑ̃.tɑ̃.dy"
+    },
+    {
+      "id": "fr.sons.liaisons.010",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Pour moi, c'est une question de temps.",
+      "en": "For me, it's a matter of time.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "puʁ mwa sɛ.t‿yn kɛs.tjɔ̃ də tɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.011",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est un cadeau de ma grand-mère.",
+      "en": "It's a gift from my grandmother.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿œ̃ ka.do də ma gʁɑ̃.mɛʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.012",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Franchement, c'est une très bonne nouvelle.",
+      "en": "Frankly, that's very good news.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "fʁɑ̃ʃ.mɑ̃ sɛ.t‿yn tʁɛ bɔn nu.vɛl"
+    },
+    {
+      "id": "fr.sons.liaisons.013",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est un petit appartement, mais il est lumineux.",
+      "en": "It's a small apartment, but it's bright.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿œ̃ pə.ti.t‿a.paʁ.tə.mɑ̃ mɛ i.lɛ ly.mi.nø"
+    },
+    {
+      "id": "fr.sons.liaisons.014",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Tu verras, c'est un endroit magnifique.",
+      "en": "You'll see, it's a magnificent place.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty vɛ.ʁa sɛ.t‿œ̃.n‿ɑ̃.dʁwa ma.ɲi.fik"
+    },
+    {
+      "id": "fr.sons.liaisons.015",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est une chance à ne pas manquer.",
+      "en": "It's a chance not to be missed.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿yn ʃɑ̃s a nə pa mɑ̃.ke"
+    },
+    {
+      "id": "fr.sons.liaisons.016",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "À mon avis, c'est un excellent choix.",
+      "en": "In my opinion, it's an excellent choice.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a mɔ̃.n‿a.vi sɛ.t‿œ̃.n‿ɛk.sɛ.lɑ̃ ʃwa"
+    },
+    {
+      "id": "fr.sons.liaisons.017",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Quand est-ce qu'on mange ?",
+      "en": "When do we eat?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɑ̃.t‿ɛs.kɔ̃ mɑ̃ʒ"
+    },
+    {
+      "id": "fr.sons.liaisons.018",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Quand est-ce que tu arrives ?",
+      "en": "When are you arriving?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɑ̃.t‿ɛs.kə ty a.ʁiv"
+    },
+    {
+      "id": "fr.sons.liaisons.019",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Quand est-ce que le magasin ouvre ?",
+      "en": "When does the store open?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɑ̃.t‿ɛs.kə lə ma.ga.zɛ̃ uvʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.020",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Quand est-ce qu'ils reviennent de vacances ?",
+      "en": "When are they coming back from vacation?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɑ̃.t‿ɛs.kil ʁə.vjɛn də va.kɑ̃s"
+    },
+    {
+      "id": "fr.sons.liaisons.021",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Quand est-ce que vous avez rendez-vous ?",
+      "en": "When is your appointment?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɑ̃.t‿ɛs.kə vu.z‿a.ve ʁɑ̃.de.vu"
+    },
+    {
+      "id": "fr.sons.liaisons.022",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Quand est-ce qu'on se voit, alors ?",
+      "en": "So when are we seeing each other?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɑ̃.t‿ɛs.kɔ̃ sə vwa a.lɔʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.023",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Dis-moi quand est-ce que ça commence.",
+      "en": "Tell me when it starts.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "di.mwa kɑ̃.t‿ɛs.kə sa kɔ.mɑ̃s"
+    },
+    {
+      "id": "fr.sons.liaisons.024",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Quand est-ce que le train part exactement ?",
+      "en": "When exactly does the train leave?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɑ̃.t‿ɛs.kə lə tʁɛ̃ paʁ ɛg.zak.tə.mɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.025",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Quand est-ce qu'elle passe son examen ?",
+      "en": "When is she taking her exam?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɑ̃.t‿ɛs.kɛl pas sɔ̃.n‿ɛg.za.mɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.026",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Quand est-ce que tu veux déjeuner avec moi ?",
+      "en": "When do you want to have lunch with me?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɑ̃.t‿ɛs.kə ty vø de.ʒœ.ne a.vɛk mwa"
+    },
+    {
+      "id": "fr.sons.liaisons.027",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Alors, quand est-ce qu'on fête ton anniversaire ?",
+      "en": "So when are we celebrating your birthday?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a.lɔʁ kɑ̃.t‿ɛs.kɔ̃ fɛt tɔ̃.n‿a.ni.vɛʁ.sɛʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.028",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Tu sais quand est-ce que la piscine ferme ?",
+      "en": "Do you know when the pool closes?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty sɛ kɑ̃.t‿ɛs.kə la pi.sin fɛʁm"
+    },
+    {
+      "id": "fr.sons.liaisons.029",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Tout à fait d'accord !",
+      "en": "Totally agree!",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tu.t‿a.fɛ da.kɔʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.030",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Oui, c'est tout à fait ça.",
+      "en": "Yes, that's exactly it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "wi sɛ tu.t‿a.fɛ sa"
+    },
+    {
+      "id": "fr.sons.liaisons.031",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Vous avez tout à fait raison, madame.",
+      "en": "You are absolutely right, madam.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿a.ve tu.t‿a.fɛ ʁɛ.zɔ̃ ma.dam"
+    },
+    {
+      "id": "fr.sons.liaisons.032",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On sort au restaurant de temps en temps.",
+      "en": "We go out to a restaurant from time to time.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ sɔʁ o ʁɛs.to.ʁɑ̃ də tɑ̃.z‿ɑ̃.tɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.033",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "De temps en temps, je fais du yoga.",
+      "en": "From time to time, I do yoga.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "də tɑ̃.z‿ɑ̃.tɑ̃ ʒə fɛ dy jo.ga"
+    },
+    {
+      "id": "fr.sons.liaisons.034",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Il appelle sa mère de temps en temps.",
+      "en": "He calls his mother from time to time.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "i.la.pɛl sa mɛʁ də tɑ̃.z‿ɑ̃.tɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.035",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "À tout à l'heure !",
+      "en": "See you later!",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a tu.t‿a.lœʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.036",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On en reparle tout à l'heure, d'accord ?",
+      "en": "We'll talk about it again later, okay?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿ɑ̃ ʁə.paʁl tu.t‿a.lœʁ da.kɔʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.037",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "J'ai croisé ta sœur tout à l'heure.",
+      "en": "I ran into your sister earlier.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe kʁwa.ze ta sœʁ tu.t‿a.lœʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.038",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Petit à petit, ça va mieux.",
+      "en": "Little by little, things are getting better.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "pə.ti.t‿a.pə.ti sa va mjø"
+    },
+    {
+      "id": "fr.sons.liaisons.039",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On apprend petit à petit, c'est normal.",
+      "en": "We learn little by little, that's normal.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿a.pʁɑ̃ pə.ti.t‿a.pə.ti sɛ nɔʁ.mal"
+    },
+    {
+      "id": "fr.sons.liaisons.040",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Petit à petit, il retrouve confiance en lui.",
+      "en": "Little by little, he is regaining his confidence.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "pə.ti.t‿a.pə.ti il ʁə.tʁuv kɔ̃.fjɑ̃s ɑ̃ lɥi"
+    },
+    {
+      "id": "fr.sons.liaisons.041",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Il fait de plus en plus chaud.",
+      "en": "It's getting hotter and hotter.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il fɛ də ply.z‿ɑ̃.ply ʃo"
+    },
+    {
+      "id": "fr.sons.liaisons.042",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ma fille lit de plus en plus vite.",
+      "en": "My daughter reads faster and faster.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma fij li də ply.z‿ɑ̃.ply vit"
+    },
+    {
+      "id": "fr.sons.liaisons.043",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les billets coûtent de plus en plus cher.",
+      "en": "Tickets are getting more and more expensive.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le bi.jɛ kut də ply.z‿ɑ̃.ply ʃɛʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.044",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Je dors de moins en moins bien.",
+      "en": "I'm sleeping less and less well.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə dɔʁ də mwɛ̃.z‿ɑ̃.mwɛ̃ bjɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.045",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On se parle de moins en moins souvent.",
+      "en": "We talk to each other less and less often.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ sə paʁl də mwɛ̃.z‿ɑ̃.mwɛ̃ su.vɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.046",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ça va de mieux en mieux !",
+      "en": "Things are going better and better!",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sa va də mjø.z‿ɑ̃.mjø"
+    },
+    {
+      "id": "fr.sons.liaisons.047",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Tu joues de mieux en mieux du piano.",
+      "en": "You're playing the piano better and better.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty ʒu də mjø.z‿ɑ̃.mjø dy pja.no"
+    },
+    {
+      "id": "fr.sons.liaisons.048",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Tout à coup, la lumière s'est éteinte.",
+      "en": "Suddenly, the light went out.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tu.t‿a.ku la ly.mjɛʁ sɛ.t‿e.tɛ̃t"
+    },
+    {
+      "id": "fr.sons.liaisons.049",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Tout à coup, il s'est mis à pleuvoir.",
+      "en": "Suddenly, it started to rain.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tu.t‿a.ku il sɛ mi a plø.vwaʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.050",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Bon appétit tout le monde !",
+      "en": "Enjoy your meal, everyone!",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "bɔ.n‿a.pe.ti tu lə mɔ̃d"
+    },
+    {
+      "id": "fr.sons.liaisons.051",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Le serveur nous a souhaité bon appétit.",
+      "en": "The waiter wished us a good meal.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə sɛʁ.vœʁ nu.z‿a swɛ.te bɔ.n‿a.pe.ti"
+    },
+    {
+      "id": "fr.sons.liaisons.052",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Bonjour docteur, comment allez-vous ?",
+      "en": "Hello doctor, how are you?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "bɔ̃.ʒuʁ dɔk.tœʁ kɔ.mɑ̃.t‿a.le.vu"
+    },
+    {
+      "id": "fr.sons.liaisons.053",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Comment allez-vous depuis la dernière fois ?",
+      "en": "How have you been since last time?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɔ.mɑ̃.t‿a.le.vu də.pɥi la dɛʁ.njɛʁ fwa"
+    },
+    {
+      "id": "fr.sons.liaisons.054",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Il arrive demain, c'est-à-dire jeudi.",
+      "en": "He arrives tomorrow, that is, Thursday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "i.la.ʁiv də.mɛ̃ sɛ.t‿a.diʁ ʒø.di"
+    },
+    {
+      "id": "fr.sons.liaisons.055",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est-à-dire que je ne suis pas libre.",
+      "en": "That is to say, I'm not free.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿a.diʁ kə ʒə nə sɥi pa libʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.056",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ma nièce vient d'avoir vingt ans.",
+      "en": "My niece just turned twenty.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma njɛs vjɛ̃ da.vwaʁ vɛ̃.t‿ɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.057",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils se connaissent depuis vingt ans.",
+      "en": "They have known each other for twenty years.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il sə kɔ.nɛs də.pɥi vɛ̃.t‿ɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.058",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Vingt ans déjà !",
+      "en": "Twenty years already!",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vɛ̃.t‿ɑ̃ de.ʒa"
+    },
+    {
+      "id": "fr.sons.liaisons.059",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mon frère travaille aux États-Unis.",
+      "en": "My brother works in the United States.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ fʁɛʁ tʁa.vaj o.z‿e.ta.z‿y.ni"
+    },
+    {
+      "id": "fr.sons.liaisons.060",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous partons aux États-Unis en juillet.",
+      "en": "We're leaving for the United States in July.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu paʁ.tɔ̃ o.z‿e.ta.z‿y.ni ɑ̃ ʒɥi.jɛ"
+    },
+    {
+      "id": "fr.sons.liaisons.061",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Je les ai vus avant-hier au marché.",
+      "en": "I saw them at the market the day before yesterday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə le.z‿e vy a.vɑ̃.t‿jɛʁ o maʁ.ʃe"
+    },
+    {
+      "id": "fr.sons.liaisons.062",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Quant à moi, je reste ici ce week-end.",
+      "en": "As for me, I'm staying here this weekend.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "kɑ̃.t‿a mwa ʒə ʁɛst i.si sə wi.kɛnd"
+    },
+    {
+      "id": "fr.sons.liaisons.063",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Elle nous a présenté son petit ami.",
+      "en": "She introduced us to her boyfriend.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl nu.z‿a pʁe.zɑ̃.te sɔ̃ pə.ti.t‿a.mi"
+    },
+    {
+      "id": "fr.sons.liaisons.064",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "De temps à autre, on loue un chalet.",
+      "en": "Every now and then, we rent a cabin.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "də tɑ̃.z‿a otʁ ɔ̃ lu œ̃ ʃa.lɛ"
+    },
+    {
+      "id": "fr.sons.liaisons.065",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les enfants dorment.",
+      "en": "The children are sleeping.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿ɑ̃.fɑ̃ dɔʁm"
+    },
+    {
+      "id": "fr.sons.liaisons.066",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mes amis arrivent.",
+      "en": "My friends are arriving.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "me.z‿a.mi a.ʁiv"
+    },
+    {
+      "id": "fr.sons.liaisons.067",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ces oiseaux chantent.",
+      "en": "These birds are singing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "se.z‿wa.zo ʃɑ̃t"
+    },
+    {
+      "id": "fr.sons.liaisons.068",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les avions décollent.",
+      "en": "The planes are taking off.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿a.vjɔ̃ de.kɔl"
+    },
+    {
+      "id": "fr.sons.liaisons.069",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Attends un instant.",
+      "en": "Wait a moment.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a.tɑ̃ œ̃.n‿ɛ̃s.tɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.070",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mon ami travaille.",
+      "en": "My friend is working.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃.n‿a.mi tʁa.vaj"
+    },
+    {
+      "id": "fr.sons.liaisons.071",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les étoiles brillent.",
+      "en": "The stars are shining.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿e.twal bʁij"
+    },
+    {
+      "id": "fr.sons.liaisons.072",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ton oncle appelle.",
+      "en": "Your uncle is calling.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tɔ̃.n‿ɔ̃kl a.pɛl"
+    },
+    {
+      "id": "fr.sons.liaisons.073",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les invités attendent.",
+      "en": "The guests are waiting.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿ɛ̃.vi.te a.tɑ̃d"
+    },
+    {
+      "id": "fr.sons.liaisons.074",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les animaux dorment encore.",
+      "en": "The animals are still sleeping.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿a.ni.mo dɔʁm ɑ̃.kɔʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.075",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mes petits élèves chantent.",
+      "en": "My little students are singing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "me pə.ti.z‿e.lɛv ʃɑ̃t"
+    },
+    {
+      "id": "fr.sons.liaisons.076",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "J'ai deux enfants adorables.",
+      "en": "I have two adorable children.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe dø.z‿ɑ̃.fɑ̃ a.dɔ.ʁabl"
+    },
+    {
+      "id": "fr.sons.liaisons.077",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Son atelier est grand.",
+      "en": "His workshop is big.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɔ̃.n‿a.tə.lje ɛ gʁɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.078",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les autres arrivent bientôt.",
+      "en": "The others are arriving soon.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿otʁ a.ʁiv bjɛ̃.to"
+    },
+    {
+      "id": "fr.sons.liaisons.079",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous avons trois enfants.",
+      "en": "We have three children.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿a.vɔ̃ tʁwa.z‿ɑ̃.fɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.080",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "C'est un petit appartement.",
+      "en": "It is a small apartment.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿œ̃ pə.ti.t‿a.paʁ.tə.mɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.081",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mon école ouvre tôt.",
+      "en": "My school opens early.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃.n‿e.kɔl uvʁ to"
+    },
+    {
+      "id": "fr.sons.liaisons.082",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ces hommes travaillent ensemble.",
+      "en": "These men work together.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "se.z‿ɔm tʁa.vaj ɑ̃.sɑ̃bl"
+    },
+    {
+      "id": "fr.sons.liaisons.083",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils vendent des habits usagés.",
+      "en": "They sell used clothes.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il vɑ̃d de.z‿a.bi y.za.ʒe"
+    },
+    {
+      "id": "fr.sons.liaisons.084",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Le vol dure neuf heures.",
+      "en": "The flight lasts nine hours.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə vɔl dyʁ nœ.v‿œʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.085",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Elle a un petit ami.",
+      "en": "She has a boyfriend.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛ.l‿a œ̃ pə.ti.t‿a.mi"
+    },
+    {
+      "id": "fr.sons.liaisons.086",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mes amis habitent en ville.",
+      "en": "My friends live in town.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "me.z‿a.mi a.bit ɑ̃ vil"
+    },
+    {
+      "id": "fr.sons.liaisons.087",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils cherchent un grand appartement.",
+      "en": "They are looking for a big apartment.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il ʃɛʁʃ œ̃ gʁɑ̃.t‿a.paʁ.tə.mɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.088",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ton anniversaire est en avril.",
+      "en": "Your birthday is in April.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tɔ̃.n‿a.ni.vɛʁ.sɛʁ ɛ.t‿ɑ̃.n‿a.vʁil"
+    },
+    {
+      "id": "fr.sons.liaisons.089",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les élèves écoutent leur professeur.",
+      "en": "The students listen to their teacher.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿e.lɛv e.kut lœʁ pʁɔ.fɛ.sœʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.090",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Son oncle habite au Québec.",
+      "en": "His uncle lives in Quebec.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɔ̃.n‿ɔ̃kl a.bit o ke.bɛk"
+    },
+    {
+      "id": "fr.sons.liaisons.091",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous invitons nos amis dimanche.",
+      "en": "We are inviting our friends on Sunday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿ɛ̃.vi.tɔ̃ no.z‿a.mi di.mɑ̃ʃ"
+    },
+    {
+      "id": "fr.sons.liaisons.092",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Le film dure trois heures.",
+      "en": "The movie lasts three hours.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə film dyʁ tʁwa.z‿œʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.093",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nos enfants vont au parc aujourd'hui.",
+      "en": "Our children are going to the park today.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "no.z‿ɑ̃.fɑ̃ vɔ̃ o paʁk o.ʒuʁ.dɥi"
+    },
+    {
+      "id": "fr.sons.liaisons.094",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mon amie prépare une soupe chaude.",
+      "en": "My friend is making a hot soup.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃.n‿a.mi pʁe.paʁ yn sup ʃod"
+    },
+    {
+      "id": "fr.sons.liaisons.095",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Le train part dans deux heures.",
+      "en": "The train leaves in two hours.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə tʁɛ̃ paʁ dɑ̃ dø.z‿œʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.096",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Elle achète des oranges au marché.",
+      "en": "She buys oranges at the market.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛ.l‿a.ʃɛt de.z‿ɔ.ʁɑ̃ʒ o maʁ.ʃe"
+    },
+    {
+      "id": "fr.sons.liaisons.097",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mes étudiants posent beaucoup de questions.",
+      "en": "My students ask a lot of questions.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "me.z‿e.ty.djɑ̃ poz bo.ku də kɛs.tjɔ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.098",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Un grand arbre cache la fenêtre.",
+      "en": "A big tree hides the window.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "œ̃ gʁɑ̃.t‿aʁbʁ kaʃ la fə.nɛtʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.099",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les hôtels sont chers en été.",
+      "en": "Hotels are expensive in summer.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿o.tɛl sɔ̃ ʃɛʁ ɑ̃.n‿e.te"
+    },
+    {
+      "id": "fr.sons.liaisons.100",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les écureuils traversent souvent notre jardin.",
+      "en": "Squirrels often cross our yard.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿e.ky.ʁœj tʁa.vɛʁs su.vɑ̃ nɔtʁ ʒaʁ.dɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.101",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ma fille a trois ans demain.",
+      "en": "My daughter turns three tomorrow.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma fij a tʁwa.z‿ɑ̃ də.mɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.102",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mon immeuble se trouve près du métro.",
+      "en": "My building is near the metro.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃.n‿i.mœbl sə tʁuv pʁɛ dy me.tʁo"
+    },
+    {
+      "id": "fr.sons.liaisons.103",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les premiers invités arrivent vers six heures.",
+      "en": "The first guests arrive around six o'clock.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le pʁə.mje.z‿ɛ̃.vi.te a.ʁiv vɛʁ si.z‿œʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.104",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On visite un petit hôtel demain matin.",
+      "en": "We are visiting a small hotel tomorrow morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ vi.zit œ̃ pə.ti.t‿o.tɛl də.mɛ̃ ma.tɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.105",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mes enfants regardent un dessin animé ensemble.",
+      "en": "My kids are watching a cartoon together.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "me.z‿ɑ̃.fɑ̃ ʁə.gaʁd œ̃ de.sɛ̃ a.ni.me ɑ̃.sɑ̃bl"
+    },
+    {
+      "id": "fr.sons.liaisons.106",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ces jeunes élèves préparent une grande fête.",
+      "en": "These young students are preparing a big party.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "se ʒœn.z‿e.lɛv pʁe.paʁ yn gʁɑ̃d fɛt"
+    },
+    {
+      "id": "fr.sons.liaisons.107",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils habitent dans un bel immeuble ancien.",
+      "en": "They live in a beautiful old building.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il.z‿a.bit dɑ̃.z‿œ̃ bɛ.l‿i.mœbl ɑ̃.sjɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.108",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Elle prend son avion à dix heures.",
+      "en": "She catches her plane at ten o'clock.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl pʁɑ̃ sɔ̃.n‿a.vjɔ̃ a di.z‿œʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.109",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nos amis canadiens restent chez nous lundi.",
+      "en": "Our Canadian friends are staying with us on Monday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "no.z‿a.mi ka.na.djɛ̃ ʁɛst ʃe nu lœ̃.di"
+    },
+    {
+      "id": "fr.sons.liaisons.110",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Le magasin ferme dans une heure environ.",
+      "en": "The store closes in about an hour.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ma.ga.zɛ̃ fɛʁm dɑ̃.z‿y.nœʁ ɑ̃.vi.ʁɔ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.111",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mon ancienne école était vraiment trop petite.",
+      "en": "My old school was really too small.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃.n‿ɑ̃.sjɛ.ne.kɔl e.tɛ vʁɛ.mɑ̃ tʁo pə.tit"
+    },
+    {
+      "id": "fr.sons.liaisons.112",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les enfants prennent le bus à huit heures.",
+      "en": "The children take the bus at eight o'clock.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿ɑ̃.fɑ̃ pʁɛn lə bys a ɥi.t‿œʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.113",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous cherchons un petit hôtel près du port.",
+      "en": "We are looking for a small hotel near the port.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu ʃɛʁ.ʃɔ̃ œ̃ pə.ti.t‿o.tɛl pʁɛ dy pɔʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.114",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Mes voisins apprennent le français depuis deux ans.",
+      "en": "My neighbours have been learning French for two years.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "me vwa.zɛ̃ a.pʁɛn lə fʁɑ̃.sɛ də.pɥi dø.z‿ɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.115",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les étudiants passent un examen important ce matin.",
+      "en": "The students are taking an important exam this morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿e.ty.djɑ̃ pas œ̃.n‿ɛg.za.mɛ̃ ɛ̃.pɔʁ.tɑ̃ sə ma.tɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.116",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ma sœur attend son avion depuis trois heures.",
+      "en": "My sister has been waiting for her plane for three hours.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma sœʁ a.tɑ̃ sɔ̃.n‿a.vjɔ̃ də.pɥi tʁwa.z‿œʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.117",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Son équipe achète un nouvel autobus cette année.",
+      "en": "His team is buying a new bus this year.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɔ̃.n‿e.kip a.ʃɛt œ̃ nu.vɛ.l‿o.to.bys sɛ.ta.ne"
+    },
+    {
+      "id": "fr.sons.liaisons.118",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les hivers sont très longs dans notre région.",
+      "en": "Winters are very long in our region.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿i.vɛʁ sɔ̃ tʁɛ lɔ̃ dɑ̃ nɔtʁ ʁe.ʒjɔ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.119",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Il rapporte deux avocats et un ananas mûr.",
+      "en": "He brings back two avocados and a ripe pineapple.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il ʁa.pɔʁt dø.z‿a.vo.ka e œ̃.n‿a.na.na myʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.120",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les ouvriers réparent la route depuis huit heures.",
+      "en": "The workers have been repairing the road since eight o'clock.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿u.vʁi.je ʁe.paʁ la ʁut də.pɥi ɥi.t‿œʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.121",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les employés organisent un pique-nique au bord du lac.",
+      "en": "The employees are organizing a picnic by the lake.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿ɑ̃.plwa.je ɔʁ.ga.niz œ̃ pik.nik o bɔʁ dy lak"
+    },
+    {
+      "id": "fr.sons.liaisons.122",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On mange des œufs et du pain le matin.",
+      "en": "We eat eggs and bread in the morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ mɑ̃ʒ de.z‿ø e dy pɛ̃ lə ma.tɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.123",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Un grand orage arrive sur la ville ce soir.",
+      "en": "A big storm is coming over the city tonight.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "œ̃ gʁɑ̃.t‿ɔ.ʁaʒ a.ʁiv syʁ la vil sə swaʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.124",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous passons nos étés au chalet avec les cousins.",
+      "en": "We spend our summers at the cottage with the cousins.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu pa.sɔ̃ no.z‿e.te o ʃa.lɛ a.vɛk le ku.zɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.125",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ma cousine choisit un petit ordinateur pour ses études.",
+      "en": "My cousin is choosing a small computer for her studies.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma ku.zin ʃwa.zi œ̃ pə.ti.t‿ɔʁ.di.na.tœʁ puʁ se.z‿e.tyd"
+    },
+    {
+      "id": "fr.sons.liaisons.126",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les infirmières commencent leur journée à sept heures pile.",
+      "en": "The nurses start their day at seven o'clock sharp.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿ɛ̃.fiʁ.mjɛʁ kɔ.mɑ̃s lœʁ ʒuʁ.ne a sɛ.t‿œʁ pil"
+    },
+    {
+      "id": "fr.sons.liaisons.127",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous louons deux autos pour le voyage en Gaspésie.",
+      "en": "We are renting two cars for the trip to Gaspésie.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu lu.ɔ̃ dø.z‿o.to puʁ lə vwa.jaʒ ɑ̃ gas.pe.zi"
+    },
+    {
+      "id": "fr.sons.liaisons.128",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "La serveuse apporte deux assiettes chaudes et des olives.",
+      "en": "The waitress brings two hot plates and some olives.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la sɛʁ.vøz a.pɔʁt dø.z‿a.sjɛt ʃod e de.z‿ɔ.liv"
+    },
+    {
+      "id": "fr.sons.liaisons.129",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Les autobus passent toutes les dix minutes en semaine.",
+      "en": "The buses come every ten minutes on weekdays.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.z‿o.to.bys pas tut le di mi.nyt ɑ̃ sə.mɛn"
+    },
+    {
+      "id": "fr.sons.liaisons.130",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous arrivons bientôt.",
+      "en": "We're arriving soon.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿a.ʁi.vɔ̃ bjɛ̃.to"
+    },
+    {
+      "id": "fr.sons.liaisons.131",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Vous êtes prêts ?",
+      "en": "Are you ready?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿ɛt pʁɛ"
+    },
+    {
+      "id": "fr.sons.liaisons.132",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils ont faim.",
+      "en": "They're hungry.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il.z‿ɔ̃ fɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.133",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On a soif.",
+      "en": "We're thirsty.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿a swaf"
+    },
+    {
+      "id": "fr.sons.liaisons.134",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Elles arrivent demain.",
+      "en": "They arrive tomorrow.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl.z‿a.ʁiv də.mɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.135",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous avons froid.",
+      "en": "We're cold.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿a.vɔ̃ fʁwa"
+    },
+    {
+      "id": "fr.sons.liaisons.136",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Vous avez raison.",
+      "en": "You're right.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿a.ve ʁɛ.zɔ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.137",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On avance lentement.",
+      "en": "We're moving forward slowly.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿a.vɑ̃s lɑ̃t.mɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.138",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils habitent ici.",
+      "en": "They live here.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il.z‿a.bit i.si"
+    },
+    {
+      "id": "fr.sons.liaisons.139",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous aimons le café.",
+      "en": "We love coffee.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿ɛ.mɔ̃ lə ka.fe"
+    },
+    {
+      "id": "fr.sons.liaisons.140",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Vous allez au marché ?",
+      "en": "Are you going to the market?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿a.le o maʁ.ʃe"
+    },
+    {
+      "id": "fr.sons.liaisons.141",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Elles ont deux chats.",
+      "en": "They have two cats.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl.z‿ɔ̃ dø ʃa"
+    },
+    {
+      "id": "fr.sons.liaisons.142",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On arrive ce soir.",
+      "en": "We're arriving tonight.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿a.ʁiv sə swaʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.143",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils aiment la neige.",
+      "en": "They love the snow.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il.z‿ɛm la nɛʒ"
+    },
+    {
+      "id": "fr.sons.liaisons.144",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous habitons à Montréal.",
+      "en": "We live in Montreal.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿a.bi.tɔ̃ a mɔ̃.tʁe.al"
+    },
+    {
+      "id": "fr.sons.liaisons.145",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils étaient malades hier.",
+      "en": "They were sick yesterday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il.z‿e.tɛ ma.lad jɛʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.146",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On adore la poutine.",
+      "en": "We love poutine.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿a.dɔʁ la pu.tin"
+    },
+    {
+      "id": "fr.sons.liaisons.147",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Elles étudient le soir.",
+      "en": "They study in the evening.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl.z‿e.ty.di lə swaʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.148",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous invitons des amis samedi.",
+      "en": "We're inviting friends over on Saturday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿ɛ̃.vi.tɔ̃ de.z‿a.mi sam.di"
+    },
+    {
+      "id": "fr.sons.liaisons.149",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils achètent une belle maison.",
+      "en": "They're buying a beautiful house.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il.z‿a.ʃɛt yn bɛl mɛ.zɔ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.150",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils attendent le bus ensemble.",
+      "en": "They're waiting for the bus together.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il.z‿a.tɑ̃d lə bys ɑ̃.sɑ̃bl"
+    },
+    {
+      "id": "fr.sons.liaisons.151",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On attend le prochain train.",
+      "en": "We're waiting for the next train.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿a.tɑ̃ lə pʁɔ.ʃɛ̃ tʁɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.152",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Elles adorent ce petit restaurant.",
+      "en": "They love this little restaurant.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl.z‿a.dɔʁ sə pə.ti ʁɛs.to.ʁɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.153",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Elles habitent juste à côté.",
+      "en": "They live right next door.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl.z‿a.bit ʒyst a ko.te"
+    },
+    {
+      "id": "fr.sons.liaisons.154",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Vous habitez près de l'école ?",
+      "en": "Do you live near the school?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿a.bi.te pʁɛ də le.kɔl"
+    },
+    {
+      "id": "fr.sons.liaisons.155",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On oublie toujours quelque chose.",
+      "en": "We always forget something.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿u.bli tu.ʒuʁ kɛl.kə ʃoz"
+    },
+    {
+      "id": "fr.sons.liaisons.156",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils ouvrent le magasin tôt.",
+      "en": "They open the store early.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il.z‿uvʁ lə ma.ɡa.zɛ̃ to"
+    },
+    {
+      "id": "fr.sons.liaisons.157",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous allons chez ma sœur dimanche.",
+      "en": "We're going to my sister's on Sunday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿a.lɔ̃ ʃe ma sœʁ di.mɑ̃ʃ"
+    },
+    {
+      "id": "fr.sons.liaisons.158",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Vous êtes libres pour souper demain ?",
+      "en": "Are you free for supper tomorrow?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿ɛt libʁ puʁ su.pe də.mɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.159",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils ont trois enfants très gentils.",
+      "en": "They have three very nice kids.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il.z‿ɔ̃ tʁwa.z‿ɑ̃.fɑ̃ tʁɛ ʒɑ̃.ti"
+    },
+    {
+      "id": "fr.sons.liaisons.160",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On a trouvé un petit appartement.",
+      "en": "We found a small apartment.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿a tʁu.ve œ̃ pə.ti.t‿a.paʁ.tə.mɑ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.161",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Nous écoutons de la musique québécoise.",
+      "en": "We listen to Quebec music.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿e.ku.tɔ̃ də la my.zik ke.be.kwaz"
+    },
+    {
+      "id": "fr.sons.liaisons.162",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Vous entendez le bruit des voisins ?",
+      "en": "Do you hear the neighbours' noise?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿ɑ̃.tɑ̃.de lə bʁɥi de vwa.zɛ̃"
+    },
+    {
+      "id": "fr.sons.liaisons.163",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Elles écoutent un balado en français.",
+      "en": "They're listening to a podcast in French.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl.z‿e.kut œ̃ ba.la.do ɑ̃ fʁɑ̃.sɛ"
+    },
+    {
+      "id": "fr.sons.liaisons.164",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "On est allés au cinéma hier.",
+      "en": "We went to the movies yesterday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿ɛ.t‿a.le o si.ne.ma jɛʁ"
+    },
+    {
+      "id": "fr.sons.liaisons.165",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "liaisons",
+      "fr": "Ils habitent dans un grand immeuble.",
+      "en": "They live in a big building.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il.z‿a.bit dɑ̃.z‿œ̃ ɡʁɑ̃.t‿i.mœbl"
+    }
+  ]
+}

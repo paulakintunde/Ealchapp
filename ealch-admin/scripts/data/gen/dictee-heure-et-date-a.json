@@ -1,0 +1,3302 @@
+[
+  {
+    "id": "fr.a1.heure-et-date.060",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est une heure.",
+    "en": "It's one o'clock.",
+    "ipa": "il ɛ ynœʁ",
+    "notes": "Liaison links \"une\" and \"heure\" so you hear one linked syllable; don't write an extra word between them.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.061",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est deux heures juste.",
+    "en": "It's exactly two o'clock.",
+    "ipa": "il ɛ dø.zœʁ ʒyst",
+    "notes": "The x in \"deux\" is silent alone but liaises as a z sound before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.062",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est trois heures et quart.",
+    "en": "It's a quarter past three.",
+    "ipa": "il ɛ tʁwa.zœʁ e kaʁ",
+    "notes": "\"Et\" never triggers liaison, so \"quart\" starts on its own consonant sound after a short pause.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.063",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est quatre heures dix.",
+    "en": "It's four ten.",
+    "ipa": "il ɛ katʁ œʁ dis",
+    "notes": "The final e in \"quatre\" is always silent, don't add an extra syllable when writing it.",
+    "tags": [
+      "e-muet"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.064",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est cinq heures moins dix.",
+    "en": "It's ten to five.",
+    "ipa": "il ɛ sɛ̃.kœʁ mwɛ̃ dis",
+    "notes": "\"Cinq\" holds a nasal vowel sound, not a separate n consonant like in English.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.065",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est six heures moins le quart.",
+    "en": "It's a quarter to six.",
+    "ipa": "il ɛ si.zœʁ mwɛ̃ lə kaʁ",
+    "notes": "The x in \"six\" turns into a z sound before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.066",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est sept heures du matin.",
+    "en": "It's seven in the morning.",
+    "ipa": "il ɛ sɛ.tœʁ dy ma.tɛ̃",
+    "notes": "The p in \"sept\" is always silent, and the final t liaises into the next word.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.067",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est huit heures du soir.",
+    "en": "It's eight in the evening.",
+    "ipa": "il ɛ ɥi.tœʁ dy swaʁ",
+    "notes": "The t of \"huit\" is silent alone but is pronounced here through liaison.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.068",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est neuf heures pile.",
+    "en": "It's nine o'clock sharp.",
+    "ipa": "il ɛ nœ.vœʁ pil",
+    "notes": "\"Neuf\" is an exception where the final f sound changes to v before heures.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.069",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est dix heures et demie.",
+    "en": "It's half past ten.",
+    "ipa": "il ɛ di.zœʁ e də.mi",
+    "notes": "The x of \"dix\" liaises into a z sound right before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.070",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est onze heures moins cinq.",
+    "en": "It's five to eleven.",
+    "ipa": "il ɛ ɔ̃.zœʁ mwɛ̃ sɛ̃k",
+    "notes": "\"Onze\" is built on a single nasal vowel sound, not two separate syllables.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.071",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est midi et demi.",
+    "en": "It's half past noon.",
+    "ipa": "il ɛ mi.di e də.mi",
+    "notes": "\"Demi\" agrees with the masculine \"midi\" so it keeps no final e, unlike \"heure et demie\".",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.072",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est minuit et demi.",
+    "en": "It's half past midnight.",
+    "ipa": "il ɛ mi.nɥi e də.mi",
+    "notes": "\"Demi\" stays masculine here because it follows \"minuit\", not \"heure\".",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.073",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Le cours commence à midi.",
+    "en": "The class starts at noon.",
+    "ipa": "lə kuʁ kɔ.mɑ̃s a mi.di",
+    "notes": "\"À\" (preposition, with accent) sounds like \"a\" (verb avoir) but they are spelled differently.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.074",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Elle a vingt ans.",
+    "en": "She is twenty years old.",
+    "ipa": "ɛl a vɛ̃.tɑ̃",
+    "notes": "The final t in \"vingt\" is silent alone but is pronounced here before \"ans\".",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.075",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "J'ai quinze ans.",
+    "en": "I am fifteen years old.",
+    "ipa": "ʒe kɛ̃z ɑ̃",
+    "notes": "\"Quinze\" and \"ans\" use two different nasal vowels, listen closely before spelling either one.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.076",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il a trente ans.",
+    "en": "He is thirty years old.",
+    "ipa": "il a tʁɑ̃t ɑ̃",
+    "notes": "The \"en\" in \"trente\" and the \"an\" in \"ans\" sound identical though they are spelled differently.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.077",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Nous avons rendez-vous à dix heures.",
+    "en": "We have an appointment at ten o'clock.",
+    "ipa": "nu.za.vɔ̃ ʁɑ̃.de.vu a di.zœʁ",
+    "notes": "The x of \"dix\" liaises to a z sound right before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.078",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Aujourd'hui, c'est lundi.",
+    "en": "Today is Monday.",
+    "ipa": "o.ʒuʁ.dɥi sɛ lœ̃.di",
+    "notes": "\"C'est\" elides \"ce\" before a vowel, never write it as two separate words \"ce est\".",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.079",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Demain, c'est mardi.",
+    "en": "Tomorrow is Tuesday.",
+    "ipa": "də.mɛ̃ sɛ maʁ.di",
+    "notes": "The last syllable of \"demain\" is a single nasal vowel, with no separate n sound.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.080",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Hier, c'était dimanche.",
+    "en": "Yesterday was Sunday.",
+    "ipa": "jɛʁ se.tɛ di.mɑ̃ʃ",
+    "notes": "\"Dimanche\" ends in a nasal vowel followed by \"che\", don't add a silent n before the ch.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.081",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "La classe dure une heure.",
+    "en": "The class lasts one hour.",
+    "ipa": "la klas dyʁ y.nœʁ",
+    "notes": "\"Une\" and \"heure\" link into one sound, don't write \"une\" as if it stood alone.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.082",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Le film commence à vingt heures.",
+    "en": "The movie starts at eight PM.",
+    "ipa": "lə film kɔ.mɑ̃s a vɛ̃.tœʁ",
+    "notes": "The silent t of \"vingt\" reappears here because \"heures\" starts with a vowel sound.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.083",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Le magasin ferme à dix-neuf heures.",
+    "en": "The store closes at seven PM.",
+    "ipa": "lə ma.ga.zɛ̃ fɛʁm a diz.nœ.vœʁ",
+    "notes": "\"Neuf\" changes its final sound from f to v before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.084",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Le bus arrive à sept heures dix.",
+    "en": "The bus arrives at 7:10.",
+    "ipa": "lə bys a.ʁiv a sɛ.tœʁ dis",
+    "notes": "The p in \"sept\" is always silent, in every position, not just here.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.085",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Le train part à seize heures.",
+    "en": "The train leaves at four PM.",
+    "ipa": "lə tʁɛ̃ paʁ a sɛ.zœʁ",
+    "notes": "The final e in \"seize\" is silent, the word is pronounced with just one syllable ending in z.",
+    "tags": [
+      "e-muet"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.086",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Le cours dure quarante minutes.",
+    "en": "The class lasts forty minutes.",
+    "ipa": "lə kuʁ dyʁ ka.ʁɑ̃t mi.nyt",
+    "notes": "The \"an\" sound in \"quarante\" is a nasal vowel, don't pronounce the r and n separately.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.087",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Elle arrive à midi trente.",
+    "en": "She arrives at 12:30.",
+    "ipa": "ɛl a.ʁiv a mi.di tʁɑ̃t",
+    "notes": "\"Trente\" carries a nasal vowel in its first syllable, spelled en but sounding like an.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.088",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Nous partons dans dix minutes.",
+    "en": "We are leaving in ten minutes.",
+    "ipa": "nu paʁ.tɔ̃ dɑ̃ di mi.nyt",
+    "notes": "Unlike in \"dix heures\", the x of \"dix\" stays silent here because \"minutes\" starts with a consonant.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.089",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Le magasin ouvre à huit heures et demie.",
+    "en": "The store opens at half past eight.",
+    "ipa": "lə ma.ga.zɛ̃ u.vʁ a ɥi.tœʁ e də.mi",
+    "notes": "The t of \"huit\" is silent alone but liaises before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.090",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est presque midi.",
+    "en": "It's almost noon.",
+    "ipa": "il ɛ pʁɛsk mi.di",
+    "notes": "\"Est\" (is) sounds close to \"et\" (and) but they are never interchangeable in writing.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.091",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Le rendez-vous est à quatorze heures.",
+    "en": "The appointment is at two PM.",
+    "ipa": "lə ʁɑ̃.de.vu ɛ.t‿a ka.tɔʁ.zœʁ",
+    "notes": "The final t of \"est\" is silent alone but is pronounced here before the vowel of \"à\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.092",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "La réunion commence à seize heures trente.",
+    "en": "The meeting starts at 4:30 PM.",
+    "ipa": "la ʁe.y.njɔ̃ kɔ.mɑ̃s a sɛ.zœʁ tʁɑ̃t",
+    "notes": "\"Réunion\" and \"trente\" both contain nasal vowels that are easy to under-spell.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.093",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il travaille de neuf heures à dix-sept heures.",
+    "en": "He works from nine to five.",
+    "ipa": "il tʁa.vaj də nœ.vœʁ a diz.sɛ.tœʁ",
+    "notes": "\"Neuf\" again shifts its final sound to v before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.094",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Le cours de français dure deux heures.",
+    "en": "The French class lasts two hours.",
+    "ipa": "lə kuʁ də fʁɑ̃.sɛ dyʁ dø.zœʁ",
+    "notes": "The x of \"deux\" liaises into a z sound right before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.095",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Mon frère a dix-huit ans.",
+    "en": "My brother is eighteen years old.",
+    "ipa": "mɔ̃ fʁɛʁ a di.zɥi.tɑ̃",
+    "notes": "The normally silent t of \"huit\" is pronounced here because it liaises with \"ans\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.096",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Ma sœur a seize ans.",
+    "en": "My sister is sixteen years old.",
+    "ipa": "ma sœʁ a sɛ.zɑ̃",
+    "notes": "\"Ans\" ends in a nasal vowel, don't add a written n sound after it when transcribing by ear.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.097",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Nous mangeons à midi juste.",
+    "en": "We eat lunch right at noon.",
+    "ipa": "nu mɑ̃.ʒɔ̃ a mi.di ʒyst",
+    "notes": "\"Mangeons\" keeps an extra e to preserve the soft j sound before the ending \"ons\".",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.098",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Le magasin est fermé le dimanche.",
+    "en": "The store is closed on Sundays.",
+    "ipa": "lə ma.ga.zɛ̃ ɛ fɛʁ.me lə di.mɑ̃ʃ",
+    "notes": "\"Fermé\" agrees with the masculine \"magasin\", so it takes no extra silent e.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.099",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "La bibliothèque ouvre à neuf heures et demie.",
+    "en": "The library opens at half past nine.",
+    "ipa": "la bi.bli.jɔ.tɛk u.vʁ a nœ.vœʁ e də.mi",
+    "notes": "\"Neuf\" shifts to a v sound before the vowel of \"heures\" once again.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.heure-et-date.100",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "heure-et-date",
+    "fr": "Il est exactement cinq heures.",
+    "en": "It's exactly five o'clock.",
+    "ipa": "il ɛ.t‿ɛg.zak.tə.mɑ̃ sɛ̃.kœʁ",
+    "notes": "\"Cinq\" holds a nasal vowel that liaises smoothly into \"heures\".",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.155",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous sommes arrivés le premier septembre.",
+    "en": "We arrived on September first.",
+    "ipa": "nu sɔm.z‿a.ʁi.ve lə pʁə.mje sɛp.tɑ̃bʁ",
+    "notes": "Only \"le premier\" uses the ordinal for dates, every other day uses a plain number like le deux, le trois.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.156",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle est née le deux mars.",
+    "en": "She was born on March second.",
+    "ipa": "ɛl ɛ ne lə dø maʁs",
+    "notes": "\"Née\" agrees with the feminine subject \"elle\", adding a silent final e.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.157",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils sont partis le trois avril.",
+    "en": "They left on April third.",
+    "ipa": "il sɔ̃ paʁ.ti lə tʁwa.z‿a.vʁil",
+    "notes": "\"Partis\" takes a silent final s to agree with the plural subject \"ils\".",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.158",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons réservé une table pour huit heures.",
+    "en": "We booked a table for eight o'clock.",
+    "ipa": "nu.za.vɔ̃ ʁe.zɛʁ.ve yn tabl puʁ ɥi.tœʁ",
+    "notes": "\"Huit\" liaises to a t sound before \"heures\" even though that t is silent on its own.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.159",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le cours a commencé à neuf heures pile.",
+    "en": "The class started at nine o'clock sharp.",
+    "ipa": "lə kuʁ a kɔ.mɑ̃.se a nœ.vœʁ pil",
+    "notes": "\"Neuf\" shifts its final sound to v before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.160",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle va arriver à dix heures demain.",
+    "en": "She is going to arrive at ten o'clock tomorrow.",
+    "ipa": "ɛl va a.ʁi.ve a di.zœʁ də.mɛ̃",
+    "notes": "The x of \"dix\" liaises into a z sound right before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.161",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous allons partir dans deux jours.",
+    "en": "We are going to leave in two days.",
+    "ipa": "nu.za.lɔ̃ paʁ.tiʁ dɑ̃ dø ʒuʁ",
+    "notes": "\"Dans\" is pronounced with a single nasal vowel, not a separate n sound.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.162",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils ont fini leurs devoirs avant minuit.",
+    "en": "They finished their homework before midnight.",
+    "ipa": "il.z‿ɔ̃ fi.ni lœʁ də.vwaʁ a.vɑ̃ mi.nɥi",
+    "notes": "\"Ont\" (they have) sounds identical to \"on\" (one, we), context tells you which to write.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.163",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "On a mangé à midi et demi.",
+    "en": "We ate at half past noon.",
+    "ipa": "ɔ̃.n‿a mɑ̃.ʒe a mi.di e də.mi",
+    "notes": "\"Demi\" stays masculine after \"midi\", it only becomes \"demie\" after a feminine noun like heure.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.164",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a eu vingt ans le mois dernier.",
+    "en": "She turned twenty last month.",
+    "ipa": "ɛl a y vɛ̃.tɑ̃ lə mwa dɛʁ.nje",
+    "notes": "The silent t of \"vingt\" reappears here through liaison with \"ans\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.165",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons rendez-vous chez le médecin à quatorze heures.",
+    "en": "We have an appointment at the doctor's at two PM.",
+    "ipa": "nu.za.vɔ̃ ʁɑ̃.de.vu ʃe lə med.sɛ̃ a ka.tɔʁ.zœʁ",
+    "notes": "The z in \"rendez\" is silent, the word ending sounds like \"ay\" not \"ez\".",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.166",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le magasin a fermé à dix-neuf heures hier soir.",
+    "en": "The store closed at seven PM last night.",
+    "ipa": "lə ma.ga.zɛ̃ a fɛʁ.me a diz.nœ.vœʁ jɛʁ swaʁ",
+    "notes": "\"Neuf\" shifts its final sound to v before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.167",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Je vais commencer mon nouveau travail le premier juin.",
+    "en": "I am going to start my new job on June first.",
+    "ipa": "ʒə vɛ kɔ.mɑ̃.se mɔ̃ nu.vo tʁa.vaj lə pʁə.mje ʒɥɛ̃",
+    "notes": "Dates use the ordinal only for the first of the month, all later days use plain numbers.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.168",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons déménagé le quinze octobre.",
+    "en": "We moved on October fifteenth.",
+    "ipa": "nu.za.vɔ̃ de.me.na.ʒe lə kɛ̃z ɔk.tɔbʁ",
+    "notes": "\"Quinze\" holds a nasal vowel sound in its first syllable, not a plain i.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.169",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle est arrivée en retard à la réunion.",
+    "en": "She arrived late to the meeting.",
+    "ipa": "ɛl ɛ.t‿a.ʁi.ve ɑ̃ ʁə.taʁ a la ʁe.y.njɔ̃",
+    "notes": "\"Arrivée\" agrees with the feminine \"elle\", adding a silent final e.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.170",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils vont se marier le vingt et un juin.",
+    "en": "They are going to get married on June twenty-first.",
+    "ipa": "il vɔ̃ sə ma.ʁje lə vɛ̃.t‿e œ̃ ʒɥɛ̃",
+    "notes": "In compound numbers like vingt et un, the t of vingt is always pronounced, unlike the usual rule that et blocks liaison.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.171",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous sommes nés la même année.",
+    "en": "We were born in the same year.",
+    "ipa": "nu sɔm ne la mɛm a.ne",
+    "notes": "\"Nés\" takes a silent final s to agree with the plural subject \"nous\".",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.172",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le train est parti à seize heures trente.",
+    "en": "The train left at 4:30 PM.",
+    "ipa": "lə tʁɛ̃ ɛ paʁ.ti a sɛ.zœʁ tʁɑ̃t",
+    "notes": "With être, the past participle \"parti\" agrees with the masculine singular subject \"le train\", no extra ending.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.173",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a réservé son billet pour le douze mai.",
+    "en": "She booked her ticket for May twelfth.",
+    "ipa": "ɛl a ʁe.zɛʁ.ve sɔ̃ bi.jɛ puʁ lə duz mɛ",
+    "notes": "\"Son\" ends in a nasal vowel, listen closely before spelling it.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.174",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons attendu le bus pendant vingt minutes.",
+    "en": "We waited for the bus for twenty minutes.",
+    "ipa": "nu.za.vɔ̃ a.tɑ̃.dy lə bys pɑ̃.dɑ̃ vɛ̃ mi.nyt",
+    "notes": "The t of \"vingt\" stays silent here since \"minutes\" starts with a consonant.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.175",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils sont rentrés chez eux avant minuit.",
+    "en": "They got home before midnight.",
+    "ipa": "il sɔ̃ ʁɑ̃.tʁe ʃe zø a.vɑ̃ mi.nɥi",
+    "notes": "\"Rentrés\" takes a silent final s to agree with the plural subject \"ils\".",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.176",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le film va commencer dans dix minutes.",
+    "en": "The movie is going to start in ten minutes.",
+    "ipa": "lə film va kɔ.mɑ̃.se dɑ̃ di mi.nyt",
+    "notes": "The x of \"dix\" stays silent here because \"minutes\" begins with a consonant.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.177",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a fêté son anniversaire le sept mars.",
+    "en": "She celebrated her birthday on March seventh.",
+    "ipa": "ɛl a fe.te sɔ̃.n‿a.ni.vɛʁ.sɛʁ lə sɛt maʁs",
+    "notes": "\"Son\" liaises with the vowel start of \"anniversaire\", producing an extra n sound.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.178",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous allons voyager la semaine prochaine.",
+    "en": "We are going to travel next week.",
+    "ipa": "nu.za.lɔ̃ vwa.ja.ʒe la sə.mɛn pʁɔ.ʃɛn",
+    "notes": "The feminine \"prochaine\" loses the nasal sound of \"prochain\" because the final e opens the vowel.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.179",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le magasin ouvre à dix heures du lundi au vendredi.",
+    "en": "The store opens at ten o'clock Monday through Friday.",
+    "ipa": "lə ma.ga.zɛ̃ u.vʁ a di.zœʁ dy lœ̃.di o vɑ̃.dʁə.di",
+    "notes": "The x of \"dix\" liaises into a z sound right before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.180",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle est partie en vacances le vingt-cinq juillet.",
+    "en": "She left on vacation on July twenty-fifth.",
+    "ipa": "ɛl ɛ paʁ.ti ɑ̃ va.kɑ̃s lə vɛ̃t.sɛ̃k ʒɥi.jɛ",
+    "notes": "\"Partie\" agrees with the feminine subject \"elle\", adding a silent final e.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.181",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons un examen le trente novembre.",
+    "en": "We have an exam on November thirtieth.",
+    "ipa": "nu.za.vɔ̃.z‿œ̃.n‿ɛg.za.mɛ̃ lə tʁɑ̃t nɔ.vɑ̃bʁ",
+    "notes": "\"Novembre\" carries a nasal vowel right after the v, don't skip it when spelling.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.182",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils ont raté le train de sept heures.",
+    "en": "They missed the seven o'clock train.",
+    "ipa": "il.z‿ɔ̃ ʁa.te lə tʁɛ̃ də sɛ.tœʁ",
+    "notes": "The p in \"sept\" is silent, and its t liaises before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.183",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle va fêter ses dix-huit ans samedi prochain.",
+    "en": "She is going to celebrate her eighteenth birthday next Saturday.",
+    "ipa": "ɛl va fɛ.te se diz.ɥi.tɑ̃ sam.di pʁɔ.ʃɛ̃",
+    "notes": "The silent t of \"huit\" is pronounced here because it liaises with \"ans\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.184",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous sommes sortis vers vingt et une heures.",
+    "en": "We went out around nine PM.",
+    "ipa": "nu sɔm sɔʁ.ti vɛʁ vɛ̃.t‿e yn œʁ",
+    "notes": "\"Heure\" is feminine, so vingt et une heures uses \"une\", not \"un\".",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.185",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le professeur a donné les résultats le quatre juin.",
+    "en": "The teacher gave the results on June fourth.",
+    "ipa": "lə pʁɔ.fɛ.sœʁ a dɔ.ne le ʁe.zyl.ta lə katʁ ʒɥɛ̃",
+    "notes": "Both the final s and t of \"résultats\" stay silent in normal speech.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.186",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons déjà réservé nos billets pour le seize décembre.",
+    "en": "We have already booked our tickets for December sixteenth.",
+    "ipa": "nu.za.vɔ̃ de.ʒa ʁe.zɛʁ.ve no bi.jɛ puʁ lə sɛz de.sɑ̃bʁ",
+    "notes": "\"Décembre\" holds a nasal vowel right after the s sound, easy to under-spell.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.187",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a répondu au message avant dix-huit heures.",
+    "en": "She replied to the message before six PM.",
+    "ipa": "ɛl a ʁe.pɔ̃.dy o me.saʒ a.vɑ̃ diz.ɥi.tœʁ",
+    "notes": "The t of \"huit\" is silent alone but liaises before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.188",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils vont célébrer leur anniversaire de mariage le premier octobre.",
+    "en": "They are going to celebrate their wedding anniversary on October first.",
+    "ipa": "il vɔ̃ se.le.bʁe lœʁ a.ni.vɛʁ.sɛʁ də ma.ʁjaʒ lə pʁə.mje ɔk.tɔbʁ",
+    "notes": "Only the first of the month takes the ordinal \"premier\", not later dates.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.189",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons commencé les cours à huit heures et quart.",
+    "en": "We started classes at a quarter past eight.",
+    "ipa": "nu.za.vɔ̃ kɔ.mɑ̃.se le kuʁ a ɥi.tœʁ e kaʁ",
+    "notes": "The t of \"huit\" is silent alone but liaises before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.190",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle est née un vingt-neuf février.",
+    "en": "She was born on a February twenty-ninth.",
+    "ipa": "ɛl ɛ ne œ̃ vɛ̃t.nœf fe.vʁje",
+    "notes": "\"Née\" agrees with the feminine subject \"elle\", adding a silent final e.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.191",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le vol va décoller à minuit trente.",
+    "en": "The flight is going to take off at 12:30 AM.",
+    "ipa": "lə vɔl va de.kɔ.le a mi.nɥi tʁɑ̃t",
+    "notes": "\"Trente\" carries a nasal vowel in its first syllable, spelled en but sounding like an.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.192",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons visité le musée le lendemain matin.",
+    "en": "We visited the museum the next morning.",
+    "ipa": "nu.za.vɔ̃ vi.zi.te lə my.ze lə lɑ̃d.mɛ̃ ma.tɛ̃",
+    "notes": "\"Lendemain\" and \"matin\" both end in nasal vowels that are easy to under-spell.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.193",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils sont revenus deux jours plus tard.",
+    "en": "They came back two days later.",
+    "ipa": "il sɔ̃ ʁə.və.ny dø ʒuʁ ply taʁ",
+    "notes": "The final d in \"tard\" is always silent in normal speech.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.194",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle va passer son examen le vingt-trois mai.",
+    "en": "She is going to take her exam on May twenty-third.",
+    "ipa": "ɛl va pa.se sɔ̃.n‿ɛg.za.mɛ̃ lə vɛ̃t.tʁwa mɛ",
+    "notes": "\"Son\" liaises with the vowel start of \"examen\", producing an extra n sound.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.195",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons attendu jusqu'à onze heures du soir.",
+    "en": "We waited until eleven at night.",
+    "ipa": "nu.za.vɔ̃ a.tɑ̃.dy ʒys.ka ɔ̃z œʁ dy swaʁ",
+    "notes": "\"Onze\" is built on a single nasal vowel sound, not two separate syllables.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.196",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le magasin a ouvert ses portes à dix heures pile.",
+    "en": "The store opened its doors right at ten o'clock.",
+    "ipa": "lə ma.ga.zɛ̃ a u.vɛʁ se pɔʁt a di.zœʁ pil",
+    "notes": "The x of \"dix\" liaises into a z sound right before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.197",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a oublié le rendez-vous de quatorze heures.",
+    "en": "She forgot the two o'clock appointment.",
+    "ipa": "ɛl a u.bli.je lə ʁɑ̃.de.vu də ka.tɔʁ.zœʁ",
+    "notes": "The z in \"rendez\" is silent, the word ending sounds like \"ay\" not \"ez\".",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.198",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous allons dîner ensemble vendredi soir.",
+    "en": "We are going to have dinner together on Friday evening.",
+    "ipa": "nu.za.lɔ̃ di.ne ɑ̃.sɑ̃bl vɑ̃.dʁə.di swaʁ",
+    "notes": "\"Ensemble\" and \"vendredi\" both open with nasal vowels, listen closely before spelling.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.199",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils ont signé le contrat le neuf septembre.",
+    "en": "They signed the contract on September ninth.",
+    "ipa": "il.z‿ɔ̃ si.ɲe lə kɔ̃.tʁa lə nœf sɛp.tɑ̃bʁ",
+    "notes": "The final t in \"contrat\" is always silent in normal speech.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.200",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle est née à sept heures du matin.",
+    "en": "She was born at seven in the morning.",
+    "ipa": "ɛl ɛ ne a sɛ.tœʁ dy ma.tɛ̃",
+    "notes": "The p in \"sept\" is silent, and its t liaises before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.201",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons fini le projet avant la date limite.",
+    "en": "We finished the project before the deadline.",
+    "ipa": "nu.za.vɔ̃ fi.ni lə pʁɔ.ʒɛ a.vɑ̃ la dat li.mit",
+    "notes": "The final t in \"projet\" is always silent in normal speech.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.202",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le cours a été annulé le vingt-six avril.",
+    "en": "The class was cancelled on April twenty-sixth.",
+    "ipa": "lə kuʁ a e.te a.ny.le lə vɛ̃t.sis a.vʁil",
+    "notes": "\"Annulé\" is spelled with a double n, a common slip when writing from dictation.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.203",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle va commencer son nouveau poste le deux janvier.",
+    "en": "She is going to start her new position on January second.",
+    "ipa": "ɛl va kɔ.mɑ̃.se sɔ̃ nu.vo pɔst lə dø ʒɑ̃.vje",
+    "notes": "\"Janvier\" opens with a nasal vowel, don't confuse it with a plain a sound.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.204",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous sommes restés jusqu'à minuit et demi.",
+    "en": "We stayed until half past midnight.",
+    "ipa": "nu sɔm ʁɛs.te ʒys.ka mi.nɥi e də.mi",
+    "notes": "\"Restés\" takes a silent final s to agree with the plural subject \"nous\".",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.205",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils vont arriver vers dix-sept heures trente.",
+    "en": "They are going to arrive around 5:30 PM.",
+    "ipa": "il vɔ̃ a.ʁi.ve vɛʁ diz.sɛ.tœʁ tʁɑ̃t",
+    "notes": "The p in \"sept\" is silent, and its t liaises before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.206",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a pris rendez-vous pour le vingt et un mars.",
+    "en": "She made an appointment for March twenty-first.",
+    "ipa": "ɛl a pʁi ʁɑ̃.de.vu puʁ lə vɛ̃.t‿e œ̃ maʁs",
+    "notes": "In vingt et un, the t of vingt stays pronounced even though et normally blocks liaison.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.207",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons célébré son anniversaire le treize juin.",
+    "en": "We celebrated her birthday on June thirteenth.",
+    "ipa": "nu.za.vɔ̃ se.le.bʁe sɔ̃.n‿a.ni.vɛʁ.sɛʁ lə tʁɛz ʒɥɛ̃",
+    "notes": "\"Son\" liaises with the vowel start of \"anniversaire\", producing an extra n sound.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.208",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le musée ferme à dix-huit heures le dimanche.",
+    "en": "The museum closes at six PM on Sundays.",
+    "ipa": "lə my.ze fɛʁm a diz.ɥi.tœʁ lə di.mɑ̃ʃ",
+    "notes": "\"Dimanche\" ends in a nasal vowel followed by che, don't add a silent n before the ch.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.209",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle est arrivée avec une heure de retard.",
+    "en": "She arrived an hour late.",
+    "ipa": "ɛl ɛ.t‿a.ʁi.ve a.vɛk yn œʁ də ʁə.taʁ",
+    "notes": "\"Arrivée\" agrees with the feminine subject \"elle\", adding a silent final e.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.210",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons pris le petit-déjeuner à sept heures et demie.",
+    "en": "We had breakfast at half past seven.",
+    "ipa": "nu.za.vɔ̃ pʁi lə pə.ti de.ʒœ.ne a sɛ.tœʁ e də.mi",
+    "notes": "The p in \"sept\" is silent, and its t liaises before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.211",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils ont déménagé le premier avril.",
+    "en": "They moved on April first.",
+    "ipa": "il.z‿ɔ̃ de.me.na.ʒe lə pʁə.mje a.vʁil",
+    "notes": "Only the first of the month takes the ordinal \"premier\".",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.212",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle va se réveiller à six heures du matin.",
+    "en": "She is going to wake up at six in the morning.",
+    "ipa": "ɛl va sə ʁe.vɛ.je a si.zœʁ dy ma.tɛ̃",
+    "notes": "The x of \"six\" turns into a z sound before the vowel of \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.213",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons raté notre correspondance à onze heures.",
+    "en": "We missed our connection at eleven o'clock.",
+    "ipa": "nu.za.vɔ̃ ʁa.te nɔtʁ kɔ.ʁɛs.pɔ̃.dɑ̃s a ɔ̃z œʁ",
+    "notes": "\"Correspondance\" and \"onze\" both rely on nasal vowels, listen closely before spelling.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.214",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le bébé est né à minuit pile.",
+    "en": "The baby was born right at midnight.",
+    "ipa": "lə be.be ɛ ne a mi.nɥi pil",
+    "notes": "\"Né\" stays masculine to agree with \"le bébé\", no extra silent e is added.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.215",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a terminé ses études le trente juin.",
+    "en": "She finished her studies on June thirtieth.",
+    "ipa": "ɛl a tɛʁ.mi.ne se.z‿e.tyd lə tʁɑ̃t ʒɥɛ̃",
+    "notes": "\"Trente\" carries a nasal vowel spelled en but sounding like an.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.216",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous allons nous retrouver à midi devant la gare.",
+    "en": "We are going to meet up at noon in front of the station.",
+    "ipa": "nu.za.lɔ̃ nu ʁə.tʁu.ve a mi.di də.vɑ̃ la gaʁ",
+    "notes": "\"Devant\" ends in a nasal vowel, don't add a written n sound after it.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.217",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils sont nés le même jour, à une heure d'intervalle.",
+    "en": "They were born on the same day, an hour apart.",
+    "ipa": "il sɔ̃ ne lə mɛm ʒuʁ a yn œʁ dɛ̃.tɛʁ.val",
+    "notes": "\"Nés\" takes a silent final s to agree with the plural subject \"ils\".",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.218",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a acheté son billet de train pour le dix-neuf mai.",
+    "en": "She bought her train ticket for May nineteenth.",
+    "ipa": "ɛl a a.ʃə.te sɔ̃ bi.jɛ də tʁɛ̃ puʁ lə diz.nœf mɛ",
+    "notes": "The final t in \"billet\" is always silent in normal speech.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.219",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons discuté jusqu'à vingt-trois heures.",
+    "en": "We talked until eleven PM.",
+    "ipa": "nu.za.vɔ̃ dis.ky.te ʒys.ka vɛ̃t.tʁwa.zœʁ",
+    "notes": "The x of trois liaises into a z sound right before heures.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.220",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le magasin est resté fermé pendant deux semaines.",
+    "en": "The store stayed closed for two weeks.",
+    "ipa": "lə ma.ga.zɛ̃ ɛ ʁɛs.te fɛʁ.me pɑ̃.dɑ̃ dø sə.mɛn",
+    "notes": "\"Pendant\" is pronounced with a single nasal vowel repeated twice, not a separate n sound.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.221",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle va démissionner à la fin du mois.",
+    "en": "She is going to resign at the end of the month.",
+    "ipa": "ɛl va de.mi.sjɔ.ne a la fɛ̃ dy mwa",
+    "notes": "\"Fin\" ends in a nasal vowel, don't add a written n sound after it.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.222",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons eu notre premier cours le lundi vingt mars.",
+    "en": "We had our first class on Monday, March twentieth.",
+    "ipa": "nu.za.vɔ̃ y nɔtʁ pʁə.mje kuʁ lə lœ̃.di vɛ̃ maʁs",
+    "notes": "The t of \"vingt\" stays silent here because \"mars\" begins with a consonant.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.223",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils ont eu vingt-cinq ans le même jour.",
+    "en": "They turned twenty-five on the same day.",
+    "ipa": "il.z‿ɔ̃ y vɛ̃t.sɛ̃.k‿ɑ̃ lə mɛm ʒuʁ",
+    "notes": "The q of \"cinq\" liaises into a k sound right before \"ans\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.224",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle est partie à l'aéroport à cinq heures du matin.",
+    "en": "She left for the airport at five in the morning.",
+    "ipa": "ɛl ɛ paʁ.ti a la.e.ʁɔ.pɔʁ a sɛ̃.kœʁ dy ma.tɛ̃",
+    "notes": "\"Le\" elides to \"l'\" before the vowel sound of \"aéroport\".",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.225",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons pris nos vacances la dernière semaine d'août.",
+    "en": "We took our vacation the last week of August.",
+    "ipa": "nu.za.vɔ̃ pʁi no va.kɑ̃s la dɛʁ.njɛʁ sə.mɛn dut",
+    "notes": "\"De\" elides to \"d'\" before \"août\", where the initial vowel is pronounced.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.226",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le rendez-vous a été reporté au douze juillet.",
+    "en": "The appointment was postponed to July twelfth.",
+    "ipa": "lə ʁɑ̃.de.vu a e.te ʁə.pɔʁ.te o duz ʒɥi.jɛ",
+    "notes": "The z in \"rendez\" is silent, the word ending sounds like \"ay\" not \"ez\".",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.227",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a fêté ses trente ans en famille.",
+    "en": "She celebrated her thirtieth birthday with family.",
+    "ipa": "ɛl a fɛ.te se tʁɑ̃.tɑ̃ ɑ̃ fa.mij",
+    "notes": "The t of \"trente\" liaises before the vowel of \"ans\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.228",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous allons fêter Noël le vingt-cinq décembre comme toujours.",
+    "en": "We are going to celebrate Christmas on December twenty-fifth as always.",
+    "ipa": "nu.za.lɔ̃ fɛ.te nɔ.ɛl lə vɛ̃t.sɛ̃k de.sɑ̃bʁ kɔm tu.ʒuʁ",
+    "notes": "\"Décembre\" holds a nasal vowel right after the s sound.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.229",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils ont raté leur avion de dix heures et quart.",
+    "en": "They missed their ten fifteen flight.",
+    "ipa": "il.z‿ɔ̃ ʁa.te lœʁ a.vjɔ̃ də di.zœʁ e kaʁ",
+    "notes": "The x of \"dix\" liaises into a z sound right before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.230",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle va rentrer chez elle vers vingt-deux heures.",
+    "en": "She is going to go home around ten PM.",
+    "ipa": "ɛl va ʁɑ̃.tʁe ʃe zɛl vɛʁ vɛ̃t.dø.zœʁ",
+    "notes": "The x of \"deux\" liaises into a z sound right before \"heures\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.231",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons cours tous les jours sauf le mercredi.",
+    "en": "We have class every day except Wednesday.",
+    "ipa": "nu.za.vɔ̃ kuʁ tu le ʒuʁ sof lə mɛʁ.kʁə.di",
+    "notes": "The final s of \"tous\" is silent here because the next word starts with a consonant.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.232",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a envoyé le courrier avant midi.",
+    "en": "She sent the mail before noon.",
+    "ipa": "ɛl a ɑ̃.vwa.je lə ku.ʁje a.vɑ̃ mi.di",
+    "notes": "\"Envoyé\" and \"avant\" both open with nasal vowels.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.233",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous sommes partis en voyage le onze juillet.",
+    "en": "We left on our trip on July eleventh.",
+    "ipa": "nu sɔm paʁ.ti ɑ̃ vwa.jaʒ lə ɔ̃z ʒɥi.jɛ",
+    "notes": "\"Onze\" is built on a single nasal vowel sound, not two separate syllables.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.234",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils vont célébrer leurs retrouvailles le trente et un décembre.",
+    "en": "They are going to celebrate their reunion on December thirty-first.",
+    "ipa": "il vɔ̃ se.le.bʁe lœʁ ʁə.tʁu.vaj lə tʁɑ̃.t‿e œ̃ de.sɑ̃bʁ",
+    "notes": "The t of trente stays pronounced in this compound number despite et normally blocking liaison.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.235",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a pris sa retraite à soixante ans.",
+    "en": "She retired at sixty years old.",
+    "ipa": "ɛl a pʁi sa ʁə.tʁɛt a swa.sɑ̃.tɑ̃",
+    "notes": "The final t of \"soixante\" liaises before the vowel of \"ans\".",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.236",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons un cours supplémentaire le mardi après-midi.",
+    "en": "We have an extra class on Tuesday afternoon.",
+    "ipa": "nu.za.vɔ̃.z‿œ̃ kuʁ sy.ple.mɑ̃.tɛʁ lə maʁ.di a.pʁɛ mi.di",
+    "notes": "\"Supplémentaire\" carries a nasal vowel in its middle syllable.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.237",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle est née exactement à minuit.",
+    "en": "She was born exactly at midnight.",
+    "ipa": "ɛl ɛ ne ɛg.zak.tə.mɑ̃ a mi.nɥi",
+    "notes": "\"Née\" agrees with the feminine subject \"elle\", adding a silent final e.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.238",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons quitté la maison à sept heures moins le quart.",
+    "en": "We left the house at a quarter to seven.",
+    "ipa": "nu.za.vɔ̃ ki.te la mɛ.zɔ̃ a sɛ.tœʁ mwɛ̃ lə kaʁ",
+    "notes": "The p in sept is silent, and its t liaises before the vowel of heures.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.239",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils ont célébré leur mariage le quatorze février.",
+    "en": "They celebrated their wedding on February fourteenth.",
+    "ipa": "il.z‿ɔ̃ se.le.bʁe lœʁ ma.ʁjaʒ lə ka.tɔʁz fe.vʁje",
+    "notes": "\"Célébré\" repeats the accent é three times, easy to drop one when writing quickly.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.240",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle va avoir vingt-deux ans dans trois semaines.",
+    "en": "She is going to turn twenty-two in three weeks.",
+    "ipa": "ɛl va a.vwaʁ vɛ̃t.dø.z‿ɑ̃ dɑ̃ tʁwa sə.mɛn",
+    "notes": "The x of deux liaises into a z sound right before ans.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.241",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons noté la date du seize septembre.",
+    "en": "We noted the date of September sixteenth.",
+    "ipa": "nu.za.vɔ̃ nɔ.te la dat dy sɛz sɛp.tɑ̃bʁ",
+    "notes": "\"Septembre\" holds a nasal vowel right after the p sound.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.242",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le cours particulier commence à dix-huit heures trente.",
+    "en": "The private lesson starts at 6:30 PM.",
+    "ipa": "lə kuʁ paʁ.ti.ky.lje kɔ.mɑ̃s a diz.ɥi.tœʁ tʁɑ̃t",
+    "notes": "The t of huit is silent alone but liaises before the vowel of heures.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.243",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a annoncé son départ pour le vingt-huit août.",
+    "en": "She announced her departure for August twenty-eighth.",
+    "ipa": "ɛl a a.nɔ̃.se sɔ̃ de.paʁ puʁ lə vɛ̃t.ɥi.tut",
+    "notes": "\"Août\" starts with a vowel sound, so huit liaises directly into it.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.244",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous sommes allés au cinéma vers vingt et une heures.",
+    "en": "We went to the movies around nine PM.",
+    "ipa": "nu sɔm.z‿a.le o si.ne.ma vɛʁ vɛ̃.t‿e yn œʁ",
+    "notes": "\"Heure\" is feminine, so vingt et une heures uses une, not un.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.245",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils ont fixé la réunion au cinq mai.",
+    "en": "They set the meeting for May fifth.",
+    "ipa": "il.z‿ɔ̃ fik.se la ʁe.y.njɔ̃ o sɛ̃k mɛ",
+    "notes": "\"Cinq\" holds a nasal vowel sound that is easy to under-spell.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.246",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle va prendre sa retraite le premier janvier prochain.",
+    "en": "She is going to retire next January first.",
+    "ipa": "ɛl va pʁɑ̃dʁ sa ʁə.tʁɛt lə pʁə.mje ʒɑ̃.vje pʁɔ.ʃɛ̃",
+    "notes": "Only the first of the month takes the ordinal premier.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.247",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons dîné ensemble le soir de son anniversaire.",
+    "en": "We had dinner together on the evening of her birthday.",
+    "ipa": "nu.za.vɔ̃ di.ne ɑ̃.sɑ̃bl lə swaʁ də sɔ̃.n‿a.ni.vɛʁ.sɛʁ",
+    "notes": "\"Son\" liaises with the vowel start of anniversaire, producing an extra n sound.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.248",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle est revenue de vacances le vingt et un août.",
+    "en": "She came back from vacation on August twenty-first.",
+    "ipa": "ɛl ɛ ʁə.və.ny də va.kɑ̃s lə vɛ̃.t‿e u.tut",
+    "notes": "\"Revenue\" agrees with the feminine subject elle, adding a silent final e.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.249",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons acheté les billets pour le concert de neuf heures.",
+    "en": "We bought the tickets for the nine o'clock concert.",
+    "ipa": "nu.za.vɔ̃ a.ʃə.te le bi.jɛ puʁ lə kɔ̃.sɛʁ də nœ.vœʁ",
+    "notes": "\"Neuf\" shifts its final sound to v before the vowel of heures.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.250",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils sont restés éveillés jusqu'à deux heures du matin.",
+    "en": "They stayed awake until two in the morning.",
+    "ipa": "il sɔ̃ ʁɛs.te e.vɛ.je ʒys.ka dø.zœʁ dy ma.tɛ̃",
+    "notes": "The x of deux liaises into a z sound right before heures.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.251",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a signé le bail à partir du premier mars.",
+    "en": "She signed the lease starting March first.",
+    "ipa": "ɛl a si.ɲe lə baj a paʁ.tiʁ dy pʁə.mje maʁs",
+    "notes": "Only the first of the month takes the ordinal premier.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.252",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous allons nous marier le vingt-neuf juin prochain.",
+    "en": "We are going to get married next June twenty-ninth.",
+    "ipa": "nu.za.lɔ̃ nu ma.ʁje lə vɛ̃t.nœf ʒɥɛ̃ pʁɔ.ʃɛ̃",
+    "notes": "\"Prochain\" ends in a nasal vowel that is easy to under-spell.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.253",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils ont annulé le vol de treize heures.",
+    "en": "They cancelled the one PM flight.",
+    "ipa": "il.z‿ɔ̃ a.ny.le lə vɔl də tʁɛ.zœʁ",
+    "notes": "\"Treize\" already ends in a pronounced z, which links smoothly into heures.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.254",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle va avoir un entretien le trois octobre.",
+    "en": "She is going to have an interview on October third.",
+    "ipa": "ɛl va a.vwaʁ œ̃.n‿ɑ̃.tʁə.tjɛ̃ lə tʁwa ɔk.tɔbʁ",
+    "notes": "\"Entretien\" opens and closes with nasal vowels, easy to under-spell.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.255",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons pris le dernier train de la soirée.",
+    "en": "We took the last train of the evening.",
+    "ipa": "nu.za.vɔ̃ pʁi lə dɛʁ.nje tʁɛ̃ də la swa.ʁe",
+    "notes": "\"Dernier\" and \"train\" both carry nasal vowels close together.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.256",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle est née la même année que son frère.",
+    "en": "She was born the same year as her brother.",
+    "ipa": "ɛl ɛ ne la mɛm a.ne kə sɔ̃ fʁɛʁ",
+    "notes": "\"Née\" agrees with the feminine subject elle, adding a silent final e.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.257",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons noté que le cours commence à neuf heures dix.",
+    "en": "We noted that the class starts at 9:10.",
+    "ipa": "nu.za.vɔ̃ nɔ.te kə lə kuʁ kɔ.mɑ̃s a nœ.vœʁ dis",
+    "notes": "\"Neuf\" shifts its final sound to v before the vowel of heures.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.258",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Ils vont partir en retraite à soixante-cinq ans.",
+    "en": "They are going to retire at sixty-five.",
+    "ipa": "il vɔ̃ paʁ.tiʁ ɑ̃ ʁə.tʁɛt a swa.sɑ̃t.sɛ̃.kɑ̃",
+    "notes": "The q of cinq liaises into a k sound right before ans.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.259",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a payé le loyer avant le cinq du mois.",
+    "en": "She paid the rent before the fifth of the month.",
+    "ipa": "ɛl a pe.je lə lwa.je a.vɑ̃ lə sɛ̃k dy mwa",
+    "notes": "\"Cinq\" holds a nasal vowel sound that is easy to under-spell.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.260",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous avons attendu toute la matinée sans nouvelles.",
+    "en": "We waited all morning without news.",
+    "ipa": "nu.za.vɔ̃ a.tɑ̃.dy tut la ma.ti.ne sɑ̃ nu.vɛl",
+    "notes": "\"Matinée\" and \"sans\" both rely on nasal vowels that are easy to under-spell.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.261",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Le vol a atterri à vingt-trois heures cinquante.",
+    "en": "The flight landed at 11:50 PM.",
+    "ipa": "lə vɔl a a.tɛ.ʁi a vɛ̃t.tʁwa.zœʁ sɛ̃.kɑ̃t",
+    "notes": "The x of trois liaises into a z sound right before heures.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.262",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Elle a commencé ses cours de piano à cinq ans.",
+    "en": "She started her piano lessons at age five.",
+    "ipa": "ɛl a kɔ.mɑ̃.se se kuʁ də pja.no a sɛ̃.kɑ̃",
+    "notes": "The q of cinq liaises into a k sound right before ans.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.heure-et-date.263",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "heure-et-date",
+    "fr": "Nous allons célébrer nos dix ans de mariage le vingt avril.",
+    "en": "We are going to celebrate our tenth wedding anniversary on April twentieth.",
+    "ipa": "nu.za.lɔ̃ se.le.bʁe no di.z‿ɑ̃ də ma.ʁjaʒ lə vɛ̃.t‿a.vʁil",
+    "notes": "The x of dix liaises into a z sound right before ans.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  }
+]

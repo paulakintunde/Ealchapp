@@ -1,0 +1,1196 @@
+{
+  "stage": "6.5",
+  "world": 6,
+  "level": "c1",
+  "title": "L'Étoile de l'Examen",
+  "themes": [
+    "discours-dexamen"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 165,
+  "dedupedPool": 165,
+  "selected": 165,
+  "blockCount": 5,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.c1.discours-dexamen.043",
+          "theme": "discours-dexamen",
+          "fr": "Le moment est venu de dresser le bilan.",
+          "en": "The time has come to take stock.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.discours-dexamen.031",
+          "theme": "discours-dexamen",
+          "fr": "Je clos mon intervention sur une note optimiste.",
+          "en": "I close my talk on an optimistic note.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.discours-dexamen.068",
+          "theme": "discours-dexamen",
+          "fr": "Commençons par examiner les origines de ce phénomène.",
+          "en": "Let us begin by examining the origins of this phenomenon.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.discours-dexamen.067",
+          "theme": "discours-dexamen",
+          "fr": "Clarifions dès maintenant ce que recouvre cette expression.",
+          "en": "Let us clarify right away what this expression actually covers.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.discours-dexamen.066",
+          "theme": "discours-dexamen",
+          "fr": "J'en viens à présent au cœur du sujet.",
+          "en": "I now come to the heart of the subject.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.discours-dexamen.033",
+          "theme": "discours-dexamen",
+          "fr": "En dernier ressort, c'est au citoyen de trancher.",
+          "en": "As a last resort, it is up to the citizen to decide.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.discours-dexamen.074",
+          "theme": "discours-dexamen",
+          "fr": "Ce point étant posé, passons à la question centrale.",
+          "en": "With that point established, let us move on to the central question.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.discours-dexamen.065",
+          "theme": "discours-dexamen",
+          "fr": "Mon exposé s'articulera autour de trois axes principaux.",
+          "en": "My presentation will be organized around three main lines.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.discours-dexamen.014",
+          "theme": "discours-dexamen",
+          "fr": "Récapitulons brièvement les trois axes que j'ai développés.",
+          "en": "Let us briefly recap the three main points I have developed.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.discours-dexamen.069",
+          "theme": "discours-dexamen",
+          "fr": "Cette question mérite d'être abordée sous plusieurs angles.",
+          "en": "This question deserves to be approached from several angles.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.discours-dexamen.158",
+          "theme": "discours-dexamen",
+          "fr": "Il serait injuste d'accabler uniquement les pouvoirs publics.",
+          "en": "It would be unfair to blame the public authorities alone.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.discours-dexamen.075",
+          "theme": "discours-dexamen",
+          "fr": "Il convient d'abord de délimiter le champ du débat.",
+          "en": "We should first define the boundaries of the debate.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.discours-dexamen.072",
+          "theme": "discours-dexamen",
+          "fr": "Venons-en à présent au deuxième axe de ma réflexion.",
+          "en": "Let us now come to the second focus of my analysis.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.discours-dexamen.010",
+          "theme": "discours-dexamen",
+          "fr": "Pour clore mon propos, je soulignerai l'urgence d'agir.",
+          "en": "To close my remarks, I will stress the urgency of taking action.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.discours-dexamen.139",
+          "theme": "discours-dexamen",
+          "fr": "Preuve en est, trois provinces ont déjà emboîté le pas.",
+          "en": "The proof is that three provinces have already followed suit.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.discours-dexamen.064",
+          "theme": "discours-dexamen",
+          "fr": "Permettez-moi tout d'abord de situer brièvement le sujet.",
+          "en": "Allow me first of all to briefly set out the topic.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.discours-dexamen.071",
+          "theme": "discours-dexamen",
+          "fr": "Dans un premier temps, j'examinerai les causes du problème.",
+          "en": "First of all, I will examine the causes of the problem.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.discours-dexamen.153",
+          "theme": "discours-dexamen",
+          "fr": "Regardons l'Ontario, où le même programme a pourtant échoué.",
+          "en": "Look at Ontario, where the very same program nonetheless failed.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.discours-dexamen.073",
+          "theme": "discours-dexamen",
+          "fr": "Pour ouvrir cette réflexion, partons d'un constat très simple.",
+          "en": "To open this discussion, let us start from a very simple observation.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.discours-dexamen.079",
+          "theme": "discours-dexamen",
+          "fr": "Après avoir posé le décor, examinons les enjeux économiques concrets.",
+          "en": "Having set the scene, let us examine the concrete economic stakes.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.discours-dexamen.076",
+          "theme": "discours-dexamen",
+          "fr": "Je commencerai par rappeler le contexte général de cette problématique.",
+          "en": "I will begin by recalling the general context of this issue.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.discours-dexamen.078",
+          "theme": "discours-dexamen",
+          "fr": "Avant d'entrer dans le vif du sujet, précisons quelques notions.",
+          "en": "Before getting to the heart of the matter, let us clarify a few notions.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.discours-dexamen.077",
+          "theme": "discours-dexamen",
+          "fr": "Force est de constater que ce sujet divise profondément l'opinion.",
+          "en": "One cannot help but note that this topic deeply divides public opinion.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.discours-dexamen.001",
+          "theme": "discours-dexamen",
+          "fr": "En somme, chaque argument avancé confirme la même tendance de fond.",
+          "en": "In short, every argument put forward confirms the same underlying trend.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.discours-dexamen.080",
+          "theme": "discours-dexamen",
+          "fr": "Deux grandes lignes de force structureront l'ensemble de mon propos.",
+          "en": "Two major guiding lines will structure the whole of my talk.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.discours-dexamen.070",
+          "theme": "discours-dexamen",
+          "fr": "Permettez-moi d'aborder maintenant le second volet de mon argumentation.",
+          "en": "Allow me now to address the second part of my argument.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.discours-dexamen.083",
+          "theme": "discours-dexamen",
+          "fr": "Avant de développer mes arguments, je souhaite clarifier ma position générale.",
+          "en": "Before developing my arguments, I wish to clarify my overall position.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.discours-dexamen.149",
+          "theme": "discours-dexamen",
+          "fr": "Cette réussite repose, précisons-le, sur un contexte économique très particulier.",
+          "en": "This success rests, let us be clear, on a very particular economic context.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.discours-dexamen.084",
+          "theme": "discours-dexamen",
+          "fr": "Le sujet proposé soulève une interrogation majeure pour nos sociétés contemporaines.",
+          "en": "The proposed topic raises a major question for our contemporary societies.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.discours-dexamen.035",
+          "theme": "discours-dexamen",
+          "fr": "Au terme de ce tour d'horizon, je retiens deux idées majeures.",
+          "en": "At the end of this overview, I retain two major ideas.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.091",
+          "theme": "discours-dexamen",
+          "fr": "Commençons, si vous le voulez bien, par un rapide état des lieux.",
+          "en": "Let us begin, if you will, with a quick overview of the situation.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.164",
+          "theme": "discours-dexamen",
+          "fr": "Toute médaille a son revers, et cette réforme ne fait pas exception.",
+          "en": "Every coin has two sides, and this reform is no exception.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.012",
+          "theme": "discours-dexamen",
+          "fr": "En dernière analyse, c'est la volonté politique qui fera la différence.",
+          "en": "In the final analysis, it is political will that will make the difference.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.c1.discours-dexamen.039",
+          "theme": "discours-dexamen",
+          "fr": "Telle est, en substance, la conclusion à laquelle mon analyse me conduit.",
+          "en": "That is, in essence, the conclusion to which my analysis leads me.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.081",
+          "theme": "discours-dexamen",
+          "fr": "J'aimerais ouvrir cette présentation par une question qui dérange un peu.",
+          "en": "I would like to open this presentation with a somewhat uncomfortable question.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.089",
+          "theme": "discours-dexamen",
+          "fr": "Il me semble utile, à ce stade, de rappeler quelques chiffres éclairants.",
+          "en": "It seems useful to me, at this stage, to recall a few revealing figures.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.085",
+          "theme": "discours-dexamen",
+          "fr": "Cela m'amène tout naturellement à considérer le second aspect du problème.",
+          "en": "That naturally leads me to consider the second aspect of the problem.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.090",
+          "theme": "discours-dexamen",
+          "fr": "Mon intervention suivra un plan très simple, des causes aux remèdes possibles.",
+          "en": "My talk will follow a very simple plan, from causes to possible remedies.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.022",
+          "theme": "discours-dexamen",
+          "fr": "Le bilan est donc contrasté, entre progrès indéniables et promesses non tenues.",
+          "en": "The overall picture is therefore mixed, between undeniable progress and unkept promises.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.050",
+          "theme": "discours-dexamen",
+          "fr": "Reste une interrogation en suspens, que je laisse volontiers à votre réflexion.",
+          "en": "One question remains unresolved, which I gladly leave for you to ponder.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.082",
+          "theme": "discours-dexamen",
+          "fr": "Dans un second temps, j'analyserai les conséquences sociales de cette évolution.",
+          "en": "In a second phase, I will analyze the social consequences of this development.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.002",
+          "theme": "discours-dexamen",
+          "fr": "Pour conclure, je plaide clairement en faveur d'une transition écologique ambitieuse.",
+          "en": "To conclude, I clearly argue in favour of an ambitious ecological transition.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.142",
+          "theme": "discours-dexamen",
+          "fr": "Certes, les chiffres semblent encourageants, mais ils masquent de fortes disparités régionales.",
+          "en": "Granted, the figures look encouraging, but they mask major regional disparities.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.discours-dexamen.086",
+          "theme": "discours-dexamen",
+          "fr": "Pour bien cerner la question, il faut d'abord en mesurer l'ampleur.",
+          "en": "To properly grasp the question, we must first measure its scale.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.045",
+          "theme": "discours-dexamen",
+          "fr": "Ainsi s'achève mon exposé, mais le débat, lui, ne fait que commencer.",
+          "en": "Thus ends my presentation, but the debate itself is only beginning.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.036",
+          "theme": "discours-dexamen",
+          "fr": "Finalement, la question reste ouverte, et c'est peut-être là sa richesse.",
+          "en": "In the end, the question remains open, and perhaps that is its richness.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.026",
+          "theme": "discours-dexamen",
+          "fr": "Arrivé au terme de mon exposé, je mesure combien la question est complexe.",
+          "en": "Having reached the end of my presentation, I realize just how complex the question is.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.138",
+          "theme": "discours-dexamen",
+          "fr": "Il n'en demeure pas moins que cette mesure comporte des limites évidentes.",
+          "en": "The fact remains that this measure has obvious limitations.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.132",
+          "theme": "discours-dexamen",
+          "fr": "Il serait réducteur de voir dans ce phénomène une simple question d'argent.",
+          "en": "It would be simplistic to see this phenomenon as merely a question of money.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.051",
+          "theme": "discours-dexamen",
+          "fr": "En guise de conclusion, j'insisterai sur la dimension humaine de ce dossier.",
+          "en": "By way of conclusion, I will insist on the human dimension of this issue.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.032",
+          "theme": "discours-dexamen",
+          "fr": "Cette réflexion débouche sur un constat simple, nous avons les moyens d'agir.",
+          "en": "This reflection leads to a simple observation, we have the means to act.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.004",
+          "theme": "discours-dexamen",
+          "fr": "Force est de constater, en refermant ce dossier, que les avis restent partagés.",
+          "en": "It must be acknowledged, as we close this file, that opinions remain divided.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.087",
+          "theme": "discours-dexamen",
+          "fr": "Je compte structurer ma réponse en deux parties, suivies d'une brève ouverture.",
+          "en": "I intend to structure my answer in two parts, followed by a brief broader perspective.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.136",
+          "theme": "discours-dexamen",
+          "fr": "Cela étant dit, il faut reconnaître que des progrès notables ont été accomplis.",
+          "en": "That being said, we must acknowledge that notable progress has been made.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.011",
+          "theme": "discours-dexamen",
+          "fr": "Qu'il me soit permis de conclure en citant un chiffre particulièrement éloquent.",
+          "en": "Allow me to conclude by quoting a particularly telling figure.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.058",
+          "theme": "discours-dexamen",
+          "fr": "Permettez-moi, pour finir, de replacer ce débat dans une perspective plus large.",
+          "en": "Allow me, to finish, to place this debate in a broader perspective.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.042",
+          "theme": "discours-dexamen",
+          "fr": "Chacun de ces constats plaide en faveur d'une politique familiale plus généreuse.",
+          "en": "Each of these observations argues for a more generous family policy.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.131",
+          "theme": "discours-dexamen",
+          "fr": "Loin de moi l'idée de généraliser, chaque situation mérite un examen particulier.",
+          "en": "Far be it from me to generalize, each situation deserves to be looked at on its own.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.037",
+          "theme": "discours-dexamen",
+          "fr": "J'espère avoir démontré que la lecture demeure un rempart contre la désinformation.",
+          "en": "I hope I have shown that reading remains a bulwark against misinformation.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.152",
+          "theme": "discours-dexamen",
+          "fr": "Il importe néanmoins de distinguer les causes profondes des simples effets de mode.",
+          "en": "It is nevertheless important to distinguish deep causes from mere passing trends.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.054",
+          "theme": "discours-dexamen",
+          "fr": "Je conclurai par une question, sommes-nous prêts à assumer collectivement ce choix ?",
+          "en": "I will conclude with a question, are we ready to take on this choice collectively?",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.129",
+          "theme": "discours-dexamen",
+          "fr": "Prenons l'exemple du Québec, où cette politique a produit des résultats remarquables.",
+          "en": "Take the example of Quebec, where this policy has produced remarkable results.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.154",
+          "theme": "discours-dexamen",
+          "fr": "Sans vouloir noircir le tableau, les indicateurs sociaux se dégradent depuis dix ans.",
+          "en": "Without wanting to paint too dark a picture, social indicators have been worsening for ten years.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.048",
+          "theme": "discours-dexamen",
+          "fr": "La synthèse de ces différents points fait apparaître un besoin criant de coordination.",
+          "en": "The synthesis of these various points reveals a glaring need for coordination.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.094",
+          "theme": "discours-dexamen",
+          "fr": "Le premier axe de ma réflexion portera sur les répercussions économiques du phénomène.",
+          "en": "The first focus of my analysis will be the economic repercussions of the phenomenon.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.130",
+          "theme": "discours-dexamen",
+          "fr": "Certes, le télétravail offre une grande souplesse, mais il isole parfois les employés.",
+          "en": "Admittedly, working from home offers great flexibility, but it sometimes isolates employees.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.c1.discours-dexamen.141",
+          "theme": "discours-dexamen",
+          "fr": "Un exemple concret suffira, ma voisine attend une chirurgie depuis maintenant deux ans.",
+          "en": "One concrete example will suffice, my neighbour has now been waiting two years for surgery.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.052",
+          "theme": "discours-dexamen",
+          "fr": "Pour synthétiser, trois leviers se dessinent, l'éducation, la fiscalité et l'innovation.",
+          "en": "To summarize, three levers emerge, education, taxation and innovation.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.143",
+          "theme": "discours-dexamen",
+          "fr": "Je pense notamment aux travailleurs saisonniers, souvent oubliés dans ce genre de débat.",
+          "en": "I am thinking in particular of seasonal workers, who are often forgotten in this kind of debate.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.055",
+          "theme": "discours-dexamen",
+          "fr": "De cette comparaison, il se dégage un enseignement précieux pour nos politiques publiques.",
+          "en": "From this comparison emerges a valuable lesson for our public policies.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.162",
+          "theme": "discours-dexamen",
+          "fr": "Pensons aux aînés en région éloignée, pour qui ces services restent largement inaccessibles.",
+          "en": "Think of seniors in remote areas, for whom these services remain largely out of reach.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.155",
+          "theme": "discours-dexamen",
+          "fr": "Cette solution, aussi séduisante soit-elle, se heurte à des obstacles financiers considérables.",
+          "en": "This solution, however appealing it may be, runs up against considerable financial obstacles.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.096",
+          "theme": "discours-dexamen",
+          "fr": "Cette première observation nous conduit directement au deuxième point que je souhaite développer.",
+          "en": "This first observation leads us directly to the second point I wish to develop.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.discours-dexamen.029",
+          "theme": "discours-dexamen",
+          "fr": "Il me reste à conclure, et je le ferai en trois phrases très courtes.",
+          "en": "It remains for me to conclude, and I will do so in three very short sentences.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.009",
+          "theme": "discours-dexamen",
+          "fr": "Somme toute, ce débat mérite d'être poursuivi bien au delà de cet exposé.",
+          "en": "All in all, this debate deserves to continue well beyond this presentation.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.015",
+          "theme": "discours-dexamen",
+          "fr": "Si l'on dresse le bilan, les avancées l'emportent nettement sur les reculs.",
+          "en": "If we take stock, the advances clearly outweigh the setbacks.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.165",
+          "theme": "discours-dexamen",
+          "fr": "Mon expérience de bénévole m'a montré à quel point ces besoins sont criants.",
+          "en": "My experience as a volunteer showed me just how urgent these needs are.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.151",
+          "theme": "discours-dexamen",
+          "fr": "Le cas de ma propre famille illustre bien cette difficulté d'accès aux soins.",
+          "en": "My own family's case clearly illustrates this difficulty in accessing care.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.144",
+          "theme": "discours-dexamen",
+          "fr": "Il faut cependant se garder d'idéaliser un modèle qui montre déjà ses failles.",
+          "en": "We must be careful, however, not to idealize a model that is already showing its flaws.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.016",
+          "theme": "discours-dexamen",
+          "fr": "À la lumière de ce qui précède, une réforme en profondeur me semble inévitable.",
+          "en": "In light of the foregoing, a deep reform seems inevitable to me.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.092",
+          "theme": "discours-dexamen",
+          "fr": "J'en viens à présent à la dimension culturelle, souvent négligée dans ce débat.",
+          "en": "I now come to the cultural dimension, often overlooked in this debate.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.030",
+          "theme": "discours-dexamen",
+          "fr": "Avant de conclure, permettez-moi de rappeler le point de départ de ma réflexion.",
+          "en": "Before concluding, allow me to recall the starting point of my reflection.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.161",
+          "theme": "discours-dexamen",
+          "fr": "Cette statistique, je le concède, ne dit rien des réalités vécues sur le terrain.",
+          "en": "This statistic, I concede, says nothing about the realities experienced on the ground.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.017",
+          "theme": "discours-dexamen",
+          "fr": "En un mot, protéger le français au travail, c'est protéger notre cohésion sociale.",
+          "en": "In a word, protecting French in the workplace means protecting our social cohesion.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.028",
+          "theme": "discours-dexamen",
+          "fr": "Tout compte fait, je reste convaincu que le dialogue vaut mieux que la contrainte.",
+          "en": "All things considered, I remain convinced that dialogue is better than coercion.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.099",
+          "theme": "discours-dexamen",
+          "fr": "Dans un premier temps, je montrerai que cette tendance répond à des besoins réels.",
+          "en": "First, I will show that this trend responds to real needs.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.027",
+          "theme": "discours-dexamen",
+          "fr": "Que retenir de tout cela, sinon que le changement commence par des gestes modestes.",
+          "en": "What should we take from all this, if not that change begins with modest actions.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.128",
+          "theme": "discours-dexamen",
+          "fr": "Il convient toutefois de nuancer ce constat, car la réalité est bien plus complexe.",
+          "en": "That said, this observation needs some qualifying, because the reality is far more complex.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.134",
+          "theme": "discours-dexamen",
+          "fr": "Gardons-nous cependant de tirer des conclusions hâtives à partir d'un seul sondage.",
+          "en": "Let us be careful, however, not to draw hasty conclusions from a single poll.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.137",
+          "theme": "discours-dexamen",
+          "fr": "Songeons par exemple aux familles qui consacrent la moitié de leur revenu au loyer.",
+          "en": "Think, for example, of families who spend half their income on rent.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.163",
+          "theme": "discours-dexamen",
+          "fr": "Le succès des coopératives d'habitation montre bien qu'une autre voie est possible.",
+          "en": "The success of housing co-operatives clearly shows that another path is possible.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.057",
+          "theme": "discours-dexamen",
+          "fr": "Tout converge donc vers la même exigence, remettre l'humain au centre des décisions.",
+          "en": "Everything therefore points to the same requirement, putting people back at the centre of decisions.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.095",
+          "theme": "discours-dexamen",
+          "fr": "Encore faut-il, avant de trancher, bien comprendre comment nous en sommes arrivés là.",
+          "en": "Still, before deciding, we really need to understand how we got here.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.140",
+          "theme": "discours-dexamen",
+          "fr": "Nuançons toutefois, cette tendance ne touche pas toutes les régions de la même façon.",
+          "en": "Let us qualify that, however, this trend does not affect every region in the same way.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.020",
+          "theme": "discours-dexamen",
+          "fr": "Au vu de l'ensemble des arguments avancés, ma position reste favorable, mais prudente.",
+          "en": "Given all the arguments presented, my position remains favourable, but cautious.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.038",
+          "theme": "discours-dexamen",
+          "fr": "Vous l'aurez compris, je défends une approche progressive plutôt qu'une rupture brutale.",
+          "en": "As you will have understood, I favour a gradual approach rather than an abrupt break.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.019",
+          "theme": "discours-dexamen",
+          "fr": "Je voudrais achever mon intervention en soulignant la responsabilité de chacun d'entre nous.",
+          "en": "I would like to end my talk by underlining the responsibility each of us carries.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.135",
+          "theme": "discours-dexamen",
+          "fr": "En témoigne la récente pénurie de logements qui frappe toutes les grandes villes canadiennes.",
+          "en": "The recent housing shortage hitting every major Canadian city is proof of this.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.146",
+          "theme": "discours-dexamen",
+          "fr": "Toutefois, cette affirmation mérite d'être relativisée au regard des données les plus récentes.",
+          "en": "However, this claim needs to be put into perspective in light of the most recent data.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.c1.discours-dexamen.013",
+          "theme": "discours-dexamen",
+          "fr": "Tout cela nous amène à conclure que la prévention reste notre meilleur investissement collectif.",
+          "en": "All of this leads us to conclude that prevention remains our best collective investment.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.024",
+          "theme": "discours-dexamen",
+          "fr": "Ces éléments convergent vers une même conclusion, il faut repenser notre modèle de consommation.",
+          "en": "These elements converge on a single conclusion, we must rethink our consumption model.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.104",
+          "theme": "discours-dexamen",
+          "fr": "Ce constat initial étant partagé, voyons maintenant comment le problème se manifeste au quotidien.",
+          "en": "With this initial observation shared, let us now see how the problem shows up in daily life.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.005",
+          "theme": "discours-dexamen",
+          "fr": "Tout bien considéré, les bénéfices du bilinguisme dépassent largement les contraintes qu'il impose.",
+          "en": "All things considered, the benefits of bilingualism far outweigh the constraints it imposes.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.discours-dexamen.060",
+          "theme": "discours-dexamen",
+          "fr": "Après avoir pesé le pour et le contre, je me range du côté des optimistes.",
+          "en": "After weighing the pros and cons, I side with the optimists.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.088",
+          "theme": "discours-dexamen",
+          "fr": "Le thème qui nous réunit aujourd'hui mérite qu'on s'y attarde avec rigueur.",
+          "en": "The theme that brings us together today deserves rigorous and careful attention.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.101",
+          "theme": "discours-dexamen",
+          "fr": "Force est de constater que le débat public s'est durci autour de cet enjeu.",
+          "en": "One cannot help but note that public debate has hardened around this issue.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.021",
+          "theme": "discours-dexamen",
+          "fr": "De tout cela se dégage une conviction, l'école doit redevenir un lieu d'égalité.",
+          "en": "From all of this emerges one conviction, school must once again become a place of equality.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.049",
+          "theme": "discours-dexamen",
+          "fr": "Je vous remercie de votre attention et me tiens prêt à répondre à vos questions.",
+          "en": "I thank you for your attention and stand ready to answer your questions.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.159",
+          "theme": "discours-dexamen",
+          "fr": "Prenons un cas précis, celui d'une mère seule qui cherche une place en garderie.",
+          "en": "Let us take a specific case, that of a single mother looking for a daycare spot.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.097",
+          "theme": "discours-dexamen",
+          "fr": "Pour introduire mon propos, je partirai d'un chiffre récent qui parle de lui-même.",
+          "en": "To introduce my talk, I will start from a recent figure that speaks for itself.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.145",
+          "theme": "discours-dexamen",
+          "fr": "Considérons le cas de Vancouver, où le prix moyen d'une maison dépasse le million.",
+          "en": "Consider the case of Vancouver, where the average price of a house exceeds a million.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.098",
+          "theme": "discours-dexamen",
+          "fr": "Il me paraît essentiel de distinguer d'emblée deux réalités que l'on confond souvent.",
+          "en": "It seems essential to me to distinguish from the outset two realities that are often confused.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.018",
+          "theme": "discours-dexamen",
+          "fr": "L'essentiel à retenir, selon moi, tient en une idée, l'équilibre avant la performance.",
+          "en": "The key takeaway, in my view, comes down to one idea, balance before performance.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.044",
+          "theme": "discours-dexamen",
+          "fr": "Cela m'amène tout naturellement à ma conclusion, que je formulerai en une seule phrase.",
+          "en": "This brings me quite naturally to my conclusion, which I will state in a single sentence.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.025",
+          "theme": "discours-dexamen",
+          "fr": "Pour ne pas allonger inutilement mon propos, je m'en tiendrai à cette dernière remarque.",
+          "en": "So as not to drag out my remarks unnecessarily, I will limit myself to this final comment.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.133",
+          "theme": "discours-dexamen",
+          "fr": "Pour illustrer mon propos, je citerai le cas des infirmières venues s'installer au Manitoba.",
+          "en": "To illustrate my point, I will cite the case of the nurses who settled in Manitoba.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.147",
+          "theme": "discours-dexamen",
+          "fr": "À titre d'illustration, rappelons que le tiers des diplômés quittent la province chaque année.",
+          "en": "By way of illustration, let us recall that a third of graduates leave the province every year.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.148",
+          "theme": "discours-dexamen",
+          "fr": "Bien entendu, tout n'est pas noir dans ce tableau, certaines initiatives portent leurs fruits.",
+          "en": "Of course, the picture is not all bleak, some initiatives are bearing fruit.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.093",
+          "theme": "discours-dexamen",
+          "fr": "Si vous le permettez, j'aborderai cette question en partant d'une expérience personnelle récente.",
+          "en": "If you will allow me, I will approach this question through a recent personal experience.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.006",
+          "theme": "discours-dexamen",
+          "fr": "Je terminerai en rappelant que l'immigration demeure un moteur essentiel de l'économie canadienne.",
+          "en": "I will finish by recalling that immigration remains an essential driver of the Canadian economy.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.103",
+          "theme": "discours-dexamen",
+          "fr": "Mon deuxième axe portera sur les leviers concrets dont disposent aujourd'hui les pouvoirs publics.",
+          "en": "My second focus will be the concrete levers available to public authorities today.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.160",
+          "theme": "discours-dexamen",
+          "fr": "Assurément, la technologie facilite nos échanges, encore faut-il savoir s'en servir avec discernement.",
+          "en": "Certainly, technology makes communication easier, but we still need to use it wisely.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.100",
+          "theme": "discours-dexamen",
+          "fr": "Je vous propose d'examiner successivement les causes, puis les effets, de cette transformation profonde.",
+          "en": "I suggest we examine in turn the causes, then the effects, of this profound transformation.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.discours-dexamen.003",
+          "theme": "discours-dexamen",
+          "fr": "Au terme de cette réflexion, un constat s'impose, le statu quo n'est plus tenable.",
+          "en": "At the end of this reflection, one observation stands out, the status quo is no longer tenable.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.157",
+          "theme": "discours-dexamen",
+          "fr": "L'actualité nous en fournit un exemple frappant avec les feux de forêt de cet été.",
+          "en": "Current events give us a striking example of this with this summer's forest fires.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.034",
+          "theme": "discours-dexamen",
+          "fr": "Ma conclusion s'impose d'elle-même, investir dans la jeunesse n'est jamais une dépense.",
+          "en": "My conclusion speaks for itself, investing in youth is never an expense.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.056",
+          "theme": "discours-dexamen",
+          "fr": "En refermant cette réflexion, je garde le sentiment qu'un consensus est à portée de main.",
+          "en": "As I close this reflection, I am left with the feeling that a consensus is within reach.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.109",
+          "theme": "discours-dexamen",
+          "fr": "Ayant exposé le contexte, je vais maintenant m'attarder sur le point qui me paraît décisif.",
+          "en": "Having laid out the context, I will now dwell on the point that seems decisive to me.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.061",
+          "theme": "discours-dexamen",
+          "fr": "Ce panorama, aussi rapide soit-il, suffit à démontrer l'ampleur du chantier qui nous attend.",
+          "en": "This overview, brief as it is, is enough to show the scale of the work ahead of us.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.108",
+          "theme": "discours-dexamen",
+          "fr": "Le sujet que vous me proposez m'invite à interroger notre rapport collectif à la technologie.",
+          "en": "The topic you are giving me invites me to question our collective relationship with technology.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.110",
+          "theme": "discours-dexamen",
+          "fr": "D'entrée de jeu, je tiens à souligner que cette question dépasse largement le cadre national.",
+          "en": "From the outset, I want to stress that this question goes well beyond the national context.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.156",
+          "theme": "discours-dexamen",
+          "fr": "J'ajouterais une réserve importante, tous les ménages ne disposent pas d'un accès à Internet.",
+          "en": "I would add one important caveat, not every household has access to the Internet.",
+          "words": 16
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.c1.discours-dexamen.041",
+          "theme": "discours-dexamen",
+          "fr": "Il en résulte que la responsabilité est partagée entre l'État, les entreprises et les citoyens.",
+          "en": "It follows that responsibility is shared between the state, businesses and citizens.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.040",
+          "theme": "discours-dexamen",
+          "fr": "Voilà pourquoi je plaide, en dernière instance, pour un encadrement strict des écrans à l'école.",
+          "en": "That is why I argue, in the last instance, for strict rules on screens at school.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.023",
+          "theme": "discours-dexamen",
+          "fr": "On retiendra surtout que les solutions existent, encore faut-il avoir le courage de les appliquer.",
+          "en": "Above all, we will remember that solutions exist, we still need the courage to apply them.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.105",
+          "theme": "discours-dexamen",
+          "fr": "La problématique se pose en ces termes, faut-il encadrer davantage ou faire confiance aux usagers.",
+          "en": "The issue comes down to this, should we regulate more or trust users.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.046",
+          "theme": "discours-dexamen",
+          "fr": "En rassemblant les fils de mon argumentation, une évidence apparaît, rien ne se fera sans concertation.",
+          "en": "Pulling together the threads of my argument, one thing becomes obvious, nothing will happen without consultation.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.114",
+          "theme": "discours-dexamen",
+          "fr": "La question posée peut sembler technique, mais elle engage en réalité des choix de société fondamentaux.",
+          "en": "The question posed may seem technical, but it actually involves fundamental choices about society.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.discours-dexamen.106",
+          "theme": "discours-dexamen",
+          "fr": "Avant d'entrer dans le détail, je tiens à préciser d'où je parle sur ce sujet.",
+          "en": "Before going into detail, I want to explain where I am coming from on this subject.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.discours-dexamen.150",
+          "theme": "discours-dexamen",
+          "fr": "On pourrait m'objecter que les jeunes s'adaptent plus vite, et c'est vrai en partie.",
+          "en": "One could object that young people adapt faster, and that is partly true.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.discours-dexamen.053",
+          "theme": "discours-dexamen",
+          "fr": "Au final, ce n'est pas la technologie qui nous menace, mais notre passivité face à elle.",
+          "en": "In the end, it is not technology that threatens us, but our passivity in the face of it.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.discours-dexamen.047",
+          "theme": "discours-dexamen",
+          "fr": "Si je devais résumer mon propos en une phrase, je dirais que tout repose sur la confiance.",
+          "en": "If I had to sum up my remarks in one sentence, I would say that everything rests on trust.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.discours-dexamen.007",
+          "theme": "discours-dexamen",
+          "fr": "Il ressort de cette analyse que la formation continue n'est plus un luxe mais une nécessité.",
+          "en": "It emerges from this analysis that continuing education is no longer a luxury but a necessity.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.discours-dexamen.059",
+          "theme": "discours-dexamen",
+          "fr": "L'heure est venue de trancher, et mon choix, vous l'avez compris, penche vers la solidarité.",
+          "en": "The time has come to decide, and my choice, as you have understood, leans toward solidarity.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.discours-dexamen.102",
+          "theme": "discours-dexamen",
+          "fr": "Après ce premier tour d'horizon rapide, penchons-nous sur ce qui fait vraiment débat aujourd'hui.",
+          "en": "After this first quick overview, let us focus on what is really being debated today.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.discours-dexamen.111",
+          "theme": "discours-dexamen",
+          "fr": "Je poserai d'abord le problème dans toute sa complexité, avant de proposer quelques éléments de réponse.",
+          "en": "I will first state the problem in all its complexity, before offering some elements of an answer.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.discours-dexamen.107",
+          "theme": "discours-dexamen",
+          "fr": "Pour organiser mon développement, j'envisagerai d'abord les avantages, puis les limites de cette pratique nouvelle.",
+          "en": "To organize my argument, I will consider first the advantages, then the limits of this new practice.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.discours-dexamen.115",
+          "theme": "discours-dexamen",
+          "fr": "Trois questions guideront ma réflexion aujourd'hui, pourquoi ce phénomène, quelles conséquences, et surtout quelles réponses possibles.",
+          "en": "Three questions will guide my thinking today, why this phenomenon, what consequences, and above all what possible answers.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.discours-dexamen.113",
+          "theme": "discours-dexamen",
+          "fr": "Il n'est pas inutile de rappeler, en ouverture, que cette controverse ne date vraiment pas d'hier.",
+          "en": "It is worth recalling, as an opening, that this controversy is really nothing new.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.discours-dexamen.120",
+          "theme": "discours-dexamen",
+          "fr": "On ne peut aborder ce dossier sans rappeler au préalable le cadre juridique qui s'applique au Canada.",
+          "en": "One cannot address this matter without first recalling the legal framework that applies in Canada.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.discours-dexamen.127",
+          "theme": "discours-dexamen",
+          "fr": "Maintenant que les bases sont posées, entrons dans le vif du sujet avec la question centrale des coûts.",
+          "en": "Now that the groundwork is laid, let us get to the heart of the matter with the central question of costs.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.discours-dexamen.118",
+          "theme": "discours-dexamen",
+          "fr": "Nous verrons d'abord ce que révèlent les études récentes, puis ce que ces résultats impliquent pour nous.",
+          "en": "We will first see what recent studies reveal, then what those results mean for us.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.discours-dexamen.062",
+          "theme": "discours-dexamen",
+          "fr": "Que l'on me permette une ultime remarque, aucune réforme ne réussit sans l'adhésion des premiers concernés.",
+          "en": "Allow me one final remark, no reform succeeds without the support of those most directly affected.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.discours-dexamen.119",
+          "theme": "discours-dexamen",
+          "fr": "Cette transition me permet d'aborder le troisième volet de mon analyse, celui des solutions à notre portée.",
+          "en": "This transition allows me to address the third part of my analysis, the solutions within our reach.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.discours-dexamen.123",
+          "theme": "discours-dexamen",
+          "fr": "Si vous me le permettez, je commencerai par une brève mise en contexte, indispensable pour saisir les enjeux.",
+          "en": "With your permission, I will begin with a brief background overview, essential for grasping the stakes.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.discours-dexamen.121",
+          "theme": "discours-dexamen",
+          "fr": "Loin d'être anecdotique, cette question touche à la fois notre économie, notre culture et notre vie quotidienne.",
+          "en": "Far from being trivial, this question touches our economy, our culture and our daily life all at once.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.discours-dexamen.112",
+          "theme": "discours-dexamen",
+          "fr": "Une fois ce premier point clarifié, tournons-nous maintenant vers l'ensemble des acteurs concernés et leurs responsabilités.",
+          "en": "Once this first point is clarified, let us now turn to all the actors involved and their responsibilities.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.discours-dexamen.008",
+          "theme": "discours-dexamen",
+          "fr": "En définitive, la technologie n'est ni bonne ni mauvaise, tout dépend de l'usage qu'on en fait.",
+          "en": "Ultimately, technology is neither good nor bad, everything depends on how we use it.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.discours-dexamen.117",
+          "theme": "discours-dexamen",
+          "fr": "S'il fallait résumer l'enjeu en une phrase, je dirais que tout repose sur la question du temps.",
+          "en": "If I had to sum up the issue in one sentence, I would say everything hinges on the question of time.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.discours-dexamen.125",
+          "theme": "discours-dexamen",
+          "fr": "Le fil conducteur de mon exposé sera le suivant, comprendre d'où vient le problème pour mieux y répondre.",
+          "en": "The guiding thread of my presentation will be this, understanding where the problem comes from in order to respond to it better.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.discours-dexamen.063",
+          "theme": "discours-dexamen",
+          "fr": "En conclusion, j'invite chacun à considérer cette question non comme une menace, mais comme une occasion à saisir.",
+          "en": "In conclusion, I invite everyone to see this question not as a threat, but as an opportunity to seize.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.discours-dexamen.126",
+          "theme": "discours-dexamen",
+          "fr": "D'emblée, je précise que mon propos ne visera personne en particulier, mais les mécanismes qui produisent ces dérives.",
+          "en": "From the start, let me be clear that my remarks will not target anyone in particular, but the mechanisms that produce these excesses.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.discours-dexamen.116",
+          "theme": "discours-dexamen",
+          "fr": "En guise d'introduction, je voudrais rappeler brièvement les faits qui ont récemment relancé ce débat dans l'actualité.",
+          "en": "By way of introduction, I would like to briefly recall the events that recently brought this debate back into the news.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.discours-dexamen.122",
+          "theme": "discours-dexamen",
+          "fr": "Pour amorcer la discussion, je voudrais d'abord m'arrêter sur les termes mêmes du sujet qui nous est proposé.",
+          "en": "To get the discussion started, I would first like to dwell on the very wording of the topic we are given.",
+          "words": 20
+        },
+        {
+          "id": "fr.c1.discours-dexamen.124",
+          "theme": "discours-dexamen",
+          "fr": "Après avoir montré l'ampleur du phénomène, j'aimerais maintenant examiner pourquoi les réponses actuelles restent, à mes yeux, insuffisantes.",
+          "en": "After showing the scale of the phenomenon, I would now like to examine why current responses remain, in my view, insufficient.",
+          "words": 20
+        }
+      ]
+    }
+  ]
+}

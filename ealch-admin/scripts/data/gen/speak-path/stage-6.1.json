@@ -1,0 +1,1196 @@
+{
+  "stage": "6.1",
+  "world": 6,
+  "level": "c1",
+  "title": "Le Seuil des Nuances",
+  "themes": [
+    "nuances-et-registres"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 165,
+  "dedupedPool": 165,
+  "selected": 165,
+  "blockCount": 5,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.c1.nuances-et-registres.126",
+          "theme": "nuances-et-registres",
+          "fr": "Chez nous, on ne meurt pas, on part.",
+          "en": "In our family, nobody dies, they pass on.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.127",
+          "theme": "nuances-et-registres",
+          "fr": "Disons simplement que ce vin reste très discret.",
+          "en": "Let's just say this wine keeps a low profile.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.063",
+          "theme": "nuances-et-registres",
+          "fr": "Charmant, ce voisin, quand il daigne dire bonjour.",
+          "en": "Charming, that neighbor, when he deigns to say hello.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.005",
+          "theme": "nuances-et-registres",
+          "fr": "Chaque société invente les mythes qui la rassurent.",
+          "en": "Every society invents the myths that reassure it.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.130",
+          "theme": "nuances-et-registres",
+          "fr": "Intéressant, dans sa bouche, veut souvent dire raté.",
+          "en": "Interesting, coming from her, often means a failure.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.003",
+          "theme": "nuances-et-registres",
+          "fr": "Tout monument célèbre un choix politique devenu invisible.",
+          "en": "Every monument celebrates a political choice that has become invisible.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.128",
+          "theme": "nuances-et-registres",
+          "fr": "Sa politesse soudaine annonce rarement une bonne nouvelle.",
+          "en": "His sudden politeness rarely means good news is coming.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.068",
+          "theme": "nuances-et-registres",
+          "fr": "Elle a le chic pour blesser tout en souriant.",
+          "en": "She has a knack for wounding people while smiling.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.129",
+          "theme": "nuances-et-registres",
+          "fr": "Senior, c'est juste vieux dit avec des gants.",
+          "en": "Senior is just old said with kid gloves.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.009",
+          "theme": "nuances-et-registres",
+          "fr": "Le progrès technique va plus vite que la morale.",
+          "en": "Technical progress moves faster than morality does.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.001",
+          "theme": "nuances-et-registres",
+          "fr": "L'histoire ne se répète jamais, mais elle bégaie.",
+          "en": "History never repeats itself, but it stutters.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.010",
+          "theme": "nuances-et-registres",
+          "fr": "La censure dit toujours ce que le pouvoir craint.",
+          "en": "Censorship always reveals what those in power fear.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.135",
+          "theme": "nuances-et-registres",
+          "fr": "Ici, on ne licencie pas, on ajuste les effectifs.",
+          "en": "Here, nobody gets laid off, the workforce gets adjusted.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.065",
+          "theme": "nuances-et-registres",
+          "fr": "Disons que sa ponctualité laisse un peu à désirer.",
+          "en": "Let's just say his punctuality leaves a little to be desired.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.131",
+          "theme": "nuances-et-registres",
+          "fr": "Devant le notaire, il sort son français du dimanche.",
+          "en": "At the notary's office, he trots out his Sunday-best French.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.002",
+          "theme": "nuances-et-registres",
+          "fr": "La mémoire collective choisit ce qu'elle veut oublier.",
+          "en": "Collective memory chooses what it wants to forget.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.008",
+          "theme": "nuances-et-registres",
+          "fr": "La démocratie reste un exercice à recommencer chaque matin.",
+          "en": "Democracy remains an exercise you must begin again every morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.004",
+          "theme": "nuances-et-registres",
+          "fr": "Comprendre une époque, c'est en accepter les contradictions.",
+          "en": "Understanding an era means accepting its contradictions.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.132",
+          "theme": "nuances-et-registres",
+          "fr": "Elle est d'un certain âge, comme on dit poliment.",
+          "en": "She is of a certain age, as we politely say.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.007",
+          "theme": "nuances-et-registres",
+          "fr": "Aucun récit national ne résiste à l'examen des faits.",
+          "en": "No national narrative withstands scrutiny of the facts.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.067",
+          "theme": "nuances-et-registres",
+          "fr": "Son gâteau n'était pas sa plus grande réussite, disons.",
+          "en": "Her cake was not her greatest success, let's say.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.011",
+          "theme": "nuances-et-registres",
+          "fr": "Les sociétés qui nient leur passé finissent par le subir.",
+          "en": "Societies that deny their past end up suffering it.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.133",
+          "theme": "nuances-et-registres",
+          "fr": "Ma grand-mère ne disait jamais mourir, elle disait partir.",
+          "en": "My grandmother never said dying, she said leaving.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.137",
+          "theme": "nuances-et-registres",
+          "fr": "Quand il dit pas mal, il faut souvent comprendre excellent.",
+          "en": "When he says not bad, you should often understand excellent.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.015",
+          "theme": "nuances-et-registres",
+          "fr": "Toute frontière porte la trace des rapports de force anciens.",
+          "en": "Every border bears the trace of old power struggles.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.006",
+          "theme": "nuances-et-registres",
+          "fr": "Les empires meurent de leurs certitudes, rarement d'autre chose.",
+          "en": "Empires die of their certainties, rarely of anything else.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.012",
+          "theme": "nuances-et-registres",
+          "fr": "La télévision a démocratisé la culture en imposant ses hiérarchies.",
+          "en": "Television democratized culture while imposing its own hierarchies.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.064",
+          "theme": "nuances-et-registres",
+          "fr": "Le rapport parle d'ajustements nécessaires, comprenez des licenciements massifs.",
+          "en": "The report speaks of necessary adjustments, which really means massive layoffs.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.069",
+          "theme": "nuances-et-registres",
+          "fr": "Il ne crache pas sur un bon repas, loin de là.",
+          "en": "He never turns down a good meal, far from it.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.066",
+          "theme": "nuances-et-registres",
+          "fr": "Il aurait pu prévenir, c'est tout ce que je dis.",
+          "en": "He could have let us know, that's all I'm saying.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.141",
+          "theme": "nuances-et-registres",
+          "fr": "Le mot balayeur a cédé la place à technicien de surface.",
+          "en": "The word sweeper has given way to surface technician.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.138",
+          "theme": "nuances-et-registres",
+          "fr": "Elle appelle ça arranger la vérité, moi j'appelle ça mentir.",
+          "en": "She calls it bending the truth, I call it lying.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.136",
+          "theme": "nuances-et-registres",
+          "fr": "Devant sa belle-mère, tout son argot disparaît comme par magie.",
+          "en": "Around his mother-in-law, all his slang vanishes as if by magic.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.c1.nuances-et-registres.139",
+          "theme": "nuances-et-registres",
+          "fr": "En famille, il retrouve son accent et ses expressions d'enfance.",
+          "en": "With family, he slips back into his childhood accent and expressions.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.018",
+          "theme": "nuances-et-registres",
+          "fr": "La tentation autoritaire renaît dès que la peur étouffe la raison.",
+          "en": "The authoritarian temptation is reborn as soon as fear smothers reason.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.143",
+          "theme": "nuances-et-registres",
+          "fr": "Il aurait pu dire pauvre, il a préféré dire économiquement fragile.",
+          "en": "He could have said poor, he preferred to say economically fragile.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.013",
+          "theme": "nuances-et-registres",
+          "fr": "Chaque génération relit le passé selon les questions qui l'obsèdent.",
+          "en": "Each generation rereads the past through the questions that obsess it.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.070",
+          "theme": "nuances-et-registres",
+          "fr": "Sauf votre respect, cette décision me semble pour le moins discutable.",
+          "en": "With all due respect, this decision strikes me as questionable to say the least.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.016",
+          "theme": "nuances-et-registres",
+          "fr": "Derrière chaque objet de musée se cachent des gestes quotidiens oubliés.",
+          "en": "Behind every museum object hide forgotten everyday gestures.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.144",
+          "theme": "nuances-et-registres",
+          "fr": "Quand le patron dit flexibilité, les salariés entendent horaires à rallonge.",
+          "en": "When the boss says flexibility, the employees hear endless hours.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.134",
+          "theme": "nuances-et-registres",
+          "fr": "S'il devient soudain très poli, l'orage n'est pas loin.",
+          "en": "If he suddenly turns very polite, a storm is brewing.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.019",
+          "theme": "nuances-et-registres",
+          "fr": "On juge une société au sort qu'elle réserve aux plus faibles.",
+          "en": "You judge a society by the fate it reserves for its weakest.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.071",
+          "theme": "nuances-et-registres",
+          "fr": "Bien qu'elle ait tout nié, son sourire gêné parlait pour elle.",
+          "en": "Although she denied everything, her embarrassed smile spoke for her.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.140",
+          "theme": "nuances-et-registres",
+          "fr": "Le communiqué parle d'un incident, les pompiers parlent d'un incendie.",
+          "en": "The press release mentions an incident, the firefighters mention a fire.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.149",
+          "theme": "nuances-et-registres",
+          "fr": "Au téléphone avec sa mère, son français soutenu fond en trois secondes.",
+          "en": "On the phone with his mother, his formal French melts away in three seconds.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.147",
+          "theme": "nuances-et-registres",
+          "fr": "Parler de personnes sans domicile fixe évite de prononcer le mot misère.",
+          "en": "Talking about people of no fixed address avoids saying the word destitution.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.014",
+          "theme": "nuances-et-registres",
+          "fr": "Les commémorations rassurent les vivants plus qu'elles n'honorent les morts.",
+          "en": "Commemorations reassure the living more than they honor the dead.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.020",
+          "theme": "nuances-et-registres",
+          "fr": "Considéré à froid, le vingtième siècle ressemble à un laboratoire d'utopies.",
+          "en": "Viewed dispassionately, the twentieth century looks like a laboratory of utopias.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.095",
+          "theme": "nuances-et-registres",
+          "fr": "Leurs relations se sont, comment dire, un peu refroidies ces derniers temps.",
+          "en": "Their relationship has, how shall I put it, cooled somewhat lately.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.145",
+          "theme": "nuances-et-registres",
+          "fr": "Ce que cache l'expression dommages collatéraux, ce sont des victimes civiles.",
+          "en": "What the phrase collateral damage hides is civilian casualties.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.150",
+          "theme": "nuances-et-registres",
+          "fr": "Le professeur a écrit copie perfectible pour ne pas écrire copie désastreuse.",
+          "en": "The teacher wrote paper with room for improvement rather than writing disastrous paper.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.017",
+          "theme": "nuances-et-registres",
+          "fr": "L'alphabétisation massive a émancipé davantage de gens que bien des révolutions.",
+          "en": "Mass literacy emancipated more people than many revolutions did.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.025",
+          "theme": "nuances-et-registres",
+          "fr": "Derrière chaque grande réforme, on trouve des décennies de luttes restées anonymes.",
+          "en": "Behind every major reform lie decades of struggles that remained anonymous.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.148",
+          "theme": "nuances-et-registres",
+          "fr": "C'est le silence poli de la salle qui a tout dit hier.",
+          "en": "It was the room's polite silence that said it all yesterday.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.142",
+          "theme": "nuances-et-registres",
+          "fr": "Ce n'est pas donné, autant dire que c'est hors de prix.",
+          "en": "It is not cheap, which is to say it costs a fortune.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.146",
+          "theme": "nuances-et-registres",
+          "fr": "Qu'il ait osé la tutoyer en réunion a choqué tout le monde.",
+          "en": "That he dared to address her informally in a meeting shocked everyone.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.078",
+          "theme": "nuances-et-registres",
+          "fr": "Franchement, ce n'est pas la mer à boire de remplir ce formulaire.",
+          "en": "Frankly, filling out this form is hardly the end of the world.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.082",
+          "theme": "nuances-et-registres",
+          "fr": "Il aurait pu le dire autrement, mais le message est passé quand même.",
+          "en": "He could have phrased it differently, but the message got through all the same.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.075",
+          "theme": "nuances-et-registres",
+          "fr": "C'est le genre de compliment qui ressemble fort à une critique déguisée.",
+          "en": "It's the kind of compliment that looks a lot like a disguised criticism.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.073",
+          "theme": "nuances-et-registres",
+          "fr": "Quand il annonce un léger retard, prévois plutôt une bonne heure d'attente.",
+          "en": "When he announces a slight delay, plan on a good hour of waiting instead.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.021",
+          "theme": "nuances-et-registres",
+          "fr": "Nul ne sort indemne d'une guerre civile, pas même les générations suivantes.",
+          "en": "No one emerges unscathed from a civil war, not even the generations that follow.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.154",
+          "theme": "nuances-et-registres",
+          "fr": "Vous auriez entendu ce ton mielleux, une menace enrobée dans de la politesse.",
+          "en": "You should have heard that honeyed tone, a threat wrapped in politeness.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.080",
+          "theme": "nuances-et-registres",
+          "fr": "À mots couverts, le directeur a laissé entendre que des postes allaient sauter.",
+          "en": "In veiled terms, the director implied that jobs were going to be cut.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.081",
+          "theme": "nuances-et-registres",
+          "fr": "Sans vouloir te vexer, ta présentation aurait mérité un peu plus de préparation.",
+          "en": "No offense intended, but your presentation deserved a bit more preparation.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.023",
+          "theme": "nuances-et-registres",
+          "fr": "Le suffrage universel, arraché de haute lutte, nous semble aujourd'hui presque banal.",
+          "en": "Universal suffrage, won through hard struggle, seems almost mundane to us today.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.035",
+          "theme": "nuances-et-registres",
+          "fr": "La Conquête demeure un événement auquel les historiens accrochent encore des interprétations opposées.",
+          "en": "The Conquest remains an event to which historians still attach opposing interpretations.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.c1.nuances-et-registres.090",
+          "theme": "nuances-et-registres",
+          "fr": "Il n'a pas dit non, ce qui, chez lui, veut presque dire oui.",
+          "en": "He didn't say no, which, coming from him, almost means yes.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.072",
+          "theme": "nuances-et-registres",
+          "fr": "À l'entendre, tout va pour le mieux, mais son regard dit autre chose.",
+          "en": "To hear him tell it, everything is fine, but his eyes say otherwise.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.093",
+          "theme": "nuances-et-registres",
+          "fr": "À sa place, j'aurais tourné ma langue sept fois avant de répondre ça.",
+          "en": "In his shoes, I would have thought twice before answering that.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.155",
+          "theme": "nuances-et-registres",
+          "fr": "Elle n'a pas menti, elle a présenté la vérité sous son meilleur jour.",
+          "en": "She did not lie, she presented the truth in its best light.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.076",
+          "theme": "nuances-et-registres",
+          "fr": "Elle m'a répondu du bout des lèvres, comme si ma question la dérangeait.",
+          "en": "She gave me a reluctant answer, as if my question bothered her.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.024",
+          "theme": "nuances-et-registres",
+          "fr": "Ayant connu l'exil, cet écrivain parle de l'identité avec une lucidité rare.",
+          "en": "Having known exile, this writer speaks about identity with rare lucidity.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.026",
+          "theme": "nuances-et-registres",
+          "fr": "L'histoire, écrite par les vainqueurs, gagne à être relue du côté des vaincus.",
+          "en": "History, written by the victors, is worth rereading from the side of the vanquished.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.074",
+          "theme": "nuances-et-registres",
+          "fr": "Dire qu'il conduit prudemment, c'est un euphémisme, il roule comme une tortue.",
+          "en": "To say he drives carefully is putting it kindly, he crawls along like a turtle.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.094",
+          "theme": "nuances-et-registres",
+          "fr": "Il faut lire entre les lignes, ils cherchent en réalité à vendre l'entreprise.",
+          "en": "You have to read between the lines, they are actually looking to sell the company.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.027",
+          "theme": "nuances-et-registres",
+          "fr": "La laïcité, telle qu'on la pratique ici, ne ressemble guère au modèle français.",
+          "en": "Secularism, as we practice it here, hardly resembles the French model.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.079",
+          "theme": "nuances-et-registres",
+          "fr": "Il tourne autour du pot depuis dix minutes au lieu de demander son augmentation.",
+          "en": "He has been beating around the bush for ten minutes instead of asking for his raise.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.033",
+          "theme": "nuances-et-registres",
+          "fr": "Le débat auquel cet essai a donné lieu dépasse largement le cercle des historiens.",
+          "en": "The debate this essay sparked reaches far beyond the circle of historians.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.028",
+          "theme": "nuances-et-registres",
+          "fr": "Ce roman restitue l'atmosphère des années trente mieux que bien des manuels scolaires.",
+          "en": "This novel captures the atmosphere of the thirties better than many textbooks do.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.031",
+          "theme": "nuances-et-registres",
+          "fr": "Publiée en pleine crise, cette étude sur les inégalités a trouvé un écho considérable.",
+          "en": "Published in the middle of a crisis, this study on inequality resonated widely.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.152",
+          "theme": "nuances-et-registres",
+          "fr": "On aurait pu appeler ça un mensonge, il a préféré parler d'approximation malencontreuse.",
+          "en": "We could have called that a lie, he preferred to speak of an unfortunate approximation.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.034",
+          "theme": "nuances-et-registres",
+          "fr": "Les pensionnats autochtones restent une blessure dont le pays mesure à peine la profondeur.",
+          "en": "Residential schools remain a wound whose depth the country is only beginning to measure.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.022",
+          "theme": "nuances-et-registres",
+          "fr": "Cette exposition sur la Nouvelle-France bouscule nos idées reçues avec une rigueur salutaire.",
+          "en": "This exhibition on New France challenges our preconceptions with a healthy dose of rigor.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.089",
+          "theme": "nuances-et-registres",
+          "fr": "Dire que la réunion a été longue, c'est le moins qu'on puisse dire.",
+          "en": "To say the meeting ran long is putting it mildly.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.092",
+          "theme": "nuances-et-registres",
+          "fr": "C'est justement ce silence qui en dit long sur ce qu'il pense vraiment.",
+          "en": "It's precisely that silence that speaks volumes about what he really thinks.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.098",
+          "theme": "nuances-et-registres",
+          "fr": "C'est ce petit mot de trop qui a tout fait basculer dans la conversation.",
+          "en": "It was that one word too many that tipped the whole conversation over.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.077",
+          "theme": "nuances-et-registres",
+          "fr": "Il m'a fait comprendre à demi-mot que ma candidature n'avait aucune chance.",
+          "en": "He hinted, without saying it outright, that my application stood no chance.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.091",
+          "theme": "nuances-et-registres",
+          "fr": "Bien qu'il ait promis de venir, personne n'a vraiment compté sur sa présence.",
+          "en": "Although he promised to come, nobody really counted on him showing up.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.101",
+          "theme": "nuances-et-registres",
+          "fr": "Ne le prends pas mal, mais ton texte gagnerait à être relu une dernière fois.",
+          "en": "Don't take it the wrong way, but your text would benefit from one last read-through.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.165",
+          "theme": "nuances-et-registres",
+          "fr": "On aurait dit un compliment, mais chacun a bien senti la pique sous le vernis.",
+          "en": "It sounded like a compliment, but everyone clearly felt the jab beneath the polish.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.157",
+          "theme": "nuances-et-registres",
+          "fr": "Le médecin a évoqué une issue défavorable, jamais il n'a prononcé le mot décès.",
+          "en": "The doctor mentioned an unfavorable outcome, he never once said the word death.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.030",
+          "theme": "nuances-et-registres",
+          "fr": "Relire ces débats anciens, c'est constater que nos querelles n'ont rien de neuf.",
+          "en": "Rereading those old debates means realizing our quarrels are nothing new.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.163",
+          "theme": "nuances-et-registres",
+          "fr": "Elle a qualifié la maison de pleine de charme, ce qui signifie petite et vétuste.",
+          "en": "She described the house as full of charm, which means small and run-down.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.151",
+          "theme": "nuances-et-registres",
+          "fr": "Bien qu'il ait été remercié, il raconte partout qu'il explore de nouvelles pistes.",
+          "en": "Although he was let go, he tells everyone he is exploring new avenues.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.153",
+          "theme": "nuances-et-registres",
+          "fr": "Il se pourrait que son discours d'hier ait été légèrement arrangé pour l'occasion.",
+          "en": "It may well be that yesterday's speech was slightly polished for the occasion.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.087",
+          "theme": "nuances-et-registres",
+          "fr": "Il paraît qu'il aurait quitté son poste du jour au lendemain, sans prévenir personne.",
+          "en": "Apparently he left his job overnight, without warning anyone.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.029",
+          "theme": "nuances-et-registres",
+          "fr": "Les grèves de l'amiante ont réveillé une conscience sociale que l'on croyait endormie.",
+          "en": "The asbestos strikes awakened a social conscience people thought was asleep.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.086",
+          "theme": "nuances-et-registres",
+          "fr": "Ils se sont réconciliés, certes, mais il reste un froid entre eux depuis cette soirée.",
+          "en": "They made up, granted, but there has been a chill between them since that evening.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.121",
+          "theme": "nuances-et-registres",
+          "fr": "Il a pris congé de l'entreprise, comme on dit pudiquement dans le communiqué officiel.",
+          "en": "He has parted ways with the company, as the official statement delicately puts it.",
+          "words": 15
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.c1.nuances-et-registres.160",
+          "theme": "nuances-et-registres",
+          "fr": "Il aurait fallu annoncer la fermeture clairement, au lieu de parler d'évolution du site.",
+          "en": "The closure should have been announced clearly, instead of talking about the site evolving.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.032",
+          "theme": "nuances-et-registres",
+          "fr": "Les archives dont disposent les historiens ne livrent jamais toute la vérité d'une époque.",
+          "en": "The archives historians have access to never yield the whole truth about an era.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.158",
+          "theme": "nuances-et-registres",
+          "fr": "Qualifier ce vin de modeste, c'était une façon élégante de le trouver franchement mauvais.",
+          "en": "Calling this wine modest was an elegant way of finding it downright bad.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.038",
+          "theme": "nuances-et-registres",
+          "fr": "On ne comprend pas la société actuelle sans étudier les luttes ouvrières du siècle dernier.",
+          "en": "You cannot understand today's society without studying the labor struggles of the last century.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.122",
+          "theme": "nuances-et-registres",
+          "fr": "Entre nous, sa fameuse expérience internationale se résume à deux semaines de vacances à Paris.",
+          "en": "Between us, his famous international experience amounts to two weeks of vacation in Paris.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.036",
+          "theme": "nuances-et-registres",
+          "fr": "La Révolution tranquille a transformé le Québec en une seule génération, fait rarissime en Occident.",
+          "en": "The Quiet Revolution transformed Quebec in a single generation, something extremely rare in the West.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.161",
+          "theme": "nuances-et-registres",
+          "fr": "Entre collègues il parle comme au bistrot, devant la direction son langage devient étrangement soutenu.",
+          "en": "Among colleagues he talks like he is at the pub, in front of management his language turns strangely formal.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.039",
+          "theme": "nuances-et-registres",
+          "fr": "Marquée par deux référendums, la société québécoise entretient un rapport singulier à la question nationale.",
+          "en": "Shaped by two referendums, Quebec society maintains a singular relationship with the national question.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.083",
+          "theme": "nuances-et-registres",
+          "fr": "C'est la manière dont il l'a dit qui m'a blessée, pas le fond.",
+          "en": "It's the way he said it that hurt me, not the substance.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.084",
+          "theme": "nuances-et-registres",
+          "fr": "Entre ce qu'elle affirme et ce qu'elle pense, il y a parfois un monde.",
+          "en": "Between what she claims and what she thinks, there is sometimes a world of difference.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.085",
+          "theme": "nuances-et-registres",
+          "fr": "Je ne dis pas que c'est raté, je dis simplement qu'on peut faire mieux.",
+          "en": "I'm not saying it failed, I'm simply saying we can do better.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.119",
+          "theme": "nuances-et-registres",
+          "fr": "Le fait qu'il n'ait pas rappelé après l'entrevue en dit déjà assez long.",
+          "en": "The fact that he never called back after the interview already says quite a lot.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.124",
+          "theme": "nuances-et-registres",
+          "fr": "Quand ma mère dit qu'on en reparlera, c'est que la réponse est déjà non.",
+          "en": "When my mother says we'll talk about it later, it means the answer is already no.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.159",
+          "theme": "nuances-et-registres",
+          "fr": "Bien qu'il ait bu plus que de raison, on dira juste qu'il était fatigué.",
+          "en": "Although he drank more than was wise, we will just say he was tired.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.100",
+          "theme": "nuances-et-registres",
+          "fr": "Il aurait fallu qu'on ait vu le contrat avant de signer quoi que ce soit.",
+          "en": "We would have needed to see the contract before signing anything at all.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.097",
+          "theme": "nuances-et-registres",
+          "fr": "Quand on dit qu'il est économe, c'est une façon polie de dire autre chose.",
+          "en": "When people say he is thrifty, it's a polite way of saying something else.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.106",
+          "theme": "nuances-et-registres",
+          "fr": "Le mot est faible quand on dit que le loyer a un peu augmenté à Vancouver.",
+          "en": "Calling the rent increase in Vancouver slight is quite the understatement.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.099",
+          "theme": "nuances-et-registres",
+          "fr": "Il s'en est fallu de peu que la discussion ne tourne au règlement de comptes.",
+          "en": "The discussion came within a hair of turning into a settling of scores.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.037",
+          "theme": "nuances-et-registres",
+          "fr": "Ce que nous retenons d'une guerre en dit long sur les valeurs de notre époque.",
+          "en": "What we remember of a war says a great deal about the values of our time.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.108",
+          "theme": "nuances-et-registres",
+          "fr": "Elle ne mâche pas ses mots, mais elle sait aussi quand il vaut mieux se taire.",
+          "en": "She doesn't mince words, but she also knows when it's better to stay silent.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.123",
+          "theme": "nuances-et-registres",
+          "fr": "Le chef a beau avoir salué mon travail, je n'ai pas eu l'augmentation espérée.",
+          "en": "The boss may well have praised my work, but I didn't get the raise I was hoping for.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.162",
+          "theme": "nuances-et-registres",
+          "fr": "Il se peut que j'aie mal choisi mes mots hier soir, je voulais rester délicat.",
+          "en": "I may have chosen my words badly last night, I wanted to stay tactful.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.096",
+          "theme": "nuances-et-registres",
+          "fr": "Quand elle dit que c'est intéressant, il faut comprendre qu'elle n'y croit pas.",
+          "en": "When she says it's interesting, you should understand she doesn't believe in it.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.088",
+          "theme": "nuances-et-registres",
+          "fr": "Ce n'est pas tant ce qu'il a dit qui choque, c'est le ton employé.",
+          "en": "It's not so much what he said that shocks, it's the tone he used.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.104",
+          "theme": "nuances-et-registres",
+          "fr": "Si tu veux mon avis, il aurait mieux valu qu'on se soit tus tous les deux.",
+          "en": "If you ask me, it would have been better if we had both kept quiet.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.102",
+          "theme": "nuances-et-registres",
+          "fr": "Elle a glissé la remarque l'air de rien, mais tout le monde a saisi l'allusion.",
+          "en": "She slipped in the remark casually, but everyone caught the hint.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.125",
+          "theme": "nuances-et-registres",
+          "fr": "Il est parti sans demander son reste, preuve que l'ambiance n'était pas au beau fixe.",
+          "en": "He left without a backward glance, proof that the mood was hardly rosy.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.164",
+          "theme": "nuances-et-registres",
+          "fr": "Passer du vouvoiement au tutoiement, chez elle, c'est le signe qu'on a gagné sa confiance.",
+          "en": "Moving from formal to informal address, with her, is the sign you have earned her trust.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.111",
+          "theme": "nuances-et-registres",
+          "fr": "Il aurait été préférable que vous nous ayez prévenus avant de changer la date de la réunion.",
+          "en": "It would have been preferable for you to warn us before changing the meeting date.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.042",
+          "theme": "nuances-et-registres",
+          "fr": "La classe moyenne, dont on vantait hier la stabilité, se sent aujourd'hui menacée de toutes parts.",
+          "en": "The middle class, whose stability was praised only yesterday, now feels threatened on all sides.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.040",
+          "theme": "nuances-et-registres",
+          "fr": "L'immigration a toujours nourri ce pays, quoi qu'en disent les discours alarmistes de chaque époque.",
+          "en": "Immigration has always nourished this country, whatever the alarmist speeches of each era may say.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.156",
+          "theme": "nuances-et-registres",
+          "fr": "L'entreprise annonce une restructuration, tout le monde a compris qu'il s'agit de licenciements secs.",
+          "en": "The company announces a restructuring, everyone understood it means outright layoffs.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.041",
+          "theme": "nuances-et-registres",
+          "fr": "La colonisation a laissé des traces profondes dont les sociétés contemporaines n'ont pas fini de débattre.",
+          "en": "Colonization left deep marks that contemporary societies have not finished debating.",
+          "words": 17
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.c1.nuances-et-registres.045",
+          "theme": "nuances-et-registres",
+          "fr": "Les grandes famines européennes ont redessiné en profondeur la carte des migrations vers l'Amérique du Nord.",
+          "en": "The great European famines profoundly redrew the map of migration to North America.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.043",
+          "theme": "nuances-et-registres",
+          "fr": "Les langues minoritaires s'éteignent en silence, emportant avec elles des manières entières de penser le monde.",
+          "en": "Minority languages fade away in silence, taking with them entire ways of thinking about the world.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.109",
+          "theme": "nuances-et-registres",
+          "fr": "On lui a gentiment suggéré de prendre du recul, autrement dit, on l'a mis à la porte.",
+          "en": "They kindly suggested he take a step back, in other words, they showed him the door.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.107",
+          "theme": "nuances-et-registres",
+          "fr": "On m'a répondu que le dossier suivait son cours, autant dire qu'il dort dans un tiroir.",
+          "en": "I was told the file was moving along, which is to say it's sleeping in a drawer.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.120",
+          "theme": "nuances-et-registres",
+          "fr": "Si j'avais su lire entre les lignes, j'aurais compris qu'on me poussait vers la sortie.",
+          "en": "If I had known how to read between the lines, I would have understood they were nudging me out.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.110",
+          "theme": "nuances-et-registres",
+          "fr": "Ce n'est un secret pour personne que ces deux collègues ne se portent pas dans leur cœur.",
+          "en": "It's no secret to anyone that those two colleagues have no love for each other.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.044",
+          "theme": "nuances-et-registres",
+          "fr": "Ce qui frappe dans les correspondances d'époque, c'est la dignité avec laquelle on affrontait la misère.",
+          "en": "What strikes you in letters from the period is the dignity with which people faced poverty.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.115",
+          "theme": "nuances-et-registres",
+          "fr": "Quand il affirme que tout est sous contrôle, il se pourrait que la situation soit beaucoup plus fragile.",
+          "en": "When he claims everything is under control, it may well be that the situation is far more fragile.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.050",
+          "theme": "nuances-et-registres",
+          "fr": "Cette biographie éclaire un pan méconnu de la Résistance, celui des femmes qui servaient d'agents de liaison.",
+          "en": "This biography sheds light on a little-known side of the Resistance, that of the women who served as liaison agents.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.047",
+          "theme": "nuances-et-registres",
+          "fr": "Rien n'illustre mieux la fragilité des institutions que la vitesse à laquelle elles perdent la confiance publique.",
+          "en": "Nothing illustrates the fragility of institutions better than the speed at which they lose public trust.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.052",
+          "theme": "nuances-et-registres",
+          "fr": "La presse écrite, dont on annonce la disparition depuis vingt ans, résiste contre toute attente aux nouveaux médias.",
+          "en": "The print press, whose demise has been announced for twenty years, is unexpectedly holding out against the new media.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.113",
+          "theme": "nuances-et-registres",
+          "fr": "Elle a la dent dure, mais au fond, elle ne pense pas la moitié de ce qu'elle dit.",
+          "en": "She has a sharp tongue, but deep down she doesn't mean half of what she says.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.103",
+          "theme": "nuances-et-registres",
+          "fr": "Ce que je regrette, c'est qu'on n'ait pas mis les formes pour lui annoncer la nouvelle.",
+          "en": "What I regret is that we didn't break the news to him with more tact.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.105",
+          "theme": "nuances-et-registres",
+          "fr": "Un Québécois qui te répond que c'est pas pire est souvent en train de te faire un compliment.",
+          "en": "A Quebecer who tells you it's not bad is often actually paying you a compliment.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.048",
+          "theme": "nuances-et-registres",
+          "fr": "L'exode rural a vidé des villages entiers dont il ne reste parfois qu'un clocher et quelques souvenirs.",
+          "en": "The rural exodus emptied entire villages, of which sometimes only a steeple and a few memories remain.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.046",
+          "theme": "nuances-et-registres",
+          "fr": "On mesure mal aujourd'hui le courage qu'il fallait pour défendre ces idées en mille neuf cent cinquante.",
+          "en": "Today we barely grasp the courage it took to defend those ideas in nineteen fifty.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.056",
+          "theme": "nuances-et-registres",
+          "fr": "Il faudra sans doute des décennies pour évaluer les effets de la pandémie sur toute une génération de jeunes.",
+          "en": "It will probably take decades to assess the pandemic's effects on an entire generation of young people.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.057",
+          "theme": "nuances-et-registres",
+          "fr": "Les paysages ruraux que nous trouvons si pittoresques racontent en réalité des siècles de labeur anonyme et de misère.",
+          "en": "The rural landscapes we find so picturesque actually tell of centuries of anonymous toil and hardship.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.054",
+          "theme": "nuances-et-registres",
+          "fr": "La bourgeoisie du dix-neuvième siècle a inventé des rituels domestiques que nous perpétuons encore sans même le savoir.",
+          "en": "The nineteenth-century bourgeoisie invented domestic rituals that we still carry on without even knowing it.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.053",
+          "theme": "nuances-et-registres",
+          "fr": "Le sentiment d'appartenance se construit autant par les chansons populaires que par les grandes lois votées au parlement.",
+          "en": "A sense of belonging is built as much through popular songs as through the great laws passed in parliament.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.055",
+          "theme": "nuances-et-registres",
+          "fr": "Les historiennes féministes ont montré combien les femmes avaient été effacées des récits officiels que nous tenions pour complets.",
+          "en": "Feminist historians have shown how thoroughly women were erased from official narratives we took to be complete.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.112",
+          "theme": "nuances-et-registres",
+          "fr": "Elle n'y est pas allée par quatre chemins, elle m'a dit que mon plan ne tenait pas debout.",
+          "en": "She didn't beat around the bush, she told me my plan didn't hold up.",
+          "words": 20
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.062",
+          "theme": "nuances-et-registres",
+          "fr": "Quiconque a lu les mémoires de cette époque comprend que la peur de déchoir structurait la vie sociale tout entière.",
+          "en": "Anyone who has read memoirs from that era understands that the fear of losing status structured social life entirely.",
+          "words": 20
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.060",
+          "theme": "nuances-et-registres",
+          "fr": "Les sociétés vieillissantes devront repenser de fond en comble un contrat social qui avait été conçu pour un monde jeune.",
+          "en": "Aging societies will have to rethink from top to bottom a social contract that was designed for a young world.",
+          "words": 20
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.049",
+          "theme": "nuances-et-registres",
+          "fr": "Les procès de l'après-guerre ont soulevé des questions juridiques dont nous vivons encore aujourd'hui les conséquences directes.",
+          "en": "The postwar trials raised legal questions whose direct consequences we are still living with today.",
+          "words": 20
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.114",
+          "theme": "nuances-et-registres",
+          "fr": "On m'avait promis un petit cinq minutes d'attente, et deux heures plus tard, j'étais toujours dans le corridor.",
+          "en": "I was promised a quick five minute wait, and two hours later I was still in the hallway.",
+          "words": 21
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.061",
+          "theme": "nuances-et-registres",
+          "fr": "À force de tout commémorer, ne risquons-nous pas de banaliser la mémoire même que nous prétendons vouloir transmettre aux jeunes?",
+          "en": "By commemorating everything, do we not risk trivializing the very memory we claim we want to pass on to the young?",
+          "words": 21
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.059",
+          "theme": "nuances-et-registres",
+          "fr": "Ce documentaire montre comment la radio, entrée dans tous les foyers, a façonné l'imaginaire politique du Québec des années soixante.",
+          "en": "This documentary shows how radio, once it entered every home, shaped the political imagination of nineteen sixties Quebec.",
+          "words": 21
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.058",
+          "theme": "nuances-et-registres",
+          "fr": "L'école publique promettait l'égalité des chances, mais elle a longtemps reproduit, malgré elle, les hiérarchies qu'elle prétendait abolir.",
+          "en": "Public school promised equal opportunity, but for a long time it reproduced, despite itself, the hierarchies it claimed to abolish.",
+          "words": 21
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.116",
+          "theme": "nuances-et-registres",
+          "fr": "Ce qui m'agace, c'est qu'il ait présenté ses excuses comme si on lui arrachait chaque mot de la bouche.",
+          "en": "What irks me is that he apologized as though every word were being dragged out of him.",
+          "words": 22
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.117",
+          "theme": "nuances-et-registres",
+          "fr": "Elle aurait juré qu'il plaisantait, mais quelque chose dans sa voix laissait penser qu'il était on ne peut plus sérieux.",
+          "en": "She would have sworn he was joking, but something in his voice suggested he was deadly serious.",
+          "words": 22
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.051",
+          "theme": "nuances-et-registres",
+          "fr": "L'urbanisation rapide de l'après-guerre a bouleversé des solidarités villageoises que rien, depuis ce temps, n'est vraiment venu remplacer.",
+          "en": "The rapid postwar urbanization upended village solidarities that nothing, since that time, has truly replaced.",
+          "words": 22
+        },
+        {
+          "id": "fr.c1.nuances-et-registres.118",
+          "theme": "nuances-et-registres",
+          "fr": "Il se pourrait que j'aie mal interprété son message, mais j'ai eu la nette impression qu'on me demandait de partir.",
+          "en": "I may have misread his message, but I got the distinct impression I was being asked to leave.",
+          "words": 23
+        }
+      ]
+    }
+  ]
+}

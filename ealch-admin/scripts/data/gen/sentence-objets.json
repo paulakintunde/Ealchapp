@@ -1,0 +1,1787 @@
+[
+  {
+    "id": "fr.a1.objets.160",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Mes clés sont sur la table.",
+    "en": "My keys are on the table.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mes clés\",\"t\":\"my keys\"},{\"w\":\"sont sur\",\"t\":\"are on\"},{\"w\":\"la table.\",\"t\":\"the table\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.161",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Je cherche mon téléphone partout.",
+    "en": "I am looking for my phone everywhere.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je cherche\",\"t\":\"i am looking for\"},{\"w\":\"mon téléphone\",\"t\":\"my phone\"},{\"w\":\"partout.\",\"t\":\"everywhere\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.162",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Il y a un parapluie dans le sac.",
+    "en": "There is an umbrella in the bag.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il y a\",\"t\":\"there is\"},{\"w\":\"un parapluie\",\"t\":\"an umbrella\"},{\"w\":\"dans le sac.\",\"t\":\"in the bag\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.163",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Mon portefeuille est dans ma poche.",
+    "en": "My wallet is in my pocket.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon portefeuille\",\"t\":\"my wallet\"},{\"w\":\"est dans\",\"t\":\"is in\"},{\"w\":\"ma poche.\",\"t\":\"my pocket\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.164",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Ce sont mes lunettes de soleil.",
+    "en": "These are my sunglasses.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce sont\",\"t\":\"these are\"},{\"w\":\"mes lunettes\",\"t\":\"my glasses\"},{\"w\":\"de soleil.\",\"t\":\"sun\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.165",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Le chargeur est près du lit.",
+    "en": "The charger is near the bed.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chargeur\",\"t\":\"the charger\"},{\"w\":\"est près\",\"t\":\"is near\"},{\"w\":\"du lit.\",\"t\":\"the bed\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.166",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Tu as un stylo pour moi?",
+    "en": "Do you have a pen for me?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as\",\"t\":\"do you have\"},{\"w\":\"un stylo\",\"t\":\"a pen\"},{\"w\":\"pour moi?\",\"t\":\"for me\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.167",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Nous avons besoin d'une lampe de poche.",
+    "en": "We need a flashlight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons besoin\",\"t\":\"we need\"},{\"w\":\"d'une lampe\",\"t\":\"of a lamp\"},{\"w\":\"de poche.\",\"t\":\"pocket\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.168",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Elle porte un grand sac noir.",
+    "en": "She carries a big black bag.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte\",\"t\":\"she carries\"},{\"w\":\"un grand sac\",\"t\":\"a big bag\"},{\"w\":\"noir.\",\"t\":\"black\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.169",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "J'aime bien ce petit carnet rouge.",
+    "en": "I really like this little red notebook.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'aime bien\",\"t\":\"i really like\"},{\"w\":\"ce petit carnet\",\"t\":\"this little notebook\"},{\"w\":\"rouge.\",\"t\":\"red\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.170",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Mon frère utilise mes ciseaux tous les jours.",
+    "en": "My brother uses my scissors every day.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon frère\",\"t\":\"my brother\"},{\"w\":\"utilise mes ciseaux\",\"t\":\"uses my scissors\"},{\"w\":\"tous les jours.\",\"t\":\"every day\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.171",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Il y a des piles dans le tiroir.",
+    "en": "There are batteries in the drawer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il y a\",\"t\":\"there are\"},{\"w\":\"des piles\",\"t\":\"batteries\"},{\"w\":\"dans le tiroir.\",\"t\":\"in the drawer\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.172",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "La montre de mon père est très belle.",
+    "en": "My father's watch is very beautiful.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La montre\",\"t\":\"the watch\"},{\"w\":\"de mon père\",\"t\":\"of my father\"},{\"w\":\"est très belle.\",\"t\":\"is very beautiful\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.173",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Nous allons acheter une nouvelle valise.",
+    "en": "We are going to buy a new suitcase.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous\",\"t\":\"we\"},{\"w\":\"allons acheter\",\"t\":\"are going to buy\"},{\"w\":\"une nouvelle valise.\",\"t\":\"a new suitcase\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.174",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Mes écouteurs ne marchent plus du tout.",
+    "en": "My headphones don't work at all anymore.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mes écouteurs\",\"t\":\"my headphones\"},{\"w\":\"ne marchent plus\",\"t\":\"don't work anymore\"},{\"w\":\"du tout.\",\"t\":\"at all\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.175",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "C'est l'ordinateur portable de ma soeur.",
+    "en": "This is my sister's laptop.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est\",\"t\":\"this is\"},{\"w\":\"l'ordinateur portable\",\"t\":\"the laptop\"},{\"w\":\"de ma soeur.\",\"t\":\"of my sister\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.176",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Le câble est trop court pour la prise.",
+    "en": "The cable is too short for the outlet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le câble\",\"t\":\"the cable\"},{\"w\":\"est trop court\",\"t\":\"is too short\"},{\"w\":\"pour la prise.\",\"t\":\"for the outlet\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.177",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Où est la télécommande de la télévision?",
+    "en": "Where is the TV remote control?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Où est\",\"t\":\"where is\"},{\"w\":\"la télécommande\",\"t\":\"the remote control\"},{\"w\":\"de la télévision?\",\"t\":\"of the television\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.178",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Mon porte-clés a la forme d'une étoile.",
+    "en": "My keychain is shaped like a star.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon porte-clés\",\"t\":\"my keychain\"},{\"w\":\"a la forme\",\"t\":\"has the shape\"},{\"w\":\"d'une étoile.\",\"t\":\"of a star\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.179",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "La boîte à outils est dans le garage.",
+    "en": "The toolbox is in the garage.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La boîte à outils\",\"t\":\"the toolbox\"},{\"w\":\"est dans\",\"t\":\"is in\"},{\"w\":\"le garage.\",\"t\":\"the garage\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.180",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Papa répare la chaise avec un marteau.",
+    "en": "Dad fixes the chair with a hammer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Papa répare\",\"t\":\"dad fixes\"},{\"w\":\"la chaise\",\"t\":\"the chair\"},{\"w\":\"avec un marteau.\",\"t\":\"with a hammer\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.181",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "As-tu un tournevis dans ton sac?",
+    "en": "Do you have a screwdriver in your bag?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"As-tu\",\"t\":\"do you have\"},{\"w\":\"un tournevis\",\"t\":\"a screwdriver\"},{\"w\":\"dans ton sac?\",\"t\":\"in your bag\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.182",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Le ruban adhésif est collé sur la table.",
+    "en": "The tape is stuck on the table.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le ruban adhésif\",\"t\":\"the tape\"},{\"w\":\"est collé\",\"t\":\"is stuck\"},{\"w\":\"sur la table.\",\"t\":\"on the table\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.183",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Cette colle sent très fort.",
+    "en": "This glue smells very strong.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette colle\",\"t\":\"this glue\"},{\"w\":\"sent\",\"t\":\"smells\"},{\"w\":\"très fort.\",\"t\":\"very strong\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.184",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Il attache le paquet avec une ficelle.",
+    "en": "He ties the package with a string.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il attache\",\"t\":\"he ties\"},{\"w\":\"le paquet\",\"t\":\"the package\"},{\"w\":\"avec une ficelle.\",\"t\":\"with a string\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.185",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Le couteau est dans le tiroir de la cuisine.",
+    "en": "The knife is in the kitchen drawer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le couteau\",\"t\":\"the knife\"},{\"w\":\"est dans\",\"t\":\"is in\"},{\"w\":\"le tiroir\",\"t\":\"the drawer\"},{\"w\":\"de la cuisine.\",\"t\":\"of the kitchen\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.186",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Elle allume son briquet pour la bougie.",
+    "en": "She lights her lighter for the candle.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle allume\",\"t\":\"she lights\"},{\"w\":\"son briquet\",\"t\":\"her lighter\"},{\"w\":\"pour la bougie.\",\"t\":\"for the candle\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.187",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Nous n'avons plus d'allumettes à la maison.",
+    "en": "We don't have any matches left at home.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous n'avons plus\",\"t\":\"we don't have any more\"},{\"w\":\"d'allumettes\",\"t\":\"matches\"},{\"w\":\"à la maison.\",\"t\":\"at home\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.188",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Cette bougie sent la vanille.",
+    "en": "This candle smells like vanilla.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette bougie\",\"t\":\"this candle\"},{\"w\":\"sent\",\"t\":\"smells like\"},{\"w\":\"la vanille.\",\"t\":\"vanilla\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.189",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Le balai est derrière la porte.",
+    "en": "The broom is behind the door.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le balai\",\"t\":\"the broom\"},{\"w\":\"est derrière\",\"t\":\"is behind\"},{\"w\":\"la porte.\",\"t\":\"the door\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.190",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Le seau est plein d'eau froide.",
+    "en": "The bucket is full of cold water.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le seau\",\"t\":\"the bucket\"},{\"w\":\"est plein\",\"t\":\"is full\"},{\"w\":\"d'eau froide.\",\"t\":\"of cold water\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.191",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "L'échelle est trop haute pour le garage.",
+    "en": "The ladder is too tall for the garage.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'échelle\",\"t\":\"the ladder\"},{\"w\":\"est trop haute\",\"t\":\"is too tall\"},{\"w\":\"pour le garage.\",\"t\":\"for the garage\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.192",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "La lampe de mon bureau est cassée.",
+    "en": "My desk lamp is broken.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La lampe\",\"t\":\"the lamp\"},{\"w\":\"de mon bureau\",\"t\":\"of my desk\"},{\"w\":\"est cassée.\",\"t\":\"is broken\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.193",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Le miroir de la salle de bain est sale.",
+    "en": "The bathroom mirror is dirty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le miroir\",\"t\":\"the mirror\"},{\"w\":\"de la salle de bain\",\"t\":\"of the bathroom\"},{\"w\":\"est sale.\",\"t\":\"is dirty\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.194",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Le réveil sonne à sept heures.",
+    "en": "The alarm clock rings at seven o'clock.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le réveil\",\"t\":\"the alarm clock\"},{\"w\":\"sonne\",\"t\":\"rings\"},{\"w\":\"à sept heures.\",\"t\":\"at seven o'clock\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.195",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Ma calculatrice reste toujours dans mon sac.",
+    "en": "My calculator always stays in my bag.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma calculatrice\",\"t\":\"my calculator\"},{\"w\":\"reste toujours\",\"t\":\"always stays\"},{\"w\":\"dans mon sac.\",\"t\":\"in my bag\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.196",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Cette gomme n'efface plus rien du tout.",
+    "en": "This eraser doesn't erase anything at all anymore.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette gomme\",\"t\":\"this eraser\"},{\"w\":\"n'efface plus rien\",\"t\":\"doesn't erase anything anymore\"},{\"w\":\"du tout.\",\"t\":\"at all\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.197",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "La règle de mon fils est en plastique jaune.",
+    "en": "My son's ruler is yellow plastic.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La règle\",\"t\":\"the ruler\"},{\"w\":\"de mon fils\",\"t\":\"of my son\"},{\"w\":\"est en plastique jaune.\",\"t\":\"is yellow plastic\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.198",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "L'agrafeuse est vide, il faut des agrafes.",
+    "en": "The stapler is empty, it needs staples.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'agrafeuse\",\"t\":\"the stapler\"},{\"w\":\"est vide,\",\"t\":\"is empty,\"},{\"w\":\"il faut\",\"t\":\"we need\"},{\"w\":\"des agrafes.\",\"t\":\"staples\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.199",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Il met la lettre dans une enveloppe blanche.",
+    "en": "He puts the letter in a white envelope.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il met\",\"t\":\"he puts\"},{\"w\":\"la lettre\",\"t\":\"the letter\"},{\"w\":\"dans une enveloppe\",\"t\":\"in an envelope\"},{\"w\":\"blanche.\",\"t\":\"white\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.200",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Ce timbre vient d'un autre pays.",
+    "en": "This stamp comes from another country.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce timbre\",\"t\":\"this stamp\"},{\"w\":\"vient\",\"t\":\"comes\"},{\"w\":\"d'un autre pays.\",\"t\":\"from another country\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.201",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Nous regardons la carte pour trouver la route.",
+    "en": "We look at the map to find the route.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous regardons\",\"t\":\"we look at\"},{\"w\":\"la carte\",\"t\":\"the map\"},{\"w\":\"pour trouver\",\"t\":\"to find\"},{\"w\":\"la route.\",\"t\":\"the route\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.202",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "La boussole indique toujours le nord.",
+    "en": "The compass always points north.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La boussole\",\"t\":\"the compass\"},{\"w\":\"indique toujours\",\"t\":\"always points\"},{\"w\":\"le nord.\",\"t\":\"north\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.203",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Mon sac à dos est trop lourd aujourd'hui.",
+    "en": "My backpack is too heavy today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon sac à dos\",\"t\":\"my backpack\"},{\"w\":\"est trop lourd\",\"t\":\"is too heavy\"},{\"w\":\"aujourd'hui.\",\"t\":\"today\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.204",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Est-ce que je peux emprunter ton stylo?",
+    "en": "Can I borrow your pen?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Est-ce que je peux\",\"t\":\"can i\"},{\"w\":\"emprunter\",\"t\":\"borrow\"},{\"w\":\"ton stylo?\",\"t\":\"your pen\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.205",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Ce sac appartient à ma tante.",
+    "en": "This bag belongs to my aunt.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce sac\",\"t\":\"this bag\"},{\"w\":\"appartient\",\"t\":\"belongs\"},{\"w\":\"à ma tante.\",\"t\":\"to my aunt\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.206",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Les clés de la voiture sont perdues.",
+    "en": "The car keys are lost.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les clés\",\"t\":\"the keys\"},{\"w\":\"de la voiture\",\"t\":\"of the car\"},{\"w\":\"sont perdues.\",\"t\":\"are lost\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.207",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Il y a un trou dans mon parapluie.",
+    "en": "There is a hole in my umbrella.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il y a\",\"t\":\"there is\"},{\"w\":\"un trou\",\"t\":\"a hole\"},{\"w\":\"dans mon parapluie.\",\"t\":\"in my umbrella\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.208",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Ma carte d'identité est dans le portefeuille.",
+    "en": "My ID card is in the wallet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma carte d'identité\",\"t\":\"my id card\"},{\"w\":\"est dans\",\"t\":\"is in\"},{\"w\":\"le portefeuille.\",\"t\":\"the wallet\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.209",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Ce chargeur ne correspond pas à mon téléphone.",
+    "en": "This charger doesn't match my phone.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce chargeur\",\"t\":\"this charger\"},{\"w\":\"ne correspond pas\",\"t\":\"doesn't match\"},{\"w\":\"à mon téléphone.\",\"t\":\"my phone\"}]}"
+  },
+  {
+    "id": "fr.a1.objets.210",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "objets",
+    "fr": "Nous rangeons les outils dans la boîte grise.",
+    "en": "We put the tools away in the grey box.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous rangeons\",\"t\":\"we put away\"},{\"w\":\"les outils\",\"t\":\"the tools\"},{\"w\":\"dans la boîte grise.\",\"t\":\"in the grey box\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.106",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "J'ai perdu mes clés parce que j'étais pressé ce matin.",
+    "en": "I lost my keys because I was in a hurry this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai perdu\",\"t\":\"i lost\"},{\"w\":\"mes clés\",\"t\":\"my keys\"},{\"w\":\"parce que j'étais pressé\",\"t\":\"because i was in a hurry\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.107",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Elle a cherché son téléphone partout, mais elle ne l'a pas trouvé.",
+    "en": "She looked for her phone everywhere, but she didn't find it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a cherché\",\"t\":\"she looked for\"},{\"w\":\"son téléphone partout,\",\"t\":\"her phone everywhere,\"},{\"w\":\"mais elle ne l'a pas trouvé.\",\"t\":\"but she didn't find it\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.108",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Nous avons acheté un nouveau parapluie parce qu'il pleuvait.",
+    "en": "We bought a new umbrella because it was raining.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons acheté\",\"t\":\"we bought\"},{\"w\":\"un nouveau parapluie\",\"t\":\"a new umbrella\"},{\"w\":\"parce qu'il pleuvait.\",\"t\":\"because it was raining\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.109",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "J'ai laissé mon portefeuille à la maison, alors je n'ai pas payé.",
+    "en": "I left my wallet at home, so I didn't pay.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai laissé\",\"t\":\"i left\"},{\"w\":\"mon portefeuille\",\"t\":\"my wallet\"},{\"w\":\"à la maison,\",\"t\":\"at home,\"},{\"w\":\"alors je n'ai pas payé.\",\"t\":\"so i didn't pay\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.110",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Il a cassé ses lunettes en tombant dans l'escalier.",
+    "en": "He broke his glasses falling down the stairs.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a cassé\",\"t\":\"he broke\"},{\"w\":\"ses lunettes\",\"t\":\"his glasses\"},{\"w\":\"en tombant\",\"t\":\"while falling\"},{\"w\":\"dans l'escalier.\",\"t\":\"down the stairs\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.111",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Le chargeur est tombé, puis il s'est cassé.",
+    "en": "The charger fell, then it broke.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chargeur\",\"t\":\"the charger\"},{\"w\":\"est tombé,\",\"t\":\"fell,\"},{\"w\":\"puis il s'est cassé.\",\"t\":\"then it broke\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.112",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Tu vas emprunter mon stylo pour l'examen demain.",
+    "en": "You are going to borrow my pen for tomorrow's exam.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu vas emprunter\",\"t\":\"you are going to borrow\"},{\"w\":\"mon stylo\",\"t\":\"my pen\"},{\"w\":\"pour l'examen\",\"t\":\"for the exam\"},{\"w\":\"demain.\",\"t\":\"tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.113",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Nous allons ranger les outils avant de partir.",
+    "en": "We are going to put the tools away before leaving.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons ranger\",\"t\":\"we are going to put away\"},{\"w\":\"les outils\",\"t\":\"the tools\"},{\"w\":\"avant de partir.\",\"t\":\"before leaving\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.114",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Elle a mis ses affaires dans un grand sac, puis elle est partie.",
+    "en": "She put her things in a big bag, then she left.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a mis\",\"t\":\"she put\"},{\"w\":\"ses affaires\",\"t\":\"her things\"},{\"w\":\"dans un grand sac,\",\"t\":\"in a big bag,\"},{\"w\":\"puis elle est partie.\",\"t\":\"then she left\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.115",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "J'ai écrit mon adresse dans ce carnet la semaine dernière.",
+    "en": "I wrote my address in this notebook last week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai écrit\",\"t\":\"i wrote\"},{\"w\":\"mon adresse\",\"t\":\"my address\"},{\"w\":\"dans ce carnet\",\"t\":\"in this notebook\"},{\"w\":\"la semaine dernière.\",\"t\":\"last week\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.116",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Mon frère a emprunté mes ciseaux et il ne les a pas rendus.",
+    "en": "My brother borrowed my scissors and he didn't give them back.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon frère\",\"t\":\"my brother\"},{\"w\":\"a emprunté mes ciseaux\",\"t\":\"borrowed my scissors\"},{\"w\":\"et il ne les a pas rendus.\",\"t\":\"and he didn't give them back\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.117",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Les piles sont mortes, alors la lampe ne marche plus.",
+    "en": "The batteries are dead, so the lamp doesn't work anymore.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les piles\",\"t\":\"the batteries\"},{\"w\":\"sont mortes,\",\"t\":\"are dead,\"},{\"w\":\"alors la lampe\",\"t\":\"so the lamp\"},{\"w\":\"ne marche plus.\",\"t\":\"doesn't work anymore\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.118",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Mon père a offert cette montre à ma mère pour son anniversaire.",
+    "en": "My father gave this watch to my mother for her birthday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon père\",\"t\":\"my father\"},{\"w\":\"a offert cette montre\",\"t\":\"gave this watch\"},{\"w\":\"à ma mère\",\"t\":\"to my mother\"},{\"w\":\"pour son anniversaire.\",\"t\":\"for her birthday\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.119",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Nous avons acheté une nouvelle valise parce que l'ancienne était cassée.",
+    "en": "We bought a new suitcase because the old one was broken.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons acheté\",\"t\":\"we bought\"},{\"w\":\"une nouvelle valise\",\"t\":\"a new suitcase\"},{\"w\":\"parce que l'ancienne\",\"t\":\"because the old one\"},{\"w\":\"était cassée.\",\"t\":\"was broken\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.120",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "J'ai chargé mes écouteurs toute la nuit, mais ils ne fonctionnent toujours pas.",
+    "en": "I charged my headphones all night, but they still don't work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai chargé\",\"t\":\"i charged\"},{\"w\":\"mes écouteurs\",\"t\":\"my headphones\"},{\"w\":\"toute la nuit,\",\"t\":\"all night,\"},{\"w\":\"mais ils ne fonctionnent toujours pas.\",\"t\":\"but they still don't work\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.121",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Elle va vendre son ordinateur portable la semaine prochaine.",
+    "en": "She is going to sell her laptop next week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle va vendre\",\"t\":\"she is going to sell\"},{\"w\":\"son ordinateur portable\",\"t\":\"her laptop\"},{\"w\":\"la semaine prochaine.\",\"t\":\"next week\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.122",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Le câble s'est débranché pendant la nuit.",
+    "en": "The cable came unplugged during the night.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le câble\",\"t\":\"the cable\"},{\"w\":\"s'est débranché\",\"t\":\"came unplugged\"},{\"w\":\"pendant la nuit.\",\"t\":\"during the night\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.123",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Nous avons cherché la télécommande sous le canapé, puis nous l'avons trouvée.",
+    "en": "We looked for the remote control under the couch, then we found it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons cherché\",\"t\":\"we looked for\"},{\"w\":\"la télécommande\",\"t\":\"the remote control\"},{\"w\":\"sous le canapé,\",\"t\":\"under the couch,\"},{\"w\":\"puis nous l'avons trouvée.\",\"t\":\"then we found it\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.124",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "J'ai fait un nouveau porte-clés pour mon fils.",
+    "en": "I made a new keychain for my son.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai fait\",\"t\":\"i made\"},{\"w\":\"un nouveau porte-clés\",\"t\":\"a new keychain\"},{\"w\":\"pour mon fils.\",\"t\":\"for my son\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.125",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Papa a rangé la boîte à outils dans le garage hier soir.",
+    "en": "Dad put the toolbox away in the garage last night.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Papa a rangé\",\"t\":\"dad put away\"},{\"w\":\"la boîte à outils\",\"t\":\"the toolbox\"},{\"w\":\"dans le garage\",\"t\":\"in the garage\"},{\"w\":\"hier soir.\",\"t\":\"last night\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.126",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Il a réparé la chaise avec un marteau, mais elle est encore instable.",
+    "en": "He fixed the chair with a hammer, but it is still unstable.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a réparé\",\"t\":\"he fixed\"},{\"w\":\"la chaise\",\"t\":\"the chair\"},{\"w\":\"avec un marteau,\",\"t\":\"with a hammer,\"},{\"w\":\"mais elle est encore instable.\",\"t\":\"but it is still unstable\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.127",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Elle a prêté son tournevis à son voisin ce week-end.",
+    "en": "She lent her screwdriver to her neighbor this weekend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a prêté\",\"t\":\"she lent\"},{\"w\":\"son tournevis\",\"t\":\"her screwdriver\"},{\"w\":\"à son voisin\",\"t\":\"to her neighbor\"},{\"w\":\"ce week-end.\",\"t\":\"this weekend\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.128",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "J'ai collé l'affiche avec du ruban adhésif parce que je n'avais pas de punaises.",
+    "en": "I stuck the poster with tape because I didn't have any thumbtacks.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai collé\",\"t\":\"i stuck\"},{\"w\":\"l'affiche\",\"t\":\"the poster\"},{\"w\":\"avec du ruban adhésif\",\"t\":\"with tape\"},{\"w\":\"parce que je n'avais pas\",\"t\":\"because i didn't have\"},{\"w\":\"de punaises.\",\"t\":\"thumbtacks\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.129",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Nous avons acheté de la colle forte pour réparer la chaise.",
+    "en": "We bought strong glue to fix the chair.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons acheté\",\"t\":\"we bought\"},{\"w\":\"de la colle forte\",\"t\":\"strong glue\"},{\"w\":\"pour réparer\",\"t\":\"to fix\"},{\"w\":\"la chaise.\",\"t\":\"the chair\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.130",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Il a attaché le colis avec une ficelle solide.",
+    "en": "He tied the package with strong string.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a attaché\",\"t\":\"he tied\"},{\"w\":\"le colis\",\"t\":\"the package\"},{\"w\":\"avec une ficelle solide.\",\"t\":\"with strong string\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.131",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Elle a laissé le couteau sur la table, alors le chat l'a fait tomber.",
+    "en": "She left the knife on the table, so the cat knocked it down.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a laissé\",\"t\":\"she left\"},{\"w\":\"le couteau\",\"t\":\"the knife\"},{\"w\":\"sur la table,\",\"t\":\"on the table,\"},{\"w\":\"alors le chat l'a fait tomber.\",\"t\":\"so the cat knocked it down\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.132",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "J'ai allumé mon briquet, mais le vent l'a éteint tout de suite.",
+    "en": "I lit my lighter, but the wind put it out right away.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai allumé\",\"t\":\"i lit\"},{\"w\":\"mon briquet,\",\"t\":\"my lighter,\"},{\"w\":\"mais le vent\",\"t\":\"but the wind\"},{\"w\":\"l'a éteint tout de suite.\",\"t\":\"put it out right away\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.133",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Nous avons acheté des allumettes parce que le briquet ne marchait plus.",
+    "en": "We bought matches because the lighter no longer worked.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons acheté\",\"t\":\"we bought\"},{\"w\":\"des allumettes\",\"t\":\"matches\"},{\"w\":\"parce que le briquet\",\"t\":\"because the lighter\"},{\"w\":\"ne marchait plus.\",\"t\":\"no longer worked\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.134",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Elle a offert une bougie parfumée à sa meilleure amie.",
+    "en": "She gave a scented candle to her best friend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a offert\",\"t\":\"she gave\"},{\"w\":\"une bougie parfumée\",\"t\":\"a scented candle\"},{\"w\":\"à sa meilleure amie.\",\"t\":\"to her best friend\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.135",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "J'ai pris le balai, puis j'ai nettoyé toute la cuisine.",
+    "en": "I took the broom, then I cleaned the whole kitchen.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai pris\",\"t\":\"i took\"},{\"w\":\"le balai,\",\"t\":\"the broom,\"},{\"w\":\"puis j'ai nettoyé\",\"t\":\"then i cleaned\"},{\"w\":\"toute la cuisine.\",\"t\":\"the whole kitchen\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.136",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Il a rempli le seau d'eau pour laver la voiture.",
+    "en": "He filled the bucket with water to wash the car.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a rempli\",\"t\":\"he filled\"},{\"w\":\"le seau d'eau\",\"t\":\"the bucket with water\"},{\"w\":\"pour laver\",\"t\":\"to wash\"},{\"w\":\"la voiture.\",\"t\":\"the car\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.137",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Nous avons emprunté une échelle chez le voisin pour peindre le mur.",
+    "en": "We borrowed a ladder from the neighbor to paint the wall.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons emprunté\",\"t\":\"we borrowed\"},{\"w\":\"une échelle\",\"t\":\"a ladder\"},{\"w\":\"chez le voisin\",\"t\":\"from the neighbor\"},{\"w\":\"pour peindre le mur.\",\"t\":\"to paint the wall\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.138",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "Le miroir est tombé du mur, mais il ne s'est pas cassé.",
+    "en": "The mirror fell off the wall, but it didn't break.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le miroir\",\"t\":\"the mirror\"},{\"w\":\"est tombé du mur,\",\"t\":\"fell off the wall,\"},{\"w\":\"mais il ne s'est pas cassé.\",\"t\":\"but it didn't break\"}]}"
+  },
+  {
+    "id": "fr.a2.objets.139",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "objets",
+    "fr": "J'ai réglé le réveil, alors je vais me lever tôt demain.",
+    "en": "I set the alarm clock, so I am going to get up early tomorrow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai réglé\",\"t\":\"i set\"},{\"w\":\"le réveil,\",\"t\":\"the alarm clock,\"},{\"w\":\"alors je vais me lever\",\"t\":\"so i am going to get up\"},{\"w\":\"tôt demain.\",\"t\":\"early tomorrow\"}]}"
+  }
+]

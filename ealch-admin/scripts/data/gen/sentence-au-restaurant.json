@@ -1,0 +1,1787 @@
+[
+  {
+    "id": "fr.a1.au-restaurant.168",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Je voudrais réserver une table pour deux personnes.",
+    "en": "I would like to book a table for two people.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je voudrais\",\"t\":\"i would like\"},{\"w\":\"réserver une table\",\"t\":\"to book a table\"},{\"w\":\"pour deux personnes.\",\"t\":\"for two people\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.169",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Avez-vous une table pour ce soir ?",
+    "en": "Do you have a table for tonight?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Avez-vous\",\"t\":\"do you have\"},{\"w\":\"une table\",\"t\":\"a table\"},{\"w\":\"pour ce soir ?\",\"t\":\"for tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.170",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "La réservation est à vingt heures.",
+    "en": "The reservation is at eight o'clock.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La réservation\",\"t\":\"the reservation\"},{\"w\":\"est à\",\"t\":\"is at\"},{\"w\":\"vingt heures.\",\"t\":\"eight o'clock\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.171",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Nous sommes quatre personnes.",
+    "en": "There are four of us.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous\",\"t\":\"we\"},{\"w\":\"sommes\",\"t\":\"are\"},{\"w\":\"quatre personnes.\",\"t\":\"four people\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.172",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le restaurant est complet ce soir.",
+    "en": "The restaurant is full tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le restaurant\",\"t\":\"the restaurant\"},{\"w\":\"est complet\",\"t\":\"is full\"},{\"w\":\"ce soir.\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.173",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le serveur nous accueille avec un sourire.",
+    "en": "The waiter greets us with a smile.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le serveur\",\"t\":\"the waiter\"},{\"w\":\"nous accueille\",\"t\":\"greets us\"},{\"w\":\"avec un sourire.\",\"t\":\"with a smile\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.174",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Voici la carte des plats.",
+    "en": "Here is the menu.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Voici\",\"t\":\"here is\"},{\"w\":\"la carte\",\"t\":\"the menu\"},{\"w\":\"des plats.\",\"t\":\"of dishes\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.175",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Je regarde le menu du jour.",
+    "en": "I am looking at today's menu.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je regarde\",\"t\":\"i am looking at\"},{\"w\":\"le menu\",\"t\":\"the menu\"},{\"w\":\"du jour.\",\"t\":\"of the day\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.176",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Quel est le plat du jour ?",
+    "en": "What is today's special?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quel est\",\"t\":\"what is\"},{\"w\":\"le plat\",\"t\":\"the dish\"},{\"w\":\"du jour ?\",\"t\":\"of the day\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.177",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Je prends une salade en entrée.",
+    "en": "I'll have a salad for a starter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je prends\",\"t\":\"i'll have\"},{\"w\":\"une salade\",\"t\":\"a salad\"},{\"w\":\"en entrée.\",\"t\":\"as a starter\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.178",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Elle commande le poulet rôti.",
+    "en": "She orders the roast chicken.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle commande\",\"t\":\"she orders\"},{\"w\":\"le poulet\",\"t\":\"the chicken\"},{\"w\":\"rôti.\",\"t\":\"roasted\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.179",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Il choisit le poisson grillé.",
+    "en": "He chooses the grilled fish.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il choisit\",\"t\":\"he chooses\"},{\"w\":\"le poisson\",\"t\":\"the fish\"},{\"w\":\"grillé.\",\"t\":\"grilled\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.180",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Nous voulons deux steaks frites.",
+    "en": "We want two steak and fries.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous\",\"t\":\"we\"},{\"w\":\"voulons\",\"t\":\"want\"},{\"w\":\"deux steaks frites.\",\"t\":\"two steaks with fries\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.181",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le dessert préféré des enfants est la glace.",
+    "en": "The children's favorite dessert is ice cream.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le dessert préféré\",\"t\":\"the favorite dessert\"},{\"w\":\"des enfants\",\"t\":\"of the children\"},{\"w\":\"est la glace.\",\"t\":\"is ice cream\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.182",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Je prends un café après le repas.",
+    "en": "I'll have a coffee after the meal.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je prends\",\"t\":\"i'll have\"},{\"w\":\"un café\",\"t\":\"a coffee\"},{\"w\":\"après le repas.\",\"t\":\"after the meal\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.183",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Elle demande un verre de vin rouge.",
+    "en": "She asks for a glass of red wine.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle demande\",\"t\":\"she asks for\"},{\"w\":\"un verre\",\"t\":\"a glass\"},{\"w\":\"de vin rouge.\",\"t\":\"of red wine\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.184",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Nous buvons de l'eau minérale.",
+    "en": "We drink mineral water.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous buvons\",\"t\":\"we drink\"},{\"w\":\"de l'eau\",\"t\":\"some water\"},{\"w\":\"minérale.\",\"t\":\"mineral\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.185",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le serveur apporte du pain frais.",
+    "en": "The waiter brings fresh bread.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le serveur\",\"t\":\"the waiter\"},{\"w\":\"apporte\",\"t\":\"brings\"},{\"w\":\"du pain frais.\",\"t\":\"fresh bread\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.186",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Y a-t-il des noix dans ce plat ?",
+    "en": "Are there nuts in this dish?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Y a-t-il\",\"t\":\"is there\"},{\"w\":\"des noix\",\"t\":\"nuts\"},{\"w\":\"dans ce plat ?\",\"t\":\"in this dish\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.187",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Je suis allergique aux fruits de mer.",
+    "en": "I am allergic to seafood.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je suis\",\"t\":\"i am\"},{\"w\":\"allergique\",\"t\":\"allergic\"},{\"w\":\"aux fruits de mer.\",\"t\":\"to seafood\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.188",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Ce plat contient du gluten.",
+    "en": "This dish contains gluten.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce plat\",\"t\":\"this dish\"},{\"w\":\"contient\",\"t\":\"contains\"},{\"w\":\"du gluten.\",\"t\":\"gluten\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.189",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Je ne mange pas de viande.",
+    "en": "I don't eat meat.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je\",\"t\":\"i\"},{\"w\":\"ne mange pas\",\"t\":\"do not eat\"},{\"w\":\"de viande.\",\"t\":\"meat\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.190",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Avez-vous des plats végétariens ?",
+    "en": "Do you have vegetarian dishes?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Avez-vous\",\"t\":\"do you have\"},{\"w\":\"des plats\",\"t\":\"dishes\"},{\"w\":\"végétariens ?\",\"t\":\"vegetarian\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.191",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "La soupe est trop salée.",
+    "en": "The soup is too salty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La soupe\",\"t\":\"the soup\"},{\"w\":\"est trop\",\"t\":\"is too\"},{\"w\":\"salée.\",\"t\":\"salty\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.192",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Mon steak est froid.",
+    "en": "My steak is cold.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon steak\",\"t\":\"my steak\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"froid.\",\"t\":\"cold\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.193",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Ce n'est pas ce que j'ai commandé.",
+    "en": "This is not what I ordered.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce n'est pas\",\"t\":\"this is not\"},{\"w\":\"ce que\",\"t\":\"what\"},{\"w\":\"j'ai commandé.\",\"t\":\"i ordered\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.194",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Pouvez-vous réchauffer mon plat ?",
+    "en": "Can you reheat my dish?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pouvez-vous\",\"t\":\"can you\"},{\"w\":\"réchauffer\",\"t\":\"reheat\"},{\"w\":\"mon plat ?\",\"t\":\"my dish\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.195",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "L'addition, s'il vous plaît, monsieur.",
+    "en": "The bill, please, sir.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'addition,\",\"t\":\"the bill,\"},{\"w\":\"s'il vous plaît,\",\"t\":\"please,\"},{\"w\":\"monsieur.\",\"t\":\"sir\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.196",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Nous partageons l'addition en deux.",
+    "en": "We split the bill in two.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous partageons\",\"t\":\"we split\"},{\"w\":\"l'addition\",\"t\":\"the bill\"},{\"w\":\"en deux.\",\"t\":\"in two\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.197",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Je laisse un pourboire pour le serveur.",
+    "en": "I leave a tip for the waiter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je laisse\",\"t\":\"i leave\"},{\"w\":\"un pourboire\",\"t\":\"a tip\"},{\"w\":\"pour le serveur.\",\"t\":\"for the waiter\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.198",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le service est compris dans le prix.",
+    "en": "Service is included in the price.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le service\",\"t\":\"the service\"},{\"w\":\"est compris\",\"t\":\"is included\"},{\"w\":\"dans le prix.\",\"t\":\"in the price\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.199",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Cette table est près de la fenêtre.",
+    "en": "This table is near the window.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette table\",\"t\":\"this table\"},{\"w\":\"est près\",\"t\":\"is near\"},{\"w\":\"de la fenêtre.\",\"t\":\"the window\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.200",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Nous préférons une table en terrasse.",
+    "en": "We prefer a table on the terrace.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous préférons\",\"t\":\"we prefer\"},{\"w\":\"une table\",\"t\":\"a table\"},{\"w\":\"en terrasse.\",\"t\":\"on the terrace\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.201",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le menu enfant coûte huit euros.",
+    "en": "The kids' menu costs eight euros.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le menu enfant\",\"t\":\"the kids' menu\"},{\"w\":\"coûte\",\"t\":\"costs\"},{\"w\":\"huit euros.\",\"t\":\"eight euros\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.202",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "La carte des vins est longue.",
+    "en": "The wine list is long.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La carte des vins\",\"t\":\"the wine list\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"longue.\",\"t\":\"long\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.203",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le chef prépare une spécialité régionale.",
+    "en": "The chef prepares a regional specialty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chef\",\"t\":\"the chef\"},{\"w\":\"prépare\",\"t\":\"prepares\"},{\"w\":\"une spécialité régionale.\",\"t\":\"a regional specialty\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.204",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Ce restaurant sert une cuisine italienne.",
+    "en": "This restaurant serves Italian cuisine.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce restaurant\",\"t\":\"this restaurant\"},{\"w\":\"sert\",\"t\":\"serves\"},{\"w\":\"une cuisine italienne.\",\"t\":\"italian cuisine\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.205",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "La sauce accompagne très bien la viande.",
+    "en": "The sauce goes very well with the meat.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La sauce\",\"t\":\"the sauce\"},{\"w\":\"accompagne très bien\",\"t\":\"goes very well with\"},{\"w\":\"la viande.\",\"t\":\"the meat\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.206",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le plateau de fromages est délicieux.",
+    "en": "The cheese platter is delicious.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le plateau\",\"t\":\"the platter\"},{\"w\":\"de fromages\",\"t\":\"of cheeses\"},{\"w\":\"est délicieux.\",\"t\":\"is delicious\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.207",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Nous finissons le repas avec un café.",
+    "en": "We finish the meal with a coffee.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous finissons\",\"t\":\"we finish\"},{\"w\":\"le repas\",\"t\":\"the meal\"},{\"w\":\"avec un café.\",\"t\":\"with a coffee\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.208",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le serveur débarrasse la table.",
+    "en": "The waiter clears the table.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le serveur\",\"t\":\"the waiter\"},{\"w\":\"débarrasse\",\"t\":\"clears\"},{\"w\":\"la table.\",\"t\":\"the table\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.209",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Puis-je avoir une serviette, s'il vous plaît ?",
+    "en": "May I have a napkin, please?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Puis-je avoir\",\"t\":\"may i have\"},{\"w\":\"une serviette,\",\"t\":\"a napkin,\"},{\"w\":\"s'il vous plaît ?\",\"t\":\"please\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.210",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "La salle est calme et confortable.",
+    "en": "The dining room is quiet and comfortable.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La salle\",\"t\":\"the room\"},{\"w\":\"est calme\",\"t\":\"is quiet\"},{\"w\":\"et confortable.\",\"t\":\"and comfortable\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.211",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Il y a une chaise haute pour le bébé.",
+    "en": "There is a high chair for the baby.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il y a\",\"t\":\"there is\"},{\"w\":\"une chaise haute\",\"t\":\"a high chair\"},{\"w\":\"pour le bébé.\",\"t\":\"for the baby\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.212",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Nous mangeons ici tous les dimanches.",
+    "en": "We eat here every Sunday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous mangeons\",\"t\":\"we eat\"},{\"w\":\"ici\",\"t\":\"here\"},{\"w\":\"tous les dimanches.\",\"t\":\"every sunday\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.213",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le restaurant ouvre à midi.",
+    "en": "The restaurant opens at noon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le restaurant\",\"t\":\"the restaurant\"},{\"w\":\"ouvre\",\"t\":\"opens\"},{\"w\":\"à midi.\",\"t\":\"at noon\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.214",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "La cuisine ferme à vingt-deux heures.",
+    "en": "The kitchen closes at ten p.m.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La cuisine\",\"t\":\"the kitchen\"},{\"w\":\"ferme\",\"t\":\"closes\"},{\"w\":\"à vingt-deux heures.\",\"t\":\"at ten pm\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.215",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Ce plat est un peu épicé.",
+    "en": "This dish is a bit spicy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce plat\",\"t\":\"this dish\"},{\"w\":\"est un peu\",\"t\":\"is a bit\"},{\"w\":\"épicé.\",\"t\":\"spicy\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.216",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "J'aime beaucoup ce dessert au chocolat.",
+    "en": "I really like this chocolate dessert.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'aime beaucoup\",\"t\":\"i really like\"},{\"w\":\"ce dessert\",\"t\":\"this dessert\"},{\"w\":\"au chocolat.\",\"t\":\"with chocolate\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.217",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Le vin blanc va bien avec le poisson.",
+    "en": "White wine goes well with fish.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vin blanc\",\"t\":\"white wine\"},{\"w\":\"va bien\",\"t\":\"goes well\"},{\"w\":\"avec le poisson.\",\"t\":\"with the fish\"}]}"
+  },
+  {
+    "id": "fr.a1.au-restaurant.218",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "au-restaurant",
+    "fr": "Nous réservons une table sur internet.",
+    "en": "We book a table online.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous réservons\",\"t\":\"we book\"},{\"w\":\"une table\",\"t\":\"a table\"},{\"w\":\"sur internet.\",\"t\":\"online\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.098",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Nous avons réservé une table pour huit heures.",
+    "en": "We booked a table for eight o'clock.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons réservé\",\"t\":\"we booked\"},{\"w\":\"une table\",\"t\":\"a table\"},{\"w\":\"pour huit heures.\",\"t\":\"for eight o'clock\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.099",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "J'ai commandé le menu du jour parce qu'il avait l'air bon.",
+    "en": "I ordered the daily menu because it looked good.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai commandé\",\"t\":\"i ordered\"},{\"w\":\"le menu du jour\",\"t\":\"the daily menu\"},{\"w\":\"parce qu'il avait l'air bon.\",\"t\":\"because it looked good\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.100",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Le serveur a apporté l'entrée rapidement.",
+    "en": "The waiter brought the starter quickly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le serveur\",\"t\":\"the waiter\"},{\"w\":\"a apporté\",\"t\":\"brought\"},{\"w\":\"l'entrée\",\"t\":\"the starter\"},{\"w\":\"rapidement.\",\"t\":\"quickly\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.101",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Elle a choisi le poisson mais il n'y en avait plus.",
+    "en": "She chose the fish but there was none left.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a choisi\",\"t\":\"she chose\"},{\"w\":\"le poisson\",\"t\":\"the fish\"},{\"w\":\"mais il n'y en avait plus.\",\"t\":\"but there was none left\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.102",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Nous allons dîner dans ce restaurant demain soir.",
+    "en": "We are going to have dinner at this restaurant tomorrow evening.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons dîner\",\"t\":\"we are going to have dinner\"},{\"w\":\"dans ce restaurant\",\"t\":\"at this restaurant\"},{\"w\":\"demain soir.\",\"t\":\"tomorrow evening\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.103",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Je vais goûter la spécialité de la maison.",
+    "en": "I am going to try the house specialty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais goûter\",\"t\":\"i am going to try\"},{\"w\":\"la spécialité\",\"t\":\"the specialty\"},{\"w\":\"de la maison.\",\"t\":\"of the house\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.104",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Ils ont attendu vingt minutes avant d'être servis.",
+    "en": "They waited twenty minutes before being served.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils ont attendu\",\"t\":\"they waited\"},{\"w\":\"vingt minutes\",\"t\":\"twenty minutes\"},{\"w\":\"avant d'être servis.\",\"t\":\"before being served\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.105",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Le plat est arrivé froid, donc nous avons demandé un autre.",
+    "en": "The dish arrived cold, so we asked for another one.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le plat est arrivé froid,\",\"t\":\"the dish arrived cold,\"},{\"w\":\"donc\",\"t\":\"so\"},{\"w\":\"nous avons demandé\",\"t\":\"we asked for\"},{\"w\":\"un autre.\",\"t\":\"another one\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.106",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "J'ai oublié de préciser mon allergie aux arachides.",
+    "en": "I forgot to mention my peanut allergy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai oublié\",\"t\":\"i forgot\"},{\"w\":\"de préciser\",\"t\":\"to mention\"},{\"w\":\"mon allergie\",\"t\":\"my allergy\"},{\"w\":\"aux arachides.\",\"t\":\"to peanuts\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.107",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Le chef a préparé un dessert spécial pour notre anniversaire.",
+    "en": "The chef prepared a special dessert for our anniversary.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chef\",\"t\":\"the chef\"},{\"w\":\"a préparé\",\"t\":\"prepared\"},{\"w\":\"un dessert spécial\",\"t\":\"a special dessert\"},{\"w\":\"pour notre anniversaire.\",\"t\":\"for our anniversary\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.108",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Nous avons partagé l'addition entre nous quatre.",
+    "en": "We split the bill between the four of us.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons partagé\",\"t\":\"we split\"},{\"w\":\"l'addition\",\"t\":\"the bill\"},{\"w\":\"entre nous quatre.\",\"t\":\"between the four of us\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.109",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Elle va laisser un généreux pourboire au serveur.",
+    "en": "She is going to leave a generous tip for the waiter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle va laisser\",\"t\":\"she is going to leave\"},{\"w\":\"un généreux pourboire\",\"t\":\"a generous tip\"},{\"w\":\"au serveur.\",\"t\":\"for the waiter\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.110",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Le vin que nous avons choisi était excellent.",
+    "en": "The wine we chose was excellent.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vin\",\"t\":\"the wine\"},{\"w\":\"que nous avons choisi\",\"t\":\"that we chose\"},{\"w\":\"était excellent.\",\"t\":\"was excellent\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.111",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Après le plat principal, nous avons pris un café.",
+    "en": "After the main course, we had a coffee.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Après le plat principal,\",\"t\":\"after the main course,\"},{\"w\":\"nous avons pris\",\"t\":\"we had\"},{\"w\":\"un café.\",\"t\":\"a coffee\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.112",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Je vais réserver une table pour samedi soir.",
+    "en": "I am going to book a table for Saturday evening.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais réserver\",\"t\":\"i am going to book\"},{\"w\":\"une table\",\"t\":\"a table\"},{\"w\":\"pour samedi soir.\",\"t\":\"for saturday evening\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.113",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Le restaurant a changé sa carte le mois dernier.",
+    "en": "The restaurant changed its menu last month.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le restaurant\",\"t\":\"the restaurant\"},{\"w\":\"a changé\",\"t\":\"changed\"},{\"w\":\"sa carte\",\"t\":\"its menu\"},{\"w\":\"le mois dernier.\",\"t\":\"last month\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.114",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Nous avons dû annuler notre réservation à cause de la pluie.",
+    "en": "We had to cancel our reservation because of the rain.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons dû annuler\",\"t\":\"we had to cancel\"},{\"w\":\"notre réservation\",\"t\":\"our reservation\"},{\"w\":\"à cause de la pluie.\",\"t\":\"because of the rain\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.115",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Il a demandé si le plat contenait du lactose.",
+    "en": "He asked if the dish contained lactose.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a demandé\",\"t\":\"he asked\"},{\"w\":\"si le plat\",\"t\":\"if the dish\"},{\"w\":\"contenait du lactose.\",\"t\":\"contained lactose\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.116",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "La serveuse s'est excusée pour l'erreur de commande.",
+    "en": "The waitress apologized for the order mistake.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La serveuse\",\"t\":\"the waitress\"},{\"w\":\"s'est excusée\",\"t\":\"apologized\"},{\"w\":\"pour l'erreur\",\"t\":\"for the mistake\"},{\"w\":\"de commande.\",\"t\":\"in the order\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.117",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Ensuite, nous avons commandé un dessert à partager.",
+    "en": "Then, we ordered a dessert to share.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ensuite,\",\"t\":\"then,\"},{\"w\":\"nous avons commandé\",\"t\":\"we ordered\"},{\"w\":\"un dessert\",\"t\":\"a dessert\"},{\"w\":\"à partager.\",\"t\":\"to share\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.118",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Puisque la table était réservée, nous n'avons pas attendu.",
+    "en": "Since the table was reserved, we did not wait.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Puisque\",\"t\":\"since\"},{\"w\":\"la table était réservée,\",\"t\":\"the table was reserved,\"},{\"w\":\"nous n'avons pas attendu.\",\"t\":\"we did not wait\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.119",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Nous avons trouvé ce restaurant grâce à un ami.",
+    "en": "We found this restaurant thanks to a friend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons trouvé\",\"t\":\"we found\"},{\"w\":\"ce restaurant\",\"t\":\"this restaurant\"},{\"w\":\"grâce à un ami.\",\"t\":\"thanks to a friend\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.120",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Le service était lent, mais la nourriture était délicieuse.",
+    "en": "The service was slow, but the food was delicious.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le service était lent,\",\"t\":\"the service was slow,\"},{\"w\":\"mais\",\"t\":\"but\"},{\"w\":\"la nourriture était délicieuse.\",\"t\":\"the food was delicious\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.121",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Je vais essayer le menu végétarien la prochaine fois.",
+    "en": "I am going to try the vegetarian menu next time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais essayer\",\"t\":\"i am going to try\"},{\"w\":\"le menu végétarien\",\"t\":\"the vegetarian menu\"},{\"w\":\"la prochaine fois.\",\"t\":\"next time\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.122",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Ils ont apprécié l'ambiance chaleureuse du restaurant.",
+    "en": "They enjoyed the warm atmosphere of the restaurant.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils ont apprécié\",\"t\":\"they enjoyed\"},{\"w\":\"l'ambiance chaleureuse\",\"t\":\"the warm atmosphere\"},{\"w\":\"du restaurant.\",\"t\":\"of the restaurant\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.123",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Nous avons payé en espèces parce que la carte ne marchait pas.",
+    "en": "We paid in cash because the card was not working.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons payé\",\"t\":\"we paid\"},{\"w\":\"en espèces\",\"t\":\"in cash\"},{\"w\":\"parce que la carte\",\"t\":\"because the card\"},{\"w\":\"ne marchait pas.\",\"t\":\"was not working\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.124",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Elle a remarqué que le plat manquait de sel.",
+    "en": "She noticed that the dish lacked salt.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a remarqué\",\"t\":\"she noticed\"},{\"w\":\"que le plat\",\"t\":\"that the dish\"},{\"w\":\"manquait de sel.\",\"t\":\"lacked salt\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.125",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Le gérant est venu s'excuser pour le retard.",
+    "en": "The manager came to apologize for the delay.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le gérant\",\"t\":\"the manager\"},{\"w\":\"est venu\",\"t\":\"came\"},{\"w\":\"s'excuser\",\"t\":\"to apologize\"},{\"w\":\"pour le retard.\",\"t\":\"for the delay\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.126",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Nous allons fêter notre anniversaire dans ce restaurant.",
+    "en": "We are going to celebrate our anniversary at this restaurant.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons fêter\",\"t\":\"we are going to celebrate\"},{\"w\":\"notre anniversaire\",\"t\":\"our anniversary\"},{\"w\":\"dans ce restaurant.\",\"t\":\"at this restaurant\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.127",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "J'ai réservé une table en terrasse pour ce week-end.",
+    "en": "I booked a terrace table for this weekend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai réservé\",\"t\":\"i booked\"},{\"w\":\"une table en terrasse\",\"t\":\"a terrace table\"},{\"w\":\"pour ce week-end.\",\"t\":\"for this weekend\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.128",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Comme il pleuvait, nous avons choisi une table à l'intérieur.",
+    "en": "Since it was raining, we chose a table inside.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Comme il pleuvait,\",\"t\":\"since it was raining,\"},{\"w\":\"nous avons choisi\",\"t\":\"we chose\"},{\"w\":\"une table\",\"t\":\"a table\"},{\"w\":\"à l'intérieur.\",\"t\":\"inside\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.129",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Le serveur nous a recommandé le plat du chef.",
+    "en": "The waiter recommended the chef's dish to us.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le serveur\",\"t\":\"the waiter\"},{\"w\":\"nous a recommandé\",\"t\":\"recommended to us\"},{\"w\":\"le plat du chef.\",\"t\":\"the chef's dish\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.130",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Après avoir mangé, nous avons demandé l'addition.",
+    "en": "After eating, we asked for the bill.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Après avoir mangé,\",\"t\":\"after eating,\"},{\"w\":\"nous avons demandé\",\"t\":\"we asked for\"},{\"w\":\"l'addition.\",\"t\":\"the bill\"}]}"
+  },
+  {
+    "id": "fr.a2.au-restaurant.131",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "au-restaurant",
+    "fr": "Nous allons revenir dans ce restaurant parce que le service était excellent.",
+    "en": "We are going to come back to this restaurant because the service was excellent.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons revenir\",\"t\":\"we are going to come back\"},{\"w\":\"dans ce restaurant\",\"t\":\"to this restaurant\"},{\"w\":\"parce que le service\",\"t\":\"because the service\"},{\"w\":\"était excellent.\",\"t\":\"was excellent\"}]}"
+  }
+]

@@ -1,0 +1,5136 @@
+{
+  "stage": "3.2",
+  "world": 3,
+  "level": "a2",
+  "title": "L'Avenue des Projets",
+  "themes": [
+    "projets-et-futur",
+    "conseils-et-suggestions",
+    "opinions-et-avis",
+    "rencontres",
+    "couple-amour",
+    "evenements-familiaux",
+    "conflits-reconciliation",
+    "entraide",
+    "emotions",
+    "communaute",
+    "voisinage",
+    "les-fetes",
+    "salutations",
+    "salutations-de-base",
+    "presentation-personnelle",
+    "questions-du-quotidien",
+    "amis",
+    "famille",
+    "rp-famille",
+    "rp-identite"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 714,
+  "dedupedPool": 713,
+  "selected": 713,
+  "blockCount": 22,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.a2.rp-identite.013",
+          "theme": "rp-identite",
+          "fr": "Je suis célibataire.",
+          "en": "I'm single.",
+          "words": 3
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.062",
+          "theme": "questions-du-quotidien",
+          "fr": "Où sont mes clés ?",
+          "en": "Where are my keys?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.063",
+          "theme": "questions-du-quotidien",
+          "fr": "Où est ma valise ?",
+          "en": "Where is my suitcase?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.092",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien pèse ce sac ?",
+          "en": "How much does this bag weigh?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.061",
+          "theme": "questions-du-quotidien",
+          "fr": "Que faut-il apporter ?",
+          "en": "What do we need to bring?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.068",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand commence le film ?",
+          "en": "When does the movie start?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.075",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand veux-tu commencer ?",
+          "en": "When do you want to start?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.074",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand devons-nous partir ?",
+          "en": "When do we have to leave?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.076",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand fermera le magasin ?",
+          "en": "When will the store close?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.salutations-de-base.021",
+          "theme": "salutations-de-base",
+          "fr": "Salut, ça fait longtemps !",
+          "en": "Hi, long time no see!",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.057",
+          "theme": "presentation-personnelle",
+          "fr": "Comment vous appelez-vous ?",
+          "en": "What is your name?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.rp-identite.007",
+          "theme": "rp-identite",
+          "fr": "Voici mon adresse courriel.",
+          "en": "Here's my email address.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.074",
+          "theme": "presentation-personnelle",
+          "fr": "Comment es-tu physiquement ?",
+          "en": "What do you look like?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.063",
+          "theme": "presentation-personnelle",
+          "fr": "Il travaille comme ingénieur.",
+          "en": "He works as an engineer.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.projets-et-futur.102",
+          "theme": "projets-et-futur",
+          "fr": "Il pleuvra probablement demain.",
+          "en": "It will probably rain tomorrow.",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.097",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien coûtent ces chaussures ?",
+          "en": "How much do these shoes cost?",
+          "words": 4
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.052",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui a pris mes clés ?",
+          "en": "Who took my keys?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.rp-identite.005",
+          "theme": "rp-identite",
+          "fr": "J'ai trente-deux ans.",
+          "en": "I'm thirty-two years old.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.056",
+          "theme": "questions-du-quotidien",
+          "fr": "Tu fais quoi ce soir ?",
+          "en": "What are you doing tonight?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.058",
+          "theme": "presentation-personnelle",
+          "fr": "Nous avons le même âge.",
+          "en": "We are the same age.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.086",
+          "theme": "presentation-personnelle",
+          "fr": "Il vient de se fiancer.",
+          "en": "He just got engaged.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.051",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui a appelé ce matin ?",
+          "en": "Who called this morning?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.061",
+          "theme": "presentation-personnelle",
+          "fr": "Je viens des États-Unis.",
+          "en": "I come from the United States.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.093",
+          "theme": "presentation-personnelle",
+          "fr": "Il déteste se lever tôt.",
+          "en": "He hates getting up early.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.082",
+          "theme": "presentation-personnelle",
+          "fr": "Elle vit avec son copain.",
+          "en": "She lives with her boyfriend.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.082",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi pars-tu si tôt ?",
+          "en": "Why are you leaving so early?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.projets-et-futur.109",
+          "theme": "projets-et-futur",
+          "fr": "Tu verras, tout ira bien.",
+          "en": "You'll see, everything will go well.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.083",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi es-tu en retard ?",
+          "en": "Why are you late?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.072",
+          "theme": "presentation-personnelle",
+          "fr": "Elle est de taille moyenne.",
+          "en": "She is of average height.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.066",
+          "theme": "questions-du-quotidien",
+          "fr": "Où se trouve la pharmacie ?",
+          "en": "Where is the pharmacy located?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.085",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi ne manges-tu pas ?",
+          "en": "Why aren't you eating?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.094",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien de temps ça prend ?",
+          "en": "How much time does that take?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.salutations-de-base.092",
+          "theme": "salutations-de-base",
+          "fr": "Toi aussi, à la prochaine !",
+          "en": "You too, until next time!",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.a2.presentation-personnelle.084",
+          "theme": "presentation-personnelle",
+          "fr": "Es-tu marié ou célibataire ?",
+          "en": "Are you married or single?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.092",
+          "theme": "presentation-personnelle",
+          "fr": "J'aime cuisiner le dimanche.",
+          "en": "I like cooking on Sundays.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.071",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand allons-nous chez toi ?",
+          "en": "When are we going to your place?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.084",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi aimes-tu ce livre ?",
+          "en": "Why do you like this book?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.rp-identite.012",
+          "theme": "rp-identite",
+          "fr": "Je peux avoir votre numéro ?",
+          "en": "Can I have your number?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.060",
+          "theme": "presentation-personnelle",
+          "fr": "De quelle nationalité es-tu ?",
+          "en": "What nationality are you?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.054",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui peut m'aider maintenant ?",
+          "en": "Who can help me now?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.067",
+          "theme": "questions-du-quotidien",
+          "fr": "Où voulez-vous vous asseoir ?",
+          "en": "Where would you like to sit?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.081",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment se passe ta journée ?",
+          "en": "How is your day going?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.067",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il faut respecter les autres.",
+          "en": "You have to respect others.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.080",
+          "theme": "conseils-et-suggestions",
+          "fr": "Essaie de manger des légumes.",
+          "en": "Try to eat vegetables.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.salutations-de-base.038",
+          "theme": "salutations-de-base",
+          "fr": "Bof, ça pourrait aller mieux.",
+          "en": "Meh, it could be going better.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.projets-et-futur.104",
+          "theme": "projets-et-futur",
+          "fr": "Elle chantera à notre mariage.",
+          "en": "She'll sing at our wedding.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.projets-et-futur.089",
+          "theme": "projets-et-futur",
+          "fr": "Je te téléphonerai demain soir.",
+          "en": "I'll call you tomorrow evening.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.067",
+          "theme": "presentation-personnelle",
+          "fr": "Vous habitez dans quelle ville ?",
+          "en": "Which city do you live in?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.090",
+          "theme": "presentation-personnelle",
+          "fr": "Nous jouons aux cartes ensemble.",
+          "en": "We play cards together.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.095",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien de bagages emportes-tu ?",
+          "en": "How many bags are you bringing?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.077",
+          "theme": "conseils-et-suggestions",
+          "fr": "Pense à sauvegarder ton travail.",
+          "en": "Remember to save your work.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.082",
+          "theme": "conseils-et-suggestions",
+          "fr": "Essaie de parler plus lentement.",
+          "en": "Try to speak more slowly.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.rp-identite.008",
+          "theme": "rp-identite",
+          "fr": "Nous devrions rester en contact.",
+          "en": "We should stay in touch.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.088",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi étudies-tu le français ?",
+          "en": "Why are you studying French?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.077",
+          "theme": "presentation-personnelle",
+          "fr": "Nous sommes une famille nombreuse.",
+          "en": "We are a large family.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.salutations-de-base.034",
+          "theme": "salutations-de-base",
+          "fr": "Comment allez-vous, monsieur Dupont ?",
+          "en": "How are you, Mr. Dupont?",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.058",
+          "theme": "questions-du-quotidien",
+          "fr": "Qu'est-ce qui se passe ?",
+          "en": "What is happening?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.092",
+          "theme": "projets-et-futur",
+          "fr": "Il fera beau ce week-end.",
+          "en": "It will be nice this weekend.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.100",
+          "theme": "presentation-personnelle",
+          "fr": "Le week-end, je me repose.",
+          "en": "On weekends, I rest.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.053",
+          "theme": "questions-du-quotidien",
+          "fr": "Qui est cet homme là-bas ?",
+          "en": "Who is that man over there?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.085",
+          "theme": "opinions-et-avis",
+          "fr": "Je suis d'accord avec toi.",
+          "en": "I agree with you.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.042",
+          "theme": "salutations-de-base",
+          "fr": "Ça roule, et de ton côté ?",
+          "en": "Things are good, and on your end?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.057",
+          "theme": "questions-du-quotidien",
+          "fr": "Que penses-tu de ce livre ?",
+          "en": "What do you think of this book?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.064",
+          "theme": "presentation-personnelle",
+          "fr": "Je fais des études de droit.",
+          "en": "I am studying law.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.094",
+          "theme": "presentation-personnelle",
+          "fr": "Elle préfère le thé au café.",
+          "en": "She prefers tea to coffee.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.065",
+          "theme": "questions-du-quotidien",
+          "fr": "Où as-tu mis mon téléphone ?",
+          "en": "Where did you put my phone?",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.a2.questions-du-quotidien.070",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand as-tu mangé ce matin ?",
+          "en": "When did you eat this morning?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.073",
+          "theme": "projets-et-futur",
+          "fr": "Je vais me lever tôt demain.",
+          "en": "I'm going to get up early tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.099",
+          "theme": "projets-et-futur",
+          "fr": "Je serai prêt à huit heures.",
+          "en": "I'll be ready at eight o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.054",
+          "theme": "presentation-personnelle",
+          "fr": "Quel est ton nom de famille ?",
+          "en": "What is your last name?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.071",
+          "theme": "presentation-personnelle",
+          "fr": "J'habite ici depuis deux ans.",
+          "en": "I have lived here for two years.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.099",
+          "theme": "presentation-personnelle",
+          "fr": "Je me douche avant de dormir.",
+          "en": "I shower before going to sleep.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.069",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand est-ce que tu reviens ?",
+          "en": "When are you coming back?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.090",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien de temps reste-t-il ?",
+          "en": "How much time is left?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.111",
+          "theme": "projets-et-futur",
+          "fr": "Elle écrira un livre un jour.",
+          "en": "She'll write a book someday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.072",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand vas-tu chez le médecin ?",
+          "en": "When are you going to the doctor?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.078",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment fais-tu cela si vite ?",
+          "en": "How do you do that so fast?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.086",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi as-tu changé d'avis ?",
+          "en": "Why did you change your mind?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.065",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il faut réviser pour l'examen.",
+          "en": "You have to study for the exam.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-famille.005",
+          "theme": "rp-famille",
+          "fr": "On se voit tous les dimanches.",
+          "en": "We see each other every Sunday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.069",
+          "theme": "presentation-personnelle",
+          "fr": "Elle vient de déménager à Lyon.",
+          "en": "She just moved to Lyon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.057",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu devrais te coucher plus tôt.",
+          "en": "You should go to bed earlier.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.053",
+          "theme": "presentation-personnelle",
+          "fr": "Nous nous appelons Paul et Anne.",
+          "en": "Our names are Paul and Anne.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.068",
+          "theme": "presentation-personnelle",
+          "fr": "Je vis seul dans un appartement.",
+          "en": "I live alone in an apartment.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.073",
+          "theme": "questions-du-quotidien",
+          "fr": "Quand as-tu appris le français ?",
+          "en": "When did you learn French?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.094",
+          "theme": "projets-et-futur",
+          "fr": "Vous serez fiers de vos progrès.",
+          "en": "You'll be proud of your progress.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-identite.014",
+          "theme": "rp-identite",
+          "fr": "Elle est mariée depuis deux ans.",
+          "en": "She's been married for two years.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.085",
+          "theme": "salutations-de-base",
+          "fr": "Très bien, merci, et vous-même ?",
+          "en": "Very well, thank you, and yourself?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.104",
+          "theme": "conseils-et-suggestions",
+          "fr": "Pourquoi ne pas adopter un chat ?",
+          "en": "Why not adopt a cat?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.066",
+          "theme": "presentation-personnelle",
+          "fr": "Elle habite dans un petit village.",
+          "en": "She lives in a small village.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.096",
+          "theme": "presentation-personnelle",
+          "fr": "Nous préférons rester à la maison.",
+          "en": "We prefer to stay home.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.035",
+          "theme": "salutations-de-base",
+          "fr": "Comment vas-tu depuis la rentrée ?",
+          "en": "How have you been since school started?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.065",
+          "theme": "presentation-personnelle",
+          "fr": "Nous sommes tous les deux médecins.",
+          "en": "We are both doctors.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.075",
+          "theme": "presentation-personnelle",
+          "fr": "Mes parents habitent à la campagne.",
+          "en": "My parents live in the countryside.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.112",
+          "theme": "conseils-et-suggestions",
+          "fr": "On pourrait fêter ça au restaurant.",
+          "en": "We could celebrate that at a restaurant.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.095",
+          "theme": "salutations-de-base",
+          "fr": "Oui, avec plaisir, à samedi alors !",
+          "en": "Yes, gladly, see you Saturday then!",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.098",
+          "theme": "presentation-personnelle",
+          "fr": "Nous dînons ensemble tous les soirs.",
+          "en": "We have dinner together every evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.079",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment dit-on \"merci\" en français ?",
+          "en": "How do you say \"thank you\" in French?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.080",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment as-tu trouvé ce restaurant ?",
+          "en": "How did you find this restaurant?",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.a2.projets-et-futur.083",
+          "theme": "projets-et-futur",
+          "fr": "Vous allez signer le contrat demain.",
+          "en": "You're going to sign the contract tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.106",
+          "theme": "projets-et-futur",
+          "fr": "Vous recevrez votre diplôme en juin.",
+          "en": "You'll receive your diploma in June.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.083",
+          "theme": "conseils-et-suggestions",
+          "fr": "Prends un parapluie, il va pleuvoir.",
+          "en": "Take an umbrella, it's going to rain.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.048",
+          "theme": "salutations-de-base",
+          "fr": "Je vous présente ma collègue Sophie.",
+          "en": "Let me introduce you to my colleague Sophie.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.072",
+          "theme": "opinions-et-avis",
+          "fr": "Pour moi, la famille est essentielle.",
+          "en": "To me, family is essential.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.078",
+          "theme": "projets-et-futur",
+          "fr": "Tu vas rencontrer mes parents samedi.",
+          "en": "You're going to meet my parents on Saturday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.077",
+          "theme": "questions-du-quotidien",
+          "fr": "Comment est-il, ton nouveau collègue ?",
+          "en": "What is he like, your new colleague?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.091",
+          "theme": "projets-et-futur",
+          "fr": "Nous finirons ce projet avant vendredi.",
+          "en": "We'll finish this project before Friday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.041",
+          "theme": "salutations-de-base",
+          "fr": "Rien de spécial, la routine habituelle.",
+          "en": "Nothing special, the usual routine.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.049",
+          "theme": "salutations-de-base",
+          "fr": "Je voudrais vous présenter mes parents.",
+          "en": "I would like to introduce my parents to you.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.079",
+          "theme": "salutations-de-base",
+          "fr": "Le tutoiement est courant entre jeunes.",
+          "en": "Using tu is common among young people.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.083",
+          "theme": "salutations-de-base",
+          "fr": "Chère madame, merci pour votre message.",
+          "en": "Dear madam, thank you for your message.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.094",
+          "theme": "opinions-et-avis",
+          "fr": "Absolument, le sport est très important.",
+          "en": "Absolutely, sport is very important.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.096",
+          "theme": "projets-et-futur",
+          "fr": "Nous voyagerons ensemble l'été prochain.",
+          "en": "We'll travel together next summer.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.071",
+          "theme": "salutations-de-base",
+          "fr": "Soyez le bienvenu, monsieur, suivez-moi.",
+          "en": "Welcome, sir, follow me.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.couple-amour.036",
+          "theme": "couple-amour",
+          "fr": "Ma copine pardonne rarement une trahison.",
+          "en": "My girlfriend rarely forgives a betrayal.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.couple-amour.028",
+          "theme": "couple-amour",
+          "fr": "Nous nous sommes séparés puis réconciliés.",
+          "en": "We split up and then made up.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.couple-amour.038",
+          "theme": "couple-amour",
+          "fr": "Mon partenaire respecte toujours mes choix.",
+          "en": "My partner always respects my choices.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.096",
+          "theme": "opinions-et-avis",
+          "fr": "Exactement, les vacances passent trop vite.",
+          "en": "Exactly, vacations go by too fast.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.111",
+          "theme": "opinions-et-avis",
+          "fr": "Absolument, la famille est très importante.",
+          "en": "Absolutely, family is very important.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.052",
+          "theme": "salutations-de-base",
+          "fr": "Enchanté de faire enfin votre connaissance.",
+          "en": "Delighted to finally make your acquaintance.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.067",
+          "theme": "salutations-de-base",
+          "fr": "Bonne continuation dans votre nouvelle vie.",
+          "en": "Best of luck going forward in your new life.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.097",
+          "theme": "projets-et-futur",
+          "fr": "Elle deviendra médecin dans quelques années.",
+          "en": "She'll become a doctor in a few years.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.salutations-de-base.065",
+          "theme": "salutations-de-base",
+          "fr": "Toutes mes félicitations pour votre mariage.",
+          "en": "My warmest congratulations on your wedding.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.projets-et-futur.101",
+          "theme": "projets-et-futur",
+          "fr": "Nous achèterons une nouvelle voiture bientôt.",
+          "en": "We'll buy a new car soon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.060",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu devrais porter des chaussures confortables.",
+          "en": "You should wear comfortable shoes.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.083",
+          "theme": "presentation-personnelle",
+          "fr": "Il est en couple depuis un an.",
+          "en": "He has been in a relationship for a year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.064",
+          "theme": "questions-du-quotidien",
+          "fr": "Où peut-on manger près d'ici ?",
+          "en": "Where can we eat near here?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.075",
+          "theme": "salutations-de-base",
+          "fr": "On se tutoie ou on se vouvoie ?",
+          "en": "Do we use tu or vous with each other?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.087",
+          "theme": "presentation-personnelle",
+          "fr": "Il fait du sport tous les jours.",
+          "en": "He exercises every day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.089",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi n'es-tu pas venu hier ?",
+          "en": "Why didn't you come yesterday?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.036",
+          "theme": "salutations-de-base",
+          "fr": "Ça va pas mal, merci de demander.",
+          "en": "Things are not too bad, thanks for asking.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.entraide.066",
+          "theme": "entraide",
+          "fr": "Garde mon numéro en cas de besoin.",
+          "en": "Keep my number in case you need it.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.a2.presentation-personnelle.056",
+          "theme": "presentation-personnelle",
+          "fr": "Voici mon ami, il s'appelle David.",
+          "en": "This is my friend, his name is David.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.080",
+          "theme": "presentation-personnelle",
+          "fr": "Combien de frères et sœurs as-tu ?",
+          "en": "How many brothers and sisters do you have?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.081",
+          "theme": "presentation-personnelle",
+          "fr": "Toute ma famille se réunit à Noël.",
+          "en": "My whole family gets together at Christmas.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-famille.006",
+          "theme": "rp-famille",
+          "fr": "Je suis très proche de ma famille.",
+          "en": "I'm very close to my family.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.076",
+          "theme": "presentation-personnelle",
+          "fr": "Mon grand-père a quatre-vingts ans.",
+          "en": "My grandfather is eighty years old.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.067",
+          "theme": "opinions-et-avis",
+          "fr": "Je trouve que cette robe est jolie.",
+          "en": "I think this dress is pretty.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.074",
+          "theme": "conseils-et-suggestions",
+          "fr": "N'oublie pas d'appeler le dentiste.",
+          "en": "Don't forget to call the dentist.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.084",
+          "theme": "conseils-et-suggestions",
+          "fr": "Bois plus d'eau pendant la journée.",
+          "en": "Drink more water during the day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.107",
+          "theme": "conseils-et-suggestions",
+          "fr": "Et si on lisait ce livre ensemble ?",
+          "en": "What if we read this book together?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.022",
+          "theme": "salutations-de-base",
+          "fr": "Bonsoir à tous, merci d'être venus.",
+          "en": "Good evening everyone, thank you for coming.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.029",
+          "theme": "salutations-de-base",
+          "fr": "À bientôt, j'espère te revoir vite.",
+          "en": "See you soon, I hope to see you again quickly.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.086",
+          "theme": "salutations-de-base",
+          "fr": "Ça va très bien, merci de demander.",
+          "en": "I'm doing very well, thanks for asking.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.055",
+          "theme": "presentation-personnelle",
+          "fr": "Je me présente : je m'appelle Julie.",
+          "en": "Let me introduce myself: my name is Julie.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.095",
+          "theme": "presentation-personnelle",
+          "fr": "Je n'aime pas beaucoup les épinards.",
+          "en": "I don't like spinach very much.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.087",
+          "theme": "opinions-et-avis",
+          "fr": "Tu as raison, ce film est excellent.",
+          "en": "You're right, this movie is excellent.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.060",
+          "theme": "projets-et-futur",
+          "fr": "Tu vas apprendre à conduire cet été.",
+          "en": "You're going to learn to drive this summer.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.085",
+          "theme": "conseils-et-suggestions",
+          "fr": "On pourrait aller au cinéma ce soir.",
+          "en": "We could go to the movies tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.099",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que tu connais cette chanson ?",
+          "en": "Do you know this song?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.068",
+          "theme": "projets-et-futur",
+          "fr": "Nous allons regarder un film ce soir.",
+          "en": "We're going to watch a movie tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.112",
+          "theme": "projets-et-futur",
+          "fr": "Je te promets que je ferai attention.",
+          "en": "I promise that I'll be careful.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.071",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu ferais mieux de mettre un manteau.",
+          "en": "You'd better put on a coat.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.081",
+          "theme": "conseils-et-suggestions",
+          "fr": "Essaie de te détendre avant l'examen.",
+          "en": "Try to relax before the exam.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.033",
+          "theme": "salutations-de-base",
+          "fr": "On garde le contact, à la prochaine !",
+          "en": "Let's stay in touch, until next time!",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.053",
+          "theme": "salutations-de-base",
+          "fr": "Tout le plaisir est pour moi, madame.",
+          "en": "The pleasure is all mine, madam.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.096",
+          "theme": "salutations-de-base",
+          "fr": "Super, à plus, bonne fin de journée !",
+          "en": "Great, later, have a good rest of your day!",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.069",
+          "theme": "opinions-et-avis",
+          "fr": "Je pense que ce livre est intéressant.",
+          "en": "I think this book is interesting.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.097",
+          "theme": "opinions-et-avis",
+          "fr": "Je partage ton avis sur ce professeur.",
+          "en": "I share your opinion about this teacher.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.100",
+          "theme": "opinions-et-avis",
+          "fr": "Tu as raison, ce gâteau est délicieux.",
+          "en": "You're right, this cake is delicious.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.106",
+          "theme": "opinions-et-avis",
+          "fr": "Au contraire, ce jeu est très amusant.",
+          "en": "On the contrary, this game is very fun.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.100",
+          "theme": "projets-et-futur",
+          "fr": "Tu apprendras vite, ne t'inquiète pas.",
+          "en": "You'll learn quickly, don't worry.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.076",
+          "theme": "conseils-et-suggestions",
+          "fr": "N'oublie pas d'emporter ton passeport.",
+          "en": "Don't forget to bring your passport.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-identite.006",
+          "theme": "rp-identite",
+          "fr": "Mon anniversaire, c'est le sept avril.",
+          "en": "My birthday is April seventh.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.057",
+          "theme": "salutations-de-base",
+          "fr": "Je vous en prie, madame, asseyez-vous.",
+          "en": "You're welcome, madam, please sit down.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.a2.entraide.064",
+          "theme": "entraide",
+          "fr": "Elle a accepté notre aide avec plaisir.",
+          "en": "She happily accepted our help.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.057",
+          "theme": "opinions-et-avis",
+          "fr": "Je pense que le chocolat est délicieux.",
+          "en": "I think chocolate is delicious.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.071",
+          "theme": "opinions-et-avis",
+          "fr": "Je trouve que cette ville est bruyante.",
+          "en": "I think this city is noisy.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.092",
+          "theme": "opinions-et-avis",
+          "fr": "Moi aussi, je trouve ce chien adorable.",
+          "en": "Me too, I find this dog adorable.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.098",
+          "theme": "projets-et-futur",
+          "fr": "Ils auront un enfant l'année prochaine.",
+          "en": "They'll have a child next year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.108",
+          "theme": "projets-et-futur",
+          "fr": "Ils vendront leur maison l'an prochain.",
+          "en": "They'll sell their house next year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.069",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il faut vérifier la pression des pneus.",
+          "en": "You have to check the tire pressure.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.079",
+          "theme": "conseils-et-suggestions",
+          "fr": "Pense à éteindre ton téléphone le soir.",
+          "en": "Remember to turn off your phone at night.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.063",
+          "theme": "salutations-de-base",
+          "fr": "Passez un bon week-end, monsieur Blanc.",
+          "en": "Have a good weekend, Mr. Blanc.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.064",
+          "theme": "salutations-de-base",
+          "fr": "Bonne chance à vous pour cet entretien.",
+          "en": "Good luck to you for this interview.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.091",
+          "theme": "salutations-de-base",
+          "fr": "Tout le plaisir est pour moi, vraiment.",
+          "en": "The pleasure is all mine, really.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.070",
+          "theme": "presentation-personnelle",
+          "fr": "Depuis combien de temps habites-tu ici ?",
+          "en": "How long have you lived here?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.089",
+          "theme": "presentation-personnelle",
+          "fr": "Mon passe-temps préféré est la peinture.",
+          "en": "My favorite hobby is painting.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.063",
+          "theme": "opinions-et-avis",
+          "fr": "Je trouve que les maths sont difficiles.",
+          "en": "I think math is difficult.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.075",
+          "theme": "opinions-et-avis",
+          "fr": "Je trouve que ce professeur est patient.",
+          "en": "I think this teacher is patient.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.077",
+          "theme": "opinions-et-avis",
+          "fr": "Je pense que cette plage est magnifique.",
+          "en": "I think this beach is magnificent.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.062",
+          "theme": "projets-et-futur",
+          "fr": "Je vais appeler le médecin demain matin.",
+          "en": "I'm going to call the doctor tomorrow morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.064",
+          "theme": "projets-et-futur",
+          "fr": "Nous allons dîner au restaurant ce soir.",
+          "en": "We're going to have dinner at the restaurant tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.084",
+          "theme": "projets-et-futur",
+          "fr": "Nous allons fêter Noël chez mes parents.",
+          "en": "We're going to celebrate Christmas at my parents' place.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.090",
+          "theme": "projets-et-futur",
+          "fr": "Elle habitera à Paris l'année prochaine.",
+          "en": "She'll live in Paris next year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.106",
+          "theme": "conseils-et-suggestions",
+          "fr": "On pourrait manger dehors, il fait beau.",
+          "en": "We could eat outside, it's nice out.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.085",
+          "theme": "presentation-personnelle",
+          "fr": "Nous nous sommes mariés l'année dernière.",
+          "en": "We got married last year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.097",
+          "theme": "presentation-personnelle",
+          "fr": "Je prends le petit-déjeuner chaque matin.",
+          "en": "I have breakfast every morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.087",
+          "theme": "questions-du-quotidien",
+          "fr": "Pourquoi ne réponds-tu pas au téléphone ?",
+          "en": "Why aren't you answering the phone?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.091",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien de personnes viennent à la fête ?",
+          "en": "How many people are coming to the party?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.062",
+          "theme": "opinions-et-avis",
+          "fr": "À mon avis, cette chanson est magnifique.",
+          "en": "In my opinion, this song is magnificent.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.065",
+          "theme": "opinions-et-avis",
+          "fr": "Je pense que ce restaurant est excellent.",
+          "en": "I think this restaurant is excellent.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.058",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu devrais faire du sport chaque semaine.",
+          "en": "You should exercise every week.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.059",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu devrais économiser un peu chaque mois.",
+          "en": "You should save a little each month.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.103",
+          "theme": "conseils-et-suggestions",
+          "fr": "On pourrait faire du vélo dimanche matin.",
+          "en": "We could go cycling on Sunday morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.077",
+          "theme": "salutations-de-base",
+          "fr": "Avec mon patron, j'utilise toujours vous.",
+          "en": "With my boss, I always use vous.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.087",
+          "theme": "salutations-de-base",
+          "fr": "Rien de neuf, la routine, comme toujours.",
+          "en": "Nothing new, the routine, as always.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.068",
+          "theme": "opinions-et-avis",
+          "fr": "Selon moi, les vacances sont trop courtes.",
+          "en": "In my opinion, vacations are too short.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.a2.opinions-et-avis.089",
+          "theme": "opinions-et-avis",
+          "fr": "Au contraire, je trouve ce livre ennuyeux.",
+          "en": "On the contrary, I find this book boring.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.voisinage.046",
+          "theme": "voisinage",
+          "fr": "L'ascenseur ne fonctionne plus depuis hier.",
+          "en": "The elevator hasn't worked since yesterday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.098",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce que nous pouvons partir maintenant ?",
+          "en": "Can we leave now?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.083",
+          "theme": "opinions-et-avis",
+          "fr": "Je trouve que cette série est passionnante.",
+          "en": "I think this series is exciting.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.059",
+          "theme": "projets-et-futur",
+          "fr": "Elle va commencer un nouveau travail lundi.",
+          "en": "She's going to start a new job on Monday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.056",
+          "theme": "salutations-de-base",
+          "fr": "Merci bien, monsieur, bonne journée à vous.",
+          "en": "Thanks a lot, sir, have a good day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.074",
+          "theme": "projets-et-futur",
+          "fr": "Nous allons nettoyer la maison samedi matin.",
+          "en": "We're going to clean the house Saturday morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.couple-amour.022",
+          "theme": "couple-amour",
+          "fr": "Nous avons emménagé ensemble le mois dernier.",
+          "en": "We moved in together last month.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.080",
+          "theme": "opinions-et-avis",
+          "fr": "Pour moi, la musique classique est reposante.",
+          "en": "To me, classical music is relaxing.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.109",
+          "theme": "conseils-et-suggestions",
+          "fr": "On pourrait apprendre l'espagnol cette année.",
+          "en": "We could learn Spanish this year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.entraide.045",
+          "theme": "entraide",
+          "fr": "Nous nous entraidons beaucoup dans ma famille.",
+          "en": "We help each other out a lot in my family.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.047",
+          "theme": "salutations-de-base",
+          "fr": "Ravi de vous rencontrer enfin, monsieur Petit.",
+          "en": "Delighted to finally meet you, Mr. Petit.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.093",
+          "theme": "salutations-de-base",
+          "fr": "Bonsoir, vous désirez une table pour combien ?",
+          "en": "Good evening, a table for how many, please?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.088",
+          "theme": "conseils-et-suggestions",
+          "fr": "Pourquoi ne pas essayer ce nouveau restaurant ?",
+          "en": "Why not try this new restaurant?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations.047",
+          "theme": "salutations",
+          "fr": "Tu dois toujours saluer ton employeur poliment.",
+          "en": "You must always greet your employer politely.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.salutations-de-base.081",
+          "theme": "salutations-de-base",
+          "fr": "Mesdames et messieurs, bienvenue à ce spectacle.",
+          "en": "Ladies and gentlemen, welcome to this show.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.projets-et-futur.058",
+          "theme": "projets-et-futur",
+          "fr": "Nous allons déménager dans un nouvel appartement.",
+          "en": "We're going to move into a new apartment.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rencontres.026",
+          "theme": "rencontres",
+          "fr": "Nous avons sympathisé dès notre première conversation.",
+          "en": "We hit it off from our very first conversation.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.100",
+          "theme": "questions-du-quotidien",
+          "fr": "Est-ce qu'il y a du pain ?",
+          "en": "Is there any bread?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.079",
+          "theme": "presentation-personnelle",
+          "fr": "Il n'a pas de frères et sœurs.",
+          "en": "He doesn't have any brothers or sisters.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.090",
+          "theme": "opinions-et-avis",
+          "fr": "C'est vrai que ce sac est cher.",
+          "en": "It's true that this bag is expensive.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.059",
+          "theme": "presentation-personnelle",
+          "fr": "J'aurai vingt et un ans en mars.",
+          "en": "I will be twenty-one in March.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.088",
+          "theme": "presentation-personnelle",
+          "fr": "Je fais de la natation le week-end.",
+          "en": "I go swimming on weekends.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.058",
+          "theme": "opinions-et-avis",
+          "fr": "À mon avis, ce film est très drôle.",
+          "en": "In my opinion, this movie is very funny.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.059",
+          "theme": "opinions-et-avis",
+          "fr": "Je trouve que ce sac est trop cher.",
+          "en": "I think this bag is too expensive.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.061",
+          "theme": "opinions-et-avis",
+          "fr": "Je pense que l'hiver est trop froid.",
+          "en": "I think winter is too cold.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.087",
+          "theme": "conseils-et-suggestions",
+          "fr": "Ça te dit de venir courir avec moi ?",
+          "en": "Do you feel like coming for a run with me?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.065",
+          "theme": "projets-et-futur",
+          "fr": "Il va prendre le train à huit heures.",
+          "en": "He's going to take the train at eight o'clock.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.076",
+          "theme": "projets-et-futur",
+          "fr": "Il va réparer sa voiture ce week-end.",
+          "en": "He's going to fix his car this weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.107",
+          "theme": "projets-et-futur",
+          "fr": "Je promets que je viendrai à ta fête.",
+          "en": "I promise that I'll come to your party.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.066",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il faut arriver à l'heure au travail.",
+          "en": "You have to arrive on time for work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.073",
+          "theme": "opinions-et-avis",
+          "fr": "Je pense que ce jeu vidéo est amusant.",
+          "en": "I think this video game is fun.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.085",
+          "theme": "projets-et-futur",
+          "fr": "Il va acheter un cadeau pour sa femme.",
+          "en": "He's going to buy a gift for his wife.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.a2.projets-et-futur.093",
+          "theme": "projets-et-futur",
+          "fr": "Tu réussiras ton examen, j'en suis sûr.",
+          "en": "You'll pass your exam, I'm sure of it.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.068",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il faut nourrir le chat tous les jours.",
+          "en": "You have to feed the cat every day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.058",
+          "theme": "salutations-de-base",
+          "fr": "Merci de m'avoir aidé avec mes valises.",
+          "en": "Thank you for helping me with my bags.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.emotions.064",
+          "theme": "emotions",
+          "fr": "Tu as été surpris par ma réponse, non ?",
+          "en": "You were surprised by my answer, right?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-famille.076",
+          "theme": "rp-famille",
+          "fr": "Mon beau-père nous a aidés à déménager.",
+          "en": "My father-in-law helped us move.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-famille.079",
+          "theme": "rp-famille",
+          "fr": "Mon neveu a gagné un tournoi de hockey.",
+          "en": "My nephew won a hockey tournament.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.077",
+          "theme": "conflits-reconciliation",
+          "fr": "Il a admis son erreur sans se justifier.",
+          "en": "He admitted his mistake without making excuses.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.081",
+          "theme": "opinions-et-avis",
+          "fr": "Je pense que ce téléphone est trop cher.",
+          "en": "I think this phone is too expensive.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.103",
+          "theme": "opinions-et-avis",
+          "fr": "Tout à fait, ce téléphone est trop cher.",
+          "en": "Absolutely, this phone is too expensive.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.063",
+          "theme": "projets-et-futur",
+          "fr": "Vous allez visiter le musée ce week-end.",
+          "en": "You're going to visit the museum this weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.080",
+          "theme": "projets-et-futur",
+          "fr": "Elle va poster la lettre cet après-midi.",
+          "en": "She's going to mail the letter this afternoon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.082",
+          "theme": "projets-et-futur",
+          "fr": "Je vais réserver une table pour ce soir.",
+          "en": "I'm going to book a table for tonight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.089",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu veux qu'on regarde un film ensemble ?",
+          "en": "Do you want us to watch a movie together?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.092",
+          "theme": "conseils-et-suggestions",
+          "fr": "Ça te dit de faire les magasins samedi ?",
+          "en": "Do you feel like going shopping on Saturday?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.088",
+          "theme": "salutations-de-base",
+          "fr": "Bien sûr, je vous en prie, asseyez-vous.",
+          "en": "Of course, please, sit down.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.voisinage.048",
+          "theme": "voisinage",
+          "fr": "Le nouveau locataire a l'air très gentil.",
+          "en": "The new tenant seems very nice.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.couple-amour.034",
+          "theme": "couple-amour",
+          "fr": "Mon mari vient de me proposer le mariage.",
+          "en": "My husband just proposed to me.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.entraide.070",
+          "theme": "entraide",
+          "fr": "Elle m'a réconforté quand j'étais triste.",
+          "en": "She comforted me when I was sad.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.101",
+          "theme": "presentation-personnelle",
+          "fr": "Elle sort avec ses amis le vendredi soir.",
+          "en": "She goes out with her friends on Friday evenings.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.060",
+          "theme": "opinions-et-avis",
+          "fr": "Selon moi, le chien est un animal fidèle.",
+          "en": "In my opinion, the dog is a loyal animal.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.086",
+          "theme": "projets-et-futur",
+          "fr": "Je vais finir mes devoirs avant le dîner.",
+          "en": "I'm going to finish my homework before dinner.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.100",
+          "theme": "conseils-et-suggestions",
+          "fr": "On pourrait ranger le garage ce week-end.",
+          "en": "We could tidy the garage this weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.089",
+          "theme": "salutations-de-base",
+          "fr": "Merci beaucoup, c'est très gentil à vous.",
+          "en": "Thank you very much, that's very kind of you.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.094",
+          "theme": "salutations-de-base",
+          "fr": "Oui, c'est juste après le pont, monsieur.",
+          "en": "Yes, it's just after the bridge, sir.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.064",
+          "theme": "evenements-familiaux",
+          "fr": "Ma cousine s'est fiancée le mois dernier.",
+          "en": "My cousin got engaged last month.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.073",
+          "theme": "evenements-familiaux",
+          "fr": "Mon frère a demandé sa copine en mariage.",
+          "en": "My brother proposed to his girlfriend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations.004",
+          "theme": "salutations",
+          "fr": "On se voit demain matin, comme d'habitude.",
+          "en": "We'll see each other tomorrow morning, as usual.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.061",
+          "theme": "projets-et-futur",
+          "fr": "Ils vont acheter une maison à la campagne.",
+          "en": "They're going to buy a house in the countryside.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.066",
+          "theme": "projets-et-futur",
+          "fr": "Je vais changer de coiffure avant la fête.",
+          "en": "I'm going to change my hairstyle before the party.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.070",
+          "theme": "conseils-et-suggestions",
+          "fr": "Il faut garer la voiture devant la maison.",
+          "en": "You have to park the car in front of the house.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.086",
+          "theme": "conseils-et-suggestions",
+          "fr": "Et si on faisait un pique-nique dimanche ?",
+          "en": "What if we had a picnic on Sunday?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.072",
+          "theme": "salutations-de-base",
+          "fr": "Bienvenue à bord, le vol dure deux heures.",
+          "en": "Welcome aboard, the flight lasts two hours.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.couple-amour.030",
+          "theme": "couple-amour",
+          "fr": "Il a rompu avec sa copine sans explication.",
+          "en": "He broke up with his girlfriend without explanation.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.a2.projets-et-futur.070",
+          "theme": "projets-et-futur",
+          "fr": "Je vais faire les courses après le travail.",
+          "en": "I'm going to do the shopping after work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.081",
+          "theme": "projets-et-futur",
+          "fr": "Ils vont planter des fleurs dans le jardin.",
+          "en": "They're going to plant flowers in the garden.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.101",
+          "theme": "conseils-et-suggestions",
+          "fr": "Et si on changeait la décoration du salon ?",
+          "en": "What if we changed the living room decor?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.037",
+          "theme": "salutations-de-base",
+          "fr": "Couci-couça, j'ai eu une journée fatigante.",
+          "en": "So-so, I had a tiring day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rencontres.027",
+          "theme": "rencontres",
+          "fr": "Il vient de s'installer dans notre immeuble.",
+          "en": "He just moved into our building.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.078",
+          "theme": "presentation-personnelle",
+          "fr": "Mes grands-parents vivent près de chez nous.",
+          "en": "My grandparents live near us.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.078",
+          "theme": "conseils-et-suggestions",
+          "fr": "Pense à ranger ta chambre avant leur visite.",
+          "en": "Remember to tidy your room before they visit.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-famille.007",
+          "theme": "rp-famille",
+          "fr": "Ma mère cuisine toujours pour tout le monde.",
+          "en": "My mother always cooks for everyone.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations.005",
+          "theme": "salutations",
+          "fr": "Ils se sont salués poliment avant la réunion.",
+          "en": "They greeted each other politely before the meeting.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.entraide.050",
+          "theme": "entraide",
+          "fr": "Elle aime beaucoup rendre service à ses amis.",
+          "en": "She really likes doing favors for her friends.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.079",
+          "theme": "opinions-et-avis",
+          "fr": "Je trouve que cet appartement est trop petit.",
+          "en": "I think this apartment is too small.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.069",
+          "theme": "projets-et-futur",
+          "fr": "Tu vas passer ton permis de conduire bientôt.",
+          "en": "You're going to take your driving test soon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.075",
+          "theme": "projets-et-futur",
+          "fr": "Elle va essayer une nouvelle recette ce soir.",
+          "en": "She's going to try a new recipe tonight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.103",
+          "theme": "projets-et-futur",
+          "fr": "Je te rendrai ton livre la semaine prochaine.",
+          "en": "I'll give you back your book next week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.063",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu devrais faire une pause toutes les heures.",
+          "en": "You should take a break every hour.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.090",
+          "theme": "conseils-et-suggestions",
+          "fr": "On pourrait inviter les voisins pour le café.",
+          "en": "We could invite the neighbors for coffee.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.emotions.068",
+          "theme": "emotions",
+          "fr": "Nous avons été soulagés d'obtenir notre visa.",
+          "en": "We were relieved to get our visa.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.voisinage.058",
+          "theme": "voisinage",
+          "fr": "Il gare toujours sa voiture devant mon garage.",
+          "en": "He always parks his car in front of my garage.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.couple-amour.037",
+          "theme": "couple-amour",
+          "fr": "Ils se sont remis ensemble après leur rupture.",
+          "en": "They got back together after their breakup.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.101",
+          "theme": "opinions-et-avis",
+          "fr": "Je suis d'accord, les chats sont indépendants.",
+          "en": "I agree, cats are independent.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.079",
+          "theme": "projets-et-futur",
+          "fr": "Nous allons prendre l'avion pour Paris demain.",
+          "en": "We're going to fly to Paris tomorrow.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.093",
+          "theme": "conseils-et-suggestions",
+          "fr": "Pourquoi ne pas apprendre à cuisiner ce plat ?",
+          "en": "Why not learn to cook this dish?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.094",
+          "theme": "conseils-et-suggestions",
+          "fr": "On pourrait planter des fleurs dans le jardin.",
+          "en": "We could plant flowers in the garden.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.104",
+          "theme": "opinions-et-avis",
+          "fr": "Non, je ne trouve pas cette série intéressante.",
+          "en": "No, I don't find this series interesting.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.097",
+          "theme": "conseils-et-suggestions",
+          "fr": "On pourrait visiter le musée samedi après-midi.",
+          "en": "We could visit the museum on Saturday afternoon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.090",
+          "theme": "salutations-de-base",
+          "fr": "Enchantée, j'ai beaucoup entendu parler de toi.",
+          "en": "Nice to meet you, I've heard a lot about you.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.070",
+          "theme": "conflits-reconciliation",
+          "fr": "Au lieu de crier, on devrait discuter calmement.",
+          "en": "Instead of shouting, we should talk calmly.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.057",
+          "theme": "projets-et-futur",
+          "fr": "Je vais partir en vacances la semaine prochaine.",
+          "en": "I'm going to go on vacation next week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.084",
+          "theme": "salutations-de-base",
+          "fr": "On ne dit plus souvent mademoiselle aujourd'hui.",
+          "en": "Mademoiselle is not said as often today.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.097",
+          "theme": "salutations-de-base",
+          "fr": "Au téléphone, on dit toujours allô puis bonjour.",
+          "en": "On the phone, we always say hello, then good day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.emotions.065",
+          "theme": "emotions",
+          "fr": "Ils étaient contents du résultat de leur examen.",
+          "en": "They were happy with their exam result.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rencontres.092",
+          "theme": "rencontres",
+          "fr": "Elle habitait à Montréal avant de déménager ici.",
+          "en": "She used to live in Montreal before moving here.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.082",
+          "theme": "salutations-de-base",
+          "fr": "Cher monsieur, je vous écris pour vous remercier.",
+          "en": "Dear sir, I am writing to thank you.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.a2.couple-amour.065",
+          "theme": "couple-amour",
+          "fr": "Nous avons dîné dans un petit restaurant italien.",
+          "en": "We had dinner at a small Italian restaurant.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.couple-amour.067",
+          "theme": "couple-amour",
+          "fr": "Ma femme était très nerveuse avant notre mariage.",
+          "en": "My wife was very nervous before our wedding.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.couple-amour.025",
+          "theme": "couple-amour",
+          "fr": "Il vaut mieux discuter calmement de nos problèmes.",
+          "en": "It's better to calmly talk about our problems.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.071",
+          "theme": "projets-et-futur",
+          "fr": "Ils vont organiser une fête pour son anniversaire.",
+          "en": "They're going to organize a party for his birthday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.046",
+          "theme": "salutations-de-base",
+          "fr": "Enchanté, je suis très content de vous rencontrer.",
+          "en": "Nice to meet you, I'm very happy to meet you.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.070",
+          "theme": "salutations-de-base",
+          "fr": "Soyez la bienvenue dans notre équipe, madame Roux.",
+          "en": "Welcome to our team, Mrs. Roux.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.078",
+          "theme": "salutations-de-base",
+          "fr": "En France, on vouvoie souvent les personnes âgées.",
+          "en": "In France, elderly people are often addressed with vous.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.066",
+          "theme": "evenements-familiaux",
+          "fr": "Mes parents ont déménagé dans une nouvelle maison.",
+          "en": "My parents moved into a new house.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.voisinage.049",
+          "theme": "voisinage",
+          "fr": "Nous devons sortir les poubelles avant huit heures.",
+          "en": "We need to put the trash out before eight o'clock.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.043",
+          "theme": "conflits-reconciliation",
+          "fr": "On s'est réconciliés après une longue conversation.",
+          "en": "We made up after a long conversation.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.026",
+          "theme": "evenements-familiaux",
+          "fr": "Le photographe capture chaque moment de la journée.",
+          "en": "The photographer captures every moment of the day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.064",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu devrais apprendre quelques mots avant le voyage.",
+          "en": "You should learn a few words before the trip.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.080",
+          "theme": "salutations-de-base",
+          "fr": "Bonjour mademoiselle, que puis-je faire pour vous ?",
+          "en": "Hello miss, what can I do for you?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.099",
+          "theme": "salutations-de-base",
+          "fr": "Le professeur salue toujours ses élèves en entrant.",
+          "en": "The teacher always greets his students when he comes in.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-famille.078",
+          "theme": "rp-famille",
+          "fr": "Nous avons visité mes parents pendant les vacances.",
+          "en": "We visited my parents during the holidays.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.voisinage.065",
+          "theme": "voisinage",
+          "fr": "Le comité de quartier cherche de nouveaux bénévoles.",
+          "en": "The neighborhood committee is looking for new volunteers.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.043",
+          "theme": "salutations-de-base",
+          "fr": "Je me demande toujours comment vous allez, monsieur.",
+          "en": "I always wonder how you're doing, sir.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.salutations-de-base.059",
+          "theme": "salutations-de-base",
+          "fr": "Je vous remercie pour votre accueil, merci beaucoup.",
+          "en": "I thank you for your welcome, thank you very much.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rencontres.101",
+          "theme": "rencontres",
+          "fr": "Nous avons participé à une soirée bénévole ensemble.",
+          "en": "We took part in a volunteer evening together.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rencontres.049",
+          "theme": "rencontres",
+          "fr": "Elle avait hâte de rencontrer les nouveaux étudiants.",
+          "en": "She couldn't wait to meet the new students.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.088",
+          "theme": "projets-et-futur",
+          "fr": "Tu vas rencontrer le nouveau directeur cette semaine.",
+          "en": "You're going to meet the new director this week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.communaute.033",
+          "theme": "communaute",
+          "fr": "Les habitants du quartier se connaissent presque tous.",
+          "en": "Almost everyone in the neighborhood knows each other.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.voisinage.045",
+          "theme": "voisinage",
+          "fr": "Nos voisins organisent une petite fête samedi prochain.",
+          "en": "Our neighbors are throwing a small party next Saturday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.projets-et-futur.072",
+          "theme": "projets-et-futur",
+          "fr": "Vous allez recevoir les résultats la semaine prochaine.",
+          "en": "You're going to get the results next week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rencontres.106",
+          "theme": "rencontres",
+          "fr": "Il connaissait déjà quelques personnes à la conférence.",
+          "en": "He already knew a few people at the conference.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.couple-amour.064",
+          "theme": "couple-amour",
+          "fr": "Ma copine travaillait à Montréal avant notre rencontre.",
+          "en": "My girlfriend was working in Montreal before we met.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.072",
+          "theme": "evenements-familiaux",
+          "fr": "Nous avons organisé une surprise pour son anniversaire.",
+          "en": "We organized a surprise for his birthday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.couple-amour.073",
+          "theme": "couple-amour",
+          "fr": "Nous avons fêté notre premier anniversaire au restaurant.",
+          "en": "We celebrated our first anniversary at a restaurant.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.048",
+          "theme": "conflits-reconciliation",
+          "fr": "Mes frères se réconcilient toujours après quelques heures.",
+          "en": "My brothers always make up after a few hours.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.communaute.063",
+          "theme": "communaute",
+          "fr": "Le centre communautaire organise une activité chaque samedi.",
+          "en": "The community center organizes an activity every Saturday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.062",
+          "theme": "presentation-personnelle",
+          "fr": "Qu'est-ce que tu fais dans la vie ?",
+          "en": "What do you do for a living?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.055",
+          "theme": "questions-du-quotidien",
+          "fr": "Qu'est-ce que tu fais ce week-end ?",
+          "en": "What are you doing this weekend?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rencontres.031",
+          "theme": "rencontres",
+          "fr": "Il m'a tendu la main en se présentant.",
+          "en": "He held out his hand as he introduced himself.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.a2.projets-et-futur.077",
+          "theme": "projets-et-futur",
+          "fr": "Je vais m'inscrire à un cours de yoga.",
+          "en": "I'm going to sign up for a yoga class.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.075",
+          "theme": "conseils-et-suggestions",
+          "fr": "N'oublie pas de fermer la porte à clé.",
+          "en": "Don't forget to lock the door.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.099",
+          "theme": "conseils-et-suggestions",
+          "fr": "Ça te dit d'essayer le yoga avec moi ?",
+          "en": "Do you feel like trying yoga with me?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rencontres.028",
+          "theme": "rencontres",
+          "fr": "Elle m'a semblé un peu timide au début.",
+          "en": "She seemed a bit shy at first.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.060",
+          "theme": "questions-du-quotidien",
+          "fr": "Qu'est-ce que vous faites dans la vie ?",
+          "en": "What do you do for a living?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.108",
+          "theme": "opinions-et-avis",
+          "fr": "Je suis d'accord avec toi sur ce livre.",
+          "en": "I agree with you about this book.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.110",
+          "theme": "opinions-et-avis",
+          "fr": "Tu as tort, cette robe n'est pas jolie.",
+          "en": "You're wrong, this dress isn't pretty.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.086",
+          "theme": "opinions-et-avis",
+          "fr": "Je ne suis pas d'accord avec cette idée.",
+          "en": "I don't agree with this idea.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.088",
+          "theme": "opinions-et-avis",
+          "fr": "Tu as tort, ce restaurant n'est pas bon.",
+          "en": "You're wrong, this restaurant isn't good.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.112",
+          "theme": "opinions-et-avis",
+          "fr": "Pas du tout, ce vélo n'est pas pratique.",
+          "en": "Not at all, this bike isn't practical.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.emotions.063",
+          "theme": "emotions",
+          "fr": "Il était fatigué et il s'est couché tôt.",
+          "en": "He was tired and he went to bed early.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-famille.069",
+          "theme": "rp-famille",
+          "fr": "Ma cousine a eu un bébé le mois dernier.",
+          "en": "My cousin had a baby last month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.voisinage.044",
+          "theme": "voisinage",
+          "fr": "Peux-tu me prêter du sucre pour ce soir ?",
+          "en": "Can you lend me some sugar for tonight?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.073",
+          "theme": "presentation-personnelle",
+          "fr": "J'ai les cheveux bruns et les yeux verts.",
+          "en": "I have brown hair and green eyes.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.028",
+          "theme": "salutations-de-base",
+          "fr": "Elle a dit au revoir en fermant la porte.",
+          "en": "She said goodbye as she closed the door.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.031",
+          "theme": "salutations-de-base",
+          "fr": "Le train part, il faut se dire au revoir.",
+          "en": "The train is leaving, we have to say goodbye.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.064",
+          "theme": "opinions-et-avis",
+          "fr": "Pour moi, le café est meilleur que le thé.",
+          "en": "To me, coffee is better than tea.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.066",
+          "theme": "opinions-et-avis",
+          "fr": "À mon avis, le vélo est pratique en ville.",
+          "en": "In my opinion, the bike is practical in the city.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.102",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu veux qu'on appelle grand-mère ce soir ?",
+          "en": "Do you want us to call grandma tonight?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rencontres.107",
+          "theme": "rencontres",
+          "fr": "Elle a présenté son mari à toute l'équipe.",
+          "en": "She introduced her husband to the whole team.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.amis.003",
+          "theme": "amis",
+          "fr": "On a besoin de parler, tu es libre demain ?",
+          "en": "We need to talk, are you free tomorrow?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.emotions.035",
+          "theme": "emotions",
+          "fr": "J'ai hâte de te montrer ma nouvelle maison.",
+          "en": "I can't wait to show you my new house.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.voisinage.073",
+          "theme": "voisinage",
+          "fr": "Elle m'a rendu ma perceuse en parfait état.",
+          "en": "She returned my drill in perfect condition.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.projets-et-futur.087",
+          "theme": "projets-et-futur",
+          "fr": "Elle va essayer de dormir plus tôt ce soir.",
+          "en": "She's going to try to sleep earlier tonight.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.039",
+          "theme": "salutations-de-base",
+          "fr": "Ça peut aller, mais je suis un peu fatigué.",
+          "en": "It's okay, but I'm a little tired.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.060",
+          "theme": "salutations-de-base",
+          "fr": "Merci mille fois, vous m'avez sauvé la vie.",
+          "en": "Thanks a million, you saved my life.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rencontres.046",
+          "theme": "rencontres",
+          "fr": "Je ne pensais pas du tout le rencontrer ici.",
+          "en": "I really didn't expect to meet him here.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.074",
+          "theme": "conflits-reconciliation",
+          "fr": "Ma fille m'a demandé pardon pour son retard.",
+          "en": "My daughter apologized to me for being late.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.076",
+          "theme": "conflits-reconciliation",
+          "fr": "On a réglé notre différend autour d'un café.",
+          "en": "We settled our disagreement over coffee.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.095",
+          "theme": "opinions-et-avis",
+          "fr": "Pas du tout, cette ville n'est pas bruyante.",
+          "en": "Not at all, this city isn't noisy.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.099",
+          "theme": "opinions-et-avis",
+          "fr": "C'est faux, cet appartement n'est pas petit.",
+          "en": "That's false, this apartment isn't small.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.040",
+          "theme": "salutations-de-base",
+          "fr": "Tout va bien, merci de t'inquiéter pour moi.",
+          "en": "Everything's fine, thanks for worrying about me.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.068",
+          "theme": "conflits-reconciliation",
+          "fr": "Elle a présenté ses excuses à toute l'équipe.",
+          "en": "She apologized to the whole team.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.a2.opinions-et-avis.098",
+          "theme": "opinions-et-avis",
+          "fr": "Je ne partage pas ton avis sur cette chanson.",
+          "en": "I don't share your opinion about this song.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.061",
+          "theme": "salutations-de-base",
+          "fr": "Il s'est excusé après avoir bousculé la dame.",
+          "en": "He apologized after bumping into the lady.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-famille.062",
+          "theme": "rp-famille",
+          "fr": "Ma sœur a déménagé à Ottawa l'année dernière.",
+          "en": "My sister moved to Ottawa last year.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.couple-amour.040",
+          "theme": "couple-amour",
+          "fr": "Elle a présenté son copain à ses parents hier.",
+          "en": "She introduced her boyfriend to her parents yesterday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.042",
+          "theme": "conflits-reconciliation",
+          "fr": "Ma sœur ne me parle plus depuis notre dispute.",
+          "en": "My sister hasn't spoken to me since our argument.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.046",
+          "theme": "conflits-reconciliation",
+          "fr": "Elle fait la tête depuis notre dispute d'hier.",
+          "en": "She's been sulking since our argument yesterday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.entraide.056",
+          "theme": "entraide",
+          "fr": "Mes amis m'ont beaucoup aidé après ma rupture.",
+          "en": "My friends helped me a lot after my breakup.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.107",
+          "theme": "opinions-et-avis",
+          "fr": "C'est vrai, le printemps est une belle saison.",
+          "en": "That's true, spring is a beautiful season.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.109",
+          "theme": "opinions-et-avis",
+          "fr": "Moi aussi, je pense que ce quartier est calme.",
+          "en": "I think so too, I think this neighborhood is quiet.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.062",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu devrais te laver les mains avant de manger.",
+          "en": "You should wash your hands before eating.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.024",
+          "theme": "salutations-de-base",
+          "fr": "Elle a dit bonjour à la boulangère en entrant.",
+          "en": "She said hello to the baker as she came in.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.030",
+          "theme": "salutations-de-base",
+          "fr": "Je reviens dans cinq minutes, à tout de suite.",
+          "en": "I'll be back in five minutes, see you in a minute.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.101",
+          "theme": "salutations-de-base",
+          "fr": "Dans l'ascenseur, il est poli de dire bonjour.",
+          "en": "In the elevator, it's polite to say hello.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-famille.075",
+          "theme": "rp-famille",
+          "fr": "Ma femme a obtenu sa citoyenneté l'an dernier.",
+          "en": "My wife obtained her citizenship last year.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.071",
+          "theme": "evenements-familiaux",
+          "fr": "Ma grand-mère était très émue pendant la fête.",
+          "en": "My grandmother was very moved during the party.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.amis.004",
+          "theme": "amis",
+          "fr": "Mon amie et moi allons au cinéma vendredi soir.",
+          "en": "My friend and I are going to the movies on Friday night.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.projets-et-futur.067",
+          "theme": "projets-et-futur",
+          "fr": "Elle va rendre visite à sa grand-mère dimanche.",
+          "en": "She's going to visit her grandmother on Sunday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.communaute.071",
+          "theme": "communaute",
+          "fr": "J'ai signé le registre des bénévoles hier soir.",
+          "en": "I signed the volunteer register last night.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.couple-amour.070",
+          "theme": "couple-amour",
+          "fr": "Nous avons passé un très bon week-end ensemble.",
+          "en": "We spent a very good weekend together.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.108",
+          "theme": "conflits-reconciliation",
+          "fr": "Elle a oublié de s'excuser après notre dispute.",
+          "en": "She forgot to apologize after our argument.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.entraide.078",
+          "theme": "entraide",
+          "fr": "Elle m'a rassuré avant mon entretien d'embauche.",
+          "en": "She reassured me before my job interview.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.096",
+          "theme": "questions-du-quotidien",
+          "fr": "Combien de jours reste-t-il avant les vacances ?",
+          "en": "How many days are left before the vacation?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.073",
+          "theme": "salutations-de-base",
+          "fr": "On leur a souhaité la bienvenue avec des fleurs.",
+          "en": "We welcomed them with flowers.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.emotions.069",
+          "theme": "emotions",
+          "fr": "Tu étais inquiète, mais le médecin t'a rassurée.",
+          "en": "You were worried, but the doctor reassured you.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.couple-amour.069",
+          "theme": "couple-amour",
+          "fr": "Elle a présenté son nouveau copain à sa famille.",
+          "en": "She introduced her new boyfriend to her family.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.famille.004",
+          "theme": "famille",
+          "fr": "Elle rend visite à sa grand-mère chaque dimanche.",
+          "en": "She visits her grandmother every Sunday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.couple-amour.026",
+          "theme": "couple-amour",
+          "fr": "Ma copine et moi avons enfin réglé notre dispute.",
+          "en": "My girlfriend and I finally settled our argument.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rencontres.044",
+          "theme": "rencontres",
+          "fr": "Petit à petit, nous sommes devenus de vrais amis.",
+          "en": "Little by little, we became real friends.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.084",
+          "theme": "opinions-et-avis",
+          "fr": "Selon moi, le printemps est la plus belle saison.",
+          "en": "In my opinion, spring is the most beautiful season.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.projets-et-futur.095",
+          "theme": "projets-et-futur",
+          "fr": "Je gagnerai plus d'argent dans mon nouveau poste.",
+          "en": "I'll earn more money in my new job.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.098",
+          "theme": "conseils-et-suggestions",
+          "fr": "Pourquoi ne pas offrir un livre pour son cadeau ?",
+          "en": "Why not give a book as a gift?",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.051",
+          "theme": "salutations-de-base",
+          "fr": "Comment tu t'appelles déjà ? Désolé, j'ai oublié.",
+          "en": "What's your name again? Sorry, I forgot.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.069",
+          "theme": "evenements-familiaux",
+          "fr": "Mon neveu a reçu son diplôme la semaine dernière.",
+          "en": "My nephew received his diploma last week.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.a2.famille.001",
+          "theme": "famille",
+          "fr": "Mes parents habitent à la campagne depuis dix ans.",
+          "en": "My parents have lived in the countryside for ten years.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.les-fetes.004",
+          "theme": "les-fetes",
+          "fr": "On se déguise souvent pour le carnaval de février.",
+          "en": "People often dress up for the February carnival.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.voisinage.057",
+          "theme": "voisinage",
+          "fr": "Le jardin partagé est ouvert à tous les habitants.",
+          "en": "The shared garden is open to all residents.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.voisinage.069",
+          "theme": "voisinage",
+          "fr": "Le local à poubelles sent vraiment mauvais en été.",
+          "en": "The trash room really smells bad in summer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.073",
+          "theme": "conflits-reconciliation",
+          "fr": "Notre chef a reconnu ses torts pendant la réunion.",
+          "en": "Our boss admitted his mistakes during the meeting.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.projets-et-futur.110",
+          "theme": "projets-et-futur",
+          "fr": "Nous aurons plus de temps libre après la retraite.",
+          "en": "We'll have more free time after retirement.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-famille.063",
+          "theme": "rp-famille",
+          "fr": "Mes parents se sont rencontrés à Montréal en 1995.",
+          "en": "My parents met in Montreal in 1995.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-famille.070",
+          "theme": "rp-famille",
+          "fr": "Nous avons passé les fêtes chez mes beaux-parents.",
+          "en": "We spent the holidays at my in-laws' place.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rencontres.094",
+          "theme": "rencontres",
+          "fr": "Il travaillait comme bénévole quand je l'ai connu.",
+          "en": "He was working as a volunteer when I met him.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.voisinage.050",
+          "theme": "voisinage",
+          "fr": "La gardienne connaît tout le monde dans l'immeuble.",
+          "en": "The caretaker knows everyone in the building.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rencontres.050",
+          "theme": "rencontres",
+          "fr": "Ce genre de rencontre change parfois toute une vie.",
+          "en": "That kind of meeting sometimes changes a whole life.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.entraide.059",
+          "theme": "entraide",
+          "fr": "Nous avons apporté un repas à notre voisine malade.",
+          "en": "We brought a meal to our neighbor who was sick.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.054",
+          "theme": "salutations-de-base",
+          "fr": "Après les présentations, tout le monde s'est assis.",
+          "en": "After the introductions, everyone sat down.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.062",
+          "theme": "salutations-de-base",
+          "fr": "Désolé du dérangement, ça ne prendra qu'une minute.",
+          "en": "Sorry for the trouble, it will only take a minute.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations.051",
+          "theme": "salutations",
+          "fr": "Elle souhaite une bonne journée à tous ses clients.",
+          "en": "She wishes all her clients a good day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.065",
+          "theme": "evenements-familiaux",
+          "fr": "Le repas était délicieux et nous avons beaucoup ri.",
+          "en": "The meal was delicious and we laughed a lot.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.068",
+          "theme": "evenements-familiaux",
+          "fr": "Nous avons pris beaucoup de photos pendant la fête.",
+          "en": "We took a lot of pictures during the party.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.114",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon collègue a reconnu son erreur devant nous tous.",
+          "en": "My colleague admitted his mistake in front of all of us.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.les-fetes.001",
+          "theme": "les-fetes",
+          "fr": "Toute la famille se réunit pour fêter Noël ensemble.",
+          "en": "The whole family gets together to celebrate Christmas together.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.couple-amour.021",
+          "theme": "couple-amour",
+          "fr": "Mon copain travaille loin, donc on se voit rarement.",
+          "en": "My boyfriend works far away, so we rarely see each other.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.025",
+          "theme": "evenements-familiaux",
+          "fr": "Nous avons décoré la salle avec des fleurs blanches.",
+          "en": "We decorated the hall with white flowers.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.108",
+          "theme": "salutations-de-base",
+          "fr": "Il vaut mieux dire bonjour que de rester silencieux.",
+          "en": "It's better to say hello than to stay silent.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-famille.071",
+          "theme": "rp-famille",
+          "fr": "Mon fils a commencé l'école secondaire en septembre.",
+          "en": "My son started high school in September.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.070",
+          "theme": "evenements-familiaux",
+          "fr": "Les invités ont apporté des fleurs et des chocolats.",
+          "en": "The guests brought flowers and chocolates.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.voisinage.042",
+          "theme": "voisinage",
+          "fr": "Le facteur laisse toujours les colis devant la porte.",
+          "en": "The mailman always leaves packages by the door.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.061",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu devrais arroser les plantes deux fois par semaine.",
+          "en": "You should water the plants twice a week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.102",
+          "theme": "salutations-de-base",
+          "fr": "En arrivant au bureau, elle salue tous ses collègues.",
+          "en": "Arriving at the office, she greets all her colleagues.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.107",
+          "theme": "salutations-de-base",
+          "fr": "Un sourire et un bonjour peuvent changer une journée.",
+          "en": "A smile and a hello can change a day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations.046",
+          "theme": "salutations",
+          "fr": "Elle a remercié son collègue pour son aide précieuse.",
+          "en": "She thanked her colleague for his valuable help.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.communaute.064",
+          "theme": "communaute",
+          "fr": "Je vais participer à la collecte de vêtements demain.",
+          "en": "I am going to take part in the clothing collection tomorrow.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.couple-amour.066",
+          "theme": "couple-amour",
+          "fr": "Mon mari a acheté des fleurs pour notre anniversaire.",
+          "en": "My husband bought flowers for our anniversary.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.109",
+          "theme": "conflits-reconciliation",
+          "fr": "Nous avons parlé et le problème est réglé maintenant.",
+          "en": "We talked and the problem is solved now.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.voisinage.059",
+          "theme": "voisinage",
+          "fr": "Merci d'avoir arrosé mes plantes pendant les vacances.",
+          "en": "Thank you for watering my plants while I was on vacation.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.a2.couple-amour.039",
+          "theme": "couple-amour",
+          "fr": "Nous avons eu notre premier rendez-vous au restaurant.",
+          "en": "We had our first date at a restaurant.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.040",
+          "theme": "evenements-familiaux",
+          "fr": "Les enfants font partie du cortège pendant le mariage.",
+          "en": "The children are part of the procession during the wedding.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rencontres.104",
+          "theme": "rencontres",
+          "fr": "J'ai croisé une ancienne collègue au supermarché hier.",
+          "en": "I ran into a former coworker at the supermarket yesterday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.communaute.029",
+          "theme": "communaute",
+          "fr": "Les voisins organisent une fête de quartier chaque été.",
+          "en": "The neighbors organize a block party every summer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.voisinage.074",
+          "theme": "voisinage",
+          "fr": "Nous nous entendons bien avec presque tous nos voisins.",
+          "en": "We get along well with almost all our neighbors.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.couple-amour.035",
+          "theme": "couple-amour",
+          "fr": "Nous avons décidé de vivre ensemble malgré la distance.",
+          "en": "We decided to live together despite the distance.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.entraide.044",
+          "theme": "entraide",
+          "fr": "Mes parents m'aident souvent avec les tâches ménagères.",
+          "en": "My parents often help me with the housework.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.025",
+          "theme": "salutations-de-base",
+          "fr": "Les enfants disent bonjour à la maîtresse chaque matin.",
+          "en": "The children say hello to the teacher every morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations.050",
+          "theme": "salutations",
+          "fr": "Nous allons nous revoir la semaine prochaine, j'espère.",
+          "en": "We're going to see each other again next week, I hope.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations.045",
+          "theme": "salutations",
+          "fr": "Nous nous sommes présentés avant de commencer la réunion.",
+          "en": "We introduced ourselves before starting the meeting.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rencontres.097",
+          "theme": "rencontres",
+          "fr": "Nous étions les seuls étudiants étrangers dans la classe.",
+          "en": "We were the only foreign students in the class.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rencontres.029",
+          "theme": "rencontres",
+          "fr": "Nous nous sommes revus le lendemain, par pure coïncidence.",
+          "en": "We ran into each other again the next day, by pure coincidence.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations.041",
+          "theme": "salutations",
+          "fr": "Nous avons présenté nos collègues à la nouvelle stagiaire.",
+          "en": "We introduced our colleagues to the new intern.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.entraide.109",
+          "theme": "entraide",
+          "fr": "Elle explique le système de santé aux nouveaux immigrants.",
+          "en": "She explains the healthcare system to new immigrants.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.les-fetes.005",
+          "theme": "les-fetes",
+          "fr": "Chaque famille prépare un plat différent pour le réveillon.",
+          "en": "Every family prepares a different dish for New Year's Eve.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.118",
+          "theme": "conflits-reconciliation",
+          "fr": "Nous avons trouvé une solution simple pour notre différend.",
+          "en": "We found a simple solution to our dispute.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.voisinage.060",
+          "theme": "voisinage",
+          "fr": "Nos nouveaux voisins viennent d'emménager au deuxième étage.",
+          "en": "Our new neighbors just moved into the second floor.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.communaute.034",
+          "theme": "communaute",
+          "fr": "Le centre communautaire propose des cours de français gratuits.",
+          "en": "The community center offers free French classes.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-famille.085",
+          "theme": "rp-famille",
+          "fr": "Nous avons rempli la demande de regroupement familial ensemble.",
+          "en": "We filled out the family reunification application together.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations.044",
+          "theme": "salutations",
+          "fr": "Le réceptionniste accueille les patients avec un grand sourire.",
+          "en": "The receptionist welcomes patients with a big smile.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations-de-base.098",
+          "theme": "salutations-de-base",
+          "fr": "Dans une lettre formelle, on termine par salutations distinguées.",
+          "en": "In a formal letter, you end with kind regards.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations.048",
+          "theme": "salutations",
+          "fr": "Les nouveaux immigrants apprennent vite les formules de politesse.",
+          "en": "New immigrants quickly learn polite expressions.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.salutations.001",
+          "theme": "salutations",
+          "fr": "Ça fait longtemps qu'on ne s'est pas vus.",
+          "en": "It's been a long time since we've seen each other.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.093",
+          "theme": "opinions-et-avis",
+          "fr": "Moi non plus, je n'aime pas ce jeu vidéo.",
+          "en": "Me neither, I don't like this video game.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.068",
+          "theme": "salutations-de-base",
+          "fr": "À ta santé, et merci d'être venu ce soir.",
+          "en": "To your health, and thanks for coming tonight.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.058",
+          "theme": "conflits-reconciliation",
+          "fr": "Ma coloc m'a laissé un mot pour s'excuser.",
+          "en": "My roommate left me a note to apologize.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-famille.072",
+          "theme": "rp-famille",
+          "fr": "Ma fille a appris à faire du vélo cet été.",
+          "en": "My daughter learned to ride a bike this summer.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.049",
+          "theme": "conflits-reconciliation",
+          "fr": "J'ai besoin de m'excuser auprès de ma mère.",
+          "en": "I need to apologize to my mother.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.076",
+          "theme": "salutations-de-base",
+          "fr": "Tu peux me tutoyer, on n'est pas au bureau.",
+          "en": "You can use tu with me, we're not at the office.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.couple-amour.068",
+          "theme": "couple-amour",
+          "fr": "Il a appelé sa copine dès qu'il est arrivé.",
+          "en": "He called his girlfriend as soon as he arrived.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.emotions.030",
+          "theme": "emotions",
+          "fr": "Elle a du mal à exprimer ce qu'elle ressent.",
+          "en": "She struggles to express what she feels.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.entraide.049",
+          "theme": "entraide",
+          "fr": "Il a aidé sa sœur à réviser pour son examen.",
+          "en": "He helped his sister study for her exam.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.emotions.036",
+          "theme": "emotions",
+          "fr": "Elle s'ennuie un peu toute seule le week-end.",
+          "en": "She gets a little bored alone on weekends.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 15,
+      "items": [
+        {
+          "id": "fr.a2.conflits-reconciliation.075",
+          "theme": "conflits-reconciliation",
+          "fr": "On s'est disputés, mais on s'aime quand même.",
+          "en": "We argued, but we still love each other.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.entraide.080",
+          "theme": "entraide",
+          "fr": "Il a prêté sa voiture à son ami sans hésiter.",
+          "en": "He lent his car to his friend without hesitation.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.105",
+          "theme": "conseils-et-suggestions",
+          "fr": "Ça te dit de venir camper avec nous cet été ?",
+          "en": "Do you feel like coming camping with us this summer?",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.emotions.061",
+          "theme": "emotions",
+          "fr": "Elle a eu peur quand elle a entendu ce bruit.",
+          "en": "She was scared when she heard that noise.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.096",
+          "theme": "rencontres",
+          "fr": "Elle m'a reconnu tout de suite, mais moi non.",
+          "en": "She recognized me right away, but I didn't recognize her.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.119",
+          "theme": "conflits-reconciliation",
+          "fr": "Elle a pleuré un peu, puis elle m'a pardonné.",
+          "en": "She cried a little, then she forgave me.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.051",
+          "theme": "voisinage",
+          "fr": "J'ai besoin de ton aide pour porter ce canapé.",
+          "en": "I need your help carrying this sofa.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.couple-amour.024",
+          "theme": "couple-amour",
+          "fr": "Mon mari et moi fêtons nos dix ans de mariage.",
+          "en": "My husband and I are celebrating ten years of marriage.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.couple-amour.032",
+          "theme": "couple-amour",
+          "fr": "Mon copain a besoin de plus de temps pour lui.",
+          "en": "My boyfriend needs more time to himself.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.061",
+          "theme": "conflits-reconciliation",
+          "fr": "Ma mère et moi, nous avons enfin fait la paix.",
+          "en": "My mother and I finally made peace.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.079",
+          "theme": "conflits-reconciliation",
+          "fr": "Il a promis de ne plus jamais me crier dessus.",
+          "en": "He promised never to yell at me again.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.111",
+          "theme": "conseils-et-suggestions",
+          "fr": "Ça te dit de jouer aux cartes après le dîner ?",
+          "en": "Do you feel like playing cards after dinner?",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.040",
+          "theme": "rencontres",
+          "fr": "Elle n'a pas hésité une seconde à se présenter.",
+          "en": "She didn't hesitate a second to introduce herself.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.048",
+          "theme": "rencontres",
+          "fr": "Ils se sont mis à discuter comme de vieux amis.",
+          "en": "They started chatting like old friends.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.052",
+          "theme": "conflits-reconciliation",
+          "fr": "J'en ai marre de me disputer pour la vaisselle.",
+          "en": "I'm sick of arguing about the dishes.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.entraide.072",
+          "theme": "entraide",
+          "fr": "Il m'a aidé à traduire ce document en français.",
+          "en": "He helped me translate this document into French.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.026",
+          "theme": "salutations-de-base",
+          "fr": "On se dit salut entre amis, pas avec le patron.",
+          "en": "We say salut between friends, not with the boss.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.050",
+          "theme": "salutations-de-base",
+          "fr": "Elle m'a présenté à toute sa famille hier soir.",
+          "en": "She introduced me to her whole family last night.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.communaute.032",
+          "theme": "communaute",
+          "fr": "Il y a un marché fermier tous les samedis matin.",
+          "en": "There's a farmers' market every Saturday morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.064",
+          "theme": "voisinage",
+          "fr": "J'ai croisé ma voisine ce matin dans l'escalier.",
+          "en": "I ran into my neighbor this morning on the stairs.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.033",
+          "theme": "rencontres",
+          "fr": "D'habitude, je n'aime pas parler à des inconnus.",
+          "en": "Usually, I don't like talking to strangers.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.055",
+          "theme": "conflits-reconciliation",
+          "fr": "Elle veut qu'on règle ce problème tout de suite.",
+          "en": "She wants us to sort this problem out right away.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.062",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon frère refuse de s'excuser, il est trop têtu.",
+          "en": "My brother refuses to apologize, he's too stubborn.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.082",
+          "theme": "opinions-et-avis",
+          "fr": "À mon avis, les légumes sont bons pour la santé.",
+          "en": "In my opinion, vegetables are good for health.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.105",
+          "theme": "salutations-de-base",
+          "fr": "Les enfants apprennent tôt à dire s'il te plaît.",
+          "en": "Children learn early to say please.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.070",
+          "theme": "opinions-et-avis",
+          "fr": "À mon avis, le sport est important pour la santé.",
+          "en": "In my opinion, sport is important for health.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.emotions.066",
+          "theme": "emotions",
+          "fr": "J'ai eu honte de mon erreur devant le professeur.",
+          "en": "I was ashamed of my mistake in front of the teacher.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.couple-amour.023",
+          "theme": "couple-amour",
+          "fr": "Elle a demandé à son copain de changer d'attitude.",
+          "en": "She asked her boyfriend to change his attitude.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.couple-amour.033",
+          "theme": "couple-amour",
+          "fr": "Ma petite amie et moi voyageons de temps en temps.",
+          "en": "My girlfriend and I travel from time to time.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.078",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon frère et moi, on ne se dispute presque jamais.",
+          "en": "My brother and I almost never argue.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.105",
+          "theme": "opinions-et-avis",
+          "fr": "Tu as raison, les légumes sont bons pour la santé.",
+          "en": "You're right, vegetables are good for health.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.023",
+          "theme": "salutations-de-base",
+          "fr": "Le matin, on dit bonjour, le soir, on dit bonsoir.",
+          "en": "In the morning we say bonjour, in the evening we say bonsoir.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.067",
+          "theme": "evenements-familiaux",
+          "fr": "Ma tante a annoncé sa retraite à toute la famille.",
+          "en": "My aunt announced her retirement to the whole family.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 16,
+      "items": [
+        {
+          "id": "fr.a2.voisinage.061",
+          "theme": "voisinage",
+          "fr": "Le code de l'immeuble a changé la semaine dernière.",
+          "en": "The building's entry code changed last week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.couple-amour.027",
+          "theme": "couple-amour",
+          "fr": "Mon petit ami vient tout de suite après le travail.",
+          "en": "My boyfriend is coming right away after work.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.034",
+          "theme": "rencontres",
+          "fr": "Il a fallu du temps avant de devenir vraiment amis.",
+          "en": "It took time before we really became friends.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.045",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon père était furieux quand j'ai raté mes examens.",
+          "en": "My father was furious when I failed my exams.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.038",
+          "theme": "evenements-familiaux",
+          "fr": "Nous avons hâte de fêter le baptême de notre nièce.",
+          "en": "We can't wait to celebrate our niece's baptism.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.076",
+          "theme": "opinions-et-avis",
+          "fr": "Selon moi, le train est plus rapide que la voiture.",
+          "en": "In my opinion, the train is faster than the car.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-famille.077",
+          "theme": "rp-famille",
+          "fr": "Ma belle-mère a gardé les enfants toute la journée.",
+          "en": "My mother-in-law watched the children all day.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-famille.080",
+          "theme": "rp-famille",
+          "fr": "Ma nièce a réussi ses examens avec de bonnes notes.",
+          "en": "My niece passed her exams with good grades.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.112",
+          "theme": "conflits-reconciliation",
+          "fr": "Ma tante ne parle plus à mon oncle depuis dimanche.",
+          "en": "My aunt hasn't spoken to my uncle since Sunday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.couple-amour.029",
+          "theme": "couple-amour",
+          "fr": "Ma femme est plus patiente que moi avec les enfants.",
+          "en": "My wife is more patient than me with the kids.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.entraide.055",
+          "theme": "entraide",
+          "fr": "Tu peux toujours compter sur moi en cas de problème.",
+          "en": "You can always count on me if there's a problem.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.072",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu ferais mieux de demander de l'aide au professeur.",
+          "en": "You'd better ask the teacher for help.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.027",
+          "theme": "salutations-de-base",
+          "fr": "Bonjour, je viens pour le rendez-vous de dix heures.",
+          "en": "Hello, I'm here for the ten o'clock appointment.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-famille.068",
+          "theme": "rp-famille",
+          "fr": "Mon oncle a ouvert un petit restaurant l'an dernier.",
+          "en": "My uncle opened a small restaurant last year.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.116",
+          "theme": "conflits-reconciliation",
+          "fr": "Les deux amies se sont réconciliées au café ce midi.",
+          "en": "The two friends made up at the café this noon.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.037",
+          "theme": "rencontres",
+          "fr": "On a papoté pendant des heures sans jamais s'ennuyer.",
+          "en": "We chatted for hours without ever getting bored.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.108",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu veux qu'on nettoie la cuisine avant leur arrivée ?",
+          "en": "Do you want us to clean the kitchen before they arrive?",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.emotions.037",
+          "theme": "emotions",
+          "fr": "Ça me soulage énormément d'avoir enfin fini ce projet.",
+          "en": "It's such a relief to have finally finished this project.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.056",
+          "theme": "voisinage",
+          "fr": "Nous avons échangé nos numéros de téléphone au cas où.",
+          "en": "We exchanged phone numbers just in case.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.063",
+          "theme": "voisinage",
+          "fr": "Les enfants jouent souvent dans la cour de l'immeuble.",
+          "en": "The kids often play in the building's courtyard.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.113",
+          "theme": "conflits-reconciliation",
+          "fr": "Nous avons décidé de faire la paix avant les vacances.",
+          "en": "We decided to make peace before the holidays.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.054",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon collègue a reconnu son erreur devant tout le monde.",
+          "en": "My colleague admitted his mistake in front of everyone.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.032",
+          "theme": "evenements-familiaux",
+          "fr": "Il faut réserver le traiteur plusieurs mois à l'avance.",
+          "en": "You need to book the caterer several months in advance.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.096",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu veux qu'on organise une fête pour son anniversaire ?",
+          "en": "Do you want us to organize a party for his birthday?",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.110",
+          "theme": "conseils-et-suggestions",
+          "fr": "Pourquoi ne pas prendre le vélo pour aller au travail ?",
+          "en": "Why not take the bike to go to work?",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.045",
+          "theme": "salutations-de-base",
+          "fr": "Je m'appelle Marc, et vous, comment vous appelez-vous ?",
+          "en": "My name is Marc, and you, what is your name?",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.103",
+          "theme": "salutations-de-base",
+          "fr": "À l'aéroport, ils se sont enfin retrouvés et embrassés.",
+          "en": "At the airport, they finally met and hugged.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.071",
+          "theme": "voisinage",
+          "fr": "Le supermarché se trouve juste à côté de notre immeuble.",
+          "en": "The supermarket is right next to our building.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.entraide.048",
+          "theme": "entraide",
+          "fr": "Ma grand-mère nous a toujours soutenus dans nos projets.",
+          "en": "My grandmother has always supported us in our projects.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.entraide.071",
+          "theme": "entraide",
+          "fr": "Mon voisin arrose mes plantes quand je suis en vacances.",
+          "en": "My neighbor waters my plants when I'm on vacation.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.projets-et-futur.105",
+          "theme": "projets-et-futur",
+          "fr": "Nous serons en retard si nous ne partons pas maintenant.",
+          "en": "We'll be late if we don't leave now.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.100",
+          "theme": "salutations-de-base",
+          "fr": "Chaque matin, mon voisin me dit bonjour dans l'escalier.",
+          "en": "Every morning my neighbor says hello to me on the stairs.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-famille.061",
+          "theme": "rp-famille",
+          "fr": "Quand j'étais petit, j'habitais chez mes grands-parents.",
+          "en": "When I was little, I lived at my grandparents' house.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 17,
+      "items": [
+        {
+          "id": "fr.a2.rp-famille.074",
+          "theme": "rp-famille",
+          "fr": "Mon mari a préparé le souper pendant que je travaillais.",
+          "en": "My husband made dinner while I was working.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations.056",
+          "theme": "salutations",
+          "fr": "Nous nous saluons souvent dans le couloir de l'immeuble.",
+          "en": "We often greet each other in the building's hallway.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.066",
+          "theme": "voisinage",
+          "fr": "Nous avons partagé une tondeuse à gazon avec les voisins.",
+          "en": "We share a lawnmower with the neighbors.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.076",
+          "theme": "voisinage",
+          "fr": "Il faut faire attention au bruit après vingt-deux heures.",
+          "en": "You need to be careful about noise after ten p.m.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.028",
+          "theme": "evenements-familiaux",
+          "fr": "Mon frère a préparé un discours émouvant pour le mariage.",
+          "en": "My brother prepared a moving speech for the wedding.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-famille.065",
+          "theme": "rp-famille",
+          "fr": "Nous avons fêté l'anniversaire de ma mère samedi dernier.",
+          "en": "We celebrated my mother's birthday last Saturday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.couple-amour.071",
+          "theme": "couple-amour",
+          "fr": "Mon copain aimait beaucoup le sport quand il était jeune.",
+          "en": "My boyfriend loved sports a lot when he was young.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.052",
+          "theme": "voisinage",
+          "fr": "Le chat des voisins vient souvent dormir sur notre balcon.",
+          "en": "The neighbors' cat often comes to sleep on our balcony.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.couple-amour.031",
+          "theme": "couple-amour",
+          "fr": "Nous tenons compte des habitudes de chacun dans le couple.",
+          "en": "We take each other's habits into account in the relationship.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.030",
+          "theme": "rencontres",
+          "fr": "Grâce à un ami commun, nous avons enfin fait connaissance.",
+          "en": "Thanks to a mutual friend, we finally met.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.041",
+          "theme": "conflits-reconciliation",
+          "fr": "Nous nous sommes disputés à cause d'un malentendu stupide.",
+          "en": "We argued because of a silly misunderstanding.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.033",
+          "theme": "evenements-familiaux",
+          "fr": "Elle porte le deuil de son mari depuis plusieurs semaines.",
+          "en": "She has been mourning her husband for several weeks.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.035",
+          "theme": "evenements-familiaux",
+          "fr": "Les jeunes mariés partent en voyage de noces demain matin.",
+          "en": "The newlyweds are leaving on their honeymoon tomorrow morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.091",
+          "theme": "conseils-et-suggestions",
+          "fr": "Et si on partait plus tôt pour éviter les embouteillages ?",
+          "en": "What if we left earlier to avoid traffic jams?",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.078",
+          "theme": "voisinage",
+          "fr": "Nous avons décidé de repeindre la cage d'escalier ensemble.",
+          "en": "We decided to repaint the stairwell together.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.071",
+          "theme": "conflits-reconciliation",
+          "fr": "Nos voisins nous en voulaient pour une histoire de clôture.",
+          "en": "Our neighbors were upset with us over a fence issue.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.037",
+          "theme": "evenements-familiaux",
+          "fr": "Toute la famille garde de beaux souvenirs de cette réunion.",
+          "en": "The whole family has fond memories of that reunion.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.entraide.058",
+          "theme": "entraide",
+          "fr": "Mon père a réparé la voiture de notre voisine gratuitement.",
+          "en": "My dad fixed our neighbor's car for free.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.salutations-de-base.066",
+          "theme": "salutations-de-base",
+          "fr": "Bon anniversaire, j'espère que tu passes une belle journée.",
+          "en": "Happy birthday, I hope you have a lovely day.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.108",
+          "theme": "rencontres",
+          "fr": "J'étais nerveux, mais tout le monde était très accueillant.",
+          "en": "I was nervous, but everyone was very welcoming.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.064",
+          "theme": "conflits-reconciliation",
+          "fr": "Le malentendu s'est réglé rapidement entre les deux équipes.",
+          "en": "The misunderstanding was quickly sorted out between the two teams.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.entraide.061",
+          "theme": "entraide",
+          "fr": "Elle a aidé son voisin à remplir ses papiers administratifs.",
+          "en": "She helped her neighbor fill out his paperwork.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.communaute.068",
+          "theme": "communaute",
+          "fr": "Elle a rejoint l'association de locataires l'année dernière.",
+          "en": "She joined the tenants' association last year.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.105",
+          "theme": "rencontres",
+          "fr": "Nous nous sommes rencontrés lors d'un cours de francisation.",
+          "en": "We met each other during a francization course.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.080",
+          "theme": "voisinage",
+          "fr": "Le groupe de voisins vigilants surveille le quartier le soir.",
+          "en": "The neighborhood watch group keeps an eye on things in the evening.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.communaute.076",
+          "theme": "communaute",
+          "fr": "Autrefois, les voisins se parlaient plus souvent dans la rue.",
+          "en": "In the past, neighbors used to talk more often in the street.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.035",
+          "theme": "rencontres",
+          "fr": "Elle garde le contact avec presque tous ses anciens camarades.",
+          "en": "She stays in touch with almost all her old classmates.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.entraide.079",
+          "theme": "entraide",
+          "fr": "Nous nous relayons pour aider notre grand-père chaque semaine.",
+          "en": "We take turns helping our grandfather every week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.emotions.062",
+          "theme": "emotions",
+          "fr": "Nous étions tristes, mais nous avons vite retrouvé le sourire.",
+          "en": "We were sad, but we quickly found our smile again.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.103",
+          "theme": "rencontres",
+          "fr": "Elle animait le groupe d'accueil pour les nouveaux immigrants.",
+          "en": "She used to run the welcome group for new immigrants.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rencontres.109",
+          "theme": "rencontres",
+          "fr": "Nous avons parlé de nos projets professionnels pendant le repas.",
+          "en": "We talked about our career plans during the meal.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.voisinage.075",
+          "theme": "voisinage",
+          "fr": "Le panneau d'affichage annonce la prochaine réunion de copropriété.",
+          "en": "The bulletin board announces the next homeowners' meeting.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.029",
+          "theme": "evenements-familiaux",
+          "fr": "Les cousins se voient rarement, alors ces réunions comptent beaucoup.",
+          "en": "The cousins rarely see each other, so these gatherings matter a lot.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 18,
+      "items": [
+        {
+          "id": "fr.a2.entraide.107",
+          "theme": "entraide",
+          "fr": "Une bénévole aide les nouveaux arrivants à remplir leurs formulaires.",
+          "en": "A volunteer helps newcomers fill out their forms.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.063",
+          "theme": "conflits-reconciliation",
+          "fr": "On a fait la paix avant la fin du week-end.",
+          "en": "We made peace before the weekend was over.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-famille.066",
+          "theme": "rp-famille",
+          "fr": "Ma tante a immigré au Canada il y a dix ans.",
+          "en": "My aunt immigrated to Canada ten years ago.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.emotions.034",
+          "theme": "emotions",
+          "fr": "Il est en colère parce qu'il a raté son train.",
+          "en": "He's angry because he missed his train.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.questions-du-quotidien.059",
+          "theme": "questions-du-quotidien",
+          "fr": "Qu'est-ce que tu préfères, le thé ou le café ?",
+          "en": "What do you prefer, tea or coffee?",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.salutations-de-base.069",
+          "theme": "salutations-de-base",
+          "fr": "Il a levé son verre et dit santé avant de boire.",
+          "en": "He raised his glass and said cheers before drinking.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.salutations.049",
+          "theme": "salutations",
+          "fr": "Il a serré la main de l'agent avant l'entretien.",
+          "en": "He shook the agent's hand before the interview.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.095",
+          "theme": "conseils-et-suggestions",
+          "fr": "Et si on prenait le train au lieu de la voiture ?",
+          "en": "What if we took the train instead of the car?",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rencontres.102",
+          "theme": "rencontres",
+          "fr": "Il m'a invité à prendre un café après la réunion.",
+          "en": "He invited me for coffee after the meeting.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.044",
+          "theme": "conflits-reconciliation",
+          "fr": "Il vaut mieux faire la paix avant que ça n'empire.",
+          "en": "It's better to make peace before it gets worse.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.salutations-de-base.104",
+          "theme": "salutations-de-base",
+          "fr": "Il ne faut jamais oublier de dire s'il vous plaît.",
+          "en": "You should never forget to say please.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.salutations.053",
+          "theme": "salutations",
+          "fr": "J'ai oublié de dire au revoir à mon collègue hier.",
+          "en": "I forgot to say goodbye to my colleague yesterday.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.108",
+          "theme": "entraide",
+          "fr": "J'ai donné du sang à la clinique du quartier hier.",
+          "en": "I donated blood at the neighborhood clinic yesterday.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.075",
+          "theme": "entraide",
+          "fr": "Elle a aidé sa mère à préparer le repas de famille.",
+          "en": "She helped her mother prepare the family meal.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.067",
+          "theme": "entraide",
+          "fr": "Ma tante m'a aidé à trouver un appartement en ville.",
+          "en": "My aunt helped me find an apartment in the city.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.091",
+          "theme": "opinions-et-avis",
+          "fr": "Je pense comme toi, le café est meilleur que le thé.",
+          "en": "I think like you, coffee is better than tea.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-famille.064",
+          "theme": "rp-famille",
+          "fr": "Mon frère a trouvé un emploi et il est très content.",
+          "en": "My brother found a job and he is very happy.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.110",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon ami était fâché, mais il m'a pardonné hier soir.",
+          "en": "My friend was angry, but he forgave me last night.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.voisinage.053",
+          "theme": "voisinage",
+          "fr": "Elle a laissé un mot sympa dans la boîte aux lettres.",
+          "en": "She left a nice note in the mailbox.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.066",
+          "theme": "conflits-reconciliation",
+          "fr": "Les voisins se sont excusés pour le bruit de la fête.",
+          "en": "The neighbors apologized for the noise from the party.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.voisinage.067",
+          "theme": "voisinage",
+          "fr": "Il a l'habitude de sortir les poubelles le lundi soir.",
+          "en": "He usually takes the trash out on Monday evenings.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rencontres.041",
+          "theme": "rencontres",
+          "fr": "Au lieu de rester seul, il a préféré aller lui parler.",
+          "en": "Instead of staying alone, he decided to go talk to her.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.056",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon fils boude encore à cause de notre dispute d'hier.",
+          "en": "My son is still sulking because of our argument yesterday.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.053",
+          "theme": "entraide",
+          "fr": "Elle m'a écouté pendant des heures quand j'allais mal.",
+          "en": "She listened to me for hours when I was going through a hard time.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.presentation-personnelle.091",
+          "theme": "presentation-personnelle",
+          "fr": "Qu'est-ce que tu aimes faire pendant ton temps libre ?",
+          "en": "What do you like to do in your free time?",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.emotions.067",
+          "theme": "emotions",
+          "fr": "Elle était en colère parce que le bus était en retard.",
+          "en": "She was angry because the bus was late.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.les-fetes.014",
+          "theme": "les-fetes",
+          "fr": "Nous avons décoré le sapin et j'ai adoré cette soirée.",
+          "en": "We decorated the tree and I loved that evening.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.117",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon voisin était en colère à cause du bruit hier soir.",
+          "en": "My neighbor was angry because of the noise last night.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.voisinage.072",
+          "theme": "voisinage",
+          "fr": "Le veilleur de nuit fait sa ronde autour de l'immeuble.",
+          "en": "The night watchman does his rounds around the building.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.063",
+          "theme": "entraide",
+          "fr": "J'ai promené le chien de ma voisine pendant son voyage.",
+          "en": "I walked my neighbor's dog while she was traveling.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.couple-amour.063",
+          "theme": "couple-amour",
+          "fr": "Mon copain et moi avons visité le Québec l'été dernier.",
+          "en": "My boyfriend and I visited Quebec last summer.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rencontres.045",
+          "theme": "rencontres",
+          "fr": "En général, elle se souvient du prénom de tout le monde.",
+          "en": "In general, she remembers everyone's first name.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.salutations-de-base.044",
+          "theme": "salutations-de-base",
+          "fr": "Elle m'a demandé comment j'allais avec un grand sourire.",
+          "en": "She asked me how I was doing with a big smile.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 19,
+      "items": [
+        {
+          "id": "fr.a2.communaute.075",
+          "theme": "communaute",
+          "fr": "Le comité a organisé une collecte de fonds pour l'école.",
+          "en": "The committee organized a fundraiser for the school.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.couple-amour.072",
+          "theme": "couple-amour",
+          "fr": "Ma copine a changé de travail et déménagé en même temps.",
+          "en": "My girlfriend changed jobs and moved at the same time.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.069",
+          "theme": "conflits-reconciliation",
+          "fr": "Ma sœur et moi, on se réconcilie toujours avant le dîner.",
+          "en": "My sister and I always make up before dinner.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rencontres.038",
+          "theme": "rencontres",
+          "fr": "Son sourire chaleureux m'a tout de suite mis en confiance.",
+          "en": "His warm smile immediately put me at ease.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.024",
+          "theme": "evenements-familiaux",
+          "fr": "Ma grand-mère a hâte de rencontrer son arrière-petit-fils.",
+          "en": "My grandmother can't wait to meet her great-grandson.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.041",
+          "theme": "entraide",
+          "fr": "Mon voisin m'a proposé son aide pour repeindre la cuisine.",
+          "en": "My neighbor offered to help me repaint the kitchen.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.076",
+          "theme": "entraide",
+          "fr": "J'ai proposé mon aide à mon collègue qui semblait débordé.",
+          "en": "I offered to help my coworker who seemed overwhelmed.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.077",
+          "theme": "entraide",
+          "fr": "Mon petit frère m'aide toujours avec mes devoirs de maths.",
+          "en": "My little brother always helps me with my math homework.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rencontres.091",
+          "theme": "rencontres",
+          "fr": "J'ai rencontré ma meilleure amie pendant un cours de yoga.",
+          "en": "I met my best friend during a yoga class.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.117",
+          "theme": "entraide",
+          "fr": "Est-ce que tu veux devenir mentor pour un nouvel employé ?",
+          "en": "Do you want to become a mentor for a new employee?",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.voisinage.054",
+          "theme": "voisinage",
+          "fr": "Ce quartier est calme, mais parfois un peu bruyant la nuit.",
+          "en": "This neighborhood is quiet, but sometimes a bit noisy at night.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conseils-et-suggestions.073",
+          "theme": "conseils-et-suggestions",
+          "fr": "Tu ferais mieux de changer les piles du détecteur de fumée.",
+          "en": "You'd better change the smoke detector's batteries.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-famille.082",
+          "theme": "rp-famille",
+          "fr": "Mes parents ont célébré leurs trente ans de mariage en mai.",
+          "en": "My parents celebrated their thirtieth wedding anniversary in May.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.074",
+          "theme": "opinions-et-avis",
+          "fr": "À mon avis, les chats sont plus indépendants que les chiens.",
+          "en": "In my opinion, cats are more independent than dogs.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.057",
+          "theme": "entraide",
+          "fr": "Elle propose souvent son aide, même quand on ne demande rien.",
+          "en": "She often offers to help, even when nobody asks.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.062",
+          "theme": "entraide",
+          "fr": "Mon oncle nous a offert son aide pour construire la terrasse.",
+          "en": "My uncle offered to help us build the deck.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.salutations.054",
+          "theme": "salutations",
+          "fr": "Vous pouvez saluer le médecin avant d'entrer dans son bureau.",
+          "en": "You can greet the doctor before entering his office.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.111",
+          "theme": "conflits-reconciliation",
+          "fr": "Le patron a expliqué la situation calmement à toute l'équipe.",
+          "en": "The boss explained the situation calmly to the whole team.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.voisinage.062",
+          "theme": "voisinage",
+          "fr": "Il vaut mieux prévenir les voisins avant de faire des travaux.",
+          "en": "It's better to warn the neighbors before doing renovations.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.voisinage.068",
+          "theme": "voisinage",
+          "fr": "La nouvelle voisine nous a offert des fleurs pour son arrivée.",
+          "en": "The new neighbor gave us flowers when she moved in.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.060",
+          "theme": "conflits-reconciliation",
+          "fr": "Notre équipe a résolu le conflit grâce à une bonne discussion.",
+          "en": "Our team resolved the conflict thanks to a good discussion.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.065",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon coloc et moi, nous avons parlé calmement de nos problèmes.",
+          "en": "My roommate and I talked calmly about our issues.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-famille.067",
+          "theme": "rp-famille",
+          "fr": "Quand j'étais jeune, ma grand-mère me racontait des histoires.",
+          "en": "When I was young, my grandmother used to tell me stories.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-famille.084",
+          "theme": "rp-famille",
+          "fr": "Mon frère a signé le formulaire de parrainage pour notre mère.",
+          "en": "My brother signed the sponsorship form for our mother.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.salutations.040",
+          "theme": "salutations",
+          "fr": "Elle salue son voisin chaque matin avant de partir au travail.",
+          "en": "She greets her neighbor every morning before leaving for work.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.salutations.042",
+          "theme": "salutations",
+          "fr": "Mon frère serre toujours la main quand il rencontre quelqu'un.",
+          "en": "My brother always shakes hands when he meets someone.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.communaute.070",
+          "theme": "communaute",
+          "fr": "Le comité d'accueil aide les immigrants à trouver un logement.",
+          "en": "The welcome committee helps immigrants find housing.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rencontres.043",
+          "theme": "rencontres",
+          "fr": "Elle a tenu compte de mes conseils dès notre première rencontre.",
+          "en": "She took my advice into account from our very first meeting.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.043",
+          "theme": "entraide",
+          "fr": "Elle a proposé de garder les enfants pendant que je travaillais.",
+          "en": "She offered to watch the kids while I was working.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.051",
+          "theme": "entraide",
+          "fr": "Nos voisins nous ont aidés à porter les cartons du déménagement.",
+          "en": "Our neighbors helped us carry the moving boxes.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rencontres.039",
+          "theme": "rencontres",
+          "fr": "La plupart des gens que je connais viennent de cette association.",
+          "en": "Most of the people I know come from that club.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.023",
+          "theme": "evenements-familiaux",
+          "fr": "Les invités doivent confirmer leur présence avant la fin du mois.",
+          "en": "The guests need to confirm their attendance before the end of the month.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rencontres.100",
+          "theme": "rencontres",
+          "fr": "Elle cherchait un emploi quand elle a rencontré son futur patron.",
+          "en": "She was looking for a job when she met her future boss.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 20,
+      "items": [
+        {
+          "id": "fr.a2.evenements-familiaux.031",
+          "theme": "evenements-familiaux",
+          "fr": "La famille se recueille un instant avant de disperser les cendres.",
+          "en": "The family pauses for a moment before scattering the ashes.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.074",
+          "theme": "entraide",
+          "fr": "Mes voisins m'ont prêté leur échelle pour nettoyer les gouttières.",
+          "en": "My neighbors lent me their ladder to clean the gutters.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.salutations.052",
+          "theme": "salutations",
+          "fr": "Le matin, les employés se saluent avant de commencer à travailler.",
+          "en": "In the morning, employees greet each other before starting work.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.communaute.065",
+          "theme": "communaute",
+          "fr": "Nous avons rencontré les nouveaux arrivants à la réunion d'accueil.",
+          "en": "We met the newcomers at the welcome meeting.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.famille.010",
+          "theme": "famille",
+          "fr": "Mes grands-parents étaient fatigués, mais ils ont continué la fête.",
+          "en": "My grandparents were tired, but they continued the party.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.110",
+          "theme": "entraide",
+          "fr": "Nous allons organiser une collecte de vêtements chauds pour l'hiver.",
+          "en": "We are going to organize a warm clothing drive for winter.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-famille.073",
+          "theme": "rp-famille",
+          "fr": "Mes grands-parents habitaient à la campagne quand ils étaient jeunes.",
+          "en": "My grandparents lived in the countryside when they were young.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.communaute.067",
+          "theme": "communaute",
+          "fr": "L'organisme communautaire aide les familles et distribue de la nourriture.",
+          "en": "The community organization helps families and distributes food.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.112",
+          "theme": "entraide",
+          "fr": "Le centre communautaire offre des cours de français gratuits aux réfugiés.",
+          "en": "The community center offers free French classes to refugees.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.entraide.119",
+          "theme": "entraide",
+          "fr": "Nous allons planter des légumes dans le jardin communautaire ce printemps.",
+          "en": "We are going to plant vegetables in the community garden this spring.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.salutations-de-base.074",
+          "theme": "salutations-de-base",
+          "fr": "On dit tu à un ami, on dit vous à un inconnu.",
+          "en": "We say tu to a friend, we say vous to a stranger.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.entraide.046",
+          "theme": "entraide",
+          "fr": "N'hésite pas à me dire si tu as besoin d'aide.",
+          "en": "Don't hesitate to tell me if you need help.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.050",
+          "theme": "conflits-reconciliation",
+          "fr": "Il a admis qu'il avait tort et il s'est excusé.",
+          "en": "He admitted he was wrong and apologized.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.voisinage.043",
+          "theme": "voisinage",
+          "fr": "Il y a trop de bruit dans cet immeuble le week-end.",
+          "en": "There's too much noise in this building on weekends.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.les-fetes.017",
+          "theme": "les-fetes",
+          "fr": "J'ai acheté un cadeau et je l'ai emballé hier soir.",
+          "en": "I bought a gift and I wrapped it last night.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rencontres.036",
+          "theme": "rencontres",
+          "fr": "Tu n'as pas besoin d'être timide pour venir nous voir.",
+          "en": "You don't need to be shy to come see us.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rencontres.047",
+          "theme": "rencontres",
+          "fr": "Nous avons eu de la chance de nous croiser ce jour-là.",
+          "en": "We were lucky to run into each other that day.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.entraide.073",
+          "theme": "entraide",
+          "fr": "Elle est toujours là pour ses amis quand ça ne va pas.",
+          "en": "She's always there for her friends when things go wrong.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.115",
+          "theme": "conflits-reconciliation",
+          "fr": "J'ai téléphoné à ma sœur pour m'excuser de mon retard.",
+          "en": "I called my sister to apologize for my delay.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.voisinage.079",
+          "theme": "voisinage",
+          "fr": "Ma voisine garde mes clés au cas où j'en aurais besoin.",
+          "en": "My neighbor keeps my keys in case I need them.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.voisinage.041",
+          "theme": "voisinage",
+          "fr": "Mon voisin m'a invité à prendre un café hier après-midi.",
+          "en": "My neighbor invited me for coffee yesterday afternoon.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.entraide.068",
+          "theme": "entraide",
+          "fr": "Il a relu ma lettre de motivation avant que je l'envoie.",
+          "en": "He proofread my cover letter before I sent it.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.salutations-de-base.106",
+          "theme": "salutations-de-base",
+          "fr": "Elle a dit s'il vous plaît avant de demander l'addition.",
+          "en": "She said please before asking for the bill.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.famille.009",
+          "theme": "famille",
+          "fr": "Mon père a téléphoné et ma mère a répondu tout de suite.",
+          "en": "My father called and my mother answered right away.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.entraide.042",
+          "theme": "entraide",
+          "fr": "Peux-tu me donner un coup de main pour porter ce canapé ?",
+          "en": "Can you give me a hand carrying this couch?",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.communaute.074",
+          "theme": "communaute",
+          "fr": "Ma famille va assister à la fête du quartier ce week-end.",
+          "en": "My family is going to attend the neighborhood party this weekend.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.051",
+          "theme": "conflits-reconciliation",
+          "fr": "Nos amis ont fini par se reparler après des mois de silence.",
+          "en": "Our friends eventually started talking again after months of silence.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.entraide.052",
+          "theme": "entraide",
+          "fr": "J'ai emprunté la tondeuse de mon voisin pour couper l'herbe.",
+          "en": "I borrowed my neighbor's lawnmower to cut the grass.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.les-fetes.003",
+          "theme": "les-fetes",
+          "fr": "Les enfants ont hâte d'ouvrir leurs cadeaux le matin de Noël.",
+          "en": "The kids can't wait to open their presents on Christmas morning.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.078",
+          "theme": "opinions-et-avis",
+          "fr": "À mon avis, le petit-déjeuner est le repas le plus important.",
+          "en": "In my opinion, breakfast is the most important meal.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.amis.010",
+          "theme": "amis",
+          "fr": "Quand j'étais petit, je jouais tous les jours avec mon voisin.",
+          "en": "When I was little, I used to play every day with my neighbor.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.059",
+          "theme": "conflits-reconciliation",
+          "fr": "De temps en temps, on a des petits désaccords avec nos voisins.",
+          "en": "From time to time, we have small disagreements with our neighbors.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.021",
+          "theme": "evenements-familiaux",
+          "fr": "Mes parents fêtent leurs vingt-cinq ans de mariage ce week-end.",
+          "en": "My parents are celebrating their twenty-fifth wedding anniversary this weekend.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 21,
+      "items": [
+        {
+          "id": "fr.a2.salutations-de-base.055",
+          "theme": "salutations-de-base",
+          "fr": "Je ne connais pas encore son prénom, on vient de se rencontrer.",
+          "en": "I don't know her first name yet, we just met.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.107",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon collègue et moi, nous avons eu un petit désaccord ce matin.",
+          "en": "My colleague and I had a small disagreement this morning.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.voisinage.047",
+          "theme": "voisinage",
+          "fr": "De temps en temps, nous discutons avec les voisins dans le hall.",
+          "en": "Every once in a while, we chat with the neighbors in the lobby.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.053",
+          "theme": "conflits-reconciliation",
+          "fr": "Elle a pleuré après notre dispute, et je me suis senti coupable.",
+          "en": "She cried after our argument, and I felt guilty.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.les-fetes.015",
+          "theme": "les-fetes",
+          "fr": "Quand j'étais petit, on fêtait toujours Noël chez ma grand-mère.",
+          "en": "When I was little, we always celebrated Christmas at my grandmother's.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-famille.083",
+          "theme": "rp-famille",
+          "fr": "Ma sœur et moi avons partagé la même chambre pendant des années.",
+          "en": "My sister and I shared the same room for years.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.salutations.055",
+          "theme": "salutations",
+          "fr": "Elle a poliment demandé son nom avant de le présenter aux autres.",
+          "en": "She politely asked his name before introducing him to the others.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.communaute.072",
+          "theme": "communaute",
+          "fr": "Avant, il n'y avait pas de banque alimentaire dans notre secteur.",
+          "en": "Before, there was no food bank in our area.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.entraide.069",
+          "theme": "entraide",
+          "fr": "Nous avons aidé nos voisins à ranger leur jardin après la tempête.",
+          "en": "We helped our neighbors clean up their yard after the storm.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rencontres.110",
+          "theme": "rencontres",
+          "fr": "Elle a rejoint une association de quartier pour se faire des amis.",
+          "en": "She joined a neighborhood association to make friends.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.entraide.114",
+          "theme": "entraide",
+          "fr": "Les locataires de l'immeuble ont formé un comité pour s'entraider.",
+          "en": "The tenants of the building formed a committee to help each other.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.voisinage.077",
+          "theme": "voisinage",
+          "fr": "Le vieux monsieur du rez-de-chaussée nourrit les chats du quartier.",
+          "en": "The old man on the ground floor feeds the neighborhood cats.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-famille.081",
+          "theme": "rp-famille",
+          "fr": "Quand j'étais enfant, on allait souvent chez mon oncle le dimanche.",
+          "en": "When I was a child, we often went to my uncle's on Sundays.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.communaute.066",
+          "theme": "communaute",
+          "fr": "Quand j'étais jeune, je jouais souvent avec les enfants du quartier.",
+          "en": "When I was young, I often played with the children in the neighborhood.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rencontres.098",
+          "theme": "rencontres",
+          "fr": "J'ai fait la connaissance de mon colocataire par une petite annonce.",
+          "en": "I met my roommate through a classified ad.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.salutations.043",
+          "theme": "salutations",
+          "fr": "Quand j'étais petit, je disais toujours bonjour à mes grands-parents.",
+          "en": "When I was little, I always said hello to my grandparents.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.communaute.073",
+          "theme": "communaute",
+          "fr": "Les membres du groupe se réunissent le mardi et discutent des projets.",
+          "en": "The group members meet on Tuesdays and discuss projects.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.entraide.113",
+          "theme": "entraide",
+          "fr": "Ma collègue m'a montré comment utiliser le nouveau logiciel au travail.",
+          "en": "My coworker showed me how to use the new software at work.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rencontres.093",
+          "theme": "rencontres",
+          "fr": "Nous avons discuté pendant des heures et nous nous sommes bien entendus.",
+          "en": "We talked for hours and we got along well.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.entraide.115",
+          "theme": "entraide",
+          "fr": "Le samedi, des bénévoles distribuent des repas aux personnes dans le besoin.",
+          "en": "On Saturdays, volunteers distribute meals to people in need.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.communaute.069",
+          "theme": "communaute",
+          "fr": "Nous allons organiser une fête pour souhaiter la bienvenue aux nouveaux résidents.",
+          "en": "We are going to organize a party to welcome the new residents.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.072",
+          "theme": "conflits-reconciliation",
+          "fr": "Mon meilleur ami m'a dit qu'il ne m'en voulait plus.",
+          "en": "My best friend told me he wasn't upset with me anymore.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.opinions-et-avis.102",
+          "theme": "opinions-et-avis",
+          "fr": "Je ne suis pas d'accord, l'hiver n'est pas si froid.",
+          "en": "I don't agree, winter isn't that cold.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.030",
+          "theme": "evenements-familiaux",
+          "fr": "Grâce à l'aide de tous, la fête a été un vrai succès.",
+          "en": "Thanks to everyone's help, the party was a real success.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.034",
+          "theme": "evenements-familiaux",
+          "fr": "Au bout d'un moment, tout le monde s'est mis à danser.",
+          "en": "After a while, everyone started dancing.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.entraide.047",
+          "theme": "entraide",
+          "fr": "Mon frère m'a prêté de l'argent quand j'en avais besoin.",
+          "en": "My brother lent me money when I needed it.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.salutations-de-base.032",
+          "theme": "salutations-de-base",
+          "fr": "Elle nous a fait un signe de la main pour dire au revoir.",
+          "en": "She waved at us to say goodbye.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.emotions.070",
+          "theme": "emotions",
+          "fr": "Il a eu du mal à cacher sa joie en apprenant la nouvelle.",
+          "en": "He had trouble hiding his joy when he heard the news.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.entraide.060",
+          "theme": "entraide",
+          "fr": "Quand elle m'a appelé, je suis venu l'aider tout de suite.",
+          "en": "When she called me, I came to help her right away.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.voisinage.070",
+          "theme": "voisinage",
+          "fr": "Nous avons signé une pétition contre le bruit du bar d'à côté.",
+          "en": "We signed a petition against the noise from the bar next door.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.entraide.054",
+          "theme": "entraide",
+          "fr": "Mon collègue m'a aidé à finir le rapport avant la date limite.",
+          "en": "My coworker helped me finish the report before the deadline.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.entraide.065",
+          "theme": "entraide",
+          "fr": "Mon ami m'a accompagné chez le médecin parce que j'avais peur.",
+          "en": "My friend came with me to the doctor because I was scared.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.080",
+          "theme": "conflits-reconciliation",
+          "fr": "Elle avait raison depuis le début, et j'ai fini par l'admettre.",
+          "en": "She was right from the start, and I eventually admitted it.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 22,
+      "items": [
+        {
+          "id": "fr.a2.evenements-familiaux.036",
+          "theme": "evenements-familiaux",
+          "fr": "Mon père tenait à porter un toast en mémoire de mon grand-père.",
+          "en": "My father insisted on raising a toast in memory of my grandfather.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.amis.009",
+          "theme": "amis",
+          "fr": "Hier, j'ai vu mon ami au supermarché et on a discuté longtemps.",
+          "en": "Yesterday, I saw my friend at the supermarket and we talked for a long time.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.entraide.116",
+          "theme": "entraide",
+          "fr": "J'ai accompagné une dame âgée à son rendez-vous chez le médecin.",
+          "en": "I accompanied an elderly lady to her doctor's appointment.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rencontres.042",
+          "theme": "rencontres",
+          "fr": "Nous avons entendu parler l'un de l'autre avant de nous rencontrer.",
+          "en": "We'd heard of each other before we met.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.022",
+          "theme": "evenements-familiaux",
+          "fr": "De temps en temps, toute la famille se retrouve pour un grand repas.",
+          "en": "From time to time, the whole family gets together for a big meal.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.027",
+          "theme": "evenements-familiaux",
+          "fr": "Après la cérémonie, tout le monde se dirige vers la salle des fêtes.",
+          "en": "After the ceremony, everyone heads to the reception hall.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rencontres.095",
+          "theme": "rencontres",
+          "fr": "Mes voisins ont organisé une fête et j'ai rencontré tout le quartier.",
+          "en": "My neighbors organized a party and I met the whole neighborhood.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.057",
+          "theme": "conflits-reconciliation",
+          "fr": "Nous avons décidé d'oublier cette histoire et de passer à autre chose.",
+          "en": "We decided to forget about it and move on.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rencontres.032",
+          "theme": "rencontres",
+          "fr": "Elle a une façon de parler qui met tout le monde à l'aise.",
+          "en": "She has a way of talking that puts everyone at ease.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.047",
+          "theme": "conflits-reconciliation",
+          "fr": "Je crois qu'on s'est mal compris, ce n'était pas mon intention.",
+          "en": "I think we misunderstood each other, that wasn't my intention.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.039",
+          "theme": "evenements-familiaux",
+          "fr": "Le curé a insisté sur l'importance de l'amour et de la patience.",
+          "en": "The priest emphasized the importance of love and patience.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.voisinage.055",
+          "theme": "voisinage",
+          "fr": "Le voisin est venu tout de suite quand il a entendu le bébé pleurer.",
+          "en": "The neighbor came right away when he heard the baby crying.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.les-fetes.016",
+          "theme": "les-fetes",
+          "fr": "Les invités sont arrivés en retard mais tout le monde s'est bien amusé.",
+          "en": "The guests arrived late but everyone had a good time.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.evenements-familiaux.063",
+          "theme": "evenements-familiaux",
+          "fr": "Nous avons fêté l'anniversaire de ma mère et tout le monde était content.",
+          "en": "We celebrated my mother's birthday and everyone was happy.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.emotions.060",
+          "theme": "emotions",
+          "fr": "J'étais nerveux avant mon entretien d'embauche, mais tout s'est bien passé.",
+          "en": "I was nervous before my job interview, but everything went well.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.entraide.118",
+          "theme": "entraide",
+          "fr": "Il y avait toujours quelqu'un pour traduire les documents au centre d'accueil.",
+          "en": "There was always someone to translate documents at the reception center.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.conflits-reconciliation.067",
+          "theme": "conflits-reconciliation",
+          "fr": "Elle m'a pardonné, mais elle n'a pas oublié ce que j'ai dit.",
+          "en": "She forgave me, but she hasn't forgotten what I said.",
+          "words": 15
+        },
+        {
+          "id": "fr.a2.rencontres.099",
+          "theme": "rencontres",
+          "fr": "Il a rejoint le club de lecture et il s'est fait plein d'amis.",
+          "en": "He joined the reading club and made lots of friends.",
+          "words": 15
+        },
+        {
+          "id": "fr.a2.entraide.111",
+          "theme": "entraide",
+          "fr": "Quand j'étais jeune, mes grands-parents accueillaient toujours les gens seuls pour le repas.",
+          "en": "When I was young, my grandparents always welcomed people who were alone for the meal.",
+          "words": 15
+        },
+        {
+          "id": "fr.a2.rp-famille.060",
+          "theme": "rp-famille",
+          "fr": "Hier, mon père a téléphoné à ma grand-mère et ils ont parlé pendant une heure.",
+          "en": "Yesterday, my father called my grandmother and they talked for an hour.",
+          "words": 16
+        }
+      ]
+    }
+  ]
+}

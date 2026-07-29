@@ -1,0 +1,2942 @@
+[
+  {
+    "id": "fr.a1.expressions-utiles.192",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça ne fait rien, on recommencera demain.",
+    "en": "It's alright, we'll start again tomorrow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça ne fait rien,\",\"t\":\"it's alright,\"},{\"w\":\"on recommencera demain.\",\"t\":\"we'll start again tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.193",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu as oublié ton parapluie, ça ne fait rien.",
+    "en": "You forgot your umbrella, it doesn't matter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as oublié ton parapluie,\",\"t\":\"you forgot your umbrella,\"},{\"w\":\"ça ne fait rien.\",\"t\":\"it doesn't matter\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.194",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça ne fait rien si tu arrives en retard.",
+    "en": "It's fine if you arrive late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça ne fait rien\",\"t\":\"it's fine\"},{\"w\":\"si tu arrives en retard.\",\"t\":\"if you arrive late\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.195",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Il a cassé le verre, mais ça ne fait rien.",
+    "en": "He broke the glass, but it doesn't matter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a cassé le verre,\",\"t\":\"he broke the glass,\"},{\"w\":\"mais ça ne fait rien.\",\"t\":\"but it doesn't matter\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.196",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ce film est long, mais ça vaut le coup.",
+    "en": "This movie is long, but it's worth it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce film est long,\",\"t\":\"this movie is long,\"},{\"w\":\"mais ça vaut le coup.\",\"t\":\"but it's worth it\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.197",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça vaut le coup d'essayer ce restaurant.",
+    "en": "It's worth trying this restaurant.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça vaut le coup\",\"t\":\"it's worth it\"},{\"w\":\"d'essayer ce restaurant.\",\"t\":\"to try this restaurant\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.198",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Le voyage est cher, mais ça vaut vraiment le coup.",
+    "en": "The trip is expensive, but it's really worth it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le voyage est cher,\",\"t\":\"the trip is expensive,\"},{\"w\":\"mais ça vaut vraiment le coup.\",\"t\":\"but it's really worth it\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.199",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça vaut le coup de se lever tôt pour voir le lever du soleil.",
+    "en": "It's worth getting up early to see the sunrise.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça vaut le coup\",\"t\":\"it's worth it\"},{\"w\":\"de se lever tôt\",\"t\":\"to get up early\"},{\"w\":\"pour voir le lever du soleil.\",\"t\":\"to see the sunrise\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.200",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "J'ai du mal à comprendre cette leçon.",
+    "en": "I have trouble understanding this lesson.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai du mal à\",\"t\":\"i have trouble\"},{\"w\":\"comprendre cette leçon.\",\"t\":\"understanding this lesson\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.201",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle a du mal à se réveiller le matin.",
+    "en": "She has trouble waking up in the morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a du mal à\",\"t\":\"she has trouble\"},{\"w\":\"se réveiller le matin.\",\"t\":\"waking up in the morning\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.202",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Nous avons du mal à trouver un appartement.",
+    "en": "We're having trouble finding an apartment.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons du mal à\",\"t\":\"we're having trouble\"},{\"w\":\"trouver un appartement.\",\"t\":\"finding an apartment\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.203",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu as du mal à prononcer ce mot, non?",
+    "en": "You're having trouble pronouncing that word, right?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as du mal à\",\"t\":\"you're having trouble\"},{\"w\":\"prononcer ce mot, non?\",\"t\":\"pronouncing this word, right?\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.204",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "J'ai hâte de partir en vacances.",
+    "en": "I can't wait to go on vacation.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai hâte de\",\"t\":\"i can't wait to\"},{\"w\":\"partir en vacances.\",\"t\":\"go on vacation\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.205",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle a hâte de revoir sa famille.",
+    "en": "She can't wait to see her family again.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a hâte de\",\"t\":\"she can't wait to\"},{\"w\":\"revoir sa famille.\",\"t\":\"see her family again\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.206",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Nous avons hâte de commencer le nouveau projet.",
+    "en": "We can't wait to start the new project.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons hâte de\",\"t\":\"we can't wait to\"},{\"w\":\"commencer le nouveau projet.\",\"t\":\"start the new project\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.207",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Les enfants ont hâte d'ouvrir leurs cadeaux.",
+    "en": "The children can't wait to open their gifts.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants ont hâte\",\"t\":\"the children can't wait\"},{\"w\":\"d'ouvrir leurs cadeaux.\",\"t\":\"to open their gifts\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.208",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu choisis le film, ça m'est égal.",
+    "en": "You choose the movie, I don't mind.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu choisis le film,\",\"t\":\"you choose the movie,\"},{\"w\":\"ça m'est égal.\",\"t\":\"i don't mind\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.209",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça m'est égal de manger tôt ou tard.",
+    "en": "It's all the same to me whether we eat early or late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça m'est égal\",\"t\":\"it's all the same to me\"},{\"w\":\"de manger tôt ou tard.\",\"t\":\"to eat early or late\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.210",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Il pleut ou il fait beau, ça m'est égal.",
+    "en": "Whether it rains or shines, I don't care.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pleut ou il fait beau,\",\"t\":\"whether it rains or shines,\"},{\"w\":\"ça m'est égal.\",\"t\":\"i don't care\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.211",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça m'est complètement égal ce qu'ils pensent.",
+    "en": "I really don't care what they think.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça m'est complètement égal\",\"t\":\"i really don't care\"},{\"w\":\"ce qu'ils pensent.\",\"t\":\"what they think\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.212",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Le bus est parti, tant pis, on prendra le suivant.",
+    "en": "The bus has left, too bad, we'll take the next one.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le bus est parti,\",\"t\":\"the bus has left,\"},{\"w\":\"tant pis,\",\"t\":\"too bad,\"},{\"w\":\"on prendra le suivant.\",\"t\":\"we'll take the next one\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.213",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tant pis pour lui, il n'a qu'à arriver à l'heure.",
+    "en": "Too bad for him, he just has to arrive on time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tant pis pour lui,\",\"t\":\"too bad for him,\"},{\"w\":\"il n'a qu'à arriver à l'heure.\",\"t\":\"he just has to arrive on time\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.214",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Si elle ne veut pas venir, tant pis.",
+    "en": "If she doesn't want to come, too bad.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si elle ne veut pas venir,\",\"t\":\"if she doesn't want to come,\"},{\"w\":\"tant pis.\",\"t\":\"too bad\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.215",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tant pis, on ira au cinéma une autre fois.",
+    "en": "Too bad, we'll go to the movies another time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tant pis,\",\"t\":\"too bad,\"},{\"w\":\"on ira au cinéma\",\"t\":\"we'll go to the movies\"},{\"w\":\"une autre fois.\",\"t\":\"another time\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.216",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Il fait beau demain? Tant mieux pour le pique-nique.",
+    "en": "Nice weather tomorrow? All the better for the picnic.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il fait beau demain?\",\"t\":\"nice weather tomorrow?\"},{\"w\":\"Tant mieux\",\"t\":\"all the better\"},{\"w\":\"pour le pique-nique.\",\"t\":\"for the picnic\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.217",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tant mieux si tu as réussi ton examen.",
+    "en": "So much the better if you passed your exam.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tant mieux\",\"t\":\"so much the better\"},{\"w\":\"si tu as réussi ton examen.\",\"t\":\"if you passed your exam\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.218",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle a trouvé un travail, tant mieux pour elle.",
+    "en": "She found a job, good for her.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a trouvé un travail,\",\"t\":\"she found a job,\"},{\"w\":\"tant mieux pour elle.\",\"t\":\"good for her\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.219",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tant mieux, le magasin est encore ouvert.",
+    "en": "Great, the store is still open.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tant mieux,\",\"t\":\"great,\"},{\"w\":\"le magasin est encore ouvert.\",\"t\":\"the store is still open\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.220",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "À mon avis, ce plan ne va pas marcher.",
+    "en": "In my opinion, this plan isn't going to work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"À mon avis,\",\"t\":\"in my opinion,\"},{\"w\":\"ce plan ne va pas marcher.\",\"t\":\"this plan isn't going to work\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.221",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "À mon avis, il vaut mieux partir tôt.",
+    "en": "In my opinion, it's better to leave early.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"À mon avis,\",\"t\":\"in my opinion,\"},{\"w\":\"il vaut mieux partir tôt.\",\"t\":\"it's better to leave early\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.222",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ce restaurant est, à mon avis, le meilleur du quartier.",
+    "en": "This restaurant is, in my opinion, the best in the neighborhood.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce restaurant est,\",\"t\":\"this restaurant is,\"},{\"w\":\"à mon avis,\",\"t\":\"in my opinion,\"},{\"w\":\"le meilleur du quartier.\",\"t\":\"the best in the neighborhood\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.223",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "À mon avis, tu devrais parler au professeur.",
+    "en": "In my opinion, you should talk to the teacher.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"À mon avis,\",\"t\":\"in my opinion,\"},{\"w\":\"tu devrais parler au professeur.\",\"t\":\"you should talk to the teacher\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.224",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "En fait, je n'ai jamais visité Paris.",
+    "en": "Actually, I've never visited Paris.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"En fait,\",\"t\":\"actually,\"},{\"w\":\"je n'ai jamais visité Paris.\",\"t\":\"i've never visited paris\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.225",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle est belge, en fait, pas française.",
+    "en": "She's Belgian, actually, not French.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est belge,\",\"t\":\"she's belgian,\"},{\"w\":\"en fait,\",\"t\":\"actually,\"},{\"w\":\"pas française.\",\"t\":\"not french\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.226",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "En fait, la réunion a été annulée.",
+    "en": "Actually, the meeting was cancelled.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"En fait,\",\"t\":\"actually,\"},{\"w\":\"la réunion a été annulée.\",\"t\":\"the meeting was cancelled\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.227",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Je pensais qu'il faisait froid, mais en fait il fait chaud.",
+    "en": "I thought it was cold, but actually it's hot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pensais qu'il faisait froid,\",\"t\":\"i thought it was cold,\"},{\"w\":\"mais en fait\",\"t\":\"but actually\"},{\"w\":\"il fait chaud.\",\"t\":\"it's hot\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.228",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Au fait, tu as des nouvelles de Marc?",
+    "en": "By the way, do you have any news from Marc?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Au fait,\",\"t\":\"by the way,\"},{\"w\":\"tu as des nouvelles de Marc?\",\"t\":\"do you have news from marc?\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.229",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Au fait, j'ai oublié de te dire, la fête est samedi.",
+    "en": "By the way, I forgot to tell you, the party is Saturday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Au fait,\",\"t\":\"by the way,\"},{\"w\":\"j'ai oublié de te dire,\",\"t\":\"i forgot to tell you,\"},{\"w\":\"la fête est samedi.\",\"t\":\"the party is saturday\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.230",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Au fait, où as-tu acheté ce sac?",
+    "en": "By the way, where did you buy this bag?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Au fait,\",\"t\":\"by the way,\"},{\"w\":\"où as-tu acheté ce sac?\",\"t\":\"where did you buy this bag?\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.231",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Au fait, le magasin ferme à dix-neuf heures aujourd'hui.",
+    "en": "By the way, the store closes at seven pm today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Au fait,\",\"t\":\"by the way,\"},{\"w\":\"le magasin ferme\",\"t\":\"the store closes\"},{\"w\":\"à dix-neuf heures aujourd'hui.\",\"t\":\"at seven pm today\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.232",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Bref, on a raté le train et on est arrivés en retard.",
+    "en": "Anyway, we missed the train and arrived late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bref,\",\"t\":\"anyway,\"},{\"w\":\"on a raté le train\",\"t\":\"we missed the train\"},{\"w\":\"et on est arrivés en retard.\",\"t\":\"and we arrived late\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.233",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Bref, la soirée s'est très bien passée.",
+    "en": "Anyway, the evening went very well.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bref,\",\"t\":\"anyway,\"},{\"w\":\"la soirée s'est très bien passée.\",\"t\":\"the evening went very well\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.234",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Bref, je crois qu'il vaut mieux changer de sujet.",
+    "en": "Anyway, I think it's better to change the subject.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bref,\",\"t\":\"anyway,\"},{\"w\":\"je crois qu'il vaut mieux\",\"t\":\"i think it's better\"},{\"w\":\"changer de sujet.\",\"t\":\"to change the subject\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.235",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Bref, tout est réglé maintenant.",
+    "en": "Anyway, everything is settled now.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bref,\",\"t\":\"anyway,\"},{\"w\":\"tout est réglé maintenant.\",\"t\":\"everything is settled now\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.236",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Il pleut, mais on va sortir quand même.",
+    "en": "It's raining, but we're going out anyway.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pleut,\",\"t\":\"it's raining,\"},{\"w\":\"mais on va sortir quand même.\",\"t\":\"but we're going out anyway\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.237",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle est fatiguée, mais elle vient quand même à la fête.",
+    "en": "She's tired, but she's coming to the party anyway.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est fatiguée,\",\"t\":\"she's tired,\"},{\"w\":\"mais elle vient quand même\",\"t\":\"but she's coming anyway\"},{\"w\":\"à la fête.\",\"t\":\"to the party\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.238",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "C'est cher, mais je vais l'acheter quand même.",
+    "en": "It's expensive, but I'm going to buy it anyway.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est cher,\",\"t\":\"it's expensive,\"},{\"w\":\"mais je vais l'acheter quand même.\",\"t\":\"but i'm going to buy it anyway\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.239",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu exagères quand même un peu.",
+    "en": "You're exaggerating a bit, all the same.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu exagères quand même\",\"t\":\"you're exaggerating, all the same,\"},{\"w\":\"un peu.\",\"t\":\"a bit\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.240",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Il est jeune, mais il conduit tout de même très bien.",
+    "en": "He's young, but he drives very well all the same.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est jeune,\",\"t\":\"he's young,\"},{\"w\":\"mais il conduit tout de même\",\"t\":\"but he drives all the same\"},{\"w\":\"très bien.\",\"t\":\"very well\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.241",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "C'était difficile, mais on a tout de même terminé le projet.",
+    "en": "It was hard, but we finished the project all the same.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'était difficile,\",\"t\":\"it was hard,\"},{\"w\":\"mais on a tout de même\",\"t\":\"but we all the same\"},{\"w\":\"terminé le projet.\",\"t\":\"finished the project\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.242",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu aurais tout de même pu m'appeler.",
+    "en": "You could have called me all the same.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu aurais tout de même\",\"t\":\"you could all the same\"},{\"w\":\"pu m'appeler.\",\"t\":\"have called me\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.243",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Le repas était simple, mais tout de même délicieux.",
+    "en": "The meal was simple, but delicious all the same.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le repas était simple,\",\"t\":\"the meal was simple,\"},{\"w\":\"mais tout de même délicieux.\",\"t\":\"but delicious all the same\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.244",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "De toute façon, je n'avais pas envie d'y aller.",
+    "en": "Anyway, I didn't feel like going there.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"De toute façon,\",\"t\":\"anyway,\"},{\"w\":\"je n'avais pas envie d'y aller.\",\"t\":\"i didn't feel like going there\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.245",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "De toute façon, le magasin est fermé le dimanche.",
+    "en": "Anyway, the store is closed on Sundays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"De toute façon,\",\"t\":\"anyway,\"},{\"w\":\"le magasin est fermé\",\"t\":\"the store is closed\"},{\"w\":\"le dimanche.\",\"t\":\"on sundays\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.246",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "On va rater le début, de toute façon.",
+    "en": "We're going to miss the beginning, anyway.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"On va rater le début,\",\"t\":\"we're going to miss the beginning,\"},{\"w\":\"de toute façon.\",\"t\":\"anyway\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.247",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "De toute façon, il faut que je parte maintenant.",
+    "en": "Anyway, I have to leave now.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"De toute façon,\",\"t\":\"anyway,\"},{\"w\":\"il faut que je parte maintenant.\",\"t\":\"i have to leave now\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.248",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu viens ce soir? Ça dépend de l'heure.",
+    "en": "Are you coming tonight? It depends on the time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu viens ce soir?\",\"t\":\"are you coming tonight?\"},{\"w\":\"Ça dépend de l'heure.\",\"t\":\"it depends on the time\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.249",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça dépend du temps qu'il fera demain.",
+    "en": "It depends on the weather tomorrow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça dépend\",\"t\":\"it depends\"},{\"w\":\"du temps qu'il fera demain.\",\"t\":\"on the weather tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.250",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça dépend, es-tu libre samedi ou dimanche?",
+    "en": "It depends, are you free Saturday or Sunday?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça dépend,\",\"t\":\"it depends,\"},{\"w\":\"es-tu libre samedi ou dimanche?\",\"t\":\"are you free saturday or sunday?\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.251",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Le prix dépend de la saison.",
+    "en": "The price depends on the season.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le prix dépend\",\"t\":\"the price depends\"},{\"w\":\"de la saison.\",\"t\":\"on the season\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.252",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Je m'en fiche de ce que les autres pensent.",
+    "en": "I don't care what other people think.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je m'en fiche\",\"t\":\"i don't care\"},{\"w\":\"de ce que les autres pensent.\",\"t\":\"what other people think\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.253",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Il pleut? Je m'en fiche, j'ai un parapluie.",
+    "en": "It's raining? I don't care, I have an umbrella.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pleut?\",\"t\":\"it's raining?\"},{\"w\":\"Je m'en fiche,\",\"t\":\"i don't care,\"},{\"w\":\"j'ai un parapluie.\",\"t\":\"i have an umbrella\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.254",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Franchement, je m'en fiche du résultat du match.",
+    "en": "Frankly, I don't care about the result of the match.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Franchement,\",\"t\":\"frankly,\"},{\"w\":\"je m'en fiche\",\"t\":\"i don't care\"},{\"w\":\"du résultat du match.\",\"t\":\"about the result of the match\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.255",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle dit qu'elle s'en fiche, mais je n'y crois pas.",
+    "en": "She says she doesn't care, but I don't believe it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle dit qu'elle s'en fiche,\",\"t\":\"she says she doesn't care,\"},{\"w\":\"mais je n'y crois pas.\",\"t\":\"but i don't believe it\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.256",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "C'est dommage que tu ne puisses pas venir.",
+    "en": "It's a shame you can't come.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est dommage\",\"t\":\"it's a shame\"},{\"w\":\"que tu ne puisses pas venir.\",\"t\":\"that you can't come\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.257",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "C'est dommage, le concert est complet.",
+    "en": "It's a shame, the concert is sold out.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est dommage,\",\"t\":\"it's a shame,\"},{\"w\":\"le concert est complet.\",\"t\":\"the concert is sold out\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.258",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "C'est vraiment dommage d'annuler le voyage.",
+    "en": "It's really a shame to cancel the trip.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est vraiment dommage\",\"t\":\"it's really a shame\"},{\"w\":\"d'annuler le voyage.\",\"t\":\"to cancel the trip\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.259",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "C'est dommage qu'il fasse si mauvais aujourd'hui.",
+    "en": "It's a shame the weather is so bad today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"C'est dommage\",\"t\":\"it's a shame\"},{\"w\":\"qu'il fasse si mauvais aujourd'hui.\",\"t\":\"the weather is so bad today\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.260",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu as raison, il vaut mieux partir maintenant.",
+    "en": "You're right, it's better to leave now.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as raison,\",\"t\":\"you're right,\"},{\"w\":\"il vaut mieux partir maintenant.\",\"t\":\"it's better to leave now\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.261",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle avait raison depuis le début.",
+    "en": "She was right from the start.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle avait raison\",\"t\":\"she was right\"},{\"w\":\"depuis le début.\",\"t\":\"from the start\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.262",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Nous avons eu raison de réserver à l'avance.",
+    "en": "We were right to book in advance.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons eu raison\",\"t\":\"we were right\"},{\"w\":\"de réserver à l'avance.\",\"t\":\"to book in advance\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.263",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu as raison, ce plat sent très bon.",
+    "en": "You're right, this dish smells very good.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as raison,\",\"t\":\"you're right,\"},{\"w\":\"ce plat sent très bon.\",\"t\":\"this dish smells very good\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.264",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu as tort de t'inquiéter comme ça.",
+    "en": "You're wrong to worry like that.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as tort\",\"t\":\"you're wrong\"},{\"w\":\"de t'inquiéter comme ça.\",\"t\":\"to worry like that\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.265",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Il a eu tort de ne pas écouter ses parents.",
+    "en": "He was wrong not to listen to his parents.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a eu tort\",\"t\":\"he was wrong\"},{\"w\":\"de ne pas écouter ses parents.\",\"t\":\"not to listen to his parents\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.266",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "J'ai eu tort, le magasin était bien ouvert.",
+    "en": "I was wrong, the store was indeed open.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai eu tort,\",\"t\":\"i was wrong,\"},{\"w\":\"le magasin était bien ouvert.\",\"t\":\"the store was indeed open\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.267",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle n'a pas tort, il fait vraiment froid ce matin.",
+    "en": "She's not wrong, it's really cold this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle n'a pas tort,\",\"t\":\"she's not wrong,\"},{\"w\":\"il fait vraiment froid\",\"t\":\"it's really cold\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.268",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Fais attention à la marche en sortant.",
+    "en": "Watch out for the step on your way out.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Fais attention\",\"t\":\"watch out\"},{\"w\":\"à la marche\",\"t\":\"for the step\"},{\"w\":\"en sortant.\",\"t\":\"on your way out\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.269",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Il faut faire attention aux voitures en traversant la rue.",
+    "en": "You have to watch out for cars when crossing the street.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il faut faire attention\",\"t\":\"you have to watch out\"},{\"w\":\"aux voitures\",\"t\":\"for cars\"},{\"w\":\"en traversant la rue.\",\"t\":\"when crossing the street\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.270",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Fais attention à ne pas renverser le café.",
+    "en": "Be careful not to spill the coffee.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Fais attention\",\"t\":\"be careful\"},{\"w\":\"à ne pas renverser le café.\",\"t\":\"not to spill the coffee\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.271",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle fait toujours attention à son budget.",
+    "en": "She always pays attention to her budget.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle fait toujours attention\",\"t\":\"she always pays attention\"},{\"w\":\"à son budget.\",\"t\":\"to her budget\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.272",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Je me suis rendu compte de mon erreur trop tard.",
+    "en": "I realized my mistake too late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je me suis rendu compte\",\"t\":\"i realized\"},{\"w\":\"de mon erreur\",\"t\":\"my mistake\"},{\"w\":\"trop tard.\",\"t\":\"too late\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.273",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle s'est rendu compte qu'elle avait oublié ses clés.",
+    "en": "She realized she had forgotten her keys.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle s'est rendu compte\",\"t\":\"she realized\"},{\"w\":\"qu'elle avait oublié ses clés.\",\"t\":\"that she had forgotten her keys\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.274",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu vas te rendre compte que ce n'est pas si difficile.",
+    "en": "You'll realize it's not that hard.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu vas te rendre compte\",\"t\":\"you'll realize\"},{\"w\":\"que ce n'est pas si difficile.\",\"t\":\"that it's not that hard\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.275",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça y est, j'ai enfin fini mes devoirs.",
+    "en": "That's it, I've finally finished my homework.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça y est,\",\"t\":\"that's it,\"},{\"w\":\"j'ai enfin fini mes devoirs.\",\"t\":\"i've finally finished my homework\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.276",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça y est, le train arrive.",
+    "en": "There it is, the train is arriving.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça y est,\",\"t\":\"there it is,\"},{\"w\":\"le train arrive.\",\"t\":\"the train is arriving\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.277",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça y est, elle a réussi son permis de conduire.",
+    "en": "That's it, she passed her driving test.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça y est,\",\"t\":\"that's it,\"},{\"w\":\"elle a réussi\",\"t\":\"she passed\"},{\"w\":\"son permis de conduire.\",\"t\":\"her driving test\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.278",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "On se retrouve à midi, ça marche?",
+    "en": "We meet at noon, does that work?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"On se retrouve à midi,\",\"t\":\"we meet at noon,\"},{\"w\":\"ça marche?\",\"t\":\"does that work?\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.279",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça marche pour moi, à demain alors.",
+    "en": "That works for me, see you tomorrow then.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça marche pour moi,\",\"t\":\"that works for me,\"},{\"w\":\"à demain alors.\",\"t\":\"see you tomorrow then\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.280",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Si tu veux changer la date, ça marche aussi.",
+    "en": "If you want to change the date, that works too.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si tu veux changer la date,\",\"t\":\"if you want to change the date,\"},{\"w\":\"ça marche aussi.\",\"t\":\"that works too\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.281",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Pas de problème, je peux t'aider ce week-end.",
+    "en": "No problem, I can help you this weekend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pas de problème,\",\"t\":\"no problem,\"},{\"w\":\"je peux t'aider ce week-end.\",\"t\":\"i can help you this weekend\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.282",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu peux garder mon livre, pas de problème.",
+    "en": "You can keep my book, no problem.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu peux garder mon livre,\",\"t\":\"you can keep my book,\"},{\"w\":\"pas de problème.\",\"t\":\"no problem\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.283",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Pas de problème pour changer l'horaire de la réunion.",
+    "en": "No problem changing the meeting schedule.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pas de problème\",\"t\":\"no problem\"},{\"w\":\"pour changer l'horaire de la réunion.\",\"t\":\"changing the meeting schedule\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.284",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Je n'en peux plus, j'ai marché toute la journée.",
+    "en": "I can't take it anymore, I've walked all day.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je n'en peux plus,\",\"t\":\"i can't take it anymore,\"},{\"w\":\"j'ai marché toute la journée.\",\"t\":\"i've walked all day\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.285",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Il fait trop chaud, je n'en peux plus.",
+    "en": "It's too hot, I can't stand it anymore.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il fait trop chaud,\",\"t\":\"it's too hot,\"},{\"w\":\"je n'en peux plus.\",\"t\":\"i can't stand it anymore\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.286",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle n'en peut plus de ce bruit constant.",
+    "en": "She can't stand this constant noise anymore.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle n'en peut plus\",\"t\":\"she can't stand it anymore\"},{\"w\":\"de ce bruit constant.\",\"t\":\"this constant noise\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.287",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça me fait plaisir de te revoir après tout ce temps.",
+    "en": "It makes me happy to see you again after all this time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça me fait plaisir\",\"t\":\"it makes me happy\"},{\"w\":\"de te revoir\",\"t\":\"to see you again\"},{\"w\":\"après tout ce temps.\",\"t\":\"after all this time\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.288",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça lui fait plaisir de recevoir des nouvelles de sa famille.",
+    "en": "It makes her happy to hear news from her family.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça lui fait plaisir\",\"t\":\"it makes her happy\"},{\"w\":\"de recevoir des nouvelles\",\"t\":\"to receive news\"},{\"w\":\"de sa famille.\",\"t\":\"from her family\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.289",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça nous fait plaisir de vous accueillir chez nous.",
+    "en": "It's a pleasure for us to welcome you to our home.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça nous fait plaisir\",\"t\":\"it's a pleasure for us\"},{\"w\":\"de vous accueillir chez nous.\",\"t\":\"to welcome you to our home\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.290",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça te dit d'aller au cinéma ce soir?",
+    "en": "Do you feel like going to the movies tonight?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça te dit\",\"t\":\"do you feel like\"},{\"w\":\"d'aller au cinéma ce soir?\",\"t\":\"going to the movies tonight?\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.291",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça vous dit de prendre un café après le cours?",
+    "en": "Do you feel like grabbing a coffee after class?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça vous dit\",\"t\":\"do you feel like\"},{\"w\":\"de prendre un café\",\"t\":\"grabbing a coffee\"},{\"w\":\"après le cours?\",\"t\":\"after class?\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.292",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça te dirait de faire une promenade dimanche?",
+    "en": "Would you feel like going for a walk on Sunday?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça te dirait\",\"t\":\"would you feel like\"},{\"w\":\"de faire une promenade\",\"t\":\"going for a walk\"},{\"w\":\"dimanche?\",\"t\":\"on sunday?\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.293",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "J'ai envie de manger une glace.",
+    "en": "I feel like eating ice cream.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai envie de\",\"t\":\"i feel like\"},{\"w\":\"manger une glace.\",\"t\":\"eating ice cream\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.294",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle a envie de changer de travail.",
+    "en": "She feels like changing jobs.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a envie de\",\"t\":\"she feels like\"},{\"w\":\"changer de travail.\",\"t\":\"changing jobs\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.295",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Nous avons envie de partir à la montagne ce week-end.",
+    "en": "We feel like going to the mountains this weekend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons envie de\",\"t\":\"we feel like\"},{\"w\":\"partir à la montagne\",\"t\":\"going to the mountains\"},{\"w\":\"ce week-end.\",\"t\":\"this weekend\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.296",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "J'ai besoin de repos après cette semaine.",
+    "en": "I need rest after this week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai besoin de\",\"t\":\"i need\"},{\"w\":\"repos\",\"t\":\"rest\"},{\"w\":\"après cette semaine.\",\"t\":\"after this week\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.297",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu as besoin d'aide pour porter ces sacs?",
+    "en": "Do you need help carrying these bags?",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as besoin d'aide\",\"t\":\"do you need help\"},{\"w\":\"pour porter ces sacs?\",\"t\":\"carrying these bags?\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.298",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Nous avons besoin de plus de temps pour finir.",
+    "en": "We need more time to finish.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons besoin\",\"t\":\"we need\"},{\"w\":\"de plus de temps\",\"t\":\"more time\"},{\"w\":\"pour finir.\",\"t\":\"to finish\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.299",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça suffit, les enfants, arrêtez de crier.",
+    "en": "That's enough, kids, stop shouting.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça suffit,\",\"t\":\"that's enough,\"},{\"w\":\"les enfants,\",\"t\":\"kids,\"},{\"w\":\"arrêtez de crier.\",\"t\":\"stop shouting\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.300",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça suffit pour aujourd'hui, on continue demain.",
+    "en": "That's enough for today, we'll continue tomorrow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça suffit pour aujourd'hui,\",\"t\":\"that's enough for today,\"},{\"w\":\"on continue demain.\",\"t\":\"we'll continue tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.301",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Deux cuillères de sucre, ça suffit.",
+    "en": "Two spoons of sugar, that's enough.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Deux cuillères de sucre,\",\"t\":\"two spoons of sugar,\"},{\"w\":\"ça suffit.\",\"t\":\"that's enough\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.302",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ce n'est pas grave, on recommencera plus tard.",
+    "en": "It's not a big deal, we'll start again later.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce n'est pas grave,\",\"t\":\"it's not a big deal,\"},{\"w\":\"on recommencera plus tard.\",\"t\":\"we'll start again later\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.303",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tu t'es trompé de route? Ce n'est pas grave.",
+    "en": "You took the wrong road? It's not a big deal.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu t'es trompé de route?\",\"t\":\"you took the wrong road?\"},{\"w\":\"Ce n'est pas grave.\",\"t\":\"it's not a big deal\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.304",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ce n'est pas grave si le gâteau n'est pas parfait.",
+    "en": "It's not a big deal if the cake isn't perfect.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce n'est pas grave\",\"t\":\"it's not a big deal\"},{\"w\":\"si le gâteau n'est pas parfait.\",\"t\":\"if the cake isn't perfect\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.305",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tant qu'à faire, autant partir tôt le matin.",
+    "en": "Since we're at it, we might as well leave early in the morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tant qu'à faire,\",\"t\":\"since we're at it,\"},{\"w\":\"autant partir tôt le matin.\",\"t\":\"we might as well leave early\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.306",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tant qu'à faire des courses, achète aussi du pain.",
+    "en": "While you're at it shopping, buy some bread too.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tant qu'à faire des courses,\",\"t\":\"while you're at it shopping,\"},{\"w\":\"achète aussi du pain.\",\"t\":\"buy some bread too\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.307",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Tant qu'à faire, invitons aussi les voisins.",
+    "en": "While we're at it, let's invite the neighbors too.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tant qu'à faire,\",\"t\":\"while we're at it,\"},{\"w\":\"invitons aussi les voisins.\",\"t\":\"let's invite the neighbors too\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.308",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Il pleuvait, du coup on est restés à la maison.",
+    "en": "It was raining, so we stayed home.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pleuvait,\",\"t\":\"it was raining,\"},{\"w\":\"du coup\",\"t\":\"so\"},{\"w\":\"on est restés à la maison.\",\"t\":\"we stayed home\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.309",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Le train était annulé, du coup j'ai pris le bus.",
+    "en": "The train was cancelled, so I took the bus.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le train était annulé,\",\"t\":\"the train was cancelled,\"},{\"w\":\"du coup\",\"t\":\"so\"},{\"w\":\"j'ai pris le bus.\",\"t\":\"i took the bus\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.310",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle a raté son réveil, du coup elle est arrivée en retard.",
+    "en": "She missed her alarm, so she arrived late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a raté son réveil,\",\"t\":\"she missed her alarm,\"},{\"w\":\"du coup\",\"t\":\"so\"},{\"w\":\"elle est arrivée en retard.\",\"t\":\"she arrived late\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.311",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "En tout cas, merci pour ton aide.",
+    "en": "In any case, thanks for your help.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"En tout cas,\",\"t\":\"in any case,\"},{\"w\":\"merci pour ton aide.\",\"t\":\"thanks for your help\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.312",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "En tout cas, moi je n'y crois pas trop.",
+    "en": "In any case, I don't really believe it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"En tout cas,\",\"t\":\"in any case,\"},{\"w\":\"moi je n'y crois pas trop.\",\"t\":\"i don't really believe it\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.313",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "En tout cas, il faudra revenir un autre jour.",
+    "en": "In any case, we'll have to come back another day.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"En tout cas,\",\"t\":\"in any case,\"},{\"w\":\"il faudra revenir un autre jour.\",\"t\":\"we'll have to come back another day\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.314",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "À vrai dire, je n'ai pas beaucoup dormi cette nuit.",
+    "en": "To tell the truth, I didn't sleep much last night.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"À vrai dire,\",\"t\":\"to tell the truth,\"},{\"w\":\"je n'ai pas beaucoup dormi\",\"t\":\"i didn't sleep much\"},{\"w\":\"cette nuit.\",\"t\":\"last night\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.315",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "À vrai dire, ce plat ne me plaît pas beaucoup.",
+    "en": "To tell the truth, I don't like this dish much.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"À vrai dire,\",\"t\":\"to tell the truth,\"},{\"w\":\"ce plat ne me plaît pas beaucoup.\",\"t\":\"i don't like this dish much\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.316",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "À vrai dire, je préférerais rester chez moi ce soir.",
+    "en": "To tell the truth, I'd rather stay home tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"À vrai dire,\",\"t\":\"to tell the truth,\"},{\"w\":\"je préférerais rester chez moi\",\"t\":\"i'd rather stay home\"},{\"w\":\"ce soir.\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.317",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça vaut la peine de relire la leçon avant l'examen.",
+    "en": "It's worth rereading the lesson before the exam.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça vaut la peine\",\"t\":\"it's worth it\"},{\"w\":\"de relire la leçon\",\"t\":\"to reread the lesson\"},{\"w\":\"avant l'examen.\",\"t\":\"before the exam\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.318",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ce n'est pas grand, mais ça vaut la peine de visiter.",
+    "en": "It's not big, but it's worth visiting.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce n'est pas grand,\",\"t\":\"it's not big,\"},{\"w\":\"mais ça vaut la peine\",\"t\":\"but it's worth it\"},{\"w\":\"de visiter.\",\"t\":\"to visit\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.319",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ça vaut la peine d'attendre encore un peu.",
+    "en": "It's worth waiting a little longer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ça vaut la peine\",\"t\":\"it's worth it\"},{\"w\":\"d'attendre encore un peu.\",\"t\":\"to wait a little longer\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.320",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle a fait de son mieux pendant l'examen.",
+    "en": "She did her best during the exam.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a fait de son mieux\",\"t\":\"she did her best\"},{\"w\":\"pendant l'examen.\",\"t\":\"during the exam\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.321",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Fais de ton mieux, c'est tout ce qu'on te demande.",
+    "en": "Do your best, that's all we ask of you.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Fais de ton mieux,\",\"t\":\"do your best,\"},{\"w\":\"c'est tout ce qu'on te demande.\",\"t\":\"that's all we ask of you\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.322",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Nous avons fait de notre mieux pour arriver à l'heure.",
+    "en": "We did our best to arrive on time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons fait de notre mieux\",\"t\":\"we did our best\"},{\"w\":\"pour arriver à l'heure.\",\"t\":\"to arrive on time\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.323",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "J'ai l'habitude de me lever tôt.",
+    "en": "I'm used to getting up early.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai l'habitude de\",\"t\":\"i'm used to\"},{\"w\":\"me lever tôt.\",\"t\":\"getting up early\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.324",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle a l'habitude de prendre le métro pour aller au travail.",
+    "en": "She's used to taking the subway to go to work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a l'habitude de\",\"t\":\"she's used to\"},{\"w\":\"prendre le métro\",\"t\":\"taking the subway\"},{\"w\":\"pour aller au travail.\",\"t\":\"to go to work\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.325",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Nous avons l'habitude du bruit dans ce quartier.",
+    "en": "We're used to the noise in this neighborhood.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons l'habitude\",\"t\":\"we're used to\"},{\"w\":\"du bruit dans ce quartier.\",\"t\":\"the noise in this neighborhood\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.326",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Ne te fais pas de souci, tout va bien se passer.",
+    "en": "Don't worry, everything will go well.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ne te fais pas de souci,\",\"t\":\"don't worry,\"},{\"w\":\"tout va bien se passer.\",\"t\":\"everything will go well\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.327",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle se fait du souci pour ses examens.",
+    "en": "She worries about her exams.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle se fait du souci\",\"t\":\"she worries\"},{\"w\":\"pour ses examens.\",\"t\":\"about her exams\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.328",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Mes parents se font du souci quand je voyage seul.",
+    "en": "My parents worry when I travel alone.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mes parents se font du souci\",\"t\":\"my parents worry\"},{\"w\":\"quand je voyage seul.\",\"t\":\"when i travel alone\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.329",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "J'ai confiance en toi, tu vas réussir.",
+    "en": "I trust you, you're going to succeed.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai confiance en toi,\",\"t\":\"i trust you,\"},{\"w\":\"tu vas réussir.\",\"t\":\"you're going to succeed\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.330",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Elle a confiance en son équipe pour ce projet.",
+    "en": "She trusts her team for this project.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a confiance en son équipe\",\"t\":\"she trusts her team\"},{\"w\":\"pour ce projet.\",\"t\":\"for this project\"}]}"
+  },
+  {
+    "id": "fr.a1.expressions-utiles.331",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "expressions-utiles",
+    "fr": "Nous avons confiance en l'avenir de cette entreprise.",
+    "en": "We have confidence in the future of this company.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons confiance\",\"t\":\"we have confidence\"},{\"w\":\"en l'avenir\",\"t\":\"in the future\"},{\"w\":\"de cette entreprise.\",\"t\":\"of this company\"}]}"
+  }
+]

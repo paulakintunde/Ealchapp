@@ -1,0 +1,628 @@
+{
+  "kept": 4130,
+  "sentKept": 2043,
+  "dictKept": 2087,
+  "droppedWithinBatch": [
+    {
+      "file": "dictee-courses.json",
+      "id": "fr.a2.courses.096",
+      "fr": "J'ai oublié ma liste de courses à la maison."
+    },
+    {
+      "file": "dictee-expressions-de-quantite-a.json",
+      "id": "fr.a1.expressions-de-quantite.089",
+      "fr": "Il y a beaucoup de bruit dans la rue."
+    },
+    {
+      "file": "dictee-expressions-de-quantite-a.json",
+      "id": "fr.a1.expressions-de-quantite.093",
+      "fr": "Ajoute un peu de sel dans la soupe."
+    },
+    {
+      "file": "dictee-expressions-de-quantite-a.json",
+      "id": "fr.a1.expressions-de-quantite.097",
+      "fr": "Nous avons un peu de temps avant le train."
+    },
+    {
+      "file": "dictee-expressions-de-quantite-a.json",
+      "id": "fr.a1.expressions-de-quantite.105",
+      "fr": "Elle a plusieurs frères et sœurs."
+    },
+    {
+      "file": "dictee-expressions-de-quantite-a.json",
+      "id": "fr.a2.expressions-de-quantite.118",
+      "fr": "Nous n'avons eu aucun problème pendant le voyage."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.062",
+      "fr": "Il est trois heures et quart."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.065",
+      "fr": "Il est six heures moins le quart."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.069",
+      "fr": "Il est dix heures et demie."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.070",
+      "fr": "Il est onze heures moins cinq."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.071",
+      "fr": "Il est midi et demi."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.072",
+      "fr": "Il est minuit et demi."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.076",
+      "fr": "Il a trente ans."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.078",
+      "fr": "Aujourd'hui, c'est lundi."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.079",
+      "fr": "Demain, c'est mardi."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.080",
+      "fr": "Hier, c'était dimanche."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.082",
+      "fr": "Le film commence à vingt heures."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.085",
+      "fr": "Le train part à seize heures."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.095",
+      "fr": "Mon frère a dix-huit ans."
+    },
+    {
+      "file": "dictee-heure-et-date-a.json",
+      "id": "fr.a1.heure-et-date.098",
+      "fr": "Le magasin est fermé le dimanche."
+    },
+    {
+      "file": "dictee-la-ville.json",
+      "id": "fr.a1.la-ville.141",
+      "fr": "Nous prenons le métro tous les jours."
+    },
+    {
+      "file": "dictee-la-ville.json",
+      "id": "fr.a2.la-ville.042",
+      "fr": "Nous avons visité le musée samedi dernier."
+    },
+    {
+      "file": "dictee-maison.json",
+      "id": "fr.a1.maison.127",
+      "fr": "Les enfants jouent dans le jardin."
+    },
+    {
+      "file": "dictee-negation-et-restriction-a.json",
+      "id": "fr.a1.negation-et-restriction.027",
+      "fr": "Elle ne sort jamais le soir."
+    },
+    {
+      "file": "dictee-negation-et-restriction-a.json",
+      "id": "fr.a2.negation-et-restriction.129",
+      "fr": "Elle n'a pas pu venir à la fête."
+    },
+    {
+      "file": "dictee-negation-et-restriction-a.json",
+      "id": "fr.a2.negation-et-restriction.147",
+      "fr": "Je ne vais pas sortir ce soir."
+    },
+    {
+      "file": "dictee-negation-et-restriction-a.json",
+      "id": "fr.a2.negation-et-restriction.199",
+      "fr": "Nous ne voyageons jamais en hiver."
+    },
+    {
+      "file": "dictee-negation-et-restriction-a.json",
+      "id": "fr.a2.negation-et-restriction.202",
+      "fr": "Je n'ai aucune idée de l'heure qu'il est."
+    },
+    {
+      "file": "dictee-negation-et-restriction-a.json",
+      "id": "fr.a2.negation-et-restriction.205",
+      "fr": "Il ne parle ni anglais ni espagnol."
+    },
+    {
+      "file": "dictee-negation-et-restriction-b.json",
+      "id": "fr.b1.negation-et-restriction.200",
+      "fr": "Je n'ai vu personne au marché ce matin."
+    },
+    {
+      "file": "dictee-negation-et-restriction-b.json",
+      "id": "fr.b1.negation-et-restriction.248",
+      "fr": "Je ne bois jamais d'alcool avant de conduire."
+    },
+    {
+      "file": "dictee-objets.json",
+      "id": "fr.a1.objets.109",
+      "fr": "Les clés sont sur la table."
+    },
+    {
+      "file": "dictee-objets.json",
+      "id": "fr.a1.objets.144",
+      "fr": "Elle range ses affaires dans l'armoire."
+    },
+    {
+      "file": "dictee-pronoms-essentiels-a.json",
+      "id": "fr.a1.pronoms-essentiels.105",
+      "fr": "Tu parles très bien anglais."
+    },
+    {
+      "file": "dictee-routines.json",
+      "id": "fr.a1.routines.121",
+      "fr": "Je me lève à sept heures."
+    },
+    {
+      "file": "dictee-routines.json",
+      "id": "fr.a1.routines.141",
+      "fr": "Il boit son café sans sucre."
+    },
+    {
+      "file": "dictee-routines.json",
+      "id": "fr.a1.routines.149",
+      "fr": "Il fait ses devoirs après l'école."
+    },
+    {
+      "file": "dictee-routines.json",
+      "id": "fr.a1.routines.152",
+      "fr": "Je ferme la porte à clé le soir."
+    },
+    {
+      "file": "dictee-technologie-quotidienne.json",
+      "id": "fr.a1.technologie-quotidienne.001",
+      "fr": "Mon téléphone est cassé."
+    },
+    {
+      "file": "dictee-voyelles.json",
+      "id": "fr.sons.voyelles.014",
+      "fr": "Le pain chaud sent très bon."
+    },
+    {
+      "file": "sentence-adjectifs-essentiels.json",
+      "id": "fr.a1.adjectifs-essentiels.200",
+      "fr": "C'est un beau jardin."
+    },
+    {
+      "file": "sentence-adjectifs-essentiels.json",
+      "id": "fr.a1.adjectifs-essentiels.207",
+      "fr": "Nous avons de nouveaux voisins."
+    },
+    {
+      "file": "sentence-adjectifs-essentiels.json",
+      "id": "fr.a1.adjectifs-essentiels.235",
+      "fr": "Il est content de son travail."
+    },
+    {
+      "file": "sentence-adjectifs-essentiels.json",
+      "id": "fr.a1.adjectifs-essentiels.237",
+      "fr": "Nous sommes contents de te voir."
+    },
+    {
+      "file": "sentence-adjectifs-essentiels.json",
+      "id": "fr.a1.adjectifs-essentiels.238",
+      "fr": "Elles sont contentes de partir."
+    },
+    {
+      "file": "sentence-adjectifs-essentiels.json",
+      "id": "fr.a1.adjectifs-essentiels.259",
+      "fr": "Mon frère est jeune."
+    },
+    {
+      "file": "sentence-adjectifs-essentiels.json",
+      "id": "fr.a1.adjectifs-essentiels.274",
+      "fr": "Cet homme est fort."
+    },
+    {
+      "file": "sentence-adjectifs-essentiels.json",
+      "id": "fr.a1.adjectifs-essentiels.286",
+      "fr": "Le vase est cassé."
+    },
+    {
+      "file": "sentence-adjectifs-essentiels.json",
+      "id": "fr.a1.adjectifs-essentiels.290",
+      "fr": "La salle est pleine de monde."
+    },
+    {
+      "file": "sentence-adjectifs-essentiels.json",
+      "id": "fr.a1.adjectifs-essentiels.307",
+      "fr": "Ce tissu est très doux."
+    },
+    {
+      "file": "sentence-au-restaurant.json",
+      "id": "fr.a1.au-restaurant.187",
+      "fr": "Je suis allergique aux fruits de mer."
+    },
+    {
+      "file": "sentence-au-restaurant.json",
+      "id": "fr.a1.au-restaurant.213",
+      "fr": "Le restaurant ouvre à midi."
+    },
+    {
+      "file": "sentence-au-restaurant.json",
+      "id": "fr.a2.au-restaurant.098",
+      "fr": "Nous avons réservé une table pour huit heures."
+    },
+    {
+      "file": "sentence-cafe.json",
+      "id": "fr.a1.cafe.117",
+      "fr": "Je voudrais un café, s'il vous plaît."
+    },
+    {
+      "file": "sentence-cafe.json",
+      "id": "fr.a1.cafe.135",
+      "fr": "Nous payons chacun notre part."
+    },
+    {
+      "file": "sentence-couleurs.json",
+      "id": "fr.a1.couleurs.199",
+      "fr": "Elle a les yeux bleus."
+    },
+    {
+      "file": "sentence-courses.json",
+      "id": "fr.a2.courses.139",
+      "fr": "La boulangerie ferme à dix-neuf heures."
+    },
+    {
+      "file": "sentence-courses.json",
+      "id": "fr.a2.courses.141",
+      "fr": "Le magasin est fermé le dimanche."
+    },
+    {
+      "file": "sentence-expressions-utiles.json",
+      "id": "fr.a1.expressions-utiles.192",
+      "fr": "Ça ne fait rien, on recommencera demain."
+    },
+    {
+      "file": "sentence-expressions-utiles.json",
+      "id": "fr.a1.expressions-utiles.251",
+      "fr": "Le prix dépend de la saison."
+    },
+    {
+      "file": "sentence-expressions-utiles.json",
+      "id": "fr.a1.expressions-utiles.311",
+      "fr": "En tout cas, merci pour ton aide."
+    },
+    {
+      "file": "sentence-faux-amis.json",
+      "id": "fr.a1.faux-amis.196",
+      "fr": "Les étudiants doivent assister à tous les cours."
+    },
+    {
+      "file": "sentence-faux-amis.json",
+      "id": "fr.a1.faux-amis.211",
+      "fr": "Le propriétaire de la librairie connaît tous ses clients."
+    },
+    {
+      "file": "sentence-faux-amis.json",
+      "id": "fr.a1.faux-amis.214",
+      "fr": "La librairie ferme à dix-neuf heures le samedi."
+    },
+    {
+      "file": "sentence-faux-amis.json",
+      "id": "fr.a1.faux-amis.222",
+      "fr": "J'attends le bus depuis vingt minutes."
+    },
+    {
+      "file": "sentence-faux-amis.json",
+      "id": "fr.a1.faux-amis.223",
+      "fr": "Nous attendons nos amis devant le cinéma."
+    },
+    {
+      "file": "sentence-faux-amis.json",
+      "id": "fr.a1.faux-amis.230",
+      "fr": "Je vais rester à la maison ce week-end."
+    },
+    {
+      "file": "sentence-faux-amis.json",
+      "id": "fr.a1.faux-amis.238",
+      "fr": "Je vais demander l'heure à ce monsieur."
+    },
+    {
+      "file": "sentence-faux-amis.json",
+      "id": "fr.a1.faux-amis.248",
+      "fr": "Attention, ce couteau peut te blesser."
+    },
+    {
+      "file": "sentence-faux-amis.json",
+      "id": "fr.a1.faux-amis.321",
+      "fr": "Le magasin se trouve au coin de la rue."
+    },
+    {
+      "file": "sentence-la-ville.json",
+      "id": "fr.a1.la-ville.187",
+      "fr": "Le bus arrive dans cinq minutes."
+    },
+    {
+      "file": "sentence-la-ville.json",
+      "id": "fr.a1.la-ville.193",
+      "fr": "Les enfants jouent dans le parc."
+    },
+    {
+      "file": "sentence-la-ville.json",
+      "id": "fr.a1.la-ville.196",
+      "fr": "La ville est très bruyante la nuit."
+    },
+    {
+      "file": "sentence-la-ville.json",
+      "id": "fr.a1.la-ville.201",
+      "fr": "Le musée est fermé le lundi."
+    },
+    {
+      "file": "sentence-la-ville.json",
+      "id": "fr.a1.la-ville.212",
+      "fr": "Les touristes visitent le vieux quartier."
+    },
+    {
+      "file": "sentence-la-ville.json",
+      "id": "fr.a1.la-ville.224",
+      "fr": "Le taxi attend devant l'hôtel."
+    },
+    {
+      "file": "sentence-maison.json",
+      "id": "fr.a1.maison.143",
+      "fr": "La cuisine est à côté du salon."
+    },
+    {
+      "file": "sentence-maison.json",
+      "id": "fr.a2.maison.039",
+      "fr": "Les voisins ont fait beaucoup de bruit hier soir."
+    },
+    {
+      "file": "sentence-marche.json",
+      "id": "fr.a1.marche.152",
+      "fr": "Le marché ouvre à huit heures."
+    },
+    {
+      "file": "sentence-marche.json",
+      "id": "fr.a1.marche.153",
+      "fr": "J'achète des pommes rouges."
+    },
+    {
+      "file": "sentence-marche.json",
+      "id": "fr.a1.marche.161",
+      "fr": "J'aime l'odeur du pain frais."
+    },
+    {
+      "file": "sentence-marche.json",
+      "id": "fr.a1.marche.163",
+      "fr": "Les fleurs sentent très bon."
+    },
+    {
+      "file": "sentence-marche.json",
+      "id": "fr.a1.marche.197",
+      "fr": "Je prends deux kilos de pommes de terre."
+    },
+    {
+      "file": "sentence-marche.json",
+      "id": "fr.a1.marche.201",
+      "fr": "Le vendeur me rend la monnaie."
+    },
+    {
+      "file": "sentence-mots-de-liaison.json",
+      "id": "fr.a1.mots-de-liaison.192",
+      "fr": "Il fait froid, mais le soleil brille."
+    },
+    {
+      "file": "sentence-mots-de-liaison.json",
+      "id": "fr.a1.mots-de-liaison.193",
+      "fr": "J'aime le café, mais je préfère le thé le matin."
+    },
+    {
+      "file": "sentence-mots-de-liaison.json",
+      "id": "fr.a1.mots-de-liaison.206",
+      "fr": "Il pleut, donc nous restons à la maison."
+    },
+    {
+      "file": "sentence-noms-essentiels.json",
+      "id": "fr.a1.noms-essentiels.286",
+      "fr": "Le ciel devient gris avant l'orage."
+    },
+    {
+      "file": "sentence-objets.json",
+      "id": "fr.a1.objets.161",
+      "fr": "Je cherche mon téléphone partout."
+    },
+    {
+      "file": "sentence-prepositions-essentielles.json",
+      "id": "fr.a1.prepositions-essentielles.102",
+      "fr": "Je pense à toi souvent."
+    },
+    {
+      "file": "sentence-prepositions-essentielles.json",
+      "id": "fr.a1.prepositions-essentielles.119",
+      "fr": "Les élèves écoutent le professeur avec attention."
+    },
+    {
+      "file": "sentence-prepositions-essentielles.json",
+      "id": "fr.a2.prepositions-essentielles.098",
+      "fr": "Nous avons marché autour du lac tout l'après-midi."
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.193",
+      "fr": "Qui est ton professeur ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.195",
+      "fr": "Qui a pris mon parapluie ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.206",
+      "fr": "Que fais-tu ce week-end ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.207",
+      "fr": "Qu'est-ce que tu manges au petit-déjeuner ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.208",
+      "fr": "Que voulez-vous boire ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.250",
+      "fr": "Comment tu t'appelles ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.251",
+      "fr": "Comment allez-vous aujourd'hui ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.256",
+      "fr": "Comment s'appelle ton chien ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.265",
+      "fr": "Pourquoi apprends-tu le français ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.266",
+      "fr": "Pourquoi le magasin est-il fermé ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.279",
+      "fr": "Combien de frères et sœurs as-tu ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.282",
+      "fr": "Combien de personnes viennent à la fête ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.284",
+      "fr": "Combien pèse cette valise ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.286",
+      "fr": "Combien gagnes-tu par mois ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.288",
+      "fr": "Combien coûtent ces chaussures ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.289",
+      "fr": "Combien d'enfants avez-vous ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.292",
+      "fr": "Quel âge as-tu ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.293",
+      "fr": "Quelle heure est-il maintenant ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.294",
+      "fr": "Quel est ton plat préféré ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.297",
+      "fr": "Quelle taille faites-vous ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.298",
+      "fr": "Quel temps fait-il aujourd'hui ?"
+    },
+    {
+      "file": "sentence-questions.json",
+      "id": "fr.a1.questions.308",
+      "fr": "Est-ce que vous parlez anglais ?"
+    },
+    {
+      "file": "sentence-routines.json",
+      "id": "fr.a1.routines.162",
+      "fr": "Je prends le bus pour aller au travail."
+    },
+    {
+      "file": "sentence-routines.json",
+      "id": "fr.a1.routines.168",
+      "fr": "Il fait ses devoirs après l'école."
+    },
+    {
+      "file": "sentence-technologie-quotidienne.json",
+      "id": "fr.a1.technologie-quotidienne.040",
+      "fr": "Nous regardons une vidéo sur internet."
+    },
+    {
+      "file": "sentence-technologie-quotidienne.json",
+      "id": "fr.a1.technologie-quotidienne.042",
+      "fr": "Je reçois beaucoup de notifications."
+    },
+    {
+      "file": "sentence-technologie-quotidienne.json",
+      "id": "fr.a1.technologie-quotidienne.064",
+      "fr": "L'écran de mon téléphone est cassé."
+    },
+    {
+      "file": "sentence-transports-quotidiens.json",
+      "id": "fr.a1.transports-quotidiens.117",
+      "fr": "Je prends le bus tous les matins."
+    },
+    {
+      "file": "sentence-transports-quotidiens.json",
+      "id": "fr.a1.transports-quotidiens.118",
+      "fr": "Le métro arrive dans deux minutes."
+    },
+    {
+      "file": "sentence-transports-quotidiens.json",
+      "id": "fr.a1.transports-quotidiens.141",
+      "fr": "Le métro est plein aux heures de pointe."
+    },
+    {
+      "file": "sentence-transports-quotidiens.json",
+      "id": "fr.a1.transports-quotidiens.161",
+      "fr": "Le taxi attend devant l'hôtel."
+    },
+    {
+      "file": "sentence-transports-quotidiens.json",
+      "id": "fr.a1.transports-quotidiens.166",
+      "fr": "Elle demande son chemin à un passant."
+    }
+  ],
+  "idCollision": []
+}

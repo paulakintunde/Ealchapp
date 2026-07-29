@@ -1,0 +1,3307 @@
+{
+  "level": "c1",
+  "theme": "nuances-et-registres",
+  "count": 165,
+  "items": [
+    {
+      "id": "fr.c1.nuances-et-registres.001",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "L'histoire ne se répète jamais, mais elle bégaie.",
+      "en": "History never repeats itself, but it stutters.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.002",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La mémoire collective choisit ce qu'elle veut oublier.",
+      "en": "Collective memory chooses what it wants to forget.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.003",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Tout monument célèbre un choix politique devenu invisible.",
+      "en": "Every monument celebrates a political choice that has become invisible.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.004",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Comprendre une époque, c'est en accepter les contradictions.",
+      "en": "Understanding an era means accepting its contradictions.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.005",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Chaque société invente les mythes qui la rassurent.",
+      "en": "Every society invents the myths that reassure it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.006",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les empires meurent de leurs certitudes, rarement d'autre chose.",
+      "en": "Empires die of their certainties, rarely of anything else.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.007",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Aucun récit national ne résiste à l'examen des faits.",
+      "en": "No national narrative withstands scrutiny of the facts.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.008",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La démocratie reste un exercice à recommencer chaque matin.",
+      "en": "Democracy remains an exercise you must begin again every morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.009",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le progrès technique va plus vite que la morale.",
+      "en": "Technical progress moves faster than morality does.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.010",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La censure dit toujours ce que le pouvoir craint.",
+      "en": "Censorship always reveals what those in power fear.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.011",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les sociétés qui nient leur passé finissent par le subir.",
+      "en": "Societies that deny their past end up suffering it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.012",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La télévision a démocratisé la culture en imposant ses hiérarchies.",
+      "en": "Television democratized culture while imposing its own hierarchies.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.013",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Chaque génération relit le passé selon les questions qui l'obsèdent.",
+      "en": "Each generation rereads the past through the questions that obsess it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.014",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les commémorations rassurent les vivants plus qu'elles n'honorent les morts.",
+      "en": "Commemorations reassure the living more than they honor the dead.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.015",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Toute frontière porte la trace des rapports de force anciens.",
+      "en": "Every border bears the trace of old power struggles.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.016",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Derrière chaque objet de musée se cachent des gestes quotidiens oubliés.",
+      "en": "Behind every museum object hide forgotten everyday gestures.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.017",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "L'alphabétisation massive a émancipé davantage de gens que bien des révolutions.",
+      "en": "Mass literacy emancipated more people than many revolutions did.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.018",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La tentation autoritaire renaît dès que la peur étouffe la raison.",
+      "en": "The authoritarian temptation is reborn as soon as fear smothers reason.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.019",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "On juge une société au sort qu'elle réserve aux plus faibles.",
+      "en": "You judge a society by the fate it reserves for its weakest.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.020",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Considéré à froid, le vingtième siècle ressemble à un laboratoire d'utopies.",
+      "en": "Viewed dispassionately, the twentieth century looks like a laboratory of utopias.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.021",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Nul ne sort indemne d'une guerre civile, pas même les générations suivantes.",
+      "en": "No one emerges unscathed from a civil war, not even the generations that follow.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.022",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Cette exposition sur la Nouvelle-France bouscule nos idées reçues avec une rigueur salutaire.",
+      "en": "This exhibition on New France challenges our preconceptions with a healthy dose of rigor.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.023",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le suffrage universel, arraché de haute lutte, nous semble aujourd'hui presque banal.",
+      "en": "Universal suffrage, won through hard struggle, seems almost mundane to us today.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.024",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ayant connu l'exil, cet écrivain parle de l'identité avec une lucidité rare.",
+      "en": "Having known exile, this writer speaks about identity with rare lucidity.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.025",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Derrière chaque grande réforme, on trouve des décennies de luttes restées anonymes.",
+      "en": "Behind every major reform lie decades of struggles that remained anonymous.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.026",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "L'histoire, écrite par les vainqueurs, gagne à être relue du côté des vaincus.",
+      "en": "History, written by the victors, is worth rereading from the side of the vanquished.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.027",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La laïcité, telle qu'on la pratique ici, ne ressemble guère au modèle français.",
+      "en": "Secularism, as we practice it here, hardly resembles the French model.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.028",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ce roman restitue l'atmosphère des années trente mieux que bien des manuels scolaires.",
+      "en": "This novel captures the atmosphere of the thirties better than many textbooks do.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.029",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les grèves de l'amiante ont réveillé une conscience sociale que l'on croyait endormie.",
+      "en": "The asbestos strikes awakened a social conscience people thought was asleep.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.030",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Relire ces débats anciens, c'est constater que nos querelles n'ont rien de neuf.",
+      "en": "Rereading those old debates means realizing our quarrels are nothing new.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.031",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Publiée en pleine crise, cette étude sur les inégalités a trouvé un écho considérable.",
+      "en": "Published in the middle of a crisis, this study on inequality resonated widely.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.032",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les archives dont disposent les historiens ne livrent jamais toute la vérité d'une époque.",
+      "en": "The archives historians have access to never yield the whole truth about an era.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.033",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le débat auquel cet essai a donné lieu dépasse largement le cercle des historiens.",
+      "en": "The debate this essay sparked reaches far beyond the circle of historians.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.034",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les pensionnats autochtones restent une blessure dont le pays mesure à peine la profondeur.",
+      "en": "Residential schools remain a wound whose depth the country is only beginning to measure.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.035",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La Conquête demeure un événement auquel les historiens accrochent encore des interprétations opposées.",
+      "en": "The Conquest remains an event to which historians still attach opposing interpretations.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.036",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La Révolution tranquille a transformé le Québec en une seule génération, fait rarissime en Occident.",
+      "en": "The Quiet Revolution transformed Quebec in a single generation, something extremely rare in the West.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.037",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ce que nous retenons d'une guerre en dit long sur les valeurs de notre époque.",
+      "en": "What we remember of a war says a great deal about the values of our time.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.038",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "On ne comprend pas la société actuelle sans étudier les luttes ouvrières du siècle dernier.",
+      "en": "You cannot understand today's society without studying the labor struggles of the last century.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.039",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Marquée par deux référendums, la société québécoise entretient un rapport singulier à la question nationale.",
+      "en": "Shaped by two referendums, Quebec society maintains a singular relationship with the national question.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.040",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "L'immigration a toujours nourri ce pays, quoi qu'en disent les discours alarmistes de chaque époque.",
+      "en": "Immigration has always nourished this country, whatever the alarmist speeches of each era may say.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.041",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La colonisation a laissé des traces profondes dont les sociétés contemporaines n'ont pas fini de débattre.",
+      "en": "Colonization left deep marks that contemporary societies have not finished debating.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.042",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La classe moyenne, dont on vantait hier la stabilité, se sent aujourd'hui menacée de toutes parts.",
+      "en": "The middle class, whose stability was praised only yesterday, now feels threatened on all sides.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.043",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les langues minoritaires s'éteignent en silence, emportant avec elles des manières entières de penser le monde.",
+      "en": "Minority languages fade away in silence, taking with them entire ways of thinking about the world.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.044",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ce qui frappe dans les correspondances d'époque, c'est la dignité avec laquelle on affrontait la misère.",
+      "en": "What strikes you in letters from the period is the dignity with which people faced poverty.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.045",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les grandes famines européennes ont redessiné en profondeur la carte des migrations vers l'Amérique du Nord.",
+      "en": "The great European famines profoundly redrew the map of migration to North America.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.046",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "On mesure mal aujourd'hui le courage qu'il fallait pour défendre ces idées en mille neuf cent cinquante.",
+      "en": "Today we barely grasp the courage it took to defend those ideas in nineteen fifty.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.047",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Rien n'illustre mieux la fragilité des institutions que la vitesse à laquelle elles perdent la confiance publique.",
+      "en": "Nothing illustrates the fragility of institutions better than the speed at which they lose public trust.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.048",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "L'exode rural a vidé des villages entiers dont il ne reste parfois qu'un clocher et quelques souvenirs.",
+      "en": "The rural exodus emptied entire villages, of which sometimes only a steeple and a few memories remain.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.049",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les procès de l'après-guerre ont soulevé des questions juridiques dont nous vivons encore aujourd'hui les conséquences directes.",
+      "en": "The postwar trials raised legal questions whose direct consequences we are still living with today.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.050",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Cette biographie éclaire un pan méconnu de la Résistance, celui des femmes qui servaient d'agents de liaison.",
+      "en": "This biography sheds light on a little-known side of the Resistance, that of the women who served as liaison agents.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.051",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "L'urbanisation rapide de l'après-guerre a bouleversé des solidarités villageoises que rien, depuis ce temps, n'est vraiment venu remplacer.",
+      "en": "The rapid postwar urbanization upended village solidarities that nothing, since that time, has truly replaced.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.052",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La presse écrite, dont on annonce la disparition depuis vingt ans, résiste contre toute attente aux nouveaux médias.",
+      "en": "The print press, whose demise has been announced for twenty years, is unexpectedly holding out against the new media.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.053",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le sentiment d'appartenance se construit autant par les chansons populaires que par les grandes lois votées au parlement.",
+      "en": "A sense of belonging is built as much through popular songs as through the great laws passed in parliament.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.054",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "La bourgeoisie du dix-neuvième siècle a inventé des rituels domestiques que nous perpétuons encore sans même le savoir.",
+      "en": "The nineteenth-century bourgeoisie invented domestic rituals that we still carry on without even knowing it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.055",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les historiennes féministes ont montré combien les femmes avaient été effacées des récits officiels que nous tenions pour complets.",
+      "en": "Feminist historians have shown how thoroughly women were erased from official narratives we took to be complete.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.056",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il faudra sans doute des décennies pour évaluer les effets de la pandémie sur toute une génération de jeunes.",
+      "en": "It will probably take decades to assess the pandemic's effects on an entire generation of young people.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.057",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les paysages ruraux que nous trouvons si pittoresques racontent en réalité des siècles de labeur anonyme et de misère.",
+      "en": "The rural landscapes we find so picturesque actually tell of centuries of anonymous toil and hardship.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.058",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "L'école publique promettait l'égalité des chances, mais elle a longtemps reproduit, malgré elle, les hiérarchies qu'elle prétendait abolir.",
+      "en": "Public school promised equal opportunity, but for a long time it reproduced, despite itself, the hierarchies it claimed to abolish.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.059",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ce documentaire montre comment la radio, entrée dans tous les foyers, a façonné l'imaginaire politique du Québec des années soixante.",
+      "en": "This documentary shows how radio, once it entered every home, shaped the political imagination of nineteen sixties Quebec.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.060",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Les sociétés vieillissantes devront repenser de fond en comble un contrat social qui avait été conçu pour un monde jeune.",
+      "en": "Aging societies will have to rethink from top to bottom a social contract that was designed for a young world.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.061",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "À force de tout commémorer, ne risquons-nous pas de banaliser la mémoire même que nous prétendons vouloir transmettre aux jeunes?",
+      "en": "By commemorating everything, do we not risk trivializing the very memory we claim we want to pass on to the young?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.062",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Quiconque a lu les mémoires de cette époque comprend que la peur de déchoir structurait la vie sociale tout entière.",
+      "en": "Anyone who has read memoirs from that era understands that the fear of losing status structured social life entirely.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.063",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Charmant, ce voisin, quand il daigne dire bonjour.",
+      "en": "Charming, that neighbor, when he deigns to say hello.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.064",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le rapport parle d'ajustements nécessaires, comprenez des licenciements massifs.",
+      "en": "The report speaks of necessary adjustments, which really means massive layoffs.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.065",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Disons que sa ponctualité laisse un peu à désirer.",
+      "en": "Let's just say his punctuality leaves a little to be desired.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.066",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il aurait pu prévenir, c'est tout ce que je dis.",
+      "en": "He could have let us know, that's all I'm saying.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.067",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Son gâteau n'était pas sa plus grande réussite, disons.",
+      "en": "Her cake was not her greatest success, let's say.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.068",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle a le chic pour blesser tout en souriant.",
+      "en": "She has a knack for wounding people while smiling.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.069",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il ne crache pas sur un bon repas, loin de là.",
+      "en": "He never turns down a good meal, far from it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.070",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Sauf votre respect, cette décision me semble pour le moins discutable.",
+      "en": "With all due respect, this decision strikes me as questionable to say the least.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.071",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Bien qu'elle ait tout nié, son sourire gêné parlait pour elle.",
+      "en": "Although she denied everything, her embarrassed smile spoke for her.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.072",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "À l'entendre, tout va pour le mieux, mais son regard dit autre chose.",
+      "en": "To hear him tell it, everything is fine, but his eyes say otherwise.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.073",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Quand il annonce un léger retard, prévois plutôt une bonne heure d'attente.",
+      "en": "When he announces a slight delay, plan on a good hour of waiting instead.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.074",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Dire qu'il conduit prudemment, c'est un euphémisme, il roule comme une tortue.",
+      "en": "To say he drives carefully is putting it kindly, he crawls along like a turtle.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.075",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "C'est le genre de compliment qui ressemble fort à une critique déguisée.",
+      "en": "It's the kind of compliment that looks a lot like a disguised criticism.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.076",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle m'a répondu du bout des lèvres, comme si ma question la dérangeait.",
+      "en": "She gave me a reluctant answer, as if my question bothered her.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.077",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il m'a fait comprendre à demi-mot que ma candidature n'avait aucune chance.",
+      "en": "He hinted, without saying it outright, that my application stood no chance.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.078",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Franchement, ce n'est pas la mer à boire de remplir ce formulaire.",
+      "en": "Frankly, filling out this form is hardly the end of the world.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.079",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il tourne autour du pot depuis dix minutes au lieu de demander son augmentation.",
+      "en": "He has been beating around the bush for ten minutes instead of asking for his raise.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.080",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "À mots couverts, le directeur a laissé entendre que des postes allaient sauter.",
+      "en": "In veiled terms, the director implied that jobs were going to be cut.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.081",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Sans vouloir te vexer, ta présentation aurait mérité un peu plus de préparation.",
+      "en": "No offense intended, but your presentation deserved a bit more preparation.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.082",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il aurait pu le dire autrement, mais le message est passé quand même.",
+      "en": "He could have phrased it differently, but the message got through all the same.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.083",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "C'est la manière dont il l'a dit qui m'a blessée, pas le fond.",
+      "en": "It's the way he said it that hurt me, not the substance.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.084",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Entre ce qu'elle affirme et ce qu'elle pense, il y a parfois un monde.",
+      "en": "Between what she claims and what she thinks, there is sometimes a world of difference.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.085",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Je ne dis pas que c'est raté, je dis simplement qu'on peut faire mieux.",
+      "en": "I'm not saying it failed, I'm simply saying we can do better.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.086",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ils se sont réconciliés, certes, mais il reste un froid entre eux depuis cette soirée.",
+      "en": "They made up, granted, but there has been a chill between them since that evening.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.087",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il paraît qu'il aurait quitté son poste du jour au lendemain, sans prévenir personne.",
+      "en": "Apparently he left his job overnight, without warning anyone.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.088",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ce n'est pas tant ce qu'il a dit qui choque, c'est le ton employé.",
+      "en": "It's not so much what he said that shocks, it's the tone he used.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.089",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Dire que la réunion a été longue, c'est le moins qu'on puisse dire.",
+      "en": "To say the meeting ran long is putting it mildly.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.090",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il n'a pas dit non, ce qui, chez lui, veut presque dire oui.",
+      "en": "He didn't say no, which, coming from him, almost means yes.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.091",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Bien qu'il ait promis de venir, personne n'a vraiment compté sur sa présence.",
+      "en": "Although he promised to come, nobody really counted on him showing up.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.092",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "C'est justement ce silence qui en dit long sur ce qu'il pense vraiment.",
+      "en": "It's precisely that silence that speaks volumes about what he really thinks.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.093",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "À sa place, j'aurais tourné ma langue sept fois avant de répondre ça.",
+      "en": "In his shoes, I would have thought twice before answering that.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.094",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il faut lire entre les lignes, ils cherchent en réalité à vendre l'entreprise.",
+      "en": "You have to read between the lines, they are actually looking to sell the company.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.095",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Leurs relations se sont, comment dire, un peu refroidies ces derniers temps.",
+      "en": "Their relationship has, how shall I put it, cooled somewhat lately.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.096",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Quand elle dit que c'est intéressant, il faut comprendre qu'elle n'y croit pas.",
+      "en": "When she says it's interesting, you should understand she doesn't believe in it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.097",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Quand on dit qu'il est économe, c'est une façon polie de dire autre chose.",
+      "en": "When people say he is thrifty, it's a polite way of saying something else.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.098",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "C'est ce petit mot de trop qui a tout fait basculer dans la conversation.",
+      "en": "It was that one word too many that tipped the whole conversation over.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.099",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il s'en est fallu de peu que la discussion ne tourne au règlement de comptes.",
+      "en": "The discussion came within a hair of turning into a settling of scores.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.100",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il aurait fallu qu'on ait vu le contrat avant de signer quoi que ce soit.",
+      "en": "We would have needed to see the contract before signing anything at all.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.101",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ne le prends pas mal, mais ton texte gagnerait à être relu une dernière fois.",
+      "en": "Don't take it the wrong way, but your text would benefit from one last read-through.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.102",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle a glissé la remarque l'air de rien, mais tout le monde a saisi l'allusion.",
+      "en": "She slipped in the remark casually, but everyone caught the hint.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.103",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ce que je regrette, c'est qu'on n'ait pas mis les formes pour lui annoncer la nouvelle.",
+      "en": "What I regret is that we didn't break the news to him with more tact.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.104",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Si tu veux mon avis, il aurait mieux valu qu'on se soit tus tous les deux.",
+      "en": "If you ask me, it would have been better if we had both kept quiet.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.105",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Un Québécois qui te répond que c'est pas pire est souvent en train de te faire un compliment.",
+      "en": "A Quebecer who tells you it's not bad is often actually paying you a compliment.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.106",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le mot est faible quand on dit que le loyer a un peu augmenté à Vancouver.",
+      "en": "Calling the rent increase in Vancouver slight is quite the understatement.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.107",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "On m'a répondu que le dossier suivait son cours, autant dire qu'il dort dans un tiroir.",
+      "en": "I was told the file was moving along, which is to say it's sleeping in a drawer.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.108",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle ne mâche pas ses mots, mais elle sait aussi quand il vaut mieux se taire.",
+      "en": "She doesn't mince words, but she also knows when it's better to stay silent.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.109",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "On lui a gentiment suggéré de prendre du recul, autrement dit, on l'a mis à la porte.",
+      "en": "They kindly suggested he take a step back, in other words, they showed him the door.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.110",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ce n'est un secret pour personne que ces deux collègues ne se portent pas dans leur cœur.",
+      "en": "It's no secret to anyone that those two colleagues have no love for each other.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.111",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il aurait été préférable que vous nous ayez prévenus avant de changer la date de la réunion.",
+      "en": "It would have been preferable for you to warn us before changing the meeting date.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.112",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle n'y est pas allée par quatre chemins, elle m'a dit que mon plan ne tenait pas debout.",
+      "en": "She didn't beat around the bush, she told me my plan didn't hold up.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.113",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle a la dent dure, mais au fond, elle ne pense pas la moitié de ce qu'elle dit.",
+      "en": "She has a sharp tongue, but deep down she doesn't mean half of what she says.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.114",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "On m'avait promis un petit cinq minutes d'attente, et deux heures plus tard, j'étais toujours dans le corridor.",
+      "en": "I was promised a quick five minute wait, and two hours later I was still in the hallway.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.115",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Quand il affirme que tout est sous contrôle, il se pourrait que la situation soit beaucoup plus fragile.",
+      "en": "When he claims everything is under control, it may well be that the situation is far more fragile.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.116",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ce qui m'agace, c'est qu'il ait présenté ses excuses comme si on lui arrachait chaque mot de la bouche.",
+      "en": "What irks me is that he apologized as though every word were being dragged out of him.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.117",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle aurait juré qu'il plaisantait, mais quelque chose dans sa voix laissait penser qu'il était on ne peut plus sérieux.",
+      "en": "She would have sworn he was joking, but something in his voice suggested he was deadly serious.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.118",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il se pourrait que j'aie mal interprété son message, mais j'ai eu la nette impression qu'on me demandait de partir.",
+      "en": "I may have misread his message, but I got the distinct impression I was being asked to leave.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.119",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le fait qu'il n'ait pas rappelé après l'entrevue en dit déjà assez long.",
+      "en": "The fact that he never called back after the interview already says quite a lot.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.120",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Si j'avais su lire entre les lignes, j'aurais compris qu'on me poussait vers la sortie.",
+      "en": "If I had known how to read between the lines, I would have understood they were nudging me out.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.121",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il a pris congé de l'entreprise, comme on dit pudiquement dans le communiqué officiel.",
+      "en": "He has parted ways with the company, as the official statement delicately puts it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.122",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Entre nous, sa fameuse expérience internationale se résume à deux semaines de vacances à Paris.",
+      "en": "Between us, his famous international experience amounts to two weeks of vacation in Paris.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.123",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le chef a beau avoir salué mon travail, je n'ai pas eu l'augmentation espérée.",
+      "en": "The boss may well have praised my work, but I didn't get the raise I was hoping for.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.124",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Quand ma mère dit qu'on en reparlera, c'est que la réponse est déjà non.",
+      "en": "When my mother says we'll talk about it later, it means the answer is already no.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.125",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il est parti sans demander son reste, preuve que l'ambiance n'était pas au beau fixe.",
+      "en": "He left without a backward glance, proof that the mood was hardly rosy.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.126",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Chez nous, on ne meurt pas, on part.",
+      "en": "In our family, nobody dies, they pass on.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.127",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Disons simplement que ce vin reste très discret.",
+      "en": "Let's just say this wine keeps a low profile.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.128",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Sa politesse soudaine annonce rarement une bonne nouvelle.",
+      "en": "His sudden politeness rarely means good news is coming.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.129",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Senior, c'est juste vieux dit avec des gants.",
+      "en": "Senior is just old said with kid gloves.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.130",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Intéressant, dans sa bouche, veut souvent dire raté.",
+      "en": "Interesting, coming from her, often means a failure.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.131",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Devant le notaire, il sort son français du dimanche.",
+      "en": "At the notary's office, he trots out his Sunday-best French.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.132",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle est d'un certain âge, comme on dit poliment.",
+      "en": "She is of a certain age, as we politely say.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.133",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ma grand-mère ne disait jamais mourir, elle disait partir.",
+      "en": "My grandmother never said dying, she said leaving.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.134",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "S'il devient soudain très poli, l'orage n'est pas loin.",
+      "en": "If he suddenly turns very polite, a storm is brewing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.135",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ici, on ne licencie pas, on ajuste les effectifs.",
+      "en": "Here, nobody gets laid off, the workforce gets adjusted.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.136",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Devant sa belle-mère, tout son argot disparaît comme par magie.",
+      "en": "Around his mother-in-law, all his slang vanishes as if by magic.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.137",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Quand il dit pas mal, il faut souvent comprendre excellent.",
+      "en": "When he says not bad, you should often understand excellent.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.138",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle appelle ça arranger la vérité, moi j'appelle ça mentir.",
+      "en": "She calls it bending the truth, I call it lying.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.139",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "En famille, il retrouve son accent et ses expressions d'enfance.",
+      "en": "With family, he slips back into his childhood accent and expressions.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.140",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le communiqué parle d'un incident, les pompiers parlent d'un incendie.",
+      "en": "The press release mentions an incident, the firefighters mention a fire.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.141",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le mot balayeur a cédé la place à technicien de surface.",
+      "en": "The word sweeper has given way to surface technician.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.142",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ce n'est pas donné, autant dire que c'est hors de prix.",
+      "en": "It is not cheap, which is to say it costs a fortune.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.143",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il aurait pu dire pauvre, il a préféré dire économiquement fragile.",
+      "en": "He could have said poor, he preferred to say economically fragile.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.144",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Quand le patron dit flexibilité, les salariés entendent horaires à rallonge.",
+      "en": "When the boss says flexibility, the employees hear endless hours.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.145",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Ce que cache l'expression dommages collatéraux, ce sont des victimes civiles.",
+      "en": "What the phrase collateral damage hides is civilian casualties.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.146",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Qu'il ait osé la tutoyer en réunion a choqué tout le monde.",
+      "en": "That he dared to address her informally in a meeting shocked everyone.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.147",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Parler de personnes sans domicile fixe évite de prononcer le mot misère.",
+      "en": "Talking about people of no fixed address avoids saying the word destitution.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.148",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "C'est le silence poli de la salle qui a tout dit hier.",
+      "en": "It was the room's polite silence that said it all yesterday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.149",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Au téléphone avec sa mère, son français soutenu fond en trois secondes.",
+      "en": "On the phone with his mother, his formal French melts away in three seconds.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.150",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le professeur a écrit copie perfectible pour ne pas écrire copie désastreuse.",
+      "en": "The teacher wrote paper with room for improvement rather than writing disastrous paper.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.151",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Bien qu'il ait été remercié, il raconte partout qu'il explore de nouvelles pistes.",
+      "en": "Although he was let go, he tells everyone he is exploring new avenues.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.152",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "On aurait pu appeler ça un mensonge, il a préféré parler d'approximation malencontreuse.",
+      "en": "We could have called that a lie, he preferred to speak of an unfortunate approximation.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.153",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il se pourrait que son discours d'hier ait été légèrement arrangé pour l'occasion.",
+      "en": "It may well be that yesterday's speech was slightly polished for the occasion.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.154",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Vous auriez entendu ce ton mielleux, une menace enrobée dans de la politesse.",
+      "en": "You should have heard that honeyed tone, a threat wrapped in politeness.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.155",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle n'a pas menti, elle a présenté la vérité sous son meilleur jour.",
+      "en": "She did not lie, she presented the truth in its best light.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.156",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "L'entreprise annonce une restructuration, tout le monde a compris qu'il s'agit de licenciements secs.",
+      "en": "The company announces a restructuring, everyone understood it means outright layoffs.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.157",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Le médecin a évoqué une issue défavorable, jamais il n'a prononcé le mot décès.",
+      "en": "The doctor mentioned an unfavorable outcome, he never once said the word death.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.158",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Qualifier ce vin de modeste, c'était une façon élégante de le trouver franchement mauvais.",
+      "en": "Calling this wine modest was an elegant way of finding it downright bad.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.159",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Bien qu'il ait bu plus que de raison, on dira juste qu'il était fatigué.",
+      "en": "Although he drank more than was wise, we will just say he was tired.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.160",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il aurait fallu annoncer la fermeture clairement, au lieu de parler d'évolution du site.",
+      "en": "The closure should have been announced clearly, instead of talking about the site evolving.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.161",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Entre collègues il parle comme au bistrot, devant la direction son langage devient étrangement soutenu.",
+      "en": "Among colleagues he talks like he is at the pub, in front of management his language turns strangely formal.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.162",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Il se peut que j'aie mal choisi mes mots hier soir, je voulais rester délicat.",
+      "en": "I may have chosen my words badly last night, I wanted to stay tactful.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.163",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Elle a qualifié la maison de pleine de charme, ce qui signifie petite et vétuste.",
+      "en": "She described the house as full of charm, which means small and run-down.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.164",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "Passer du vouvoiement au tutoiement, chez elle, c'est le signe qu'on a gagné sa confiance.",
+      "en": "Moving from formal to informal address, with her, is the sign you have earned her trust.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    },
+    {
+      "id": "fr.c1.nuances-et-registres.165",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "nuances-et-registres",
+      "fr": "On aurait dit un compliment, mais chacun a bien senti la pique sous le vernis.",
+      "en": "It sounded like a compliment, but everyone clearly felt the jab beneath the polish.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      }
+    }
+  ]
+}

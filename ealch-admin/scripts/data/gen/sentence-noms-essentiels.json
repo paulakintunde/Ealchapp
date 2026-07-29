@@ -1,0 +1,2102 @@
+[
+  {
+    "id": "fr.a1.noms-essentiels.192",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Mon père travaille dans un bureau moderne.",
+    "en": "My father works in a modern office.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon père\",\"t\":\"my father\"},{\"w\":\"travaille\",\"t\":\"works\"},{\"w\":\"dans un bureau moderne.\",\"t\":\"in a modern office\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.193",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Ma mère prépare le dîner tous les soirs.",
+    "en": "My mother prepares dinner every evening.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma mère\",\"t\":\"my mother\"},{\"w\":\"prépare le dîner\",\"t\":\"prepares dinner\"},{\"w\":\"tous les soirs.\",\"t\":\"every evening\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.194",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Mon frère habite avec sa femme à Lyon.",
+    "en": "My brother lives with his wife in Lyon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon frère\",\"t\":\"my brother\"},{\"w\":\"habite avec sa femme\",\"t\":\"lives with his wife\"},{\"w\":\"à Lyon.\",\"t\":\"in Lyon\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.195",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Ma sœur étudie la médecine à l'université.",
+    "en": "My sister studies medicine at the university.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma sœur\",\"t\":\"my sister\"},{\"w\":\"étudie la médecine\",\"t\":\"studies medicine\"},{\"w\":\"à l'université.\",\"t\":\"at the university\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.196",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Mes grands-parents vivent dans une petite maison.",
+    "en": "My grandparents live in a small house.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mes grands-parents\",\"t\":\"my grandparents\"},{\"w\":\"vivent\",\"t\":\"live\"},{\"w\":\"dans une petite maison.\",\"t\":\"in a small house\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.197",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Mon oncle conduit un vieux camion rouge.",
+    "en": "My uncle drives an old red truck.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon oncle\",\"t\":\"my uncle\"},{\"w\":\"conduit\",\"t\":\"drives\"},{\"w\":\"un vieux camion rouge.\",\"t\":\"an old red truck\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.198",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Ma tante achète des fleurs pour l'anniversaire.",
+    "en": "My aunt buys flowers for the birthday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma tante\",\"t\":\"my aunt\"},{\"w\":\"achète des fleurs\",\"t\":\"buys flowers\"},{\"w\":\"pour l'anniversaire.\",\"t\":\"for the birthday\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.199",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Mon cousin joue au football avec ses amis.",
+    "en": "My cousin plays soccer with his friends.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon cousin\",\"t\":\"my cousin\"},{\"w\":\"joue au football\",\"t\":\"plays soccer\"},{\"w\":\"avec ses amis.\",\"t\":\"with his friends\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.200",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Ma cousine adore les animaux et les enfants.",
+    "en": "My cousin loves animals and children.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma cousine\",\"t\":\"my cousin\"},{\"w\":\"adore\",\"t\":\"loves\"},{\"w\":\"les animaux et les enfants.\",\"t\":\"animals and children\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.201",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le mari de ma sœur est un bon cuisinier.",
+    "en": "My sister's husband is a good cook.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le mari de ma sœur\",\"t\":\"my sister's husband\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"un bon cuisinier.\",\"t\":\"a good cook\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.202",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'employé arrive au bureau à huit heures.",
+    "en": "The employee arrives at the office at eight o'clock.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'employé\",\"t\":\"the employee\"},{\"w\":\"arrive au bureau\",\"t\":\"arrives at the office\"},{\"w\":\"à huit heures.\",\"t\":\"at eight o'clock\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.203",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La directrice organise une réunion importante.",
+    "en": "The director organizes an important meeting.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La directrice\",\"t\":\"the director\"},{\"w\":\"organise\",\"t\":\"organizes\"},{\"w\":\"une réunion importante.\",\"t\":\"an important meeting\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.204",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Les élèves écoutent le professeur avec attention.",
+    "en": "The students listen to the teacher attentively.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les élèves\",\"t\":\"the students\"},{\"w\":\"écoutent le professeur\",\"t\":\"listen to the teacher\"},{\"w\":\"avec attention.\",\"t\":\"attentively\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.205",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'étudiant range ses livres dans son sac.",
+    "en": "The student puts his books in his bag.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'étudiant\",\"t\":\"the student\"},{\"w\":\"range ses livres\",\"t\":\"puts away his books\"},{\"w\":\"dans son sac.\",\"t\":\"in his bag\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.206",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le patron signe le contrat avant midi.",
+    "en": "The boss signs the contract before noon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le patron\",\"t\":\"the boss\"},{\"w\":\"signe le contrat\",\"t\":\"signs the contract\"},{\"w\":\"avant midi.\",\"t\":\"before noon\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.207",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La secrétaire répond au téléphone toute la journée.",
+    "en": "The secretary answers the phone all day.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La secrétaire\",\"t\":\"the secretary\"},{\"w\":\"répond au téléphone\",\"t\":\"answers the phone\"},{\"w\":\"toute la journée.\",\"t\":\"all day\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.208",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le collègue partage son ordinateur avec moi.",
+    "en": "My colleague shares his computer with me.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le collègue\",\"t\":\"the colleague\"},{\"w\":\"partage son ordinateur\",\"t\":\"shares his computer\"},{\"w\":\"avec moi.\",\"t\":\"with me\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.209",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'école ouvre ses portes à sept heures et demie.",
+    "en": "The school opens its doors at half past seven.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'école\",\"t\":\"the school\"},{\"w\":\"ouvre ses portes\",\"t\":\"opens its doors\"},{\"w\":\"à sept heures et demie.\",\"t\":\"at half past seven\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.210",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La salle de classe est grande et lumineuse.",
+    "en": "The classroom is big and bright.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La salle de classe\",\"t\":\"the classroom\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"grande et lumineuse.\",\"t\":\"big and bright\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.211",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le stagiaire apprend un nouveau métier chaque semaine.",
+    "en": "The intern learns a new skill every week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le stagiaire\",\"t\":\"the intern\"},{\"w\":\"apprend un nouveau métier\",\"t\":\"learns a new skill\"},{\"w\":\"chaque semaine.\",\"t\":\"every week\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.212",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La ville compte plusieurs quartiers historiques.",
+    "en": "The city has several historic neighborhoods.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La ville\",\"t\":\"the city\"},{\"w\":\"compte\",\"t\":\"has\"},{\"w\":\"plusieurs quartiers historiques.\",\"t\":\"several historic neighborhoods\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.213",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le marché du centre-ville vend des légumes frais.",
+    "en": "The downtown market sells fresh vegetables.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le marché du centre-ville\",\"t\":\"the downtown market\"},{\"w\":\"vend\",\"t\":\"sells\"},{\"w\":\"des légumes frais.\",\"t\":\"fresh vegetables\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.214",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La place principale attire beaucoup de touristes.",
+    "en": "The main square attracts many tourists.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La place principale\",\"t\":\"the main square\"},{\"w\":\"attire\",\"t\":\"attracts\"},{\"w\":\"beaucoup de touristes.\",\"t\":\"many tourists\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.215",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le quartier près du fleuve est très calme.",
+    "en": "The neighborhood near the river is very quiet.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le quartier près du fleuve\",\"t\":\"the neighborhood near the river\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"très calme.\",\"t\":\"very quiet\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.216",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'hôtel de ville se trouve devant la fontaine.",
+    "en": "City hall is located in front of the fountain.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'hôtel de ville\",\"t\":\"city hall\"},{\"w\":\"se trouve\",\"t\":\"is located\"},{\"w\":\"devant la fontaine.\",\"t\":\"in front of the fountain\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.217",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La bibliothèque municipale reste ouverte le samedi.",
+    "en": "The public library stays open on Saturdays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La bibliothèque municipale\",\"t\":\"the public library\"},{\"w\":\"reste ouverte\",\"t\":\"stays open\"},{\"w\":\"le samedi.\",\"t\":\"on Saturdays\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.218",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le parc public accueille des familles chaque dimanche.",
+    "en": "The public park welcomes families every Sunday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le parc public\",\"t\":\"the public park\"},{\"w\":\"accueille des familles\",\"t\":\"welcomes families\"},{\"w\":\"chaque dimanche.\",\"t\":\"every Sunday\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.219",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La rue commerçante propose de nombreuses boutiques.",
+    "en": "The shopping street offers many boutiques.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La rue commerçante\",\"t\":\"the shopping street\"},{\"w\":\"propose\",\"t\":\"offers\"},{\"w\":\"de nombreuses boutiques.\",\"t\":\"many boutiques\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.220",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le pont relie les deux rives de la rivière.",
+    "en": "The bridge connects the two riverbanks.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le pont\",\"t\":\"the bridge\"},{\"w\":\"relie les deux rives\",\"t\":\"connects the two banks\"},{\"w\":\"de la rivière.\",\"t\":\"of the river\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.221",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le musée expose des œuvres d'art anciennes.",
+    "en": "The museum displays old works of art.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le musée\",\"t\":\"the museum\"},{\"w\":\"expose\",\"t\":\"displays\"},{\"w\":\"des œuvres d'art anciennes.\",\"t\":\"old works of art\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.222",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le pain frais sent bon le matin.",
+    "en": "The fresh bread smells good in the morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le pain frais\",\"t\":\"the fresh bread\"},{\"w\":\"sent bon\",\"t\":\"smells good\"},{\"w\":\"le matin.\",\"t\":\"in the morning\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.223",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le fromage français plaît à tous les invités.",
+    "en": "The French cheese pleases all the guests.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le fromage français\",\"t\":\"the French cheese\"},{\"w\":\"plaît\",\"t\":\"pleases\"},{\"w\":\"à tous les invités.\",\"t\":\"all the guests\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.224",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La viande cuit lentement dans la casserole.",
+    "en": "The meat cooks slowly in the pot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La viande\",\"t\":\"the meat\"},{\"w\":\"cuit lentement\",\"t\":\"cooks slowly\"},{\"w\":\"dans la casserole.\",\"t\":\"in the pot\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.225",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le poisson arrive frais du marché chaque jeudi.",
+    "en": "The fish arrives fresh from the market every Thursday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le poisson\",\"t\":\"the fish\"},{\"w\":\"arrive frais du marché\",\"t\":\"arrives fresh from the market\"},{\"w\":\"chaque jeudi.\",\"t\":\"every Thursday\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.226",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La soupe chaude réchauffe toute la famille.",
+    "en": "The hot soup warms the whole family.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La soupe chaude\",\"t\":\"the hot soup\"},{\"w\":\"réchauffe\",\"t\":\"warms\"},{\"w\":\"toute la famille.\",\"t\":\"the whole family\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.227",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le café du matin réveille mon collègue.",
+    "en": "The morning coffee wakes up my colleague.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le café du matin\",\"t\":\"the morning coffee\"},{\"w\":\"réveille\",\"t\":\"wakes up\"},{\"w\":\"mon collègue.\",\"t\":\"my colleague\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.228",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le vin rouge accompagne bien le repas.",
+    "en": "The red wine goes well with the meal.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vin rouge\",\"t\":\"the red wine\"},{\"w\":\"accompagne bien\",\"t\":\"goes well with\"},{\"w\":\"le repas.\",\"t\":\"the meal\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.229",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La salade verte contient des tomates et du concombre.",
+    "en": "The green salad contains tomatoes and cucumber.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La salade verte\",\"t\":\"the green salad\"},{\"w\":\"contient\",\"t\":\"contains\"},{\"w\":\"des tomates et du concombre.\",\"t\":\"tomatoes and cucumber\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.230",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le gâteau au chocolat plaît aux enfants.",
+    "en": "The chocolate cake pleases the children.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le gâteau au chocolat\",\"t\":\"the chocolate cake\"},{\"w\":\"plaît\",\"t\":\"pleases\"},{\"w\":\"aux enfants.\",\"t\":\"the children\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.231",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'eau minérale reste toujours dans le réfrigérateur.",
+    "en": "The mineral water always stays in the fridge.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'eau minérale\",\"t\":\"the mineral water\"},{\"w\":\"reste toujours\",\"t\":\"always stays\"},{\"w\":\"dans le réfrigérateur.\",\"t\":\"in the fridge\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.232",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le train part de la gare à midi.",
+    "en": "The train leaves the station at noon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le train\",\"t\":\"the train\"},{\"w\":\"part de la gare\",\"t\":\"leaves the station\"},{\"w\":\"à midi.\",\"t\":\"at noon\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.233",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La voiture rouge est garée devant l'immeuble.",
+    "en": "The red car is parked in front of the building.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La voiture rouge\",\"t\":\"the red car\"},{\"w\":\"est garée\",\"t\":\"is parked\"},{\"w\":\"devant l'immeuble.\",\"t\":\"in front of the building\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.234",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le bus arrive en retard presque chaque jour.",
+    "en": "The bus arrives late almost every day.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le bus\",\"t\":\"the bus\"},{\"w\":\"arrive en retard\",\"t\":\"arrives late\"},{\"w\":\"presque chaque jour.\",\"t\":\"almost every day\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.235",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le vélo de mon fils est cassé.",
+    "en": "My son's bike is broken.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vélo de mon fils\",\"t\":\"my son's bike\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"cassé.\",\"t\":\"broken\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.236",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'avion décolle de l'aéroport à minuit.",
+    "en": "The plane takes off from the airport at midnight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'avion\",\"t\":\"the plane\"},{\"w\":\"décolle de l'aéroport\",\"t\":\"takes off from the airport\"},{\"w\":\"à minuit.\",\"t\":\"at midnight\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.237",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le métro traverse toute la ville rapidement.",
+    "en": "The subway crosses the whole city quickly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le métro\",\"t\":\"the subway\"},{\"w\":\"traverse toute la ville\",\"t\":\"crosses the whole city\"},{\"w\":\"rapidement.\",\"t\":\"quickly\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.238",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le taxi attend devant l'hôtel depuis une heure.",
+    "en": "The taxi has been waiting in front of the hotel for an hour.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le taxi\",\"t\":\"the taxi\"},{\"w\":\"attend devant l'hôtel\",\"t\":\"has been waiting in front of the hotel\"},{\"w\":\"depuis une heure.\",\"t\":\"for an hour\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.239",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La route principale mène directement au centre-ville.",
+    "en": "The main road leads directly downtown.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La route principale\",\"t\":\"the main road\"},{\"w\":\"mène directement\",\"t\":\"leads directly\"},{\"w\":\"au centre-ville.\",\"t\":\"downtown\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.240",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le camion transporte des meubles jusqu'à Paris.",
+    "en": "The truck transports furniture to Paris.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le camion\",\"t\":\"the truck\"},{\"w\":\"transporte des meubles\",\"t\":\"transports furniture\"},{\"w\":\"jusqu'à Paris.\",\"t\":\"to Paris\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.241",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le bateau quitte le port tôt le matin.",
+    "en": "The boat leaves the harbor early in the morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le bateau\",\"t\":\"the boat\"},{\"w\":\"quitte le port\",\"t\":\"leaves the harbor\"},{\"w\":\"tôt le matin.\",\"t\":\"early in the morning\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.242",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La maison de mes parents a un grand jardin.",
+    "en": "My parents' house has a big garden.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La maison de mes parents\",\"t\":\"my parents' house\"},{\"w\":\"a\",\"t\":\"has\"},{\"w\":\"un grand jardin.\",\"t\":\"a big garden\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.243",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'appartement se trouve au troisième étage.",
+    "en": "The apartment is on the third floor.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'appartement\",\"t\":\"the apartment\"},{\"w\":\"se trouve\",\"t\":\"is located\"},{\"w\":\"au troisième étage.\",\"t\":\"on the third floor\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.244",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La cuisine est équipée d'un four moderne.",
+    "en": "The kitchen is equipped with a modern oven.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La cuisine\",\"t\":\"the kitchen\"},{\"w\":\"est équipée\",\"t\":\"is equipped\"},{\"w\":\"d'un four moderne.\",\"t\":\"with a modern oven\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.245",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le salon accueille toute la famille le soir.",
+    "en": "The living room welcomes the whole family in the evening.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le salon\",\"t\":\"the living room\"},{\"w\":\"accueille toute la famille\",\"t\":\"welcomes the whole family\"},{\"w\":\"le soir.\",\"t\":\"in the evening\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.246",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La chambre de mon fils reste toujours rangée.",
+    "en": "My son's room always stays tidy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La chambre de mon fils\",\"t\":\"my son's room\"},{\"w\":\"reste toujours\",\"t\":\"always stays\"},{\"w\":\"rangée.\",\"t\":\"tidy\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.247",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La salle de bain a besoin d'une nouvelle douche.",
+    "en": "The bathroom needs a new shower.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La salle de bain\",\"t\":\"the bathroom\"},{\"w\":\"a besoin\",\"t\":\"needs\"},{\"w\":\"d'une nouvelle douche.\",\"t\":\"a new shower\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.248",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le jardin fleurit magnifiquement chaque printemps.",
+    "en": "The garden blooms beautifully every spring.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le jardin\",\"t\":\"the garden\"},{\"w\":\"fleurit magnifiquement\",\"t\":\"blooms beautifully\"},{\"w\":\"chaque printemps.\",\"t\":\"every spring\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.249",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La porte d'entrée reste fermée à clé.",
+    "en": "The front door stays locked.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La porte d'entrée\",\"t\":\"the front door\"},{\"w\":\"reste fermée\",\"t\":\"stays locked\"},{\"w\":\"à clé.\",\"t\":\"with a key\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.250",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La fenêtre du salon donne sur la rue.",
+    "en": "The living room window overlooks the street.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La fenêtre du salon\",\"t\":\"the living room window\"},{\"w\":\"donne\",\"t\":\"overlooks\"},{\"w\":\"sur la rue.\",\"t\":\"the street\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.251",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le toit de la maison a besoin de réparation.",
+    "en": "The house roof needs repair.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le toit de la maison\",\"t\":\"the house roof\"},{\"w\":\"a besoin\",\"t\":\"needs\"},{\"w\":\"de réparation.\",\"t\":\"repair\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.252",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Ma tête me fait mal depuis ce matin.",
+    "en": "My head has hurt since this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma tête\",\"t\":\"my head\"},{\"w\":\"me fait mal\",\"t\":\"hurts\"},{\"w\":\"depuis ce matin.\",\"t\":\"since this morning\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.253",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Ses yeux sont d'un bleu très clair.",
+    "en": "His eyes are a very light blue.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ses yeux\",\"t\":\"his eyes\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"d'un bleu très clair.\",\"t\":\"a very light blue\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.254",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La main de l'enfant est toute froide.",
+    "en": "The child's hand is completely cold.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La main de l'enfant\",\"t\":\"the child's hand\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"toute froide.\",\"t\":\"completely cold\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.255",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le dos de mon père le fait souffrir.",
+    "en": "My father's back hurts him.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le dos de mon père\",\"t\":\"my father's back\"},{\"w\":\"le fait\",\"t\":\"makes him\"},{\"w\":\"souffrir.\",\"t\":\"suffer\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.256",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le cœur bat plus vite après la course.",
+    "en": "The heart beats faster after the run.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le cœur\",\"t\":\"the heart\"},{\"w\":\"bat plus vite\",\"t\":\"beats faster\"},{\"w\":\"après la course.\",\"t\":\"after the run\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.257",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le bras cassé guérit lentement chaque semaine.",
+    "en": "The broken arm heals slowly every week.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le bras cassé\",\"t\":\"the broken arm\"},{\"w\":\"guérit lentement\",\"t\":\"heals slowly\"},{\"w\":\"chaque semaine.\",\"t\":\"every week\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.258",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La bouche du bébé sourit tout le temps.",
+    "en": "The baby's mouth smiles all the time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La bouche du bébé\",\"t\":\"the baby's mouth\"},{\"w\":\"sourit\",\"t\":\"smiles\"},{\"w\":\"tout le temps.\",\"t\":\"all the time\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.259",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le genou de l'athlète est encore fragile.",
+    "en": "The athlete's knee is still fragile.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le genou de l'athlète\",\"t\":\"the athlete's knee\"},{\"w\":\"est encore\",\"t\":\"is still\"},{\"w\":\"fragile.\",\"t\":\"fragile\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.260",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Les cheveux de ma sœur sont très longs.",
+    "en": "My sister's hair is very long.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les cheveux de ma sœur\",\"t\":\"my sister's hair\"},{\"w\":\"sont\",\"t\":\"are\"},{\"w\":\"très longs.\",\"t\":\"very long\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.261",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La peau du visage rougit sous le soleil.",
+    "en": "The skin of the face turns red in the sun.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La peau du visage\",\"t\":\"the skin of the face\"},{\"w\":\"rougit\",\"t\":\"turns red\"},{\"w\":\"sous le soleil.\",\"t\":\"in the sun\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.262",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'heure du déjeuner approche déjà.",
+    "en": "Lunchtime is already approaching.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'heure du déjeuner\",\"t\":\"lunchtime\"},{\"w\":\"approche\",\"t\":\"is approaching\"},{\"w\":\"déjà.\",\"t\":\"already\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.263",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La semaine prochaine sera très chargée.",
+    "en": "Next week will be very busy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La semaine prochaine\",\"t\":\"next week\"},{\"w\":\"sera\",\"t\":\"will be\"},{\"w\":\"très chargée.\",\"t\":\"very busy\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.264",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le week-end passe toujours trop vite.",
+    "en": "The weekend always goes by too fast.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le week-end\",\"t\":\"the weekend\"},{\"w\":\"passe toujours\",\"t\":\"always goes by\"},{\"w\":\"trop vite.\",\"t\":\"too fast\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.265",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le matin commence tôt chez nous.",
+    "en": "The morning starts early at our house.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le matin\",\"t\":\"the morning\"},{\"w\":\"commence tôt\",\"t\":\"starts early\"},{\"w\":\"chez nous.\",\"t\":\"at our house\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.266",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La soirée se termine tard le vendredi.",
+    "en": "The evening ends late on Fridays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La soirée\",\"t\":\"the evening\"},{\"w\":\"se termine tard\",\"t\":\"ends late\"},{\"w\":\"le vendredi.\",\"t\":\"on Fridays\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.267",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le mois d'août reste toujours très chaud.",
+    "en": "The month of August always stays very hot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le mois d'août\",\"t\":\"the month of August\"},{\"w\":\"reste toujours\",\"t\":\"always stays\"},{\"w\":\"très chaud.\",\"t\":\"very hot\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.268",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'année dernière a été difficile pour l'entreprise.",
+    "en": "Last year was difficult for the company.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'année dernière\",\"t\":\"last year\"},{\"w\":\"a été difficile\",\"t\":\"was difficult\"},{\"w\":\"pour l'entreprise.\",\"t\":\"for the company\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.269",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La minute suivante change souvent tout le plan.",
+    "en": "The next minute often changes the whole plan.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La minute suivante\",\"t\":\"the next minute\"},{\"w\":\"change souvent\",\"t\":\"often changes\"},{\"w\":\"tout le plan.\",\"t\":\"the whole plan\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.270",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le jour de congé arrive enfin demain.",
+    "en": "The day off finally arrives tomorrow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le jour de congé\",\"t\":\"the day off\"},{\"w\":\"arrive enfin\",\"t\":\"finally arrives\"},{\"w\":\"demain.\",\"t\":\"tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.271",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La nuit tombe tôt en hiver.",
+    "en": "Night falls early in winter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La nuit\",\"t\":\"night\"},{\"w\":\"tombe tôt\",\"t\":\"falls early\"},{\"w\":\"en hiver.\",\"t\":\"in winter\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.272",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'argent du loyer part chaque premier du mois.",
+    "en": "The rent money goes out on the first of every month.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'argent du loyer\",\"t\":\"the rent money\"},{\"w\":\"part\",\"t\":\"goes out\"},{\"w\":\"chaque premier du mois.\",\"t\":\"on the first of every month\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.273",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le salaire de cet employé augmente cette année.",
+    "en": "This employee's salary is increasing this year.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le salaire de cet employé\",\"t\":\"this employee's salary\"},{\"w\":\"augmente\",\"t\":\"is increasing\"},{\"w\":\"cette année.\",\"t\":\"this year\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.274",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La banque ferme ses portes à dix-sept heures.",
+    "en": "The bank closes its doors at five o'clock.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La banque\",\"t\":\"the bank\"},{\"w\":\"ferme ses portes\",\"t\":\"closes its doors\"},{\"w\":\"à dix-sept heures.\",\"t\":\"at five o'clock\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.275",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le prix du billet reste très raisonnable.",
+    "en": "The ticket price stays very reasonable.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le prix du billet\",\"t\":\"the ticket price\"},{\"w\":\"reste\",\"t\":\"stays\"},{\"w\":\"très raisonnable.\",\"t\":\"very reasonable\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.276",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La facture d'électricité arrive chaque mois.",
+    "en": "The electricity bill arrives every month.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La facture d'électricité\",\"t\":\"the electricity bill\"},{\"w\":\"arrive\",\"t\":\"arrives\"},{\"w\":\"chaque mois.\",\"t\":\"every month\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.277",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le portefeuille de mon frère est presque vide.",
+    "en": "My brother's wallet is almost empty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le portefeuille de mon frère\",\"t\":\"my brother's wallet\"},{\"w\":\"est\",\"t\":\"is\"},{\"w\":\"presque vide.\",\"t\":\"almost empty\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.278",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La monnaie tombe souvent au fond de la poche.",
+    "en": "Coins often fall to the bottom of the pocket.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La monnaie\",\"t\":\"coins\"},{\"w\":\"tombe souvent\",\"t\":\"often falls\"},{\"w\":\"au fond de la poche.\",\"t\":\"to the bottom of the pocket\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.279",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le budget de la famille reste très serré.",
+    "en": "The family budget stays very tight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le budget de la famille\",\"t\":\"the family budget\"},{\"w\":\"reste\",\"t\":\"stays\"},{\"w\":\"très serré.\",\"t\":\"very tight\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.280",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le compte en banque affiche un solde négatif.",
+    "en": "The bank account shows a negative balance.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le compte en banque\",\"t\":\"the bank account\"},{\"w\":\"affiche\",\"t\":\"shows\"},{\"w\":\"un solde négatif.\",\"t\":\"a negative balance\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.281",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La carte bancaire ne fonctionne plus depuis hier.",
+    "en": "The bank card has not worked since yesterday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La carte bancaire\",\"t\":\"the bank card\"},{\"w\":\"ne fonctionne plus\",\"t\":\"has not worked\"},{\"w\":\"depuis hier.\",\"t\":\"since yesterday\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.282",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le soleil brille fort cet après-midi.",
+    "en": "The sun is shining brightly this afternoon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le soleil\",\"t\":\"the sun\"},{\"w\":\"brille fort\",\"t\":\"is shining brightly\"},{\"w\":\"cet après-midi.\",\"t\":\"this afternoon\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.283",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La pluie tombe sans arrêt depuis hier soir.",
+    "en": "The rain has been falling nonstop since last night.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La pluie\",\"t\":\"the rain\"},{\"w\":\"tombe sans arrêt\",\"t\":\"has been falling nonstop\"},{\"w\":\"depuis hier soir.\",\"t\":\"since last night\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.284",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le vent souffle fort près de la côte.",
+    "en": "The wind blows hard near the coast.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vent\",\"t\":\"the wind\"},{\"w\":\"souffle fort\",\"t\":\"blows hard\"},{\"w\":\"près de la côte.\",\"t\":\"near the coast\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.285",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La neige couvre les montagnes en hiver.",
+    "en": "The snow covers the mountains in winter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La neige\",\"t\":\"the snow\"},{\"w\":\"couvre les montagnes\",\"t\":\"covers the mountains\"},{\"w\":\"en hiver.\",\"t\":\"in winter\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.286",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le ciel devient gris avant l'orage.",
+    "en": "The sky turns gray before the storm.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le ciel\",\"t\":\"the sky\"},{\"w\":\"devient gris\",\"t\":\"turns gray\"},{\"w\":\"avant l'orage.\",\"t\":\"before the storm\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.287",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le froid arrive plus tôt cette année.",
+    "en": "The cold is arriving earlier this year.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le froid\",\"t\":\"the cold\"},{\"w\":\"arrive plus tôt\",\"t\":\"is arriving earlier\"},{\"w\":\"cette année.\",\"t\":\"this year\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.288",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "La chaleur de l'été fatigue les enfants.",
+    "en": "The summer heat tires out the children.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La chaleur de l'été\",\"t\":\"the summer heat\"},{\"w\":\"fatigue\",\"t\":\"tires out\"},{\"w\":\"les enfants.\",\"t\":\"the children\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.289",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le nuage cache le soleil un instant.",
+    "en": "The cloud hides the sun for a moment.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le nuage\",\"t\":\"the cloud\"},{\"w\":\"cache le soleil\",\"t\":\"hides the sun\"},{\"w\":\"un instant.\",\"t\":\"for a moment\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.290",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "L'orage a réveillé toute la ville cette nuit.",
+    "en": "The storm woke up the whole city tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'orage\",\"t\":\"the storm\"},{\"w\":\"a réveillé toute la ville\",\"t\":\"woke up the whole city\"},{\"w\":\"cette nuit.\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.noms-essentiels.291",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "noms-essentiels",
+    "fr": "Le brouillard rend la route dangereuse ce matin.",
+    "en": "The fog makes the road dangerous this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le brouillard\",\"t\":\"the fog\"},{\"w\":\"rend la route dangereuse\",\"t\":\"makes the road dangerous\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  }
+]

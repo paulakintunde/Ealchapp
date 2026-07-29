@@ -1,0 +1,1897 @@
+{
+  "level": "sons",
+  "theme": "voyelles",
+  "count": 90,
+  "items": [
+    {
+      "id": "fr.sons.voyelles.361",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu bois du jus.",
+      "en": "You are drinking juice.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty bwa dy ʒy"
+    },
+    {
+      "id": "fr.sons.voyelles.362",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Nous roulons vers Toulouse.",
+      "en": "We are driving toward Toulouse.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu ʁu.lɔ̃ vɛʁ tu.luz"
+    },
+    {
+      "id": "fr.sons.voyelles.363",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "La roue tourne vite.",
+      "en": "The wheel turns fast.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la ʁu tuʁn vit"
+    },
+    {
+      "id": "fr.sons.voyelles.364",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu as tout vu.",
+      "en": "You saw everything.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty a tu vy"
+    },
+    {
+      "id": "fr.sons.voyelles.365",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le loup court partout.",
+      "en": "The wolf runs everywhere.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə lu kuʁ paʁ.tu"
+    },
+    {
+      "id": "fr.sons.voyelles.366",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu goûtes la soupe?",
+      "en": "Are you tasting the soup?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty gut la sup"
+    },
+    {
+      "id": "fr.sons.voyelles.367",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Vous avez du sucre?",
+      "en": "Do you have sugar?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿a.ve dy sykʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.368",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "La poule est douce.",
+      "en": "The hen is gentle.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la pul ɛ dus"
+    },
+    {
+      "id": "fr.sons.voyelles.369",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu cherches la rue Dubois?",
+      "en": "Are you looking for Dubois Street?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty ʃɛʁʃ la ʁy dy.bwa"
+    },
+    {
+      "id": "fr.sons.voyelles.370",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Nous buvons du jus frais.",
+      "en": "We are drinking fresh juice.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu by.vɔ̃ dy ʒy fʁɛ"
+    },
+    {
+      "id": "fr.sons.voyelles.371",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu as vu la lune?",
+      "en": "Did you see the moon?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty a vy la lyn"
+    },
+    {
+      "id": "fr.sons.voyelles.372",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Vous voulez du vin rouge?",
+      "en": "Would you like some red wine?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu vu.le dy vɛ̃ ʁuʒ"
+    },
+    {
+      "id": "fr.sons.voyelles.373",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le nuage passe sur nous.",
+      "en": "The cloud passes over us.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə nɥaʒ pas syʁ nu"
+    },
+    {
+      "id": "fr.sons.voyelles.374",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Il ouvre la lourde porte.",
+      "en": "He opens the heavy door.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il uvʁ la luʁd pɔʁt"
+    },
+    {
+      "id": "fr.sons.voyelles.375",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tout le monde aime Lucie.",
+      "en": "Everyone loves Lucie.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tu lə mɔ̃d ɛm ly.si"
+    },
+    {
+      "id": "fr.sons.voyelles.376",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu coupes le pain dur.",
+      "en": "You are cutting the hard bread.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty kup lə pɛ̃ dyʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.377",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le bus roule sur la route.",
+      "en": "The bus drives on the road.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə bys ʁul syʁ la ʁut"
+    },
+    {
+      "id": "fr.sons.voyelles.378",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Julie écoute de la musique douce.",
+      "en": "Julie listens to soft music.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒy.li e.kut də la my.zik dus"
+    },
+    {
+      "id": "fr.sons.voyelles.379",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu laves la voiture bleue aujourd'hui?",
+      "en": "Are you washing the blue car today?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty lav la vwa.tyʁ blø o.ʒuʁ.dɥi"
+    },
+    {
+      "id": "fr.sons.voyelles.380",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "La tortue avance sur la pelouse.",
+      "en": "The turtle moves forward on the lawn.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la tɔʁ.ty a.vɑ̃s syʁ la pə.luz"
+    },
+    {
+      "id": "fr.sons.voyelles.381",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Vous trouvez la lecture trop dure?",
+      "en": "Do you find the reading too hard?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu tʁu.ve la lɛk.tyʁ tʁo dyʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.382",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Il y a du sable partout.",
+      "en": "There is sand everywhere.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "i.li.a dy sabl paʁ.tu"
+    },
+    {
+      "id": "fr.sons.voyelles.383",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Ma nounou habite rue du Four.",
+      "en": "My nanny lives on rue du Four.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma nu.nu a.bit ʁy dy fuʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.384",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le hibou dort sur le mur.",
+      "en": "The owl sleeps on the wall.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə i.bu dɔʁ syʁ lə myʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.385",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Nous jouons aux boules sous les arbres.",
+      "en": "We play boules under the trees.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu ʒu.ɔ̃ o bul su le.z‿aʁbʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.386",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu mets du beurre sur tout, toujours.",
+      "en": "You put butter on everything, always.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty mɛ dy bœʁ syʁ tu tu.ʒuʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.387",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Lucas trouve toujours une très bonne excuse.",
+      "en": "Lucas always finds a very good excuse.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ly.ka tʁuv tu.ʒuʁ yn tʁɛ bɔn ɛks.kyz"
+    },
+    {
+      "id": "fr.sons.voyelles.388",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Vous coupez le poulet pour le dîner?",
+      "en": "Are you cutting the chicken for dinner?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu ku.pe lə pu.lɛ puʁ lə di.ne"
+    },
+    {
+      "id": "fr.sons.voyelles.389",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "La douche est au bout du couloir.",
+      "en": "The shower is at the end of the hallway.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la duʃ ɛ.t‿o bu dy ku.lwaʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.390",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu tournes à gauche après le musée.",
+      "en": "You turn left after the museum.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty tuʁn a goʃ a.pʁɛ lə my.ze"
+    },
+    {
+      "id": "fr.sons.voyelles.391",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Nous rentrons du cours de couture ensemble.",
+      "en": "We come home from sewing class together.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu ʁɑ̃.tʁɔ̃ dy kuʁ də ku.tyʁ ɑ̃.sɑ̃bl"
+    },
+    {
+      "id": "fr.sons.voyelles.392",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu aimes la couleur pourpre du mur?",
+      "en": "Do you like the purple color of the wall?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty ɛm la ku.lœʁ puʁpʁ dy myʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.393",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu veux une soupe ou du poulet rôti?",
+      "en": "Do you want soup or roast chicken?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty vø yn sup u dy pu.lɛ ʁo.ti"
+    },
+    {
+      "id": "fr.sons.voyelles.394",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Nous cherchons une jupe rouge pour ma cousine.",
+      "en": "We are looking for a red skirt for my cousin.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu ʃɛʁ.ʃɔ̃ yn ʒyp ʁuʒ puʁ ma ku.zin"
+    },
+    {
+      "id": "fr.sons.voyelles.395",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le journal du jour est sur le bureau.",
+      "en": "Today's newspaper is on the desk.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ʒuʁ.nal dy ʒuʁ ɛ syʁ lə by.ʁo"
+    },
+    {
+      "id": "fr.sons.voyelles.396",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu ajoutes du poivre moulu dans la sauce?",
+      "en": "Are you adding ground pepper to the sauce?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty a.ʒut dy pwavʁ mu.ly dɑ̃ la sos"
+    },
+    {
+      "id": "fr.sons.voyelles.397",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Vous poussez la brouette au fond du jardin.",
+      "en": "You push the wheelbarrow to the back of the garden.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu pu.se la bʁu.ɛt o fɔ̃ dy ʒaʁ.dɛ̃"
+    },
+    {
+      "id": "fr.sons.voyelles.398",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Ma fille joue du violon tous les jours.",
+      "en": "My daughter plays the violin every day.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma fij ʒu dy vjɔ.lɔ̃ tu le ʒuʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.399",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le chou est moins cher que la laitue.",
+      "en": "Cabbage is cheaper than lettuce.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ʃu ɛ mwɛ̃ ʃɛʁ kə la lɛ.ty"
+    },
+    {
+      "id": "fr.sons.voyelles.400",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Nous avons vu une tortue dans la cour hier.",
+      "en": "We saw a turtle in the courtyard yesterday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿a.vɔ̃ vy yn tɔʁ.ty dɑ̃ la kuʁ jɛʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.401",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le couturier ajoute un bouton rouge sur la blouse.",
+      "en": "The tailor adds a red button to the blouse.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ku.ty.ʁje a.ʒut œ̃ bu.tɔ̃ ʁuʒ syʁ la bluz"
+    },
+    {
+      "id": "fr.sons.voyelles.402",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu tournes la page et tu continues la lecture.",
+      "en": "You turn the page and you keep reading.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty tuʁn la paʒ e ty kɔ̃.ti.ny la lɛk.tyʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.403",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Mon voisin joue de la flûte sur son balcon.",
+      "en": "My neighbor plays the flute on his balcony.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ vwa.zɛ̃ ʒu də la flyt syʁ sɔ̃ bal.kɔ̃"
+    },
+    {
+      "id": "fr.sons.voyelles.404",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "La souris court sous la table de la cuisine.",
+      "en": "The mouse runs under the kitchen table.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la su.ʁi kuʁ su la tabl də la kɥi.zin"
+    },
+    {
+      "id": "fr.sons.voyelles.405",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Nous poussons la voiture jusqu'au bout de la rue.",
+      "en": "We push the car to the end of the street.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu pu.sɔ̃ la vwa.tyʁ ʒys.ko bu də la ʁy"
+    },
+    {
+      "id": "fr.sons.voyelles.406",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Chaque jour, tu bois une tasse de tisane douce.",
+      "en": "Every day, you drink a cup of mild herbal tea.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʃak ʒuʁ ty bwa yn tas də ti.zan dus"
+    },
+    {
+      "id": "fr.sons.voyelles.407",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu prends le bus ou tu marches sous la pluie?",
+      "en": "Do you take the bus or walk in the rain?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty pʁɑ̃ lə bys u ty maʁʃ su la plɥi"
+    },
+    {
+      "id": "fr.sons.voyelles.408",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Vous voulez du sucre ou du lait dans le café?",
+      "en": "Do you want sugar or milk in your coffee?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu vu.le dy sykʁ u dy lɛ dɑ̃ lə ka.fe"
+    },
+    {
+      "id": "fr.sons.voyelles.409",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Ma cousine coud une jolie jupe courte pour la fête.",
+      "en": "My cousin sews a pretty short skirt for the party.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma ku.zin ku yn ʒɔ.li ʒyp kuʁt puʁ la fɛt"
+    },
+    {
+      "id": "fr.sons.voyelles.410",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le matin, nous courons autour du parc près du fleuve.",
+      "en": "In the morning, we run around the park near the river.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ma.tɛ̃ nu ku.ʁɔ̃ o.tuʁ dy paʁk pʁɛ dy flœv"
+    },
+    {
+      "id": "fr.sons.voyelles.411",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Vous avez mis la fourchette au bout de la table?",
+      "en": "Did you put the fork at the end of the table?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿a.ve mi la fuʁ.ʃɛt o bu də la tabl"
+    },
+    {
+      "id": "fr.sons.voyelles.412",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Nous écoutons la nouvelle chanson du groupe sur la route.",
+      "en": "We listen to the band's new song on the road.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿e.ku.tɔ̃ la nu.vɛl ʃɑ̃.sɔ̃ dy gʁup syʁ la ʁut"
+    },
+    {
+      "id": "fr.sons.voyelles.413",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Il trouve un mouchoir tout doux au fond du tiroir.",
+      "en": "He finds a very soft handkerchief at the back of the drawer.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il tʁuv œ̃ mu.ʃwaʁ tu du o fɔ̃ dy ti.ʁwaʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.414",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le café est chaud.",
+      "en": "The coffee is hot.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ka.fe ɛ ʃo"
+    },
+    {
+      "id": "fr.sons.voyelles.415",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "L'eau reste très fraîche.",
+      "en": "The water stays very cool.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lo ʁɛst tʁɛ fʁɛʃ"
+    },
+    {
+      "id": "fr.sons.voyelles.416",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "J'adore mon vélo jaune.",
+      "en": "I love my yellow bike.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒa.dɔʁ mɔ̃ ve.lo ʒon"
+    },
+    {
+      "id": "fr.sons.voyelles.417",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le gâteau est prêt.",
+      "en": "The cake is ready.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ga.to ɛ pʁɛ"
+    },
+    {
+      "id": "fr.sons.voyelles.418",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Ce chapeau me plaît.",
+      "en": "I like this hat.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sə ʃa.po mə plɛ"
+    },
+    {
+      "id": "fr.sons.voyelles.419",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "La météo annonce l'orage.",
+      "en": "The forecast is calling for a storm.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la me.te.o a.nɔ̃s lɔ.ʁaʒ"
+    },
+    {
+      "id": "fr.sons.voyelles.420",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le bébé dort déjà.",
+      "en": "The baby is already asleep.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə be.be dɔʁ de.ʒa"
+    },
+    {
+      "id": "fr.sons.voyelles.421",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le métro arrive bientôt.",
+      "en": "The metro is coming soon.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə me.tʁo a.ʁiv bjɛ̃.to"
+    },
+    {
+      "id": "fr.sons.voyelles.422",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "J'achète des œufs au marché.",
+      "en": "I buy eggs at the market.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒa.ʃɛt de.z‿ø o maʁ.ʃe"
+    },
+    {
+      "id": "fr.sons.voyelles.423",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le repas est presque prêt.",
+      "en": "The meal is almost ready.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ʁə.pa ɛ pʁɛs.kə pʁɛ"
+    },
+    {
+      "id": "fr.sons.voyelles.424",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Elle préfère le thé léger.",
+      "en": "She prefers weak tea.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl pʁe.fɛʁ lə te le.ʒe"
+    },
+    {
+      "id": "fr.sons.voyelles.425",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le bureau ferme très tôt.",
+      "en": "The office closes very early.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə by.ʁo fɛʁm tʁɛ to"
+    },
+    {
+      "id": "fr.sons.voyelles.426",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Mon frère aime les gâteaux.",
+      "en": "My brother loves cakes.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ fʁɛʁ ɛm le ga.to"
+    },
+    {
+      "id": "fr.sons.voyelles.427",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Il fait beau cet été.",
+      "en": "The weather is nice this summer.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il fɛ bo sɛ.t‿e.te"
+    },
+    {
+      "id": "fr.sons.voyelles.428",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "La fenêtre reste fermée l'hiver.",
+      "en": "The window stays closed in winter.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la fə.nɛtʁ ʁɛst fɛʁ.me li.vɛʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.429",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "La pâtissière vend des éclairs.",
+      "en": "The pastry chef sells eclairs.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la pa.ti.sjɛʁ vɑ̃ de.z‿e.klɛʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.430",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Je mets de l'eau chaude aussi.",
+      "en": "I put in some hot water too.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə mɛ də lo ʃod o.si"
+    },
+    {
+      "id": "fr.sons.voyelles.431",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Mon père répète la même chose.",
+      "en": "My father repeats the same thing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ pɛʁ ʁe.pɛt la mɛm ʃoz"
+    },
+    {
+      "id": "fr.sons.voyelles.432",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Elle choisit un beau manteau jaune.",
+      "en": "She picks a nice yellow coat.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl ʃwa.zi œ̃ bo mɑ̃.to ʒon"
+    },
+    {
+      "id": "fr.sons.voyelles.433",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le musée ouvre après le déjeuner.",
+      "en": "The museum opens after lunch.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə my.ze uvʁ a.pʁɛ lə de.ʒœ.ne"
+    },
+    {
+      "id": "fr.sons.voyelles.434",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Tu prends le vélo ou l'auto ?",
+      "en": "Are you taking the bike or the car?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty pʁɑ̃ lə ve.lo u lo.to"
+    },
+    {
+      "id": "fr.sons.voyelles.435",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Je me lève très tôt lundi.",
+      "en": "I get up very early on Monday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə mə lɛv tʁɛ to lœ̃.di"
+    },
+    {
+      "id": "fr.sons.voyelles.436",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "La journée commence par un café.",
+      "en": "The day starts with a coffee.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la ʒuʁ.ne kɔ.mɑ̃s paʁ œ̃ ka.fe"
+    },
+    {
+      "id": "fr.sons.voyelles.437",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Il regarde la télé le soir.",
+      "en": "He watches TV in the evening.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il ʁə.gaʁd la te.le lə swaʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.438",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "J'espère qu'il fera très beau ce week-end.",
+      "en": "I hope the weather will be really nice this weekend.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒɛs.pɛʁ kil fə.ʁa tʁɛ bo sə wi.kɛnd"
+    },
+    {
+      "id": "fr.sons.voyelles.439",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Ma mère prépare une omelette aux légumes.",
+      "en": "My mother is making a vegetable omelet.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma mɛʁ pʁe.paʁ y.n‿ɔm.lɛt o le.gym"
+    },
+    {
+      "id": "fr.sons.voyelles.440",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Après l'école, il rentre à la maison.",
+      "en": "After school, he goes home.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a.pʁɛ le.kɔl il ʁɑ̃tʁ a la mɛ.zɔ̃"
+    },
+    {
+      "id": "fr.sons.voyelles.441",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Cet hôtel est près de la mer.",
+      "en": "This hotel is near the sea.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿o.tɛl ɛ pʁɛ də la mɛʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.442",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Elle se promène près du vieux château.",
+      "en": "She walks near the old castle.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl sə pʁɔ.mɛn pʁɛ dy vjø ʃa.to"
+    },
+    {
+      "id": "fr.sons.voyelles.443",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Je bois un chocolat chaud au café.",
+      "en": "I drink a hot chocolate at the cafe.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə bwa œ̃ ʃɔ.kɔ.la ʃo o ka.fe"
+    },
+    {
+      "id": "fr.sons.voyelles.444",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Je répète la leçon avant le test.",
+      "en": "I go over the lesson before the test.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə ʁe.pɛt la lə.sɔ̃ a.vɑ̃ lə tɛst"
+    },
+    {
+      "id": "fr.sons.voyelles.445",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "J'ai laissé mon téléphone sous le canapé.",
+      "en": "I left my phone under the couch.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe lɛ.se mɔ̃ te.le.fɔn su lə ka.na.pe"
+    },
+    {
+      "id": "fr.sons.voyelles.446",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le serveur apporte de l'eau et le dessert.",
+      "en": "The waiter brings water and the dessert.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə sɛʁ.vœʁ a.pɔʁt də lo e lə de.sɛʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.447",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Je me repose un petit peu cet après-midi.",
+      "en": "I am resting a little bit this afternoon.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə mə ʁə.poz œ̃ pə.ti pø sɛ.t‿a.pʁɛ.mi.di"
+    },
+    {
+      "id": "fr.sons.voyelles.448",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Elle met sa veste et ferme la porte.",
+      "en": "She puts on her jacket and closes the door.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl mɛ sa vɛst e fɛʁm la pɔʁt"
+    },
+    {
+      "id": "fr.sons.voyelles.449",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Nous mangeons des crêpes sucrées chez ma grand-mère.",
+      "en": "We eat sweet crepes at my grandmother's.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu mɑ̃.ʒɔ̃ de kʁɛp sy.kʁe ʃe ma gʁɑ̃.mɛʁ"
+    },
+    {
+      "id": "fr.sons.voyelles.450",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "voyelles",
+      "fr": "Le bébé se réveille avant sept heures aujourd'hui.",
+      "en": "The baby wakes up before seven today.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə be.be sə ʁe.vɛj a.vɑ̃ sɛ.t‿œʁ o.ʒuʁ.dɥi"
+    }
+  ]
+}

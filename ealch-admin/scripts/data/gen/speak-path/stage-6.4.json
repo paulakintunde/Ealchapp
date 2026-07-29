@@ -1,0 +1,1198 @@
+{
+  "stage": "6.4",
+  "world": 6,
+  "level": "c1",
+  "title": "La Bibliothèque Profonde",
+  "themes": [
+    "culture-profonde",
+    "methode-scientifique",
+    "decouvertes"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 165,
+  "dedupedPool": 165,
+  "selected": 165,
+  "blockCount": 5,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.c1.culture-profonde.124",
+          "theme": "culture-profonde",
+          "fr": "Je vois les choses autrement, je l'avoue.",
+          "en": "I see things differently, I admit.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.culture-profonde.063",
+          "theme": "culture-profonde",
+          "fr": "Son analyse du roman manque cruellement de nuance.",
+          "en": "His analysis of the novel sorely lacks nuance.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.culture-profonde.126",
+          "theme": "culture-profonde",
+          "fr": "Ce délai me semble, franchement, un peu optimiste.",
+          "en": "That timeline seems, frankly, a little optimistic to me.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.culture-profonde.064",
+          "theme": "culture-profonde",
+          "fr": "Cette idée mérite mieux que de simples ricanements.",
+          "en": "This idea deserves better than mere sneering.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.culture-profonde.066",
+          "theme": "culture-profonde",
+          "fr": "Franchement, sa conclusion me paraît un peu hâtive.",
+          "en": "Frankly, her conclusion strikes me as a little hasty.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.culture-profonde.071",
+          "theme": "culture-profonde",
+          "fr": "Derrière son scepticisme se cache une véritable exigence.",
+          "en": "Behind his skepticism lies a genuine standard of rigour.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.culture-profonde.010",
+          "theme": "culture-profonde",
+          "fr": "Son dernier roman déçoit, malgré une ouverture magnifique.",
+          "en": "His latest novel disappoints, despite a magnificent opening.",
+          "words": 8
+        },
+        {
+          "id": "fr.c1.culture-profonde.128",
+          "theme": "culture-profonde",
+          "fr": "Disons que je vois cela sous un autre angle.",
+          "en": "Let's say I see this from a different angle.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.culture-profonde.067",
+          "theme": "culture-profonde",
+          "fr": "Un pamphlet pareil brille plus qu'il ne pense.",
+          "en": "A pamphlet like that dazzles more than it thinks.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.culture-profonde.127",
+          "theme": "culture-profonde",
+          "fr": "Vous permettez que je joue l'avocat du diable?",
+          "en": "Do you mind if I play devil's advocate?",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.culture-profonde.125",
+          "theme": "culture-profonde",
+          "fr": "Permettez-moi d'être en désaccord sur ce point.",
+          "en": "Allow me to disagree on this point.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.culture-profonde.065",
+          "theme": "culture-profonde",
+          "fr": "Le beau style ne sauve pas un raisonnement bancal.",
+          "en": "Elegant style does not rescue a shaky argument.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.culture-profonde.028",
+          "theme": "culture-profonde",
+          "fr": "Rarement un essai m'aura autant obligé à réfléchir.",
+          "en": "Rarely has an essay forced me to think so much.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.culture-profonde.129",
+          "theme": "culture-profonde",
+          "fr": "Votre analyse est fine, mais incomplète à mon sens.",
+          "en": "Your analysis is sharp, but incomplete in my view.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.culture-profonde.017",
+          "theme": "culture-profonde",
+          "fr": "Certains chapitres traînent, mais la dernière partie rachète tout.",
+          "en": "Some chapters drag, but the final section redeems everything.",
+          "words": 9
+        },
+        {
+          "id": "fr.c1.culture-profonde.068",
+          "theme": "culture-profonde",
+          "fr": "La critique dont tu parles m'a paru profondément injuste.",
+          "en": "The review you are talking about struck me as deeply unfair.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.culture-profonde.070",
+          "theme": "culture-profonde",
+          "fr": "Toute critique digne de ce nom commence par l'admiration.",
+          "en": "Any criticism worthy of the name begins with admiration.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.culture-profonde.133",
+          "theme": "culture-profonde",
+          "fr": "Je vous avoue que ce montage financier me laisse perplexe.",
+          "en": "I'll admit that this financial structure leaves me puzzled.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.culture-profonde.075",
+          "theme": "culture-profonde",
+          "fr": "Je préfère les essais qui doutent aux traités qui assènent.",
+          "en": "I prefer essays that doubt to treatises that pronounce.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.culture-profonde.131",
+          "theme": "culture-profonde",
+          "fr": "Ton rapport est rigoureux, la conclusion mérite d'être étoffée.",
+          "en": "Your report is rigorous, but the conclusion deserves to be fleshed out.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.culture-profonde.034",
+          "theme": "culture-profonde",
+          "fr": "On devine, derrière la légèreté du ton, une mélancolie profonde.",
+          "en": "Behind the lightness of tone, you sense a deep melancholy.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.culture-profonde.020",
+          "theme": "culture-profonde",
+          "fr": "Je reprocherais au scénario une fin trop propre, trop rassurante.",
+          "en": "I would fault the screenplay for an ending that is too neat, too reassuring.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.culture-profonde.072",
+          "theme": "culture-profonde",
+          "fr": "Relisant ses chroniques, on mesure combien son jugement a vieilli.",
+          "en": "Rereading his columns, you can see how much his judgment has aged.",
+          "words": 10
+        },
+        {
+          "id": "fr.c1.culture-profonde.032",
+          "theme": "culture-profonde",
+          "fr": "Le jury a couronné un livre exigeant, ce qui devient rare.",
+          "en": "The jury crowned a demanding book, which is becoming rare.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.069",
+          "theme": "culture-profonde",
+          "fr": "Il confond, me semble-t-il, la provocation avec la pensée.",
+          "en": "He confuses, it seems to me, provocation with thought.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.134",
+          "theme": "culture-profonde",
+          "fr": "Je me permets de nuancer votre analyse sur ce point précis.",
+          "en": "If I may, I'd like to qualify your analysis on this specific point.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.047",
+          "theme": "culture-profonde",
+          "fr": "Je conseille de lire la préface après le roman, jamais avant.",
+          "en": "I recommend reading the preface after the novel, never before.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.077",
+          "theme": "culture-profonde",
+          "fr": "Il y a dans cette page une mauvaise foi presque réjouissante.",
+          "en": "There is in this page a bad faith that is almost delightful.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.076",
+          "theme": "culture-profonde",
+          "fr": "Ce colloque a produit plus de postures que d'idées, franchement.",
+          "en": "That conference produced more posturing than ideas, frankly.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.130",
+          "theme": "culture-profonde",
+          "fr": "Ce serait dommage d'écarter cette option sans l'étudier sérieusement.",
+          "en": "It would be a shame to dismiss that option without studying it seriously.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.160",
+          "theme": "culture-profonde",
+          "fr": "Entre nous, la version précédente du plan me semblait plus cohérente.",
+          "en": "Between us, the previous version of the plan seemed more coherent to me.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.033",
+          "theme": "culture-profonde",
+          "fr": "Cette adaptation trahit le roman, mais elle le trahit avec intelligence.",
+          "en": "This adaptation betrays the novel, but it betrays it intelligently.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.073",
+          "theme": "culture-profonde",
+          "fr": "Les grands textes résistent aux interprétations qu'on veut leur imposer.",
+          "en": "Great texts resist the interpretations we try to impose on them.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.c1.culture-profonde.043",
+          "theme": "culture-profonde",
+          "fr": "J'aimerais qu'on réédite ses premiers romans, introuvables depuis longtemps.",
+          "en": "I wish they would reissue his early novels, unavailable for a long time now.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.049",
+          "theme": "culture-profonde",
+          "fr": "Certains dialogues sonnent faux, ce qui gâche des scènes autrement superbes.",
+          "en": "Some dialogue rings false, which spoils otherwise superb scenes.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.074",
+          "theme": "culture-profonde",
+          "fr": "Le vrai courage intellectuel consiste parfois à changer d'avis publiquement.",
+          "en": "True intellectual courage sometimes means changing your mind in public.",
+          "words": 11
+        },
+        {
+          "id": "fr.c1.culture-profonde.153",
+          "theme": "culture-profonde",
+          "fr": "Je ne suis pas convaincu que ce fournisseur soit le bon choix.",
+          "en": "I'm not convinced that this supplier is the right choice.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.142",
+          "theme": "culture-profonde",
+          "fr": "Je vous rejoins sur le fond, la forme me pose davantage problème.",
+          "en": "I agree with you on the substance, it's the form that troubles me more.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.011",
+          "theme": "culture-profonde",
+          "fr": "L'actrice porte le film entier sur ses épaules, et quelles épaules.",
+          "en": "The actress carries the whole film on her shoulders, and what shoulders.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.013",
+          "theme": "culture-profonde",
+          "fr": "Je trouve que la traduction affadit le style nerveux de l'original.",
+          "en": "I find the translation dulls the nervous style of the original.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.040",
+          "theme": "culture-profonde",
+          "fr": "Le récit avance par fragments, ce qui déroute d'abord puis fascine.",
+          "en": "The story moves forward in fragments, which is disorienting at first, then fascinating.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.148",
+          "theme": "culture-profonde",
+          "fr": "Votre lecture du marché est fine, mais elle néglige un facteur clé.",
+          "en": "Your reading of the market is sharp, but it overlooks a key factor.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.149",
+          "theme": "culture-profonde",
+          "fr": "On gagnerait à revoir la structure du rapport avant de le diffuser.",
+          "en": "We would benefit from reworking the report's structure before circulating it.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.037",
+          "theme": "culture-profonde",
+          "fr": "Le plan final, tourné en une seule prise, restera dans les mémoires.",
+          "en": "The final shot, filmed in a single take, will be remembered.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.141",
+          "theme": "culture-profonde",
+          "fr": "La proposition a du mérite, encore faut-il valider les coûts cachés.",
+          "en": "The proposal has merit, but we still need to validate the hidden costs.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.144",
+          "theme": "culture-profonde",
+          "fr": "Je ne remets pas en cause ton engagement, plutôt la méthode retenue.",
+          "en": "I'm not questioning your commitment, rather the method you chose.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.154",
+          "theme": "culture-profonde",
+          "fr": "Notre désaccord porte sur les moyens, pas sur la finalité du projet.",
+          "en": "Our disagreement is about the means, not the project's end goal.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.042",
+          "theme": "culture-profonde",
+          "fr": "Le second rôle, tenu par un acteur débutant, vole presque la vedette.",
+          "en": "The supporting role, played by a first-time actor, almost steals the show.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.080",
+          "theme": "culture-profonde",
+          "fr": "Une idée reçue, répétée avec aplomb, finit par passer pour une évidence.",
+          "en": "A received idea, repeated with confidence, ends up passing for an obvious truth.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.139",
+          "theme": "culture-profonde",
+          "fr": "Franchement, je pense qu'on peut faire mieux sur le volet communication.",
+          "en": "Frankly, I think we can do better on the communications side.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.159",
+          "theme": "culture-profonde",
+          "fr": "Je crains que cette stratégie ne nous expose à des critiques justifiées.",
+          "en": "I'm afraid this strategy exposes us to justified criticism.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.081",
+          "theme": "culture-profonde",
+          "fr": "Cette revue défendait des positions dont plus personne n'ose se réclamer.",
+          "en": "That journal defended positions no one dares to claim as their own anymore.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.031",
+          "theme": "culture-profonde",
+          "fr": "Sa prose, dense sans être obscure, demande une lecture lente et attentive.",
+          "en": "His prose, dense without being obscure, calls for slow, attentive reading.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.057",
+          "theme": "culture-profonde",
+          "fr": "La romancière excelle à décrire ces moments minuscules où une vie bascule.",
+          "en": "The novelist excels at describing those tiny moments when a life tips over.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.100",
+          "theme": "culture-profonde",
+          "fr": "Tant discutée à l'époque, cette thèse semble aujourd'hui presque évidente.",
+          "en": "So hotly debated at the time, this thesis seems almost obvious today.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.132",
+          "theme": "culture-profonde",
+          "fr": "Peut-être devrions-nous consulter l'équipe des finances avant de trancher.",
+          "en": "Perhaps we should consult the finance team before making a call.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.136",
+          "theme": "culture-profonde",
+          "fr": "Permettez-moi d'apporter un éclairage un peu différent sur cette question.",
+          "en": "Let me offer a slightly different perspective on this question.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.026",
+          "theme": "culture-profonde",
+          "fr": "Je préfère ses nouvelles à ses romans, plus resserrées, plus cruelles aussi.",
+          "en": "I prefer her short stories to her novels, tighter, crueller too.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.151",
+          "theme": "culture-profonde",
+          "fr": "Je partage votre objectif, mais pas nécessairement le chemin pour y arriver.",
+          "en": "I share your goal, but not necessarily the path to get there.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.158",
+          "theme": "culture-profonde",
+          "fr": "Vos réserves sont légitimes, mais elles ne devraient pas paralyser la décision.",
+          "en": "Your reservations are legitimate, but they shouldn't paralyze the decision.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.078",
+          "theme": "culture-profonde",
+          "fr": "L'idée paraît banale au premier abord, mais ses conséquences sont vertigineuses.",
+          "en": "The idea seems banal at first glance, but its consequences are dizzying.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.045",
+          "theme": "culture-profonde",
+          "fr": "La scène d'ouverture, muette pendant cinq minutes, installe un malaise magistral.",
+          "en": "The opening scene, silent for five minutes, sets up a masterful sense of unease.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.147",
+          "theme": "culture-profonde",
+          "fr": "Je comprends votre position, cela dit, les chiffres racontent une autre histoire.",
+          "en": "I understand your position, that said, the numbers tell a different story.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.006",
+          "theme": "culture-profonde",
+          "fr": "Adapté d'un roman réputé inadaptable, le film tient pourtant remarquablement debout.",
+          "en": "Adapted from a novel considered unfilmable, the film nevertheless holds up remarkably well.",
+          "words": 12
+        },
+        {
+          "id": "fr.c1.culture-profonde.161",
+          "theme": "culture-profonde",
+          "fr": "Je m'inscris en faux contre l'idée que ce marché soit saturé.",
+          "en": "I take issue with the idea that this market is saturated.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.019",
+          "theme": "culture-profonde",
+          "fr": "La bande sonore mérite à elle seule qu'on se déplace en salle.",
+          "en": "The soundtrack alone is worth going to the theatre for.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.c1.culture-profonde.046",
+          "theme": "culture-profonde",
+          "fr": "Son style a mûri, gagnant en sobriété ce qu'il perdait en éclat.",
+          "en": "His style has matured, gaining in restraint what it lost in brilliance.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.053",
+          "theme": "culture-profonde",
+          "fr": "On referme ce livre avec le sentiment d'avoir vécu une autre vie.",
+          "en": "You close this book with the feeling of having lived another life.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.038",
+          "theme": "culture-profonde",
+          "fr": "Je me méfie des romans à thèse, celui-ci échappe pourtant au piège.",
+          "en": "I am wary of message novels, yet this one avoids the trap.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.056",
+          "theme": "culture-profonde",
+          "fr": "Je tiens ce court métrage pour une des grandes réussites de l'année.",
+          "en": "I consider this short film one of the great achievements of the year.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.004",
+          "theme": "culture-profonde",
+          "fr": "C'est un cinéaste auquel je reviens toujours quand je doute du cinéma.",
+          "en": "He is a filmmaker I always come back to when I lose faith in cinema.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.082",
+          "theme": "culture-profonde",
+          "fr": "Le concept auquel il revient sans cesse reste flou, tu ne trouves pas.",
+          "en": "The concept he keeps coming back to remains vague, don't you think.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.140",
+          "theme": "culture-profonde",
+          "fr": "Est-ce qu'on est certains que cette hypothèse tient toujours la route?",
+          "en": "Are we certain that assumption still holds up?",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.023",
+          "theme": "culture-profonde",
+          "fr": "Publié à titre posthume, ce recueil éclaire toute l'œuvre qui le précède.",
+          "en": "Published posthumously, this collection sheds light on the entire body of work that came before it.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.015",
+          "theme": "culture-profonde",
+          "fr": "Voilà un premier roman qui annonce, j'en suis convaincu, une œuvre majeure.",
+          "en": "Here is a debut novel that heralds, I am convinced, a major body of work.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.079",
+          "theme": "culture-profonde",
+          "fr": "L'ironie, chez elle, n'est jamais gratuite, elle prépare toujours une idée.",
+          "en": "Her irony is never gratuitous, it always sets up an idea.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.048",
+          "theme": "culture-profonde",
+          "fr": "Le film repose sur un dispositif simple dont il tire des effets vertigineux.",
+          "en": "The film rests on a simple device from which it draws dizzying effects.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.022",
+          "theme": "culture-profonde",
+          "fr": "Le film auquel il fait référence a marqué toute une génération de cinéphiles.",
+          "en": "The film he is referring to marked an entire generation of film lovers.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.087",
+          "theme": "culture-profonde",
+          "fr": "Sa pensée refuse toute simplification, et c'est précisément ce qui me séduit.",
+          "en": "Her thinking refuses all simplification, and that is precisely what wins me over.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.137",
+          "theme": "culture-profonde",
+          "fr": "J'entends bien vos arguments, mais je reste sceptique quant à la faisabilité.",
+          "en": "I hear your arguments, but I remain skeptical about the feasibility.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.054",
+          "theme": "culture-profonde",
+          "fr": "Le réalisateur assume un rythme lent, auquel il faut accepter de s'abandonner.",
+          "en": "The director embraces a slow pace you have to be willing to surrender to.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.138",
+          "theme": "culture-profonde",
+          "fr": "Vous soulevez un point valable, permettez-moi cependant d'y apporter un bémol.",
+          "en": "You raise a valid point, but let me add one caveat.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.143",
+          "theme": "culture-profonde",
+          "fr": "Votre raisonnement se tient, mais j'aurais une réserve sur l'échéancier proposé.",
+          "en": "Your reasoning holds up, but I have one reservation about the proposed timeline.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.107",
+          "theme": "culture-profonde",
+          "fr": "Formé à la philosophie allemande, il aborde le cinéma avec des outils inattendus.",
+          "en": "Trained in German philosophy, he approaches cinema with unexpected tools.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.035",
+          "theme": "culture-profonde",
+          "fr": "Le cinéma québécois traverse, à mon sens, une période d'une richesse exceptionnelle.",
+          "en": "Quebec cinema is going through, in my view, an exceptionally rich period.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.085",
+          "theme": "culture-profonde",
+          "fr": "L'argument repose sur une prémisse que personne, curieusement, ne songe à interroger.",
+          "en": "The argument rests on a premise that no one, curiously, thinks to question.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.156",
+          "theme": "culture-profonde",
+          "fr": "Je note des progrès réels depuis notre dernière rencontre, continue sur cette lancée.",
+          "en": "I see real progress since our last meeting, keep up that momentum.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.135",
+          "theme": "culture-profonde",
+          "fr": "Sans vouloir contredire personne, je crois qu'on sous-estime les risques opérationnels.",
+          "en": "Without wanting to contradict anyone, I think we're underestimating the operational risks.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.014",
+          "theme": "culture-profonde",
+          "fr": "Le montage, d'une précision chirurgicale, donne au récit une tension presque insoutenable.",
+          "en": "The editing, surgically precise, gives the story an almost unbearable tension.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.060",
+          "theme": "culture-profonde",
+          "fr": "Vingt ans après le premier tome, cette trilogie trouve enfin une conclusion bouleversante.",
+          "en": "Twenty years after the first volume, this trilogy finally finds a devastating conclusion.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.097",
+          "theme": "culture-profonde",
+          "fr": "La postérité retient rarement les critiques, sauf quand ils se sont spectaculairement trompés.",
+          "en": "Posterity rarely remembers critics, except when they were spectacularly wrong.",
+          "words": 13
+        },
+        {
+          "id": "fr.c1.culture-profonde.155",
+          "theme": "culture-profonde",
+          "fr": "Il me semble qu'on tire des conclusions un peu vite sur ce dossier.",
+          "en": "It seems to me we're jumping to conclusions a bit quickly on this file.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.007",
+          "theme": "culture-profonde",
+          "fr": "Ce qui me frappe chez Duras, c'est ce silence qui traverse chaque page.",
+          "en": "What strikes me in Duras is that silence running through every page.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.051",
+          "theme": "culture-profonde",
+          "fr": "L'écrivain auquel on le compare sans cesse n'a pourtant pas sa férocité.",
+          "en": "The writer he is constantly compared to does not have his ferocity, though.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.111",
+          "theme": "culture-profonde",
+          "fr": "À force de tout contextualiser, on finit par ne plus rien juger du tout.",
+          "en": "By dint of contextualizing everything, we end up judging nothing at all.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.052",
+          "theme": "culture-profonde",
+          "fr": "La mise en scène, dépouillée à l'extrême, laisse toute la place au texte.",
+          "en": "The staging, stripped to the bone, leaves all the room to the text.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.152",
+          "theme": "culture-profonde",
+          "fr": "J'aimerais qu'on prenne un pas de recul avant d'entériner cette décision.",
+          "en": "I'd like us to take a step back before ratifying this decision.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.002",
+          "theme": "culture-profonde",
+          "fr": "Le roman dont tout le monde parle ne m'a laissé aucune impression durable.",
+          "en": "The novel everyone is talking about left no lasting impression on me.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.157",
+          "theme": "culture-profonde",
+          "fr": "Puis-je suggérer qu'on reporte ce point à la prochaine rencontre du comité?",
+          "en": "May I suggest we defer this item to the committee's next meeting?",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.c1.culture-profonde.084",
+          "theme": "culture-profonde",
+          "fr": "Aussi brillante soit-elle, sa lecture de Proust passe à côté de l'essentiel.",
+          "en": "Brilliant as it is, his reading of Proust misses the essential point.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.027",
+          "theme": "culture-profonde",
+          "fr": "La caméra s'attarde sur les visages comme si elle cherchait à les comprendre.",
+          "en": "The camera lingers on faces as if it were trying to understand them.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.145",
+          "theme": "culture-profonde",
+          "fr": "Loin de moi l'idée de freiner le projet, mais certains chiffres m'inquiètent.",
+          "en": "Far be it from me to slow the project down, but some numbers worry me.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.146",
+          "theme": "culture-profonde",
+          "fr": "Sur ce point, nos lectures divergent, et j'aimerais qu'on en discute calmement.",
+          "en": "On this point our readings differ, and I'd like us to discuss it calmly.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.009",
+          "theme": "culture-profonde",
+          "fr": "Le documentaire retrace la vie d'un poète dont l'œuvre reste largement méconnue.",
+          "en": "The documentary traces the life of a poet whose work remains largely unknown.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.039",
+          "theme": "culture-profonde",
+          "fr": "Elle lit ses propres textes avec une voix qui leur donne une gravité inattendue.",
+          "en": "She reads her own texts in a voice that gives them an unexpected gravity.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.104",
+          "theme": "culture-profonde",
+          "fr": "Certains lui reprochent son style, alors que c'est justement son style qui pense.",
+          "en": "Some fault his style, when it is precisely his style that does the thinking.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.016",
+          "theme": "culture-profonde",
+          "fr": "Le réalisateur filme la banlieue avec une tendresse que je ne lui connaissais pas.",
+          "en": "The director films the suburbs with a tenderness I did not know he had.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.061",
+          "theme": "culture-profonde",
+          "fr": "Il filme les corps comme d'autres écrivent des poèmes, avec une attention infinie.",
+          "en": "He films bodies the way others write poems, with infinite attention.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.108",
+          "theme": "culture-profonde",
+          "fr": "Un jugement esthétique n'est jamais innocent, il engage toute une vision du monde.",
+          "en": "An aesthetic judgment is never innocent, it commits you to a whole vision of the world.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.029",
+          "theme": "culture-profonde",
+          "fr": "Le personnage principal, dont on ne connaît jamais le nom, incarne toute une époque.",
+          "en": "The main character, whose name we never learn, embodies an entire era.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.089",
+          "theme": "culture-profonde",
+          "fr": "Je me méfie des théories qui expliquent tout, car elles n'éclairent finalement rien.",
+          "en": "I distrust theories that explain everything, because in the end they illuminate nothing.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.062",
+          "theme": "culture-profonde",
+          "fr": "Je ne partage pas l'enthousiasme général, tout en reconnaissant l'ambition du projet.",
+          "en": "I do not share the general enthusiasm, while acknowledging the ambition of the project.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.102",
+          "theme": "culture-profonde",
+          "fr": "Aucune théorie, si séduisante soit-elle, ne dispense de retourner aux textes eux-mêmes.",
+          "en": "No theory, however seductive, excuses you from going back to the texts themselves.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.086",
+          "theme": "culture-profonde",
+          "fr": "Cet essai renverse toutes les certitudes sur lesquelles je m'appuyais depuis des années.",
+          "en": "This essay overturns all the certainties I had been leaning on for years.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.119",
+          "theme": "culture-profonde",
+          "fr": "Nourri de lectures classiques, son regard sur le présent gagne une profondeur assez rare.",
+          "en": "Steeped in classical reading, his view of the present gains a rather rare depth.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.088",
+          "theme": "culture-profonde",
+          "fr": "Un penseur dont les contradictions sont fécondes vaut mieux qu'un système parfaitement clos.",
+          "en": "A thinker whose contradictions are fruitful is worth more than a perfectly sealed system.",
+          "words": 14
+        },
+        {
+          "id": "fr.c1.culture-profonde.150",
+          "theme": "culture-profonde",
+          "fr": "Ce n'est pas tant l'idée qui me dérange que sa mise en œuvre.",
+          "en": "It's not so much the idea that bothers me as its execution.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.024",
+          "theme": "culture-profonde",
+          "fr": "On a beaucoup glosé sur cette scène, mais personne n'en a saisi l'ironie.",
+          "en": "Much has been said about that scene, but no one grasped its irony.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.036",
+          "theme": "culture-profonde",
+          "fr": "Il y a dans ce roman des pages entières qu'on voudrait apprendre par cœur.",
+          "en": "There are whole pages in this novel you would like to learn by heart.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.094",
+          "theme": "culture-profonde",
+          "fr": "On ne peut pas juger une œuvre en ignorant le contexte dont elle est issue.",
+          "en": "You cannot judge a work while ignoring the context it came from.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.091",
+          "theme": "culture-profonde",
+          "fr": "Ce qui m'agace chez lui, c'est cette manière de trancher sans jamais douter.",
+          "en": "What irritates me about him is that way of settling every question without ever doubting.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.008",
+          "theme": "culture-profonde",
+          "fr": "La critique à laquelle je me fie d'habitude s'est complètement trompée cette fois.",
+          "en": "The critic I usually trust got it completely wrong this time.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.115",
+          "theme": "culture-profonde",
+          "fr": "Défendre un livre difficile revient aussi à défendre le droit du lecteur à l'effort.",
+          "en": "Defending a difficult book also amounts to defending the reader's right to effort.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.005",
+          "theme": "culture-profonde",
+          "fr": "J'admire la façon dont elle construit ses personnages, tout en silences et en nuances.",
+          "en": "I admire the way she builds her characters, all silences and nuance.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.118",
+          "theme": "culture-profonde",
+          "fr": "Une critique sévère mais argumentée rend plus service à l'auteur qu'un éloge distrait.",
+          "en": "A harsh but well argued review serves the author better than distracted praise.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.113",
+          "theme": "culture-profonde",
+          "fr": "Le compte rendu paru ce matin trahit une lecture pressée, pour ne pas dire inexistante.",
+          "en": "The review that appeared this morning betrays a hurried reading, not to say a nonexistent one.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.093",
+          "theme": "culture-profonde",
+          "fr": "Les idées auxquelles nous tenons le plus sont souvent celles que nous examinons le moins.",
+          "en": "The ideas we hold dearest are often the ones we examine least.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.096",
+          "theme": "culture-profonde",
+          "fr": "Convaincu d'avoir raison, il n'écoute plus les objections, ce qui appauvrit sa réflexion.",
+          "en": "Convinced he is right, he no longer listens to objections, which impoverishes his thinking.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.116",
+          "theme": "culture-profonde",
+          "fr": "Chaque génération croit inventer des idées que la précédente avait simplement rangées dans un tiroir.",
+          "en": "Each generation believes it is inventing ideas the previous one had simply tucked away in a drawer.",
+          "words": 15
+        },
+        {
+          "id": "fr.c1.culture-profonde.083",
+          "theme": "culture-profonde",
+          "fr": "Le problème n'est pas ce qu'il affirme, mais ce qu'il choisit de taire.",
+          "en": "The problem is not what he asserts, but what he chooses to leave unsaid.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.095",
+          "theme": "culture-profonde",
+          "fr": "Le débat d'idées suppose qu'on prête à l'adversaire un minimum de bonne foi.",
+          "en": "A debate of ideas assumes you grant your opponent a minimum of good faith.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.098",
+          "theme": "culture-profonde",
+          "fr": "Ce qu'on appelle le bon goût n'est souvent que l'habitude érigée en principe.",
+          "en": "What we call good taste is often just habit elevated into a principle.",
+          "words": 16
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.c1.culture-profonde.112",
+          "theme": "culture-profonde",
+          "fr": "La pensée qu'on ne peut pas résumer en une phrase n'est pas forcément confuse.",
+          "en": "Thought that cannot be summed up in one sentence is not necessarily muddled.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.001",
+          "theme": "culture-profonde",
+          "fr": "Ce film m'a hanté pendant des semaines, je le revois encore en fermant les yeux.",
+          "en": "That film haunted me for weeks, I still see it when I close my eyes.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.106",
+          "theme": "culture-profonde",
+          "fr": "La notion de progrès, dont tout le siècle s'est nourri, sort abîmée de cette lecture.",
+          "en": "The notion of progress, which fed the whole century, comes out of this reading damaged.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.003",
+          "theme": "culture-profonde",
+          "fr": "Ayant relu Proust cet été, je comprends enfin ce qu'on entend par une phrase musicale.",
+          "en": "Having reread Proust this summer, I finally understand what people mean by a musical sentence.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.092",
+          "theme": "culture-profonde",
+          "fr": "Démolir un roman en trois phrases, comme le fait ce critique, me semble un peu facile.",
+          "en": "Demolishing a novel in three sentences, as this critic does, seems a bit easy to me.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.109",
+          "theme": "culture-profonde",
+          "fr": "Elle écrit contre son époque, ce qui est peut-être la meilleure façon de la comprendre.",
+          "en": "She writes against her era, which is perhaps the best way to understand it.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.090",
+          "theme": "culture-profonde",
+          "fr": "La distinction qu'elle établit entre mémoire et histoire mérite qu'on s'y arrête longuement.",
+          "en": "The distinction she draws between memory and history deserves to be dwelt on at length.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.101",
+          "theme": "culture-profonde",
+          "fr": "Réduire une œuvre à la biographie de son auteur relève d'une paresse critique très répandue.",
+          "en": "Reducing a work to its author's biography is a very widespread form of critical laziness.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.044",
+          "theme": "culture-profonde",
+          "fr": "Le documentaire soulève des questions dont nous n'avons pas fini de débattre, ici comme ailleurs.",
+          "en": "The documentary raises questions we are far from done debating, here and elsewhere.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.122",
+          "theme": "culture-profonde",
+          "fr": "On peut admirer la construction du raisonnement tout en rejetant la conclusion à laquelle il aboutit.",
+          "en": "You can admire the construction of the argument while rejecting the conclusion it arrives at.",
+          "words": 16
+        },
+        {
+          "id": "fr.c1.culture-profonde.059",
+          "theme": "culture-profonde",
+          "fr": "Le chapitre central a été écrit d'un seul souffle, et ça se sent à chaque ligne.",
+          "en": "The central chapter was written in a single breath, and you can feel it in every line.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.culture-profonde.120",
+          "theme": "culture-profonde",
+          "fr": "Il manie le paradoxe avec un plaisir si visible qu'on finit par douter de sa sincérité.",
+          "en": "He wields paradox with such visible pleasure that you end up doubting his sincerity.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.culture-profonde.099",
+          "theme": "culture-profonde",
+          "fr": "Le dernier livre qu'elle a publié soulève une question à laquelle je n'avais jamais réfléchi.",
+          "en": "The latest book she published raises a question I had never thought about.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.culture-profonde.105",
+          "theme": "culture-profonde",
+          "fr": "Il faudrait relire les grands débats des années soixante pour comprendre d'où viennent nos querelles actuelles.",
+          "en": "We should reread the great debates of the sixties to understand where our current quarrels come from.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.methode-scientifique.002",
+          "theme": "methode-scientifique",
+          "fr": "Quand bien même les résultats semblent concluants, il convient de les soumettre à une contre-expertise rigoureuse.",
+          "en": "Even if the results seem conclusive, they should still undergo a rigorous independent review.",
+          "words": 17
+        },
+        {
+          "id": "fr.c1.culture-profonde.018",
+          "theme": "culture-profonde",
+          "fr": "C'est le genre de livre qu'on prête à ses amis en exigeant qu'ils le rendent.",
+          "en": "It is the kind of book you lend to friends while insisting they give it back.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.culture-profonde.123",
+          "theme": "culture-profonde",
+          "fr": "Quand un critique avoue s'être trompé sur une œuvre, il gagne à mes yeux une crédibilité rare.",
+          "en": "When a critic admits he was wrong about a work, he gains a rare credibility in my eyes.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.culture-profonde.055",
+          "theme": "culture-profonde",
+          "fr": "En lisant ses carnets récemment publiés, on découvre un écrivain bien plus tourmenté qu'on ne le croyait.",
+          "en": "Reading his recently published notebooks, you discover a far more tormented writer than we thought.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.culture-profonde.021",
+          "theme": "culture-profonde",
+          "fr": "Elle écrit des dialogues d'une justesse telle qu'on croirait entendre parler ses propres voisins de palier.",
+          "en": "She writes dialogue so true to life you would think you were hearing your own next-door neighbours talk.",
+          "words": 18
+        },
+        {
+          "id": "fr.c1.culture-profonde.058",
+          "theme": "culture-profonde",
+          "fr": "Le film n'a rien perdu de sa force, ce que peu d'œuvres de cette époque peuvent prétendre.",
+          "en": "The film has lost none of its power, which few works from that era can claim.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.culture-profonde.012",
+          "theme": "culture-profonde",
+          "fr": "On sort de cette pièce tellement ébranlé qu'on reste incapable de dire un mot pendant dix bonnes minutes.",
+          "en": "You leave that play so shaken that you cannot say a word for a good ten minutes.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.culture-profonde.050",
+          "theme": "culture-profonde",
+          "fr": "Ce qu'elle raconte de son enfance passée en Gaspésie éclaire d'un jour nouveau tous ses romans précédents.",
+          "en": "What she tells about her childhood in Gaspésie casts all her earlier novels in a new light.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.culture-profonde.025",
+          "theme": "culture-profonde",
+          "fr": "Ce roman, dont j'avais repoussé la lecture pendant des années, m'a finalement conquis dès les premières pages.",
+          "en": "That novel, which I had put off reading for years, finally won me over from the very first pages.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.culture-profonde.114",
+          "theme": "culture-profonde",
+          "fr": "Elle démonte l'argument de ses adversaires avec une élégance qui force le respect, même chez ses pires détracteurs.",
+          "en": "She dismantles her opponents' argument with an elegance that commands respect, even among her harshest detractors.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.culture-profonde.110",
+          "theme": "culture-profonde",
+          "fr": "Publié dans une revue confidentielle que presque personne ne lisait, cet article a pourtant relancé tout le débat public.",
+          "en": "Published in an obscure journal that almost nobody read, this article nevertheless reignited the whole public debate.",
+          "words": 19
+        },
+        {
+          "id": "fr.c1.decouvertes.001",
+          "theme": "decouvertes",
+          "fr": "Ce n'est qu'après coup que l'on a mesuré l'ampleur de cette découverte pour la médecine moderne.",
+          "en": "It was only in hindsight that people grasped just how significant this discovery was for modern medicine.",
+          "words": 20
+        },
+        {
+          "id": "fr.c1.culture-profonde.103",
+          "theme": "culture-profonde",
+          "fr": "La polémique née de sa parution a fini par éclipser le livre lui-même, ce qui arrangeait tout le monde.",
+          "en": "The controversy sparked by its publication ended up eclipsing the book itself, which suited everyone.",
+          "words": 20
+        },
+        {
+          "id": "fr.c1.culture-profonde.121",
+          "theme": "culture-profonde",
+          "fr": "L'essayiste dont je te parlais hier soir vient de publier une réponse cinglante à ceux qui contestaient sa méthode.",
+          "en": "The essayist I was telling you about last night has just published a scathing reply to those who challenged his method.",
+          "words": 20
+        },
+        {
+          "id": "fr.c1.culture-profonde.041",
+          "theme": "culture-profonde",
+          "fr": "Voilà une œuvre à laquelle les critiques de l'époque n'ont pas rendu justice, et qui mérite d'être redécouverte.",
+          "en": "Here is a work the critics of the day failed to do justice to, and which deserves to be rediscovered.",
+          "words": 21
+        },
+        {
+          "id": "fr.c1.culture-profonde.117",
+          "theme": "culture-profonde",
+          "fr": "Les querelles d'école masquent parfois des désaccords bien plus profonds sur le sens même que nous donnons à la littérature.",
+          "en": "School quarrels sometimes mask far deeper disagreements about the very meaning we give to literature.",
+          "words": 21
+        },
+        {
+          "id": "fr.c1.culture-profonde.030",
+          "theme": "culture-profonde",
+          "fr": "J'ai vu ce film trois fois, et chaque fois j'y découvre une couche de sens que je n'avais pas soupçonnée.",
+          "en": "I have seen that film three times, and each time I discover a layer of meaning I had not suspected.",
+          "words": 23
+        },
+        {
+          "id": "fr.c1.methode-scientifique.005",
+          "theme": "methode-scientifique",
+          "fr": "Quoi qu'on en pense, la démarche scientifique ne consiste pas tant à accumuler des certitudes qu'à apprendre, avec une humilité de plus en plus rare, à se défier de ses propres convictions.",
+          "en": "Whatever one may think of it, the scientific approach consists not so much in accumulating certainties as in learning, with an increasingly rare humility, to distrust one's own convictions.",
+          "words": 34
+        },
+        {
+          "id": "fr.c1.decouvertes.004",
+          "theme": "decouvertes",
+          "fr": "Si cette découverte a fini par bouleverser tout un pan de la médecine, c'est moins grâce à un coup de génie soudain qu'à l'obstination tranquille d'une équipe restée des années dans l'ombre.",
+          "en": "If this discovery ended up upending an entire branch of medicine, it is less thanks to a sudden stroke of genius than to the quiet stubbornness of a team that stayed in the shadows for years.",
+          "words": 37
+        }
+      ]
+    }
+  ]
+}

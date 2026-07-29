@@ -1,0 +1,2942 @@
+[
+  {
+    "id": "fr.a1.prepositions-essentielles.080",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Je vais à l'école tous les matins.",
+    "en": "I go to school every morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais\",\"t\":\"I go\"},{\"w\":\"à l'école\",\"t\":\"to school\"},{\"w\":\"tous les matins.\",\"t\":\"every morning\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.081",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle vient de Marseille.",
+    "en": "She comes from Marseille.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle vient\",\"t\":\"she comes\"},{\"w\":\"de Marseille.\",\"t\":\"from Marseille\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.082",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Les clés sont dans mon sac.",
+    "en": "The keys are in my bag.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les clés sont\",\"t\":\"the keys are\"},{\"w\":\"dans mon sac.\",\"t\":\"in my bag\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.083",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Le chat dort sur le canapé.",
+    "en": "The cat sleeps on the couch.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chat dort\",\"t\":\"the cat sleeps\"},{\"w\":\"sur le canapé.\",\"t\":\"on the couch\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.084",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Le ballon est sous la table.",
+    "en": "The ball is under the table.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le ballon est\",\"t\":\"the ball is\"},{\"w\":\"sous la table.\",\"t\":\"under the table\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.085",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Je mange avec mes parents ce soir.",
+    "en": "I am eating with my parents tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je mange\",\"t\":\"I eat\"},{\"w\":\"avec mes parents\",\"t\":\"with my parents\"},{\"w\":\"ce soir.\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.086",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Ce cadeau est pour ma sœur.",
+    "en": "This gift is for my sister.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce cadeau est\",\"t\":\"this gift is\"},{\"w\":\"pour ma sœur.\",\"t\":\"for my sister\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.087",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous allons chez le médecin lundi.",
+    "en": "We are going to the doctor's on Monday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons\",\"t\":\"we go\"},{\"w\":\"chez le médecin\",\"t\":\"to the doctor's\"},{\"w\":\"lundi.\",\"t\":\"on Monday\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.088",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il habite en France depuis un an.",
+    "en": "He has been living in France for a year.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il habite\",\"t\":\"he lives\"},{\"w\":\"en France\",\"t\":\"in France\"},{\"w\":\"depuis un an.\",\"t\":\"for a year\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.089",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Le train part vers midi.",
+    "en": "The train leaves around noon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le train part\",\"t\":\"the train leaves\"},{\"w\":\"vers midi.\",\"t\":\"around noon\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.090",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Le magasin est entre la banque et la poste.",
+    "en": "The shop is between the bank and the post office.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le magasin est\",\"t\":\"the shop is\"},{\"w\":\"entre la banque\",\"t\":\"between the bank\"},{\"w\":\"et la poste.\",\"t\":\"and the post office\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.091",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle attend devant la gare.",
+    "en": "She is waiting in front of the station.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle attend\",\"t\":\"she waits\"},{\"w\":\"devant la gare.\",\"t\":\"in front of the station\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.092",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Le jardin est derrière la maison.",
+    "en": "The garden is behind the house.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le jardin est\",\"t\":\"the garden is\"},{\"w\":\"derrière la maison.\",\"t\":\"behind the house\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.093",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il pleut pendant la nuit.",
+    "en": "It rains during the night.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pleut\",\"t\":\"it rains\"},{\"w\":\"pendant la nuit.\",\"t\":\"during the night\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.094",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous arrivons avant midi.",
+    "en": "We arrive before noon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous arrivons\",\"t\":\"we arrive\"},{\"w\":\"avant midi.\",\"t\":\"before noon\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.095",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle rentre après le travail.",
+    "en": "She comes home after work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle rentre\",\"t\":\"she comes home\"},{\"w\":\"après le travail.\",\"t\":\"after work\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.096",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "La pharmacie est à côté de l'école.",
+    "en": "The pharmacy is next to the school.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La pharmacie est\",\"t\":\"the pharmacy is\"},{\"w\":\"à côté de\",\"t\":\"next to\"},{\"w\":\"l'école.\",\"t\":\"the school\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.097",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Le café est en face de la gare.",
+    "en": "The cafe is across from the station.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le café est\",\"t\":\"the cafe is\"},{\"w\":\"en face de\",\"t\":\"across from\"},{\"w\":\"la gare.\",\"t\":\"the station\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.098",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Je vais au marché le samedi.",
+    "en": "I go to the market on Saturdays.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais\",\"t\":\"I go\"},{\"w\":\"au marché\",\"t\":\"to the market\"},{\"w\":\"le samedi.\",\"t\":\"on Saturdays\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.099",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Les enfants jouent aux cartes.",
+    "en": "The children are playing cards.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants jouent\",\"t\":\"the children play\"},{\"w\":\"aux cartes.\",\"t\":\"cards\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.100",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il revient du travail à six heures.",
+    "en": "He comes back from work at six o'clock.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il revient\",\"t\":\"he comes back\"},{\"w\":\"du travail\",\"t\":\"from work\"},{\"w\":\"à six heures.\",\"t\":\"at six o'clock\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.101",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle parle des vacances avec ses amis.",
+    "en": "She talks about the vacation with her friends.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle parle\",\"t\":\"she talks\"},{\"w\":\"des vacances\",\"t\":\"about the vacation\"},{\"w\":\"avec ses amis.\",\"t\":\"with her friends\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.102",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Je pense à toi souvent.",
+    "en": "I think about you often.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pense\",\"t\":\"I think\"},{\"w\":\"à toi\",\"t\":\"about you\"},{\"w\":\"souvent.\",\"t\":\"often\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.103",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "J'ai besoin de repos.",
+    "en": "I need rest.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai besoin\",\"t\":\"I need\"},{\"w\":\"de repos.\",\"t\":\"rest\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.104",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "L'hôtel est loin de la plage.",
+    "en": "The hotel is far from the beach.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'hôtel est\",\"t\":\"the hotel is\"},{\"w\":\"loin de\",\"t\":\"far from\"},{\"w\":\"la plage.\",\"t\":\"the beach\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.105",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "La boulangerie est près de chez moi.",
+    "en": "The bakery is near my house.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La boulangerie est\",\"t\":\"the bakery is\"},{\"w\":\"près de\",\"t\":\"near\"},{\"w\":\"chez moi.\",\"t\":\"my house\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.106",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Les enfants courent autour du jardin.",
+    "en": "The children run around the garden.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants courent\",\"t\":\"the children run\"},{\"w\":\"autour du jardin.\",\"t\":\"around the garden\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.107",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous marchons jusqu'à la place.",
+    "en": "We walk to the square.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous marchons\",\"t\":\"we walk\"},{\"w\":\"jusqu'à la place.\",\"t\":\"to the square\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.108",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Le vélo est contre le mur.",
+    "en": "The bike is against the wall.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vélo est\",\"t\":\"the bike is\"},{\"w\":\"contre le mur.\",\"t\":\"against the wall\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.109",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il sort sans son manteau.",
+    "en": "He goes out without his coat.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il sort\",\"t\":\"he goes out\"},{\"w\":\"sans son manteau.\",\"t\":\"without his coat\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.110",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle voyage par le train.",
+    "en": "She travels by train.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle voyage\",\"t\":\"she travels\"},{\"w\":\"par le train.\",\"t\":\"by train\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.111",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous dînons dans la cuisine.",
+    "en": "We have dinner in the kitchen.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous dînons\",\"t\":\"we have dinner\"},{\"w\":\"dans la cuisine.\",\"t\":\"in the kitchen\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.112",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Le professeur écrit sur le tableau.",
+    "en": "The teacher writes on the board.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le professeur écrit\",\"t\":\"the teacher writes\"},{\"w\":\"sur le tableau.\",\"t\":\"on the board\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.113",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Mon frère travaille à la banque.",
+    "en": "My brother works at the bank.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon frère travaille\",\"t\":\"my brother works\"},{\"w\":\"à la banque.\",\"t\":\"at the bank\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.114",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Les touristes visitent le musée en été.",
+    "en": "Tourists visit the museum in summer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les touristes visitent\",\"t\":\"tourists visit\"},{\"w\":\"le musée\",\"t\":\"the museum\"},{\"w\":\"en été.\",\"t\":\"in summer\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.115",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Je téléphone à ma mère chaque dimanche.",
+    "en": "I call my mother every Sunday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je téléphone\",\"t\":\"I call\"},{\"w\":\"à ma mère\",\"t\":\"my mother\"},{\"w\":\"chaque dimanche.\",\"t\":\"every Sunday\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.116",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Le chien reste devant la porte.",
+    "en": "The dog stays in front of the door.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chien reste\",\"t\":\"the dog stays\"},{\"w\":\"devant la porte.\",\"t\":\"in front of the door\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.117",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous partons en vacances au mois d'août.",
+    "en": "We are going on vacation in the month of August.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous partons\",\"t\":\"we leave\"},{\"w\":\"en vacances\",\"t\":\"on vacation\"},{\"w\":\"au mois d'août.\",\"t\":\"in the month of August\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.118",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle habite au troisième étage.",
+    "en": "She lives on the third floor.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle habite\",\"t\":\"she lives\"},{\"w\":\"au troisième étage.\",\"t\":\"on the third floor\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.119",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Les élèves écoutent le professeur avec attention.",
+    "en": "The students listen to the teacher with attention.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les élèves écoutent\",\"t\":\"the students listen to\"},{\"w\":\"le professeur\",\"t\":\"the teacher\"},{\"w\":\"avec attention.\",\"t\":\"with attention\"}]}"
+  },
+  {
+    "id": "fr.a1.prepositions-essentielles.120",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "prepositions-essentielles",
+    "fr": "Je mets le sucre dans mon café.",
+    "en": "I put sugar in my coffee.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je mets le sucre\",\"t\":\"I put the sugar\"},{\"w\":\"dans mon café.\",\"t\":\"in my coffee\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.085",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Je suis allé à la piscine hier.",
+    "en": "I went to the pool yesterday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je suis allé\",\"t\":\"I went\"},{\"w\":\"à la piscine\",\"t\":\"to the pool\"},{\"w\":\"hier.\",\"t\":\"yesterday\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.086",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle est arrivée chez ses grands-parents ce matin.",
+    "en": "She arrived at her grandparents' place this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est arrivée\",\"t\":\"she arrived\"},{\"w\":\"chez ses grands-parents\",\"t\":\"at her grandparents' place\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.087",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons voyagé en Italie l'année dernière.",
+    "en": "We traveled to Italy last year.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons voyagé\",\"t\":\"we traveled\"},{\"w\":\"en Italie\",\"t\":\"to Italy\"},{\"w\":\"l'année dernière.\",\"t\":\"last year\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.088",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il va partir pour Lyon demain.",
+    "en": "He is going to leave for Lyon tomorrow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il va partir\",\"t\":\"he is going to leave\"},{\"w\":\"pour Lyon\",\"t\":\"for Lyon\"},{\"w\":\"demain.\",\"t\":\"tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.089",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous allons manger dans un nouveau restaurant.",
+    "en": "We are going to eat at a new restaurant.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons manger\",\"t\":\"we are going to eat\"},{\"w\":\"dans un nouveau restaurant.\",\"t\":\"at a new restaurant\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.090",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "J'ai mis mon passeport dans mon sac avant le départ.",
+    "en": "I put my passport in my bag before departure.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai mis\",\"t\":\"I put\"},{\"w\":\"mon passeport\",\"t\":\"my passport\"},{\"w\":\"dans mon sac\",\"t\":\"in my bag\"},{\"w\":\"avant le départ.\",\"t\":\"before departure\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.091",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle a couru jusqu'à la gare pour ne pas rater le train.",
+    "en": "She ran to the station so as not to miss the train.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a couru\",\"t\":\"she ran\"},{\"w\":\"jusqu'à la gare\",\"t\":\"to the station\"},{\"w\":\"pour ne pas rater\",\"t\":\"so as not to miss\"},{\"w\":\"le train.\",\"t\":\"the train\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.092",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons attendu devant le cinéma pendant une heure.",
+    "en": "We waited in front of the cinema for an hour.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons attendu\",\"t\":\"we waited\"},{\"w\":\"devant le cinéma\",\"t\":\"in front of the cinema\"},{\"w\":\"pendant une heure.\",\"t\":\"for an hour\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.093",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a garé sa voiture derrière l'immeuble.",
+    "en": "He parked his car behind the building.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a garé\",\"t\":\"he parked\"},{\"w\":\"sa voiture\",\"t\":\"his car\"},{\"w\":\"derrière l'immeuble.\",\"t\":\"behind the building\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.094",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle est revenue du marché avec des légumes frais.",
+    "en": "She came back from the market with fresh vegetables.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est revenue\",\"t\":\"she came back\"},{\"w\":\"du marché\",\"t\":\"from the market\"},{\"w\":\"avec des légumes frais.\",\"t\":\"with fresh vegetables\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.095",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons parlé de nos projets pendant le dîner.",
+    "en": "We talked about our plans during dinner.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons parlé\",\"t\":\"we talked\"},{\"w\":\"de nos projets\",\"t\":\"about our plans\"},{\"w\":\"pendant le dîner.\",\"t\":\"during dinner\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.096",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "J'ai besoin d'aide pour finir ce devoir.",
+    "en": "I need help to finish this homework.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai besoin d'aide\",\"t\":\"I need help\"},{\"w\":\"pour finir\",\"t\":\"to finish\"},{\"w\":\"ce devoir.\",\"t\":\"this homework\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.097",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle s'intéresse à la peinture depuis son enfance.",
+    "en": "She has been interested in painting since her childhood.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle s'intéresse\",\"t\":\"she is interested\"},{\"w\":\"à la peinture\",\"t\":\"in painting\"},{\"w\":\"depuis son enfance.\",\"t\":\"since her childhood\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.098",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons marché autour du lac tout l'après-midi.",
+    "en": "We walked around the lake all afternoon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons marché\",\"t\":\"we walked\"},{\"w\":\"autour du lac\",\"t\":\"around the lake\"},{\"w\":\"tout l'après-midi.\",\"t\":\"all afternoon\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.099",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a rangé ses livres sur l'étagère.",
+    "en": "He put his books away on the shelf.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a rangé\",\"t\":\"he put away\"},{\"w\":\"ses livres\",\"t\":\"his books\"},{\"w\":\"sur l'étagère.\",\"t\":\"on the shelf\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.100",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle va téléphoner à son frère avant le dîner.",
+    "en": "She is going to call her brother before dinner.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle va téléphoner\",\"t\":\"she is going to call\"},{\"w\":\"à son frère\",\"t\":\"her brother\"},{\"w\":\"avant le dîner.\",\"t\":\"before dinner\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.101",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous sommes restés chez nos cousins pendant les vacances.",
+    "en": "We stayed at our cousins' place during the vacation.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous sommes restés\",\"t\":\"we stayed\"},{\"w\":\"chez nos cousins\",\"t\":\"at our cousins' place\"},{\"w\":\"pendant les vacances.\",\"t\":\"during the vacation\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.102",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a mis la valise sous le lit.",
+    "en": "He put the suitcase under the bed.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a mis\",\"t\":\"he put\"},{\"w\":\"la valise\",\"t\":\"the suitcase\"},{\"w\":\"sous le lit.\",\"t\":\"under the bed\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.103",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle a acheté un cadeau pour son collègue.",
+    "en": "She bought a gift for her colleague.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a acheté\",\"t\":\"she bought\"},{\"w\":\"un cadeau\",\"t\":\"a gift\"},{\"w\":\"pour son collègue.\",\"t\":\"for her colleague\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.104",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons trouvé une table près de la fenêtre.",
+    "en": "We found a table near the window.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons trouvé\",\"t\":\"we found\"},{\"w\":\"une table\",\"t\":\"a table\"},{\"w\":\"près de la fenêtre.\",\"t\":\"near the window\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.105",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Le magasin se trouve entre la pharmacie et le café.",
+    "en": "The shop is located between the pharmacy and the cafe.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le magasin se trouve\",\"t\":\"the shop is located\"},{\"w\":\"entre la pharmacie\",\"t\":\"between the pharmacy\"},{\"w\":\"et le café.\",\"t\":\"and the cafe\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.106",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Ils ont voyagé sans leurs enfants cette fois.",
+    "en": "They traveled without their children this time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils ont voyagé\",\"t\":\"they traveled\"},{\"w\":\"sans leurs enfants\",\"t\":\"without their children\"},{\"w\":\"cette fois.\",\"t\":\"this time\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.107",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle est passée par la boulangerie avant le travail.",
+    "en": "She stopped by the bakery before work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est passée\",\"t\":\"she stopped by\"},{\"w\":\"par la boulangerie\",\"t\":\"the bakery\"},{\"w\":\"avant le travail.\",\"t\":\"before work\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.108",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons besoin de billets pour le concert.",
+    "en": "We need tickets for the concert.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons besoin\",\"t\":\"we need\"},{\"w\":\"de billets\",\"t\":\"tickets\"},{\"w\":\"pour le concert.\",\"t\":\"for the concert\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.109",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il pense à ses examens depuis plusieurs jours.",
+    "en": "He has been thinking about his exams for several days.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pense\",\"t\":\"he thinks\"},{\"w\":\"à ses examens\",\"t\":\"about his exams\"},{\"w\":\"depuis plusieurs jours.\",\"t\":\"for several days\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.110",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle a posé son sac contre la porte.",
+    "en": "She placed her bag against the door.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a posé\",\"t\":\"she placed\"},{\"w\":\"son sac\",\"t\":\"her bag\"},{\"w\":\"contre la porte.\",\"t\":\"against the door\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.111",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons dormi dans un petit hôtel au bord de la mer.",
+    "en": "We slept in a small hotel by the sea.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons dormi\",\"t\":\"we slept\"},{\"w\":\"dans un petit hôtel\",\"t\":\"in a small hotel\"},{\"w\":\"au bord de la mer.\",\"t\":\"by the sea\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.112",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Le chat est passé sous la clôture.",
+    "en": "The cat went under the fence.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chat\",\"t\":\"the cat\"},{\"w\":\"est passé\",\"t\":\"went\"},{\"w\":\"sous la clôture.\",\"t\":\"under the fence\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.113",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle a écrit une lettre à ses grands-parents.",
+    "en": "She wrote a letter to her grandparents.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a écrit\",\"t\":\"she wrote\"},{\"w\":\"une lettre\",\"t\":\"a letter\"},{\"w\":\"à ses grands-parents.\",\"t\":\"to her grandparents\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.114",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons voyagé vers le sud pendant l'été.",
+    "en": "We traveled south during the summer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons voyagé\",\"t\":\"we traveled\"},{\"w\":\"vers le sud\",\"t\":\"south\"},{\"w\":\"pendant l'été.\",\"t\":\"during the summer\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.115",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a oublié ses clés sur la table de la cuisine.",
+    "en": "He forgot his keys on the kitchen table.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a oublié\",\"t\":\"he forgot\"},{\"w\":\"ses clés\",\"t\":\"his keys\"},{\"w\":\"sur la table\",\"t\":\"on the table\"},{\"w\":\"de la cuisine.\",\"t\":\"of the kitchen\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.116",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle va s'inscrire à un cours de danse.",
+    "en": "She is going to sign up for a dance class.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle va s'inscrire\",\"t\":\"she is going to sign up\"},{\"w\":\"à un cours\",\"t\":\"for a class\"},{\"w\":\"de danse.\",\"t\":\"of dance\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.117",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons discuté avec le directeur après la réunion.",
+    "en": "We talked with the director after the meeting.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons discuté\",\"t\":\"we talked\"},{\"w\":\"avec le directeur\",\"t\":\"with the director\"},{\"w\":\"après la réunion.\",\"t\":\"after the meeting\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.118",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a couru vers la sortie dès la fin du film.",
+    "en": "He ran toward the exit as soon as the movie ended.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a couru\",\"t\":\"he ran\"},{\"w\":\"vers la sortie\",\"t\":\"toward the exit\"},{\"w\":\"dès la fin\",\"t\":\"as soon as the end\"},{\"w\":\"du film.\",\"t\":\"of the movie\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.119",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle a rangé les assiettes dans le placard.",
+    "en": "She put the plates away in the cupboard.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a rangé\",\"t\":\"she put away\"},{\"w\":\"les assiettes\",\"t\":\"the plates\"},{\"w\":\"dans le placard.\",\"t\":\"in the cupboard\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.120",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons réservé une chambre pour deux nuits.",
+    "en": "We booked a room for two nights.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons réservé\",\"t\":\"we booked\"},{\"w\":\"une chambre\",\"t\":\"a room\"},{\"w\":\"pour deux nuits.\",\"t\":\"for two nights\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.121",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il est né près de Bordeaux.",
+    "en": "He was born near Bordeaux.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est né\",\"t\":\"he was born\"},{\"w\":\"près de Bordeaux.\",\"t\":\"near Bordeaux\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.122",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle a envoyé un message à son professeur hier soir.",
+    "en": "She sent a message to her teacher last night.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a envoyé\",\"t\":\"she sent\"},{\"w\":\"un message\",\"t\":\"a message\"},{\"w\":\"à son professeur\",\"t\":\"to her teacher\"},{\"w\":\"hier soir.\",\"t\":\"last night\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.123",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons roulé jusqu'à la montagne sans nous arrêter.",
+    "en": "We drove to the mountain without stopping.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons roulé\",\"t\":\"we drove\"},{\"w\":\"jusqu'à la montagne\",\"t\":\"to the mountain\"},{\"w\":\"sans nous arrêter.\",\"t\":\"without stopping\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.124",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a mis les valises dans le coffre de la voiture.",
+    "en": "He put the suitcases in the trunk of the car.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a mis\",\"t\":\"he put\"},{\"w\":\"les valises\",\"t\":\"the suitcases\"},{\"w\":\"dans le coffre\",\"t\":\"in the trunk\"},{\"w\":\"de la voiture.\",\"t\":\"of the car\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.125",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle est passée devant la mairie en allant au travail.",
+    "en": "She passed in front of the town hall on her way to work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est passée\",\"t\":\"she passed\"},{\"w\":\"devant la mairie\",\"t\":\"in front of the town hall\"},{\"w\":\"en allant au travail.\",\"t\":\"on her way to work\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.126",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons acheté des fleurs pour notre voisine malade.",
+    "en": "We bought flowers for our sick neighbor.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons acheté\",\"t\":\"we bought\"},{\"w\":\"des fleurs\",\"t\":\"flowers\"},{\"w\":\"pour notre voisine\",\"t\":\"for our neighbor\"},{\"w\":\"malade.\",\"t\":\"sick\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.127",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a besoin d'un visa pour entrer dans ce pays.",
+    "en": "He needs a visa to enter this country.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a besoin\",\"t\":\"he needs\"},{\"w\":\"d'un visa\",\"t\":\"a visa\"},{\"w\":\"pour entrer\",\"t\":\"to enter\"},{\"w\":\"dans ce pays.\",\"t\":\"this country\"}]}"
+  },
+  {
+    "id": "fr.a2.prepositions-essentielles.128",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle est allée chez le dentiste après le déjeuner.",
+    "en": "She went to the dentist's after lunch.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est allée\",\"t\":\"she went\"},{\"w\":\"chez le dentiste\",\"t\":\"to the dentist's\"},{\"w\":\"après le déjeuner.\",\"t\":\"after lunch\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.058",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Je pense que ce projet dépend beaucoup de notre budget.",
+    "en": "I think that this project depends a lot on our budget.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pense que\",\"t\":\"I think that\"},{\"w\":\"ce projet dépend\",\"t\":\"this project depends\"},{\"w\":\"beaucoup de notre budget.\",\"t\":\"a lot on our budget\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.059",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle s'est habituée à travailler sous pression.",
+    "en": "She has gotten used to working under pressure.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle s'est habituée\",\"t\":\"she has gotten used to\"},{\"w\":\"à travailler\",\"t\":\"working\"},{\"w\":\"sous pression.\",\"t\":\"under pressure\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.060",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons discuté du problème avant de prendre une décision.",
+    "en": "We discussed the problem before making a decision.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons discuté\",\"t\":\"we discussed\"},{\"w\":\"du problème\",\"t\":\"the problem\"},{\"w\":\"avant de prendre\",\"t\":\"before making\"},{\"w\":\"une décision.\",\"t\":\"a decision\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.061",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il faut réfléchir aux conséquences avant d'agir.",
+    "en": "We must think about the consequences before acting.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il faut réfléchir\",\"t\":\"we must think\"},{\"w\":\"aux conséquences\",\"t\":\"about the consequences\"},{\"w\":\"avant d'agir.\",\"t\":\"before acting\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.062",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Malgré la pluie, ils ont continué à marcher vers le sommet.",
+    "en": "Despite the rain, they kept walking toward the summit.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Malgré la pluie,\",\"t\":\"despite the rain,\"},{\"w\":\"ils ont continué\",\"t\":\"they kept\"},{\"w\":\"à marcher\",\"t\":\"walking\"},{\"w\":\"vers le sommet.\",\"t\":\"toward the summit\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.063",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Grâce à son expérience, elle a trouvé un poste chez une grande entreprise.",
+    "en": "Thanks to her experience, she found a position at a large company.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Grâce à son expérience,\",\"t\":\"thanks to her experience,\"},{\"w\":\"elle a trouvé\",\"t\":\"she found\"},{\"w\":\"un poste\",\"t\":\"a position\"},{\"w\":\"chez une grande entreprise.\",\"t\":\"at a large company\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.064",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Au lieu de prendre le bus, il a décidé d'aller au travail à pied.",
+    "en": "Instead of taking the bus, he decided to walk to work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Au lieu de prendre\",\"t\":\"instead of taking\"},{\"w\":\"le bus,\",\"t\":\"the bus,\"},{\"w\":\"il a décidé\",\"t\":\"he decided\"},{\"w\":\"d'aller au travail\",\"t\":\"to go to work\"},{\"w\":\"à pied.\",\"t\":\"on foot\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.065",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle s'occupe de ses parents depuis que sa mère est tombée malade.",
+    "en": "She has been taking care of her parents since her mother fell ill.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle s'occupe\",\"t\":\"she takes care\"},{\"w\":\"de ses parents\",\"t\":\"of her parents\"},{\"w\":\"depuis que\",\"t\":\"since\"},{\"w\":\"sa mère est tombée malade.\",\"t\":\"her mother fell ill\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.066",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons traversé la ville à travers plusieurs quartiers historiques.",
+    "en": "We crossed the city through several historic neighborhoods.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons traversé\",\"t\":\"we crossed\"},{\"w\":\"la ville\",\"t\":\"the city\"},{\"w\":\"à travers\",\"t\":\"through\"},{\"w\":\"plusieurs quartiers historiques.\",\"t\":\"several historic neighborhoods\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.067",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a renoncé à son voyage à cause du mauvais temps.",
+    "en": "He gave up his trip because of the bad weather.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a renoncé\",\"t\":\"he gave up\"},{\"w\":\"à son voyage\",\"t\":\"his trip\"},{\"w\":\"à cause du mauvais temps.\",\"t\":\"because of the bad weather\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.068",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "À partir de lundi, l'équipe travaillera dans de nouveaux bureaux.",
+    "en": "Starting Monday, the team will work in new offices.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"À partir de lundi,\",\"t\":\"starting Monday,\"},{\"w\":\"l'équipe travaillera\",\"t\":\"the team will work\"},{\"w\":\"dans de nouveaux bureaux.\",\"t\":\"in new offices\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.069",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle hésite entre deux offres d'emploi assez différentes.",
+    "en": "She is hesitating between two rather different job offers.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle hésite\",\"t\":\"she is hesitating\"},{\"w\":\"entre deux offres\",\"t\":\"between two offers\"},{\"w\":\"d'emploi\",\"t\":\"of employment\"},{\"w\":\"assez différentes.\",\"t\":\"rather different\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.070",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous nous sommes installés au milieu du salon pour discuter tranquillement.",
+    "en": "We settled in the middle of the living room to talk quietly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous nous sommes installés\",\"t\":\"we settled\"},{\"w\":\"au milieu du salon\",\"t\":\"in the middle of the living room\"},{\"w\":\"pour discuter tranquillement.\",\"t\":\"to talk quietly\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.071",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a fini par s'adapter à son nouvel environnement.",
+    "en": "He eventually adapted to his new environment.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a fini par s'adapter\",\"t\":\"he eventually adapted\"},{\"w\":\"à son nouvel environnement.\",\"t\":\"to his new environment\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.072",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle doute de la réussite de ce projet sans plus de moyens.",
+    "en": "She doubts the success of this project without more resources.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle doute\",\"t\":\"she doubts\"},{\"w\":\"de la réussite\",\"t\":\"the success\"},{\"w\":\"de ce projet\",\"t\":\"of this project\"},{\"w\":\"sans plus de moyens.\",\"t\":\"without more resources\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.073",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons attendu jusqu'au bout de la nuit sans nouvelles.",
+    "en": "We waited until the end of the night without news.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons attendu\",\"t\":\"we waited\"},{\"w\":\"jusqu'au bout\",\"t\":\"until the end\"},{\"w\":\"de la nuit\",\"t\":\"of the night\"},{\"w\":\"sans nouvelles.\",\"t\":\"without news\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.074",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a été promu grâce à ses efforts constants.",
+    "en": "He was promoted thanks to his constant efforts.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a été promu\",\"t\":\"he was promoted\"},{\"w\":\"grâce à ses efforts constants.\",\"t\":\"thanks to his constant efforts\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.075",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle s'est plainte du bruit auprès du voisin.",
+    "en": "She complained about the noise to the neighbor.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle s'est plainte\",\"t\":\"she complained\"},{\"w\":\"du bruit\",\"t\":\"about the noise\"},{\"w\":\"auprès du voisin.\",\"t\":\"to the neighbor\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.076",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous nous sommes réunis autour d'une table pour négocier le contrat.",
+    "en": "We gathered around a table to negotiate the contract.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous nous sommes réunis\",\"t\":\"we gathered\"},{\"w\":\"autour d'une table\",\"t\":\"around a table\"},{\"w\":\"pour négocier le contrat.\",\"t\":\"to negotiate the contract\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.077",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il faut s'inscrire avant le début du semestre.",
+    "en": "You have to register before the start of the semester.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il faut s'inscrire\",\"t\":\"you have to register\"},{\"w\":\"avant le début\",\"t\":\"before the start\"},{\"w\":\"du semestre.\",\"t\":\"of the semester\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.078",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle a changé d'avis à propos de sa carrière.",
+    "en": "She changed her mind about her career.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a changé d'avis\",\"t\":\"she changed her mind\"},{\"w\":\"à propos de sa carrière.\",\"t\":\"about her career\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.079",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Les employés se sont plaints auprès de la direction du manque de moyens.",
+    "en": "The employees complained to management about the lack of resources.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les employés se sont plaints\",\"t\":\"the employees complained\"},{\"w\":\"auprès de la direction\",\"t\":\"to management\"},{\"w\":\"du manque de moyens.\",\"t\":\"about the lack of resources\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.080",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons dû renoncer au voyage à cause d'une grève des trains.",
+    "en": "We had to give up the trip because of a train strike.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons dû renoncer\",\"t\":\"we had to give up\"},{\"w\":\"au voyage\",\"t\":\"the trip\"},{\"w\":\"à cause d'une grève\",\"t\":\"because of a strike\"},{\"w\":\"des trains.\",\"t\":\"of trains\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.081",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il s'est engagé auprès d'une association pour aider les sans-abri.",
+    "en": "He got involved with an association to help the homeless.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il s'est engagé\",\"t\":\"he got involved\"},{\"w\":\"auprès d'une association\",\"t\":\"with an association\"},{\"w\":\"pour aider les sans-abri.\",\"t\":\"to help the homeless\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.082",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle tient beaucoup à ses valeurs familiales.",
+    "en": "She cares a lot about her family values.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle tient beaucoup\",\"t\":\"she cares a lot\"},{\"w\":\"à ses valeurs familiales.\",\"t\":\"about her family values\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.083",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons voté en faveur du nouveau projet malgré quelques doutes.",
+    "en": "We voted in favor of the new project despite a few doubts.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons voté\",\"t\":\"we voted\"},{\"w\":\"en faveur du nouveau projet\",\"t\":\"in favor of the new project\"},{\"w\":\"malgré quelques doutes.\",\"t\":\"despite a few doubts\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.084",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Il a appris à cuisiner grâce à sa grand-mère.",
+    "en": "He learned to cook thanks to his grandmother.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a appris à cuisiner\",\"t\":\"he learned to cook\"},{\"w\":\"grâce à sa grand-mère.\",\"t\":\"thanks to his grandmother\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.085",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle a fini son rapport avant la date limite malgré la fatigue.",
+    "en": "She finished her report before the deadline despite the tiredness.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a fini son rapport\",\"t\":\"she finished her report\"},{\"w\":\"avant la date limite\",\"t\":\"before the deadline\"},{\"w\":\"malgré la fatigue.\",\"t\":\"despite the tiredness\"}]}"
+  },
+  {
+    "id": "fr.b1.prepositions-essentielles.086",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous avons participé à la réunion malgré notre désaccord sur certains points.",
+    "en": "We took part in the meeting despite our disagreement on some points.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons participé\",\"t\":\"we took part\"},{\"w\":\"à la réunion\",\"t\":\"in the meeting\"},{\"w\":\"malgré notre désaccord\",\"t\":\"despite our disagreement\"},{\"w\":\"sur certains points.\",\"t\":\"on some points\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.051",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il est essentiel que nous nous adaptions à ces nouvelles conditions de travail.",
+    "en": "It is essential that we adapt to these new working conditions.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est essentiel\",\"t\":\"it is essential\"},{\"w\":\"que nous nous adaptions\",\"t\":\"that we adapt\"},{\"w\":\"à ces nouvelles conditions\",\"t\":\"to these new conditions\"},{\"w\":\"de travail.\",\"t\":\"of work\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.052",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Bien qu'elle soit opposée à cette réforme, elle a voté en sa faveur.",
+    "en": "Although she is opposed to this reform, she voted in favor of it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien qu'elle soit opposée\",\"t\":\"although she is opposed\"},{\"w\":\"à cette réforme,\",\"t\":\"to this reform,\"},{\"w\":\"elle a voté\",\"t\":\"she voted\"},{\"w\":\"en sa faveur.\",\"t\":\"in favor of it\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.053",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il vaut mieux que vous vous appuyiez sur des sources vérifiées.",
+    "en": "It's better that you rely on verified sources.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il vaut mieux\",\"t\":\"it's better\"},{\"w\":\"que vous vous appuyiez\",\"t\":\"that you rely\"},{\"w\":\"sur des sources vérifiées.\",\"t\":\"on verified sources\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.054",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Quoi qu'il arrive, nous resterons fidèles à nos principes.",
+    "en": "Whatever happens, we will remain true to our principles.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quoi qu'il arrive,\",\"t\":\"whatever happens,\"},{\"w\":\"nous resterons fidèles\",\"t\":\"we will remain true\"},{\"w\":\"à nos principes.\",\"t\":\"to our principles\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.055",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il est peu probable que le contrat soit signé avant la fin du mois.",
+    "en": "It is unlikely that the contract will be signed before the end of the month.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est peu probable\",\"t\":\"it is unlikely\"},{\"w\":\"que le contrat soit signé\",\"t\":\"that the contract will be signed\"},{\"w\":\"avant la fin\",\"t\":\"before the end\"},{\"w\":\"du mois.\",\"t\":\"of the month\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.056",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle craint que ce désaccord ne nuise à leur collaboration.",
+    "en": "She fears that this disagreement might harm their collaboration.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle craint\",\"t\":\"she fears\"},{\"w\":\"que ce désaccord\",\"t\":\"that this disagreement\"},{\"w\":\"ne nuise\",\"t\":\"might harm\"},{\"w\":\"à leur collaboration.\",\"t\":\"their collaboration\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.057",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Pour que le projet aboutisse, il faut que chacun s'engage à respecter les délais.",
+    "en": "For the project to succeed, everyone must commit to meeting the deadlines.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Pour que le projet aboutisse,\",\"t\":\"for the project to succeed,\"},{\"w\":\"il faut que chacun s'engage\",\"t\":\"everyone must commit\"},{\"w\":\"à respecter les délais.\",\"t\":\"to meeting the deadlines\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.058",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Malgré ses réserves, elle a accepté de participer au débat.",
+    "en": "Despite her reservations, she agreed to take part in the debate.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Malgré ses réserves,\",\"t\":\"despite her reservations,\"},{\"w\":\"elle a accepté\",\"t\":\"she agreed\"},{\"w\":\"de participer\",\"t\":\"to take part\"},{\"w\":\"au débat.\",\"t\":\"in the debate\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.059",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il se peut que la décision dépende de facteurs qui nous échappent.",
+    "en": "It may be that the decision depends on factors beyond our control.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il se peut\",\"t\":\"it may be\"},{\"w\":\"que la décision dépende\",\"t\":\"that the decision depends\"},{\"w\":\"de facteurs\",\"t\":\"on factors\"},{\"w\":\"qui nous échappent.\",\"t\":\"that escape us\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.060",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle s'efforce de rester fidèle à ses convictions malgré les critiques.",
+    "en": "She strives to remain true to her convictions despite the criticism.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle s'efforce de rester fidèle\",\"t\":\"she strives to remain true\"},{\"w\":\"à ses convictions\",\"t\":\"to her convictions\"},{\"w\":\"malgré les critiques.\",\"t\":\"despite the criticism\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.061",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Bien qu'il ait longtemps hésité entre deux carrières, il s'est finalement décidé pour le droit.",
+    "en": "Although he had long hesitated between two careers, he finally settled on law.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien qu'il ait longtemps hésité\",\"t\":\"although he had long hesitated\"},{\"w\":\"entre deux carrières,\",\"t\":\"between two careers,\"},{\"w\":\"il s'est finalement décidé\",\"t\":\"he finally settled\"},{\"w\":\"pour le droit.\",\"t\":\"on law\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.062",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il importe que les négociations aboutissent avant que la situation ne s'aggrave.",
+    "en": "It matters that the negotiations succeed before the situation worsens.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il importe\",\"t\":\"it matters\"},{\"w\":\"que les négociations aboutissent\",\"t\":\"that the negotiations succeed\"},{\"w\":\"avant que la situation\",\"t\":\"before the situation\"},{\"w\":\"ne s'aggrave.\",\"t\":\"worsens\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.063",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle regrette de ne pas avoir tenu compte de cet avertissement.",
+    "en": "She regrets not having taken this warning into account.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle regrette\",\"t\":\"she regrets\"},{\"w\":\"de ne pas avoir tenu compte\",\"t\":\"not having taken into account\"},{\"w\":\"de cet avertissement.\",\"t\":\"this warning\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.064",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous doutons que cette proposition tienne compte des besoins réels du personnel.",
+    "en": "We doubt that this proposal takes into account the actual needs of the staff.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous doutons\",\"t\":\"we doubt\"},{\"w\":\"que cette proposition tienne compte\",\"t\":\"that this proposal takes into account\"},{\"w\":\"des besoins réels\",\"t\":\"the actual needs\"},{\"w\":\"du personnel.\",\"t\":\"of the staff\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.065",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il est rare qu'un tel accord soit conclu sans concessions de part et d'autre.",
+    "en": "It is rare for such an agreement to be reached without concessions on both sides.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est rare\",\"t\":\"it is rare\"},{\"w\":\"qu'un tel accord soit conclu\",\"t\":\"for such an agreement to be reached\"},{\"w\":\"sans concessions\",\"t\":\"without concessions\"},{\"w\":\"de part et d'autre.\",\"t\":\"on both sides\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.066",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle a fini par renoncer à ses ambitions au profit de sa famille.",
+    "en": "She eventually gave up her ambitions for the sake of her family.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a fini par renoncer\",\"t\":\"she eventually gave up\"},{\"w\":\"à ses ambitions\",\"t\":\"her ambitions\"},{\"w\":\"au profit de sa famille.\",\"t\":\"for the sake of her family\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.067",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il faut que vous soyez attentifs aux détails avant de signer ce contrat.",
+    "en": "You need to be attentive to the details before signing this contract.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il faut que vous soyez attentifs\",\"t\":\"you need to be attentive\"},{\"w\":\"aux détails\",\"t\":\"to the details\"},{\"w\":\"avant de signer\",\"t\":\"before signing\"},{\"w\":\"ce contrat.\",\"t\":\"this contract\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.068",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Quoiqu'elle soit consciente des risques, elle a choisi d'investir dans cette entreprise.",
+    "en": "Although she is aware of the risks, she chose to invest in this company.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quoiqu'elle soit consciente\",\"t\":\"although she is aware\"},{\"w\":\"des risques,\",\"t\":\"of the risks,\"},{\"w\":\"elle a choisi d'investir\",\"t\":\"she chose to invest\"},{\"w\":\"dans cette entreprise.\",\"t\":\"in this company\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.069",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il n'est pas certain que les négociations parviennent à un accord avant la fin de l'année.",
+    "en": "It is not certain that the negotiations will reach an agreement before the end of the year.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il n'est pas certain\",\"t\":\"it is not certain\"},{\"w\":\"que les négociations parviennent\",\"t\":\"that the negotiations will reach\"},{\"w\":\"à un accord\",\"t\":\"an agreement\"},{\"w\":\"avant la fin de l'année.\",\"t\":\"before the end of the year\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.070",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle s'est adressée directement au directeur afin d'obtenir une réponse rapide.",
+    "en": "She spoke directly to the director in order to get a quick answer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle s'est adressée directement\",\"t\":\"she spoke directly\"},{\"w\":\"au directeur\",\"t\":\"to the director\"},{\"w\":\"afin d'obtenir\",\"t\":\"in order to get\"},{\"w\":\"une réponse rapide.\",\"t\":\"a quick answer\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.071",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Bien que le marché évolue vite, l'entreprise reste fidèle à sa stratégie initiale.",
+    "en": "Although the market is changing fast, the company remains true to its initial strategy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien que le marché évolue vite,\",\"t\":\"although the market is changing fast,\"},{\"w\":\"l'entreprise reste fidèle\",\"t\":\"the company remains true\"},{\"w\":\"à sa stratégie initiale.\",\"t\":\"to its initial strategy\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.072",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il aurait fallu que nous tenions compte des avis de tous avant de trancher.",
+    "en": "We should have taken everyone's opinions into account before deciding.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il aurait fallu\",\"t\":\"we should have\"},{\"w\":\"que nous tenions compte\",\"t\":\"taken into account\"},{\"w\":\"des avis de tous\",\"t\":\"everyone's opinions\"},{\"w\":\"avant de trancher.\",\"t\":\"before deciding\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.073",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Elle veille à ce que chacun ait accès aux mêmes ressources.",
+    "en": "She makes sure that everyone has access to the same resources.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle veille\",\"t\":\"she makes sure\"},{\"w\":\"à ce que chacun ait accès\",\"t\":\"that everyone has access\"},{\"w\":\"aux mêmes ressources.\",\"t\":\"to the same resources\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.074",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Malgré le désaccord initial, ils sont parvenus à un compromis grâce au dialogue.",
+    "en": "Despite the initial disagreement, they reached a compromise thanks to dialogue.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Malgré le désaccord initial,\",\"t\":\"despite the initial disagreement,\"},{\"w\":\"ils sont parvenus\",\"t\":\"they reached\"},{\"w\":\"à un compromis\",\"t\":\"a compromise\"},{\"w\":\"grâce au dialogue.\",\"t\":\"thanks to dialogue\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.075",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Il semble peu probable qu'elle renonce à son poste sans y être contrainte.",
+    "en": "It seems unlikely that she would give up her position without being forced to.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il semble peu probable\",\"t\":\"it seems unlikely\"},{\"w\":\"qu'elle renonce\",\"t\":\"that she would give up\"},{\"w\":\"à son poste\",\"t\":\"her position\"},{\"w\":\"sans y être contrainte.\",\"t\":\"without being forced to\"}]}"
+  },
+  {
+    "id": "fr.b2.prepositions-essentielles.076",
+    "kind": "sentence",
+    "level": "b2",
+    "theme": "prepositions-essentielles",
+    "fr": "Nous tenons à ce que ce projet réponde aux attentes de tous les partenaires.",
+    "en": "We are keen for this project to meet the expectations of all the partners.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous tenons\",\"t\":\"we are keen\"},{\"w\":\"à ce que ce projet réponde\",\"t\":\"for this project to meet\"},{\"w\":\"aux attentes\",\"t\":\"the expectations\"},{\"w\":\"de tous les partenaires.\",\"t\":\"of all the partners\"}]}"
+  }
+]

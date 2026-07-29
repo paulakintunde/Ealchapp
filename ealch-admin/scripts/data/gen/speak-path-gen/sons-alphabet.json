@@ -1,0 +1,1729 @@
+{
+  "level": "sons",
+  "theme": "alphabet",
+  "count": 82,
+  "items": [
+    {
+      "id": "fr.sons.alphabet.382",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "J'épelle mon adresse maintenant.",
+      "en": "I'll spell my address now.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe.pɛl mɔ̃.n‿a.dʁɛs mɛ̃t.nɑ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.383",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "C'est B comme Bernard.",
+      "en": "It's B as in Bernard.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ be kɔm bɛʁ.naʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.384",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Répétez la dernière lettre.",
+      "en": "Repeat the last letter.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʁe.pe.te la dɛʁ.njɛʁ lɛtʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.385",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Notez bien chaque lettre.",
+      "en": "Write down each letter carefully.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nɔ.te bjɛ̃ ʃak lɛtʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.386",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Vous pouvez répéter lentement ?",
+      "en": "Can you repeat that slowly?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu pu.ve ʁe.pe.te lɑ̃t.mɑ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.387",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Je dicte mon courriel.",
+      "en": "I'll dictate my email.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə dikt mɔ̃ ku.ʁjɛl"
+    },
+    {
+      "id": "fr.sons.alphabet.388",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Attendez, je note ça.",
+      "en": "Hold on, I'm writing that down.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a.tɑ̃.de ʒə nɔt sa"
+    },
+    {
+      "id": "fr.sons.alphabet.389",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Votre code commence par quoi ?",
+      "en": "What does your code start with?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vɔtʁ kɔd kɔ.mɑ̃s paʁ kwa"
+    },
+    {
+      "id": "fr.sons.alphabet.390",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Je vous épelle mon prénom.",
+      "en": "I'll spell my first name for you.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə vu.z‿e.pɛl mɔ̃ pʁe.nɔ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.391",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Ça s'écrit avec deux t.",
+      "en": "It's spelled with two t's.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sa se.kʁi a.vɛk dø te"
+    },
+    {
+      "id": "fr.sons.alphabet.392",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Vous avez bien noté, monsieur ?",
+      "en": "Did you write it down correctly, sir?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿a.ve bjɛ̃ nɔ.te mə.sjø"
+    },
+    {
+      "id": "fr.sons.alphabet.393",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Épelez votre nom de famille.",
+      "en": "Spell your last name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "e.ple vɔtʁ nɔ̃ də fa.mij"
+    },
+    {
+      "id": "fr.sons.alphabet.394",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Le numéro contient une lettre.",
+      "en": "The number contains one letter.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ny.me.ʁo kɔ̃.tjɛ̃ yn lɛtʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.395",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Je confirme votre code postal.",
+      "en": "I'm confirming your postal code.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə kɔ̃.fiʁm vɔtʁ kɔd pɔs.tal"
+    },
+    {
+      "id": "fr.sons.alphabet.396",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "C'est M comme Marie, madame.",
+      "en": "It's M as in Marie, ma'am.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ ɛm kɔm ma.ʁi ma.dam"
+    },
+    {
+      "id": "fr.sons.alphabet.397",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "C'est un i ou un e ?",
+      "en": "Is it an i or an e?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ.t‿œ̃.n‿i u œ̃.n‿ə"
+    },
+    {
+      "id": "fr.sons.alphabet.398",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Je vais épeler mon nom lentement.",
+      "en": "I'm going to spell my name slowly.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə vɛ e.ple mɔ̃ nɔ̃ lɑ̃t.mɑ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.399",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Excusez-moi, la ligne coupe un peu.",
+      "en": "Sorry, the line is cutting out a little.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛk.sky.ze.mwa la liɲ kup œ̃ pø"
+    },
+    {
+      "id": "fr.sons.alphabet.400",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Le code postal commence par H.",
+      "en": "The postal code starts with H.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə kɔd pɔs.tal kɔ.mɑ̃s paʁ aʃ"
+    },
+    {
+      "id": "fr.sons.alphabet.401",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Pouvez-vous confirmer le numéro de dossier ?",
+      "en": "Can you confirm the file number?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "pu.ve.vu kɔ̃.fiʁ.me lə ny.me.ʁo də do.sje"
+    },
+    {
+      "id": "fr.sons.alphabet.402",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "J'ai mal entendu la deuxième lettre.",
+      "en": "I misheard the second letter.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe mal ɑ̃.tɑ̃.dy la dø.zjɛm lɛtʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.403",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Votre prénom prend un accent aigu ?",
+      "en": "Does your first name have an acute accent?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vɔtʁ pʁe.nɔ̃ pʁɑ̃ œ̃.n‿ak.sɑ̃ e.gy"
+    },
+    {
+      "id": "fr.sons.alphabet.404",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Je répète le code pour vérifier.",
+      "en": "I'll repeat the code to check.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə ʁe.pɛt lə kɔd puʁ ve.ʁi.fje"
+    },
+    {
+      "id": "fr.sons.alphabet.405",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Mon courriel se termine par point ca.",
+      "en": "My email ends with dot ca.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ ku.ʁjɛl sə tɛʁ.min paʁ pwɛ̃ se.a"
+    },
+    {
+      "id": "fr.sons.alphabet.406",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Votre numéro de dossier, s'il vous plaît.",
+      "en": "Your file number, please.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vɔtʁ ny.me.ʁo də do.sje sil vu plɛ"
+    },
+    {
+      "id": "fr.sons.alphabet.407",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Je vérifie l'adresse lettre par lettre, d'accord ?",
+      "en": "I'll check the address letter by letter, okay?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə ve.ʁi.fi la.dʁɛs lɛtʁ paʁ lɛtʁ da.kɔʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.408",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Attendez, je cherche un stylo pour noter.",
+      "en": "Hold on, I'm looking for a pen to write it down.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a.tɑ̃.de ʒə ʃɛʁʃ œ̃ sti.lo puʁ nɔ.te"
+    },
+    {
+      "id": "fr.sons.alphabet.409",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "La conseillère épelle le mot pour moi.",
+      "en": "The advisor spells the word for me.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la kɔ̃.sɛ.jɛʁ e.pɛl lə mo puʁ mwa"
+    },
+    {
+      "id": "fr.sons.alphabet.410",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Mon prénom s'écrit avec un seul l.",
+      "en": "My first name is spelled with a single l.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ pʁe.nɔ̃ se.kʁi a.vɛk œ̃ sœl ɛl"
+    },
+    {
+      "id": "fr.sons.alphabet.411",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Vous confirmez la réservation par courriel après ?",
+      "en": "Will you confirm the booking by email afterward?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu kɔ̃.fiʁ.me la ʁe.zɛʁ.va.sjɔ̃ paʁ ku.ʁjɛl a.pʁɛ"
+    },
+    {
+      "id": "fr.sons.alphabet.412",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Merci, je répète votre nom au complet.",
+      "en": "Thank you, I'll repeat your full name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɛʁ.si ʒə ʁe.pɛt vɔtʁ nɔ̃ o kɔ̃.plɛ"
+    },
+    {
+      "id": "fr.sons.alphabet.413",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Vous dites S comme Sophie, c'est bien ça ?",
+      "en": "You said S as in Sophie, is that right?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu dit ɛs kɔm sɔ.fi sɛ bjɛ̃ sa"
+    },
+    {
+      "id": "fr.sons.alphabet.414",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Il y a deux s dans mon nom.",
+      "en": "There are two s's in my name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il i a dø ɛs dɑ̃ mɔ̃ nɔ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.415",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Le service client demande mon code de référence.",
+      "en": "Customer service is asking for my reference code.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə sɛʁ.vis kli.jɑ̃ də.mɑ̃d mɔ̃ kɔd də ʁe.fe.ʁɑ̃s"
+    },
+    {
+      "id": "fr.sons.alphabet.416",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Pour la réservation, je dois épeler mon nom.",
+      "en": "For the booking, I have to spell my name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "puʁ la ʁe.zɛʁ.va.sjɔ̃ ʒə dwa e.ple mɔ̃ nɔ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.417",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "La dame au téléphone note mon adresse complète.",
+      "en": "The lady on the phone writes down my full address.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la dam o te.le.fɔn nɔt mɔ̃.n‿a.dʁɛs kɔ̃.plɛt"
+    },
+    {
+      "id": "fr.sons.alphabet.418",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Est-ce que le mot prend un accent grave ?",
+      "en": "Does the word have a grave accent?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛs kə lə mo pʁɑ̃ œ̃.n‿ak.sɑ̃ gʁav"
+    },
+    {
+      "id": "fr.sons.alphabet.419",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Bon, je relis le numéro une dernière fois.",
+      "en": "Okay, I'll read the number back one last time.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "bɔ̃ ʒə ʁə.li lə ny.me.ʁo yn dɛʁ.njɛʁ fwa"
+    },
+    {
+      "id": "fr.sons.alphabet.420",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Vous entendez bien, ou je parle plus fort ?",
+      "en": "Can you hear me alright, or should I speak louder?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu.z‿ɑ̃.tɑ̃.de bjɛ̃ u ʒə paʁl ply fɔʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.421",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Mon adresse courriel contient un chiffre et un point.",
+      "en": "My email address contains a number and a dot.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃.n‿a.dʁɛs ku.ʁjɛl kɔ̃.tjɛ̃ œ̃ ʃifʁ e œ̃ pwɛ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.422",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Pourriez-vous épeler le nom de la rue pour moi ?",
+      "en": "Could you spell the street name for me?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "pu.ʁje.vu.z‿e.ple lə nɔ̃ də la ʁy puʁ mwa"
+    },
+    {
+      "id": "fr.sons.alphabet.423",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "L'agent me demande d'épeler le nom de mon employeur.",
+      "en": "The officer asks me to spell my employer's name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la.ʒɑ̃ mə də.mɑ̃d de.ple lə nɔ̃ də mɔ̃.n‿ɑ̃.plwa.jœʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.424",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Je note le code de confirmation sur un papier.",
+      "en": "I'm writing the confirmation code on a piece of paper.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə nɔt lə kɔd də kɔ̃.fiʁ.ma.sjɔ̃ syʁ œ̃ pa.pje"
+    },
+    {
+      "id": "fr.sons.alphabet.425",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Au téléphone, on me demande souvent d'épeler mon nom.",
+      "en": "On the phone, people often ask me to spell my name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "o te.le.fɔn ɔ̃ mə də.mɑ̃d su.vɑ̃ de.ple mɔ̃ nɔ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.426",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "La banque vérifie les trois premières lettres du code.",
+      "en": "The bank checks the first three letters of the code.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la bɑ̃k ve.ʁi.fi le tʁwa pʁə.mjɛʁ lɛtʁ dy kɔd"
+    },
+    {
+      "id": "fr.sons.alphabet.427",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Vous pouvez me redonner la référence plus lentement, monsieur ?",
+      "en": "Can you give me the reference again more slowly, sir?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu pu.ve mə ʁə.dɔ.ne la ʁe.fe.ʁɑ̃s ply lɑ̃t.mɑ̃ mə.sjø"
+    },
+    {
+      "id": "fr.sons.alphabet.428",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "D'abord un p, ensuite deux l, puis un e.",
+      "en": "First a p, next two l's, then an e.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "da.bɔʁ œ̃ pe ɑ̃.sɥit dø ɛl pɥi œ̃.n‿ə"
+    },
+    {
+      "id": "fr.sons.alphabet.429",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Le technicien épelle le mot de passe du modem.",
+      "en": "The technician spells out the modem password.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə tɛk.ni.sjɛ̃ e.pɛl lə mo də pas dy mɔ.dɛm"
+    },
+    {
+      "id": "fr.sons.alphabet.430",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Épelez votre nom complet.",
+      "en": "Spell your full name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "e.pə.le vɔ.tʁə nɔ̃ kɔ̃.plɛ"
+    },
+    {
+      "id": "fr.sons.alphabet.431",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Ça s'écrit comment, madame?",
+      "en": "How do you spell that, ma'am?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sa se.kʁi kɔ.mɑ̃ ma.dam"
+    },
+    {
+      "id": "fr.sons.alphabet.432",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Un seul L, merci.",
+      "en": "Just one L, thanks.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "œ̃ sœl ɛl mɛʁ.si"
+    },
+    {
+      "id": "fr.sons.alphabet.433",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Ça commence par B.",
+      "en": "It starts with B.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sa kɔ.mɑ̃s paʁ be"
+    },
+    {
+      "id": "fr.sons.alphabet.434",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "V comme dans Victor.",
+      "en": "V as in Victor.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ve kɔm dɑ̃ vik.tɔʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.435",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Votre numéro de dossier?",
+      "en": "Your file number?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vɔ.tʁə ny.me.ʁo də do.sje"
+    },
+    {
+      "id": "fr.sons.alphabet.436",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Elle épelle son prénom.",
+      "en": "She spells her first name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl e.pɛl sɔ̃ pʁe.nɔ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.437",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Deux T, pas un.",
+      "en": "Two Ts, not one.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "dø te pa œ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.438",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Mon prénom prend deux L.",
+      "en": "My first name has two Ls.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ pʁe.nɔ̃ pʁɑ̃ dø ɛl"
+    },
+    {
+      "id": "fr.sons.alphabet.439",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Le dossier débute par D.",
+      "en": "The file starts with D.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə do.sje de.byt paʁ de"
+    },
+    {
+      "id": "fr.sons.alphabet.440",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Mon nom s'écrit avec K.",
+      "en": "My name is spelled with a K.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ nɔ̃ se.kʁi a.vɛk ka"
+    },
+    {
+      "id": "fr.sons.alphabet.441",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Vous pouvez épeler votre prénom?",
+      "en": "Can you spell your first name?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu pu.ve.z‿e.pə.le vɔ.tʁə pʁe.nɔ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.442",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Il manque une lettre ici.",
+      "en": "There is a letter missing here.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il mɑ̃k yn lɛtʁ i.si"
+    },
+    {
+      "id": "fr.sons.alphabet.443",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Ça prend un accent aigu.",
+      "en": "It takes an acute accent.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sa pʁɑ̃ œ̃.n‿ak.sɑ̃.t‿e.gy"
+    },
+    {
+      "id": "fr.sons.alphabet.444",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Répétez la dernière lettre, monsieur.",
+      "en": "Repeat the last letter, sir.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʁe.pe.te la dɛʁ.njɛʁ lɛtʁ mə.sjø"
+    },
+    {
+      "id": "fr.sons.alphabet.445",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Mon adresse contient un chiffre.",
+      "en": "My address has a number in it.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃.n‿a.dʁɛs kɔ̃.tjɛ̃ œ̃ ʃifʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.446",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "À la clinique, j'épelle mon nom.",
+      "en": "At the clinic, I spell my name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a la kli.nik ʒe.pɛl mɔ̃ nɔ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.447",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "L'agent d'immigration confirme l'orthographe du nom.",
+      "en": "The immigration officer confirms the spelling of the name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la.ʒɑ̃ di.mi.gʁa.sjɔ̃ kɔ̃.fiʁm lɔʁ.tɔ.gʁaf dy nɔ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.448",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Votre code postal débute par H?",
+      "en": "Your postal code starts with H?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vɔ.tʁə kɔd pɔs.tal de.byt paʁ aʃ"
+    },
+    {
+      "id": "fr.sons.alphabet.449",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Je confirme la référence avec vous.",
+      "en": "I am confirming the reference with you.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə kɔ̃.fiʁm la ʁe.fe.ʁɑ̃s a.vɛk vu"
+    },
+    {
+      "id": "fr.sons.alphabet.450",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Pouvez-vous épeler votre nom de famille?",
+      "en": "Can you spell your last name?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "pu.ve.vu.z‿e.pə.le vɔ.tʁə nɔ̃ də fa.mij"
+    },
+    {
+      "id": "fr.sons.alphabet.451",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Le M est la troisième lettre.",
+      "en": "M is the third letter.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ɛm ɛ la tʁwa.zjɛm lɛtʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.452",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Écrivez le nom en lettres majuscules.",
+      "en": "Write the name in capital letters.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "e.kʁi.ve lə nɔ̃ ɑ̃ lɛtʁ ma.ʒys.kyl"
+    },
+    {
+      "id": "fr.sons.alphabet.453",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Mon courriel se termine par CA.",
+      "en": "My email ends with CA.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ ku.ʁjɛl sə tɛʁ.min paʁ se a"
+    },
+    {
+      "id": "fr.sons.alphabet.454",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "La réceptionniste répète mon prénom doucement.",
+      "en": "The receptionist repeats my first name slowly.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la ʁe.sɛp.sjɔ.nist ʁe.pɛt mɔ̃ pʁe.nɔ̃ dus.mɑ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.455",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "À la banque, on épelle mon nom.",
+      "en": "At the bank, they spell my name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a la bɑ̃k ɔ̃.n‿e.pɛl mɔ̃ nɔ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.456",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Le formulaire demande votre nom en majuscules.",
+      "en": "The form asks for your name in capitals.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə fɔʁ.my.lɛʁ də.mɑ̃d vɔ.tʁə nɔ̃ ɑ̃ ma.ʒys.kyl"
+    },
+    {
+      "id": "fr.sons.alphabet.457",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Je note le code de votre dossier.",
+      "en": "I am writing down your file code.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒə nɔt lə kɔd də vɔ.tʁə do.sje"
+    },
+    {
+      "id": "fr.sons.alphabet.458",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Vous confirmez la lettre après le G?",
+      "en": "Can you confirm the letter after the G?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vu kɔ̃.fiʁ.me la lɛtʁ a.pʁɛ lə ʒe"
+    },
+    {
+      "id": "fr.sons.alphabet.459",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Il épelle son adresse courriel au téléphone.",
+      "en": "He spells his email address on the phone.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il e.pɛl sɔ̃.n‿a.dʁɛs ku.ʁjɛl o te.le.fɔn"
+    },
+    {
+      "id": "fr.sons.alphabet.460",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "La banque vérifie l'orthographe de votre nom.",
+      "en": "The bank checks the spelling of your name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la bɑ̃k ve.ʁi.fi lɔʁ.tɔ.gʁaf də vɔ.tʁə nɔ̃"
+    },
+    {
+      "id": "fr.sons.alphabet.461",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Votre numéro de compte finit par neuf?",
+      "en": "Your account number ends in nine?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vɔ.tʁə ny.me.ʁo də kɔ̃t fi.ni paʁ nœf"
+    },
+    {
+      "id": "fr.sons.alphabet.462",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "J'écris la lettre A sur le formulaire.",
+      "en": "I write the letter A on the form.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe.kʁi la lɛtʁ a syʁ lə fɔʁ.my.lɛʁ"
+    },
+    {
+      "id": "fr.sons.alphabet.463",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "alphabet",
+      "fr": "Mon nom de famille commence par un W.",
+      "en": "My last name starts with a W.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ nɔ̃ də fa.mij kɔ.mɑ̃s paʁ œ̃ du.blə.ve"
+    }
+  ]
+}

@@ -1,0 +1,3472 @@
+{
+  "level": "sons",
+  "theme": "nasales",
+  "count": 165,
+  "items": [
+    {
+      "id": "fr.sons.nasales.001",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Maman chante souvent.",
+      "en": "Mom often sings.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma.mɑ̃ ʃɑ̃t su.vɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.002",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le vent danse.",
+      "en": "The wind is dancing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə vɑ̃ dɑ̃s"
+    },
+    {
+      "id": "fr.sons.nasales.003",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Attends un moment.",
+      "en": "Wait a moment.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a.tɑ̃ œ̃ mɔ.mɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.004",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'entends les enfants.",
+      "en": "I hear the children.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒɑ̃.tɑ̃ lez‿ɑ̃.fɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.005",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le temps passe.",
+      "en": "Time goes by.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə tɑ̃ pɑs"
+    },
+    {
+      "id": "fr.sons.nasales.006",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Prends ton manteau.",
+      "en": "Take your coat.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "pʁɑ̃ tɔ̃ mɑ̃.to"
+    },
+    {
+      "id": "fr.sons.nasales.007",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On mange maintenant.",
+      "en": "We are eating now.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ mɑ̃ʒ mɛ̃t.nɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.008",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "C'est vraiment charmant.",
+      "en": "It is really charming.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ vʁɛ.mɑ̃ ʃaʁ.mɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.009",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le banc est blanc.",
+      "en": "The bench is white.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə bɑ̃ ɛ blɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.010",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'attends maman devant l'école.",
+      "en": "I am waiting for mom in front of the school.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒa.tɑ̃ ma.mɑ̃ də.vɑ̃ le.kɔl"
+    },
+    {
+      "id": "fr.sons.nasales.011",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Il vend cent gants.",
+      "en": "He sells a hundred gloves.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il vɑ̃ sɑ̃ ɡɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.012",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous chantons souvent ensemble.",
+      "en": "We often sing together.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu ʃɑ̃.tɔ̃ su.vɑ̃ ɑ̃.sɑ̃bl"
+    },
+    {
+      "id": "fr.sons.nasales.013",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "L'enfant mange trop lentement.",
+      "en": "The child eats too slowly.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lɑ̃.fɑ̃ mɑ̃ʒ tʁo lɑ̃t.mɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.014",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le vent souffle doucement.",
+      "en": "The wind blows gently.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə vɑ̃ sufl dus.mɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.015",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ta chambre est grande.",
+      "en": "Your bedroom is big.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ta ʃɑ̃bʁ ɛ ɡʁɑ̃d"
+    },
+    {
+      "id": "fr.sons.nasales.016",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le restaurant ferme dimanche.",
+      "en": "The restaurant closes on Sunday.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ʁɛs.to.ʁɑ̃ fɛʁm di.mɑ̃ʃ"
+    },
+    {
+      "id": "fr.sons.nasales.017",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On s'assoit sur le banc.",
+      "en": "We sit on the bench.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ sa.swa syʁ lə bɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.018",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Il fait du vent dehors.",
+      "en": "It is windy outside.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il fɛ dy vɑ̃ də.ɔʁ"
+    },
+    {
+      "id": "fr.sons.nasales.019",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Les enfants dansent en chantant.",
+      "en": "The children dance while singing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lez‿ɑ̃.fɑ̃ dɑ̃s ɑ̃ ʃɑ̃.tɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.020",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Maman prend toujours son temps.",
+      "en": "Mom always takes her time.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma.mɑ̃ pʁɑ̃ tu.ʒuʁ sɔ̃ tɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.021",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'ai trente ans en janvier.",
+      "en": "I turn thirty in January.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe tʁɑ̃t‿ɑ̃ ɑ̃ ʒɑ̃.vje"
+    },
+    {
+      "id": "fr.sons.nasales.022",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On attend devant la banque.",
+      "en": "We are waiting in front of the bank.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃n‿a.tɑ̃ də.vɑ̃ la bɑ̃k"
+    },
+    {
+      "id": "fr.sons.nasales.023",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le marchand vend des plantes.",
+      "en": "The merchant sells plants.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə maʁ.ʃɑ̃ vɑ̃ de plɑ̃t"
+    },
+    {
+      "id": "fr.sons.nasales.024",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ce manteau blanc est élégant.",
+      "en": "This white coat is elegant.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sə mɑ̃.to blɑ̃ ɛt‿e.le.ɡɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.025",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ma tante chante dans la cuisine.",
+      "en": "My aunt sings in the kitchen.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma tɑ̃t ʃɑ̃t dɑ̃ la kɥi.zin"
+    },
+    {
+      "id": "fr.sons.nasales.026",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le vent se lève ce soir.",
+      "en": "The wind is picking up tonight.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə vɑ̃ sə lɛv sə swaʁ"
+    },
+    {
+      "id": "fr.sons.nasales.027",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'apprends le français depuis le printemps.",
+      "en": "I have been learning French since spring.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒa.pʁɑ̃ lə fʁɑ̃.sɛ də.pɥi lə pʁɛ̃.tɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.028",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Les gens patientent devant le théâtre.",
+      "en": "People are waiting in front of the theater.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le ʒɑ̃ pa.sjɑ̃t də.vɑ̃ lə te.ɑtʁ"
+    },
+    {
+      "id": "fr.sons.nasales.029",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Mon grand frère travaille en France.",
+      "en": "My big brother works in France.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ ɡʁɑ̃ fʁɛʁ tʁa.vaj ɑ̃ fʁɑ̃s"
+    },
+    {
+      "id": "fr.sons.nasales.030",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Elle danse pendant toute la chanson.",
+      "en": "She dances during the whole song.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl dɑ̃s pɑ̃.dɑ̃ tut la ʃɑ̃.sɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.031",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous mangeons souvent des croissants chauds.",
+      "en": "We often eat warm croissants.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu mɑ̃.ʒɔ̃ su.vɑ̃ de kʁwa.sɑ̃ ʃo"
+    },
+    {
+      "id": "fr.sons.nasales.032",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "L'étudiant rentre chez lui en chantant.",
+      "en": "The student goes home singing.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.ty.djɑ̃ ʁɑ̃tʁ ʃe lɥi ɑ̃ ʃɑ̃.tɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.033",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Il attend sa tante devant le magasin.",
+      "en": "He is waiting for his aunt in front of the store.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il a.tɑ̃ sa tɑ̃t də.vɑ̃ lə ma.ɡa.zɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.034",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le dimanche, on mange ensemble en famille.",
+      "en": "On Sundays, we eat together as a family.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə di.mɑ̃ʃ ɔ̃ mɑ̃ʒ ɑ̃.sɑ̃bl ɑ̃ fa.mij"
+    },
+    {
+      "id": "fr.sons.nasales.035",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'ai cent dollars dans mon manteau blanc.",
+      "en": "I have a hundred dollars in my white coat.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe sɑ̃ dɔ.laʁ dɑ̃ mɔ̃ mɑ̃.to blɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.036",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le vent souffle fort sur le banc.",
+      "en": "The wind blows hard on the bench.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə vɑ̃ sufl fɔʁ syʁ lə bɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.037",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ma tante attend le tramway depuis longtemps.",
+      "en": "My aunt has been waiting for the streetcar for a long time.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma tɑ̃t a.tɑ̃ lə tʁam.wɛ də.pɥi lɔ̃.tɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.038",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Les enfants apprennent une chanson en classe.",
+      "en": "The children are learning a song in class.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lez‿ɑ̃.fɑ̃ a.pʁɛn yn ʃɑ̃.sɔ̃ ɑ̃ klɑs"
+    },
+    {
+      "id": "fr.sons.nasales.039",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Pendant l'hiver, il fait franchement froid ici.",
+      "en": "During winter, it is frankly cold here.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "pɑ̃.dɑ̃ li.vɛʁ il fɛ fʁɑ̃ʃ.mɑ̃ fʁwa i.si"
+    },
+    {
+      "id": "fr.sons.nasales.040",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Elle prend son temps pour manger tranquillement.",
+      "en": "She takes her time to eat calmly.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl pʁɑ̃ sɔ̃ tɑ̃ puʁ mɑ̃.ʒe tʁɑ̃.kil.mɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.041",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "En attendant le bus, je chante une chanson.",
+      "en": "While waiting for the bus, I sing a song.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɑ̃n‿a.tɑ̃.dɑ̃ lə bys ʒə ʃɑ̃t yn ʃɑ̃.sɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.042",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Mes parents partent sans nous pendant les vacances.",
+      "en": "My parents leave without us during the holidays.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "me pa.ʁɑ̃ paʁt sɑ̃ nu pɑ̃.dɑ̃ le va.kɑ̃s"
+    },
+    {
+      "id": "fr.sons.nasales.043",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le marchand vend des gants blancs en novembre.",
+      "en": "The merchant sells white gloves in November.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə maʁ.ʃɑ̃ vɑ̃ de ɡɑ̃ blɑ̃ ɑ̃ nɔ.vɑ̃bʁ"
+    },
+    {
+      "id": "fr.sons.nasales.044",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ma grande sœur attend un enfant pour janvier.",
+      "en": "My big sister is expecting a baby for January.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma ɡʁɑ̃d sœʁ a.tɑ̃ œ̃n‿ɑ̃.fɑ̃ puʁ ʒɑ̃.vje"
+    },
+    {
+      "id": "fr.sons.nasales.045",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "L'ambulance passe lentement dans la rue ce matin.",
+      "en": "The ambulance is moving slowly down the street this morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lɑ̃.by.lɑ̃s pɑs lɑ̃t.mɑ̃ dɑ̃ la ʁy sə ma.tɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.046",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le temps change souvent au printemps au Canada.",
+      "en": "The weather often changes in spring in Canada.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə tɑ̃ ʃɑ̃ʒ su.vɑ̃ o pʁɛ̃.tɑ̃ o ka.na.da"
+    },
+    {
+      "id": "fr.sons.nasales.047",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'entends le chant des oiseaux dans les champs.",
+      "en": "I hear the birds singing in the fields.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒɑ̃.tɑ̃ lə ʃɑ̃ dez‿wa.zo dɑ̃ le ʃɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.048",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ce matin, il mange un croissant aux amandes.",
+      "en": "This morning, he is eating an almond croissant.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sə ma.tɛ̃ il mɑ̃ʒ œ̃ kʁwa.sɑ̃ oz‿a.mɑ̃d"
+    },
+    {
+      "id": "fr.sons.nasales.049",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On voit un banc blanc devant la grande maison.",
+      "en": "You can see a white bench in front of the big house.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ vwa œ̃ bɑ̃ blɑ̃ də.vɑ̃ la ɡʁɑ̃d mɛ.zɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.050",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le dimanche matin, maman nous prépare tranquillement des crêpes.",
+      "en": "On Sunday mornings, mom calmly makes us crepes.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə di.mɑ̃ʃ ma.tɛ̃ ma.mɑ̃ nu pʁe.paʁ tʁɑ̃.kil.mɑ̃ de kʁɛp"
+    },
+    {
+      "id": "fr.sons.nasales.051",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Pendant le mois d'août, nous campons à la campagne.",
+      "en": "During the month of August, we camp in the countryside.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "pɑ̃.dɑ̃ lə mwa du nu kɑ̃.pɔ̃ a la kɑ̃.paɲ"
+    },
+    {
+      "id": "fr.sons.nasales.052",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Mon grand-père raconte des histoires passionnantes pendant le souper.",
+      "en": "My grandfather tells exciting stories during supper.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ ɡʁɑ̃.pɛʁ ʁa.kɔ̃t dez‿is.twaʁ pa.sjɔ.nɑ̃t pɑ̃.dɑ̃ lə su.pe"
+    },
+    {
+      "id": "fr.sons.nasales.053",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Elle apprend le chant depuis longtemps avec sa tante.",
+      "en": "She has been learning singing for a long time with her aunt.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛl a.pʁɑ̃ lə ʃɑ̃ də.pɥi lɔ̃.tɑ̃ a.vɛk sa tɑ̃t"
+    },
+    {
+      "id": "fr.sons.nasales.054",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Les gens dansent lentement pendant la fête du printemps.",
+      "en": "People dance slowly during the spring festival.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le ʒɑ̃ dɑ̃s lɑ̃t.mɑ̃ pɑ̃.dɑ̃ la fɛt dy pʁɛ̃.tɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.055",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "En septembre, les étudiants rentrent en classe avec entrain.",
+      "en": "In September, students go back to class with enthusiasm.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɑ̃ sɛp.tɑ̃bʁ lez‿e.ty.djɑ̃ ʁɑ̃tʁ ɑ̃ klɑs a.vɛk ɑ̃.tʁɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.056",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le marchand ambulant vend des oranges sur le boulevard.",
+      "en": "The street vendor sells oranges on the boulevard.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə maʁ.ʃɑ̃ ɑ̃.by.lɑ̃ vɑ̃ dez‿ɔ.ʁɑ̃ʒ syʁ lə bul.vaʁ"
+    },
+    {
+      "id": "fr.sons.nasales.057",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'attends le printemps pour planter des fleurs dans le jardin.",
+      "en": "I am waiting for spring to plant flowers in the garden.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒa.tɑ̃ lə pʁɛ̃.tɑ̃ puʁ plɑ̃.te de flœʁ dɑ̃ lə ʒaʁ.dɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.058",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous attendons nos amis devant le restaurant depuis trente minutes.",
+      "en": "We have been waiting for our friends in front of the restaurant for thirty minutes.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nuz‿a.tɑ̃.dɔ̃ noz‿a.mi də.vɑ̃ lə ʁɛs.to.ʁɑ̃ də.pɥi tʁɑ̃t mi.nyt"
+    },
+    {
+      "id": "fr.sons.nasales.059",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Pendant les vacances, mes parents louent un chalet en montagne.",
+      "en": "During the holidays, my parents rent a cottage in the mountains.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "pɑ̃.dɑ̃ le va.kɑ̃s me pa.ʁɑ̃ lu œ̃ ʃa.lɛ ɑ̃ mɔ̃.taɲ"
+    },
+    {
+      "id": "fr.sons.nasales.060",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le samedi, les enfants chantent et dansent dans le salon.",
+      "en": "On Saturdays, the children sing and dance in the living room.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə sam.di lez‿ɑ̃.fɑ̃ ʃɑ̃t e dɑ̃s dɑ̃ lə sa.lɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.061",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Chaque matin, ma tante boit son café sur le banc.",
+      "en": "Every morning, my aunt drinks her coffee on the bench.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʃak ma.tɛ̃ ma tɑ̃t bwa sɔ̃ ka.fe syʁ lə bɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.062",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "En attendant le train, il mange un sandwich au fromage.",
+      "en": "While waiting for the train, he eats a cheese sandwich.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɑ̃n‿a.tɑ̃.dɑ̃ lə tʁɛ̃ il mɑ̃ʒ œ̃ sɑ̃d.witʃ o fʁɔ.maʒ"
+    },
+    {
+      "id": "fr.sons.nasales.063",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Il fait beau, alors on se promène lentement en ville.",
+      "en": "The weather is nice, so we stroll slowly around town.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il fɛ bo a.lɔʁ ɔ̃ sə pʁɔ.mɛn lɑ̃t.mɑ̃ ɑ̃ vil"
+    },
+    {
+      "id": "fr.sons.nasales.064",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Mon oncle ronfle.",
+      "en": "My uncle snores.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃.n‿ɔ̃kl ʁɔ̃fl"
+    },
+    {
+      "id": "fr.sons.nasales.065",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "C'est mon prénom.",
+      "en": "That's my first name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ mɔ̃ pʁe.nɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.066",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Regarde son ballon.",
+      "en": "Look at his ball.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʁə.ɡaʁd sɔ̃ ba.lɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.067",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Pardon, on passe.",
+      "en": "Excuse us, we're coming through.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "paʁ.dɔ̃ ɔ̃ pas"
+    },
+    {
+      "id": "fr.sons.nasales.068",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Montrez vos réponses.",
+      "en": "Show your answers.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃.tʁe vo ʁe.pɔ̃s"
+    },
+    {
+      "id": "fr.sons.nasales.069",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On monte ensemble.",
+      "en": "We're going up together.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ mɔ̃t ɑ̃.sɑ̃bl"
+    },
+    {
+      "id": "fr.sons.nasales.070",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Bonjour, mon garçon.",
+      "en": "Hello, my boy.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "bɔ̃.ʒuʁ mɔ̃ ɡaʁ.sɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.071",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Son chaton dort.",
+      "en": "Her kitten is sleeping.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɔ̃ ʃa.tɔ̃ dɔʁ"
+    },
+    {
+      "id": "fr.sons.nasales.072",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le pont est long.",
+      "en": "The bridge is long.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə pɔ̃ ɛ lɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.073",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ce melon sent bon.",
+      "en": "This melon smells good.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sə mə.lɔ̃ sɑ̃ bɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.074",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous mangeons des bonbons.",
+      "en": "We're eating candies.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu mɑ̃.ʒɔ̃ de bɔ̃.bɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.075",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ils vont à Lyon.",
+      "en": "They're going to Lyon.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il vɔ̃.t‿a ljɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.076",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ton poisson est rond.",
+      "en": "Your fish is round.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tɔ̃ pwa.sɔ̃ ɛ ʁɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.077",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On compte jusqu'à onze.",
+      "en": "We count up to eleven.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ kɔ̃t ʒys.ka ɔ̃z"
+    },
+    {
+      "id": "fr.sons.nasales.078",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Son nom sonne bien.",
+      "en": "His name sounds nice.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɔ̃ nɔ̃ sɔn bjɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.079",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On monte au balcon.",
+      "en": "We're going up to the balcony.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ mɔ̃t o bal.kɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.080",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Manon adore les petits avions.",
+      "en": "Manon loves small planes.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma.nɔ̃ a.dɔʁ le pə.ti.z‿a.vjɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.081",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Son ballon roule au salon.",
+      "en": "His ball is rolling in the living room.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɔ̃ ba.lɔ̃ ʁul o sa.lɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.082",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ton oncle répond au téléphone.",
+      "en": "Your uncle is answering the phone.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tɔ̃.n‿ɔ̃kl ʁe.pɔ̃ o te.le.fɔn"
+    },
+    {
+      "id": "fr.sons.nasales.083",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On chante une bonne chanson.",
+      "en": "We're singing a good song.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ ʃɑ̃t yn bɔn ʃɑ̃.sɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.084",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Un pigeon passe devant nous.",
+      "en": "A pigeon passes in front of us.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "œ̃ pi.ʒɔ̃ pas də.vɑ̃ nu"
+    },
+    {
+      "id": "fr.sons.nasales.085",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous montons dans le wagon.",
+      "en": "We get on the train car.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu mɔ̃.tɔ̃ dɑ̃ lə va.ɡɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.086",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ils font un rond parfait.",
+      "en": "They make a perfect circle.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il fɔ̃.t‿œ̃ ʁɔ̃ paʁ.fɛ"
+    },
+    {
+      "id": "fr.sons.nasales.087",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Pardon, où est le pont?",
+      "en": "Excuse me, where is the bridge?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "paʁ.dɔ̃ u ɛ lə pɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.088",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le garçon blond mange un bonbon.",
+      "en": "The blond boy is eating a candy.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ɡaʁ.sɔ̃ blɔ̃ mɑ̃ʒ œ̃ bɔ̃.bɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.089",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Léon et Simon vont à Dijon.",
+      "en": "Léon and Simon are going to Dijon.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le.ɔ̃ e si.mɔ̃ vɔ̃.t‿a di.ʒɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.090",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On prépare du poisson au citron.",
+      "en": "We're making fish with lemon.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ pʁe.paʁ dy pwa.sɔ̃ o si.tʁɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.091",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Manon me montre sa montre ronde.",
+      "en": "Manon shows me her round watch.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma.nɔ̃ mə mɔ̃tʁ sa mɔ̃tʁ ʁɔ̃d"
+    },
+    {
+      "id": "fr.sons.nasales.092",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous avons onze melons bien mûrs.",
+      "en": "We have eleven very ripe melons.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿a.vɔ̃ ɔ̃z mə.lɔ̃ bjɛ̃ myʁ"
+    },
+    {
+      "id": "fr.sons.nasales.093",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le mouton et le cochon dorment.",
+      "en": "The sheep and the pig are sleeping.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə mu.tɔ̃ e lə kɔ.ʃɔ̃ dɔʁm"
+    },
+    {
+      "id": "fr.sons.nasales.094",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On répond aux questions du patron.",
+      "en": "We answer the boss's questions.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ ʁe.pɔ̃ o kɛs.tjɔ̃ dy pa.tʁɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.095",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On regarde la télévision au salon.",
+      "en": "We watch TV in the living room.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ ʁə.ɡaʁd la te.le.vi.zjɔ̃ o sa.lɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.096",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On achète du jambon et du saucisson.",
+      "en": "We're buying ham and dry sausage.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿a.ʃɛt dy ʒɑ̃.bɔ̃ e dy so.si.sɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.097",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Mon frère blond joue avec son ballon.",
+      "en": "My blond brother plays with his ball.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ fʁɛʁ blɔ̃ ʒu a.vɛk sɔ̃ ba.lɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.098",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le nouveau patron du restaurant s'appelle Gaston.",
+      "en": "The restaurant's new boss is named Gaston.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə nu.vo pa.tʁɔ̃ dy ʁɛs.to.ʁɑ̃ sa.pɛl ɡas.tɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.099",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Les poissons nagent au fond de l'étang.",
+      "en": "The fish swim at the bottom of the pond.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "le pwa.sɔ̃ naʒ o fɔ̃ də le.tɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.100",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Mon tonton raconte une longue histoire drôle.",
+      "en": "My uncle tells a long funny story.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ tɔ̃.tɔ̃ ʁa.kɔ̃t yn lɔ̃ɡ is.twaʁ dʁol"
+    },
+    {
+      "id": "fr.sons.nasales.101",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous regardons les ombres sur le mur.",
+      "en": "We look at the shadows on the wall.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu ʁə.ɡaʁ.dɔ̃ le.z‿ɔ̃bʁ syʁ lə myʁ"
+    },
+    {
+      "id": "fr.sons.nasales.102",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On met un glaçon dans la limonade.",
+      "en": "We put an ice cube in the lemonade.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ mɛ.t‿œ̃ ɡla.sɔ̃ dɑ̃ la li.mɔ.nad"
+    },
+    {
+      "id": "fr.sons.nasales.103",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Simon compte les moutons pour bien dormir.",
+      "en": "Simon counts sheep to sleep well.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "si.mɔ̃ kɔ̃t le mu.tɔ̃ puʁ bjɛ̃ dɔʁ.miʁ"
+    },
+    {
+      "id": "fr.sons.nasales.104",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On regarde les flocons tomber devant la maison.",
+      "en": "We watch the snowflakes fall in front of the house.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ ʁə.ɡaʁd le flɔ.kɔ̃ tɔ̃.be də.vɑ̃ la mɛ.zɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.105",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Mon oncle Léon monte sur son vélo marron.",
+      "en": "My uncle Léon gets on his brown bike.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃.n‿ɔ̃kl le.ɔ̃ mɔ̃t syʁ sɔ̃ ve.lo ma.ʁɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.106",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous écoutons des chansons pendant le long voyage.",
+      "en": "We listen to songs during the long trip.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿e.ku.tɔ̃ de ʃɑ̃.sɔ̃ pɑ̃.dɑ̃ lə lɔ̃ vwa.jaʒ"
+    },
+    {
+      "id": "fr.sons.nasales.107",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On prend l'avion pour aller à Montréal demain.",
+      "en": "We're taking the plane to go to Montreal tomorrow.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ pʁɑ̃ la.vjɔ̃ puʁ a.le a mɔ̃.tʁe.al də.mɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.108",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ton bonnet marron est tombé sous le banc.",
+      "en": "Your brown hat fell under the bench.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tɔ̃ bɔ.nɛ ma.ʁɔ̃ ɛ tɔ̃.be su lə bɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.109",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous allons chez Yvon pour manger du thon.",
+      "en": "We're going to Yvon's place to eat tuna.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿a.lɔ̃ ʃe i.vɔ̃ puʁ mɑ̃.ʒe dy tɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.110",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Tout le monde connaît le nom du champion.",
+      "en": "Everyone knows the champion's name.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tu lə mɔ̃d kɔ.nɛ lə nɔ̃ dy ʃɑ̃.pjɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.111",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le maçon construit un grand mur en béton.",
+      "en": "The mason is building a big concrete wall.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ma.sɔ̃ kɔ̃s.tʁɥi œ̃ ɡʁɑ̃ myʁ ɑ̃ be.tɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.112",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "La chanson de Manon passe encore à la radio.",
+      "en": "Manon's song is playing on the radio again.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "la ʃɑ̃.sɔ̃ də ma.nɔ̃ pas ɑ̃.kɔʁ a la ʁa.djo"
+    },
+    {
+      "id": "fr.sons.nasales.113",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous montons au deuxième étage pour ranger les cartons.",
+      "en": "We go up to the second floor to put away the boxes.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu mɔ̃.tɔ̃ o dø.zjɛm e.taʒ puʁ ʁɑ̃.ʒe le kaʁ.tɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.114",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On entend le son des cloches depuis la maison.",
+      "en": "We hear the sound of the bells from the house.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃.n‿ɑ̃.tɑ̃ lə sɔ̃ de klɔʃ də.pɥi la mɛ.zɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.115",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Yvon et Ninon regardent un film dans le salon.",
+      "en": "Yvon and Ninon are watching a movie in the living room.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "i.vɔ̃ e ni.nɔ̃ ʁə.ɡaʁd œ̃ film dɑ̃ lə sa.lɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.116",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On compte les pigeons qui passent au-dessus du fleuve.",
+      "en": "We count the pigeons flying over the river.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ kɔ̃t le pi.ʒɔ̃ ki pas o.də.sy dy flœv"
+    },
+    {
+      "id": "fr.sons.nasales.117",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le petit garçon apprend sa leçon avant le souper.",
+      "en": "The little boy learns his lesson before supper.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə pə.ti ɡaʁ.sɔ̃ a.pʁɑ̃ sa lə.sɔ̃ a.vɑ̃ lə su.pe"
+    },
+    {
+      "id": "fr.sons.nasales.118",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Pardon monsieur, le pont est fermé depuis ce matin.",
+      "en": "Sorry sir, the bridge has been closed since this morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "paʁ.dɔ̃ mə.sjø lə pɔ̃ ɛ fɛʁ.me də.pɥi sə ma.tɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.119",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ils font des bonds sur le trampoline du jardin.",
+      "en": "They bounce on the trampoline in the yard.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il fɔ̃ de bɔ̃ syʁ lə tʁɑ̃.pɔ.lin dy ʒaʁ.dɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.120",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Simon met du savon sur ses mains avant le dîner.",
+      "en": "Simon puts soap on his hands before dinner.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "si.mɔ̃ mɛ dy sa.vɔ̃ syʁ se mɛ̃ a.vɑ̃ lə di.ne"
+    },
+    {
+      "id": "fr.sons.nasales.121",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On raconte une longue histoire aux enfants avant le coucher.",
+      "en": "We tell the children a long story before bedtime.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ ʁa.kɔ̃t yn lɔ̃ɡ is.twaʁ o.z‿ɑ̃.fɑ̃ a.vɑ̃ lə ku.ʃe"
+    },
+    {
+      "id": "fr.sons.nasales.122",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous posons les melons et les citrons sur le balcon.",
+      "en": "We put the melons and the lemons on the balcony.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu po.zɔ̃ le mə.lɔ̃ e le si.tʁɔ̃ syʁ lə bal.kɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.123",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On dessine un rond et un carré sur le tableau.",
+      "en": "We draw a circle and a square on the board.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ de.sin œ̃ ʁɔ̃ e œ̃ ka.ʁe syʁ lə ta.blo"
+    },
+    {
+      "id": "fr.sons.nasales.124",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Marion et son frère partent à la montagne en avion.",
+      "en": "Marion and her brother are leaving for the mountains by plane.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ma.ʁjɔ̃ e sɔ̃ fʁɛʁ paʁt a la mɔ̃.taɲ ɑ̃.n‿a.vjɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.125",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Mon tonton Gaston montre ses photos du Japon à Ninon.",
+      "en": "My uncle Gaston shows his photos of Japan to Ninon.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ tɔ̃.tɔ̃ ɡas.tɔ̃ mɔ̃tʁ se fɔ.to dy ʒa.pɔ̃ a ni.nɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.126",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Nous attendons l'autobus depuis onze minutes devant la grande maison.",
+      "en": "We have been waiting for the bus for eleven minutes in front of the big house.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "nu.z‿a.tɑ̃.dɔ̃ lo.to.bys də.pɥi ɔ̃z mi.nyt də.vɑ̃ la ɡʁɑ̃d mɛ.zɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.127",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'ai très faim.",
+      "en": "I'm very hungry.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe tʁɛ fɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.128",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Demain, je viens.",
+      "en": "Tomorrow, I'm coming.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "də.mɛ̃ ʒə vjɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.129",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Mon chien dort.",
+      "en": "My dog is sleeping.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ ʃjɛ̃ dɔʁ"
+    },
+    {
+      "id": "fr.sons.nasales.130",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Tiens, du pain.",
+      "en": "Here, some bread.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tjɛ̃ dy pɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.131",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Viens demain matin.",
+      "en": "Come tomorrow morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vjɛ̃ də.mɛ̃ ma.tɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.132",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "C'est bien loin.",
+      "en": "That's quite far.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɛ bjɛ̃ lwɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.133",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le train arrive.",
+      "en": "The train is arriving.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə tʁɛ̃ a.ʁiv"
+    },
+    {
+      "id": "fr.sons.nasales.134",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Éteins ton téléphone.",
+      "en": "Turn off your phone.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "e.tɛ̃ tɔ̃ te.le.fɔn"
+    },
+    {
+      "id": "fr.sons.nasales.135",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le bain est chaud.",
+      "en": "The bath is hot.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə bɛ̃ ɛ ʃo"
+    },
+    {
+      "id": "fr.sons.nasales.136",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Il a vingt ans.",
+      "en": "He is twenty years old.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "i.l‿a vɛ̃.t‿ɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.137",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ton cousin est blond ?",
+      "en": "Is your cousin blond?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tɔ̃ ku.zɛ̃ ɛ blɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.138",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le pain sent bon.",
+      "en": "The bread smells good.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə pɛ̃ sɑ̃ bɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.139",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ce vin vient d'ici.",
+      "en": "This wine comes from here.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sə vɛ̃ vjɛ̃ di.si"
+    },
+    {
+      "id": "fr.sons.nasales.140",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Alain peint très bien.",
+      "en": "Alain paints very well.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "a.lɛ̃ pɛ̃ tʁɛ bjɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.141",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'ai faim ce matin.",
+      "en": "I'm hungry this morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe fɛ̃ sə ma.tɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.142",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le singe a faim.",
+      "en": "The monkey is hungry.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə sɛ̃ʒ a fɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.143",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On prend le train ensemble.",
+      "en": "We're taking the train together.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ pʁɑ̃ lə tʁɛ̃ ɑ̃.sɑ̃bl"
+    },
+    {
+      "id": "fr.sons.nasales.144",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le médecin vient ce matin.",
+      "en": "The doctor is coming this morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə med.sɛ̃ vjɛ̃ sə ma.tɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.145",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Elle adore ce vin blanc.",
+      "en": "She loves this white wine.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɛ.l‿a.dɔʁ sə vɛ̃ blɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.146",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'attends le train du matin.",
+      "en": "I'm waiting for the morning train.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒa.tɑ̃ lə tʁɛ̃ dy ma.tɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.147",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ton parrain habite loin d'ici.",
+      "en": "Your godfather lives far from here.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "tɔ̃ pa.ʁɛ̃ a.bit lwɛ̃ di.si"
+    },
+    {
+      "id": "fr.sons.nasales.148",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "On mange du raisin blanc.",
+      "en": "We're eating white grapes.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɔ̃ mɑ̃ʒ dy ʁɛ.zɛ̃ blɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.149",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Tu viens lundi ou mardi ?",
+      "en": "Are you coming Monday or Tuesday?",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ty vjɛ̃ lɛ̃.di u maʁ.di"
+    },
+    {
+      "id": "fr.sons.nasales.150",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Enfin, le printemps est là.",
+      "en": "Finally, spring is here.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ɑ̃.fɛ̃ lə pʁɛ̃.tɑ̃ ɛ la"
+    },
+    {
+      "id": "fr.sons.nasales.151",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le matin, je bois un café.",
+      "en": "In the morning, I drink a coffee.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ma.tɛ̃ ʒə bwa ɛ̃ ka.fe"
+    },
+    {
+      "id": "fr.sons.nasales.152",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Mon voisin canadien parle très bien.",
+      "en": "My Canadian neighbour speaks very well.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "mɔ̃ vwa.zɛ̃ ka.na.djɛ̃ paʁl tʁɛ bjɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.153",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le chien du voisin aboie encore.",
+      "en": "The neighbour's dog is barking again.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ʃjɛ̃ dy vwa.zɛ̃ a.bwa ɑ̃.kɔʁ"
+    },
+    {
+      "id": "fr.sons.nasales.154",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le peintre peint un sapin vert.",
+      "en": "The painter is painting a green fir tree.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə pɛ̃tʁ pɛ̃ ɛ̃ sa.pɛ̃ vɛʁ"
+    },
+    {
+      "id": "fr.sons.nasales.155",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Ce chemin passe sous le pont.",
+      "en": "This path goes under the bridge.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sə ʃə.mɛ̃ pas su lə pɔ̃"
+    },
+    {
+      "id": "fr.sons.nasales.156",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le vent renverse le banc blanc.",
+      "en": "The wind knocks over the white bench.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə vɑ̃ ʁɑ̃.vɛʁs lə bɑ̃ blɑ̃"
+    },
+    {
+      "id": "fr.sons.nasales.157",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Vincent invite ses copains chez lui.",
+      "en": "Vincent invites his friends to his place.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "vɛ̃.sɑ̃ ɛ̃.vit se kɔ.pɛ̃ ʃe lɥi"
+    },
+    {
+      "id": "fr.sons.nasales.158",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "J'ai un examen important lundi matin.",
+      "en": "I have an important exam Monday morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʒe ɛ̃.n‿ɛg.za.mɛ̃ ɛ̃.pɔʁ.tɑ̃ lɛ̃.di ma.tɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.159",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Demain matin, je prends un bain chaud.",
+      "en": "Tomorrow morning, I'm taking a hot bath.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "də.mɛ̃ ma.tɛ̃ ʒə pʁɑ̃ ɛ̃ bɛ̃ ʃo"
+    },
+    {
+      "id": "fr.sons.nasales.160",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Son cousin américain arrive par le train.",
+      "en": "His American cousin is arriving by train.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "sɔ̃ ku.zɛ̃ a.me.ʁi.kɛ̃ a.ʁiv paʁ lə tʁɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.161",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Il reste du vin dans ton verre.",
+      "en": "There is still some wine in your glass.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "il ʁɛst dy vɛ̃ dɑ̃ tɔ̃ vɛʁ"
+    },
+    {
+      "id": "fr.sons.nasales.162",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le lapin se cache dans le jardin.",
+      "en": "The rabbit is hiding in the garden.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə la.pɛ̃ sə kaʃ dɑ̃ lə ʒaʁ.dɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.163",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Martin tient son grand chien en laisse.",
+      "en": "Martin keeps his big dog on a leash.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "maʁ.tɛ̃ tjɛ̃ sɔ̃ gʁɑ̃ ʃjɛ̃ ɑ̃ lɛs"
+    },
+    {
+      "id": "fr.sons.nasales.164",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Chaque matin, je prends le même chemin.",
+      "en": "Every morning, I take the same path.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "ʃak ma.tɛ̃ ʒə pʁɑ̃ lə mɛm ʃə.mɛ̃"
+    },
+    {
+      "id": "fr.sons.nasales.165",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "nasales",
+      "fr": "Le magasin du coin ferme demain matin.",
+      "en": "The corner store closes tomorrow morning.",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "version": 1,
+      "register": "courant",
+      "provenance": {
+        "generatedBy": "llm",
+        "model": "claude-fable-5",
+        "promptVersion": "speak-path-2026-07"
+      },
+      "ipa": "lə ma.ga.zɛ̃ dy kwɛ̃ fɛʁm də.mɛ̃ ma.tɛ̃"
+    }
+  ]
+}

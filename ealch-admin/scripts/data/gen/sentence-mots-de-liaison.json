@@ -1,0 +1,2942 @@
+[
+  {
+    "id": "fr.a1.mots-de-liaison.192",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il fait froid, mais le soleil brille.",
+    "en": "It is cold, but the sun is shining.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il fait froid,\",\"t\":\"it is cold,\"},{\"w\":\"mais\",\"t\":\"but\"},{\"w\":\"le soleil brille.\",\"t\":\"the sun is shining\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.193",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "J'aime le café, mais je préfère le thé le matin.",
+    "en": "I like coffee, but I prefer tea in the morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'aime le café,\",\"t\":\"i like coffee,\"},{\"w\":\"mais je préfère\",\"t\":\"but i prefer\"},{\"w\":\"le thé le matin.\",\"t\":\"tea in the morning\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.194",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle travaille beaucoup, mais elle reste toujours souriante.",
+    "en": "She works a lot, but she always stays smiling.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle travaille beaucoup,\",\"t\":\"she works a lot,\"},{\"w\":\"mais elle reste\",\"t\":\"but she stays\"},{\"w\":\"toujours souriante.\",\"t\":\"always smiling\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.195",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous voulons sortir, mais il pleut trop fort.",
+    "en": "We want to go out, but it is raining too hard.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous voulons sortir,\",\"t\":\"we want to go out,\"},{\"w\":\"mais il pleut\",\"t\":\"but it is raining\"},{\"w\":\"trop fort.\",\"t\":\"too hard\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.196",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le film était long, mais très intéressant.",
+    "en": "The movie was long, but very interesting.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le film était long,\",\"t\":\"the movie was long,\"},{\"w\":\"mais\",\"t\":\"but\"},{\"w\":\"très intéressant.\",\"t\":\"very interesting\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.197",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Mon frère adore le sport, mais il déteste courir.",
+    "en": "My brother loves sports, but he hates running.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Mon frère adore le sport,\",\"t\":\"my brother loves sports,\"},{\"w\":\"mais il déteste\",\"t\":\"but he hates\"},{\"w\":\"courir.\",\"t\":\"running\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.198",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "La maison est petite, mais confortable.",
+    "en": "The house is small, but comfortable.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La maison est petite,\",\"t\":\"the house is small,\"},{\"w\":\"mais\",\"t\":\"but\"},{\"w\":\"confortable.\",\"t\":\"comfortable\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.199",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Je voudrais voyager plus, mais je n'ai pas assez d'argent.",
+    "en": "I would like to travel more, but I do not have enough money.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je voudrais voyager plus,\",\"t\":\"i would like to travel more,\"},{\"w\":\"mais je n'ai pas\",\"t\":\"but i do not have\"},{\"w\":\"assez d'argent.\",\"t\":\"enough money\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.200",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il parle bien anglais, mais il écrit avec des fautes.",
+    "en": "He speaks English well, but he writes with mistakes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il parle bien anglais,\",\"t\":\"he speaks english well,\"},{\"w\":\"mais il écrit\",\"t\":\"but he writes\"},{\"w\":\"avec des fautes.\",\"t\":\"with mistakes\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.201",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Les enfants sont fatigués, mais ils veulent encore jouer.",
+    "en": "The children are tired, but they still want to play.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les enfants sont fatigués,\",\"t\":\"the children are tired,\"},{\"w\":\"mais ils veulent\",\"t\":\"but they want\"},{\"w\":\"encore jouer.\",\"t\":\"to play still\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.202",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il est tard, donc je rentre chez moi.",
+    "en": "It is late, so I am going home.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est tard,\",\"t\":\"it is late,\"},{\"w\":\"donc je rentre\",\"t\":\"so i am going\"},{\"w\":\"chez moi.\",\"t\":\"home\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.203",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle a raté le bus, donc elle arrive en retard.",
+    "en": "She missed the bus, so she is arriving late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a raté le bus,\",\"t\":\"she missed the bus,\"},{\"w\":\"donc elle arrive\",\"t\":\"so she is arriving\"},{\"w\":\"en retard.\",\"t\":\"late\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.204",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous avons faim, donc nous allons manger maintenant.",
+    "en": "We are hungry, so we are going to eat now.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons faim,\",\"t\":\"we are hungry,\"},{\"w\":\"donc nous allons\",\"t\":\"so we are going\"},{\"w\":\"manger maintenant.\",\"t\":\"to eat now\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.205",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le magasin est fermé, donc je reviendrai demain.",
+    "en": "The store is closed, so I will come back tomorrow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le magasin est fermé,\",\"t\":\"the store is closed,\"},{\"w\":\"donc je reviendrai\",\"t\":\"so i will come back\"},{\"w\":\"demain.\",\"t\":\"tomorrow\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.206",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il pleut, donc nous restons à la maison.",
+    "en": "It is raining, so we are staying home.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pleut,\",\"t\":\"it is raining,\"},{\"w\":\"donc nous restons\",\"t\":\"so we are staying\"},{\"w\":\"à la maison.\",\"t\":\"home\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.207",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "J'ai un examen demain, donc je dois étudier ce soir.",
+    "en": "I have an exam tomorrow, so I have to study tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai un examen demain,\",\"t\":\"i have an exam tomorrow,\"},{\"w\":\"donc je dois\",\"t\":\"so i have to\"},{\"w\":\"étudier ce soir.\",\"t\":\"study tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.208",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le prix a baissé, donc nous achetons deux billets.",
+    "en": "The price went down, so we are buying two tickets.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le prix a baissé,\",\"t\":\"the price went down,\"},{\"w\":\"donc nous achetons\",\"t\":\"so we are buying\"},{\"w\":\"deux billets.\",\"t\":\"two tickets\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.209",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle est malade, donc elle ne vient pas travailler.",
+    "en": "She is sick, so she is not coming to work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle est malade,\",\"t\":\"she is sick,\"},{\"w\":\"donc elle ne vient pas\",\"t\":\"so she is not coming\"},{\"w\":\"travailler.\",\"t\":\"to work\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.210",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous sommes en retard, donc dépêchons-nous.",
+    "en": "We are late, so let's hurry.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous sommes en retard,\",\"t\":\"we are late,\"},{\"w\":\"donc\",\"t\":\"so\"},{\"w\":\"dépêchons-nous.\",\"t\":\"let's hurry\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.211",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le train est complet, donc je prendrai le suivant.",
+    "en": "The train is full, so I will take the next one.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le train est complet,\",\"t\":\"the train is full,\"},{\"w\":\"donc je prendrai\",\"t\":\"so i will take\"},{\"w\":\"le suivant.\",\"t\":\"the next one\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.212",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Je reste chez moi parce que je suis malade.",
+    "en": "I am staying home because I am sick.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je reste chez moi\",\"t\":\"i am staying home\"},{\"w\":\"parce que\",\"t\":\"because\"},{\"w\":\"je suis malade.\",\"t\":\"i am sick\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.213",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle étudie le français parce qu'elle veut voyager en France.",
+    "en": "She is studying French because she wants to travel to France.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle étudie le français\",\"t\":\"she is studying french\"},{\"w\":\"parce qu'elle veut voyager\",\"t\":\"because she wants to travel\"},{\"w\":\"en France.\",\"t\":\"to france\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.214",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous fermons les fenêtres parce qu'il fait froid.",
+    "en": "We are closing the windows because it is cold.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous fermons les fenêtres\",\"t\":\"we are closing the windows\"},{\"w\":\"parce qu'il fait\",\"t\":\"because it is\"},{\"w\":\"froid.\",\"t\":\"cold\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.215",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il court chaque matin parce qu'il aime rester en forme.",
+    "en": "He runs every morning because he likes staying fit.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il court chaque matin\",\"t\":\"he runs every morning\"},{\"w\":\"parce qu'il aime\",\"t\":\"because he likes\"},{\"w\":\"rester en forme.\",\"t\":\"staying fit\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.216",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "J'achète du pain frais parce que le nôtre est dur.",
+    "en": "I am buying fresh bread because ours is hard.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'achète du pain frais\",\"t\":\"i am buying fresh bread\"},{\"w\":\"parce que le nôtre\",\"t\":\"because ours\"},{\"w\":\"est dur.\",\"t\":\"is hard\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.217",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle pleure parce que son chat a disparu.",
+    "en": "She is crying because her cat has disappeared.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle pleure\",\"t\":\"she is crying\"},{\"w\":\"parce que son chat\",\"t\":\"because her cat\"},{\"w\":\"a disparu.\",\"t\":\"has disappeared\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.218",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous partons tôt parce que la route est longue.",
+    "en": "We are leaving early because the road is long.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous partons tôt\",\"t\":\"we are leaving early\"},{\"w\":\"parce que la route\",\"t\":\"because the road\"},{\"w\":\"est longue.\",\"t\":\"is long\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.219",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il porte un manteau parce que le vent est fort.",
+    "en": "He is wearing a coat because the wind is strong.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il porte un manteau\",\"t\":\"he is wearing a coat\"},{\"w\":\"parce que le vent\",\"t\":\"because the wind\"},{\"w\":\"est fort.\",\"t\":\"is strong\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.220",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Je change de travail parce que le salaire était trop bas.",
+    "en": "I am changing jobs because the salary was too low.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je change de travail\",\"t\":\"i am changing jobs\"},{\"w\":\"parce que le salaire\",\"t\":\"because the salary\"},{\"w\":\"était trop bas.\",\"t\":\"was too low\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.221",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Je prends un parapluie, car le ciel est gris.",
+    "en": "I am taking an umbrella, because the sky is gray.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je prends un parapluie,\",\"t\":\"i am taking an umbrella,\"},{\"w\":\"car\",\"t\":\"because\"},{\"w\":\"le ciel est gris.\",\"t\":\"the sky is gray\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.222",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle a réussi son examen, car elle a beaucoup travaillé.",
+    "en": "She passed her exam, because she worked a lot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a réussi son examen,\",\"t\":\"she passed her exam,\"},{\"w\":\"car elle a\",\"t\":\"because she\"},{\"w\":\"beaucoup travaillé.\",\"t\":\"worked a lot\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.223",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous annulons la sortie, car la météo est mauvaise.",
+    "en": "We are cancelling the outing, because the weather is bad.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous annulons la sortie,\",\"t\":\"we are cancelling the outing,\"},{\"w\":\"car la météo\",\"t\":\"because the weather\"},{\"w\":\"est mauvaise.\",\"t\":\"is bad\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.224",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il faut réserver tôt, car les places sont limitées.",
+    "en": "You have to book early, because seats are limited.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il faut réserver tôt,\",\"t\":\"you have to book early,\"},{\"w\":\"car les places\",\"t\":\"because the seats\"},{\"w\":\"sont limitées.\",\"t\":\"are limited\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.225",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle porte des lunettes, car elle ne voit pas bien de loin.",
+    "en": "She wears glasses, because she does not see well from a distance.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle porte des lunettes,\",\"t\":\"she wears glasses,\"},{\"w\":\"car elle ne voit pas bien\",\"t\":\"because she does not see well\"},{\"w\":\"de loin.\",\"t\":\"from a distance\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.226",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous fêtons son anniversaire, car il a enfin trente ans.",
+    "en": "We are celebrating his birthday, because he is finally thirty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous fêtons son anniversaire,\",\"t\":\"we are celebrating his birthday,\"},{\"w\":\"car il a enfin\",\"t\":\"because he is finally\"},{\"w\":\"trente ans.\",\"t\":\"thirty\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.227",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le magasin est bondé, car les soldes commencent aujourd'hui.",
+    "en": "The store is packed, because the sales start today.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le magasin est bondé,\",\"t\":\"the store is packed,\"},{\"w\":\"car les soldes\",\"t\":\"because the sales\"},{\"w\":\"commencent aujourd'hui.\",\"t\":\"start today\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.228",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Je bois beaucoup d'eau, car il fait très chaud.",
+    "en": "I am drinking a lot of water, because it is very hot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je bois beaucoup d'eau,\",\"t\":\"i am drinking a lot of water,\"},{\"w\":\"car il fait\",\"t\":\"because it is\"},{\"w\":\"très chaud.\",\"t\":\"very hot\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.229",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le trajet est court, cependant la circulation est dense.",
+    "en": "The trip is short, however the traffic is heavy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le trajet est court,\",\"t\":\"the trip is short,\"},{\"w\":\"cependant\",\"t\":\"however\"},{\"w\":\"la circulation est dense.\",\"t\":\"the traffic is heavy\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.230",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il a peu d'expérience, cependant il apprend très vite.",
+    "en": "He has little experience, however he learns very quickly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a peu d'expérience,\",\"t\":\"he has little experience,\"},{\"w\":\"cependant il apprend\",\"t\":\"however he learns\"},{\"w\":\"très vite.\",\"t\":\"very quickly\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.231",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le restaurant est cher, cependant la cuisine est excellente.",
+    "en": "The restaurant is expensive, however the food is excellent.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le restaurant est cher,\",\"t\":\"the restaurant is expensive,\"},{\"w\":\"cependant la cuisine\",\"t\":\"however the food\"},{\"w\":\"est excellente.\",\"t\":\"is excellent\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.232",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle semble timide, cependant elle parle bien en public.",
+    "en": "She seems shy, however she speaks well in public.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle semble timide,\",\"t\":\"she seems shy,\"},{\"w\":\"cependant elle parle\",\"t\":\"however she speaks\"},{\"w\":\"bien en public.\",\"t\":\"well in public\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.233",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le projet avance lentement, cependant les résultats sont prometteurs.",
+    "en": "The project is moving forward slowly, however the results are promising.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le projet avance lentement,\",\"t\":\"the project is moving forward slowly,\"},{\"w\":\"cependant les résultats\",\"t\":\"however the results\"},{\"w\":\"sont prometteurs.\",\"t\":\"are promising\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.234",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous manquons de temps, cependant nous finirons ce travail.",
+    "en": "We are short on time, however we will finish this work.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous manquons de temps,\",\"t\":\"we are short on time,\"},{\"w\":\"cependant nous finirons\",\"t\":\"however we will finish\"},{\"w\":\"ce travail.\",\"t\":\"this work\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.235",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "L'appartement est petit, cependant il est très bien situé.",
+    "en": "The apartment is small, however it is very well located.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'appartement est petit,\",\"t\":\"the apartment is small,\"},{\"w\":\"cependant il est\",\"t\":\"however it is\"},{\"w\":\"très bien situé.\",\"t\":\"very well located\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.236",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il a étudié toute la nuit, pourtant il a échoué à l'examen.",
+    "en": "He studied all night, yet he failed the exam.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a étudié toute la nuit,\",\"t\":\"he studied all night,\"},{\"w\":\"pourtant il a échoué\",\"t\":\"yet he failed\"},{\"w\":\"à l'examen.\",\"t\":\"the exam\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.237",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle mange très peu, pourtant elle a beaucoup d'énergie.",
+    "en": "She eats very little, yet she has a lot of energy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle mange très peu,\",\"t\":\"she eats very little,\"},{\"w\":\"pourtant elle a\",\"t\":\"yet she has\"},{\"w\":\"beaucoup d'énergie.\",\"t\":\"a lot of energy\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.238",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le ciel est clair, pourtant la météo annonçait de la pluie.",
+    "en": "The sky is clear, yet the forecast announced rain.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le ciel est clair,\",\"t\":\"the sky is clear,\"},{\"w\":\"pourtant la météo\",\"t\":\"yet the forecast\"},{\"w\":\"annonçait de la pluie.\",\"t\":\"announced rain\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.239",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous avons peu de moyens, pourtant le projet fonctionne bien.",
+    "en": "We have few resources, yet the project is working well.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons peu de moyens,\",\"t\":\"we have few resources,\"},{\"w\":\"pourtant le projet\",\"t\":\"yet the project\"},{\"w\":\"fonctionne bien.\",\"t\":\"is working well\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.240",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il conduit prudemment, pourtant il a eu deux accidents.",
+    "en": "He drives carefully, yet he has had two accidents.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il conduit prudemment,\",\"t\":\"he drives carefully,\"},{\"w\":\"pourtant il a eu\",\"t\":\"yet he has had\"},{\"w\":\"deux accidents.\",\"t\":\"two accidents\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.241",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle habite loin du bureau, pourtant elle n'est jamais en retard.",
+    "en": "She lives far from the office, yet she is never late.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle habite loin du bureau,\",\"t\":\"she lives far from the office,\"},{\"w\":\"pourtant elle n'est jamais\",\"t\":\"yet she is never\"},{\"w\":\"en retard.\",\"t\":\"late\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.242",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le film a reçu de mauvaises critiques, pourtant la salle était pleine.",
+    "en": "The movie received bad reviews, yet the theater was full.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le film a reçu de mauvaises critiques,\",\"t\":\"the movie received bad reviews,\"},{\"w\":\"pourtant la salle\",\"t\":\"yet the theater\"},{\"w\":\"était pleine.\",\"t\":\"was full\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.243",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le petit restaurant est bon marché, par contre le service est lent.",
+    "en": "The small restaurant is cheap, on the other hand the service is slow.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le petit restaurant est bon marché,\",\"t\":\"the small restaurant is cheap,\"},{\"w\":\"par contre\",\"t\":\"on the other hand\"},{\"w\":\"le service est lent.\",\"t\":\"the service is slow\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.244",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Ma sœur adore la montagne, par contre moi je préfère la mer.",
+    "en": "My sister loves the mountains, on the other hand I prefer the sea.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ma sœur adore la montagne,\",\"t\":\"my sister loves the mountains,\"},{\"w\":\"par contre moi\",\"t\":\"on the other hand i\"},{\"w\":\"je préfère la mer.\",\"t\":\"prefer the sea\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.245",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "L'hôtel est confortable, par contre il est loin du centre-ville.",
+    "en": "The hotel is comfortable, on the other hand it is far from downtown.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'hôtel est confortable,\",\"t\":\"the hotel is comfortable,\"},{\"w\":\"par contre il est\",\"t\":\"on the other hand it is\"},{\"w\":\"loin du centre-ville.\",\"t\":\"far from downtown\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.246",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Ce logiciel est puissant, par contre il est difficile à apprendre.",
+    "en": "This software is powerful, on the other hand it is hard to learn.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce logiciel est puissant,\",\"t\":\"this software is powerful,\"},{\"w\":\"par contre il est\",\"t\":\"on the other hand it is\"},{\"w\":\"difficile à apprendre.\",\"t\":\"hard to learn\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.247",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il chante très bien, par contre il danse assez mal.",
+    "en": "He sings very well, on the other hand he dances quite badly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il chante très bien,\",\"t\":\"he sings very well,\"},{\"w\":\"par contre il danse\",\"t\":\"on the other hand he dances\"},{\"w\":\"assez mal.\",\"t\":\"quite badly\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.248",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le quartier est calme, par contre les magasins sont rares.",
+    "en": "The neighborhood is quiet, on the other hand shops are rare.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le quartier est calme,\",\"t\":\"the neighborhood is quiet,\"},{\"w\":\"par contre les magasins\",\"t\":\"on the other hand the shops\"},{\"w\":\"sont rares.\",\"t\":\"are rare\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.249",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Cette voiture consomme peu, par contre elle coûte cher à l'achat.",
+    "en": "This car uses little fuel, on the other hand it is expensive to buy.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette voiture consomme peu,\",\"t\":\"this car uses little fuel,\"},{\"w\":\"par contre elle coûte cher\",\"t\":\"on the other hand it costs a lot\"},{\"w\":\"à l'achat.\",\"t\":\"to buy\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.250",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Je me lève tôt, ensuite je prends mon petit-déjeuner.",
+    "en": "I get up early, then I have breakfast.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je me lève tôt,\",\"t\":\"i get up early,\"},{\"w\":\"ensuite je prends\",\"t\":\"then i have\"},{\"w\":\"mon petit-déjeuner.\",\"t\":\"my breakfast\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.251",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous visitons le musée, ensuite nous déjeunons près du parc.",
+    "en": "We visit the museum, then we have lunch near the park.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous visitons le musée,\",\"t\":\"we visit the museum,\"},{\"w\":\"ensuite nous déjeunons\",\"t\":\"then we have lunch\"},{\"w\":\"près du parc.\",\"t\":\"near the park\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.252",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle range sa chambre, ensuite elle fait ses devoirs.",
+    "en": "She tidies her room, then she does her homework.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle range sa chambre,\",\"t\":\"she tidies her room,\"},{\"w\":\"ensuite elle fait\",\"t\":\"then she does\"},{\"w\":\"ses devoirs.\",\"t\":\"her homework\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.253",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il coupe les légumes, ensuite il les met dans la poêle.",
+    "en": "He cuts the vegetables, then he puts them in the pan.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il coupe les légumes,\",\"t\":\"he cuts the vegetables,\"},{\"w\":\"ensuite il les met\",\"t\":\"then he puts them\"},{\"w\":\"dans la poêle.\",\"t\":\"in the pan\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.254",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous signons le contrat, ensuite nous fêtons la bonne nouvelle.",
+    "en": "We sign the contract, then we celebrate the good news.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous signons le contrat,\",\"t\":\"we sign the contract,\"},{\"w\":\"ensuite nous fêtons\",\"t\":\"then we celebrate\"},{\"w\":\"la bonne nouvelle.\",\"t\":\"the good news\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.255",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle finit ses cours, ensuite elle rentre directement à la maison.",
+    "en": "She finishes her classes, then she goes straight home.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle finit ses cours,\",\"t\":\"she finishes her classes,\"},{\"w\":\"ensuite elle rentre directement\",\"t\":\"then she goes straight\"},{\"w\":\"à la maison.\",\"t\":\"home\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.256",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Je réserve les billets, ensuite je réserve l'hôtel.",
+    "en": "I book the tickets, then I book the hotel.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je réserve les billets,\",\"t\":\"i book the tickets,\"},{\"w\":\"ensuite\",\"t\":\"then\"},{\"w\":\"je réserve l'hôtel.\",\"t\":\"i book the hotel\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.257",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous marchons dans le parc, puis nous nous asseyons sur un banc.",
+    "en": "We walk in the park, then we sit on a bench.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous marchons dans le parc,\",\"t\":\"we walk in the park,\"},{\"w\":\"puis nous nous asseyons\",\"t\":\"then we sit\"},{\"w\":\"sur un banc.\",\"t\":\"on a bench\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.258",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle prend une douche, puis elle s'habille rapidement.",
+    "en": "She takes a shower, then she gets dressed quickly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle prend une douche,\",\"t\":\"she takes a shower,\"},{\"w\":\"puis elle s'habille\",\"t\":\"then she gets dressed\"},{\"w\":\"rapidement.\",\"t\":\"quickly\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.259",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il ouvre la porte, puis il allume la lumière.",
+    "en": "He opens the door, then he turns on the light.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il ouvre la porte,\",\"t\":\"he opens the door,\"},{\"w\":\"puis il allume\",\"t\":\"then he turns on\"},{\"w\":\"la lumière.\",\"t\":\"the light\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.260",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous préparons le dîner, puis nous invitons nos voisins.",
+    "en": "We prepare dinner, then we invite our neighbors.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous préparons le dîner,\",\"t\":\"we prepare dinner,\"},{\"w\":\"puis nous invitons\",\"t\":\"then we invite\"},{\"w\":\"nos voisins.\",\"t\":\"our neighbors\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.261",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Je lis le journal, puis je regarde les informations.",
+    "en": "I read the newspaper, then I watch the news.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je lis le journal,\",\"t\":\"i read the newspaper,\"},{\"w\":\"puis je regarde\",\"t\":\"then i watch\"},{\"w\":\"les informations.\",\"t\":\"the news\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.262",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle apprend le vocabulaire, puis elle pratique la grammaire.",
+    "en": "She learns the vocabulary, then she practices the grammar.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle apprend le vocabulaire,\",\"t\":\"she learns the vocabulary,\"},{\"w\":\"puis elle pratique\",\"t\":\"then she practices\"},{\"w\":\"la grammaire.\",\"t\":\"the grammar\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.263",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Ils garent la voiture, puis ils marchent jusqu'au stade.",
+    "en": "They park the car, then they walk to the stadium.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ils garent la voiture,\",\"t\":\"they park the car,\"},{\"w\":\"puis ils marchent\",\"t\":\"then they walk\"},{\"w\":\"jusqu'au stade.\",\"t\":\"to the stadium\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.264",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "D'abord, nous choisissons la destination, ensuite nous réservons le vol.",
+    "en": "First, we choose the destination, then we book the flight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"D'abord,\",\"t\":\"first,\"},{\"w\":\"nous choisissons la destination,\",\"t\":\"we choose the destination,\"},{\"w\":\"ensuite nous réservons\",\"t\":\"then we book\"},{\"w\":\"le vol.\",\"t\":\"the flight\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.265",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "D'abord, elle salue ses collègues, puis elle allume son ordinateur.",
+    "en": "First, she greets her colleagues, then she turns on her computer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"D'abord,\",\"t\":\"first,\"},{\"w\":\"elle salue ses collègues,\",\"t\":\"she greets her colleagues,\"},{\"w\":\"puis elle allume\",\"t\":\"then she turns on\"},{\"w\":\"son ordinateur.\",\"t\":\"her computer\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.266",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "D'abord, il vérifie ses notes, ensuite il commence à écrire.",
+    "en": "First, he checks his notes, then he starts writing.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"D'abord,\",\"t\":\"first,\"},{\"w\":\"il vérifie ses notes,\",\"t\":\"he checks his notes,\"},{\"w\":\"ensuite il commence\",\"t\":\"then he starts\"},{\"w\":\"à écrire.\",\"t\":\"writing\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.267",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "D'abord, nous devons finir ce dossier avant de partir.",
+    "en": "First, we have to finish this file before leaving.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"D'abord,\",\"t\":\"first,\"},{\"w\":\"nous devons finir ce dossier\",\"t\":\"we have to finish this file\"},{\"w\":\"avant de\",\"t\":\"before\"},{\"w\":\"partir.\",\"t\":\"leaving\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.268",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "D'abord, goûte la soupe avant d'ajouter du sel.",
+    "en": "First, taste the soup before adding salt.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"D'abord,\",\"t\":\"first,\"},{\"w\":\"goûte la soupe\",\"t\":\"taste the soup\"},{\"w\":\"avant d'ajouter\",\"t\":\"before adding\"},{\"w\":\"du sel.\",\"t\":\"salt\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.269",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "D'abord, ils discutent du budget, puis ils signent l'accord.",
+    "en": "First, they discuss the budget, then they sign the agreement.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"D'abord,\",\"t\":\"first,\"},{\"w\":\"ils discutent du budget,\",\"t\":\"they discuss the budget,\"},{\"w\":\"puis ils signent\",\"t\":\"then they sign\"},{\"w\":\"l'accord.\",\"t\":\"the agreement\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.270",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "D'abord, respire profondément, ensuite pose ta question.",
+    "en": "First, breathe deeply, then ask your question.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"D'abord,\",\"t\":\"first,\"},{\"w\":\"respire profondément,\",\"t\":\"breathe deeply,\"},{\"w\":\"ensuite\",\"t\":\"then\"},{\"w\":\"pose ta question.\",\"t\":\"ask your question\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.271",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Après trois ans d'attente, elle a enfin trouvé un emploi.",
+    "en": "After three years of waiting, she has finally found a job.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Après trois ans d'attente,\",\"t\":\"after three years of waiting,\"},{\"w\":\"elle a enfin\",\"t\":\"she has finally\"},{\"w\":\"trouvé un emploi.\",\"t\":\"found a job\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.272",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous avons cherché longtemps, et nous avons enfin trouvé la clé.",
+    "en": "We searched for a long time, and we finally found the key.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons cherché longtemps,\",\"t\":\"we searched for a long time,\"},{\"w\":\"et nous avons enfin\",\"t\":\"and we finally\"},{\"w\":\"trouvé la clé.\",\"t\":\"found the key\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.273",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le bus est enfin arrivé après une longue attente.",
+    "en": "The bus has finally arrived after a long wait.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le bus est enfin arrivé\",\"t\":\"the bus has finally arrived\"},{\"w\":\"après une longue\",\"t\":\"after a long\"},{\"w\":\"attente.\",\"t\":\"wait\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.274",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Après des mois de travaux, la maison est enfin terminée.",
+    "en": "After months of work, the house is finally finished.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Après des mois de travaux,\",\"t\":\"after months of work,\"},{\"w\":\"la maison est enfin\",\"t\":\"the house is finally\"},{\"w\":\"terminée.\",\"t\":\"finished\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.275",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il a enfin réussi à réparer la vieille horloge.",
+    "en": "He finally managed to fix the old clock.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a enfin réussi\",\"t\":\"he finally managed\"},{\"w\":\"à réparer\",\"t\":\"to fix\"},{\"w\":\"la vieille horloge.\",\"t\":\"the old clock\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.276",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Après de longues négociations, les deux entreprises ont enfin signé l'accord.",
+    "en": "After long negotiations, the two companies finally signed the agreement.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Après de longues négociations,\",\"t\":\"after long negotiations,\"},{\"w\":\"les deux entreprises ont enfin\",\"t\":\"the two companies finally\"},{\"w\":\"signé l'accord.\",\"t\":\"signed the agreement\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.277",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle a enfin osé demander une augmentation à son patron.",
+    "en": "She finally dared to ask her boss for a raise.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a enfin osé\",\"t\":\"she finally dared\"},{\"w\":\"demander une augmentation\",\"t\":\"to ask for a raise\"},{\"w\":\"à son patron.\",\"t\":\"from her boss\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.278",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous hésitions entre deux villes, mais finalement nous avons choisi Lyon.",
+    "en": "We were hesitating between two cities, but in the end we chose Lyon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous hésitions entre deux villes,\",\"t\":\"we were hesitating between two cities,\"},{\"w\":\"mais finalement\",\"t\":\"but in the end\"},{\"w\":\"nous avons choisi Lyon.\",\"t\":\"we chose lyon\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.279",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il voulait annuler le voyage, mais finalement il est venu avec nous.",
+    "en": "He wanted to cancel the trip, but in the end he came with us.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il voulait annuler le voyage,\",\"t\":\"he wanted to cancel the trip,\"},{\"w\":\"mais finalement il est venu\",\"t\":\"but in the end he came\"},{\"w\":\"avec nous.\",\"t\":\"with us\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.280",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle a longtemps douté, mais finalement elle a accepté le poste.",
+    "en": "She doubted for a long time, but in the end she accepted the position.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a longtemps douté,\",\"t\":\"she doubted for a long time,\"},{\"w\":\"mais finalement elle a accepté\",\"t\":\"but in the end she accepted\"},{\"w\":\"le poste.\",\"t\":\"the position\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.281",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le débat a duré des heures, et finalement personne n'a changé d'avis.",
+    "en": "The debate lasted for hours, and in the end no one changed their mind.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le débat a duré des heures,\",\"t\":\"the debate lasted for hours,\"},{\"w\":\"et finalement personne\",\"t\":\"and in the end no one\"},{\"w\":\"n'a changé d'avis.\",\"t\":\"changed their mind\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.282",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous avons comparé plusieurs modèles, et finalement nous avons pris le moins cher.",
+    "en": "We compared several models, and in the end we took the cheapest one.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons comparé plusieurs modèles,\",\"t\":\"we compared several models,\"},{\"w\":\"et finalement nous avons pris\",\"t\":\"and in the end we took\"},{\"w\":\"le moins cher.\",\"t\":\"the cheapest one\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.283",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il a cherché une excuse, mais finalement il a dit la vérité.",
+    "en": "He looked for an excuse, but in the end he told the truth.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a cherché une excuse,\",\"t\":\"he looked for an excuse,\"},{\"w\":\"mais finalement il a dit\",\"t\":\"but in the end he told\"},{\"w\":\"la vérité.\",\"t\":\"the truth\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.284",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le procès a été long, mais finalement la justice a tranché.",
+    "en": "The trial was long, but in the end justice made a ruling.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le procès a été long,\",\"t\":\"the trial was long,\"},{\"w\":\"mais finalement la justice\",\"t\":\"but in the end justice\"},{\"w\":\"a tranché.\",\"t\":\"made a ruling\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.285",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il n'y avait plus de pain, alors j'ai fait des pâtes.",
+    "en": "There was no more bread, so I made pasta.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il n'y avait plus de pain,\",\"t\":\"there was no more bread,\"},{\"w\":\"alors j'ai fait\",\"t\":\"so i made\"},{\"w\":\"des pâtes.\",\"t\":\"pasta\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.286",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "La réunion a été annulée, alors nous sommes rentrés plus tôt.",
+    "en": "The meeting was cancelled, so we went home earlier.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La réunion a été annulée,\",\"t\":\"the meeting was cancelled,\"},{\"w\":\"alors nous sommes rentrés\",\"t\":\"so we went home\"},{\"w\":\"plus tôt.\",\"t\":\"earlier\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.287",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle avait mal à la tête, alors elle a pris un médicament.",
+    "en": "She had a headache, so she took a medicine.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle avait mal à la tête,\",\"t\":\"she had a headache,\"},{\"w\":\"alors elle a pris\",\"t\":\"so she took\"},{\"w\":\"un médicament.\",\"t\":\"a medicine\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.288",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le magasin n'avait plus ma taille, alors j'ai commandé en ligne.",
+    "en": "The store no longer had my size, so I ordered online.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le magasin n'avait plus ma taille,\",\"t\":\"the store no longer had my size,\"},{\"w\":\"alors j'ai commandé\",\"t\":\"so i ordered\"},{\"w\":\"en ligne.\",\"t\":\"online\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.289",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous n'avions pas de plan, alors nous avons improvisé.",
+    "en": "We had no plan, so we improvised.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous n'avions pas de plan,\",\"t\":\"we had no plan,\"},{\"w\":\"alors\",\"t\":\"so\"},{\"w\":\"nous avons improvisé.\",\"t\":\"we improvised\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.290",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il faisait trop chaud, alors nous avons ouvert toutes les fenêtres.",
+    "en": "It was too hot, so we opened all the windows.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il faisait trop chaud,\",\"t\":\"it was too hot,\"},{\"w\":\"alors nous avons ouvert\",\"t\":\"so we opened\"},{\"w\":\"toutes les fenêtres.\",\"t\":\"all the windows\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.291",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le vol était retardé, alors nous avons attendu au café de l'aéroport.",
+    "en": "The flight was delayed, so we waited at the airport café.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le vol était retardé,\",\"t\":\"the flight was delayed,\"},{\"w\":\"alors nous avons attendu\",\"t\":\"so we waited\"},{\"w\":\"au café de l'aéroport.\",\"t\":\"at the airport café\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.292",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle range ses affaires tous les soirs, ainsi elle ne perd jamais rien.",
+    "en": "She puts away her things every evening, this way she never loses anything.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle range ses affaires tous les soirs,\",\"t\":\"she puts away her things every evening,\"},{\"w\":\"ainsi elle ne perd\",\"t\":\"this way she never loses\"},{\"w\":\"jamais rien.\",\"t\":\"anything\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.293",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il révise un peu chaque jour, ainsi il évite le stress avant l'examen.",
+    "en": "He reviews a little every day, this way he avoids stress before the exam.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il révise un peu chaque jour,\",\"t\":\"he reviews a little every day,\"},{\"w\":\"ainsi il évite le stress\",\"t\":\"this way he avoids stress\"},{\"w\":\"avant l'examen.\",\"t\":\"before the exam\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.294",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous partageons les tâches ménagères, ainsi personne n'est trop fatigué.",
+    "en": "We share the household chores, this way no one is too tired.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous partageons les tâches ménagères,\",\"t\":\"we share the household chores,\"},{\"w\":\"ainsi personne n'est\",\"t\":\"this way no one is\"},{\"w\":\"trop fatigué.\",\"t\":\"too tired\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.295",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "La ville a planté des arbres, ainsi les rues sont plus agréables.",
+    "en": "The city planted trees, this way the streets are more pleasant.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La ville a planté des arbres,\",\"t\":\"the city planted trees,\"},{\"w\":\"ainsi les rues sont\",\"t\":\"this way the streets are\"},{\"w\":\"plus agréables.\",\"t\":\"more pleasant\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.296",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il économise chaque mois, ainsi il pourra acheter une maison.",
+    "en": "He saves money every month, this way he will be able to buy a house.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il économise chaque mois,\",\"t\":\"he saves money every month,\"},{\"w\":\"ainsi il pourra\",\"t\":\"this way he will be able\"},{\"w\":\"acheter une maison.\",\"t\":\"to buy a house\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.297",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle parle lentement, ainsi les élèves comprennent mieux.",
+    "en": "She speaks slowly, this way the students understand better.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle parle lentement,\",\"t\":\"she speaks slowly,\"},{\"w\":\"ainsi les élèves\",\"t\":\"this way the students\"},{\"w\":\"comprennent mieux.\",\"t\":\"understand better\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.298",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Nous réservons toujours à l'avance, ainsi nous trouvons de meilleurs prix.",
+    "en": "We always book in advance, this way we find better prices.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous réservons toujours à l'avance,\",\"t\":\"we always book in advance,\"},{\"w\":\"ainsi nous trouvons\",\"t\":\"this way we find\"},{\"w\":\"de meilleurs prix.\",\"t\":\"better prices\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.299",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le climat change vite ; en effet, les hivers sont plus doux qu'avant.",
+    "en": "The climate is changing quickly; indeed, winters are milder than before.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le climat change vite ;\",\"t\":\"the climate is changing quickly;\"},{\"w\":\"en effet, les hivers\",\"t\":\"indeed, winters\"},{\"w\":\"sont plus doux\",\"t\":\"are milder\"},{\"w\":\"qu'avant.\",\"t\":\"than before\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.300",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Ce quartier est cher ; en effet, les loyers ont beaucoup augmenté.",
+    "en": "This neighborhood is expensive; indeed, rents have risen a lot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce quartier est cher ;\",\"t\":\"this neighborhood is expensive;\"},{\"w\":\"en effet, les loyers\",\"t\":\"indeed, rents\"},{\"w\":\"ont beaucoup augmenté.\",\"t\":\"have risen a lot\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.301",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le film est réussi ; en effet, la critique en parle très bien.",
+    "en": "The movie is a success; indeed, the critics speak very well of it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le film est réussi ;\",\"t\":\"the movie is a success;\"},{\"w\":\"en effet, la critique\",\"t\":\"indeed, the critics\"},{\"w\":\"en parle très bien.\",\"t\":\"speak very well of it\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.302",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il est très occupé ; en effet, il travaille souvent le week-end.",
+    "en": "He is very busy; indeed, he often works on weekends.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il est très occupé ;\",\"t\":\"he is very busy;\"},{\"w\":\"en effet, il travaille\",\"t\":\"indeed, he works\"},{\"w\":\"souvent le week-end.\",\"t\":\"often on weekends\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.303",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Cette recette est simple ; en effet, elle ne demande que trois ingrédients.",
+    "en": "This recipe is simple; indeed, it only requires three ingredients.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette recette est simple ;\",\"t\":\"this recipe is simple;\"},{\"w\":\"en effet, elle ne demande\",\"t\":\"indeed, it only requires\"},{\"w\":\"que trois ingrédients.\",\"t\":\"three ingredients\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.304",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "L'équipe progresse ; en effet, elle a gagné ses trois derniers matchs.",
+    "en": "The team is improving; indeed, it has won its last three matches.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'équipe progresse ;\",\"t\":\"the team is improving;\"},{\"w\":\"en effet, elle a gagné\",\"t\":\"indeed, it has won\"},{\"w\":\"ses trois derniers matchs.\",\"t\":\"its last three matches\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.305",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le magasin est populaire ; en effet, il y a toujours la queue.",
+    "en": "The store is popular; indeed, there is always a line.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le magasin est populaire ;\",\"t\":\"the store is popular;\"},{\"w\":\"en effet, il y a\",\"t\":\"indeed, there is\"},{\"w\":\"toujours la queue.\",\"t\":\"always a line\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.306",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Cet appartement est spacieux ; de plus, il a un balcon magnifique.",
+    "en": "This apartment is spacious; moreover, it has a magnificent balcony.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cet appartement est spacieux ;\",\"t\":\"this apartment is spacious;\"},{\"w\":\"de plus, il a\",\"t\":\"moreover, it has\"},{\"w\":\"un balcon magnifique.\",\"t\":\"a magnificent balcony\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.307",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le poste offre un bon salaire ; de plus, les horaires sont flexibles.",
+    "en": "The position offers a good salary; moreover, the hours are flexible.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le poste offre un bon salaire ;\",\"t\":\"the position offers a good salary;\"},{\"w\":\"de plus, les horaires\",\"t\":\"moreover, the hours\"},{\"w\":\"sont flexibles.\",\"t\":\"are flexible\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.308",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Ce restaurant sert de bons plats ; de plus, les prix sont raisonnables.",
+    "en": "This restaurant serves good dishes; moreover, the prices are reasonable.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Ce restaurant sert de bons plats ;\",\"t\":\"this restaurant serves good dishes;\"},{\"w\":\"de plus, les prix\",\"t\":\"moreover, the prices\"},{\"w\":\"sont raisonnables.\",\"t\":\"are reasonable\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.309",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle parle trois langues ; de plus, elle apprend le japonais.",
+    "en": "She speaks three languages; moreover, she is learning Japanese.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle parle trois langues ;\",\"t\":\"she speaks three languages;\"},{\"w\":\"de plus, elle apprend\",\"t\":\"moreover, she is learning\"},{\"w\":\"le japonais.\",\"t\":\"japanese\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.310",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le train est rapide ; de plus, il part directement du centre-ville.",
+    "en": "The train is fast; moreover, it leaves directly from downtown.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le train est rapide ;\",\"t\":\"the train is fast;\"},{\"w\":\"de plus, il part directement\",\"t\":\"moreover, it leaves directly\"},{\"w\":\"du centre-ville.\",\"t\":\"from downtown\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.311",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Cette école propose de bons professeurs ; de plus, elle est proche de la maison.",
+    "en": "This school offers good teachers; moreover, it is close to home.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Cette école propose de bons professeurs ;\",\"t\":\"this school offers good teachers;\"},{\"w\":\"de plus, elle est proche\",\"t\":\"moreover, it is close\"},{\"w\":\"de la maison.\",\"t\":\"to home\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.312",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "L'hôtel offre un bon confort ; de plus, le petit-déjeuner est inclus.",
+    "en": "The hotel offers good comfort; moreover, breakfast is included.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'hôtel offre un bon confort ;\",\"t\":\"the hotel offers good comfort;\"},{\"w\":\"de plus, le petit-déjeuner\",\"t\":\"moreover, breakfast\"},{\"w\":\"est inclus.\",\"t\":\"is included\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.313",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il pleut tous les jours cette semaine, c'est pourquoi je reste à l'intérieur.",
+    "en": "It rains every day this week, that's why I stay indoors.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pleut tous les jours cette semaine,\",\"t\":\"it rains every day this week,\"},{\"w\":\"c'est pourquoi je reste\",\"t\":\"that's why i stay\"},{\"w\":\"à l'intérieur.\",\"t\":\"indoors\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.314",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle a beaucoup de travail, c'est pourquoi elle annule notre sortie.",
+    "en": "She has a lot of work, that's why she is cancelling our outing.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a beaucoup de travail,\",\"t\":\"she has a lot of work,\"},{\"w\":\"c'est pourquoi elle annule\",\"t\":\"that's why she is cancelling\"},{\"w\":\"notre sortie.\",\"t\":\"our outing\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.315",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Le pont est fermé, c'est pourquoi nous devons prendre un autre chemin.",
+    "en": "The bridge is closed, that's why we have to take another route.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le pont est fermé,\",\"t\":\"the bridge is closed,\"},{\"w\":\"c'est pourquoi nous devons prendre\",\"t\":\"that's why we have to take\"},{\"w\":\"un autre chemin.\",\"t\":\"another route\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.316",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Les prix ont beaucoup augmenté, c'est pourquoi nous changeons de fournisseur.",
+    "en": "Prices have risen a lot, that's why we are changing suppliers.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Les prix ont beaucoup augmenté,\",\"t\":\"prices have risen a lot,\"},{\"w\":\"c'est pourquoi nous changeons\",\"t\":\"that's why we are changing\"},{\"w\":\"de fournisseur.\",\"t\":\"suppliers\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.317",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Il n'a pas dormi, c'est pourquoi il est de mauvaise humeur.",
+    "en": "He did not sleep, that's why he is in a bad mood.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il n'a pas dormi,\",\"t\":\"he did not sleep,\"},{\"w\":\"c'est pourquoi il est\",\"t\":\"that's why he is\"},{\"w\":\"de mauvaise humeur.\",\"t\":\"in a bad mood\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.318",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "L'ascenseur est en panne, c'est pourquoi nous montons par l'escalier.",
+    "en": "The elevator is out of order, that's why we go up by the stairs.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'ascenseur est en panne,\",\"t\":\"the elevator is out of order,\"},{\"w\":\"c'est pourquoi nous montons\",\"t\":\"that's why we go up\"},{\"w\":\"par l'escalier.\",\"t\":\"by the stairs\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.319",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Elle adore les animaux, c'est pourquoi elle est devenue vétérinaire.",
+    "en": "She loves animals, that's why she became a veterinarian.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle adore les animaux,\",\"t\":\"she loves animals,\"},{\"w\":\"c'est pourquoi elle est devenue\",\"t\":\"that's why she became\"},{\"w\":\"vétérinaire.\",\"t\":\"a veterinarian\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.320",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Malgré la pluie, ils ont fini le match jusqu'au bout.",
+    "en": "Despite the rain, they finished the match to the end.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Malgré la pluie,\",\"t\":\"despite the rain,\"},{\"w\":\"ils ont fini le match\",\"t\":\"they finished the match\"},{\"w\":\"jusqu'au bout.\",\"t\":\"to the end\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.321",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Malgré son jeune âge, elle dirige déjà une petite entreprise.",
+    "en": "Despite her young age, she already runs a small business.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Malgré son jeune âge,\",\"t\":\"despite her young age,\"},{\"w\":\"elle dirige déjà\",\"t\":\"she already runs\"},{\"w\":\"une petite entreprise.\",\"t\":\"a small business\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.322",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Malgré la fatigue, il a terminé son rapport avant minuit.",
+    "en": "Despite the fatigue, he finished his report before midnight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Malgré la fatigue,\",\"t\":\"despite the fatigue,\"},{\"w\":\"il a terminé son rapport\",\"t\":\"he finished his report\"},{\"w\":\"avant minuit.\",\"t\":\"before midnight\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.323",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Malgré le bruit dans la rue, les enfants se sont vite endormis.",
+    "en": "Despite the noise in the street, the children fell asleep quickly.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Malgré le bruit dans la rue,\",\"t\":\"despite the noise in the street,\"},{\"w\":\"les enfants se sont vite\",\"t\":\"the children quickly\"},{\"w\":\"endormis.\",\"t\":\"fell asleep\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.324",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Malgré ses efforts, il n'a pas obtenu la promotion.",
+    "en": "Despite his efforts, he did not get the promotion.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Malgré ses efforts,\",\"t\":\"despite his efforts,\"},{\"w\":\"il n'a pas obtenu\",\"t\":\"he did not get\"},{\"w\":\"la promotion.\",\"t\":\"the promotion\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.325",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Malgré les embouteillages, nous sommes arrivés à l'heure.",
+    "en": "Despite the traffic jams, we arrived on time.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Malgré les embouteillages,\",\"t\":\"despite the traffic jams,\"},{\"w\":\"nous sommes arrivés\",\"t\":\"we arrived\"},{\"w\":\"à l'heure.\",\"t\":\"on time\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.326",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Bien qu'il soit fatigué, il continue de travailler jusqu'au soir.",
+    "en": "Although he is tired, he keeps working until evening.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien qu'il soit fatigué,\",\"t\":\"although he is tired,\"},{\"w\":\"il continue de travailler\",\"t\":\"he keeps working\"},{\"w\":\"jusqu'au soir.\",\"t\":\"until evening\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.327",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Bien qu'elle soit jeune, elle prend des décisions très sages.",
+    "en": "Although she is young, she makes very wise decisions.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien qu'elle soit jeune,\",\"t\":\"although she is young,\"},{\"w\":\"elle prend des décisions\",\"t\":\"she makes decisions\"},{\"w\":\"très sages.\",\"t\":\"very wise\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.328",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Bien que le loyer soit élevé, ils ont choisi cet appartement.",
+    "en": "Although the rent is high, they chose this apartment.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien que le loyer soit élevé,\",\"t\":\"although the rent is high,\"},{\"w\":\"ils ont choisi\",\"t\":\"they chose\"},{\"w\":\"cet appartement.\",\"t\":\"this apartment\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.329",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Bien qu'il pleuve, nous partons quand même en randonnée.",
+    "en": "Although it is raining, we are going hiking anyway.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien qu'il pleuve,\",\"t\":\"although it is raining,\"},{\"w\":\"nous partons quand même\",\"t\":\"we are going anyway\"},{\"w\":\"en randonnée.\",\"t\":\"hiking\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.330",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Bien que le sujet soit difficile, les étudiants restent attentifs.",
+    "en": "Although the subject is difficult, the students remain attentive.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien que le sujet soit difficile,\",\"t\":\"although the subject is difficult,\"},{\"w\":\"les étudiants restent\",\"t\":\"the students remain\"},{\"w\":\"attentifs.\",\"t\":\"attentive\"}]}"
+  },
+  {
+    "id": "fr.a1.mots-de-liaison.331",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "mots-de-liaison",
+    "fr": "Bien que le voyage soit long, les enfants ne se plaignent pas.",
+    "en": "Although the trip is long, the children do not complain.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Bien que le voyage soit long,\",\"t\":\"although the trip is long,\"},{\"w\":\"les enfants\",\"t\":\"the children\"},{\"w\":\"ne se plaignent pas.\",\"t\":\"do not complain\"}]}"
+  }
+]

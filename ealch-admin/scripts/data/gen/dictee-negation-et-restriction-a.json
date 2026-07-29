@@ -1,0 +1,3192 @@
+[
+  {
+    "id": "fr.a1.negation-et-restriction.021",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Je n'ai pas de stylo.",
+    "en": "I don't have a pen.",
+    "ipa": "/ʒə nɛ pa də sti.lo/",
+    "notes": "The elided n' before ai must be written even though it almost disappears in fast speech.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.022",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne mange pas de viande.",
+    "en": "She doesn't eat meat.",
+    "ipa": "/ɛl nə mɑ̃ʒ pa də vjɑ̃d/",
+    "notes": "The ne before mange is barely audible but still required in writing.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.023",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons pas faim.",
+    "en": "We are not hungry.",
+    "ipa": "/nu na.vɔ̃ pa fɛ̃/",
+    "notes": "Faim ends in a nasal vowel sound with no audible consonant, so listen for the nasal quality rather than a final letter.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.024",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Tu ne parles pas anglais.",
+    "en": "You don't speak English.",
+    "ipa": "/ty nə paʁl pa ɑ̃.ɡlɛ/",
+    "notes": "The final s of parles is silent, so do not skip writing it just because you cannot hear it.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.025",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'aime pas le café.",
+    "en": "He doesn't like coffee.",
+    "ipa": "/il nɛm pa lə ka.fe/",
+    "notes": "N'aime elides ne before the vowel of aime, so remember the apostrophe when writing.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.026",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne bois jamais de vin.",
+    "en": "I never drink wine.",
+    "ipa": "/ʒə nə bwa ʒa.mɛ də vɛ̃/",
+    "notes": "Vin ends in a nasal vowel that sounds close to other nasal words, so listen carefully to the vowel quality.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.027",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne sort jamais le soir.",
+    "en": "She never goes out in the evening.",
+    "ipa": "/ɛl nə sɔʁ ʒa.mɛ lə swaʁ/",
+    "notes": "The final t of sort is silent, so don't drop it from the spelling.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.028",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne voyons personne ici.",
+    "en": "We don't see anyone here.",
+    "ipa": "/nu nə vwa.jɔ̃ pɛʁ.sɔn i.si/",
+    "notes": "Personne is spelled with a double n even though it is pronounced with a single nasal sound.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.029",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne fait rien aujourd'hui.",
+    "en": "He isn't doing anything today.",
+    "ipa": "/il nə fɛ ʁjɛ̃ o.ʒuʁ.dɥi/",
+    "notes": "The n of rien links smoothly into aujourd'hui, so listen for the liaison sound before writing the two separate words.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.030",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Je n'ai plus de pain.",
+    "en": "I don't have any bread left.",
+    "ipa": "/ʒə nɛ ply də pɛ̃/",
+    "notes": "Pain sounds identical to pin, so rely on context to know which spelling is correct.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.031",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Tu n'as rien dans ton sac.",
+    "en": "You don't have anything in your bag.",
+    "ipa": "/ty na ʁjɛ̃ dɑ̃ tɔ̃ sak/",
+    "notes": "Ton must agree with the masculine noun sac, so do not write ta by mistake.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.032",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a qu'un frère.",
+    "en": "She only has one brother.",
+    "ipa": "/ɛl na kœ̃ fʁɛʁ/",
+    "notes": "Que elides to qu' before the vowel sound of un, so the apostrophe is required.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.033",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne mange que des légumes.",
+    "en": "He only eats vegetables.",
+    "ipa": "/il nə mɑ̃ʒ kə de le.ɡym/",
+    "notes": "The unstressed que is often swallowed in speech, so listen for the light schwa sound before writing it.",
+    "tags": [
+      "e-muet"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.034",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons aucune idée.",
+    "en": "We have no idea.",
+    "ipa": "/nu na.vɔ̃ o.kyn i.de/",
+    "notes": "Aucune must agree in the feminine with idée, not the masculine aucun.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.035",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne vois aucun problème.",
+    "en": "I don't see any problem.",
+    "ipa": "/ʒə nə vwa o.kœ̃ pʁɔ.blɛm/",
+    "notes": "Aucun is spelled with au, not o, even though the sound is short.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.036",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne parle ni français ni anglais.",
+    "en": "She speaks neither French nor English.",
+    "ipa": "/ɛl nə paʁl ni fʁɑ̃.sɛ ni ɑ̃.ɡlɛ/",
+    "notes": "Français needs its cedilla under the c to keep the soft s sound.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.037",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'y a personne à la maison.",
+    "en": "There is nobody at home.",
+    "ipa": "/il nja pɛʁ.sɔn a la mɛ.zɔ̃/",
+    "notes": "N'y a elides ne before y, so three short sounds collapse into one quick syllable that must still be written out fully.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.038",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne travaille jamais le dimanche.",
+    "en": "I never work on Sundays.",
+    "ipa": "/ʒə nə tʁa.vaj ʒa.mɛ lə di.mɑ̃ʃ/",
+    "notes": "The ne before travaille is easy to drop in fast speech but is still required in writing.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.039",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Tu n'écoutes pas la radio.",
+    "en": "You don't listen to the radio.",
+    "ipa": "/ty ne.kut pa la ʁa.djo/",
+    "notes": "N'écoutes elides ne before the vowel of écoutes, so keep the apostrophe when writing.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.040",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne sommes jamais en retard.",
+    "en": "We are never late.",
+    "ipa": "/nu nə sɔm ʒa.mɛ ɑ̃ ʁə.taʁ/",
+    "notes": "En retard uses a nasal vowel sound rather than a pronounced n, so listen for the nasal quality.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.041",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'habite plus ici.",
+    "en": "She doesn't live here anymore.",
+    "ipa": "/ɛl na.bit ply i.si/",
+    "notes": "The h in habite is silent, so the elision n' still applies as if the word began with a vowel.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a1.negation-et-restriction.042",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne boit que de l'eau glacée.",
+    "en": "She only drinks ice-cold water.",
+    "ipa": "/ɛl nə bwa kə də lo ɡla.se/",
+    "notes": "De l'eau contains two elisions in a row, so both apostrophes must be written even though the sounds blend together.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.112",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je n'ai pas fini mes devoirs hier soir.",
+    "en": "I didn't finish my homework last night.",
+    "ipa": "/ʒə nɛ pa fi.ni me də.vwaʁ jɛʁ swaʁ/",
+    "notes": "In passé composé negation, pas goes right after the auxiliary ai, before the past participle fini.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.113",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a pas répondu à mon message.",
+    "en": "She didn't reply to my message.",
+    "ipa": "/ɛl na pa ʁe.pɔ̃.dy a mɔ̃ me.saʒ/",
+    "notes": "Répondu à uses the preposition à, easily confused with the verb form a in this same sentence.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.114",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons pas visité le musée samedi.",
+    "en": "We didn't visit the museum on Saturday.",
+    "ipa": "/nu na.vɔ̃ pa vi.zi.te lə my.ze sam.di/",
+    "notes": "The negation wraps around avons, not around visité, so pas comes before the past participle.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.115",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'a pas pris son parapluie ce matin.",
+    "en": "He didn't take his umbrella this morning.",
+    "ipa": "/il na pa pʁi sɔ̃ pa.ʁa.plɥi sə ma.tɛ̃/",
+    "notes": "Pris is an irregular past participle that keeps a silent final s, so don't forget it in spelling.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.116",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Tu n'as pas fermé la porte à clé.",
+    "en": "You didn't lock the door.",
+    "ipa": "/ty na pa fɛʁ.me la pɔʁt a kle/",
+    "notes": "À clé uses the preposition à, not the verb a, even though both sound identical.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.117",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils n'ont pas payé la facture ce mois-ci.",
+    "en": "They didn't pay the bill this month.",
+    "ipa": "/il nɔ̃ pa pe.je la fak.tyʁ sə mwa.si/",
+    "notes": "Ont sounds exactly like on, so context alone tells you which spelling to use here.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.118",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Vous n'avez pas compris la question.",
+    "en": "You didn't understand the question.",
+    "ipa": "/vu na.ve pa kɔ̃.pʁi la kɛs.tjɔ̃/",
+    "notes": "Compris ends in a silent s that must still appear in writing.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.119",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'est pas venue à la réunion.",
+    "en": "She didn't come to the meeting.",
+    "ipa": "/ɛl nɛ pa vny a la ʁe.y.njɔ̃/",
+    "notes": "Venue agrees in the feminine with elle, adding a silent e to the past participle.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.120",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne sommes pas allés au cinéma dimanche.",
+    "en": "We didn't go to the movies on Sunday.",
+    "ipa": "/nu nə sɔm pa.z‿a.le o si.ne.ma di.mɑ̃ʃ/",
+    "notes": "Allés takes the plural agreement s with nous even though the s is silent.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.121",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'est pas resté longtemps chez nous.",
+    "en": "He didn't stay long at our place.",
+    "ipa": "/il nɛ pa ʁɛs.te lɔ̃.tɑ̃ ʃe nu/",
+    "notes": "Longtemps ends in a silent group of letters, so the nasal sound is your only clue to the spelling.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.122",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne suis pas arrivé à l'heure ce matin.",
+    "en": "I didn't arrive on time this morning.",
+    "ipa": "/ʒə nə sɥi pa a.ʁi.ve a lœʁ sə ma.tɛ̃/",
+    "notes": "À l'heure uses the preposition à, distinct from the verb a used elsewhere in similar sentences.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.123",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a pas acheté de pain hier.",
+    "en": "She didn't buy any bread yesterday.",
+    "ipa": "/ɛl na pa aʃ.te də pɛ̃ jɛʁ/",
+    "notes": "After a negated verb, du pain becomes de pain, dropping the article entirely.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.124",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons pas mangé au restaurant ce week-end.",
+    "en": "We didn't eat at a restaurant this weekend.",
+    "ipa": "/nu na.vɔ̃ pa mɑ̃.ʒe o ʁɛs.to.ʁɑ̃ sə wik.ɛnd/",
+    "notes": "The negation frames avons, so pas sits between the auxiliary and the past participle mangé.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.125",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils ne sont pas partis en vacances cette année.",
+    "en": "They didn't go on vacation this year.",
+    "ipa": "/il nə sɔ̃ pa paʁ.ti ɑ̃ va.kɑ̃s sɛt a.ne/",
+    "notes": "Partis carries a silent plural s agreeing with ils.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.126",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Tu n'as pas appelé ta mère depuis lundi.",
+    "en": "You haven't called your mother since Monday.",
+    "ipa": "/ty na pa a.pə.le ta mɛʁ də.pɥi lœ̃.di/",
+    "notes": "Appelé keeps a double p in spelling even though it sounds like a single consonant.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.127",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'a pas trouvé ses clés ce matin.",
+    "en": "He didn't find his keys this morning.",
+    "ipa": "/il na pa tʁu.ve se kle sə ma.tɛ̃/",
+    "notes": "Ses sounds identical to ces and c'est, so only the meaning tells you which spelling fits.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.128",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je n'ai pas dormi cette nuit.",
+    "en": "I didn't sleep last night.",
+    "ipa": "/ʒə nɛ pa dɔʁ.mi sɛt nɥi/",
+    "notes": "Dormi keeps a regular participle ending with no silent letters, unlike many irregular verbs in this theme.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.129",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a pas pu venir à la fête.",
+    "en": "She couldn't come to the party.",
+    "ipa": "/ɛl na pa py və.niʁ a la fɛt/",
+    "notes": "Pu is the short, irregular past participle of pouvoir and is easy to misspell as pue or pus.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.130",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons pas eu de nouvelles depuis mardi.",
+    "en": "We haven't had any news since Tuesday.",
+    "ipa": "/nu na.vɔ̃ pa y də nu.vɛl də.pɥi maʁ.di/",
+    "notes": "Eu is pronounced with a single vowel sound but spelled with two letters, a common dictée trap.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.131",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Vous n'êtes pas passés par la boulangerie.",
+    "en": "You didn't go by the bakery.",
+    "ipa": "/vu nɛt pa pa.se paʁ la bu.lɑ̃ʒ.ʁi/",
+    "notes": "Êtes carries a circumflex accent that changes the sound of the e.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.132",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils n'ont pas fini le projet à temps.",
+    "en": "They didn't finish the project on time.",
+    "ipa": "/il nɔ̃ pa fi.ni lə pʁɔ.ʒɛ a tɑ̃/",
+    "notes": "Ont is easily confused with on, so listen to the sentence structure to choose the right spelling.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.133",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je n'ai pas encore lu ce livre.",
+    "en": "I haven't read this book yet.",
+    "ipa": "/ʒə nɛ pa ɑ̃.kɔʁ ly sə livʁ/",
+    "notes": "Encore keeps its nasal en sound distinct from the verb ending in similar words.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.134",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a jamais visité Paris avant cette année.",
+    "en": "She had never visited Paris before this year.",
+    "ipa": "/ɛl na ʒa.mɛ vi.zi.te pa.ʁi a.vɑ̃ sɛt a.ne/",
+    "notes": "Jamais replaces pas in this negation and must still surround the auxiliary a and the participle.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.135",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons plus parlé depuis notre dispute.",
+    "en": "We haven't spoken since our argument.",
+    "ipa": "/nu na.vɔ̃ ply paʁ.le də.pɥi nɔtʁ dis.pyt/",
+    "notes": "Plus loses its final s sound in this negative meaning, unlike when it means more.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.136",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'a rien dit pendant toute la réunion.",
+    "en": "He said nothing during the whole meeting.",
+    "ipa": "/il na ʁjɛ̃ di pɑ̃.dɑ̃ tut la ʁe.y.njɔ̃/",
+    "notes": "Rien slots between the auxiliary a and the past participle dit, unlike pas which surrounds it the same way.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.137",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Tu n'as vu personne au bureau hier.",
+    "en": "You didn't see anyone at the office yesterday.",
+    "ipa": "/ty na vy pɛʁ.sɔn o by.ʁo jɛʁ/",
+    "notes": "Personne here means nobody, not the noun for a person, so context decides the meaning.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.138",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je n'ai pas reçu ton colis.",
+    "en": "I didn't receive your package.",
+    "ipa": "/ʒə nɛ pa ʁə.sy tɔ̃ kɔ.li/",
+    "notes": "Reçu needs a cedilla under the c to keep the soft s sound before u.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.139",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a pas signé le contrat.",
+    "en": "She didn't sign the contract.",
+    "ipa": "/ɛl na pa si.ɲe lə kɔ̃.tʁa/",
+    "notes": "Signé uses gn to make the nasal palatal sound, a common spelling trap.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.140",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons pas réservé de table.",
+    "en": "We didn't reserve a table.",
+    "ipa": "/nu na.vɔ̃ pa ʁe.zɛʁ.ve də tabl/",
+    "notes": "After the negation, une table becomes de table, dropping the indefinite article.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.141",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils n'ont pas remarqué l'erreur.",
+    "en": "They didn't notice the mistake.",
+    "ipa": "/il nɔ̃ pa ʁə.maʁ.ke lɛ.ʁœʁ/",
+    "notes": "L'erreur elides le before the vowel sound of erreur, and erreur itself doubles the r.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.142",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'a pas travaillé la semaine dernière.",
+    "en": "He didn't work last week.",
+    "ipa": "/il na pa tʁa.va.je la sə.mɛn dɛʁ.njɛʁ/",
+    "notes": "Travaillé ends in a silent é sound spelled with the participle ending rather than an accented e alone.",
+    "tags": [
+      "e-muet"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.143",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je n'ai pas osé lui parler.",
+    "en": "I didn't dare speak to him.",
+    "ipa": "/ʒə nɛ pa o.ze lɥi paʁ.le/",
+    "notes": "Osé and hier can sound alike in fast speech, so listen for the full word before writing.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.144",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a pas voulu sortir hier soir.",
+    "en": "She didn't want to go out last night.",
+    "ipa": "/ɛl na pa vu.ly sɔʁ.tiʁ jɛʁ swaʁ/",
+    "notes": "Voulu is the irregular past participle of vouloir and does not follow the usual é ending pattern.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.145",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons pas pu réparer la voiture.",
+    "en": "We couldn't repair the car.",
+    "ipa": "/nu na.vɔ̃ pa py ʁe.pa.ʁe la vwa.tyʁ/",
+    "notes": "Two verbs pu and réparer sit side by side, and only pu carries the negation.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.146",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Vous n'avez pas oublié votre rendez-vous.",
+    "en": "You didn't forget your appointment.",
+    "ipa": "/vu na.ve pa u.bli.je vɔtʁ ʁɑ̃.de.vu/",
+    "notes": "Rendez-vous keeps its hyphens and a silent z in rendez when spoken quickly.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.147",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne vais pas sortir ce soir.",
+    "en": "I'm not going to go out tonight.",
+    "ipa": "/ʒə nə vɛ pa sɔʁ.tiʁ sə swaʁ/",
+    "notes": "In futur proche negation, pas surrounds vais, not the infinitive sortir.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.148",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne va pas accepter cette offre.",
+    "en": "She isn't going to accept this offer.",
+    "ipa": "/ɛl nə va pa.z‿ak.sɛp.te sɛt ɔfʁ/",
+    "notes": "Va links to accepter with a liaison z sound before the vowel a.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.149",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'allons pas déménager cette année.",
+    "en": "We aren't going to move this year.",
+    "ipa": "/nu na.lɔ̃ pa de.me.na.ʒe sɛt a.ne/",
+    "notes": "N'allons elides ne before the vowel of allons, so the apostrophe is required.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.150",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne va jamais oublier ce voyage.",
+    "en": "He is never going to forget this trip.",
+    "ipa": "/il nə va ʒa.mɛ u.bli.je sə vwa.jaʒ/",
+    "notes": "Jamais replaces pas here but still comes right after the conjugated verb va.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.151",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Tu ne vas plus travailler ici après juin.",
+    "en": "You are no longer going to work here after June.",
+    "ipa": "/ty nə va ply tʁa.va.je i.si a.pʁɛ ʒɥɛ̃/",
+    "notes": "Plus drops its final s sound in this negative sense, unlike in comparisons.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.152",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils ne vont pas venir à la fête.",
+    "en": "They aren't going to come to the party.",
+    "ipa": "/il nə vɔ̃ pa və.niʁ a la fɛt/",
+    "notes": "Vont is easy to confuse with on or ont by sound, so check the subject ils carefully.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.153",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne vais rien changer dans mon emploi du temps.",
+    "en": "I'm not going to change anything in my schedule.",
+    "ipa": "/ʒə nə vɛ ʁjɛ̃ ʃɑ̃.ʒe dɑ̃ mɔ̃.n‿ɑ̃.plwa dy tɑ̃/",
+    "notes": "Rien sits right after vais, framing the infinitive changer just like pas would.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.154",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne va voir personne ce week-end.",
+    "en": "She isn't going to see anyone this weekend.",
+    "ipa": "/ɛl nə va vwaʁ pɛʁ.sɔn sə wik.ɛnd/",
+    "notes": "Personne needs the double n even though French speakers often shorten it in speech.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.155",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'allons acheter qu'un seul billet.",
+    "en": "We are only going to buy one ticket.",
+    "ipa": "/nu na.lɔ̃.z‿aʃ.te kœ̃ sœl bi.jɛ/",
+    "notes": "Que elides to qu' before the vowel sound of un, marking the restriction only.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.156",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Vous n'allez pas regretter cette décision.",
+    "en": "You aren't going to regret this decision.",
+    "ipa": "/vu na.le pa ʁə.ɡʁɛ.te sɛt de.si.zjɔ̃/",
+    "notes": "N'allez elides ne before the vowel of allez, requiring the apostrophe in writing.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.157",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne va pas prendre le train demain.",
+    "en": "He isn't going to take the train tomorrow.",
+    "ipa": "/il nə va pa pʁɑ̃dʁ lə tʁɛ̃ də.mɛ̃/",
+    "notes": "Train and demain both end in nasal vowels that can be hard to tell apart by ear.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.158",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne vais pas manger de viande ce soir.",
+    "en": "I'm not going to eat meat tonight.",
+    "ipa": "/ʒə nə vɛ pa mɑ̃.ʒe də vjɑ̃d sə swaʁ/",
+    "notes": "After the negation, de la viande shortens to de viande, losing the article.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.159",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne va pas répondre à cet email.",
+    "en": "She isn't going to reply to this email.",
+    "ipa": "/ɛl nə va pa ʁe.pɔ̃dʁ a sɛ.t‿i.mɛl/",
+    "notes": "À cet uses a liaison t sound before email, distinct from writing a alone.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.160",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'allons pas rester longtemps à la fête.",
+    "en": "We aren't going to stay long at the party.",
+    "ipa": "/nu na.lɔ̃ pa ʁɛs.te lɔ̃.tɑ̃ a la fɛt/",
+    "notes": "Longtemps ends with silent letters after its nasal vowel sound.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.161",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Tu ne vas pas aimer cette nouvelle règle.",
+    "en": "You aren't going to like this new rule.",
+    "ipa": "/ty nə va pa.z‿ɛ.me sɛt nu.vɛl ʁɛɡl/",
+    "notes": "Vas links to aimer with a liaison z sound before the vowel.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.162",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils ne vont plus habiter dans ce quartier.",
+    "en": "They are no longer going to live in this neighborhood.",
+    "ipa": "/il nə vɔ̃ ply.z‿a.bi.te dɑ̃ sə kaʁ.tje/",
+    "notes": "The silent h in habiter still allows a liaison z sound from plus before it.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.163",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne vais jamais oublier ce moment.",
+    "en": "I am never going to forget this moment.",
+    "ipa": "/ʒə nə vɛ ʒa.mɛ u.bli.je sə mɔ.mɑ̃/",
+    "notes": "Jamais keeps its final s silent, unlike when linked before a vowel.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.164",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne va pas finir le rapport ce soir.",
+    "en": "She isn't going to finish the report tonight.",
+    "ipa": "/ɛl nə va pa fi.niʁ lə ʁa.pɔʁ sə swaʁ/",
+    "notes": "Rapport doubles its p in spelling though it is pronounced as a single consonant.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.165",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'allons pas prendre de dessert.",
+    "en": "We aren't going to have dessert.",
+    "ipa": "/nu na.lɔ̃ pa pʁɑ̃dʁ də de.sɛʁ/",
+    "notes": "After the negation, du dessert becomes de dessert, dropping the partitive article.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.166",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne va pas conduire aujourd'hui.",
+    "en": "He isn't going to drive today.",
+    "ipa": "/il nə va pa kɔ̃.dɥiʁ o.ʒuʁ.dɥi/",
+    "notes": "Conduire keeps a nasal on sound in its first syllable, distinct from the on of onze.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.167",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne bois que de l'eau le matin.",
+    "en": "I only drink water in the morning.",
+    "ipa": "/ʒə nə bwa kə də lo lə ma.tɛ̃/",
+    "notes": "De l'eau elides twice in a row, and both apostrophes must appear in writing.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.168",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne travaille que trois jours par semaine.",
+    "en": "She only works three days a week.",
+    "ipa": "/ɛl nə tʁa.vaj kə tʁwa ʒuʁ paʁ sə.mɛn/",
+    "notes": "The unstressed que is often swallowed in fast speech but must still be written out.",
+    "tags": [
+      "e-muet"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.169",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne mangeons que des produits frais.",
+    "en": "We only eat fresh products.",
+    "ipa": "/nu nə mɑ̃.ʒɔ̃ kə de pʁɔ.dɥi fʁɛ/",
+    "notes": "Mangeons keeps the extra e before ons to preserve the soft g sound.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.170",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne parle que de son travail.",
+    "en": "He only talks about his work.",
+    "ipa": "/il nə paʁl kə də sɔ̃ tʁa.vaj/",
+    "notes": "Que de son can blur together in speech, so listen for each separate word.",
+    "tags": [
+      "e-muet"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.171",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Tu ne penses qu'à tes vacances.",
+    "en": "You only think about your vacation.",
+    "ipa": "/ty nə pɑ̃s ka te va.kɑ̃s/",
+    "notes": "Que elides to qu' before à, and the two together sound like a single syllable.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.172",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je n'ai qu'une seule sœur.",
+    "en": "I only have one sister.",
+    "ipa": "/ʒə nɛ kyn sœl sœʁ/",
+    "notes": "Qu'une elides que before the vowel of une, so the apostrophe cannot be dropped.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.173",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne lit que des romans policiers.",
+    "en": "She only reads detective novels.",
+    "ipa": "/ɛl nə li kə de ʁɔ.mɑ̃ pɔ.li.sje/",
+    "notes": "Policiers ends in a silent s that marks the plural agreement with romans.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.174",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons que deux heures avant le train.",
+    "en": "We only have two hours before the train.",
+    "ipa": "/nu na.vɔ̃ kə dø.z‿œʁ a.vɑ̃ lə tʁɛ̃/",
+    "notes": "Deux heures links with a liaison z sound, and heures itself begins with a silent h.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.175",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne sort que le week-end.",
+    "en": "He only goes out on weekends.",
+    "ipa": "/il nə sɔʁ kə lə wik.ɛnd/",
+    "notes": "Sort ends in a silent t that must still be written.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.176",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils ne mangent que des légumes bio.",
+    "en": "They only eat organic vegetables.",
+    "ipa": "/il nə mɑ̃ʒ kə de le.ɡym bjo/",
+    "notes": "Mangent keeps a silent ent ending that shows the plural ils, not a pronounced sound.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.177",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne connais que le centre-ville.",
+    "en": "I only know the city center.",
+    "ipa": "/ʒə nə kɔ.nɛ kə lə sɑ̃tʁ vil/",
+    "notes": "Connais ends with a silent s, part of the irregular verb connaître.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.178",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'écoute que de la musique classique.",
+    "en": "She only listens to classical music.",
+    "ipa": "/ɛl ne.kut kə də la my.zik kla.sik/",
+    "notes": "N'écoute elides ne before the vowel of écoute, keeping the apostrophe in writing.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.179",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne visitons que les grandes villes.",
+    "en": "We only visit big cities.",
+    "ipa": "/nu nə vi.zi.tɔ̃ kə le ɡʁɑ̃d vil/",
+    "notes": "Grandes carries a silent final e and s marking feminine plural agreement with villes.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.180",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne prend que le bus le matin.",
+    "en": "He only takes the bus in the morning.",
+    "ipa": "/il nə pʁɑ̃ kə lə bys lə ma.tɛ̃/",
+    "notes": "Prend ends in a silent d that is easy to forget when writing quickly.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.181",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Tu ne portes que du noir en hiver.",
+    "en": "You only wear black in winter.",
+    "ipa": "/ty nə pɔʁt kə dy nwaʁ ɑ̃.n‿i.vɛʁ/",
+    "notes": "En hiver links with a nasal liaison sound before the silent h of hiver.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.182",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne parle que français à la maison.",
+    "en": "I only speak French at home.",
+    "ipa": "/ʒə nə paʁl kə fʁɑ̃.sɛ a la mɛ.zɔ̃/",
+    "notes": "Français needs its cedilla to keep the soft s sound before the a.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.183",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'utilise que son téléphone pour travailler.",
+    "en": "She only uses her phone to work.",
+    "ipa": "/ɛl ny.ti.liz kə sɔ̃ te.le.fɔn puʁ tʁa.va.je/",
+    "notes": "N'utilise elides ne before the vowel of utilise, so the apostrophe must appear.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.184",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons qu'une seule voiture dans la famille.",
+    "en": "We only have one car in the family.",
+    "ipa": "/nu na.vɔ̃ kyn sœl vwa.tyʁ dɑ̃ la fa.mij/",
+    "notes": "Qu'une elides que before une, collapsing two words into one quick sound.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.185",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne dort que six heures par nuit.",
+    "en": "He only sleeps six hours a night.",
+    "ipa": "/il nə dɔʁ kə si.z‿œʁ paʁ nɥi/",
+    "notes": "Six links to heures with a liaison z sound, changing the usual final consonant of six.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.186",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils ne visitent que le musée le samedi.",
+    "en": "They only visit the museum on Saturdays.",
+    "ipa": "/il nə vi.zit kə lə my.ze lə sam.di/",
+    "notes": "Visitent ends in a silent ent that marks the plural ils without an extra syllable.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.187",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne fume jamais en public.",
+    "en": "I never smoke in public.",
+    "ipa": "/ʒə nə fym ʒa.mɛ ɑ̃ py.blik/",
+    "notes": "En public uses a nasal en sound rather than a pronounced n before public.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.188",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne mange plus de sucre.",
+    "en": "She no longer eats sugar.",
+    "ipa": "/ɛl nə mɑ̃ʒ ply də sykʁ/",
+    "notes": "Plus loses its final s sound in this negative meaning of no longer.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.189",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne comprenons rien à ce problème.",
+    "en": "We understand nothing about this problem.",
+    "ipa": "/nu nə kɔ̃.pʁə.nɔ̃ ʁjɛ̃ a sə pʁɔ.blɛm/",
+    "notes": "Rien à can blend together in speech, so listen for the separate preposition à.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.190",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne connaît personne dans cette ville.",
+    "en": "He doesn't know anyone in this city.",
+    "ipa": "/il nə kɔ.nɛ pɛʁ.sɔn dɑ̃ sɛt vil/",
+    "notes": "Connaît carries a circumflex accent over the i that changes nothing in sound but is required in spelling.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.191",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Tu n'as aucune excuse pour ton retard.",
+    "en": "You have no excuse for your lateness.",
+    "ipa": "/ty na o.kyn ɛk.skyz puʁ tɔ̃ ʁə.taʁ/",
+    "notes": "Aucune agrees in the feminine with excuse, not the masculine aucun.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.192",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne bois ni café ni thé le soir.",
+    "en": "I drink neither coffee nor tea in the evening.",
+    "ipa": "/ʒə nə bwa ni ka.fe ni te lə swaʁ/",
+    "notes": "Thé keeps a silent h after the t, a common spelling trap in this word.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.193",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne sort jamais sans son sac.",
+    "en": "She never goes out without her bag.",
+    "ipa": "/ɛl nə sɔʁ ʒa.mɛ sɑ̃ sɔ̃ sak/",
+    "notes": "Sans and son both use nasal vowels that can sound alike if you don't listen closely.",
+    "tags": [
+      "nasal"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.194",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne regardons plus la télévision le soir.",
+    "en": "We no longer watch television in the evening.",
+    "ipa": "/nu nə ʁə.ɡaʁ.dɔ̃ ply la te.le.vi.zjɔ̃ lə swaʁ/",
+    "notes": "Plus drops its final s sound here, unlike when it means more of something.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.195",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne dit jamais la vérité sur son âge.",
+    "en": "He never tells the truth about his age.",
+    "ipa": "/il nə di ʒa.mɛ la ve.ʁi.te syʁ sɔ.n‿aʒ/",
+    "notes": "Son âge links with a liaison n sound before the circumflex a of âge.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.196",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils n'ont aucun problème avec ce plan.",
+    "en": "They have no problem with this plan.",
+    "ipa": "/il nɔ̃.t‿o.kœ̃ pʁɔ.blɛm a.vɛk sə plɑ̃/",
+    "notes": "Ont links to aucun with a liaison t sound before the vowel.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.197",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne vois personne dans la rue ce matin.",
+    "en": "I don't see anyone in the street this morning.",
+    "ipa": "/ʒə nə vwa pɛʁ.sɔn dɑ̃ la ʁy sə ma.tɛ̃/",
+    "notes": "Personne keeps its double n in spelling despite the single nasal sound heard.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.198",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne mange rien avant le sport.",
+    "en": "She eats nothing before sports.",
+    "ipa": "/ɛl nə mɑ̃ʒ ʁjɛ̃.n‿a.vɑ̃ lə spɔʁ/",
+    "notes": "Rien links to avant with a liaison n sound before the vowel a.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.199",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne voyageons jamais en hiver.",
+    "en": "We never travel in winter.",
+    "ipa": "/nu nə vwa.ja.ʒɔ̃ ʒa.mɛ ɑ̃.n‿i.vɛʁ/",
+    "notes": "Voyageons keeps the extra e before ons to preserve the soft g sound.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.200",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne fait plus de sport depuis son accident.",
+    "en": "He no longer plays sports since his accident.",
+    "ipa": "/il nə fɛ ply də spɔʁ də.pɥi sɔ.n‿ak.si.dɑ̃/",
+    "notes": "Son accident links with a liaison n sound before the vowel a.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.201",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Tu ne réponds jamais à mes messages.",
+    "en": "You never reply to my messages.",
+    "ipa": "/ty nə ʁe.pɔ̃ ʒa.mɛ a me me.saʒ/",
+    "notes": "Réponds ends in a silent d that comes from the verb répondre.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.202",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je n'ai aucune idée de l'heure qu'il est.",
+    "en": "I have no idea what time it is.",
+    "ipa": "/ʒə nɛ o.kyn i.de də lœʁ kil ɛ/",
+    "notes": "Qu'il elides que before il, and the h of heure stays silent throughout the phrase.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.203",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle ne conduit jamais la nuit.",
+    "en": "She never drives at night.",
+    "ipa": "/ɛl nə kɔ̃.dɥi ʒa.mɛ la nɥi/",
+    "notes": "Conduit ends in a silent t that is part of the irregular verb conduire.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.204",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne prenons plus le métro le soir.",
+    "en": "We no longer take the metro in the evening.",
+    "ipa": "/nu nə pʁə.nɔ̃ ply lə me.tʁo lə swaʁ/",
+    "notes": "Plus is pronounced without its final s in this meaning of no longer.",
+    "tags": [
+      "silent-letter"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.205",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne parle ni anglais ni espagnol.",
+    "en": "He speaks neither English nor Spanish.",
+    "ipa": "/il nə paʁl ni ɑ̃.ɡlɛ ni ɛs.pa.ɲɔl/",
+    "notes": "Espagnol uses gn to make the nasal palatal sound, easy to misspell as ni or nj.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.206",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils ne font rien pendant les vacances.",
+    "en": "They do nothing during the holidays.",
+    "ipa": "/il nə fɔ̃ ʁjɛ̃ pɑ̃.dɑ̃ le va.kɑ̃s/",
+    "notes": "Font sounds close to fond, so listen to the verb ending rather than guessing from sound alone.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.207",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Je ne connais aucun restaurant dans ce quartier.",
+    "en": "I don't know any restaurant in this neighborhood.",
+    "ipa": "/ʒə nə kɔ.nɛ o.kœ̃ ʁɛs.to.ʁɑ̃ dɑ̃ sə kaʁ.tje/",
+    "notes": "Aucun is spelled with au, not o, even though the sound is short and simple.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.208",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'invite jamais ses voisins.",
+    "en": "She never invites her neighbors.",
+    "ipa": "/ɛl nɛ̃.vit ʒa.mɛ se vwa.zɛ̃/",
+    "notes": "N'invite elides ne before the vowel of invite, keeping the required apostrophe.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.209",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne mangeons ni viande ni poisson.",
+    "en": "We eat neither meat nor fish.",
+    "ipa": "/nu nə mɑ̃.ʒɔ̃ ni vjɑ̃d ni pwa.sɔ̃/",
+    "notes": "Poisson doubles its s to keep the sharp s sound rather than a z sound.",
+    "tags": [
+      "orthographe"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.210",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il ne trouve personne pour l'aider.",
+    "en": "He finds nobody to help him.",
+    "ipa": "/il nə tʁuv pɛʁ.sɔn puʁ lɛ.de/",
+    "notes": "L'aider elides le before the vowel of aider, so the apostrophe cannot be skipped.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.211",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Tu ne changes jamais d'avis.",
+    "en": "You never change your mind.",
+    "ipa": "/ty nə ʃɑ̃ʒ ʒa.mɛ da.vi/",
+    "notes": "D'avis elides de before the vowel of avis, collapsing the two words in speech.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.212",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'a pas de temps à perdre aujourd'hui.",
+    "en": "He has no time to waste today.",
+    "ipa": "/il na pa də tɑ̃ a pɛʁdʁ o.ʒuʁ.dɥi/",
+    "notes": "A and à sound identical, so only the grammar tells you the verb from the preposition.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.213",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a pas dit où elle allait.",
+    "en": "She didn't say where she was going.",
+    "ipa": "/ɛl na pa di u ɛl a.lɛ/",
+    "notes": "Où takes a grave accent to distinguish it from ou meaning or.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.214",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "On ne sait jamais ce qui va arriver.",
+    "en": "You never know what is going to happen.",
+    "ipa": "/ɔ̃ nə sɛ ʒa.mɛ sə ki va a.ʁi.ve/",
+    "notes": "On sounds exactly like ont, so check whether a subject or a verb is needed.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.215",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils n'ont pas de voiture pour aller au travail.",
+    "en": "They don't have a car to go to work.",
+    "ipa": "/il nɔ̃ pa də vwa.tyʁ puʁ a.le o tʁa.vaj/",
+    "notes": "Ont is the verb form here, not the subject pronoun on, though both sound the same.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.216",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a pas encore décidé où partir en vacances.",
+    "en": "She hasn't decided yet where to go on vacation.",
+    "ipa": "/ɛl na pa ɑ̃.kɔʁ de.si.de u paʁ.tiʁ ɑ̃ va.kɑ̃s/",
+    "notes": "Où needs its accent to mean where, unlike the unaccented ou meaning or.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.217",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "On n'a pas terminé le rapport à temps.",
+    "en": "We didn't finish the report on time.",
+    "ipa": "/ɔ̃ na pa tɛʁ.mi.ne lə ʁa.pɔʁ a tɑ̃/",
+    "notes": "On n'a combines two easily confused sounds, on with ont and a with à, in one short phrase.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.218",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'a pas répondu à sa lettre.",
+    "en": "He didn't reply to her letter.",
+    "ipa": "/il na pa ʁe.pɔ̃.dy a sa lɛtʁ/",
+    "notes": "À sa lettre uses the preposition à, not the verb a used earlier in the sentence.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.219",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous ne savons pas où se trouve la gare.",
+    "en": "We don't know where the station is.",
+    "ipa": "/nu nə sa.vɔ̃ pa u sə tʁuv la ɡaʁ/",
+    "notes": "Où carries an accent to separate it from the conjunction ou meaning or.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.220",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "On ne mange jamais avant midi ici.",
+    "en": "People never eat before noon here.",
+    "ipa": "/ɔ̃ nə mɑ̃ʒ ʒa.mɛ a.vɑ̃ mi.di i.si/",
+    "notes": "On is the subject pronoun here and should never be confused with the verb form ont.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.221",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils n'ont plus rien à ajouter au dossier.",
+    "en": "They have nothing more to add to the file.",
+    "ipa": "/il nɔ̃ ply ʁjɛ̃.n‿a a.ʒu.te o dɔ.sje/",
+    "notes": "Rien à links with a liaison n before the vowel a, and à itself is the preposition, not the verb a.",
+    "tags": [
+      "liaison"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.222",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a aucune idée où sont ses clés.",
+    "en": "She has no idea where her keys are.",
+    "ipa": "/ɛl na o.kyn i.de u sɔ̃ se kle/",
+    "notes": "Sont sounds like son but means are, so listen to the full sentence to tell them apart.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.223",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "On ne vend plus ce modèle en magasin.",
+    "en": "This model is no longer sold in stores.",
+    "ipa": "/ɔ̃ nə vɑ̃ ply sə mɔ.dɛl ɑ̃ ma.ɡa.zɛ̃/",
+    "notes": "On here stands for people in general, distinct in spelling from the verb form ont.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.224",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'a pas voulu dire où il était allé.",
+    "en": "He didn't want to say where he had gone.",
+    "ipa": "/il na pa vu.ly diʁ u i.l‿e.tɛ a.le/",
+    "notes": "Où keeps its accent for where, never to be confused with the plain ou meaning or.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.225",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons pas su où garer la voiture.",
+    "en": "We didn't know where to park the car.",
+    "ipa": "/nu na.vɔ̃ pa sy u ɡa.ʁe la vwa.tyʁ/",
+    "notes": "Où needs its grave accent, unlike ou which links two choices together.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.226",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "On n'a jamais visité ce pays ensemble.",
+    "en": "We have never visited this country together.",
+    "ipa": "/ɔ̃ na ʒa.mɛ vi.zi.te sə pe.i ɑ̃.sɑ̃bl/",
+    "notes": "On n'a combines the subject on, easily confused with ont, and the elided n'a.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.227",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a pas encore trouvé où habiter.",
+    "en": "She hasn't found where to live yet.",
+    "ipa": "/ɛl na pa ɑ̃.kɔʁ tʁu.ve u a.bi.te/",
+    "notes": "Où needs its accent even though habiter begins with a silent h right after it.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.228",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Ils n'ont aucune préférence pour le restaurant.",
+    "en": "They have no preference for the restaurant.",
+    "ipa": "/il nɔ̃.t‿o.kyn pʁe.fe.ʁɑ̃s puʁ lə ʁɛs.to.ʁɑ̃/",
+    "notes": "Ont links to aucune with a liaison t sound, and aucune agrees in the feminine with préférence.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.229",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'a pas de raison de s'inquiéter.",
+    "en": "He has no reason to worry.",
+    "ipa": "/il na pa də ʁɛ.zɔ̃ də sɛ̃.kje.te/",
+    "notes": "S'inquiéter elides se before the vowel of inquiéter, so the apostrophe must be written.",
+    "tags": [
+      "elision"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.230",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "On ne connaît personne à cette adresse.",
+    "en": "Nobody knows anyone at this address.",
+    "ipa": "/ɔ̃ nə kɔ.nɛ pɛʁ.sɔn a sɛt a.dʁɛs/",
+    "notes": "On and à cette both hide easily confused homophones, on versus ont and à versus a.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.231",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Nous n'avons pas vu où il est parti.",
+    "en": "We didn't see where he went.",
+    "ipa": "/nu na.vɔ̃ pa vy u i.l‿ɛ paʁ.ti/",
+    "notes": "Où takes its accent for where, distinct from the linking word ou.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.232",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Elle n'a jamais su où était son père.",
+    "en": "She never knew where her father was.",
+    "ipa": "/ɛl na ʒa.mɛ sy u e.tɛ sɔ̃ pɛʁ/",
+    "notes": "Où contrasts with the unaccented ou, and son here shows masculine agreement with père.",
+    "tags": [
+      "accord"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.233",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "On n'a plus de pain à la maison.",
+    "en": "We don't have any bread left at home.",
+    "ipa": "/ɔ̃ na ply də pɛ̃ a la mɛ.zɔ̃/",
+    "notes": "On n'a plus combines the on and ont homophone trap with the silent s of plus.",
+    "tags": [
+      "homophone"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  },
+  {
+    "id": "fr.a2.negation-et-restriction.234",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "negation-et-restriction",
+    "fr": "Il n'a que deux jours de congé ce mois-ci.",
+    "en": "He only has two days off this month.",
+    "ipa": "/il na kə dø ʒuʁ də kɔ̃.ʒe sə mwa.si/",
+    "notes": "N'a que marks the restriction only, and que often gets swallowed into the surrounding sounds in fast speech.",
+    "tags": [
+      "e-muet"
+    ],
+    "drills": [
+      "dictation"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    }
+  }
+]

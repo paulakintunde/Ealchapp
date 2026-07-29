@@ -1,0 +1,3301 @@
+{
+  "stage": "2.1",
+  "world": 2,
+  "level": "a1",
+  "title": "La Place du Bonjour",
+  "themes": [
+    "salutations",
+    "salutations-de-base",
+    "presentation-personnelle",
+    "rp-identite",
+    "rencontres",
+    "couple-amour",
+    "evenements-familiaux",
+    "emotions",
+    "rp-famille",
+    "les-fetes"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 464,
+  "dedupedPool": 458,
+  "selected": 458,
+  "blockCount": 14,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.a1.presentation-personnelle.112",
+          "theme": "presentation-personnelle",
+          "fr": "Il est mince.",
+          "en": "He is thin.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.126",
+          "theme": "presentation-personnelle",
+          "fr": "Il est marié.",
+          "en": "He is married.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.110",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis grand.",
+          "en": "I am tall.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.salutations-de-base.027",
+          "theme": "salutations-de-base",
+          "fr": "Salut, ça va ?",
+          "en": "Hi, how's it going?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.103",
+          "theme": "presentation-personnelle",
+          "fr": "Tu habites où ?",
+          "en": "Where do you live?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.111",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis petite.",
+          "en": "I am short.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.129",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis fiancé.",
+          "en": "I am engaged.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.087",
+          "theme": "presentation-personnelle",
+          "fr": "Tu es canadien ?",
+          "en": "Are you Canadian?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.089",
+          "theme": "presentation-personnelle",
+          "fr": "Il est marocain.",
+          "en": "He is Moroccan.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.127",
+          "theme": "presentation-personnelle",
+          "fr": "Elle est mariée.",
+          "en": "She is married.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.085",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis français.",
+          "en": "I am French.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.093",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis étudiant.",
+          "en": "I am a student.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.rp-identite.015",
+          "theme": "rp-identite",
+          "fr": "Je suis canadien.",
+          "en": "I'm Canadian.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.086",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis française.",
+          "en": "I am French.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.095",
+          "theme": "presentation-personnelle",
+          "fr": "Il est professeur.",
+          "en": "He is a teacher.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.088",
+          "theme": "presentation-personnelle",
+          "fr": "Elle est italienne.",
+          "en": "She is Italian.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.090",
+          "theme": "presentation-personnelle",
+          "fr": "Nous sommes belges.",
+          "en": "We are Belgian.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.091",
+          "theme": "presentation-personnelle",
+          "fr": "Vous êtes anglais ?",
+          "en": "Are you English?",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.092",
+          "theme": "presentation-personnelle",
+          "fr": "Ils sont espagnols.",
+          "en": "They are Spanish.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.096",
+          "theme": "presentation-personnelle",
+          "fr": "Elle est infirmière.",
+          "en": "She is a nurse.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.125",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis célibataire.",
+          "en": "I am single.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.134",
+          "theme": "presentation-personnelle",
+          "fr": "Nous aimons voyager.",
+          "en": "We like to travel.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.128",
+          "theme": "presentation-personnelle",
+          "fr": "Nous sommes divorcés.",
+          "en": "We are divorced.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.105",
+          "theme": "presentation-personnelle",
+          "fr": "Nous habitons ensemble.",
+          "en": "We live together.",
+          "words": 3
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.108",
+          "theme": "presentation-personnelle",
+          "fr": "Où es-tu né ?",
+          "en": "Where were you born?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-famille.005",
+          "theme": "rp-famille",
+          "fr": "J'ai une sœur.",
+          "en": "I have a sister.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.079",
+          "theme": "presentation-personnelle",
+          "fr": "J'ai vingt ans.",
+          "en": "I am twenty years old.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.080",
+          "theme": "presentation-personnelle",
+          "fr": "Quel âge as-tu ?",
+          "en": "How old are you?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.081",
+          "theme": "presentation-personnelle",
+          "fr": "Il a trente ans.",
+          "en": "He is thirty years old.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-identite.009",
+          "theme": "rp-identite",
+          "fr": "Vous êtes d'où ?",
+          "en": "Where are you from?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.102",
+          "theme": "presentation-personnelle",
+          "fr": "J'habite à Paris.",
+          "en": "I live in Paris.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.146",
+          "theme": "presentation-personnelle",
+          "fr": "Il se couche tard.",
+          "en": "He goes to bed late.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rencontres.040",
+          "theme": "rencontres",
+          "fr": "Tu es nouveau ici ?",
+          "en": "Are you new here?",
+          "words": 4
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.a1.presentation-personnelle.074",
+          "theme": "presentation-personnelle",
+          "fr": "Je m'appelle Marie.",
+          "en": "My name is Marie.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.121",
+          "theme": "presentation-personnelle",
+          "fr": "J'ai trois enfants.",
+          "en": "I have three children.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.139",
+          "theme": "presentation-personnelle",
+          "fr": "J'aime le chocolat.",
+          "en": "I like chocolate.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-identite.006",
+          "theme": "rp-identite",
+          "fr": "Je m'appelle Julie.",
+          "en": "My name is Julie.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.076",
+          "theme": "presentation-personnelle",
+          "fr": "Il s'appelle Thomas.",
+          "en": "His name is Thomas.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.084",
+          "theme": "presentation-personnelle",
+          "fr": "Vous avez quel âge ?",
+          "en": "How old are you?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.100",
+          "theme": "presentation-personnelle",
+          "fr": "Ma mère est avocate.",
+          "en": "My mother is a lawyer.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.104",
+          "theme": "presentation-personnelle",
+          "fr": "Il habite en France.",
+          "en": "He lives in France.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.118",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis fils unique.",
+          "en": "I am an only child.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.133",
+          "theme": "presentation-personnelle",
+          "fr": "Elle joue au tennis.",
+          "en": "She plays tennis.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.137",
+          "theme": "presentation-personnelle",
+          "fr": "Je pratique le yoga.",
+          "en": "I practice yoga.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-identite.007",
+          "theme": "rp-identite",
+          "fr": "Je suis de Montréal.",
+          "en": "I'm from Montreal.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-identite.018",
+          "theme": "rp-identite",
+          "fr": "J'adore cette ville.",
+          "en": "I love this city.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.couple-amour.085",
+          "theme": "couple-amour",
+          "fr": "Elle adore son mari.",
+          "en": "She adores her husband.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rencontres.038",
+          "theme": "rencontres",
+          "fr": "Quel est ton prénom ?",
+          "en": "What's your first name?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.078",
+          "theme": "presentation-personnelle",
+          "fr": "Mon prénom est Lucas.",
+          "en": "My first name is Lucas.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.101",
+          "theme": "presentation-personnelle",
+          "fr": "Je cherche un emploi.",
+          "en": "I am looking for a job.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.119",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis fille unique.",
+          "en": "I am an only child.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.salutations-de-base.039",
+          "theme": "salutations-de-base",
+          "fr": "À demain, dors bien !",
+          "en": "See you tomorrow, sleep well!",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.077",
+          "theme": "presentation-personnelle",
+          "fr": "Elle s'appelle Sophie.",
+          "en": "Her name is Sophie.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.116",
+          "theme": "presentation-personnelle",
+          "fr": "Il porte des lunettes.",
+          "en": "He wears glasses.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.143",
+          "theme": "presentation-personnelle",
+          "fr": "Elle aime les animaux.",
+          "en": "She likes animals.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.075",
+          "theme": "presentation-personnelle",
+          "fr": "Comment tu t'appelles ?",
+          "en": "What's your name?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.salutations-de-base.026",
+          "theme": "salutations-de-base",
+          "fr": "Bonjour tout le monde !",
+          "en": "Hello everyone!",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.099",
+          "theme": "presentation-personnelle",
+          "fr": "Mon père est mécanicien.",
+          "en": "My father is a mechanic.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-famille.075",
+          "theme": "rp-famille",
+          "fr": "Ma femme est infirmière.",
+          "en": "My wife is a nurse.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-famille.076",
+          "theme": "rp-famille",
+          "fr": "Nous avons deux enfants.",
+          "en": "We have two children.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.couple-amour.027",
+          "theme": "couple-amour",
+          "fr": "Nous nous aimons beaucoup.",
+          "en": "We love each other a lot.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.salutations-de-base.028",
+          "theme": "salutations-de-base",
+          "fr": "Bonsoir, vous allez bien ?",
+          "en": "Good evening, are you well?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.salutations.282",
+          "theme": "salutations",
+          "fr": "Bienvenue dans notre équipe.",
+          "en": "Welcome to our team.",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rencontres.048",
+          "theme": "rencontres",
+          "fr": "Tu travailles où exactement ?",
+          "en": "Where exactly do you work?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.rp-identite.016",
+          "theme": "rp-identite",
+          "fr": "Vous habitez ici maintenant ?",
+          "en": "Do you live here now?",
+          "words": 4
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.114",
+          "theme": "presentation-personnelle",
+          "fr": "J'ai les yeux bleus.",
+          "en": "I have blue eyes.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.a1.presentation-personnelle.082",
+          "theme": "presentation-personnelle",
+          "fr": "Elle a vingt-cinq ans.",
+          "en": "She is twenty-five years old.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.109",
+          "theme": "presentation-personnelle",
+          "fr": "Il est né en Belgique.",
+          "en": "He was born in Belgium.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.136",
+          "theme": "presentation-personnelle",
+          "fr": "Il joue de la guitare.",
+          "en": "He plays the guitar.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.041",
+          "theme": "salutations-de-base",
+          "fr": "Ça va, merci, et toi ?",
+          "en": "I'm fine, thanks, and you?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.107",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis né à Marseille.",
+          "en": "I was born in Marseille.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.132",
+          "theme": "presentation-personnelle",
+          "fr": "J'aime lire des romans.",
+          "en": "I like reading novels.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.142",
+          "theme": "presentation-personnelle",
+          "fr": "Il aime bien la nature.",
+          "en": "He likes nature.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.076",
+          "theme": "salutations-de-base",
+          "fr": "Salut ! Ça va ou bien ?",
+          "en": "Hi! How's it going?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.115",
+          "theme": "presentation-personnelle",
+          "fr": "Il a les cheveux courts.",
+          "en": "He has short hair.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.120",
+          "theme": "presentation-personnelle",
+          "fr": "Il a une grande famille.",
+          "en": "He has a large family.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.130",
+          "theme": "presentation-personnelle",
+          "fr": "Mon mari s'appelle Marc.",
+          "en": "My husband's name is Marc.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-identite.017",
+          "theme": "rp-identite",
+          "fr": "Moi aussi, j'habite ici.",
+          "en": "Me too, I live here.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.emotions.080",
+          "theme": "emotions",
+          "fr": "Elle a peur des examens.",
+          "en": "She is afraid of exams.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-famille.061",
+          "theme": "rp-famille",
+          "fr": "Mon père s'appelle Jean.",
+          "en": "My father's name is Jean.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.couple-amour.026",
+          "theme": "couple-amour",
+          "fr": "Elle a un nouveau copain.",
+          "en": "She has a new boyfriend.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.113",
+          "theme": "presentation-personnelle",
+          "fr": "Elle a les cheveux longs.",
+          "en": "She has long hair.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.emotions.089",
+          "theme": "emotions",
+          "fr": "Tu es malade aujourd'hui.",
+          "en": "You are sick today.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-famille.083",
+          "theme": "rp-famille",
+          "fr": "Mon neveu joue au soccer.",
+          "en": "My nephew plays soccer.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.082",
+          "theme": "evenements-familiaux",
+          "fr": "Le repas commence à midi.",
+          "en": "The meal starts at noon.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rencontres.067",
+          "theme": "rencontres",
+          "fr": "Tu connais déjà mes amis ?",
+          "en": "Do you already know my friends?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.106",
+          "theme": "presentation-personnelle",
+          "fr": "J'habite avec mes parents.",
+          "en": "I live with my parents.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.124",
+          "theme": "presentation-personnelle",
+          "fr": "Ma tante habite au Canada.",
+          "en": "My aunt lives in Canada.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.050",
+          "theme": "salutations-de-base",
+          "fr": "Merci pour ce beau cadeau.",
+          "en": "Thank you for this lovely gift.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-famille.084",
+          "theme": "rp-famille",
+          "fr": "Ma nièce apprend le piano.",
+          "en": "My niece is learning piano.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.032",
+          "theme": "salutations-de-base",
+          "fr": "Bonne nuit, à demain matin.",
+          "en": "Good night, see you tomorrow morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.042",
+          "theme": "salutations-de-base",
+          "fr": "Ça va bien, merci beaucoup.",
+          "en": "I'm doing well, thank you very much.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-famille.078",
+          "theme": "rp-famille",
+          "fr": "Ma fille adore les animaux.",
+          "en": "My daughter loves animals.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-famille.085",
+          "theme": "rp-famille",
+          "fr": "J'aime beaucoup ma famille.",
+          "en": "I love my family very much.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.couple-amour.084",
+          "theme": "couple-amour",
+          "fr": "Il aime beaucoup sa copine.",
+          "en": "He loves his girlfriend a lot.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.couple-amour.087",
+          "theme": "couple-amour",
+          "fr": "Mon copain regarde un film.",
+          "en": "My boyfriend is watching a movie.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.097",
+          "theme": "presentation-personnelle",
+          "fr": "Je travaille dans un bureau.",
+          "en": "I work in an office.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.075",
+          "theme": "salutations-de-base",
+          "fr": "Moi, c'est Inès. Enchantée !",
+          "en": "I'm Inès. Nice to meet you!",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-famille.067",
+          "theme": "rp-famille",
+          "fr": "Mon grand-père est retraité.",
+          "en": "My grandfather is retired.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.a1.rp-famille.068",
+          "theme": "rp-famille",
+          "fr": "Ma grand-mère aime jardiner.",
+          "en": "My grandmother likes gardening.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rencontres.127",
+          "theme": "rencontres",
+          "fr": "Bonjour, je m'appelle Nadia.",
+          "en": "Hello, my name is Nadia.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.couple-amour.079",
+          "theme": "couple-amour",
+          "fr": "Mon copain habite à Toronto.",
+          "en": "My boyfriend lives in Toronto.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.couple-amour.082",
+          "theme": "couple-amour",
+          "fr": "Mon mari conduit la voiture.",
+          "en": "My husband drives the car.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rencontres.043",
+          "theme": "rencontres",
+          "fr": "Tu habites dans le quartier ?",
+          "en": "Do you live in the neighborhood?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.047",
+          "theme": "salutations-de-base",
+          "fr": "Enchantée, moi c'est Camille.",
+          "en": "Nice to meet you, I'm Camille.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.couple-amour.086",
+          "theme": "couple-amour",
+          "fr": "Nous allons au parc dimanche.",
+          "en": "We are going to the park on Sunday.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.emotions.048",
+          "theme": "emotions",
+          "fr": "Nous sommes tristes de partir.",
+          "en": "We're sad to leave.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rencontres.042",
+          "theme": "rencontres",
+          "fr": "On peut échanger nos numéros ?",
+          "en": "Can we swap numbers?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.094",
+          "theme": "presentation-personnelle",
+          "fr": "Je suis étudiante en médecine.",
+          "en": "I am a medical student.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rencontres.128",
+          "theme": "rencontres",
+          "fr": "Voici mon collègue de travail.",
+          "en": "This is my coworker.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations.274",
+          "theme": "salutations",
+          "fr": "Bonne journée à vous, monsieur.",
+          "en": "Have a good day, sir.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rencontres.145",
+          "theme": "rencontres",
+          "fr": "Nous partageons le même bureau.",
+          "en": "We share the same office.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.couple-amour.081",
+          "theme": "couple-amour",
+          "fr": "Nous mangeons ensemble ce soir.",
+          "en": "We are eating together tonight.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations.024",
+          "theme": "salutations",
+          "fr": "Bonjour, comment tu t'appelles ?",
+          "en": "Hi, what's your name?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.couple-amour.048",
+          "theme": "couple-amour",
+          "fr": "Mon mari aime beaucoup cuisiner.",
+          "en": "My husband loves cooking.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.135",
+          "theme": "presentation-personnelle",
+          "fr": "Elle adore la musique classique.",
+          "en": "She loves classical music.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.072",
+          "theme": "salutations-de-base",
+          "fr": "Monsieur, votre table est prête.",
+          "en": "Sir, your table is ready.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.les-fetes.134",
+          "theme": "les-fetes",
+          "fr": "On souffle les bougies ensemble.",
+          "en": "We blow out the candles together.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-famille.007",
+          "theme": "rp-famille",
+          "fr": "Mes parents habitent à Marseille.",
+          "en": "My parents live in Marseille.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.couple-amour.089",
+          "theme": "couple-amour",
+          "fr": "Nous préparons le repas ensemble.",
+          "en": "We are preparing the meal together.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.les-fetes.121",
+          "theme": "les-fetes",
+          "fr": "Nous allons fêter Pâques dimanche.",
+          "en": "We are going to celebrate Easter on Sunday.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.couple-amour.033",
+          "theme": "couple-amour",
+          "fr": "Nous habitons ensemble depuis mars.",
+          "en": "We've been living together since March.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations.276",
+          "theme": "salutations",
+          "fr": "Bon appétit, mesdames et messieurs.",
+          "en": "Enjoy your meal, ladies and gentlemen.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.rp-identite.010",
+          "theme": "rp-identite",
+          "fr": "Enchanté de faire votre connaissance.",
+          "en": "Pleased to meet you.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.069",
+          "theme": "salutations-de-base",
+          "fr": "Bienvenue chez nous, installez-vous !",
+          "en": "Welcome to our home, make yourselves comfortable!",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations.265",
+          "theme": "salutations",
+          "fr": "Merci infiniment pour votre patience.",
+          "en": "Thank you so much for your patience.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.024",
+          "theme": "salutations-de-base",
+          "fr": "Bonjour, madame ! Comment allez-vous ?",
+          "en": "Hello, madam! How are you?",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations.278",
+          "theme": "salutations",
+          "fr": "Félicitations pour votre nouvel emploi.",
+          "en": "Congratulations on your new job.",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.salutations-de-base.065",
+          "theme": "salutations-de-base",
+          "fr": "Félicitations pour ton nouveau travail !",
+          "en": "Congratulations on your new job!",
+          "words": 5
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.140",
+          "theme": "presentation-personnelle",
+          "fr": "Je n'aime pas le café.",
+          "en": "I don't like coffee.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.083",
+          "theme": "presentation-personnelle",
+          "fr": "Mon frère a dix-huit ans.",
+          "en": "My brother is eighteen years old.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.145",
+          "theme": "presentation-personnelle",
+          "fr": "Je me lève à sept heures.",
+          "en": "I get up at seven o'clock.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.a1.presentation-personnelle.148",
+          "theme": "presentation-personnelle",
+          "fr": "Je bois un café le matin.",
+          "en": "I drink a coffee in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.098",
+          "theme": "presentation-personnelle",
+          "fr": "Elle est encore à l'école.",
+          "en": "She is still in school.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.147",
+          "theme": "presentation-personnelle",
+          "fr": "Elle va au travail à pied.",
+          "en": "She walks to work.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-famille.065",
+          "theme": "rp-famille",
+          "fr": "Ma petite sœur a huit ans.",
+          "en": "My little sister is eight years old.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.020",
+          "theme": "salutations",
+          "fr": "Ça va bien, merci, et toi ?",
+          "en": "I’m doing well, thank you, and you?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.036",
+          "theme": "rencontres",
+          "fr": "Je m'appelle Marc, et toi ?",
+          "en": "My name's Marc, what's yours?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.141",
+          "theme": "presentation-personnelle",
+          "fr": "J'adore les films d'action.",
+          "en": "I love action movies.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.074",
+          "theme": "salutations-de-base",
+          "fr": "Je m'appelle Hugo, et toi ?",
+          "en": "My name is Hugo, and you?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-famille.064",
+          "theme": "rp-famille",
+          "fr": "Mon frère aîné a vingt ans.",
+          "en": "My older brother is twenty years old.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.091",
+          "theme": "couple-amour",
+          "fr": "Ma femme aime le café noir.",
+          "en": "My wife likes black coffee.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.082",
+          "theme": "salutations-de-base",
+          "fr": "Suivez-moi, je vous en prie.",
+          "en": "Follow me, please.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-famille.006",
+          "theme": "rp-famille",
+          "fr": "Elle est plus jeune que moi.",
+          "en": "She's younger than me.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.079",
+          "theme": "evenements-familiaux",
+          "fr": "Ma cousine se marie en juin.",
+          "en": "My cousin is getting married in June.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.emotions.046",
+          "theme": "emotions",
+          "fr": "Je suis content de te revoir.",
+          "en": "I'm happy to see you again.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.051",
+          "theme": "rencontres",
+          "fr": "On se connaît déjà, je crois.",
+          "en": "I think we already know each other.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-identite.008",
+          "theme": "rp-identite",
+          "fr": "J'habite ici depuis six mois.",
+          "en": "I've been living here for six months.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.048",
+          "theme": "salutations-de-base",
+          "fr": "Je te présente mon ami Karim.",
+          "en": "Let me introduce you to my friend Karim.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.241",
+          "theme": "salutations",
+          "fr": "Comment te sens-tu ce matin ?",
+          "en": "How do you feel this morning?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.019",
+          "theme": "salutations",
+          "fr": "Je m’appelle Claire, et vous ?",
+          "en": "My name is Claire, and you?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.040",
+          "theme": "couple-amour",
+          "fr": "Il tient beaucoup à sa copine.",
+          "en": "He cares a lot about his girlfriend.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.039",
+          "theme": "rencontres",
+          "fr": "Je viens de Toulouse, et toi ?",
+          "en": "I'm from Toulouse, and you?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.049",
+          "theme": "rencontres",
+          "fr": "Elle a l'air très sympathique.",
+          "en": "She seems really nice.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.043",
+          "theme": "salutations-de-base",
+          "fr": "Je vais bien, merci, et vous ?",
+          "en": "I'm well, thank you, and you?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-famille.062",
+          "theme": "rp-famille",
+          "fr": "Ma mère travaille à l'hôpital.",
+          "en": "My mother works at the hospital.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-famille.080",
+          "theme": "rp-famille",
+          "fr": "Mon beau-père est très gentil.",
+          "en": "My father-in-law is very kind.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.248",
+          "theme": "salutations",
+          "fr": "Au revoir, à bientôt j'espère.",
+          "en": "Goodbye, see you soon I hope.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.043",
+          "theme": "couple-amour",
+          "fr": "Ma femme rentre tard du bureau.",
+          "en": "My wife gets home late from the office.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.044",
+          "theme": "couple-amour",
+          "fr": "Ils sont amoureux depuis un an.",
+          "en": "They've been in love for a year.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.045",
+          "theme": "couple-amour",
+          "fr": "Mon copain habite juste à côté.",
+          "en": "My boyfriend lives right next door.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.054",
+          "theme": "rencontres",
+          "fr": "Tu viens souvent dans ce café ?",
+          "en": "Do you come to this café often?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.061",
+          "theme": "rencontres",
+          "fr": "Mon frère te trouve très drôle.",
+          "en": "My brother thinks you're really funny.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.131",
+          "theme": "presentation-personnelle",
+          "fr": "Ma femme travaille à l'hôpital.",
+          "en": "My wife works at the hospital.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.062",
+          "theme": "salutations-de-base",
+          "fr": "Merci, bon appétit à toi aussi.",
+          "en": "Thanks, enjoy your meal too.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.a1.salutations-de-base.063",
+          "theme": "salutations-de-base",
+          "fr": "Bon week-end, à lundi prochain.",
+          "en": "Have a good weekend, see you next Monday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.079",
+          "theme": "salutations-de-base",
+          "fr": "Je te présente ma sœur Camille.",
+          "en": "Let me introduce my sister Camille.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.081",
+          "theme": "salutations-de-base",
+          "fr": "À bientôt, prends soin de toi !",
+          "en": "See you soon, take care!",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.emotions.047",
+          "theme": "emotions",
+          "fr": "Il est nerveux avant son examen.",
+          "en": "He's nervous before his exam.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.036",
+          "theme": "couple-amour",
+          "fr": "Ma petite amie chante très bien.",
+          "en": "My girlfriend sings very well.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.037",
+          "theme": "couple-amour",
+          "fr": "Nous allons nous marier en juin.",
+          "en": "We're going to get married in June.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.030",
+          "theme": "salutations-de-base",
+          "fr": "Bonsoir, je peux m'asseoir ici ?",
+          "en": "Good evening, may I sit here?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.066",
+          "theme": "salutations-de-base",
+          "fr": "Bon dimanche à toute la famille.",
+          "en": "Have a nice Sunday, whole family.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-famille.081",
+          "theme": "rp-famille",
+          "fr": "Ma belle-mère cuisine très bien.",
+          "en": "My mother-in-law cooks very well.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.244",
+          "theme": "salutations",
+          "fr": "Tout va bien, merci de demander.",
+          "en": "Everything is fine, thanks for asking.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.088",
+          "theme": "couple-amour",
+          "fr": "Ma copine chante sous la douche.",
+          "en": "My girlfriend sings in the shower.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.050",
+          "theme": "couple-amour",
+          "fr": "Nous formons un très beau couple.",
+          "en": "We make a really nice couple.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.084",
+          "theme": "salutations-de-base",
+          "fr": "Merci bien, bonne journée à vous.",
+          "en": "Thanks a lot, have a good day.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.emotions.087",
+          "theme": "emotions",
+          "fr": "Nous avons faim après le travail.",
+          "en": "We are hungry after work.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-famille.071",
+          "theme": "rp-famille",
+          "fr": "Ma cousine étudie à l'université.",
+          "en": "My cousin studies at the university.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.029",
+          "theme": "couple-amour",
+          "fr": "Ma copine adore les fleurs jaunes.",
+          "en": "My girlfriend loves yellow flowers.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.051",
+          "theme": "salutations-de-base",
+          "fr": "Merci beaucoup, c'est très gentil.",
+          "en": "Thank you very much, that's very kind.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.emotions.086",
+          "theme": "emotions",
+          "fr": "Elle est surprise par la nouvelle.",
+          "en": "She is surprised by the news.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.les-fetes.131",
+          "theme": "les-fetes",
+          "fr": "Nous ouvrons les cadeaux le matin.",
+          "en": "We open the presents in the morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.212",
+          "theme": "salutations",
+          "fr": "Je vous présente ma collègue, Léa.",
+          "en": "Let me introduce my colleague, Léa.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.240",
+          "theme": "salutations",
+          "fr": "Je vais très bien, merci beaucoup.",
+          "en": "I am very well, thank you very much.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.249",
+          "theme": "salutations",
+          "fr": "À demain, passez une bonne soirée.",
+          "en": "See you tomorrow, have a good evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.272",
+          "theme": "salutations",
+          "fr": "Il présente ses excuses au client.",
+          "en": "He apologizes to the customer.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.275",
+          "theme": "salutations",
+          "fr": "Bonne soirée, prenez soin de vous.",
+          "en": "Have a good evening, take care of yourself.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.080",
+          "theme": "couple-amour",
+          "fr": "Ma copine parle très bien anglais.",
+          "en": "My girlfriend speaks English very well.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.045",
+          "theme": "rencontres",
+          "fr": "C'est notre premier cours ensemble.",
+          "en": "This is our first class together.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.les-fetes.123",
+          "theme": "les-fetes",
+          "fr": "Les invités arrivent à sept heures.",
+          "en": "The guests arrive at seven o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.les-fetes.126",
+          "theme": "les-fetes",
+          "fr": "Nous préparons un cadeau pour papa.",
+          "en": "We're preparing a gift for dad.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.259",
+          "theme": "salutations",
+          "fr": "Merci de me recevoir si rapidement.",
+          "en": "Thank you for seeing me so quickly.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.131",
+          "theme": "rencontres",
+          "fr": "Elle arrive demain pour la réunion.",
+          "en": "She is arriving tomorrow for the meeting.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.136",
+          "theme": "rencontres",
+          "fr": "Tu vas rencontrer toute ma famille.",
+          "en": "You are going to meet my whole family.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.149",
+          "theme": "rencontres",
+          "fr": "Cette dame parle très bien anglais.",
+          "en": "This lady speaks English very well.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.034",
+          "theme": "couple-amour",
+          "fr": "Elle porte une bague de fiançailles.",
+          "en": "She's wearing an engagement ring.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.a1.rencontres.065",
+          "theme": "rencontres",
+          "fr": "Nos enfants jouent ensemble au parc.",
+          "en": "Our kids play together at the park.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.026",
+          "theme": "evenements-familiaux",
+          "fr": "Le mariage commence à quinze heures.",
+          "en": "The wedding starts at three in the afternoon.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations-de-base.064",
+          "theme": "salutations-de-base",
+          "fr": "Bonne chance pour ton examen demain.",
+          "en": "Good luck for your exam tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.emotions.081",
+          "theme": "emotions",
+          "fr": "Nous sommes fatigués après le voyage.",
+          "en": "We are tired after the trip.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.les-fetes.120",
+          "theme": "les-fetes",
+          "fr": "Les enfants chantent pendant la fête.",
+          "en": "The children sing during the party.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.270",
+          "theme": "salutations",
+          "fr": "Pardon madame, avez-vous un instant ?",
+          "en": "Sorry madam, do you have a moment?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.130",
+          "theme": "rencontres",
+          "fr": "Nous allons nous présenter au groupe.",
+          "en": "We are going to introduce ourselves to the group.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.couple-amour.038",
+          "theme": "couple-amour",
+          "fr": "Mon mari oublie souvent son téléphone.",
+          "en": "My husband often forgets his phone.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.273",
+          "theme": "salutations",
+          "fr": "Nous nous excusons pour cette attente.",
+          "en": "We apologize for this wait.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.146",
+          "theme": "rencontres",
+          "fr": "Il porte toujours une casquette bleue.",
+          "en": "He always wears a blue cap.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rp-famille.066",
+          "theme": "rp-famille",
+          "fr": "Nous habitons tous ensemble à Montréal.",
+          "en": "We all live together in Montreal.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.258",
+          "theme": "salutations",
+          "fr": "Merci beaucoup pour votre aide, madame.",
+          "en": "Thank you very much for your help, madam.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.088",
+          "theme": "evenements-familiaux",
+          "fr": "Nous allons déménager le mois prochain.",
+          "en": "We are going to move next month.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.037",
+          "theme": "rencontres",
+          "fr": "Enchanté, ravi de faire ta connaissance.",
+          "en": "Pleased to meet you.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.246",
+          "theme": "salutations",
+          "fr": "Vous allez bien depuis votre opération ?",
+          "en": "Are you doing well since your operation?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.261",
+          "theme": "salutations",
+          "fr": "Nous vous remercions pour votre accueil.",
+          "en": "We thank you for your welcome.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.152",
+          "theme": "rencontres",
+          "fr": "Elle sourit toujours aux nouveaux clients.",
+          "en": "She always smiles at new customers.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.rencontres.141",
+          "theme": "rencontres",
+          "fr": "Vous allez rencontrer votre nouveau patron.",
+          "en": "You are going to meet your new boss.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.199",
+          "theme": "salutations",
+          "fr": "Bonsoir, monsieur Tremblay, vous allez bien ?",
+          "en": "Good evening, Mr. Tremblay, are you well?",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.les-fetes.142",
+          "theme": "les-fetes",
+          "fr": "Nous célébrons son anniversaire au restaurant.",
+          "en": "We celebrate his birthday at the restaurant.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.salutations.237",
+          "theme": "salutations",
+          "fr": "Bonjour, le fonctionnaire vérifie mon dossier.",
+          "en": "Hello, the civil servant checks my file.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.046",
+          "theme": "evenements-familiaux",
+          "fr": "Nous chantons joyeux anniversaire tous ensemble.",
+          "en": "We're all singing happy birthday together.",
+          "words": 6
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.122",
+          "theme": "presentation-personnelle",
+          "fr": "Elle a un fils et une fille.",
+          "en": "She has a son and a daughter.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.123",
+          "theme": "presentation-personnelle",
+          "fr": "J'ai un chien et deux chats.",
+          "en": "I have a dog and two cats.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.117",
+          "theme": "presentation-personnelle",
+          "fr": "J'ai deux frères et une sœur.",
+          "en": "I have two brothers and one sister.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.138",
+          "theme": "presentation-personnelle",
+          "fr": "Elle fait du vélo dans le parc.",
+          "en": "She rides her bike in the park.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-famille.077",
+          "theme": "rp-famille",
+          "fr": "Mon fils va à l'école primaire.",
+          "en": "My son goes to elementary school.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.245",
+          "theme": "salutations",
+          "fr": "Il répond qu'il va bien, merci.",
+          "en": "He answers that he is well, thank you.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.044",
+          "theme": "salutations-de-base",
+          "fr": "Pas mal, et toi, comment ça va ?",
+          "en": "Not bad, and you, how's it going?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.emotions.088",
+          "theme": "emotions",
+          "fr": "Mon fils est fier de son dessin.",
+          "en": "My son is proud of his drawing.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.emotions.092",
+          "theme": "emotions",
+          "fr": "Il est de bonne humeur le matin.",
+          "en": "He is in a good mood in the morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.283",
+          "theme": "salutations",
+          "fr": "Passez un bon week-end, à lundi.",
+          "en": "Have a good weekend, see you Monday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.134",
+          "theme": "rencontres",
+          "fr": "On va se voir à la bibliothèque.",
+          "en": "We are going to see each other at the library.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.a1.salutations-de-base.080",
+          "theme": "salutations-de-base",
+          "fr": "Bon, je dois y aller, à bientôt !",
+          "en": "Well, I have to go, see you soon!",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.emotions.082",
+          "theme": "emotions",
+          "fr": "Tu vas être content de ce cadeau.",
+          "en": "You are going to be happy about this gift.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.136",
+          "theme": "les-fetes",
+          "fr": "Ma mère prépare le repas de fête.",
+          "en": "My mother prepares the festive meal.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.145",
+          "theme": "les-fetes",
+          "fr": "On va acheter un sapin pour Noël.",
+          "en": "We're going to buy a tree for Christmas.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.couple-amour.090",
+          "theme": "couple-amour",
+          "fr": "Mon mari lit le journal le matin.",
+          "en": "My husband reads the newspaper in the morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.083",
+          "theme": "evenements-familiaux",
+          "fr": "J'apporte un cadeau pour la fête.",
+          "en": "I'm bringing a gift for the party.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.couple-amour.028",
+          "theme": "couple-amour",
+          "fr": "Mon mari prépare le dîner ce soir.",
+          "en": "My husband is making dinner tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.couple-amour.031",
+          "theme": "couple-amour",
+          "fr": "Ma femme et moi partons en voyage.",
+          "en": "My wife and I are going on a trip.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.couple-amour.032",
+          "theme": "couple-amour",
+          "fr": "Mon copain m'écrit tous les jours.",
+          "en": "My boyfriend writes to me every day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.couple-amour.039",
+          "theme": "couple-amour",
+          "fr": "Ma copine et moi aimons le cinéma.",
+          "en": "My girlfriend and I love the movies.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.149",
+          "theme": "presentation-personnelle",
+          "fr": "Il fait ses devoirs après l'école.",
+          "en": "He does his homework after school.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.035",
+          "theme": "salutations-de-base",
+          "fr": "Au revoir tout le monde, à lundi !",
+          "en": "Goodbye everyone, see you Monday!",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.067",
+          "theme": "salutations-de-base",
+          "fr": "On lève nos verres, santé à tous !",
+          "en": "Let's raise our glasses, cheers everyone!",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.085",
+          "theme": "salutations-de-base",
+          "fr": "Salut, tu viens à la fête samedi ?",
+          "en": "Hi, are you coming to the party Saturday?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.143",
+          "theme": "les-fetes",
+          "fr": "Elle porte un masque pour la fête.",
+          "en": "She wears a mask for the party.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-famille.073",
+          "theme": "rp-famille",
+          "fr": "Ma tante habite près de chez nous.",
+          "en": "My aunt lives near our place.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.271",
+          "theme": "salutations",
+          "fr": "Elle s'excuse d'arriver en retard.",
+          "en": "She apologizes for arriving late.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.081",
+          "theme": "evenements-familiaux",
+          "fr": "Ma tante va avoir un bébé bientôt.",
+          "en": "My aunt is going to have a baby soon.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.couple-amour.046",
+          "theme": "couple-amour",
+          "fr": "Ma copine me fait rire chaque jour.",
+          "en": "My girlfriend makes me laugh every day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.063",
+          "theme": "rencontres",
+          "fr": "Je suis content de te revoir enfin.",
+          "en": "I'm glad to finally see you again.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.068",
+          "theme": "salutations-de-base",
+          "fr": "Santé ! Et bonne année à vous tous.",
+          "en": "Cheers! And happy new year to you all.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.couple-amour.047",
+          "theme": "couple-amour",
+          "fr": "Nous nous voyons tous les week-ends.",
+          "en": "We see each other every weekend.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.135",
+          "theme": "les-fetes",
+          "fr": "Le feu d'artifice commence à minuit.",
+          "en": "The fireworks start at midnight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.137",
+          "theme": "rencontres",
+          "fr": "Ils vont arriver à l'aéroport lundi.",
+          "en": "They are going to arrive at the airport on Monday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.151",
+          "theme": "rencontres",
+          "fr": "Il aime bien discuter avec les gens.",
+          "en": "He likes chatting with people.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.052",
+          "theme": "rencontres",
+          "fr": "Mes parents t'ont trouvé très gentil.",
+          "en": "My parents thought you were very kind.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.117",
+          "theme": "les-fetes",
+          "fr": "Nous décorons la maison pour la fête.",
+          "en": "We decorate the house for the party.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.213",
+          "theme": "salutations",
+          "fr": "Voici mon mari, il s'appelle Antoine.",
+          "en": "This is my husband, his name is Antoine.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.260",
+          "theme": "salutations",
+          "fr": "Je vous remercie pour ce rendez-vous.",
+          "en": "Thank you for this appointment.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.267",
+          "theme": "salutations",
+          "fr": "Pardon, je ne veux pas vous déranger.",
+          "en": "Sorry, I do not want to bother you.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.269",
+          "theme": "salutations",
+          "fr": "Excusez-moi, où se trouve l'accueil ?",
+          "en": "Excuse me, where is the reception desk?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.148",
+          "theme": "rencontres",
+          "fr": "Mon cousin vient d'arriver au Canada.",
+          "en": "My cousin just arrived in Canada.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.couple-amour.092",
+          "theme": "couple-amour",
+          "fr": "Il téléphone à sa copine chaque jour.",
+          "en": "He calls his girlfriend every day.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.a1.rencontres.047",
+          "theme": "rencontres",
+          "fr": "Je ne connais personne à cette soirée.",
+          "en": "I don't know anyone at this party.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.045",
+          "theme": "salutations-de-base",
+          "fr": "Quoi de neuf depuis la dernière fois ?",
+          "en": "What's new since last time?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.049",
+          "theme": "salutations-de-base",
+          "fr": "Voici mon frère, il s'appelle Antoine.",
+          "en": "This is my brother, his name is Antoine.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.130",
+          "theme": "les-fetes",
+          "fr": "Le père Noël arrive bientôt chez nous.",
+          "en": "Santa Claus is coming soon to our house.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.132",
+          "theme": "rencontres",
+          "fr": "Je vais rencontrer mon voisin ce soir.",
+          "en": "I am going to meet my neighbor tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.037",
+          "theme": "salutations-de-base",
+          "fr": "À plus tard, je dois partir maintenant.",
+          "en": "See you later, I have to leave now.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.059",
+          "theme": "salutations-de-base",
+          "fr": "Je suis désolée pour le retard, madame.",
+          "en": "I'm sorry for the delay, madam.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.emotions.079",
+          "theme": "emotions",
+          "fr": "Je suis content de mon nouveau travail.",
+          "en": "I am happy with my new job.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.emotions.084",
+          "theme": "emotions",
+          "fr": "Vous êtes nerveux avant le rendez-vous.",
+          "en": "You are nervous before the appointment.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.emotions.085",
+          "theme": "emotions",
+          "fr": "Je vais être calme pendant l'entretien.",
+          "en": "I am going to be calm during the interview.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.137",
+          "theme": "les-fetes",
+          "fr": "Nous invitons nos voisins pour la fête.",
+          "en": "We invite our neighbors for the party.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-famille.079",
+          "theme": "rp-famille",
+          "fr": "Toute la famille se réunit le dimanche.",
+          "en": "The whole family gets together on Sundays.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.254",
+          "theme": "salutations",
+          "fr": "Vous allez partir sans dire au revoir ?",
+          "en": "Are you going to leave without saying goodbye?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.144",
+          "theme": "rencontres",
+          "fr": "Elle apprend le français avec des amis.",
+          "en": "She is learning French with friends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.085",
+          "theme": "evenements-familiaux",
+          "fr": "Nous fêtons les fiançailles de ma sœur.",
+          "en": "We are celebrating my sister's engagement.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.couple-amour.049",
+          "theme": "couple-amour",
+          "fr": "Elle attend son copain devant le cinéma.",
+          "en": "She's waiting for her boyfriend in front of the movie theater.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.039",
+          "theme": "evenements-familiaux",
+          "fr": "Nous portons du noir pour l'enterrement.",
+          "en": "We're wearing black for the funeral.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.041",
+          "theme": "evenements-familiaux",
+          "fr": "Ce soir, toute la famille dîne ensemble.",
+          "en": "Tonight, the whole family is having dinner together.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.034",
+          "theme": "salutations-de-base",
+          "fr": "Au revoir, madame, bonne journée à vous.",
+          "en": "Goodbye, madam, have a good day.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.211",
+          "theme": "salutations",
+          "fr": "Enchanté, je m'appelle Sophie, et vous ?",
+          "en": "Nice to meet you, my name is Sophie, and you?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.268",
+          "theme": "salutations",
+          "fr": "Je suis désolé pour ce petit malentendu.",
+          "en": "I am sorry about this little misunderstanding.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.089",
+          "theme": "evenements-familiaux",
+          "fr": "Ma nièce va faire sa première communion.",
+          "en": "My niece is going to make her first communion.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.056",
+          "theme": "rencontres",
+          "fr": "Voici mon collègue, il s'appelle Antoine.",
+          "en": "This is my colleague, his name is Antoine.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.032",
+          "theme": "evenements-familiaux",
+          "fr": "Grand-père souffle les bougies du gâteau.",
+          "en": "Grandpa blows out the candles on the cake.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.054",
+          "theme": "salutations-de-base",
+          "fr": "Excusez-moi, monsieur, où est la sortie ?",
+          "en": "Excuse me, sir, where is the exit?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.129",
+          "theme": "les-fetes",
+          "fr": "On accroche des guirlandes dans le salon.",
+          "en": "We hang garlands in the living room.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.140",
+          "theme": "les-fetes",
+          "fr": "On offre des chocolats pendant les fêtes.",
+          "en": "We give chocolates during the holidays.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-famille.069",
+          "theme": "rp-famille",
+          "fr": "Mes parents sont mariés depuis vingt ans.",
+          "en": "My parents have been married for twenty years.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.236",
+          "theme": "salutations",
+          "fr": "Bonjour, l'agente me demande mes papiers.",
+          "en": "Hello, the officer asks me for my papers.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.243",
+          "theme": "salutations",
+          "fr": "Nous demandons des nouvelles de sa santé.",
+          "en": "We ask for news about his health.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.025",
+          "theme": "salutations",
+          "fr": "Elle dit toujours bonjour avec le sourire.",
+          "en": "She always says hello with a smile.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.037",
+          "theme": "evenements-familiaux",
+          "fr": "Les mariés sourient sur toutes les photos.",
+          "en": "The newlyweds are smiling in every photo.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.038",
+          "theme": "evenements-familiaux",
+          "fr": "Ma tante prépare le gâteau d'anniversaire.",
+          "en": "My aunt is making the birthday cake.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.a1.salutations-de-base.071",
+          "theme": "salutations-de-base",
+          "fr": "Excusez-moi, madame, pouvez-vous m'aider ?",
+          "en": "Excuse me, madam, can you help me?",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.233",
+          "theme": "salutations",
+          "fr": "Bonjour, je viens pour la visite médicale.",
+          "en": "Hello, I am here for the medical exam.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.153",
+          "theme": "rencontres",
+          "fr": "Nous invitons souvent nos voisins à dîner.",
+          "en": "We often invite our neighbors to dinner.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.025",
+          "theme": "salutations-de-base",
+          "fr": "Bonjour, monsieur, entrez, je vous en prie.",
+          "en": "Hello sir, come in, please.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.148",
+          "theme": "les-fetes",
+          "fr": "Les jeunes préparent le défilé du carnaval.",
+          "en": "The young people prepare the carnival parade.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.139",
+          "theme": "rencontres",
+          "fr": "Elle va parler avec les nouveaux arrivants.",
+          "en": "She is going to talk with the new arrivals.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.060",
+          "theme": "salutations-de-base",
+          "fr": "Pardon, pardon, je cherche juste mon chemin.",
+          "en": "Sorry, sorry, I'm just looking for my way.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.118",
+          "theme": "les-fetes",
+          "fr": "Elle achète des bougies pour l'anniversaire.",
+          "en": "She buys candles for the birthday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.147",
+          "theme": "les-fetes",
+          "fr": "Nous chantons des chansons de Noël ensemble.",
+          "en": "We sing Christmas songs together.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rp-famille.072",
+          "theme": "rp-famille",
+          "fr": "Mon oncle Paul travaille dans un restaurant.",
+          "en": "My uncle Paul works in a restaurant.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.les-fetes.045",
+          "theme": "les-fetes",
+          "fr": "Nous décorons le sapin ensemble chaque année.",
+          "en": "We decorate the tree together every year.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.280",
+          "theme": "salutations",
+          "fr": "Bonne chance pour votre entretien d'embauche.",
+          "en": "Good luck with your job interview.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.055",
+          "theme": "rencontres",
+          "fr": "Notre voisine est arrivée la semaine dernière.",
+          "en": "Our neighbor arrived last week.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations.224",
+          "theme": "salutations",
+          "fr": "Bonjour monsieur l'agent, voici mon passeport.",
+          "en": "Hello officer, here is my passport.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.040",
+          "theme": "evenements-familiaux",
+          "fr": "Le prêtre parle doucement pendant la cérémonie.",
+          "en": "The priest speaks softly during the ceremony.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.133",
+          "theme": "rencontres",
+          "fr": "Le professeur va présenter les nouveaux élèves.",
+          "en": "The teacher is going to introduce the new students.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.rencontres.138",
+          "theme": "rencontres",
+          "fr": "Nous allons faire connaissance pendant le dîner.",
+          "en": "We are going to get acquainted during dinner.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.092",
+          "theme": "evenements-familiaux",
+          "fr": "Mon oncle organise une pendaison de crémaillère.",
+          "en": "My uncle is organizing a housewarming party.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.031",
+          "theme": "evenements-familiaux",
+          "fr": "Les enfants ouvrent leurs cadeaux d'anniversaire.",
+          "en": "The children are opening their birthday presents.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.045",
+          "theme": "evenements-familiaux",
+          "fr": "Les grands-parents racontent des histoires drôles.",
+          "en": "The grandparents are telling funny stories.",
+          "words": 7
+        },
+        {
+          "id": "fr.a1.salutations-de-base.052",
+          "theme": "salutations-de-base",
+          "fr": "Je t'en prie, ce n'est rien.",
+          "en": "You're welcome, it's nothing.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.presentation-personnelle.144",
+          "theme": "presentation-personnelle",
+          "fr": "Qu'est-ce que tu n'aimes pas ?",
+          "en": "What don't you like?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.044",
+          "theme": "rencontres",
+          "fr": "Mon ami m'a présenté à sa sœur.",
+          "en": "My friend introduced me to his sister.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations-de-base.087",
+          "theme": "salutations-de-base",
+          "fr": "Passe-moi le sel, s'il te plaît.",
+          "en": "Pass me the salt, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rp-famille.070",
+          "theme": "rp-famille",
+          "fr": "J'ai un cousin qui vit à Québec.",
+          "en": "I have a cousin who lives in Quebec City.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.068",
+          "theme": "rencontres",
+          "fr": "Je t'ai reconnu grâce à la photo.",
+          "en": "I recognized you thanks to the photo.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.060",
+          "theme": "rencontres",
+          "fr": "Elle m'a donné son adresse e-mail.",
+          "en": "She gave me her email address.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations-de-base.036",
+          "theme": "salutations-de-base",
+          "fr": "On se dit au revoir ou à bientôt ?",
+          "en": "Do we say au revoir or à bientôt?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations-de-base.056",
+          "theme": "salutations-de-base",
+          "fr": "Pardon, je ne t'ai pas vu arriver.",
+          "en": "Sorry, I didn't see you arrive.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.emotions.083",
+          "theme": "emotions",
+          "fr": "Il est triste parce qu'il est seul.",
+          "en": "He is sad because he is alone.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations-de-base.077",
+          "theme": "salutations-de-base",
+          "fr": "Ça va, merci, et toi, quoi de neuf ?",
+          "en": "I'm good, thanks, and you, what's new?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.255",
+          "theme": "salutations",
+          "fr": "Tu me dis au revoir avant de sortir.",
+          "en": "You say goodbye to me before going out.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations-de-base.055",
+          "theme": "salutations-de-base",
+          "fr": "Excuse-moi, je suis un peu en retard.",
+          "en": "Excuse me, I'm a bit late.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.a1.emotions.091",
+          "theme": "emotions",
+          "fr": "Elle a chaud dans la salle d'attente.",
+          "en": "She is hot in the waiting room.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.239",
+          "theme": "salutations",
+          "fr": "Tout va bien pour moi, merci, et toi ?",
+          "en": "Everything is fine for me, thanks, and you?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.247",
+          "theme": "salutations",
+          "fr": "Je me sens un peu fatigué aujourd'hui.",
+          "en": "I feel a bit tired today.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.262",
+          "theme": "salutations",
+          "fr": "S'il vous plaît, pouvez-vous m'aider ?",
+          "en": "Please, can you help me?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.266",
+          "theme": "salutations",
+          "fr": "Excusez-moi, je suis un peu en retard.",
+          "en": "Excuse me, I am a little late.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations-de-base.061",
+          "theme": "salutations-de-base",
+          "fr": "Bon appétit à tous, le dîner est prêt !",
+          "en": "Enjoy your meal everyone, dinner is ready!",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.les-fetes.133",
+          "theme": "les-fetes",
+          "fr": "Les amis vont danser au bal du village.",
+          "en": "The friends are going to dance at the village ball.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.les-fetes.146",
+          "theme": "les-fetes",
+          "fr": "Ma grand-mère prépare la bûche de Noël.",
+          "en": "My grandmother prepares the Yule log cake.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.couple-amour.030",
+          "theme": "couple-amour",
+          "fr": "Il y a une fête pour notre anniversaire.",
+          "en": "There's a party for our anniversary.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations-de-base.070",
+          "theme": "salutations-de-base",
+          "fr": "Bienvenue chez moi, entre, je t'en prie.",
+          "en": "Welcome to my home, come in, please.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.les-fetes.119",
+          "theme": "les-fetes",
+          "fr": "Mon frère organise une fête ce week-end.",
+          "en": "My brother is organizing a party this weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.les-fetes.149",
+          "theme": "les-fetes",
+          "fr": "Le magasin est fermé pour le jour férié.",
+          "en": "The store is closed for the public holiday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.263",
+          "theme": "salutations",
+          "fr": "S'il te plaît, ferme la porte doucement.",
+          "en": "Please close the door gently.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.142",
+          "theme": "rencontres",
+          "fr": "Il va se présenter devant tout le monde.",
+          "en": "He is going to introduce himself in front of everyone.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.084",
+          "theme": "evenements-familiaux",
+          "fr": "Toute la famille vient pour le week-end.",
+          "en": "The whole family is coming for the weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.070",
+          "theme": "rencontres",
+          "fr": "On s'est rencontrés par hasard au marché.",
+          "en": "We met by chance at the market.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations-de-base.083",
+          "theme": "salutations-de-base",
+          "fr": "Pardon, savez-vous où se trouve la gare ?",
+          "en": "Excuse me, do you know where the station is?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.les-fetes.150",
+          "theme": "les-fetes",
+          "fr": "Nous partons en week-end pendant le pont.",
+          "en": "We're going away for the weekend during the long weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rp-famille.082",
+          "theme": "rp-famille",
+          "fr": "Nous allons voir mes parents ce week-end.",
+          "en": "We are going to see my parents this weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.209",
+          "theme": "salutations",
+          "fr": "Tu salues tes amis avec un grand sourire.",
+          "en": "You greet your friends with a big smile.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.couple-amour.035",
+          "theme": "couple-amour",
+          "fr": "Mon petit ami vient de rentrer du travail.",
+          "en": "My boyfriend just got back from work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.couple-amour.042",
+          "theme": "couple-amour",
+          "fr": "Mon partenaire a besoin de temps pour lui.",
+          "en": "My partner needs some time to himself.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.069",
+          "theme": "rencontres",
+          "fr": "Cette dame là-bas est notre nouvelle prof.",
+          "en": "That woman over there is our new teacher.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations-de-base.057",
+          "theme": "salutations-de-base",
+          "fr": "Pardon, est-ce que cette place est libre ?",
+          "en": "Excuse me, is this seat free?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations-de-base.078",
+          "theme": "salutations-de-base",
+          "fr": "Excusez-moi, je peux m'asseoir avec vous ?",
+          "en": "Excuse me, may I sit with you?",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.242",
+          "theme": "salutations",
+          "fr": "Elle demande à son collègue comment il va.",
+          "en": "She asks her colleague how he is doing.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.064",
+          "theme": "rencontres",
+          "fr": "Elle a rencontré son copain à l'université.",
+          "en": "She met her boyfriend at university.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.080",
+          "theme": "evenements-familiaux",
+          "fr": "Nous allons à une fête de famille dimanche.",
+          "en": "We are going to a family party on Sunday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.057",
+          "theme": "rencontres",
+          "fr": "J'aime bien discuter avec des gens nouveaux.",
+          "en": "I like chatting with new people.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.les-fetes.144",
+          "theme": "les-fetes",
+          "fr": "Les cloches sonnent pour la fête du village.",
+          "en": "The bells ring for the village festival.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.208",
+          "theme": "salutations",
+          "fr": "Vous dites bonjour au gardien de l'immeuble.",
+          "en": "You say hello to the building caretaker.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.251",
+          "theme": "salutations",
+          "fr": "Nous nous disons au revoir devant le bureau.",
+          "en": "We say goodbye to each other in front of the office.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.couple-amour.041",
+          "theme": "couple-amour",
+          "fr": "Nous avons un rendez-vous romantique ce soir.",
+          "en": "We have a romantic date tonight.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.a1.emotions.093",
+          "theme": "emotions",
+          "fr": "Je suis inquiet pour mon rendez-vous médical.",
+          "en": "I am worried about my medical appointment.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.les-fetes.124",
+          "theme": "les-fetes",
+          "fr": "On va manger un gâteau pour son anniversaire.",
+          "en": "We're going to eat a cake for his birthday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.232",
+          "theme": "salutations",
+          "fr": "Bonjour, je viens pour mon cours de français.",
+          "en": "Hello, I am here for my French class.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.090",
+          "theme": "evenements-familiaux",
+          "fr": "Mon cousin apporte les boissons pour la fête.",
+          "en": "My cousin is bringing the drinks for the party.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.050",
+          "theme": "rencontres",
+          "fr": "Il vaut mieux se présenter avant de commencer.",
+          "en": "It's better to introduce yourself before starting.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.les-fetes.138",
+          "theme": "les-fetes",
+          "fr": "Le magasin vend des costumes pour le carnaval.",
+          "en": "The store sells costumes for carnival.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.les-fetes.139",
+          "theme": "les-fetes",
+          "fr": "Les enfants cherchent des œufs dans le jardin.",
+          "en": "The children look for eggs in the garden.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.204",
+          "theme": "salutations",
+          "fr": "Nous saluons nos collègues au bureau le matin.",
+          "en": "We greet our colleagues at the office in the morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.281",
+          "theme": "salutations",
+          "fr": "Je vous souhaite une bonne journée de travail.",
+          "en": "I wish you a good day of work.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.034",
+          "theme": "evenements-familiaux",
+          "fr": "Toute la famille se rassemble pour le déjeuner.",
+          "en": "The whole family gets together for lunch.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.049",
+          "theme": "evenements-familiaux",
+          "fr": "Après la messe, nous allons tous au restaurant.",
+          "en": "After the mass, we're all going to the restaurant.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.235",
+          "theme": "salutations",
+          "fr": "Bonjour, l'employeur me reçoit dans son bureau.",
+          "en": "Hello, the employer receives me in his office.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.140",
+          "theme": "rencontres",
+          "fr": "Le comité d'accueil va organiser une rencontre.",
+          "en": "The welcome committee is going to organize a meeting.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.147",
+          "theme": "rencontres",
+          "fr": "Elle travaille dans un hôpital du centre-ville.",
+          "en": "She works in a hospital downtown.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.030",
+          "theme": "evenements-familiaux",
+          "fr": "Nous invitons toute la famille pour son baptême.",
+          "en": "We're inviting the whole family for his baptism.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.220",
+          "theme": "salutations",
+          "fr": "Il présente sa famille à ses nouveaux collègues.",
+          "en": "He introduces his family to his new colleagues.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.222",
+          "theme": "salutations",
+          "fr": "Bonjour, je viens pour mon entretien d'embauche.",
+          "en": "Hello, I am here for my job interview.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.rencontres.150",
+          "theme": "rencontres",
+          "fr": "Nous cherchons de nouveaux amis dans le quartier.",
+          "en": "We are looking for new friends in the neighborhood.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.225",
+          "theme": "salutations",
+          "fr": "Bonjour, je viens déposer ma demande de résidence.",
+          "en": "Hello, I am here to submit my residency application.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.234",
+          "theme": "salutations",
+          "fr": "Bonjour, l'infirmière m'accueille avec le sourire.",
+          "en": "Hello, the nurse welcomes me with a smile.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.emotions.090",
+          "theme": "emotions",
+          "fr": "Nous allons être contents de notre nouvelle maison.",
+          "en": "We are going to be happy with our new house.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.201",
+          "theme": "salutations",
+          "fr": "Le matin, mes collègues me disent toujours bonjour.",
+          "en": "In the morning, my colleagues always say hello to me.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.les-fetes.128",
+          "theme": "les-fetes",
+          "fr": "Les enfants portent un déguisement pour le carnaval.",
+          "en": "The children wear a costume for carnival.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.217",
+          "theme": "salutations",
+          "fr": "Ravi de faire votre connaissance, madame la directrice.",
+          "en": "Delighted to meet you, Madam Director.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.219",
+          "theme": "salutations",
+          "fr": "Vous allez rencontrer votre superviseur cet après-midi.",
+          "en": "You are going to meet your supervisor this afternoon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.salutations.216",
+          "theme": "salutations",
+          "fr": "Nous rencontrons notre professeur de français aujourd'hui.",
+          "en": "We are meeting our French teacher today.",
+          "words": 8
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.027",
+          "theme": "evenements-familiaux",
+          "fr": "Il y a beaucoup de monde à la fête.",
+          "en": "There are a lot of people at the party.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.256",
+          "theme": "salutations",
+          "fr": "Je vais te dire au revoir à la gare.",
+          "en": "I am going to say goodbye to you at the station.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.053",
+          "theme": "rencontres",
+          "fr": "Je t'ai vu au cours de français hier.",
+          "en": "I saw you in French class yesterday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.058",
+          "theme": "rencontres",
+          "fr": "Tu as un joli accent, tu viens d'où ?",
+          "en": "You have a lovely accent, where are you from?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.066",
+          "theme": "rencontres",
+          "fr": "Il m'a demandé mon nom tout de suite.",
+          "en": "He asked me my name right away.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.041",
+          "theme": "rencontres",
+          "fr": "Il y a beaucoup de monde à cette fête.",
+          "en": "There are a lot of people at this party.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.046",
+          "theme": "rencontres",
+          "fr": "Ça te dit de prendre un café un jour ?",
+          "en": "Would you like to grab a coffee sometime?",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.a1.evenements-familiaux.029",
+          "theme": "evenements-familiaux",
+          "fr": "Le bébé dort dans les bras de sa mère.",
+          "en": "The baby is sleeping in his mother's arms.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations-de-base.031",
+          "theme": "salutations-de-base",
+          "fr": "Dis bonjour à ta grand-mère de ma part.",
+          "en": "Say hello to your grandmother for me.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.135",
+          "theme": "rencontres",
+          "fr": "Mes amis vont venir avec moi à la fête.",
+          "en": "My friends are going to come with me to the party.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations-de-base.058",
+          "theme": "salutations-de-base",
+          "fr": "Je suis désolé, je n'ai pas fait exprès.",
+          "en": "I'm sorry, I didn't do it on purpose.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.264",
+          "theme": "salutations",
+          "fr": "De rien, c'est un plaisir de vous aider.",
+          "en": "You're welcome, it is a pleasure to help you.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations-de-base.086",
+          "theme": "salutations-de-base",
+          "fr": "Ma mère m'a appris à toujours dire merci.",
+          "en": "My mother taught me to always say thank you.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.les-fetes.122",
+          "theme": "les-fetes",
+          "fr": "Ma sœur porte une belle robe pour le bal.",
+          "en": "My sister wears a beautiful dress for the ball.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.059",
+          "theme": "rencontres",
+          "fr": "On s'est croisés dans l'escalier ce matin.",
+          "en": "We ran into each other on the stairs this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.les-fetes.132",
+          "theme": "les-fetes",
+          "fr": "Elle écrit une carte de vœux pour sa tante.",
+          "en": "She writes a greeting card for her aunt.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.200",
+          "theme": "salutations",
+          "fr": "Je dis bonjour à mon voisin tous les matins.",
+          "en": "I say hello to my neighbor every morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.205",
+          "theme": "salutations",
+          "fr": "Il dit bonsoir à ses enfants avant le dîner.",
+          "en": "He says good evening to his children before dinner.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.129",
+          "theme": "rencontres",
+          "fr": "Il y a une nouvelle famille dans l'immeuble.",
+          "en": "There is a new family in the building.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.028",
+          "theme": "evenements-familiaux",
+          "fr": "Ma sœur porte une belle robe pour le mariage.",
+          "en": "My sister is wearing a beautiful dress for the wedding.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations-de-base.033",
+          "theme": "salutations-de-base",
+          "fr": "Il est tard, je vais me coucher, bonne nuit !",
+          "en": "It's late, I'm going to bed, good night!",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.les-fetes.125",
+          "theme": "les-fetes",
+          "fr": "Il apporte des fleurs pour la fête des mères.",
+          "en": "He brings flowers for Mother's Day.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.218",
+          "theme": "salutations",
+          "fr": "Je vais me présenter à l'agent d'immigration.",
+          "en": "I am going to introduce myself to the immigration officer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.086",
+          "theme": "evenements-familiaux",
+          "fr": "Mon grand-père fête son départ à la retraite.",
+          "en": "My grandfather is celebrating his retirement.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations-de-base.046",
+          "theme": "salutations-de-base",
+          "fr": "Comment tu t'appelles ? Moi, je m'appelle Léa.",
+          "en": "What's your name? I'm Léa.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.062",
+          "theme": "rencontres",
+          "fr": "On devrait rester en contact, tu ne crois pas ?",
+          "en": "We should stay in touch, don't you think?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.229",
+          "theme": "salutations",
+          "fr": "Bonjour, je viens ouvrir un compte à la banque.",
+          "en": "Hello, I am here to open an account at the bank.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.043",
+          "theme": "evenements-familiaux",
+          "fr": "Il vaut mieux arriver un peu avant la cérémonie.",
+          "en": "It's better to arrive a bit before the ceremony.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.238",
+          "theme": "salutations",
+          "fr": "Est-ce que vous allez bien aujourd'hui, madame ?",
+          "en": "Are you well today, madam?",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.044",
+          "theme": "evenements-familiaux",
+          "fr": "Mon cousin arrive tout de suite après le travail.",
+          "en": "My cousin is arriving right away after work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.206",
+          "theme": "salutations",
+          "fr": "Le professeur salue ses élèves au début du cours.",
+          "en": "The teacher greets his students at the start of class.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.257",
+          "theme": "salutations",
+          "fr": "Ils se saluent une dernière fois avant le départ.",
+          "en": "They greet each other one last time before departure.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.143",
+          "theme": "rencontres",
+          "fr": "On va organiser une petite fête pour les voisins.",
+          "en": "We are going to organize a small party for the neighbors.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.230",
+          "theme": "salutations",
+          "fr": "Bonjour, je viens signer le bail de l'appartement.",
+          "en": "Hello, I am here to sign the apartment lease.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.048",
+          "theme": "evenements-familiaux",
+          "fr": "Mon oncle prend beaucoup de photos pendant la fête.",
+          "en": "My uncle is taking lots of photos during the party.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.227",
+          "theme": "salutations",
+          "fr": "Bonjour, je suis le nouveau candidat pour le poste.",
+          "en": "Hello, I am the new candidate for the position.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.091",
+          "theme": "evenements-familiaux",
+          "fr": "Nous célébrons la remise des diplômes de mon frère.",
+          "en": "We are celebrating my brother's graduation.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.277",
+          "theme": "salutations",
+          "fr": "Bon voyage, et bonne chance pour votre nouvelle vie.",
+          "en": "Safe travels, and good luck with your new life.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.231",
+          "theme": "salutations",
+          "fr": "Bonjour, je viens chercher mes documents à la mairie.",
+          "en": "Hello, I am here to pick up my documents at city hall.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.047",
+          "theme": "evenements-familiaux",
+          "fr": "La mariée arrive enfin dans une belle voiture blanche.",
+          "en": "The bride finally arrives in a beautiful white car.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.a1.salutations.198",
+          "theme": "salutations",
+          "fr": "Bonjour, madame Dubois, je suis contente de vous voir.",
+          "en": "Hello, Mrs. Dubois, I am glad to see you.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.226",
+          "theme": "salutations",
+          "fr": "Bonjour madame, je cherche le bureau de l'immigration.",
+          "en": "Hello madam, I am looking for the immigration office.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.228",
+          "theme": "salutations",
+          "fr": "Bonjour docteur, je viens pour mon rendez-vous annuel.",
+          "en": "Hello doctor, I am here for my annual appointment.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.207",
+          "theme": "salutations",
+          "fr": "Chaque matin, je salue la réceptionniste de la clinique.",
+          "en": "Every morning, I greet the clinic receptionist.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.rencontres.154",
+          "theme": "rencontres",
+          "fr": "Ils organisent une soirée d'accueil pour les immigrants.",
+          "en": "They are organizing a welcome evening for immigrants.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.215",
+          "theme": "salutations",
+          "fr": "Elle rencontre sa nouvelle voisine pour la première fois.",
+          "en": "She meets her new neighbor for the first time.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations.279",
+          "theme": "salutations",
+          "fr": "Bienvenue au Canada, nous sommes ravis de vous accueillir.",
+          "en": "Welcome to Canada, we are delighted to welcome you.",
+          "words": 9
+        },
+        {
+          "id": "fr.a1.salutations-de-base.038",
+          "theme": "salutations-de-base",
+          "fr": "On se voit à midi, à tout à l'heure !",
+          "en": "We'll see each other at noon, see you in a bit!",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.les-fetes.046",
+          "theme": "les-fetes",
+          "fr": "Il y a un feu d'artifice le 14 juillet.",
+          "en": "There are fireworks on July 14th.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.036",
+          "theme": "evenements-familiaux",
+          "fr": "On a besoin de plus de chaises pour la fête.",
+          "en": "We need more chairs for the party.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.salutations-de-base.053",
+          "theme": "salutations-de-base",
+          "fr": "Il a dit merci et il est sorti tout content.",
+          "en": "He said thank you and left very pleased.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.les-fetes.127",
+          "theme": "les-fetes",
+          "fr": "La famille se retrouve pour le jour de l'An.",
+          "en": "The family gets together for New Year's Day.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.les-fetes.141",
+          "theme": "les-fetes",
+          "fr": "Mon père met la table pour le dîner de fête.",
+          "en": "My father sets the table for the festive dinner.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.salutations.250",
+          "theme": "salutations",
+          "fr": "Je vous dis au revoir et à la prochaine fois.",
+          "en": "I say goodbye to you and see you next time.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.035",
+          "theme": "evenements-familiaux",
+          "fr": "Le petit garçon tient la main de sa grand-mère.",
+          "en": "The little boy is holding his grandmother's hand.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.033",
+          "theme": "evenements-familiaux",
+          "fr": "Nous venons de fêter les vingt ans de mon frère.",
+          "en": "We just celebrated my brother's twentieth birthday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.rp-famille.060",
+          "theme": "rp-famille",
+          "fr": "Je m'appelle Marie et j'ai une famille nombreuse.",
+          "en": "My name is Marie and I have a large family.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.salutations.252",
+          "theme": "salutations",
+          "fr": "Il salue tout le monde avant de quitter la réunion.",
+          "en": "He greets everyone before leaving the meeting.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.salutations.214",
+          "theme": "salutations",
+          "fr": "Il se présente à son nouveau patron avec un sourire.",
+          "en": "He introduces himself to his new boss with a smile.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.salutations.221",
+          "theme": "salutations",
+          "fr": "Tu te présentes toujours avec ton prénom et ton nom.",
+          "en": "You always introduce yourself with your first and last name.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.042",
+          "theme": "evenements-familiaux",
+          "fr": "Elle pleure de tristesse à l'enterrement de son père.",
+          "en": "She cries with sadness at her father's funeral.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.les-fetes.151",
+          "theme": "les-fetes",
+          "fr": "Mon collègue souhaite une bonne fête à tout le monde.",
+          "en": "My colleague wishes everyone a happy holiday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.salutations.203",
+          "theme": "salutations",
+          "fr": "Elle salue sa grand-mère chaque soir avant de dormir.",
+          "en": "She greets her grandmother every evening before sleeping.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.evenements-familiaux.050",
+          "theme": "evenements-familiaux",
+          "fr": "Le bébé porte une jolie robe blanche pour son baptême.",
+          "en": "The baby is wearing a lovely white dress for his baptism.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.salutations.210",
+          "theme": "salutations",
+          "fr": "Je m'appelle Marc, je suis heureux de vous rencontrer.",
+          "en": "My name is Marc, I am happy to meet you.",
+          "words": 10
+        },
+        {
+          "id": "fr.a1.salutations-de-base.029",
+          "theme": "salutations-de-base",
+          "fr": "Il m'a fait un signe et il a dit salut.",
+          "en": "He waved at me and said hi.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.salutations-de-base.040",
+          "theme": "salutations-de-base",
+          "fr": "Il a dit à plus et il est parti en courant.",
+          "en": "He said later and ran off.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.salutations.223",
+          "theme": "salutations",
+          "fr": "Bonjour, j'ai rendez-vous avec le médecin à dix heures.",
+          "en": "Hello, I have an appointment with the doctor at ten o'clock.",
+          "words": 11
+        },
+        {
+          "id": "fr.a1.salutations.253",
+          "theme": "salutations",
+          "fr": "Elle dit au revoir à ses enfants avant de partir travailler.",
+          "en": "She says goodbye to her children before leaving for work.",
+          "words": 11
+        }
+      ]
+    }
+  ]
+}

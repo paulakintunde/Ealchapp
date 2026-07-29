@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "fr.a1.cuisine.223",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Je coupe les carottes en petits morceaux.",
+    "en": "I cut the carrots into small pieces.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je coupe\",\"t\":\"i cut\"},{\"w\":\"les carottes\",\"t\":\"the carrots\"},{\"w\":\"en petits morceaux.\",\"t\":\"into small pieces\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.224",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Elle épluche les pommes de terre.",
+    "en": "She peels the potatoes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle épluche\",\"t\":\"she peels\"},{\"w\":\"les pommes de terre.\",\"t\":\"the potatoes\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.225",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Nous mélangeons la farine et les œufs.",
+    "en": "We mix the flour and the eggs.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous mélangeons\",\"t\":\"we mix\"},{\"w\":\"la farine\",\"t\":\"the flour\"},{\"w\":\"et les œufs.\",\"t\":\"and the eggs\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.226",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Tu fais cuire le riz dans une casserole.",
+    "en": "You cook the rice in a pot.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu fais cuire\",\"t\":\"you cook\"},{\"w\":\"le riz\",\"t\":\"the rice\"},{\"w\":\"dans une casserole.\",\"t\":\"in a pot\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.227",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Il ajoute du sel dans la soupe.",
+    "en": "He adds salt to the soup.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il ajoute\",\"t\":\"he adds\"},{\"w\":\"du sel\",\"t\":\"salt\"},{\"w\":\"dans la soupe.\",\"t\":\"to the soup\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.228",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Je lave les légumes avant de cuisiner.",
+    "en": "I wash the vegetables before cooking.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je lave\",\"t\":\"i wash\"},{\"w\":\"les légumes\",\"t\":\"the vegetables\"},{\"w\":\"avant de cuisiner.\",\"t\":\"before cooking\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.229",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Elle met le beurre dans la poêle.",
+    "en": "She puts the butter in the pan.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle met\",\"t\":\"she puts\"},{\"w\":\"le beurre\",\"t\":\"the butter\"},{\"w\":\"dans la poêle.\",\"t\":\"in the pan\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.230",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Nous préparons le dîner ensemble.",
+    "en": "We prepare dinner together.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous préparons\",\"t\":\"we prepare\"},{\"w\":\"le dîner\",\"t\":\"dinner\"},{\"w\":\"ensemble.\",\"t\":\"together\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.231",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Tu goûtes la sauce avant de servir.",
+    "en": "You taste the sauce before serving.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu goûtes\",\"t\":\"you taste\"},{\"w\":\"la sauce\",\"t\":\"the sauce\"},{\"w\":\"avant de servir.\",\"t\":\"before serving\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.232",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Il verse l'huile d'olive sur la salade.",
+    "en": "He pours olive oil on the salad.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il verse\",\"t\":\"he pours\"},{\"w\":\"l'huile d'olive\",\"t\":\"olive oil\"},{\"w\":\"sur la salade.\",\"t\":\"on the salad\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.233",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Je découpe le pain en tranches.",
+    "en": "I cut the bread into slices.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je découpe\",\"t\":\"i cut\"},{\"w\":\"le pain\",\"t\":\"the bread\"},{\"w\":\"en tranches.\",\"t\":\"into slices\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.234",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Elle range les assiettes dans le placard.",
+    "en": "She puts the plates away in the cupboard.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle range\",\"t\":\"she puts away\"},{\"w\":\"les assiettes\",\"t\":\"the plates\"},{\"w\":\"dans le placard.\",\"t\":\"in the cupboard\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.235",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Nous mettons la table pour le repas.",
+    "en": "We set the table for the meal.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous mettons\",\"t\":\"we set\"},{\"w\":\"la table\",\"t\":\"the table\"},{\"w\":\"pour le repas.\",\"t\":\"for the meal\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.236",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Tu bois un verre d'eau avec le repas.",
+    "en": "You drink a glass of water with the meal.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu bois\",\"t\":\"you drink\"},{\"w\":\"un verre d'eau\",\"t\":\"a glass of water\"},{\"w\":\"avec le repas.\",\"t\":\"with the meal\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.237",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Il choisit des fruits frais au marché.",
+    "en": "He chooses fresh fruit at the market.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il choisit\",\"t\":\"he chooses\"},{\"w\":\"des fruits frais\",\"t\":\"fresh fruit\"},{\"w\":\"au marché.\",\"t\":\"at the market\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.238",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Je fais bouillir de l'eau pour les pâtes.",
+    "en": "I boil water for the pasta.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je fais bouillir\",\"t\":\"i boil\"},{\"w\":\"de l'eau\",\"t\":\"water\"},{\"w\":\"pour les pâtes.\",\"t\":\"for the pasta\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.239",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Elle cuisine du poulet avec des légumes.",
+    "en": "She cooks chicken with vegetables.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle cuisine\",\"t\":\"she cooks\"},{\"w\":\"du poulet\",\"t\":\"chicken\"},{\"w\":\"avec des légumes.\",\"t\":\"with vegetables\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.240",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Nous achetons du pain à la boulangerie.",
+    "en": "We buy bread at the bakery.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous achetons\",\"t\":\"we buy\"},{\"w\":\"du pain\",\"t\":\"bread\"},{\"w\":\"à la boulangerie.\",\"t\":\"at the bakery\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.241",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Tu prépares une salade de tomates.",
+    "en": "You prepare a tomato salad.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu prépares\",\"t\":\"you prepare\"},{\"w\":\"une salade de tomates.\",\"t\":\"a tomato salad\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.242",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Il aime manger du fromage après le repas.",
+    "en": "He likes to eat cheese after the meal.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il aime\",\"t\":\"he likes\"},{\"w\":\"manger du fromage\",\"t\":\"to eat cheese\"},{\"w\":\"après le repas.\",\"t\":\"after the meal\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.243",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Je réchauffe la soupe au micro-onde.",
+    "en": "I heat up the soup in the microwave.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je réchauffe\",\"t\":\"i heat up\"},{\"w\":\"la soupe\",\"t\":\"the soup\"},{\"w\":\"au micro-onde.\",\"t\":\"in the microwave\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.244",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Elle sert le café après le dessert.",
+    "en": "She serves coffee after dessert.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle sert\",\"t\":\"she serves\"},{\"w\":\"le café\",\"t\":\"coffee\"},{\"w\":\"après le dessert.\",\"t\":\"after dessert\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.245",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Nous mangeons des fruits pour le goûter.",
+    "en": "We eat fruit for the afternoon snack.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous mangeons\",\"t\":\"we eat\"},{\"w\":\"des fruits\",\"t\":\"fruit\"},{\"w\":\"pour le goûter.\",\"t\":\"for the afternoon snack\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.246",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Tu écrases l'ail avec un couteau.",
+    "en": "You crush the garlic with a knife.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu écrases\",\"t\":\"you crush\"},{\"w\":\"l'ail\",\"t\":\"the garlic\"},{\"w\":\"avec un couteau.\",\"t\":\"with a knife\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.247",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Il verse le lait dans la tasse.",
+    "en": "He pours the milk into the cup.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il verse\",\"t\":\"he pours\"},{\"w\":\"le lait\",\"t\":\"the milk\"},{\"w\":\"dans la tasse.\",\"t\":\"into the cup\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.248",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Je fais griller le pain le matin.",
+    "en": "I toast the bread in the morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je fais griller\",\"t\":\"i toast\"},{\"w\":\"le pain\",\"t\":\"the bread\"},{\"w\":\"le matin.\",\"t\":\"in the morning\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.249",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Elle prépare un gâteau au chocolat.",
+    "en": "She makes a chocolate cake.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle prépare\",\"t\":\"she makes\"},{\"w\":\"un gâteau au chocolat.\",\"t\":\"a chocolate cake\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.250",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Nous coupons les oignons pour la soupe.",
+    "en": "We cut the onions for the soup.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous coupons\",\"t\":\"we cut\"},{\"w\":\"les oignons\",\"t\":\"the onions\"},{\"w\":\"pour la soupe.\",\"t\":\"for the soup\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.251",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Tu ajoutes du sucre dans le thé.",
+    "en": "You add sugar to the tea.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu ajoutes\",\"t\":\"you add\"},{\"w\":\"du sucre\",\"t\":\"sugar\"},{\"w\":\"dans le thé.\",\"t\":\"to the tea\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.252",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Il pèse la farine avant de cuisiner.",
+    "en": "He weighs the flour before cooking.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pèse\",\"t\":\"he weighs\"},{\"w\":\"la farine\",\"t\":\"the flour\"},{\"w\":\"avant de cuisiner.\",\"t\":\"before cooking\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.253",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Je choisis un menu simple pour ce soir.",
+    "en": "I choose a simple menu for tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je choisis\",\"t\":\"i choose\"},{\"w\":\"un menu simple\",\"t\":\"a simple menu\"},{\"w\":\"pour ce soir.\",\"t\":\"for tonight\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.254",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Elle nettoie la cuisine après le repas.",
+    "en": "She cleans the kitchen after the meal.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle nettoie\",\"t\":\"she cleans\"},{\"w\":\"la cuisine\",\"t\":\"the kitchen\"},{\"w\":\"après le repas.\",\"t\":\"after the meal\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.255",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Nous mettons les restes au réfrigérateur.",
+    "en": "We put the leftovers in the fridge.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous mettons\",\"t\":\"we put\"},{\"w\":\"les restes\",\"t\":\"the leftovers\"},{\"w\":\"au réfrigérateur.\",\"t\":\"in the fridge\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.256",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Tu cuisines souvent le week-end.",
+    "en": "You cook often on the weekend.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu cuisines\",\"t\":\"you cook\"},{\"w\":\"souvent\",\"t\":\"often\"},{\"w\":\"le week-end.\",\"t\":\"on the weekend\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.257",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Il aime les plats épicés.",
+    "en": "He likes spicy dishes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il aime\",\"t\":\"he likes\"},{\"w\":\"les plats épicés.\",\"t\":\"spicy dishes\"}]}"
+  },
+  {
+    "id": "fr.a1.cuisine.258",
+    "kind": "sentence",
+    "level": "a1",
+    "theme": "cuisine",
+    "fr": "Je préfère les légumes frais aux légumes surgelés.",
+    "en": "I prefer fresh vegetables to frozen vegetables.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je préfère\",\"t\":\"i prefer\"},{\"w\":\"les légumes frais\",\"t\":\"fresh vegetables\"},{\"w\":\"aux légumes surgelés.\",\"t\":\"to frozen vegetables\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.042",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "J'ai coupé les légumes puis je les ai fait cuire.",
+    "en": "I cut the vegetables then I cooked them.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai coupé\",\"t\":\"i cut\"},{\"w\":\"les légumes\",\"t\":\"the vegetables\"},{\"w\":\"puis\",\"t\":\"then\"},{\"w\":\"je les ai fait cuire.\",\"t\":\"i cooked them\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.043",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Elle a préparé le dîner parce que ses amis arrivaient.",
+    "en": "She prepared dinner because her friends were arriving.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a préparé\",\"t\":\"she prepared\"},{\"w\":\"le dîner\",\"t\":\"dinner\"},{\"w\":\"parce que\",\"t\":\"because\"},{\"w\":\"ses amis arrivaient.\",\"t\":\"her friends were arriving\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.044",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Nous avons acheté des légumes frais au marché ce matin.",
+    "en": "We bought fresh vegetables at the market this morning.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons acheté\",\"t\":\"we bought\"},{\"w\":\"des légumes frais\",\"t\":\"fresh vegetables\"},{\"w\":\"au marché\",\"t\":\"at the market\"},{\"w\":\"ce matin.\",\"t\":\"this morning\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.045",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Tu vas préparer une tarte pour le dessert.",
+    "en": "You are going to make a pie for dessert.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu vas préparer\",\"t\":\"you are going to make\"},{\"w\":\"une tarte\",\"t\":\"a pie\"},{\"w\":\"pour le dessert.\",\"t\":\"for dessert\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.046",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Il a oublié d'ajouter du sel dans la sauce.",
+    "en": "He forgot to add salt to the sauce.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a oublié\",\"t\":\"he forgot\"},{\"w\":\"d'ajouter du sel\",\"t\":\"to add salt\"},{\"w\":\"dans la sauce.\",\"t\":\"to the sauce\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.047",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Je vais cuisiner un plat végétarien ce soir.",
+    "en": "I am going to cook a vegetarian dish tonight.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais cuisiner\",\"t\":\"i am going to cook\"},{\"w\":\"un plat végétarien\",\"t\":\"a vegetarian dish\"},{\"w\":\"ce soir.\",\"t\":\"tonight\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.048",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Elle a suivi la recette mais elle a changé les épices.",
+    "en": "She followed the recipe but she changed the spices.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a suivi\",\"t\":\"she followed\"},{\"w\":\"la recette\",\"t\":\"the recipe\"},{\"w\":\"mais\",\"t\":\"but\"},{\"w\":\"elle a changé\",\"t\":\"she changed\"},{\"w\":\"les épices.\",\"t\":\"the spices\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.049",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Nous allons manger au restaurant parce que la cuisine est fermée.",
+    "en": "We are going to eat at the restaurant because the kitchen is closed.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous allons manger\",\"t\":\"we are going to eat\"},{\"w\":\"au restaurant\",\"t\":\"at the restaurant\"},{\"w\":\"parce que\",\"t\":\"because\"},{\"w\":\"la cuisine est fermée.\",\"t\":\"the kitchen is closed\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.050",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Tu as goûté la soupe avant de la servir.",
+    "en": "You tasted the soup before serving it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as goûté\",\"t\":\"you tasted\"},{\"w\":\"la soupe\",\"t\":\"the soup\"},{\"w\":\"avant de la servir.\",\"t\":\"before serving it\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.051",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Il va acheter du pain frais avant le déjeuner.",
+    "en": "He is going to buy fresh bread before lunch.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il va acheter\",\"t\":\"he is going to buy\"},{\"w\":\"du pain frais\",\"t\":\"fresh bread\"},{\"w\":\"avant le déjeuner.\",\"t\":\"before lunch\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.052",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "J'ai fait la vaisselle après avoir cuisiné.",
+    "en": "I did the dishes after cooking.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"J'ai fait la vaisselle\",\"t\":\"i did the dishes\"},{\"w\":\"après avoir cuisiné.\",\"t\":\"after cooking\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.053",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Elle a mélangé les ingrédients puis elle a versé la pâte.",
+    "en": "She mixed the ingredients then she poured the batter.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a mélangé\",\"t\":\"she mixed\"},{\"w\":\"les ingrédients\",\"t\":\"the ingredients\"},{\"w\":\"puis\",\"t\":\"then\"},{\"w\":\"elle a versé\",\"t\":\"she poured\"},{\"w\":\"la pâte.\",\"t\":\"the batter\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.054",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Nous avons mangé tôt car nous avions très faim.",
+    "en": "We ate early because we were very hungry.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons mangé\",\"t\":\"we ate\"},{\"w\":\"tôt\",\"t\":\"early\"},{\"w\":\"car\",\"t\":\"because\"},{\"w\":\"nous avions très faim.\",\"t\":\"we were very hungry\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.055",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Tu vas éplucher les pommes pour la tarte.",
+    "en": "You are going to peel the apples for the pie.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu vas éplucher\",\"t\":\"you are going to peel\"},{\"w\":\"les pommes\",\"t\":\"the apples\"},{\"w\":\"pour la tarte.\",\"t\":\"for the pie\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.056",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Il a cuisiné toute la matinée pour préparer le repas.",
+    "en": "He cooked all morning to prepare the meal.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il a cuisiné\",\"t\":\"he cooked\"},{\"w\":\"toute la matinée\",\"t\":\"all morning\"},{\"w\":\"pour préparer le repas.\",\"t\":\"to prepare the meal\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.057",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Je vais inviter mes voisins à dîner ce vendredi.",
+    "en": "I am going to invite my neighbors to dinner this Friday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je vais inviter\",\"t\":\"i am going to invite\"},{\"w\":\"mes voisins\",\"t\":\"my neighbors\"},{\"w\":\"à dîner\",\"t\":\"to dinner\"},{\"w\":\"ce vendredi.\",\"t\":\"this friday\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.058",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Elle a coupé le poisson en morceaux avant de le cuire.",
+    "en": "She cut the fish into pieces before cooking it.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle a coupé\",\"t\":\"she cut\"},{\"w\":\"le poisson\",\"t\":\"the fish\"},{\"w\":\"en morceaux\",\"t\":\"into pieces\"},{\"w\":\"avant de le cuire.\",\"t\":\"before cooking it\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.059",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Nous avons fait les courses donc le frigo est plein.",
+    "en": "We did the grocery shopping so the fridge is full.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous avons fait les courses\",\"t\":\"we did the grocery shopping\"},{\"w\":\"donc\",\"t\":\"so\"},{\"w\":\"le frigo est plein.\",\"t\":\"the fridge is full\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.060",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Tu as ajouté trop de poivre dans le plat.",
+    "en": "You added too much pepper to the dish.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Tu as ajouté\",\"t\":\"you added\"},{\"w\":\"trop de poivre\",\"t\":\"too much pepper\"},{\"w\":\"dans le plat.\",\"t\":\"to the dish\"}]}"
+  },
+  {
+    "id": "fr.a2.cuisine.061",
+    "kind": "sentence",
+    "level": "a2",
+    "theme": "cuisine",
+    "fr": "Il va apprendre à cuisiner des plats français.",
+    "en": "He is going to learn to cook French dishes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il va apprendre\",\"t\":\"he is going to learn\"},{\"w\":\"à cuisiner\",\"t\":\"to cook\"},{\"w\":\"des plats français.\",\"t\":\"french dishes\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.070",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Je pense que la cuisine française est riche en traditions.",
+    "en": "I think that French cuisine is rich in traditions.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pense\",\"t\":\"i think\"},{\"w\":\"que la cuisine française\",\"t\":\"that french cuisine\"},{\"w\":\"est riche en traditions.\",\"t\":\"is rich in traditions\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.071",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Le chef qui a préparé ce plat utilise des produits locaux.",
+    "en": "The chef who prepared this dish uses local products.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le chef\",\"t\":\"the chef\"},{\"w\":\"qui a préparé ce plat\",\"t\":\"who prepared this dish\"},{\"w\":\"utilise des produits locaux.\",\"t\":\"uses local products\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.072",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Quand je cuisine, j'aime essayer de nouvelles recettes.",
+    "en": "When I cook, I like to try new recipes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand je cuisine,\",\"t\":\"when i cook\"},{\"w\":\"j'aime essayer\",\"t\":\"i like to try\"},{\"w\":\"de nouvelles recettes.\",\"t\":\"new recipes\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.073",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Si tu ajoutes trop de sel, le plat sera trop salé.",
+    "en": "If you add too much salt, the dish will be too salty.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si tu ajoutes trop de sel,\",\"t\":\"if you add too much salt\"},{\"w\":\"le plat sera\",\"t\":\"the dish will be\"},{\"w\":\"trop salé.\",\"t\":\"too salty\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.074",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Elle croit que manger sainement améliore la santé.",
+    "en": "She believes that eating healthily improves health.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle croit\",\"t\":\"she believes\"},{\"w\":\"que manger sainement\",\"t\":\"that eating healthily\"},{\"w\":\"améliore la santé.\",\"t\":\"improves health\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.075",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Le restaurant que nous avons visité proposait des plats régionaux.",
+    "en": "The restaurant that we visited offered regional dishes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le restaurant\",\"t\":\"the restaurant\"},{\"w\":\"que nous avons visité\",\"t\":\"that we visited\"},{\"w\":\"proposait des plats régionaux.\",\"t\":\"offered regional dishes\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.076",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Je trouve que les légumes de saison ont plus de goût.",
+    "en": "I find that seasonal vegetables have more flavor.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je trouve\",\"t\":\"i find\"},{\"w\":\"que les légumes de saison\",\"t\":\"that seasonal vegetables\"},{\"w\":\"ont plus de goût.\",\"t\":\"have more flavor\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.077",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Quand mes amis viennent dîner, je prépare toujours plusieurs plats.",
+    "en": "When my friends come for dinner, I always prepare several dishes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand mes amis viennent dîner,\",\"t\":\"when my friends come for dinner\"},{\"w\":\"je prépare toujours\",\"t\":\"i always prepare\"},{\"w\":\"plusieurs plats.\",\"t\":\"several dishes\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.078",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Si on respecte la recette, le résultat est souvent meilleur.",
+    "en": "If you follow the recipe, the result is often better.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si on respecte la recette,\",\"t\":\"if you follow the recipe\"},{\"w\":\"le résultat est\",\"t\":\"the result is\"},{\"w\":\"souvent meilleur.\",\"t\":\"often better\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.079",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Il pense que la cuisine reflète la culture d'un pays.",
+    "en": "He thinks that cuisine reflects a country's culture.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Il pense\",\"t\":\"he thinks\"},{\"w\":\"que la cuisine reflète\",\"t\":\"that cuisine reflects\"},{\"w\":\"la culture d'un pays.\",\"t\":\"a country's culture\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.080",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "La recette que ma grand-mère m'a donnée reste ma préférée.",
+    "en": "The recipe that my grandmother gave me remains my favorite.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"La recette\",\"t\":\"the recipe\"},{\"w\":\"que ma grand-mère m'a donnée\",\"t\":\"that my grandmother gave me\"},{\"w\":\"reste ma préférée.\",\"t\":\"remains my favorite\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.081",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Je suis convaincu que cuisiner ensemble renforce les liens familiaux.",
+    "en": "I am convinced that cooking together strengthens family bonds.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je suis convaincu\",\"t\":\"i am convinced\"},{\"w\":\"que cuisiner ensemble\",\"t\":\"that cooking together\"},{\"w\":\"renforce les liens familiaux.\",\"t\":\"strengthens family bonds\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.082",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Quand il fait froid, on préfère les plats mijotés.",
+    "en": "When it is cold, we prefer slow-cooked dishes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand il fait froid,\",\"t\":\"when it is cold\"},{\"w\":\"on préfère\",\"t\":\"we prefer\"},{\"w\":\"les plats mijotés.\",\"t\":\"slow cooked dishes\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.083",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Si vous êtes végétarien, ce restaurant propose plusieurs options.",
+    "en": "If you are vegetarian, this restaurant offers several options.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si vous êtes végétarien,\",\"t\":\"if you are vegetarian\"},{\"w\":\"ce restaurant propose\",\"t\":\"this restaurant offers\"},{\"w\":\"plusieurs options.\",\"t\":\"several options\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.084",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Elle estime que le gaspillage alimentaire est un vrai problème.",
+    "en": "She believes that food waste is a real problem.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Elle estime\",\"t\":\"she believes\"},{\"w\":\"que le gaspillage alimentaire\",\"t\":\"that food waste\"},{\"w\":\"est un vrai problème.\",\"t\":\"is a real problem\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.085",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Le cuisinier qui a créé ce dessert vient de Lyon.",
+    "en": "The cook who created this dessert comes from Lyon.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Le cuisinier\",\"t\":\"the cook\"},{\"w\":\"qui a créé ce dessert\",\"t\":\"who created this dessert\"},{\"w\":\"vient de Lyon.\",\"t\":\"comes from lyon\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.086",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Je pense qu'il faut varier son alimentation pour rester en forme.",
+    "en": "I think that you need to vary your diet to stay fit.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je pense\",\"t\":\"i think\"},{\"w\":\"qu'il faut varier son alimentation\",\"t\":\"that you need to vary your diet\"},{\"w\":\"pour rester en forme.\",\"t\":\"to stay fit\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.087",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Quand j'étais enfant, je cuisinais avec ma mère chaque dimanche.",
+    "en": "When I was a child, I used to cook with my mother every Sunday.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand j'étais enfant,\",\"t\":\"when i was a child\"},{\"w\":\"je cuisinais avec ma mère\",\"t\":\"i used to cook with my mother\"},{\"w\":\"chaque dimanche.\",\"t\":\"every sunday\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.088",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Si on manque de temps, on peut préparer des plats simples.",
+    "en": "If we are short on time, we can prepare simple dishes.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si on manque de temps,\",\"t\":\"if we are short on time\"},{\"w\":\"on peut préparer\",\"t\":\"we can prepare\"},{\"w\":\"des plats simples.\",\"t\":\"simple dishes\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.089",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Nous croyons que partager un repas rapproche les gens.",
+    "en": "We believe that sharing a meal brings people closer.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Nous croyons\",\"t\":\"we believe\"},{\"w\":\"que partager un repas\",\"t\":\"that sharing a meal\"},{\"w\":\"rapproche les gens.\",\"t\":\"brings people closer\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.090",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "L'ingrédient qui donne du goût à ce plat est le thym.",
+    "en": "The ingredient that gives this dish flavor is thyme.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"L'ingrédient\",\"t\":\"the ingredient\"},{\"w\":\"qui donne du goût à ce plat\",\"t\":\"that gives this dish flavor\"},{\"w\":\"est le thym.\",\"t\":\"is thyme\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.091",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Je doute que ce régime soit vraiment équilibré.",
+    "en": "I doubt that this diet is really balanced.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Je doute\",\"t\":\"i doubt\"},{\"w\":\"que ce régime soit\",\"t\":\"that this diet is\"},{\"w\":\"vraiment équilibré.\",\"t\":\"really balanced\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.092",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Quand le pain sort du four, toute la maison sent bon.",
+    "en": "When the bread comes out of the oven, the whole house smells good.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Quand le pain sort du four,\",\"t\":\"when the bread comes out of the oven\"},{\"w\":\"toute la maison\",\"t\":\"the whole house\"},{\"w\":\"sent bon.\",\"t\":\"smells good\"}]}"
+  },
+  {
+    "id": "fr.b1.cuisine.093",
+    "kind": "sentence",
+    "level": "b1",
+    "theme": "cuisine",
+    "fr": "Si les invités arrivent tôt, nous devrons cuisiner plus vite.",
+    "en": "If the guests arrive early, we will have to cook faster.",
+    "tags": [],
+    "drills": [
+      "sentence",
+      "flashcard",
+      "review"
+    ],
+    "audioRef": null,
+    "version": 1,
+    "provenance": {
+      "model": "claude-sonnet-5",
+      "generatedBy": "llm"
+    },
+    "notes": "{\"tiles\":[{\"w\":\"Si les invités arrivent tôt,\",\"t\":\"if the guests arrive early\"},{\"w\":\"nous devrons\",\"t\":\"we will have to\"},{\"w\":\"cuisiner plus vite.\",\"t\":\"cook faster\"}]}"
+  }
+]

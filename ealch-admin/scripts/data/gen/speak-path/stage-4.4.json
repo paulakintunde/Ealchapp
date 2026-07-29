@@ -1,0 +1,4556 @@
+{
+  "stage": "4.4",
+  "world": 4,
+  "level": "b1",
+  "title": "Le Réseau",
+  "themes": [
+    "internet",
+    "reseaux-sociaux",
+    "journalisme",
+    "gouvernement",
+    "economie",
+    "ecologie",
+    "musees",
+    "litterature",
+    "traditions",
+    "cinema",
+    "musique",
+    "sports-et-loisirs",
+    "technologie-quotidienne",
+    "appareils",
+    "rp-technologie",
+    "rp-loisirs",
+    "rp-societe"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 633,
+  "dedupedPool": 632,
+  "selected": 632,
+  "blockCount": 20,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.b1.rp-technologie.007",
+          "theme": "rp-technologie",
+          "fr": "C'est encore difficile de résister.",
+          "en": "It's still hard to resist.",
+          "words": 6
+        },
+        {
+          "id": "fr.b1.litterature.016",
+          "theme": "litterature",
+          "fr": "Elle lit un livre différent chaque semaine.",
+          "en": "She reads a different book every week.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.economie.098",
+          "theme": "economie",
+          "fr": "Nous espérons que les prix baisseront bientôt.",
+          "en": "We hope prices will drop soon.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.015",
+          "theme": "sports-et-loisirs",
+          "fr": "Il collectionne les timbres depuis son enfance.",
+          "en": "He has been collecting stamps since childhood.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.economie.038",
+          "theme": "economie",
+          "fr": "Le supermarché propose des promotions chaque semaine.",
+          "en": "The supermarket offers promotions every week.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.gouvernement.021",
+          "theme": "gouvernement",
+          "fr": "Le conseil régional finance plusieurs associations culturelles.",
+          "en": "The regional council funds several cultural associations.",
+          "words": 7
+        },
+        {
+          "id": "fr.b1.rp-loisirs.006",
+          "theme": "rp-loisirs",
+          "fr": "Un ami m'a invité à un cours.",
+          "en": "A friend invited me to a class.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.013",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous partons camper dans la forêt chaque été.",
+          "en": "We go camping in the forest every summer.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.economie.039",
+          "theme": "economie",
+          "fr": "Les prix des légumes varient selon les saisons.",
+          "en": "Vegetable prices vary by season.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.rp-societe.006",
+          "theme": "rp-societe",
+          "fr": "Elle protège mieux les consommateurs, à mon avis.",
+          "en": "It protects consumers better, in my opinion.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.traditions.021",
+          "theme": "traditions",
+          "fr": "On respecte ce rituel chaque année sans exception.",
+          "en": "This ritual is observed every year without exception.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.appareils.017",
+          "theme": "appareils",
+          "fr": "Ce vieux scanner met plusieurs minutes à démarrer.",
+          "en": "This old scanner takes several minutes to start up.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.litterature.018",
+          "theme": "litterature",
+          "fr": "Les personnages de ce livre semblent très réalistes.",
+          "en": "The characters in this book seem very realistic.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.litterature.024",
+          "theme": "litterature",
+          "fr": "Ce roman se termine par un rebondissement inattendu.",
+          "en": "This novel ends with an unexpected twist.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.journalisme.016",
+          "theme": "journalisme",
+          "fr": "Ce journal publie une nouvelle édition chaque matin.",
+          "en": "This newspaper publishes a new edition every morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.traditions.017",
+          "theme": "traditions",
+          "fr": "On transmet cette légende oralement depuis des siècles.",
+          "en": "This legend has been passed down orally for centuries.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.musique.079",
+          "theme": "musique",
+          "fr": "Je voudrais apprendre un nouvel instrument cette année.",
+          "en": "I would like to learn a new instrument this year.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.economie.085",
+          "theme": "economie",
+          "fr": "Mon collègue voudrait négocier une augmentation de salaire.",
+          "en": "My colleague would like to negotiate a raise.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.appareils.005",
+          "theme": "appareils",
+          "fr": "Cette enceinte connectée comprend mal les commandes vocales.",
+          "en": "This smart speaker misunderstands voice commands.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.077",
+          "theme": "sports-et-loisirs",
+          "fr": "Si tu t'entraînes régulièrement, tu progresseras rapidement.",
+          "en": "If you train regularly, you will progress quickly.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.gouvernement.083",
+          "theme": "gouvernement",
+          "fr": "Elle voudrait travailler pour la fonction publique fédérale.",
+          "en": "She would like to work for the federal public service.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.026",
+          "theme": "reseaux-sociaux",
+          "fr": "Cette application propose un filtre différent chaque semaine.",
+          "en": "This app offers a different filter every week.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.journalisme.021",
+          "theme": "journalisme",
+          "fr": "Elle travaille comme journaliste indépendante depuis trois ans.",
+          "en": "She has worked as a freelance journalist for three years.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.gouvernement.024",
+          "theme": "gouvernement",
+          "fr": "Les fonctionnaires municipaux travaillent souvent le samedi matin.",
+          "en": "Municipal civil servants often work on Saturday mornings.",
+          "words": 8
+        },
+        {
+          "id": "fr.b1.rp-societe.007",
+          "theme": "rp-societe",
+          "fr": "Je n'avais pas vu ça sous cet angle.",
+          "en": "I hadn't looked at it that way.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.appareils.013",
+          "theme": "appareils",
+          "fr": "Le drone a perdu le signal pendant le vol.",
+          "en": "The drone lost signal during the flight.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.musees.014",
+          "theme": "musees",
+          "fr": "Le musée reste fermé le mardi toute l'année.",
+          "en": "The museum stays closed on Tuesdays all year round.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-loisirs.005",
+          "theme": "rp-loisirs",
+          "fr": "Ça fait deux mois maintenant, et j'adore ça.",
+          "en": "It's been two months now, and I love it.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.cinema.086",
+          "theme": "cinema",
+          "fr": "Elle souhaite que le film sorte avant l'été.",
+          "en": "She wishes the film would come out before summer.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.115",
+          "theme": "reseaux-sociaux",
+          "fr": "Je ne pense pas que cette rumeur soit vraie.",
+          "en": "I don't think this rumor is true.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-loisirs.007",
+          "theme": "rp-loisirs",
+          "fr": "Je pense m'inscrire à des cours plus avancés.",
+          "en": "I'm thinking of signing up for more advanced classes.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.economie.094",
+          "theme": "economie",
+          "fr": "Je ne pense pas que ce prix soit raisonnable.",
+          "en": "I don't think this price is reasonable.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.cinema.100",
+          "theme": "cinema",
+          "fr": "J'aurais aimé que le film dure plus longtemps.",
+          "en": "I would have liked the film to last longer.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.b1.sports-et-loisirs.007",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous avons regardé le match de rugby hier soir.",
+          "en": "We watched the rugby match last night.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.005",
+          "theme": "sports-et-loisirs",
+          "fr": "Elle fait du yoga chaque matin pour se détendre.",
+          "en": "She does yoga every morning to relax.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.016",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous avons loué des vélos pour visiter la ville.",
+          "en": "We rented bikes to tour the city.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.musique.006",
+          "theme": "musique",
+          "fr": "Nous répétons ce morceau depuis le début du mois.",
+          "en": "We have been rehearsing this piece since the start of the month.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.011",
+          "theme": "sports-et-loisirs",
+          "fr": "Elle pratique la danse depuis qu'elle est petite.",
+          "en": "She has been dancing since she was little.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.019",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous avons assisté à un match de basket palpitant.",
+          "en": "We attended a thrilling basketball match.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.journalisme.109",
+          "theme": "journalisme",
+          "fr": "Il est possible que cette photo ait été retouchée.",
+          "en": "It is possible that this photo was retouched.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.litterature.019",
+          "theme": "litterature",
+          "fr": "Je préfère les romans policiers aux romans d'amour.",
+          "en": "I prefer detective novels to romance novels.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.010",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous jouons aux cartes en famille le dimanche soir.",
+          "en": "We play cards as a family on Sunday evenings.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.cinema.095",
+          "theme": "cinema",
+          "fr": "Je crois que cette actrice mérite vraiment ce prix.",
+          "en": "I believe this actress truly deserves this award.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.appareils.016",
+          "theme": "appareils",
+          "fr": "L'aspirateur robot se coince souvent sous le canapé.",
+          "en": "The robot vacuum often gets stuck under the sofa.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.084",
+          "theme": "sports-et-loisirs",
+          "fr": "Il faut que nous réservions le terrain avant samedi.",
+          "en": "We need to book the field before Saturday.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.087",
+          "theme": "sports-et-loisirs",
+          "fr": "Le sport que je préfère demande beaucoup de patience.",
+          "en": "The sport I prefer requires a lot of patience.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.economie.090",
+          "theme": "economie",
+          "fr": "Tu devrais ouvrir un compte d'épargne dès maintenant.",
+          "en": "You should open a savings account right now.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.gouvernement.026",
+          "theme": "gouvernement",
+          "fr": "Les élections municipales auront lieu au mois de mars.",
+          "en": "The municipal elections will take place in March.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.028",
+          "theme": "reseaux-sociaux",
+          "fr": "Elle évite de publier des photos pendant ses vacances.",
+          "en": "She avoids posting photos during her holidays.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.musique.065",
+          "theme": "musique",
+          "fr": "Je voudrais que vous m'accompagniez au concert samedi.",
+          "en": "I would like you to come with me to the concert on Saturday.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.musique.070",
+          "theme": "musique",
+          "fr": "Tu devrais écouter cet album, il te plairait sûrement.",
+          "en": "You should listen to this album, you'd probably like it.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.journalisme.098",
+          "theme": "journalisme",
+          "fr": "Elle lit les nouvelles chaque matin sur son téléphone.",
+          "en": "She reads the news every morning on her phone.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.ecologie.022",
+          "theme": "ecologie",
+          "fr": "Nous éteignons les lumières en quittant une pièce vide.",
+          "en": "We turn off the lights when leaving an empty room.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.internet.015",
+          "theme": "internet",
+          "fr": "Il faut redémarrer le routeur quand la connexion coupe.",
+          "en": "You have to restart the router when the connection cuts out.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.030",
+          "theme": "reseaux-sociaux",
+          "fr": "Le compte officiel a répondu directement à la critique.",
+          "en": "The official account responded directly to the criticism.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.journalisme.020",
+          "theme": "journalisme",
+          "fr": "Le correspondant local a couvert l'événement en direct.",
+          "en": "The local correspondent covered the event live.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.008",
+          "theme": "sports-et-loisirs",
+          "fr": "Elle a participé à sa première compétition de natation.",
+          "en": "She took part in her first swimming competition.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.cinema.079",
+          "theme": "cinema",
+          "fr": "Je pense que ce film pourrait remporter plusieurs prix.",
+          "en": "I think this film could win several awards.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.musique.077",
+          "theme": "musique",
+          "fr": "Si tu chantais mieux, tu pourrais rejoindre la chorale.",
+          "en": "If you sang better, you could join the choir.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.appareils.009",
+          "theme": "appareils",
+          "fr": "Ma montre connectée ne compte plus mes pas correctement.",
+          "en": "My smartwatch no longer counts my steps correctly.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.023",
+          "theme": "reseaux-sociaux",
+          "fr": "Elle répond rarement aux messages privés qu'elle reçoit.",
+          "en": "She rarely replies to the private messages she receives.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.economie.042",
+          "theme": "economie",
+          "fr": "Les touristes dépensent beaucoup d'argent pendant l'été.",
+          "en": "Tourists spend a lot of money during the summer.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-loisirs.066",
+          "theme": "rp-loisirs",
+          "fr": "Elle préfère les films en version originale sous-titrée.",
+          "en": "She prefers films in original version with subtitles.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.musique.003",
+          "theme": "musique",
+          "fr": "Cette chanson passe à la radio depuis plusieurs semaines.",
+          "en": "This song has been playing on the radio for several weeks.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.ecologie.030",
+          "theme": "ecologie",
+          "fr": "Le tri sélectif est devenu obligatoire dans cet immeuble.",
+          "en": "Sorting recyclables has become mandatory in this building.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.journalisme.024",
+          "theme": "journalisme",
+          "fr": "La rédaction a reçu plusieurs plaintes après cet article.",
+          "en": "The editorial team received several complaints after this article.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.b1.journalisme.027",
+          "theme": "journalisme",
+          "fr": "La journaliste a posé une question difficile au ministre.",
+          "en": "The journalist asked the minister a difficult question.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.100",
+          "theme": "reseaux-sociaux",
+          "fr": "Elle aimerait devenir créatrice de contenu à temps plein.",
+          "en": "She would like to become a full-time content creator.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.appareils.014",
+          "theme": "appareils",
+          "fr": "Elle lit ses romans préférés sur une liseuse électronique.",
+          "en": "She reads her favourite novels on an e-reader.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-loisirs.071",
+          "theme": "rp-loisirs",
+          "fr": "J'aimerais bien apprendre à jouer aux échecs correctement.",
+          "en": "I would really like to learn to play chess properly.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.musees.095",
+          "theme": "musees",
+          "fr": "As-tu vu l'exposition sur les impressionnistes canadiens ?",
+          "en": "Have you seen the exhibition on Canadian Impressionists?",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.litterature.014",
+          "theme": "litterature",
+          "fr": "Beaucoup d'élèves trouvent ce roman difficile à comprendre.",
+          "en": "Many students find this novel hard to understand.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.internet.016",
+          "theme": "internet",
+          "fr": "Ce formulaire en ligne demande une adresse courriel valide.",
+          "en": "This online form requires a valid email address.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.musique.068",
+          "theme": "musique",
+          "fr": "Elle aimerait chanter dans un groupe professionnel un jour.",
+          "en": "She would like to sing in a professional band someday.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-technologie.078",
+          "theme": "rp-technologie",
+          "fr": "J'aimerais apprendre à programmer pour changer de carrière.",
+          "en": "I would like to learn to code in order to change careers.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.journalisme.108",
+          "theme": "journalisme",
+          "fr": "Beaucoup de lecteurs se désabonnent quand le prix augmente.",
+          "en": "Many readers unsubscribe when the price goes up.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.musees.020",
+          "theme": "musees",
+          "fr": "Beaucoup de touristes se pressent devant ce tableau célèbre.",
+          "en": "Many tourists crowd in front of this famous painting.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.journalisme.019",
+          "theme": "journalisme",
+          "fr": "Cette chaîne d'information diffuse les nouvelles en continu.",
+          "en": "This news channel broadcasts the news continuously.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.cinema.091",
+          "theme": "cinema",
+          "fr": "Il faudrait que les acteurs répètent encore quelques scènes.",
+          "en": "The actors would need to rehearse a few more scenes.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.journalisme.105",
+          "theme": "journalisme",
+          "fr": "Il faudrait vérifier cette information avant de la partager.",
+          "en": "It would be necessary to check this information before sharing it.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.ecologie.019",
+          "theme": "ecologie",
+          "fr": "Le gouvernement encourage les citoyens à trier leurs déchets.",
+          "en": "The government is encouraging citizens to sort their waste.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.traditions.019",
+          "theme": "traditions",
+          "fr": "Cette danse folklorique se pratique encore lors des mariages.",
+          "en": "This folk dance is still practiced at weddings.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.019",
+          "theme": "reseaux-sociaux",
+          "fr": "Ce hashtag est devenu populaire en quelques heures seulement.",
+          "en": "This hashtag became popular in just a few hours.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.089",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous avons choisi un gymnase qui propose plusieurs activités.",
+          "en": "We chose a gym that offers several activities.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.economie.091",
+          "theme": "economie",
+          "fr": "Ma tante aimerait investir dans une petite entreprise locale.",
+          "en": "My aunt would like to invest in a small local business.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.ecologie.020",
+          "theme": "ecologie",
+          "fr": "Cette rivière était autrefois polluée par les usines voisines.",
+          "en": "This river used to be polluted by the nearby factories.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.litterature.027",
+          "theme": "litterature",
+          "fr": "Cette autrice écrit principalement des romans pour la jeunesse.",
+          "en": "This author mainly writes novels for young people.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.appareils.010",
+          "theme": "appareils",
+          "fr": "Le réfrigérateur intelligent nous avertit quand le lait manque.",
+          "en": "The smart fridge alerts us when the milk runs low.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.internet.018",
+          "theme": "internet",
+          "fr": "J'ai désinstallé une extension qui ralentissait mon navigateur.",
+          "en": "I uninstalled an extension that was slowing down my browser.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.ecologie.029",
+          "theme": "ecologie",
+          "fr": "Beaucoup de commerces proposent maintenant des produits en vrac.",
+          "en": "Many shops now offer bulk products.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.traditions.015",
+          "theme": "traditions",
+          "fr": "Cette coutume remonte à plusieurs générations dans notre famille.",
+          "en": "This custom goes back several generations in our family.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-loisirs.063",
+          "theme": "rp-loisirs",
+          "fr": "Nous avons visité une exposition de photographies anciennes hier.",
+          "en": "We visited an exhibition of old photographs yesterday.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.rp-technologie.081",
+          "theme": "rp-technologie",
+          "fr": "Nous devons remplir ce formulaire numérique avant notre entrevue.",
+          "en": "We need to fill out this digital form before our interview.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.ecologie.032",
+          "theme": "ecologie",
+          "fr": "Certaines villes interdisent les voitures dans leur centre historique.",
+          "en": "Some cities ban cars from their historic center.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.ecologie.018",
+          "theme": "ecologie",
+          "fr": "De nombreuses associations luttent contre la déforestation en Amazonie.",
+          "en": "Many organizations are fighting deforestation in the Amazon.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.gouvernement.091",
+          "theme": "gouvernement",
+          "fr": "J'aimerais que le gouvernement simplifie les démarches administratives.",
+          "en": "I would like the government to simplify administrative procedures.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.litterature.020",
+          "theme": "litterature",
+          "fr": "Cette bibliothèque possède une collection impressionnante de livres anciens.",
+          "en": "This library has an impressive collection of old books.",
+          "words": 9
+        },
+        {
+          "id": "fr.b1.cinema.013",
+          "theme": "cinema",
+          "fr": "Le tournage de ce film a duré presque six mois.",
+          "en": "The filming of this movie lasted almost six months.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.012",
+          "theme": "sports-et-loisirs",
+          "fr": "Il a marqué le but décisif à la dernière minute.",
+          "en": "He scored the decisive goal in the last minute.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.b1.sports-et-loisirs.017",
+          "theme": "sports-et-loisirs",
+          "fr": "Elle joue du piano tous les soirs avant de dîner.",
+          "en": "She plays the piano every evening before dinner.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.050",
+          "theme": "technologie-quotidienne",
+          "fr": "Dès que j'aurai reçu le colis, je te préviendrai.",
+          "en": "As soon as I have received the package, I will let you know.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.cinema.082",
+          "theme": "cinema",
+          "fr": "Il aimerait que tu viennes voir ce film avec lui.",
+          "en": "He would like you to come see this film with him.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musique.074",
+          "theme": "musique",
+          "fr": "Je ne pense pas que ce chanteur soit vraiment doué.",
+          "en": "I don't think this singer is really talented.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.082",
+          "theme": "economie",
+          "fr": "Si j'avais plus d'argent, je changerais de voiture.",
+          "en": "If I had more money, I would change cars.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.gouvernement.019",
+          "theme": "gouvernement",
+          "fr": "Le maire a inauguré un nouveau parc au centre-ville.",
+          "en": "The mayor inaugurated a new park in the city center.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.internet.005",
+          "theme": "internet",
+          "fr": "Je viens de recevoir un message suspect de ma banque.",
+          "en": "I just received a suspicious message from my bank.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musique.002",
+          "theme": "musique",
+          "fr": "Mon voisin apprend à jouer du violon le mercredi soir.",
+          "en": "My neighbor is learning to play the violin on Wednesday evenings.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.litterature.017",
+          "theme": "litterature",
+          "fr": "Cet auteur publie son premier roman à vingt-trois ans.",
+          "en": "This author publishes his first novel at twenty-three.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.ecologie.034",
+          "theme": "ecologie",
+          "fr": "Il vaut mieux acheter des fruits et légumes de saison.",
+          "en": "It's better to buy fruit and vegetables that are in season.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.cinema.089",
+          "theme": "cinema",
+          "fr": "Je doute que ce film obtienne un bon accueil critique.",
+          "en": "I doubt this film will get a good critical reception.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.cinema.093",
+          "theme": "cinema",
+          "fr": "Nous aimerions que ce film soit sous-titré en anglais.",
+          "en": "We would like this film to be subtitled in English.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musique.073",
+          "theme": "musique",
+          "fr": "Même si elle chante faux, elle adore monter sur scène.",
+          "en": "Even though she sings out of tune, she loves getting on stage.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musique.075",
+          "theme": "musique",
+          "fr": "Pourriez-vous baisser un peu le volume de la musique ?",
+          "en": "Could you turn down the music a little?",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.gouvernement.023",
+          "theme": "gouvernement",
+          "fr": "Le budget de la commune sera voté la semaine prochaine.",
+          "en": "The municipal budget will be voted on next week.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.092",
+          "theme": "economie",
+          "fr": "Il semble que les taux d'intérêt vont encore augmenter.",
+          "en": "It seems that interest rates are going to rise again.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.journalisme.111",
+          "theme": "journalisme",
+          "fr": "J'aimerais que ce site propose plus d'articles gratuits.",
+          "en": "I would like this site to offer more free articles.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.gouvernement.012",
+          "theme": "gouvernement",
+          "fr": "Le gouvernement doit tenir compte de l'avis des citoyens.",
+          "en": "The government must take citizens' opinions into account.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.internet.004",
+          "theme": "internet",
+          "fr": "Il vaut mieux éviter les liens douteux dans tes messages.",
+          "en": "It's best to avoid suspicious links in your messages.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.gouvernement.018",
+          "theme": "gouvernement",
+          "fr": "Chaque citoyen a le droit de voter aux élections locales.",
+          "en": "Every citizen has the right to vote in local elections.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.029",
+          "theme": "reseaux-sociaux",
+          "fr": "Ce créateur de contenu tourne ses vidéos dans sa cuisine.",
+          "en": "This content creator films his videos in his kitchen.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.014",
+          "theme": "sports-et-loisirs",
+          "fr": "Elle fait du jardinage pour se détendre après le travail.",
+          "en": "She does gardening to relax after work.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.041",
+          "theme": "economie",
+          "fr": "Le budget familial est serré depuis la hausse des loyers.",
+          "en": "The family budget is tight since the rent increase.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.gouvernement.078",
+          "theme": "gouvernement",
+          "fr": "Il faut que je renouvelle mon passeport avant mon voyage.",
+          "en": "I need to renew my passport before my trip.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.journalisme.119",
+          "theme": "journalisme",
+          "fr": "Il se peut que ce compte diffuse de fausses informations.",
+          "en": "It's possible that this account is spreading false information.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.003",
+          "theme": "sports-et-loisirs",
+          "fr": "Il vient de terminer sa première course de dix kilomètres.",
+          "en": "He just finished his first ten-kilometer race.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.internet.007",
+          "theme": "internet",
+          "fr": "J'ai activé un VPN pour protéger mes données personnelles.",
+          "en": "I turned on a VPN to protect my personal data.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.cinema.098",
+          "theme": "cinema",
+          "fr": "Nous préférerions que la séance commence un peu plus tard.",
+          "en": "We would prefer the showing to start a bit later.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.litterature.108",
+          "theme": "litterature",
+          "fr": "Je doute que ce personnage revienne dans le prochain tome.",
+          "en": "I doubt this character will come back in the next volume.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.cinema.009",
+          "theme": "cinema",
+          "fr": "On diffuse ce documentaire ce soir sur une chaîne publique.",
+          "en": "This documentary is being broadcast tonight on a public channel.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.cinema.012",
+          "theme": "cinema",
+          "fr": "Ce réalisateur tourne souvent dans les mêmes rues de Paris.",
+          "en": "This director often films in the same streets of Paris.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musees.019",
+          "theme": "musees",
+          "fr": "Cette statue a été restaurée avant la réouverture du musée.",
+          "en": "This statue was restored before the museum's reopening.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.045",
+          "theme": "economie",
+          "fr": "Les clients préfèrent payer par carte plutôt qu'en espèces.",
+          "en": "Customers prefer to pay by card rather than in cash.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.b1.rp-loisirs.078",
+          "theme": "rp-loisirs",
+          "fr": "Mon oncle collectionne les timbres depuis qu'il est enfant.",
+          "en": "My uncle has been collecting stamps since he was a child.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.095",
+          "theme": "economie",
+          "fr": "Si tu économises chaque mois, tu pourras acheter ta maison.",
+          "en": "If you save every month, you'll be able to buy your house.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.journalisme.112",
+          "theme": "journalisme",
+          "fr": "Ce journal a lancé une application mobile l'année dernière.",
+          "en": "This newspaper launched a mobile app last year.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.journalisme.120",
+          "theme": "journalisme",
+          "fr": "Cette chaîne propose une émission en direct tous les soirs.",
+          "en": "This channel offers a live show every evening.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.cinema.007",
+          "theme": "cinema",
+          "fr": "Les critiques ont été plutôt sévères envers ce dernier film.",
+          "en": "The critics were rather harsh toward this latest film.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.012",
+          "theme": "economie",
+          "fr": "Le chômage a légèrement baissé au cours du dernier trimestre.",
+          "en": "Unemployment slightly decreased over the last quarter.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.ecologie.023",
+          "theme": "ecologie",
+          "fr": "Le compost permet de réduire la quantité de déchets ménagers.",
+          "en": "Composting helps reduce the amount of household waste.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musees.012",
+          "theme": "musees",
+          "fr": "Ce musée organise une exposition temporaire sur l'art moderne.",
+          "en": "This museum is hosting a temporary exhibition on modern art.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.cinema.011",
+          "theme": "cinema",
+          "fr": "Mes amis préfèrent les films en version originale sous-titrée.",
+          "en": "My friends prefer films in the original version with subtitles.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.litterature.022",
+          "theme": "litterature",
+          "fr": "Cette poétesse a reçu plusieurs prix pour son dernier recueil.",
+          "en": "This poet received several awards for her latest collection.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.ecologie.024",
+          "theme": "ecologie",
+          "fr": "Il existe plusieurs points de collecte pour les piles usagées.",
+          "en": "There are several collection points for used batteries.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.gouvernement.022",
+          "theme": "gouvernement",
+          "fr": "La préfecture délivre les cartes d'identité et les passeports.",
+          "en": "The prefecture issues identity cards and passports.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.043",
+          "theme": "economie",
+          "fr": "Le marché du travail reste difficile pour les jeunes diplômés.",
+          "en": "The job market remains difficult for young graduates.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musees.017",
+          "theme": "musees",
+          "fr": "Nous avons loué un audioguide pour mieux comprendre les œuvres.",
+          "en": "We rented an audio guide to better understand the artworks.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.journalisme.022",
+          "theme": "journalisme",
+          "fr": "Ce quotidien a perdu de nombreux lecteurs ces dernières années.",
+          "en": "This daily newspaper has lost many readers in recent years.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musique.069",
+          "theme": "musique",
+          "fr": "Il est important que les musiciens répètent avant le spectacle.",
+          "en": "It's important that the musicians rehearse before the show.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.088",
+          "theme": "economie",
+          "fr": "Il est possible que l'entreprise embauche de nouveaux employés.",
+          "en": "It's possible that the company will hire new employees.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.cinema.014",
+          "theme": "cinema",
+          "fr": "Elle joue le rôle principal dans cette nouvelle série télévisée.",
+          "en": "She plays the lead role in this new television series.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.internet.017",
+          "theme": "internet",
+          "fr": "Le streaming consomme beaucoup de données sur un forfait limité.",
+          "en": "Streaming uses a lot of data on a limited plan.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-technologie.006",
+          "theme": "rp-technologie",
+          "fr": "J'ai désactivé les notifications pour essayer de moins regarder.",
+          "en": "I turned off notifications to try to look at it less.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musees.106",
+          "theme": "musees",
+          "fr": "Aimeriez-vous participer à un atelier créatif pour les enfants ?",
+          "en": "Would you like to take part in a creative workshop for children?",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musique.005",
+          "theme": "musique",
+          "fr": "Elle télécharge ses chansons préférées avant de partir en voyage.",
+          "en": "She downloads her favorite songs before leaving on a trip.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.traditions.025",
+          "theme": "traditions",
+          "fr": "On prépare ce plat typique uniquement lors des grandes occasions.",
+          "en": "This typical dish is prepared only for major occasions.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.appareils.007",
+          "theme": "appareils",
+          "fr": "Nous avons installé une nouvelle ampoule connectée dans le salon.",
+          "en": "We installed a new smart bulb in the living room.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.journalisme.017",
+          "theme": "journalisme",
+          "fr": "La photographe a suivi les manifestants pendant toute la journée.",
+          "en": "The photographer followed the protesters all day.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.journalisme.028",
+          "theme": "journalisme",
+          "fr": "Cette agence de presse fournit des articles à plusieurs journaux.",
+          "en": "This press agency supplies articles to several newspapers.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.appareils.003",
+          "theme": "appareils",
+          "fr": "Le clavier de mon ordinateur portable ne répond plus correctement.",
+          "en": "The keyboard on my laptop no longer responds properly.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.044",
+          "theme": "economie",
+          "fr": "La société a annoncé un partenariat avec une entreprise étrangère.",
+          "en": "The company announced a partnership with a foreign company.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.039",
+          "theme": "technologie-quotidienne",
+          "fr": "Le service client m'a expliqué comment réinitialiser mon appareil.",
+          "en": "Customer service explained to me how to reset my device.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.040",
+          "theme": "technologie-quotidienne",
+          "fr": "Je doute que cette application respecte vraiment notre vie privée.",
+          "en": "I doubt that this app really respects our privacy.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.gouvernement.081",
+          "theme": "gouvernement",
+          "fr": "Bien que la file soit longue, les fonctionnaires restent patients.",
+          "en": "Even though the line is long, the civil servants remain patient.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.internet.107",
+          "theme": "internet",
+          "fr": "Pourriez-vous m'expliquer comment réinitialiser mon mot de passe ?",
+          "en": "Could you explain how to reset my password?",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.journalisme.101",
+          "theme": "journalisme",
+          "fr": "J'ai téléchargé une application pour suivre les nouvelles locales.",
+          "en": "I downloaded an app to follow local news.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.b1.journalisme.118",
+          "theme": "journalisme",
+          "fr": "Le journaliste a filmé la manifestation avec son propre téléphone.",
+          "en": "The journalist filmed the demonstration with his own phone.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.cinema.008",
+          "theme": "cinema",
+          "fr": "L'actrice a remporté un prix pour son interprétation bouleversante.",
+          "en": "The actress won an award for her moving performance.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musees.015",
+          "theme": "musees",
+          "fr": "Les enfants peuvent entrer gratuitement dans la plupart des musées.",
+          "en": "Children can enter most museums for free.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musees.022",
+          "theme": "musees",
+          "fr": "Ce peintre a exposé ses toiles dans plusieurs galeries européennes.",
+          "en": "This painter exhibited his canvases in several European galleries.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.traditions.016",
+          "theme": "traditions",
+          "fr": "Chaque village a ses propres traditions pour célébrer les récoltes.",
+          "en": "Each village has its own traditions for celebrating the harvest.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.017",
+          "theme": "economie",
+          "fr": "Le gouvernement veut aider les petites entreprises à se développer.",
+          "en": "The government wants to help small businesses grow.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.journalisme.030",
+          "theme": "journalisme",
+          "fr": "Les étudiants en journalisme apprennent à rédiger un article clair.",
+          "en": "Journalism students learn to draft a clear article.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.035",
+          "theme": "economie",
+          "fr": "L'entreprise cherche de nouveaux clients pour augmenter ses ventes.",
+          "en": "The company is looking for new customers to increase its sales.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.internet.114",
+          "theme": "internet",
+          "fr": "Nous aimerions que le formulaire soit disponible aussi en français.",
+          "en": "We would like the form to also be available in French.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musique.011",
+          "theme": "musique",
+          "fr": "Cette chanteuse enregistre son nouvel album dans un studio parisien.",
+          "en": "This singer is recording her new album in a Parisian studio.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.internet.012",
+          "theme": "internet",
+          "fr": "Le moteur de recherche propose des résultats sponsorisés en premier.",
+          "en": "The search engine shows sponsored results first.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musees.118",
+          "theme": "musees",
+          "fr": "En attendant l'ouverture, les visiteurs discutaient devant l'entrée.",
+          "en": "While waiting for the opening, visitors chatted in front of the entrance.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musees.105",
+          "theme": "musees",
+          "fr": "Mon frère aimerait travailler comme médiateur culturel dans un musée.",
+          "en": "My brother would like to work as a cultural mediator in a museum.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.gouvernement.084",
+          "theme": "gouvernement",
+          "fr": "Il est important que les nouveaux arrivants comprennent leurs droits.",
+          "en": "It's important that newcomers understand their rights.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musees.026",
+          "theme": "musees",
+          "fr": "On peut admirer plusieurs sculptures antiques dans la cour intérieure.",
+          "en": "You can admire several ancient sculptures in the inner courtyard.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.traditions.013",
+          "theme": "traditions",
+          "fr": "De temps en temps, les habitants revêtent leurs costumes traditionnels.",
+          "en": "From time to time, the locals put on their traditional costumes.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.litterature.116",
+          "theme": "litterature",
+          "fr": "Cette bibliothécaire connaît presque tous les livres du rayon jeunesse.",
+          "en": "This librarian knows almost every book in the children's section.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-societe.083",
+          "theme": "rp-societe",
+          "fr": "Le vieillissement rapide de la population inquiète de nombreux experts.",
+          "en": "The rapid aging of the population worries many experts.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.096",
+          "theme": "economie",
+          "fr": "Il faudrait que le gouvernement aide davantage les petites entreprises.",
+          "en": "The government would need to help small businesses more.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.musique.078",
+          "theme": "musique",
+          "fr": "Le professeur souhaite que ses élèves progressent rapidement en musique.",
+          "en": "The teacher wants his students to progress quickly in music.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.economie.093",
+          "theme": "economie",
+          "fr": "Comme les loyers augmentent, beaucoup de familles déménagent en banlieue.",
+          "en": "As rents rise, many families are moving to the suburbs.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.103",
+          "theme": "reseaux-sociaux",
+          "fr": "Il paraît que cette application enregistre beaucoup de données personnelles.",
+          "en": "It seems that this app records a lot of personal data.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.rp-technologie.079",
+          "theme": "rp-technologie",
+          "fr": "Le gouvernement propose maintenant plusieurs services accessibles en ligne uniquement.",
+          "en": "The government now offers several services that are only accessible online.",
+          "words": 10
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.009",
+          "theme": "sports-et-loisirs",
+          "fr": "Il fait de l'escalade avec des amis le week-end.",
+          "en": "He goes climbing with friends on the weekend.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.economie.034",
+          "theme": "economie",
+          "fr": "Le prix de l'essence a encore augmenté ce mois-ci.",
+          "en": "The price of gasoline has gone up again this month.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.090",
+          "theme": "sports-et-loisirs",
+          "fr": "Bien qu'il se soit blessé, il a terminé la course.",
+          "en": "Although he got injured, he finished the race.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.014",
+          "theme": "internet",
+          "fr": "La borne wifi du café ne couvre pas toute la salle.",
+          "en": "The café's wifi hotspot doesn't cover the whole room.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.018",
+          "theme": "sports-et-loisirs",
+          "fr": "Il fait de la pêche avec son grand-père le dimanche.",
+          "en": "He goes fishing with his grandfather on Sundays.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.appareils.004",
+          "theme": "appareils",
+          "fr": "J'ai fait tomber ma souris et elle ne fonctionne plus.",
+          "en": "I dropped my mouse and it no longer works.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.021",
+          "theme": "reseaux-sociaux",
+          "fr": "Il a mis son profil en privé pour limiter les inconnus.",
+          "en": "He set his profile to private to limit strangers.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.079",
+          "theme": "sports-et-loisirs",
+          "fr": "Je trouve que la natation est le sport le plus complet.",
+          "en": "I find that swimming is the most complete sport.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.083",
+          "theme": "sports-et-loisirs",
+          "fr": "Depuis qu'il pratique le yoga, il se sent plus détendu.",
+          "en": "Since he has been practicing yoga, he feels more relaxed.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.099",
+          "theme": "reseaux-sociaux",
+          "fr": "Si tu publies cette photo, tout le monde pourra la voir.",
+          "en": "If you post this photo, everyone will be able to see it.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.b1.musique.009",
+          "theme": "musique",
+          "fr": "Mes parents m'ont offert une guitare pour mes quinze ans.",
+          "en": "My parents gave me a guitar for my fifteenth birthday.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.appareils.006",
+          "theme": "appareils",
+          "fr": "Le four à micro-ondes chauffe les plats de façon inégale.",
+          "en": "The microwave heats dishes unevenly.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musique.072",
+          "theme": "musique",
+          "fr": "Il faudrait que le groupe change de nom avant la tournée.",
+          "en": "The band would need to change its name before the tour.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.economie.084",
+          "theme": "economie",
+          "fr": "Je pense que l'économie va s'améliorer l'année prochaine.",
+          "en": "I think the economy will improve next year.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.litterature.013",
+          "theme": "litterature",
+          "fr": "Cette autrice a mis cinq ans à terminer son dernier roman.",
+          "en": "This author took five years to finish her latest novel.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.economie.015",
+          "theme": "economie",
+          "fr": "Beaucoup de jeunes ont du mal à trouver un premier emploi.",
+          "en": "Many young people struggle to find a first job.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.019",
+          "theme": "internet",
+          "fr": "Le service technique a mis deux jours à résoudre la panne.",
+          "en": "Technical support took two days to fix the outage.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.086",
+          "theme": "sports-et-loisirs",
+          "fr": "Quand elle a gagné le tournoi, toute l'équipe était fière.",
+          "en": "When she won the tournament, the whole team was proud.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.112",
+          "theme": "musees",
+          "fr": "Le musée offre un tarif réduit aux étudiants et aux aînés.",
+          "en": "The museum offers a reduced rate for students and seniors.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musique.067",
+          "theme": "musique",
+          "fr": "Bien qu'il soit fatigué, le chanteur a terminé le concert.",
+          "en": "Although he was tired, the singer finished the concert.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.economie.086",
+          "theme": "economie",
+          "fr": "Bien qu'il travaille beaucoup, il n'arrive pas à épargner.",
+          "en": "Although he works a lot, he can't manage to save money.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.018",
+          "theme": "musees",
+          "fr": "Le gardien nous a demandé de ne pas toucher les sculptures.",
+          "en": "The guard asked us not to touch the sculptures.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.021",
+          "theme": "musees",
+          "fr": "L'entrée du musée est gratuite le premier dimanche du mois.",
+          "en": "Admission to the museum is free the first Sunday of the month.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.027",
+          "theme": "musees",
+          "fr": "Cette œuvre est prêtée par un musée étranger pour six mois.",
+          "en": "This work is on loan from a foreign museum for six months.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.018",
+          "theme": "journalisme",
+          "fr": "Le rédacteur en chef a relu l'article avant sa publication.",
+          "en": "The editor-in-chief reread the article before its publication.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.023",
+          "theme": "journalisme",
+          "fr": "Le chroniqueur a publié un billet sur la crise du logement.",
+          "en": "The columnist published a piece on the housing crisis.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.cinema.094",
+          "theme": "cinema",
+          "fr": "Il vaudrait mieux que vous arriviez avant le début du film.",
+          "en": "It would be better if you arrived before the film starts.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.litterature.109",
+          "theme": "litterature",
+          "fr": "Elle a préféré terminer le livre avant de regarder le film.",
+          "en": "She preferred to finish the book before watching the movie.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.litterature.115",
+          "theme": "litterature",
+          "fr": "Il vaudrait mieux que tu commences par un roman plus court.",
+          "en": "It would be better for you to start with a shorter novel.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musique.071",
+          "theme": "musique",
+          "fr": "Nous partirions plus tôt si le concert finissait à l'heure.",
+          "en": "We would leave earlier if the concert ended on time.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-technologie.077",
+          "theme": "rp-technologie",
+          "fr": "Ma tablette ne se connecte plus au réseau depuis hier soir.",
+          "en": "My tablet hasn't been able to connect to the network since last night.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.litterature.015",
+          "theme": "litterature",
+          "fr": "Ce roman raconte l'histoire d'une famille pendant la guerre.",
+          "en": "This novel tells the story of a family during the war.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.economie.037",
+          "theme": "economie",
+          "fr": "Elle a ouvert un compte d'épargne pour préparer sa retraite.",
+          "en": "She opened a savings account to prepare for her retirement.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.111",
+          "theme": "musees",
+          "fr": "Dès que l'exposition ouvrira, nous irons la voir en famille.",
+          "en": "As soon as the exhibition opens, we will go see it as a family.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.014",
+          "theme": "journalisme",
+          "fr": "Ce journaliste a passé des mois à enquêter sur cette affaire.",
+          "en": "This journalist spent months investigating the case.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musique.007",
+          "theme": "musique",
+          "fr": "Le batteur du groupe a cassé une baguette pendant le concert.",
+          "en": "The band's drummer broke a drumstick during the concert.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musique.010",
+          "theme": "musique",
+          "fr": "Le chef d'orchestre lève sa baguette avant le premier accord.",
+          "en": "The conductor raises his baton before the first chord.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.cinema.006",
+          "theme": "cinema",
+          "fr": "Ce film d'horreur m'a vraiment fait sursauter plusieurs fois.",
+          "en": "This horror film really made me jump several times.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-loisirs.075",
+          "theme": "rp-loisirs",
+          "fr": "Nous avons pris des cours de danse ensemble l'année dernière.",
+          "en": "We took dance classes together last year.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-loisirs.084",
+          "theme": "rp-loisirs",
+          "fr": "Ma voisine m'a proposé de rejoindre son équipe de volleyball.",
+          "en": "My neighbour suggested I join her volleyball team.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.108",
+          "theme": "musees",
+          "fr": "Le personnel du musée vérifie les sacs à l'entrée principale.",
+          "en": "The museum staff check bags at the main entrance.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.106",
+          "theme": "journalisme",
+          "fr": "Elle a créé un balado pour parler d'actualité chaque semaine.",
+          "en": "She created a podcast to talk about current events every week.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.litterature.029",
+          "theme": "litterature",
+          "fr": "Beaucoup de lecteurs trouvent la fin de ce livre trop brutale.",
+          "en": "Many readers find the ending of this book too abrupt.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.b1.gouvernement.030",
+          "theme": "gouvernement",
+          "fr": "Le conseil des ministres se réunit chaque mercredi à l'Élysée.",
+          "en": "The Council of Ministers meets every Wednesday at the Élysée.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.appareils.008",
+          "theme": "appareils",
+          "fr": "Le lave-vaisselle affiche un message d'erreur depuis ce matin.",
+          "en": "The dishwasher has been showing an error message since this morning.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.006",
+          "theme": "internet",
+          "fr": "Le débit de ma connexion baisse chaque soir vers vingt heures.",
+          "en": "My connection speed drops every evening around eight o'clock.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.029",
+          "theme": "journalisme",
+          "fr": "Le photographe de presse a pris ce cliché pendant les émeutes.",
+          "en": "The press photographer took this shot during the riots.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.081",
+          "theme": "sports-et-loisirs",
+          "fr": "Bien que je sois fatigué, je continue à courir chaque semaine.",
+          "en": "Although I am tired, I keep running every week.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.085",
+          "theme": "sports-et-loisirs",
+          "fr": "Je crois que la compétition pousse les athlètes à se dépasser.",
+          "en": "I believe that competition pushes athletes to surpass themselves.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.092",
+          "theme": "sports-et-loisirs",
+          "fr": "Le club où je m'entraîne organise un tournoi chaque printemps.",
+          "en": "The club where I train organizes a tournament every spring.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.112",
+          "theme": "reseaux-sociaux",
+          "fr": "Elle poste rarement, mais elle regarde son fil tous les jours.",
+          "en": "She rarely posts, but she checks her feed every day.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.litterature.026",
+          "theme": "litterature",
+          "fr": "Les élèves doivent lire ce roman avant la rentrée de septembre.",
+          "en": "Students must read this novel before the September start of school.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.economie.036",
+          "theme": "economie",
+          "fr": "Les commerçants du marché se plaignent de la baisse des ventes.",
+          "en": "The market vendors are complaining about the drop in sales.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.103",
+          "theme": "musees",
+          "fr": "Je pense que cette maquette représente le vieux port de Québec.",
+          "en": "I think this model represents the old port of Quebec City.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.gouvernement.087",
+          "theme": "gouvernement",
+          "fr": "Tu devrais vérifier si ton permis de travail est encore valide.",
+          "en": "You should check if your work permit is still valid.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.economie.014",
+          "theme": "economie",
+          "fr": "Le taux de chômage a baissé pour la troisième année consécutive.",
+          "en": "The unemployment rate has dropped for the third year in a row.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.economie.018",
+          "theme": "economie",
+          "fr": "Cette usine emploie plus de deux cents personnes dans la région.",
+          "en": "This factory employs more than two hundred people in the region.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.035",
+          "theme": "technologie-quotidienne",
+          "fr": "Si le wifi tombe en panne, nous utiliserons les données mobiles.",
+          "en": "If the wifi goes down, we will use mobile data.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.118",
+          "theme": "reseaux-sociaux",
+          "fr": "Elle a changé ses paramètres pour que son profil devienne privé.",
+          "en": "She changed her settings so that her profile would become private.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musique.014",
+          "theme": "musique",
+          "fr": "Le batteur et le bassiste répètent ensemble tous les jeudis soir.",
+          "en": "The drummer and the bassist rehearse together every Thursday evening.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.ecologie.031",
+          "theme": "ecologie",
+          "fr": "Les enfants apprennent à protéger la nature dès l'école primaire.",
+          "en": "Children learn to protect nature starting in primary school.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.appareils.015",
+          "theme": "appareils",
+          "fr": "Le casque de réalité virtuelle provoque parfois des maux de tête.",
+          "en": "The virtual reality headset sometimes causes headaches.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.011",
+          "theme": "internet",
+          "fr": "Nous avons changé de forfait internet pour avoir plus de données.",
+          "en": "We switched phone plans to get more data.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.017",
+          "theme": "reseaux-sociaux",
+          "fr": "Il a bloqué ce compte après avoir reçu des messages désagréables.",
+          "en": "He blocked this account after receiving unpleasant messages.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.cinema.083",
+          "theme": "cinema",
+          "fr": "Nous voudrions réserver une place pour la séance de vingt heures.",
+          "en": "We would like to book a seat for the eight o'clock showing.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.104",
+          "theme": "internet",
+          "fr": "Elle aimerait que son fils apprenne à coder pendant les vacances.",
+          "en": "She would like her son to learn to code during the holidays.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.111",
+          "theme": "reseaux-sociaux",
+          "fr": "Il vaut mieux vérifier la source avant de croire une information.",
+          "en": "It's better to check the source before believing information.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.015",
+          "theme": "reseaux-sociaux",
+          "fr": "Elle partage presque tout sur les réseaux sociaux, même ses repas.",
+          "en": "She shares almost everything on social media, even her meals.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.traditions.028",
+          "theme": "traditions",
+          "fr": "On perpétue cette tradition malgré les changements de mode de vie.",
+          "en": "This tradition is kept alive despite changes in lifestyle.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.economie.016",
+          "theme": "economie",
+          "fr": "Beaucoup de familles font attention à leurs dépenses en ce moment.",
+          "en": "Many families are watching their spending right now.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.094",
+          "theme": "musees",
+          "fr": "Je voudrais réserver deux billets pour la visite guidée de samedi.",
+          "en": "I would like to book two tickets for Saturday's guided tour.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.104",
+          "theme": "journalisme",
+          "fr": "Nous avons regardé la conférence de presse en direct sur internet.",
+          "en": "We watched the press conference live on the internet.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.gouvernement.025",
+          "theme": "gouvernement",
+          "fr": "Le nouveau maire veut améliorer les transports publics de la ville.",
+          "en": "The new mayor wants to improve the city's public transportation.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.020",
+          "theme": "internet",
+          "fr": "Elle paie un abonnement mensuel pour stocker ses fichiers en ligne.",
+          "en": "She pays a monthly subscription to store her files online.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-loisirs.077",
+          "theme": "rp-loisirs",
+          "fr": "Le festival de musique attire des milliers de visiteurs chaque été.",
+          "en": "The music festival attracts thousands of visitors every summer.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.cinema.088",
+          "theme": "cinema",
+          "fr": "Pourriez-vous me dire à quelle heure commence la prochaine séance ?",
+          "en": "Could you tell me what time the next showing starts?",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.b1.musees.113",
+          "theme": "musees",
+          "fr": "Nous avons pris l'ascenseur parce que les escaliers étaient fermés.",
+          "en": "We took the elevator because the stairs were closed.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.economie.087",
+          "theme": "economie",
+          "fr": "Si les prix continuent à monter, nous devrons réduire nos dépenses.",
+          "en": "If prices keep rising, we will have to cut our spending.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.117",
+          "theme": "journalisme",
+          "fr": "Beaucoup de gens bloquent la publicité sur les sites d'information.",
+          "en": "Many people block ads on news sites.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musique.008",
+          "theme": "musique",
+          "fr": "On entend souvent cette mélodie dans les publicités à la télévision.",
+          "en": "You often hear this melody in television commercials.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musique.015",
+          "theme": "musique",
+          "fr": "Cette radio diffuse uniquement de la musique française l'après-midi.",
+          "en": "This radio station broadcasts only French music in the afternoon.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.028",
+          "theme": "musees",
+          "fr": "Le billet donne également accès à l'exposition temporaire du moment.",
+          "en": "The ticket also gives access to the current temporary exhibition.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.018",
+          "theme": "reseaux-sociaux",
+          "fr": "Elle prend des captures d'écran avant de supprimer ses publications.",
+          "en": "She takes screenshots before deleting her posts.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.047",
+          "theme": "technologie-quotidienne",
+          "fr": "Pendant que je remplissais le formulaire, ma connexion a été coupée.",
+          "en": "While I was filling out the form, my connection was cut off.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-loisirs.082",
+          "theme": "rp-loisirs",
+          "fr": "Nous avons besoin de bénévoles pour animer les ateliers de peinture.",
+          "en": "We need volunteers to run the painting workshops.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.appareils.081",
+          "theme": "appareils",
+          "fr": "Bien que cet aspirateur soit cher, il fonctionne vraiment très bien.",
+          "en": "Although this vacuum cleaner is expensive, it really works very well.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.appareils.085",
+          "theme": "appareils",
+          "fr": "J'aimerais que tu m'expliques comment configurer ce nouveau routeur.",
+          "en": "I would like you to explain to me how to configure this new router.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.001",
+          "theme": "internet",
+          "fr": "Il vaut mieux vérifier ses sources avant de partager une information.",
+          "en": "It's better to check your sources before sharing information.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musique.004",
+          "theme": "musique",
+          "fr": "Le festival de musique attire des milliers de spectateurs chaque été.",
+          "en": "The music festival attracts thousands of spectators every summer.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.023",
+          "theme": "musees",
+          "fr": "Les visiteurs doivent laisser leurs sacs au vestiaire avant d'entrer.",
+          "en": "Visitors must leave their bags at the coatroom before entering.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.025",
+          "theme": "musees",
+          "fr": "Le musée organise des ateliers pour les enfants pendant les vacances.",
+          "en": "The museum organizes workshops for children during the holidays.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.appareils.012",
+          "theme": "appareils",
+          "fr": "Cette console de jeux chauffe beaucoup après une heure d'utilisation.",
+          "en": "This game console gets very hot after an hour of use.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.008",
+          "theme": "internet",
+          "fr": "Ce navigateur enregistre trop de cookies sans me demander mon accord.",
+          "en": "This browser stores too many cookies without asking my consent.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.025",
+          "theme": "reseaux-sociaux",
+          "fr": "Il a désactivé les notifications pour mieux se concentrer au travail.",
+          "en": "He turned off notifications to focus better at work.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.116",
+          "theme": "musees",
+          "fr": "Les élèves ont posé beaucoup de questions pendant la sortie scolaire.",
+          "en": "The students asked a lot of questions during the school outing.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.appareils.087",
+          "theme": "appareils",
+          "fr": "Il faudrait que le service après-vente rappelle le client rapidement.",
+          "en": "The after-sales service should call the customer back quickly.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.107",
+          "theme": "journalisme",
+          "fr": "Ce chroniqueur enregistre son émission dans un petit studio chez lui.",
+          "en": "This columnist records his show in a small studio at home.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.016",
+          "theme": "musees",
+          "fr": "Cette salle abrite une collection de peintures du dix-neuvième siècle.",
+          "en": "This room houses a collection of nineteenth-century paintings.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.026",
+          "theme": "journalisme",
+          "fr": "Ce magazine consacre un dossier complet à l'environnement chaque mois.",
+          "en": "This magazine devotes a full feature to the environment every month.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.100",
+          "theme": "musees",
+          "fr": "Nous cherchons le vestiaire pour déposer nos manteaux avant la visite.",
+          "en": "We are looking for the coat check to leave our coats before the tour.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.ecologie.109",
+          "theme": "ecologie",
+          "fr": "Nous avons remplacé toutes nos ampoules par des modèles plus économes.",
+          "en": "We replaced all our light bulbs with more energy-efficient models.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.gouvernement.093",
+          "theme": "gouvernement",
+          "fr": "Il faudrait que les élus écoutent davantage les habitants du quartier.",
+          "en": "Elected officials should listen more to residents of the neighbourhood.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.110",
+          "theme": "journalisme",
+          "fr": "Les commentaires sous cet article sont souvent modérés par une équipe.",
+          "en": "The comments under this article are often moderated by a team.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.ecologie.027",
+          "theme": "ecologie",
+          "fr": "Cette entreprise a investi dans des panneaux solaires l'année dernière.",
+          "en": "This company invested in solar panels last year.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.gouvernement.027",
+          "theme": "gouvernement",
+          "fr": "Le gouvernement a créé un ministère chargé de la transition écologique.",
+          "en": "The government created a ministry responsible for the ecological transition.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-loisirs.067",
+          "theme": "rp-loisirs",
+          "fr": "Vous pouvez emprunter jusqu'à cinq livres à la bibliothèque municipale.",
+          "en": "You can borrow up to five books from the municipal library.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.099",
+          "theme": "musees",
+          "fr": "Le musée propose une nocturne gratuite chaque premier vendredi du mois.",
+          "en": "The museum offers a free late-night opening every first Friday of the month.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.litterature.098",
+          "theme": "litterature",
+          "fr": "Mon professeur veut que nous analysions le premier chapitre pour lundi.",
+          "en": "My teacher wants us to analyze the first chapter for Monday.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.gouvernement.082",
+          "theme": "gouvernement",
+          "fr": "Je pense que le conseil municipal devrait investir dans les transports.",
+          "en": "I think the city council should invest in transportation.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.b1.rp-technologie.067",
+          "theme": "rp-technologie",
+          "fr": "Elle a téléchargé une application pour suivre ses dépenses chaque mois.",
+          "en": "She downloaded an app to track her spending every month.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.traditions.012",
+          "theme": "traditions",
+          "fr": "Dans certaines régions, on organise une fête pour célébrer les récoltes.",
+          "en": "In some regions, a festival is held to celebrate the harvest.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.gouvernement.029",
+          "theme": "gouvernement",
+          "fr": "Le préfet a rencontré les représentants des commerçants du centre-ville.",
+          "en": "The prefect met with representatives of the downtown shopkeepers.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.093",
+          "theme": "sports-et-loisirs",
+          "fr": "Puisqu'elle voulait progresser, elle a changé de méthode d'entraînement.",
+          "en": "Since she wanted to progress, she changed her training method.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-societe.064",
+          "theme": "rp-societe",
+          "fr": "Il serait utile que la municipalité construise plus de pistes cyclables.",
+          "en": "It would be useful for the municipality to build more bike lanes.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.musees.024",
+          "theme": "musees",
+          "fr": "Cette exposition retrace l'histoire de la photographie depuis ses débuts.",
+          "en": "This exhibition traces the history of photography from its beginnings.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.ecologie.028",
+          "theme": "ecologie",
+          "fr": "Les emballages en plastique posent un vrai problème pour l'environnement.",
+          "en": "Plastic packaging is a real problem for the environment.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.gouvernement.086",
+          "theme": "gouvernement",
+          "fr": "Le maire souhaite que la ville construise davantage de logements sociaux.",
+          "en": "The mayor wants the city to build more social housing.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.111",
+          "theme": "internet",
+          "fr": "Si le service continue à mal fonctionner, nous changerons de fournisseur.",
+          "en": "If the service keeps malfunctioning, we'll change providers.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.journalisme.115",
+          "theme": "journalisme",
+          "fr": "Le rédacteur pense que l'intelligence artificielle va changer son métier.",
+          "en": "The editor thinks that artificial intelligence will change his job.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.ecologie.035",
+          "theme": "ecologie",
+          "fr": "Les associations locales organisent des collectes de déchets sur la plage.",
+          "en": "Local associations organize beach clean-ups.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-societe.071",
+          "theme": "rp-societe",
+          "fr": "Il est essentiel que chaque citoyen aille voter aux élections municipales.",
+          "en": "It's essential that every citizen go vote in municipal elections.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-technologie.062",
+          "theme": "rp-technologie",
+          "fr": "Le formulaire d'immigration se remplit maintenant directement sur le site.",
+          "en": "The immigration form is now filled out directly on the website.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.098",
+          "theme": "internet",
+          "fr": "Si j'avais une meilleure connexion, je travaillerais davantage à distance.",
+          "en": "If I had a better connection, I would work remotely more.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.appareils.080",
+          "theme": "appareils",
+          "fr": "Dès que le routeur sera réparé, la connexion internet redeviendra normale.",
+          "en": "As soon as the router is fixed, the internet connection will go back to normal.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.ecologie.021",
+          "theme": "ecologie",
+          "fr": "Beaucoup de gens utilisent des sacs réutilisables pour faire leurs courses.",
+          "en": "Many people use reusable bags to do their shopping.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.traditions.095",
+          "theme": "traditions",
+          "fr": "Il faudrait que nous respections les coutumes locales quand nous voyageons.",
+          "en": "We should respect local customs when we travel.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.094",
+          "theme": "sports-et-loisirs",
+          "fr": "Je pense que les supporters influencent vraiment la performance des joueurs.",
+          "en": "I think that fans really influence the players' performance.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.020",
+          "theme": "reseaux-sociaux",
+          "fr": "Beaucoup de marques utilisent les réseaux sociaux pour vendre leurs produits.",
+          "en": "Many brands use social media to sell their products.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.appareils.092",
+          "theme": "appareils",
+          "fr": "Il est possible que le magasin remplace gratuitement les écouteurs défectueux.",
+          "en": "It's possible the store will replace the defective earbuds for free.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.traditions.018",
+          "theme": "traditions",
+          "fr": "Les habitants du village se rassemblent chaque printemps pour cette célébration.",
+          "en": "The villagers gather every spring for this celebration.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-loisirs.074",
+          "theme": "rp-loisirs",
+          "fr": "Il est important que les enfants pratiquent une activité physique régulièrement.",
+          "en": "It is important for children to do physical activity regularly.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.108",
+          "theme": "reseaux-sociaux",
+          "fr": "Cette entreprise utilise les réseaux sociaux pour recruter de nouveaux employés.",
+          "en": "This company uses social media to recruit new employees.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.traditions.022",
+          "theme": "traditions",
+          "fr": "Certaines traditions locales disparaissent peu à peu avec les nouvelles générations.",
+          "en": "Some local traditions are gradually disappearing with the new generations.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.rp-technologie.075",
+          "theme": "rp-technologie",
+          "fr": "Nous utilisons une carte d'identité numérique pour certaines démarches administratives.",
+          "en": "We use a digital ID card for certain administrative procedures.",
+          "words": 11
+        },
+        {
+          "id": "fr.b1.internet.010",
+          "theme": "internet",
+          "fr": "Le pare-feu a bloqué l'accès à ce site par précaution.",
+          "en": "The firewall blocked access to this site as a precaution.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.cinema.010",
+          "theme": "cinema",
+          "fr": "Le scénario de ce film s'inspire d'un fait divers réel.",
+          "en": "This film's screenplay is inspired by a real news story.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.049",
+          "theme": "technologie-quotidienne",
+          "fr": "Je ne suis pas sûr que ce vendeur en ligne soit fiable.",
+          "en": "I am not sure that this online seller is reliable.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.cinema.097",
+          "theme": "cinema",
+          "fr": "Il se peut que le film change de titre avant sa sortie.",
+          "en": "It's possible that the film will change its title before its release.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musique.016",
+          "theme": "musique",
+          "fr": "Il chante juste, mais il a du mal à retenir les paroles.",
+          "en": "He sings in tune, but he has trouble remembering the lyrics.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.economie.083",
+          "theme": "economie",
+          "fr": "Il faut que tu fasses attention à ton budget ce mois-ci.",
+          "en": "You need to be careful with your budget this month.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.006",
+          "theme": "sports-et-loisirs",
+          "fr": "Il s'entraîne à la salle de sport trois fois par semaine.",
+          "en": "He trains at the gym three times a week.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musees.104",
+          "theme": "musees",
+          "fr": "Bien que la file soit longue, l'attente en vaut la peine.",
+          "en": "Although the line is long, the wait is worth it.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.b1.rp-technologie.063",
+          "theme": "rp-technologie",
+          "fr": "J'ai oublié mon mot de passe et je dois le réinitialiser.",
+          "en": "I forgot my password and I need to reset it.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.023",
+          "theme": "traditions",
+          "fr": "Ce marché artisanal a lieu tous les ans à la même période.",
+          "en": "This craft market takes place every year at the same time.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.091",
+          "theme": "sports-et-loisirs",
+          "fr": "À mon avis, il vaut mieux pratiquer un sport en plein air.",
+          "en": "In my opinion, it is better to practice an outdoor sport.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.cinema.085",
+          "theme": "cinema",
+          "fr": "Si tu aimes les films d'horreur, tu devrais voir celui-là.",
+          "en": "If you like horror films, you should see that one.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musique.066",
+          "theme": "musique",
+          "fr": "Si j'avais plus de temps, je prendrais des cours de piano.",
+          "en": "If I had more time, I would take piano lessons.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.121",
+          "theme": "reseaux-sociaux",
+          "fr": "On m'a conseillé de limiter mon temps d'écran chaque soir.",
+          "en": "I was advised to limit my screen time every evening.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.litterature.021",
+          "theme": "litterature",
+          "fr": "Il a fallu deux ans à cet écrivain pour terminer son roman.",
+          "en": "It took this writer two years to finish his novel.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musique.064",
+          "theme": "musique",
+          "fr": "Il faut que tu apprennes le solfège si tu veux jouer juste.",
+          "en": "You need to learn music theory if you want to play in tune.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.cinema.004",
+          "theme": "cinema",
+          "fr": "Le réalisateur a choisi de tourner son film en noir et blanc.",
+          "en": "The director chose to shoot his film in black and white.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-loisirs.060",
+          "theme": "rp-loisirs",
+          "fr": "Je voudrais m'inscrire à un cours de poterie le samedi matin.",
+          "en": "I would like to sign up for a pottery class on Saturday mornings.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.cinema.084",
+          "theme": "cinema",
+          "fr": "Je ne pense pas que ce réalisateur ait déjà tourné en France.",
+          "en": "I don't think this director has ever filmed in France.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-societe.063",
+          "theme": "rp-societe",
+          "fr": "Beaucoup de familles ont du mal à payer le loyer chaque mois.",
+          "en": "Many families struggle to pay rent every month.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.internet.112",
+          "theme": "internet",
+          "fr": "Elle a fini par trouver un emploi grâce à un site spécialisé.",
+          "en": "She eventually found a job thanks to a specialized site.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.journalisme.116",
+          "theme": "journalisme",
+          "fr": "Si cette vidéo est fausse, il faut le signaler tout de suite.",
+          "en": "If this video is fake, it must be reported right away.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-loisirs.080",
+          "theme": "rp-loisirs",
+          "fr": "Je fais partie d'une chorale qui répète tous les jeudis soirs.",
+          "en": "I am part of a choir that rehearses every Thursday evening.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.cinema.087",
+          "theme": "cinema",
+          "fr": "Il est possible que le tournage soit retardé à cause du temps.",
+          "en": "It's possible that the filming will be delayed because of the weather.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.cinema.090",
+          "theme": "cinema",
+          "fr": "S'il faisait moins froid, on regarderait le film en plein air.",
+          "en": "If it were less cold, we would watch the film outdoors.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.cinema.092",
+          "theme": "cinema",
+          "fr": "Bien qu'elle déteste les films tristes, elle a adoré celui-ci.",
+          "en": "Although she hates sad films, she loved this one.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.litterature.105",
+          "theme": "litterature",
+          "fr": "Le professeur a demandé qu'on rédige un résumé de trois pages.",
+          "en": "The teacher asked us to write a three-page summary.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.journalisme.102",
+          "theme": "journalisme",
+          "fr": "Si tu veux rester informé, tu peux t'abonner à une infolettre.",
+          "en": "If you want to stay informed, you can subscribe to a newsletter.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.022",
+          "theme": "reseaux-sociaux",
+          "fr": "Cette vidéo a été partagée des milliers de fois en une journée.",
+          "en": "This video was shared thousands of times in one day.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.045",
+          "theme": "technologie-quotidienne",
+          "fr": "Elle a expliqué que le site avait planté au moment du paiement.",
+          "en": "She explained that the site had crashed at the moment of payment.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.internet.102",
+          "theme": "internet",
+          "fr": "Je doute que ce lien soit sécurisé, méfie-toi avant de cliquer.",
+          "en": "I doubt this link is secure, be careful before clicking.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musique.013",
+          "theme": "musique",
+          "fr": "Nous avons acheté nos billets de concert dès leur mise en vente.",
+          "en": "We bought our concert tickets as soon as they went on sale.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.ecologie.026",
+          "theme": "ecologie",
+          "fr": "On peut économiser de l'eau en prenant des douches plus courtes.",
+          "en": "You can save water by taking shorter showers.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-technologie.005",
+          "theme": "rp-technologie",
+          "fr": "Je passe peut-être deux heures par jour sur les réseaux sociaux.",
+          "en": "I spend maybe two hours a day on social media.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.litterature.097",
+          "theme": "litterature",
+          "fr": "Il faut que tu rendes ce livre à la bibliothèque avant vendredi.",
+          "en": "You need to return this book to the library before Friday.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.litterature.106",
+          "theme": "litterature",
+          "fr": "Si cet auteur écrivait une suite, je l'achèterais tout de suite.",
+          "en": "If this author wrote a sequel, I would buy it right away.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.litterature.118",
+          "theme": "litterature",
+          "fr": "Si tu aimes les histoires de voyage, ce roman devrait te plaire.",
+          "en": "If you like travel stories, you should enjoy this novel.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.ecologie.114",
+          "theme": "ecologie",
+          "fr": "Il faut que nous apprenions à mieux gérer nos ressources en eau.",
+          "en": "We need to learn to manage our water resources better.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.journalisme.113",
+          "theme": "journalisme",
+          "fr": "Elle vérifie toujours l'origine d'une image avant de la publier.",
+          "en": "She always checks the origin of an image before publishing it.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.110",
+          "theme": "reseaux-sociaux",
+          "fr": "Si j'avais plus de temps, je publierais du contenu plus souvent.",
+          "en": "If I had more time, I would post content more often.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.appareils.002",
+          "theme": "appareils",
+          "fr": "Dès que mon téléphone tombe en panne, je perds toutes mes photos.",
+          "en": "As soon as my phone breaks down, I lose all my photos.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.b1.cinema.002",
+          "theme": "cinema",
+          "fr": "Le cinéma du quartier propose des séances à prix réduit le lundi.",
+          "en": "The neighborhood cinema offers discounted screenings on Mondays.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.075",
+          "theme": "sports-et-loisirs",
+          "fr": "Je pense que le sport en équipe développe l'esprit de solidarité.",
+          "en": "I think that team sports develop a spirit of solidarity.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.internet.105",
+          "theme": "internet",
+          "fr": "Nous avons dû patienter longtemps avant que le site ne se charge.",
+          "en": "We had to wait a long time before the site loaded.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-loisirs.083",
+          "theme": "rp-loisirs",
+          "fr": "Quand il pleut, les enfants préfèrent jouer à des jeux de société.",
+          "en": "When it rains, the children prefer to play board games.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musees.109",
+          "theme": "musees",
+          "fr": "Il vaudrait mieux réserver en ligne pour éviter la file d'attente.",
+          "en": "It would be better to book online to avoid the line.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.104",
+          "theme": "traditions",
+          "fr": "Il se peut que cette fête vienne d'une ancienne croyance agricole.",
+          "en": "It's possible that this festival comes from an old agricultural belief.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.111",
+          "theme": "traditions",
+          "fr": "Il paraît que cette coutume vient d'un vieux rituel de protection.",
+          "en": "It seems that this custom comes from an old protective ritual.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.litterature.110",
+          "theme": "litterature",
+          "fr": "Il faudrait que les élèves lisent au moins un livre par trimestre.",
+          "en": "Students should read at least one book per term.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.litterature.112",
+          "theme": "litterature",
+          "fr": "Pourriez-vous me recommander un roman facile à lire pour cet été ?",
+          "en": "Could you recommend an easy novel for me to read this summer?",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-technologie.080",
+          "theme": "rp-technologie",
+          "fr": "Elle a signalé un message suspect qu'elle avait reçu par courriel.",
+          "en": "She reported a suspicious message she had received by email.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.appareils.074",
+          "theme": "appareils",
+          "fr": "Si j'avais plus d'argent, j'achèterais un meilleur appareil photo.",
+          "en": "If I had more money, I would buy a better camera.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.113",
+          "theme": "reseaux-sociaux",
+          "fr": "Mon fils voudrait avoir son propre compte, mais il est trop jeune.",
+          "en": "My son would like to have his own account, but he's too young.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.litterature.028",
+          "theme": "litterature",
+          "fr": "Le narrateur de ce roman raconte l'histoire à la première personne.",
+          "en": "The narrator of this novel tells the story in the first person.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.ecologie.033",
+          "theme": "ecologie",
+          "fr": "Nous avons planté des arbres dans le jardin public le mois dernier.",
+          "en": "We planted trees in the public park last month.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musees.102",
+          "theme": "musees",
+          "fr": "Le guide nous a expliqué que cette murale datait du siècle dernier.",
+          "en": "The guide explained to us that this mural dated from the last century.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-societe.072",
+          "theme": "rp-societe",
+          "fr": "Depuis la pandémie, de plus en plus de gens travaillent à distance.",
+          "en": "Since the pandemic, more and more people work remotely.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.106",
+          "theme": "reseaux-sociaux",
+          "fr": "Mon collègue anime une chaîne où il donne des conseils de carrière.",
+          "en": "My colleague runs a channel where he gives career advice.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.litterature.025",
+          "theme": "litterature",
+          "fr": "J'ai emprunté ce livre à la bibliothèque municipale hier après-midi.",
+          "en": "I borrowed this book from the municipal library yesterday afternoon.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.027",
+          "theme": "traditions",
+          "fr": "Les jeunes du village apprennent ces chants dès leur plus jeune âge.",
+          "en": "The young people of the village learn these songs from a very young age.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-societe.060",
+          "theme": "rp-societe",
+          "fr": "Il faut que les jeunes s'impliquent davantage dans la vie citoyenne.",
+          "en": "Young people need to get more involved in civic life.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.gouvernement.092",
+          "theme": "gouvernement",
+          "fr": "Bien qu'elle soit citoyenne depuis peu, elle vote à chaque élection.",
+          "en": "Although she has only recently become a citizen, she votes in every election.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.internet.117",
+          "theme": "internet",
+          "fr": "Le conseiller m'a suggéré de créer un profil professionnel en ligne.",
+          "en": "The advisor suggested I create a professional profile online.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.097",
+          "theme": "reseaux-sociaux",
+          "fr": "Je pense qu'il faut vérifier les informations avant de les partager.",
+          "en": "I think you have to check the information before sharing it.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.105",
+          "theme": "reseaux-sociaux",
+          "fr": "Elle a désactivé son compte parce qu'elle recevait trop de messages.",
+          "en": "She deactivated her account because she was getting too many messages.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.024",
+          "theme": "traditions",
+          "fr": "Les anciens du village veillent à ce que la tradition soit respectée.",
+          "en": "The village elders make sure that the tradition is respected.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.024",
+          "theme": "reseaux-sociaux",
+          "fr": "Le nombre de followers ne reflète pas toujours la qualité du contenu.",
+          "en": "The number of followers doesn't always reflect the quality of the content.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musees.114",
+          "theme": "musees",
+          "fr": "Il se peut que le musée organise une nouvelle exposition cet automne.",
+          "en": "It's possible the museum will organize a new exhibition this fall.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musees.117",
+          "theme": "musees",
+          "fr": "Pourriez-vous m'indiquer où se trouve la salle des arts autochtones ?",
+          "en": "Could you tell me where the Indigenous arts room is?",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.109",
+          "theme": "traditions",
+          "fr": "Quand on arrive dans un nouveau pays, il faut respecter ses coutumes.",
+          "en": "When you arrive in a new country, you have to respect its customs.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-societe.084",
+          "theme": "rp-societe",
+          "fr": "Il faudrait que les villes réduisent davantage la pollution de l'air.",
+          "en": "Cities should further reduce air pollution.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.internet.123",
+          "theme": "internet",
+          "fr": "Je voudrais que tu m'aides à configurer ma nouvelle adresse courriel.",
+          "en": "I would like you to help me set up my new email address.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.appareils.091",
+          "theme": "appareils",
+          "fr": "Si tu avais suivi les instructions, l'imprimante n'aurait pas planté.",
+          "en": "If you had followed the instructions, the printer wouldn't have crashed.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.104",
+          "theme": "reseaux-sociaux",
+          "fr": "J'aimerais que tu arrêtes de regarder ton téléphone pendant le dîner.",
+          "en": "I would like you to stop looking at your phone during dinner.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.b1.journalisme.015",
+          "theme": "journalisme",
+          "fr": "Les lecteurs se plaignent souvent du manque de nuance dans les titres.",
+          "en": "Readers often complain about the lack of nuance in headlines.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.108",
+          "theme": "traditions",
+          "fr": "Il vaudrait mieux que les enfants apprennent ces chants avant la fête.",
+          "en": "It would be better if the children learned these songs before the festival.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.ecologie.103",
+          "theme": "ecologie",
+          "fr": "Si tu triais tes déchets, tu réduirais ton impact sur l'environnement.",
+          "en": "If you sorted your trash, you would reduce your impact on the environment.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.ecologie.108",
+          "theme": "ecologie",
+          "fr": "Il est important que tu apprennes à économiser l'électricité chez toi.",
+          "en": "It's important that you learn to save electricity at home.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-societe.078",
+          "theme": "rp-societe",
+          "fr": "On devrait consacrer plus de fonds publics aux soins de santé mentale.",
+          "en": "We should devote more public funds to mental health care.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.internet.110",
+          "theme": "internet",
+          "fr": "Je ne pense pas que cette application respecte vraiment ma vie privée.",
+          "en": "I don't think this app really respects my privacy.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.004",
+          "theme": "sports-et-loisirs",
+          "fr": "Même si elle déteste perdre, elle accepte de rejouer une dernière fois.",
+          "en": "Even though she hates losing, she agrees to play one more time.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.037",
+          "theme": "technologie-quotidienne",
+          "fr": "Bien que ce site soit sécurisé, je préfère payer par virement bancaire.",
+          "en": "Although this site is secure, I prefer to pay by bank transfer.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musees.098",
+          "theme": "musees",
+          "fr": "Si j'avais plus de temps, je visiterais aussi la collection permanente.",
+          "en": "If I had more time, I would also visit the permanent collection.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.gouvernement.089",
+          "theme": "gouvernement",
+          "fr": "Si le formulaire était plus simple, moins de gens feraient des erreurs.",
+          "en": "If the form were simpler, fewer people would make mistakes.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.appareils.078",
+          "theme": "appareils",
+          "fr": "Il vaudrait mieux que vous éteigniez l'appareil avant de le débrancher.",
+          "en": "It would be better if you turned off the device before unplugging it.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.journalisme.121",
+          "theme": "journalisme",
+          "fr": "J'ai remarqué que cet article circule beaucoup sur les réseaux sociaux.",
+          "en": "I noticed that this article is circulating a lot on social media.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.055",
+          "theme": "technologie-quotidienne",
+          "fr": "Comme mon écran était fissuré, j'ai apporté mon téléphone au réparateur.",
+          "en": "Since my screen was cracked, I took my phone to the repair shop.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.internet.124",
+          "theme": "internet",
+          "fr": "Avant de signer, assure-toi que le site utilise une connexion sécurisée.",
+          "en": "Before signing, make sure the site uses a secure connection.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.appareils.088",
+          "theme": "appareils",
+          "fr": "Elle a expliqué au technicien pourquoi son téléphone ne s'allumait plus.",
+          "en": "She explained to the technician why her phone wouldn't turn on anymore.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musique.012",
+          "theme": "musique",
+          "fr": "Le public a applaudi pendant de longues minutes après le dernier morceau.",
+          "en": "The audience applauded for long minutes after the last piece.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.musees.110",
+          "theme": "musees",
+          "fr": "Cette borne interactive permet aux visiteurs d'explorer le plan du musée.",
+          "en": "This interactive kiosk lets visitors explore the museum map.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.099",
+          "theme": "traditions",
+          "fr": "Il est important que les jeunes connaissent l'histoire de leurs ancêtres.",
+          "en": "It's important that young people know the history of their ancestors.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-societe.079",
+          "theme": "rp-societe",
+          "fr": "Il est possible que le gouvernement réduise les impôts l'année prochaine.",
+          "en": "It's possible the government will lower taxes next year.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.appareils.076",
+          "theme": "appareils",
+          "fr": "Je ne pense pas que cette imprimante soit compatible avec ton ordinateur.",
+          "en": "I don't think this printer is compatible with your computer.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.101",
+          "theme": "reseaux-sociaux",
+          "fr": "Nous devons faire attention à ce que nous écrivons dans les commentaires.",
+          "en": "We need to be careful about what we write in the comments.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.117",
+          "theme": "reseaux-sociaux",
+          "fr": "Il est important que les entreprises répondent aux avis de leurs clients.",
+          "en": "It's important for companies to respond to their customers' reviews.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.internet.009",
+          "theme": "internet",
+          "fr": "Elle a supprimé l'historique de navigation avant de prêter son ordinateur.",
+          "en": "She deleted her browsing history before lending out her computer.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.094",
+          "theme": "traditions",
+          "fr": "Je pense que cette tradition existe depuis très longtemps dans ma famille.",
+          "en": "I think this tradition has existed in my family for a very long time.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.journalisme.114",
+          "theme": "journalisme",
+          "fr": "On reçoit une notification chaque fois qu'un article important est publié.",
+          "en": "You get a notification every time an important article is published.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.106",
+          "theme": "traditions",
+          "fr": "Tu devrais demander à ton oncle comment on fabriquait ces objets autrefois.",
+          "en": "You should ask your uncle how these objects used to be made.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.102",
+          "theme": "reseaux-sociaux",
+          "fr": "Tu devrais changer ton mot de passe régulièrement pour protéger ton compte.",
+          "en": "You should change your password regularly to protect your account.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.114",
+          "theme": "reseaux-sociaux",
+          "fr": "Nous avons signalé ce compte parce qu'il diffusait de fausses informations.",
+          "en": "We reported this account because it was spreading false information.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.litterature.103",
+          "theme": "litterature",
+          "fr": "Il serait utile que la bibliothèque garde ce livre en plusieurs exemplaires.",
+          "en": "It would be useful for the library to keep several copies of this book.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.gouvernement.090",
+          "theme": "gouvernement",
+          "fr": "Le fonctionnaire a expliqué que le dossier serait traité sous deux semaines.",
+          "en": "The civil servant explained that the file would be processed within two weeks.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.020",
+          "theme": "traditions",
+          "fr": "Nos grands-parents nous racontent souvent des histoires liées à ces coutumes.",
+          "en": "Our grandparents often tell us stories connected to these customs.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.traditions.026",
+          "theme": "traditions",
+          "fr": "Cette fête religieuse rassemble toute la communauté autour d'un repas commun.",
+          "en": "This religious festival brings the whole community together around a shared meal.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-societe.076",
+          "theme": "rp-societe",
+          "fr": "Je pense qu'on devrait mieux protéger les droits des travailleurs immigrants.",
+          "en": "I think we should better protect the rights of immigrant workers.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.b1.traditions.116",
+          "theme": "traditions",
+          "fr": "Il faudrait garder cette recette dans la famille pour les générations futures.",
+          "en": "This recipe should be kept in the family for future generations.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.gouvernement.085",
+          "theme": "gouvernement",
+          "fr": "Nous aimerions savoir combien de temps prendra le traitement de notre dossier.",
+          "en": "We would like to know how long the processing of our file will take.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.appareils.089",
+          "theme": "appareils",
+          "fr": "Nous aimerions échanger cet appareil parce qu'il ne fonctionne pas correctement.",
+          "en": "We would like to exchange this device because it isn't working properly.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.036",
+          "theme": "technologie-quotidienne",
+          "fr": "Mon collègue, qui travaille à distance, dépend beaucoup de sa connexion internet.",
+          "en": "My colleague, who works remotely, depends a lot on his internet connection.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-societe.080",
+          "theme": "rp-societe",
+          "fr": "Chaque hiver, des dizaines de bénévoles aident la banque alimentaire du quartier.",
+          "en": "Every winter, dozens of volunteers help the neighborhood food bank.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.internet.120",
+          "theme": "internet",
+          "fr": "Elle craint que ses données personnelles soient revendues à d'autres entreprises.",
+          "en": "She fears her personal data will be resold to other companies.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.rp-societe.069",
+          "theme": "rp-societe",
+          "fr": "Beaucoup de gens pensent que les réseaux sociaux influencent trop les adolescents.",
+          "en": "Many people think social media influences teenagers too much.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.058",
+          "theme": "technologie-quotidienne",
+          "fr": "Les banques recommandent de ne jamais partager son code confidentiel par téléphone.",
+          "en": "Banks recommend never sharing your PIN over the phone.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.048",
+          "theme": "technologie-quotidienne",
+          "fr": "Les personnes qui achètent souvent en ligne connaissent bien les arnaques courantes.",
+          "en": "People who shop online often know common scams well.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.120",
+          "theme": "reseaux-sociaux",
+          "fr": "Beaucoup d'employeurs regardent maintenant le profil des candidats avant l'entretien.",
+          "en": "Many employers now look at candidates' profiles before the interview.",
+          "words": 12
+        },
+        {
+          "id": "fr.b1.cinema.080",
+          "theme": "cinema",
+          "fr": "Si j'avais le temps, j'irais au cinéma tous les week-ends.",
+          "en": "If I had the time, I would go to the cinema every weekend.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.musique.076",
+          "theme": "musique",
+          "fr": "Il se peut que le concert soit annulé à cause de la météo.",
+          "en": "The concert might be cancelled because of the weather.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.cinema.003",
+          "theme": "cinema",
+          "fr": "Cette comédie a fait rire toute la salle du début à la fin.",
+          "en": "This comedy made the whole audience laugh from start to finish.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.078",
+          "theme": "sports-et-loisirs",
+          "fr": "Le joueur qui a marqué le but est devenu le héros du match.",
+          "en": "The player who scored the goal became the hero of the match.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.litterature.113",
+          "theme": "litterature",
+          "fr": "Quand tu auras lu ce chapitre, dis-moi ce que tu en penses.",
+          "en": "Once you've read this chapter, tell me what you think of it.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.cinema.015",
+          "theme": "cinema",
+          "fr": "Nous irons voir la suite de ce film dès sa sortie en salles.",
+          "en": "We will go see the sequel to this film as soon as it comes out in theaters.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.journalisme.025",
+          "theme": "journalisme",
+          "fr": "Il a signé son premier reportage à l'âge de vingt-trois ans.",
+          "en": "He signed his first news report at the age of twenty-three.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.litterature.095",
+          "theme": "litterature",
+          "fr": "Je voudrais que tu me prêtes ce roman quand tu l'auras fini.",
+          "en": "I'd like you to lend me this novel once you've finished it.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.013",
+          "theme": "internet",
+          "fr": "J'ai ajouté ce site à mes favoris pour le retrouver plus vite.",
+          "en": "I added this site to my favourites to find it faster again.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.economie.040",
+          "theme": "economie",
+          "fr": "Il a emprunté de l'argent à la banque pour acheter sa voiture.",
+          "en": "He borrowed money from the bank to buy his car.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.musees.115",
+          "theme": "musees",
+          "fr": "Le café du musée sert un menu léger entre midi et deux heures.",
+          "en": "The museum café serves a light menu between noon and two.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.economie.099",
+          "theme": "economie",
+          "fr": "Même si le salaire est correct, le coût de la vie reste élevé.",
+          "en": "Even if the salary is decent, the cost of living stays high.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.appareils.011",
+          "theme": "appareils",
+          "fr": "J'ai branché le casque audio, mais le son ne sort toujours pas.",
+          "en": "I plugged in the audio headset, but the sound still doesn't come out.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-societe.005",
+          "theme": "rp-societe",
+          "fr": "Je ne suis pas certain d'être d'accord avec cette nouvelle loi.",
+          "en": "I'm not sure I agree with this new law.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.054",
+          "theme": "technologie-quotidienne",
+          "fr": "Il semble que la mise à jour ait réglé le problème de batterie.",
+          "en": "It seems that the update fixed the battery problem.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-loisirs.061",
+          "theme": "rp-loisirs",
+          "fr": "Est-ce que tu voudrais venir avec moi au musée cet après-midi ?",
+          "en": "Would you like to come to the museum with me this afternoon?",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.litterature.096",
+          "theme": "litterature",
+          "fr": "Si j'avais plus de temps libre, je lirais un livre par semaine.",
+          "en": "If I had more free time, I would read one book a week.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.103",
+          "theme": "internet",
+          "fr": "Si tu avais lu les conditions, tu n'aurais pas accepté si vite.",
+          "en": "If you had read the terms, you wouldn't have accepted so quickly.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.027",
+          "theme": "reseaux-sociaux",
+          "fr": "Nous avons créé un groupe pour organiser la fête de fin d'année.",
+          "en": "We created a group to organize the end-of-year party.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.082",
+          "theme": "sports-et-loisirs",
+          "fr": "Le coach nous a dit que la discipline compte plus que le talent.",
+          "en": "The coach told us that discipline matters more than talent.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-loisirs.068",
+          "theme": "rp-loisirs",
+          "fr": "Nous cherchons un club de soccer pour notre fils qui a huit ans.",
+          "en": "We are looking for a soccer club for our eight-year-old son.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.litterature.023",
+          "theme": "litterature",
+          "fr": "Le club de lecture se réunit une fois par mois à la bibliothèque.",
+          "en": "The book club meets once a month at the library.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.appareils.073",
+          "theme": "appareils",
+          "fr": "Il faut que tu répares ton ordinateur avant la fin de la semaine.",
+          "en": "You need to fix your computer before the end of the week.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 15,
+      "items": [
+        {
+          "id": "fr.b1.technologie-quotidienne.033",
+          "theme": "technologie-quotidienne",
+          "fr": "Il faut que tu vérifies l'expéditeur avant de cliquer sur ce lien.",
+          "en": "You need to check the sender before clicking on this link.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.042",
+          "theme": "technologie-quotidienne",
+          "fr": "Nous aurions dû lire les avis avant d'acheter ce produit en ligne.",
+          "en": "We should have read the reviews before buying this product online.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-loisirs.081",
+          "theme": "rp-loisirs",
+          "fr": "Est-ce qu'il existe un abonnement mensuel pour la salle de sport ?",
+          "en": "Is there a monthly membership for the gym?",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-technologie.064",
+          "theme": "rp-technologie",
+          "fr": "Mon patron m'a demandé de participer à la réunion par appel vidéo.",
+          "en": "My boss asked me to join the meeting by video call.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.076",
+          "theme": "sports-et-loisirs",
+          "fr": "Quand j'étais plus jeune, je jouais au football tous les week-ends.",
+          "en": "When I was younger, I played football every weekend.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-loisirs.076",
+          "theme": "rp-loisirs",
+          "fr": "Tu devrais essayer le yoga si tu veux te détendre après le travail.",
+          "en": "You should try yoga if you want to relax after work.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.litterature.100",
+          "theme": "litterature",
+          "fr": "Je ne pense pas que ce livre soit adapté aux débutants en français.",
+          "en": "I don't think this book is suitable for French beginners.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.economie.097",
+          "theme": "economie",
+          "fr": "Depuis qu'elle a changé d'emploi, elle gagne beaucoup mieux sa vie.",
+          "en": "Since she changed jobs, she earns a much better living.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.ecologie.025",
+          "theme": "ecologie",
+          "fr": "Les vélos en libre-service sont de plus en plus populaires en ville.",
+          "en": "Bike-sharing schemes are becoming more and more popular in the city.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.098",
+          "theme": "reseaux-sociaux",
+          "fr": "Mon frère a créé un compte pour vendre ses vieux vêtements en ligne.",
+          "en": "My brother created an account to sell his old clothes online.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.musees.013",
+          "theme": "musees",
+          "fr": "Il faut souvent faire la queue avant d'entrer dans les grands musées.",
+          "en": "You often have to wait in line before entering major museums.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.051",
+          "theme": "technologie-quotidienne",
+          "fr": "Le technicien m'a demandé si j'avais essayé de redémarrer l'appareil.",
+          "en": "The technician asked me if I had tried restarting the device.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-loisirs.064",
+          "theme": "rp-loisirs",
+          "fr": "Mon frère joue de la guitare dans un groupe amateur depuis trois ans.",
+          "en": "My brother has been playing guitar in an amateur band for three years.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-loisirs.069",
+          "theme": "rp-loisirs",
+          "fr": "Bien que la piscine soit fermée le lundi, elle rouvre le mardi matin.",
+          "en": "Although the pool is closed on Mondays, it reopens on Tuesday morning.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.musees.097",
+          "theme": "musees",
+          "fr": "Il faut que tu montres ta carte étudiante pour avoir le tarif réduit.",
+          "en": "You need to show your student card to get the reduced rate.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.traditions.105",
+          "theme": "traditions",
+          "fr": "Ma tante souhaite que toute la famille se réunisse pour le nouvel an.",
+          "en": "My aunt wants the whole family to get together for New Year.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.101",
+          "theme": "internet",
+          "fr": "Dès que j'aurai terminé le formulaire, je te l'enverrai par courriel.",
+          "en": "As soon as I've finished the form, I'll send it to you by email.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.116",
+          "theme": "internet",
+          "fr": "J'aurais aimé que quelqu'un m'explique ce logiciel avant l'entretien.",
+          "en": "I wish someone had explained this software to me before the interview.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.121",
+          "theme": "internet",
+          "fr": "Nous avons attendu que la mise à jour se termine avant de redémarrer.",
+          "en": "We waited for the update to finish before restarting.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.122",
+          "theme": "internet",
+          "fr": "Il semble que le formulaire en ligne ait un problème depuis ce matin.",
+          "en": "It seems the online form has had a problem since this morning.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.cinema.016",
+          "theme": "cinema",
+          "fr": "Le public a longuement applaudi les acteurs à la fin de la projection.",
+          "en": "The audience applauded the actors at length at the end of the screening.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.080",
+          "theme": "sports-et-loisirs",
+          "fr": "Elle a décidé de rejoindre un club dont les membres sont très motivés.",
+          "en": "She decided to join a club whose members are very motivated.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.traditions.117",
+          "theme": "traditions",
+          "fr": "Si tu venais chez nous à Noël, tu verrais nos décorations faites main.",
+          "en": "If you came to our place at Christmas, you would see our handmade decorations.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.ecologie.125",
+          "theme": "ecologie",
+          "fr": "Il faut que je change mon vieux chauffage, il consomme trop d'énergie.",
+          "en": "I need to change my old heater, it uses too much energy.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.115",
+          "theme": "internet",
+          "fr": "Tant que la connexion reste stable, le cours en ligne se passera bien.",
+          "en": "As long as the connection stays stable, the online course will go well.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.088",
+          "theme": "sports-et-loisirs",
+          "fr": "Si l'entraîneur n'était pas si exigeant, l'équipe ne progresserait pas.",
+          "en": "If the coach were not so demanding, the team would not progress.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.traditions.100",
+          "theme": "traditions",
+          "fr": "Quand j'étais enfant, ma grand-mère me racontait des histoires du pays.",
+          "en": "When I was a child, my grandmother used to tell me stories about the country.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.traditions.098",
+          "theme": "traditions",
+          "fr": "On dit que cette chanson populaire porte bonheur à ceux qui la chantent.",
+          "en": "It's said that this popular song brings luck to those who sing it.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.traditions.103",
+          "theme": "traditions",
+          "fr": "Nous aimerions organiser un repas où chacun apporte un plat de son pays.",
+          "en": "We would like to organize a meal where everyone brings a dish from their country.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.traditions.114",
+          "theme": "traditions",
+          "fr": "Avant que la fête commence, tout le monde met ses vêtements du dimanche.",
+          "en": "Before the celebration begins, everyone puts on their Sunday clothes.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.litterature.102",
+          "theme": "litterature",
+          "fr": "Quand j'étais plus jeune, je détestais lire, mais maintenant j'adore ça.",
+          "en": "When I was younger, I hated reading, but now I love it.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.gouvernement.088",
+          "theme": "gouvernement",
+          "fr": "Il se peut que la mairie modifie les horaires du service des passeports.",
+          "en": "It's possible that city hall will change the passport service hours.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-technologie.061",
+          "theme": "rp-technologie",
+          "fr": "Est-ce que tu pourrais m'aider à configurer ma nouvelle boîte courriel ?",
+          "en": "Could you help me set up my new email account?",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 16,
+      "items": [
+        {
+          "id": "fr.b1.rp-technologie.068",
+          "theme": "rp-technologie",
+          "fr": "Nous avons postulé à cet emploi directement sur le site de l'entreprise.",
+          "en": "We applied for this job directly on the company's website.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-technologie.069",
+          "theme": "rp-technologie",
+          "fr": "Le technicien m'a expliqué comment installer la mise à jour du logiciel.",
+          "en": "The technician explained how to install the software update.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.116",
+          "theme": "reseaux-sociaux",
+          "fr": "Tu peux configurer ton compte pour que seuls tes amis voient tes photos.",
+          "en": "You can set up your account so that only your friends see your photos.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.041",
+          "theme": "technologie-quotidienne",
+          "fr": "Quand le livreur est arrivé, personne n'était là pour récupérer le colis.",
+          "en": "When the delivery person arrived, no one was there to pick up the package.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-loisirs.072",
+          "theme": "rp-loisirs",
+          "fr": "Après le travail, je vais souvent courir dans le parc avec des collègues.",
+          "en": "After work, I often go running in the park with colleagues.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.traditions.096",
+          "theme": "traditions",
+          "fr": "Mes parents aimeraient que je participe à la fête du village cette année.",
+          "en": "My parents would like me to take part in the village festival this year.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.litterature.107",
+          "theme": "litterature",
+          "fr": "Tu peux emprunter ce roman à la bibliothèque du quartier, il est gratuit.",
+          "en": "You can borrow this novel from the neighborhood library, it's free.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.litterature.119",
+          "theme": "litterature",
+          "fr": "Mes parents m'ont offert ce livre pour mon anniversaire l'année dernière.",
+          "en": "My parents gave me this book for my birthday last year.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.ecologie.115",
+          "theme": "ecologie",
+          "fr": "Au bureau, on nous demande de trier le papier et le plastique séparément.",
+          "en": "At the office, we're asked to sort paper and plastic separately.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-societe.081",
+          "theme": "rp-societe",
+          "fr": "Il me semble que les inégalités entre les régions ne cessent d'augmenter.",
+          "en": "It seems to me that inequalities between regions keep increasing.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-technologie.060",
+          "theme": "rp-technologie",
+          "fr": "Je dois créer un compte pour accéder au portail du gouvernement en ligne.",
+          "en": "I have to create an account to access the government's online portal.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-technologie.074",
+          "theme": "rp-technologie",
+          "fr": "Le service à la clientèle m'a répondu par clavardage en quelques minutes.",
+          "en": "Customer service answered me by chat within a few minutes.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.108",
+          "theme": "internet",
+          "fr": "Quand j'étais plus jeune, on n'avait pas encore de téléphone intelligent.",
+          "en": "When I was younger, we didn't have smartphones yet.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.057",
+          "theme": "technologie-quotidienne",
+          "fr": "Avant que tu n'achètes ce téléphone, compare les prix sur plusieurs sites.",
+          "en": "Before you buy this phone, compare prices on several sites.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.litterature.111",
+          "theme": "litterature",
+          "fr": "Mon frère lit toujours plusieurs romans en même temps, ça m'étonne encore.",
+          "en": "My brother always reads several novels at once, it still amazes me.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-technologie.071",
+          "theme": "rp-technologie",
+          "fr": "Quand j'étais plus jeune, je n'utilisais pas beaucoup les réseaux sociaux.",
+          "en": "When I was younger, I didn't use social media much.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.appareils.075",
+          "theme": "appareils",
+          "fr": "Le vendeur nous a conseillé de choisir un ordinateur avec plus de mémoire.",
+          "en": "The salesperson advised us to choose a computer with more memory.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.016",
+          "theme": "reseaux-sociaux",
+          "fr": "Beaucoup de jeunes passent des heures à faire défiler leur fil d'actualité.",
+          "en": "Many young people spend hours scrolling through their news feed.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.musees.107",
+          "theme": "musees",
+          "fr": "Après avoir visité la galerie, nous sommes passés par la boutique du musée.",
+          "en": "After visiting the gallery, we went through the museum shop.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.traditions.097",
+          "theme": "traditions",
+          "fr": "Si j'avais le temps, j'apprendrais les danses traditionnelles de ma région.",
+          "en": "If I had time, I would learn the traditional dances of my region.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.100",
+          "theme": "internet",
+          "fr": "Il vaudrait mieux que vous sauvegardiez vos documents avant la mise à jour.",
+          "en": "You'd better back up your documents before the update.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.journalisme.100",
+          "theme": "journalisme",
+          "fr": "Ce site d'actualité propose un abonnement numérique à dix dollars par mois.",
+          "en": "This news site offers a digital subscription for ten dollars a month.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-loisirs.079",
+          "theme": "rp-loisirs",
+          "fr": "Ils organisent une sortie de camping pour les nouveaux arrivants ce mois-ci.",
+          "en": "They are organizing a camping trip for the newcomers this month.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.musees.096",
+          "theme": "musees",
+          "fr": "Quand j'étais enfant, mes parents m'emmenaient souvent au musée le dimanche.",
+          "en": "When I was a child, my parents often took me to the museum on Sundays.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.119",
+          "theme": "internet",
+          "fr": "Si vous perdez votre mot de passe, il faudra contacter le service technique.",
+          "en": "If you lose your password, you'll need to contact technical support.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.traditions.014",
+          "theme": "traditions",
+          "fr": "Dans cette région, on porte encore le costume traditionnel les jours de fête.",
+          "en": "In this region, the traditional costume is still worn on festival days.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.053",
+          "theme": "technologie-quotidienne",
+          "fr": "Une fois que vous aurez créé votre compte, vous pourrez suivre vos commandes.",
+          "en": "Once you have created your account, you will be able to track your orders.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.ecologie.117",
+          "theme": "ecologie",
+          "fr": "Depuis qu'elle habite en ville, elle prend toujours les transports en commun.",
+          "en": "Since she's lived in the city, she always takes public transportation.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.109",
+          "theme": "internet",
+          "fr": "Il faut que tu vérifies l'adresse avant d'envoyer des informations bancaires.",
+          "en": "You need to check the address before sending banking information.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.gouvernement.016",
+          "theme": "gouvernement",
+          "fr": "Le conseil municipal se réunit tous les mois pour discuter des projets locaux.",
+          "en": "The town council meets every month to discuss local projects.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.litterature.104",
+          "theme": "litterature",
+          "fr": "Nous avons discuté du dénouement pendant presque une heure au club de lecture.",
+          "en": "We discussed the ending for almost an hour at the book club.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-technologie.085",
+          "theme": "rp-technologie",
+          "fr": "Je suis inscrit à un cours en ligne pour améliorer mes compétences numériques.",
+          "en": "I'm enrolled in an online course to improve my digital skills.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.journalisme.122",
+          "theme": "journalisme",
+          "fr": "Le site demande vos données personnelles avant de vous laisser lire l'article.",
+          "en": "The site asks for your personal data before letting you read the article.",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "block_id": 17,
+      "items": [
+        {
+          "id": "fr.b1.internet.099",
+          "theme": "internet",
+          "fr": "Bien qu'elle soit débutante, elle arrive à naviguer facilement sur ce logiciel.",
+          "en": "Although she's a beginner, she manages to navigate this software easily.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.ecologie.110",
+          "theme": "ecologie",
+          "fr": "Le professeur veut que les élèves participent au nettoyage du parc samedi matin.",
+          "en": "The teacher wants the students to take part in the park cleanup Saturday morning.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-societe.074",
+          "theme": "rp-societe",
+          "fr": "Il vaudrait mieux que les écoles enseignent l'éducation civique dès le primaire.",
+          "en": "It would be better for schools to teach civics starting in elementary school.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.gouvernement.080",
+          "theme": "gouvernement",
+          "fr": "Le gouvernement propose une loi qui pourrait faciliter l'accès à la citoyenneté.",
+          "en": "The government is proposing a law that could make access to citizenship easier.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.appareils.084",
+          "theme": "appareils",
+          "fr": "Si vous branchiez l'adaptateur correctement, l'écran s'allumerait tout de suite.",
+          "en": "If you plugged in the adapter correctly, the screen would turn on right away.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.ecologie.017",
+          "theme": "ecologie",
+          "fr": "Il faut tenir compte de l'impact environnemental avant de construire cette usine.",
+          "en": "We need to factor in the environmental impact before building this factory.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.gouvernement.015",
+          "theme": "gouvernement",
+          "fr": "Le gouvernement a annoncé une réforme des retraites qui inquiète beaucoup de gens.",
+          "en": "The government has announced a pension reform that worries a lot of people.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.gouvernement.020",
+          "theme": "gouvernement",
+          "fr": "Les habitants du quartier ont signé une pétition contre le projet de construction.",
+          "en": "The residents of the neighborhood signed a petition against the construction project.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.internet.125",
+          "theme": "internet",
+          "fr": "Le directeur souhaite que toute l'équipe suive une formation sur la cybersécurité.",
+          "en": "The director wants the whole team to take a cybersecurity training.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.journalisme.103",
+          "theme": "journalisme",
+          "fr": "Le journaliste a publié son reportage directement sur son compte de réseau social.",
+          "en": "The journalist published his report directly on his social media account.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-societe.068",
+          "theme": "rp-societe",
+          "fr": "Il faudrait que les entreprises versent un salaire plus équitable à leurs employés.",
+          "en": "Companies should pay their employees a fairer wage.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-societe.065",
+          "theme": "rp-societe",
+          "fr": "Les personnes âgées ont souvent besoin d'aide pour utiliser les nouvelles technologies.",
+          "en": "Elderly people often need help using new technology.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-technologie.083",
+          "theme": "rp-technologie",
+          "fr": "Mon collègue préfère utiliser un ordinateur portable plutôt qu'un ordinateur de bureau.",
+          "en": "My colleague prefers using a laptop rather than a desktop computer.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.rp-societe.070",
+          "theme": "rp-societe",
+          "fr": "Les municipalités devraient offrir plus de logements abordables aux familles à faible revenu.",
+          "en": "Municipalities should offer more affordable housing for low-income families.",
+          "words": 13
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.109",
+          "theme": "reseaux-sociaux",
+          "fr": "Je crois que cette vidéo a été vue plus d'un million de fois.",
+          "en": "I think this video has been watched more than a million times.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.internet.113",
+          "theme": "internet",
+          "fr": "Il se peut que le serveur soit en panne à cause de la tempête.",
+          "en": "The server might be down because of the storm.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-societe.067",
+          "theme": "rp-societe",
+          "fr": "On dit que le coût de la vie augmente plus vite que les salaires.",
+          "en": "They say the cost of living is rising faster than salaries.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.107",
+          "theme": "reseaux-sociaux",
+          "fr": "Il faut que je réponde à ces messages avant la fin de la journée.",
+          "en": "I need to reply to these messages before the end of the day.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.cinema.081",
+          "theme": "cinema",
+          "fr": "Bien que le film soit long, il reste passionnant du début à la fin.",
+          "en": "Although the film is long, it remains exciting from start to finish.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-loisirs.062",
+          "theme": "rp-loisirs",
+          "fr": "Il faut que je réserve les billets avant qu'ils ne soient tous vendus.",
+          "en": "I need to book the tickets before they are all sold out.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.musees.101",
+          "theme": "musees",
+          "fr": "Elle a acheté une carte de membre pour visiter le musée toute l'année.",
+          "en": "She bought a membership card to visit the museum all year.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.traditions.107",
+          "theme": "traditions",
+          "fr": "Même si la ville a changé, les gens continuent de célébrer ce jour-là.",
+          "en": "Even though the city has changed, people still celebrate that day.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.traditions.115",
+          "theme": "traditions",
+          "fr": "Cette tradition me tient à cœur parce qu'elle vient de mon grand-père.",
+          "en": "This tradition matters to me because it comes from my grandfather.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.gouvernement.079",
+          "theme": "gouvernement",
+          "fr": "Si j'avais plus de temps, je m'engagerais dans un conseil de quartier.",
+          "en": "If I had more time, I would get involved in a neighbourhood council.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.cinema.099",
+          "theme": "cinema",
+          "fr": "Bien que tu n'aimes pas la science-fiction, ce film pourrait te plaire.",
+          "en": "Although you don't like science fiction, this film might appeal to you.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.cinema.005",
+          "theme": "cinema",
+          "fr": "Nous avons fait la queue pendant une heure avant d'entrer dans la salle.",
+          "en": "We waited in line for an hour before entering the theater.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-technologie.073",
+          "theme": "rp-technologie",
+          "fr": "J'ai pris rendez-vous avec mon médecin grâce à une application de santé.",
+          "en": "I booked an appointment with my doctor through a health app.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.traditions.101",
+          "theme": "traditions",
+          "fr": "Je voudrais que tu m'expliques pourquoi on allume des bougies ce soir-là.",
+          "en": "I would like you to explain to me why we light candles that evening.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.economie.089",
+          "theme": "economie",
+          "fr": "Quand j'ai perdu mon emploi, j'ai dû demander des allocations de chômage.",
+          "en": "When I lost my job, I had to apply for unemployment benefits.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.traditions.113",
+          "theme": "traditions",
+          "fr": "Mon voisin voudrait que je goûte au plat qu'on prépare seulement à Pâques.",
+          "en": "My neighbor would like me to taste the dish that's only made at Easter.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.internet.106",
+          "theme": "internet",
+          "fr": "Il est possible que la panne vienne du routeur plutôt que de l'ordinateur.",
+          "en": "It's possible the outage comes from the router rather than the computer.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.journalisme.123",
+          "theme": "journalisme",
+          "fr": "Il vaudrait mieux vérifier la fiabilité d'un site avant de vous y abonner.",
+          "en": "It would be better to check a site's reliability before subscribing to it.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.ecologie.120",
+          "theme": "ecologie",
+          "fr": "Si tu réparais tes appareils au lieu de les jeter, tu ferais des économies.",
+          "en": "If you repaired your appliances instead of throwing them away, you would save money.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 18,
+      "items": [
+        {
+          "id": "fr.b1.appareils.079",
+          "theme": "appareils",
+          "fr": "Elle voudrait que son fils arrête de jouer sur sa console toute la journée.",
+          "en": "She would like her son to stop playing on his console all day.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-loisirs.070",
+          "theme": "rp-loisirs",
+          "fr": "Ce week-end, on pourrait aller voir une pièce de théâtre au centre culturel.",
+          "en": "This weekend, we could go see a play at the cultural centre.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.appareils.090",
+          "theme": "appareils",
+          "fr": "Pourvu que la batterie tienne jusqu'à ce soir, je pourrai finir mon travail.",
+          "en": "As long as the battery lasts until tonight, I'll be able to finish my work.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.sports-et-loisirs.095",
+          "theme": "sports-et-loisirs",
+          "fr": "Quand on aime vraiment un sport, on trouve toujours le temps de le pratiquer.",
+          "en": "When you truly love a sport, you always find time to practice it.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.046",
+          "theme": "technologie-quotidienne",
+          "fr": "À mon avis, il vaut mieux garder une copie papier de ses documents importants.",
+          "en": "In my opinion, it is better to keep a paper copy of your important documents.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.litterature.114",
+          "theme": "litterature",
+          "fr": "Je trouve que ce roman traite d'un sujet vraiment important pour notre époque.",
+          "en": "I think this novel deals with a subject that is really important for our times.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.appareils.082",
+          "theme": "appareils",
+          "fr": "Tu devrais sauvegarder tes fichiers avant que ton disque dur ne tombe en panne.",
+          "en": "You should back up your files before your hard drive breaks down.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.appareils.083",
+          "theme": "appareils",
+          "fr": "Le magasin exige que le client garde son reçu pour tout appareil sous garantie.",
+          "en": "The store requires the customer to keep their receipt for any device under warranty.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-societe.062",
+          "theme": "rp-societe",
+          "fr": "Je crois qu'il est important de trier ses déchets pour protéger l'environnement.",
+          "en": "I believe it's important to sort your waste to protect the environment.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.gouvernement.028",
+          "theme": "gouvernement",
+          "fr": "Les citoyens peuvent consulter les décisions du conseil sur le site de la mairie.",
+          "en": "Citizens can consult the council's decisions on the town hall's website.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.044",
+          "theme": "technologie-quotidienne",
+          "fr": "Si tu n'actives pas les mises à jour automatiques, ton téléphone sera vulnérable.",
+          "en": "If you do not enable automatic updates, your phone will be vulnerable.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.ecologie.104",
+          "theme": "ecologie",
+          "fr": "Il faudrait que vous éteigniez la lumière chaque fois que vous quittez une pièce.",
+          "en": "You should turn off the light every time you leave a room.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-societe.073",
+          "theme": "rp-societe",
+          "fr": "Certaines familles n'ont toujours pas accès à internet haute vitesse à la maison.",
+          "en": "Some families still don't have access to high-speed internet at home.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.appareils.086",
+          "theme": "appareils",
+          "fr": "Même si le prix était plus élevé, j'achèterais quand même cette montre connectée.",
+          "en": "Even if the price were higher, I would still buy this smartwatch.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.gouvernement.017",
+          "theme": "gouvernement",
+          "fr": "La mairie a ouvert un nouveau service pour aider les habitants avec leurs papiers.",
+          "en": "The town hall opened a new service to help residents with their paperwork.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-technologie.072",
+          "theme": "rp-technologie",
+          "fr": "Il faudrait que tu changes ton mot de passe régulièrement pour rester en sécurité.",
+          "en": "You should change your password regularly to stay safe.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.ecologie.112",
+          "theme": "ecologie",
+          "fr": "Quand il pleut trop peu pendant l'été, le niveau des rivières baisse dangereusement.",
+          "en": "When it rains too little during the summer, river levels drop dangerously.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.ecologie.124",
+          "theme": "ecologie",
+          "fr": "Si nous cultivions un potager dans le jardin, nous mangerions plus de légumes frais.",
+          "en": "If we grew a vegetable garden, we would eat more fresh vegetables.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.internet.096",
+          "theme": "internet",
+          "fr": "Il faudrait que tu changes ton mot de passe régulièrement pour éviter les problèmes.",
+          "en": "You should change your password regularly to avoid problems.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.052",
+          "theme": "technologie-quotidienne",
+          "fr": "Certaines personnes évitent les démarches en ligne parce qu'elles n'ont pas confiance.",
+          "en": "Some people avoid online procedures because they do not trust them.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.ecologie.106",
+          "theme": "ecologie",
+          "fr": "Mes parents ont commencé à composter après avoir suivi un atelier dans notre quartier.",
+          "en": "My parents started composting after taking a workshop in our neighborhood.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.ecologie.119",
+          "theme": "ecologie",
+          "fr": "Quand nous avons visité la ferme biologique, les enfants ont adoré nourrir les poules.",
+          "en": "When we visited the organic farm, the kids loved feeding the chickens.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-societe.075",
+          "theme": "rp-societe",
+          "fr": "Si les loyers continuent d'augmenter, beaucoup de gens devront quitter le centre-ville.",
+          "en": "If rents keep rising, many people will have to leave downtown.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.ecologie.116",
+          "theme": "ecologie",
+          "fr": "Si la mairie installait plus de pistes cyclables, les gens rouleraient moins en voiture.",
+          "en": "If the town hall installed more bike lanes, people would drive less.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.rp-societe.077",
+          "theme": "rp-societe",
+          "fr": "La bibliothèque du quartier offre des cours de français gratuits pour les nouveaux arrivants.",
+          "en": "The neighborhood library offers free French classes for newcomers.",
+          "words": 14
+        },
+        {
+          "id": "fr.b1.cinema.096",
+          "theme": "cinema",
+          "fr": "Si le film n'avait pas eu autant de succès, la suite n'existerait pas.",
+          "en": "If the film hadn't been so successful, the sequel wouldn't exist.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.ecologie.105",
+          "theme": "ecologie",
+          "fr": "Quand j'étais petit, on ne parlait pas autant de l'écologie à l'école.",
+          "en": "When I was little, people didn't talk as much about ecology at school.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.032",
+          "theme": "technologie-quotidienne",
+          "fr": "Quand j'ai perdu mon téléphone, j'ai dû changer tous mes mots de passe.",
+          "en": "When I lost my phone, I had to change all my passwords.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.traditions.102",
+          "theme": "traditions",
+          "fr": "Bien que je sois né ici, je tiens à garder les habitudes de mes parents.",
+          "en": "Although I was born here, I want to keep my parents' habits.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.rp-loisirs.085",
+          "theme": "rp-loisirs",
+          "fr": "Il faudrait que tu t'inscrives avant la fin du mois pour avoir une place.",
+          "en": "You should sign up before the end of the month to get a spot.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.ecologie.127",
+          "theme": "ecologie",
+          "fr": "Ma voisine a offert ses vieux meubles au lieu de les jeter à la décharge.",
+          "en": "My neighbor gave away her old furniture instead of throwing it in the dump.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.internet.097",
+          "theme": "internet",
+          "fr": "Je pense que ce site n'est pas très fiable, on devrait vérifier les avis.",
+          "en": "I think this site isn't very reliable, we should check the reviews.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.rp-loisirs.065",
+          "theme": "rp-loisirs",
+          "fr": "Si j'avais plus de temps libre, je ferais de la randonnée chaque week-end.",
+          "en": "If I had more free time, I would go hiking every weekend.",
+          "words": 15
+        }
+      ]
+    },
+    {
+      "block_id": 19,
+      "items": [
+        {
+          "id": "fr.b1.litterature.117",
+          "theme": "litterature",
+          "fr": "Je suis content que tu aies enfin fini ce roman qui traînait sur ta table.",
+          "en": "I'm glad you finally finished that novel that was sitting on your table.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.ecologie.107",
+          "theme": "ecologie",
+          "fr": "Si on prenait le vélo plus souvent, il y aurait moins de voitures en ville.",
+          "en": "If we took the bike more often, there would be fewer cars in the city.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.traditions.118",
+          "theme": "traditions",
+          "fr": "On m'a dit que ce village organise une grande fête chaque été depuis longtemps.",
+          "en": "I was told that this village has been organizing a big festival every summer for a long time.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.059",
+          "theme": "technologie-quotidienne",
+          "fr": "Bien qu'elle ait activé toutes les alertes, elle n'a rien remarqué d'inhabituel.",
+          "en": "Although she had enabled all the alerts, she noticed nothing unusual.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.060",
+          "theme": "technologie-quotidienne",
+          "fr": "Si j'avais su que le site allait planter, j'aurais sauvegardé mon travail avant.",
+          "en": "If I had known the site was going to crash, I would have saved my work beforehand.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.ecologie.113",
+          "theme": "ecologie",
+          "fr": "Ma sœur a décidé de ne plus acheter de vêtements neufs pour limiter ses déchets.",
+          "en": "My sister decided to stop buying new clothes to limit her waste.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.traditions.112",
+          "theme": "traditions",
+          "fr": "Nous irions plus souvent aux fêtes du quartier si nous avions plus de temps libre.",
+          "en": "We would go to the neighborhood festivals more often if we had more free time.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.ecologie.128",
+          "theme": "ecologie",
+          "fr": "Si le prix de l'essence continuait à augmenter, plus de gens choisiraient le vélo.",
+          "en": "If gas prices kept rising, more people would choose the bike.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.031",
+          "theme": "reseaux-sociaux",
+          "fr": "Il passe moins de temps sur son téléphone depuis qu'il a désinstallé l'application.",
+          "en": "He spends less time on his phone since he uninstalled the app.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.litterature.099",
+          "theme": "litterature",
+          "fr": "Tu devrais essayer ce genre de roman, même si l'histoire semble compliquée au début.",
+          "en": "You should try this kind of novel, even if the story seems complicated at first.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.ecologie.118",
+          "theme": "ecologie",
+          "fr": "Il faudrait que tu vérifies la pression de tes pneus pour consommer moins d'essence.",
+          "en": "You should check your tire pressure to use less gas.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.rp-societe.066",
+          "theme": "rp-societe",
+          "fr": "Si j'avais plus de temps libre, je ferais du bénévolat dans un centre communautaire.",
+          "en": "If I had more free time, I would volunteer at a community center.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.rp-technologie.065",
+          "theme": "rp-technologie",
+          "fr": "Il faut que je sauvegarde mes documents dans le nuage avant de changer d'ordinateur.",
+          "en": "I need to back up my files in the cloud before changing computers.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.appareils.077",
+          "theme": "appareils",
+          "fr": "Si le technicien avait le temps, il viendrait réparer la machine à laver aujourd'hui.",
+          "en": "If the technician had time, he would come fix the washing machine today.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.rp-technologie.082",
+          "theme": "rp-technologie",
+          "fr": "Il est plus pratique de payer ses factures directement depuis son compte bancaire en ligne.",
+          "en": "It's more convenient to pay your bills directly from your online bank account.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.journalisme.099",
+          "theme": "journalisme",
+          "fr": "Beaucoup de jeunes préfèrent s'informer sur les réseaux sociaux plutôt que dans le journal.",
+          "en": "Many young people prefer to get informed on social media rather than in the newspaper.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.ecologie.126",
+          "theme": "ecologie",
+          "fr": "Quand on habite à la campagne, on remarque plus facilement les effets du changement climatique.",
+          "en": "When you live in the countryside, you notice the effects of climate change more easily.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.rp-societe.061",
+          "theme": "rp-societe",
+          "fr": "Si la ville investissait plus dans les transports publics, moins de gens prendraient leur voiture.",
+          "en": "If the city invested more in public transit, fewer people would drive.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.034",
+          "theme": "technologie-quotidienne",
+          "fr": "Je trouve que les démarches administratives en ligne sont parfois compliquées pour les personnes âgées.",
+          "en": "I find that online administrative procedures are sometimes complicated for elderly people.",
+          "words": 15
+        },
+        {
+          "id": "fr.b1.reseaux-sociaux.119",
+          "theme": "reseaux-sociaux",
+          "fr": "Je m'inscrirais bien à ce cours en ligne s'il n'était pas si cher.",
+          "en": "I would gladly sign up for this online course if it weren't so expensive.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.cinema.078",
+          "theme": "cinema",
+          "fr": "Il faut que tu réserves tes places avant qu'il n'y ait plus de billets.",
+          "en": "You need to book your seats before there are no tickets left.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.038",
+          "theme": "technologie-quotidienne",
+          "fr": "Depuis que j'ai reçu ce faux message, je me méfie de tous les liens inconnus.",
+          "en": "Since I received that fake message, I am wary of all unknown links.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.internet.118",
+          "theme": "internet",
+          "fr": "Bien que le site soit lent, il reste le plus complet pour ce genre de recherche.",
+          "en": "Although the site is slow, it remains the most complete for this kind of search.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.056",
+          "theme": "technologie-quotidienne",
+          "fr": "Ce que j'apprécie le plus, c'est de pouvoir régler mes démarches sans me déplacer.",
+          "en": "What I appreciate most is being able to handle my paperwork without traveling.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.ecologie.122",
+          "theme": "ecologie",
+          "fr": "Il vaudrait mieux que vous réserviez vos billets de train à l'avance pour ce voyage.",
+          "en": "It would be better if you booked your train tickets in advance for this trip.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.rp-technologie.076",
+          "theme": "rp-technologie",
+          "fr": "Il est important de vérifier la source d'une nouvelle avant de la partager en ligne.",
+          "en": "It's important to check the source of a news story before sharing it online.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.rp-technologie.070",
+          "theme": "rp-technologie",
+          "fr": "Je pense qu'il vaut mieux vérifier ses courriels avant de cliquer sur un lien inconnu.",
+          "en": "I think it's better to check the sender before clicking an unknown link.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.043",
+          "theme": "technologie-quotidienne",
+          "fr": "Ce qui m'énerve le plus, c'est quand l'application plante pendant une réunion importante.",
+          "en": "What annoys me the most is when the app crashes during an important meeting.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.traditions.110",
+          "theme": "traditions",
+          "fr": "J'aimerais bien que mes enfants connaissent nos traditions même s'ils sont nés au Canada.",
+          "en": "I would really like my children to know our traditions even though they were born in Canada.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.ecologie.121",
+          "theme": "ecologie",
+          "fr": "Le club d'écologie de l'école organise une collecte de bouchons en plastique chaque mois.",
+          "en": "The school's ecology club organizes a plastic bottle-cap collection every month.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.rp-technologie.084",
+          "theme": "rp-technologie",
+          "fr": "Si je perdais mon téléphone, je pourrais quand même accéder à mes documents dans le nuage.",
+          "en": "If I lost my phone, I could still access my documents in the cloud.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.rp-societe.085",
+          "theme": "rp-societe",
+          "fr": "Je trouve que la jeune génération se soucie beaucoup plus de l'environnement que la mienne.",
+          "en": "I find that the younger generation cares much more about the environment than mine does.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.rp-technologie.066",
+          "theme": "rp-technologie",
+          "fr": "Si j'avais une meilleure connexion Wi-Fi, je pourrais travailler de la maison plus souvent.",
+          "en": "If I had a better Wi-Fi connection, I could work from home more often.",
+          "words": 16
+        }
+      ]
+    },
+    {
+      "block_id": 20,
+      "items": [
+        {
+          "id": "fr.b1.rp-societe.082",
+          "theme": "rp-societe",
+          "fr": "Si tu veux vraiment aider ta communauté, tu peux te porter bénévole dans un organisme local.",
+          "en": "If you really want to help your community, you can volunteer with a local organization.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.technologie-quotidienne.031",
+          "theme": "technologie-quotidienne",
+          "fr": "Je pense que les applications de banque en ligne sont plus pratiques que les agences physiques.",
+          "en": "I think that online banking apps are more convenient than physical branches.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.ecologie.111",
+          "theme": "ecologie",
+          "fr": "Si vous achetiez vos légumes chez un producteur local, vous soutiendriez l'économie de la région.",
+          "en": "If you bought your vegetables from a local producer, you would support the regional economy.",
+          "words": 16
+        },
+        {
+          "id": "fr.b1.litterature.101",
+          "theme": "litterature",
+          "fr": "Est-ce que tu préfères lire sur une liseuse ou tenir un vrai livre entre les mains ?",
+          "en": "Do you prefer reading on an e-reader or holding a real book in your hands?",
+          "words": 17
+        },
+        {
+          "id": "fr.b1.ecologie.123",
+          "theme": "ecologie",
+          "fr": "Après avoir lu un article sur la pollution, il a arrêté d'utiliser des pailles en plastique.",
+          "en": "After reading an article about pollution, he stopped using plastic straws.",
+          "words": 17
+        }
+      ]
+    }
+  ]
+}

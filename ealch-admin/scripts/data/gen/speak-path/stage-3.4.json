@@ -1,0 +1,4600 @@
+{
+  "stage": "3.4",
+  "world": 3,
+  "level": "a2",
+  "title": "Les Boutiques",
+  "themes": [
+    "courses",
+    "vetements",
+    "la-ville",
+    "transports-quotidiens",
+    "au-restaurant",
+    "marche",
+    "pronoms-essentiels",
+    "cafe",
+    "cuisine",
+    "argent-quotidien",
+    "maison",
+    "bricolage",
+    "jardinage",
+    "hebergement",
+    "tourisme",
+    "deplacements",
+    "rp-maison",
+    "rp-quotidien",
+    "rp-repas",
+    "rp-achats",
+    "rp-voyage",
+    "rp-loisirs",
+    "sports-et-loisirs",
+    "cinema",
+    "musique",
+    "rp-etiquette"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 637,
+  "dedupedPool": 637,
+  "selected": 637,
+  "blockCount": 20,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.a2.rp-repas.007",
+          "theme": "rp-repas",
+          "fr": "Non merci, ce sera tout.",
+          "en": "No thanks, that will be all.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.070",
+          "theme": "pronoms-essentiels",
+          "fr": "Cela me fait très plaisir.",
+          "en": "That makes me very happy.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.047",
+          "theme": "pronoms-essentiels",
+          "fr": "Toi, tu as toujours raison.",
+          "en": "You, you're always right.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.026",
+          "theme": "pronoms-essentiels",
+          "fr": "Je leur écris chaque semaine.",
+          "en": "I write to them every week.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.bricolage.079",
+          "theme": "bricolage",
+          "fr": "Cette peinture sent très fort.",
+          "en": "This paint smells really strong.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.rp-voyage.006",
+          "theme": "rp-voyage",
+          "fr": "Le prochain train, si possible.",
+          "en": "The next train, if possible.",
+          "words": 5
+        },
+        {
+          "id": "fr.a2.rp-loisirs.006",
+          "theme": "rp-loisirs",
+          "fr": "On n'a pas encore décidé.",
+          "en": "We haven't decided yet.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-maison.005",
+          "theme": "rp-maison",
+          "fr": "J'y habite depuis deux ans.",
+          "en": "I've lived there for two years.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-maison.006",
+          "theme": "rp-maison",
+          "fr": "Il y a beaucoup de lumière.",
+          "en": "There's a lot of light.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.118",
+          "theme": "transports-quotidiens",
+          "fr": "Le train est parti sans nous.",
+          "en": "The train left without us.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.063",
+          "theme": "pronoms-essentiels",
+          "fr": "Eux, ils habitent à la campagne.",
+          "en": "They, they live in the countryside.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-achats.006",
+          "theme": "rp-achats",
+          "fr": "Où sont les cabines d'essayage ?",
+          "en": "Where are the fitting rooms?",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-achats.007",
+          "theme": "rp-achats",
+          "fr": "Merci, je reviens tout de suite.",
+          "en": "Thanks, I'll be right back.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.003",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle le regarde traverser la rue.",
+          "en": "She watches him cross the street.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.038",
+          "theme": "pronoms-essentiels",
+          "fr": "Ils se disputent souvent le soir.",
+          "en": "They often argue in the evening.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.courses.149",
+          "theme": "courses",
+          "fr": "Le facteur passe tous les matins.",
+          "en": "The mailman comes by every morning.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.bricolage.043",
+          "theme": "bricolage",
+          "fr": "Appelle le plombier tout de suite.",
+          "en": "Call the plumber right away.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.008",
+          "theme": "pronoms-essentiels",
+          "fr": "Ils nous attendent devant la gare.",
+          "en": "They're waiting for us in front of the station.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.051",
+          "theme": "pronoms-essentiels",
+          "fr": "Lui, il arrive toujours en avance.",
+          "en": "He always arrives early.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.004",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous le félicitons pour son succès.",
+          "en": "We congratulate him on his success.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.068",
+          "theme": "pronoms-essentiels",
+          "fr": "Écoute bien ceci avant de répondre.",
+          "en": "Listen carefully to this before you answer.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-quotidien.007",
+          "theme": "rp-quotidien",
+          "fr": "Le dimanche, c'est plus tranquille.",
+          "en": "Sundays are calmer.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.courses.131",
+          "theme": "courses",
+          "fr": "Le supermarché ouvre à huit heures.",
+          "en": "The supermarket opens at eight o'clock.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.maison.044",
+          "theme": "maison",
+          "fr": "Nous allons déménager dans un mois.",
+          "en": "We are going to move in a month.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.103",
+          "theme": "transports-quotidiens",
+          "fr": "Nous allons visiter Paris en métro.",
+          "en": "We are going to visit Paris by metro.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.cinema.079",
+          "theme": "cinema",
+          "fr": "Nous sommes allés au cinéma samedi.",
+          "en": "We went to the cinema on Saturday.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.102",
+          "theme": "pronoms-essentiels",
+          "fr": "Tout le monde connaît cette chanson.",
+          "en": "Everyone knows this song.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.argent-quotidien.039",
+          "theme": "argent-quotidien",
+          "fr": "J'ai reçu un remboursement inattendu.",
+          "en": "I got an unexpected refund.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.021",
+          "theme": "pronoms-essentiels",
+          "fr": "Il nous explique la leçon patiemment.",
+          "en": "He explains the lesson to us patiently.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.rp-achats.005",
+          "theme": "rp-achats",
+          "fr": "Je cherche une veste, taille moyenne.",
+          "en": "I'm looking for a jacket, medium size.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.011",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous les félicitons pour leur mariage.",
+          "en": "We congratulate them on their wedding.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.060",
+          "theme": "pronoms-essentiels",
+          "fr": "Vous, vous connaissez déjà la réponse.",
+          "en": "You, you already know the answer.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.courses.152",
+          "theme": "courses",
+          "fr": "Nous devons économiser pour les fêtes.",
+          "en": "We must save money for the holidays.",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.a2.rp-voyage.069",
+          "theme": "rp-voyage",
+          "fr": "Le contrôleur a demandé nos passeports.",
+          "en": "The inspector asked for our passports.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.027",
+          "theme": "pronoms-essentiels",
+          "fr": "Il leur explique la situation calmement.",
+          "en": "He calmly explains the situation to them.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.045",
+          "theme": "pronoms-essentiels",
+          "fr": "Vous vous détendez pendant les vacances.",
+          "en": "You relax during the holidays.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.066",
+          "theme": "pronoms-essentiels",
+          "fr": "Elles, elles arrivent toujours en avance.",
+          "en": "They, they always arrive early.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.007",
+          "theme": "pronoms-essentiels",
+          "fr": "Vous nous comprenez très bien, finalement.",
+          "en": "You understand us very well, actually.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.hebergement.055",
+          "theme": "hebergement",
+          "fr": "Nous allons visiter deux appartements demain.",
+          "en": "We are going to visit two apartments tomorrow.",
+          "words": 6
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.094",
+          "theme": "pronoms-essentiels",
+          "fr": "J'ai quelque chose à te dire.",
+          "en": "I have something to tell you.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.099",
+          "theme": "pronoms-essentiels",
+          "fr": "Chacun fait ce qu'il veut ici.",
+          "en": "Each person does what they want here.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.046",
+          "theme": "pronoms-essentiels",
+          "fr": "Moi, je préfère le thé au café.",
+          "en": "As for me, I prefer tea to coffee.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.065",
+          "theme": "pronoms-essentiels",
+          "fr": "Je pars en week-end avec elles.",
+          "en": "I'm going away for the weekend with them.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.048",
+          "theme": "pronoms-essentiels",
+          "fr": "C'est à toi de jouer maintenant.",
+          "en": "It's your turn to play now.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.courses.137",
+          "theme": "courses",
+          "fr": "Le vendeur m'a rendu la monnaie.",
+          "en": "The salesman gave me my change.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.marche.115",
+          "theme": "marche",
+          "fr": "Je suis allé au marché ce matin.",
+          "en": "I went to the market this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bricolage.050",
+          "theme": "bricolage",
+          "fr": "Tout à coup, l'ampoule a explosé.",
+          "en": "Suddenly, the light bulb burst.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bricolage.054",
+          "theme": "bricolage",
+          "fr": "Mon voisin m'a prêté sa perceuse.",
+          "en": "My neighbor lent me his drill.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.018",
+          "theme": "pronoms-essentiels",
+          "fr": "Je lui envoie un message ce soir.",
+          "en": "I'm sending him/her a message tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.039",
+          "theme": "pronoms-essentiels",
+          "fr": "Elles se marient au mois de juin.",
+          "en": "They are getting married in June.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.072",
+          "theme": "pronoms-essentiels",
+          "fr": "Ça me fait penser à mes vacances.",
+          "en": "That reminds me of my vacation.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-etiquette.007",
+          "theme": "rp-etiquette",
+          "fr": "Tout est en ordre, à demain donc.",
+          "en": "Everything's in order, see you tomorrow then.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.050",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous partons sans lui ce week-end.",
+          "en": "We're leaving without him this weekend.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-repas.006",
+          "theme": "rp-repas",
+          "fr": "Une salade verte, s'il vous plaît.",
+          "en": "A green salad, please.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.musique.021",
+          "theme": "musique",
+          "fr": "Il vient de sortir un nouvel album.",
+          "en": "He just released a new album.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bricolage.066",
+          "theme": "bricolage",
+          "fr": "Ce marteau est trop lourd pour moi.",
+          "en": "This hammer is too heavy for me.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.argent-quotidien.031",
+          "theme": "argent-quotidien",
+          "fr": "Je dois tenir compte de mes dettes.",
+          "en": "I need to take my debts into account.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.104",
+          "theme": "pronoms-essentiels",
+          "fr": "Tout le monde a aimé ce restaurant.",
+          "en": "Everyone liked this restaurant.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.courses.151",
+          "theme": "courses",
+          "fr": "Le budget de la semaine est limité.",
+          "en": "The weekly budget is limited.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.cinema.080",
+          "theme": "cinema",
+          "fr": "Elle a acheté les billets en ligne.",
+          "en": "She bought the tickets online.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.cinema.086",
+          "theme": "cinema",
+          "fr": "Nous avons ri pendant tout le film.",
+          "en": "We laughed throughout the whole film.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-voyage.075",
+          "theme": "rp-voyage",
+          "fr": "Le vol avait deux heures de retard.",
+          "en": "The flight was two hours late.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bricolage.042",
+          "theme": "bricolage",
+          "fr": "J'ai besoin d'une nouvelle perceuse.",
+          "en": "I need a new drill.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bricolage.056",
+          "theme": "bricolage",
+          "fr": "Le tournevis est resté sur l'établi.",
+          "en": "The screwdriver stayed on the workbench.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.013",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle me raconte son voyage au Japon.",
+          "en": "She's telling me about her trip to Japan.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.023",
+          "theme": "pronoms-essentiels",
+          "fr": "Je vous écris une lettre dès demain.",
+          "en": "I'm writing you a letter starting tomorrow.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.a2.argent-quotidien.036",
+          "theme": "argent-quotidien",
+          "fr": "Le virement met deux jours à arriver.",
+          "en": "The transfer takes two days to arrive.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.009",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous vous invitons à dîner chez nous.",
+          "en": "We're inviting you to dinner at our place.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.035",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu t'inquiètes trop souvent, tu sais.",
+          "en": "You worry too often, you know.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.041",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous nous réveillons tôt le week-end.",
+          "en": "We wake up early on weekends.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.062",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous jouons souvent au foot avec eux.",
+          "en": "We often play soccer with them.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.083",
+          "theme": "pronoms-essentiels",
+          "fr": "La robe que tu portes est magnifique.",
+          "en": "The dress you're wearing is beautiful.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.cinema.097",
+          "theme": "cinema",
+          "fr": "J'ai réservé nos places par internet.",
+          "en": "I booked our seats online.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.012",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle les regarde jouer dans le jardin.",
+          "en": "She watches them play in the garden.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.054",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle, elle adore la montagne en hiver.",
+          "en": "She, she loves the mountains in winter.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.057",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous, nous restons ici pour le moment.",
+          "en": "We, we're staying here for now.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.059",
+          "theme": "pronoms-essentiels",
+          "fr": "Je viendrai avec vous à la conférence.",
+          "en": "I'll come with you to the conference.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.096",
+          "theme": "pronoms-essentiels",
+          "fr": "Il cherche quelque chose dans son sac.",
+          "en": "He's looking for something in his bag.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.097",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu veux boire quelque chose de frais ?",
+          "en": "Do you want something cold to drink?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.097",
+          "theme": "transports-quotidiens",
+          "fr": "Je vais prendre le train demain matin.",
+          "en": "I am going to take the train tomorrow morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.vetements.149",
+          "theme": "vetements",
+          "fr": "Tu vas porter ta veste blanche demain?",
+          "en": "Are you going to wear your white jacket tomorrow?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.006",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu la cherches partout depuis ce matin.",
+          "en": "You've been looking for it everywhere since this morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.042",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous nous détendons souvent à la plage.",
+          "en": "We often relax at the beach.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.courses.145",
+          "theme": "courses",
+          "fr": "Le vendeur m'a remboursé sans problème.",
+          "en": "The salesman refunded me without any problem.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.vetements.144",
+          "theme": "vetements",
+          "fr": "Elle porte un manteau gris aujourd'hui.",
+          "en": "She's wearing a gray coat today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.014",
+          "theme": "pronoms-essentiels",
+          "fr": "Mes amis m'écrivent souvent des lettres.",
+          "en": "My friends often write letters to me.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.036",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle se sent beaucoup mieux aujourd'hui.",
+          "en": "She feels much better today.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.100",
+          "theme": "pronoms-essentiels",
+          "fr": "Chacun a apporté quelque chose à manger.",
+          "en": "Everyone brought something to eat.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-loisirs.007",
+          "theme": "rp-loisirs",
+          "fr": "Après, on va manger un morceau ensemble.",
+          "en": "Afterwards, we're going to grab a bite together.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.courses.157",
+          "theme": "courses",
+          "fr": "Le samedi, le marché est très fréquenté.",
+          "en": "On Saturdays, the market is very busy.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.courses.165",
+          "theme": "courses",
+          "fr": "Le client a demandé un sac réutilisable.",
+          "en": "The customer asked for a reusable bag.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.vetements.058",
+          "theme": "vetements",
+          "fr": "Elle change de chaussures selon la météo.",
+          "en": "She changes shoes depending on the weather.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.bricolage.053",
+          "theme": "bricolage",
+          "fr": "Nous devons changer l'ampoule du couloir.",
+          "en": "We need to change the hallway light bulb.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.argent-quotidien.023",
+          "theme": "argent-quotidien",
+          "fr": "Nous venons de payer toutes nos factures.",
+          "en": "We just paid all our bills.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.argent-quotidien.030",
+          "theme": "argent-quotidien",
+          "fr": "Ils ont ouvert un compte joint récemment.",
+          "en": "They recently opened a joint account.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.073",
+          "theme": "pronoms-essentiels",
+          "fr": "Ça change tout pour nous, cette nouvelle.",
+          "en": "That changes everything for us, this news.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.au-restaurant.100",
+          "theme": "au-restaurant",
+          "fr": "Le serveur a apporté l'entrée rapidement.",
+          "en": "The waiter brought the starter quickly.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.056",
+          "theme": "pronoms-essentiels",
+          "fr": "Vous venez dîner chez nous vendredi soir ?",
+          "en": "Are you coming to have dinner at our place on Friday night?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.095",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle a préparé quelque chose de délicieux.",
+          "en": "She prepared something delicious.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.a2.cafe.055",
+          "theme": "cafe",
+          "fr": "Nous allons nous retrouver au café demain.",
+          "en": "We are going to meet at the café tomorrow.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.vetements.179",
+          "theme": "vetements",
+          "fr": "Nous allons repasser les chemises ce soir.",
+          "en": "We are going to iron the shirts tonight.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.cinema.082",
+          "theme": "cinema",
+          "fr": "Le film était trop long, mais intéressant.",
+          "en": "The film was too long, but interesting.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.argent-quotidien.027",
+          "theme": "argent-quotidien",
+          "fr": "Nous devons faire attention à notre budget.",
+          "en": "We need to watch our budget.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.argent-quotidien.029",
+          "theme": "argent-quotidien",
+          "fr": "Le distributeur ne délivre plus de billets.",
+          "en": "The ATM no longer dispenses cash.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-etiquette.005",
+          "theme": "rp-etiquette",
+          "fr": "Allô, bonjour, c'est bien Monsieur Dubois ?",
+          "en": "Hello, is this Mr. Dubois?",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.cafe.058",
+          "theme": "cafe",
+          "fr": "Nous allons partager l'addition entre nous.",
+          "en": "We are going to split the bill between us.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.cinema.087",
+          "theme": "cinema",
+          "fr": "Elle voulait voir ce film depuis longtemps.",
+          "en": "She had wanted to see this film for a long time.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.marche.134",
+          "theme": "marche",
+          "fr": "Je vais retourner au marché samedi prochain.",
+          "en": "I am going to go back to the market next Saturday.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.rp-voyage.079",
+          "theme": "rp-voyage",
+          "fr": "Le douanier nous a posé plusieurs questions.",
+          "en": "The customs officer asked us several questions.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.cafe.061",
+          "theme": "cafe",
+          "fr": "Nous avons discuté longtemps devant nos cafés.",
+          "en": "We chatted for a long time over our coffees.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.argent-quotidien.038",
+          "theme": "argent-quotidien",
+          "fr": "Le commerçant préfère les paiements en espèces.",
+          "en": "The shopkeeper prefers cash payments.",
+          "words": 7
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.090",
+          "theme": "pronoms-essentiels",
+          "fr": "Il y a quelqu'un à la porte.",
+          "en": "There's someone at the door.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.085",
+          "theme": "pronoms-essentiels",
+          "fr": "C'est la ville où je suis né.",
+          "en": "That's the city where I was born.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.argent-quotidien.028",
+          "theme": "argent-quotidien",
+          "fr": "Elle a du mal à finir le mois.",
+          "en": "She struggles to make it to the end of the month.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.087",
+          "theme": "pronoms-essentiels",
+          "fr": "C'est l'endroit où j'ai grandi.",
+          "en": "That's the place where I grew up.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.148",
+          "theme": "courses",
+          "fr": "J'ai envoyé un colis à ma sœur.",
+          "en": "I sent a package to my sister.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.098",
+          "theme": "cinema",
+          "fr": "Elle a pleuré à la fin du film.",
+          "en": "She cried at the end of the film.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.076",
+          "theme": "pronoms-essentiels",
+          "fr": "J'ai un ami qui habite à Berlin.",
+          "en": "I have a friend who lives in Berlin.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.041",
+          "theme": "bricolage",
+          "fr": "Il y a un problème avec la douche.",
+          "en": "There's a problem with the shower.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.argent-quotidien.022",
+          "theme": "argent-quotidien",
+          "fr": "Sa carte a été refusée à la caisse.",
+          "en": "Her card was declined at the checkout.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.089",
+          "theme": "cinema",
+          "fr": "Mon frère a détesté la fin du film.",
+          "en": "My brother hated the ending of the film.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.046",
+          "theme": "bricolage",
+          "fr": "Il est en train de monter l'étagère.",
+          "en": "He's in the middle of putting up the shelf.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cafe.051",
+          "theme": "cafe",
+          "fr": "Hier, j'ai commandé un café au lait.",
+          "en": "Yesterday, I ordered a coffee with milk.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-loisirs.005",
+          "theme": "rp-loisirs",
+          "fr": "On va au cinéma avec des amis samedi.",
+          "en": "We're going to the movies with friends Saturday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.130",
+          "theme": "courses",
+          "fr": "J'ai acheté du pain à la boulangerie.",
+          "en": "I bought bread at the bakery.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.maison.041",
+          "theme": "maison",
+          "fr": "Je vais ranger le garage ce week-end.",
+          "en": "I am going to tidy the garage this weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.maison.045",
+          "theme": "maison",
+          "fr": "J'ai perdu les clés de l'appartement.",
+          "en": "I lost the keys to the apartment.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.100",
+          "theme": "transports-quotidiens",
+          "fr": "Le métro est tombé en panne ce matin.",
+          "en": "The metro broke down this morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.157",
+          "theme": "vetements",
+          "fr": "J'ai perdu un gant pendant le voyage.",
+          "en": "I lost a glove during the trip.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.180",
+          "theme": "vetements",
+          "fr": "J'ai mis mon pyjama gris pour dormir.",
+          "en": "I put on my gray pajamas to sleep.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.078",
+          "theme": "cinema",
+          "fr": "Hier soir, j'ai vu un excellent film.",
+          "en": "Last night, I watched an excellent film.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.052",
+          "theme": "bricolage",
+          "fr": "Elle a acheté un marteau et des clous.",
+          "en": "She bought a hammer and some nails.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.a2.pronoms-essentiels.053",
+          "theme": "pronoms-essentiels",
+          "fr": "Ce cadeau est pour elle, pas pour lui.",
+          "en": "This gift is for her, not for him.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.103",
+          "theme": "pronoms-essentiels",
+          "fr": "Tout le monde attend le début du film.",
+          "en": "Everyone is waiting for the movie to start.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.107",
+          "theme": "transports-quotidiens",
+          "fr": "Je vais louer un vélo pour la journée.",
+          "en": "I am going to rent a bike for the day.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.153",
+          "theme": "vetements",
+          "fr": "J'ai lavé ma chemise blanche ce matin.",
+          "en": "I washed my white shirt this morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.156",
+          "theme": "vetements",
+          "fr": "Elle va acheter un chapeau pour l'été.",
+          "en": "She is going to buy a hat for summer.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-voyage.064",
+          "theme": "rp-voyage",
+          "fr": "J'ai oublié mon passeport à la maison.",
+          "en": "I forgot my passport at home.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.069",
+          "theme": "bricolage",
+          "fr": "Ma sœur a peint sa chambre toute seule.",
+          "en": "My sister painted her room all by herself.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.077",
+          "theme": "bricolage",
+          "fr": "Le tuyau sous l'évier fuit depuis hier.",
+          "en": "The pipe under the sink has been leaking since yesterday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.078",
+          "theme": "pronoms-essentiels",
+          "fr": "Le train qui arrive à midi est complet.",
+          "en": "The train that arrives at noon is full.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.089",
+          "theme": "pronoms-essentiels",
+          "fr": "Quelqu'un a laissé un message pour toi.",
+          "en": "Someone left a message for you.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.110",
+          "theme": "transports-quotidiens",
+          "fr": "Je suis monté dans le mauvais bus hier.",
+          "en": "I got on the wrong bus yesterday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.125",
+          "theme": "transports-quotidiens",
+          "fr": "J'ai garé ma voiture devant la station.",
+          "en": "I parked my car in front of the station.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.148",
+          "theme": "vetements",
+          "fr": "J'ai acheté un pantalon noir hier soir.",
+          "en": "I bought black pants last night.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.musique.053",
+          "theme": "musique",
+          "fr": "J'ai perdu mes écouteurs dans le métro.",
+          "en": "I lost my earbuds on the subway.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.la-ville.004",
+          "theme": "la-ville",
+          "fr": "Le métro est plein aux heures de pointe.",
+          "en": "The subway is full during rush hour.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.020",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle lui demande son avis sur le projet.",
+          "en": "She asks him for his opinion on the project.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.034",
+          "theme": "pronoms-essentiels",
+          "fr": "Je me demande pourquoi il est en retard.",
+          "en": "I wonder why he's late.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.132",
+          "theme": "courses",
+          "fr": "Nous devons acheter du lait et des œufs.",
+          "en": "We need to buy milk and eggs.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.142",
+          "theme": "courses",
+          "fr": "Elle a comparé les prix avant d'acheter.",
+          "en": "She compared prices before buying.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.155",
+          "theme": "courses",
+          "fr": "J'ai trouvé une promotion sur les pâtes.",
+          "en": "I found a promotion on pasta.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.053",
+          "theme": "sports-et-loisirs",
+          "fr": "Il a couru un marathon l'année dernière.",
+          "en": "He ran a marathon last year.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.102",
+          "theme": "transports-quotidiens",
+          "fr": "Il a manqué sa correspondance à la gare.",
+          "en": "He missed his connection at the train station.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.168",
+          "theme": "vetements",
+          "fr": "Il a rangé ses vêtements dans l'armoire.",
+          "en": "He put away his clothes in the closet.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.085",
+          "theme": "cinema",
+          "fr": "J'ai oublié mon téléphone dans la salle.",
+          "en": "I forgot my phone in the theater.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.tourisme.050",
+          "theme": "tourisme",
+          "fr": "Elle a oublié son passeport à la maison.",
+          "en": "She forgot her passport at home.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.057",
+          "theme": "bricolage",
+          "fr": "Elle porte des gants pour peindre le mur.",
+          "en": "She wears gloves to paint the wall.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.071",
+          "theme": "bricolage",
+          "fr": "Il manque deux vis pour finir le montage.",
+          "en": "There are two screws missing to finish the assembly.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cafe.062",
+          "theme": "cafe",
+          "fr": "Elle va commander un thé vert cette fois.",
+          "en": "She is going to order a green tea this time.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.129",
+          "theme": "courses",
+          "fr": "Je vais faire les courses cet après-midi.",
+          "en": "I am going to do the shopping this afternoon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.150",
+          "theme": "courses",
+          "fr": "J'ai besoin de timbres pour cette lettre.",
+          "en": "I need stamps for this letter.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cuisine.055",
+          "theme": "cuisine",
+          "fr": "Tu vas éplucher les pommes pour la tarte.",
+          "en": "You are going to peel the apples for the pie.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.maison.037",
+          "theme": "maison",
+          "fr": "Mon frère a réparé le robinet qui fuyait.",
+          "en": "My brother fixed the leaking faucet.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.113",
+          "theme": "transports-quotidiens",
+          "fr": "J'ai composté mon billet avant de monter.",
+          "en": "I stamped my ticket before boarding.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 6,
+      "items": [
+        {
+          "id": "fr.a2.hebergement.056",
+          "theme": "hebergement",
+          "fr": "Le voisin fait beaucoup de bruit le soir.",
+          "en": "The neighbor makes a lot of noise in the evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.004",
+          "theme": "sports-et-loisirs",
+          "fr": "Mon frère fait du vélo tous les dimanches.",
+          "en": "My brother goes cycling every Sunday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.005",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous l'aidons chaque week-end à déménager.",
+          "en": "We help her move every weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.081",
+          "theme": "pronoms-essentiels",
+          "fr": "Le film que nous avons vu était excellent.",
+          "en": "The movie we saw was excellent.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.au-restaurant.103",
+          "theme": "au-restaurant",
+          "fr": "Je vais goûter la spécialité de la maison.",
+          "en": "I am going to try the house specialty.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.164",
+          "theme": "courses",
+          "fr": "La pharmacie de garde est ouverte la nuit.",
+          "en": "The emergency pharmacy is open at night.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.167",
+          "theme": "courses",
+          "fr": "Demain, je vais rendre ce pull trop grand.",
+          "en": "Tomorrow, I am going to return this sweater that's too big.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cuisine.045",
+          "theme": "cuisine",
+          "fr": "Tu vas préparer une tarte pour le dessert.",
+          "en": "You are going to make a pie for dessert.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.marche.139",
+          "theme": "marche",
+          "fr": "Je vais demander l'origine de ces cerises.",
+          "en": "I am going to ask about the origin of these cherries.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.161",
+          "theme": "vetements",
+          "fr": "J'ai oublié mon parapluie dans le magasin.",
+          "en": "I forgot my umbrella in the store.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.163",
+          "theme": "vetements",
+          "fr": "Nous avons acheté des bottes pour l'hiver.",
+          "en": "We bought boots for winter.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.hebergement.057",
+          "theme": "hebergement",
+          "fr": "J'ai signé le contrat la semaine dernière.",
+          "en": "I signed the contract last week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.musique.019",
+          "theme": "musique",
+          "fr": "Ce chanteur est connu dans le monde entier.",
+          "en": "This singer is known all over the world.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.044",
+          "theme": "bricolage",
+          "fr": "Nous venons de finir de peindre la cuisine.",
+          "en": "We just finished painting the kitchen.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.055",
+          "theme": "bricolage",
+          "fr": "Il faut monter cette étagère avant ce soir.",
+          "en": "This shelf needs to be put up before tonight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.076",
+          "theme": "bricolage",
+          "fr": "Nous avons besoin d'un escabeau plus grand.",
+          "en": "We need a taller stepladder.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.argent-quotidien.026",
+          "theme": "argent-quotidien",
+          "fr": "De temps en temps, je vérifie mes dépenses.",
+          "en": "From time to time, I check my spending.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.argent-quotidien.037",
+          "theme": "argent-quotidien",
+          "fr": "Nous avons dépassé notre budget ce mois-ci.",
+          "en": "We went over our budget this month.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.024",
+          "theme": "pronoms-essentiels",
+          "fr": "Il vous demande votre avis sur la question.",
+          "en": "He's asking for your opinion on the matter.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-repas.005",
+          "theme": "rp-repas",
+          "fr": "Je vais prendre le poulet avec des légumes.",
+          "en": "I'll have the chicken with vegetables.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cuisine.052",
+          "theme": "cuisine",
+          "fr": "J'ai fait la vaisselle après avoir cuisiné.",
+          "en": "I did the dishes after cooking.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.154",
+          "theme": "vetements",
+          "fr": "Cette veste grise coûte trop cher pour moi.",
+          "en": "This gray jacket costs too much for me.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.095",
+          "theme": "cinema",
+          "fr": "Nous avons discuté du film après la séance.",
+          "en": "We discussed the film after the showing.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.musique.057",
+          "theme": "musique",
+          "fr": "Elle a téléchargé l'album entier hier soir.",
+          "en": "She downloaded the whole album last night.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.deplacements.005",
+          "theme": "deplacements",
+          "fr": "Nous avons raté la correspondance à la gare.",
+          "en": "We missed our connection at the station.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.062",
+          "theme": "bricolage",
+          "fr": "Nous montons ce meuble ensemble ce week-end.",
+          "en": "We're putting this piece of furniture together this weekend.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.068",
+          "theme": "bricolage",
+          "fr": "Le vendeur nous a conseillé une bonne colle.",
+          "en": "The salesman recommended a good glue to us.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.argent-quotidien.025",
+          "theme": "argent-quotidien",
+          "fr": "Le banquier nous a proposé un meilleur taux.",
+          "en": "The banker offered us a better rate.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.002",
+          "theme": "pronoms-essentiels",
+          "fr": "Nous t'invitons à notre fête d'anniversaire.",
+          "en": "We're inviting you to our birthday party.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.022",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle nous envoie une carte postale d'Italie.",
+          "en": "She's sending us a postcard from Italy.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.033",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle a trois frères ; elle en parle souvent.",
+          "en": "She has three brothers; she talks about them often.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.086",
+          "theme": "pronoms-essentiels",
+          "fr": "Voici le restaurant où nous avons dîné hier.",
+          "en": "Here's the restaurant where we had dinner yesterday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.au-restaurant.112",
+          "theme": "au-restaurant",
+          "fr": "Je vais réserver une table pour samedi soir.",
+          "en": "I am going to book a table for Saturday evening.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 7,
+      "items": [
+        {
+          "id": "fr.a2.cafe.065",
+          "theme": "cafe",
+          "fr": "Après le café, nous allons visiter le musée.",
+          "en": "After the coffee, we are going to visit the museum.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cuisine.047",
+          "theme": "cuisine",
+          "fr": "Je vais cuisiner un plat végétarien ce soir.",
+          "en": "I am going to cook a vegetarian dish tonight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.maison.040",
+          "theme": "maison",
+          "fr": "Nous avons signé le bail pour l'appartement.",
+          "en": "We signed the lease for the apartment.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.maison.043",
+          "theme": "maison",
+          "fr": "Elle a accroché des rideaux dans la chambre.",
+          "en": "She hung curtains in the bedroom.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.058",
+          "theme": "sports-et-loisirs",
+          "fr": "Après le match, nous avons fêté la victoire.",
+          "en": "After the match, we celebrated the victory.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.109",
+          "theme": "transports-quotidiens",
+          "fr": "Nous avons changé de quai au dernier moment.",
+          "en": "We changed platforms at the last minute.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.084",
+          "theme": "cinema",
+          "fr": "Avant, on regardait des films chez des amis.",
+          "en": "Before, we used to watch films at friends' places.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.077",
+          "theme": "pronoms-essentiels",
+          "fr": "C'est le professeur qui enseigne le français.",
+          "en": "That's the teacher who teaches French.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.au-restaurant.110",
+          "theme": "au-restaurant",
+          "fr": "Le vin que nous avons choisi était excellent.",
+          "en": "The wine we chose was excellent.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.marche.145",
+          "theme": "marche",
+          "fr": "Elle va essayer un nouveau stand de fromages.",
+          "en": "She is going to try a new cheese stall.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.094",
+          "theme": "cinema",
+          "fr": "Le réalisateur a présenté son film au public.",
+          "en": "The director introduced his film to the audience.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.musique.049",
+          "theme": "musique",
+          "fr": "Elle jouait du piano quand elle était petite.",
+          "en": "She used to play piano when she was little.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-voyage.081",
+          "theme": "rp-voyage",
+          "fr": "Nous étions fatigués après un si long voyage.",
+          "en": "We were tired after such a long trip.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.maison.003",
+          "theme": "maison",
+          "fr": "Nous rangeons le salon tous les samedis matin.",
+          "en": "We tidy up the living room every Saturday morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.063",
+          "theme": "bricolage",
+          "fr": "L'évier de la cuisine est complètement bouché.",
+          "en": "The kitchen sink is completely clogged.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.001",
+          "theme": "pronoms-essentiels",
+          "fr": "Mes parents m'aident beaucoup avec mes études.",
+          "en": "My parents help me a lot with my studies.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.019",
+          "theme": "pronoms-essentiels",
+          "fr": "Il lui offre des fleurs pour son anniversaire.",
+          "en": "He gives her flowers for her birthday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cafe.052",
+          "theme": "cafe",
+          "fr": "Nous avons pris le petit-déjeuner en terrasse.",
+          "en": "We had breakfast on the terrace.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cuisine.061",
+          "theme": "cuisine",
+          "fr": "Il va apprendre à cuisiner des plats français.",
+          "en": "He is going to learn to cook French dishes.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.176",
+          "theme": "vetements",
+          "fr": "Nous avons plié les vêtements avant de partir.",
+          "en": "We folded the clothes before leaving.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-voyage.066",
+          "theme": "rp-voyage",
+          "fr": "Nous avons visité trois villes en une semaine.",
+          "en": "We visited three cities in one week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-voyage.067",
+          "theme": "rp-voyage",
+          "fr": "L'hôtel était confortable mais un peu bruyant.",
+          "en": "The hotel was comfortable but a bit noisy.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-voyage.070",
+          "theme": "rp-voyage",
+          "fr": "Nous avons dormi dans une auberge de jeunesse.",
+          "en": "We slept in a youth hostel.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.jardinage.045",
+          "theme": "jardinage",
+          "fr": "Plus on arrose, plus les tomates poussent vite.",
+          "en": "The more you water, the faster the tomatoes grow.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.argent-quotidien.032",
+          "theme": "argent-quotidien",
+          "fr": "Le prélèvement automatique a échoué ce mois-ci.",
+          "en": "The direct debit failed this month.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.044",
+          "theme": "pronoms-essentiels",
+          "fr": "Vous vous réveillez à quelle heure d'habitude ?",
+          "en": "What time do you usually wake up?",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.079",
+          "theme": "pronoms-essentiels",
+          "fr": "Les enfants qui jouent dehors sont mes voisins.",
+          "en": "The children playing outside are my neighbors.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.138",
+          "theme": "courses",
+          "fr": "Nous allons acheter du pain frais demain matin.",
+          "en": "We are going to buy fresh bread tomorrow morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.146",
+          "theme": "courses",
+          "fr": "Nous avons fait la queue pendant vingt minutes.",
+          "en": "We waited in line for twenty minutes.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.maison.042",
+          "theme": "maison",
+          "fr": "Le propriétaire a augmenté le loyer en janvier.",
+          "en": "The landlord raised the rent in January.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.marche.122",
+          "theme": "marche",
+          "fr": "Nous allons faire les courses au marché demain.",
+          "en": "We are going to do the shopping at the market tomorrow.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.054",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous allons regarder le match ce soir ensemble.",
+          "en": "We are going to watch the match together tonight.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.059",
+          "theme": "sports-et-loisirs",
+          "fr": "Elle va commencer le yoga la semaine prochaine.",
+          "en": "She is going to start yoga next week.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 8,
+      "items": [
+        {
+          "id": "fr.a2.vetements.172",
+          "theme": "vetements",
+          "fr": "Nous avons vendu nos vieux vêtements au marché.",
+          "en": "We sold our old clothes at the market.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.174",
+          "theme": "vetements",
+          "fr": "Il va essayer cette chemise blanche en magasin.",
+          "en": "He is going to try on this white shirt in the store.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-voyage.084",
+          "theme": "rp-voyage",
+          "fr": "Nous sommes passés par la douane sans problème.",
+          "en": "We went through customs without a problem.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.033",
+          "theme": "courses",
+          "fr": "Le supermarché est fermé le dimanche après-midi.",
+          "en": "The supermarket is closed on Sunday afternoons.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.au-restaurant.108",
+          "theme": "au-restaurant",
+          "fr": "Nous avons partagé l'addition entre nous quatre.",
+          "en": "We split the bill between the four of us.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.154",
+          "theme": "courses",
+          "fr": "Le prix du beurre a beaucoup augmenté récemment.",
+          "en": "The price of butter has increased a lot recently.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.123",
+          "theme": "transports-quotidiens",
+          "fr": "Ils vont construire une nouvelle ligne de métro.",
+          "en": "They are going to build a new metro line.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.088",
+          "theme": "cinema",
+          "fr": "Le cinéma était plein, alors nous sommes partis.",
+          "en": "The cinema was full, so we left.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.091",
+          "theme": "cinema",
+          "fr": "Nous avons attendu vingt minutes avant d'entrer.",
+          "en": "We waited twenty minutes before going in.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.rp-voyage.071",
+          "theme": "rp-voyage",
+          "fr": "Le guide nous a montré les monuments principaux.",
+          "en": "The guide showed us the main monuments.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.au-restaurant.102",
+          "theme": "au-restaurant",
+          "fr": "Nous allons dîner dans ce restaurant demain soir.",
+          "en": "We are going to have dinner at this restaurant tomorrow evening.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.au-restaurant.109",
+          "theme": "au-restaurant",
+          "fr": "Elle va laisser un généreux pourboire au serveur.",
+          "en": "She is going to leave a generous tip for the waiter.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.au-restaurant.130",
+          "theme": "au-restaurant",
+          "fr": "Après avoir mangé, nous avons demandé l'addition.",
+          "en": "After eating, we asked for the bill.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.099",
+          "theme": "transports-quotidiens",
+          "fr": "Nous avons attendu le tram pendant vingt minutes.",
+          "en": "We waited for the tram for twenty minutes.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.167",
+          "theme": "vetements",
+          "fr": "Nous allons faire les magasins samedi après-midi.",
+          "en": "We are going shopping Saturday afternoon.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.bricolage.059",
+          "theme": "bricolage",
+          "fr": "Le vendeur nous a montré les meilleures peintures.",
+          "en": "The salesman showed us the best paints.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.jardinage.048",
+          "theme": "jardinage",
+          "fr": "Malgré la sécheresse, ses légumes ont bien poussé.",
+          "en": "Despite the drought, her vegetables grew well.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.161",
+          "theme": "courses",
+          "fr": "Il faut présenter le ticket pour un remboursement.",
+          "en": "You must show the receipt for a refund.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.061",
+          "theme": "sports-et-loisirs",
+          "fr": "Comme il pleuvait, nous avons annulé la randonnée.",
+          "en": "Since it was raining, we cancelled the hike.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.160",
+          "theme": "vetements",
+          "fr": "Elle porte une robe blanche pour son anniversaire.",
+          "en": "She's wearing a white dress for her birthday.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.marche.004",
+          "theme": "marche",
+          "fr": "Nous choisissons toujours les fruits les plus mûrs.",
+          "en": "We always pick the ripest fruit.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.au-restaurant.117",
+          "theme": "au-restaurant",
+          "fr": "Ensuite, nous avons commandé un dessert à partager.",
+          "en": "Then, we ordered a dessert to share.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.160",
+          "theme": "courses",
+          "fr": "La caissière a scanné tous les articles rapidement.",
+          "en": "The cashier scanned all the items quickly.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.courses.166",
+          "theme": "courses",
+          "fr": "Nous avons rangé les courses dans le réfrigérateur.",
+          "en": "We put the groceries away in the fridge.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.060",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous avons acheté de nouvelles chaussures de sport.",
+          "en": "We bought new sports shoes.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.062",
+          "theme": "sports-et-loisirs",
+          "fr": "Je vais m'entraîner davantage avant la compétition.",
+          "en": "I am going to train more before the competition.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.112",
+          "theme": "transports-quotidiens",
+          "fr": "Le chauffeur a klaxonné à cause des embouteillages.",
+          "en": "The driver honked because of the traffic jams.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.145",
+          "theme": "vetements",
+          "fr": "Nous allons essayer ces chaussures avant de partir.",
+          "en": "We are going to try on these shoes before leaving.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.092",
+          "theme": "cinema",
+          "fr": "Elle regardait toujours des films le vendredi soir.",
+          "en": "She always used to watch films on Friday evenings.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.100",
+          "theme": "cinema",
+          "fr": "Mes parents allaient souvent au cinéma le dimanche.",
+          "en": "My parents often used to go to the cinema on Sundays.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.la-ville.106",
+          "theme": "la-ville",
+          "fr": "Nous avons visité la bibliothèque après le déjeuner.",
+          "en": "We visited the library after lunch.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.marche.118",
+          "theme": "marche",
+          "fr": "Nous avons visité plusieurs stands avant de choisir.",
+          "en": "We visited several stalls before choosing.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.vetements.175",
+          "theme": "vetements",
+          "fr": "Elle porte toujours des baskets blanches pour courir.",
+          "en": "She always wears white sneakers for running.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 9,
+      "items": [
+        {
+          "id": "fr.a2.au-restaurant.001",
+          "theme": "au-restaurant",
+          "fr": "Nous voudrions réserver une table pour deux personnes.",
+          "en": "We would like to reserve a table for two people.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.au-restaurant.122",
+          "theme": "au-restaurant",
+          "fr": "Ils ont apprécié l'ambiance chaleureuse du restaurant.",
+          "en": "They enjoyed the warm atmosphere of the restaurant.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.maison.036",
+          "theme": "maison",
+          "fr": "Nous allons repeindre la cuisine la semaine prochaine.",
+          "en": "We are going to repaint the kitchen next week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.au-restaurant.126",
+          "theme": "au-restaurant",
+          "fr": "Nous allons fêter notre anniversaire dans ce restaurant.",
+          "en": "We are going to celebrate our anniversary at this restaurant.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.la-ville.084",
+          "theme": "la-ville",
+          "fr": "Nous allons visiter le quartier historique demain matin.",
+          "en": "We are going to visit the historic neighborhood tomorrow morning.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.127",
+          "theme": "transports-quotidiens",
+          "fr": "Nous allons essayer le covoiturage la semaine prochaine.",
+          "en": "We are going to try carpooling next week.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.hebergement.059",
+          "theme": "hebergement",
+          "fr": "Mon frère partage un appartement avec deux colocataires.",
+          "en": "My brother shares an apartment with two roommates.",
+          "words": 8
+        },
+        {
+          "id": "fr.a2.cinema.093",
+          "theme": "cinema",
+          "fr": "J'ai pris du pop-corn et un soda.",
+          "en": "I got popcorn and a soda.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.029",
+          "theme": "pronoms-essentiels",
+          "fr": "Je vais à Paris ; j'y vais en train.",
+          "en": "I'm going to Paris; I'm going there by train.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.032",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu veux du café ? Oui, j'en veux bien.",
+          "en": "Do you want some coffee? Yes, I'd like some.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.096",
+          "theme": "transports-quotidiens",
+          "fr": "Hier, j'ai raté le bus de huit heures.",
+          "en": "Yesterday, I missed the eight o'clock bus.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cafe.003",
+          "theme": "cafe",
+          "fr": "Le café du coin ferme trop tôt le soir.",
+          "en": "The corner café closes too early in the evening.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-maison.007",
+          "theme": "rp-maison",
+          "fr": "Je n'ai pas de jardin, juste un balcon.",
+          "en": "I don't have a garden, just a balcony.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cafe.054",
+          "theme": "cafe",
+          "fr": "Elle a payé sa part et elle est partie.",
+          "en": "She paid her share and she left.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.005",
+          "theme": "au-restaurant",
+          "fr": "Il faut réserver à l'avance le week-end.",
+          "en": "You need to book in advance on weekends.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bricolage.058",
+          "theme": "bricolage",
+          "fr": "Mon frère a percé un trou dans la porte.",
+          "en": "My brother drilled a hole in the door.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.015",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle te raconte tout ce qui s'est passé.",
+          "en": "She's telling you everything that happened.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.082",
+          "theme": "pronoms-essentiels",
+          "fr": "C'est la ville que je préfère en France.",
+          "en": "That's the city I prefer in France.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.091",
+          "theme": "pronoms-essentiels",
+          "fr": "Quelqu'un m'a aidé à porter mes valises.",
+          "en": "Someone helped me carry my suitcases.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.courses.153",
+          "theme": "courses",
+          "fr": "Elle a dépensé trop d'argent ce mois-ci.",
+          "en": "She spent too much money this month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cuisine.050",
+          "theme": "cuisine",
+          "fr": "Tu as goûté la soupe avant de la servir.",
+          "en": "You tasted the soup before serving it.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.la-ville.080",
+          "theme": "la-ville",
+          "fr": "Elle a pris le bus parce qu'il pleuvait.",
+          "en": "She took the bus because it was raining.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.maison.035",
+          "theme": "maison",
+          "fr": "J'ai nettoyé la salle de bains ce matin.",
+          "en": "I cleaned the bathroom this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bricolage.061",
+          "theme": "bricolage",
+          "fr": "Il a oublié d'acheter des vis au magasin.",
+          "en": "He forgot to buy screws at the store.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cuisine.060",
+          "theme": "cuisine",
+          "fr": "Tu as ajouté trop de poivre dans le plat.",
+          "en": "You added too much pepper to the dish.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.105",
+          "theme": "transports-quotidiens",
+          "fr": "Elle a pris un taxi parce qu'il pleuvait.",
+          "en": "She took a taxi because it was raining.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.037",
+          "theme": "pronoms-essentiels",
+          "fr": "On se demande ce qui va se passer ensuite.",
+          "en": "We wonder what's going to happen next.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.105",
+          "theme": "pronoms-essentiels",
+          "fr": "Tout le monde participe à la fête ce soir.",
+          "en": "Everyone is taking part in the party tonight.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-quotidien.005",
+          "theme": "rp-quotidien",
+          "fr": "Je me lève beaucoup plus tard le week-end.",
+          "en": "I get up much later on weekends.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cafe.059",
+          "theme": "cafe",
+          "fr": "Mon collègue m'a invité à prendre un café.",
+          "en": "My colleague invited me for a coffee.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.courses.147",
+          "theme": "courses",
+          "fr": "La poste se trouve à côté de la pharmacie.",
+          "en": "The post office is located next to the pharmacy.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.courses.159",
+          "theme": "courses",
+          "fr": "J'ai oublié mon porte-monnaie à la caisse.",
+          "en": "I forgot my wallet at the checkout.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.143",
+          "theme": "vetements",
+          "fr": "J'ai acheté une robe blanche pour la fête.",
+          "en": "I bought a white dress for the party.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 10,
+      "items": [
+        {
+          "id": "fr.a2.rp-voyage.005",
+          "theme": "rp-voyage",
+          "fr": "Un aller simple pour Lyon, s'il vous plaît.",
+          "en": "A one-way ticket to Lyon, please.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.argent-quotidien.034",
+          "theme": "argent-quotidien",
+          "fr": "Elle a demandé un délai pour payer le loyer.",
+          "en": "She asked for extra time to pay the rent.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.016",
+          "theme": "pronoms-essentiels",
+          "fr": "On te téléphone plus tard dans l'après-midi.",
+          "en": "We'll call you later this afternoon.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.124",
+          "theme": "au-restaurant",
+          "fr": "Elle a remarqué que le plat manquait de sel.",
+          "en": "She noticed that the dish lacked salt.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.125",
+          "theme": "au-restaurant",
+          "fr": "Le gérant est venu s'excuser pour le retard.",
+          "en": "The manager came to apologize for the delay.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cafe.057",
+          "theme": "cafe",
+          "fr": "Ils ont choisi une table près de la fenêtre.",
+          "en": "They chose a table near the window.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.courses.162",
+          "theme": "courses",
+          "fr": "Le colis est arrivé au bureau de poste hier.",
+          "en": "The package arrived at the post office yesterday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.049",
+          "theme": "sports-et-loisirs",
+          "fr": "Hier, j'ai joué au tennis avec mon collègue.",
+          "en": "Yesterday, I played tennis with my colleague.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.147",
+          "theme": "vetements",
+          "fr": "Ma sœur cherche une jupe grise pour l'école.",
+          "en": "My sister is looking for a gray skirt for school.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.152",
+          "theme": "vetements",
+          "fr": "Il fait froid, donc je vais mettre mon pull.",
+          "en": "It's cold, so I'm going to put on my sweater.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.158",
+          "theme": "vetements",
+          "fr": "Le vendeur m'a donné une taille plus grande.",
+          "en": "The salesperson gave me a bigger size.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.177",
+          "theme": "vetements",
+          "fr": "J'ai déchiré mon jean en jouant au football.",
+          "en": "I tore my jeans while playing soccer.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-voyage.077",
+          "theme": "rp-voyage",
+          "fr": "Nous avons pris le dernier bus de la soirée.",
+          "en": "We took the last bus of the evening.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-voyage.083",
+          "theme": "rp-voyage",
+          "fr": "J'ai demandé une chambre donnant sur la mer.",
+          "en": "I asked for a room facing the sea.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bricolage.064",
+          "theme": "bricolage",
+          "fr": "Elle a coincé son doigt en montant l'étagère.",
+          "en": "She pinched her finger while putting up the shelf.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.jardinage.026",
+          "theme": "jardinage",
+          "fr": "Il faut tondre la pelouse avant qu'il pleuve.",
+          "en": "You need to mow the lawn before it rains.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.115",
+          "theme": "au-restaurant",
+          "fr": "Il a demandé si le plat contenait du lactose.",
+          "en": "He asked if the dish contained lactose.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.129",
+          "theme": "au-restaurant",
+          "fr": "Le serveur nous a recommandé le plat du chef.",
+          "en": "The waiter recommended the chef's dish to us.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.courses.136",
+          "theme": "courses",
+          "fr": "J'ai payé mes courses avec ma carte bancaire.",
+          "en": "I paid for my shopping with my bank card.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.101",
+          "theme": "transports-quotidiens",
+          "fr": "Je vais réserver mon billet de train ce soir.",
+          "en": "I am going to book my train ticket tonight.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.173",
+          "theme": "vetements",
+          "fr": "J'ai acheté une cravate grise pour mon frère.",
+          "en": "I bought a gray tie for my brother.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.hebergement.060",
+          "theme": "hebergement",
+          "fr": "La fenêtre de ma chambre donne sur le jardin.",
+          "en": "My bedroom window looks out onto the garden.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-etiquette.006",
+          "theme": "rp-etiquette",
+          "fr": "Je vous appelle au sujet de votre rendez-vous.",
+          "en": "I'm calling about your appointment.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cuisine.051",
+          "theme": "cuisine",
+          "fr": "Il va acheter du pain frais avant le déjeuner.",
+          "en": "He is going to buy fresh bread before lunch.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.la-ville.103",
+          "theme": "la-ville",
+          "fr": "Ils ont fermé le vieux marché pour le rénover.",
+          "en": "They closed the old market to renovate it.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.128",
+          "theme": "transports-quotidiens",
+          "fr": "Le métro a été bondé pendant toute la journée.",
+          "en": "The metro was crowded all day long.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.162",
+          "theme": "vetements",
+          "fr": "Il va porter un costume gris pour l'entretien.",
+          "en": "He is going to wear a gray suit for the interview.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.166",
+          "theme": "vetements",
+          "fr": "Elle a choisi une écharpe grise pour son père.",
+          "en": "She chose a gray scarf for her father.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-voyage.078",
+          "theme": "rp-voyage",
+          "fr": "L'agence de voyages a organisé tout le séjour.",
+          "en": "The travel agency organized the whole stay.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.119",
+          "theme": "au-restaurant",
+          "fr": "Nous avons trouvé ce restaurant grâce à un ami.",
+          "en": "We found this restaurant thanks to a friend.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cafe.056",
+          "theme": "cafe",
+          "fr": "J'ai laissé un petit pourboire pour le serveur.",
+          "en": "I left a small tip for the waiter.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cafe.064",
+          "theme": "cafe",
+          "fr": "Le serveur nous a recommandé le gâteau du jour.",
+          "en": "The waiter recommended the cake of the day to us.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.courses.143",
+          "theme": "courses",
+          "fr": "Ce produit est moins cher dans l'autre magasin.",
+          "en": "This product is cheaper in the other store.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 11,
+      "items": [
+        {
+          "id": "fr.a2.cuisine.054",
+          "theme": "cuisine",
+          "fr": "Nous avons mangé tôt car nous avions très faim.",
+          "en": "We ate early because we were very hungry.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.055",
+          "theme": "sports-et-loisirs",
+          "fr": "Tu as fait de la natation pendant les vacances.",
+          "en": "You went swimming during the vacation.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.001",
+          "theme": "sports-et-loisirs",
+          "fr": "Elle fait de la natation trois fois par semaine.",
+          "en": "She goes swimming three times a week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.004",
+          "theme": "au-restaurant",
+          "fr": "Le serveur nous a recommandé le poisson du jour.",
+          "en": "The waiter recommended the fish of the day to us.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cinema.030",
+          "theme": "cinema",
+          "fr": "Ce réalisateur tourne un film tous les deux ans.",
+          "en": "This director makes a film every two years.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bricolage.051",
+          "theme": "bricolage",
+          "fr": "Mon père répare le lave-linge dans la buanderie.",
+          "en": "My dad is fixing the washing machine in the laundry room.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bricolage.075",
+          "theme": "bricolage",
+          "fr": "Le magasin de bricolage ferme à dix-neuf heures.",
+          "en": "The hardware store closes at seven in the evening.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.argent-quotidien.021",
+          "theme": "argent-quotidien",
+          "fr": "Il vaut mieux comparer les prix avant d'acheter.",
+          "en": "It's better to compare prices before buying.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.argent-quotidien.033",
+          "theme": "argent-quotidien",
+          "fr": "Nous payons le crédit de la voiture chaque mois.",
+          "en": "We pay off the car loan every month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.113",
+          "theme": "au-restaurant",
+          "fr": "Le restaurant a changé sa carte le mois dernier.",
+          "en": "The restaurant changed its menu last month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cuisine.057",
+          "theme": "cuisine",
+          "fr": "Je vais inviter mes voisins à dîner ce vendredi.",
+          "en": "I am going to invite my neighbors to dinner this Friday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.maison.038",
+          "theme": "maison",
+          "fr": "Elle va acheter un nouveau canapé pour le salon.",
+          "en": "She is going to buy a new sofa for the living room.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.065",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous avons visité le stade avant le grand match.",
+          "en": "We visited the stadium before the big match.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.119",
+          "theme": "transports-quotidiens",
+          "fr": "Je vais acheter un carnet de tickets au guichet.",
+          "en": "I am going to buy a book of tickets at the counter.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.178",
+          "theme": "vetements",
+          "fr": "Il fait chaud, alors elle porte une robe légère.",
+          "en": "It's hot, so she's wearing a light dress.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.musique.055",
+          "theme": "musique",
+          "fr": "Le batteur a cassé une baguette pendant le solo.",
+          "en": "The drummer broke a drumstick during the solo.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.hebergement.033",
+          "theme": "hebergement",
+          "fr": "Nous avons besoin d'une chambre pour trois nuits.",
+          "en": "We need a room for three nights.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.010",
+          "theme": "pronoms-essentiels",
+          "fr": "Elle vous attend dans le hall depuis dix minutes.",
+          "en": "She's been waiting for you in the lobby for ten minutes.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.111",
+          "theme": "au-restaurant",
+          "fr": "Après le plat principal, nous avons pris un café.",
+          "en": "After the main course, we had a coffee.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.la-ville.097",
+          "theme": "la-ville",
+          "fr": "Elle a déménagé en ville pour trouver du travail.",
+          "en": "She moved to the city to find work.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.la-ville.102",
+          "theme": "la-ville",
+          "fr": "Le conseil municipal a voté pour un nouveau parc.",
+          "en": "The city council voted for a new park.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.la-ville.113",
+          "theme": "la-ville",
+          "fr": "Comme il faisait beau, nous sommes allés au parc.",
+          "en": "Since the weather was nice, we went to the park.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.marche.137",
+          "theme": "marche",
+          "fr": "Nous avons rempli le panier de légumes de saison.",
+          "en": "We filled the basket with seasonal vegetables.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.170",
+          "theme": "vetements",
+          "fr": "Le pantalon est trop long, il faut le raccourcir.",
+          "en": "The pants are too long, they need to be shortened.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.181",
+          "theme": "vetements",
+          "fr": "Elle a acheté une ceinture noire avec ses bottes.",
+          "en": "She bought a black belt with her boots.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-loisirs.061",
+          "theme": "rp-loisirs",
+          "fr": "Quand j'étais enfant, je jouais souvent du piano.",
+          "en": "When I was a child, I often played the piano.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bricolage.070",
+          "theme": "bricolage",
+          "fr": "Le plombier arrive dans une heure pour le robinet.",
+          "en": "The plumber is coming in an hour for the faucet.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bricolage.072",
+          "theme": "bricolage",
+          "fr": "Nous avons choisi une couleur douce pour le salon.",
+          "en": "We chose a soft color for the living room.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.104",
+          "theme": "au-restaurant",
+          "fr": "Ils ont attendu vingt minutes avant d'être servis.",
+          "en": "They waited twenty minutes before being served.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cafe.053",
+          "theme": "cafe",
+          "fr": "Le serveur va apporter l'addition dans un instant.",
+          "en": "The waiter is going to bring the bill in a moment.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.courses.156",
+          "theme": "courses",
+          "fr": "Ce magasin propose une réduction de dix pour cent.",
+          "en": "This store offers a ten percent discount.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.courses.163",
+          "theme": "courses",
+          "fr": "J'ai rempli un formulaire pour l'envoi recommandé.",
+          "en": "I filled out a form for the registered mail.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.la-ville.092",
+          "theme": "la-ville",
+          "fr": "La police a fermé la rue pendant la manifestation.",
+          "en": "The police closed the street during the demonstration.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 12,
+      "items": [
+        {
+          "id": "fr.a2.la-ville.111",
+          "theme": "la-ville",
+          "fr": "Le nombre d'habitants a augmenté dans cette ville.",
+          "en": "The number of residents has increased in this city.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.marche.124",
+          "theme": "marche",
+          "fr": "Le poissonnier a vendu tout son saumon avant midi.",
+          "en": "The fishmonger sold all his salmon before noon.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.057",
+          "theme": "sports-et-loisirs",
+          "fr": "Je me suis blessé au genou pendant l'entraînement.",
+          "en": "I injured my knee during training.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cinema.081",
+          "theme": "cinema",
+          "fr": "Quand j'étais petit, j'adorais les dessins animés.",
+          "en": "When I was little, I loved cartoons.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cinema.099",
+          "theme": "cinema",
+          "fr": "Nous étions fatigués, mais le film valait le coup.",
+          "en": "We were tired, but the film was worth it.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.musique.054",
+          "theme": "musique",
+          "fr": "Quand j'étais jeune, je chantais dans une chorale.",
+          "en": "When I was young, I sang in a choir.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.tourisme.049",
+          "theme": "tourisme",
+          "fr": "Nous étions fatigués donc nous avons pris un taxi.",
+          "en": "We were tired so we took a taxi.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bricolage.065",
+          "theme": "bricolage",
+          "fr": "Mon oncle sait réparer presque tout dans la maison.",
+          "en": "My uncle knows how to fix almost anything in the house.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.jardinage.034",
+          "theme": "jardinage",
+          "fr": "Il faudrait tailler ce vieux pommier avant l'hiver.",
+          "en": "This old apple tree should be pruned before winter.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.106",
+          "theme": "au-restaurant",
+          "fr": "J'ai oublié de préciser mon allergie aux arachides.",
+          "en": "I forgot to mention my peanut allergy.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.marche.143",
+          "theme": "marche",
+          "fr": "Le marchand va augmenter ses prix le mois prochain.",
+          "en": "The merchant is going to raise his prices next month.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cinema.096",
+          "theme": "cinema",
+          "fr": "Il faisait nuit quand nous sommes sortis du cinéma.",
+          "en": "It was dark out when we left the cinema.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-voyage.072",
+          "theme": "rp-voyage",
+          "fr": "Il pleuvait quand nous sommes arrivés à l'aéroport.",
+          "en": "It was raining when we arrived at the airport.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-voyage.074",
+          "theme": "rp-voyage",
+          "fr": "Nous avons loué une voiture pour visiter la région.",
+          "en": "We rented a car to visit the region.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-voyage.082",
+          "theme": "rp-voyage",
+          "fr": "Le camping affichait complet pour tout le week-end.",
+          "en": "The campsite was showing full for the whole weekend.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-voyage.085",
+          "theme": "rp-voyage",
+          "fr": "Le steward a annoncé une turbulence pendant le vol.",
+          "en": "The flight attendant announced turbulence during the flight.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cuisine.004",
+          "theme": "cuisine",
+          "fr": "Ma mère prépare toujours une soupe le dimanche soir.",
+          "en": "My mother always makes soup on Sunday evenings.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bricolage.078",
+          "theme": "bricolage",
+          "fr": "Mon mari a monté la nouvelle bibliothèque tout seul.",
+          "en": "My husband put together the new bookcase by himself.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.argent-quotidien.040",
+          "theme": "argent-quotidien",
+          "fr": "Ils négocient le prix du loyer avec le propriétaire.",
+          "en": "They're negotiating the rent price with the landlord.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.la-ville.090",
+          "theme": "la-ville",
+          "fr": "Je suis arrivé en retard à cause des embouteillages.",
+          "en": "I arrived late because of the traffic jams.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.la-ville.110",
+          "theme": "la-ville",
+          "fr": "Nous avons découvert un joli parc derrière l'église.",
+          "en": "We discovered a pretty park behind the church.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.121",
+          "theme": "au-restaurant",
+          "fr": "Je vais essayer le menu végétarien la prochaine fois.",
+          "en": "I am going to try the vegetarian menu next time.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.164",
+          "theme": "vetements",
+          "fr": "Cette chemise blanche va bien avec ton pantalon noir.",
+          "en": "This white shirt goes well with your black pants.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-etiquette.063",
+          "theme": "rp-etiquette",
+          "fr": "Quand j'étais petit, on saluait toujours les voisins.",
+          "en": "When I was little, we always greeted the neighbors.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.hebergement.062",
+          "theme": "hebergement",
+          "fr": "Le chauffage ne fonctionne pas bien dans cette pièce.",
+          "en": "The heating doesn't work well in this room.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.la-ville.093",
+          "theme": "la-ville",
+          "fr": "Ils vont construire un nouveau pont l'année prochaine.",
+          "en": "They are going to build a new bridge next year.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.marche.125",
+          "theme": "marche",
+          "fr": "Je vais comparer les prix entre les différents stands.",
+          "en": "I am going to compare the prices between the different stalls.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-etiquette.062",
+          "theme": "rp-etiquette",
+          "fr": "Merci beaucoup, mais je ne voudrais pas vous déranger.",
+          "en": "Thank you very much, but I wouldn't want to bother you.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cuisine.005",
+          "theme": "cuisine",
+          "fr": "Il faut laisser mijoter la sauce pendant vingt minutes.",
+          "en": "You need to let the sauce simmer for twenty minutes.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.050",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous avons gagné le match de football dimanche dernier.",
+          "en": "We won the football match last Sunday.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-loisirs.073",
+          "theme": "rp-loisirs",
+          "fr": "Nous avons organisé un tournoi de badminton entre amis.",
+          "en": "We organized a badminton tournament among friends.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-loisirs.077",
+          "theme": "rp-loisirs",
+          "fr": "Tu as pris des photos magnifiques pendant la randonnée.",
+          "en": "You took beautiful photos during the hike.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.rp-etiquette.069",
+          "theme": "rp-etiquette",
+          "fr": "Autrefois, on ne se tutoyait presque jamais au travail.",
+          "en": "In the past, people almost never used tu at work.",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "block_id": 13,
+      "items": [
+        {
+          "id": "fr.a2.cafe.063",
+          "theme": "cafe",
+          "fr": "Nous sommes arrivés en avance, alors nous avons attendu.",
+          "en": "We arrived early, so we waited.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.098",
+          "theme": "transports-quotidiens",
+          "fr": "Elle a acheté un abonnement mensuel la semaine dernière.",
+          "en": "She bought a monthly pass last week.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.cinema.031",
+          "theme": "cinema",
+          "fr": "Les acteurs ont répété leurs scènes pendant des semaines.",
+          "en": "The actors rehearsed their scenes for weeks.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.bricolage.067",
+          "theme": "bricolage",
+          "fr": "Nous avons loué une échelle pour nettoyer les gouttières.",
+          "en": "We rented a ladder to clean the gutters.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.155",
+          "theme": "vetements",
+          "fr": "Nous avons trouvé des chaussettes grises dans le magasin.",
+          "en": "We found gray socks in the store.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.jardinage.043",
+          "theme": "jardinage",
+          "fr": "Le jardin partagé permet aux voisins de cultiver ensemble.",
+          "en": "The community garden lets neighbors grow things together.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.hebergement.061",
+          "theme": "hebergement",
+          "fr": "Nous avons emménagé dans notre nouvel appartement en juin.",
+          "en": "We moved into our new apartment in June.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.au-restaurant.120",
+          "theme": "au-restaurant",
+          "fr": "Le service était lent, mais la nourriture était délicieuse.",
+          "en": "The service was slow, but the food was delicious.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.hebergement.058",
+          "theme": "hebergement",
+          "fr": "Quand j'étais étudiant, je vivais en résidence universitaire.",
+          "en": "When I was a student, I lived in a university residence.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.la-ville.101",
+          "theme": "la-ville",
+          "fr": "Nous allons emménager dans un nouvel appartement en septembre.",
+          "en": "We are going to move into a new apartment in September.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.musique.023",
+          "theme": "musique",
+          "fr": "Ma sœur préfère la musique électronique aux chansons classiques.",
+          "en": "My sister prefers electronic music over classic songs.",
+          "words": 9
+        },
+        {
+          "id": "fr.a2.vetements.057",
+          "theme": "vetements",
+          "fr": "J'ai besoin d'un pull chaud pour cet hiver.",
+          "en": "I need a warm sweater for this winter.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.092",
+          "theme": "pronoms-essentiels",
+          "fr": "J'ai vu quelqu'un devant chez toi ce matin.",
+          "en": "I saw someone in front of your place this morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-voyage.007",
+          "theme": "rp-voyage",
+          "fr": "Il y en a un à quatorze heures, quai trois.",
+          "en": "There's one at 2pm, platform three.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.cuisine.046",
+          "theme": "cuisine",
+          "fr": "Il a oublié d'ajouter du sel dans la sauce.",
+          "en": "He forgot to add salt to the sauce.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.116",
+          "theme": "transports-quotidiens",
+          "fr": "J'ai perdu mon plan de métro dans le train.",
+          "en": "I lost my metro map on the train.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.courses.032",
+          "theme": "courses",
+          "fr": "J'ai oublié ma liste de courses à la maison.",
+          "en": "I forgot my shopping list at home.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.108",
+          "theme": "la-ville",
+          "fr": "J'ai attendu vingt minutes à l'arrêt de bus.",
+          "en": "I waited twenty minutes at the bus stop.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.063",
+          "theme": "sports-et-loisirs",
+          "fr": "Ils sont allés à la salle de sport ce matin.",
+          "en": "They went to the gym this morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.108",
+          "theme": "transports-quotidiens",
+          "fr": "Ils ont annulé le train à cause de la grève.",
+          "en": "They cancelled the train because of the strike.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.vetements.146",
+          "theme": "vetements",
+          "fr": "Il a mis son écharpe parce qu'il fait froid.",
+          "en": "He put on his scarf because it's cold.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-voyage.068",
+          "theme": "rp-voyage",
+          "fr": "J'ai changé mes billets à cause d'une grève.",
+          "en": "I changed my tickets because of a strike.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.106",
+          "theme": "transports-quotidiens",
+          "fr": "Le bus est arrivé en retard alors j'ai couru.",
+          "en": "The bus arrived late so I ran.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.courses.133",
+          "theme": "courses",
+          "fr": "Elle a oublié sa liste de courses à la maison.",
+          "en": "She forgot her shopping list at home.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.courses.140",
+          "theme": "courses",
+          "fr": "J'ai gardé le ticket de caisse pour l'échange.",
+          "en": "I kept the receipt for the exchange.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.052",
+          "theme": "sports-et-loisirs",
+          "fr": "Je vais rejoindre un club de sport ce mois-ci.",
+          "en": "I am going to join a sports club this month.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.104",
+          "theme": "transports-quotidiens",
+          "fr": "J'ai oublié ma carte de transport à la maison.",
+          "en": "I forgot my transit card at home.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.marche.003",
+          "theme": "marche",
+          "fr": "Il y a beaucoup de monde au marché le dimanche.",
+          "en": "There are a lot of people at the market on Sundays.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.argent-quotidien.024",
+          "theme": "argent-quotidien",
+          "fr": "J'ai annulé mon abonnement à la salle de sport.",
+          "en": "I canceled my gym membership.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.114",
+          "theme": "la-ville",
+          "fr": "J'ai déposé une demande à la mairie hier matin.",
+          "en": "I submitted a request at the town hall yesterday morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.cinema.083",
+          "theme": "cinema",
+          "fr": "Ils ont trouvé deux places au fond de la salle.",
+          "en": "They found two seats at the back of the room.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-etiquette.065",
+          "theme": "rp-etiquette",
+          "fr": "On m'a appris à toujours dire merci en partant.",
+          "en": "I was taught to always say thank you when leaving.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-voyage.073",
+          "theme": "rp-voyage",
+          "fr": "J'ai payé un supplément pour un bagage en plus.",
+          "en": "I paid a supplement for an extra bag.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 14,
+      "items": [
+        {
+          "id": "fr.a2.bricolage.073",
+          "theme": "bricolage",
+          "fr": "Mon père a cassé un carreau en posant l'étagère.",
+          "en": "My dad broke a tile while installing the shelf.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.argent-quotidien.035",
+          "theme": "argent-quotidien",
+          "fr": "Grâce à ses économies, il a pu acheter une moto.",
+          "en": "Thanks to his savings, he was able to buy a motorcycle.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.030",
+          "theme": "pronoms-essentiels",
+          "fr": "Tu penses à ton examen ? Oui, j'y pense souvent.",
+          "en": "Are you thinking about your exam? Yes, I think about it often.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-quotidien.006",
+          "theme": "rp-quotidien",
+          "fr": "Je fais les courses le matin, puis je me repose.",
+          "en": "I run errands in the morning, then I rest.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.cafe.060",
+          "theme": "cafe",
+          "fr": "Il a plu, donc nous sommes restés à l'intérieur.",
+          "en": "It rained, so we stayed inside.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.086",
+          "theme": "la-ville",
+          "fr": "J'ai trouvé un studio pas cher dans ce quartier.",
+          "en": "I found a cheap studio in this neighborhood.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.056",
+          "theme": "sports-et-loisirs",
+          "fr": "Ils ont perdu le tournoi mais ils ont bien joué.",
+          "en": "They lost the tournament but they played well.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.115",
+          "theme": "transports-quotidiens",
+          "fr": "Il va falloir partir plus tôt à cause du trafic.",
+          "en": "We will have to leave earlier because of the traffic.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-voyage.076",
+          "theme": "rp-voyage",
+          "fr": "J'ai perdu ma carte d'embarquement dans le hall.",
+          "en": "I lost my boarding pass in the hall.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.jardinage.039",
+          "theme": "jardinage",
+          "fr": "Ma tante s'occupe de son jardin depuis vingt ans.",
+          "en": "My aunt has been taking care of her garden for twenty years.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.courses.034",
+          "theme": "courses",
+          "fr": "Il y a une promotion sur les fruits cette semaine.",
+          "en": "There's a special offer on fruit this week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.jardinage.038",
+          "theme": "jardinage",
+          "fr": "Petit à petit, le potager a rempli tout le jardin.",
+          "en": "Little by little, the vegetable garden filled the whole yard.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.082",
+          "theme": "la-ville",
+          "fr": "Ils ont construit un nouveau parc près de la gare.",
+          "en": "They built a new park near the station.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.124",
+          "theme": "transports-quotidiens",
+          "fr": "Comme il y avait grève, nous avons pris nos vélos.",
+          "en": "Since there was a strike, we took our bikes.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.vetements.171",
+          "theme": "vetements",
+          "fr": "Elle a mis ses lunettes de soleil avant de sortir.",
+          "en": "She put on her sunglasses before going out.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-loisirs.070",
+          "theme": "rp-loisirs",
+          "fr": "Elle a pris des cours de poterie l'année dernière.",
+          "en": "She took pottery classes last year.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.musique.056",
+          "theme": "musique",
+          "fr": "Nous avons dansé jusqu'à minuit et c'était génial.",
+          "en": "We danced until midnight and it was great.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-etiquette.060",
+          "theme": "rp-etiquette",
+          "fr": "Je suis désolé, j'ai oublié de vous rappeler hier.",
+          "en": "I'm sorry, I forgot to call you back yesterday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.122",
+          "theme": "transports-quotidiens",
+          "fr": "Le contrôleur m'a demandé mon billet dans le train.",
+          "en": "The ticket inspector asked me for my ticket on the train.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.musique.048",
+          "theme": "musique",
+          "fr": "J'ai acheté un billet, mais le concert est complet.",
+          "en": "I bought a ticket, but the concert is sold out.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.001",
+          "theme": "la-ville",
+          "fr": "Il y a beaucoup de circulation aux heures de pointe.",
+          "en": "There is a lot of traffic during rush hour.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.005",
+          "theme": "la-ville",
+          "fr": "La mairie a ouvert un nouveau parc pour les enfants.",
+          "en": "City hall opened a new park for children.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.jardinage.041",
+          "theme": "jardinage",
+          "fr": "Ce sécateur coupe mieux que celui que j'avais avant.",
+          "en": "These pruning shears cut better than the ones I had before.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.au-restaurant.116",
+          "theme": "au-restaurant",
+          "fr": "La serveuse s'est excusée pour l'erreur de commande.",
+          "en": "The waitress apologized for the order mistake.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.cuisine.059",
+          "theme": "cuisine",
+          "fr": "Nous avons fait les courses donc le frigo est plein.",
+          "en": "We did the grocery shopping so the fridge is full.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.087",
+          "theme": "la-ville",
+          "fr": "Comme il y avait trop de bruit, nous avons déménagé.",
+          "en": "Since there was too much noise, we moved.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.marche.147",
+          "theme": "marche",
+          "fr": "J'ai laissé un pourboire au jeune vendeur de fruits.",
+          "en": "I left a tip for the young fruit seller.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.vetements.151",
+          "theme": "vetements",
+          "fr": "Elle a essayé trois robes avant de choisir la bleue.",
+          "en": "She tried on three dresses before choosing the blue one.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.courses.134",
+          "theme": "courses",
+          "fr": "Le pharmacien m'a donné des médicaments pour ma toux.",
+          "en": "The pharmacist gave me medicine for my cough.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.cuisine.056",
+          "theme": "cuisine",
+          "fr": "Il a cuisiné toute la matinée pour préparer le repas.",
+          "en": "He cooked all morning to prepare the meal.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.jardinage.042",
+          "theme": "jardinage",
+          "fr": "Elle a l'intention de planter des tulipes cet automne.",
+          "en": "She intends to plant tulips this fall.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.cuisine.043",
+          "theme": "cuisine",
+          "fr": "Elle a préparé le dîner parce que ses amis arrivaient.",
+          "en": "She prepared dinner because her friends were arriving.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-loisirs.067",
+          "theme": "rp-loisirs",
+          "fr": "Mes parents ont assisté à un concert de jazz vendredi.",
+          "en": "My parents attended a jazz concert on Friday.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 15,
+      "items": [
+        {
+          "id": "fr.a2.rp-loisirs.083",
+          "theme": "rp-loisirs",
+          "fr": "Nous sommes allés à un festival de musique en juillet.",
+          "en": "We went to a music festival in July.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.musique.022",
+          "theme": "musique",
+          "fr": "Nous avons besoin de billets pour le concert de samedi.",
+          "en": "We need tickets for Saturday's concert.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.cuisine.044",
+          "theme": "cuisine",
+          "fr": "Nous avons acheté des légumes frais au marché ce matin.",
+          "en": "We bought fresh vegetables at the market this morning.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.079",
+          "theme": "la-ville",
+          "fr": "Nous avons visité le nouveau musée le week-end dernier.",
+          "en": "We visited the new museum last weekend.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.105",
+          "theme": "la-ville",
+          "fr": "La ville a réduit la vitesse dans le centre historique.",
+          "en": "The city reduced the speed limit in the historic center.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-loisirs.074",
+          "theme": "rp-loisirs",
+          "fr": "Elle a rejoint un club de lecture au printemps dernier.",
+          "en": "She joined a book club last spring.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.hebergement.054",
+          "theme": "hebergement",
+          "fr": "Je cherche un appartement à louer près du centre-ville.",
+          "en": "I'm looking for an apartment to rent near downtown.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.hebergement.032",
+          "theme": "hebergement",
+          "fr": "L'auberge de jeunesse propose des chambres à petit prix.",
+          "en": "The youth hostel offers rooms at low prices.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.jardinage.030",
+          "theme": "jardinage",
+          "fr": "De temps en temps, je fertilise mes plantes d'intérieur.",
+          "en": "From time to time, I fertilize my houseplants.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.courses.158",
+          "theme": "courses",
+          "fr": "Nous allons acheter des fruits et des légumes au marché.",
+          "en": "We are going to buy fruits and vegetables at the market.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.096",
+          "theme": "la-ville",
+          "fr": "Nous avons marché jusqu'au centre-ville malgré la pluie.",
+          "en": "We walked to downtown despite the rain.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-loisirs.063",
+          "theme": "rp-loisirs",
+          "fr": "Nous avons visité un musée d'art moderne samedi dernier.",
+          "en": "We visited a modern art museum last Saturday.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.bricolage.080",
+          "theme": "bricolage",
+          "fr": "Nous rangeons les outils dans le garage après le travail.",
+          "en": "We put the tools away in the garage after work.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.jardinage.028",
+          "theme": "jardinage",
+          "fr": "Nous venons de planter les derniers rosiers de la saison.",
+          "en": "We just planted the last rose bushes of the season.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.jardinage.032",
+          "theme": "jardinage",
+          "fr": "Après avoir désherbé le jardin, elle a arrosé les fleurs.",
+          "en": "After weeding the garden, she watered the flowers.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.088",
+          "theme": "la-ville",
+          "fr": "La mairie va organiser un festival de musique en juillet.",
+          "en": "The town hall is going to organize a music festival in July.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.099",
+          "theme": "la-ville",
+          "fr": "La mairie a ouvert un nouveau service pour les habitants.",
+          "en": "The town hall opened a new service for residents.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.jardinage.049",
+          "theme": "jardinage",
+          "fr": "Nous avons envie de transformer le balcon en petit jardin.",
+          "en": "We feel like turning the balcony into a little garden.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.au-restaurant.118",
+          "theme": "au-restaurant",
+          "fr": "Puisque la table était réservée, nous n'avons pas attendu.",
+          "en": "Since the table was reserved, we did not wait.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-loisirs.078",
+          "theme": "rp-loisirs",
+          "fr": "Elle chantait dans une chorale quand elle habitait à Lyon.",
+          "en": "She used to sing in a choir when she lived in Lyon.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-loisirs.085",
+          "theme": "rp-loisirs",
+          "fr": "Ils ont participé à un marathon caritatif le mois dernier.",
+          "en": "They took part in a charity marathon last month.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.musique.050",
+          "theme": "musique",
+          "fr": "Nous avons chanté toute la soirée et nous étions fatigués.",
+          "en": "We sang all evening and we were tired.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-etiquette.071",
+          "theme": "rp-etiquette",
+          "fr": "Hier soir, elle a remercié chaque invité avant leur départ.",
+          "en": "Last night, she thanked each guest before they left.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-etiquette.076",
+          "theme": "rp-etiquette",
+          "fr": "Il valait mieux répondre poliment, même si j'étais fatigué.",
+          "en": "It was better to answer politely, even though I was tired.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-voyage.080",
+          "theme": "rp-voyage",
+          "fr": "J'ai réservé un vol direct pour éviter les correspondances.",
+          "en": "I booked a direct flight to avoid connections.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.115",
+          "theme": "la-ville",
+          "fr": "La ville a organisé une réunion publique sur la circulation.",
+          "en": "The city organized a public meeting about traffic.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.marche.131",
+          "theme": "marche",
+          "fr": "Le boulanger a vendu toutes ses baguettes avant neuf heures.",
+          "en": "The baker sold all his baguettes before nine o'clock.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.134",
+          "theme": "transports-quotidiens",
+          "fr": "Nous avons finalement trouvé une place assise dans le wagon.",
+          "en": "We finally found a seat in the train car.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-etiquette.075",
+          "theme": "rp-etiquette",
+          "fr": "Vous devriez enlever vos chaussures avant d'entrer chez eux.",
+          "en": "You should take off your shoes before entering their home.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-voyage.063",
+          "theme": "rp-voyage",
+          "fr": "Quand j'étais jeune, je voyageais beaucoup avec mes parents.",
+          "en": "When I was young, I used to travel a lot with my parents.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.au-restaurant.107",
+          "theme": "au-restaurant",
+          "fr": "Le chef a préparé un dessert spécial pour notre anniversaire.",
+          "en": "The chef prepared a special dessert for our anniversary.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.rp-loisirs.068",
+          "theme": "rp-loisirs",
+          "fr": "Quand j'avais dix ans, je collectionnais les cartes postales.",
+          "en": "When I was ten, I used to collect postcards.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.deplacements.001",
+          "theme": "deplacements",
+          "fr": "Il vaut mieux prendre le métro pour éviter les embouteillages.",
+          "en": "It's better to take the subway to avoid traffic jams.",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "block_id": 16,
+      "items": [
+        {
+          "id": "fr.a2.jardinage.037",
+          "theme": "jardinage",
+          "fr": "Si tu plantes ces graines maintenant, elles fleuriront en été.",
+          "en": "If you plant these seeds now, they will bloom in summer.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.089",
+          "theme": "la-ville",
+          "fr": "Les habitants ont signé une pétition contre le nouveau projet.",
+          "en": "The residents signed a petition against the new project.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.marche.129",
+          "theme": "marche",
+          "fr": "Le fermier va apporter des légumes frais la semaine prochaine.",
+          "en": "The farmer is going to bring fresh vegetables next week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.083",
+          "theme": "la-ville",
+          "fr": "Le maire a annoncé la construction d'une nouvelle bibliothèque.",
+          "en": "The mayor announced the construction of a new library.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.081",
+          "theme": "la-ville",
+          "fr": "Je vais chercher un appartement plus grand la semaine prochaine.",
+          "en": "I am going to look for a bigger apartment next week.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.la-ville.098",
+          "theme": "la-ville",
+          "fr": "Comme la circulation était bloquée, nous sommes arrivés en retard.",
+          "en": "Since traffic was blocked, we arrived late.",
+          "words": 10
+        },
+        {
+          "id": "fr.a2.jardinage.046",
+          "theme": "jardinage",
+          "fr": "Il n'y a plus de place pour un autre rosier.",
+          "en": "There's no more room for another rose bush.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.pronoms-essentiels.074",
+          "theme": "pronoms-essentiels",
+          "fr": "Ça arrive à tout le monde, ne t'en fais pas.",
+          "en": "That happens to everyone, don't worry about it.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.courses.135",
+          "theme": "courses",
+          "fr": "Il y a une longue file d'attente à la caisse.",
+          "en": "There is a long queue at the checkout.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.vetements.165",
+          "theme": "vetements",
+          "fr": "J'ai essayé ce manteau, mais il ne me va pas.",
+          "en": "I tried on this coat, but it doesn't fit me.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.119",
+          "theme": "marche",
+          "fr": "J'ai goûté le fromage, mais je n'ai rien acheté.",
+          "en": "I tasted the cheese, but I didn't buy anything.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.tourisme.032",
+          "theme": "tourisme",
+          "fr": "Il y a une longue file d'attente devant le musée.",
+          "en": "There's a long line in front of the museum.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.bricolage.048",
+          "theme": "bricolage",
+          "fr": "Le chantier a pris du retard à cause de la pluie.",
+          "en": "The project fell behind schedule because of the rain.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.bricolage.074",
+          "theme": "bricolage",
+          "fr": "Elle a mis un vieux drap sur le sol pour peindre.",
+          "en": "She put an old sheet on the floor to paint.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.cuisine.042",
+          "theme": "cuisine",
+          "fr": "J'ai coupé les légumes puis je les ai fait cuire.",
+          "en": "I cut the vegetables then I cooked them.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.148",
+          "theme": "marche",
+          "fr": "Le marché va fermer plus tôt à cause de la pluie.",
+          "en": "The market is going to close earlier because of the rain.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.bricolage.060",
+          "theme": "bricolage",
+          "fr": "Ma mère a repeint la salle de bains en bleu clair.",
+          "en": "My mom repainted the bathroom light blue.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.musique.051",
+          "theme": "musique",
+          "fr": "Le groupe a annulé le concert à cause de la pluie.",
+          "en": "The band cancelled the concert because of the rain.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.au-restaurant.127",
+          "theme": "au-restaurant",
+          "fr": "J'ai réservé une table en terrasse pour ce week-end.",
+          "en": "I booked a terrace table for this weekend.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.la-ville.109",
+          "theme": "la-ville",
+          "fr": "La mairie va planter des arbres le long de l'avenue.",
+          "en": "The town hall is going to plant trees along the avenue.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.132",
+          "theme": "transports-quotidiens",
+          "fr": "Elle a pris le premier train pour arriver à l'heure.",
+          "en": "She took the first train to arrive on time.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.courses.029",
+          "theme": "courses",
+          "fr": "Je dois acheter du lait et des œufs avant de rentrer.",
+          "en": "I need to buy milk and eggs before heading home.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.005",
+          "theme": "sports-et-loisirs",
+          "fr": "Nous jouons au tennis dans le parc près de chez nous.",
+          "en": "We play tennis in the park near our place.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.bricolage.049",
+          "theme": "bricolage",
+          "fr": "Il a l'intention de repeindre la chambre ce week-end.",
+          "en": "He plans to repaint the bedroom this weekend.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.130",
+          "theme": "marche",
+          "fr": "J'ai demandé si les œufs venaient d'une ferme locale.",
+          "en": "I asked if the eggs came from a local farm.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.117",
+          "theme": "transports-quotidiens",
+          "fr": "Elle a demandé son chemin parce qu'elle s'est perdue.",
+          "en": "She asked for directions because she got lost.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-etiquette.064",
+          "theme": "rp-etiquette",
+          "fr": "Il a présenté ses excuses et tout le monde a compris.",
+          "en": "He apologized and everyone understood.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-etiquette.072",
+          "theme": "rp-etiquette",
+          "fr": "On offre un petit cadeau quand on est invité à dîner.",
+          "en": "You bring a small gift when you're invited to dinner.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-voyage.060",
+          "theme": "rp-voyage",
+          "fr": "J'ai réservé une chambre mais elle n'était pas prête.",
+          "en": "I booked a room but it wasn't ready.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.cuisine.048",
+          "theme": "cuisine",
+          "fr": "Elle a suivi la recette mais elle a changé les épices.",
+          "en": "She followed the recipe but she changed the spices.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.cuisine.058",
+          "theme": "cuisine",
+          "fr": "Elle a coupé le poisson en morceaux avant de le cuire.",
+          "en": "She cut the fish into pieces before cooking it.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.la-ville.100",
+          "theme": "la-ville",
+          "fr": "J'ai perdu mon chemin dans les petites rues du centre.",
+          "en": "I lost my way in the small streets downtown.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.deplacements.004",
+          "theme": "deplacements",
+          "fr": "Il vaut mieux réserver les billets de train à l'avance.",
+          "en": "It's better to book train tickets in advance.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 17,
+      "items": [
+        {
+          "id": "fr.a2.cafe.066",
+          "theme": "cafe",
+          "fr": "J'ai oublié mon portefeuille, donc tu as payé pour moi.",
+          "en": "I forgot my wallet, so you paid for me.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-etiquette.084",
+          "theme": "rp-etiquette",
+          "fr": "Il a oublié de se présenter avant de poser sa question.",
+          "en": "He forgot to introduce himself before asking his question.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.bricolage.045",
+          "theme": "bricolage",
+          "fr": "De temps en temps, je répare de petites choses moi-même.",
+          "en": "From time to time, I fix small things myself.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.jardinage.040",
+          "theme": "jardinage",
+          "fr": "Il est en train de tondre la pelouse derrière la maison.",
+          "en": "He is mowing the lawn behind the house.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.136",
+          "theme": "marche",
+          "fr": "J'ai vérifié la fraîcheur du poisson avant de l'acheter.",
+          "en": "I checked the freshness of the fish before buying it.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.126",
+          "theme": "transports-quotidiens",
+          "fr": "Elle est arrivée en retard parce que le bus était bondé.",
+          "en": "She arrived late because the bus was crowded.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.vetements.159",
+          "theme": "vetements",
+          "fr": "Nous devons échanger ce pull parce qu'il est trop petit.",
+          "en": "We need to exchange this sweater because it's too small.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.musique.059",
+          "theme": "musique",
+          "fr": "Le festival a duré trois jours et il faisait très chaud.",
+          "en": "The festival lasted three days and it was very hot.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.hebergement.063",
+          "theme": "hebergement",
+          "fr": "Est-ce que je peux garder mon chien dans l'appartement ?",
+          "en": "Can I keep my dog in the apartment?",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.cuisine.053",
+          "theme": "cuisine",
+          "fr": "Elle a mélangé les ingrédients puis elle a versé la pâte.",
+          "en": "She mixed the ingredients then she poured the batter.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.126",
+          "theme": "marche",
+          "fr": "Elle a trouvé des fraises moins chères sur un autre étal.",
+          "en": "She found cheaper strawberries at another stall.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.142",
+          "theme": "marche",
+          "fr": "J'ai trouvé le marché plus animé que la semaine dernière.",
+          "en": "I found the market busier than last week.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.deplacements.011",
+          "theme": "deplacements",
+          "fr": "Il faisait froid et nous avons pris un taxi pour rentrer.",
+          "en": "It was cold and we took a taxi to get home.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.jardinage.035",
+          "theme": "jardinage",
+          "fr": "Mon voisin a l'habitude de partager ses légumes avec nous.",
+          "en": "My neighbor is used to sharing his vegetables with us.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.jardinage.044",
+          "theme": "jardinage",
+          "fr": "Nous tenons compte de la météo avant de tondre la pelouse.",
+          "en": "We take the weather into account before mowing the lawn.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.120",
+          "theme": "marche",
+          "fr": "Elle va acheter des fleurs pour l'anniversaire de sa mère.",
+          "en": "She is going to buy flowers for her mother's birthday.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.au-restaurant.105",
+          "theme": "au-restaurant",
+          "fr": "Le plat est arrivé froid, donc nous avons demandé un autre.",
+          "en": "The dish arrived cold, so we asked for another one.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.la-ville.095",
+          "theme": "la-ville",
+          "fr": "Je vais m'inscrire à la bibliothèque municipale ce mois-ci.",
+          "en": "I am going to sign up at the public library this month.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.127",
+          "theme": "marche",
+          "fr": "Nous avons marchandé poliment, mais le prix n'a pas changé.",
+          "en": "We bargained politely, but the price didn't change.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-etiquette.068",
+          "theme": "rp-etiquette",
+          "fr": "Il faut frapper avant d'entrer dans le bureau du directeur.",
+          "en": "You must knock before entering the director's office.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-etiquette.081",
+          "theme": "rp-etiquette",
+          "fr": "Elle a écrit un petit mot de remerciement après la réunion.",
+          "en": "She wrote a short thank-you note after the meeting.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.bricolage.047",
+          "theme": "bricolage",
+          "fr": "Grâce à son voisin, elle a pu réparer le robinet rapidement.",
+          "en": "Thanks to her neighbor, she was able to fix the faucet quickly.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.jardinage.033",
+          "theme": "jardinage",
+          "fr": "Les tomates que nous avons plantées en mai sont enfin mûres.",
+          "en": "The tomatoes we planted in May are finally ripe.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.au-restaurant.114",
+          "theme": "au-restaurant",
+          "fr": "Nous avons dû annuler notre réservation à cause de la pluie.",
+          "en": "We had to cancel our reservation because of the rain.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.la-ville.112",
+          "theme": "la-ville",
+          "fr": "Ils vont ouvrir une nouvelle station de métro l'an prochain.",
+          "en": "They are going to open a new subway station next year.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.138",
+          "theme": "marche",
+          "fr": "Le vendeur a offert un kilo gratuit pour deux kilos achetés.",
+          "en": "The vendor offered a free kilo for two kilos purchased.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-loisirs.071",
+          "theme": "rp-loisirs",
+          "fr": "Il pêchait souvent avec son grand-père quand il était jeune.",
+          "en": "He often used to fish with his grandfather when he was young.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.jardinage.036",
+          "theme": "jardinage",
+          "fr": "Nous avons dû arroser deux fois par jour pendant la canicule.",
+          "en": "We had to water twice a day during the heat wave.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.au-restaurant.128",
+          "theme": "au-restaurant",
+          "fr": "Comme il pleuvait, nous avons choisi une table à l'intérieur.",
+          "en": "Since it was raining, we chose a table inside.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.la-ville.094",
+          "theme": "la-ville",
+          "fr": "Le prix du loyer a beaucoup augmenté depuis l'année dernière.",
+          "en": "The price of rent has increased a lot since last year.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.la-ville.104",
+          "theme": "la-ville",
+          "fr": "Je vais prendre rendez-vous à la mairie la semaine prochaine.",
+          "en": "I am going to make an appointment at the town hall next week.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-loisirs.064",
+          "theme": "rp-loisirs",
+          "fr": "Il faisait beau, donc nous avons fait une randonnée en forêt.",
+          "en": "The weather was nice, so we went on a hike in the forest.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-etiquette.082",
+          "theme": "rp-etiquette",
+          "fr": "Avant, on frappait toujours à la porte, même chez la famille.",
+          "en": "In the past, people always knocked, even at family members' homes.",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "block_id": 18,
+      "items": [
+        {
+          "id": "fr.a2.jardinage.027",
+          "theme": "jardinage",
+          "fr": "Bien que le jardin soit petit, il produit beaucoup de légumes.",
+          "en": "Although the garden is small, it produces a lot of vegetables.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.141",
+          "theme": "marche",
+          "fr": "Nous avons discuté avec le fermier de ses méthodes de culture.",
+          "en": "We talked with the farmer about his farming methods.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.jardinage.047",
+          "theme": "jardinage",
+          "fr": "Dès que le printemps arrive, elle commence à semer ses graines.",
+          "en": "As soon as spring arrives, she starts sowing her seeds.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.la-ville.085",
+          "theme": "la-ville",
+          "fr": "La ville a installé des caméras de surveillance dans le centre.",
+          "en": "The city installed surveillance cameras downtown.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.120",
+          "theme": "transports-quotidiens",
+          "fr": "Nous avons attendu longtemps parce que le tram avait du retard.",
+          "en": "We waited a long time because the tram was late.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-etiquette.077",
+          "theme": "rp-etiquette",
+          "fr": "Nous avons attendu qu'elle finisse de parler avant de répondre.",
+          "en": "We waited for her to finish speaking before answering.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.131",
+          "theme": "transports-quotidiens",
+          "fr": "J'ai téléchargé une application pour suivre les horaires du bus.",
+          "en": "I downloaded an app to track the bus schedules.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-etiquette.074",
+          "theme": "rp-etiquette",
+          "fr": "Elle m'a montré comment plier ma serviette correctement à table.",
+          "en": "She showed me how to fold my napkin properly at the table.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.courses.144",
+          "theme": "courses",
+          "fr": "J'ai rapporté les chaussures parce qu'elles étaient trop petites.",
+          "en": "I returned the shoes because they were too small.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.cuisine.049",
+          "theme": "cuisine",
+          "fr": "Nous allons manger au restaurant parce que la cuisine est fermée.",
+          "en": "We are going to eat at the restaurant because the kitchen is closed.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.marche.146",
+          "theme": "marche",
+          "fr": "Nous avons attendu longtemps, mais le vendeur nous a bien servis.",
+          "en": "We waited a long time, but the vendor served us well.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.vetements.150",
+          "theme": "vetements",
+          "fr": "Nous avons rendu les chaussures parce qu'elles étaient trop petites.",
+          "en": "We returned the shoes because they were too small.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-etiquette.061",
+          "theme": "rp-etiquette",
+          "fr": "Vous permettez que je vous tutoie, ou préférez-vous le vouvoiement ?",
+          "en": "Do you mind if I use tu, or do you prefer vous?",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-loisirs.075",
+          "theme": "rp-loisirs",
+          "fr": "Autrefois, il jouait au rugby, mais il préfère maintenant la natation.",
+          "en": "In the past, he used to play rugby, but he now prefers swimming.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.rp-etiquette.067",
+          "theme": "rp-etiquette",
+          "fr": "Nous étions en retard, alors nous avons rapidement présenté nos excuses.",
+          "en": "We were late, so we quickly apologized.",
+          "words": 11
+        },
+        {
+          "id": "fr.a2.au-restaurant.101",
+          "theme": "au-restaurant",
+          "fr": "Elle a choisi le poisson mais il n'y en avait plus.",
+          "en": "She chose the fish but there was none left.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-loisirs.076",
+          "theme": "rp-loisirs",
+          "fr": "Nous avons fait du camping au bord d'un lac cet été.",
+          "en": "We went camping by a lake this summer.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.121",
+          "theme": "transports-quotidiens",
+          "fr": "Puisqu'il faisait beau, j'ai décidé d'y aller à vélo.",
+          "en": "Since the weather was nice, I decided to go there by bike.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-etiquette.083",
+          "theme": "rp-etiquette",
+          "fr": "Je me suis levé pour laisser ma place à la dame âgée.",
+          "en": "I stood up to give my seat to the elderly lady.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-voyage.065",
+          "theme": "rp-voyage",
+          "fr": "Le taxi est arrivé en retard alors j'ai pris le métro.",
+          "en": "The taxi arrived late so I took the metro.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-voyage.062",
+          "theme": "rp-voyage",
+          "fr": "Le vol a été annulé et nous avons attendu à l'aéroport.",
+          "en": "The flight was cancelled and we waited at the airport.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.marche.121",
+          "theme": "marche",
+          "fr": "Le marchand a pesé les tomates puis il a annoncé le prix.",
+          "en": "The merchant weighed the tomatoes then he announced the price.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-etiquette.066",
+          "theme": "rp-etiquette",
+          "fr": "Elle a serré la main de chaque invité et les a remerciés.",
+          "en": "She shook each guest's hand and thanked them.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.cinema.029",
+          "theme": "cinema",
+          "fr": "Il vaut mieux réserver les places à l'avance pour ce film.",
+          "en": "It's better to book seats in advance for this movie.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.la-ville.091",
+          "theme": "la-ville",
+          "fr": "Nous avons pris le métro parce que le bus était en retard.",
+          "en": "We took the subway because the bus was late.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.marche.133",
+          "theme": "marche",
+          "fr": "Elle a choisi un melon parfumé, mais il était un peu cher.",
+          "en": "She chose a fragrant melon, but it was a bit expensive.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.064",
+          "theme": "sports-et-loisirs",
+          "fr": "Puisque j'aime le sport, je me suis inscrit à trois clubs.",
+          "en": "Since I like sports, I signed up for three clubs.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.vetements.169",
+          "theme": "vetements",
+          "fr": "J'ai besoin d'un nouveau maillot de bain pour les vacances.",
+          "en": "I need a new swimsuit for the vacation.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-loisirs.072",
+          "theme": "rp-loisirs",
+          "fr": "J'ai découvert le yoga récemment et j'en fais chaque matin.",
+          "en": "I recently discovered yoga and I do it every morning.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.sports-et-loisirs.051",
+          "theme": "sports-et-loisirs",
+          "fr": "Elle s'est inscrite à un cours de danse la semaine dernière.",
+          "en": "She signed up for a dance class last week.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.130",
+          "theme": "transports-quotidiens",
+          "fr": "Ils ont fermé la route donc nous avons pris un autre chemin.",
+          "en": "They closed the road so we took another route.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.musique.058",
+          "theme": "musique",
+          "fr": "Il jouait de la trompette, mais il a arrêté l'année dernière.",
+          "en": "He used to play trumpet, but he stopped last year.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.jardinage.029",
+          "theme": "jardinage",
+          "fr": "Il vaut mieux arroser les plantes le matin plutôt que le soir.",
+          "en": "It's better to water the plants in the morning rather than in the evening.",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "block_id": 19,
+      "items": [
+        {
+          "id": "fr.a2.au-restaurant.123",
+          "theme": "au-restaurant",
+          "fr": "Nous avons payé en espèces parce que la carte ne marchait pas.",
+          "en": "We paid in cash because the card was not working.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-loisirs.079",
+          "theme": "rp-loisirs",
+          "fr": "Mon frère a construit une cabane dans le jardin l'été dernier.",
+          "en": "My brother built a treehouse in the garden last summer.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-loisirs.080",
+          "theme": "rp-loisirs",
+          "fr": "Nous avons regardé un match de hockey et notre équipe a gagné.",
+          "en": "We watched a hockey game and our team won.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.111",
+          "theme": "transports-quotidiens",
+          "fr": "Elle va prendre sa voiture demain parce que le métro est fermé.",
+          "en": "She is going to take her car tomorrow because the metro is closed.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.tourisme.046",
+          "theme": "tourisme",
+          "fr": "Hier, il faisait très chaud alors nous sommes restés à l'ombre.",
+          "en": "Yesterday it was very hot so we stayed in the shade.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.tourisme.048",
+          "theme": "tourisme",
+          "fr": "Le guide nous a montré la vieille ville et l'église principale.",
+          "en": "The guide showed us the old town and the main church.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.marche.135",
+          "theme": "marche",
+          "fr": "Les clients ont fait la queue parce que le stand était populaire.",
+          "en": "The customers lined up because the stall was popular.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.133",
+          "theme": "transports-quotidiens",
+          "fr": "Puisque le parking était complet, il a garé sa voiture plus loin.",
+          "en": "Since the parking lot was full, he parked his car further away.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.tourisme.045",
+          "theme": "tourisme",
+          "fr": "Nous avons visité le château et nous avons pris beaucoup de photos.",
+          "en": "We visited the castle and we took a lot of photos.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-etiquette.079",
+          "theme": "rp-etiquette",
+          "fr": "Le directeur a salué chaque employé et leur a souhaité bonne chance.",
+          "en": "The director greeted each employee and wished them luck.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.marche.132",
+          "theme": "marche",
+          "fr": "Nous avons acheté des olives, puis nous sommes allés voir le fromager.",
+          "en": "We bought some olives, then we went to see the cheesemonger.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.rp-etiquette.085",
+          "theme": "rp-etiquette",
+          "fr": "Nous avons pris rendez-vous pour éviter de les déranger sans prévenir.",
+          "en": "We made an appointment to avoid disturbing them without notice.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.la-ville.107",
+          "theme": "la-ville",
+          "fr": "Puisque le quartier était trop bruyant, ils ont cherché un autre logement.",
+          "en": "Since the neighborhood was too noisy, they looked for another home.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.au-restaurant.131",
+          "theme": "au-restaurant",
+          "fr": "Nous allons revenir dans ce restaurant parce que le service était excellent.",
+          "en": "We are going to come back to this restaurant because the service was excellent.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.musique.052",
+          "theme": "musique",
+          "fr": "Avant, il écoutait seulement la radio, mais maintenant il utilise une appli.",
+          "en": "Before, he only listened to the radio, but now he uses an app.",
+          "words": 12
+        },
+        {
+          "id": "fr.a2.cinema.090",
+          "theme": "cinema",
+          "fr": "Quand j'ai vu l'affiche, j'ai eu envie d'y aller.",
+          "en": "When I saw the poster, I wanted to go.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-voyage.061",
+          "theme": "rp-voyage",
+          "fr": "Nous avons raté le train parce qu'il y avait trop de monde.",
+          "en": "We missed the train because there were too many people.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.deplacements.010",
+          "theme": "deplacements",
+          "fr": "J'ai raté le bus, donc je suis arrivé en retard au travail.",
+          "en": "I missed the bus, so I arrived late to work.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.marche.128",
+          "theme": "marche",
+          "fr": "J'ai oublié mon sac réutilisable, alors j'ai dû en acheter un.",
+          "en": "I forgot my reusable bag, so I had to buy one.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-loisirs.065",
+          "theme": "rp-loisirs",
+          "fr": "Tu as essayé l'escalade la semaine dernière et tu as adoré ça.",
+          "en": "You tried climbing last week and you loved it.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-etiquette.073",
+          "theme": "rp-etiquette",
+          "fr": "Quand j'ai renversé son café, je me suis excusé tout de suite.",
+          "en": "When I spilled his coffee, I apologized right away.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.marche.144",
+          "theme": "marche",
+          "fr": "J'ai acheté trop de légumes, alors j'ai partagé avec mon voisin.",
+          "en": "I bought too many vegetables, so I shared with my neighbor.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.marche.116",
+          "theme": "marche",
+          "fr": "J'ai acheté un kilo de pommes parce qu'elles étaient en promotion.",
+          "en": "I bought a kilo of apples because they were on sale.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.tourisme.047",
+          "theme": "tourisme",
+          "fr": "J'ai réservé une chambre d'hôtel mais elle n'était pas disponible.",
+          "en": "I booked a hotel room but it wasn't available.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.la-ville.078",
+          "theme": "la-ville",
+          "fr": "Hier, je suis allé à la mairie pour renouveler ma carte d'identité.",
+          "en": "Yesterday, I went to the town hall to renew my ID card.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.129",
+          "theme": "transports-quotidiens",
+          "fr": "Je vais descendre à la station suivante parce que je me suis trompé.",
+          "en": "I am going to get off at the next station because I made a mistake.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.jardinage.031",
+          "theme": "jardinage",
+          "fr": "Quand j'étais enfant, je jardinais avec mon grand-père tous les étés.",
+          "en": "When I was a child, I used to garden with my grandfather every summer.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-loisirs.069",
+          "theme": "rp-loisirs",
+          "fr": "Nous avons joué aux cartes toute la soirée et nous avons beaucoup ri.",
+          "en": "We played cards all evening and we laughed a lot.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-etiquette.070",
+          "theme": "rp-etiquette",
+          "fr": "Je vous ai écrit pour m'excuser du malentendu de la semaine dernière.",
+          "en": "I wrote to you to apologize for last week's misunderstanding.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-etiquette.078",
+          "theme": "rp-etiquette",
+          "fr": "Je pensais qu'il fallait embrasser tout le monde, mais je me trompais.",
+          "en": "I thought I had to kiss everyone hello, but I was wrong.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-loisirs.066",
+          "theme": "rp-loisirs",
+          "fr": "Avant, elle dansait tous les week-ends, mais elle a arrêté cette année.",
+          "en": "Before, she used to dance every weekend, but she stopped this year.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-loisirs.062",
+          "theme": "rp-loisirs",
+          "fr": "Elle a appris la guitare toute seule, mais elle joue très bien maintenant.",
+          "en": "She taught herself guitar, but she plays very well now.",
+          "words": 13
+        },
+        {
+          "id": "fr.a2.rp-loisirs.060",
+          "theme": "rp-loisirs",
+          "fr": "Hier soir, j'ai regardé un film et j'ai bien aimé la fin.",
+          "en": "Last night, I watched a movie and I really liked the ending.",
+          "words": 14
+        }
+      ]
+    },
+    {
+      "block_id": 20,
+      "items": [
+        {
+          "id": "fr.a2.au-restaurant.099",
+          "theme": "au-restaurant",
+          "fr": "J'ai commandé le menu du jour parce qu'il avait l'air bon.",
+          "en": "I ordered the daily menu because it looked good.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.rp-loisirs.084",
+          "theme": "rp-loisirs",
+          "fr": "J'ai commencé la boxe il y a deux mois et je progresse bien.",
+          "en": "I started boxing two months ago and I'm progressing well.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.marche.117",
+          "theme": "marche",
+          "fr": "Le vendeur m'a donné un bon prix, alors j'ai acheté deux kilos.",
+          "en": "The vendor gave me a good price, so I bought two kilos.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.jardinage.050",
+          "theme": "jardinage",
+          "fr": "Au fur et à mesure que l'été avance, le jardin change de couleur.",
+          "en": "As summer goes on, the garden changes color.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.marche.140",
+          "theme": "marche",
+          "fr": "Elle a payé par carte, puis elle a rangé les courses dans son sac.",
+          "en": "She paid by card, then she put the shopping in her bag.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.marche.123",
+          "theme": "marche",
+          "fr": "J'ai payé en espèces parce que le vendeur n'acceptait pas la carte.",
+          "en": "I paid in cash because the vendor didn't accept cards.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.rp-loisirs.081",
+          "theme": "rp-loisirs",
+          "fr": "Il a suivi un cours de cuisine et il a adoré préparer des desserts.",
+          "en": "He took a cooking class and he loved preparing desserts.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.rp-etiquette.080",
+          "theme": "rp-etiquette",
+          "fr": "On m'a expliqué qu'il fallait attendre son tour sans couper la parole.",
+          "en": "I was told that you have to wait your turn without interrupting.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.rp-loisirs.082",
+          "theme": "rp-loisirs",
+          "fr": "Elle faisait de la couture le dimanche, et elle a même vendu quelques créations.",
+          "en": "She used to sew on Sundays, and she even sold a few creations.",
+          "words": 14
+        },
+        {
+          "id": "fr.a2.transports-quotidiens.114",
+          "theme": "transports-quotidiens",
+          "fr": "Nous avons marché jusqu'à la gare parce que le bus n'est pas venu.",
+          "en": "We walked to the train station because the bus didn't come.",
+          "words": 15
+        }
+      ]
+    }
+  ]
+}

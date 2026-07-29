@@ -1,0 +1,1196 @@
+{
+  "stage": "1.3",
+  "world": 1,
+  "level": "sons",
+  "title": "Le Pont des Nasales",
+  "themes": [
+    "nasales"
+  ],
+  "source": "curated from seed.json — zero generated items in this file",
+  "poolSize": 165,
+  "dedupedPool": 165,
+  "selected": 165,
+  "blockCount": 5,
+  "blocks": [
+    {
+      "block_id": 1,
+      "items": [
+        {
+          "id": "fr.sons.nasales.002",
+          "theme": "nasales",
+          "fr": "Le vent danse.",
+          "en": "The wind is dancing.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.005",
+          "theme": "nasales",
+          "fr": "Le temps passe.",
+          "en": "Time goes by.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.129",
+          "theme": "nasales",
+          "fr": "Mon chien dort.",
+          "en": "My dog is sleeping.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.130",
+          "theme": "nasales",
+          "fr": "Tiens, du pain.",
+          "en": "Here, some bread.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.071",
+          "theme": "nasales",
+          "fr": "Son chaton dort.",
+          "en": "Her kitten is sleeping.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.133",
+          "theme": "nasales",
+          "fr": "Le train arrive.",
+          "en": "The train is arriving.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.064",
+          "theme": "nasales",
+          "fr": "Mon oncle ronfle.",
+          "en": "My uncle snores.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.067",
+          "theme": "nasales",
+          "fr": "Pardon, on passe.",
+          "en": "Excuse us, we're coming through.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.128",
+          "theme": "nasales",
+          "fr": "Demain, je viens.",
+          "en": "Tomorrow, I'm coming.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.003",
+          "theme": "nasales",
+          "fr": "Attends un moment.",
+          "en": "Wait a moment.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.069",
+          "theme": "nasales",
+          "fr": "On monte ensemble.",
+          "en": "We're going up together.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.006",
+          "theme": "nasales",
+          "fr": "Prends ton manteau.",
+          "en": "Take your coat.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.066",
+          "theme": "nasales",
+          "fr": "Regarde son ballon.",
+          "en": "Look at his ball.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.131",
+          "theme": "nasales",
+          "fr": "Viens demain matin.",
+          "en": "Come tomorrow morning.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.007",
+          "theme": "nasales",
+          "fr": "On mange maintenant.",
+          "en": "We are eating now.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.070",
+          "theme": "nasales",
+          "fr": "Bonjour, mon garçon.",
+          "en": "Hello, my boy.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.001",
+          "theme": "nasales",
+          "fr": "Maman chante souvent.",
+          "en": "Mom often sings.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.068",
+          "theme": "nasales",
+          "fr": "Montrez vos réponses.",
+          "en": "Show your answers.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.134",
+          "theme": "nasales",
+          "fr": "Éteins ton téléphone.",
+          "en": "Turn off your phone.",
+          "words": 3
+        },
+        {
+          "id": "fr.sons.nasales.127",
+          "theme": "nasales",
+          "fr": "J'ai très faim.",
+          "en": "I'm very hungry.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.136",
+          "theme": "nasales",
+          "fr": "Il a vingt ans.",
+          "en": "He is twenty years old.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.075",
+          "theme": "nasales",
+          "fr": "Ils vont à Lyon.",
+          "en": "They're going to Lyon.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.132",
+          "theme": "nasales",
+          "fr": "C'est bien loin.",
+          "en": "That's quite far.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.142",
+          "theme": "nasales",
+          "fr": "Le singe a faim.",
+          "en": "The monkey is hungry.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.065",
+          "theme": "nasales",
+          "fr": "C'est mon prénom.",
+          "en": "That's my first name.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.072",
+          "theme": "nasales",
+          "fr": "Le pont est long.",
+          "en": "The bridge is long.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.138",
+          "theme": "nasales",
+          "fr": "Le pain sent bon.",
+          "en": "The bread smells good.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.009",
+          "theme": "nasales",
+          "fr": "Le banc est blanc.",
+          "en": "The bench is white.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.073",
+          "theme": "nasales",
+          "fr": "Ce melon sent bon.",
+          "en": "This melon smells good.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.135",
+          "theme": "nasales",
+          "fr": "Le bain est chaud.",
+          "en": "The bath is hot.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.011",
+          "theme": "nasales",
+          "fr": "Il vend cent gants.",
+          "en": "He sells a hundred gloves.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.078",
+          "theme": "nasales",
+          "fr": "Son nom sonne bien.",
+          "en": "His name sounds nice.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.079",
+          "theme": "nasales",
+          "fr": "On monte au balcon.",
+          "en": "We're going up to the balcony.",
+          "words": 4
+        }
+      ]
+    },
+    {
+      "block_id": 2,
+      "items": [
+        {
+          "id": "fr.sons.nasales.076",
+          "theme": "nasales",
+          "fr": "Ton poisson est rond.",
+          "en": "Your fish is round.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.004",
+          "theme": "nasales",
+          "fr": "J'entends les enfants.",
+          "en": "I hear the children.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.015",
+          "theme": "nasales",
+          "fr": "Ta chambre est grande.",
+          "en": "Your bedroom is big.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.137",
+          "theme": "nasales",
+          "fr": "Ton cousin est blond ?",
+          "en": "Is your cousin blond?",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.140",
+          "theme": "nasales",
+          "fr": "Alain peint très bien.",
+          "en": "Alain paints very well.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.008",
+          "theme": "nasales",
+          "fr": "C'est vraiment charmant.",
+          "en": "It is really charming.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.014",
+          "theme": "nasales",
+          "fr": "Le vent souffle doucement.",
+          "en": "The wind blows gently.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.074",
+          "theme": "nasales",
+          "fr": "Nous mangeons des bonbons.",
+          "en": "We're eating candies.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.016",
+          "theme": "nasales",
+          "fr": "Le restaurant ferme dimanche.",
+          "en": "The restaurant closes on Sunday.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.012",
+          "theme": "nasales",
+          "fr": "Nous chantons souvent ensemble.",
+          "en": "We often sing together.",
+          "words": 4
+        },
+        {
+          "id": "fr.sons.nasales.139",
+          "theme": "nasales",
+          "fr": "Ce vin vient d'ici.",
+          "en": "This wine comes from here.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.141",
+          "theme": "nasales",
+          "fr": "J'ai faim ce matin.",
+          "en": "I'm hungry this morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.018",
+          "theme": "nasales",
+          "fr": "Il fait du vent dehors.",
+          "en": "It is windy outside.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.077",
+          "theme": "nasales",
+          "fr": "On compte jusqu'à onze.",
+          "en": "We count up to eleven.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.087",
+          "theme": "nasales",
+          "fr": "Pardon, où est le pont?",
+          "en": "Excuse me, where is the bridge?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.145",
+          "theme": "nasales",
+          "fr": "Elle adore ce vin blanc.",
+          "en": "She loves this white wine.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.086",
+          "theme": "nasales",
+          "fr": "Ils font un rond parfait.",
+          "en": "They make a perfect circle.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.148",
+          "theme": "nasales",
+          "fr": "On mange du raisin blanc.",
+          "en": "We're eating white grapes.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.149",
+          "theme": "nasales",
+          "fr": "Tu viens lundi ou mardi ?",
+          "en": "Are you coming Monday or Tuesday?",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.081",
+          "theme": "nasales",
+          "fr": "Son ballon roule au salon.",
+          "en": "His ball is rolling in the living room.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.144",
+          "theme": "nasales",
+          "fr": "Le médecin vient ce matin.",
+          "en": "The doctor is coming this morning.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.022",
+          "theme": "nasales",
+          "fr": "On attend devant la banque.",
+          "en": "We are waiting in front of the bank.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.085",
+          "theme": "nasales",
+          "fr": "Nous montons dans le wagon.",
+          "en": "We get on the train car.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.143",
+          "theme": "nasales",
+          "fr": "On prend le train ensemble.",
+          "en": "We're taking the train together.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.150",
+          "theme": "nasales",
+          "fr": "Enfin, le printemps est là.",
+          "en": "Finally, spring is here.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.083",
+          "theme": "nasales",
+          "fr": "On chante une bonne chanson.",
+          "en": "We're singing a good song.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.084",
+          "theme": "nasales",
+          "fr": "Un pigeon passe devant nous.",
+          "en": "A pigeon passes in front of us.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.023",
+          "theme": "nasales",
+          "fr": "Le marchand vend des plantes.",
+          "en": "The merchant sells plants.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.024",
+          "theme": "nasales",
+          "fr": "Ce manteau blanc est élégant.",
+          "en": "This white coat is elegant.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.013",
+          "theme": "nasales",
+          "fr": "L'enfant mange trop lentement.",
+          "en": "The child eats too slowly.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.080",
+          "theme": "nasales",
+          "fr": "Manon adore les petits avions.",
+          "en": "Manon loves small planes.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.082",
+          "theme": "nasales",
+          "fr": "Ton oncle répond au téléphone.",
+          "en": "Your uncle is answering the phone.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.020",
+          "theme": "nasales",
+          "fr": "Maman prend toujours son temps.",
+          "en": "Mom always takes her time.",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "block_id": 3,
+      "items": [
+        {
+          "id": "fr.sons.nasales.019",
+          "theme": "nasales",
+          "fr": "Les enfants dansent en chantant.",
+          "en": "The children dance while singing.",
+          "words": 5
+        },
+        {
+          "id": "fr.sons.nasales.017",
+          "theme": "nasales",
+          "fr": "On s'assoit sur le banc.",
+          "en": "We sit on the bench.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.026",
+          "theme": "nasales",
+          "fr": "Le vent se lève ce soir.",
+          "en": "The wind is picking up tonight.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.151",
+          "theme": "nasales",
+          "fr": "Le matin, je bois un café.",
+          "en": "In the morning, I drink a coffee.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.021",
+          "theme": "nasales",
+          "fr": "J'ai trente ans en janvier.",
+          "en": "I turn thirty in January.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.089",
+          "theme": "nasales",
+          "fr": "Léon et Simon vont à Dijon.",
+          "en": "Léon and Simon are going to Dijon.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.146",
+          "theme": "nasales",
+          "fr": "J'attends le train du matin.",
+          "en": "I'm waiting for the morning train.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.155",
+          "theme": "nasales",
+          "fr": "Ce chemin passe sous le pont.",
+          "en": "This path goes under the bridge.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.147",
+          "theme": "nasales",
+          "fr": "Ton parrain habite loin d'ici.",
+          "en": "Your godfather lives far from here.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.010",
+          "theme": "nasales",
+          "fr": "J'attends maman devant l'école.",
+          "en": "I am waiting for mom in front of the school.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.093",
+          "theme": "nasales",
+          "fr": "Le mouton et le cochon dorment.",
+          "en": "The sheep and the pig are sleeping.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.154",
+          "theme": "nasales",
+          "fr": "Le peintre peint un sapin vert.",
+          "en": "The painter is painting a green fir tree.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.156",
+          "theme": "nasales",
+          "fr": "Le vent renverse le banc blanc.",
+          "en": "The wind knocks over the white bench.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.025",
+          "theme": "nasales",
+          "fr": "Ma tante chante dans la cuisine.",
+          "en": "My aunt sings in the kitchen.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.088",
+          "theme": "nasales",
+          "fr": "Le garçon blond mange un bonbon.",
+          "en": "The blond boy is eating a candy.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.090",
+          "theme": "nasales",
+          "fr": "On prépare du poisson au citron.",
+          "en": "We're making fish with lemon.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.091",
+          "theme": "nasales",
+          "fr": "Manon me montre sa montre ronde.",
+          "en": "Manon shows me her round watch.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.153",
+          "theme": "nasales",
+          "fr": "Le chien du voisin aboie encore.",
+          "en": "The neighbour's dog is barking again.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.092",
+          "theme": "nasales",
+          "fr": "Nous avons onze melons bien mûrs.",
+          "en": "We have eleven very ripe melons.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.094",
+          "theme": "nasales",
+          "fr": "On répond aux questions du patron.",
+          "en": "We answer the boss's questions.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.095",
+          "theme": "nasales",
+          "fr": "On regarde la télévision au salon.",
+          "en": "We watch TV in the living room.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.029",
+          "theme": "nasales",
+          "fr": "Mon grand frère travaille en France.",
+          "en": "My big brother works in France.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.030",
+          "theme": "nasales",
+          "fr": "Elle danse pendant toute la chanson.",
+          "en": "She dances during the whole song.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.152",
+          "theme": "nasales",
+          "fr": "Mon voisin canadien parle très bien.",
+          "en": "My Canadian neighbour speaks very well.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.157",
+          "theme": "nasales",
+          "fr": "Vincent invite ses copains chez lui.",
+          "en": "Vincent invites his friends to his place.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.028",
+          "theme": "nasales",
+          "fr": "Les gens patientent devant le théâtre.",
+          "en": "People are waiting in front of the theater.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.031",
+          "theme": "nasales",
+          "fr": "Nous mangeons souvent des croissants chauds.",
+          "en": "We often eat warm croissants.",
+          "words": 6
+        },
+        {
+          "id": "fr.sons.nasales.161",
+          "theme": "nasales",
+          "fr": "Il reste du vin dans ton verre.",
+          "en": "There is still some wine in your glass.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.036",
+          "theme": "nasales",
+          "fr": "Le vent souffle fort sur le banc.",
+          "en": "The wind blows hard on the bench.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.162",
+          "theme": "nasales",
+          "fr": "Le lapin se cache dans le jardin.",
+          "en": "The rabbit is hiding in the garden.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.102",
+          "theme": "nasales",
+          "fr": "On met un glaçon dans la limonade.",
+          "en": "We put an ice cube in the lemonade.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.096",
+          "theme": "nasales",
+          "fr": "On achète du jambon et du saucisson.",
+          "en": "We're buying ham and dry sausage.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.033",
+          "theme": "nasales",
+          "fr": "Il attend sa tante devant le magasin.",
+          "en": "He is waiting for his aunt in front of the store.",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "block_id": 4,
+      "items": [
+        {
+          "id": "fr.sons.nasales.097",
+          "theme": "nasales",
+          "fr": "Mon frère blond joue avec son ballon.",
+          "en": "My blond brother plays with his ball.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.101",
+          "theme": "nasales",
+          "fr": "Nous regardons les ombres sur le mur.",
+          "en": "We look at the shadows on the wall.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.158",
+          "theme": "nasales",
+          "fr": "J'ai un examen important lundi matin.",
+          "en": "I have an important exam Monday morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.159",
+          "theme": "nasales",
+          "fr": "Demain matin, je prends un bain chaud.",
+          "en": "Tomorrow morning, I'm taking a hot bath.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.165",
+          "theme": "nasales",
+          "fr": "Le magasin du coin ferme demain matin.",
+          "en": "The corner store closes tomorrow morning.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.032",
+          "theme": "nasales",
+          "fr": "L'étudiant rentre chez lui en chantant.",
+          "en": "The student goes home singing.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.163",
+          "theme": "nasales",
+          "fr": "Martin tient son grand chien en laisse.",
+          "en": "Martin keeps his big dog on a leash.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.164",
+          "theme": "nasales",
+          "fr": "Chaque matin, je prends le même chemin.",
+          "en": "Every morning, I take the same path.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.160",
+          "theme": "nasales",
+          "fr": "Son cousin américain arrive par le train.",
+          "en": "His American cousin is arriving by train.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.034",
+          "theme": "nasales",
+          "fr": "Le dimanche, on mange ensemble en famille.",
+          "en": "On Sundays, we eat together as a family.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.103",
+          "theme": "nasales",
+          "fr": "Simon compte les moutons pour bien dormir.",
+          "en": "Simon counts sheep to sleep well.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.027",
+          "theme": "nasales",
+          "fr": "J'apprends le français depuis le printemps.",
+          "en": "I have been learning French since spring.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.037",
+          "theme": "nasales",
+          "fr": "Ma tante attend le tramway depuis longtemps.",
+          "en": "My aunt has been waiting for the streetcar for a long time.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.038",
+          "theme": "nasales",
+          "fr": "Les enfants apprennent une chanson en classe.",
+          "en": "The children are learning a song in class.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.100",
+          "theme": "nasales",
+          "fr": "Mon tonton raconte une longue histoire drôle.",
+          "en": "My uncle tells a long funny story.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.040",
+          "theme": "nasales",
+          "fr": "Elle prend son temps pour manger tranquillement.",
+          "en": "She takes her time to eat calmly.",
+          "words": 7
+        },
+        {
+          "id": "fr.sons.nasales.099",
+          "theme": "nasales",
+          "fr": "Les poissons nagent au fond de l'étang.",
+          "en": "The fish swim at the bottom of the pond.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.035",
+          "theme": "nasales",
+          "fr": "J'ai cent dollars dans mon manteau blanc.",
+          "en": "I have a hundred dollars in my white coat.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.105",
+          "theme": "nasales",
+          "fr": "Mon oncle Léon monte sur son vélo marron.",
+          "en": "My uncle Léon gets on his brown bike.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.108",
+          "theme": "nasales",
+          "fr": "Ton bonnet marron est tombé sous le banc.",
+          "en": "Your brown hat fell under the bench.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.110",
+          "theme": "nasales",
+          "fr": "Tout le monde connaît le nom du champion.",
+          "en": "Everyone knows the champion's name.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.111",
+          "theme": "nasales",
+          "fr": "Le maçon construit un grand mur en béton.",
+          "en": "The mason is building a big concrete wall.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.109",
+          "theme": "nasales",
+          "fr": "Nous allons chez Yvon pour manger du thon.",
+          "en": "We're going to Yvon's place to eat tuna.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.041",
+          "theme": "nasales",
+          "fr": "En attendant le bus, je chante une chanson.",
+          "en": "While waiting for the bus, I sing a song.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.048",
+          "theme": "nasales",
+          "fr": "Ce matin, il mange un croissant aux amandes.",
+          "en": "This morning, he is eating an almond croissant.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.044",
+          "theme": "nasales",
+          "fr": "Ma grande sœur attend un enfant pour janvier.",
+          "en": "My big sister is expecting a baby for January.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.043",
+          "theme": "nasales",
+          "fr": "Le marchand vend des gants blancs en novembre.",
+          "en": "The merchant sells white gloves in November.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.039",
+          "theme": "nasales",
+          "fr": "Pendant l'hiver, il fait franchement froid ici.",
+          "en": "During winter, it is frankly cold here.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.046",
+          "theme": "nasales",
+          "fr": "Le temps change souvent au printemps au Canada.",
+          "en": "The weather often changes in spring in Canada.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.104",
+          "theme": "nasales",
+          "fr": "On regarde les flocons tomber devant la maison.",
+          "en": "We watch the snowflakes fall in front of the house.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.098",
+          "theme": "nasales",
+          "fr": "Le nouveau patron du restaurant s'appelle Gaston.",
+          "en": "The restaurant's new boss is named Gaston.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.106",
+          "theme": "nasales",
+          "fr": "Nous écoutons des chansons pendant le long voyage.",
+          "en": "We listen to songs during the long trip.",
+          "words": 8
+        },
+        {
+          "id": "fr.sons.nasales.042",
+          "theme": "nasales",
+          "fr": "Mes parents partent sans nous pendant les vacances.",
+          "en": "My parents leave without us during the holidays.",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "block_id": 5,
+      "items": [
+        {
+          "id": "fr.sons.nasales.112",
+          "theme": "nasales",
+          "fr": "La chanson de Manon passe encore à la radio.",
+          "en": "Manon's song is playing on the radio again.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.049",
+          "theme": "nasales",
+          "fr": "On voit un banc blanc devant la grande maison.",
+          "en": "You can see a white bench in front of the big house.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.107",
+          "theme": "nasales",
+          "fr": "On prend l'avion pour aller à Montréal demain.",
+          "en": "We're taking the plane to go to Montreal tomorrow.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.114",
+          "theme": "nasales",
+          "fr": "On entend le son des cloches depuis la maison.",
+          "en": "We hear the sound of the bells from the house.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.115",
+          "theme": "nasales",
+          "fr": "Yvon et Ninon regardent un film dans le salon.",
+          "en": "Yvon and Ninon are watching a movie in the living room.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.047",
+          "theme": "nasales",
+          "fr": "J'entends le chant des oiseaux dans les champs.",
+          "en": "I hear the birds singing in the fields.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.119",
+          "theme": "nasales",
+          "fr": "Ils font des bonds sur le trampoline du jardin.",
+          "en": "They bounce on the trampoline in the yard.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.045",
+          "theme": "nasales",
+          "fr": "L'ambulance passe lentement dans la rue ce matin.",
+          "en": "The ambulance is moving slowly down the street this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.117",
+          "theme": "nasales",
+          "fr": "Le petit garçon apprend sa leçon avant le souper.",
+          "en": "The little boy learns his lesson before supper.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.118",
+          "theme": "nasales",
+          "fr": "Pardon monsieur, le pont est fermé depuis ce matin.",
+          "en": "Sorry sir, the bridge has been closed since this morning.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.053",
+          "theme": "nasales",
+          "fr": "Elle apprend le chant depuis longtemps avec sa tante.",
+          "en": "She has been learning singing for a long time with her aunt.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.056",
+          "theme": "nasales",
+          "fr": "Le marchand ambulant vend des oranges sur le boulevard.",
+          "en": "The street vendor sells oranges on the boulevard.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.113",
+          "theme": "nasales",
+          "fr": "Nous montons au deuxième étage pour ranger les cartons.",
+          "en": "We go up to the second floor to put away the boxes.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.054",
+          "theme": "nasales",
+          "fr": "Les gens dansent lentement pendant la fête du printemps.",
+          "en": "People dance slowly during the spring festival.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.055",
+          "theme": "nasales",
+          "fr": "En septembre, les étudiants rentrent en classe avec entrain.",
+          "en": "In September, students go back to class with enthusiasm.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.050",
+          "theme": "nasales",
+          "fr": "Le dimanche matin, maman nous prépare tranquillement des crêpes.",
+          "en": "On Sunday mornings, mom calmly makes us crepes.",
+          "words": 9
+        },
+        {
+          "id": "fr.sons.nasales.123",
+          "theme": "nasales",
+          "fr": "On dessine un rond et un carré sur le tableau.",
+          "en": "We draw a circle and a square on the board.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.120",
+          "theme": "nasales",
+          "fr": "Simon met du savon sur ses mains avant le dîner.",
+          "en": "Simon puts soap on his hands before dinner.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.061",
+          "theme": "nasales",
+          "fr": "Chaque matin, ma tante boit son café sur le banc.",
+          "en": "Every morning, my aunt drinks her coffee on the bench.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.051",
+          "theme": "nasales",
+          "fr": "Pendant le mois d'août, nous campons à la campagne.",
+          "en": "During the month of August, we camp in the countryside.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.124",
+          "theme": "nasales",
+          "fr": "Marion et son frère partent à la montagne en avion.",
+          "en": "Marion and her brother are leaving for the mountains by plane.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.122",
+          "theme": "nasales",
+          "fr": "Nous posons les melons et les citrons sur le balcon.",
+          "en": "We put the melons and the lemons on the balcony.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.063",
+          "theme": "nasales",
+          "fr": "Il fait beau, alors on se promène lentement en ville.",
+          "en": "The weather is nice, so we stroll slowly around town.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.125",
+          "theme": "nasales",
+          "fr": "Mon tonton Gaston montre ses photos du Japon à Ninon.",
+          "en": "My uncle Gaston shows his photos of Japan to Ninon.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.116",
+          "theme": "nasales",
+          "fr": "On compte les pigeons qui passent au-dessus du fleuve.",
+          "en": "We count the pigeons flying over the river.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.062",
+          "theme": "nasales",
+          "fr": "En attendant le train, il mange un sandwich au fromage.",
+          "en": "While waiting for the train, he eats a cheese sandwich.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.060",
+          "theme": "nasales",
+          "fr": "Le samedi, les enfants chantent et dansent dans le salon.",
+          "en": "On Saturdays, the children sing and dance in the living room.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.121",
+          "theme": "nasales",
+          "fr": "On raconte une longue histoire aux enfants avant le coucher.",
+          "en": "We tell the children a long story before bedtime.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.059",
+          "theme": "nasales",
+          "fr": "Pendant les vacances, mes parents louent un chalet en montagne.",
+          "en": "During the holidays, my parents rent a cottage in the mountains.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.058",
+          "theme": "nasales",
+          "fr": "Nous attendons nos amis devant le restaurant depuis trente minutes.",
+          "en": "We have been waiting for our friends in front of the restaurant for thirty minutes.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.052",
+          "theme": "nasales",
+          "fr": "Mon grand-père raconte des histoires passionnantes pendant le souper.",
+          "en": "My grandfather tells exciting stories during supper.",
+          "words": 10
+        },
+        {
+          "id": "fr.sons.nasales.057",
+          "theme": "nasales",
+          "fr": "J'attends le printemps pour planter des fleurs dans le jardin.",
+          "en": "I am waiting for spring to plant flowers in the garden.",
+          "words": 11
+        },
+        {
+          "id": "fr.sons.nasales.126",
+          "theme": "nasales",
+          "fr": "Nous attendons l'autobus depuis onze minutes devant la grande maison.",
+          "en": "We have been waiting for the bus for eleven minutes in front of the big house.",
+          "words": 11
+        }
+      ]
+    }
+  ]
+}
