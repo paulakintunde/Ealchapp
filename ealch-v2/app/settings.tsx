@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react';
-import { ScrollView, View } from 'react-native';
+import { Image, ScrollView, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -19,6 +19,7 @@ import { sound } from '@/services';
 import { ACCENTS } from '@/theme/palette';
 import { langs } from '@/content';
 import { accentData, alarmData } from '@/content/onboarding';
+import { AVATARS } from '@/content/avatars';
 
 const NOTIF_KEYS = ['daily', 'report', 'nudge'] as const;
 
@@ -97,6 +98,8 @@ export default function Settings() {
     setMode,
     accent,
     setAccent,
+    avatarId,
+    setAvatarId,
     sound: soundOn,
     setSound,
     brightBoost,
@@ -394,6 +397,35 @@ export default function Settings() {
                 />
                 <TX font="semi" role="meta" color={on ? t.accTx : t.txMuted}>
                   {th.n}
+                </TX>
+              </Press>
+            );
+          })}
+        </View>
+
+        {/* avatar picker */}
+        <GroupTitle>{T.avatarT}</GroupTitle>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 14, marginBottom: 18 }}>
+          {AVATARS.map((a) => {
+            const on = avatarId === a.id;
+            return (
+              <Press key={a.id} onPress={() => setAvatarId(a.id)} style={{ alignItems: 'center', gap: 8, width: 64 }}>
+                <View
+                  style={{
+                    width: 56,
+                    height: 56,
+                    borderRadius: 28,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: t.card2,
+                    borderWidth: on ? 2 : 1,
+                    borderColor: on ? t.acc : t.line(12),
+                  }}
+                >
+                  <Image source={a.src} resizeMode="contain" style={{ width: 44, height: 44 }} />
+                </View>
+                <TX font="semi" role="meta" color={on ? t.accTx : t.txMuted} center numberOfLines={1}>
+                  {a.name}
                 </TX>
               </Press>
             );

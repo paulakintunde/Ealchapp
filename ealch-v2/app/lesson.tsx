@@ -6,6 +6,7 @@ import { TX } from '@/components/Type';
 import { FocusHeader, Press } from '@/components/ui';
 import { LessonPager } from '@/components/LessonPager';
 import { LessonKeyIntro } from '@/components/LessonKeyIntro';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
@@ -140,15 +141,18 @@ export default function LessonScreen() {
   // the home hero offering it by its real title. The completion handlers below
   // clear it; unmount deliberately does not (leaving = not finishing). Store the
   // caller's key so the route round-trips through the same LEGACY resolution.
+  // onLessonIndexChange (below) re-fires this with the current section's
+  // anchor as the learner swipes, so the position stays live too.
   useEffect(() => {
-    if (L) setResume({ route: `/lesson?key=${raw ?? id}`, title: L.title, activity: 'lesson' });
+    if (L) setResume('lesson', { route: `/lesson?key=${raw ?? id}`, title: L.title });
   }, [L?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!L) {
     return (
       <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
         <FocusHeader onClose={() => router.back()} onSettings={() => router.push('/settings')} />
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30 }}>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30, gap: 18 }}>
+          <MascotAvatar size={80} rounded={false} state="thinking" />
           <TX role="body" color={t.txMuted} center>{T.lessonSoon}</TX>
         </View>
       </View>
@@ -177,6 +181,21 @@ export default function LessonScreen() {
   const contentSections = L.sections.filter((s) => s.type !== 'quiz');
   const quizSection = L.sections.find((s): s is Extract<LessonSection, { type: 'quiz' }> => s.type === 'quiz');
   const quiz = quizSection?.questions ?? [];
+
+  // Keeps the lesson's resume slot pointed at wherever the pager currently is,
+  // not just where it opened. `sectionIx` is an index into `contentSections`
+  // (what LessonPager was handed); resolveAnchor/anchorForItem key sections
+  // against the lesson's FULL `sections` array, so it's translated back via
+  // object identity before formatting — the same translation deepLinkIx above
+  // already does in reverse. Null (cover/image/quiz pages) is a no-op: those
+  // pages have no honest anchor to resume into, so the last real section wins.
+  const onLessonIndexChange = (sectionIx: number | null) => {
+    if (sectionIx == null) return;
+    const fullIx = L.sections.indexOf(contentSections[sectionIx]);
+    if (fullIx < 0) return;
+    const anchor = `${L.id}#s${fullIx}.0`;
+    setResume('lesson', { route: `/lesson?key=${raw ?? id}&at=${encodeURIComponent(anchor)}`, title: L.title });
+  };
 
   const play = (pid: string, text: string, audioRef?: string | null) => {
     sound.play('flip');
@@ -232,7 +251,7 @@ export default function LessonScreen() {
     if (completedRef.current) return;
     completedRef.current = true;
     logSession('lesson');
-    clearResume();
+    clearResume('lesson');
     setQuizDone(true);
   };
 
@@ -241,7 +260,7 @@ export default function LessonScreen() {
     if (quiz.length === 0) {
       // No quiz on this lesson: sitting the content is the completion.
       logSession('lesson');
-      clearResume();
+      clearResume('lesson');
     }
     router.back();
   };
@@ -303,6 +322,7 @@ export default function LessonScreen() {
         nextTitle={nextL?.title}
         initialIndex={deepLinkIx}
         highlightIndex={deepLinkIx}
+        onIndexChange={onLessonIndexChange}
         bottomInset={insets.bottom}
       />
     </View>

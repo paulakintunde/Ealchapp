@@ -16,7 +16,9 @@ export function TabBar() {
 
   const tabs: Tab[] = [
     { key: 'home', label: T.tabListen, route: '/home' },
-    { key: 'speak', label: T.tabSpeak, route: '/speak' },
+    // The tab opens the trail map, the mode's hub; the drill itself lives at
+    // /speak and is entered from a station (or a resume deep link).
+    { key: 'speak', label: T.tabSpeak, route: '/speakmap' },
     { key: 'coach', label: T.tabCoach, route: '/chat' },
     { key: 'profile', label: T.tabProfile, route: '/profile' },
   ];

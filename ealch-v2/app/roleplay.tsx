@@ -6,6 +6,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { MascotAvatar } from '@/components/MascotAvatar';
+import { avatarName } from '@/content/avatars';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -15,6 +17,7 @@ import { sound, tts, stt, type SttResult } from '@/services';
 import { content } from '@/services/content';
 import type { Level } from '@/content/schema';
 import { localDay } from '@/store/progress.logic';
+import { themeMeta } from '@/content/themeMeta';
 import { roleplayLocked } from '@/store/entitlement.logic';
 import { useEntitlement } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
@@ -47,13 +50,20 @@ export default function Roleplay() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const lang = useStore((s) => s.lang);
+  const avatarId = useStore((s) => s.avatarId);
+  const coachName = avatarName(avatarId);
 
   const logSession = useSessionLog();
   const logAttempt = useProgress((s) => s.logAttempt);
+  const setResume = useProgress((s) => s.setResume);
+  const clearResume = useProgress((s) => s.clearResume);
 
   // `?theme=&level=` opens the parcours scene for that theme/band directly;
-  // without params this stays the standalone marché role play.
-  const { theme: themeQ, level: levelQ } = useLocalSearchParams<{ theme?: string; level?: string }>();
+  // without params this stays the standalone marché role play. `?turn=` is
+  // resume-only: it names the turn a resumed visit should reopen live on.
+  const { theme: themeQ, level: levelQ, turn: turnQ } = useLocalSearchParams<{
+    theme?: string; level?: string; turn?: string;
+  }>();
   const rpTheme = themeQ || 'marche';
   const [level, setLevel] = useState<RpLevel>(() => {
     const up = (levelQ ?? '').toUpperCase() as RpLevel;
@@ -102,6 +112,26 @@ export default function Roleplay() {
   }, []);
 
   const speak = (fr: string) => tts.speak(fr);
+
+  // Resume landing: jump straight past setup into the live dialogue at the
+  // saved turn, rather than replaying the transcript up to it — the same
+  // simplification start() already makes for turn 0 (one AI line, then go).
+  // Turns are sequential and scripted (no stable per-turn id, no shuffling),
+  // so a raw index is a safe resume key here, unlike the item-drill screens.
+  const didResumeRef = useRef(false);
+  useEffect(() => {
+    if (didResumeRef.current || !nTurns) return;
+    didResumeRef.current = true;
+    const raw = Array.isArray(turnQ) ? turnQ[0] : turnQ;
+    const n = raw ? Number(raw) : NaN;
+    if (!Number.isFinite(n) || n <= 0 || n >= nTurns) return;
+    const t = turns[n];
+    setMsgs([{ who: 'ai', fr: t.ai, en: t.en }]);
+    setIx(n);
+    setLive(true);
+    speak(t.ai);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nTurns]);
 
   const start = () => {
     if (!nTurns) return;
@@ -190,6 +220,7 @@ export default function Roleplay() {
       setIx(nTurns);
       sound.play('success');
       logSession('roleplay');
+      clearResume('roleplay');
     }
   };
 
@@ -205,6 +236,19 @@ export default function Roleplay() {
   };
 
   const finished = nTurns > 0 && ix >= nTurns && live && !busy;
+
+  // Keeps roleplay resumable at the exact turn, re-firing every time ix
+  // advances while live. Not fired once finished — continueTurn's finishing
+  // branch clears the slot outright instead.
+  useEffect(() => {
+    if (!live || finished) return;
+    const params = new URLSearchParams({ theme: rpTheme, level, turn: String(ix) });
+    setResume('roleplay', {
+      route: `/roleplay?${params.toString()}`,
+      title: scenario?.title ?? (themeQ ? themeMeta(rpTheme).fr : T.rpTag),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ix, live, finished, rpTheme, level]);
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -288,7 +332,15 @@ export default function Roleplay() {
             {msgs.map((m, i) => {
               const me = m.who === 'me';
               return (
-                <View key={i} style={{ alignItems: me ? 'flex-end' : 'flex-start' }}>
+                <View key={i} style={{ alignItems: me ? 'flex-end' : 'flex-start', flexDirection: me ? 'row-reverse' : 'row', gap: 8 }}>
+                  {/* The coach's turns carry the mascot — until now this
+                      screen had no character presence at all. Only the
+                      latest coach bubble breathes; earlier ones sit still. */}
+                  {!me ? (
+                    <View style={{ alignSelf: 'flex-end' }}>
+                      <MascotAvatar size={28} state={i === msgs.length - 1 ? 'idle' : 'static'} />
+                    </View>
+                  ) : null}
                   <View
                     style={{
                       maxWidth: '82%',
@@ -348,11 +400,14 @@ export default function Roleplay() {
 
           {finished ? (
             <View style={{ borderRadius: 20, borderWidth: 1, borderColor: t.accA(40), backgroundColor: t.accA(7), padding: 20, alignItems: 'center' }}>
+              <View style={{ marginBottom: 10 }}>
+                <MascotAvatar size={64} rounded={false} state="celebrate" tier="medium" celebrateKey="rp-done" />
+              </View>
               <TX font="serifI" size={24} role="display" center style={{ marginBottom: 6 }}>
                 {T.rpDoneT}
               </TX>
               <TX role="label" color={t.txSecondary} center style={{ marginBottom: 16 }}>
-                {T.rpDoneS}
+                {T.rpDoneS.replace('{name}', coachName)}
               </TX>
               <View style={{ flexDirection: 'row', gap: 10, alignSelf: 'stretch' }}>
                 <Press cue={null} onPress={restart} style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, borderWidth: 1, borderColor: t.line(16), alignItems: 'center', justifyContent: 'center' }}>

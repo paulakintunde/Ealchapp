@@ -4,9 +4,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import {
-  clampMinutes, decomposeExamMiss, localDay, migrateProgressToV3, mintAttemptId, mintExamResultId,
+  clampMinutes, decomposeExamMiss, localDay, migrateProgressToV4, mintAttemptId, mintExamResultId,
   type Activity, type AttemptEntry, type AttemptInput, type ErrorEvent, type ErrorInput,
-  type ExamResult, type ExamResultInput, type ResumeState, type SessionEntry,
+  type ExamResult, type ExamResultInput, type ResumeByMode, type ResumeState, type SessionEntry,
 } from './progress.logic';
 import type { ExamTask } from '../content/schema';
 
@@ -31,10 +31,13 @@ export type ProgressState = {
    *  home's weak-spots section. Empty on a fresh install, so the section shows an
    *  honest "nothing yet" rather than three invented weaknesses. */
   errors: ErrorEvent[];
-  /** The last lesson opened and not finished — what the hero offers to resume.
-   *  Null on a fresh install and after every completion, so the hero falls back
-   *  to an honest "Begin" recommendation rather than a fabricated one. */
-  resume: ResumeState | null;
+  /** The last position left off in each activity — what the hero (and any
+   *  secondary "Continue" chips) offer to resume into. Empty on a fresh install
+   *  and after a mode's completion clears its own slot, so the hero falls back
+   *  to an honest "Begin" recommendation rather than a fabricated one. Per-mode
+   *  so leaving La Dictée mid-theme to open a lesson does not erase the
+   *  dictée's place — see ResumeByMode in progress.logic.ts. */
+  resumeByMode: ResumeByMode;
 
   setHydrated: () => void;
   /** The session writer. A drill screen calls this when the user finishes it. */
@@ -52,12 +55,18 @@ export type ProgressState = {
   /** The error writer. A drill calls this the moment it can name the grammar
    *  skill a miss belongs to — the date is stamped here, like the other logs. */
   logError: (error: ErrorInput) => void;
-  /** Mark a screen as resumable. Called on mount by lesson-style screens; the
-   *  local day is stamped here so callers pass only content-stable fields. */
-  setResume: (r: Omit<ResumeState, 'at'>) => void;
-  /** Clear the resume — called by a completion handler, never on unmount, so a
-   *  mid-lesson exit still leaves something to come back to. */
-  clearResume: () => void;
+  /** Mark one activity's slot as resumable. Called on mount AND again whenever
+   *  that screen's position changes (a new card, a new pager page, a new
+   *  narration step) — see the per-screen resume effects — so the slot always
+   *  reflects where the user actually is, not just where they started. The
+   *  local day is stamped here so callers pass only content-stable fields;
+   *  `activity` is both the map key and (redundantly, for convenience) part of
+   *  the stored row. */
+  setResume: (activity: Activity, r: Omit<ResumeState, 'at' | 'activity'>) => void;
+  /** Clear one activity's slot — called by that mode's own completion handler,
+   *  never on unmount, so a mid-drill exit still leaves something to come back
+   *  to. Other modes' slots are untouched. */
+  clearResume: (activity: Activity) => void;
   /** Wipe both logs. Account deletion; not a user-facing "reset progress" yet. */
   eraseProgress: () => Promise<void>;
   /** Overwrite the attempt log wholesale with an already-merged, already-
@@ -93,13 +102,23 @@ export const useProgress = create<ProgressState>()(
       attempts: [],
       examResults: [],
       errors: [],
-      resume: null,
+      resumeByMode: {},
 
       setHydrated: () => set({ hydrated: true }),
 
-      setResume: (r) => set({ resume: { ...r, at: localDay(new Date()) } }),
+      setResume: (activity, r) =>
+        set({
+          resumeByMode: {
+            ...get().resumeByMode,
+            [activity]: { ...r, activity, at: localDay(new Date()) },
+          },
+        }),
 
-      clearResume: () => set({ resume: null }),
+      clearResume: (activity) => {
+        const next = { ...get().resumeByMode };
+        delete next[activity];
+        set({ resumeByMode: next });
+      },
 
       logSession: (activity, minutes) => {
         const entry: SessionEntry = {
@@ -158,7 +177,7 @@ export const useProgress = create<ProgressState>()(
       },
 
       eraseProgress: async () => {
-        set({ sessions: [], attempts: [], examResults: [], errors: [], resume: null });
+        set({ sessions: [], attempts: [], examResults: [], errors: [], resumeByMode: {} });
         try {
           await useProgress.persist.clearStorage();
         } catch {
@@ -186,14 +205,20 @@ export const useProgress = create<ProgressState>()(
       // sync.ts determines what still needs pushing by comparing local ids
       // against the server's own id set on each pull, not by a stored cursor,
       // so no other field needs seeding here.
-      version: 3,
+      //
+      // Version 4: the single global `resume` slot became `resumeByMode`, one
+      // slot per Activity — see ResumeByMode in progress.logic.ts and
+      // migrateProgressToV4, which folds any existing v1-v3 `resume` into its
+      // own activity's slot.
+      version: 4,
       migrate: (persisted, version) => {
-        if (version >= 3) return persisted as ReturnType<typeof migrateProgressToV3>;
-        return migrateProgressToV3(persisted);
+        if (version >= 4) return persisted as ReturnType<typeof migrateProgressToV4>;
+        return migrateProgressToV4(persisted);
       },
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (s) => ({
-        sessions: s.sessions, attempts: s.attempts, examResults: s.examResults, errors: s.errors, resume: s.resume,
+        sessions: s.sessions, attempts: s.attempts, examResults: s.examResults, errors: s.errors,
+        resumeByMode: s.resumeByMode,
       }),
       // Always flip `hydrated`, even when rehydration fails — a corrupt log must
       // never brick startup, it must only mean "no progress yet".

@@ -6,6 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader, ProgressBar } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -14,6 +15,7 @@ import { sound, tts, stt, type SttResult } from '@/services';
 import { content, contentAssetUrl, useContent } from '@/services/content';
 import { LEVELS, type Level } from '@/content/schema';
 import { domainMeta } from '@/content/domainMeta';
+import { themeMeta } from '@/content/themeMeta';
 import { answerMatches } from '@/utils/score';
 
 type Phase = 'ask' | 'listening' | 'result';
@@ -26,8 +28,31 @@ export default function VoiceFlash() {
 
   const logSession = useSessionLog();
   const logAttempt = useProgress((s) => s.logAttempt);
+  const setResume = useProgress((s) => s.setResume);
+  const clearResume = useProgress((s) => s.clearResume);
 
-  const [vfIx, setVfIx] = useState(0);
+  // Items now come from the corpus, snapshotted at mount. `?theme=&level=`
+  // narrows the run to one parcours step (theme detail's Prononcer, or a
+  // sub-theme deck opened from /voicethemes).
+  const { theme, level, item: resumeItem } = useLocalSearchParams<{ theme?: string; level?: string; item?: string }>();
+  const items = useMemo(
+    () =>
+      content.itemsFor(
+        'voiceflash',
+        theme ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) } : undefined
+      ),
+    [theme, level]
+  );
+
+  // Resume landing: `?item=` names the item a resumed visit should reopen on.
+  // Deck order is deterministic (selectItems is a plain corpus-order filter),
+  // so the item id reliably locates the same card.
+  const [vfIx, setVfIx] = useState(() => {
+    const raw = Array.isArray(resumeItem) ? resumeItem[0] : resumeItem;
+    if (!raw) return 0;
+    const found = items.findIndex((it) => it.id === raw);
+    return found >= 0 ? found : 0;
+  });
   const [vfPhase, setVfPhase] = useState<Phase>('ask');
   const [vfTyped, setVfTyped] = useState('');
   const [vfCorrect, setVfCorrect] = useState<boolean | null>(null);
@@ -40,19 +65,6 @@ export default function VoiceFlash() {
   // to the next item never needs a reset.
   const [badImgs, setBadImgs] = useState<Set<string>>(() => new Set());
   const promptTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Items now come from the corpus, snapshotted at mount. `?theme=&level=`
-  // narrows the run to one parcours step (theme detail's Prononcer, or a
-  // sub-theme deck opened from /voicethemes).
-  const { theme, level } = useLocalSearchParams<{ theme?: string; level?: string }>();
-  const items = useMemo(
-    () =>
-      content.itemsFor(
-        'voiceflash',
-        theme ? { theme, ...(LEVELS.includes(level as Level) ? { level: level as Level } : {}) } : undefined
-      ),
-    [theme, level]
-  );
 
   // Theme → domain, for the no-photo icon fallback below: the same 12-domain
   // icon/color set flashcards' hub already uses, instead of guessing a glyph
@@ -78,6 +90,20 @@ export default function VoiceFlash() {
   const finished = vfIx >= total;
   const item = items[Math.min(vfIx, total - 1)];
   const vfIsFr = vfIx % 2 === 0;
+
+  // Keeps voiceflash resumable at the exact item, re-firing every time vfIx
+  // changes so leaving mid-theme still lands the home hero on this card.
+  useEffect(() => {
+    if (finished || total === 0 || !item) return;
+    const params = new URLSearchParams({ item: item.id });
+    if (theme) params.set('theme', theme);
+    if (level) params.set('level', level);
+    setResume('voiceflash', {
+      route: `/voiceflash?${params.toString()}`,
+      title: theme ? themeMeta(theme).fr : T.vfTitle,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [vfIx, theme, level, finished, total]);
 
   const playPrompt = () => {
     sound.play('flip');
@@ -189,7 +215,10 @@ export default function VoiceFlash() {
     setVfCorrect(null);
     setVfHeard(null);
     setVfPartial('');
-    if (lastItem) logSession('voiceflash');
+    if (lastItem) {
+      logSession('voiceflash');
+      clearResume('voiceflash');
+    }
   };
 
   // Re-attempt the SAME card right now — distinct from `restart` (whole deck)
@@ -380,6 +409,16 @@ export default function VoiceFlash() {
                   alignItems: 'center',
                 }}
               >
+                {/* Correct: micro celebrate. Wrong: thinking, never sad. */}
+                <View style={{ marginBottom: 8 }}>
+                  <MascotAvatar
+                    size={44}
+                    rounded={false}
+                    state={vfCorrect ? 'celebrate' : 'thinking'}
+                    tier="micro"
+                    celebrateKey={vfCorrect ? `vf-${item.fr}` : undefined}
+                  />
+                </View>
                 <TX
                   font="bold"
                   role="meta"

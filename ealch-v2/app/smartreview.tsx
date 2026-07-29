@@ -2,8 +2,9 @@ import { useMemo } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Circle, Path } from 'react-native-svg';
+import Svg, { Circle } from 'react-native-svg';
 import { TX } from '@/components/Type';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { Press, FocusHeader } from '@/components/ui';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -74,10 +75,10 @@ export default function SmartReview() {
         {due.length === 0 ? (
           // ── Nothing due: brand-new (never practised) or all caught up ──
           <View style={{ alignItems: 'center', paddingTop: 40, flex: 1 }}>
-            <View style={{ width: 96, height: 96, borderRadius: 48, borderWidth: 1.5, borderColor: t.accA(55), backgroundColor: t.accA(10), alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
-              <Svg width={36} height={28} viewBox="0 0 36 28" fill="none">
-                <Path d="M2 15l10 10L34 3" stroke={t.acc} strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round" />
-              </Svg>
+            {/* All caught up is a win — the mascot celebrates it instead of a
+                bare check glyph (Playfulness addendum, phase 2). */}
+            <View style={{ marginBottom: 24 }}>
+              <MascotAvatar size={96} rounded={false} state={neverPractised ? 'idle' : 'celebrate'} tier="medium" celebrateKey="sr-caught-up" />
             </View>
             <TX font="serifI" role="display" size={36} center style={{ marginBottom: 12 }}>
               {neverPractised ? T.srEmptyT : T.allCaught}

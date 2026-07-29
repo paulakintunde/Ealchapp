@@ -11,7 +11,7 @@
 import { useEffect } from 'react';
 import { supabase } from './supabase';
 import { useStore } from '@/store/useStore';
-import { ensureProfile, syncAttempts } from './sync';
+import { ensureProfile, syncAttempts, syncResumePull } from './sync';
 
 /** Call once, from app/_layout.tsx. Not a hook that returns anything — it only
  *  wires the subscription and lets useStore.userId (and everything derived
@@ -27,6 +27,7 @@ export function useAuthSession(): void {
       if (uid) {
         void ensureProfile();
         void syncAttempts();
+        void syncResumePull();
       }
     });
     return () => sub.subscription.unsubscribe();

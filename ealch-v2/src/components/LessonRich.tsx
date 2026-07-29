@@ -12,6 +12,7 @@ import {
 import { TX } from '@/components/Type';
 import { Press, Badge, ProgressBar } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { Waveform } from '@/components/Waveform';
 import { LessonModal } from '@/components/LessonModal';
 import { useTheme } from '@/theme/useTheme';
@@ -650,6 +651,7 @@ export function FlashcardsView({ s, onPlay, playingId }: { s: FlashSection } & P
 
       {over ? (
         <View style={{ minHeight: cardH, alignItems: 'center', justifyContent: 'center', borderRadius: 24, borderWidth: 1, borderColor: t.line(10), backgroundColor: t.card2, padding: 26 }}>
+          <MascotAvatar size={64} rounded={false} state="celebrate" tier="medium" celebrateKey={`${pid}-done`} />
           <TX font="serif" size={56} role="display" color={t.accTx}>{known}/{s.cards.length}</TX>
           <TX font="serifI" size={24} role="display" center style={{ width: '100%', marginTop: 8, marginBottom: 24 }}>{T.deckDone}</TX>
           <Press cue={null} onPress={restart} style={{ minHeight: 48, paddingVertical: 8, paddingHorizontal: 30, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
@@ -751,6 +753,7 @@ export function PracticeVFView({
 
       {over ? (
         <View style={{ minHeight: cardH, alignItems: 'center', justifyContent: 'center', borderRadius: 24, borderWidth: 1, borderColor: t.line(10), backgroundColor: t.card2, padding: 26 }}>
+          <MascotAvatar size={64} rounded={false} state="celebrate" tier="medium" celebrateKey={`${sectionTitle}-vf-done`} />
           <TX font="serif" size={56} role="display" color={t.accTx}>{score} / {total}</TX>
           <TX font="serifI" size={24} role="display" center style={{ width: '100%', marginTop: 8, marginBottom: 24 }}>{T.vfDoneT}</TX>
           <Press cue={null} onPress={restart} style={{ minHeight: 48, paddingVertical: 8, paddingHorizontal: 30, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
@@ -945,6 +948,18 @@ export function QuizDeckView({
         <View style={{ width: cardW, marginRight: 12, borderRadius: 20, borderWidth: 1.5, borderColor: done ? t.accA(40) : t.line(9), backgroundColor: done ? t.accA(5) : t.card, padding: 24, minHeight: cardH, alignItems: 'center', justifyContent: 'center' }}>
           {done ? (
             <>
+              {/* Passed: mascot celebrates. Failed: thinking, never sad —
+                  the pedagogy rule is errors read as information, not
+                  judgment. */}
+              <View style={{ marginBottom: 12 }}>
+                <MascotAvatar
+                  size={56}
+                  rounded={false}
+                  state={score >= passMark ? 'celebrate' : 'thinking'}
+                  tier="medium"
+                  celebrateKey={score >= passMark ? `quiz-${score}-${total}` : undefined}
+                />
+              </View>
               {score >= passMark ? (
                 <Badge label={T.quizPassed} color={t.acc} bg="transparent" style={{ minHeight: 34, paddingVertical: 6, paddingHorizontal: 18, borderRadius: 17, borderWidth: 1.5, borderColor: t.acc, justifyContent: 'center', marginBottom: 18, transform: [{ rotate: '-3deg' }] }} />
               ) : (

@@ -7,6 +7,7 @@ import Svg, { Path } from 'react-native-svg';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -15,6 +16,7 @@ import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { sound, tts } from '@/services';
 import { content } from '@/services/content';
 import { noteFor } from '@/services/content.logic';
+import { themeMeta } from '@/content/themeMeta';
 import { accentKeys, normDict } from '@/content/drills';
 import { SpeedPicker } from '@/components/SpeedPicker';
 import { F } from '@/theme/fonts';
@@ -29,7 +31,7 @@ export default function Dictation() {
 
   // Dictation items from the corpus: { fr (the sentence), en, notes (the tip) }.
   // `?theme=&level=` narrows the run to one parcours step (theme detail's Écouter).
-  const { theme, level } = useLocalSearchParams<{ theme?: string; level?: string }>();
+  const { theme, level, item: resumeItem } = useLocalSearchParams<{ theme?: string; level?: string; item?: string }>();
   const sentences = useMemo(
     () =>
       content.itemsFor(
@@ -41,8 +43,19 @@ export default function Dictation() {
 
   const logSession = useSessionLog();
   const logAttempt = useProgress((s) => s.logAttempt);
+  const setResume = useProgress((s) => s.setResume);
+  const clearResume = useProgress((s) => s.clearResume);
 
-  const [dcIx, setDcIx] = useState(0);
+  // Resume landing: `?item=` names the sentence a resumed visit should reopen
+  // on. Deck order is deterministic (selectItems is a plain corpus-order
+  // filter, never shuffled), so the item id reliably locates the same card —
+  // falls back to the start if the id is missing or no longer in this theme.
+  const [dcIx, setDcIx] = useState(() => {
+    const raw = Array.isArray(resumeItem) ? resumeItem[0] : resumeItem;
+    if (!raw) return 0;
+    const found = sentences.findIndex((s) => s.id === raw);
+    return found >= 0 ? found : 0;
+  });
   const [dcTyped, setDcTyped] = useState('');
   const [dcPhase, setDcPhase] = useState<'idle' | 'checked'>('idle');
   const [dcOkFlag, setDcOkFlag] = useState(false);
@@ -60,6 +73,21 @@ export default function Dictation() {
   const d = sentences[Math.min(dcIx, sentences.length - 1)];
   const last = dcIx >= sentences.length - 1;
   const empty = !dcTyped.trim();
+
+  // Keeps the dictée resumable at the exact sentence, re-firing every time
+  // dcIx changes so leaving mid-theme (back, close, app kill) still lands the
+  // home hero on this card. Cleared on completion, alongside logSession below.
+  useEffect(() => {
+    if (dcDone || !d) return;
+    const params = new URLSearchParams({ item: d.id });
+    if (theme) params.set('theme', theme);
+    if (level) params.set('level', level);
+    setResume('dictation', {
+      route: `/dictation?${params.toString()}`,
+      title: theme ? themeMeta(theme).fr : T.dcTag,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dcIx, theme, level, dcDone]);
 
   const tag = T.dcTag;
   const count = `${Math.min(dcIx + 1, sentences.length)} / ${sentences.length}`;
@@ -144,6 +172,7 @@ export default function Dictation() {
       sound.play('ding');
       setDcDone(true);
       logSession('dictation');
+      clearResume('dictation');
     } else {
       sound.play('tap');
       setDcIx((i) => i + 1);
@@ -393,9 +422,7 @@ export default function Dictation() {
                   gap: 13,
                 }}
               >
-                <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
-                  <Icon name="check" size={16} color={t.accInk} strokeWidth={2.4} />
-                </View>
+                <MascotAvatar size={34} state="celebrate" tier="micro" celebrateKey={`dc-${d.fr}`} />
                 <View style={{ flex: 1 }}>
                   <TX font="semi" role="bodySm">
                     {T.perfectNoMistakes}

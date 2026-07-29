@@ -5,9 +5,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
+import { avatarName } from '@/content/avatars';
 import { sound, coach, stt, type CoachMessage } from '@/services';
 import { track as trackEvent } from '@/services/analytics';
 import { formatTime } from '@/utils/time';
@@ -53,6 +55,7 @@ export default function Chat() {
   const insets = useSafeAreaInsets();
   const lang = useStore((s) => s.lang);
   const clock24 = useStore((s) => s.clock24);
+  const avatarId = useStore((s) => s.avatarId);
   useReadingBrightness();
 
   // Real wall-clock time in the user's chosen format — not the old stamp() that
@@ -134,14 +137,12 @@ export default function Chat() {
         <Press cue={null} onPress={() => router.replace('/home')} style={{ width: 36, height: 44, marginLeft: -8, alignItems: 'center', justifyContent: 'center' }}>
           <Icon name="chevronLeft" size={20} color={t.txNonText} strokeWidth={1.7} />
         </Press>
-        <View style={{ width: 42, height: 42, borderRadius: 21, backgroundColor: t.card2, borderWidth: 1, borderColor: t.accA(45), alignItems: 'center', justifyContent: 'center' }}>
-          <TX font="serif" role="titleLg" size={21} color={t.accTx}>
-            C
-          </TX>
-        </View>
+        {/* Was a hardcoded letter-"C" circle for Camille — a leftover from
+            before the mascot pivot. Now the user's picked mascot, idling. */}
+        <MascotAvatar size={42} state="idle" />
         <View style={{ flex: 1 }}>
           <TX font="semi" role="bodyLg">
-            Camille
+            {avatarName(avatarId)}
           </TX>
           {/* Honest status: neutral until we know, then online only when the
               backend actually answered; offline when serving canned tips. */}

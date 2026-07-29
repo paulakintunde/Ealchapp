@@ -59,6 +59,12 @@ type LessonPagerProps = {
   initialIndex?: number | null;
   /** A section index to keep visually flagged after a deep-link jump. */
   highlightIndex?: number | null;
+  /** Fires whenever the current page changes, with the section index (0-based
+   *  over `sections`) of a content page, or null while on the cover, an image
+   *  page, or the quiz — pages a resume anchor cannot honestly land on. The
+   *  screen uses this to keep the lesson's resume position current as the
+   *  learner swipes, not just at mount. */
+  onIndexChange?: (sectionIx: number | null) => void;
   /** Safe-area bottom inset, so the nav bar clears the home indicator. */
   bottomInset: number;
 };
@@ -182,6 +188,7 @@ export function LessonPager({
   nextTitle,
   initialIndex,
   highlightIndex,
+  onIndexChange,
   bottomInset,
 }: LessonPagerProps) {
   const t = useTheme();
@@ -223,6 +230,11 @@ export function LessonPager({
   const say = currentSection?.say;
   useEffect(() => {
     setSayPlaying(false);
+  }, [page]);
+
+  useEffect(() => {
+    onIndexChange?.(currentEntry?.kind === 'section' ? currentEntry.sectionIx : null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
   const listen = () => {
     if (!say) return;

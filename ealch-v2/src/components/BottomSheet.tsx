@@ -7,6 +7,8 @@ import { Press } from './ui';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useUI } from '@/store/useUI';
+import { useStore } from '@/store/useStore';
+import { avatarName } from '@/content/avatars';
 import { sound } from '@/services';
 
 const LIAISONS = [
@@ -20,6 +22,7 @@ export function BottomSheet() {
   const T = useT();
   const router = useRouter();
   const { sheet, vocabItems, closeSheet } = useUI();
+  const coachName = avatarName(useStore((s) => s.avatarId));
   const [done, setDone] = useState<Record<number, boolean>>({ 0: true });
   const y = useRef(new Animated.Value(600)).current;
   const op = useRef(new Animated.Value(0)).current;
@@ -221,7 +224,7 @@ export function BottomSheet() {
                 style={{ minHeight: 54, paddingVertical: 12, borderRadius: 27, borderWidth: 1, borderColor: t.accA(55), alignItems: 'center', justifyContent: 'center' }}
               >
                 <TX font="semi" role="bodyLg" color={t.accTx}>
-                  {T.askCamille}
+                  {T.askCoach.replace('{name}', coachName)}
                 </TX>
               </Press>
             </>

@@ -13,6 +13,9 @@ import { useProgress } from '@/store/useProgress';
 import {
   attemptToServerRow,
   mergeAttempts,
+  mergeResumeByMode,
+  type Activity,
+  type ResumeState,
   type ServerAttemptRow,
 } from '@/store/progress.logic';
 
@@ -123,7 +126,10 @@ export async function syncAttempts(): Promise<void> {
 export function useForegroundSync(): void {
   useEffect(() => {
     const sub = AppState.addEventListener('change', (next) => {
-      if (next === 'active' && useStore.getState().userId) void syncAttempts();
+      if (next === 'active' && useStore.getState().userId) {
+        void syncAttempts();
+        void syncResumePull();
+      }
     });
     return () => sub.remove();
   }, []);
@@ -145,3 +151,93 @@ export async function ensureProfile(): Promise<void> {
     // facing depends on it succeeding immediately.
   }
 }
+
+/** One row as PostgREST returns it from `public.resume_state`. */
+type ResumeStateTableRow = { activity: string; route: string; title: string; day: string };
+
+function resumeFromTableRow(row: ResumeStateTableRow): ResumeState {
+  // Cast, not validated — same reasoning as fromTableRow above: RLS scopes
+  // every row to the caller's own uid, and this table has no CHECK on
+  // `activity` because the store already treats an unrecognised key as inert
+  // (see ResumeByMode) rather than something worth rejecting at write time.
+  return { activity: row.activity as Activity, route: row.route, title: row.title, at: row.day };
+}
+
+let resumeInFlight = false;
+
+/** Pulls every server-side resume slot for the signed-in user and merges it
+ *  into the local resumeByMode (mergeResumeByMode — later day wins, same-day
+ *  tie keeps local). Never throws; a pull that contributes nothing is a true
+ *  no-op, same discipline as syncAttempts. Pushing is NOT this function's job
+ *  — see syncResumePush below, fired directly off every setResume/clearResume
+ *  instead of waiting for the next foreground tick, since resume is a small
+ *  mutable row, not an append-only log worth batching. */
+export async function syncResumePull(): Promise<void> {
+  if (resumeInFlight) return;
+  const sb = supabase();
+  const uid = useStore.getState().userId;
+  if (!hasSupabase() || !sb || !uid) return;
+
+  resumeInFlight = true;
+  try {
+    const { data, error } = await sb.from('resume_state').select('activity,route,title,day').eq('user_id', uid);
+    if (error) return; // offline, RLS misconfigured, table not migrated yet — try again next foreground
+
+    const pulled = ((data ?? []) as ResumeStateTableRow[]).map(resumeFromTableRow);
+    if (pulled.length === 0) return;
+    const local = useProgress.getState().resumeByMode;
+    const { merged, changed } = mergeResumeByMode(local, pulled);
+    if (changed) useProgress.setState({ resumeByMode: merged });
+  } catch {
+    // Network failure, malformed response — local state untouched; next
+    // foreground tries again.
+  } finally {
+    resumeInFlight = false;
+  }
+}
+
+/** Upserts (state present) or deletes (state null, i.e. clearResume) one
+ *  activity's server-side resume row. Subscribed below directly to the
+ *  store's resumeByMode, rather than called from useProgress.ts itself —
+ *  useProgress.ts must stay free of this module's imports (sync.ts already
+ *  imports useProgress; the reverse would be a require cycle), and a plain
+ *  store subscription gets the same "push on every change" behaviour without
+ *  one. */
+export async function syncResumePush(activity: Activity, state: ResumeState | null): Promise<void> {
+  const sb = supabase();
+  const uid = useStore.getState().userId;
+  if (!hasSupabase() || !sb || !uid) return;
+  try {
+    if (state) {
+      await sb
+        .from('resume_state')
+        .upsert(
+          { user_id: uid, activity, route: state.route, title: state.title, day: state.at },
+          { onConflict: 'user_id,activity' }
+        );
+    } else {
+      await sb.from('resume_state').delete().eq('user_id', uid).eq('activity', activity);
+    }
+  } catch {
+    // Best-effort — the next foreground pull/push reconciles.
+  }
+}
+
+// Fires syncResumePush exactly once per activity that actually changed,
+// diffing the two resumeByMode snapshots zustand's subscribe hands back —
+// covers both setResume (a key added or updated) and clearResume (a key
+// removed) with the one listener. Module-scope and permanent (no unsubscribe):
+// this file is imported once, at app boot, and lives for the app's lifetime,
+// same as the AppState listener above.
+useProgress.subscribe((state, prev) => {
+  if (state.resumeByMode === prev.resumeByMode) return;
+  const keys = new Set<Activity>([
+    ...(Object.keys(state.resumeByMode) as Activity[]),
+    ...(Object.keys(prev.resumeByMode) as Activity[]),
+  ]);
+  for (const activity of keys) {
+    if (state.resumeByMode[activity] !== prev.resumeByMode[activity]) {
+      void syncResumePush(activity, state.resumeByMode[activity] ?? null);
+    }
+  }
+});

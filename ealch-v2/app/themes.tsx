@@ -14,6 +14,7 @@ import { useContent } from '@/services/content';
 import { parcoursSteps, themeOfWeek, themeSummaries, PARCOURS_STEPS } from '@/content/theme.logic';
 import { themeMeta } from '@/content/themeMeta';
 import { dayOfYear } from '@/content/wordOfDay';
+import { avatarName } from '@/content/avatars';
 import { LEVELS, type Level } from '@/content/schema';
 
 const levelLabel = (l: Level) => (l === 'sons' ? 'SONS' : l.toUpperCase());
@@ -24,6 +25,7 @@ export default function Themes() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const lang = useStore((s) => s.lang);
+  const coachName = avatarName(useStore((s) => s.avatarId));
   const corpus = useContent((s) => s.corpus);
   const attempts = useProgress((s) => s.attempts);
 
@@ -84,7 +86,7 @@ export default function Themes() {
           {T.themesTitle}
         </TX>
         <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 18 }}>
-          {T.themesSub}
+          {T.themesSub.replace('{name}', coachName)}
         </TX>
 
         {/* Level chips */}

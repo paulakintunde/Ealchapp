@@ -120,6 +120,7 @@ export default function RootLayout() {
               <Stack.Screen name="home" />
               <Stack.Screen name="den" />
               <Stack.Screen name="lesson" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="speakmap" />
               <Stack.Screen name="speak" options={{ animation: 'slide_from_bottom' }} />
               <Stack.Screen name="player" options={{ animation: 'slide_from_bottom' }} />
               <Stack.Screen name="playlists" options={{ animation: 'slide_from_right' }} />

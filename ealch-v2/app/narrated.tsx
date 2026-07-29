@@ -6,10 +6,12 @@ import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
-import { CamilleAvatar } from '@/components/CamilleAvatar';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useProgress, useSessionLog } from '@/store/useProgress';
+import { useStore } from '@/store/useStore';
+import { avatarName } from '@/content/avatars';
 import { sound, tts, stt } from '@/services';
 import { content } from '@/services/content';
 import { unitBand, type Lesson } from '@/content/schema';
@@ -39,9 +41,11 @@ export default function Narrated() {
   const T = useT();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const params = useLocalSearchParams<{ key?: string }>();
+  const params = useLocalSearchParams<{ key?: string; step?: string }>();
   const raw = Array.isArray(params.key) ? params.key[0] : params.key;
   const id = raw ?? '';
+  const avatarId = useStore((s) => s.avatarId);
+  const coachName = avatarName(avatarId);
 
   const L: Lesson | null = content.lesson(id);
 
@@ -66,7 +70,13 @@ export default function Narrated() {
   const steps = useMemo<NarrationStep[]>(() => (L?.narration ? flattenNarration(L.narration) : []), [L?.id]); // eslint-disable-line react-hooks/exhaustive-deps
   const ranges = useMemo(() => stageRanges(steps), [steps]);
 
-  const [stepIx, setStepIx] = useState(0);
+  // Resume landing: `?step=` names the narration step a resumed visit should
+  // reopen on — read once at mount, same contract as lesson.tsx's deepLinkIx.
+  const [stepIx, setStepIx] = useState(() => {
+    const stepRaw = Array.isArray(params.step) ? params.step[0] : params.step;
+    const n = stepRaw ? Number(stepRaw) : NaN;
+    return Number.isFinite(n) && n >= 0 && n < steps.length ? n : 0;
+  });
   const [listening, setListening] = useState(false);
   const [partial, setPartial] = useState('');
   const [feedback, setFeedback] = useState<'good' | 'close' | 'off' | null>(null);
@@ -84,9 +94,11 @@ export default function Narrated() {
     };
   }, []);
 
+  // Fires on mount and again every time stepIx advances, so the resume slot
+  // tracks the narration's current step, not just which lesson it is.
   useEffect(() => {
-    if (L) setResume({ route: `/narrated?key=${id}`, title: L.title, activity: 'narrated' });
-  }, [L?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (L) setResume('narrated', { route: `/narrated?key=${id}&step=${stepIx}`, title: L.title });
+  }, [L?.id, stepIx]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const current = steps[stepIx];
 
@@ -120,7 +132,7 @@ export default function Narrated() {
       setDone(true);
       sound.play('success');
       logSession('narrated');
-      clearResume();
+      clearResume('narrated');
     } else {
       setStepIx((i) => i + 1);
     }
@@ -208,9 +220,9 @@ export default function Narrated() {
       <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
         <FocusHeader onClose={() => router.replace('/den')} title={T.narrTag} />
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30, gap: 18 }}>
-          <CamilleAvatar size={72} />
+          <MascotAvatar size={72} state="celebrate" tier="medium" celebrateKey="narration-done" />
           <TX font="serifI" size={28} role="display" center>{T.narrDoneT}</TX>
-          <TX role="body" color={t.txSecondary} center>{T.narrDoneS}</TX>
+          <TX role="body" color={t.txSecondary} center>{T.narrDoneS.replace('{name}', coachName)}</TX>
           <Press
             cue="tap"
             onPress={() => router.replace('/den')}
@@ -226,9 +238,9 @@ export default function Narrated() {
   const interaction = current.kind === 'interaction' ? current.interaction : null;
   const promptLabel = interaction
     ? interaction.kind === 'repeat'
-      ? T.narrRepeat
+      ? T.narrRepeat.replace('{name}', coachName)
       : interaction.kind === 'check'
-        ? T.narrCheck
+        ? T.narrCheck.replace('{name}', coachName)
         : T.narrYourTurn
     : null;
 
@@ -255,7 +267,7 @@ export default function Narrated() {
       </View>
 
       <View style={{ flex: 1, paddingHorizontal: 24, paddingBottom: insets.bottom + 24, alignItems: 'center', justifyContent: 'center', gap: 22 }}>
-        <CamilleAvatar size={64} />
+        <MascotAvatar size={64} state="idle" />
 
         {current.kind === 'segment' ? (
           <TX

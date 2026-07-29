@@ -5,6 +5,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { MascotAvatar } from '@/components/MascotAvatar';
+import { MascotVictoryLap } from '@/components/MascotVictoryLap';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
@@ -59,6 +61,9 @@ export default function ExamTaskRunner() {
   // see dueExamSkills. Closed misses need no local tracking: they already
   // reached the SRS via decomposeExamMiss inside logExamResult.
   const [openMisses, setOpenMisses] = useState<ExamResult[]>([]);
+  // celebrate:major — the victory lap runs once when a clean series (no due
+  // skills) lands on the summary, the flagship "exam passed" moment.
+  const [lapRunning, setLapRunning] = useState(true);
 
   const goToTask = (nextIx: number) => {
     setIx(nextIx);
@@ -84,12 +89,24 @@ export default function ExamTaskRunner() {
   // ── Series complete: the summary ──
   if (ix >= tasks.length) {
     const due: DueExamSkill[] = dueExamSkills(openMisses, lessons);
+    const cleanRun = due.length === 0;
     return (
       <View style={{ flex: 1, backgroundColor: t.bgDeep }}>
         <View style={{ paddingTop: insets.top }}>
           <FocusHeader onClose={finish} title={T.examSeriesDone} />
         </View>
         <ScrollView contentContainerStyle={{ padding: 20, paddingBottom: insets.bottom + 30 }}>
+          {/* Clean run: the mascot holds its big celebrate pose after the
+              lap. Due skills to review: thinking, never sad. */}
+          <View style={{ alignItems: 'center', marginBottom: 14 }}>
+            <MascotAvatar
+              size={84}
+              rounded={false}
+              state={cleanRun ? 'celebrate' : 'thinking'}
+              tier="medium"
+              celebrateKey={cleanRun && !lapRunning ? `exam-${seriesId}` : undefined}
+            />
+          </View>
           <TX font="serif" size={22} role="display" style={{ marginBottom: 16 }}>
             {T.examSeriesDone}
           </TX>
@@ -119,6 +136,9 @@ export default function ExamTaskRunner() {
             <TX font="semi" role="label" color={t.txSecondary}>{T.end} · Le Rapport →</TX>
           </Press>
         </ScrollView>
+        {/* The victory lap itself — Brix runs the full width of the screen
+            trailing confetti, once, only on a clean series. */}
+        <MascotVictoryLap active={cleanRun && lapRunning} onDone={() => setLapRunning(false)} />
       </View>
     );
   }

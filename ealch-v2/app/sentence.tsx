@@ -7,6 +7,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -19,6 +20,7 @@ import { content } from '@/services/content';
 import { mergeArticleTiles } from '@/services/content.logic';
 import { dayOfYear } from '@/content/wordOfDay';
 import { normalizeFr } from '@/utils/score';
+import { themeMeta } from '@/content/themeMeta';
 
 type Phase = 'learn' | 'arrange' | 'say' | 'write' | 'passed';
 type Tile = { w: string; t: string };
@@ -58,6 +60,8 @@ export default function Sentence() {
 
   const logSession = useSessionLog();
   const logAttempt = useProgress((s) => s.logAttempt);
+  const setResume = useProgress((s) => s.setResume);
+  const clearResume = useProgress((s) => s.clearResume);
 
   // The deck is every sentence-eligible item at or below the learner's level
   // (all of them if the level line leaves nothing — a thin corpus must not kill
@@ -66,7 +70,9 @@ export default function Sentence() {
   // "next sentence" walks the deck from there.
   // `?theme=&level=` narrows the deck to one parcours step (theme detail's
   // Construire); the themed cut skips the level line, which is the filter.
-  const { theme, level } = useLocalSearchParams<{ theme?: string; level?: string }>();
+  const { theme, level, item: resumeItem, phase: resumePhase } = useLocalSearchParams<{
+    theme?: string; level?: string; item?: string; phase?: string;
+  }>();
   const deck = useMemo(() => {
     if (theme) {
       return content.itemsFor(
@@ -78,7 +84,15 @@ export default function Sentence() {
     const lined = introEligible(all, useStore.getState().level);
     return lined.length ? lined : all;
   }, [theme, level]);
-  const [deckIx, setDeckIx] = useState(() => (deck.length ? dayOfYear() % deck.length : 0));
+  // Resume landing: `?item=` names the sentence a resumed visit should reopen
+  // on — falls back to the day-seeded default (dayOfYear) when missing or no
+  // longer in this deck, exactly like the no-resume path always has.
+  const [deckIx, setDeckIx] = useState(() => {
+    if (!deck.length) return 0;
+    const raw = Array.isArray(resumeItem) ? resumeItem[0] : resumeItem;
+    const found = raw ? deck.findIndex((it) => it.id === raw) : -1;
+    return found >= 0 ? found : dayOfYear() % deck.length;
+  });
   const item = deck.length ? deck[deckIx % deck.length] : undefined;
   const sbTarget = item?.fr ?? '';
   const sbWords = useMemo(() => (item ? tilesFor(item.fr, item.notes) : []), [item]);
@@ -91,7 +105,10 @@ export default function Sentence() {
     return idx;
   }, [sbWords]);
 
-  const [phase, setPhase] = useState<Phase>('learn');
+  const [phase, setPhase] = useState<Phase>(() => {
+    const raw = Array.isArray(resumePhase) ? resumePhase[0] : resumePhase;
+    return raw === 'learn' || raw === 'arrange' || raw === 'say' || raw === 'write' ? raw : 'learn';
+  });
   const [picked, setPicked] = useState<number[]>([]);
   const [typed, setTyped] = useState('');
   const [err, setErr] = useState(false);
@@ -114,6 +131,22 @@ export default function Sentence() {
       stt.abort();
     };
   }, []);
+
+  // Keeps the sentence builder resumable at the exact sentence AND step
+  // (learn/arrange/say/write), re-firing on every change. 'passed' is a
+  // transient result screen, not a landing phase, so it isn't persisted —
+  // checkWrite's success clears the slot outright instead.
+  useEffect(() => {
+    if (!item || phase === 'passed') return;
+    const params = new URLSearchParams({ item: item.id, phase });
+    if (theme) params.set('theme', theme);
+    if (level) params.set('level', level);
+    setResume('sentence', {
+      route: `/sentence?${params.toString()}`,
+      title: theme ? themeMeta(theme).fr : T.builderTag,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [item, phase, theme, level]);
 
   const shake = useRef(new Animated.Value(0)).current;
   const triggerShake = () => {
@@ -201,6 +234,7 @@ export default function Sentence() {
       sound.play('ding');
       setPhase('passed');
       logSession('sentence');
+      clearResume('sentence');
       // One attempt per completion. The write step is what gates the pass, so it
       // is always correct here; but if the SAY step captured a real utterance,
       // carry ITS transcript/score as the signal — it is the graded response.
@@ -250,7 +284,8 @@ export default function Sentence() {
     return (
       <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
         <FocusHeader onClose={() => (theme ? router.back() : router.replace('/home'))} onSettings={() => router.push('/settings')} />
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30 }}>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30, gap: 18 }}>
+          <MascotAvatar size={80} rounded={false} state="thinking" />
           <TX role="body" color={t.txMuted} center>{T.lessonSoon}</TX>
         </View>
       </View>
@@ -453,8 +488,10 @@ export default function Sentence() {
         {/* ── PASSED ── */}
         {phase === 'passed' ? (
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <View style={{ width: 88, height: 88, borderRadius: 44, backgroundColor: t.accA(15), borderWidth: 1, borderColor: t.acc, alignItems: 'center', justifyContent: 'center', marginBottom: 22 }}>
-              <Icon name="check" size={38} color={t.acc} strokeWidth={3} />
+            {/* Sentence passed: the mascot celebrates in place of a bare
+                check glyph (celebrate:medium — a full 4-step build). */}
+            <View style={{ marginBottom: 22 }}>
+              <MascotAvatar size={88} rounded={false} state="celebrate" tier="medium" celebrateKey={`sb-${sbTarget}`} />
             </View>
             <TX font="serifI" size={27} role="display" center style={{ marginBottom: 8 }}>
               {T.wellDone}

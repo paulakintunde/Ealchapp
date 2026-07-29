@@ -6,6 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, FocusHeader, ProgressBar } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { Waveform } from '@/components/Waveform';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -27,6 +28,8 @@ export default function Flashcards() {
 
   const logSession = useSessionLog();
   const logAttempt = useProgress((s) => s.logAttempt);
+  const setResume = useProgress((s) => s.setResume);
+  const clearResume = useProgress((s) => s.clearResume);
 
   // The deck is a view over the corpus, snapshotted once at mount (content is
   // already hydrated — _layout gates paint on it). `?deck=new` plays the
@@ -42,8 +45,8 @@ export default function Flashcards() {
   // the same join the hub's counts display, and an unknown ctype is ignored
   // rather than yielding a silently empty deck. `dir` presets the vocab
   // direction (the EN → FR entry point); the toggle can still flip it.
-  const { deck: deckMode, theme, level, domain, ctype, dir } = useLocalSearchParams<{
-    deck?: string; theme?: string; level?: string; domain?: string; ctype?: string; dir?: string;
+  const { deck: deckMode, theme, level, domain, ctype, dir, item: resumeItem } = useLocalSearchParams<{
+    deck?: string; theme?: string; level?: string; domain?: string; ctype?: string; dir?: string; item?: string;
   }>();
   const cardType = (CARD_TYPES as readonly string[]).includes(ctype ?? '') ? (ctype as CardType) : undefined;
   // The catalogue's French theme titles, for the sub-theme deck header. The
@@ -72,7 +75,16 @@ export default function Flashcards() {
     return composeSession(attempts, introEligible(all, useStore.getState().level), localDay()).fresh;
   }, [deckMode, theme, level, domain, cardType]);
 
-  const [cardIx, setCardIx] = useState(0);
+  // Resume landing: `?item=` names the card a resumed visit should reopen on.
+  // Deck order is deterministic except `deck=new` (a freshly composed session
+  // that differs run to run) — there the lookup simply misses and falls back
+  // to the start, which is an honest degradation, not a bug.
+  const [cardIx, setCardIx] = useState(() => {
+    const raw = Array.isArray(resumeItem) ? resumeItem[0] : resumeItem;
+    if (!raw) return 0;
+    const found = deck.findIndex((c) => c.id === raw);
+    return found >= 0 ? found : 0;
+  });
   const [flipped, setFlipped] = useState(false);
   const [known, setKnown] = useState(0);
   const [cardDir, setCardDir] = useState<'fr' | 'en'>(dir === 'en' ? 'en' : 'fr');
@@ -107,6 +119,25 @@ export default function Flashcards() {
   const deckOver = cardIx >= deckLen;
   const card = deck[Math.min(cardIx, deckLen - 1)];
   const frFront = cardDir === 'fr';
+
+  // Keeps the flashcards resumable at the exact card, re-firing every time
+  // cardIx changes. Round-trips every param this deck needs to rebuild
+  // itself identically (deck mode, theme/level or domain/ctype/dir).
+  useEffect(() => {
+    if (deckOver || deckLen === 0 || !card) return;
+    const params = new URLSearchParams({ item: card.id });
+    if (deckMode) params.set('deck', deckMode);
+    if (theme) params.set('theme', theme);
+    if (level) params.set('level', level);
+    if (domain) params.set('domain', domain);
+    if (ctype) params.set('ctype', ctype);
+    if (dir) params.set('dir', dir);
+    setResume('flashcards', {
+      route: `/flashcards?${params.toString()}`,
+      title: theme ? themeMeta(theme).fr : domain ? domainMeta(domain).fr : T.cardsTag,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cardIx, deckMode, theme, level, domain, ctype, dir, deckOver, deckLen]);
 
   // Prompt behavior is PER CARD, not per deck: a sub-theme deck mixes every
   // card type, and a gap-fill card must ask with its prompt there too — keyed
@@ -185,7 +216,10 @@ export default function Flashcards() {
       answeringRef.current = false;
       setCardIx((i) => i + 1);
     }, 220);
-    if (lastCard) logSession('flashcards');
+    if (lastCard) {
+      logSession('flashcards');
+      clearResume('flashcards');
+    }
   };
 
   const flipDir = () => {
@@ -293,6 +327,7 @@ export default function Flashcards() {
           // same empty deck) would read as a finished session that never
           // happened.
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 20 }}>
+            <MascotAvatar size={80} rounded={false} state="thinking" />
             <TX font="serifI" size={26} role="display" center style={{ marginTop: 10, marginBottom: 6 }}>
               {T.deckEmptyT}
             </TX>
@@ -307,6 +342,9 @@ export default function Flashcards() {
           </View>
         ) : deckOver ? (
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 20 }}>
+            {/* Deck complete: the mascot celebrates alongside the score
+                (celebrate:medium — a deck is a real unit of work). */}
+            <MascotAvatar size={80} rounded={false} state="celebrate" tier="medium" celebrateKey={`deck-${known}-${deckLen}`} />
             <TX font="serif" size={64} role="display" color={t.accTx}>
               {known}/{deckLen}
             </TX>

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Animated, Easing, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { RadialGlow } from '@/components/RadialGlow';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { TX } from '@/components/Type';
 import { useTheme } from '@/theme/useTheme';
 
@@ -69,6 +70,12 @@ export default function Splash() {
       <TX font="semi" role="label" ls={7} color={t.txSecondary} style={{ marginLeft: 7 }}>
         EALCH
       </TX>
+      {/* The mascot pops in on the same spring as the wordmark, then
+          breathes — the splash's first character moment (Playfulness
+          addendum, phase 4). */}
+      <Animated.View style={{ marginTop: 18, transform: [{ scale }], opacity: pop }}>
+        <MascotAvatar size={64} rounded={false} state="idle" />
+      </Animated.View>
       <View style={{ flexDirection: 'row', gap: 6, marginTop: 22 }}>
         {dots.map((d, i) => (
           <Animated.View key={i} style={{ width: 5, height: 5, borderRadius: 3, backgroundColor: t.acc, opacity: d }} />

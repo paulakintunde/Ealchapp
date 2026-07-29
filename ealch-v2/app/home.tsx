@@ -6,6 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, Badge } from '@/components/ui';
 import { Icon } from '@/components/Icon';
+import { MascotAvatar } from '@/components/MascotAvatar';
 import { TabBar } from '@/components/TabBar';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -13,7 +14,10 @@ import { greetSlot } from '@/i18n/strings';
 import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
 import { useIsPremium } from '@/store/useEntitlement';
-import { composeSession, greetDue, greetState, introEligible, localDay, resumeIsFresh, streak, topWeaknesses } from '@/store/progress.logic';
+import {
+  composeSession, greetDue, greetState, introEligible, localDay, resumeIsFresh, streak, topWeaknesses,
+  type ResumeState,
+} from '@/store/progress.logic';
 import { selectItems } from '@/services/content.logic';
 import { useUI } from '@/store/useUI';
 import { playlists } from '@/content/playlists';
@@ -67,7 +71,7 @@ export default function Home() {
   const sessions = useProgress((s) => s.sessions);
   const attempts = useProgress((s) => s.attempts);
   const errors = useProgress((s) => s.errors);
-  const resume = useProgress((s) => s.resume);
+  const resumeByMode = useProgress((s) => s.resumeByMode);
   // The Den tile's unit count, from the corpus the Den itself renders — a unit
   // is Den-visible iff it has a track (b1+ units belong to no column). Was
   // totalUnits() over prototype arrays in curriculum.ts (CF-17): that count was
@@ -155,13 +159,29 @@ export default function Home() {
   const revLabel = caughtUp ? T.caughtUpShort : T.reviewShort;
   const revSub = caughtUp ? T.tomorrow : T.dueToday;
 
+  // Every activity keeps its own resume slot (see ResumeByMode), so leaving La
+  // Dictée mid-theme to open a lesson does not erase the dictée's place. The
+  // hero shows whichever is freshest; any other still-fresh slots surface as
+  // a secondary "Continue" row below it, rather than being silently dropped.
+  const freshResumes = useMemo(
+    () =>
+      (Object.values(resumeByMode).filter(Boolean) as ResumeState[])
+        .filter((r) => resumeIsFresh(r, today))
+        .sort((a, b) => (a.at === b.at ? 0 : a.at < b.at ? 1 : -1)),
+    [resumeByMode, today]
+  );
+  const primaryResume = freshResumes[0] ?? null;
+  // Capped at 3 chips: a fresh slot per activity tops out at 7 anyway, and the
+  // row is a convenience, not a full history.
+  const secondaryResumes = freshResumes.slice(1, 4);
+
   // The hero is a view over real state, in three honest tiers. A resume only
   // survives while it is fresh (see resumeIsFresh); once it lapses, or when
   // nothing was ever started, the card recommends what to do next instead of
   // claiming a scenario the user never opened. No time-remaining pill: nothing
   // persists a playback position yet, so any "4:12 left" would be invented.
-  const hero = resumeIsFresh(resume, today) && resume
-    ? { eyebrow: T.resumeTag, title: resume.title, sub: T.resumeSub, cta: T.resume, route: resume.route }
+  const hero = primaryResume
+    ? { eyebrow: T.resumeTag, title: primaryResume.title, sub: T.resumeSub, cta: T.resume, route: primaryResume.route }
     : due > 0
       ? {
           eyebrow: T.beginTag,
@@ -213,13 +233,18 @@ export default function Home() {
       <ScrollView contentContainerStyle={{ paddingTop: insets.top + 20, paddingHorizontal: 20, paddingBottom: 130 }} showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={{ flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 22, paddingHorizontal: 4 }}>
-          <View>
-            <TX font="semi" role="meta" ls={3} color={t.txSubtle}>
-              {T.greets[greetSlot()]}
-            </TX>
-            <TX font="serif" size={32} role="display">
-              {userName || T.welcomeWord}
-            </TX>
+          {/* Visual counterpart to the audio-only greeting this screen
+              already speaks on focus — the mascot idles beside it. */}
+          <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 12, flexShrink: 1 }}>
+            <MascotAvatar size={46} rounded={false} state="idle" />
+            <View style={{ flexShrink: 1 }}>
+              <TX font="semi" role="meta" ls={3} color={t.txSubtle}>
+                {T.greets[greetSlot()]}
+              </TX>
+              <TX font="serif" size={32} role="display" numberOfLines={1}>
+                {userName || T.welcomeWord}
+              </TX>
+            </View>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
             <View style={{ flexDirection: 'row', minHeight: 32, paddingVertical: 4, borderRadius: 16, borderWidth: 1, borderColor: t.line(14), overflow: 'hidden' }}>
@@ -352,6 +377,32 @@ export default function Home() {
             </View>
           </View>
         </Press>
+
+        {/* Continue row — the other fresh per-mode resume slots the hero
+            didn't pick, so switching modes never quietly loses your place in
+            the one you left. Only rendered when there's more than the one. */}
+        {secondaryResumes.length > 0 ? (
+          <>
+            <SectionHead title={T.continueRow} right="" />
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -20 }} contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}>
+              {secondaryResumes.map((r) => (
+                <Press
+                  key={r.activity}
+                  onPress={() => router.push(r.route as never)}
+                  scale={0.98}
+                  style={{ width: 200, minHeight: 92, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, ...t.cardShadow, padding: 16, paddingHorizontal: 18, justifyContent: 'center' }}
+                >
+                  <TX font="semi" role="meta" ls={1.8} color={t.accTx} numberOfLines={1} style={{ marginBottom: 6 }}>
+                    {T.resumeTag}
+                  </TX>
+                  <TX font="serifI" role="titleSm" size={19} numberOfLines={1}>
+                    {r.title}
+                  </TX>
+                </Press>
+              ))}
+            </ScrollView>
+          </>
+        ) : null}
 
         {/* Foundations — the Den keeps its own full-width tile: it is a guided
             course, not a deck, so it does not belong inside the hub grid. */}

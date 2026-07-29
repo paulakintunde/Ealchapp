@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { ACCENTS, type Mode } from '@/theme/palette';
+import { DEFAULT_AVATAR_ID } from '@/content/avatars';
 // Import the service module directly (not '@/services') — the barrel pulls in
 // sound.ts, which imports this store back.
 import { notifications } from '@/services/notifications';
@@ -44,6 +45,7 @@ export type AppState = {
   // appearance
   mode: Mode;
   accent: string; // active accent hex (accentPick)
+  avatarId: string; // selected coach avatar (AvatarId from content/avatars.ts)
 
   // Lift a dim screen while reading. App-window brightness only, never the
   // system setting, and only on the lesson-style screens.
@@ -122,6 +124,7 @@ export type AppState = {
   setMode: (m: Mode) => void;
   toggleMode: () => void;
   setAccent: (hex: string) => void;
+  setAvatarId: (id: string) => void;
   setSound: (on: boolean) => void;
   setBrightBoost: (on: boolean) => void;
   setLessonKeySeen: (seen: boolean) => void;
@@ -155,6 +158,7 @@ const initialData = () => ({
 
   mode: 'dark' as Mode,
   accent: ACCENTS[0].c,
+  avatarId: DEFAULT_AVATAR_ID as string,
 
   brightBoost: true,
   lessonKeySeen: false,
@@ -202,6 +206,7 @@ export const useStore = create<AppState>()(
       setMode: (mode) => set({ mode }),
       toggleMode: () => set({ mode: get().mode === 'dark' ? 'light' : 'dark' }),
       setAccent: (accent) => set({ accent }),
+      setAvatarId: (avatarId) => set({ avatarId }),
       setSound: (sound) => set({ sound }),
       setBrightBoost: (brightBoost) => set({ brightBoost }),
       setLessonKeySeen: (lessonKeySeen) => set({ lessonKeySeen }),
@@ -341,6 +346,7 @@ export const useStore = create<AppState>()(
         appLang: s.appLang,
         mode: s.mode,
         accent: s.accent,
+        avatarId: s.avatarId,
         brightBoost: s.brightBoost,
         lessonKeySeen: s.lessonKeySeen,
         browseOpen: s.browseOpen,

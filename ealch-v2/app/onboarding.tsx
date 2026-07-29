@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ScrollView, TextInput, View } from 'react-native';
+import { Image, ScrollView, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
@@ -13,6 +13,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { ACCENTS } from '@/theme/palette';
+import { AVATARS, avatarName } from '@/content/avatars';
 import { langs } from '@/content';
 import { auth, sound, stt, type SttResult } from '@/services';
 import { AUTH_UNAVAILABLE } from '@/services/auth';
@@ -77,6 +78,9 @@ export default function Onboarding() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const s = useStore();
+  // Used in the pre-avatar-picker steps (name, accent, result) before step 10
+  // has run — reflects the current default until the user actually picks.
+  const avatarNameNow = avatarName(s.avatarId);
   const [step, setStep] = useState(0);
   const [calib, setCalib] = useState<'idle' | 'rec' | 'done'>('idle');
   const [calibPartial, setCalibPartial] = useState('');
@@ -107,7 +111,7 @@ export default function Onboarding() {
 
   const next = () => {
     sound.play('tap');
-    setStep((x) => Math.min(10, x + 1));
+    setStep((x) => Math.min(11, x + 1));
   };
   const back = () => {
     sound.play('tap');
@@ -224,7 +228,7 @@ export default function Onboarding() {
     sound.play(res.ok ? 'success' : 'flip');
   };
 
-  const showHead = step >= 1 && step <= 9;
+  const showHead = step >= 1 && step <= 10;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
@@ -315,7 +319,7 @@ export default function Onboarding() {
           <View style={{ flex: 1, paddingTop: 8 }}>
             <StepLabel>{LABELS[2]}</StepLabel>
             <TX font="serif" role="display" size={34} style={{ marginBottom: 10 }}>
-              {T.obNameT}
+              {T.obNameT.replace('{name}', avatarNameNow)}
             </TX>
             <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 26 }}>
               {T.obNameS}
@@ -451,7 +455,7 @@ export default function Onboarding() {
 
         {/* 7 · Accent */}
         {step === 7 ? (
-          <StepList label={LABELS[7]} title={T.obAccentT}>
+          <StepList label={LABELS[7]} title={T.obAccentT.replace('{name}', avatarNameNow)}>
             {accentData.map((a) => (
               <SelectRow key={a.id} active={s.region === a.id} title={a.name} sub={a.sub} onPress={() => s.setRegion(a.id)} />
             ))}
@@ -596,11 +600,52 @@ export default function Onboarding() {
           </View>
         ) : null}
 
-        {/* 10 · Result */}
+        {/* 10 · Avatar */}
         {step === 10 ? (
+          <View style={{ flex: 1, paddingTop: 8 }}>
+            <StepLabel>{LABELS[10]}</StepLabel>
+            <TX font="serif" role="display" size={34} style={{ marginBottom: 10 }}>
+              {T.obAvatarT}
+            </TX>
+            <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 26 }}>
+              {T.obAvatarS}
+            </TX>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 18, justifyContent: 'center', marginBottom: 20 }}>
+              {AVATARS.map((a) => {
+                const on = s.avatarId === a.id;
+                return (
+                  <Press key={a.id} onPress={() => s.setAvatarId(a.id)} style={{ alignItems: 'center', gap: 9, width: 76 }}>
+                    <View
+                      style={{
+                        width: 68,
+                        height: 68,
+                        borderRadius: 34,
+                        backgroundColor: t.card2,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderWidth: on ? 3 : 0,
+                        borderColor: t.bg,
+                        ...(on ? { shadowColor: t.acc, shadowOpacity: 0.9, shadowRadius: 8, elevation: 6 } : {}),
+                      }}
+                    >
+                      <Image source={a.src} resizeMode="contain" style={{ width: 54, height: 54 }} />
+                    </View>
+                    <TX font="semi" role="meta" color={on ? t.txPrimary : t.txSubtle} numberOfLines={1}>
+                      {a.name}
+                    </TX>
+                  </Press>
+                );
+              })}
+            </View>
+            <Button label={T.continueT} onPress={next} style={{ marginTop: 'auto' }} />
+          </View>
+        ) : null}
+
+        {/* 11 · Result */}
+        {step === 11 ? (
           <View style={{ flex: 1, justifyContent: 'center', paddingTop: insets.top }}>
             <TX font="semi" role="meta" ls={2.8} color={t.txSubtle} style={{ marginBottom: 16 }}>
-              {LABELS[10]}
+              {LABELS[11]}
             </TX>
             <TX font="serif" role="display" size={74} color={t.accTx}>
               {level}
@@ -609,7 +654,7 @@ export default function Onboarding() {
               {beginner ? T.obDecouverte : T.obSeuil}
             </TX>
             <TX role="bodyLg" lhMult={1.6} color={t.txSecondary} style={{ maxWidth: 310, marginBottom: 44 }}>
-              {beginner ? T.obResultA1 : T.obResultB1}
+              {beginner ? T.obResultA1.replace('{name}', avatarNameNow) : T.obResultB1}
             </TX>
             <Button label={T.enterEalch} onPress={finish} />
           </View>
