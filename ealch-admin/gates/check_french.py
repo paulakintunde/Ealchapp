@@ -68,6 +68,47 @@ def normalize(text: str) -> str:
     return re.sub(r'\s+', ' ', t)
 
 
+# verbecc 2.x mood keys. Authoring often writes "conditionnel présent" as a
+# TENSE while leaving mood at the 'indicatif' default — conditionnel is a
+# mood, so the first tense word that names a mood claims the mood slot.
+MOOD_KEYS = {'indicatif', 'conditionnel', 'subjonctif', 'imperatif', 'infinitif', 'participe'}
+
+SUBJECT_PRONOUNS = {'je', 'j', 'tu', 'il', 'elle', 'on', 'nous', 'vous', 'ils', 'elles'}
+
+
+def canonical_mood_tense(mood: str, tense: str) -> tuple[str, str]:
+    """Fold authored mood/tense spellings onto verbecc 2.x keys: lowercase,
+    spaces become the hyphens verbecc uses ('passé composé' → 'passé-composé'),
+    and a mood name written into the tense ('conditionnel présent') moves to
+    the mood slot."""
+    m = (mood or 'indicatif').strip().lower().replace(' ', '-')
+    t = (tense or '').strip().lower().replace(' ', '-')
+    parts = t.split('-')
+    if parts and parts[0] in MOOD_KEYS:
+        m = parts[0]
+        t = '-'.join(parts[1:]) or 'présent'
+    return m, t
+
+
+def loose(text: str) -> str:
+    """normalize(), then apostrophes and internal punctuation become spaces —
+    the containment match below is about word sequences, and "qu'il a" must
+    expose "il a" the same way "Oui, il doit." must expose "il doit"."""
+    t = normalize(text).replace("’", ' ').replace("'", ' ')
+    t = re.sub(r"[^\w\sàâäéèêëîïôöùûüçœæ-]", ' ', t)
+    return re.sub(r'\s+', ' ', t).strip()
+
+
+def bare_form(cand: str) -> str:
+    """The conjugated verb phrase without its subject pronoun: 'il doit' →
+    'doit', "j'ai dû" → 'ai dû'. What must actually appear in a sentence
+    whose subject is a noun ('Le plombier doit…')."""
+    toks = loose(cand).split(' ')
+    while toks and toks[0] in SUBJECT_PRONOUNS:
+        toks = toks[1:]
+    return ' '.join(toks)
+
+
 def check_one(conjugator, item: dict) -> str | None:
     """Returns an issue message, or None if the item checks out."""
     vc = item.get('verbCheck')
@@ -88,6 +129,7 @@ def check_one(conjugator, item: dict) -> str | None:
     except Exception as e:  # verbecc's VerbNotFoundError and friends
         return f'verbecc does not know the infinitive "{infinitive}": {e}'
 
+    mood, tense = canonical_mood_tense(mood, tense)
     try:
         data = json.loads(result.to_json())
         entries = data['moods'][mood][tense]
@@ -113,11 +155,21 @@ def check_one(conjugator, item: dict) -> str | None:
         c = normalize(cand)
         return haystack == c or haystack.startswith(c + ' ')
 
-    if not any(opens_with(c) for c in candidates):
-        want = ' | '.join(candidates)
-        return f'"{item.get("id")}": fr "{fr}" does not open with a valid {infinitive} {mood}/{tense} form (expected one of: {want})'
+    if any(opens_with(c) for c in candidates):
+        return None
 
-    return None
+    # Sentences with a NOUN subject ('Le plombier doit venir…') are correctly
+    # conjugated without opening on pronoun+verb. Accept the pronoun-stripped
+    # form as a word-bounded phrase anywhere in the sentence — the FORM is
+    # still checked exactly ('doit', 'a dû'), only its position is freed.
+    hay = f' {loose(fr)} '
+    for c in candidates:
+        bare = bare_form(c)
+        if bare and f' {bare} ' in hay:
+            return None
+
+    want = ' | '.join(candidates)
+    return f'"{item.get("id")}": fr "{fr}" does not contain a valid {infinitive} {mood}/{tense} form (expected one of: {want})'
 
 
 def main() -> None:
@@ -134,14 +186,17 @@ def main() -> None:
         # items for a long while yet — no reason to pay it when there is
         # nothing to check. Both the import and the init log to stdout by
         # default (see _stdout_silenced), so both happen inside the guard.
+        # The silencer must span the WHOLE run, not just import/init: verbecc
+        # also logs at conjugate() time (empty-template warnings on some
+        # verbs), and one stray line on stdout breaks the JSON channel.
         with _stdout_silenced():
             from verbecc import CompleteConjugator
 
             conjugator = CompleteConjugator(lang='fr')
-        for item in targeted:
-            msg = check_one(conjugator, item)
-            if msg:
-                issues.append({'id': item.get('id'), 'message': msg})
+            for item in targeted:
+                msg = check_one(conjugator, item)
+                if msg:
+                    issues.append({'id': item.get('id'), 'message': msg})
 
     out = json.dumps({'checked': len(targeted), 'issues': issues}, ensure_ascii=False)
     sys.stdout.buffer.write(out.encode('utf-8'))
