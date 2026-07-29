@@ -517,8 +517,9 @@ test('looksLikeCorpus is the O(1) gate: shape yes, contents unexamined', () => {
 test('the snapshot ceiling is a real number and the current seed clears it', () => {
   // The ceiling exists on both ends (publish refuses to produce, the app
   // refuses to parse); this pins it against accidental edits to something
-  // meaninglessly small or absurdly large.
-  ok(MAX_SNAPSHOT_BYTES >= 1024 * 1024 && MAX_SNAPSHOT_BYTES <= 16 * 1024 * 1024);
+  // meaninglessly small or absurdly large. Band widened with the deliberate
+  // 30 MiB raise (2026-07-28) — the full 46k-item corpus is ~21 MiB.
+  ok(MAX_SNAPSHOT_BYTES >= 1024 * 1024 && MAX_SNAPSHOT_BYTES <= 32 * 1024 * 1024);
 });
 
 // ── mergeArticleTiles: the article travels with its noun (Phase 6b) ──────────

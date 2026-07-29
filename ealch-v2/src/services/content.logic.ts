@@ -527,8 +527,15 @@ export function looksLikeCorpus(v: unknown): v is Corpus {
  *  download past it (a multi-MB parse + verify is a main-thread stall and a
  *  low-end-Android OOM window). Heavy media never belongs in the snapshot —
  *  audio ships via the asset manifest (Phase 4) precisely so this number can
- *  hold. Raising it is a deliberate decision, not a fix for a fat corpus. */
-export const MAX_SNAPSHOT_BYTES = 4 * 1024 * 1024;
+ *  hold. Raising it is a deliberate decision, not a fix for a fat corpus.
+ *
+ *  Raised 4 MiB → 30 MiB (Paul, 2026-07-28): the corpus outgrew the old
+ *  ceiling for real — 46k authored items stableStringify to ~21 MiB — and
+ *  there is no production install base to strand on the old limit. The parse
+ *  cost concern stands: verify/merge already run behind InteractionManager,
+ *  and snapshot slimming (per-level splits, compression) is the recorded
+ *  follow-up if low-end devices struggle. */
+export const MAX_SNAPSHOT_BYTES = 30 * 1024 * 1024;
 
 export type VerifyResult =
   | { ok: true; corpus: Corpus }
