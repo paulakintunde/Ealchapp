@@ -42,6 +42,7 @@ import {
   scenariosFor,
   selectItems,
   shouldAdopt,
+  speakStages,
   unitsInTrack,
   verifySnapshot,
   type ItemQuery,
@@ -295,6 +296,8 @@ export const content = {
   scenario: (id: string): Scenario | null => getScenario(useContent.getState().corpus, id),
   scenarios: (q?: { level?: Level; theme?: string }): Scenario[] =>
     scenariosFor(useContent.getState().corpus, q),
+  /** The Speak trail in walk order — (world, seq), sorted by speakStages. */
+  speakPath: () => speakStages(useContent.getState().corpus),
   examTask: (id: string) => getExamTask(useContent.getState().corpus, id),
   examSeriesOne: (id: string) => getExamSeries(useContent.getState().corpus, id),
   examSeriesFor: (format: ExamFormat) => examSeriesFor(useContent.getState().corpus, format),

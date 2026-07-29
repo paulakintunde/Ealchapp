@@ -49,7 +49,7 @@ test('greetSlot maps every hour to the right bucket', () => {
 
 test('known fixed-length arrays match their consumers', () => {
   for (const lang of ['fr', 'en'] as const) {
-    strictEqual(T[lang].obSteps.length, 10, `${lang}.obSteps drives the 10-step wizard`);
+    strictEqual(T[lang].obSteps.length, 11, `${lang}.obSteps drives the 11-step wizard`);
     strictEqual(T[lang].alarmChips.length, 4, `${lang}.alarmChips drives 4 alarm presets`);
     strictEqual(T[lang].dayLetters.length, 7, `${lang}.dayLetters drives 7 weekday dots`);
     strictEqual(T[lang].weekdayNames.length, 7, `${lang}.weekdayNames is indexed Monday-first by freezeNote`);

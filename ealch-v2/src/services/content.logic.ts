@@ -11,7 +11,7 @@
 // resolved here. The one runtime thing verifySnapshot needs — the structural
 // validator — is passed IN (see `validate` below). Same spirit as
 // progress.logic.ts: this file stays a pure island.
-import type { CardType, Corpus, DrillKind, ExamFormat, ExamSeries, ExamTask, Item, Lesson, LessonSection, Level, Scenario, Track, Unit } from '../content/schema';
+import type { CardType, Corpus, DrillKind, ExamFormat, ExamSeries, ExamTask, Item, Lesson, LessonSection, Level, Scenario, SpeakStage, Track, Unit } from '../content/schema';
 
 /* ─── merge ──────────────────────────────────────────────────────────────── */
 
@@ -77,7 +77,15 @@ export function mergeCorpus(seed: Corpus, snapshot: Corpus | null | undefined): 
     examSeries: overlay(seed.examSeries ?? [], snapshot.examSeries ?? []),
     playlists: overlay(seed.playlists ?? [], snapshot.playlists ?? []),
     templates: overlay(seed.templates ?? [], snapshot.templates ?? []),
+    speakPath: overlay(seed.speakPath ?? [], snapshot.speakPath ?? []),
   };
+}
+
+/** The Speak trail, in walk order. Stages ship unordered (they are keyed rows,
+ *  not a sequence) — (world, seq) is the one true order, so the single sort
+ *  lives here rather than in every screen that renders the path. */
+export function speakStages(corpus: Corpus): SpeakStage[] {
+  return [...(corpus.speakPath ?? [])].sort((a, b) => a.world - b.world || a.seq - b.seq);
 }
 
 /* ─── selection — every drill is a view over the one corpus ──────────────── */

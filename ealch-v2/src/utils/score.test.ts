@@ -1,7 +1,10 @@
 // Utterance-scoring guard. Runs on plain Node: npm run test.
 import { strictEqual, ok } from 'node:assert';
 import { test } from 'node:test';
-import { normalizeFr, levenshtein, wordCoverage, scoreUtterance, verdictFor, answerMatches } from './score.ts';
+import {
+  normalizeFr, levenshtein, wordCoverage, scoreUtterance, verdictFor, answerMatches,
+  barsForLevel, isLenientLevel, markWords,
+} from './score.ts';
 
 test('normalizeFr strips diacritics, elisions and punctuation', () => {
   strictEqual(normalizeFr('« Bonjour, j’apprends le français ! »'), 'bonjour j apprends le francais');
@@ -81,4 +84,45 @@ test('answerMatches is article- and accent-insensitive but rejects extra words',
   ok(!answerMatches('a house', 'a car'));
   ok(!answerMatches('a house', 'ahouse')); // missing space is not a match
   ok(!answerMatches('un café', '')); // empty
+});
+
+test('barsForLevel: forgiving early, stricter late, default for unknown', () => {
+  // A 0.75 take: good for a beginner shadowing sounds, only close at b1.
+  strictEqual(verdictFor(0.75, barsForLevel('sons')), 'good');
+  strictEqual(verdictFor(0.75, barsForLevel('a1')), 'good');
+  strictEqual(verdictFor(0.75, barsForLevel('b1')), 'close');
+  // A 0.85 take: good at b1, not good enough at c1.
+  strictEqual(verdictFor(0.85, barsForLevel('b1')), 'good');
+  strictEqual(verdictFor(0.85, barsForLevel('c1')), 'close');
+  // Below every close bar is off everywhere.
+  strictEqual(verdictFor(0.3, barsForLevel('sons')), 'off');
+  strictEqual(verdictFor(0.3, barsForLevel('c1')), 'off');
+  // Unknown level = the historical default bars.
+  strictEqual(verdictFor(0.82, barsForLevel(undefined)), 'good');
+  strictEqual(verdictFor(0.81, barsForLevel(undefined)), 'close');
+});
+
+test('scoreUtterance verdict moves with bars but the score does not', () => {
+  const lenient = scoreUtterance('bonjour madame', 'bonjour madam', barsForLevel('sons'));
+  const strict = scoreUtterance('bonjour madame', 'bonjour madam', barsForLevel('c1'));
+  strictEqual(lenient.score, strict.score);
+  ok(lenient.score >= 0.72);
+});
+
+test('isLenientLevel: amber bands are sons, a1, a2 only', () => {
+  ok(isLenientLevel('sons'));
+  ok(isLenientLevel('a1'));
+  ok(isLenientLevel('a2'));
+  ok(!isLenientLevel('b1'));
+  ok(!isLenientLevel('c1'));
+  ok(!isLenientLevel(undefined));
+});
+
+test('markWords marks exactly the missed display words', () => {
+  const marks = markWords('Je voudrais un café.', 'je voudrais un thé');
+  strictEqual(marks.length, 4);
+  strictEqual(marks[0].hit, true);
+  strictEqual(marks[1].hit, true);
+  strictEqual(marks[2].hit, true);
+  strictEqual(marks[3].hit, false); // café ≠ thé
 });

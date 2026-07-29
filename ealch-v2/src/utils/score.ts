@@ -90,14 +90,95 @@ export function wordCoverage(expected: string, heard: string): number {
   return hit / want.length;
 }
 
+/** One display word of the expected phrase, marked hit/missed against what was
+ *  heard. Same matching rule as wordCoverage (exact, or within one edit above
+ *  3 chars), consuming each heard token at most once — so the highlight and
+ *  the score never disagree about which words landed. A display word with
+ *  several normalized tokens ("j'apprends" → j + apprends) only hits when all
+ *  of them do: half an elision is still a miss. */
+export type WordMark = { word: string; hit: boolean };
+
+export function markWords(expected: string, heard: string): WordMark[] {
+  const unused = tokens(heard);
+  const take = (w: string): boolean => {
+    const ix = unused.findIndex(
+      (g) => g === w || (Math.max(w.length, g.length) > 3 && levenshtein(w, g) <= 1)
+    );
+    if (ix >= 0) {
+      unused.splice(ix, 1);
+      return true;
+    }
+    return false;
+  };
+  return expected
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((word) => {
+      const toks = tokens(word);
+      // filter-then-length, not every(): every() short-circuits and would skip
+      // consuming the later tokens of a partially-heard word.
+      const hits = toks.filter(take).length;
+      return { word, hit: toks.length > 0 && hits === toks.length };
+    });
+}
+
+/** Words the learner keeps missing, folded from expected/heard pairs (the
+ *  attempt log stores both). Purely word-frequency: no store dependency, so
+ *  screens can scope the pairs however they like (a block, a stage, all time).
+ *  Articles are skipped — "missed le" is recognizer noise, not a focus word. */
+export function focusWordsFrom(
+  pairs: { expected: string; heard: string }[],
+  limit = 8
+): { word: string; misses: number }[] {
+  const misses = new Map<string, { word: string; misses: number }>();
+  for (const p of pairs) {
+    for (const m of markWords(p.expected, p.heard)) {
+      if (m.hit) continue;
+      const key = normalizeFr(m.word);
+      if (!key || ARTICLES.has(key)) continue;
+      const cur = misses.get(key);
+      if (cur) cur.misses += 1;
+      else misses.set(key, { word: m.word.replace(/[«»"“”.,!?;:()[\]…]/g, ''), misses: 1 });
+    }
+  }
+  return [...misses.values()].sort((a, b) => b.misses - a.misses).slice(0, limit);
+}
+
 export type Score = { score: number; verdict: Verdict };
+
+/** The score→verdict cut lines. The SCORE is always the same honest number;
+ *  only where "good" begins moves with the learner's level. */
+export type VerdictBars = { good: number; close: number };
+
+export const DEFAULT_BARS: VerdictBars = { good: 0.82, close: 0.55 };
+
+/** Strictness scaled to the CEFR band. A beginner shadowing their first
+ *  sounds gets credit for a recognizable attempt; a C1 speaker is held to
+ *  near-native transcription. Unknown levels get the historical default. */
+export function barsForLevel(level?: string | null): VerdictBars {
+  switch (level) {
+    case 'sons': return { good: 0.72, close: 0.45 };
+    case 'a1': return { good: 0.75, close: 0.48 };
+    case 'a2': return { good: 0.78, close: 0.52 };
+    case 'b1': return DEFAULT_BARS;
+    case 'b2': return { good: 0.85, close: 0.58 };
+    case 'c1': return { good: 0.88, close: 0.62 };
+    default: return DEFAULT_BARS;
+  }
+}
+
+/** Early bands mark speech misses as "practice this" (amber), not failure
+ *  (red). The verdict logic is barsForLevel; this is its color counterpart. */
+export function isLenientLevel(level?: string | null): boolean {
+  return level === 'sons' || level === 'a1' || level === 'a2';
+}
 
 /**
  * Blend the two signals into a 0..1 score and a verdict the UI can act on.
  * Coverage is weighted slightly higher: for a learner, saying every word of the
  * phrase matters more than the recognizer's exact spelling of each one.
  */
-export function scoreUtterance(expected: string, heard: string): Score {
+export function scoreUtterance(expected: string, heard: string, bars: VerdictBars = DEFAULT_BARS): Score {
   if (!heard.trim()) return { score: 0, verdict: 'none' };
 
   const e = normalizeFr(expected);
@@ -108,12 +189,12 @@ export function scoreUtterance(expected: string, heard: string): Score {
   const words = wordCoverage(expected, heard);
   const score = 0.45 * chars + 0.55 * words;
 
-  return { score, verdict: verdictFor(score) };
+  return { score, verdict: verdictFor(score, bars) };
 }
 
-export function verdictFor(score: number): Verdict {
-  if (score >= 0.82) return 'good';
-  if (score >= 0.55) return 'close';
+export function verdictFor(score: number, bars: VerdictBars = DEFAULT_BARS): Verdict {
+  if (score >= bars.good) return 'good';
+  if (score >= bars.close) return 'close';
   return 'off';
 }
 

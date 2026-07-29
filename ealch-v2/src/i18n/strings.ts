@@ -21,6 +21,9 @@ export type Strings = {
   weakSlip: string; weakSlipPl: string; weakEmpty: string;
   heroTag: string; heroSub: string;
   resumeTag: string; beginTag: string; resumeSub: string; begin: string; vocabPrime: string;
+  /** Section head over the secondary "Continue" chip row on home — the other
+   *  fresh per-mode resume slots, when there's more than the one the hero shows. */
+  continueRow: string;
   reviewHeroTitle: string; listenHeroTitle: string; listenHeroSub: string;
   freshHeroTitle: string; freshHeroSub: string; freshShort: string;
   found: string; denT: string; denS: string;
@@ -73,7 +76,7 @@ export type Strings = {
   frontFr: string; frontEn: string;
   vocabTag: string; vocabSub: string; vocabPrimerTitle: string;
   register: string; registerBody: string; registerEnd: string;
-  go: string; grammarTag: string; grammarBody: string; askCamille: string;
+  go: string; grammarTag: string; grammarBody: string; askCoach: string;
   examMeta: string[]; errorIssues: string[];
   /** The copyright/non-affiliation guardrail (Gate H) — shown wherever exam
    *  content renders, per EALCH-MASTER-BUILD.md's Phase 8 requirement that
@@ -87,6 +90,7 @@ export type Strings = {
   theme: string; signOut: string; now: string;
   settingsT: string; appLangT: string; appLangNote: string;
   modeT: string; modeDark: string; modeLight: string; soundT: string; soundS: string; brightT: string; brightS: string;
+  avatarT: string;
   testAlarm: string; customTime: string; calendarT: string;
   voiceT: string; voiceS: string; sbT: string; sbS: string; rpT: string; rpS: string;
   roleplayHubTag: string; rpScenesN: string;
@@ -178,6 +182,7 @@ export type Strings = {
   obRemindT: string; obRemindS: string; enableReminders: string; alarmChips: string[]; paceSubs: string[];
   expTitles: string[]; expSubs: string[];
   obCalibT: string; obCalibS: string; obCalibRec: string; obCalibTap: string;
+  obAvatarT: string; obAvatarS: string;
   obDecouverte: string; obSeuil: string; obResultA1: string; obResultB1: string; enterEalch: string;
   welcomeBack: string; helloAgain: string; forgotPw: string; signInBtn: string; newHere: string;
 
@@ -216,6 +221,14 @@ export type Strings = {
   playerPlaylist: string; rpLevelNote: string; repeatWord: string;
   playerListen: string; playerNow: string; playerEmpty: string; restart: string;
   speakScene: string; speakRepeat: string; vfTitle: string;
+  speakBlock: string; speakBlockDone: string; speakStationDone: string;
+  speakMapT: string; speakWorld: string; speakBackMap: string;
+  speakRetry: string; speakSkip: string; speakTryN: string;
+  speakFocusOn: string; speakFocusWordsT: string;
+  speakNextStation: string; speakNextWorld: string;
+  speakWorldMeanings: string[];
+  speakWordPracticeT: string; speakWordAllDone: string;
+  speakBackToLine: string; speakNextWord: string; speakWordTap: string;
   chatRetry: string;
   chatSuggs: { label: string; msg: string }[];
   planFree: string; planFreeDesc: string;
@@ -238,14 +251,15 @@ export const T: Record<Lang, Strings> = {
     seeAll: 'TOUT VOIR', playlists: 'Vos playlists', examiner: "L'Examinateur", tracksWord: 'pistes',
     weak: 'Vos points faibles', week: 'CETTE SEMAINE', resume: 'Reprendre',
     weakSlip: '1 erreur', weakSlipPl: '{n} erreurs', weakEmpty: 'Vos points faibles apparaîtront ici au fil de la pratique.',
-    heroTag: 'RÉEL — SURVIE · REPRENDRE', heroSub: 'Commandez comme un vrai Parisien · avec Camille',
+    heroTag: 'RÉEL — SURVIE · REPRENDRE', heroSub: 'Commandez comme un vrai Parisien · avec {name}',
     resumeTag: 'REPRENDRE', beginTag: 'POUR COMMENCER', resumeSub: 'Reprenez où vous en étiez', begin: 'Commencer', vocabPrime: 'Le vocabulaire',
+    continueRow: 'À reprendre',
     reviewHeroTitle: 'À réviser', listenHeroTitle: "À l'écoute", listenHeroSub: 'De vraies phrases, une vraie voix',
     freshHeroTitle: 'Des mots nouveaux', freshHeroSub: '{n} mots choisis pour aujourd’hui', freshShort: '{n} nouveaux',
     found: 'Les fondations', denT: 'Le cours de remise à niveau', denS: 'Sons · A1 · A2 — le cursus complet',
     cardsT: 'Cartes mémoire', cardsS: '{n} cartes · à réviser', cardsTag: 'RAPPEL · CARTES', unitsWord: 'UNITÉS',
     themesTag: 'PRATIQUE · PAR THÈME', themesTitle: 'Choisissez votre scène.',
-    themesSub: 'Des situations réelles, en cinq étapes. Camille vous attend à la fin.', allLevels: 'Tous',
+    themesSub: 'Des situations réelles, en cinq étapes. {name} vous attend à la fin.', allLevels: 'Tous',
     themeWeekTag: 'THÈME DE LA SEMAINE', themeTag: 'THÈME', wordsWord: 'mots',
     stepNames: { decouvrir: 'Découvrir', construire: 'Construire', prononcer: 'Prononcer', ecouter: 'Écouter', scene: 'La scène' },
     stepSubs: { decouvrir: 'Cartes, les mots de la scène', construire: 'Phrases, assembler et demander', prononcer: 'Flash vocal, dites-le à voix haute', ecouter: 'La dictée, écoutez et écrivez', scene: 'Jeu de rôle, la scène finale' },
@@ -269,7 +283,7 @@ export const T: Record<Lang, Strings> = {
     micUnavail: 'Micro indisponible sur cette version. Comparez vous-même',
     micGood: 'Bien dit', micClose: 'Presque. Réessayez', micOff: 'Pas tout à fait',
     youSaid: 'UNE RÉPONSE MODÈLE — À DIRE À VOIX HAUTE', liaisonChip: 'Attention à la liaison · un‿allongé',
-    speakYouSaid: 'VOUS AVEZ DIT', speakModelWas: 'Camille a dit',
+    speakYouSaid: 'VOUS AVEZ DIT', speakModelWas: '{name} a dit',
     reportTag: 'VOTRE RAPPORT', review: 'À revoir', replay: 'Rejouer', talk: 'Parler au coach',
     traj: 'B1 → B1+ trajectoire', conf: 'CONFIANCE',
     reportSub: 'Bâti sur vos tentatives réelles, pas sur des exemples.',
@@ -305,7 +319,7 @@ export const T: Record<Lang, Strings> = {
     register: 'REGISTRE', registerBody: 'Dites toujours', registerEnd: 'sonne comme un ordre. Les serveurs le remarquent.',
     go: "J'y vais →", grammarTag: 'GRAMMAIRE · SANS QUITTER LA CONVERSATION',
     grammarBody: "La liaison relie la consonne finale muette à la voyelle qui suit. Après un, les, vous, ils, elle est obligatoire, et c'est la première chose qu'un examinateur entend.",
-    askCamille: 'Demandez à Camille →',
+    askCoach: 'Demandez à {name} →',
     // Index-aligned to EXAMS in app/home.tsx: TEF Canada · TCF Canada · DELF B2.
     examMeta: ['Expression orale · 15 min · chrono', 'Compréhension · une seule écoute', "L'examinateur vous interrompt"],
     examDisclaimer: "Exercices originaux inspirés du format officiel. Non publiés ni approuvés par France Éducation international, le CCI Paris Île-de-France ni aucun organisme examinateur. Résultats donnés à titre indicatif, non équivalents à un score officiel.",
@@ -325,6 +339,7 @@ export const T: Record<Lang, Strings> = {
     theme: 'Thème', signOut: 'Se déconnecter', now: 'MAINTENANT',
     settingsT: 'Réglages', appLangT: "Langue de l'application", appLangNote: 'Interface FR & EN complète. Autres langues bientôt.',
     modeT: 'Apparence', modeDark: 'SOMBRE', modeLight: 'CLAIR', soundT: 'Effets sonores', soundS: 'Sons de réussite, cartes et alarme', brightT: 'Éclaircir pendant la lecture', brightS: "Éclaircit un écran sombre pendant les leçons, puis le restaure",
+    avatarT: 'Avatar',
     testAlarm: "Tester l'alarme", customTime: 'Heure personnalisée', calendarT: 'Votre calendrier',
     voiceT: 'Flash vocal', voiceS: 'image → voix · traduction', sbT: 'Phrases', sbS: 'apprendre · dire · écrire', rpT: 'Jeu de rôle', rpS: 'conversation IA · A1 → B2',
     roleplayHubTag: 'JEU DE RÔLE · PAR THÈME', rpScenesN: '{n} scènes',
@@ -360,11 +375,11 @@ export const T: Record<Lang, Strings> = {
     vfEmptyT: 'Rien à prononcer ici', vfEmptyS: "Ce thème n'a pas encore de mots pour Voice Flash. Essayez un autre thème ou revenez plus tard.",
     vfSelfT: 'LA RÉPONSE — ALORS ?', vfGot: "Je l'ai bien dit", vfMissed: 'Pas tout à fait',
     learnT: 'Apprenez ces mots', arrangeT: 'Arrangez la phrase', sayItT: 'Dites-la à voix haute', writeItT: 'Écrivez-la', wellDone: 'Bravo, phrase acquise',
-    chooseLevel: 'Choisissez votre niveau', startRp: 'Commencer la conversation', rpDoneT: 'Scène terminée', rpDoneS: 'Camille : « Votre marchand vous adore. »', rpYourLine: 'VOTRE RÉPLIQUE — À DIRE À VOIX HAUTE', rpTag: 'JEU DE RÔLE', rpReport: 'Le rapport →', rpNotHeard: 'Pas entendu, votre réplique est affichée.',
+    chooseLevel: 'Choisissez votre niveau', startRp: 'Commencer la conversation', rpDoneT: 'Scène terminée', rpDoneS: '{name} : « Votre marchand vous adore. »', rpYourLine: 'VOTRE RÉPLIQUE — À DIRE À VOIX HAUTE', rpTag: 'JEU DE RÔLE', rpReport: 'Le rapport →', rpNotHeard: 'Pas entendu, votre réplique est affichée.',
     rpYourTurn: 'À VOUS', rpRespond: 'Répondez en français, puis vérifiez', rpModel: 'Réponse modèle',
-    narrTag: 'LEÇON NARRÉE', narrCta: 'Narré', narrRepeat: 'Répétez après Camille', narrYourTurn: 'À vous, dites-le', narrCheck: 'Répondez à la question de Camille',
-    narrSkip: 'Passer', narrDoneT: 'Leçon terminée', narrDoneS: 'Camille vous a guidé à travers les sept étapes.',
-    bannerText: 'Votre séance de {t} vous attend : Au Café, 4 min. Camille est prête.',
+    narrTag: 'LEÇON NARRÉE', narrCta: 'Narré', narrRepeat: 'Répétez après {name}', narrYourTurn: 'À vous, dites-le', narrCheck: 'Répondez à la question de {name}',
+    narrSkip: 'Passer', narrDoneT: 'Leçon terminée', narrDoneS: 'Vous avez traversé les sept étapes avec {name}.',
+    bannerText: 'Votre séance de {t} vous attend : Au Café, 4 min avec {name}.',
     uDone: 'ACQUIS', uLock: '···', uSoon: 'BIENTÔT', denLessonsReady: '{n} leçons prêtes',
 
     todayTag: "AUJOURD'HUI", toReviewShort: 'à revoir', caughtUp: '✓ à jour', tomorrow: 'demain →',
@@ -424,7 +439,7 @@ export const T: Record<Lang, Strings> = {
     skillRead: 'LIRE', skillListen: 'ÉCOUTE', skillSpeak: 'PARLE', skillWrite: 'ÉCRIRE', skillCourse: 'COURS', skillVocab: 'VOCAB', skillReadVocab: 'LIRE · VOCAB',
     accountBilling: 'Compte & facturation', learningSec: 'Apprentissage', appearanceSec: 'Apparence', notificationsSec: 'Notifications',
 
-    obSteps: ['01 — VOTRE COMPTE', '02 — VOTRE PRÉNOM', '03 — VOTRE THÈME', '04 — VOTRE OBJECTIF', '05 — VOTRE EXPÉRIENCE', '06 — VOTRE RYTHME', '07 — VOTRE ACCENT', '08 — VOS RAPPELS', '09 — ÉCHAUFFEMENT', '10 — VOTRE NIVEAU'],
+    obSteps: ['01 — VOTRE COMPTE', '02 — VOTRE PRÉNOM', '03 — VOTRE THÈME', '04 — VOTRE OBJECTIF', '05 — VOTRE EXPÉRIENCE', '06 — VOTRE RYTHME', '07 — VOTRE ACCENT', '08 — VOS RAPPELS', '09 — ÉCHAUFFEMENT', '10 — VOTRE AVATAR', '11 — VOTRE NIVEAU'],
     obTagline: 'Parlez avec élégance.',
     obIntro: 'Vous avez fait la grammaire. Passez à la parole. Parlez à voix haute dès le premier jour, et faites-vous comprendre.',
     createAccount: 'Créer un compte', alreadyAccount: 'Vous avez déjà un compte ?', signInLink: 'Se connecter',
@@ -432,7 +447,7 @@ export const T: Record<Lang, Strings> = {
     withApple: 'Continuer avec Apple', withGoogle: 'Continuer avec Google',
     obThemeT: 'Choisissez votre\ncouleur signature.', obThemeS: "Un fil vibrant dans l'obscurité. Modifiable à tout moment dans votre profil.",
     obGoalT: 'Pourquoi le français ?', obExpT: 'Combien de français\nvit déjà en vous ?', obPaceT: 'Minutes par jour ?',
-    obAccentT: 'Quel français\nCamille doit-elle parler ?',
+    obAccentT: 'Quel français\npour {name} ?',
     obRemindT: 'Quand devons-nous\nvous appeler pour pratiquer ?', obRemindS: "Une alarme quotidienne rend la série invisible, et l'habitude réelle.",
     enableReminders: 'Activer les rappels', alarmChips: ['matin', 'midi', 'soir', 'nuit'],
     paceSubs: ['une pause café', 'le trajet du matin', 'sérieux', 'immersion'],
@@ -440,14 +455,15 @@ export const T: Record<Lang, Strings> = {
     expSubs: ['je pars de zéro', 'le français scolaire, presque oublié', 'je tiens une conversation simple', "peaufiner l'accent et le registre"],
     obCalibT: 'Lisez ceci à voix haute.', obCalibS: 'Dix secondes suffisent. Lisez à voix haute et sentez le rythme, les liaisons et les voyelles nasales.',
     obCalibRec: 'Continuez à lire : rythme, liaisons, voyelles nasales', obCalibTap: 'Touchez le micro et lisez',
+    obAvatarT: 'Choisissez votre\navatar.', obAvatarS: 'Modifiable à tout moment dans les réglages.',
     obDecouverte: 'Découverte : le commencement.', obSeuil: 'Seuil : le passage.',
-    obResultA1: 'Une page blanche. Votre parcours commence au Cours de remise à niveau : les sons d\'abord, puis les mots. Camille restera douce.',
+    obResultA1: 'Une page blanche. Votre parcours commence au Cours de remise à niveau : les sons d\'abord, puis les mots. {name} vous accompagnera en douceur.',
     obResultB1: "Des fondations solides. D'après votre expérience, le flux de ce soir commence par les liaisons et les voyelles nasales.",
     enterEalch: 'Entrer dans Ealch',
     welcomeBack: 'BON RETOUR', helloAgain: 'Re-bonjour.', forgotPw: 'Mot de passe oublié ?', signInBtn: 'Se connecter', newHere: 'Nouveau ici ?',
 
     soonT: 'bientôt',
-    obNameT: 'Comment Camille\ndoit-elle vous appeler ?',
+    obNameT: 'Comment {name}\ndoit vous appeler ?',
     obNameS: 'Votre prénom suffit. Modifiable à tout moment dans votre profil.',
     namePh: 'Prénom', skipT: 'Passer',
     welcomeWord: 'Bienvenue', guestName: 'Invité',
@@ -512,7 +528,23 @@ export const T: Record<Lang, Strings> = {
     playerListen: 'Écoute', playerNow: 'EN LECTURE', playerEmpty: 'Rien à écouter pour le moment.', restart: 'Recommencer',
     rpLevelNote: 'La complexité de la conversation s’adapte au niveau choisi.',
     repeatWord: 'Répétez',
-    speakScene: 'RÉEL — AU CAFÉ', speakRepeat: 'Répétez la phrase de Camille', vfTitle: 'FLASH VOCAL',
+    speakScene: 'RÉEL — AU CAFÉ', speakRepeat: 'Répétez la phrase de {name}', vfTitle: 'FLASH VOCAL',
+    speakBlock: 'Bloc {a} / {b}', speakBlockDone: 'Bloc terminé !', speakStationDone: 'Station terminée !',
+    speakMapT: 'Le sentier de la parole', speakWorld: 'Monde {n}', speakBackMap: 'Retour au sentier',
+    speakRetry: 'Réessayer', speakSkip: 'Passer cette phrase', speakTryN: 'Essai {n}',
+    speakFocusOn: 'À travailler', speakFocusWordsT: 'Mots à travailler',
+    speakNextStation: 'Station suivante', speakNextWorld: 'Monde suivant : {w}',
+    speakWordPracticeT: 'Travaillez chaque mot', speakWordAllDone: 'Tous les mots sont maîtrisés !',
+    speakBackToLine: 'Retour à la phrase', speakNextWord: 'Mot suivant',
+    speakWordTap: 'Touchez un mot pour le travailler',
+    speakWorldMeanings: [
+      'Les sons du français, un par un',
+      'Les phrases du quotidien',
+      'Se débrouiller partout',
+      'Des conversations qui coulent',
+      'La nuance et le détail',
+      'La maîtrise, avec élégance',
+    ],
     chatRetry: 'Réessayez dans un instant.',
     chatSuggs: [
       { label: 'Pourquoi « je voudrais » ?', msg: 'Pourquoi « je voudrais » et pas « je veux » ?' },
@@ -553,14 +585,15 @@ export const T: Record<Lang, Strings> = {
     seeAll: 'SEE ALL', playlists: 'Your playlists', examiner: 'The Examiner', tracksWord: 'tracks',
     weak: 'Your weak spots', week: 'THIS WEEK', resume: 'Resume',
     weakSlip: '1 slip', weakSlipPl: '{n} slips', weakEmpty: 'Your weak spots show up here as you practise.',
-    heroTag: 'REAL-WORLD — SURVIVAL · RESUME', heroSub: 'Order like a local · with Camille',
+    heroTag: 'REAL-WORLD — SURVIVAL · RESUME', heroSub: 'Order like a local · with {name}',
     resumeTag: 'CONTINUE', beginTag: 'START HERE', resumeSub: 'Pick up where you left off', begin: 'Begin', vocabPrime: 'Vocab first',
+    continueRow: 'Pick up again',
     reviewHeroTitle: 'À réviser', listenHeroTitle: "À l'écoute", listenHeroSub: 'Real phrases, in a real voice',
     freshHeroTitle: 'New words', freshHeroSub: '{n} words picked for today', freshShort: '{n} new',
     found: 'Foundations', denT: 'Refresher Course', denS: 'Sounds · A1 · A2 — the full curriculum',
     cardsT: 'Flashcards', cardsS: '{n} cards · due now', cardsTag: 'RECALL · FLASHCARDS', unitsWord: 'UNITS',
     themesTag: 'PRACTICE · BY THEME', themesTitle: 'Choose your scene.',
-    themesSub: 'Real situations, five steps each. Camille waits at the end.', allLevels: 'All',
+    themesSub: 'Real situations, five steps each. {name} waits at the end.', allLevels: 'All',
     themeWeekTag: 'THEME OF THE WEEK', themeTag: 'THEME', wordsWord: 'words',
     stepNames: { decouvrir: 'Discover', construire: 'Build', prononcer: 'Pronounce', ecouter: 'Listen', scene: 'The scene' },
     stepSubs: { decouvrir: 'Flashcards, the words of the scene', construire: 'Sentences, assemble and ask', prononcer: 'Voice flash, say it out loud', ecouter: 'Dictation, listen and write', scene: 'Role play, the final scene' },
@@ -584,7 +617,7 @@ export const T: Record<Lang, Strings> = {
     micUnavail: 'Mic unavailable on this build. Compare it yourself',
     micGood: 'Well said', micClose: 'Close. Try again', micOff: 'Not quite',
     youSaid: 'A MODEL REPLY — SAY IT ALOUD', liaisonChip: 'Mind the liaison · un‿allongé',
-    speakYouSaid: 'YOU SAID', speakModelWas: 'Camille said',
+    speakYouSaid: 'YOU SAID', speakModelWas: '{name} said',
     reportTag: 'YOUR REPORT', review: 'To review', replay: 'Replay', talk: 'Talk to the coach',
     traj: 'B1 → B1+ trajectory', conf: 'CONFIDENCE',
     reportSub: 'Built from your real attempts, not sample data.',
@@ -620,7 +653,7 @@ export const T: Record<Lang, Strings> = {
     register: 'REGISTER', registerBody: 'Always say', registerEnd: 'sounds like a demand. Waiters notice.',
     go: "Let's go →", grammarTag: 'GRAMMAR · WITHOUT LEAVING THE CONVERSATION',
     grammarBody: "A liaison links a word's silent final consonant to the vowel that follows. After un, les, vous, ils it is not optional, and dropping it is what examiners hear first.",
-    askCamille: 'Ask Camille why →',
+    askCoach: 'Ask {name} why →',
     // Index-aligned to EXAMS in app/home.tsx: TEF Canada · TCF Canada · DELF B2.
     examMeta: ['Speaking · 15 min · timed', 'Listening · single play', 'The examiner interrupts you'],
     examDisclaimer: 'Original practice items modeled on the official format. Not published or endorsed by France Éducation international, CCI Paris Île-de-France, or any exam board. Results are practice estimates only, not equivalent to an official score.',
@@ -640,6 +673,7 @@ export const T: Record<Lang, Strings> = {
     theme: 'Theme', signOut: 'Sign out', now: 'NOW',
     settingsT: 'Settings', appLangT: 'App language', appLangNote: 'FR & EN interface complete. More languages soon.',
     modeT: 'Appearance', modeDark: 'DARK', modeLight: 'LIGHT', soundT: 'Sound effects', soundS: 'Success chimes, cards & alarm', brightT: 'Boost brightness while reading', brightS: 'Lifts a dim screen during lessons, then puts it back',
+    avatarT: 'Avatar',
     testAlarm: 'Test the alarm', customTime: 'Custom time', calendarT: 'Your calendar',
     voiceT: 'Voice Flash', voiceS: 'image → voice · translation', sbT: 'Sentences', sbS: 'learn · say · write', rpT: 'Role Play', rpS: 'AI conversation · A1 → B2',
     roleplayHubTag: 'ROLE PLAY · BY THEME', rpScenesN: '{n} scenes',
@@ -675,11 +709,11 @@ export const T: Record<Lang, Strings> = {
     vfEmptyT: 'Nothing to say here', vfEmptyS: 'This theme has no Voice Flash words yet. Try another theme, or check back later.',
     vfSelfT: 'THE ANSWER — HOW DID YOU DO?', vfGot: 'I said it right', vfMissed: 'Not quite',
     learnT: 'Learn these words', arrangeT: 'Arrange the sentence', sayItT: 'Say it out loud', writeItT: 'Write it', wellDone: 'Bravo, sentence mastered',
-    chooseLevel: 'Choose your level', startRp: 'Start the conversation', rpDoneT: 'Scene complete', rpDoneS: 'Camille: "Your market vendor adores you."', rpYourLine: 'YOUR LINE — SAY IT ALOUD', rpTag: 'ROLE PLAY', rpReport: 'The report →', rpNotHeard: 'Not heard, your line is shown.',
+    chooseLevel: 'Choose your level', startRp: 'Start the conversation', rpDoneT: 'Scene complete', rpDoneS: '{name}: "Your market vendor adores you."', rpYourLine: 'YOUR LINE — SAY IT ALOUD', rpTag: 'ROLE PLAY', rpReport: 'The report →', rpNotHeard: 'Not heard, your line is shown.',
     rpYourTurn: 'YOUR TURN', rpRespond: 'Respond in French, then check', rpModel: 'Model reply',
-    narrTag: 'NARRATED LESSON', narrCta: 'Narrated', narrRepeat: 'Repeat after Camille', narrYourTurn: 'Your turn, say it', narrCheck: "Answer Camille's question",
-    narrSkip: 'Skip', narrDoneT: 'Lesson complete', narrDoneS: 'Camille walked you through all seven stages.',
-    bannerText: 'Your {t} session is waiting: Au Café, 4 min. Camille is ready.',
+    narrTag: 'NARRATED LESSON', narrCta: 'Narrated', narrRepeat: 'Repeat after {name}', narrYourTurn: 'Your turn, say it', narrCheck: "Answer {name}'s question",
+    narrSkip: 'Skip', narrDoneT: 'Lesson complete', narrDoneS: '{name} walked you through all seven stages.',
+    bannerText: 'Your {t} session is waiting: Au Café, 4 min with {name}.',
     uDone: 'DONE', uLock: '···', uSoon: 'SOON', denLessonsReady: '{n} lessons ready',
 
     todayTag: 'TODAY', toReviewShort: 'to review', caughtUp: '✓ caught up', tomorrow: 'tomorrow →',
@@ -739,7 +773,7 @@ export const T: Record<Lang, Strings> = {
     skillRead: 'READ', skillListen: 'LISTEN', skillSpeak: 'SPEAK', skillWrite: 'WRITE', skillCourse: 'COURSE', skillVocab: 'VOCAB', skillReadVocab: 'READ · VOCAB',
     accountBilling: 'Account & Billing', learningSec: 'Learning', appearanceSec: 'Appearance', notificationsSec: 'Notifications',
 
-    obSteps: ['01 — YOUR ACCOUNT', '02 — YOUR NAME', '03 — YOUR THEME', '04 — YOUR GOAL', '05 — YOUR EXPERIENCE', '06 — YOUR PACE', '07 — YOUR ACCENT', '08 — YOUR REMINDERS', '09 — WARM-UP', '10 — YOUR LEVEL'],
+    obSteps: ['01 — YOUR ACCOUNT', '02 — YOUR NAME', '03 — YOUR THEME', '04 — YOUR GOAL', '05 — YOUR EXPERIENCE', '06 — YOUR PACE', '07 — YOUR ACCENT', '08 — YOUR REMINDERS', '09 — WARM-UP', '10 — YOUR AVATAR', '11 — YOUR LEVEL'],
     obTagline: 'Speak with elegance.',
     obIntro: "You've done the grammar. Now do the talking. Speak French out loud from day one, and be understood.",
     createAccount: 'Create an account', alreadyAccount: 'Already have an account?', signInLink: 'Sign in',
@@ -747,7 +781,7 @@ export const T: Record<Lang, Strings> = {
     withApple: 'Continue with Apple', withGoogle: 'Continue with Google',
     obThemeT: 'Choose your\nsignature color.', obThemeS: 'One vibrant thread through the dark. Change it anytime in your profile.',
     obGoalT: 'Why French?', obExpT: 'How much French\nlives in you already?', obPaceT: 'Minutes per day?',
-    obAccentT: 'Which French\nshould Camille speak?',
+    obAccentT: 'Which French\nfor {name}?',
     obRemindT: 'When should we\ncall you to practice?', obRemindS: 'A daily alarm keeps the streak invisible, and the habit real.',
     enableReminders: 'Enable reminders', alarmChips: ['morning', 'noon', 'evening', 'night'],
     paceSubs: ['a coffee break', 'the morning commute', 'getting serious', 'immersion'],
@@ -755,14 +789,15 @@ export const T: Record<Lang, Strings> = {
     expSubs: ['I am starting from zero', 'school French, mostly forgotten', 'I can hold simple conversations', 'polishing accent & register'],
     obCalibT: 'Read this aloud.', obCalibS: 'Ten seconds is enough. Read it aloud and feel the rhythm, the liaisons, the nasal vowels.',
     obCalibRec: 'Keep reading: rhythm, liaisons, nasal vowels', obCalibTap: 'Tap the mic and read',
+    obAvatarT: 'Choose your\navatar.', obAvatarS: 'Change it anytime in Settings.',
     obDecouverte: 'Découverte: the beginning.', obSeuil: 'Seuil: the threshold.',
-    obResultA1: 'A clean slate. Your journey starts in the Refresher Course: sounds first, then words. Camille will keep it gentle.',
+    obResultA1: 'A clean slate. Your journey starts in the Refresher Course: sounds first, then words. {name} will keep it gentle.',
     obResultB1: "Solid foundations. Based on your experience, tonight's feed starts with liaisons and nasal vowels.",
     enterEalch: 'Enter Ealch',
     welcomeBack: 'WELCOME BACK', helloAgain: 'Hello again.', forgotPw: 'Forgot password?', signInBtn: 'Sign in', newHere: 'New here?',
 
     soonT: 'soon',
-    obNameT: 'What should\nCamille call you?',
+    obNameT: 'What should\n{name} call you?',
     obNameS: 'Just your first name. You can change it anytime in your profile.',
     namePh: 'First name', skipT: 'Skip',
     welcomeWord: 'Welcome', guestName: 'Guest',
@@ -827,7 +862,23 @@ export const T: Record<Lang, Strings> = {
     playerListen: 'Listen', playerNow: 'NOW PLAYING', playerEmpty: 'Nothing to listen to yet.', restart: 'Restart',
     rpLevelNote: 'The conversation complexity changes with the level you choose.',
     repeatWord: 'Repeat',
-    speakScene: 'REAL-WORLD — AT THE CAFÉ', speakRepeat: "Repeat Camille's line", vfTitle: 'VOICE FLASH',
+    speakScene: 'REAL-WORLD — AT THE CAFÉ', speakRepeat: "Repeat the line", vfTitle: 'VOICE FLASH',
+    speakBlock: 'Block {a} / {b}', speakBlockDone: 'Block complete!', speakStationDone: 'Station cleared!',
+    speakMapT: 'The speaking trail', speakWorld: 'World {n}', speakBackMap: 'Back to the trail',
+    speakRetry: 'Try again', speakSkip: 'Skip this line', speakTryN: 'Try {n}',
+    speakFocusOn: 'Focus on', speakFocusWordsT: 'Words to practice',
+    speakNextStation: 'Next station', speakNextWorld: 'Next world: {w}',
+    speakWordPracticeT: 'Practice each word', speakWordAllDone: 'All words mastered!',
+    speakBackToLine: 'Back to the line', speakNextWord: 'Next word',
+    speakWordTap: 'Tap a word to practice it',
+    speakWorldMeanings: [
+      'The Garden of Sounds · French sounds, one by one',
+      'The Village · everyday phrases',
+      'The City · getting by anywhere',
+      'The Metropolis · conversations that flow',
+      'The Summits · nuance and detail',
+      'The Star · mastery with elegance',
+    ],
     chatRetry: 'Try again in a moment.',
     chatSuggs: [
       { label: 'Why « je voudrais »?', msg: 'Why « je voudrais » and not « je veux »?' },

@@ -78,6 +78,25 @@ create table if not exists public.sessions (
   created_at    timestamptz not null default now()
 );
 
+-- Per-mode resume position (mirrors ResumeByMode, ealch-v2/src/store/
+-- progress.logic.ts). One row per (user, activity): mutable, latest-wins —
+-- NOT an append-only log like attempts, so it follows the sessions/profiles
+-- "own row, full CRUD" RLS shape rather than attempts' insert-only one. The
+-- client upserts on every setResume and deletes on every clearResume
+-- (src/services/sync.ts); `route` already carries whatever position that
+-- activity's screen needs (an item id, a lesson anchor, a turn index) to
+-- reopen at the exact card, so this table stores it opaquely rather than
+-- trying to model every screen's own position shape.
+create table if not exists public.resume_state (
+  user_id       uuid not null references auth.users(id) on delete cascade,
+  activity      text not null,
+  route         text not null,
+  title         text not null,
+  day           text not null,           -- local calendar day, matches ResumeState.at
+  updated_at    timestamptz not null default now(),
+  primary key (user_id, activity)
+);
+
 -- ── Coach usage quota (Phase 3, CF-06) ──
 -- The coach is the only real recurring variable cost, so the free tier is capped
 -- per day. The counter has to be durable: edge instances are ephemeral and
@@ -132,6 +151,7 @@ alter table public.system_prompts  enable row level security;
 alter table public.profiles        enable row level security;
 alter table public.attempts        enable row level security;
 alter table public.sessions        enable row level security;
+alter table public.resume_state    enable row level security;
 
 -- Config: world-readable (non-sensitive), admin-writable only.
 create policy "config readable" on public.system_config for select using (true);
@@ -185,6 +205,7 @@ revoke all on function public.coach_bump(text, date, integer) from authenticated
 -- Users own their rows.
 create policy "own profile"  on public.profiles for all using (auth.uid() = id) with check (auth.uid() = id);
 create policy "own sessions" on public.sessions for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy "own resume_state" on public.resume_state for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
 
 -- Attempts: select + insert only, deliberately no update/delete policy —
 -- RLS enforces "append-only, never mutate" at the database level too, not

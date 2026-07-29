@@ -23,7 +23,7 @@ import type {
   ExpoSpeechRecognitionResultEvent,
   ExpoSpeechRecognitionErrorEvent,
 } from 'expo-speech-recognition';
-import { scoreUtterance, type Verdict } from '@/utils/score';
+import { scoreUtterance, DEFAULT_BARS, type Verdict, type VerdictBars } from '@/utils/score';
 import { getConfig } from './config';
 import { ENV } from './env';
 import { supabase } from './supabase';
@@ -55,6 +55,8 @@ export type ListenOptions = {
   /** Input level, -2..10 (below 0 is inaudible). Drives the waveform. */
   onVolume?: (value: number) => void;
   lang?: string;
+  /** Verdict cut lines (level-scaled leniency). Defaults to the b1 bars. */
+  bars?: VerdictBars;
 };
 
 const NONE: SttResult = {
@@ -151,7 +153,7 @@ export const stt = {
     // but did capture audio we can still send somewhere.
     const wantEdge = provider === 'edge' || (!result.ok && !!result.audioUri);
     if (wantEdge && result.audioUri) {
-      const edge = await transcribeViaEdge(result.audioUri, expected);
+      const edge = await transcribeViaEdge(result.audioUri, expected, opts.bars);
       if (edge?.ok) return { ...edge, audioUri: result.audioUri };
     }
 
@@ -185,8 +187,15 @@ function captureOnce(
   opts: ListenOptions
 ): Promise<SttResult> {
   return new Promise<SttResult>((resolve) => {
+    const bars = opts.bars ?? DEFAULT_BARS;
     let settled = false;
+    // Best transcript seen across EVERY event and EVERY alternative, ranked by
+    // its score against the target — not "the last thing the recognizer said".
+    // Recognizers routinely revise a correct interim into a worse final, and
+    // the 2nd..5th alternatives regularly contain the words the top pick
+    // dropped. Keeping the max makes those free accuracy, not lost audio.
     let best = '';
+    let bestScore = -1;
     let confidence = -1;
     let audioUri: string | null = null;
     let errorCode: string | undefined;
@@ -214,7 +223,7 @@ function captureOnce(
         resolve({ ...NONE, available: true, audioUri, error: errorCode ?? 'no-speech' });
         return;
       }
-      const { score, verdict } = scoreUtterance(expected, best);
+      const { score, verdict } = scoreUtterance(expected, best, bars);
       resolve({
         ok: true,
         available: true,
@@ -225,6 +234,18 @@ function captureOnce(
         source: 'device',
         audioUri,
       });
+    };
+
+    // Rank every alternative of every event against the target and keep the
+    // winner. Interim display still shows the recognizer's own top pick.
+    const consider = (transcript: string | undefined, conf: number | undefined) => {
+      if (!transcript?.trim()) return;
+      const s = scoreUtterance(expected, transcript, bars).score;
+      if (s > bestScore) {
+        bestScore = s;
+        best = transcript;
+        confidence = typeof conf === 'number' ? conf : -1;
+      }
     };
 
     const m = nativeSTT();
@@ -245,15 +266,10 @@ function captureOnce(
     };
 
     on('result', (e: ExpoSpeechRecognitionResultEvent) => {
-      const top = e.results?.[0];
-      if (!top) return;
-      // Keep the last non-empty transcript: on iOS the final arrives only
-      // after stop(), so interim text is all we have until then.
-      if (top.transcript?.trim()) {
-        best = top.transcript;
-        confidence = typeof top.confidence === 'number' ? top.confidence : -1;
-        if (!e.isFinal) opts.onPartial?.(best);
-      }
+      const results = e.results ?? [];
+      for (const alt of results) consider(alt?.transcript, alt?.confidence);
+      const top = results[0];
+      if (!e.isFinal && top?.transcript?.trim()) opts.onPartial?.(top.transcript);
       if (e.isFinal) settle();
     });
 
@@ -280,10 +296,19 @@ function captureOnce(
         lang,
         interimResults: true,
         continuous: false, // auto-finalise on end-of-speech
-        maxAlternatives: 1,
+        // N-best, not 1-best: every alternative is re-scored against the
+        // target (see `consider`), so a correct take buried at rank 3 wins.
+        maxAlternatives: 5,
         // Bias the recognizer toward the phrase we asked for. This is the
         // single biggest accuracy win when the target is known.
         contextualStrings: contextFor(expected),
+        // Breathing room: stock Android endpointing cuts a hesitant learner
+        // off mid-phrase and reports no-speech. ~1.3s of silence before the
+        // recognizer calls the utterance finished.
+        androidIntentOptions: {
+          EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS: 1300,
+          EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS: 1300,
+        },
         iosTaskHint: 'confirmation',
         iosCategory: {
           category: 'playAndRecord',
@@ -328,7 +353,8 @@ function contextFor(expected: string): string[] {
  */
 async function transcribeViaEdge(
   audioUri: string,
-  expected: string
+  expected: string,
+  bars: VerdictBars = DEFAULT_BARS
 ): Promise<SttResult | null> {
   const sb = supabase();
   if (!sb) return null;
@@ -344,7 +370,7 @@ async function transcribeViaEdge(
     if (error || !data?.transcript) return null;
 
     const transcript = String(data.transcript);
-    const { score, verdict } = scoreUtterance(expected, transcript);
+    const { score, verdict } = scoreUtterance(expected, transcript, bars);
     return {
       ok: true,
       available: true,

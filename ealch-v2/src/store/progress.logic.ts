@@ -36,11 +36,17 @@ export type SessionEntry = {
   minutes: number;
 };
 
-/** The last lesson the user opened and did not finish — what the hero offers to
- *  "Resume". Only content-stable fields are stored: the title is French display
- *  copy (the serif hero title), never a localized UI string, so it reads the
- *  same after a later language switch. The subtitle and CTA are derived at
- *  render time from `activity`, not persisted. */
+/** The last position the user left off in ONE activity — what the hero (or a
+ *  "Continue" chip) offers to resume into. Only content-stable fields are
+ *  stored: the title is French display copy (the serif hero title), never a
+ *  localized UI string, so it reads the same after a later language switch.
+ *  The subtitle and CTA are derived at render time from `activity`, not
+ *  persisted. `route` is the full resume URL, including whatever query params
+ *  that screen needs to land on the exact card/section it was stamped from
+ *  (e.g. `/dictation?theme=marche&item=fr.a1.marche.007`) — position lives in
+ *  the route, not as a separate field here, so every screen can encode it in
+ *  whatever shape fits its own content (an item id, a pager section, a turn
+ *  index) without this type needing to know which. */
 export type ResumeState = {
   route: string;
   title: string;
@@ -48,6 +54,11 @@ export type ResumeState = {
   /** Local day it was stamped, so a stale resume stops dominating the hero. */
   at: string;
 };
+
+/** One resume slot per activity, so leaving a dictée mid-theme to open a
+ *  lesson does not erase the dictée's place — each mode keeps its own most
+ *  recent position, and the hero picks the freshest of them. */
+export type ResumeByMode = Partial<Record<Activity, ResumeState>>;
 
 /** How old a resume can be before the hero stops offering it. A lesson last
  *  touched three weeks ago is not something you are "resuming". */
@@ -59,6 +70,34 @@ export function resumeIsFresh(resume: ResumeState | null, today: string): boolea
   if (!resume) return false;
   const age = daysBetween(resume.at, today);
   return age >= 0 && age <= RESUME_MAX_AGE_DAYS;
+}
+
+/**
+ * Merge a pulled server resume_state snapshot (Phase 9 sync, one row per
+ * activity) into the local resumeByMode: per activity, whichever `at` is the
+ * later day wins. A same-day tie keeps the LOCAL entry — this device's own
+ * same-day write is more likely to be the position the learner actually wants
+ * back than a same-day write from another device they have since moved on
+ * from, and `at` is day-granular so a real tie is the common case, not an
+ * edge case. `changed` is false whenever the pull contributed nothing this
+ * device didn't already have, so the caller (src/services/sync.ts) can skip
+ * the store write entirely — the same "true no-op" discipline mergeAttempts'
+ * caller already follows.
+ */
+export function mergeResumeByMode(
+  local: ResumeByMode,
+  pulled: ResumeState[]
+): { merged: ResumeByMode; changed: boolean } {
+  let changed = false;
+  const merged: ResumeByMode = { ...local };
+  for (const r of pulled) {
+    const cur = merged[r.activity];
+    if (!cur || daysBetween(cur.at, r.at) > 0) {
+      merged[r.activity] = r;
+      changed = true;
+    }
+  }
+  return { merged, changed };
 }
 
 const pad = (n: number) => String(n).padStart(2, '0');
@@ -467,6 +506,42 @@ export function migrateProgressToV3(persisted: unknown): PersistedProgress {
       typeof a.id === 'string' && a.id.length > 0 ? a : { ...a, id: mintAttemptId() }
     ),
   };
+}
+
+/** The slice of state persisted from v4 on — `resume` (singular, global)
+ *  becomes `resumeByMode` (one slot per activity). See ResumeByMode above. */
+export type PersistedProgressV4 = {
+  sessions: unknown[];
+  attempts: AttemptEntry[];
+  errors: unknown[];
+  resumeByMode: ResumeByMode;
+};
+
+function isResumeState(v: unknown): v is ResumeState {
+  return (
+    isObj(v) &&
+    typeof v.route === 'string' &&
+    typeof v.title === 'string' &&
+    typeof v.activity === 'string' &&
+    typeof v.at === 'string'
+  );
+}
+
+/**
+ * Bring a persisted v1, v2 or v3 blob up to v4 (the per-mode resume slots
+ * above). Delegates to migrateProgressToV3 first, so any earlier blob upgrades
+ * in one pass, then folds the old single `resume` slot into `resumeByMode`
+ * keyed by its own `activity` — a lesson resume stamped before this migration
+ * still shows up as the lesson slot, it just no longer blocks a dictée or
+ * flashcards slot from existing alongside it. Same discipline as V2/V3: never
+ * throws, and a malformed or missing `resume` simply yields no slots rather
+ * than a fabricated one.
+ */
+export function migrateProgressToV4(persisted: unknown): PersistedProgressV4 {
+  const v3 = migrateProgressToV3(persisted);
+  const resumeByMode: ResumeByMode = {};
+  if (isResumeState(v3.resume)) resumeByMode[v3.resume.activity] = v3.resume;
+  return { sessions: v3.sessions, attempts: v3.attempts, errors: v3.errors, resumeByMode };
 }
 
 /** A running recall summary for one item, folded from its attempts in order. */
@@ -1207,4 +1282,89 @@ export function dueExamSkills(results: ExamResult[], lessons: Lesson[]): DueExam
     seen.set(key, { format: r.format, skill: r.skill, band: r.band, prepLessonId: lesson?.id ?? null });
   }
   return [...seen.values()];
+}
+
+/* ─── The Speak path — progress as a view over the attempt log ───────────── */
+
+// The trail persists NOTHING of its own. Which stations are cleared, which
+// block the learner is on, where the avatar stands — all of it is a fold over
+// `attempts`, exactly like streak and weaknesses. Wiping the log honestly
+// resets the trail; sync restoring the log restores the trail.
+//
+// Structural type, not a schema import: this file is a pure island (see the
+// module note), and the fold only needs id + blocks of itemIds.
+
+export type SpeakStageLike = { id: string; blocks: { itemIds: string[] }[] };
+
+/** A card passes on a `correct` speak attempt — verdict 'good'. 'close' stays
+ *  useful signal (it logs, it schedules) but is not a pass, matching the
+ *  AttemptEntry contract that a close utterance can be correct === false. */
+export function speakPassedIds(attempts: AttemptEntry[]): Set<string> {
+  const out = new Set<string>();
+  for (const a of attempts) {
+    if (a.activity === 'speak' && a.correct) out.add(a.itemId);
+  }
+  return out;
+}
+
+/** A block clears at 70%, not 100%: over ~33 recognizer-scored cards a few
+ *  will always mis-transcribe through no fault of the learner, and a station
+ *  that can be blocked by STT noise punishes the wrong party. */
+export const SPEAK_BLOCK_PASS = 0.7;
+
+/** The station's CORE is its first blocks (they arrive difficulty-sorted, so
+ *  the core is the easiest ~165 sentences). Clearing the core clears the
+ *  station and moves the avatar; remaining blocks stay as optional depth —
+ *  how a 900-item station stays finishable without capping its content. */
+export const SPEAK_CORE_BLOCKS = 5;
+
+export function speakBlockCleared(block: { itemIds: string[] }, passed: Set<string>): boolean {
+  if (!block.itemIds.length) return false;
+  let hit = 0;
+  for (const id of block.itemIds) if (passed.has(id)) hit += 1;
+  return hit / block.itemIds.length >= SPEAK_BLOCK_PASS;
+}
+
+export type SpeakStageState = {
+  /** Per-block cleared flags, in block order. */
+  blocks: boolean[];
+  /** Cleared blocks within the core span. */
+  coreCleared: number;
+  coreTotal: number;
+  /** The station is complete: every core block cleared. */
+  cleared: boolean;
+  /** Passed cards across the whole station (incl. bonus blocks). */
+  passedCount: number;
+  totalCount: number;
+};
+
+export function speakStageState(stage: SpeakStageLike, passed: Set<string>): SpeakStageState {
+  const blocks = stage.blocks.map((b) => speakBlockCleared(b, passed));
+  const coreTotal = Math.min(SPEAK_CORE_BLOCKS, stage.blocks.length);
+  const coreCleared = blocks.slice(0, coreTotal).filter(Boolean).length;
+  let passedCount = 0;
+  let totalCount = 0;
+  for (const b of stage.blocks) {
+    totalCount += b.itemIds.length;
+    for (const id of b.itemIds) if (passed.has(id)) passedCount += 1;
+  }
+  return { blocks, coreCleared, coreTotal, cleared: coreCleared === coreTotal, passedCount, totalCount };
+}
+
+/** Where the avatar stands: the first station whose core is not cleared, or
+ *  the last station once everything is (the trail has an end, not an
+ *  off-by-one past it). Stages must already be in walk order (speakStages). */
+export function speakPathPosition(stages: SpeakStageLike[], passed: Set<string>): number {
+  for (let i = 0; i < stages.length; i += 1) {
+    if (!speakStageState(stages[i], passed).cleared) return i;
+  }
+  return Math.max(0, stages.length - 1);
+}
+
+/** The block to offer next inside a station: the first uncleared core block,
+ *  else the first uncleared bonus block, else the last block (all cleared). */
+export function speakNextBlock(stage: SpeakStageLike, passed: Set<string>): number {
+  const st = speakStageState(stage, passed);
+  const ix = st.blocks.findIndex((cleared) => !cleared);
+  return ix === -1 ? Math.max(0, stage.blocks.length - 1) : ix;
 }

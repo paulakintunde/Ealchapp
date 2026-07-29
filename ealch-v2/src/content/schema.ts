@@ -1383,6 +1383,41 @@ export type ExamSeries = {
  * nothing and an existing install throws away a cache it could have used. Same
  * reason `scenarios` was optional before them.
  */
+/* ─── SpeakStage: one station on the Speak path ──────────────────────────── */
+
+/**
+ * One station on the Speak tab's linear avatar trail (SPEAK-PATH-BLUEPRINT.md).
+ * A stage is a REFERENCE shape, like a Lesson's practice section: it owns no
+ * sentences, only ordered blocks of itemIds into Corpus.items. Deleting an
+ * item without re-curating the path is therefore a publish error, not a blank
+ * card at runtime — validateCorpus resolves every id.
+ *
+ * Blocks are the swipe-session unit (~33 cards) and arrive pre-sorted by the
+ * curation script (shortest utterance first), so the renderer plays them in
+ * order and never re-derives difficulty.
+ */
+export type SpeakBlock = {
+  /** Ordered. Every id must resolve to a Corpus item — see validateCorpus. */
+  itemIds: string[];
+};
+
+export type SpeakStage = {
+  /** 'speak.<world>.<seq>' — e.g. 'speak.2.3'. Stable: progress keys on it. */
+  id: string;
+  /** 1..6, mapped 1:1 to LEVELS (world 1 = sons … world 6 = c1). */
+  world: number;
+  /** Display order within the world. The path sorts on (world, seq). */
+  seq: number;
+  level: Level;
+  /** French station name: « Le Pont des Petits Mots ». */
+  title: string;
+  /** The theme slugs this stage draws from — provenance, not a live query:
+   *  the itemIds are the contract, themes just explain where they came from. */
+  themes: string[];
+  blocks: SpeakBlock[];
+  version: number;
+};
+
 export type Corpus = {
   version: number;
   units: Unit[];
@@ -1396,6 +1431,8 @@ export type Corpus = {
   examSeries?: ExamSeries[];
   playlists?: Playlist[];
   templates?: ContentTemplate[];
+  /** The Speak trail. Optional for back-compat like every post-v0 array. */
+  speakPath?: SpeakStage[];
 };
 
 export const EMPTY_CORPUS: Corpus = {
@@ -1411,6 +1448,7 @@ export const EMPTY_CORPUS: Corpus = {
   examSeries: [],
   playlists: [],
   templates: [],
+  speakPath: [],
 };
 
 /* ─── Validation ─────────────────────────────────────────────────────────── */
@@ -2338,6 +2376,40 @@ export function validateExamSeries(v: unknown, path = 'examSeries'): Issue[] {
  * a broken lesson and we see nothing. Catch it here, at publish, where it is
  * one line of output instead of a support ticket.
  */
+export function validateSpeakStage(v: unknown, path = 'speakStage'): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (typeof v !== 'object' || v === null || isArr(v)) return [{ path, message: 'not an object' }];
+  const s = v as Partial<SpeakStage>;
+
+  if (!isStr(s.id)) push('id must be a non-empty string');
+  else if (!/^speak\.\d+\.\d+$/.test(s.id)) push(`id "${s.id}" must match speak.<world>.<seq>`);
+  if (typeof s.world !== 'number' || !Number.isInteger(s.world) || s.world < 1) {
+    push('world must be a positive integer');
+  }
+  if (typeof s.seq !== 'number' || !Number.isInteger(s.seq) || s.seq < 1) {
+    push('seq must be a positive integer');
+  }
+  if (!oneOf(LEVELS, s.level)) push(`level must be one of ${LEVELS.join(' | ')}`);
+  if (!isStr(s.title)) push('title must be a non-empty string');
+  if (!isArr(s.themes) || s.themes.some((t) => !isStr(t))) {
+    push('themes must be an array of non-empty strings');
+  }
+  if (!isArr(s.blocks) || s.blocks.length === 0) {
+    push('blocks must be a non-empty array');
+  } else {
+    s.blocks.forEach((b, i) => {
+      if (typeof b !== 'object' || b === null || !isArr((b as SpeakBlock).itemIds) || (b as SpeakBlock).itemIds.length === 0) {
+        push(`blocks[${i}] must carry a non-empty itemIds array`);
+      } else if ((b as SpeakBlock).itemIds.some((id) => !isStr(id))) {
+        push(`blocks[${i}].itemIds must all be non-empty strings`);
+      }
+    });
+  }
+  if (typeof s.version !== 'number' || !Number.isFinite(s.version)) push('version must be a number');
+  return out;
+}
+
 export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   const out: Issue[] = [];
   if (typeof c !== 'object' || c === null) return [{ path, message: 'not an object' }];
@@ -2356,6 +2428,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   const examSeries = co.examSeries ?? [];
   const playlists = co.playlists ?? [];
   const templates = co.templates ?? [];
+  const speakPath = co.speakPath ?? [];
 
   if (!isArr(co.units) || !isArr(co.lessons) || !isArr(co.items) || !isArr(scenarios)) {
     return [{ path, message: 'units, lessons, items and scenarios must all be arrays' }];
@@ -2363,8 +2436,8 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   if (!isArr(domains) || !isArr(themes) || !isArr(packs) || !isArr(examTasks) || !isArr(examSeries)) {
     return [{ path, message: 'domains, themes, packs, examTasks and examSeries must be arrays when present' }];
   }
-  if (!isArr(playlists) || !isArr(templates)) {
-    return [{ path, message: 'playlists and templates must be arrays when present' }];
+  if (!isArr(playlists) || !isArr(templates) || !isArr(speakPath)) {
+    return [{ path, message: 'playlists, templates and speakPath must be arrays when present' }];
   }
 
   co.items.forEach((it, i) => out.push(...validateItem(it, `${path}.items[${i}]`)));
@@ -2378,6 +2451,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   examSeries.forEach((s, i) => out.push(...validateExamSeries(s, `${path}.examSeries[${i}]`)));
   playlists.forEach((p, i) => out.push(...validatePlaylist(p, `${path}.playlists[${i}]`)));
   templates.forEach((t, i) => out.push(...validateTemplate(t, `${path}.templates[${i}]`)));
+  speakPath.forEach((s, i) => out.push(...validateSpeakStage(s, `${path}.speakPath[${i}]`)));
 
   // Duplicate ids: the later one silently wins in any Map-based lookup, so two
   // different items can share a key and the SRS schedules a ghost.
@@ -2405,6 +2479,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   dupes(examSeries.map((s) => s.id).filter(isStr), 'exam series');
   dupes(playlists.map((p) => p.id).filter(isStr), 'playlist');
   dupes(templates.map((t) => t.id).filter(isStr), 'template');
+  dupes(speakPath.map((s) => s.id).filter(isStr), 'speak stage');
 
   const itemSet = new Set(itemIds);
   const lessonSet = new Set(lessonIds);
@@ -2564,6 +2639,39 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
     }
   }
 
+  // ── The Speak path's references ──
+  //
+  // A stage's block pointing at an item that does not exist is a card the
+  // trail promises and cannot deal — same dangling-reference failure as a
+  // lesson's practice section, and caught the same way. An item claimed by
+  // two stages breaks the path's core contract (one station per sentence),
+  // which the curation script enforces at authoring time; this re-checks it
+  // at publish time so a hand-edit cannot quietly undo it.
+  const speakSeen = new Map<string, string>();
+  for (const s of speakPath) {
+    if (isStr(s.level) && typeof s.world === 'number' && LEVELS[s.world - 1] !== s.level) {
+      out.push({ path: `${path}.speakPath`, message: `stage "${s.id}" world ${s.world} does not map to level "${s.level}" (expected "${LEVELS[s.world - 1] ?? '?'}")` });
+    }
+    for (const b of isArr(s.blocks) ? s.blocks : []) {
+      for (const id of isArr(b?.itemIds) ? b.itemIds : []) {
+        if (!isStr(id)) continue;
+        if (!itemSet.has(id)) {
+          out.push({ path: `${path}.speakPath`, message: `stage "${s.id}" references unknown item "${id}"` });
+        }
+        const prior = speakSeen.get(id);
+        if (prior !== undefined) {
+          out.push({
+            path: `${path}.speakPath`,
+            message: prior === s.id
+              ? `item "${id}" is listed twice within stage "${s.id}"`
+              : `item "${id}" appears in stages "${prior}" and "${s.id}"`,
+          });
+        }
+        speakSeen.set(id, isStr(s.id) ? s.id : '?');
+      }
+    }
+  }
+
   // Ids must be unique ACROSS entity types too, not just within one. Every id in
   // this corpus shares one namespace the moment anything builds a single lookup
   // map over "all content", which is the obvious thing to write. Prefixes make
@@ -2572,7 +2680,7 @@ export function validateCorpus(c: unknown, path = 'corpus'): Issue[] {
   const allIds = [...itemIds, ...lessonIds, ...unitIds, ...scenarios.map((s) => s.id).filter(isStr),
     ...packs.map((p) => p.id).filter(isStr), ...examTasks.map((t) => t.id).filter(isStr),
     ...examSeries.map((s) => s.id).filter(isStr), ...playlists.map((p) => p.id).filter(isStr),
-    ...templates.map((t) => t.id).filter(isStr)];
+    ...templates.map((t) => t.id).filter(isStr), ...speakPath.map((s) => s.id).filter(isStr)];
   const seenGlobal = new Set<string>();
   const collided = new Set<string>();
   for (const id of allIds) {
@@ -2595,6 +2703,7 @@ export const isValidItem = (v: unknown): v is Item => validateItem(v).length ===
 export const isValidLesson = (v: unknown): v is Lesson => validateLesson(v).length === 0;
 export const isValidUnit = (v: unknown): v is Unit => validateUnit(v).length === 0;
 export const isValidScenario = (v: unknown): v is Scenario => validateScenario(v).length === 0;
+export const isValidSpeakStage = (v: unknown): v is SpeakStage => validateSpeakStage(v).length === 0;
 export const isValidPlaylist = (v: unknown): v is Playlist => validatePlaylist(v).length === 0;
 export const isValidTemplate = (v: unknown): v is ContentTemplate => validateTemplate(v).length === 0;
 export const isValidCorpus = (v: unknown): v is Corpus => validateCorpus(v).length === 0;

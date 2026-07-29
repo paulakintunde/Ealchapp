@@ -28,6 +28,8 @@ const DARK = {
   desk2: '#0A0B0D',
   knob: '#F4F2ED',
   danger: '#FF6B5C',
+  // "Practice this" amber — softer than danger, for early-level speech misses.
+  warn: '#F2A65A',
 };
 
 const LIGHT = {
@@ -43,6 +45,7 @@ const LIGHT = {
   desk2: '#DCD8CE',
   knob: '#FFFFFF',
   danger: '#C2412F', // darker red than dark-mode coral so it passes contrast on cream
+  warn: '#9A5A10', // darker amber for contrast on cream, same role as dark warn
 };
 
 export type Palette = typeof DARK;
