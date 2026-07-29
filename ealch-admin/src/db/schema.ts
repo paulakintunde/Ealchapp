@@ -37,8 +37,10 @@ export const sendStatus = pgEnum('send_status', ['queued', 'delivered', 'opened'
 // 'playlist' — a listening set (ealch-v2/src/content/schema.ts: Playlist).
 // 'template' — a reusable authoring pattern (ealch-v2/src/content/schema.ts:
 //   ContentTemplate) that a generation job references instead of reinventing.
+// 'speak_stage' — one station on the Speak trail (ealch-v2/src/content/
+//   schema.ts: SpeakStage), body = the stage JSON, slug = 'speak.<world>.<seq>'.
 export const contentKind = pgEnum('content_kind', [
-  'scenario', 'drill', 'dictation', 'curriculum_unit', 'lesson', 'vocabulary', 'playlist', 'template',
+  'scenario', 'drill', 'dictation', 'curriculum_unit', 'lesson', 'vocabulary', 'playlist', 'template', 'speak_stage',
 ]);
 export const contentStatus = pgEnum('content_status', ['draft', 'in_review', 'published', 'archived']);
 export const flagStatus = pgEnum('flag_status', ['open', 'resolved']);

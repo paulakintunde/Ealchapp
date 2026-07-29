@@ -44,6 +44,9 @@ export const KIND_META: Record<ContentKind, { label: string; color: string }> = 
   // A reusable authoring pattern a generation job references instead of
   // reinventing its own one-off prompt and shape.
   template: { label: 'Template', color: '#8E6C3A' },
+  // One station on the Speak trail (speak.<world>.<seq>) — blocks of item ids
+  // walked in order on the Speak tab.
+  speak_stage: { label: 'Speak stage', color: '#C25B8A' },
 };
 
 export const STATUS_META: Record<ContentStatus, { label: string; color: string }> = {

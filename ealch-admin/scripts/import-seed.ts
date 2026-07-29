@@ -118,6 +118,44 @@ async function main() {
   }
   console.log(`  ✓ ${n} items`);
 
+  // ── content_units upserts: scenarios, lessons, speak stages ────────────
+  // These three collections are seed-side truth today (the roleplay batch,
+  // the sons.01.l1 rebuild and the Speak trail all landed straight in
+  // seed.json). Curriculum UNITS are deliberately NOT imported: the DB's 43
+  // units were authored DB-first via content:spine and are AHEAD of the
+  // seed's 20-unit offline cut — importing the cut would regress them.
+  // Conflict target is content_slug_uq (slug is globally unique across
+  // kinds, mirroring validateCorpus's global id-collision rule).
+  const upsertUnitRow = async (
+    kind: 'scenario' | 'lesson' | 'speak_stage',
+    slug: string,
+    title: string,
+    level: string,
+    body: unknown
+  ) => {
+    await pool.query(
+      `insert into content_units
+         (slug, title, kind, level, locale, status, body, version, generated_by, published_at)
+       values ($1,$2,$3::content_kind,$4::content_level,'fr','published',$5,1,'human',now())
+       on conflict (slug) do update set
+         title = excluded.title, kind = excluded.kind, level = excluded.level,
+         body = excluded.body, status = 'published', updated_at = now()`,
+      [slug, title, kind, level, JSON.stringify(body)]
+    );
+  };
+
+  const scenarios = corpus.scenarios ?? [];
+  for (const sc of scenarios) await upsertUnitRow('scenario', sc.id, sc.title, sc.level, sc);
+  console.log(`  ✓ ${scenarios.length} scenarios`);
+
+  const lessons = corpus.lessons ?? [];
+  for (const l of lessons) await upsertUnitRow('lesson', l.id, l.title, l.level, l);
+  console.log(`  ✓ ${lessons.length} lessons`);
+
+  const speakPath = corpus.speakPath ?? [];
+  for (const s of speakPath) await upsertUnitRow('speak_stage', s.id, s.title, s.level, s);
+  console.log(`  ✓ ${speakPath.length} speak stages`);
+
   await pool.end();
   console.log('\n✓ seed reconciled into the DB. Cards are now editable in the review UI.\n');
 }

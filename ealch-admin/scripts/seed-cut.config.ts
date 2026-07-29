@@ -22,6 +22,10 @@ export type SeedCut = {
   /** Themed vocabulary bundled regardless of which lesson references it — this
    *  is what gives a brand-new user something to drill on day one. */
   themes: string[];
+  /** Speak-trail worlds bundled in full (stages + every item their blocks
+   *  reference). World 1 is where a brand-new speaker starts, so it should be
+   *  there before the network is; later worlds arrive over the air. */
+  speakWorlds: number[];
 };
 
 export const SEED_CUT: SeedCut = {
@@ -52,6 +56,10 @@ export const SEED_CUT: SeedCut = {
     'cuisine', 'ecole', 'deplacements', 'metiers', 'corps', 'maison', 'animaux',
     'routines', 'famille', 'sports-et-loisirs',
   ],
+
+  // The first Speak world (Le Jardin des Sons), so the trail's first stations
+  // are walkable offline on day one. Worlds 2-6 ship in the snapshot only.
+  speakWorlds: [1],
 };
 
 /** Every unit id explicitly named, for the cut summary. */
@@ -60,6 +68,7 @@ export function describeCut(): string {
     `tracks: ${SEED_CUT.tracks.join(', ') || '(none)'}`,
     `units: ${SEED_CUT.units.length}`,
     `themes: ${SEED_CUT.themes.join(', ') || '(none)'}`,
+    `speak worlds: ${SEED_CUT.speakWorlds.join(', ') || '(none)'}`,
   ];
   return parts.join('  ·  ');
 }

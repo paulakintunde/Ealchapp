@@ -48,6 +48,7 @@ import {
   type Lesson,
   type LessonSection,
   type Playlist,
+  type SpeakStage,
   type Scenario,
   type Unit,
 } from '../../ealch-v2/src/content/schema.ts';
@@ -273,6 +274,9 @@ async function main() {
   const playlistRows = await pool.query<{ body: Playlist }>(
     `select body from content_units where kind = 'playlist' and status = 'published'`
   );
+  const speakStageRows = await pool.query<{ body: SpeakStage }>(
+    `select body from content_units where kind = 'speak_stage' and status = 'published'`
+  );
   // Same enum-cast reasoning as content_items above: format/task_type/skill/
   // level are custom Postgres enums, cast to text so node-postgres hands back
   // plain strings. target_item_ids/examiner_notes are native text[] (like
@@ -293,6 +297,11 @@ async function main() {
   const lessons: Lesson[] = lessonRows.rows.map((r) => r.body);
   const scenarios: Scenario[] = scenarioRows.rows.map((r) => r.body);
   const playlists: Playlist[] = playlistRows.rows.map((r) => r.body);
+  // Walk order is (world, seq) — store it sorted so every consumer (and every
+  // diff of the snapshot) sees the one true order.
+  const speakPath: SpeakStage[] = speakStageRows.rows
+    .map((r) => r.body)
+    .sort((a, b) => a.world - b.world || a.seq - b.seq);
   const examTasks: ExamTask[] = examTaskRows.rows.map((r) => ({
     id: r.id,
     format: r.format,
@@ -394,7 +403,7 @@ async function main() {
   const previous = prev.rows[0];
   const version = (previous?.version ?? 0) + 1;
 
-  const corpus: Corpus = { version, units: prunedUnits, lessons, items, scenarios, playlists, examTasks, examSeries };
+  const corpus: Corpus = { version, units: prunedUnits, lessons, items, scenarios, playlists, examTasks, examSeries, speakPath };
 
   // ── 4. THE GATE ────────────────────────────────────────────────────────
   // Every failure below is one that does NOT crash in production. A dangling
@@ -659,9 +668,19 @@ async function main() {
   const seedUnitIds = new Set(seedUnitMap.keys());
   const seedLessons = lessons.filter((l) => seedUnitIds.has(l.unitId));
 
-  // Everything the bundled lessons depend on, plus the core themes. A seed that
-  // ships a lesson without its items is a seed that ships a broken lesson.
-  const needed = new Set(seedLessons.flatMap(itemsReferencedBy));
+  // Speak stages ship for the configured worlds, and their blocks' items come
+  // with them — a bundled stage whose sentences live only on the network is a
+  // trail a fresh offline install cannot walk (and a validateCorpus failure
+  // below, which is the guard that makes forgetting this impossible).
+  const seedSpeak = speakPath.filter((s) => SEED_CUT.speakWorlds.includes(s.world));
+
+  // Everything the bundled lessons depend on, plus the core themes, plus the
+  // bundled speak stages' blocks. A seed that ships a lesson without its items
+  // is a seed that ships a broken lesson.
+  const needed = new Set([
+    ...seedLessons.flatMap(itemsReferencedBy),
+    ...seedSpeak.flatMap((s) => s.blocks.flatMap((b) => b.itemIds)),
+  ]);
   const seedItems = items.filter((i) => needed.has(i.id) || SEED_CUT.themes.includes(i.theme));
 
   // Scenarios ship in the seed when their level is represented in the seed — by a
@@ -678,7 +697,7 @@ async function main() {
 
   const seed: Corpus = {
     version, units: seedUnits, lessons: seedLessons, items: seedItems,
-    scenarios: seedScenarios, playlists: seedPlaylists,
+    scenarios: seedScenarios, playlists: seedPlaylists, speakPath: seedSpeak,
   };
 
   // The seed must be a coherent corpus IN ITS OWN RIGHT. It is what a user with
@@ -695,7 +714,7 @@ async function main() {
   }
   console.log(
     `  ✓ seed valid: ${seedUnits.length} units · ${seedLessons.length} lessons · ${seedItems.length} items · ` +
-      `${seedScenarios.length} scenarios · ${seedPlaylists.length} playlists`
+      `${seedScenarios.length} scenarios · ${seedPlaylists.length} playlists · ${seedSpeak.length} speak stages`
   );
 
   // ── 6. Bytes ───────────────────────────────────────────────────────────
