@@ -75,6 +75,11 @@ MOOD_KEYS = {'indicatif', 'conditionnel', 'subjonctif', 'imperatif', 'infinitif'
 
 SUBJECT_PRONOUNS = {'je', 'j', 'tu', 'il', 'elle', 'on', 'nous', 'vous', 'ils', 'elles'}
 
+# Subjunctive candidates arrive as clauses ("qu'il accepte"); the clause head
+# is not part of the conjugated form and real sentences put a noun there
+# ("…que le propriétaire accepte").
+CLAUSE_HEADS = {'que', 'qu'}
+
 
 def canonical_mood_tense(mood: str, tense: str) -> tuple[str, str]:
     """Fold authored mood/tense spellings onto verbecc 2.x keys: lowercase,
@@ -91,22 +96,38 @@ def canonical_mood_tense(mood: str, tense: str) -> tuple[str, str]:
 
 
 def loose(text: str) -> str:
-    """normalize(), then apostrophes and internal punctuation become spaces —
-    the containment match below is about word sequences, and "qu'il a" must
-    expose "il a" the same way "Oui, il doit." must expose "il doit"."""
-    t = normalize(text).replace("’", ' ').replace("'", ' ')
-    t = re.sub(r"[^\w\sàâäéèêëîïôöùûüçœæ-]", ' ', t)
+    """normalize(), then apostrophes, hyphens and internal punctuation become
+    spaces — the containment match below is about word sequences: "qu'il a"
+    must expose "il a", "Pourriez-vous" must expose "pourriez", and "Oui, il
+    doit." must expose "il doit"."""
+    t = normalize(text).replace("’", ' ').replace("'", ' ').replace('-', ' ')
+    t = re.sub(r"[^\w\sàâäéèêëîïôöùûüçœæ]", ' ', t)
     return re.sub(r'\s+', ' ', t).strip()
 
 
 def bare_form(cand: str) -> str:
-    """The conjugated verb phrase without its subject pronoun: 'il doit' →
-    'doit', "j'ai dû" → 'ai dû'. What must actually appear in a sentence
-    whose subject is a noun ('Le plombier doit…')."""
+    """The conjugated verb phrase without its clause head or subject pronoun:
+    'il doit' → 'doit', "j'ai dû" → 'ai dû', "qu'il accepte" → 'accepte'.
+    What must actually appear in a sentence whose subject is a noun
+    ('Le plombier doit…', '…que le propriétaire accepte')."""
     toks = loose(cand).split(' ')
-    while toks and toks[0] in SUBJECT_PRONOUNS:
+    while toks and toks[0] in CLAUSE_HEADS | SUBJECT_PRONOUNS:
         toks = toks[1:]
     return ' '.join(toks)
+
+
+def contains_form(hay: str, bare: str) -> bool:
+    """Word-bounded containment of the conjugated phrase. Compound tenses
+    tolerate up to two words between their parts — French inserts adverbs and
+    negation inside them ("n'est JAMAIS arrivé", "avons TOUJOURS voulu") —
+    but every token of the form itself must appear exactly, in order."""
+    toks = bare.split(' ')
+    if not toks or not toks[0]:
+        return False
+    if len(toks) == 1:
+        return f' {bare} ' in f' {hay} '
+    pat = re.escape(toks[0]) + ''.join(r'(?:\s+\S+){0,2}\s+' + re.escape(t) for t in toks[1:])
+    return re.search(r'(?<!\S)' + pat + r'(?!\S)', hay) is not None
 
 
 def check_one(conjugator, item: dict) -> str | None:
@@ -162,10 +183,9 @@ def check_one(conjugator, item: dict) -> str | None:
     # conjugated without opening on pronoun+verb. Accept the pronoun-stripped
     # form as a word-bounded phrase anywhere in the sentence — the FORM is
     # still checked exactly ('doit', 'a dû'), only its position is freed.
-    hay = f' {loose(fr)} '
+    hay = loose(fr)
     for c in candidates:
-        bare = bare_form(c)
-        if bare and f' {bare} ' in hay:
+        if contains_form(hay, bare_form(c)):
             return None
 
     want = ' | '.join(candidates)
