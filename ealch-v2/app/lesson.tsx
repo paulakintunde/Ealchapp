@@ -62,6 +62,7 @@ export default function LessonScreen() {
   const clearResume = useProgress((s) => s.clearResume);
   const logError = useProgress((s) => s.logError);
   const logAttempt = useProgress((s) => s.logAttempt);
+  const markMissionDone = useProgress((s) => s.markMissionDone);
 
   // The one-time "how lessons work" tour (LessonKeyIntro): auto-shows before
   // a user's first-ever lesson, then never again on its own. `showKeyOverride`
@@ -81,6 +82,9 @@ export default function LessonScreen() {
   // this flips once per visit and unlocks the finish button.
   const [quizDone, setQuizDone] = useState(false);
   const completedRef = useRef(false);
+  // The FULL-sections index of the section page the learner is currently on;
+  // leaving it (to any other page) is what marks that mission done.
+  const lastFullIx = useRef<number | null>(null);
   // "Restart the lesson" remounts the pager (fresh cover, fresh quiz) without
   // leaving the screen — the nonce is the remount key.
   const [runNonce, setRunNonce] = useState(0);
@@ -93,6 +97,7 @@ export default function LessonScreen() {
     setGradedIds(new Set());
     setPlayingId(null);
     completedRef.current = false;
+    lastFullIx.current = null;
     setRunNonce(0);
   }, [L?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -115,15 +120,19 @@ export default function LessonScreen() {
   // non-quiz sections, or null when the anchor is stale, foreign, or absent (in
   // which case the lesson simply opens on its cover). The same value doubles as
   // the highlight, so the landing spot stays findable for the visit.
+  const atParam = Array.isArray(params.at) ? params.at[0] : params.at;
+  // The missions page's quiz row: the quiz page has no section anchor, so it
+  // rides a literal `at=quiz` instead (see LessonPager.initialQuiz).
+  const wantsQuiz = atParam === 'quiz';
   const deepLinkIx = useMemo(() => {
-    const atRaw = Array.isArray(params.at) ? params.at[0] : params.at;
+    const atRaw = wantsQuiz ? undefined : atParam;
     if (!atRaw || !L) return null;
     const resolved = content.resolveAnchorStr(atRaw);
     if (!resolved || resolved.lesson.id !== L.id) return null;
     const secs = L.sections.filter((sec) => sec.type !== 'quiz');
     const ix = secs.findIndex((sec) => (sec as LessonSection) === resolved.section);
     return ix !== -1 ? ix : null;
-  }, [L?.id, params.at]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [L?.id, atParam, wantsQuiz]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => () => audio.stop(), []);
 
@@ -190,9 +199,15 @@ export default function LessonScreen() {
   // already does in reverse. Null (cover/image/quiz pages) is a no-op: those
   // pages have no honest anchor to resume into, so the last real section wins.
   const onLessonIndexChange = (sectionIx: number | null) => {
-    if (sectionIx == null) return;
-    const fullIx = L.sections.indexOf(contentSections[sectionIx]);
-    if (fullIx < 0) return;
+    const fullIx = sectionIx == null ? null : L.sections.indexOf(contentSections[sectionIx]);
+    // Leaving a section page = that mission is done (missions hub, spec
+    // 2026-07-30). Free navigation marks only what was actually visited;
+    // entering at mission 7 never back-fills 1-6.
+    if (lastFullIx.current != null && lastFullIx.current !== fullIx) {
+      markMissionDone(L.id, L.version, lastFullIx.current);
+    }
+    lastFullIx.current = fullIx != null && fullIx >= 0 ? fullIx : null;
+    if (fullIx == null || fullIx < 0) return;
     const anchor = `${L.id}#s${fullIx}.0`;
     setResume('lesson', { route: `/lesson?key=${raw ?? id}&at=${encodeURIComponent(anchor)}`, title: L.title });
   };
@@ -253,9 +268,15 @@ export default function LessonScreen() {
     logSession('lesson');
     clearResume('lesson');
     setQuizDone(true);
+    // The quiz mission's check on the missions hub — the quiz page itself
+    // never fires onIndexChange (no section anchor), so completion marks it.
+    const quizIx = L.sections.findIndex((s) => s.type === 'quiz');
+    if (quizIx >= 0) markMissionDone(L.id, L.version, quizIx);
   };
 
   const finish = () => {
+    // Finishing counts the page being left, exactly like a swipe away would.
+    if (lastFullIx.current != null) markMissionDone(L.id, L.version, lastFullIx.current);
     sound.play('tap');
     if (quiz.length === 0) {
       // No quiz on this lesson: sitting the content is the completion.
@@ -321,6 +342,7 @@ export default function LessonScreen() {
         onNextLesson={nextL ? goNextLesson : undefined}
         nextTitle={nextL?.title}
         initialIndex={deepLinkIx}
+        initialQuiz={wantsQuiz}
         highlightIndex={deepLinkIx}
         onIndexChange={onLessonIndexChange}
         bottomInset={insets.bottom}
