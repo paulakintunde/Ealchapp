@@ -1368,3 +1368,24 @@ export function speakNextBlock(stage: SpeakStageLike, passed: Set<string>): numb
   const ix = st.blocks.findIndex((cleared) => !cleared);
   return ix === -1 ? Math.max(0, stage.blocks.length - 1) : ix;
 }
+
+/* ─── Den mission progress (overview flow, spec 2026-07-30) ─────────────── */
+
+/** Per-lesson mission record: which FULL-section indexes are done, and the
+ *  lesson-local XP earned. `v` mirrors Lesson.version — a re-authored lesson
+ *  (sections added/reordered) starts a fresh record rather than mis-checking
+ *  rows by stale index. */
+export type LessonMissionRec = { v: number; done: number[]; xp: number };
+
+/** Flat award per first-time mission completion. Lesson-local; there is no
+ *  global XP economy yet (spec: out of scope). */
+export const MISSION_XP = 5;
+
+/** The single write path for mission completion. Pure and idempotent: marking
+ *  a done mission again returns the input unchanged (same reference), so the
+ *  store can cheaply skip a set(). */
+export function markMission(rec: LessonMissionRec | undefined, version: number, sectionIx: number): LessonMissionRec {
+  const base: LessonMissionRec = rec && rec.v === version ? rec : { v: version, done: [], xp: 0 };
+  if (base.done.includes(sectionIx)) return base;
+  return { v: version, done: [...base.done, sectionIx], xp: base.xp + MISSION_XP };
+}
