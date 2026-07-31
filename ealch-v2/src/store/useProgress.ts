@@ -4,9 +4,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import {
-  clampMinutes, decomposeExamMiss, localDay, migrateProgressToV4, mintAttemptId, mintExamResultId,
+  clampMinutes, decomposeExamMiss, localDay, markMission, migrateProgressToV4, mintAttemptId, mintExamResultId,
   type Activity, type AttemptEntry, type AttemptInput, type ErrorEvent, type ErrorInput,
-  type ExamResult, type ExamResultInput, type ResumeByMode, type ResumeState, type SessionEntry,
+  type ExamResult, type ExamResultInput, type LessonMissionRec, type ResumeByMode, type ResumeState, type SessionEntry,
 } from './progress.logic';
 import type { ExamTask } from '../content/schema';
 
@@ -38,6 +38,11 @@ export type ProgressState = {
    *  so leaving La Dictée mid-theme to open a lesson does not erase the
    *  dictée's place — see ResumeByMode in progress.logic.ts. */
   resumeByMode: ResumeByMode;
+  /** Per-lesson den mission progress (overview flow): FULL-section indexes
+   *  completed + lesson-local XP. Keyed by lesson id. Additive top-level key,
+   *  so no persist version bump — shallow merge heals old blobs (see the
+   *  version comment below). */
+  lessonMissions: Record<string, LessonMissionRec>;
 
   setHydrated: () => void;
   /** The session writer. A drill screen calls this when the user finishes it. */
@@ -67,6 +72,10 @@ export type ProgressState = {
    *  never on unmount, so a mid-drill exit still leaves something to come back
    *  to. Other modes' slots are untouched. */
   clearResume: (activity: Activity) => void;
+  /** Mark one mission done (idempotent; awards XP once). `version` is the
+   *  lesson's current Lesson.version — a mismatch resets that lesson's record
+   *  first. Called from lesson.tsx as the learner moves past sections. */
+  markMissionDone: (lessonId: string, version: number, sectionIx: number) => void;
   /** Wipe both logs. Account deletion; not a user-facing "reset progress" yet. */
   eraseProgress: () => Promise<void>;
   /** Overwrite the attempt log wholesale with an already-merged, already-
@@ -103,6 +112,7 @@ export const useProgress = create<ProgressState>()(
       examResults: [],
       errors: [],
       resumeByMode: {},
+      lessonMissions: {},
 
       setHydrated: () => set({ hydrated: true }),
 
@@ -118,6 +128,13 @@ export const useProgress = create<ProgressState>()(
         const next = { ...get().resumeByMode };
         delete next[activity];
         set({ resumeByMode: next });
+      },
+
+      markMissionDone: (lessonId, version, sectionIx) => {
+        const cur = get().lessonMissions[lessonId];
+        const next = markMission(cur, version, sectionIx);
+        if (next === cur) return; // already done — markMission is idempotent
+        set({ lessonMissions: { ...get().lessonMissions, [lessonId]: next } });
       },
 
       logSession: (activity, minutes) => {
@@ -177,7 +194,7 @@ export const useProgress = create<ProgressState>()(
       },
 
       eraseProgress: async () => {
-        set({ sessions: [], attempts: [], examResults: [], errors: [], resumeByMode: {} });
+        set({ sessions: [], attempts: [], examResults: [], errors: [], resumeByMode: {}, lessonMissions: {} });
         try {
           await useProgress.persist.clearStorage();
         } catch {
@@ -218,7 +235,7 @@ export const useProgress = create<ProgressState>()(
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (s) => ({
         sessions: s.sessions, attempts: s.attempts, examResults: s.examResults, errors: s.errors,
-        resumeByMode: s.resumeByMode,
+        resumeByMode: s.resumeByMode, lessonMissions: s.lessonMissions,
       }),
       // Always flip `hydrated`, even when rehydration fails — a corrupt log must
       // never brick startup, it must only mean "no progress yet".
