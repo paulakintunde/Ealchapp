@@ -166,7 +166,7 @@ export default function Den() {
                 router.push({ pathname: '/paywall', params: { from: 'gate:levels' } });
                 return;
               }
-              router.push({ pathname: '/lesson', params: { key: u.lessonIds[0] } });
+              router.push({ pathname: '/lessonoverview', params: { key: u.lessonIds[0] } });
             };
             // A unit can declare 'narrated' before its script is written (schema.ts's
             // own comment on Lesson.narration) — only offer the Den's spoken mode once
