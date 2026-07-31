@@ -17,6 +17,12 @@ untouched.
 Reference mockups: two screenshots provided by Paul on 2026-07-30 (alphabet lesson overview;
 20-mission list). Visual language: existing app theme (dark, teal accent, serif italic titles).
 
+**Guiding principle (Paul, 2026-07-30):** the structure is flexible and reads the actual state
+of the content. Every count, stat, mechanic tag, mission list, and progress figure is generated
+from the lesson's real sections at render time; only display copy (the `overview` block,
+per-section `frSub`) is authored. Nothing is hardcoded per lesson, and no element renders from
+invented data.
+
 ## Decisions (locked with Paul, 2026-07-30)
 
 1. **Copy source**: authored. New optional `overview` fields on `Lesson`, batch-authored for
