@@ -68,6 +68,11 @@ export type Strings = {
   chatGreet: string; coachIdle: string; coachOnline: string; coachOffline: string; coachTip: string;
   skills: string[];
   denTag: string; denIntro: string; denCont: string;
+  // Den lesson overview + missions pages (overview flow, 2026-07-30)
+  ovStart: string; ovSeeAll: string; ovSeeList: string; ovMissionsWord: string;
+  ovStatRequired: string; ovStatGates: string; ovStatMilestones: string; ovStatBadge: string;
+  ovPrereqNone: string; ovPrereqSome: string; ovMin: string; ovDiff: string;
+  moSub: string; moSubNoBadge: string; moListen: string; moXp: string;
   trackDescs: { sons: string; a1: string; a2: string };
   trackLabels: { sons: string; a1: string; a2: string };
   flipHint: string; again: string; know: string;
@@ -306,6 +311,13 @@ export const T: Record<Lang, Strings> = {
     denTag: 'LE COURS DE REMISE À NIVEAU',
     denIntro: "Un vrai cursus, du premier son jusqu'au passé composé. Idéal pour se remettre à niveau.",
     denCont: 'Continuer',
+    ovStart: 'Commencer la leçon', ovSeeAll: 'Voir les {n} missions', ovSeeList: 'voir la liste', ovMissionsWord: 'missions',
+    ovStatRequired: 'requises', ovStatGates: 'portes', ovStatMilestones: 'jalons', ovStatBadge: 'badge',
+    ovPrereqNone: 'Prérequis : aucun. Cette leçon part de zéro.', ovPrereqSome: 'Prérequis : {t}',
+    ovMin: '{n} min', ovDiff: 'Difficulté',
+    moSub: '{n} missions, un badge à la fin. Chaque mission a sa propre mécanique.',
+    moSubNoBadge: '{n} missions. Chaque mission a sa propre mécanique.',
+    moListen: "Écouter l'intro", moXp: '{n} XP',
     trackDescs: {
       sons: "De l'alphabet à la masterclass de prononciation : les sons avant les mots.",
       a1: 'Salutations, genre, être & avoir, la vie quotidienne : les 26 unités du niveau Découverte.',
@@ -642,6 +654,13 @@ export const T: Record<Lang, Strings> = {
     denTag: 'REFRESHER COURSE',
     denIntro: 'A real curriculum, from your first sound to the past tense, built to get you back up to speed.',
     denCont: 'Continue',
+    ovStart: 'Start lesson', ovSeeAll: 'See all {n} missions', ovSeeList: 'see the list', ovMissionsWord: 'missions',
+    ovStatRequired: 'required', ovStatGates: 'gates', ovStatMilestones: 'milestones', ovStatBadge: 'badge',
+    ovPrereqNone: 'Prerequisites: none. This lesson starts from zero.', ovPrereqSome: 'Prerequisite: {t}',
+    ovMin: '{n} min', ovDiff: 'Difficulty',
+    moSub: '{n} missions, one badge at the end. Each mission has its own mechanic.',
+    moSubNoBadge: '{n} missions. Each mission has its own mechanic.',
+    moListen: 'Listen to the intro', moXp: '{n} XP',
     trackDescs: {
       sons: 'From the alphabet to the pronunciation masterclass: sounds before words.',
       a1: 'Greetings, gender, être & avoir, daily life: the 26 units of level Découverte.',
