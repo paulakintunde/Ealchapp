@@ -533,7 +533,14 @@ export type Item = {
  */
 /** `audioRef` is the pre-rendered clip for `say` (Phase 7's render-once
  *  pipeline — see AUDIO-RENDER-SPEC.md); null/absent falls back to live TTS. */
-export type SectionExtras = { say?: string; imageRef?: string; audioRef?: string | null };
+export type SectionExtras = {
+  say?: string;
+  imageRef?: string;
+  audioRef?: string | null;
+  /** French sub-line under the mission row's English title on the missions
+   *  page (den overview flow). Display copy only; hidden when absent. */
+  frSub?: string;
+};
 
 /** One tappable letter in a letterGrid: the glyph, its French NAME (respelled),
  *  the SOUND it makes inside words, and one example. `memo` is the memorize
@@ -792,6 +799,23 @@ export type Lesson = {
    *  missing lesson is a real failure, not a silently dropped one. */
   skill?: ExamSkill;
   provenance?: Provenance;
+  /** The den overview page's authored copy (spec 2026-07-30). Optional as a
+   *  whole: structure (mission counts, tags, stats) is always DERIVED from
+   *  `sections` — see src/content/missions.ts — and the page hides whatever
+   *  copy is absent rather than inventing it. */
+  overview?: {
+    /** English display title, the overview headline. */
+    titleEn: string;
+    /** French subtitle; doubles as the missions page display title. */
+    subFr?: string;
+    /** French translation of `intro`. Also what "Listen to the intro" speaks. */
+    introFr: string;
+    /** Estimated whole minutes. */
+    minutes: number;
+    difficulty: 1 | 2 | 3 | 4 | 5;
+    /** The overview tile, e.g. "Aa". */
+    glyph?: string;
+  };
 };
 
 /** What a lesson can offer beyond reading it. Order here is display order. */
@@ -2302,6 +2326,25 @@ export function validateLesson(v: unknown, path = 'lesson'): Issue[] {
     push(`skill must be one of ${EXAM_SKILLS.join(' | ')} when present`);
   }
   if (l.provenance !== undefined) out.push(...validateProvenance(l.provenance, `${path}.provenance`));
+
+  // The den overview block: optional as a whole, strict when present — the
+  // overview page renders it verbatim and hides only what is absent.
+  if (l.overview !== undefined) {
+    const o = l.overview as Partial<NonNullable<Lesson['overview']>>;
+    if (typeof o !== 'object' || o === null) push('overview must be an object');
+    else {
+      if (!isStr(o.titleEn)) push('overview.titleEn is required');
+      if (!isStr(o.introFr)) push('overview.introFr is required');
+      if (o.subFr !== undefined && !isStr(o.subFr)) push('overview.subFr must be a non-empty string when present');
+      if (o.glyph !== undefined && !isStr(o.glyph)) push('overview.glyph must be a non-empty string when present');
+      if (typeof o.minutes !== 'number' || !Number.isInteger(o.minutes) || o.minutes < 1 || o.minutes > 180) {
+        push('overview.minutes must be an integer between 1 and 180');
+      }
+      if (typeof o.difficulty !== 'number' || !Number.isInteger(o.difficulty) || o.difficulty < 1 || o.difficulty > 5) {
+        push('overview.difficulty must be an integer between 1 and 5');
+      }
+    }
+  }
 
   return out;
 }
