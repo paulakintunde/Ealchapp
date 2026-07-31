@@ -57,6 +57,10 @@ type LessonPagerProps = {
   /** Deep-link landing: a section index (0-based over `sections`) to open on.
    *  Page 0 is the cover, so the target page is this + 1. */
   initialIndex?: number | null;
+  /** Deep-link straight to the quiz page (the missions page's quiz row —
+   *  the quiz is not section-anchor-addressable, see app/lesson.tsx). No-op
+   *  for a quiz-less lesson. */
+  initialQuiz?: boolean;
   /** A section index to keep visually flagged after a deep-link jump. */
   highlightIndex?: number | null;
   /** Fires whenever the current page changes, with the section index (0-based
@@ -187,6 +191,7 @@ export function LessonPager({
   onNextLesson,
   nextTitle,
   initialIndex,
+  initialQuiz,
   highlightIndex,
   onIndexChange,
   bottomInset,
@@ -256,7 +261,12 @@ export function LessonPager({
     if (measured && measured !== width) setWidth(measured);
     if (didInit.current) return;
     didInit.current = true;
-    if (initialIndex != null && initialIndex >= 0) {
+    if (initialQuiz && hasQuiz) {
+      requestAnimationFrame(() => {
+        ref.current?.scrollTo({ x: quizPage * measured, animated: false });
+        setPage(quizPage);
+      });
+    } else if (initialIndex != null && initialIndex >= 0) {
       // Land on the section's CONTENT page, never its (optional) image page.
       const found = pages.findIndex((p) => p.kind === 'section' && p.sectionIx === initialIndex);
       const target = found >= 0 ? found : Math.min(lastPage, initialIndex + 1);
