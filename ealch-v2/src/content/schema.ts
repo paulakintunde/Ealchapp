@@ -198,6 +198,19 @@ export const SECTION_TYPES = [
   'vocabThemes',
   'flashcards',
   'roundup',
+  // Mission-journey sections (Sons v2 rebuild) — same append-only rule.
+  'story',
+  'goals',
+  'soundGrid',
+  'groupDrill',
+  'trapDrill',
+  'pronunciationLab',
+  'dictation',
+  'scenario',
+  'listening',
+  'reading',
+  'reviewDeck',
+  'progressCheck',
 ] as const;
 export type SectionType = (typeof SECTION_TYPES)[number];
 
@@ -562,6 +575,59 @@ export type VocabTheme = {
   cards: { fr: string; sub?: string; en: string }[];
 };
 
+/* ─── Mission-journey section support types (Sons v2 rebuild) ───────────────
+ *
+ * The types below back the 'story' | 'goals' | 'soundGrid' | 'groupDrill' |
+ * 'trapDrill' | 'pronunciationLab' | 'dictation' | 'scenario' | 'listening' |
+ * 'reading' | 'reviewDeck' | 'progressCheck' section variants — the mission
+ * screens a lesson's pager walks one at a time, replacing the old flat scroll.
+ * They deliberately reuse existing shapes (ScenarioTurn, the flashcards card
+ * shape) where one already fits, rather than inventing a parallel one. */
+
+/** One tappable sound family in a soundGrid: unlike GridLetter (one glyph),
+ *  a SOUND can have several spellings — 'in, im, ain, aim, ein' all → [ɛ̃] —
+ *  so `graphemes` is a list, not a single char. `anchor` is the one word a
+ *  learner should measure every new word's sound against ("rhymes with
+ *  temps?"). `trap` marks a sound the anti-rule/trap-drill section revisits. */
+export type GridSound = {
+  graphemes: string[];
+  ipa: string;
+  anchor: string;
+  sound: string;
+  ex: string;
+  exNote?: string;
+  trap?: boolean;
+  memo?: string;
+};
+
+/** One chunk of a groupDrill: a labelled slice of the sound/letter set
+ *  (e.g. "A–F"), its items, and the one quick check that gates moving on. */
+export type SoundGroup = {
+  label: string;
+  items: { fr: string; ipa?: string; note?: string }[];
+  check: { q: string; opts: string[]; correct: number };
+};
+
+/** One flip card in a trapDrill: front is the English-reflex trap, back is
+ *  the correct French target with the tip that breaks the reflex. */
+export type TrapCard = {
+  promptLabel: string;
+  promptSound: string;
+  fr: string;
+  ipa: string;
+  tip: string;
+};
+
+/** One sound worked in a pronunciationLab: coaching steps plus the real
+ *  corpus items `stt.listen()` scores the learner's attempt against. */
+export type LabSound = {
+  label: string;
+  ipa: string;
+  sub: string;
+  steps: string[];
+  itemIds: string[];
+};
+
 export type LessonSection = (
   /** Prose. The explanation itself. */
   | { type: 'teach'; title: string; body: string }
@@ -625,6 +691,55 @@ export type LessonSection = (
   | { type: 'flashcards'; title: string; cards: { front: string; back: string; say?: string }[] }
   /** The closing summary and congratulation card. */
   | { type: 'roundup'; title: string; body: string; points: string[] }
+
+  // ── Mission-journey sections (Sons v2 rebuild) ──────────────────────────
+  /** Mission 1: the real-world stakes, told as a short chat exchange the
+   *  learner reads before any teaching starts. */
+  | {
+      type: 'story';
+      title: string;
+      setting: string;
+      bubbles: { from: 'coach' | 'user' | 'narrator'; fr: string; en: string; warn?: string }[];
+      closing: { fr: string; en: string };
+    }
+  /** Mission 2: the checklist of what this lesson makes true by its end. */
+  | { type: 'goals'; title: string; goals: { t: string; s: string }[] }
+  /** The full sound-family grid: every tappable sound, each opening a detail
+   *  card. The soundGrid analogue of letterGrid for sounds with more than
+   *  one spelling. */
+  | { type: 'soundGrid'; title: string; sounds: GridSound[] }
+  /** The set chunked into learnable groups, each ending in one quick check
+   *  that gates moving to the next chunk. */
+  | { type: 'groupDrill'; title: string; groups: SoundGroup[] }
+  /** The English-reflex traps as flip cards, followed by a rapid-fire drill
+   *  round that scores a running total. */
+  | { type: 'trapDrill'; title: string; cards: TrapCard[]; drill: { promptSay: string; opts: string[]; correct: number }[] }
+  /** Real speech-scored coaching: each sound gets its steps plus the corpus
+   *  items `stt.listen()` grades the learner's attempt against. */
+  | { type: 'pronunciationLab'; title: string; sounds: LabSound[] }
+  /** Spelling-by-ear practice: `itemIds` names the words dictated; the
+   *  renderer builds the letter-tile bank from each item's `fr` at runtime. */
+  | { type: 'dictation'; title: string; itemIds: string[] }
+  /** A lesson-local spoken scenario — same shape as the standalone corpus
+   *  `Scenario.turns`, kept inline rather than referenced by id because this
+   *  conversation only exists to close out this lesson's specific ground. */
+  | { type: 'scenario'; title: string; setting: string; turns: ScenarioTurn[] }
+  /** Lines to hear, then comprehension questions on what was heard — the
+   *  listen-then-check pairing `audio` alone doesn't provide. */
+  | {
+      type: 'listening';
+      title: string;
+      lines: { fr: string; en: string }[];
+      questions: { q: string; opts: string[]; correct: number }[];
+    }
+  /** A short passage plus optional short-answer comprehension questions. */
+  | { type: 'reading'; title: string; text: string; questions?: { q: string; a: string }[] }
+  /** A leitner-style closing review deck: again / hard / easy per card,
+   *  rather than flashcards' known/again binary. */
+  | { type: 'reviewDeck'; title: string; cards: { front: string; back: string; say?: string }[] }
+  /** The mid-journey checkpoint: a short "here's where you stand" card
+   *  before the final test, with a handful of authored stat labels. */
+  | { type: 'progressCheck'; title: string; body: string; stats: { k: string; v: string }[] }
 ) &
   SectionExtras;
 
@@ -1839,6 +1954,281 @@ function validateSection(s: unknown, path: string): Issue[] {
     case 'roundup': {
       if (!isStr(sec.body)) push('body is required');
       strList('points');
+      break;
+    }
+
+    // ── Mission-journey sections (Sons v2 rebuild) ──────────────────────
+    case 'story': {
+      if (!isStr(sec.setting)) push('setting is required');
+      const bubbles = sec.bubbles;
+      if (!isArr(bubbles) || bubbles.length === 0) {
+        push('bubbles must be a non-empty array');
+      } else {
+        bubbles.forEach((b, i) => {
+          if (typeof b !== 'object' || b === null) {
+            push(`bubbles[${i}] is not an object`);
+            return;
+          }
+          const bb = b as { from?: unknown; fr?: unknown; en?: unknown; warn?: unknown };
+          if (!oneOf(['coach', 'user', 'narrator'] as const, bb.from)) {
+            push(`bubbles[${i}].from must be coach | user | narrator`);
+          }
+          if (!isStr(bb.fr)) push(`bubbles[${i}].fr is required`);
+          if (!isStr(bb.en)) push(`bubbles[${i}].en is required`);
+          if (bb.warn !== undefined && !isStr(bb.warn)) push(`bubbles[${i}].warn must be a non-empty string when present`);
+        });
+      }
+      const closing = sec.closing;
+      if (typeof closing !== 'object' || closing === null) push('closing is required');
+      else {
+        const c = closing as { fr?: unknown; en?: unknown };
+        if (!isStr(c.fr)) push('closing.fr is required');
+        if (!isStr(c.en)) push('closing.en is required');
+      }
+      break;
+    }
+    case 'goals':
+      objList('goals', ['t', 's']);
+      break;
+    case 'soundGrid': {
+      const sounds = sec.sounds;
+      if (!isArr(sounds) || sounds.length === 0) {
+        push('sounds must be a non-empty array');
+        break;
+      }
+      sounds.forEach((s2, i) => {
+        if (typeof s2 !== 'object' || s2 === null) {
+          push(`sounds[${i}] is not an object`);
+          return;
+        }
+        const g = s2 as Partial<GridSound>;
+        if (!isArr(g.graphemes) || g.graphemes.length === 0 || g.graphemes.some((x) => typeof x !== 'string' || !x)) {
+          push(`sounds[${i}].graphemes must be a non-empty array of strings`);
+        }
+        for (const f of ['ipa', 'anchor', 'sound', 'ex'] as const) {
+          if (!isStr(g[f])) push(`sounds[${i}].${f} is required`);
+        }
+        for (const f of ['exNote', 'memo'] as const) {
+          if (g[f] !== undefined && !isStr(g[f])) push(`sounds[${i}].${f} must be a non-empty string when present`);
+        }
+        if (g.trap !== undefined && typeof g.trap !== 'boolean') push(`sounds[${i}].trap must be a boolean when present`);
+      });
+      break;
+    }
+    case 'groupDrill': {
+      const groups = sec.groups;
+      if (!isArr(groups) || groups.length === 0) {
+        push('groups must be a non-empty array');
+        break;
+      }
+      groups.forEach((gr, i) => {
+        if (typeof gr !== 'object' || gr === null) {
+          push(`groups[${i}] is not an object`);
+          return;
+        }
+        const g = gr as Partial<SoundGroup>;
+        if (!isStr(g.label)) push(`groups[${i}].label is required`);
+        if (!isArr(g.items) || g.items.length === 0) {
+          push(`groups[${i}].items must be a non-empty array`);
+        } else {
+          g.items.forEach((it, j) => {
+            const row = it as { fr?: unknown; ipa?: unknown; note?: unknown };
+            if (typeof it !== 'object' || it === null || !isStr(row.fr)) push(`groups[${i}].items[${j}].fr is required`);
+            if (row.ipa !== undefined && !isStr(row.ipa)) push(`groups[${i}].items[${j}].ipa must be a non-empty string when present`);
+            if (row.note !== undefined && !isStr(row.note)) push(`groups[${i}].items[${j}].note must be a non-empty string when present`);
+          });
+        }
+        const chk = g.check as { q?: unknown; opts?: unknown; correct?: unknown } | undefined;
+        if (typeof chk !== 'object' || chk === null) {
+          push(`groups[${i}].check is required`);
+        } else {
+          if (!isStr(chk.q)) push(`groups[${i}].check.q is required`);
+          if (!isArr(chk.opts) || chk.opts.length < 2 || chk.opts.some((o) => !isStr(o))) {
+            push(`groups[${i}].check.opts must be 2+ non-empty strings`);
+          } else if (
+            typeof chk.correct !== 'number' ||
+            !Number.isInteger(chk.correct) ||
+            chk.correct < 0 ||
+            chk.correct >= chk.opts.length
+          ) {
+            push(`groups[${i}].check.correct must index opts (0..${chk.opts.length - 1})`);
+          }
+        }
+      });
+      break;
+    }
+    case 'trapDrill': {
+      const cards = sec.cards;
+      if (!isArr(cards) || cards.length === 0) {
+        push('cards must be a non-empty array');
+      } else {
+        cards.forEach((c, i) => {
+          if (typeof c !== 'object' || c === null) {
+            push(`cards[${i}] is not an object`);
+            return;
+          }
+          const t = c as Partial<TrapCard>;
+          for (const f of ['promptLabel', 'promptSound', 'fr', 'ipa', 'tip'] as const) {
+            if (!isStr(t[f])) push(`cards[${i}].${f} is required`);
+          }
+        });
+      }
+      const drill = sec.drill;
+      if (!isArr(drill) || drill.length === 0) {
+        push('drill must be a non-empty array');
+      } else {
+        drill.forEach((q, i) => {
+          if (typeof q !== 'object' || q === null) {
+            push(`drill[${i}] is not an object`);
+            return;
+          }
+          const qq = q as { promptSay?: unknown; opts?: unknown; correct?: unknown };
+          if (!isStr(qq.promptSay)) push(`drill[${i}].promptSay is required`);
+          if (!isArr(qq.opts) || qq.opts.length < 2 || qq.opts.some((o) => !isStr(o))) {
+            push(`drill[${i}].opts must be 2+ non-empty strings`);
+          } else if (
+            typeof qq.correct !== 'number' ||
+            !Number.isInteger(qq.correct) ||
+            qq.correct < 0 ||
+            qq.correct >= qq.opts.length
+          ) {
+            push(`drill[${i}].correct must index opts (0..${qq.opts.length - 1})`);
+          }
+        });
+      }
+      break;
+    }
+    case 'pronunciationLab': {
+      const sounds = sec.sounds;
+      if (!isArr(sounds) || sounds.length === 0) {
+        push('sounds must be a non-empty array');
+        break;
+      }
+      sounds.forEach((s2, i) => {
+        if (typeof s2 !== 'object' || s2 === null) {
+          push(`sounds[${i}] is not an object`);
+          return;
+        }
+        const l = s2 as Partial<LabSound>;
+        for (const f of ['label', 'ipa', 'sub'] as const) {
+          if (!isStr(l[f])) push(`sounds[${i}].${f} is required`);
+        }
+        if (!isArr(l.steps) || l.steps.length === 0 || l.steps.some((x) => typeof x !== 'string' || !x)) {
+          push(`sounds[${i}].steps must be a non-empty array of strings`);
+        }
+        if (!isArr(l.itemIds) || l.itemIds.length === 0) {
+          push(`sounds[${i}].itemIds must be a non-empty array`);
+        } else {
+          l.itemIds.forEach((id, j) => {
+            if (!isStr(id) || !ITEM_ID_RE.test(id)) push(`sounds[${i}].itemIds[${j}] "${String(id)}" is not a valid item id`);
+          });
+        }
+      });
+      break;
+    }
+    case 'dictation': {
+      const ids = sec.itemIds;
+      if (!isArr(ids) || ids.length === 0) {
+        push('itemIds must be a non-empty array');
+      } else {
+        ids.forEach((id, i) => {
+          if (!isStr(id) || !ITEM_ID_RE.test(id)) push(`itemIds[${i}] "${String(id)}" is not a valid item id`);
+        });
+      }
+      break;
+    }
+    case 'scenario': {
+      if (!isStr(sec.setting)) push('setting is required');
+      const turns = sec.turns;
+      if (!isArr(turns) || turns.length === 0) {
+        push('turns must be a non-empty array');
+        break;
+      }
+      turns.forEach((t, i) => {
+        if (typeof t !== 'object' || t === null) {
+          push(`turns[${i}] is not an object`);
+          return;
+        }
+        const tt = t as Partial<ScenarioTurn>;
+        if (!isStr(tt.ai)) push(`turns[${i}].ai is required`);
+        if (!isStr(tt.en)) push(`turns[${i}].en is required`);
+        if (!isStr(tt.user)) push(`turns[${i}].user is required`);
+      });
+      break;
+    }
+    case 'listening': {
+      const lines = sec.lines;
+      if (!isArr(lines) || lines.length === 0) {
+        push('lines must be a non-empty array');
+      } else {
+        lines.forEach((l, i) => {
+          const row = l as { fr?: unknown; en?: unknown };
+          if (typeof l !== 'object' || l === null || !isStr(row.fr) || !isStr(row.en)) {
+            push(`lines[${i}] must be { fr, en } strings`);
+          }
+        });
+      }
+      const qs = sec.questions;
+      if (!isArr(qs) || qs.length === 0) {
+        push('questions must be a non-empty array');
+      } else {
+        qs.forEach((q, i) => {
+          if (typeof q !== 'object' || q === null) {
+            push(`questions[${i}] is not an object`);
+            return;
+          }
+          const qq = q as { q?: unknown; opts?: unknown; correct?: unknown };
+          if (!isStr(qq.q)) push(`questions[${i}].q is required`);
+          if (!isArr(qq.opts) || qq.opts.length < 2 || qq.opts.some((o) => !isStr(o))) {
+            push(`questions[${i}].opts must be 2+ non-empty strings`);
+          } else if (
+            typeof qq.correct !== 'number' ||
+            !Number.isInteger(qq.correct) ||
+            qq.correct < 0 ||
+            qq.correct >= qq.opts.length
+          ) {
+            push(`questions[${i}].correct must index opts (0..${qq.opts.length - 1})`);
+          }
+        });
+      }
+      break;
+    }
+    case 'reading': {
+      if (!isStr(sec.text)) push('text is required');
+      if (sec.questions !== undefined) {
+        const qs = sec.questions;
+        if (!isArr(qs) || qs.length === 0) {
+          push('questions must be a non-empty array when present');
+        } else {
+          qs.forEach((q, i) => {
+            const row = q as { q?: unknown; a?: unknown };
+            if (typeof q !== 'object' || q === null || !isStr(row.q) || !isStr(row.a)) {
+              push(`questions[${i}] must be { q, a } strings`);
+            }
+          });
+        }
+      }
+      break;
+    }
+    case 'reviewDeck': {
+      const cards = sec.cards;
+      if (!isArr(cards) || cards.length === 0) {
+        push('cards must be a non-empty array');
+        break;
+      }
+      cards.forEach((c, i) => {
+        const card = c as Partial<{ front: string; back: string; say: string }>;
+        if (typeof c !== 'object' || c === null || !isStr(card.front) || !isStr(card.back)) {
+          push(`cards[${i}] must be { front, back } strings`);
+        } else if (card.say !== undefined && !isStr(card.say)) {
+          push(`cards[${i}].say must be a non-empty string when present`);
+        }
+      });
+      break;
+    }
+    case 'progressCheck': {
+      if (!isStr(sec.body)) push('body is required');
+      objList('stats', ['k', 'v']);
       break;
     }
   }

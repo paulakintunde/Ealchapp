@@ -368,9 +368,24 @@ export default function VoiceFlash() {
                   })()}
                 </View>
               ) : null}
-              <TX font="serifI" size={30} role="display" center style={{ marginBottom: 16 }}>
+              <TX font="serifI" size={30} role="display" center style={{ marginBottom: vfIsFr || (!item.ipa && !item.respell) ? 16 : 4 }}>
                 {vfIsFr ? item.en : item.fr}
               </TX>
+              {/* IPA + respell — only when the French word is already the
+                  visible question (recognise direction). When vfIsFr, the
+                  French is what the mic is testing, so showing its
+                  pronunciation here would hand over the answer; the reveal
+                  below is where that direction gets it instead. */}
+              {!vfIsFr && item.ipa ? (
+                <TX role="bodySm" center color={t.txMuted} style={{ marginBottom: item.respell ? 2 : 16 }}>
+                  {item.ipa}
+                </TX>
+              ) : null}
+              {!vfIsFr && item.respell ? (
+                <TX font="semi" role="bodySm" ls={0.8} center color={t.accTx} style={{ marginBottom: 16 }}>
+                  {item.respell}
+                </TX>
+              ) : null}
               {/* Audio chip — plays the French word */}
               <Press
                 onPress={playPrompt}

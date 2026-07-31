@@ -3,7 +3,7 @@ import { Animated, Easing, ScrollView, View, useWindowDimensions } from 'react-n
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Path } from 'react-native-svg';
+import Svg, { Circle, Path } from 'react-native-svg';
 import { TX } from '@/components/Type';
 import { Icon } from '@/components/Icon';
 import { MascotAvatar } from '@/components/MascotAvatar';
@@ -56,6 +56,42 @@ function StationPulse({ color, active }: { color: string; active: boolean }) {
         transform: [{ scale: v.interpolate({ inputRange: [0, 1], outputRange: [1, 1.65] }) }],
       }}
     />
+  );
+}
+
+// Completion ring around the active station: the full-strength arc is the
+// share of cards already said well, the lighter track is what remains. Starts
+// at 12 o'clock and fills clockwise.
+const RING = NODE + 12;
+const RING_STROKE = 3;
+
+function ProgressRing({ pct, track, color }: { pct: number; track: string; color: string }) {
+  const r = (RING - RING_STROKE) / 2;
+  const c = 2 * Math.PI * r;
+  const clamped = Math.max(0, Math.min(1, pct));
+  return (
+    <Svg
+      width={RING}
+      height={RING}
+      pointerEvents="none"
+      style={{ position: 'absolute', left: -(RING - NODE) / 2, top: -(RING - NODE) / 2 }}
+    >
+      <Circle cx={RING / 2} cy={RING / 2} r={r} stroke={track} strokeWidth={RING_STROKE} fill="none" />
+      {clamped > 0 ? (
+        <Circle
+          cx={RING / 2}
+          cy={RING / 2}
+          r={r}
+          stroke={color}
+          strokeWidth={RING_STROKE}
+          fill="none"
+          strokeDasharray={`${c}`}
+          strokeDashoffset={c * (1 - clamped)}
+          strokeLinecap="round"
+          transform={`rotate(-90 ${RING / 2} ${RING / 2})`}
+        />
+      ) : null}
+    </Svg>
   );
 }
 
@@ -127,6 +163,7 @@ function WorldSection({
           const locked = ns === 'locked';
           const current = ns === 'current';
           const cleared = ns === 'cleared';
+          const pct = st.totalCount ? st.passedCount / st.totalCount : 0;
           return (
             <View key={s.id} style={{ position: 'absolute', top: y - NODE / 2, left: 0, right: 0 }}>
               {/* The avatar stands to the RIGHT of the current station, level
@@ -139,6 +176,7 @@ function WorldSection({
               ) : null}
               <View style={{ position: 'absolute', left: x - NODE / 2, width: NODE, height: NODE, alignItems: 'center', justifyContent: 'center' }}>
                 <StationPulse color={t.acc} active={current && !reduceMotion} />
+                {current ? <ProgressRing pct={pct} track={t.accA(18)} color={t.acc} /> : null}
                 <Press
                   onPress={() => (locked ? undefined : onOpen(s))}
                   cue={locked ? null : 'tap'}
@@ -174,7 +212,7 @@ function WorldSection({
                   {s.title}
                 </TX>
                 <TX role="eyebrow" color={locked ? t.txNonText : t.txMuted} style={{ marginTop: 2 }}>
-                  {cleared ? '✓' : current ? `${st.coreCleared}/${st.coreTotal}` : `${s.blocks.length} × 33`}
+                  {cleared ? '✓' : current ? `${st.coreCleared}/${st.coreTotal} · ${Math.round(pct * 100)}%` : `${s.blocks.length} × 33`}
                 </TX>
               </View>
             </View>

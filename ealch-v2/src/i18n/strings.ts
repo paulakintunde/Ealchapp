@@ -50,6 +50,7 @@ export type Strings = {
   end: string; cont: string; why: string;
   micIdle: string; micRec: string; micDone: string;
   micHeard: string; micNoSpeech: string; micDenied: string; micUnavail: string;
+  micNoSpeechHint: string; micCantHear: string;
   micGood: string; micClose: string; micOff: string;
   youSaid: string; liaisonChip: string;
   speakYouSaid: string; speakModelWas: string;
@@ -279,6 +280,8 @@ export const T: Record<Lang, Strings> = {
     end: 'Terminer', cont: 'Continuer →', why: 'Pourquoi ?',
     micIdle: 'Touchez pour parler', micRec: 'Dites-le à voix haute…', micDone: 'Comparez avec la réponse modèle, puis réessayez ou continuez',
     micHeard: 'ENTENDU', micNoSpeech: 'Je n’ai rien entendu. Réessayez',
+    micNoSpeechHint: 'Toujours rien. Parlez juste après avoir touché le micro, en tenant le téléphone plus près',
+    micCantHear: 'Le micro ne vous entend pas pour le moment. Vous pouvez continuer et revenir plus tard',
     micDenied: 'Accès au micro refusé. Activez-le dans les réglages de votre téléphone',
     micUnavail: 'Micro indisponible sur cette version. Comparez vous-même',
     micGood: 'Bien dit', micClose: 'Presque. Réessayez', micOff: 'Pas tout à fait',
@@ -613,6 +616,8 @@ export const T: Record<Lang, Strings> = {
     end: 'End', cont: 'Continue →', why: 'Why?',
     micIdle: 'Tap to speak', micRec: 'Say it out loud…', micDone: 'Compare with the model reply, then retry or continue',
     micHeard: 'HEARD', micNoSpeech: 'Didn’t catch that. Try again',
+    micNoSpeechHint: 'Still nothing. Speak right after tapping the mic, and hold the phone a little closer',
+    micCantHear: 'The mic can’t hear you right now. You can continue and come back to this line later',
     micDenied: 'Microphone access denied. Turn it on in your phone’s settings',
     micUnavail: 'Mic unavailable on this build. Compare it yourself',
     micGood: 'Well said', micClose: 'Close. Try again', micOff: 'Not quite',

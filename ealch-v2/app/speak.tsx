@@ -133,6 +133,15 @@ export default function Speak() {
   // Transcribed-but-not-good takes on the current card. Only real transcripts
   // count: "didn't catch that" never walks a learner toward the skip.
   const [tries, setTries] = useState(0);
+  // Consecutive captures that produced NO transcript at all (mic present and
+  // permitted, recognizer heard nothing). Three in a row is treated as "the
+  // mic cannot hear this learner right now" and unlocks Continue — otherwise
+  // a deaf mic loops "didn't catch that" forever with no way out. Nothing is
+  // logged for these: the escape hatch never fakes an attempt.
+  const [noHear, setNoHear] = useState(0);
+  // Live input level 0..1 while listening — drives the waveform so silence
+  // looks like silence instead of a decorative dance.
+  const [micLevel, setMicLevel] = useState(0);
   // The card was said well at least once this visit — Continue is earned.
   const [passedCard, setPassedCard] = useState(false);
   // Which missed word the practice sheet is open on; null = closed.
@@ -157,6 +166,7 @@ export default function Speak() {
     setPartial('');
     setHeard(null);
     setTries(0);
+    setNoHear(0);
     setPassedCard(false);
     setPhase('idle');
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -219,12 +229,17 @@ export default function Speak() {
     sound.play('tap');
     setPartial('');
     setHeard(null);
+    setMicLevel(0);
     setPhase('listening');
 
     const token = cardToken.current;
     const res = await stt.listen(item.fr, {
       maxMs: 7000,
       onPartial: setPartial,
+      // Recognizer reports -2..10; below 0 is inaudible. Fold to 0..1.
+      onVolume: (v) => {
+        if (token === cardToken.current) setMicLevel(Math.max(0, Math.min(1, (v + 2) / 12)));
+      },
       bars,
     });
     if (token !== cardToken.current) return;
@@ -247,6 +262,11 @@ export default function Speak() {
       });
       if (res.verdict === 'good') setPassedCard(true);
       else setTries((n) => n + 1);
+      setNoHear(0);
+    } else if (res.available && res.error !== 'not-allowed') {
+      // Mic present and permitted, yet nothing was transcribed. Track the
+      // streak; a real transcript above resets it.
+      setNoHear((n) => n + 1);
     }
     sound.play(res.ok && res.verdict === 'good' ? 'success' : 'flip');
     setPhase('analysed');
@@ -259,6 +279,7 @@ export default function Speak() {
     setPartial('');
     setHeard(null);
     setTries(0);
+    setNoHear(0);
     setPassedCard(false);
     setPracticeIx(null);
     if (cardIx + 1 < items.length) {
@@ -292,6 +313,7 @@ export default function Speak() {
     setPartial('');
     setHeard(null);
     setTries(0);
+    setNoHear(0);
     setPassedCard(false);
     setPhase('idle');
   };
@@ -306,6 +328,10 @@ export default function Speak() {
     if (heard.ok) return T.micDone;
     if (heard.error === 'not-allowed') return T.micDenied;
     if (!heard.available) return T.micUnavail;
+    // Escalate with the streak: hint on the 2nd consecutive silence, and an
+    // exit once the mic is declared stuck.
+    if (noHear >= 3) return T.micCantHear;
+    if (noHear >= 2) return T.micNoSpeechHint;
     return T.micNoSpeech;
   })();
 
@@ -316,12 +342,15 @@ export default function Speak() {
 
   // The practice contract. A failed take demands a retry; the mic being
   // genuinely unusable (denied, or no recognizer on this build) falls back to
-  // self-assessment and may continue; "didn't catch that" retries, always.
+  // self-assessment and may continue. "Didn't catch that" retries — but three
+  // in a row with no transcript at all means the mic cannot hear this learner
+  // right now, and that unlocks Continue too (micStuck) instead of a dead end.
   const failedTry = analysed && !!heard?.ok && heard.verdict !== 'good';
   const micBlocked =
     analysed && !!heard && !heard.ok && (heard.error === 'not-allowed' || !heard.available);
+  const micStuck = noHear >= 3;
   const canSkip = tries >= SKIP_AFTER;
-  const canAdvance = passedCard || micBlocked || canSkip;
+  const canAdvance = passedCard || micBlocked || micStuck || canSkip;
   // Word-level diff of the target against the take, for highlighting what to
   // fix. Only meaningful on a real transcript.
   const marks = analysed && heard?.ok && item ? markWords(item.fr, heard.transcript) : null;
@@ -490,7 +519,7 @@ export default function Speak() {
           celebrateKey={analysed && heard ? `${heard.transcript}-${heard.score}` : undefined}
         />
         <View style={{ marginTop: 22, height: 56, alignItems: 'center', justifyContent: 'center' }}>
-          <Waveform count={40} height={54} barWidth={3} gap={4} active={waveActive} color={listening ? t.acc : t.blend(t.acc, t.tx, 70)} />
+          <Waveform count={40} height={54} barWidth={3} gap={4} active={waveActive} level={listening ? micLevel : undefined} color={listening ? t.acc : t.blend(t.acc, t.tx, 70)} />
         </View>
       </View>
 
@@ -589,7 +618,11 @@ export default function Speak() {
                   ? T.micDenied
                   : heard && !heard.available
                     ? T.micUnavail
-                    : T.micNoSpeech}
+                    : micStuck
+                      ? T.micCantHear
+                      : noHear >= 2
+                        ? T.micNoSpeechHint
+                        : T.micNoSpeech}
               </TX>
             )}
             <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 14 }}>
@@ -608,7 +641,7 @@ export default function Speak() {
                     </TX>
                   </Press>
                 ) : null}
-                {passedCard || micBlocked ? (
+                {passedCard || micBlocked || micStuck ? (
                   <Press onPress={nextCard} cue="tap" style={{ paddingVertical: 4 }}>
                     <TX font="semi" role="label" color={t.accTx}>
                       {T.cont}

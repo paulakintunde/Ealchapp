@@ -8,7 +8,7 @@
 // Brix Mascot amendment). Low risk as a single opt-in Settings option, but a
 // real repeat of that visual, not just a documentation artifact — flagged
 // here so it isn't rediscovered as a surprise later.
-export type AvatarId = 'brix' | 'brixOriginal' | 'sel' | 'remy' | 'pousse';
+export type AvatarId = 'brix' | 'brixOriginal' | 'sel' | 'remy' | 'pousse' | 'fraise' | 'mure';
 
 export type AvatarOption = { id: AvatarId; name: string; src: number };
 
@@ -17,6 +17,8 @@ export const AVATARS: AvatarOption[] = [
   { id: 'sel', name: 'Sel', src: require('../../assets/avatars/sel.png') },
   { id: 'remy', name: 'Remy', src: require('../../assets/avatars/remy.png') },
   { id: 'pousse', name: 'Pousse', src: require('../../assets/avatars/pousse.png') },
+  { id: 'fraise', name: 'Fraise', src: require('../../assets/avatars/fraise.png') },
+  { id: 'mure', name: 'Mûre', src: require('../../assets/avatars/mure.png') },
   { id: 'brixOriginal', name: 'Brix (original)', src: require('../../assets/avatars/brix-original.png') },
 ];
 

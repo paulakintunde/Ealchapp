@@ -12,7 +12,7 @@ import { TX } from '@/components/Type';
 import { Press, ProgressBar } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
-import { SectionView } from '@/components/LessonSection';
+import { MissionSectionView } from '@/components/MissionSection';
 import { QuizDeckView, RichImage, type QuizQuestion } from '@/components/LessonRich';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
@@ -307,12 +307,12 @@ export function LessonPager({
       {/* Progress + position */}
       <View style={{ paddingHorizontal: 24, paddingBottom: 14 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-          <TX font="semi" role="meta" ls={2} color={t.txSubtle}>
+          <TX font="semi" role="meta" ls={2} color={t.accTx}>
             {onFirst
               ? T.lessonOverview
               : page === quizPage
                 ? T.quizWord
-                : `${(currentEntry?.kind === 'image' || currentEntry?.kind === 'section' ? currentEntry.sectionIx : 0) + 1} / ${sections.length}`}
+                : `MISSION ${(currentEntry?.kind === 'image' || currentEntry?.kind === 'section' ? currentEntry.sectionIx : 0) + 1} / ${sections.length}`}
           </TX>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
             {say ? <ListenChip onPress={listen} playing={sayPlaying} /> : null}
@@ -417,7 +417,7 @@ export function LessonPager({
                       : undefined
                   }
                 >
-                  <SectionView s={s} onPlay={onPlay} playingId={playingId} onGrade={onGrade} graded={graded} showHero={!hasOwnImagePage} />
+                  <MissionSectionView s={s} onPlay={onPlay} playingId={playingId} onGrade={onGrade} graded={graded} showHero={!hasOwnImagePage} />
                 </View>
               </PageScroll>
             </View>
