@@ -35,7 +35,11 @@ export function SheetLink({ onPress, count }: { onPress: () => void; count: numb
     <Press
       cue={null}
       onPress={() => { sound.play('tap'); onPress(); }}
+      accessibilityRole="button"
       accessibilityLabel={`Reference sheets, ${count} available`}
+      // 32px is the visual size the header needs; hitSlop takes the TOUCH
+      // target to 48 without changing the layout.
+      hitSlop={8}
       style={{
         width: 32,
         height: 32,
@@ -140,7 +144,9 @@ function SheetHeader({ title, onBack }: { title: string; onBack: () => void }) {
       <Press
         cue={null}
         onPress={onBack}
+        accessibilityRole="button"
         accessibilityLabel="Back"
+        hitSlop={8}
         style={{ width: 32, height: 32, alignItems: 'center', justifyContent: 'center' }}
       >
         <Icon name="arrowLeft" size={18} color={t.txSecondary} />

@@ -142,7 +142,7 @@ export default function LessonScreen() {
     if (!atRaw || !L) return null;
     const resolved = content.resolveAnchorStr(atRaw);
     if (!resolved || resolved.lesson.id !== L.id) return null;
-    const secs = L.sections.filter((sec) => sec.type !== 'quiz');
+    const secs = contentSectionsOf(L);
     const ix = secs.findIndex((sec) => (sec as LessonSection) === resolved.section);
     return ix !== -1 ? ix : null;
   }, [L?.id, atParam, wantsQuiz]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -510,7 +510,9 @@ export default function LessonScreen() {
               <Press
                 cue={null}
                 onPress={() => setShowKeyOverride(true)}
+                accessibilityRole="button"
                 accessibilityLabel={T.lkHelp}
+                hitSlop={8}
                 style={{ width: 32, height: 32, borderRadius: 16, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}
               >
                 <TX font="bold" role="label" color={t.txSecondary}>?</TX>

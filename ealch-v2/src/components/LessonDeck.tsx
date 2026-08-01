@@ -411,6 +411,8 @@ export function QuestionModal({
           <Press
             cue={null}
             onPress={() => onPlay?.('qmodal', question.audio?.clip ?? question.q)}
+            accessibilityRole="button"
+            accessibilityLabel="Play the audio"
             style={{ flexDirection: 'row', alignItems: 'center', gap: 10, alignSelf: 'flex-start' }}
           >
             <View
@@ -441,6 +443,12 @@ export function QuestionModal({
                 cue={null}
                 onPress={() => pick(i)}
                 disabled={picked !== null}
+                accessibilityRole="button"
+                accessibilityLabel={o}
+                accessibilityState={{ selected: isPicked, disabled: picked !== null }}
+                accessibilityHint={
+                  picked === null ? undefined : isRight ? 'Correct answer' : isPicked ? 'Your answer, incorrect' : undefined
+                }
                 style={{
                   borderRadius: 14,
                   borderWidth: 1,

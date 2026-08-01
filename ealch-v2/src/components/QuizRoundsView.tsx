@@ -131,6 +131,10 @@ export function QuizRoundsView({
             <Press
               cue="tap"
               onPress={() => onJumpToRef(question.ref!)}
+              accessibilityRole="button"
+              accessibilityLabel="See this again"
+              accessibilityHint="Opens the mission that taught this"
+              hitSlop={8}
               style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, paddingVertical: 8 }}
             >
               <Icon name="book" size={15} color={t.accTx} />
@@ -201,6 +205,21 @@ function McqCard({ question, onAnswer }: { question: QuizQuestion; onAnswer: (co
               cue={null}
               onPress={() => pick(i)}
               disabled={picked !== null}
+              // Colour alone carries the verdict here: a right answer turns
+              // accent, a wrong pick turns danger. A screen reader sees none of
+              // that, so the outcome is said in words instead.
+              accessibilityRole="button"
+              accessibilityLabel={o}
+              accessibilityState={{ selected: isPicked, disabled: picked !== null }}
+              accessibilityHint={
+                picked === null
+                  ? undefined
+                  : isRight
+                    ? 'Correct answer'
+                    : isPicked
+                      ? 'Your answer, incorrect'
+                      : undefined
+              }
               style={{
                 borderRadius: 14,
                 borderWidth: 1,
@@ -249,6 +268,10 @@ function SpeakQuestionCard({
       <Press
         cue={null}
         onPress={() => onPlay?.(id, target)}
+        onLongPress={onPlay ? () => onPlay(id, target, null, true) : undefined}
+        accessibilityRole="button"
+        accessibilityLabel={`Play ${target}`}
+        accessibilityHint="Long press for the slow reading"
         style={{ borderRadius: 16, borderWidth: 1, borderColor: t.line(10), backgroundColor: t.card, padding: 16, gap: 6 }}
       >
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
@@ -339,6 +362,12 @@ function DrillCard({
                     setAnswered(i);
                     sound.play(isRight ? 'success' : 'error');
                   }}
+                  accessibilityRole="button"
+                  accessibilityLabel={o}
+                  accessibilityState={{ selected: answered === i, disabled: answered !== null }}
+                  accessibilityHint={
+                    answered === null ? undefined : isRight ? 'Correct answer' : answered === i ? 'Your answer, incorrect' : undefined
+                  }
                   style={{ borderRadius: 14, borderWidth: 1, borderColor: border, backgroundColor: t.card, paddingHorizontal: 16, paddingVertical: 13 }}
                 >
                   <TX role="body">{o}</TX>

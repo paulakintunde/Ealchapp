@@ -158,6 +158,19 @@ test('every quiz ref names a real section', { skip }, () => {
   }
 });
 
+test('the lesson screen has exactly one definition of "the non-quiz sections"', () => {
+  // Every index mapping in lesson.tsx (progress writes, deep-link anchors,
+  // resume) round-trips between the FULL section list and the quiz-filtered
+  // one, and is only correct while the two agree on what "filtered" means.
+  // The screen had three inline copies of that filter alongside the shared
+  // helper it already imported; changing one and missing another would mark
+  // the wrong mission complete, silently.
+  const src = readFileSync(resolve(here, '../../app/lesson.tsx'), 'utf8');
+  const inline = src.match(/sections\.filter\(\([a-z]+\) => [a-z]+\.type !== 'quiz'\)/g) ?? [];
+  strictEqual(inline.length, 0, `lesson.tsx re-filters the quiz inline ${inline.length}x instead of using contentSections()`);
+  ok(/contentSections as contentSectionsOf/.test(src), 'it imports the shared helper');
+});
+
 test('a section that counts its own contents aloud says the right number', { skip }, () => {
   // The anchors deck was authored with six cards and a coach line that said
   // "Six ideas". Splitting a card to relieve the density ceiling made it seven
@@ -428,6 +441,52 @@ test('acts, checkpoints and the SRS release are mounted', () => {
   ok(/<WarmBackCard/.test(screen), 'the warm-back is rendered');
   ok(/<ResumeRecapCard/.test(screen), 'the resume recap is rendered');
   ok(/resumePlan/.test(screen), 'the resume plan decides which of them shows');
+});
+
+test('every answer option announces itself as a button with its state', () => {
+  // Colour alone carried the verdict on every option list in the v2 lesson: a
+  // right answer turned accent, a wrong pick turned danger, and a screen
+  // reader got a bare string with no role, no selected state and no outcome.
+  // These are the five files that render a pick-one list.
+  const files = ['LessonDeck', 'SilentCards', 'QuizRoundsView', 'ActCheckpoint'];
+  for (const f of files) {
+    const src = readFileSync(resolve(here, `../components/${f}.tsx`), 'utf8');
+    // Every disabled-after-pick Press is an answer option; each must carry the
+    // state, not just a label.
+    const options = src.split('onPress={() => pick(i)}').length - 1;
+    if (options === 0) continue;
+    const stated = src.split(/accessibilityState=\{\{\s*selected:/).length - 1;
+    ok(stated >= options, `${f}: ${options} option lists, ${stated} announce selection`);
+    ok(/accessibilityHint=\{[\s\S]*?Correct answer/.test(src), `${f}: the verdict is spoken, not only coloured`);
+  }
+});
+
+test('the checkpoint progress bar is readable without sight', () => {
+  // The bar IS the progress on that screen. Rendered as a bare View it is
+  // invisible to speech, so the one thing the checkpoint exists to say went
+  // unsaid.
+  const src = readFileSync(resolve(here, '../components/ActCheckpoint.tsx'), 'utf8');
+  ok(/accessibilityRole="progressbar"/.test(src), 'the bar has a role');
+  ok(/percent through the lesson/.test(src), 'and announces how far along it is');
+});
+
+test('small header buttons take a 44px touch target', () => {
+  // 32px is the visual size the header needs; without hitSlop the TOUCH
+  // target is 32 too, which is under the platform minimum.
+  const sheet = readFileSync(resolve(here, '../components/ReferenceSheet.tsx'), 'utf8');
+  const screen = readFileSync(resolve(here, '../../app/lesson.tsx'), 'utf8');
+  for (const [name, src] of [['ReferenceSheet', sheet], ['lesson', screen]] as const) {
+    const small = src.split(/width: 32,\s*\n\s*height: 32/).length - 1;
+    if (!small) continue;
+    ok(/hitSlop=\{8\}/.test(src), `${name}: a 32px control without hitSlop is under the 44px minimum`);
+  }
+});
+
+test('the silent-letter toggle announces what is marked', () => {
+  // The task is "which letters are silent". Being marked was a border colour.
+  const src = readFileSync(resolve(here, '../components/SilentCards.tsx'), 'utf8');
+  ok(/accessibilityRole="checkbox"/.test(src), 'a toggle is a checkbox, not a button');
+  ok(/accessibilityState=\{\{\s*checked:/.test(src), 'and it reports what is checked');
 });
 
 test('authored audio actually reaches the player', () => {

@@ -147,6 +147,9 @@ export function SilentLetterGrid({
         <Press
           cue="tap"
           onPress={onOpenSheet}
+          accessibilityRole="button"
+          accessibilityLabel={`See all ${letters.length} endings`}
+          accessibilityHint="Opens the reference sheet"
           style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, paddingVertical: 14 }}
         >
           <TX role="body" font="med" color={t.accTx}>See all {letters.length} endings</TX>
@@ -380,7 +383,11 @@ export function TapSilentCard({
               cue={null}
               onPress={() => toggle(i)}
               disabled={checked !== null || g.ch === ' '}
+              // The entire task is "which letters did you mark silent", and
+              // being marked was communicated only by a border colour.
+              accessibilityRole="checkbox"
               accessibilityLabel={g.ch}
+              accessibilityState={{ checked: on, disabled: checked !== null || g.ch === ' ' }}
               style={{
                 minWidth: 46,
                 height: 58,
@@ -500,6 +507,12 @@ export function ListenChooseCard({
                 cue={null}
                 onPress={() => pick(i)}
                 disabled={picked !== null}
+                accessibilityRole="button"
+                accessibilityLabel={o}
+                accessibilityState={{ selected: isPicked, disabled: picked !== null }}
+                accessibilityHint={
+                  picked === null ? undefined : isRight ? 'Correct answer' : isPicked ? 'Your answer, incorrect' : undefined
+                }
                 style={{
                   borderRadius: 14,
                   borderWidth: 1,
