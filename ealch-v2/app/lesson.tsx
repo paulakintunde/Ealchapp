@@ -20,7 +20,8 @@ import { quizQuestions, unitBand, type Lesson, type LessonSection, type QuizQues
 import { buildQuizConfig } from '@/content/quizRounds.logic';
 import { actSectionsSoFar, checkpointFor, resumePlan, tranche, warmBackQuestions } from '@/content/acts.logic';
 import { ResumeRecapCard, WarmBackCard } from '@/components/ActCheckpoint';
-import { contentSections as contentSectionsOf } from '@/content/lessonPager.logic';
+import { contentSections as contentSectionsOf, quizSection as quizSectionOf } from '@/content/lessonPager.logic';
+import { audioIndex, resolveByText } from '@/content/lessonAudio.logic';
 import { FREE_BANDS } from '@/store/entitlement.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
@@ -199,8 +200,16 @@ export default function LessonScreen() {
     );
   }
 
-  const contentSections = L.sections.filter((s) => s.type !== 'quiz');
-  const quizSection = L.sections.find((s): s is Extract<LessonSection, { type: 'quiz' }> => s.type === 'quiz');
+  // Both of these come from lessonPager.logic rather than being re-filtered
+  // here. The inline copies said exactly what the helpers say, but EVERY index
+  // mapping below (progress writes, deep-link anchors, resume) round-trips
+  // between the full section list and this filtered one and is only correct
+  // while the two agree — and this same file already imported the helper as
+  // `contentSectionsOf` and used it a few lines down, so the rule had two live
+  // definitions in one screen. Changing the filter in one place and not the
+  // other would silently mark the wrong mission complete.
+  const contentSections = contentSectionsOf(L);
+  const quizSection = quizSectionOf(L);
   // quizQuestions() flattens both quiz shapes (flat `questions`, or v2 `rounds`
   // of eight) into one list. The deck below renders CLOSED questions only —
   // those with options and a numeric answer — so the open v2 formats (typeIn,
@@ -340,17 +349,30 @@ export default function LessonScreen() {
     setResume('lesson', { route: `/lesson?key=${raw ?? id}&at=${encodeURIComponent(anchor)}`, title: L.title });
   };
 
-  const play = (pid: string, text: string, audioRef?: string | null) => {
+  // Every authored audio spec in this lesson, keyed by the French it voices.
+  // Built once per lesson: the walk is over a whole lesson body, and `play`
+  // fires on every tap.
+  const audioIx = useMemo(() => (L ? audioIndex(L) : new Map()), [L]);
+
+  const play = (pid: string, text: string, audioRef?: string | null, slow = false) => {
     sound.play('flip');
     setPlayingId(pid);
-    // The pre-rendered clip when the caller named one (real corpus items,
-    // once Phase 7 rendering has run — see AUDIO-RENDER-SPEC.md), live TTS
-    // otherwise; speakItem's own fallback makes this a no-op change today.
+    // What the lesson AUTHORED for this string: its recording set, its speeds,
+    // its play budget. Every recordingId resolves to null until the studio
+    // delivers (CLIP_MANIFEST is empty), so today this still plays TTS on the
+    // French — the wiring is what makes delivery a manifest edit rather than a
+    // content edit. An explicit audioRef from the caller still wins: that is a
+    // real corpus item's pre-rendered clip, which is already on disk.
+    const r = resolveByText(text, audioIx, { slow, lessonAudio: L?.audio });
+    const done = () => setPlayingId((p) => (p === pid ? null : p));
     audio.speakItem(
-      { fr: text, audioRef },
-      { onDone: () => setPlayingId((p) => (p === pid ? null : p)), onError: () => setPlayingId((p) => (p === pid ? null : p)) }
+      { fr: r.text, audioRef: audioRef ?? r.audioRef },
+      { rate: r.rate, lang: 'fr-FR', onDone: done, onError: done }
     );
   };
+
+  // Long-press anywhere French: the 0.65 comprehension pass.
+  const playSlow = (pid: string, text: string, audioRef?: string | null) => play(pid, text, audioRef, true);
 
   // Self-rated recall on a practice item — the flashcards.tsx pattern (no mic,
   // no typed answer, the learner's own "I knew it" / "Again"). `anchorFor`
@@ -503,6 +525,9 @@ export default function LessonScreen() {
         title={L.title}
         intro={L.intro}
         sections={contentSections}
+        // The label counts every mission, including the quiz, so the pager and
+        // the missions hub agree on the denominator (see LessonPager's prop).
+        missionTotal={L.sections.length}
         onPlay={play}
         playingId={playingId}
         onGrade={gradeItem}

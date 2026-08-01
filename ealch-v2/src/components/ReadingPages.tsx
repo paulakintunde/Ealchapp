@@ -20,7 +20,7 @@ import { CardFrame, SwipeDeck, useCardHeight } from '@/components/LessonDeck';
 import { useTheme } from '@/theme/useTheme';
 import { sound } from '@/services';
 
-type PlayFn = (id: string, text: string, audioRef?: string | null) => void;
+import type { PlayFn } from '@/components/LessonDeck';
 
 /** A word inside the passage the lesson can say something about. */
 export type Glossed = {

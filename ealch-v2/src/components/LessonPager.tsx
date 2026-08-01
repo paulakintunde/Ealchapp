@@ -18,6 +18,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { sound, audio } from '@/services';
 import { QuizRoundsView } from '@/components/QuizRoundsView';
+import type { PlayFn } from '@/components/LessonDeck';
 import { ActCheckpointCard } from '@/components/ActCheckpoint';
 import type { Checkpoint } from '@/content/acts.logic';
 import { narrationOf, type LessonAct, type LessonDrill, type LessonSection, type LessonTerm, type QuizQuestion as SchemaQuizQuestion } from '@/content/schema';
@@ -51,6 +52,19 @@ type LessonPagerProps = {
   title: string;
   intro: string;
   sections: LessonSection[];
+  /** How many missions the lesson has in total, for the "MISSION n / N" label.
+   *
+   *  This is NOT `sections.length`. The pager is handed the teaching sections
+   *  with the quiz removed (it renders as its own page), so counting its own
+   *  array made the label read n / 20 while the missions hub — which lists the
+   *  quiz as a row, tappable and checkable like any other — read n / 21 for the
+   *  same section. Two denominators for one lesson reads as a bug to a learner
+   *  and there is no way for them to tell which is right.
+   *
+   *  The hub's model is the honest one: sitting the quiz is work. So the total
+   *  comes in from the screen, which can see the unfiltered list. Optional, and
+   *  falls back to the old behaviour for any caller that does not pass it. */
+  missionTotal?: number;
   /** The lesson's glossary, for the term chips its sections declare. Absent
    *  on every pre-v2 lesson, which simply renders no chips. */
   terms?: Record<string, LessonTerm>;
@@ -76,7 +90,7 @@ type LessonPagerProps = {
   /** Fires when a checkpoint page is reached, with its act index. The screen
    *  releases that act's SRS tranche here. */
   onCheckpointReached?: (actIndex: number) => void;
-  onPlay: (id: string, text: string, audioRef?: string | null) => void;
+  onPlay: PlayFn;
   playingId: string | null;
   onGrade: (itemId: string, correct: boolean) => void;
   graded: ReadonlySet<string>;
@@ -132,6 +146,13 @@ type LessonPagerProps = {
 function ownsLayout(s: LessonSection): boolean {
   if ((s as { swipe?: boolean }).swipe) return true;
   if (s.type === 'reading' && (s as { questionsInModal?: boolean }).questionsInModal) return true;
+  // A cardDeck IS a swipe deck — it just never set the `swipe` flag, so it fell
+  // through to the scrolling page and became the case the comment above warns
+  // about: a vertical scroller wrapped around a fixed-height card, so the card
+  // sat below the fold and the two scrollers fought for the gesture. The deck
+  // sizes itself through useCardHeight; letting it own the viewport is what
+  // makes it fit on screen without scrolling.
+  if (s.type === 'cardDeck') return true;
   return false;
 }
 
@@ -259,6 +280,7 @@ export function LessonPager({
   title,
   intro,
   sections,
+  missionTotal,
   terms,
   onOpenSheet,
   quizCfg,
@@ -444,7 +466,7 @@ export function LessonPager({
               ? T.lessonOverview
               : page === quizPage
                 ? T.quizWord
-                : `MISSION ${(currentEntry?.kind === 'image' || currentEntry?.kind === 'section' ? currentEntry.sectionIx : 0) + 1} / ${sections.length}`}
+                : `MISSION ${(currentEntry?.kind === 'image' || currentEntry?.kind === 'section' ? currentEntry.sectionIx : 0) + 1} / ${missionTotal ?? sections.length}`}
           </TX>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
             {say ? <ListenChip onPress={listen} playing={sayPlaying} /> : null}

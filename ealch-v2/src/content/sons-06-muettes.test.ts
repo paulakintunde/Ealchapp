@@ -16,7 +16,7 @@ import { dirname, resolve } from 'node:path';
 import { formatIssues, quizQuestions, validateItem, validateLesson, type Lesson } from './schema.ts';
 import { formatDensity, validateDensity } from './density.logic.ts';
 import { silentIndicesValid } from './silent.logic.ts';
-import { hasSlow, pendingRecordings, referencedRecordingIds } from './lessonAudio.logic.ts';
+import { audioIndex, hasSlow, pendingRecordings, referencedRecordingIds, resolveByText } from './lessonAudio.logic.ts';
 import { checkpointFor, releasedThrough, resumePlan, stoppingPoints, tranche, warmBackQuestions } from './acts.logic.ts';
 import { advanceQuiz, answerQuestion, buildQuizConfig, drillForRound, initialQuizState } from './quizRounds.logic.ts';
 
@@ -155,6 +155,37 @@ test('every quiz ref names a real section', { skip }, () => {
   for (const item of quizQuestions(q)) {
     // A ref that resolves to nothing makes "see this again" a dead button.
     ok(ids.has(item.ref!), `ref "${item.ref}" for "${item.q}" names a section`);
+  }
+});
+
+test('a section that counts its own contents aloud says the right number', { skip }, () => {
+  // The anchors deck was authored with six cards and a coach line that said
+  // "Six ideas". Splitting a card to relieve the density ceiling made it seven
+  // and the spoken line kept saying six — the kind of drift nothing catches,
+  // because the line is AUDIO and the card count is data. The title had the
+  // same problem.
+  const WORDS: Record<string, number> = {
+    four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10,
+  };
+  const spoken = (text: string): number | null => {
+    const m = text.toLowerCase().match(/^(four|five|six|seven|eight|nine|ten)\b/);
+    return m ? WORDS[m[1]] : null;
+  };
+
+  for (const s of LESSON!.sections) {
+    const cards = (s as { cards?: unknown[] }).cards;
+    if (!Array.isArray(cards)) continue;
+    const say = (s as { say?: { text?: string } }).say?.text;
+    const id = (s as { id?: string }).id;
+    const n = say ? spoken(say) : null;
+    if (n !== null) {
+      strictEqual(n, cards.length, `${id} says "${say?.slice(0, 24)}…" but has ${cards.length} cards`);
+    }
+    const title = (s as { title?: string }).title;
+    const tn = title ? spoken(title) : null;
+    if (tn !== null) {
+      strictEqual(tn, cards.length, `${id} is titled "${title}" but has ${cards.length} cards`);
+    }
   }
 });
 
@@ -399,6 +430,56 @@ test('acts, checkpoints and the SRS release are mounted', () => {
   ok(/resumePlan/.test(screen), 'the resume plan decides which of them shows');
 });
 
+test('authored audio actually reaches the player', () => {
+  // Runs unconditionally: this checks WIRING. lessonAudio.logic.ts resolved
+  // recording sets, speeds and play budgets, and the play call site read none
+  // of it — 28 authored specs went to a function nobody called.
+  const screen = readFileSync(resolve(here, '../../app/lesson.tsx'), 'utf8');
+  ok(/resolveByText|resolveAudio/.test(screen), 'the screen resolves what the lesson authored');
+  ok(/audioIndex\(/.test(screen), 'and builds the index it resolves against');
+  // Resolving and then discarding the result is the failure mode this catches:
+  // the call has to feed the thing that makes sound.
+  ok(/audioRef:\s*audioRef\s*\?\?\s*r\.audioRef/.test(screen), 'the resolved clip reaches speakItem');
+  ok(/rate:\s*r\.rate/.test(screen), 'and so does the resolved rate');
+});
+
+test('long-press for the slow reading is reachable, not just supported', () => {
+  // FrenchLine accepted an onPlaySlow prop that no caller ever passed, so the
+  // 0.65 pass the lesson authored on nine sections could not be triggered.
+  const deck = readFileSync(resolve(here, '../components/LessonDeck.tsx'), 'utf8');
+  ok(/onLongPress=\{slowFn/.test(deck), 'long-press is bound');
+  ok(/onPlay\(i, fr2, null, true\)/.test(deck), 'and it asks for the slow pass');
+
+  const screen = readFileSync(resolve(here, '../../app/lesson.tsx'), 'utf8');
+  ok(/slow\s*=\s*false/.test(screen), 'the screen play fn takes a slow flag');
+  ok(/\{\s*slow,/.test(screen), 'and passes it into resolution');
+});
+
+test('every French string the lesson authored audio for resolves to a spec', { skip }, () => {
+  // The index is keyed on text, so a re-authored string silently loses its
+  // recording. This is the check that catches that: the count of authored
+  // specs and the count of indexed strings must not drift apart.
+  const ix = audioIndex(LESSON!);
+  ok(ix.size >= 25, `${ix.size} French strings carry an authored spec`);
+
+  // Spot-check one from each act, by recording set rather than by exact text.
+  const sets = new Set([...ix.values()].map((s) => s.recordingId).filter(Boolean));
+  for (const id of ['rec-scene-break', 'rec-careful-pairs', 'rec-dictation-10', 'rec-reading-passage']) {
+    ok(sets.has(id), `${id} is reachable from some card`);
+  }
+});
+
+test('nothing is silent today: every spec falls back to TTS on the French', { skip }, () => {
+  // CLIP_MANIFEST is empty, so this is the guarantee that wiring the resolver
+  // in did not turn any card mute. Every one must still produce speakable text.
+  const ix = audioIndex(LESSON!);
+  for (const [text] of ix) {
+    const r = resolveByText(text, ix, { lessonAudio: LESSON!.audio });
+    strictEqual(r.audioRef, null, `"${text.slice(0, 20)}" has no clip yet`);
+    ok(r.text.trim().length > 0, `"${text.slice(0, 20)}" still speaks`);
+  }
+});
+
 test('the SRS releases progressively, never all at the end', { skip }, () => {
   const acts = LESSON!.acts ?? [];
   const perAct = acts.map((_, i) => tranche(LESSON!, i).length);
@@ -572,6 +653,36 @@ test('the responsive card-height rule exists and is used', () => {
     const src = readFileSync(resolve(here, '../components', f), 'utf8');
     ok(/useCardHeight\(/.test(src), `${f} sizes its cards through the shared rule`);
   }
+});
+
+test('the swipe deck sizes its cards from the space it measured', () => {
+  // The check above is file-level, so it stays green for LessonRich.tsx as long
+  // as ANY deck in that file calls the hook. The cardDeck deliberately does not:
+  // useCardHeight guesses the surrounding chrome and floors the result at 300,
+  // and on a short screen that floor is what pushes the bottom of a card off the
+  // page. It measures its own rail instead. That is only safe while the
+  // measurement is actually wired up, which is what this asserts.
+  const src = readFileSync(resolve(here, '../components/LessonRich.tsx'), 'utf8');
+  const deck = src.slice(src.indexOf('export function CardDeckView'));
+  ok(/onLayout=\{\(e\) =>/.test(deck), 'the deck rail measures itself');
+  ok(/setRailH\(/.test(deck), 'and stores what it measured');
+  ok(/railH > 0 \?/.test(deck), 'card height derives from the measurement');
+  // A constant creeping back in is the regression this exists to catch.
+  ok(!/height: \d{3,}/.test(deck), 'no card height is hard-coded in the deck');
+});
+
+test('a deck card never invites the next card while it still has more to read', () => {
+  // The arrow and the card's own scrolling are one mechanism. A sideways
+  // chevron on a card that can still scroll down tells a learner to leave
+  // content they have not seen, which is how half a card goes unread.
+  const src = readFileSync(resolve(here, '../components/LessonRich.tsx'), 'utf8');
+  const card = src.slice(src.indexOf('function DeckCard'), src.indexOf('export function CardDeckView'));
+  ok(/dir="down" show=\{current && over && !atEnd\}/.test(card), 'down while there is more of this card');
+  ok(/dir="right" show=\{current && hasNext && \(!over \|\| atEnd\)\}/.test(card), 'sideways only once it is read');
+  // The overlay must never take touches: inside a horizontal ScrollView an
+  // interactive overlay swallows the very swipe it advertises.
+  const arrow = src.slice(src.indexOf('function DeckArrow'), src.indexOf('function DeckHint'));
+  ok(/pointerEvents="none"/.test(arrow), 'the arrow never eats the swipe');
 });
 
 test('a swipe deck never sits inside a scrolling page', () => {

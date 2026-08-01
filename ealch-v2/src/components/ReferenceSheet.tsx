@@ -24,7 +24,7 @@ import { useTheme } from '@/theme/useTheme';
 import { sound } from '@/services';
 import type { LessonSection, ReferenceSheet as Sheet } from '@/content/schema';
 
-type PlayFn = (id: string, text: string) => void;
+import type { PlayFn } from '@/components/LessonDeck';
 
 /** The header button that opens the sheet index. Persistent: it sits on every
  *  screen of a lesson that declares sheets. */

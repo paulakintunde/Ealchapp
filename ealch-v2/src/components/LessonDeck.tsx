@@ -33,7 +33,11 @@ import { sound } from '@/services';
 import { checkAnswer } from '@/content/answer.logic';
 import type { QuizQuestion } from '@/content/schema';
 
-type PlayFn = (id: string, text: string) => void;
+/** Play some French. `slow` asks for the 0.65 comprehension pass, which the
+ *  lesson screen resolves against whatever the section authored — so a card
+ *  never has to know whether a slow reading exists, only that the learner
+ *  long-pressed. The trailing params are optional at every call site. */
+export type PlayFn = (id: string, text: string, audioRef?: string | null, slow?: boolean) => void;
 
 /* ─── Card sizing ─────────────────────────────────────────────────────────── */
 
@@ -145,14 +149,19 @@ export function FrenchLine({
   const t = useTheme();
   const on = playingId === id;
   const big = size === 'lg';
+  const slowFn: PlayFn | undefined =
+    onPlaySlow ?? (onPlay ? (i, fr2) => onPlay(i, fr2, null, true) : undefined);
 
   return (
     <Press
       cue={null}
       onPress={() => onPlay?.(id, fr)}
-      onLongPress={onPlaySlow ? () => onPlaySlow(id, fr) : undefined}
+      // Long-press is the slow reading everywhere in the product, so it comes
+      // free from onPlay rather than needing its own prop threaded down. An
+      // explicit onPlaySlow still overrides, for callers that speak directly.
+      onLongPress={slowFn ? () => slowFn(id, fr) : undefined}
       accessibilityLabel={fr}
-      accessibilityHint={onPlaySlow ? 'Long press for the slow reading' : undefined}
+      accessibilityHint={slowFn ? 'Long press for the slow reading' : undefined}
       style={{
         borderRadius: 16,
         borderWidth: 1,

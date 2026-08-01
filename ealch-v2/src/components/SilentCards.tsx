@@ -26,7 +26,7 @@ import { checkAnswer } from '@/content/answer.logic';
 import { glyphs } from '@/content/silent.logic';
 import type { GridLetter, InhibitionTarget, QuizQuestion } from '@/content/schema';
 
-type PlayFn = (id: string, text: string) => void;
+import type { PlayFn } from '@/components/LessonDeck';
 
 /* ─── Silent letter grid ─────────────────────────────────────────────────── */
 
