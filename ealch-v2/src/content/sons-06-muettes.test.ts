@@ -714,6 +714,39 @@ test('the responsive card-height rule exists and is used', () => {
   }
 });
 
+test('a short screen gives an illustrated card its image on its own card', async () => {
+  // Verified in a browser: at 360x640 the deck box measures ~280px, and a 4:3
+  // image plus a heading plus a body does not fit in that — the headline
+  // clipped mid-word with the rest unreachable. Splitting the image onto its
+  // own card is the same idea as the pager's HERO_SPLIT_TYPES, one level down.
+  // (That mechanism cannot do this: it splits on a SECTION's imageRef, and
+  // these images are on individual cards inside the deck.)
+  const { deckEntries } = await import('./deck.logic.ts');
+  const cards = [
+    { head: 'plain', body: 'no image' },
+    { head: 'illustrated', body: 'has one', imageRef: 'lessons/muettes/careful.jpg' },
+  ];
+
+  // Roomy screen: untouched, image and words together.
+  const roomy = deckEntries(cards, 440);
+  strictEqual(roomy.length, 2, 'no split when the card has room');
+  ok(!roomy.some((e) => e.imageOnly || e.textOnly), 'and no half-cards');
+
+  // Short screen: only the ILLUSTRATED card splits.
+  const short = deckEntries(cards, 209);
+  strictEqual(short.length, 3, 'the illustrated card became two');
+  strictEqual(short[0].imageOnly, false, 'the plain card is untouched');
+  strictEqual(short[1].imageOnly, true, 'image first');
+  strictEqual(short[2].textOnly, true, 'then the words');
+  // Both halves point at the same authored card — the split is presentation,
+  // never a second copy of the content.
+  strictEqual(short[1].c, short[2].c, 'both halves are the same card');
+
+  // Unmeasured (0) must not split: deciding on an unknown makes the deck flash
+  // a split layout and then re-flow once the real measurement lands.
+  strictEqual(deckEntries(cards, 0).length, 2, 'no split before measuring');
+});
+
 test('the swipe deck sizes its cards from the space it measured', () => {
   // The check above is file-level, so it stays green for LessonRich.tsx as long
   // as ANY deck in that file calls the hook. The cardDeck deliberately does not:
@@ -723,8 +756,13 @@ test('the swipe deck sizes its cards from the space it measured', () => {
   // measurement is actually wired up, which is what this asserts.
   const src = readFileSync(resolve(here, '../components/LessonRich.tsx'), 'utf8');
   const deck = src.slice(src.indexOf('export function CardDeckView'));
-  ok(/onLayout=\{\(e\) =>/.test(deck), 'the deck rail measures itself');
-  ok(/setRailH\(/.test(deck), 'and stores what it measured');
+  ok(/onLayout=\{\(e\) =>/.test(deck), 'the deck measures itself');
+  // BOTH the box and the footer are measured. Subtracting a guessed footer
+  // constant is what made the card paint over the dots row: a wrapped hint or
+  // a large font scale makes any constant wrong.
+  ok(/setBoxH\(/.test(deck), 'it measures the box the page gave it');
+  ok(/setFootH\(/.test(deck), 'and the dots/hint row the cards must clear');
+  ok(/boxH - footH/.test(deck), 'the cards get the difference');
   ok(/railH > 0 \?/.test(deck), 'card height derives from the measurement');
   // A constant creeping back in is the regression this exists to catch.
   ok(!/height: \d{3,}/.test(deck), 'no card height is hard-coded in the deck');
@@ -742,6 +780,17 @@ test('a deck card never invites the next card while it still has more to read', 
   // interactive overlay swallows the very swipe it advertises.
   const arrow = src.slice(src.indexOf('function DeckArrow'), src.indexOf('function DeckHint'));
   ok(/pointerEvents="none"/.test(arrow), 'the arrow never eats the swipe');
+
+  // Verified in a real browser at 360x640: the card overflowed by 111px and the
+  // arrow still pointed sideways. Two causes, both guarded here.
+  // 1. flexGrow on the card's content box clamps it to the scroller, so
+  //    onContentSizeChange reports "fits" for a card that does not.
+  ok(!/contentContainerStyle=\{\{ padding: 20, flexGrow: 1 \}\}/.test(card),
+    "the card's content box must not stretch, or overflow becomes invisible");
+  // 2. onScroll's contentSize is authoritative on both platforms, so it must be
+  //    able to promote `over` on its own.
+  ok(/contentSize\.height > ne\.layoutMeasurement\.height/.test(card),
+    'a scroll that reveals more content marks the card as overflowing');
 });
 
 test('a swipe deck never sits inside a scrolling page', () => {

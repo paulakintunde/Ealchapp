@@ -623,7 +623,11 @@ export function LessonPager({
           const hasOwnImagePage = !!s.imageRef && HERO_SPLIT_TYPES.has(s.type);
           const selfLaid = ownsLayout(s);
           return (
-            <View key={key} style={{ width }}>
+            // `flex: 1` so a self-laid section (a deck) actually receives the
+            // page's height. Without it this page box hugs its content, the
+            // deck inside measures ~0 and renders zero-height cards — the
+            // fixed=selfLaid branch below can only hand down height it has.
+            <View key={key} style={{ width, flex: 1 }}>
               <PageScroll fixed={selfLaid} contentStyle={{ paddingHorizontal: 24, paddingTop: 8, paddingBottom: 24 }}>
                 <View
                   style={[

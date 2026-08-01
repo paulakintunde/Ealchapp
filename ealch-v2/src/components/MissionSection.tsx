@@ -383,8 +383,15 @@ export function MissionSectionView({
       // letterGrid, cardDeck, tapTable, vocabThemes, flashcards, roundup):
       // unchanged behavior, unchanged component. The term chips are additive
       // and render above it when the section declares any.
+      //
+      // The cardDeck is the one type here that SIZES ITSELF from the room it is
+      // given (it measures its rail rather than guessing chrome). This wrapper
+      // was a plain View, so it hugged its content: the deck asked for `flex: 1`
+      // of a parent that had no height to give, measured ~0 and rendered cards
+      // of zero height. Passing the fill down is what lets the measurement see
+      // the real viewport. Every other type keeps the hug-content box it had.
       return (
-        <View>
+        <View style={s.type === 'cardDeck' ? { flex: 1 } : undefined}>
           {chips}
           <SectionView s={s} onPlay={onPlay} playingId={playingId} onGrade={onGrade} graded={graded} showHero={showHero} />
         </View>

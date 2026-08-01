@@ -1,5 +1,5 @@
 {
-  "version": 13,
+  "version": 17,
   "units": [
     {
       "id": "sons.06",
@@ -1282,6 +1282,142 @@
       },
       "intro": "French writes letters it never says. Not a few odd ones: most final consonants, every H, and the final -E all sit on the page in silence. This lesson gives you one default and four overrides, so that any French word you have never seen before, on a menu, a street sign, a train ticket, comes out of your mouth close to right on the first try.",
       "level": "sons",
+      "terms": {
+        "ipa": {
+          "body": "Sounds appear two ways in this course. IPA sits between slashes and is exact, the same alphabet linguists use worldwide: /pə.ti/. The respelling sits between brackets and is a reading aid for an English speaker, with the stressed syllable capitalised: [pə-TEE]. When the two disagree, trust the IPA. A small raised n, as in [GRAHⁿ], marks a nasal vowel: it means the vowel is sent through the nose, NOT that you should say an N.",
+          "term": "IPA",
+          "title": "The two notations, and what each is for"
+        },
+        "hMuet": {
+          "body": "Muet means mute. No H is ever pronounced in French, so this is not about sound at all: it is about grammar. An H muet behaves as though the letter were simply not there, so the word in front of it elides in the normal way. Le plus homme becomes l'homme, exactly as le plus arbre becomes l'arbre. Most French H words are muet.",
+          "term": "H muet",
+          "title": "H muet: the H that lets the article shrink",
+          "examples": [
+            {
+              "note": "l'homme",
+              "itemId": "fr.sons.muettes.039"
+            },
+            {
+              "note": "l'hôtel",
+              "itemId": "fr.sons.muettes.040"
+            },
+            {
+              "note": "l'heure",
+              "itemId": "fr.sons.muettes.041"
+            }
+          ]
+        },
+        "careful": {
+          "body": "Most final consonants in French are silent. Four of them usually are not: C, R, F and L. Spell those four out and you get the English word CaReFuL, which is the whole point of the name: it is a memory hook, not a French word. When you reach the end of a word you have never seen, ask one question. Is the last letter C, R, F or L? If yes, say it. If no, stay quiet. That single question gets you most of the way, every time, and the rest of this lesson is the handful of cases where it needs help.",
+          "term": "CaReFuL",
+          "title": "CaReFuL: the four letters that stay awake",
+          "examples": [
+            {
+              "note": "C sounded",
+              "itemId": "fr.sons.muettes.019"
+            },
+            {
+              "note": "R sounded",
+              "itemId": "fr.sons.muettes.022"
+            },
+            {
+              "note": "F sounded",
+              "itemId": "fr.sons.muettes.025"
+            },
+            {
+              "note": "L sounded",
+              "itemId": "fr.sons.muettes.028"
+            }
+          ]
+        },
+        "eSwitch": {
+          "body": "A final -e is itself silent. It is never a syllable, so porte is one sound, PORT, and never POR-tuh. What it does is wake the consonant standing in front of it. grand ends on a nasal vowel with a silent D; add the -e and grande releases a real D at the end. This is why French gender is audible: a hard consonant at the end of an adjective usually means there is an -e behind it, which usually means feminine. Your ears can do grammar.",
+          "term": "the final -e",
+          "title": "The final -e: an alarm clock for the letter before it",
+          "examples": [
+            {
+              "note": "masculine, D silent",
+              "itemId": "fr.sons.muettes.002"
+            },
+            {
+              "note": "feminine, D wakes",
+              "itemId": "fr.sons.muettes.047"
+            },
+            {
+              "note": "one syllable, not two",
+              "itemId": "fr.sons.muettes.050"
+            }
+          ]
+        },
+        "hAspire": {
+          "body": "Aspiré means breathed, and the name is misleading: an H aspiré is NOT breathed and makes no sound, exactly like an H muet. The only difference is grammatical. An H aspiré blocks the elision, so the article stays whole: le héros, not l'héros. There is no way to hear which kind an H is from the word alone. You learn it with the article, the same way you learn a noun with its gender.",
+          "term": "H aspiré",
+          "title": "H aspiré: the H that blocks elision",
+          "examples": [
+            {
+              "note": "le héros, no elision",
+              "itemId": "fr.sons.muettes.043"
+            },
+            {
+              "note": "le hibou",
+              "itemId": "fr.sons.muettes.044"
+            },
+            {
+              "note": "le haricot",
+              "itemId": "fr.sons.muettes.045"
+            }
+          ]
+        },
+        "liaison": {
+          "body": "These silent finals are sleeping, not dead. When the next word begins with a vowel, some of them come back and link across the gap: deux euros is said /dø.zø.ʁo/, with the X of deux returning as a Z. That linking is called liaison, and it is the whole of your next lesson. For now it is enough to know why French bothers writing letters it does not say: because sometimes it does say them.",
+          "term": "liaison",
+          "title": "Liaison: when a silent letter wakes up",
+          "examples": [
+            {
+              "note": "the Z here is a liaison",
+              "itemId": "fr.sons.muettes.056"
+            }
+          ]
+        },
+        "erEnding": {
+          "body": "CaReFuL says an R at the end of a word should sound. That is right about half the time, and wrong on every verb in the language. The reason is that -er is not a word ending, it is a GRAMMATICAL ending: it marks an infinitive (parler, manger, to speak, to eat) or a job noun (boulanger, a baker). Grammatical endings follow their own rule, and this one is pronounced as a single /e/ with the R completely silent. Short standalone words like hiver and mer are not carrying an ending at all, so their R stays alive.",
+          "term": "the -er ending",
+          "title": "The -er ending: where CaReFuL stops applying",
+          "examples": [
+            {
+              "note": "infinitive, R silent",
+              "itemId": "fr.sons.muettes.036"
+            },
+            {
+              "note": "job noun, R silent",
+              "itemId": "fr.sons.muettes.038"
+            },
+            {
+              "note": "short word, R sounded",
+              "itemId": "fr.sons.muettes.022"
+            },
+            {
+              "note": "short word, R sounded",
+              "itemId": "fr.sons.muettes.023"
+            }
+          ]
+        },
+        "silentEnt": {
+          "body": "Four letters, two completely different jobs. On a conjugated verb, -ent is entirely silent: ils parlent is /il paʁl/ and sounds exactly like il parle. On a noun or an adverb it is a real nasal vowel: vent, content and comment all end in /ɑ̃/. There is one question that separates them. Is this a conjugated verb? If yes, the ending is silent. If no, you hear it.",
+          "term": "the -ent ending",
+          "title": "The -ent ending: silent on a verb, sounded on anything else",
+          "examples": [
+            {
+              "note": "verb, -ent silent",
+              "itemId": "fr.sons.muettes.055"
+            },
+            {
+              "note": "verb, -ent silent",
+              "itemId": "fr.sons.muettes.056"
+            }
+          ]
+        }
+      },
       "title": "Silent Letters",
       "drills": [
         {
@@ -2360,7 +2496,7 @@
           "setting": {
             "city": "Lyon",
             "time": "8:40, a Tuesday",
-            "image": "scene-boulangerie-lyon",
+            "image": "lessons/muettes/scene-boulangerie.jpg",
             "place": "Boulangerie Vidal",
             "ambience": "room-tone-bakery"
           }
@@ -2412,42 +2548,57 @@
         {
           "id": "s03-anchors",
           "say": {
-            "text": "Six ideas. The rest of the lesson is these six, slowed down.",
+            "text": "Seven ideas. The rest of the lesson is these seven, slowed down.",
             "voice": "coach",
             "timing": "onFirstVisitOnly"
           },
           "hint": "Swipe through. Nothing to answer yet.",
-          "size": "lg",
+          "size": "md",
           "type": "cardDeck",
           "cards": [
             {
-              "body": "That is the whole lesson in five words. A final consonant is silent until something specific overrides it. Say it to yourself before every new word.",
-              "head": "Silent unless there's a reason."
+              "head": "Silent unless there's a reason.",
+              "body": "That is the whole lesson in five words. A final consonant is silent until something specific overrides it.",
+              "imageRef": "lessons/muettes/careful.jpg"
             },
             {
-              "body": "Almost always. Five letters, two sounds. Eight letters, four sounds. If your mouth is busier than the page, you have added something.",
-              "head": "French words are shorter out loud"
+              "head": "French words are shorter out loud",
+              "body": "Almost always. beaucoup is eight letters and two syllables. vraiment is eight letters and two. If your mouth is busier than the page, you have added something."
             },
             {
-              "body": "These four often survive at the end of a word. sac, hiver, chef, avril. They are the main override, and they have their own exceptions.",
-              "head": "CaReFuL: C, R, F, L"
+              "head": "CaReFuL: C, R, F, L",
+              "body": "Four letters that usually survive at the end of a word: sac, hiver, chef, avril. Spell them out and you get the English word CaReFuL."
             },
             {
-              "body": "Never a sound, anywhere in French. It still does grammar though: some H words shrink the article to l', some do not.",
-              "head": "H is a ghost"
+              "head": "CaReFuL is the exception that counts",
+              "body": "Every other final consonant stays silent. These four are the reason the rule says usually, so when a final consonant does sound, check this list first."
             },
             {
+              "head": "H is a ghost",
+              "body": "Never a sound, anywhere in French, in any position. It does still change the words around it, and that split has its own name later in the lesson.",
+              "imageRef": "lessons/muettes/ghost-h.jpg"
+            },
+            {
+              "head": "A final -E is an alarm clock",
               "body": "Silent itself, but it wakes the consonant standing in front of it. grand becomes grande, and now you can hear the D.",
-              "head": "A final -E is an alarm clock"
+              "imageRef": "lessons/muettes/alarm-clock.jpg"
             },
             {
-              "body": "Those sleeping consonants can wake up before a vowel in the next word. That is liaison, and it is the next lesson.",
-              "head": "Silent, not dead"
+              "head": "Silent, not dead",
+              "body": "Silent unless there is a reason, and the next word can be the reason. Those sleeping consonants wake before a vowel. That is liaison, and it is the next lesson."
             }
           ],
           "frSub": "Les idées clés",
           "layer": "core",
-          "title": "Six things to hold on to",
+          "terms": [
+            "careful",
+            "hMuet",
+            "hAspire",
+            "eSwitch",
+            "liaison",
+            "ipa"
+          ],
+          "title": "Seven things to hold on to",
           "render": "deck"
         },
         {
@@ -2461,6 +2612,12 @@
           "type": "letterGrid",
           "frSub": "Le tableau des finales",
           "layer": "core",
+          "terms": [
+            "careful",
+            "erEnding",
+            "silentEnt",
+            "ipa"
+          ],
           "title": "Every ending, one verdict each",
           "render": "sheet",
           "letters": [
@@ -2729,6 +2886,13 @@
           "type": "groupDrill",
           "frSub": "Les quatre familles",
           "layer": "core",
+          "terms": [
+            "careful",
+            "hMuet",
+            "hAspire",
+            "eSwitch",
+            "silentEnt"
+          ],
           "title": "The four families",
           "groups": [
             {
@@ -3080,6 +3244,15 @@
           },
           "size": "lg",
           "type": "trapDrill",
+          "audio": {
+            "mode": "recorded",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-careful-pairs"
+          },
           "cards": [
             {
               "fr": "hiver",
@@ -3138,6 +3311,10 @@
           ],
           "frSub": "Le piège du -ER",
           "layer": "core",
+          "terms": [
+            "careful",
+            "erEnding"
+          ],
           "title": "The R that will not sit still",
           "render": "screens"
         },
@@ -3153,6 +3330,7 @@
           "frSub": "Apprendre à s'arrêter",
           "intro": "Your eyes see the last letter and your mouth starts loading it before you have decided anything. That happens in about a fifth of a second, which is faster than any rule you can consciously apply. So the rule has to become a reflex, and reflexes are built by doing, not reading.",
           "layer": "core",
+          "swipe": true,
           "title": "Training the stop",
           "render": "screens",
           "closing": {
@@ -3223,7 +3401,8 @@
                 "fr.sons.muettes.051"
               ]
             }
-          ]
+          ],
+          "imageRef": "lessons/muettes/the-stop.jpg"
         },
         {
           "id": "s08-flashcards",
@@ -3326,14 +3505,65 @@
               "front": "ils parlent"
             },
             {
+              "say": "tabac",
+              "back": "/ta.ba/ · [ta-BA] · tobacco, tobacconist",
+              "front": "tabac"
+            },
+            {
+              "say": "clef",
+              "back": "/kle/ · [KLAY] · key",
+              "front": "clef"
+            },
+            {
+              "say": "gentil",
+              "back": "/ʒɑ̃.ti/ · [zhahⁿ-TEE] · kind, nice",
+              "front": "gentil"
+            },
+            {
+              "say": "blanc",
+              "back": "/blɑ̃/ · [BLAHⁿ] · white",
+              "front": "blanc"
+            },
+            {
               "say": "fils",
               "back": "/fis/ · [FEES] · son",
               "front": "fils"
+            },
+            {
+              "say": "fil",
+              "back": "/fil/ · [FEEL] · thread, wire",
+              "front": "fil"
+            },
+            {
+              "say": "tous",
+              "back": "/tus/ · [TOOS] · all (pronoun)",
+              "front": "tous"
+            },
+            {
+              "say": "net",
+              "back": "/nɛt/ · [NET] · clear, sharp",
+              "front": "net"
+            },
+            {
+              "say": "os",
+              "back": "/ɔs/ · [OSS] · bone",
+              "front": "os"
+            },
+            {
+              "say": "sens",
+              "back": "/sɑ̃s/ · [SAHⁿS] · meaning, direction",
+              "front": "sens"
             }
           ],
           "frSub": "Le vocabulaire",
           "layer": "core",
-          "title": "The twenty words",
+          "terms": [
+            "careful",
+            "erEnding",
+            "hMuet",
+            "hAspire"
+          ],
+          "title": "The words worth banking",
           "render": "deck"
         },
         {
@@ -3436,8 +3666,20 @@
           },
           "size": "md",
           "type": "dictation",
+          "audio": {
+            "mode": "recorded",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-dictation-10"
+          },
           "frSub": "Dictée",
           "layer": "core",
+          "terms": [
+            "ipa"
+          ],
           "title": "Write what you cannot hear",
           "render": "screens",
           "itemIds": [
@@ -3451,7 +3693,8 @@
             "fr.sons.muettes.036",
             "fr.sons.muettes.016",
             "fr.sons.muettes.051"
-          ]
+          ],
+          "questionsInModal": true
         },
         {
           "id": "s11-listening",
@@ -3462,6 +3705,14 @@
           },
           "size": "md",
           "type": "listening",
+          "audio": {
+            "mode": "recorded",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-listening-passage"
+          },
           "frSub": "Compréhension orale",
           "layer": "core",
           "lines": [
@@ -3543,7 +3794,8 @@
               ],
               "correct": 1
             }
-          ]
+          ],
+          "questionsInModal": true
         },
         {
           "id": "s12-speak",
@@ -3554,9 +3806,23 @@
           },
           "size": "xl",
           "type": "practice",
+          "audio": {
+            "mode": "mic",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "scoreOn": "targetSegment",
+            "modelPlayback": true
+          },
           "frSub": "À vous",
           "layer": "core",
           "skill": "speak",
+          "terms": [
+            "careful",
+            "erEnding",
+            "ipa"
+          ],
           "title": "Say it out loud",
           "render": "screens",
           "itemIds": [
@@ -3570,7 +3836,8 @@
             "fr.sons.muettes.047",
             "fr.sons.muettes.055",
             "fr.sons.muettes.057"
-          ]
+          ],
+          "questionsInModal": true
         },
         {
           "id": "s13-scenario",
@@ -3612,7 +3879,8 @@
             }
           ],
           "render": "screens",
-          "setting": "Marché Saint-Antoine, Lyon, Saturday just after ten"
+          "setting": "Marché Saint-Antoine, Lyon, Saturday just after ten",
+          "imageRef": "lessons/muettes/scene-marche.jpg"
         },
         {
           "id": "s14-errors",
@@ -3623,8 +3891,24 @@
           },
           "size": "lg",
           "type": "commonErrors",
+          "audio": {
+            "mode": "recorded",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "wrongThenRight": true
+          },
           "frSub": "Les erreurs classiques",
           "layer": "core",
+          "swipe": true,
+          "terms": [
+            "careful",
+            "erEnding",
+            "hMuet",
+            "eSwitch",
+            "silentEnt"
+          ],
           "title": "Eight things everyone gets wrong",
           "errors": [
             {
@@ -3677,11 +3961,24 @@
             "voice": "coach",
             "timing": "onEnter"
           },
-          "size": "lg",
+          "size": "xl",
           "type": "practice",
+          "audio": {
+            "mode": "recorded",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-careful-pairs"
+          },
           "frSub": "Écoutez bien",
           "layer": "core",
           "skill": "listen",
+          "terms": [
+            "careful",
+            "erEnding"
+          ],
           "title": "R or no R",
           "render": "screens",
           "itemIds": [
@@ -3691,7 +3988,8 @@
             "fr.sons.muettes.023",
             "fr.sons.muettes.038",
             "fr.sons.muettes.024"
-          ]
+          ],
+          "questionsInModal": true
         },
         {
           "id": "s16-reading",
@@ -3703,10 +4001,110 @@
           "size": "md",
           "text": "Thomas habite à Paris. Il est petit et très gentil. En hiver, il porte un grand manteau et un sac noir. Le matin, il parle avec le boulanger du quartier. Ils parlent beaucoup, mais Thomas ne comprend pas tout. Le chef du café lui offre un thé. C'est trop chaud. Thomas attend deux minutes. Puis il dit : « Merci beaucoup. »",
           "type": "reading",
+          "audio": {
+            "mode": "recorded",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-reading-passage",
+            "perSentenceReplay": true
+          },
           "frSub": "Lecture",
           "layer": "core",
+          "terms": [
+            "careful",
+            "erEnding",
+            "silentEnt"
+          ],
           "title": "Seventy words, thirty-one silent letters",
           "render": "screens",
+          "glossary": [
+            {
+              "en": "Paris",
+              "ipa": "/pa.ʁi/",
+              "note": "Final S silent, even on a proper noun.",
+              "word": "Paris"
+            },
+            {
+              "en": "small",
+              "ipa": "/pə.ti/",
+              "note": "Final T silent. Ends on the ee.",
+              "word": "petit"
+            },
+            {
+              "en": "kind, nice",
+              "ipa": "/ʒɑ̃.ti/",
+              "note": "A CaReFuL L that stays silent. Compare avril.",
+              "word": "gentil"
+            },
+            {
+              "en": "winter",
+              "ipa": "/i.vɛʁ/",
+              "note": "Silent H at the front, sounded R at the end.",
+              "word": "hiver"
+            },
+            {
+              "en": "big",
+              "ipa": "/ɡʁɑ̃/",
+              "note": "Final D silent, and the AN is one nasal sound.",
+              "word": "grand"
+            },
+            {
+              "en": "bag",
+              "ipa": "/sak/",
+              "note": "CaReFuL C. The K sound lands.",
+              "word": "sac"
+            },
+            {
+              "en": "speaks",
+              "ipa": "/paʁl/",
+              "note": "Silent final -e. One syllable, not two.",
+              "word": "parle"
+            },
+            {
+              "en": "baker",
+              "ipa": "/bu.lɑ̃.ʒe/",
+              "note": "Job noun in -er. The R is silent.",
+              "word": "boulanger"
+            },
+            {
+              "en": "speak (they)",
+              "ipa": "/paʁl/",
+              "note": "All four letters of -ent silent. Sounds exactly like « il parle ».",
+              "word": "parlent"
+            },
+            {
+              "en": "a lot",
+              "ipa": "/bo.ku/",
+              "note": "Final P silent. Eight letters, four sounds.",
+              "word": "beaucoup"
+            },
+            {
+              "en": "everything",
+              "ipa": "/tu/",
+              "note": "Final T silent.",
+              "word": "tout"
+            },
+            {
+              "en": "chef, boss",
+              "ipa": "/ʃɛf/",
+              "note": "CaReFuL F. Sounded, same as English.",
+              "word": "chef"
+            },
+            {
+              "en": "too",
+              "ipa": "/tʁo/",
+              "note": "Final P silent.",
+              "word": "trop"
+            },
+            {
+              "en": "two",
+              "ipa": "/dø/",
+              "note": "The X from the bakery. Silent.",
+              "word": "deux"
+            }
+          ],
           "questions": [
             {
               "a": "Paris. Four of the five: the S is silent, so it is /pa.ʁi/.",
@@ -3728,10 +4126,16 @@
               "a": "None of them. Every non-CaReFuL final in this passage is silent, which is the point: the default holds across a whole paragraph of real French.",
               "q": "Find the one word in the passage whose final consonant you would sound even though it is not CaReFuL."
             }
-          ]
+          ],
+          "questionsInModal": true
         },
         {
           "id": "s17-review",
+          "say": {
+            "text": "Twelve cards. Answer each one out loud before you swipe.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
           "size": "lg",
           "type": "reviewDeck",
           "cards": [
@@ -3786,6 +4190,15 @@
           ],
           "frSub": "Révision",
           "layer": "core",
+          "terms": [
+            "careful",
+            "erEnding",
+            "hMuet",
+            "hAspire",
+            "eSwitch",
+            "silentEnt",
+            "liaison"
+          ],
           "title": "The system, not the words",
           "render": "deck"
         },
@@ -4311,6 +4724,14 @@
           "type": "roundup",
           "frSub": "L'essentiel",
           "layer": "core",
+          "terms": [
+            "careful",
+            "erEnding",
+            "hMuet",
+            "hAspire",
+            "eSwitch",
+            "liaison"
+          ],
           "title": "What you take with you",
           "points": [
             "Silent unless there's a reason. That is your default for every final consonant, on every word, forever.",
@@ -4320,7 +4741,8 @@
             "A silent final -e is an alarm clock for the consonant in front of it, and that is how you hear gender.",
             "Those silent finals are sleeping, not dead. Before a vowel, some of them wake up: deux‿euros, petit‿ami. That is liaison, and it is your next lesson."
           ],
-          "render": "screens"
+          "render": "screens",
+          "imageRef": "lessons/muettes/roundup.jpg"
         }
       ],
       "deckTranche": [
@@ -49194,6 +49616,27 @@
       "cardType": "vocab"
     },
     {
+      "id": "fr.sons.muettes.010",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "tout",
+      "en": "all, everything",
+      "ipa": "/tu/",
+      "respell": "TOO",
+      "tags": [
+        "silent-final",
+        "silent-t"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
       "id": "fr.a1.cafe.049",
       "kind": "sentence",
       "level": "a1",
@@ -50034,6 +50477,28 @@
       "drills": [
         "sentence",
         "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.011",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "pied",
+      "en": "foot",
+      "ipa": "/pje/",
+      "respell": "PYAY",
+      "gender": "m",
+      "tags": [
+        "silent-final",
+        "silent-d"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
         "review"
       ],
       "audioRef": null,
@@ -51742,6 +52207,27 @@
       "drills": [
         "sentence",
         "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.012",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "froid",
+      "en": "cold",
+      "ipa": "/fʁwa/",
+      "respell": "FRWA",
+      "tags": [
+        "silent-final",
+        "silent-d"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
         "review"
       ],
       "audioRef": null,
@@ -53909,6 +54395,29 @@
       "version": 1
     },
     {
+      "id": "fr.sons.muettes.013",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "prix",
+      "en": "price",
+      "ipa": "/pʁi/",
+      "respell": "PREE",
+      "gender": "m",
+      "tags": [
+        "silent-final",
+        "silent-x"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
       "id": "fr.b1.famille.019",
       "kind": "word",
       "level": "b1",
@@ -54240,6 +54749,28 @@
       "drills": [
         "flashcard",
         "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.054",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "blanche",
+      "en": "white (feminine)",
+      "ipa": "/blɑ̃ʃ/",
+      "respell": "BLAHⁿSH",
+      "tags": [
+        "e-switch",
+        "gender-audible",
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
       ],
       "audioRef": null,
       "version": 1
@@ -145881,16 +146412,132 @@
       "version": 1
     },
     {
-      "id": "fr.sons.muettes.010",
+      "id": "fr.sons.muettes.061",
       "kind": "word",
       "level": "sons",
       "theme": "muettes",
-      "fr": "tout",
-      "en": "all, everything",
-      "ipa": "/tu/",
-      "respell": "TOO",
+      "fr": "net",
+      "en": "clear, sharp",
+      "ipa": "/nɛt/",
+      "respell": "NET",
+      "notes": "A final T that sounds. Compare nez /ne/, which does not.",
       "tags": [
-        "silent-final",
+        "exception",
+        "sounded-t"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.062",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "os",
+      "en": "bone",
+      "ipa": "/ɔs/",
+      "respell": "OSS",
+      "gender": "m",
+      "notes": "Singular /ɔs/ with the S. The plural les os is /le.zo/, no S at all.",
+      "tags": [
+        "exception",
+        "sounded-s"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.063",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "sens",
+      "en": "meaning, direction",
+      "ipa": "/sɑ̃s/",
+      "respell": "SAHⁿS",
+      "gender": "m",
+      "notes": "The S sounds here, against every default. One of the six to memorise.",
+      "tags": [
+        "exception",
+        "sounded-s",
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.043",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "héros",
+      "en": "hero",
+      "ipa": "/e.ʁo/",
+      "respell": "ay-ROH",
+      "gender": "m",
+      "notes": "H aspiré. Still silent, but the article stays whole: le héros, not l'.",
+      "tags": [
+        "h-aspire"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.044",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "hibou",
+      "en": "owl",
+      "ipa": "/i.bu/",
+      "respell": "ee-BOO",
+      "gender": "m",
+      "notes": "H aspiré. A tiny gap between le and ibou.",
+      "tags": [
+        "h-aspire"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.045",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "haricot",
+      "en": "bean",
+      "ipa": "/a.ʁi.ko/",
+      "respell": "a-ree-KOH",
+      "gender": "m",
+      "notes": "H aspiré, and the T at the end is silent as usual.",
+      "tags": [
+        "h-aspire",
         "silent-t"
       ],
       "drills": [
@@ -145902,18 +146549,18 @@
       "version": 1
     },
     {
-      "id": "fr.sons.muettes.011",
+      "id": "fr.sons.muettes.046",
       "kind": "word",
       "level": "sons",
       "theme": "muettes",
-      "fr": "pied",
-      "en": "foot",
-      "ipa": "/pje/",
-      "respell": "PYAY",
-      "gender": "m",
+      "fr": "honte",
+      "en": "shame",
+      "ipa": "/ɔ̃t/",
+      "respell": "OHⁿT",
+      "gender": "f",
       "tags": [
-        "silent-final",
-        "silent-d"
+        "h-aspire",
+        "nasal"
       ],
       "drills": [
         "flashcard",
@@ -145924,45 +146571,160 @@
       "version": 1
     },
     {
-      "id": "fr.sons.muettes.012",
+      "id": "fr.sons.muettes.047",
       "kind": "word",
       "level": "sons",
       "theme": "muettes",
-      "fr": "froid",
-      "en": "cold",
-      "ipa": "/fʁwa/",
-      "respell": "FRWA",
+      "fr": "grande",
+      "en": "big, tall (feminine)",
+      "ipa": "/ɡʁɑ̃d/",
+      "respell": "GRAHⁿD",
+      "notes": "The E stays silent. The D wakes up.",
       "tags": [
-        "silent-final",
-        "silent-d"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.013",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "prix",
-      "en": "price",
-      "ipa": "/pʁi/",
-      "respell": "PREE",
-      "gender": "m",
-      "tags": [
-        "silent-final",
-        "silent-x"
+        "e-switch",
+        "gender-audible",
+        "nasal"
       ],
       "drills": [
         "flashcard",
         "voiceflash",
         "review",
         "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.048",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "petite",
+      "en": "small (feminine)",
+      "ipa": "/pə.tit/",
+      "respell": "pə-TEET",
+      "notes": "Now you can hear which one it is.",
+      "tags": [
+        "e-switch",
+        "gender-audible"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.049",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "verte",
+      "en": "green (feminine)",
+      "ipa": "/vɛʁt/",
+      "respell": "VEHRT",
+      "tags": [
+        "e-switch",
+        "gender-audible"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.050",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "porte",
+      "en": "door",
+      "ipa": "/pɔʁt/",
+      "respell": "PORT",
+      "gender": "f",
+      "notes": "Not POR-tuh. The E adds no syllable, it only wakes the T.",
+      "tags": [
+        "e-switch"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.051",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "française",
+      "en": "French (feminine)",
+      "ipa": "/fʁɑ̃.sɛz/",
+      "respell": "frahⁿ-SEHZ",
+      "notes": "The woken S comes back as a Z sound.",
+      "tags": [
+        "e-switch",
+        "gender-audible",
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.052",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "longue",
+      "en": "long (feminine)",
+      "ipa": "/lɔ̃ɡ/",
+      "respell": "LOHⁿG",
+      "tags": [
+        "e-switch",
+        "gender-audible",
+        "nasal"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.muettes.053",
+      "kind": "word",
+      "level": "sons",
+      "theme": "muettes",
+      "fr": "heureuse",
+      "en": "happy (feminine)",
+      "ipa": "/œ.ʁøz/",
+      "respell": "eu-REUZ",
+      "tags": [
+        "e-switch",
+        "gender-audible",
+        "h-muet"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
       ],
       "audioRef": null,
       "version": 1
@@ -146632,277 +147394,6 @@
       "version": 1
     },
     {
-      "id": "fr.sons.muettes.043",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "héros",
-      "en": "hero",
-      "ipa": "/e.ʁo/",
-      "respell": "ay-ROH",
-      "gender": "m",
-      "notes": "H aspiré. Still silent, but the article stays whole: le héros, not l'.",
-      "tags": [
-        "h-aspire"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review",
-        "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.044",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "hibou",
-      "en": "owl",
-      "ipa": "/i.bu/",
-      "respell": "ee-BOO",
-      "gender": "m",
-      "notes": "H aspiré. A tiny gap between le and ibou.",
-      "tags": [
-        "h-aspire"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.045",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "haricot",
-      "en": "bean",
-      "ipa": "/a.ʁi.ko/",
-      "respell": "a-ree-KOH",
-      "gender": "m",
-      "notes": "H aspiré, and the T at the end is silent as usual.",
-      "tags": [
-        "h-aspire",
-        "silent-t"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.046",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "honte",
-      "en": "shame",
-      "ipa": "/ɔ̃t/",
-      "respell": "OHⁿT",
-      "gender": "f",
-      "tags": [
-        "h-aspire",
-        "nasal"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.047",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "grande",
-      "en": "big, tall (feminine)",
-      "ipa": "/ɡʁɑ̃d/",
-      "respell": "GRAHⁿD",
-      "notes": "The E stays silent. The D wakes up.",
-      "tags": [
-        "e-switch",
-        "gender-audible",
-        "nasal"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review",
-        "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.048",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "petite",
-      "en": "small (feminine)",
-      "ipa": "/pə.tit/",
-      "respell": "pə-TEET",
-      "notes": "Now you can hear which one it is.",
-      "tags": [
-        "e-switch",
-        "gender-audible"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review",
-        "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.049",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "verte",
-      "en": "green (feminine)",
-      "ipa": "/vɛʁt/",
-      "respell": "VEHRT",
-      "tags": [
-        "e-switch",
-        "gender-audible"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.050",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "porte",
-      "en": "door",
-      "ipa": "/pɔʁt/",
-      "respell": "PORT",
-      "gender": "f",
-      "notes": "Not POR-tuh. The E adds no syllable, it only wakes the T.",
-      "tags": [
-        "e-switch"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review",
-        "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.051",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "française",
-      "en": "French (feminine)",
-      "ipa": "/fʁɑ̃.sɛz/",
-      "respell": "frahⁿ-SEHZ",
-      "notes": "The woken S comes back as a Z sound.",
-      "tags": [
-        "e-switch",
-        "gender-audible",
-        "nasal"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review",
-        "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.052",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "longue",
-      "en": "long (feminine)",
-      "ipa": "/lɔ̃ɡ/",
-      "respell": "LOHⁿG",
-      "tags": [
-        "e-switch",
-        "gender-audible",
-        "nasal"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.053",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "heureuse",
-      "en": "happy (feminine)",
-      "ipa": "/œ.ʁøz/",
-      "respell": "eu-REUZ",
-      "tags": [
-        "e-switch",
-        "gender-audible",
-        "h-muet"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.054",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "blanche",
-      "en": "white (feminine)",
-      "ipa": "/blɑ̃ʃ/",
-      "respell": "BLAHⁿSH",
-      "tags": [
-        "e-switch",
-        "gender-audible",
-        "nasal"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
       "id": "fr.sons.muettes.055",
       "kind": "phrase",
       "level": "sons",
@@ -147031,75 +147522,6 @@
       "tags": [
         "exception",
         "sounded-s"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.061",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "net",
-      "en": "clear, sharp",
-      "ipa": "/nɛt/",
-      "respell": "NET",
-      "notes": "A final T that sounds. Compare nez /ne/, which does not.",
-      "tags": [
-        "exception",
-        "sounded-t"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.062",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "os",
-      "en": "bone",
-      "ipa": "/ɔs/",
-      "respell": "OSS",
-      "gender": "m",
-      "notes": "Singular /ɔs/ with the S. The plural les os is /le.zo/, no S at all.",
-      "tags": [
-        "exception",
-        "sounded-s"
-      ],
-      "drills": [
-        "flashcard",
-        "voiceflash",
-        "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.sons.muettes.063",
-      "kind": "word",
-      "level": "sons",
-      "theme": "muettes",
-      "fr": "sens",
-      "en": "meaning, direction",
-      "ipa": "/sɑ̃s/",
-      "respell": "SAHⁿS",
-      "gender": "m",
-      "notes": "The S sounds here, against every default. One of the six to memorise.",
-      "tags": [
-        "exception",
-        "sounded-s",
-        "nasal"
       ],
       "drills": [
         "flashcard",

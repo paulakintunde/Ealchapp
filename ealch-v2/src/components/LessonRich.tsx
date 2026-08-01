@@ -22,7 +22,8 @@ import { sound } from '@/services';
 import { content } from '@/services/content';
 import { noteFor } from '@/services/content.logic';
 import { lessonImage } from '@/content/lessonImages';
-import type { GridLetter, LessonSection, TapRow, VocabTheme } from '@/content/schema';
+import { deckEntries } from '@/content/deck.logic';
+import type { CardSize, GridLetter, LessonSection, TapRow, VocabTheme } from '@/content/schema';
 
 // The rich course renderers behind the Sons rebuild: tappable letter grids,
 // nested swipe decks, tap-to-open tables, themed vocab hubs, embedded
@@ -59,6 +60,76 @@ export function RichImage({ refKey, ratio = 16 / 9 }: { refKey?: string; ratio?:
     <View style={{ width: '100%', aspectRatio: ratio, borderRadius: 18, marginBottom: 14, overflow: 'hidden', backgroundColor: t.line(6) }}>
       <Image source={src} resizeMode="cover" accessibilityIgnoresInvertColors style={{ width: '100%', height: '100%' }} />
     </View>
+  );
+}
+
+/** The breathing swipe arrow, laid OVER the right edge of the card it applies
+ *  to rather than in a header row above the deck.
+ *
+ *  Two reasons it moved. It now points at the actual swipe target instead of
+ *  describing it from a distance, and the header row it used to live in cost
+ *  vertical space that every card then had to give back — which is space the
+ *  card needs to fit on screen without the page scrolling.
+ *
+ *  It must stay pointerEvents="none": an overlay that accepts touches inside a
+ *  horizontal ScrollView swallows the very swipe it is advertising. */
+function DeckArrow({ dir, show }: { dir: 'right' | 'down'; show: boolean }) {
+  const t = useTheme();
+  // Same 900ms in-out breath the header arrows used. Motion is what tells
+  // someone the deck moves; a static chevron reads as decoration.
+  const drift = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!show) {
+      drift.setValue(0);
+      return;
+    }
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(drift, { toValue: 1, duration: 900, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+        Animated.timing(drift, { toValue: 0, duration: 900, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      ])
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [drift, show]);
+
+  if (!show) return null;
+  const down = dir === 'down';
+  // The breath travels the way the arrow points.
+  const move = drift.interpolate({ inputRange: [0, 1], outputRange: [0, 5] });
+  const fade = drift.interpolate({ inputRange: [0, 1], outputRange: [0.45, 1] });
+
+  return (
+    <Animated.View
+      pointerEvents="none"
+      style={{
+        position: 'absolute',
+        // Sideways sits mid-height on the right edge; down sits bottom-center,
+        // over the end of the text it is telling you to keep reading.
+        ...(down
+          ? { bottom: 10, alignSelf: 'center', left: 0, right: 0 }
+          : { right: 10, top: '50%', marginTop: -13 }),
+        alignItems: 'center',
+        justifyContent: 'center',
+        transform: down ? [{ translateY: move }] : [{ translateX: move }],
+        opacity: fade,
+      }}
+    >
+      <View
+        style={{
+          width: 26,
+          height: 26,
+          borderRadius: 13,
+          alignItems: 'center',
+          justifyContent: 'center',
+          // A faint disc so the chevron stays legible over an image as well as
+          // over the card fill.
+          backgroundColor: t.alpha(t.bgDeep, 30),
+        }}
+      >
+        <Icon name={down ? 'chevronDown' : 'chevronRight'} size={13} color={t.accTx} strokeWidth={2} />
+      </View>
+    </Animated.View>
   );
 }
 
@@ -241,28 +312,205 @@ type DeckSection = Extract<LessonSection, { type: 'cardDeck' }>;
 // meaningful share of what made opening a content-heavy lesson slow.
 const CARD_WINDOW = 1;
 
-export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & PlayProps) {
-  const t = useTheme();
-  const { width, height } = useWindowDimensions();
-  const [ix, setIx] = useState(0);
-  // Card width leaves a peek of the next card so the deck reads as swipeable
-  // at a glance; snap keeps one card centered. Cards run at least half the
-  // screen tall so the deck feels like a real card, not a strip.
-  const cardW = width - 48 - 28;
-  const step = cardW + 12;
-  // Chrome: eyebrow, deck hint row, page padding. A horizontal deck of
-  // fixed-height cards inside the page's vertical scroller is the combination
-  // that hid content, so the height is derived, not guessed.
-  const cardH = useCardHeight(300);
+// How much of the room it is given a card of each size may occupy. A fraction,
+// not a pixel budget: the deck MEASURES the space it actually got (see
+// onLayout below) instead of guessing what the chrome around it costs, so this
+// holds on any screen without a table of magic numbers per device.
+//
+// 'lg' takes essentially all of it (a rule or a contrast wants the room), 'md'
+// deliberately leaves air around a prose card so it reads as a card rather
+// than a panel, and 'xl' is a single French word at display size, which needs
+// less height than either.
+const DECK_FILL: Record<CardSize, number> = { xl: 0.78, lg: 1, md: 0.86 };
 
-  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const i = Math.round(e.nativeEvent.contentOffset.x / step);
-    if (i !== ix) setIx(Math.max(0, Math.min(s.cards.length - 1, i)));
+// The short-screen image split lives in content/deck.logic.ts — a pure module,
+// so `node --test` can cover the RULE rather than grepping this file's source.
+
+/** One card in a deck: a sealed box that scrolls its own overflow, and an arrow
+ *  that says which way there is more.
+ *
+ *  The arrow and the scrolling are ONE mechanism, not two. A card that can
+ *  still scroll down but shows a sideways chevron actively lies: it advertises
+ *  the next card while the rest of this one is still hidden, which is how a
+ *  learner swipes past the half of a card they never read. So the arrow points
+ *  DOWN while this card has more to show, and only turns sideways once the
+ *  learner has reached the bottom. Reaching the end of the card is what unlocks
+ *  the invitation to leave it. */
+function DeckCard({
+  c,
+  pid,
+  w,
+  h,
+  current,
+  hasNext,
+  imageOnly = false,
+  textOnly = false,
+  onPlay,
+  playingId,
+}: {
+  c: DeckSection['cards'][number];
+  pid: string;
+  w: number;
+  h: number;
+  current: boolean;
+  hasNext: boolean;
+  /** Short-screen split: this card shows only the illustration... */
+  imageOnly?: boolean;
+  /** ...and this one only the words that went with it. */
+  textOnly?: boolean;
+} & PlayProps) {
+  const t = useTheme();
+  // Does the content overflow the box, and has the learner reached the bottom?
+  //
+  // `over` is driven by BOTH signals because neither is reliable alone:
+  // onContentSizeChange reports the content height on native, but on RN Web the
+  // content box is clamped to the scroller, so it reports "fits" for a card
+  // that plainly does not. onScroll's contentSize is authoritative once the
+  // learner touches the card, and a scroll event that reveals more content
+  // promotes `over` even if the size callback never did.
+  const [over, setOver] = useState(false);
+  const [atEnd, setAtEnd] = useState(true);
+  const layoutH = useRef(0);
+  const contentH = useRef(0);
+  const measure = () => {
+    const o = contentH.current > layoutH.current + 8;
+    if (o) setOver(true);
+    // A card that does not overflow is trivially "at the end".
+    else setAtEnd(true);
   };
 
   return (
-    <View>
-      <DeckHint hint={s.hint} ix={ix} total={s.cards.length} />
+    <View
+      // FIXED height, not minHeight. minHeight let a long card grow past its
+      // budget, which put the bottom of the card under the fold and forced a
+      // page scroll. The card is a sealed box; overflow is handled inside it.
+      style={{ width: w, marginRight: 12, height: h, borderRadius: 20, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, overflow: 'hidden' }}
+    >
+      <ScrollView
+        nestedScrollEnabled
+        showsVerticalScrollIndicator={false}
+        scrollEventThrottle={64}
+        onLayout={(e) => {
+          layoutH.current = e.nativeEvent.layout.height;
+          measure();
+        }}
+        onContentSizeChange={(_, ch) => {
+          contentH.current = ch;
+          measure();
+        }}
+        onScroll={(e: NativeSyntheticEvent<NativeScrollEvent>) => {
+          const ne = e.nativeEvent;
+          // Authoritative: these are real measured values on both platforms.
+          if (ne.contentSize.height > ne.layoutMeasurement.height + 8) setOver(true);
+          setAtEnd(ne.contentOffset.y + ne.layoutMeasurement.height >= ne.contentSize.height - 12);
+        }}
+        // No flexGrow here. Stretching the content box to the scroller's height
+        // makes onContentSizeChange report the CLAMPED height, so a card that
+        // overflows looks like it fits — and the arrow then points sideways at
+        // the next card while a third of this one is still unread.
+        contentContainerStyle={imageOnly ? { padding: 20, flexGrow: 1, justifyContent: 'center' } : { padding: 20 }}
+      >
+        {/* textOnly is the second half of a short-screen split: the image was
+            just shown on its own card, so repeating it here would undo the
+            split. Everything else renders exactly as it always did. */}
+        {textOnly ? null : <RichImage refKey={c.imageRef} />}
+        {imageOnly ? null : (
+          <>
+        {c.label ? (
+          <TX font="semi" role="meta" ls={2} color={t.accTx} style={{ marginBottom: 10 }}>{c.label}</TX>
+        ) : null}
+        {c.head ? (
+          <TX font="semi" role="titleLg" size={20} lhMult={1.3} style={{ width: '100%', marginBottom: 10 }}>{c.head}</TX>
+        ) : null}
+        {c.fr ? (
+          <TX font="serifI" size={26} role="titleLg" ls={0.4} lhMult={1.3} color={t.txPrimary} style={{ width: '100%', marginBottom: 6 }}>
+            {c.fr}
+          </TX>
+        ) : null}
+        {c.sub ? (
+          <TX role="label" color={t.txMuted} ls={0.3} lhMult={1.5} style={{ width: '100%', marginBottom: 10 }}>{c.sub}</TX>
+        ) : null}
+        {c.fr ? (
+          <View style={{ marginBottom: c.body ? 14 : 0 }}>
+            <ListenButton id={pid} text={c.fr} onPlay={onPlay} playingId={playingId} size={58} />
+          </View>
+        ) : null}
+        {c.body ? (
+          <TX role="bodySm" color={t.txSecondary} lhMult={1.6} style={{ width: '100%' }}>{c.body}</TX>
+        ) : null}
+          </>
+        )}
+      </ScrollView>
+      {/* More of THIS card first; only then the next one. */}
+      <DeckArrow dir="down" show={current && over && !atEnd} />
+      <DeckArrow dir="right" show={current && hasNext && (!over || atEnd)} />
+    </View>
+  );
+}
+
+export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & PlayProps) {
+  const t = useTheme();
+  const { width } = useWindowDimensions();
+  const [ix, setIx] = useState(0);
+  // Card width leaves a peek of the next card so the deck reads as swipeable
+  // at a glance; snap keeps one card centered.
+  const cardW = width - 48 - 28;
+  const step = cardW + 12;
+
+  // ── Why this measures instead of calling useCardHeight ───────────────────
+  //
+  // useCardHeight takes a GUESS at the surrounding chrome and subtracts it
+  // from the window, then floors the result at 300. Both halves break a deck.
+  // The guess cannot know what this particular page put above the rail (the
+  // eyebrow wraps to two lines at a large font scale, term chips may or may
+  // not be there), and the 300 floor actively defeats the goal: on a short
+  // screen the correct answer IS a card under 300, and forcing 300 is what
+  // pushes the bottom of the card off the page.
+  //
+  // The deck owns the viewport (ownsLayout in LessonPager), so it measures the
+  // box it was handed and takes a share of it. No constant to keep in sync with
+  // a layout it cannot see.
+  //
+  // The room the cards actually get is that box MINUS the dots/hint row under
+  // them, and both are measured. Guessing the footer with a constant is the
+  // same mistake as guessing the chrome — a wrapped hint or a large font scale
+  // makes it wrong, and being wrong here means the card overlaps the dots
+  // instead of sitting above them.
+  const [boxH, setBoxH] = useState(0);
+  const [footH, setFootH] = useState(0);
+  const fill = DECK_FILL[s.size ?? 'lg'];
+  const railH = boxH > 0 && footH > 0 ? boxH - footH : 0;
+  // Until both measurements land, render at zero rather than at a wrong guess:
+  // a card that appears at the right size is better than one that jumps.
+  const cardH = railH > 0 ? Math.max(120, Math.round(railH * fill)) : 0;
+
+  // On a short screen an illustrated card becomes two: the image, then the
+  // words. Derived from the SAME measurement that sizes the cards, so the
+  // decision and the size can never disagree.
+  const entries = deckEntries(s.cards, cardH);
+
+  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const i = Math.round(e.nativeEvent.contentOffset.x / step);
+    if (i !== ix) setIx(Math.max(0, Math.min(entries.length - 1, i)));
+  };
+
+  return (
+    // The page hands the deck the viewport (ownsLayout in LessonPager), and
+    // THIS box is what gets measured.
+    //
+    // Measuring the rail itself does not work, and the failure is silent: a
+    // rail's height comes from the cards inside it, and the cards' height comes
+    // from the measurement. First layout reports 0, so the cards render at 0,
+    // so the rail stays 0 forever. Measuring the outer box breaks the cycle
+    // because its height comes from the PAGE (flex: 1), never from the cards.
+    <View
+      style={{ flex: 1, justifyContent: 'center' }}
+      onLayout={(e) => {
+        const h = Math.round(e.nativeEvent.layout.height);
+        // Ignore sub-pixel churn; a rotation or font-scale change still lands.
+        if (Math.abs(h - boxH) > 1) setBoxH(h);
+      }}
+    >
       <ScrollView
         horizontal
         directionalLockEnabled
@@ -271,54 +519,59 @@ export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & Play
         snapToInterval={step}
         decelerationRate="fast"
         onMomentumScrollEnd={onScroll}
-        contentContainerStyle={{ paddingRight: 28 }}
+        // Pinned to exactly the room the cards were allotted. Left to grow, the
+        // rail takes the whole box and the cards paint over the dots row.
+        style={{ flexGrow: 0, flexShrink: 0, height: cardH || undefined }}
+        contentContainerStyle={{ paddingRight: 28, alignItems: 'center' }}
       >
-        {s.cards.map((c, i) => {
+        {entries.map((e, i) => {
           if (Math.abs(i - ix) > CARD_WINDOW) {
-            return <View key={i} style={{ width: cardW, marginRight: 12, minHeight: cardH }} />;
+            return <View key={i} style={{ width: cardW, marginRight: 12, height: cardH }} />;
           }
-          const pid = `${s.title}-card-${i}`;
           return (
-            <View
+            <DeckCard
               key={i}
-              style={{ width: cardW, marginRight: 12, borderRadius: 20, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 20, minHeight: cardH }}
-            >
-              <RichImage refKey={c.imageRef} />
-              {c.label ? (
-                <TX font="semi" role="meta" ls={2} color={t.accTx} style={{ marginBottom: 10 }}>{c.label}</TX>
-              ) : null}
-              {c.head ? (
-                <TX font="semi" role="titleLg" size={20} lhMult={1.3} style={{ width: '100%', marginBottom: 10 }}>{c.head}</TX>
-              ) : null}
-              {c.fr ? (
-                <TX font="serifI" size={26} role="titleLg" ls={0.4} lhMult={1.3} color={t.txPrimary} style={{ width: '100%', marginBottom: 6 }}>
-                  {c.fr}
-                </TX>
-              ) : null}
-              {c.sub ? (
-                <TX role="label" color={t.txMuted} ls={0.3} lhMult={1.5} style={{ width: '100%', marginBottom: 10 }}>{c.sub}</TX>
-              ) : null}
-              {c.fr ? (
-                <View style={{ marginBottom: c.body ? 14 : 0 }}>
-                  <ListenButton id={pid} text={c.fr} onPlay={onPlay} playingId={playingId} size={58} />
-                </View>
-              ) : null}
-              {c.body ? (
-                <TX role="bodySm" color={t.txSecondary} lhMult={1.6} style={{ width: '100%' }}>{c.body}</TX>
-              ) : null}
-            </View>
+              c={e.c}
+              pid={`${s.title}-card-${i}`}
+              w={cardW}
+              h={cardH}
+              current={i === ix}
+              hasNext={i < entries.length - 1}
+              imageOnly={e.imageOnly}
+              textOnly={e.textOnly}
+              onPlay={onPlay}
+              playingId={playingId}
+            />
           );
         })}
       </ScrollView>
-      {/* Position: dots for short decks, a counter once dots would crowd. */}
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5, marginTop: 12 }}>
-        {s.cards.length <= 10 ? (
-          s.cards.map((_, i) => (
-            <View key={i} style={{ width: i === ix ? 16 : 5, height: 5, borderRadius: 3, backgroundColor: i === ix ? t.acc : t.line(14) }} />
-          ))
-        ) : (
-          <TX role="meta" color={t.txSubtle}>{ix + 1} / {s.cards.length}</TX>
-        )}
+      {/* Position + the authored hint, on ONE row under the deck. The hint used
+          to sit in a header row above the cards; merging it into the row that
+          already exists gives the card back that height, which is what lets a
+          medium card fit without the page scrolling. */}
+      <View
+        style={{ marginTop: 10, gap: 6 }}
+        onLayout={(e) => {
+          // Measured, not assumed — this row is what the cards must clear.
+          const h = Math.round(e.nativeEvent.layout.height) + 10; // + marginTop
+          if (Math.abs(h - footH) > 1) setFootH(h);
+        }}
+      >
+        {/* Dots count ENTRIES, not authored cards: after a short-screen split
+            there are more things to swipe through than the content declares,
+            and dots that disagree with the rail are worse than no dots. */}
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5 }}>
+          {entries.length <= 10 ? (
+            entries.map((_, i) => (
+              <View key={i} style={{ width: i === ix ? 16 : 5, height: 5, borderRadius: 3, backgroundColor: i === ix ? t.acc : t.line(14) }} />
+            ))
+          ) : (
+            <TX role="meta" color={t.txSubtle}>{ix + 1} / {entries.length}</TX>
+          )}
+        </View>
+        {s.hint ? (
+          <TX role="meta" color={t.txSubtle} style={{ textAlign: 'center' }} numberOfLines={1}>{s.hint}</TX>
+        ) : null}
       </View>
     </View>
   );

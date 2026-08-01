@@ -239,8 +239,13 @@ export function SectionView({
       );
 
     case 'cardDeck':
+      // flex: 1, not a bottom margin. The deck measures the room it is handed
+      // to size its cards, so every wrapper between the page and it has to pass
+      // the height down — a hug-content box here made the deck measure ~0 and
+      // render zero-height cards. The label and hero still take their natural
+      // height above it; the deck takes the rest.
       return (
-        <View style={{ marginBottom: 26 }}>
+        <View style={{ flex: 1 }}>
           {label}
           {hero}
           <CardDeckView s={s} onPlay={onPlay} playingId={playingId} />
