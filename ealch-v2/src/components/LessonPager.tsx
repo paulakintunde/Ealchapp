@@ -17,7 +17,20 @@ import { QuizDeckView, RichImage, type QuizQuestion } from '@/components/LessonR
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { sound, audio } from '@/services';
-import { narrationOf, type LessonSection, type LessonTerm } from '@/content/schema';
+import { QuizRoundsView } from '@/components/QuizRoundsView';
+import { narrationOf, type LessonDrill, type LessonSection, type LessonTerm, type QuizQuestion as SchemaQuizQuestion } from '@/content/schema';
+import { quizQuestions as flattenRounds } from '@/content/schema';
+import type { QuizConfig } from '@/content/quizRounds.logic';
+
+/** The flat index of a question inside a round-based quiz.
+ *
+ *  `onQuizAnswer` is the screen's weak-spot logger and has always taken a
+ *  position in the flat question list. Rounds group the same questions, so
+ *  this maps one back to the other rather than changing a callback the
+ *  pre-v2 lessons still use. */
+function quizIndexOf(cfg: QuizConfig, q: SchemaQuizQuestion): number {
+  return flattenRounds({ rounds: cfg.rounds }).indexOf(q);
+}
 
 // The swipeable lesson reader. Where the old lesson body was one long vertical
 // scroll, this paginates it: a cover slide, one card per section, then — when
@@ -41,6 +54,14 @@ type LessonPagerProps = {
   terms?: Record<string, LessonTerm>;
   /** Opens a reference sheet from a section that previews one. */
   onOpenSheet?: (sheetId: string) => void;
+  /** The round-based quiz configuration, when the lesson declares rounds.
+   *  Absent on every pre-v2 lesson, which keeps the flat deck below. */
+  quizCfg?: QuizConfig | null;
+  /** Remediation drills the round engine fires on a failed round. */
+  drills?: LessonDrill[];
+  /** Opens the section a quiz question refers to, so a wrong answer can offer
+   *  "see this again" rather than only a verdict. */
+  onJumpToRef?: (sectionId: string) => void;
   onPlay: (id: string, text: string, audioRef?: string | null) => void;
   playingId: string | null;
   onGrade: (itemId: string, correct: boolean) => void;
@@ -224,6 +245,9 @@ export function LessonPager({
   sections,
   terms,
   onOpenSheet,
+  quizCfg,
+  drills,
+  onJumpToRef,
   onPlay,
   playingId,
   onGrade,
@@ -429,6 +453,36 @@ export function LessonPager({
           }
 
           if (entry.kind === 'quiz') {
+            // A lesson that declares ROUNDS gets the round engine: every
+            // question format renders, a failed round fires its drill before
+            // the next one starts, and a wrong answer offers a jump back to
+            // the section that taught it.
+            //
+            // Without rounds, the shipped flat deck is used exactly as before.
+            // That is what keeps the six pre-v2 lessons untouched: they carry
+            // no `rounds`, so they cannot take this branch.
+            if (quizCfg) {
+              return (
+                <View key={key} style={{ width }}>
+                  {/* The engine paces itself (one question per screen, drills
+                      between rounds), so it owns the viewport rather than
+                      scrolling inside a page. */}
+                  <PageScroll fixed contentStyle={{ paddingTop: 8, paddingBottom: 24 }}>
+                    <QuizRoundsView
+                      cfg={quizCfg}
+                      drills={drills ?? []}
+                      onAnswer={(q, correct) => onQuizAnswer(quizIndexOf(quizCfg, q), correct)}
+                      onComplete={onQuizComplete}
+                      onFinish={onFinish}
+                      finishLabel={finishLabel}
+                      onJumpToRef={onJumpToRef}
+                      onPlay={onPlay}
+                      playingId={playingId}
+                    />
+                  </PageScroll>
+                </View>
+              );
+            }
             return (
               <View key={key} style={{ width }}>
                 <PageScroll contentStyle={{ paddingHorizontal: 24, paddingTop: 8, paddingBottom: 24 }}>

@@ -18,6 +18,7 @@ import { formatDensity, validateDensity } from './density.logic.ts';
 import { silentIndicesValid } from './silent.logic.ts';
 import { hasSlow, pendingRecordings, referencedRecordingIds } from './lessonAudio.logic.ts';
 import { checkpointFor, releasedThrough, resumePlan, stoppingPoints } from './acts.logic.ts';
+import { advanceQuiz, answerQuestion, buildQuizConfig, drillForRound, initialQuizState } from './quizRounds.logic.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -374,6 +375,70 @@ test('dense missions are broken up rather than trimmed', { skip }, () => {
   for (const id of ['s11-listening', 's12-speak']) {
     ok(modal.includes(id), `${id} opens its questions in a modal`);
   }
+});
+
+test('EVERY quiz question is reachable, not just the multiple-choice ones', { skip }, () => {
+  // The bug: the screen filtered the quiz down to questions with `opts` and a
+  // numeric `correct`, because the flat deck renders mcq only. That silently
+  // discarded 12 of 32 — every tapSilent, errorSpot, typeIn and speak question
+  // was authored, validated, published, and never asked.
+  const q = LESSON!.sections.find((s) => s.type === 'quiz');
+  ok(q && q.type === 'quiz');
+  const all = quizQuestions(q);
+  strictEqual(all.length, 32);
+
+  // The round engine must cover every format the content uses.
+  const formats = new Set(all.map((x) => x.format ?? 'mcq'));
+  const view = readFileSync(resolve(here, '../components/QuizRoundsView.tsx'), 'utf8');
+  for (const fmt of formats) {
+    ok(new RegExp(`case '${fmt}':`).test(view) || fmt === 'mcq', `the engine renders "${fmt}" questions`);
+  }
+  // And the six production formats are genuinely present in this lesson, so
+  // the coverage above is not vacuous.
+  for (const fmt of ['mcq', 'tapSilent', 'listenChoose', 'errorSpot', 'typeIn', 'speak']) {
+    ok(formats.has(fmt), `the lesson exercises the "${fmt}" format`);
+  }
+});
+
+test('a failed round fires its drill, and every round can fire one', { skip }, () => {
+  const q = LESSON!.sections.find((s) => s.type === 'quiz');
+  ok(q && q.type === 'quiz');
+  const cfg = buildQuizConfig(q.rounds!, {
+    errorTriggers: LESSON!.errorTriggers,
+    drills: LESSON!.drills,
+    roundFailThreshold: q.roundFailThreshold,
+    passMark: q.passMark,
+  });
+
+  // Every round must resolve to a real drill through its declared trigger, or
+  // failing it teaches nothing.
+  const drillIds = new Set((LESSON!.drills ?? []).map((d) => d.id));
+  for (let i = 0; i < cfg.rounds.length; i++) {
+    const drill = drillForRound(cfg, i);
+    ok(drill, `round ${cfg.rounds[i].id} resolves a drill`);
+    ok(drillIds.has(drill!), `round ${cfg.rounds[i].id} names a drill that exists`);
+  }
+
+  // Failing round one must land ON the drill, not at the end of the quiz.
+  let s = initialQuizState();
+  for (let i = 0; i < cfg.rounds[0].questions.length; i++) {
+    s = answerQuestion(s, false);
+    s = advanceQuiz(cfg, s);
+  }
+  strictEqual(s.phase.kind, 'drill', 'remediation happens between rounds, not as a post-mortem');
+});
+
+test('the quiz engine is mounted, and only for lessons that declare rounds', () => {
+  // Runs unconditionally: this checks the WIRING, which is what was missing.
+  const pager = readFileSync(resolve(here, '../components/LessonPager.tsx'), 'utf8');
+  ok(/<QuizRoundsView/.test(pager), 'the round engine is rendered by the pager');
+  ok(/if \(quizCfg\)/.test(pager), 'it is gated on the lesson having a config');
+  ok(/<QuizDeckView/.test(pager), 'the flat deck survives for pre-v2 lessons');
+
+  const screen = readFileSync(resolve(here, '../../app/lesson.tsx'), 'utf8');
+  ok(/buildQuizConfig/.test(screen), 'the screen builds the config');
+  ok(/rounds\?\.length/.test(screen), 'and only when the lesson declares rounds');
+  ok(/onJumpToRef/.test(screen), 'the "see this again" jump is wired');
 });
 
 // ── Layout regressions ────────────────────────────────────────────────────

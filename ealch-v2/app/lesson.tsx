@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { FocusHeader, Press } from '@/components/ui';
 import { LessonPager } from '@/components/LessonPager';
+import { SheetLink, SheetSurface } from '@/components/ReferenceSheet';
 import { LessonKeyIntro } from '@/components/LessonKeyIntro';
 import { MascotAvatar } from '@/components/MascotAvatar';
 import { useTheme } from '@/theme/useTheme';
@@ -15,7 +16,8 @@ import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 import { lessonSkill } from '@/content/curriculum';
 import { sound, audio } from '@/services';
 import { content } from '@/services/content';
-import { unitBand, type Lesson, type LessonSection } from '@/content/schema';
+import { quizQuestions, unitBand, type Lesson, type LessonSection, type QuizQuestion } from '@/content/schema';
+import { buildQuizConfig } from '@/content/quizRounds.logic';
 import { FREE_BANDS } from '@/store/entitlement.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
@@ -88,6 +90,9 @@ export default function LessonScreen() {
   // "Restart the lesson" remounts the pager (fresh cover, fresh quiz) without
   // leaving the screen — the nonce is the remount key.
   const [runNonce, setRunNonce] = useState(0);
+  // The reference-sheet surface: null when closed, a sheet id when open, and
+  // '' when opened from the persistent header link (which lands on the index).
+  const [sheetId, setSheetId] = useState<string | null>(null);
 
   // Moving to the next lesson goes through router.replace on THIS screen, so
   // the component instance survives the navigation — per-lesson state must
@@ -189,7 +194,42 @@ export default function LessonScreen() {
 
   const contentSections = L.sections.filter((s) => s.type !== 'quiz');
   const quizSection = L.sections.find((s): s is Extract<LessonSection, { type: 'quiz' }> => s.type === 'quiz');
-  const quiz = quizSection?.questions ?? [];
+  // quizQuestions() flattens both quiz shapes (flat `questions`, or v2 `rounds`
+  // of eight) into one list. The deck below renders CLOSED questions only —
+  // those with options and a numeric answer — so the open v2 formats (typeIn,
+  // speak, errorSpot, tapSilent) are filtered out rather than rendered as
+  // broken option lists. The round-aware engine that plays every format is
+  // the next piece of work; until it lands, a v2 quiz degrades to its mcq and
+  // listenChoose questions instead of crashing.
+  // The round-based quiz, when the lesson declares rounds. This is what makes
+  // every question FORMAT reachable: the flat deck below renders mcq only, so
+  // a v2 lesson's tapSilent / errorSpot / typeIn / speak questions were being
+  // filtered out and silently never asked. Null for a pre-v2 lesson, which
+  // keeps the flat deck exactly as it was.
+  const quizCfg = useMemo(() => {
+    if (!quizSection?.rounds?.length) return null;
+    return buildQuizConfig(quizSection.rounds, {
+      errorTriggers: L.errorTriggers,
+      drills: L.drills,
+      roundFailThreshold: quizSection.roundFailThreshold,
+      passMark: quizSection.passMark,
+    });
+  }, [L.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // A wrong answer's "see this again": jump to the section that taught it.
+  // `initialIndex` is an index over contentSections (the pager's own list), so
+  // the section id is resolved against that rather than L.sections.
+  const jumpToRef = (sectionId: string) => {
+    const ix = contentSections.findIndex((sec) => (sec as { id?: string }).id === sectionId);
+    if (ix < 0) return;
+    sound.play('tap');
+    router.setParams({ at: `${L.id}#s${L.sections.indexOf(contentSections[ix])}.0` });
+  };
+
+  const quiz = quizQuestions(quizSection ?? {}).filter(
+    (q): q is QuizQuestion & { opts: string[]; correct: number } =>
+      Array.isArray(q.opts) && q.opts.length > 1 && typeof q.correct === 'number'
+  );
 
   // Keeps the lesson's resume slot pointed at wherever the pager currently is,
   // not just where it opened. `sectionIx` is an index into `contentSections`
@@ -303,6 +343,23 @@ export default function LessonScreen() {
     router.replace({ pathname: '/lesson', params: { key: nextL!.id } });
   };
 
+  // The reference sheets, over the lesson. Rendered as a full replacement
+  // rather than a modal: a sheet is a document to scan, and the learner
+  // arrives with a specific question they want room to answer.
+  if (sheetId !== null && L.sheets?.length) {
+    return (
+      <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
+        <SheetSurface
+          sheets={L.sheets}
+          initialSheetId={sheetId || undefined}
+          onClose={() => setSheetId(null)}
+          onPlay={play}
+          playingId={playingId}
+        />
+      </View>
+    );
+  }
+
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <View style={{ paddingTop: insets.top }}>
@@ -311,14 +368,20 @@ export default function LessonScreen() {
           onSettings={() => router.push('/settings')}
           title={L.tag}
           extra={
-            <Press
-              cue={null}
-              onPress={() => setShowKeyOverride(true)}
-              accessibilityLabel={T.lkHelp}
-              style={{ width: 32, height: 32, borderRadius: 16, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}
-            >
-              <TX font="bold" role="label" color={t.txSecondary}>?</TX>
-            </Press>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+              {/* The persistent reference link: one tap to the sheets from
+                  any screen of the lesson, which is what stops material
+                  pulled out of the flow from being lost. */}
+              <SheetLink count={L.sheets?.length ?? 0} onPress={() => setSheetId('')} />
+              <Press
+                cue={null}
+                onPress={() => setShowKeyOverride(true)}
+                accessibilityLabel={T.lkHelp}
+                style={{ width: 32, height: 32, borderRadius: 16, borderWidth: 1, borderColor: t.line(14), alignItems: 'center', justifyContent: 'center' }}
+              >
+                <TX font="bold" role="label" color={t.txSecondary}>?</TX>
+              </Press>
+            </View>
           }
         />
       </View>
@@ -346,6 +409,11 @@ export default function LessonScreen() {
         highlightIndex={deepLinkIx}
         onIndexChange={onLessonIndexChange}
         bottomInset={insets.bottom}
+        terms={L.terms}
+        onOpenSheet={L.sheets?.length ? (id) => setSheetId(id || L.sheets![0].id) : undefined}
+        quizCfg={quizCfg}
+        drills={L.drills}
+        onJumpToRef={jumpToRef}
       />
     </View>
   );
