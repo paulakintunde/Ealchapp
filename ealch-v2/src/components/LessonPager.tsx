@@ -17,7 +17,7 @@ import { QuizDeckView, RichImage, type QuizQuestion } from '@/components/LessonR
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { sound, audio } from '@/services';
-import type { LessonSection } from '@/content/schema';
+import { narrationOf, type LessonSection, type LessonTerm } from '@/content/schema';
 
 // The swipeable lesson reader. Where the old lesson body was one long vertical
 // scroll, this paginates it: a cover slide, one card per section, then — when
@@ -36,6 +36,11 @@ type LessonPagerProps = {
   title: string;
   intro: string;
   sections: LessonSection[];
+  /** The lesson's glossary, for the term chips its sections declare. Absent
+   *  on every pre-v2 lesson, which simply renders no chips. */
+  terms?: Record<string, LessonTerm>;
+  /** Opens a reference sheet from a section that previews one. */
+  onOpenSheet?: (sheetId: string) => void;
   onPlay: (id: string, text: string, audioRef?: string | null) => void;
   playingId: string | null;
   onGrade: (itemId: string, correct: boolean) => void;
@@ -75,12 +80,52 @@ type LessonPagerProps = {
 
 /** A card's vertical scroller plus the "there is more below" chevron that
  *  floats over the bottom edge until the learner reaches the end. */
-function PageScroll({ children, contentStyle }: { children: React.ReactNode; contentStyle?: ViewStyle }) {
+/**
+ * Does this section manage its own height, so the page must NOT wrap it in a
+ * vertical scroller?
+ *
+ * Two kinds qualify:
+ *   - anything showing a swipe deck, because a horizontal pager inside a
+ *     vertical scroller fights for the gesture and neither wins on Android
+ *   - the paged reading mission, which fills the screen and pages itself
+ *
+ * Everything else keeps the scrolling page it has always had. Getting this
+ * wrong in either direction is visible immediately: a scrolling page around a
+ * fixed card hides that card's action below the fold, and a fixed page around
+ * long prose clips it with no way to reach the rest.
+ */
+function ownsLayout(s: LessonSection): boolean {
+  if ((s as { swipe?: boolean }).swipe) return true;
+  if (s.type === 'reading' && (s as { questionsInModal?: boolean }).questionsInModal) return true;
+  return false;
+}
+
+function PageScroll({
+  children,
+  contentStyle,
+  fixed = false,
+}: {
+  children: React.ReactNode;
+  contentStyle?: ViewStyle;
+  /** The section manages its own height and scrolling (a swipe deck, a paged
+   *  reading mission). Wrapping one of those in a vertical scroller is what
+   *  made cards unreachable: the page scrolled AROUND a fixed-height card,
+   *  pushing its action below the fold, and on Android the two scrollers
+   *  fought over the gesture so neither moved. When fixed, this renders a
+   *  plain flex container and the section owns the viewport. */
+  fixed?: boolean;
+}) {
   const t = useTheme();
   const [more, setMore] = useState(false);
   const layoutH = useRef(0);
   const contentH = useRef(0);
   const update = () => setMore(contentH.current > layoutH.current + 24);
+
+  // A plain flex container: the section fills it and does its own scrolling.
+  if (fixed) {
+    return <View style={[{ flex: 1 }, contentStyle as ViewStyle]}>{children}</View>;
+  }
+
   return (
     <View style={{ flex: 1 }}>
       <ScrollView
@@ -177,6 +222,8 @@ export function LessonPager({
   title,
   intro,
   sections,
+  terms,
+  onOpenSheet,
   onPlay,
   playingId,
   onGrade,
@@ -232,7 +279,11 @@ export function LessonPager({
   // learner asked for it. The Listen chip always (re)starts from the top on
   // tap, which doubles as "replay" with no separate control.
   const [sayPlaying, setSayPlaying] = useState(false);
-  const say = currentSection?.say;
+  // `say` is a bare string on the shipped lessons and a {text, voice, timing}
+  // object on v2 ones. narrationOf() normalises both so the chip and the
+  // player below never have to know which shape this section used.
+  const sayText = currentSection ? (narrationOf(currentSection)?.text ?? null) : null;
+  const say = sayText;
   useEffect(() => {
     setSayPlaying(false);
   }, [page]);
@@ -247,7 +298,7 @@ export function LessonPager({
     audio.stop();
     setSayPlaying(true);
     audio.speakItem(
-      { fr: say, audioRef: currentSection?.audioRef },
+      { fr: sayText, audioRef: currentSection?.audioRef },
       { lang: 'en-US', onDone: () => setSayPlaying(false), onError: () => setSayPlaying(false) }
     );
   };
@@ -336,6 +387,8 @@ export function LessonPager({
       <ScrollView
         ref={ref}
         horizontal
+        nestedScrollEnabled
+        directionalLockEnabled
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
@@ -417,17 +470,21 @@ export function LessonPager({
           // Its image already got its own page above — the content page must
           // not render it a second time.
           const hasOwnImagePage = !!s.imageRef && HERO_SPLIT_TYPES.has(s.type);
+          const selfLaid = ownsLayout(s);
           return (
             <View key={key} style={{ width }}>
-              <PageScroll contentStyle={{ paddingHorizontal: 24, paddingTop: 8, paddingBottom: 24 }}>
+              <PageScroll fixed={selfLaid} contentStyle={{ paddingHorizontal: 24, paddingTop: 8, paddingBottom: 24 }}>
                 <View
-                  style={
+                  style={[
+                    // A self-laid section must fill the page whether or not it
+                    // is also the deep-link highlight; the two are independent.
+                    selfLaid ? { flex: 1 } : null,
                     highlighted
                       ? { borderRadius: 18, borderWidth: 1.5, borderColor: t.accA(40), backgroundColor: t.accA(5), padding: 10 }
-                      : undefined
-                  }
+                      : null,
+                  ]}
                 >
-                  <MissionSectionView s={s} onPlay={onPlay} playingId={playingId} onGrade={onGrade} graded={graded} showHero={!hasOwnImagePage} />
+                  <MissionSectionView s={s} onPlay={onPlay} playingId={playingId} onGrade={onGrade} graded={graded} showHero={!hasOwnImagePage} terms={terms} onOpenSheet={onOpenSheet} />
                 </View>
               </PageScroll>
             </View>

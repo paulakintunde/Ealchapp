@@ -6,6 +6,8 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { LessonModal } from '@/components/LessonModal';
 import { useTheme } from '@/theme/useTheme';
+import { QuestionModal } from '@/components/LessonDeck';
+import { useCardHeight } from '@/hooks/useCardHeight';
 import { useT } from '@/i18n/useT';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { content } from '@/services/content';
@@ -879,27 +881,110 @@ export function ListeningView({ s }: { s: ListeningSec }) {
           </View>
         ))}
       </View>
-      {s.questions.map((q, qi) => (
-        <View key={qi} style={{ marginBottom: 14 }}>
-          <TX role="body" style={{ marginBottom: 8 }}>{q.q}</TX>
-          <View style={{ gap: 8 }}>
-            {q.opts.map((o, oi) => {
-              const picked = answers[qi];
-              return (
-                <OptRow
-                  key={oi}
-                  label={o}
-                  onPress={() => {
-                    sound.play(oi === q.correct ? 'success' : 'error');
-                    setAnswers((a) => ({ ...a, [qi]: oi }));
-                  }}
-                  state={picked === undefined ? undefined : oi === q.correct ? 'correct' : oi === picked ? 'wrong' : 'other'}
-                />
-              );
-            })}
+      {/* Questions open ONE AT A TIME when the section asks for it. Listed
+          under the passage, a learner reads all six first and then listens FOR
+          the answers, which quietly turns a comprehension exercise into a
+          reading exercise. Behind a modal, they answer about what they
+          actually heard. */}
+      {s.questionsInModal ? (
+        <ListeningQuestionLauncher questions={s.questions} answers={answers} setAnswers={setAnswers} />
+      ) : (
+        s.questions.map((q, qi) => (
+          <View key={qi} style={{ marginBottom: 14 }}>
+            <TX role="body" style={{ marginBottom: 8 }}>{q.q}</TX>
+            <View style={{ gap: 8 }}>
+              {q.opts.map((o, oi) => {
+                const picked = answers[qi];
+                return (
+                  <OptRow
+                    key={oi}
+                    label={o}
+                    onPress={() => {
+                      sound.play(oi === q.correct ? 'success' : 'error');
+                      setAnswers((a) => ({ ...a, [qi]: oi }));
+                    }}
+                    state={picked === undefined ? undefined : oi === q.correct ? 'correct' : oi === picked ? 'wrong' : 'other'}
+                  />
+                );
+              })}
+            </View>
           </View>
-        </View>
-      ))}
+        ))
+      )}
+    </View>
+  );
+}
+
+/** The question rail: one row per question, each opening its own modal, with
+ *  the ones already answered marked. Compact on the page so the passage keeps
+ *  the screen, and one question at a time once tapped. */
+function ListeningQuestionLauncher({
+  questions,
+  answers,
+  setAnswers,
+}: {
+  questions: { q: string; opts: string[]; correct: number; why?: string }[];
+  answers: Record<number, number>;
+  setAnswers: (fn: (a: Record<number, number>) => Record<number, number>) => void;
+}) {
+  const t = useTheme();
+  const [open, setOpen] = useState<number | null>(null);
+  const done = Object.keys(answers).length;
+
+  return (
+    <View style={{ gap: 10 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        <TX role="bodySm" color={t.txMuted} style={{ flex: 1 }}>
+          Listen first, then answer.
+        </TX>
+        <TX role="meta" color={t.txSubtle}>{done} / {questions.length}</TX>
+      </View>
+
+      {questions.map((q, qi) => {
+        const picked = answers[qi];
+        const answered = picked !== undefined;
+        const right = answered && picked === q.correct;
+        return (
+          <Press
+            key={qi}
+            cue="tap"
+            onPress={() => setOpen(qi)}
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 11,
+              borderRadius: 14,
+              borderWidth: 1,
+              borderColor: answered ? (right ? t.accA(35) : t.dangerA(30)) : t.line(10),
+              backgroundColor: t.card,
+              paddingHorizontal: 15,
+              paddingVertical: 13,
+            }}
+          >
+            <TX role="meta" font="med" color={t.txSubtle} style={{ width: 16 }}>{qi + 1}</TX>
+            <TX role="bodySm" color={answered ? t.txMuted : t.txPrimary} style={{ flex: 1 }} numberOfLines={2}>
+              {q.q}
+            </TX>
+            {answered ? (
+              <Icon name={right ? 'check' : 'x'} size={14} color={right ? t.accTx : t.danger} />
+            ) : (
+              <Icon name="chevronRight" size={15} color={t.txNonText} />
+            )}
+          </Press>
+        );
+      })}
+
+      <QuestionModal
+        open={open !== null}
+        question={open !== null ? questions[open] : null}
+        index={open ?? undefined}
+        total={questions.length}
+        onClose={() => setOpen(null)}
+        onAnswer={(_correct: boolean, pickedIndex: number) => {
+          if (open === null) return;
+          setAnswers((a) => ({ ...a, [open]: pickedIndex }));
+        }}
+      />
     </View>
   );
 }
@@ -941,6 +1026,8 @@ export function ReviewDeckView({ s }: { s: ReviewDeckSec }) {
   const [ix, setIx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [buckets, setBuckets] = useState({ again: 0, hard: 0, easy: 0 });
+  // Chrome: eyebrow, counter, and the three rating buttons under the card.
+  const cardH = useCardHeight(300);
   const done = ix >= s.cards.length;
   if (done) {
     return (
@@ -960,9 +1047,13 @@ export function ReviewDeckView({ s }: { s: ReviewDeckSec }) {
     <View>
       <TX font="semi" role="meta" ls={2} color={t.txSubtle} style={{ marginBottom: 12 }}>{ix + 1} / {s.cards.length}</TX>
       <Press cue="flip" onPress={() => setFlipped((f) => !f)}>
-        <View style={{ minHeight: 180, borderRadius: 22, borderWidth: 1, borderColor: flipped ? t.accA(40) : t.line(10), backgroundColor: flipped ? t.accCard(8) : t.card, alignItems: 'center', justifyContent: 'center', padding: 24 }}>
-          <TX font="serifI" role="titleLg" center color={flipped ? t.accTx : t.txPrimary}>{flipped ? c.back : c.front}</TX>
-          {!flipped ? <TX role="bodySm" color={t.txSubtle} style={{ marginTop: 10 }}>Touchez pour révéler</TX> : null}
+        {/* Sized to the viewport, not fixed: the Encore / Difficile / Facile
+            row sits BELOW this card, and a fixed height pushed it under the
+            fold on shorter phones, so the learner had to scroll to rate a card
+            they could already read. */}
+        <View style={{ height: cardH, borderRadius: 22, borderWidth: 1, borderColor: flipped ? t.accA(40) : t.line(10), backgroundColor: flipped ? t.accCard(8) : t.card, alignItems: 'center', justifyContent: 'center', padding: 28 }}>
+          <TX font="serifI" role="display" size={flipped ? 26 : 30} center color={flipped ? t.accTx : t.txPrimary} style={{ lineHeight: flipped ? 36 : 40 }}>{flipped ? c.back : c.front}</TX>
+          {!flipped ? <TX role="bodySm" color={t.txSubtle} style={{ marginTop: 18 }}>Touchez pour révéler</TX> : null}
         </View>
       </Press>
       {flipped ? (

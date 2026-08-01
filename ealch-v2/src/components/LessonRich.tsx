@@ -16,6 +16,7 @@ import { MascotAvatar } from '@/components/MascotAvatar';
 import { Waveform } from '@/components/Waveform';
 import { LessonModal } from '@/components/LessonModal';
 import { useTheme } from '@/theme/useTheme';
+import { useCardHeight } from '@/hooks/useCardHeight';
 import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import { content } from '@/services/content';
@@ -67,15 +68,40 @@ export function RichImage({ refKey, ratio = 16 / 9 }: { refKey?: string; ratio?:
 function DeckHint({ hint, ix, total }: { hint?: string; ix: number; total: number }) {
   const t = useTheme();
   const T = useT();
+  // The chevrons BREATHE while there is somewhere left to swipe. Static ones
+  // read as decoration beside the text and did not tell anyone the deck moves;
+  // the motion is the part that does. It stops on the last card rather than
+  // nagging a learner who has finished.
+  const more = ix < total - 1;
+  const drift = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!more) {
+      drift.setValue(0);
+      return;
+    }
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(drift, { toValue: 1, duration: 900, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+        Animated.timing(drift, { toValue: 0, duration: 900, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      ])
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [drift, more]);
+  const x = drift.interpolate({ inputRange: [0, 1], outputRange: [0, 5] });
+  const fade = drift.interpolate({ inputRange: [0, 1], outputRange: [0.5, 1] });
+
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 12 }}>
       <TX role="meta" color={t.txSubtle} style={{ flexShrink: 1 }}>{hint ?? T.lessonSwipe}</TX>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Icon name="chevronRight" size={12} color={t.accTx} strokeWidth={2} />
-        <View style={{ marginLeft: -5 }}>
-          <Icon name="chevronRight" size={12} color={t.accA(45)} strokeWidth={2} />
-        </View>
-      </View>
+      {more ? (
+        <Animated.View style={{ flexDirection: 'row', alignItems: 'center', transform: [{ translateX: x }], opacity: fade }}>
+          <Icon name="chevronRight" size={12} color={t.accTx} strokeWidth={2} />
+          <View style={{ marginLeft: -5 }}>
+            <Icon name="chevronRight" size={12} color={t.accA(45)} strokeWidth={2} />
+          </View>
+        </Animated.View>
+      ) : null}
       <View style={{ flex: 1 }} />
       <TX role="meta" color={t.txSubtle}>{Math.min(ix + 1, total)} / {total}</TX>
     </View>
@@ -224,7 +250,10 @@ export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & Play
   // screen tall so the deck feels like a real card, not a strip.
   const cardW = width - 48 - 28;
   const step = cardW + 12;
-  const cardH = Math.max(300, Math.round(height * 0.5));
+  // Chrome: eyebrow, deck hint row, page padding. A horizontal deck of
+  // fixed-height cards inside the page's vertical scroller is the combination
+  // that hid content, so the height is derived, not guessed.
+  const cardH = useCardHeight(300);
 
   const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const i = Math.round(e.nativeEvent.contentOffset.x / step);
@@ -236,6 +265,7 @@ export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & Play
       <DeckHint hint={s.hint} ix={ix} total={s.cards.length} />
       <ScrollView
         horizontal
+        directionalLockEnabled
         nestedScrollEnabled
         showsHorizontalScrollIndicator={false}
         snapToInterval={step}
@@ -497,7 +527,9 @@ export function VocabThemesView({ themes, sectionTitle, onPlay, playingId }: { t
   const [sel, setSel] = useState<VocabTheme | null>(null);
   const [ix, setIx] = useState(0);
   const sheetCardW = width - 48 - 28;
-  const sheetCardH = Math.max(240, Math.round(height * 0.34));
+  // Inside a LessonModal capped at 78% height, so its chrome is the modal's
+  // padding and header rather than the page's.
+  const sheetCardH = Math.min(360, Math.max(240, height - 420));
   const step = sheetCardW + 12;
 
   return (
@@ -547,6 +579,7 @@ export function VocabThemesView({ themes, sectionTitle, onPlay, playingId }: { t
             </View>
             <ScrollView
               horizontal
+              directionalLockEnabled
               nestedScrollEnabled
               showsHorizontalScrollIndicator={false}
               snapToInterval={step}
@@ -590,7 +623,11 @@ export function FlashcardsView({ s, onPlay, playingId }: { s: FlashSection } & P
   const [ix, setIx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [known, setKnown] = useState(0);
-  const cardH = Math.max(300, Math.round(height * 0.42));
+  // The flashcard IS the screen. At 42% the word sat in a panel with half the
+  // viewport empty beneath it, which reads as a caption rather than a card to
+  // study. 58% (floor 400) gives the French word the room the XL scale asks
+  // for.
+  const cardH = useCardHeight(330);
 
   const anim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
@@ -725,7 +762,11 @@ export function PracticeVFView({
   const total = items.length;
   const over = ix >= total;
   const item = items[Math.min(ix, total - 1)];
-  const cardH = Math.max(300, Math.round(height * 0.42));
+  // The prompt card is the screen, not a panel near the top of it. At 42% the
+  // card left half the viewport empty below it and the French word read as a
+  // caption; 62% (floor 420) makes the word the thing you are looking at,
+  // which is the whole point of a production drill.
+  const cardH = useCardHeight(340);
 
   if (total === 0) return null;
 
@@ -849,7 +890,7 @@ export function QuizDeckView({
 
   const cardW = width - 48 - 28;
   const step = cardW + 12;
-  const cardH = Math.max(340, Math.round(height * 0.52));
+  const cardH = useCardHeight(320);
   const total = questions.length;
   const answered = answers.filter((a) => a !== null).length;
   const score = answers.filter((a, i) => a === questions[i].correct).length;
@@ -898,6 +939,7 @@ export function QuizDeckView({
       <ScrollView
         ref={ref}
         horizontal
+        directionalLockEnabled
         nestedScrollEnabled
         showsHorizontalScrollIndicator={false}
         snapToInterval={step}

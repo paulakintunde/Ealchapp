@@ -211,8 +211,48 @@ export const SECTION_TYPES = [
   'reading',
   'reviewDeck',
   'progressCheck',
+  // Lesson Architecture v2 sections (first used by sons.06.l1, Les lettres
+  // muettes) — same append-only rule as everything above.
+  //
+  // 'scene' is NOT a rename of 'story'. `story` renders a fixed array of
+  // bubbles together, which is a screenplay on a screen; `scene` walks beats
+  // one at a time and can interrupt itself with a full-screen `break` at the
+  // moment the learner's instinct fails. Both ship: the six lessons already
+  // using `story` keep working untouched.
+  //
+  // 'inhibitionDrill' is NOT pronunciationLab. The lab teaches a mouth
+  // position for a sound you are making. There is no mouth position for a
+  // sound you are NOT making, so a silent-letter lesson needs the inverse:
+  // training the STOP, which is a physical reflex drill, not articulation.
+  'scene',
+  'inhibitionDrill',
 ] as const;
 export type SectionType = (typeof SECTION_TYPES)[number];
+
+/* ─── Lesson Architecture v2: render, layer, size ─────────────────────────── */
+
+// The three display axes the v2 architecture adds. All three are OPTIONAL on
+// every section: a lesson authored before they existed renders exactly as it
+// did, and the density validator only enforces its rules on lessons that opt
+// in (see density.logic.ts / isV2Lesson). That is what lets the new model land
+// without migrating the six shipped lessons in the same change.
+
+/** How a section's content reaches the screen. `screens` walks one card at a
+ *  time, `deck` is a swipeable stack, `sheet` sends it to a reference sheet
+ *  where density rules are deliberately relaxed. */
+export const RENDER_MODES = ['screens', 'deck', 'sheet'] as const;
+export type RenderMode = (typeof RENDER_MODES)[number];
+
+/** How deep in the lesson a section sits. `core` is the flow every learner
+ *  walks and is density-capped; `more` is optional depth; `deep` is reference
+ *  material, scrollable, and the one place tables are allowed. */
+export const LAYERS = ['core', 'more', 'deep'] as const;
+export type Layer = (typeof LAYERS)[number];
+
+/** The card size scale. `xl` is one French word at display size and carries
+ *  roughly a third of a lesson; `lg` is a rule or a contrast; `md` is prose. */
+export const CARD_SIZES = ['xl', 'lg', 'md'] as const;
+export type CardSize = (typeof CARD_SIZES)[number];
 
 export const CONTENT_STATUSES = ['draft', 'in_review', 'published', 'archived'] as const;
 export type ContentStatus = (typeof CONTENT_STATUSES)[number];
@@ -534,13 +574,88 @@ export type Item = {
 /** `audioRef` is the pre-rendered clip for `say` (Phase 7's render-once
  *  pipeline — see AUDIO-RENDER-SPEC.md); null/absent falls back to live TTS. */
 export type SectionExtras = {
-  say?: string;
+  /** The card's narration script. A bare string is the shipped form and stays
+   *  valid forever; the object form adds the v2 architecture's voice and
+   *  timing, where `onFirstVisitOnly` stops a line repeating on every review.
+   *  Read it through `narrationOf()` rather than switching on the type at each
+   *  call site. */
+  say?: string | SectionNarration;
   imageRef?: string;
   audioRef?: string | null;
   /** French sub-line under the mission row's English title on the missions
    *  page (den overview flow). Display copy only; hidden when absent. */
   frSub?: string;
+
+  // ── Lesson Architecture v2 (all optional; absence = today's behaviour) ──
+
+  /** A stable handle for this section, e.g. 's05-families'. The shipped
+   *  lessons key sections by array index and object identity, which is fine
+   *  until something needs to POINT at one: a quiz question's `ref`, an act's
+   *  section list, a rest point. Those are ids, and an index would silently
+   *  retarget the moment a section is inserted. */
+  id?: string;
+  render?: RenderMode;
+  layer?: Layer;
+  /** The default card size for this section. Individual cards may still
+   *  differ; this is what the renderer falls back to. */
+  size?: CardSize;
+  /** The reference sheet this section's full content lives in, when the flow
+   *  shows only a preview of it. Resolves against Lesson.sheets. */
+  sheetId?: string;
+  /** How many items of a `sheet`-rendered section appear in the flow preview.
+   *  Ignored unless render is 'sheet'. */
+  previewCount?: number;
+  /** Glossary keys this section surfaces as tappable term chips.
+   *
+   *  The lesson's jargon is defined ONCE (see the lesson's `terms`) and
+   *  surfaced wherever it is used, so a learner meets the same explanation at
+   *  every point of use without any card carrying the definition inline. This
+   *  is what lets a term be explained repeatedly without repeating it. */
+  terms?: string[];
+  /** Render this section's items one at a time in a swipeable deck rather
+   *  than stacked on one screen. For missions whose content is a SEQUENCE of
+   *  equal things (steps, words, cards) — stacking those turns "one idea per
+   *  screen" into "nine ideas per scroll". */
+  swipe?: boolean;
+  /** Open this section's questions in a modal, one at a time, rather than
+   *  listing them under the content they ask about. */
+  questionsInModal?: boolean;
+  /** How this section sounds: which recording it wants, at what speeds, and
+   *  whether the audio leads the text.
+   *
+   *  Distinct from `audioRef`, which is the pre-rendered clip for the card's
+   *  narration. This is the FRENCH audio: the word, the passage, the model
+   *  reading. Absent means the section falls back to live TTS on whatever
+   *  French it displays, which is the shipped behaviour everywhere. */
+  audio?: SectionAudio;
 };
+
+/** A glossary entry. Defined once per lesson, surfaced anywhere via `terms`. */
+export type LessonTerm = {
+  term: string;
+  title: string;
+  body: string;
+  /** Worked examples. `itemId` resolves against the corpus, so a term's
+   *  examples never restate a transcription. */
+  examples?: { itemId: string; note?: string }[];
+};
+
+/** The v2 narration object. One or two spoken lines, performed by the coach
+ *  voice when the learner lands on the card — never a re-read of what is
+ *  already on it. */
+export type SectionNarration = {
+  text: string;
+  voice: 'coach';
+  timing: 'onEnter' | 'onFirstVisitOnly';
+};
+
+/** The spoken line of a section, whichever form `say` takes. One accessor so
+ *  no call site has to know both shapes exist. */
+export function narrationOf(s: SectionExtras): SectionNarration | null {
+  if (!s.say) return null;
+  if (typeof s.say === 'string') return { text: s.say, voice: 'coach', timing: 'onEnter' };
+  return s.say;
+}
 
 /** One tappable letter in a letterGrid: the glyph, its French NAME (respelled),
  *  the SOUND it makes inside words, and one example. `memo` is the memorize
@@ -553,6 +668,140 @@ export type GridLetter = {
   ex: string;
   exNote?: string;
   memo?: string;
+
+  // ── v2 additions (silent-letter grids) ──
+  //
+  // These extend the EXISTING letterGrid rather than adding a parallel type.
+  // GridLetter already models one glyph with one verdict and one example,
+  // which is structurally what a silent-letter grid needs — unlike GridSound,
+  // which models one sound with MANY spellings and would be the wrong shape
+  // inverted. `name` and `sound` stay required for the shipped alphabet grid;
+  // a silent-letter row sets `sound` to what the letter actually produces,
+  // which is often nothing.
+
+  /** What happens to this ending: sounded, silent, or it depends. */
+  verdict?: 'silent' | 'sounded' | 'conditional';
+  /** The one-line reason behind the verdict. */
+  rule?: string;
+  /** English-friendly respelling of `ex`, in the lesson's notation. */
+  respell?: string;
+  /** English gloss of `ex`. */
+  en?: string;
+  /** Character indices into `ex` that are written and not pronounced. */
+  silent?: number[];
+  /** The words that break this row's rule. */
+  exception?: string;
+  /** Whether this row appears in the in-flow preview, or only in the full
+   *  reference sheet. Absent counts as false: the sheet holds everything, the
+   *  flow holds what was chosen. */
+  preview?: boolean;
+};
+
+/* ─── Scene: the sequential story player (v2 missions 1 and 13) ───────────── */
+
+/** One beat of a scene. The learner advances beat by beat, so each is its own
+ *  screen rather than a line in a transcript. */
+export type SceneBeat =
+  /** Narrator voice over the situation. */
+  | { kind: 'narration'; text: string; size?: CardSize; audio?: SectionAudio }
+  /** One line of dialogue. `reveal: 'tap'` waits for the learner. */
+  | {
+      kind: 'bubble';
+      from: 'them' | 'you' | 'coach';
+      speaker?: string;
+      fr: string;
+      en: string;
+      ipa?: string;
+      respell?: string;
+      /** Stage direction shown under the bubble, e.g. "She leans in." */
+      stage?: string;
+      reveal?: 'tap' | 'auto';
+      size?: CardSize;
+      audio?: SectionAudio;
+    }
+  /** The commitment beat: the learner picks before being corrected. Both
+   *  options must be plausible, and exactly one carries the failing instinct. */
+  | {
+      kind: 'choice';
+      prompt: string;
+      size?: CardSize;
+      options: { fr: string; respell?: string; en: string; outcome: 'works' | 'breaks'; audio?: SectionAudio }[];
+      /** What the coach says after each outcome. Both are required, because
+       *  the break plays either way — see the note on `break` below. */
+      followUp?: { works: string; breaks: string };
+    }
+  /** The full-screen interrupt. The conversation stops and the wrong reading
+   *  sits against the right one in large type.
+   *
+   *  This plays whether the learner chose correctly or not. On a correct
+   *  choice it is framed as "that is right, and here is what the other option
+   *  would have done to you". The break is the teaching, not a penalty for
+   *  guessing wrong, and skipping it for a lucky guess would remove the one
+   *  screen the whole scene exists to deliver. */
+  | {
+      kind: 'break';
+      heading: string;
+      body: string;
+      wrong: { fr: string; ipa: string; respell?: string; en: string };
+      right: { fr: string; ipa: string; respell?: string; en: string };
+      coach?: string;
+      size?: CardSize;
+      audio?: SectionAudio;
+    }
+  /** The closing beat: what the scene proved. */
+  | { kind: 'resolve'; text: string; size?: CardSize };
+
+/** Where a scene happens. Rendered as the establishing card. */
+export type SceneSetting = {
+  place: string;
+  city?: string;
+  time?: string;
+  image?: string;
+  /** Looping room tone. Off by default: atmospheric once, grating by the
+   *  fourth replay. */
+  ambience?: string;
+};
+
+/* ─── Inhibition drill: training the stop ─────────────────────────────────── */
+
+/** One physical routine for suppressing a sound the reading reflex has already
+ *  queued. `practiceOn` names corpus items, so the words are never restated. */
+export type InhibitionTarget = {
+  label: string;
+  sub?: string;
+  steps: string[];
+  practiceOn: string[];
+  /** Whether this target captures and scores the learner's voice. */
+  mic?: boolean;
+  audio?: SectionAudio;
+};
+
+/* ─── Audio spec ──────────────────────────────────────────────────────────── */
+
+/** How one card sounds. `mode` distinguishes what the app must DO, which is
+ *  the distinction the audio service already makes: a `recordingId` resolves
+ *  to a real clip when the studio has delivered one and falls back to TTS
+ *  until then, exactly like `Item.audioRef`. */
+export type SectionAudio = {
+  mode: 'tts' | 'recorded' | 'mic' | 'none';
+  lang?: string;
+  /** Playback rates offered, e.g. [1, 0.65]. The slow one is long-press. */
+  speeds?: number[];
+  /** Names an entry in Lesson.audio.recorded. Unresolved ids play as TTS. */
+  recordingId?: string;
+  /** Which segment of a multi-word recording this card wants. */
+  clip?: string;
+  voice?: string;
+  autoplay?: boolean;
+  /** Contrast cards play the audio BEFORE the text resolves, so the ear
+   *  answers the question rather than the eye. */
+  audioFirst?: boolean;
+  /** Dictation caps replays, then unlocks the answer. */
+  maxPlays?: number;
+  modelPlayback?: boolean;
+  wrongThenRight?: boolean;
+  perSentenceReplay?: boolean;
+  scoreOn?: string;
 };
 
 /** One card in a nested swipeable deck. Every field optional except that a
@@ -611,7 +860,25 @@ export type GridSound = {
  *  (e.g. "A–F"), its items, and the one quick check that gates moving on. */
 export type SoundGroup = {
   label: string;
-  items: { fr: string; ipa?: string; note?: string }[];
+  /** The words worked in this group.
+   *
+   *  `fr`, `ipa` and `note` are the shipped shape. The rest are v2 additions
+   *  for a groupDrill rendering at XL: `itemId` joins the word to the corpus
+   *  (so the drill can score against a real item), `respell`, `en` and
+   *  `silent` are the XL card's other lines, and `pair` marks a card that
+   *  deliberately shows a contrast pair rather than one unit — without it the
+   *  xl-single-unit density rule refuses "grand · grande". All optional:
+   *  absence is exactly today's behaviour. */
+  items: {
+    fr: string;
+    ipa?: string;
+    note?: string;
+    itemId?: string;
+    respell?: string;
+    en?: string;
+    silent?: number[];
+    pair?: boolean;
+  }[];
   check: { q: string; opts: string[]; correct: number };
 };
 
@@ -634,6 +901,64 @@ export type LabSound = {
   steps: string[];
   itemIds: string[];
 };
+
+/* ─── Quiz ────────────────────────────────────────────────────────────────── */
+
+/** How a question is answered. `mcq` is the shipped default and stays the
+ *  assumption when `format` is absent, so every existing question is a valid
+ *  QuizQuestion unchanged. */
+export const QUIZ_FORMATS = ['mcq', 'tapSilent', 'listenChoose', 'typeIn', 'speak', 'errorSpot'] as const;
+export type QuizFormat = (typeof QUIZ_FORMATS)[number];
+
+/** One question.
+ *
+ *  `opts` + `correct` is the closed form (mcq, listenChoose). `accept` is the
+ *  open form (typeIn, errorSpot, speak): a list of answers counted right,
+ *  because there is more than one way to type an IPA string or respell a word.
+ *  `tapSilent` carries `word` plus the letters to tap in `correct`.
+ *
+ *  `why` and `ref` are what make a wrong answer teach instead of just scoring:
+ *  `why` is the one-line explanation, `ref` names the section to jump back to.
+ *  Both optional here for backward compatibility with the shipped quizzes; the
+ *  density validator REQUIRES both on any v2 lesson. */
+export type QuizQuestion = {
+  q: string;
+  format?: QuizFormat;
+  opts?: string[];
+  /** Index into `opts` for closed formats; the target string for tapSilent. */
+  correct?: number | string;
+  /** Accepted answers for open formats, compared case- and accent-folded. */
+  accept?: string[];
+  /** The canonical answer shown after an open-format attempt. */
+  answer?: string;
+  /** tapSilent: the word whose silent letters are tapped. */
+  word?: string;
+  /** speak: what the learner says, and the segment scored. */
+  target?: string;
+  ipa?: string;
+  scoreSegment?: string;
+  audio?: SectionAudio;
+  why?: string;
+  /** Section id this question tests, for the "see this again" jump. */
+  ref?: string;
+};
+
+/** Eight questions on one rule, tied to the error triggers it detects. */
+export type QuizRound = {
+  id: string;
+  label: string;
+  /** Error trigger ids this round scores against. */
+  targets?: string[];
+  say?: string | SectionNarration;
+  questions: QuizQuestion[];
+};
+
+/** Every question in a quiz, whichever shape it uses. The renderer and the
+ *  validators both go through this rather than checking for `rounds` twice. */
+export function quizQuestions(s: { questions?: QuizQuestion[]; rounds?: QuizRound[] }): QuizQuestion[] {
+  if (s.rounds?.length) return s.rounds.flatMap((r) => r.questions ?? []);
+  return s.questions ?? [];
+}
 
 export type LessonSection = (
   /** Prose. The explanation itself. */
@@ -680,10 +1005,24 @@ export type LessonSection = (
   /** Practice against real corpus items — this is the join between a lesson and
    *  the drills, and it is what lets a lesson exercise all four skills. */
   | { type: 'practice'; title: string; skill: PracticeSkill; itemIds: string[] }
+  /** The exam.
+   *
+   *  Two shapes, and both stay valid. `questions` is the flat list every
+   *  shipped lesson uses. `rounds` is the v2 form: the same questions grouped
+   *  into blocks of eight, each block tied to one rule and one error trigger,
+   *  so a learner who fails a round gets that round's drill before the next
+   *  one starts instead of a single verdict at the very end. A quiz carries
+   *  one or the other; `quizQuestions()` flattens either into a plain list. */
   | {
       type: 'quiz';
       title: string;
-      questions: { q: string; opts: string[]; correct: number; why?: string }[];
+      questions?: QuizQuestion[];
+      rounds?: QuizRound[];
+      /** Percent needed to pass overall. */
+      passMark?: number;
+      adaptive?: boolean;
+      /** Percent below which a ROUND fires its remediation drill. */
+      roundFailThreshold?: number;
     }
   /** The full A-Z as a tappable grid; each letter opens a detail card. */
   | { type: 'letterGrid'; title: string; letters: GridLetter[] }
@@ -737,16 +1076,50 @@ export type LessonSection = (
       type: 'listening';
       title: string;
       lines: { fr: string; en: string }[];
-      questions: { q: string; opts: string[]; correct: number }[];
+      /** `why` is optional here, as on a quiz question, so a comprehension
+       *  check can explain itself rather than only marking an answer. */
+      questions: { q: string; opts: string[]; correct: number; why?: string }[];
     }
-  /** A short passage plus optional short-answer comprehension questions. */
-  | { type: 'reading'; title: string; text: string; questions?: { q: string; a: string }[] }
+  /** A short passage plus optional short-answer comprehension questions.
+   *
+   *  `glossary` marks words inside `text` the learner can tap for a
+   *  translation and a note. That is what turns a wall of French into
+   *  something interrogable word by word: the passage stays uninterrupted and
+   *  the explanation is one tap away rather than in a margin. */
+  | {
+      type: 'reading';
+      title: string;
+      text: string;
+      questions?: { q: string; a: string }[];
+      glossary?: { word: string; en: string; ipa?: string; note?: string }[];
+    }
   /** A leitner-style closing review deck: again / hard / easy per card,
    *  rather than flashcards' known/again binary. */
   | { type: 'reviewDeck'; title: string; cards: { front: string; back: string; say?: string }[] }
   /** The mid-journey checkpoint: a short "here's where you stand" card
    *  before the final test, with a handful of authored stat labels. */
   | { type: 'progressCheck'; title: string; body: string; stats: { k: string; v: string }[] }
+
+  // ── Lesson Architecture v2 sections ─────────────────────────────────────
+  /** The sequential scene player: beats walked one at a time, with a choice
+   *  the learner commits to and a full-screen break that teaches. Replaces
+   *  `story`'s all-at-once bubble array for lessons that opt in. */
+  | {
+      type: 'scene';
+      title: string;
+      setting: SceneSetting;
+      beats: SceneBeat[];
+      closing?: { text: string; size?: CardSize };
+    }
+  /** Training the stop: physical routines for not making a sound, for the
+   *  case where there is no mouth position to teach. */
+  | {
+      type: 'inhibitionDrill';
+      title: string;
+      intro?: string;
+      targets: InhibitionTarget[];
+      closing?: { text: string };
+    }
 ) &
   SectionExtras;
 
@@ -815,7 +1188,124 @@ export type Lesson = {
     difficulty: 1 | 2 | 3 | 4 | 5;
     /** The overview tile, e.g. "Aa". */
     glyph?: string;
+    /** Total screens in the flow, so the cover can set expectation up front
+     *  rather than surprising someone twenty minutes in. */
+    screens?: number;
   };
+
+  // ── Lesson Architecture v2 ──────────────────────────────────────────────
+  //
+  // All optional. A lesson carrying `acts` is a v2 lesson and is subject to
+  // the density validator; one without is left exactly as it was.
+
+  /** The lesson's acts, in order. Each ends in a checkpoint that saves and
+   *  offers a clean exit, which is what makes a 241-screen lesson finishable:
+   *  six short journeys rather than one long one. */
+  acts?: LessonAct[];
+  /** The one line the lesson hangs on, e.g. "Silent unless there's a reason."
+   *  The density validator checks it appears VERBATIM in at least three
+   *  sections — a reframe repeated once is just a sentence. */
+  reframe?: string;
+  /** Mistakes worth detecting, and what to do about each. */
+  errorTriggers?: ErrorTrigger[];
+  /** Remediation drills, fired by an errorTrigger or a failed quiz round.
+   *  Deliberately NOT in `sections`: they are not part of the spine and a
+   *  learner who never trips one never sees them. */
+  drills?: LessonDrill[];
+  /** Reference sheets. Everything pulled out of the flow has to live
+   *  somewhere findable, or it creeps back in. */
+  sheets?: ReferenceSheet[];
+  /** Corpus item ids released to spaced repetition, in slices, as acts
+   *  complete. One entry per act, index-aligned with `acts`, so cards arrive
+   *  as they are taught instead of all at once at the end.
+   *
+   *  Slices of `itemIds`, not a separate card-id space: the SRS keys on
+   *  (itemId, modality) via srsKey(), so a parallel id would have nothing to
+   *  resolve against. */
+  deckTranche?: string[][];
+  /** Lesson-wide audio configuration and the recordings the studio owes. */
+  audio?: LessonAudio;
+  /** The lesson's glossary, keyed by the ids sections name in `terms`.
+   *  Defined once and surfaced at every point of use. */
+  terms?: Record<string, LessonTerm>;
+};
+
+/** One act: a named stretch of the lesson ending in a checkpoint. */
+export type LessonAct = {
+  id: string;
+  title: string;
+  /** Section ids in this act, in order. */
+  sections: string[];
+  /** The one line shown at the checkpoint. No confetti, no streak, no badge:
+   *  the reward for finishing an act is knowing where you are. */
+  milestone: string;
+  /** Screens in this act. Used with `restPoints` to check no stretch runs
+   *  past the checkpoint-spacing limit. */
+  estScreens: number;
+  /** Mid-act stopping places, as 'sectionId/marker'. A save and a one-line
+   *  note, without the milestone language reserved for act ends. */
+  restPoints?: string[];
+};
+
+/** A mistake the lesson knows how to detect and answer. */
+export type ErrorTrigger = {
+  id: string;
+  description: string;
+  /** Section ids (and 'sectionId/path' anchors) where this is watched for. */
+  detectOn: string[];
+  /** The drill id fired when it trips. */
+  drill: string;
+  /** The check that closes the loop afterwards. */
+  retest?: string;
+};
+
+/** A remediation drill. Short by design: help, not a detour. */
+export type LessonDrill = {
+  id: string;
+  title: string;
+  size?: CardSize;
+  format?: QuizFormat | 'sort' | 'flashcard';
+  /** Corpus items drilled, when the drill works over real words. */
+  items?: string[];
+  /** Contrast pairs, when it works over minimal pairs. */
+  pairs?: [string, string][];
+  /** Buckets for a 'sort' drill. */
+  buckets?: string[];
+  /** The coach line that frames the drill. */
+  coach?: string;
+  /** A one-question retest carries its own question inline. */
+  q?: string;
+  opts?: string[];
+  correct?: number;
+  why?: string;
+  audio?: SectionAudio;
+};
+
+/** A reference sheet: layer 'deep', scrollable, and the one place in the
+ *  product where tables and density are fine, because the learner arrives
+ *  with a specific question. */
+export type ReferenceSheet = {
+  id: string;
+  title: string;
+  layer?: Layer;
+  /** What this sheet holds, for the index. */
+  contains?: string[];
+  /** The sheet body. Sections here are exempt from the core density caps. */
+  sections?: LessonSection[];
+};
+
+/** Lesson-wide audio configuration. */
+export type LessonAudio = {
+  defaultLang?: string;
+  speeds?: number[];
+  coachVoice?: string;
+  interfaceSounds?: string[];
+  ambienceDefault?: 'on' | 'off';
+  /** The recordings this lesson wants from the studio. Each is referenced by
+   *  `recordingId` from a card's audio spec. Until a clip is delivered the
+   *  card falls back to TTS, so the lesson runs today and improves later
+   *  without a content change. */
+  recorded?: { id: string; desc: string; clipIds?: string[] }[];
 };
 
 /** What a lesson can offer beyond reading it. Order here is display order. */
@@ -1706,6 +2196,35 @@ export function validateItem(v: unknown, path = 'item'): Issue[] {
   return out;
 }
 
+/** Silent-letter indices against the word they annotate.
+ *
+ *  These are character offsets into a French string, hand-authored, and an
+ *  off-by-one is invisible in review: the card renders and greys the wrong
+ *  letter, teaching the opposite of what it means to. Two were caught this way
+ *  while authoring the sons.06 corpus, so this is checked rather than trusted.
+ *  Absence is fine — most words have no silent letters and say so with [] or
+ *  by omitting the field. */
+function validateSilent(silent: unknown, word: unknown, path: string): Issue[] {
+  if (silent === undefined) return [];
+  const out: Issue[] = [];
+  if (!isArr(silent)) return [{ path, message: 'silent must be an array of character indices' }];
+  if (!isStr(word)) {
+    return silent.length ? [{ path, message: 'silent indices need a word to index into' }] : [];
+  }
+  const chars = [...word];
+  for (const ix of silent) {
+    if (typeof ix !== 'number' || !Number.isInteger(ix)) {
+      out.push({ path, message: `silent index ${String(ix)} is not an integer` });
+    } else if (ix < 0 || ix >= chars.length) {
+      out.push({ path, message: `silent index ${ix} is outside "${word}" (0..${chars.length - 1})` });
+    } else if (!/[\p{L}']/u.test(chars[ix])) {
+      // Pointing at a space is always an authoring slip, and it greys nothing.
+      out.push({ path, message: `silent index ${ix} in "${word}" is "${chars[ix]}", not a letter` });
+    }
+  }
+  return out;
+}
+
 function validateSection(s: unknown, path: string): Issue[] {
   const out: Issue[] = [];
   const push = (m: string) => out.push({ path, message: m });
@@ -1718,7 +2237,62 @@ function validateSection(s: unknown, path: string): Issue[] {
   if (!isStr(sec.title)) push('title is required');
 
   // The shared extras, type-when-present on every section shape.
-  if (sec.say !== undefined && !isStr(sec.say)) push('say must be a non-empty string when present');
+  // `say` takes two shapes: the shipped bare string, and the v2 object with a
+  // voice and a timing. Both are valid forever — see SectionExtras.say.
+  if (sec.say !== undefined) {
+    if (isStr(sec.say)) {
+      // fine
+    } else if (typeof sec.say === 'object' && sec.say !== null) {
+      const n = sec.say as Partial<SectionNarration>;
+      if (!isStr(n.text)) push('say.text is required when say is an object');
+      if (n.voice !== undefined && n.voice !== 'coach') push("say.voice must be 'coach'");
+      if (n.timing !== undefined && n.timing !== 'onEnter' && n.timing !== 'onFirstVisitOnly') {
+        push("say.timing must be 'onEnter' or 'onFirstVisitOnly'");
+      }
+    } else {
+      push('say must be a string or a narration object when present');
+    }
+  }
+
+  // The v2 display axes. Optional everywhere; wrong values are still errors,
+  // because a typo'd layer silently opts a section out of the density caps.
+  if (sec.id !== undefined && !isStr(sec.id)) push('id must be a non-empty string when present');
+  if (sec.render !== undefined && !oneOf(RENDER_MODES, sec.render)) {
+    push(`render must be one of ${RENDER_MODES.join(' | ')}`);
+  }
+  if (sec.layer !== undefined && !oneOf(LAYERS, sec.layer)) push(`layer must be one of ${LAYERS.join(' | ')}`);
+  if (sec.size !== undefined && !oneOf(CARD_SIZES, sec.size)) push(`size must be one of ${CARD_SIZES.join(' | ')}`);
+  if (sec.sheetId !== undefined && !isStr(sec.sheetId)) push('sheetId must be a non-empty string when present');
+  if (sec.previewCount !== undefined && (typeof sec.previewCount !== 'number' || !Number.isInteger(sec.previewCount) || sec.previewCount < 0)) {
+    push('previewCount must be a non-negative integer when present');
+  }
+  if (sec.terms !== undefined) {
+    if (!isArr(sec.terms) || sec.terms.some((x) => !isStr(x))) {
+      push('terms must be an array of glossary keys when present');
+    }
+  }
+  for (const flag of ['swipe', 'questionsInModal'] as const) {
+    if (sec[flag] !== undefined && typeof sec[flag] !== 'boolean') push(`${flag} must be a boolean when present`);
+  }
+  // The French-audio spec. Only checked on section types that do NOT already
+  // own an `audio` field of their own shape (the 'audio' section's is a
+  // string[] of lines), so the two never fight.
+  if (sec.type !== 'audio' && sec.audio !== undefined) {
+    const a = sec.audio as Partial<SectionAudio>;
+    if (typeof a !== 'object' || a === null) push('audio must be an object when present');
+    else {
+      if (a.mode !== undefined && !['tts', 'recorded', 'mic', 'none'].includes(a.mode)) {
+        push("audio.mode must be 'tts' | 'recorded' | 'mic' | 'none'");
+      }
+      if (a.speeds !== undefined && (!isArr(a.speeds) || a.speeds.some((n) => typeof n !== 'number' || n <= 0))) {
+        push('audio.speeds must be an array of positive numbers');
+      }
+      if (a.recordingId !== undefined && !isStr(a.recordingId)) push('audio.recordingId must be a non-empty string');
+      if (a.maxPlays !== undefined && (typeof a.maxPlays !== 'number' || a.maxPlays < 1)) {
+        push('audio.maxPlays must be a positive number when present');
+      }
+    }
+  }
   if (sec.imageRef !== undefined && (!isStr(sec.imageRef) || !IMAGE_REF_RE.test(sec.imageRef))) {
     push(`imageRef "${String(sec.imageRef)}" must be a storage-relative asset path`);
   }
@@ -1816,31 +2390,91 @@ function validateSection(s: unknown, path: string): Issue[] {
       break;
     }
     case 'quiz': {
-      const qs = sec.questions;
-      if (!isArr(qs) || qs.length === 0) {
-        push('questions must be a non-empty array');
+      // Two shapes: the shipped flat `questions`, and the v2 `rounds` of
+      // eight. Exactly one must be present — a quiz carrying both would leave
+      // the renderer to guess which list is the real exam.
+      const hasRounds = isArr(sec.rounds) && sec.rounds.length > 0;
+      const hasFlat = isArr(sec.questions) && sec.questions.length > 0;
+      if (hasRounds && hasFlat) {
+        push('a quiz carries either questions or rounds, not both');
         break;
       }
-      qs.forEach((q, i) => {
+      if (!hasRounds && !hasFlat) {
+        push('questions (or rounds) must be a non-empty array');
+        break;
+      }
+
+      /** One question, in either shape. Closed formats index `opts`; open
+       *  formats (typeIn, errorSpot, speak) are answered against `accept` and
+       *  legitimately carry no options at all. */
+      const checkQ = (q: unknown, qp: string) => {
         if (typeof q !== 'object' || q === null) {
-          push(`questions[${i}] is not an object`);
+          push(`${qp} is not an object`);
           return;
         }
-        const qq = q as { q?: unknown; opts?: unknown; correct?: unknown };
-        if (!isStr(qq.q)) push(`questions[${i}].q is required`);
-        if (!isArr(qq.opts) || qq.opts.length < 2 || qq.opts.some((o) => !isStr(o))) {
-          push(`questions[${i}].opts must be 2+ non-empty strings`);
-        } else if (
-          typeof qq.correct !== 'number' ||
-          !Number.isInteger(qq.correct) ||
-          qq.correct < 0 ||
-          qq.correct >= qq.opts.length
-        ) {
-          // An out-of-range `correct` makes a question unanswerable: every
-          // option scores wrong and the learner is told they failed.
-          push(`questions[${i}].correct must index opts (0..${qq.opts.length - 1})`);
+        const qq = q as Partial<QuizQuestion>;
+        if (!isStr(qq.q)) push(`${qp}.q is required`);
+        if (qq.format !== undefined && !oneOf(QUIZ_FORMATS, qq.format)) {
+          push(`${qp}.format must be one of ${QUIZ_FORMATS.join(' | ')}`);
         }
-      });
+        const open = qq.format === 'typeIn' || qq.format === 'errorSpot' || qq.format === 'speak';
+        if (open) {
+          // An open question with nothing to accept can never be answered
+          // right. `speak` is scored by the recogniser, so a target is enough.
+          if (!isArr(qq.accept) || qq.accept.length === 0) {
+            if (qq.format !== 'speak') push(`${qp}.accept must be a non-empty array for format "${qq.format}"`);
+          } else if (qq.accept.some((a) => !isStr(a))) {
+            push(`${qp}.accept must all be non-empty strings`);
+          }
+          if (qq.format === 'speak' && !isStr(qq.target)) push(`${qp}.target is required for format "speak"`);
+        } else if (qq.format === 'tapSilent') {
+          if (!isStr(qq.word)) push(`${qp}.word is required for format "tapSilent"`);
+          if (!isStr(qq.correct)) push(`${qp}.correct must name the silent letters for format "tapSilent"`);
+        } else {
+          // mcq, listenChoose, and the shipped format-less questions.
+          if (!isArr(qq.opts) || qq.opts.length < 2 || qq.opts.some((o) => !isStr(o))) {
+            push(`${qp}.opts must be 2+ non-empty strings`);
+          } else if (
+            typeof qq.correct !== 'number' ||
+            !Number.isInteger(qq.correct) ||
+            qq.correct < 0 ||
+            qq.correct >= qq.opts.length
+          ) {
+            // An out-of-range `correct` makes a question unanswerable: every
+            // option scores wrong and the learner is told they failed.
+            push(`${qp}.correct must index opts (0..${(isArr(qq.opts) ? qq.opts.length : 1) - 1})`);
+          }
+        }
+      };
+
+      if (hasFlat) {
+        (sec.questions as unknown[]).forEach((q, i) => checkQ(q, `questions[${i}]`));
+      } else {
+        (sec.rounds as unknown[]).forEach((r, ri) => {
+          if (typeof r !== 'object' || r === null) {
+            push(`rounds[${ri}] is not an object`);
+            return;
+          }
+          const rr = r as Partial<QuizRound>;
+          if (!isStr(rr.id)) push(`rounds[${ri}].id is required`);
+          if (!isStr(rr.label)) push(`rounds[${ri}].label is required`);
+          if (!isArr(rr.questions) || rr.questions.length === 0) {
+            push(`rounds[${ri}].questions must be a non-empty array`);
+            return;
+          }
+          rr.questions.forEach((q, i) => checkQ(q, `rounds[${ri}].questions[${i}]`));
+        });
+      }
+
+      for (const [k, lo, hi] of [
+        ['passMark', 0, 100],
+        ['roundFailThreshold', 0, 100],
+      ] as const) {
+        const v = sec[k];
+        if (v !== undefined && (typeof v !== 'number' || v < lo || v > hi)) {
+          push(`${k} must be a number between ${lo} and ${hi} when present`);
+        }
+      }
       break;
     }
     case 'letterGrid': {
@@ -1855,14 +2489,132 @@ function validateSection(s: unknown, path: string): Issue[] {
           return;
         }
         const g = l as Partial<GridLetter>;
-        // `ch` is the tap target painted in the grid cell: one glyph, always.
-        if (!isStr(g.ch) || g.ch.length !== 1) push(`letters[${i}].ch must be a single character`);
+        // `ch` is the tap target painted in the grid cell. One glyph for the
+        // alphabet grid; a silent-letter grid labels ENDINGS ('-ent', '-gt'),
+        // so a short multi-character label is allowed there and only there.
+        if (!isStr(g.ch)) push(`letters[${i}].ch is required`);
+        else if (g.ch.length > 1 && g.verdict === undefined) {
+          push(`letters[${i}].ch must be a single character (multi-character endings need a verdict)`);
+        } else if (g.ch.length > 12) push(`letters[${i}].ch "${g.ch}" is too long for a grid cell`);
         for (const f of ['name', 'sound', 'ex'] as const) {
           if (!isStr(g[f])) push(`letters[${i}].${f} is required`);
         }
-        for (const f of ['ipa', 'exNote', 'memo'] as const) {
+        for (const f of ['ipa', 'exNote', 'memo', 'rule', 'respell', 'en', 'exception'] as const) {
           if (g[f] !== undefined && !isStr(g[f])) push(`letters[${i}].${f} must be a non-empty string when present`);
         }
+        if (g.verdict !== undefined && !['silent', 'sounded', 'conditional'].includes(g.verdict)) {
+          push(`letters[${i}].verdict must be silent | sounded | conditional`);
+        }
+        if (g.preview !== undefined && typeof g.preview !== 'boolean') push(`letters[${i}].preview must be a boolean`);
+        out.push(...validateSilent(g.silent, g.ex, `${path}.letters[${i}]`));
+      });
+      break;
+    }
+    case 'scene': {
+      const st = sec.setting as Partial<SceneSetting> | undefined;
+      if (typeof st !== 'object' || st === null) push('setting is required');
+      else if (!isStr(st.place)) push('setting.place is required');
+
+      const beats = sec.beats;
+      if (!isArr(beats) || beats.length === 0) {
+        push('beats must be a non-empty array');
+        break;
+      }
+      let choices = 0;
+      let breaks = 0;
+      beats.forEach((b, i) => {
+        if (typeof b !== 'object' || b === null) {
+          push(`beats[${i}] is not an object`);
+          return;
+        }
+        const bb = b as Record<string, unknown>;
+        const bp = `beats[${i}]`;
+        switch (bb.kind) {
+          case 'narration':
+          case 'resolve':
+            if (!isStr(bb.text)) push(`${bp}.text is required`);
+            break;
+          case 'bubble':
+            if (!['them', 'you', 'coach'].includes(bb.from as string)) push(`${bp}.from must be them | you | coach`);
+            for (const f of ['fr', 'en']) if (!isStr(bb[f])) push(`${bp}.${f} is required`);
+            if (bb.reveal !== undefined && bb.reveal !== 'tap' && bb.reveal !== 'auto') {
+              push(`${bp}.reveal must be 'tap' or 'auto'`);
+            }
+            break;
+          case 'choice': {
+            choices++;
+            if (!isStr(bb.prompt)) push(`${bp}.prompt is required`);
+            const opts = bb.options;
+            // Two options, both plausible, exactly one carrying the instinct
+            // that fails. One option is not a choice; three dilutes the pivot.
+            if (!isArr(opts) || opts.length !== 2) {
+              push(`${bp}.options must be exactly 2`);
+              break;
+            }
+            const outcomes = opts.map((o) => (o as { outcome?: unknown }).outcome);
+            opts.forEach((o, oi) => {
+              const oo = o as Record<string, unknown>;
+              for (const f of ['fr', 'en']) if (!isStr(oo[f])) push(`${bp}.options[${oi}].${f} is required`);
+              if (oo.outcome !== 'works' && oo.outcome !== 'breaks') {
+                push(`${bp}.options[${oi}].outcome must be 'works' or 'breaks'`);
+              }
+            });
+            if (!outcomes.includes('works') || !outcomes.includes('breaks')) {
+              push(`${bp}.options must offer one 'works' and one 'breaks'`);
+            }
+            break;
+          }
+          case 'break': {
+            breaks++;
+            for (const f of ['heading', 'body']) if (!isStr(bb[f])) push(`${bp}.${f} is required`);
+            for (const side of ['wrong', 'right'] as const) {
+              const v = bb[side] as Record<string, unknown> | undefined;
+              if (typeof v !== 'object' || v === null) {
+                push(`${bp}.${side} is required`);
+                continue;
+              }
+              for (const f of ['fr', 'ipa', 'en']) if (!isStr(v[f])) push(`${bp}.${side}.${f} is required`);
+            }
+            break;
+          }
+          default:
+            push(`${bp}.kind must be narration | bubble | choice | break | resolve`);
+        }
+      });
+      // The choice sets up the failure and the break explains it. A choice
+      // with no break leaves the learner committed to an answer and never
+      // told why it was wrong, which is the one thing the scene exists for.
+      if (choices > 0 && breaks === 0) push('a scene with a choice beat must also carry a break beat');
+      break;
+    }
+    case 'inhibitionDrill': {
+      if (sec.intro !== undefined && !isStr(sec.intro)) push('intro must be a non-empty string when present');
+      const targets = sec.targets;
+      if (!isArr(targets) || targets.length === 0) {
+        push('targets must be a non-empty array');
+        break;
+      }
+      targets.forEach((t, i) => {
+        if (typeof t !== 'object' || t === null) {
+          push(`targets[${i}] is not an object`);
+          return;
+        }
+        const tt = t as Partial<InhibitionTarget>;
+        if (!isStr(tt.label)) push(`targets[${i}].label is required`);
+        if (tt.sub !== undefined && !isStr(tt.sub)) push(`targets[${i}].sub must be a non-empty string when present`);
+        if (!isArr(tt.steps) || tt.steps.length === 0 || tt.steps.some((s2) => !isStr(s2))) {
+          push(`targets[${i}].steps must be a non-empty array of strings`);
+        }
+        // The drill is scored against real corpus words, exactly like a
+        // practice section — an unresolvable id is a drill that cannot run.
+        if (!isArr(tt.practiceOn) || tt.practiceOn.length === 0) {
+          push(`targets[${i}].practiceOn must be a non-empty array`);
+        } else {
+          tt.practiceOn.forEach((id, j) => {
+            if (!isStr(id) || !ITEM_ID_RE.test(id)) push(`targets[${i}].practiceOn[${j}] "${String(id)}" is not a valid item id`);
+          });
+        }
+        if (tt.mic !== undefined && typeof tt.mic !== 'boolean') push(`targets[${i}].mic must be a boolean`);
       });
       break;
     }
@@ -2342,6 +3094,246 @@ export function validateLesson(v: unknown, path = 'lesson'): Issue[] {
       }
       if (typeof o.difficulty !== 'number' || !Number.isInteger(o.difficulty) || o.difficulty < 1 || o.difficulty > 5) {
         push('overview.difficulty must be an integer between 1 and 5');
+      }
+      if (o.screens !== undefined && (typeof o.screens !== 'number' || !Number.isInteger(o.screens) || o.screens < 1)) {
+        push('overview.screens must be a positive integer when present');
+      }
+    }
+  }
+
+  // ── Lesson Architecture v2 ──────────────────────────────────────────────
+  //
+  // Every join below is checked because each one fails SILENTLY at runtime: an
+  // act naming a section that does not exist renders an empty checkpoint, a
+  // trigger naming a missing drill fires nothing, and a tranche naming an item
+  // outside the lesson releases a card the learner was never taught.
+
+  const sectionIds = new Set(
+    (isArr(l.sections) ? l.sections : [])
+      .map((s) => (s as SectionExtras).id)
+      .filter(isStr)
+  );
+
+  if (l.acts !== undefined) {
+    if (!isArr(l.acts) || l.acts.length === 0) push('acts must be a non-empty array when present');
+    else {
+      const seen = new Set<string>();
+      l.acts.forEach((a, i) => {
+        const ap = `acts[${i}]`;
+        if (typeof a !== 'object' || a === null) {
+          push(`${ap} is not an object`);
+          return;
+        }
+        const act = a as Partial<LessonAct>;
+        if (!isStr(act.id)) push(`${ap}.id is required`);
+        else if (seen.has(act.id)) push(`${ap}.id "${act.id}" is duplicated`);
+        else seen.add(act.id);
+        if (!isStr(act.title)) push(`${ap}.title is required`);
+        if (!isStr(act.milestone)) push(`${ap}.milestone is required`);
+        if (typeof act.estScreens !== 'number' || !Number.isInteger(act.estScreens) || act.estScreens < 1) {
+          push(`${ap}.estScreens must be a positive integer`);
+        }
+        if (!isArr(act.sections) || act.sections.length === 0) push(`${ap}.sections must be a non-empty array`);
+        else {
+          act.sections.forEach((sid, j) => {
+            if (!isStr(sid)) push(`${ap}.sections[${j}] must be a string`);
+            else if (sectionIds.size > 0 && !sectionIds.has(sid)) {
+              push(`${ap}.sections[${j}] "${sid}" does not name a section in this lesson`);
+            }
+          });
+        }
+        if (act.restPoints !== undefined) {
+          if (!isArr(act.restPoints)) push(`${ap}.restPoints must be an array when present`);
+          else {
+            act.restPoints.forEach((rp, j) => {
+              if (!isStr(rp)) {
+                push(`${ap}.restPoints[${j}] must be a string`);
+                return;
+              }
+              // 'sectionId' or 'sectionId/marker' — the section half must exist.
+              const head = rp.split('/')[0];
+              if (sectionIds.size > 0 && !sectionIds.has(head)) {
+                push(`${ap}.restPoints[${j}] "${rp}" does not start from a section in this lesson`);
+              }
+            });
+          }
+        }
+      });
+
+      // Every section belongs to exactly one act, or the lesson has stretches
+      // with no checkpoint and a learner who leaves there resumes nowhere.
+      const claimed = new Set(l.acts.flatMap((a) => ((a as Partial<LessonAct>).sections ?? []).filter(isStr)));
+      for (const sid of sectionIds) {
+        if (!claimed.has(sid)) push(`section "${sid}" is not claimed by any act`);
+      }
+    }
+  }
+
+  if (l.reframe !== undefined && !isStr(l.reframe)) push('reframe must be a non-empty string when present');
+
+  const drillIds = new Set(
+    (isArr(l.drills) ? l.drills : []).map((d) => (d as Partial<LessonDrill>).id).filter(isStr)
+  );
+
+  if (l.drills !== undefined) {
+    if (!isArr(l.drills)) push('drills must be an array when present');
+    else {
+      l.drills.forEach((d, i) => {
+        const dp = `drills[${i}]`;
+        if (typeof d !== 'object' || d === null) {
+          push(`${dp} is not an object`);
+          return;
+        }
+        const dr = d as Partial<LessonDrill>;
+        if (!isStr(dr.id)) push(`${dp}.id is required`);
+        if (!isStr(dr.title)) push(`${dp}.title is required`);
+        if (isArr(dr.items)) {
+          dr.items.forEach((id, j) => {
+            if (!isStr(id) || !ITEM_ID_RE.test(id)) push(`${dp}.items[${j}] "${String(id)}" is not a valid item id`);
+          });
+        }
+        if (isArr(dr.opts) && typeof dr.correct === 'number') {
+          if (dr.correct < 0 || dr.correct >= dr.opts.length) {
+            push(`${dp}.correct must index opts (0..${dr.opts.length - 1})`);
+          }
+        }
+      });
+    }
+  }
+
+  if (l.errorTriggers !== undefined) {
+    if (!isArr(l.errorTriggers)) push('errorTriggers must be an array when present');
+    else {
+      l.errorTriggers.forEach((t, i) => {
+        const tp = `errorTriggers[${i}]`;
+        if (typeof t !== 'object' || t === null) {
+          push(`${tp} is not an object`);
+          return;
+        }
+        const tr = t as Partial<ErrorTrigger>;
+        if (!isStr(tr.id)) push(`${tp}.id is required`);
+        if (!isStr(tr.description)) push(`${tp}.description is required`);
+        if (!isArr(tr.detectOn) || tr.detectOn.length === 0) push(`${tp}.detectOn must be a non-empty array`);
+        // A trigger whose drill does not exist detects a mistake and then does
+        // nothing about it, which is worse than not detecting it.
+        if (!isStr(tr.drill)) push(`${tp}.drill is required`);
+        else if (drillIds.size > 0 && !drillIds.has(tr.drill)) {
+          push(`${tp}.drill "${tr.drill}" does not name a drill in this lesson`);
+        }
+        if (tr.retest !== undefined) {
+          if (!isStr(tr.retest)) push(`${tp}.retest must be a non-empty string when present`);
+          else if (drillIds.size > 0 && !drillIds.has(tr.retest)) {
+            push(`${tp}.retest "${tr.retest}" does not name a drill in this lesson`);
+          }
+        }
+      });
+    }
+  }
+
+  if (l.sheets !== undefined) {
+    if (!isArr(l.sheets)) push('sheets must be an array when present');
+    else {
+      const sheetIds = new Set<string>();
+      l.sheets.forEach((sh, i) => {
+        const sp = `sheets[${i}]`;
+        if (typeof sh !== 'object' || sh === null) {
+          push(`${sp} is not an object`);
+          return;
+        }
+        const s2 = sh as Partial<ReferenceSheet>;
+        if (!isStr(s2.id)) push(`${sp}.id is required`);
+        else if (sheetIds.has(s2.id)) push(`${sp}.id "${s2.id}" is duplicated`);
+        else sheetIds.add(s2.id);
+        if (!isStr(s2.title)) push(`${sp}.title is required`);
+        if (s2.sections !== undefined) {
+          if (!isArr(s2.sections)) push(`${sp}.sections must be an array when present`);
+          else s2.sections.forEach((x, j) => out.push(...validateSection(x, `${path}.${sp}.sections[${j}]`)));
+        }
+      });
+      // A section previewing a sheet that was never written sends the learner
+      // to a dead link from a persistent header button.
+      for (const s3 of isArr(l.sections) ? l.sections : []) {
+        const ref = (s3 as SectionExtras).sheetId;
+        if (isStr(ref) && !sheetIds.has(ref)) {
+          push(`section "${(s3 as SectionExtras).id ?? '?'}" names sheetId "${ref}" with no such sheet`);
+        }
+      }
+    }
+  }
+
+  if (l.deckTranche !== undefined) {
+    if (!isArr(l.deckTranche)) push('deckTranche must be an array when present');
+    else {
+      const own = new Set(isArr(l.itemIds) ? l.itemIds.filter(isStr) : []);
+      // One tranche per act: the whole point is that cards are released AT a
+      // checkpoint, so a mismatch means some act releases nothing or a tranche
+      // never fires at all.
+      if (isArr(l.acts) && l.deckTranche.length !== l.acts.length) {
+        push(`deckTranche has ${l.deckTranche.length} slices but there are ${l.acts.length} acts — one per act`);
+      }
+      l.deckTranche.forEach((slice, i) => {
+        if (!isArr(slice)) {
+          push(`deckTranche[${i}] must be an array of item ids`);
+          return;
+        }
+        slice.forEach((id, j) => {
+          if (!isStr(id) || !ITEM_ID_RE.test(id)) push(`deckTranche[${i}][${j}] "${String(id)}" is not a valid item id`);
+          else if (own.size > 0 && !own.has(id)) {
+            push(`deckTranche[${i}][${j}] "${id}" is not in this lesson's itemIds — it would release a card never taught`);
+          }
+        });
+      });
+    }
+  }
+
+  if (l.terms !== undefined) {
+    if (typeof l.terms !== 'object' || l.terms === null) push('terms must be an object when present');
+    else {
+      for (const [k, v] of Object.entries(l.terms)) {
+        const tp = `terms.${k}`;
+        const tv = v as Partial<LessonTerm>;
+        if (typeof tv !== 'object' || tv === null) {
+          push(`${tp} is not an object`);
+          continue;
+        }
+        for (const f of ['term', 'title', 'body'] as const) {
+          if (!isStr(tv[f])) push(`${tp}.${f} is required`);
+        }
+        for (const [i, ex] of (isArr(tv.examples) ? tv.examples : []).entries()) {
+          const id = (ex as { itemId?: unknown })?.itemId;
+          if (!isStr(id) || !ITEM_ID_RE.test(id)) push(`${tp}.examples[${i}].itemId "${String(id)}" is not a valid item id`);
+        }
+      }
+    }
+    // A section naming a term the lesson never defined shows an empty chip.
+    const known = new Set(Object.keys(l.terms as object));
+    for (const s of isArr(l.sections) ? l.sections : []) {
+      for (const key of (s as SectionExtras).terms ?? []) {
+        if (!known.has(key)) push(`section "${(s as SectionExtras).id ?? '?'}" names undefined term "${key}"`);
+      }
+    }
+  }
+
+  if (l.audio !== undefined) {
+    const a = l.audio as Partial<LessonAudio>;
+    if (typeof a !== 'object' || a === null) push('audio must be an object when present');
+    else if (a.recorded !== undefined) {
+      if (!isArr(a.recorded)) push('audio.recorded must be an array when present');
+      else {
+        const recIds = new Set<string>();
+        a.recorded.forEach((r, i) => {
+          if (typeof r !== 'object' || r === null) {
+            push(`audio.recorded[${i}] is not an object`);
+            return;
+          }
+          const rr = r as { id?: unknown; desc?: unknown };
+          if (!isStr(rr.id)) push(`audio.recorded[${i}].id is required`);
+          else if (recIds.has(rr.id)) push(`audio.recorded[${i}].id "${rr.id}" is duplicated`);
+          else recIds.add(rr.id);
+          // The description IS the brief handed to the voice engineer, so an
+          // empty one means the recording cannot actually be produced.
+          if (!isStr(rr.desc)) push(`audio.recorded[${i}].desc is required — it is the studio's brief`);
+        });
       }
     }
   }
