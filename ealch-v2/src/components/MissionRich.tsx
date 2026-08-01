@@ -6,7 +6,8 @@ import { Icon } from '@/components/Icon';
 import { Waveform } from '@/components/Waveform';
 import { LessonModal } from '@/components/LessonModal';
 import { useTheme } from '@/theme/useTheme';
-import { QuestionModal } from '@/components/LessonDeck';
+import { CardFrame, QuestionModal, SwipeDeck } from '@/components/LessonDeck';
+import { WordCardXL } from '@/components/WordCardXL';
 import { useCardHeight } from '@/hooks/useCardHeight';
 import { useT } from '@/i18n/useT';
 import { sound, tts, stt, type SttResult } from '@/services';
@@ -280,9 +281,50 @@ export function SoundGridView({ s }: { s: SoundGridSec }) {
 
 /* ─── 4. Group drill ──────────────────────────────────────────────────────── */
 
-function OneGroup({ g }: { g: SoundGroup }) {
+function OneGroup({ g, xl }: { g: SoundGroup; xl?: boolean }) {
   const t = useTheme();
   const [picked, setPicked] = useState(-1);
+
+  const check = (
+    <View style={{ marginTop: 6, borderRadius: 16, borderWidth: 1, borderColor: t.accA(25), backgroundColor: t.card2, padding: 14 }}>
+      <TX font="semi" role="meta" ls={1.6} color={t.txSubtle} style={{ marginBottom: 8 }}>CONTRÔLE</TX>
+      <TX role="body" style={{ marginBottom: 10 }}>{g.check.q}</TX>
+      <View style={{ gap: 8 }}>
+        {g.check.opts.map((o, i) => (
+          <OptRow
+            key={i}
+            label={o}
+            onPress={() => {
+              sound.play(i === g.check.correct ? 'success' : 'error');
+              setPicked(i);
+            }}
+            state={picked < 0 ? undefined : i === g.check.correct ? 'correct' : i === picked ? 'wrong' : 'other'}
+          />
+        ))}
+      </View>
+    </View>
+  );
+
+  // At size xl each word is its own hero card, swiped: 56pt French, IPA and
+  // respelling beneath, and the silent letters greyed and faded from the
+  // `silent` indices the corpus carries. Stacked as small rows the word is a
+  // label beside a play button and the silent letters are invisible, which is
+  // the one thing this mission exists to show.
+  if (xl) {
+    return (
+      <View style={{ gap: 10 }}>
+        <TX font="semi" role="label" ls={1.6} color={t.accTx}>{g.label}</TX>
+        <SwipeDeck
+          items={g.items}
+          hint="One word at a time. The grey letters are the ones you do not say."
+          keyFor={(it, i) => `${g.label}-${it.fr}-${i}`}
+          renderItem={(it) => <GroupWordCard item={it} />}
+        />
+        {check}
+      </View>
+    );
+  }
+
   return (
     <View style={{ gap: 8 }}>
       <TX font="semi" role="label" ls={1.6} color={t.accTx}>{g.label}</TX>
@@ -295,24 +337,48 @@ function OneGroup({ g }: { g: SoundGroup }) {
           <PlayDot text={it.fr} size={30} />
         </View>
       ))}
-      <View style={{ marginTop: 6, borderRadius: 16, borderWidth: 1, borderColor: t.accA(25), backgroundColor: t.card2, padding: 14 }}>
-        <TX font="semi" role="meta" ls={1.6} color={t.txSubtle} style={{ marginBottom: 8 }}>CONTRÔLE</TX>
-        <TX role="body" style={{ marginBottom: 10 }}>{g.check.q}</TX>
-        <View style={{ gap: 8 }}>
-          {g.check.opts.map((o, i) => (
-            <OptRow
-              key={i}
-              label={o}
-              onPress={() => {
-                sound.play(i === g.check.correct ? 'success' : 'error');
-                setPicked(i);
-              }}
-              state={picked < 0 ? undefined : i === g.check.correct ? 'correct' : i === picked ? 'wrong' : 'other'}
-            />
-          ))}
-        </View>
-      </View>
+      {check}
     </View>
+  );
+}
+
+/** One word of a group drill, as the XL hero card.
+ *
+ *  Owns its own playback state rather than taking the section's `onPlay`,
+ *  because the group drill renders inside MissionRich where every other
+ *  control speaks through the local tts service (PlayDot). Keeping to that
+ *  convention means the card behaves like its neighbours instead of
+ *  introducing a second audio path through the same screen. */
+function GroupWordCard({ item }: { item: SoundGroup['items'][number] }) {
+  const [playing, setPlaying] = useState(false);
+  const h = useCardHeight(340);
+
+  const speak = (slow?: boolean) => {
+    if (playing) return;
+    sound.play('tap');
+    setPlaying(true);
+    tts.speak(item.fr, {
+      slow,
+      onDone: () => setPlaying(false),
+      onError: () => setPlaying(false),
+    });
+  };
+
+  return (
+    <CardFrame height={h} padded={false}>
+      <WordCardXL
+        fr={item.fr}
+        ipa={item.ipa}
+        respell={item.respell}
+        en={item.en}
+        silent={item.silent}
+        note={item.note}
+        playing={playing}
+        fadeKey={item.itemId ?? item.fr}
+        onPlay={() => speak(false)}
+        onPlaySlow={() => speak(true)}
+      />
+    </CardFrame>
   );
 }
 
@@ -335,7 +401,7 @@ export function GroupDrillView({ s }: { s: GroupDrillSec }) {
           />
         ))}
       </View>
-      <OneGroup key={ix} g={s.groups[ix]} />
+      <OneGroup key={ix} g={s.groups[ix]} xl={s.size === 'xl'} />
       {!last ? (
         <Press
           cue="tap"

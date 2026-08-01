@@ -377,6 +377,36 @@ test('dense missions are broken up rather than trimmed', { skip }, () => {
   }
 });
 
+test('the XL word card is mounted, and its data reaches it', { skip }, () => {
+  // The architecture doc calls the XL card "a third of every lesson": one
+  // French word at display size, its IPA and respelling beneath, and the
+  // silent letters greyed and faded from the corpus `silent` indices. It was
+  // built, tested, and rendered by nothing.
+  const mission = readFileSync(resolve(here, '../components/MissionRich.tsx'), 'utf8');
+  ok(/<WordCardXL/.test(mission), 'the XL card is rendered');
+  ok(/s\.size === 'xl'/.test(mission), 'and only where the content asks for it');
+
+  // The group drill is the teaching engine, and the one XL section whose data
+  // is complete enough to feed the card. Verify the card has something real
+  // to show rather than trusting the flag.
+  const gd = LESSON!.sections.find((s) => (s as { id?: string }).id === 's05-families');
+  ok(gd && gd.type === 'groupDrill');
+  strictEqual((gd as { size?: string }).size, 'xl');
+  const words = gd.groups.flatMap((g) => g.items);
+  ok(words.length >= 20, `${words.length} words`);
+  for (const w of words) {
+    ok(w.ipa, `"${w.fr}" carries IPA for the card's second line`);
+    ok(w.respell, `"${w.fr}" carries a respelling`);
+  }
+  // The silent indices are what the fade animates. Most words have them; the
+  // CaReFuL words legitimately have none, because every letter sounds.
+  const withSilent = words.filter((w) => w.silent?.length);
+  ok(withSilent.length >= 15, `${withSilent.length} words have silent letters to grey`);
+  for (const w of withSilent) {
+    ok(silentIndicesValid(w.fr, w.silent), `"${w.fr}" indices are in range`);
+  }
+});
+
 test('EVERY quiz question is reachable, not just the multiple-choice ones', { skip }, () => {
   // The bug: the screen filtered the quiz down to questions with `opts` and a
   // numeric `correct`, because the flat deck renders mcq only. That silently
