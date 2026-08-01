@@ -76,14 +76,24 @@ jobs:
 
       - name: seed.json byte ceiling
         # The seed is the bounded offline-first subset committed to git; corpus
-        # growth belongs to the OTA snapshot, not this file. Ceiling: 256 KiB
-        # (~12x the 20 KB it is today). If this trips legitimately, the answer
-        # is a smaller seed-cut in ealch-admin/scripts/seed-cut.config.ts, not
-        # a bigger ceiling — raising it needs a deliberate decision recorded in
-        # the master plan.
+        # growth belongs to the OTA snapshot, not this file. If this trips
+        # legitimately, the answer is a smaller seed-cut in
+        # ealch-admin/scripts/seed-cut.config.ts, not a bigger ceiling —
+        # raising it needs a deliberate decision recorded here.
+        #
+        # Raised 256 KiB → 5 MiB (Paul, 2026-07-31): the 256 KiB figure was
+        # calibrated when the seed was 20 KB, before the sons full-rig lessons
+        # (sons.01-04, each 40-70 KB of JSON body) and Speak World 1's offline
+        # bundle (825 referenced items) existed. Even the bare-minimum seed
+        # (lessons + World 1, zero theme vocab) now measures ~524 KiB, already
+        # over the old ceiling. Today's full seed-cut (17 themes, all levels,
+        # per seed-cut.config.ts) measures ~2.4 MiB; 5 MiB leaves headroom
+        # without a seed-cut.config.ts change. If the seed keeps growing,
+        # trim seed-cut.config.ts (e.g. level-cap the theme sweep to
+        # sons/a1/a2, or per-theme item caps) before raising this again.
         run: |
           node -e '
-            const max = 262144;
+            const max = 5 * 1024 * 1024;
             const size = require("fs").statSync("src/content/seed.json").size;
             console.log(`seed.json: ${size} bytes (ceiling ${max})`);
             if (size > max) { console.error("seed.json exceeds the documented ceiling"); process.exit(1); }
