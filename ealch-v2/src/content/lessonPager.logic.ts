@@ -14,11 +14,18 @@
 // like any other card, answers the question deck inside it, and the bottom
 // button finishes the lesson once the quiz is complete.
 
+// The extension is required: this is a RUNTIME import (unlike the type-only
+// one below, which is erased), and `node --test` resolves ESM specifiers
+// literally when it type-strips these files.
+import { quizQuestions } from './schema.ts';
 import type { Lesson, LessonSection } from './schema';
 
 export type PagerPage =
   | { kind: 'cover' }
   | { kind: 'section'; sectionIndex: number }
+  /** An act's closing checkpoint: one line, a progress bar, continue or stop.
+   *  Only present on lessons that declare `acts`. */
+  | { kind: 'checkpoint'; actIndex: number }
   | { kind: 'quiz' };
 
 /** What the bottom button does on a given page. 'next' advances the deck;
@@ -44,22 +51,61 @@ export function quizSection(
 
 export function lessonHasQuiz(lesson: Lesson): boolean {
   const q = quizSection(lesson);
-  return !!q && q.questions.length > 0;
+  // Via quizQuestions() rather than `q.questions` directly: a v2 lesson groups
+  // the same questions into `rounds`, and reading only the flat field would
+  // report a 32-question exam as no exam at all.
+  return !!q && quizQuestions(q).length > 0;
 }
 
 /** The full deck: cover, one page per teaching section, then the quiz page
- *  when the lesson has a real exam. */
+ *  when the lesson has a real exam.
+ *
+ *  A lesson that declares ACTS also gets a checkpoint page after the last
+ *  section of each act. That is what turns a 241-screen lesson into six short
+ *  ones: a place to stop, a line saying what was achieved, and the SRS cards
+ *  that act earned. Lessons without acts are unchanged, page for page. */
 export function buildPages(lesson: Lesson): PagerPage[] {
-  return [
-    { kind: 'cover' },
-    ...contentSections(lesson).map((_, sectionIndex): PagerPage => ({ kind: 'section', sectionIndex })),
-    ...(lessonHasQuiz(lesson) ? [{ kind: 'quiz' } as PagerPage] : []),
-  ];
+  const secs = contentSections(lesson);
+  const pages: PagerPage[] = [{ kind: 'cover' }];
+
+  for (const [sectionIndex, sec] of secs.entries()) {
+    pages.push({ kind: 'section', sectionIndex });
+    const id = (sec as { id?: string }).id;
+    if (!id) continue;
+    // The checkpoint follows the section that closes an act. The quiz lives on
+    // its own page, so an act ending on the quiz is checkpointed after it
+    // rather than here — see below.
+    const actIx = actIndexEnding(lesson, id);
+    if (actIx >= 0) pages.push({ kind: 'checkpoint', actIndex: actIx });
+  }
+
+  if (lessonHasQuiz(lesson)) {
+    pages.push({ kind: 'quiz' });
+    // The final act usually ends on the quiz or the roundup, both of which sit
+    // outside `contentSections` or after it. If any act's last section is the
+    // quiz, its checkpoint belongs here.
+    const quizSec = lesson.sections.find((s) => s.type === 'quiz');
+    const quizId = (quizSec as { id?: string } | undefined)?.id;
+    if (quizId) {
+      const actIx = actIndexEnding(lesson, quizId);
+      if (actIx >= 0) pages.push({ kind: 'checkpoint', actIndex: actIx });
+    }
+  }
+
+  return pages;
 }
 
-/** Total pages in the deck (cover + sections + quiz page when present). */
+/** The index of the act this section id CLOSES, or -1. Local to the page
+ *  model so it stays free of the acts module's runtime concerns. */
+function actIndexEnding(lesson: Lesson, sectionId: string): number {
+  const acts = (lesson as Lesson & { acts?: { sections: string[] }[] }).acts;
+  if (!acts?.length) return -1;
+  return acts.findIndex((a) => a.sections[a.sections.length - 1] === sectionId);
+}
+
+/** Total pages in the deck (cover + sections + checkpoints + quiz page). */
 export function pageCount(lesson: Lesson): number {
-  return 1 + contentSections(lesson).length + (lessonHasQuiz(lesson) ? 1 : 0);
+  return buildPages(lesson).length;
 }
 
 /** Clamp a (possibly stale or out-of-range) page index into the deck. A deck

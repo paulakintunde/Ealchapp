@@ -17,7 +17,7 @@ import { formatIssues, quizQuestions, validateItem, validateLesson, type Lesson 
 import { formatDensity, validateDensity } from './density.logic.ts';
 import { silentIndicesValid } from './silent.logic.ts';
 import { hasSlow, pendingRecordings, referencedRecordingIds } from './lessonAudio.logic.ts';
-import { checkpointFor, releasedThrough, resumePlan, stoppingPoints } from './acts.logic.ts';
+import { checkpointFor, releasedThrough, resumePlan, stoppingPoints, tranche, warmBackQuestions } from './acts.logic.ts';
 import { advanceQuiz, answerQuestion, buildQuizConfig, drillForRound, initialQuizState } from './quizRounds.logic.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -374,6 +374,73 @@ test('dense missions are broken up rather than trimmed', { skip }, () => {
     .map((s) => (s as { id: string }).id);
   for (const id of ['s11-listening', 's12-speak']) {
     ok(modal.includes(id), `${id} opens its questions in a modal`);
+  }
+});
+
+test('acts, checkpoints and the SRS release are mounted', () => {
+  // Runs unconditionally: this checks WIRING. acts.logic.ts was fully tested
+  // and imported by nothing, so six checkpoints, the resume recap, the
+  // warm-back and 63 SRS cards were all inert.
+  const pager = readFileSync(resolve(here, '../components/LessonPager.tsx'), 'utf8');
+  ok(/<ActCheckpointCard/.test(pager), 'the checkpoint card is rendered');
+  ok(/kind: 'checkpoint'/.test(pager), 'the pager builds checkpoint pages');
+  ok(/onCheckpointReached/.test(pager), 'reaching one is reported to the screen');
+
+  const screen = readFileSync(resolve(here, '../../app/lesson.tsx'), 'utf8');
+  ok(/checkpointFor/.test(screen), 'the screen resolves each act checkpoint');
+  ok(/tranche\(/.test(screen), 'and releases that act SRS tranche');
+  // The prop must actually be PASSED, not merely defined. Checking only that
+  // the pager accepts it is how "built but unmounted" slips through: the
+  // callback existed on both sides and was wired to nothing.
+  ok(/onCheckpointReached=\{/.test(screen), 'the release callback is passed to the pager');
+  ok(/checkpoints=\{/.test(screen), 'and so are the resolved checkpoints');
+  ok(/<WarmBackCard/.test(screen), 'the warm-back is rendered');
+  ok(/<ResumeRecapCard/.test(screen), 'the resume recap is rendered');
+  ok(/resumePlan/.test(screen), 'the resume plan decides which of them shows');
+});
+
+test('the SRS releases progressively, never all at the end', { skip }, () => {
+  const acts = LESSON!.acts ?? [];
+  const perAct = acts.map((_, i) => tranche(LESSON!, i).length);
+  strictEqual(perAct.reduce((a, b) => a + b, 0), 63, 'every word is released exactly once');
+
+  // The failure this prevents: an hour-long lesson dumping sixty new cards
+  // into review the moment it ends.
+  const last = perAct[perAct.length - 1];
+  ok(last < 32, `the final act releases ${last} of 63, not the bulk`);
+
+  // And a learner who stops midway has a real, smaller deck rather than none.
+  const midway = releasedThrough(LESSON!, 2).length;
+  ok(midway > 0 && midway < 63, `${midway} cards released by act 3`);
+});
+
+test('a checkpoint exists for every act, in the right place', { skip }, () => {
+  const acts = LESSON!.acts ?? [];
+  strictEqual(acts.length, 6);
+  for (const a of acts) {
+    const last = a.sections[a.sections.length - 1];
+    const cp = checkpointFor(LESSON!, last);
+    ok(cp, `act "${a.id}" has a checkpoint after "${last}"`);
+    ok(cp!.act.milestone, 'and a milestone line to show on it');
+  }
+  // Only the last one ends the lesson.
+  const finals = acts.filter((a) => checkpointFor(LESSON!, a.sections[a.sections.length - 1])?.isFinal);
+  strictEqual(finals.length, 1);
+});
+
+test('the warm-back always has enough to ask, from material already taught', { skip }, () => {
+  const acts = LESSON!.acts ?? [];
+  // Act 1 is excluded: nothing precedes it, and resumePlan never offers a
+  // warm-back there.
+  for (const [i, a] of acts.entries()) {
+    if (i === 0) continue;
+    const qs = warmBackQuestions(LESSON!, a, 3);
+    strictEqual(qs.length, 3, `act "${a.id}" can ask three questions`);
+    const seen = new Set(acts.slice(0, i + 1).flatMap((x) => x.sections));
+    for (const q of qs) {
+      ok(seen.has(q.ref!), `"${q.q}" refers to something already taught`);
+      ok(Array.isArray(q.opts) && typeof q.correct === 'number', 'and is answerable by tapping');
+    }
   }
 });
 

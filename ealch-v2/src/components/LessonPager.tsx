@@ -18,7 +18,9 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { sound, audio } from '@/services';
 import { QuizRoundsView } from '@/components/QuizRoundsView';
-import { narrationOf, type LessonDrill, type LessonSection, type LessonTerm, type QuizQuestion as SchemaQuizQuestion } from '@/content/schema';
+import { ActCheckpointCard } from '@/components/ActCheckpoint';
+import type { Checkpoint } from '@/content/acts.logic';
+import { narrationOf, type LessonAct, type LessonDrill, type LessonSection, type LessonTerm, type QuizQuestion as SchemaQuizQuestion } from '@/content/schema';
 import { quizQuestions as flattenRounds } from '@/content/schema';
 import type { QuizConfig } from '@/content/quizRounds.logic';
 
@@ -62,6 +64,18 @@ type LessonPagerProps = {
   /** Opens the section a quiz question refers to, so a wrong answer can offer
    *  "see this again" rather than only a verdict. */
   onJumpToRef?: (sectionId: string) => void;
+  /** The lesson's acts, for checkpoint pages. Absent on pre-v2 lessons, which
+   *  get no checkpoint pages at all. */
+  acts?: LessonAct[];
+  /** One resolved checkpoint per act, index-aligned with `acts`. Built by the
+   *  screen because releasing SRS cards is its job, not the pager's. */
+  checkpoints?: (Checkpoint | null)[];
+  /** Leave the lesson from a checkpoint, keeping the resume position. Falls
+   *  back to onFinish when the screen does not distinguish the two. */
+  onStopHere?: () => void;
+  /** Fires when a checkpoint page is reached, with its act index. The screen
+   *  releases that act's SRS tranche here. */
+  onCheckpointReached?: (actIndex: number) => void;
   onPlay: (id: string, text: string, audioRef?: string | null) => void;
   playingId: string | null;
   onGrade: (itemId: string, correct: boolean) => void;
@@ -230,6 +244,8 @@ type PageEntry =
   | { kind: 'cover' }
   | { kind: 'image'; sectionIx: number }
   | { kind: 'section'; sectionIx: number }
+  /** An act's closing checkpoint. Only produced for lessons with `acts`. */
+  | { kind: 'checkpoint'; actIndex: number }
   | { kind: 'quiz' };
 
 // How many pages either side of the current one stay mounted. 1 covers every
@@ -248,6 +264,10 @@ export function LessonPager({
   quizCfg,
   drills,
   onJumpToRef,
+  acts,
+  checkpoints,
+  onStopHere,
+  onCheckpointReached,
   onPlay,
   playingId,
   onGrade,
@@ -284,13 +304,35 @@ export function LessonPager({
   // — then the quiz page when the lesson has one.
   const pages = useMemo<PageEntry[]>(() => {
     const out: PageEntry[] = [{ kind: 'cover' }];
+    // Which act each section CLOSES, so a checkpoint page can follow it. Empty
+    // for a pre-v2 lesson, which therefore gets no checkpoint pages.
+    const closes = new Map<string, number>();
+    (acts ?? []).forEach((a, ai) => {
+      const last = a.sections[a.sections.length - 1];
+      if (last) closes.set(last, ai);
+    });
+
     sections.forEach((s, i) => {
       if (s.imageRef && HERO_SPLIT_TYPES.has(s.type)) out.push({ kind: 'image', sectionIx: i });
       out.push({ kind: 'section', sectionIx: i });
+      const id = (s as { id?: string }).id;
+      const actIx = id ? closes.get(id) : undefined;
+      if (actIx !== undefined) out.push({ kind: 'checkpoint', actIndex: actIx });
     });
-    if (hasQuiz) out.push({ kind: 'quiz' });
+
+    if (hasQuiz) {
+      out.push({ kind: 'quiz' });
+      // The final act closes on the quiz or the roundup. `sections` here has
+      // the quiz removed (it is its own page), so an act ending on it is
+      // checkpointed after the quiz page rather than in the loop above.
+      const endsOnQuiz = (acts ?? []).findIndex((a) => {
+        const last = a.sections[a.sections.length - 1];
+        return !!last && !sections.some((s) => (s as { id?: string }).id === last);
+      });
+      if (endsOnQuiz >= 0) out.push({ kind: 'checkpoint', actIndex: endsOnQuiz });
+    }
     return out;
-  }, [sections, hasQuiz]);
+  }, [sections, hasQuiz, acts]);
   const pageCount = pages.length;
   const lastPage = pageCount - 1;
   const quizPage = hasQuiz ? lastPage : -1;
@@ -314,6 +356,11 @@ export function LessonPager({
 
   useEffect(() => {
     onIndexChange?.(currentEntry?.kind === 'section' ? currentEntry.sectionIx : null);
+    // Reaching a checkpoint is what releases that act's SRS cards. Fired here
+    // rather than on the Continue button so a learner who stops AT the
+    // checkpoint still banks what they earned: they finished the act, and the
+    // cards are the record of that, not a reward for pressing on.
+    if (currentEntry?.kind === 'checkpoint') onCheckpointReached?.(currentEntry.actIndex);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
   const listen = () => {
@@ -421,7 +468,14 @@ export function LessonPager({
         style={{ flex: 1 }}
       >
         {pages.map((entry, i) => {
-          const key = entry.kind === 'cover' ? 'cover' : entry.kind === 'quiz' ? 'quiz' : `${entry.kind}-${entry.sectionIx}`;
+          const key =
+            entry.kind === 'cover'
+              ? 'cover'
+              : entry.kind === 'quiz'
+              ? 'quiz'
+              : entry.kind === 'checkpoint'
+              ? `checkpoint-${entry.actIndex}`
+              : `${entry.kind}-${entry.sectionIx}`;
 
           // Out of the window: an empty same-width spacer. Keeps the
           // ScrollView's total content width (and every scrollTo/paging
@@ -447,6 +501,27 @@ export function LessonPager({
                     <TX font="semi" role="label" ls={1.6} color={t.accTx}>{T.lessonSwipeHint}</TX>
                     <Icon name="chevronRight" size={14} color={t.accTx} strokeWidth={1.8} />
                   </View>
+                </PageScroll>
+              </View>
+            );
+          }
+
+          // An act's closing checkpoint. Deliberately plain: one line, a
+          // progress bar, continue or stop. No confetti, no streak, no badge —
+          // a celebration every eleven minutes stops meaning anything, and the
+          // reward for finishing an act is knowing where you are.
+          if (entry.kind === 'checkpoint') {
+            const cp = checkpoints?.[entry.actIndex];
+            if (!cp) return <View key={key} style={{ width }} />;
+            return (
+              <View key={key} style={{ width }}>
+                <PageScroll fixed>
+                  <ActCheckpointCard
+                    checkpoint={cp}
+                    nextActTitle={acts?.[entry.actIndex + 1]?.title}
+                    onContinue={() => goTo(page + 1)}
+                    onStop={onStopHere ?? onFinish}
+                  />
                 </PageScroll>
               </View>
             );

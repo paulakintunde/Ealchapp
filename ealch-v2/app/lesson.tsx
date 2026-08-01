@@ -18,6 +18,9 @@ import { sound, audio } from '@/services';
 import { content } from '@/services/content';
 import { quizQuestions, unitBand, type Lesson, type LessonSection, type QuizQuestion } from '@/content/schema';
 import { buildQuizConfig } from '@/content/quizRounds.logic';
+import { actSectionsSoFar, checkpointFor, resumePlan, tranche, warmBackQuestions } from '@/content/acts.logic';
+import { ResumeRecapCard, WarmBackCard } from '@/components/ActCheckpoint';
+import { contentSections as contentSectionsOf } from '@/content/lessonPager.logic';
 import { FREE_BANDS } from '@/store/entitlement.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
@@ -65,6 +68,10 @@ export default function LessonScreen() {
   const logError = useProgress((s) => s.logError);
   const logAttempt = useProgress((s) => s.logAttempt);
   const markMissionDone = useProgress((s) => s.markMissionDone);
+  // Read once at mount, not subscribed: setResume fires on every page change,
+  // and a live subscription would recompute the away-gap mid-lesson and could
+  // flip the warm-back on while the learner is reading.
+  const resumeByMode = useRef(useProgress.getState().resumeByMode).current;
 
   // The one-time "how lessons work" tour (LessonKeyIntro): auto-shows before
   // a user's first-ever lesson, then never again on its own. `showKeyOverride`
@@ -216,6 +223,87 @@ export default function LessonScreen() {
     });
   }, [L.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // How long since this lesson was last left, from the resume slot's stamped
+  // day. Used only to decide whether a warm-back is warranted, so day
+  // granularity is enough and no new state is needed.
+  const awayMs = useMemo(() => {
+    const at = resumeByMode.lesson?.at;
+    if (!at) return 0;
+    const then = Date.parse(at);
+    return Number.isFinite(then) ? Math.max(0, Date.now() - then) : 0;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [L?.id]);
+
+  // Where a returning learner lands: two screens back, on a one-screen recap
+  // of the act so far, and after more than three days a short warm-back over
+  // the act they last COMPLETED. Only for lessons that declare acts.
+  const resume = useMemo(() => {
+    if (!L.acts?.length || deepLinkIx == null) return null;
+    const fullIx = L.sections.indexOf(contentSectionsOf(L)[deepLinkIx]);
+    if (fullIx < 0) return null;
+    return resumePlan(L, fullIx, awayMs);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [L?.id, deepLinkIx, awayMs]);
+
+  // The warm-back and recap are shown once per visit, before the lesson.
+  const [preface, setPreface] = useState<'warmBack' | 'recap' | null>(null);
+  useEffect(() => {
+    if (!resume) return setPreface(null);
+    setPreface(resume.warmBack ? 'warmBack' : resume.showRecap ? 'recap' : null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [L?.id]);
+
+  // One resolved checkpoint per act: its milestone, its progress through the
+  // lesson, and the corpus items that act releases to spaced repetition.
+  // Empty for a pre-v2 lesson, which then renders no checkpoint pages.
+  const checkpoints = useMemo(
+    () =>
+      (L.acts ?? []).map((a) => {
+        const last = a.sections[a.sections.length - 1];
+        return last ? checkpointFor(L, last) : null;
+      }),
+    [L.id] // eslint-disable-line react-hooks/exhaustive-deps
+  );
+
+  // Reaching a checkpoint releases that act's cards into review. This is the
+  // architecture's "cards arrive as they are taught" rule: an hour-long lesson
+  // must not dump sixty new items into the SRS the moment it ends.
+  //
+  // Idempotent by act: a learner who swipes back and forth across a checkpoint
+  // releases its tranche once, not once per crossing.
+  const releasedActs = useRef<Set<number>>(new Set());
+  useEffect(() => {
+    releasedActs.current = new Set();
+  }, [L?.id]);
+
+  const releaseTranche = (actIndex: number) => {
+    if (releasedActs.current.has(actIndex)) return;
+    releasedActs.current.add(actIndex);
+    const ids = tranche(L, actIndex);
+    if (!ids.length) return;
+    // Logged as a recognise-modality attempt per item: the SRS keys on
+    // (itemId, modality) and this is the learner's first exposure, which is
+    // exactly what schedules the card for its first review.
+    for (const id of ids) {
+      const it = content.item(id);
+      if (!it) continue;
+      logAttempt({
+        activity: 'lesson',
+        itemId: id,
+        expected: it.fr,
+        heard: '',
+        score: 1,
+        verdict: 'good',
+        correct: true,
+        modality: 'recognise',
+        anchor: content.anchorFor(L, id) ?? undefined,
+      });
+    }
+    // Deliberately not tracked as an analytics event: AnalyticsEvent is the
+    // monetisation funnel, and the release is already durably recorded as
+    // attempts in the progress log, which is where the SRS reads it from.
+  };
+
   // A wrong answer's "see this again": jump to the section that taught it.
   // `initialIndex` is an index over contentSections (the pager's own list), so
   // the section id is resolved against that rather than L.sections.
@@ -343,6 +431,30 @@ export default function LessonScreen() {
     router.replace({ pathname: '/lesson', params: { key: nextL!.id } });
   };
 
+  // Coming back to a lesson in progress. Shown once, before the pager, so the
+  // learner re-enters knowing where they are rather than landing mid-rule.
+  if (preface && resume) {
+    const act = resume.warmBack?.act ?? resume.act;
+    return (
+      <View style={{ flex: 1, backgroundColor: t.bg, paddingTop: insets.top }}>
+        <FocusHeader onClose={() => router.back()} onSettings={() => router.push('/settings')} title={L.tag} />
+        {preface === 'warmBack' && resume.warmBack ? (
+          <WarmBackCard
+            act={resume.warmBack.act}
+            questions={warmBackQuestions(L, resume.warmBack.act, resume.warmBack.questions)}
+            onDone={() => setPreface(resume.showRecap ? 'recap' : null)}
+          />
+        ) : (
+          <ResumeRecapCard
+            act={act ?? null}
+            sectionsSoFar={actSectionsSoFar(L, (L.sections[L.sections.indexOf(contentSectionsOf(L)[deepLinkIx ?? 0])] as { id?: string })?.id ?? '')}
+            onContinue={() => setPreface(null)}
+          />
+        )}
+      </View>
+    );
+  }
+
   // The reference sheets, over the lesson. Rendered as a full replacement
   // rather than a modal: a sheet is a document to scan, and the learner
   // arrives with a specific question they want room to answer.
@@ -414,6 +526,16 @@ export default function LessonScreen() {
         quizCfg={quizCfg}
         drills={L.drills}
         onJumpToRef={jumpToRef}
+        acts={L.acts}
+        checkpoints={checkpoints}
+        onCheckpointReached={releaseTranche}
+        // Stopping at a checkpoint leaves the lesson WITHOUT clearing the
+        // resume slot, so the home hero still offers to come back to it. That
+        // is the difference between stopping and finishing.
+        onStopHere={() => {
+          sound.play('tap');
+          router.back();
+        }}
       />
     </View>
   );
