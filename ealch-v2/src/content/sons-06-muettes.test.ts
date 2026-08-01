@@ -421,23 +421,31 @@ test('dense missions are broken up rather than trimmed', { skip }, () => {
   }
 });
 
-test('acts, checkpoints and the SRS release are mounted', () => {
+test('finishing an act still releases its SRS tranche', () => {
   // Runs unconditionally: this checks WIRING. acts.logic.ts was fully tested
-  // and imported by nothing, so six checkpoints, the resume recap, the
-  // warm-back and 63 SRS cards were all inert.
+  // and imported by nothing, so the SRS release was inert — that is the
+  // regression this test exists for, and it survives the checkpoint pages.
+  //
+  // The interstitial "Act N / milestone / continue or stop" PAGES are gone
+  // (six of them through a lesson read as interruptions). The act BOUNDARY is
+  // not: crossing one is what releases that act's cards, so an hour-long
+  // lesson does not dump sixty new items into review at the end. The release
+  // now fires on the act's last SECTION instead of on a page that followed it.
   const pager = readFileSync(resolve(here, '../components/LessonPager.tsx'), 'utf8');
-  ok(/<ActCheckpointCard/.test(pager), 'the checkpoint card is rendered');
-  ok(/kind: 'checkpoint'/.test(pager), 'the pager builds checkpoint pages');
-  ok(/onCheckpointReached/.test(pager), 'reaching one is reported to the screen');
+  ok(!/kind: 'checkpoint'/.test(pager), 'the pager builds no checkpoint pages');
+  ok(!/<ActCheckpointCard/.test(pager), 'and renders no checkpoint card');
+  ok(/closesAct/.test(pager), 'it knows which section closes each act');
+  ok(/onCheckpointReached\?\.\(actIx\)/.test(pager), 'and reports that to the screen');
+  // An act ending on the quiz has no section page of its own, so it would
+  // silently never release if only the section path were wired.
+  ok(/actEndingOnQuiz/.test(pager), 'an act ending on the quiz releases too');
 
   const screen = readFileSync(resolve(here, '../../app/lesson.tsx'), 'utf8');
-  ok(/checkpointFor/.test(screen), 'the screen resolves each act checkpoint');
-  ok(/tranche\(/.test(screen), 'and releases that act SRS tranche');
+  ok(/tranche\(/.test(screen), 'the screen releases that act SRS tranche');
   // The prop must actually be PASSED, not merely defined. Checking only that
   // the pager accepts it is how "built but unmounted" slips through: the
   // callback existed on both sides and was wired to nothing.
   ok(/onCheckpointReached=\{/.test(screen), 'the release callback is passed to the pager');
-  ok(/checkpoints=\{/.test(screen), 'and so are the resolved checkpoints');
   ok(/<WarmBackCard/.test(screen), 'the warm-back is rendered');
   ok(/<ResumeRecapCard/.test(screen), 'the resume recap is rendered');
   ok(/resumePlan/.test(screen), 'the resume plan decides which of them shows');
@@ -459,15 +467,6 @@ test('every answer option announces itself as a button with its state', () => {
     ok(stated >= options, `${f}: ${options} option lists, ${stated} announce selection`);
     ok(/accessibilityHint=\{[\s\S]*?Correct answer/.test(src), `${f}: the verdict is spoken, not only coloured`);
   }
-});
-
-test('the checkpoint progress bar is readable without sight', () => {
-  // The bar IS the progress on that screen. Rendered as a bare View it is
-  // invisible to speech, so the one thing the checkpoint exists to say went
-  // unsaid.
-  const src = readFileSync(resolve(here, '../components/ActCheckpoint.tsx'), 'utf8');
-  ok(/accessibilityRole="progressbar"/.test(src), 'the bar has a role');
-  ok(/percent through the lesson/.test(src), 'and announces how far along it is');
 });
 
 test('small header buttons take a 44px touch target', () => {

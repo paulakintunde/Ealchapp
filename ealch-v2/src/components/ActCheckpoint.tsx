@@ -1,10 +1,15 @@
-// Checkpoints, rest points, recaps and the warm-back — the screens that make
-// a 241-screen lesson feel like six short ones.
+// Rest points, recaps and the warm-back — the screens a returning learner
+// lands on.
+//
+// The act CHECKPOINT card that used to live here is gone: six "Act N /
+// milestone / continue or stop" interstitials through a single lesson read as
+// interruptions rather than milestones. The act boundaries themselves survive
+// and still release their SRS tranche (see LessonPager) — only the screens
+// went. RestPointCard has never been mounted anywhere.
 //
 // The architecture doc is specific about tone and it is worth honouring
 // exactly: one line of text, a progress bar, continue or stop. No confetti, no
-// streak, no badge. A celebration every eleven minutes stops meaning anything,
-// and the reward for finishing an act is knowing where you are.
+// streak, no badge.
 //
 // All arithmetic (which act, what it releases, where to resume) is in
 // acts.logic.ts and tested there.
@@ -19,81 +24,6 @@ import { sound } from '@/services';
 import { checkAnswer } from '@/content/answer.logic';
 import type { Checkpoint } from '@/content/acts.logic';
 import type { LessonAct, LessonSection, QuizQuestion } from '@/content/schema';
-
-/* ─── Act checkpoint ──────────────────────────────────────────────────────── */
-
-export function ActCheckpointCard({
-  checkpoint,
-  onContinue,
-  onStop,
-  nextActTitle,
-}: {
-  checkpoint: Checkpoint;
-  onContinue: () => void;
-  onStop: () => void;
-  nextActTitle?: string;
-}) {
-  const t = useTheme();
-  const { act, actIndex, progress, releases, isFinal } = checkpoint;
-
-  return (
-    <View style={{ flex: 1, paddingHorizontal: 24, paddingVertical: 28, gap: 22 }}>
-      <View style={{ gap: 10 }}>
-        <TX role="eyebrow" font="med" color={t.txMuted} ls={0.8} style={{ textTransform: 'uppercase' }}>
-          {isFinal ? 'Lesson complete' : `Act ${actIndex + 1}`}
-        </TX>
-        {/* The milestone. One line, authored, and the only congratulation. */}
-        <TX role="titleLg" font="semi" style={{ lineHeight: 29 }}>{act.milestone}</TX>
-      </View>
-
-      {/* A 3px bar, no step counter: "4 of 17" turns a lesson into a form.
-          Sighted learners read progress off the bar's width; a screen reader
-          gets nothing from it, so the percentage is spoken instead. That is
-          not the step counter this deliberately avoids — it is the same
-          information the bar already carries, in the only form speech has. */}
-      <View
-        accessibilityRole="progressbar"
-        accessibilityLabel={`${Math.round(progress * 100)} percent through the lesson`}
-        style={{ height: 3, borderRadius: 2, backgroundColor: t.line(8) }}
-      >
-        <View style={{ height: 3, borderRadius: 2, width: `${Math.round(progress * 100)}%`, backgroundColor: t.acc }} />
-      </View>
-
-      {releases.length ? (
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 9 }}>
-          <Icon name="restart" size={15} color={t.txNonText} />
-          <TX role="bodySm" color={t.txMuted}>
-            {releases.length} {releases.length === 1 ? 'word' : 'words'} added to your review
-          </TX>
-        </View>
-      ) : null}
-
-      <View style={{ flex: 1 }} />
-
-      <View style={{ gap: 10 }}>
-        <Button
-          label={isFinal ? 'Finish' : nextActTitle ? `Continue: ${nextActTitle}` : 'Continue'}
-          onPress={() => {
-            sound.play('tap');
-            onContinue();
-          }}
-        />
-        {!isFinal ? (
-          <Press
-            cue="tap"
-            onPress={onStop}
-            accessibilityRole="button"
-            accessibilityLabel="Stop here"
-            accessibilityHint="Leaves the lesson, keeping your place"
-            style={{ alignItems: 'center', paddingVertical: 12 }}
-          >
-            <TX role="body" color={t.txSecondary}>Stop here</TX>
-          </Press>
-        ) : null}
-      </View>
-    </View>
-  );
-}
 
 /* ─── Rest point ──────────────────────────────────────────────────────────── */
 

@@ -262,19 +262,7 @@ export default function LessonScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [L?.id]);
 
-  // One resolved checkpoint per act: its milestone, its progress through the
-  // lesson, and the corpus items that act releases to spaced repetition.
-  // Empty for a pre-v2 lesson, which then renders no checkpoint pages.
-  const checkpoints = useMemo(
-    () =>
-      (L.acts ?? []).map((a) => {
-        const last = a.sections[a.sections.length - 1];
-        return last ? checkpointFor(L, last) : null;
-      }),
-    [L.id] // eslint-disable-line react-hooks/exhaustive-deps
-  );
-
-  // Reaching a checkpoint releases that act's cards into review. This is the
+  // Finishing an act releases that act's cards into review. This is the
   // architecture's "cards arrive as they are taught" rule: an hour-long lesson
   // must not dump sixty new items into the SRS the moment it ends.
   //
@@ -554,15 +542,7 @@ export default function LessonScreen() {
         drills={L.drills}
         onJumpToRef={jumpToRef}
         acts={L.acts}
-        checkpoints={checkpoints}
         onCheckpointReached={releaseTranche}
-        // Stopping at a checkpoint leaves the lesson WITHOUT clearing the
-        // resume slot, so the home hero still offers to come back to it. That
-        // is the difference between stopping and finishing.
-        onStopHere={() => {
-          sound.play('tap');
-          router.back();
-        }}
       />
     </View>
   );
