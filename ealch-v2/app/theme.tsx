@@ -106,8 +106,11 @@ export default function ThemeDetail() {
           })}
         </ScrollView>
 
-        <TX font="semi" role="eyebrow" ls={2.2} color={t.txSubtle} style={{ marginBottom: 12 }}>
+        <TX font="semi" role="eyebrow" ls={2.2} color={t.txSubtle} style={{ marginBottom: 6 }}>
           {T.parcoursHead.replace('{n}', String(PARCOURS_STEPS.length))}
+        </TX>
+        <TX role="meta" color={t.txMuted} style={{ marginBottom: 14 }}>
+          {T.parcoursSub}
         </TX>
 
         <View style={{ gap: 10 }}>
