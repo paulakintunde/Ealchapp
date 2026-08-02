@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react';
 import { useWindowDimensions } from 'react-native';
 
 /**
@@ -35,4 +36,49 @@ export function useCardHeight(chrome = 200): number {
   // 300 keeps a card readable on the smallest supported screen; 620 stops a
   // tablet turning a single card into a poster.
   return Math.max(300, Math.min(620, available));
+}
+
+/**
+ * The same question, answered by MEASURING instead of guessing.
+ *
+ * ── Why the guess is not enough ───────────────────────────────────────────
+ *
+ * useCardHeight subtracts a constant from the WINDOW height. It cannot see the
+ * box the card was actually given, so on a tall phone it returns more room than
+ * exists: on a Pixel 6 the lesson page leaves roughly 507dp for a card, while
+ * the constants above produce 574-620. The card then runs past the bottom of
+ * its section — over the outline beneath it, or straight off the screen behind
+ * the nav bar with no visible edge at all.
+ *
+ * ── How to use it ─────────────────────────────────────────────────────────
+ *
+ *   const [onLayout, h] = useMeasuredCardHeight(330);
+ *   <View style={{ flex: 1 }} onLayout={onLayout}>
+ *     <Card height={h} />
+ *   </View>
+ *
+ * Spread `onLayout` onto the box that OWNS the space (the one with flex: 1),
+ * never onto the card itself — a card sized from its own measurement is a
+ * feedback loop that settles at zero. Until the first layout lands, the hook
+ * returns the guess, so the first frame is never blank and hook order never
+ * varies.
+ *
+ * `reserve` is what sits BELOW the card inside the same box and must stay
+ * visible: rating buttons, a dots row, a Continuer. Measured space minus that.
+ */
+export function useMeasuredCardHeight(
+  chrome = 200,
+  reserve = 0,
+): [(e: { nativeEvent: { layout: { height: number } } }) => void, number] {
+  const fallback = useCardHeight(chrome);
+  const [box, setBox] = useState(0);
+  const onLayout = useCallback((e: { nativeEvent: { layout: { height: number } } }) => {
+    const h = Math.round(e.nativeEvent.layout.height);
+    // Ignore sub-pixel churn; a rotation or font-scale change still lands.
+    setBox((prev) => (Math.abs(h - prev) > 1 ? h : prev));
+  }, []);
+  // A floor of 160 stops a mid-layout measurement of 0 collapsing the card to
+  // nothing — the same guard the group drill and the inhibition deck use.
+  const measured = box - reserve;
+  return [onLayout, measured > 160 ? measured : fallback];
 }

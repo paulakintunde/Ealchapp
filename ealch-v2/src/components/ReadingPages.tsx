@@ -18,6 +18,7 @@ import { Waveform } from '@/components/Waveform';
 import { LessonModal } from '@/components/LessonModal';
 import { CardFrame, SwipeDeck, useCardHeight } from '@/components/LessonDeck';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 
 import type { PlayFn } from '@/components/LessonDeck';
@@ -108,7 +109,12 @@ export function PassagePage({
       {/* The passage itself. Serif, generously leaded: this is the one screen
           in the lesson meant to be READ rather than scanned. */}
       <ScrollView
-        style={{ flex: 1 }}
+        // flex: 1 AND minHeight: 0 — the pair is what actually works in a flex
+        // column. Without the minimum, RN refuses to shrink a flex child below
+        // its content height, so a long passage pushed the sentence chips and
+        // the Continue button off the bottom instead of scrolling inside its
+        // own card. This is the one surface here that should absorb the slack.
+        style={{ flex: 1, minHeight: 0 }}
         nestedScrollEnabled
         contentContainerStyle={{
           borderRadius: 20,
@@ -141,7 +147,19 @@ export function PassagePage({
 
       {/* Per-sentence replay: what makes reading ALONG with the recording
           possible rather than only listening to it. */}
-      <ScrollView horizontal nestedScrollEnabled directionalLockEnabled showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8 }}>
+      <ScrollView
+        horizontal
+        nestedScrollEnabled
+        directionalLockEnabled
+        showsHorizontalScrollIndicator={false}
+        // flexGrow: 0 + an explicit height. A ScrollView is a flex child like
+        // any other, so inside this column it STRETCHED to fill whatever the
+        // passage above did not take — turning a row of small round numbers
+        // into 400px-tall ovals, and stealing that height from the passage,
+        // which is the one thing on this screen meant to be read.
+        style={{ flexGrow: 0, flexShrink: 0, height: 44 }}
+        contentContainerStyle={{ gap: 8, alignItems: 'center' }}
+      >
         {sentences.map((s, i) => (
           <Press
             key={i}
@@ -153,7 +171,9 @@ export function PassagePage({
               flexDirection: 'row',
               alignItems: 'center',
               gap: 6,
-              minHeight: 44,
+              // A fixed 44 rather than a minimum: these are pills in a fixed
+              // row, and a minimum let them grow with the row.
+              height: 44,
               borderRadius: 999,
               borderWidth: 1,
               borderColor: playingId === `sentence-${i}` ? t.acc : t.line(12),
@@ -287,9 +307,13 @@ export function ReadingQuestionsPage({
       <SwipeDeck
         items={questions}
         hint="Answer out loud, then tap to check."
+        // MEASURED, not guessed: without `fill` each card fell back to a
+        // window-derived height that is taller than the room this page leaves,
+        // so the card ran past the bottom and covered the deck's own dots.
+        fill
         keyFor={(_q: { q: string; a: string }, i: number) => `rq-${i}`}
-        renderItem={(q: { q: string; a: string }, i: number) => (
-          <ReadingQuestionCard question={q} index={i} total={questions.length} />
+        renderItem={(q: { q: string; a: string }, i: number, height: number | null) => (
+          <ReadingQuestionCard question={q} index={i} total={questions.length} height={height} />
         )}
       />
     </View>
@@ -300,17 +324,25 @@ function ReadingQuestionCard({
   question,
   index,
   total,
+  height,
 }: {
   question: { q: string; a: string };
   index: number;
   total: number;
+  /** The height the deck measured for this card. Wins over the guess below,
+   *  which cannot see the room this page actually left. */
+  height?: number | null;
 }) {
   const t = useTheme();
+  const T = useT();
   const [shown, setShown] = useState(false);
   // Sized to the viewport rather than fixed: the answers run to two or three
   // lines, and a fixed card pushed the deck's dots past the fold on shorter
-  // phones so the learner scrolled to find the swipe.
-  const h = useCardHeight(280);
+  // phones so the learner scrolled to find the swipe. The hook still runs
+  // unconditionally (hook order must not vary) and serves the first frame,
+  // before the deck's measurement lands.
+  const fallback = useCardHeight(280);
+  const h = height != null && height > 160 ? height : fallback;
 
   return (
     <Press
@@ -340,7 +372,7 @@ function ReadingQuestionCard({
             {shown ? (
               <TX role="titleSm" color={t.accTx} style={{ lineHeight: 28 }}>{question.a}</TX>
             ) : (
-              <TX role="bodySm" color={t.txSubtle} center>Touchez pour révéler</TX>
+              <TX role="bodySm" color={t.txSubtle} center>{T.tapToReveal}</TX>
             )}
           </View>
         </View>
