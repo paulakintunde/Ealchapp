@@ -553,6 +553,68 @@ test('term chips are capped so content is not pushed down the screen', () => {
   ok(/setChipsOpen\(true\)/.test(src), 'which expands them');
 });
 
+test('swiping past a deck edge leaves the mission instead of doing nothing', () => {
+  // A paging ScrollView simply STOPS at its content edge, so on the last card
+  // another swipe did nothing at all — no movement, no sound, no message. The
+  // learner had just built seven swipes of momentum and the rule silently
+  // changed to "now use the button".
+  const deck = readFileSync(join(here, '..', 'components', 'LessonDeck.tsx'), 'utf8');
+  ok(/onEdgeSwipe\?: \(dir: 'next' \| 'prev'\) => void;/.test(deck), 'SwipeDeck reports an edge swipe');
+  ok(/onScrollEndDrag=\{onEndDrag\}/.test(deck), 'read on end drag, where the intent lives');
+  // The hand-rolled deck (mission 3) had the same dead edge and needs it too.
+  const rich = readFileSync(join(here, '..', 'components', 'LessonRich.tsx'), 'utf8');
+  ok(/onScrollEndDrag=\{onEndDrag\}/.test(rich), 'CardDeckView reports it as well');
+
+  const pager = readFileSync(join(here, '..', 'components', 'LessonPager.tsx'), 'utf8');
+  ok(/const onDeckEdge = \(dir: 'next' \| 'prev'\) => goTo\(/.test(pager), 'the pager turns it into a page move');
+  // A neighbour's deck must never move the learner: pages stay mounted inside
+  // PAGE_WINDOW and their decks are live.
+  ok(/onEdgeSwipe=\{i === page \? onDeckEdge : undefined\}/.test(pager), 'only the page in view hands off');
+});
+
+test('a mission opens at its first card however the learner got there', () => {
+  // PAGE_WINDOW keeps neighbours MOUNTED, so a deck left at card 6 kept card 6
+  // if the learner stepped back one mission but reset if they stepped back two.
+  // Same action, two answers, decided by something invisible.
+  const deck = readFileSync(join(here, '..', 'components', 'LessonDeck.tsx'), 'utf8');
+  ok(/if \(active !== false\) return;/.test(deck), 'an inactive deck rewinds');
+  ok(/active\?: boolean;/.test(deck), 'and the owner says which page is on screen');
+  const pager = readFileSync(join(here, '..', 'components', 'LessonPager.tsx'), 'utf8');
+  ok(/active=\{i === page\}/.test(pager), 'the pager marks exactly one page active');
+});
+
+test('the pager reconciles its position during the drag, not only after it', () => {
+  // A slow drag released without a flick does not always fire
+  // onMomentumScrollEnd on Android; when it does not, everything keyed on
+  // `page` is stale until the next settle, silently.
+  const pager = readFileSync(join(here, '..', 'components', 'LessonPager.tsx'), 'utf8');
+  ok(/onScroll=\{onScrollPos\}/.test(pager), 'the pager listens during the drag');
+  ok(/scrollEventThrottle=\{16\}/.test(pager), 'at a rate that can keep up');
+  ok(/onMomentumScrollEnd=\{onMomentumEnd\}/.test(pager), 'and still reconciles on settle');
+});
+
+test('a mission-internal control never matches the pager’s own weight', () => {
+  // Two identical full-width accent buttons a few hundred dp apart, doing
+  // different things (advance the step / skip the mission), with nothing saying
+  // which is the way forward.
+  const rich = readFileSync(join(here, '..', 'components', 'MissionRich.tsx'), 'utf8');
+  const from = rich.indexOf('export function TrapDrillView');
+  ok(from > 0, 'expected a TrapDrillView body');
+  const nextFn = rich.indexOf('\nfunction ', from);
+  const trap = rich.slice(from, nextFn > 0 ? nextFn : undefined);
+  ok(/backgroundColor: 'transparent'/.test(trap), 'the trap step control is an outline');
+  ok(!/backgroundColor: held \? t\.line\(12\) : t\.acc/.test(trap), 'not a filled accent');
+});
+
+test('the close button clears the platform minimum tap target', () => {
+  // The visible circle is 38dp, under the 44 minimum, so close taps landed just
+  // outside it and the control read as unresponsive rather than small.
+  const ui = readFileSync(join(here, '..', 'components', 'ui.tsx'), 'utf8');
+  const header = ui.slice(ui.indexOf('export function FocusHeader'));
+  ok(/hitSlop=\{\{ top: 8, bottom: 8, left: 8, right: 8 \}\}/.test(header), 'hitSlop grows it to 54');
+  ok(/accessibilityLabel="Close"/.test(header), 'and it names itself');
+});
+
 test('a deck told to open on a card waits for its width before jumping', () => {
   // A paging ScrollView measured at 0 snaps every offset to 0, so scrolling
   // before the first layout lands on card 1 — indistinguishable from the
