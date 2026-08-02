@@ -72,7 +72,7 @@ export type Strings = {
   ovStart: string; ovSeeAll: string; ovSeeList: string; ovMissionsWord: string;
   /** The letter-grid footer link into the reference sheet, and the sheet's own
    *  way back out. Takes {n} — the full row count, not the previewed subset. */
-  gridSeeAll: string; gridSeeAllHint: string; gridDefaultNote: string; termsMore: string; sceneStart: string; sheetBackToLesson: string; sheetContinue: string;
+  gridSeeAll: string; gridSeeAllHint: string; gridDefaultNote: string; termsMore: string; sceneStart: string; sceneChooseFirst: string; sheetBackToLesson: string; sheetContinue: string;
   // Deck and drill chrome. These were hard-coded French inside the components,
   // which made them untranslatable — a learner on the English UI met
   // "Touchez pour révéler" on a card whose every other word was English, and a
@@ -329,7 +329,7 @@ export const T: Record<Lang, Strings> = {
     ovStart: 'Commencer la leçon', ovSeeAll: 'Voir les {n} missions', ovSeeList: 'voir la liste', ovMissionsWord: 'missions',
     checkAnswerFirst: 'Répondez pour continuer', tapToReveal: 'Touchez pour révéler', tapToFlip: 'Touchez pour retourner', answerToContinue: 'Répondez pour continuer', sceneEnd: 'Terminer la scène',
     nextGroup: 'Groupe suivant', reviewDone: 'Révision terminée', answerAllToContinue: 'Répondez à toutes les questions pour continuer',
-    gridDefaultNote: 'Sauf mention contraire, la finale est muette.', termsMore: '+{n}', sceneStart: 'Écouter la scène',
+    gridDefaultNote: 'Sauf mention contraire, la finale est muette.', termsMore: '+{n}', sceneStart: 'Écouter la scène', sceneChooseFirst: 'Choisissez une réponse pour continuer',
     gridSeeAll: 'Voir les {n} finales', gridSeeAllHint: 'Ouvre la fiche de référence', sheetBackToLesson: 'Retour à la leçon',
     sheetContinue: 'Continuer',
     sheetIndexTitle: 'Référence', sheetLinkA11y: 'Fiches de référence, {n} disponibles', backWord: 'Retour',
@@ -679,7 +679,7 @@ export const T: Record<Lang, Strings> = {
     ovStart: 'Start lesson', ovSeeAll: 'See all {n} missions', ovSeeList: 'see the list', ovMissionsWord: 'missions',
     checkAnswerFirst: 'Answer to continue', tapToReveal: 'Tap to reveal', tapToFlip: 'Tap to flip', answerToContinue: 'Answer to continue', sceneEnd: 'End the scene',
     nextGroup: 'Next group', reviewDone: 'Review complete', answerAllToContinue: 'Answer every question to continue',
-    gridDefaultNote: 'Unless a row says otherwise, the ending is silent.', termsMore: '+{n}', sceneStart: 'Play the scene',
+    gridDefaultNote: 'Unless a row says otherwise, the ending is silent.', termsMore: '+{n}', sceneStart: 'Play the scene', sceneChooseFirst: 'Choose an answer to continue',
     gridSeeAll: 'See all {n} endings', gridSeeAllHint: 'Opens the reference sheet', sheetBackToLesson: 'Back to the lesson',
     sheetContinue: 'Continue',
     sheetIndexTitle: 'Reference', sheetLinkA11y: 'Reference sheets, {n} available', backWord: 'Back',

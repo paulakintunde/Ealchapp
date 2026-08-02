@@ -56,6 +56,7 @@ export function ScenePlayer({
   onComplete?: () => void;
 }) {
   const t = useTheme();
+  const T = useT();
   // The establishing card sits before beat 0: place, time, and the illustration.
   const [onSetting, setOnSetting] = useState(!!setting);
   const [state, setState] = useState(initialSceneState);
@@ -91,25 +92,27 @@ export function ScenePlayer({
     <View style={{ flex: 1 }}>
       <SceneProgress value={sceneProgress(beats, state)} />
 
-      <Press
-        cue={null}
-        onPress={next}
-        disabled={blocked}
-        accessibilityLabel={blocked ? 'Choose an option to continue' : 'Continue'}
-        style={{ flex: 1 }}
-      >
-        <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 24, paddingVertical: 20 }}>
-          <BeatView
-            beat={beat}
-            index={state.index}
-            state={state}
-            beats={beats}
-            onPlay={onPlay}
-            playingId={playingId}
-            onPick={pick}
-          />
-        </View>
-      </Press>
+      {/* NOT a Press wrapping the whole beat.
+          The beat's own content is interactive — a bubble plays its audio, a
+          choice takes a pick — and a nested Press swallows the tap before the
+          outer one sees it. So "tap anywhere to continue" was true only of the
+          empty margins beside the bubble: the learner had to find the dead
+          space to move on, and tapping the thing they were reading did nothing
+          that looked like progress.
+
+          An explicit button is what the screen was already pretending to be,
+          and it can say whether it is available. */}
+      <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 24, paddingVertical: 20 }}>
+        <BeatView
+          beat={beat}
+          index={state.index}
+          state={state}
+          beats={beats}
+          onPlay={onPlay}
+          playingId={playingId}
+          onPick={pick}
+        />
+      </View>
 
       {done && closing ? (
         <View style={{ paddingHorizontal: 24, paddingBottom: 8 }}>
@@ -117,13 +120,20 @@ export function ScenePlayer({
         </View>
       ) : null}
 
-      {!blocked ? (
-        <View style={{ paddingHorizontal: 24, paddingBottom: 16, paddingTop: 8 }}>
-          <TX role="meta" color={t.txSubtle} center>
-            {done ? '' : 'Tap to continue'}
+      <View style={{ paddingHorizontal: 24, paddingBottom: 16, paddingTop: 8 }}>
+        <Button
+          label={done ? T.sceneEnd : T.continueT}
+          variant={blocked ? 'outline' : 'primary'}
+          icon={blocked ? undefined : 'chevronRight'}
+          disabled={blocked}
+          onPress={next}
+        />
+        {blocked ? (
+          <TX role="meta" color={t.txSubtle} center style={{ marginTop: 8 }}>
+            {T.sceneChooseFirst}
           </TX>
-        </View>
-      ) : null}
+        ) : null}
+      </View>
     </View>
   );
 }
@@ -251,8 +261,15 @@ function BubbleBeat({
           gap: 5,
         }}
       >
+        {/* flexShrink: 1, NOT flex: 1.
+            The bubble hugs its content, so `flex: 1` asked the text to fill a
+            width nobody had decided yet — RN resolved that against the shortest
+            word and clipped the rest, which is why "Pardon ?" rendered as "Pa".
+            Shrink-only lets the text measure itself first and give way only when
+            the bubble really is at its 92% ceiling. Same failure the XL word
+            card hit; see the LAYOUT RULE note in LessonRich. */}
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-          <TX font="serifI" role="titleSm" style={{ flex: 1 }}>{beat.fr}</TX>
+          <TX font="serifI" role="titleSm" style={{ flexShrink: 1 }}>{beat.fr}</TX>
           <Icon name="speaker" size={15} color={on ? t.acc : t.txNonText} />
         </View>
         <TX role="bodySm" color={t.txMuted}>{beat.en}</TX>
