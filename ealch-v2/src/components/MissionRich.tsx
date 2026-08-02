@@ -584,7 +584,7 @@ export function GroupDrillView({
         </Press>
       ) : (
         <View style={{ marginTop: 14, alignItems: 'center' }}>
-          <TX role="bodySm" color={t.txMuted}>Tous les groupes vus. Balayez pour continuer.</TX>
+          <TX role="bodySm" color={t.txMuted}>{T.allGroupsSeen}</TX>
         </View>
       )}
     </View>
@@ -705,6 +705,7 @@ function TrapRuleStep({ rule }: { rule: { title: string; body: string } }) {
  *  six traps stacked is six ways to be wrong shown at once, and the learner
  *  scrolls past them. One at a time, each with room for its tip. */
 function TrapCardsStep({ cards }: { cards: TrapCard[] }) {
+  const T = useT();
   return (
     <SwipeDeck
       items={cards}
@@ -712,8 +713,8 @@ function TrapCardsStep({ cards }: { cards: TrapCard[] }) {
       // measures the leftover height rather than sizing to a fixed card and
       // pushing the Continuer button off screen.
       fill
-      hint="Un piège à la fois. Touchez la carte pour la retourner."
-      a11yHint="Balayez pour le piège suivant"
+      hint={T.trapHint}
+      a11yHint={T.trapHintA11y}
       keyFor={(_c: unknown, i: number) => `trap-${i}`}
       renderItem={(c: TrapCard, _i: number, height: number | null) => <TrapFlipCard c={c} height={height} />}
     />
@@ -939,22 +940,30 @@ export function TrapDrillView({
           accessibilityRole="button"
           accessibilityState={{ disabled: held }}
           accessibilityLabel={held ? T.answerAllToContinue : T.continueT}
+          // OUTLINE, not a filled accent. The pager's own Next bar sits a few
+          // hundred dp below this doing a DIFFERENT thing — this advances the
+          // step inside the mission, Next skips the whole mission — and two
+          // identical full-width accent buttons gave the learner no way to tell
+          // which was the way forward. The mission's internal control is
+          // subordinate to the lesson's, so it is the one that steps back.
           style={{
             height: 48,
             borderRadius: 24,
-            backgroundColor: held ? t.line(12) : t.acc,
+            borderWidth: 1.5,
+            borderColor: held ? t.line(12) : t.accA(50),
+            backgroundColor: 'transparent',
             alignItems: 'center',
             justifyContent: 'center',
             marginTop: 14,
           }}
         >
-          <TX font="semi" role="body" color={held ? t.txSubtle : t.accInk}>
+          <TX font="semi" role="body" color={held ? t.txSubtle : t.accTx}>
             {held ? T.answerToContinue : T.continueT}
           </TX>
         </Press>
       ) : (
         <View style={{ marginTop: 14, alignItems: 'center' }}>
-          <TX role="bodySm" color={t.txMuted}>Balayez pour continuer.</TX>
+          <TX role="bodySm" color={t.txMuted}>{T.swipeToContinue}</TX>
         </View>
       )}
     </View>
