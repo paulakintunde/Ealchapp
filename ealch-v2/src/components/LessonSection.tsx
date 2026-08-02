@@ -43,6 +43,7 @@ export function SectionView({
   graded,
   showHero = true,
   onSubIndexChange,
+  onEdgeSwipe,
 }: {
   s: LessonSection;
   onPlay: (id: string, text: string, audioRef?: string | null) => void;
@@ -58,6 +59,8 @@ export function SectionView({
    *  deck's ENTRIES. Feeds the pager's sub-mission number (15.1, 15.2 …).
    *  Ignored by every other section type, all of which are a single screen. */
   onSubIndexChange?: (index: number) => void;
+  /** Swiping past the cardDeck's first/last card leaves the mission. */
+  onEdgeSwipe?: (dir: 'next' | 'prev') => void;
 }) {
   const t = useTheme();
   const T = useT();
@@ -256,7 +259,7 @@ export function SectionView({
         <View style={{ flex: 1 }}>
           {label}
           {hero}
-          <CardDeckView s={s} onPlay={onPlay} playingId={playingId} onIndexChange={onSubIndexChange} />
+          <CardDeckView s={s} onPlay={onPlay} playingId={playingId} onIndexChange={onSubIndexChange} onEdgeSwipe={onEdgeSwipe} />
         </View>
       );
 

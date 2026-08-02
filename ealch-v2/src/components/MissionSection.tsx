@@ -166,12 +166,16 @@ function InhibitionMission({
   playingId,
   onIndexChange,
   initialIndex,
+  onEdgeSwipe,
+  active,
 }: {
   s: Extract<LessonSection, { type: 'inhibitionDrill' }>;
   onPlay: (id: string, text: string, audioRef?: string | null) => void;
   playingId: string | null;
   onIndexChange?: (index: number) => void;
   initialIndex?: number | null;
+  onEdgeSwipe?: (dir: 'next' | 'prev') => void;
+  active?: boolean;
 }) {
   // Which target's mic is open, or null. Held here rather than in the deck so
   // that swiping between routines closes nothing by accident.
@@ -191,6 +195,7 @@ function InhibitionMission({
         playingId={playingId}
         onIndexChange={onIndexChange}
         initialIndex={initialIndex}
+        active={active}
         renderMic={(_t, i) => <InhibitionMicRow onPress={() => setMicTarget(i)} />}
       />
       {/* In a MODAL, not inline. WordPractice positions itself absolutely
@@ -268,6 +273,8 @@ export function MissionSectionView({
   onSubIndexChange,
   initialSub,
   onBlockedChange,
+  onEdgeSwipe,
+  active,
 }: {
   s: LessonSection;
   onPlay: (id: string, text: string, audioRef?: string | null) => void;
@@ -295,6 +302,11 @@ export function MissionSectionView({
   /** Raised while this section is holding the learner — today only an
    *  unanswered control page. The pager dims Next while it is true. */
   onBlockedChange?: (blocked: boolean) => void;
+  /** Swiping past this mission's first/last card leaves the mission. Wired only
+   *  to the sections that ARE a deck; everything else has no edge to swipe. */
+  onEdgeSwipe?: (dir: 'next' | 'prev') => void;
+  /** Is this the mission on screen? Decks rewind to card 1 when it is not. */
+  active?: boolean;
 }) {
   const t = useTheme();
   const T = useT();
@@ -392,6 +404,8 @@ export function MissionSectionView({
             playingId={playingId}
             onIndexChange={onSubIndexChange}
             initialIndex={initialSub}
+            onEdgeSwipe={onEdgeSwipe}
+            active={active}
           />
         </View>
       );
@@ -486,6 +500,8 @@ export function MissionSectionView({
               hint="One at a time. Each of these is a good instinct pointed at the wrong language."
               onIndexChange={onSubIndexChange}
               initialIndex={initialSub}
+              onEdgeSwipe={onEdgeSwipe}
+              active={active}
               // MEASURED: without `fill` the card guessed a height taller than
               // this page leaves and ran over the deck's dots beneath it.
               fill
@@ -597,6 +613,7 @@ export function MissionSectionView({
             // branch. Every other type here is a single screen, so there is no
             // sub-position for it to report.
             onSubIndexChange={onSubIndexChange}
+            onEdgeSwipe={onEdgeSwipe}
           />
         </View>
       );

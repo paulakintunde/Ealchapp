@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
+  Animated,
+  Easing,
   ScrollView,
   View,
   useWindowDimensions,
@@ -582,6 +584,50 @@ export function LessonPager({
     if (p !== page) setPage(p);
   };
 
+  /** Also reconcile DURING the drag, not only when momentum settles.
+   *
+   *  A slow drag released without a flick does not always fire
+   *  onMomentumScrollEnd on Android. When it does not, `page` state and the
+   *  real scroll offset disagree until the next settle — and everything keyed
+   *  on `page` (the mission label, the sub-mission reset, the Next gate, the
+   *  resume write) is stale for that whole interval, silently.
+   *
+   *  Rounding to the nearest page means this only fires once the learner is
+   *  more than half way across, so it never flickers mid-drag. */
+  const onScrollPos = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    if (!width) return;
+    const p = Math.round(e.nativeEvent.contentOffset.x / width);
+    if (p !== page && p >= 0 && p <= lastPage) setPage(p);
+  };
+
+  /** A deck inside a mission reached its edge and the learner kept swiping.
+   *  Treat it as what it plainly is: a request to leave the mission. */
+  const onDeckEdge = (dir: 'next' | 'prev') => goTo(dir === 'next' ? page + 1 : page - 1);
+
+  /** The mission label REVEALS on each change rather than swapping in place.
+   *
+   *  Pages snap with no transition, so "2 / 27" becoming "3 / 27" was a silent
+   *  character change in the corner — the one piece of state that tells the
+   *  learner they progressed, and the easiest thing on the screen to miss. A
+   *  short rise and fade is enough to make the change register as movement.
+   *
+   *  Keyed on the MISSION, not the page: swiping between cards inside one
+   *  mission updates the sub-number, and re-animating on every card would turn
+   *  a subtitle into a flicker. */
+  const labelAnim = useRef(new Animated.Value(1)).current;
+  const shownMission = currentEntry?.kind === 'section' || currentEntry?.kind === 'image'
+    ? missionNumber(currentEntry.sectionIx)
+    : -1;
+  useEffect(() => {
+    labelAnim.setValue(0);
+    Animated.timing(labelAnim, {
+      toValue: 1,
+      duration: 260,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true,
+    }).start();
+  }, [shownMission, labelAnim]);
+
   // A card's voice belongs to that card — killing it the instant the learner
   // starts dragging the pager makes leaving the card and silencing it the
   // same gesture. (Inner decks and vertical scrolling never reach this
@@ -606,6 +652,14 @@ export function LessonPager({
       {/* Progress + position */}
       <View style={{ paddingHorizontal: 24, paddingBottom: 14 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+          <Animated.View
+            style={{
+              opacity: labelAnim,
+              transform: [
+                { translateY: labelAnim.interpolate({ inputRange: [0, 1], outputRange: [6, 0] }) },
+              ],
+            }}
+          >
           <TX
             font="semi"
             role="meta"
@@ -636,6 +690,7 @@ export function LessonPager({
                     missionTotal ?? sections.length,
                   )}
           </TX>
+          </Animated.View>
           <View
             style={{
               flexDirection: 'row',
@@ -672,6 +727,8 @@ export function LessonPager({
         showsHorizontalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
         onScrollBeginDrag={onDragStart}
+        onScroll={onScrollPos}
+        scrollEventThrottle={16}
         onMomentumScrollEnd={onMomentumEnd}
         style={{ flex: 1 }}
       >
@@ -822,6 +879,10 @@ export function LessonPager({
                     // mounted inside PAGE_WINDOW, and an unanswered check two
                     // pages ahead must not disable Next on the page being read.
                     onBlockedChange={i === page ? setSectionBlocked : undefined}
+                    // Only the page in view may hand off; a neighbour's deck
+                    // reaching its edge must not move the learner.
+                    onEdgeSwipe={i === page ? onDeckEdge : undefined}
+                    active={i === page}
                   />
                 </View>
               </PageScroll>

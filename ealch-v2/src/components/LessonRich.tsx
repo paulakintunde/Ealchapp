@@ -456,7 +456,13 @@ export function CardDeckView({
   onPlay,
   playingId,
   onIndexChange,
-}: { s: DeckSection; onIndexChange?: (index: number) => void } & PlayProps) {
+  onEdgeSwipe,
+}: {
+  s: DeckSection;
+  onIndexChange?: (index: number) => void;
+  /** Swiping past the first/last card leaves the deck — see SwipeDeck. */
+  onEdgeSwipe?: (dir: 'next' | 'prev') => void;
+} & PlayProps) {
   const t = useTheme();
   const { width } = useWindowDimensions();
   const [ix, setIx] = useState(0);
@@ -510,6 +516,26 @@ export function CardDeckView({
     }
   };
 
+  /** Same edge hand-off as SwipeDeck, and for the same reason: this rail also
+   *  simply stopped at its last card, so the swipe the learner had been using
+   *  all mission silently became a no-op. See the note on SwipeDeck.onEdgeSwipe.
+   *
+   *  This deck snaps by `step` (card + gap) rather than by full page width, so
+   *  the end offset is derived from the content size rather than assumed. */
+  const onEndDrag = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    if (!onEdgeSwipe) return;
+    const ne = e.nativeEvent;
+    const maxX = Math.max(0, ne.contentSize.width - ne.layoutMeasurement.width);
+    const vx = ne.velocity?.x ?? 0;
+    const atEnd = ne.contentOffset.x >= maxX - 1;
+    const atStart = ne.contentOffset.x <= 0;
+    if (atEnd && ix >= entries.length - 1 && (vx < -0.3 || ne.contentOffset.x > maxX + step * 0.33)) {
+      onEdgeSwipe('next');
+    } else if (atStart && ix <= 0 && (vx > 0.3 || ne.contentOffset.x < -step * 0.33)) {
+      onEdgeSwipe('prev');
+    }
+  };
+
   return (
     // The page hands the deck the viewport (ownsLayout in LessonPager), and
     // THIS box is what gets measured.
@@ -535,6 +561,7 @@ export function CardDeckView({
         snapToInterval={step}
         decelerationRate="fast"
         onMomentumScrollEnd={onScroll}
+        onScrollEndDrag={onEndDrag}
         // Pinned to exactly the room the cards were allotted. Left to grow, the
         // rail takes the whole box and the cards paint over the dots row.
         style={{ flexGrow: 0, flexShrink: 0, height: cardH || undefined }}

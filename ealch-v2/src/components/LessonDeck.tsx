@@ -227,6 +227,8 @@ export function SwipeDeck<T>({
   hint,
   a11yHint,
   onIndexChange,
+  onEdgeSwipe,
+  active,
   initialIndex,
   fill = false,
 }: {
@@ -244,6 +246,14 @@ export function SwipeDeck<T>({
    *  without spending any layout height on it. */
   a11yHint?: string;
   onIndexChange?: (index: number) => void;
+  /** Fires when the learner swipes PAST the deck's first or last card — the
+   *  gesture that used to do nothing at all. The owner decides what "past the
+   *  end" means; in a lesson it is the next or previous mission. */
+  onEdgeSwipe?: (dir: 'next' | 'prev') => void;
+  /** Is this deck's page the one on screen? False rewinds it to card 1, so a
+   *  mission always opens at its first card rather than wherever it was left.
+   *  Undefined means "the owner does not track this" and never rewinds. */
+  active?: boolean;
   /** Open on this card rather than the first — a resume or deep link landing
    *  inside the mission. 0-based, clamped, and applied ONCE: after that the
    *  deck is the learner's to swipe. */
@@ -272,6 +282,25 @@ export function SwipeDeck<T>({
   const [ix, setIx] = useState(0);
   const last = useRef(0);
   const railRef = useRef<ScrollView>(null);
+
+  /** Return to card 1 when this deck's page stops being the one on screen.
+   *
+   *  PAGE_WINDOW keeps the neighbouring pages MOUNTED, so a deck left at card 6
+   *  kept card 6 if the learner stepped back one mission — but reset if they
+   *  stepped back two, because that page had been unmounted. Same action, two
+   *  different answers, decided by an implementation detail nobody can see.
+   *
+   *  Resetting makes it predictable in the direction the rest of the lesson
+   *  already promises: a mission opens at its first card. The one intentional
+   *  exception is `initialIndex`, which a resume passes explicitly and which
+   *  runs once on mount before this can fire. */
+  useEffect(() => {
+    if (active !== false) return;
+    if (last.current === 0) return;
+    last.current = 0;
+    setIx(0);
+    if (w) railRef.current?.scrollTo({ x: 0, animated: false });
+  }, [active, w]);
 
   // Land on the requested card once the rail has a real width.
   //
@@ -304,6 +333,41 @@ export function SwipeDeck<T>({
       onIndexChange?.(next);
       sound.play('flip');
     }
+  };
+
+  /** How far past the last (or before the first) card a drag has to travel
+   *  before it counts as "I am trying to leave this deck" rather than a
+   *  bounce. A third of a card is past any accidental overshoot and well short
+   *  of a deliberate full swipe. */
+  const EDGE_HANDOFF = 0.33;
+
+  /** The deck's edges are where the learner's model breaks.
+   *
+   *  A paging ScrollView simply STOPS at its content edge, so on the last card
+   *  another swipe did nothing at all — no movement, no sound, no message. The
+   *  learner has just built up seven swipes of momentum, and the rule silently
+   *  changes to "now use the button", with only the breathing arrow's absence
+   *  as a hint (and that says "no more cards", not "press Next").
+   *
+   *  So an over-drag at either edge hands off to whatever owns the deck. The
+   *  gesture keeps meaning the same thing everywhere in the lesson: swipe moves
+   *  you forward.
+   *
+   *  Read on END DRAG, not on scroll: at the edge the offset is already pinned,
+   *  so the only evidence of intent is how far the finger travelled, which is
+   *  what `velocity` and the drag's end offset carry. */
+  const onEndDrag = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    if (!w || !onEdgeSwipe) return;
+    const ne = e.nativeEvent;
+    const maxX = Math.max(0, ne.contentSize.width - ne.layoutMeasurement.width);
+    // Android pins the offset at the edge and reports the intent as velocity;
+    // iOS lets the content bounce past it. Accept either signal.
+    const vx = ne.velocity?.x ?? 0;
+    const overStart = ne.contentOffset.x <= 0 && (vx > 0.3 || ne.contentOffset.x < -w * EDGE_HANDOFF);
+    const overEnd =
+      ne.contentOffset.x >= maxX - 1 && (vx < -0.3 || ne.contentOffset.x > maxX + w * EDGE_HANDOFF);
+    if (overEnd && ix >= items.length - 1) onEdgeSwipe('next');
+    else if (overStart && ix <= 0) onEdgeSwipe('prev');
   };
 
   // The hint is instruction, and instruction has a shelf life: it tells you
@@ -364,6 +428,7 @@ export function SwipeDeck<T>({
             pagingEnabled
             showsHorizontalScrollIndicator={false}
             onScroll={onScroll}
+            onScrollEndDrag={onEndDrag}
             scrollEventThrottle={32}
             // The parent page is a VERTICAL ScrollView. Without these, Android
             // hands the whole gesture to whichever scroller claims it first

@@ -230,6 +230,8 @@ export function InhibitionDrillView({
   renderMic,
   onIndexChange,
   initialIndex,
+  onEdgeSwipe,
+  active,
 }: {
   intro?: string;
   targets: InhibitionTarget[];
@@ -250,6 +252,10 @@ export function InhibitionDrillView({
   onIndexChange?: (index: number) => void;
   /** The card to open on, over the same composed deck `onIndexChange` counts. */
   initialIndex?: number | null;
+  /** Swiping past the first/last routine leaves the mission. */
+  onEdgeSwipe?: (dir: 'next' | 'prev') => void;
+  /** Is this mission on screen? False rewinds the deck to card 1. */
+  active?: boolean;
 }) {
   // Cards: an optional opener, then TWO per routine — the steps, then the words
   // it is performed on — and finally the closing reflex.
@@ -288,6 +294,8 @@ export function InhibitionDrillView({
       hint="Do each one out loud before you swipe."
       onIndexChange={onIndexChange}
       initialIndex={initialIndex}
+      onEdgeSwipe={onEdgeSwipe}
+      active={active}
       // MEASURED, not guessed. useCardHeight subtracts a constant from the
       // WINDOW height and floors the result at 300 / caps it at 620 — it cannot
       // see the box this deck was actually handed, so on a tall phone the
