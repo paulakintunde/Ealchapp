@@ -21,6 +21,7 @@ import { Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { SilentLetterGrid } from '@/components/SilentCards';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import type { LessonSection, ReferenceSheet as Sheet } from '@/content/schema';
 
@@ -30,13 +31,14 @@ import type { PlayFn } from '@/components/LessonDeck';
  *  screen of a lesson that declares sheets. */
 export function SheetLink({ onPress, count }: { onPress: () => void; count: number }) {
   const t = useTheme();
+  const T = useT();
   if (!count) return null;
   return (
     <Press
       cue={null}
       onPress={() => { sound.play('tap'); onPress(); }}
       accessibilityRole="button"
-      accessibilityLabel={`Reference sheets, ${count} available`}
+      accessibilityLabel={T.sheetLinkA11y.replace('{n}', String(count))}
       // 32px is the visual size the header needs; hitSlop takes the TOUCH
       // target to 48 without changing the layout.
       hitSlop={8}
@@ -66,9 +68,10 @@ export function SheetIndex({
   onClose: () => void;
 }) {
   const t = useTheme();
+  const T = useT();
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
-      <SheetHeader title="Reference" onBack={onClose} />
+      <SheetHeader title={T.sheetIndexTitle} onBack={onClose} />
       <ScrollView contentContainerStyle={{ padding: 24, gap: 12 }}>
         {sheets.map((s) => (
           <Press
@@ -108,11 +111,26 @@ export function ReferenceSheetView({
   onBack,
   onPlay,
   playingId,
+  returnLabel,
+  onForward,
+  forwardLabel,
 }: {
   sheet: Sheet;
   onBack: () => void;
   onPlay?: PlayFn;
   playingId?: string | null;
+  /** Footer return control, shown only when Back leaves the sheet entirely.
+   *  Omitted when Back steps to the sheet index instead, where the header
+   *  arrow already says the true destination and a "back to the lesson"
+   *  footer would be a lie. */
+  returnLabel?: string;
+  /** The way ON. A sheet opened from a mission is a detour the learner has
+   *  just finished, and returning them to the mission they already read is the
+   *  wrong default: they came here from an eight-row preview, read all sixteen,
+   *  and the only exit sent them backwards. Paired with `returnLabel` — both
+   *  exits are offered, forward as the primary. */
+  onForward?: () => void;
+  forwardLabel?: string;
 }) {
   const t = useTheme();
   return (
@@ -122,6 +140,68 @@ export function ReferenceSheetView({
         {(sheet.sections ?? []).map((s, i) => (
           <SheetSection key={(s as { id?: string }).id ?? i} section={s} onPlay={onPlay} playingId={playingId} />
         ))}
+        {/* The exits. A sheet opened mid-flow is a detour, and the learner who
+            scrolls to the end of a 16-row table has no signpost at all — the
+            header arrow is a full screen away by then.
+
+            Both directions are offered, because "back" alone was actively
+            wrong: this sheet is reached from a mission showing eight of the
+            sixteen rows, so someone who reads the full table has finished that
+            material and was being returned to the preview of it. Forward is the
+            primary — it is what the learner who read to the bottom is asking
+            for — and back stays available for the one who came to look up a
+            single row. */}
+        {returnLabel || forwardLabel ? (
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            {returnLabel ? (
+              <Press
+                cue="tap"
+                onPress={onBack}
+                accessibilityRole="button"
+                accessibilityLabel={returnLabel}
+                style={{
+                  // Shares the row with forward when both are present, and
+                  // takes the full width when it is the only exit.
+                  flex: 1,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 8,
+                  minHeight: 44,
+                  paddingVertical: 14,
+                  borderRadius: 14,
+                  borderWidth: 1,
+                  borderColor: t.line(12),
+                }}
+              >
+                <Icon name="arrowLeft" size={15} color={t.accTx} />
+                <TX role="body" font="med" color={t.accTx} numberOfLines={1}>{returnLabel}</TX>
+              </Press>
+            ) : null}
+            {forwardLabel && onForward ? (
+              <Press
+                cue="tap"
+                onPress={onForward}
+                accessibilityRole="button"
+                accessibilityLabel={forwardLabel}
+                style={{
+                  flex: 1,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 8,
+                  minHeight: 44,
+                  paddingVertical: 14,
+                  borderRadius: 14,
+                  backgroundColor: t.acc,
+                }}
+              >
+                <TX role="body" font="semi" color={t.accInk} numberOfLines={1}>{forwardLabel}</TX>
+                <Icon name="arrowRight" size={15} color={t.accInk} />
+              </Press>
+            ) : null}
+          </View>
+        ) : null}
       </ScrollView>
     </View>
   );
@@ -129,6 +209,7 @@ export function ReferenceSheetView({
 
 function SheetHeader({ title, onBack }: { title: string; onBack: () => void }) {
   const t = useTheme();
+  const T = useT();
   return (
     <View
       style={{
@@ -145,7 +226,7 @@ function SheetHeader({ title, onBack }: { title: string; onBack: () => void }) {
         cue={null}
         onPress={onBack}
         accessibilityRole="button"
-        accessibilityLabel="Back"
+        accessibilityLabel={T.backWord}
         hitSlop={8}
         style={{ width: 32, height: 32, alignItems: 'center', justifyContent: 'center' }}
       >
@@ -249,6 +330,7 @@ export function SheetSurface({
   sheets,
   initialSheetId,
   onClose,
+  onContinue,
   onPlay,
   playingId,
 }: {
@@ -256,9 +338,15 @@ export function SheetSurface({
   /** Opens straight into one sheet, for a section's "see all" link. */
   initialSheetId?: string;
   onClose: () => void;
+  /** Closes the sheet AND advances the lesson, for the learner who reached the
+   *  end of a sheet they opened from a mission. Offered on exactly the same
+   *  condition as the return footer — a sheet reached through the index is not
+   *  part of any mission's flow, so there is no "next" for it to mean. */
+  onContinue?: () => void;
   onPlay?: PlayFn;
   playingId?: string | null;
 }) {
+  const T = useT();
   const [openId, setOpenId] = useState<string | null>(initialSheetId ?? null);
   const sheet = openId ? sheets.find((s) => s.id === openId) : null;
 
@@ -269,6 +357,13 @@ export function SheetSurface({
         onBack={() => (initialSheetId ? onClose() : setOpenId(null))}
         onPlay={onPlay}
         playingId={playingId}
+        // Only when Back exits to the lesson. Arrived via the index and Back
+        // means the index, so the footer stays off rather than mislabelling it.
+        returnLabel={initialSheetId ? T.sheetBackToLesson : undefined}
+        // Same asymmetry: only a sheet opened FROM a mission has a mission to
+        // continue into.
+        onForward={initialSheetId && onContinue ? onContinue : undefined}
+        forwardLabel={initialSheetId && onContinue ? T.sheetContinue : undefined}
       />
     );
   }
