@@ -1,0 +1,338 @@
+// The lesson contract, enforced across EVERY lesson in the seed.
+//
+// ── Why this file exists ────────────────────────────────────────────────────
+//
+// sons.06 was built as the reference lesson, and building it surfaced four
+// classes of failure that are invisible in a code review of the content and
+// obvious within ten seconds on a device:
+//
+//   1. Layout GUESSED rather than measured, so a card ran past the bottom of
+//      the screen and took its answer buttons with it. Three missions could not
+//      be completed at all — not untidy, unusable.
+//   2. A field authored, schema-validated, and rendered by nothing. The
+//      inhibition drill named four practice words per routine and displayed
+//      none of them, for months.
+//   3. Chrome repeated. "Contrôle" three times on one screen; a group label
+//      restating the mission title on four missions.
+//   4. Interactive content with no verdict. A check that recoloured two rows
+//      and explained nothing, at the exact moment the rule was most likely to
+//      land.
+//
+// The per-lesson guards in subMission.logic.test.ts pin these for sons.06. This
+// file lifts the ones that are CONTENT rules over the whole seed, because seven
+// other lessons already ship and none of them was re-checked after the layout
+// contract changed underneath them.
+//
+// Rule of thumb for what belongs here: if the assertion reads a lesson and
+// could sensibly be asked of any lesson, it goes here. If it reads component
+// source, it belongs with the component's own guards.
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+import { ok, strictEqual } from 'node:assert';
+import { test } from 'node:test';
+import type { Lesson, LessonSection } from './schema.ts';
+import { subCount } from './subMission.logic.ts';
+
+const here = dirname(fileURLToPath(import.meta.url));
+const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as {
+  items: { id: string }[];
+  lessons: Lesson[];
+};
+const ITEM_IDS = new Set(seed.items.map((i) => i.id));
+
+/** Every lesson, with a label good enough to name the failure. */
+const LESSONS = seed.lessons.map((l) => ({ id: l.id, lesson: l }));
+
+/** A section's 1-based mission number, for failure messages a human can act on. */
+const missionOf = (lesson: Lesson, sec: LessonSection) => lesson.sections.indexOf(sec) + 1;
+const idOf = (sec: LessonSection) => (sec as { id?: string }).id ?? '(no id)';
+const where = (lessonId: string, lesson: Lesson, sec: LessonSection) =>
+  `${lessonId} mission ${missionOf(lesson, sec)} (${idOf(sec)})`;
+
+/* ─── 1. Nothing authored may go unrendered ───────────────────────────────── */
+
+test('every practiceOn id resolves to a real corpus item', () => {
+  // The failure this catches: a drill that names the words it is performed on,
+  // passes the schema, and shows the learner an empty card. An id that does not
+  // resolve renders as nothing at all — the section degrades silently rather
+  // than erroring.
+  for (const { id, lesson } of LESSONS) {
+    for (const sec of lesson.sections) {
+      const targets = (sec as { targets?: { label: string; practiceOn?: string[] }[] }).targets;
+      if (!targets) continue;
+      for (const tg of targets) {
+        ok(tg.practiceOn?.length, `${where(id, lesson, sec)}: target "${tg.label}" names no practice words`);
+        for (const itemId of tg.practiceOn) {
+          ok(ITEM_IDS.has(itemId), `${where(id, lesson, sec)}: "${tg.label}" -> ${itemId} is not in the corpus`);
+        }
+      }
+    }
+  }
+});
+
+test('every practice and dictation section resolves its itemIds', () => {
+  // Same class of failure, different field. A `practice` section whose itemIds
+  // do not resolve renders a drill with nothing in it.
+  for (const { id, lesson } of LESSONS) {
+    for (const sec of lesson.sections) {
+      if (sec.type !== 'practice' && sec.type !== 'dictation') continue;
+      const ids = (sec as { itemIds?: string[] }).itemIds ?? [];
+      ok(ids.length > 0, `${where(id, lesson, sec)}: a ${sec.type} section with no itemIds is an empty drill`);
+      for (const itemId of ids) {
+        ok(ITEM_IDS.has(itemId), `${where(id, lesson, sec)}: ${itemId} is not in the corpus`);
+      }
+    }
+  }
+});
+
+test('a section that declares a reference sheet points at one that exists', () => {
+  for (const { id, lesson } of LESSONS) {
+    const sheetIds = new Set((lesson.sheets ?? []).map((s: { id: string }) => s.id));
+    for (const sec of lesson.sections) {
+      const ref = (sec as { sheetId?: string }).sheetId;
+      if (!ref) continue;
+      ok(sheetIds.has(ref), `${where(id, lesson, sec)}: sheetId "${ref}" matches no sheet on this lesson`);
+    }
+  }
+});
+
+test('a term chip names a term the lesson actually defines', () => {
+  // A chip whose key is missing from the glossary renders as nothing, so the
+  // mission silently loses the explanation it meant to offer.
+  for (const { id, lesson } of LESSONS) {
+    const defined = new Set(Object.keys(lesson.terms ?? {}));
+    for (const sec of lesson.sections) {
+      for (const key of (sec as { terms?: string[] }).terms ?? []) {
+        ok(defined.has(key), `${where(id, lesson, sec)}: term chip "${key}" is not in this lesson's glossary`);
+      }
+    }
+  }
+});
+
+/* ─── 2. Interactive content must give a verdict ──────────────────────────── */
+
+test('a control page explains its answer', () => {
+  // A control that only recolours two rows tells someone they were wrong
+  // without telling them why — and being wrong is the moment the rule was most
+  // likely to land.
+  //
+  // Scoped to CONTROL PAGES (a group carrying a question and no words), which
+  // is the shape that exists to be a check. A drill that also teaches words
+  // carries its explanation in the material around it.
+  for (const { id, lesson } of LESSONS) {
+    for (const sec of lesson.sections) {
+      if (sec.type !== 'groupDrill') continue;
+      const groups = (sec as { groups?: { items?: unknown[]; check?: { why?: string } }[] }).groups ?? [];
+      if (groups.length !== 1) continue;
+      const g = groups[0];
+      if (!g.check || (g.items?.length ?? 0) > 0) continue;
+      ok(
+        typeof g.check.why === 'string' && g.check.why.trim().length > 0,
+        `${where(id, lesson, sec)}: control page has no \`why\` — the learner gets a colour and no rule`,
+      );
+    }
+  }
+});
+
+/** Lessons authored before `why` was expected on every quiz question.
+ *
+ *  The renderer has always supported it (QuizRoundsView draws it on answer);
+ *  these four simply never authored it, so a wrong answer shows a colour and no
+ *  rule. sons.01, sons.04, sons.06 and a1.01 are complete and are NOT waived —
+ *  which is what makes this list a debt register rather than a permanent
+ *  exemption.
+ *
+ *  Deleting a line here is the ticket to fix that lesson. Adding one is a
+ *  decision someone has to defend in review. */
+const WHY_WAIVED = new Map<string, string>([
+  ['sons.02.l1', '0/12 authored'],
+  ['sons.03.l1', '1/12 authored'],
+  ['a2.01.l1', '0/3 authored'],
+  ['a1.04.l1', '0/3 authored'],
+]);
+
+test('a quiz question that can be got wrong says why', () => {
+  for (const { id, lesson } of LESSONS) {
+    if (WHY_WAIVED.has(id)) continue;
+    for (const sec of lesson.sections) {
+      if (sec.type !== 'quiz') continue;
+      const rounds = (sec as { rounds?: { questions?: { q: string; why?: string }[] }[] }).rounds ?? [];
+      const flat = (sec as { questions?: { q: string; why?: string }[] }).questions ?? [];
+      const questions = rounds.length ? rounds.flatMap((r) => r.questions ?? []) : flat;
+      const missing = questions.filter((q) => !q.why?.trim());
+      // Reported as a count rather than one-by-one: a quiz missing every `why`
+      // is one authoring decision, not thirty separate bugs.
+      strictEqual(
+        missing.length,
+        0,
+        `${id}: ${missing.length}/${questions.length} quiz questions have no \`why\` (first: "${missing[0]?.q ?? ''}")`,
+      );
+    }
+  }
+});
+
+test('the why waiver list does not outlive the gap it documents', () => {
+  // A waiver nobody removes becomes a permanent exemption, and the debt stops
+  // being visible. So a lesson that has since been authored FAILS here until it
+  // is taken off the list — the list can only ever shrink.
+  for (const [id, note] of WHY_WAIVED) {
+    const lesson = seed.lessons.find((l) => l.id === id);
+    ok(lesson, `${id} is waived for quiz \`why\` but is not in the seed — remove the waiver`);
+    const quiz = lesson.sections.find((s) => s.type === 'quiz') as
+      | { rounds?: { questions?: { why?: string }[] }[]; questions?: { why?: string }[] }
+      | undefined;
+    const questions = quiz?.rounds?.length
+      ? quiz.rounds.flatMap((r) => r.questions ?? [])
+      : (quiz?.questions ?? []);
+    const missing = questions.filter((q) => !q.why?.trim()).length;
+    ok(
+      missing > 0,
+      `${id} now has a \`why\` on every question (waiver said "${note}") — delete it from WHY_WAIVED`,
+    );
+  }
+});
+
+/* ─── 3. Chrome must not repeat itself ────────────────────────────────────── */
+
+test('a section does not restate its own title inside itself', () => {
+  // sons.06 split each silent-letter family onto its own mission and named the
+  // mission after the family, so the section eyebrow and the group's label were
+  // the same string — drawn twice, one line under the other, on four missions.
+  // The renderer suppresses it now; this pins the rule for every lesson so a
+  // new one does not reintroduce it in a different section type.
+  const norm = (s: string) => s.trim().toLowerCase();
+  for (const { id, lesson } of LESSONS) {
+    for (const sec of lesson.sections) {
+      const title = (sec as { title?: string }).title ?? '';
+      if (!title) continue;
+      const groups = (sec as { groups?: { label: string }[] }).groups ?? [];
+      // One group whose label IS the title is the case the renderer hides. More
+      // than one group means the labels distinguish the groups from each other,
+      // which is what they are for.
+      if (groups.length !== 1) continue;
+      const dup = norm(groups[0].label) === norm(title);
+      // Not an assertion that it never happens — the renderer handles it. This
+      // asserts the renderer is still the thing handling it, by requiring the
+      // suppression to exist whenever the content relies on it.
+      if (!dup) continue;
+      const rich = readFileSync(join(here, '..', 'components', 'MissionRich.tsx'), 'utf8');
+      ok(
+        /const sameAsTitle = /.test(rich) && /hideLabel \? null : <TX/.test(rich),
+        `${where(id, lesson, sec)}: label repeats the title and the renderer no longer suppresses it`,
+      );
+    }
+  }
+});
+
+/* ─── 4. Sub-mission numbering must match what is rendered ────────────────── */
+
+test('a sub-dividing section is one the pager gives the viewport to', () => {
+  // Sub-missions are SWIPE positions. Numbering a section the pager renders in
+  // a scrolling page would count cards the learner never swipes between, and
+  // the header would disagree with the screen.
+  //
+  // The predicate is mirrored from LessonPager.ownsLayout — a .tsx file cannot
+  // be imported by node --test, so the mirror is pinned separately by the
+  // ownsLayout test in subMission.logic.test.ts.
+  const owns = (s: LessonSection): boolean => {
+    const sec = s as LessonSection & {
+      swipe?: boolean;
+      size?: string;
+      steps?: unknown[];
+      questionsInModal?: boolean;
+    };
+    if (sec.swipe) return true;
+    if (s.type === 'reading' && sec.questionsInModal) return true;
+    if (s.type === 'cardDeck') return true;
+    if (s.type === 'groupDrill' && sec.size === 'xl') return true;
+    if (s.type === 'trapDrill' && (sec.steps?.length ?? 0) > 0) return true;
+    if (s.type === 'flashcards' || s.type === 'reviewDeck') return true;
+    if (s.type === 'practice') return true;
+    return false;
+  };
+
+  for (const { id, lesson } of LESSONS) {
+    for (const sec of lesson.sections) {
+      if (subCount(sec) <= 1) continue;
+      ok(owns(sec), `${where(id, lesson, sec)}: sub-divides into ${subCount(sec)} cards but does not own its layout`);
+    }
+  }
+});
+
+/* ─── 5. Structural integrity ─────────────────────────────────────────────── */
+
+test('every act names sections that exist, and every section belongs to at most one act', () => {
+  // Folding a section into another one (sons.06's -er rule) leaves an act
+  // naming a section that is gone. The act boundary is what releases that act's
+  // SRS tranche, so a dangling name is a tranche that never fires.
+  for (const { id, lesson } of LESSONS) {
+    const acts = (lesson as Lesson & { acts?: { id: string; sections: string[] }[] }).acts ?? [];
+    if (!acts.length) continue;
+    const present = new Set(lesson.sections.map((s) => idOf(s)));
+    const seen = new Map<string, string>();
+    for (const act of acts) {
+      for (const sid of act.sections) {
+        ok(present.has(sid), `${id}: act ${act.id} names "${sid}", which is not a section of this lesson`);
+        const prev = seen.get(sid);
+        ok(!prev, `${id}: "${sid}" is claimed by both ${prev} and ${act.id}`);
+        seen.set(sid, act.id);
+      }
+    }
+  }
+});
+
+test('a quiz question that references a section points at a real one', () => {
+  // A wrong answer offers "see this again". A stale ref sends the learner
+  // nowhere, which is worse than not offering it.
+  for (const { id, lesson } of LESSONS) {
+    const present = new Set(lesson.sections.map((s) => idOf(s)));
+    for (const sec of lesson.sections) {
+      if (sec.type !== 'quiz') continue;
+      const rounds = (sec as { rounds?: { questions?: { ref?: string }[] }[] }).rounds ?? [];
+      const flat = (sec as { questions?: { ref?: string }[] }).questions ?? [];
+      for (const q of rounds.length ? rounds.flatMap((r) => r.questions ?? []) : flat) {
+        if (!q.ref) continue;
+        ok(present.has(q.ref), `${id}: a quiz question refs "${q.ref}", which is not a section of this lesson`);
+      }
+    }
+  }
+});
+
+test('no lesson ships an empty section', () => {
+  // A section that renders nothing is a page the learner swipes past wondering
+  // what they missed.
+  for (const { id, lesson } of LESSONS) {
+    for (const sec of lesson.sections) {
+      const s = sec as Record<string, unknown>;
+      const hasBody =
+        typeof s.body === 'string' ||
+        typeof s.text === 'string' ||
+        Array.isArray(s.cards) ||
+        Array.isArray(s.bubbles) ||
+        Array.isArray(s.groups) ||
+        Array.isArray(s.items) ||
+        Array.isArray(s.errors) ||
+        Array.isArray(s.examples) ||
+        Array.isArray(s.letters) ||
+        Array.isArray(s.targets) ||
+        Array.isArray(s.itemIds) ||
+        Array.isArray(s.beats) ||
+        Array.isArray(s.turns) ||
+        Array.isArray(s.lines) ||
+        Array.isArray(s.goals) ||
+        Array.isArray(s.points) ||
+        Array.isArray(s.questions) ||
+        Array.isArray(s.rounds) ||
+        Array.isArray(s.stats) ||
+        Array.isArray(s.sounds) ||
+        Array.isArray(s.cols) ||
+        Array.isArray(s.themes) ||
+        Array.isArray(s.hacks) ||
+        Array.isArray(s.cases) ||
+        Array.isArray(s.steps) ||
+        Array.isArray(s.rows);
+      ok(hasBody, `${where(id, lesson, sec)}: a ${sec.type} section with no content to render`);
+    }
+  }
+});
