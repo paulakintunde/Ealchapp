@@ -1110,19 +1110,25 @@
           "title": "The five rules",
           "sections": [
             "s04-grid",
-            "s05-families"
+            "s05-families",
+            "s05-check-default",
+            "s05b-careful",
+            "s05-check-careful",
+            "s05c-ghost",
+            "s05-check-ghost",
+            "s05d-alarm",
+            "s05-check-alarm"
           ],
           "milestone": "Every rule, mapped.",
-          "estScreens": 36,
+          "estScreens": 43,
           "restPoints": [
-            "s05-families/groupB"
+            "s05-check-careful"
           ]
         },
         {
           "id": "act3",
           "title": "The hard part",
           "sections": [
-            "s06-trap-rule",
             "s06-trap",
             "s07-inhibition",
             "s08-flashcards"
@@ -2877,15 +2883,16 @@
         },
         {
           "id": "s05-families",
+          "type": "groupDrill",
+          "size": "xl",
+          "layer": "core",
+          "title": "The default: silent",
+          "frSub": "La règle par défaut",
           "say": {
             "text": "Four families. Hear each word, then answer one question before you move on.",
             "voice": "coach",
             "timing": "onEnter"
           },
-          "size": "xl",
-          "type": "groupDrill",
-          "frSub": "Les quatre familles",
-          "layer": "core",
           "terms": [
             "careful",
             "hMuet",
@@ -2893,19 +2900,10 @@
             "eSwitch",
             "silentEnt"
           ],
-          "title": "The four families",
+          "render": "screens",
           "groups": [
             {
-              "check": {
-                "q": "Which of these ends in a sound?",
-                "opts": [
-                  "trop",
-                  "chat",
-                  "avec",
-                  "froid"
-                ],
-                "correct": 2
-              },
+              "label": "The default: silent",
               "items": [
                 {
                   "en": "small",
@@ -2973,18 +2971,46 @@
                   ],
                   "respell": "[NAY]"
                 }
-              ],
-              "label": "The default: silent"
-            },
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s05-check-default",
+          "type": "groupDrill",
+          "size": "xl",
+          "layer": "core",
+          "title": "Contrôle",
+          "frSub": "The default: silent",
+          "groups": [
             {
+              "label": "The default: silent",
+              "items": [],
               "check": {
-                "q": "You meet the word « parc » on a sign. The C is:",
+                "q": "Which of these ends in a sound?",
                 "opts": [
-                  "silent, like the P in trop",
-                  "sounded, it is a CaReFuL letter"
+                  "trop",
+                  "chat",
+                  "avec",
+                  "froid"
                 ],
-                "correct": 1
-              },
+                "correct": 2,
+                "why": "avec ends in C, and C is one of the four CaReFuL letters that stay awake. The P of trop, the T of chat and the D of froid are all defaults: silent, because nothing overrides them."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s05b-careful",
+          "type": "groupDrill",
+          "size": "xl",
+          "layer": "core",
+          "title": "CaReFuL: the four that stay awake",
+          "frSub": "CaReFuL",
+          "render": "screens",
+          "groups": [
+            {
+              "label": "CaReFuL: the four that stay awake",
               "items": [
                 {
                   "en": "bag",
@@ -3042,20 +3068,44 @@
                   "silent": [],
                   "respell": "[SEL]"
                 }
-              ],
-              "label": "CaReFuL: the four that stay awake"
-            },
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s05-check-careful",
+          "type": "groupDrill",
+          "size": "xl",
+          "layer": "core",
+          "title": "Contrôle",
+          "frSub": "CaReFuL: the four that stay awake",
+          "groups": [
             {
+              "label": "CaReFuL: the four that stay awake",
+              "items": [],
               "check": {
-                "q": "Which one keeps its full article, with no l'?",
+                "q": "You meet the word « parc » on a sign. The C is:",
                 "opts": [
-                  "homme",
-                  "heure",
-                  "héros",
-                  "hôtel"
+                  "silent, like the P in trop",
+                  "sounded, it is a CaReFuL letter"
                 ],
-                "correct": 2
-              },
+                "correct": 1,
+                "why": "C is the C of CaReFuL. A final C is sounded unless something says otherwise, which is why parc rhymes with the English \"park\" and not with \"par\"."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s05c-ghost",
+          "type": "groupDrill",
+          "size": "xl",
+          "layer": "core",
+          "title": "The ghost letter",
+          "frSub": "La lettre fantôme",
+          "render": "screens",
+          "groups": [
+            {
+              "label": "The ghost letter",
               "items": [
                 {
                   "en": "man",
@@ -3127,18 +3177,46 @@
                   ],
                   "respell": "[a-ree-KOH]"
                 }
-              ],
-              "label": "The ghost letter"
-            },
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s05-check-ghost",
+          "type": "groupDrill",
+          "size": "xl",
+          "layer": "core",
+          "title": "Contrôle",
+          "frSub": "The ghost letter",
+          "groups": [
             {
+              "label": "The ghost letter",
+              "items": [],
               "check": {
-                "q": "You hear a clear D at the end. The word is:",
+                "q": "Which one keeps its full article, with no l'?",
                 "opts": [
-                  "grand",
-                  "grande"
+                  "homme",
+                  "heure",
+                  "héros",
+                  "hôtel"
                 ],
-                "correct": 1
-              },
+                "correct": 2,
+                "why": "héros takes the full le, because its H is aspiré: it blocks the elision even though you never hear it. l'homme, l'heure and l'hôtel all elide, because their H is muet. Same silence, opposite behaviour."
+              }
+            }
+          ]
+        },
+        {
+          "id": "s05d-alarm",
+          "type": "groupDrill",
+          "size": "xl",
+          "layer": "core",
+          "title": "The alarm clock",
+          "frSub": "Le réveil",
+          "render": "screens",
+          "groups": [
+            {
+              "label": "The alarm clock",
               "items": [
                 {
                   "en": "big, tall (feminine)",
@@ -3214,26 +3292,32 @@
                   ],
                   "respell": "[el-za-BEET]"
                 }
-              ],
-              "label": "The alarm clock"
+              ]
             }
-          ],
-          "render": "screens"
+          ]
         },
         {
-          "id": "s06-trap-rule",
-          "say": {
-            "text": "One rule, and it decides every verb you will ever read.",
-            "voice": "coach",
-            "timing": "onEnter"
-          },
-          "body": "hiver, mer, cher: short words, R alive. parler, manger, boulanger: the -er ending is just /e/, and the R is gone. Silent unless there's a reason. Being a short word is the reason.",
-          "size": "lg",
-          "type": "teach",
-          "frSub": "La règle",
+          "id": "s05-check-alarm",
+          "type": "groupDrill",
+          "size": "xl",
           "layer": "core",
-          "title": "One syllable, sound it. An -er ending, drop it.",
-          "render": "screens"
+          "title": "Contrôle",
+          "frSub": "The alarm clock",
+          "groups": [
+            {
+              "label": "The alarm clock",
+              "items": [],
+              "check": {
+                "q": "You hear a clear D at the end. The word is:",
+                "opts": [
+                  "grand",
+                  "grande"
+                ],
+                "correct": 1,
+                "why": "The -e is the alarm clock. It stays silent itself, but it wakes the consonant in front of it: grand ends open on a nasal vowel, grande ends on a clear D."
+              }
+            }
+          ]
         },
         {
           "id": "s06-trap",
@@ -3316,7 +3400,31 @@
             "erEnding"
           ],
           "title": "The R that will not sit still",
-          "render": "screens"
+          "render": "screens",
+          "rule": {
+            "title": "One syllable, sound it. An -er ending, drop it.",
+            "body": "hiver, mer, cher: short words, R alive. parler, manger, boulanger: the -er ending is just /e/, and the R is gone. Silent unless there's a reason. Being a short word is the reason."
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "One syllable, sound it. An -er ending, drop it."
+            },
+            {
+              "kind": "cards",
+              "label": "The traps"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it"
+            },
+            {
+              "kind": "drill",
+              "label": "Reflex",
+              "gate": true
+            }
+          ]
         },
         {
           "id": "s07-inhibition",

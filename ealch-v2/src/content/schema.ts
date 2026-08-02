@@ -879,7 +879,25 @@ export type SoundGroup = {
     silent?: number[];
     pair?: boolean;
   }[];
-  check: { q: string; opts: string[]; correct: number };
+  /** The one question that gates moving on.
+   *
+   *  OPTIONAL since sons.06 split its XL drill across missions: at that size
+   *  the words and their check are separate pages, so a group carries EITHER
+   *  items (a pure word deck) OR a check (a pure control page). A group with
+   *  both is the original stacked shape, which every non-xl drill still uses
+   *  and which renders exactly as before. */
+  check?: {
+    q: string;
+    opts: string[];
+    correct: number;
+    /** What the answer TEACHES, shown once the learner has picked.
+     *
+     *  A control that only recolours two rows tells someone they were wrong
+     *  without telling them why, which is the moment the rule was most likely
+     *  to land. Optional, so the drills that shipped without it are unchanged.
+     */
+    why?: string;
+  };
 };
 
 /** One flip card in a trapDrill: front is the English-reflex trap, back is
@@ -890,6 +908,33 @@ export type TrapCard = {
   fr: string;
   ipa: string;
   tip: string;
+};
+
+/** What a single trapDrill step puts on screen.
+ *
+ *  A trapDrill carries three different jobs — meet the trap, hear the trap,
+ *  prove you beat it — and stacking all three made the cards a column and left
+ *  the drill permanently below the fold. These are the three, named. */
+export const TRAP_STEP_KINDS = ['rule', 'cards', 'audio', 'drill'] as const;
+export type TrapStepKind = (typeof TRAP_STEP_KINDS)[number];
+
+/** One step of a stepped trapDrill: mission 14.1, 14.2, 14.3.
+ *
+ *  Steps do NOT carry their own content. They name a slice of the content the
+ *  section already declares (`cards`, `audio`, `drill`), so a stepped drill and
+ *  a stacked one are the same authored data shown two ways. That is what keeps
+ *  `steps` optional and the four shipped trapDrills valid untouched.
+ *
+ *  `gate` on a drill step holds the learner until every question is answered.
+ *  Reserved for the check a lesson actually wants to be a gate: a reflex the
+ *  learner can swipe past is not a reflex that was tested. */
+export type TrapStep = {
+  label: string;
+  kind: TrapStepKind;
+  /** Overrides the section title while this step is on screen. */
+  title?: string;
+  /** Answer every question before the pager will advance. `drill` only. */
+  gate?: boolean;
 };
 
 /** One sound worked in a pronunciationLab: coaching steps plus the real
@@ -1058,8 +1103,27 @@ export type LessonSection = (
    *  that gates moving to the next chunk. */
   | { type: 'groupDrill'; title: string; groups: SoundGroup[] }
   /** The English-reflex traps as flip cards, followed by a rapid-fire drill
-   *  round that scores a running total. */
-  | { type: 'trapDrill'; title: string; cards: TrapCard[]; drill: { promptSay: string; opts: string[]; correct: number }[] }
+   *  round that scores a running total.
+   *
+   *  `steps` walks that content one job per screen (14.1 the cards, 14.2 the
+   *  audio, 14.3 the drill) instead of stacking all three. Optional, and absent
+   *  means the original stacked render, so the shipped trapDrills are
+   *  unaffected. See TrapStep. */
+  | {
+      type: 'trapDrill';
+      title: string;
+      cards: TrapCard[];
+      drill: { promptSay: string; opts: string[]; correct: number }[];
+      steps?: TrapStep[];
+      /** The rule this drill tests, shown as its opening step.
+       *
+       *  Present so a rule and the trap that tests it can be ONE mission. In
+       *  sons.06 the -er rule was its own `teach` section: 76 words on an
+       *  otherwise empty screen, and the single most important exception in the
+       *  lesson given the least treatment. Optional — a drill without it simply
+       *  has no rule step. */
+      rule?: { title: string; body: string };
+    }
   /** Real speech-scored coaching: each sound gets its steps plus the corpus
    *  items `stt.listen()` grades the learner's attempt against. */
   | { type: 'pronunciationLab'; title: string; sounds: LabSound[] }
@@ -2804,20 +2868,32 @@ function validateSection(s: unknown, path: string): Issue[] {
         }
         const g = gr as Partial<SoundGroup>;
         if (!isStr(g.label)) push(`groups[${i}].label is required`);
-        if (!isArr(g.items) || g.items.length === 0) {
-          push(`groups[${i}].items must be a non-empty array`);
-        } else {
-          g.items.forEach((it, j) => {
+        // A group carries words, a check, or both — but never neither, which
+        // would render as an empty mission. At size xl sons.06 splits the two
+        // halves onto separate pages (a word deck, then its control), so
+        // requiring both here is what a split group legitimately breaks.
+        const hasItems = isArr(g.items) && g.items.length > 0;
+        const hasCheck = typeof g.check === 'object' && g.check !== null;
+        if (!hasItems && !hasCheck) {
+          push(`groups[${i}] must carry items, a check, or both`);
+        }
+        if (g.items !== undefined && !isArr(g.items)) {
+          push(`groups[${i}].items must be an array when present`);
+        } else if (hasItems) {
+          g.items!.forEach((it, j) => {
             const row = it as { fr?: unknown; ipa?: unknown; note?: unknown };
             if (typeof it !== 'object' || it === null || !isStr(row.fr)) push(`groups[${i}].items[${j}].fr is required`);
             if (row.ipa !== undefined && !isStr(row.ipa)) push(`groups[${i}].items[${j}].ipa must be a non-empty string when present`);
             if (row.note !== undefined && !isStr(row.note)) push(`groups[${i}].items[${j}].note must be a non-empty string when present`);
           });
         }
-        const chk = g.check as { q?: unknown; opts?: unknown; correct?: unknown } | undefined;
-        if (typeof chk !== 'object' || chk === null) {
-          push(`groups[${i}].check is required`);
-        } else {
+        const chk = g.check as
+          | { q?: unknown; opts?: unknown; correct?: unknown; why?: unknown }
+          | undefined;
+        // Absent is legal (a words-only page); malformed is not.
+        if (chk !== undefined && (typeof chk !== 'object' || chk === null)) {
+          push(`groups[${i}].check must be an object when present`);
+        } else if (chk) {
           if (!isStr(chk.q)) push(`groups[${i}].check.q is required`);
           if (!isArr(chk.opts) || chk.opts.length < 2 || chk.opts.some((o) => !isStr(o))) {
             push(`groups[${i}].check.opts must be 2+ non-empty strings`);
@@ -2828,6 +2904,11 @@ function validateSection(s: unknown, path: string): Issue[] {
             chk.correct >= chk.opts.length
           ) {
             push(`groups[${i}].check.correct must index opts (0..${chk.opts.length - 1})`);
+          }
+          // Optional, but an empty string is an authoring slip rather than an
+          // intent to say nothing.
+          if (chk.why !== undefined && !isStr(chk.why)) {
+            push(`groups[${i}].check.why must be a non-empty string when present`);
           }
         }
       });
@@ -2871,6 +2952,56 @@ function validateSection(s: unknown, path: string): Issue[] {
             push(`drill[${i}].correct must index opts (0..${qq.opts.length - 1})`);
           }
         });
+      }
+      // Optional: absent means the stacked render, which is what every
+      // trapDrill authored before stepping existed still uses.
+      const steps = (sec as { steps?: unknown }).steps;
+      if (steps !== undefined) {
+        if (!isArr(steps) || steps.length === 0) {
+          push('steps, when present, must be a non-empty array');
+        } else {
+          steps.forEach((st, i) => {
+            if (typeof st !== 'object' || st === null) {
+              push(`steps[${i}] is not an object`);
+              return;
+            }
+            const sp = st as Partial<TrapStep>;
+            if (!isStr(sp.label)) push(`steps[${i}].label is required`);
+            if (sp.title !== undefined && !isStr(sp.title)) push(`steps[${i}].title must be a string`);
+            if (!isStr(sp.kind) || !(TRAP_STEP_KINDS as readonly string[]).includes(sp.kind)) {
+              push(`steps[${i}].kind must be one of ${TRAP_STEP_KINDS.join(', ')}`);
+              return;
+            }
+            // An audio step with nothing to play is a blank screen the learner
+            // still has to swipe through.
+            if (sp.kind === 'audio' && !(sec as { audio?: unknown }).audio) {
+              push(`steps[${i}] is an audio step but the section declares no audio`);
+            }
+            // Same failure, same shape: a rule step with no rule is a blank
+            // screen carrying the lesson's most important exception.
+            if (sp.kind === 'rule') {
+              const r = (sec as { rule?: { title?: unknown; body?: unknown } }).rule;
+              if (!r || !isStr(r.title) || !isStr(r.body)) {
+                push(`steps[${i}] is a rule step but the section declares no rule {title, body}`);
+              }
+            }
+            if (sp.gate !== undefined) {
+              if (typeof sp.gate !== 'boolean') push(`steps[${i}].gate must be a boolean`);
+              else if (sp.gate && sp.kind !== 'drill') push(`steps[${i}].gate is only meaningful on a drill step`);
+            }
+          });
+          // Stepping is a way of SHOWING the section's content, so every part
+          // of it must be reachable: an unnamed slice would be authored,
+          // validated, and then silently never rendered.
+          for (const k of ['cards', 'drill'] as const) {
+            if (!steps.some((st) => (st as Partial<TrapStep>)?.kind === k)) {
+              push(`steps must include a '${k}' step, or ${k} would never render`);
+            }
+          }
+          if ((sec as { audio?: unknown }).audio && !steps.some((st) => (st as Partial<TrapStep>)?.kind === 'audio')) {
+            push("steps must include an 'audio' step, or the section's audio would never render");
+          }
+        }
       }
       break;
     }
