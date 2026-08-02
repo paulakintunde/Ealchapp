@@ -36,6 +36,12 @@ export const ROLE = {
   title: { size: 18, lh: 1.3, max: 1.4 },
   titleLg: { size: 21, lh: 1.25, max: 1.35 },
   display: { size: 34, lh: 1.1, max: 1.25 },
+  /** The XL word card's hero line: one French word, and nothing else on the
+   *  screen. Capped tightest of all (1.15) because at 56pt even a small OS
+   *  font scale pushes a long word like « printemps » past the viewport, and
+   *  the card has no second line to reflow into. The renderer shrinks to fit
+   *  rather than wrapping — see WordCardXL. */
+  display2: { size: 56, lh: 1.05, max: 1.15 },
 } as const;
 
 export type RoleKey = keyof typeof ROLE;
