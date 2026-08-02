@@ -42,6 +42,7 @@ export function SectionView({
   onGrade,
   graded,
   showHero = true,
+  onSubIndexChange,
 }: {
   s: LessonSection;
   onPlay: (id: string, text: string, audioRef?: string | null) => void;
@@ -53,6 +54,10 @@ export function SectionView({
   /** False when the pager already gave this section's image its own page
    *  (LessonPager's hero-split) — the section body must not render it twice. */
   showHero?: boolean;
+  /** The card the learner has swiped to inside a cardDeck, 0-based over the
+   *  deck's ENTRIES. Feeds the pager's sub-mission number (15.1, 15.2 …).
+   *  Ignored by every other section type, all of which are a single screen. */
+  onSubIndexChange?: (index: number) => void;
 }) {
   const t = useTheme();
   const T = useT();
@@ -221,8 +226,11 @@ export function SectionView({
       // drill looks and feels like the drill the learner knows from home.
       // Grading still flows through onGrade — the join that lets lesson study
       // feed Le Rapport and the SRS is unchanged.
+      // flex: 1 rather than a bottom margin: the prompt card measures the room
+      // it is handed, so every wrapper between the page and it must pass the
+      // height down.
       return (
-        <View style={{ marginBottom: 26 }}>
+        <View style={{ flex: 1 }}>
           {label}
           {hero}
           <PracticeVFView itemIds={s.itemIds} sectionTitle={s.title} onPlay={onPlay} playingId={playingId} onGrade={onGrade} />
@@ -248,7 +256,7 @@ export function SectionView({
         <View style={{ flex: 1 }}>
           {label}
           {hero}
-          <CardDeckView s={s} onPlay={onPlay} playingId={playingId} />
+          <CardDeckView s={s} onPlay={onPlay} playingId={playingId} onIndexChange={onSubIndexChange} />
         </View>
       );
 
@@ -271,8 +279,11 @@ export function SectionView({
       );
 
     case 'flashcards':
+      // flex: 1, not a bottom margin — same reason as the cardDeck below. The
+      // deck measures the room it is handed to size its card, so every wrapper
+      // between the page and it has to pass the height down.
       return (
-        <View style={{ marginBottom: 26 }}>
+        <View style={{ flex: 1 }}>
           {label}
           {hero}
           <FlashcardsView s={s} onPlay={onPlay} playingId={playingId} />

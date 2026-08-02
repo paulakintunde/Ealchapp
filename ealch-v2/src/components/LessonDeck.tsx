@@ -225,14 +225,38 @@ export function SwipeDeck<T>({
   renderItem,
   keyFor,
   hint,
+  a11yHint,
   onIndexChange,
+  initialIndex,
+  fill = false,
 }: {
   items: T[];
-  renderItem: (item: T, index: number) => React.ReactNode;
+  renderItem: (item: T, index: number, height: number | null) => React.ReactNode;
   keyFor: (item: T, index: number) => string;
-  /** One line above the deck: what to do with it. */
+  /** One line above the deck: what to do with it. Costs a row of height for
+   *  the life of the deck, so a deck whose cards need every pixel (the XL
+   *  word card) should pass `a11yHint` alone instead. */
   hint?: string;
+  /** The same instruction, spoken but never drawn.
+   *
+   *  Defaults to `hint`, so a caller that sets only `hint` keeps today's
+   *  behaviour. Set it ALONE to give screen-reader users the instruction
+   *  without spending any layout height on it. */
+  a11yHint?: string;
   onIndexChange?: (index: number) => void;
+  /** Open on this card rather than the first — a resume or deep link landing
+   *  inside the mission. 0-based, clamped, and applied ONCE: after that the
+   *  deck is the learner's to swipe. */
+  initialIndex?: number | null;
+  /** Fill the height the parent gives instead of hugging the cards.
+   *
+   *  Off by default: every existing caller sizes its own cards through
+   *  useCardHeight and lays out inside a scrolling page, and making them flex
+   *  would collapse them to nothing. On means the parent has already claimed
+   *  the viewport (see the pager's ownsLayout) and the deck should hand the
+   *  MEASURED leftover height to each card — so whatever sits below the deck
+   *  stays on screen rather than being pushed off by a fixed card height. */
+  fill?: boolean;
 }) {
   const t = useTheme();
   // MEASURED, never assumed. The deck sits inside a page inset 24px each side,
@@ -241,8 +265,35 @@ export function SwipeDeck<T>({
   // the first layout, and nothing renders before then, because a paging
   // ScrollView whose children are the wrong width silently mis-snaps.
   const [w, setW] = useState<number | null>(null);
+  // Only used in `fill` mode: the height the row actually got, handed to each
+  // card so it sizes against real leftover space rather than a guess at the
+  // surrounding chrome.
+  const [h, setH] = useState<number | null>(null);
   const [ix, setIx] = useState(0);
   const last = useRef(0);
+  const railRef = useRef<ScrollView>(null);
+
+  // Land on the requested card once the rail has a real width.
+  //
+  // It has to wait for `w`: a paging ScrollView measured at 0 snaps every
+  // offset to 0, so scrolling before the first layout silently lands on card 1
+  // — which looks exactly like the resume having been ignored. Runs once
+  // (`jumped`), so the deck is the learner's the moment they touch it.
+  const jumped = useRef(false);
+  useEffect(() => {
+    if (jumped.current || !w || initialIndex == null) return;
+    const target = Math.max(0, Math.min(items.length - 1, Math.trunc(initialIndex)));
+    if (target <= 0) return;
+    jumped.current = true;
+    railRef.current?.scrollTo({ x: target * w, animated: false });
+    // The scroll is programmatic, so onScroll does not fire for it on every
+    // platform. Report the landing ourselves, or the header would say 15.1
+    // while the deck shows card 3.
+    last.current = target;
+    setIx(target);
+    onIndexChange?.(target);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [w, initialIndex, items.length]);
 
   const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     if (!w) return;
@@ -255,18 +306,60 @@ export function SwipeDeck<T>({
     }
   };
 
+  // The hint is instruction, and instruction has a shelf life: it tells you
+  // what to do with a deck you have not used yet. Once you have swiped you
+  // have demonstrated you know, so it FADES OUT after the first swipe.
+  //
+  // It fades rather than unmounting, and the row keeps its height either way.
+  // Unmounting looks like the bigger win — in `fill` mode the row sits outside
+  // the measured box, so dropping it would hand the cards a taller box — but
+  // that measurement feeds the card height, and changing it on swipe 0 -> 1
+  // resizes every card mid-gesture. A card that jumps while you are dragging
+  // it is worse than a card that is one line shorter, and the codebase already
+  // holds the opposite line elsewhere ("a card that appears at the right size
+  // is better than one that jumps"). So the space is reserved for the life of
+  // the deck and only the ink goes away.
+  //
+  // Reclaiming that row for real means not rendering it on this deck at all,
+  // which is the caller's decision to make — see the XL word card, which now
+  // passes no hint.
+  const hintFade = useRef(new Animated.Value(1)).current;
+  useEffect(() => {
+    if (!hint) return;
+    Animated.timing(hintFade, {
+      toValue: ix === 0 ? 1 : 0,
+      duration: 220,
+      useNativeDriver: true,
+    }).start();
+  }, [hint, hintFade, ix]);
+
   return (
-    <View style={{ gap: 14 }}>
+    <View style={[{ gap: 14 }, fill ? { flex: 1 } : null]}>
       {hint ? (
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        <Animated.View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, opacity: hintFade }}>
           <TX role="bodySm" color={t.txMuted} style={{ flex: 1 }}>{hint}</TX>
-          <TX role="meta" color={t.txSubtle}>{ix + 1} / {items.length}</TX>
-        </View>
+        </Animated.View>
       ) : null}
 
-      <View onLayout={(e) => setW(e.nativeEvent.layout.width)}>
+      <View
+        // minHeight 0 so this row can SHRINK below its content's natural size.
+        // Without it a flex child in RN refuses to go under its content height
+        // and the card pushes the rest of the mission off-screen anyway, which
+        // is the whole bug.
+        style={fill ? { flex: 1, minHeight: 0 } : undefined}
+        // The visible hint fades after the first swipe, and the XL deck draws
+        // none at all. A screen reader user never "saw" either, so hiding the
+        // instruction from the people most reliant on it is the wrong trade:
+        // it lives here for the whole life of the deck, costing no height.
+        accessibilityHint={a11yHint ?? hint}
+        onLayout={(e) => {
+          setW(e.nativeEvent.layout.width);
+          if (fill) setH(e.nativeEvent.layout.height);
+        }}
+      >
         {w ? (
           <ScrollView
+            ref={railRef}
             horizontal
             pagingEnabled
             showsHorizontalScrollIndicator={false}
@@ -281,7 +374,7 @@ export function SwipeDeck<T>({
           >
             {items.map((item, i) => (
               <View key={keyFor(item, i)} style={{ width: w }}>
-                {renderItem(item, i)}
+                {renderItem(item, i, fill ? h : null)}
               </View>
             ))}
           </ScrollView>
@@ -322,20 +415,38 @@ export function SwipeAffordance({ index, total }: { index: number; total: number
   const fade = drift.interpolate({ inputRange: [0, 1], outputRange: [0.45, 1] });
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, minHeight: 18 }}>
-      <View style={{ flexDirection: 'row', gap: 6 }}>
-        {Array.from({ length: total }, (_, i) => (
-          <View
-            key={i}
-            style={{
-              width: i === index ? 18 : 6,
-              height: 6,
-              borderRadius: 3,
-              backgroundColor: i === index ? t.acc : t.line(16),
-            }}
-          />
-        ))}
-      </View>
+    <View
+      // Dots carry position visually and say nothing to a screen reader. That
+      // was survivable while a text counter sat in the hint row above; now
+      // that this row is the only statement of position, it has to speak.
+      accessible
+      accessibilityRole="progressbar"
+      accessibilityLabel={`Card ${index + 1} of ${total}`}
+      accessibilityValue={{ min: 1, max: total, now: index + 1 }}
+      style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, minHeight: 18 }}
+    >
+      {/* Past ten, dots stop being countable and start being a smear, so the
+          position becomes a number instead — the same threshold the lesson
+          deck's own footer uses. This row is the ONLY place the deck states
+          position now: the hint row above used to carry a duplicate counter
+          and a whole line of height with it. */}
+      {total <= 10 ? (
+        <View style={{ flexDirection: 'row', gap: 6 }}>
+          {Array.from({ length: total }, (_, i) => (
+            <View
+              key={i}
+              style={{
+                width: i === index ? 18 : 6,
+                height: 6,
+                borderRadius: 3,
+                backgroundColor: i === index ? t.acc : t.line(16),
+              }}
+            />
+          ))}
+        </View>
+      ) : (
+        <TX role="meta" color={t.txSubtle}>{index + 1} / {total}</TX>
+      )}
       {more ? (
         <Animated.View style={{ transform: [{ translateX: x }], opacity: fade }}>
           <Icon name="chevronRight" size={15} color={t.accTx} strokeWidth={2} />

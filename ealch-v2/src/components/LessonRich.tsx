@@ -15,8 +15,11 @@ import { Icon } from '@/components/Icon';
 import { MascotAvatar } from '@/components/MascotAvatar';
 import { Waveform } from '@/components/Waveform';
 import { LessonModal } from '@/components/LessonModal';
+// One implementation of "this deck moves sideways", shared with SwipeDeck.
+// LessonDeck does not import from here, so this adds no cycle.
+import { SwipeAffordance } from '@/components/LessonDeck';
 import { useTheme } from '@/theme/useTheme';
-import { useCardHeight } from '@/hooks/useCardHeight';
+import { useCardHeight, useMeasuredCardHeight } from '@/hooks/useCardHeight';
 import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import { content } from '@/services/content';
@@ -448,7 +451,12 @@ function DeckCard({
   );
 }
 
-export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & PlayProps) {
+export function CardDeckView({
+  s,
+  onPlay,
+  playingId,
+  onIndexChange,
+}: { s: DeckSection; onIndexChange?: (index: number) => void } & PlayProps) {
   const t = useTheme();
   const { width } = useWindowDimensions();
   const [ix, setIx] = useState(0);
@@ -491,7 +499,15 @@ export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & Play
 
   const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const i = Math.round(e.nativeEvent.contentOffset.x / step);
-    if (i !== ix) setIx(Math.max(0, Math.min(entries.length - 1, i)));
+    if (i !== ix) {
+      const next = Math.max(0, Math.min(entries.length - 1, i));
+      setIx(next);
+      // ENTRIES, not authored cards — the same count the dots below report. On
+      // a short screen an illustrated card splits in two, so a deck of seven
+      // cards is ten swipes, and a sub-mission number that counted cards would
+      // disagree with both the dots and the swipe the learner just made.
+      onIndexChange?.(next);
+    }
   };
 
   return (
@@ -559,16 +575,13 @@ export function CardDeckView({ s, onPlay, playingId }: { s: DeckSection } & Play
       >
         {/* Dots count ENTRIES, not authored cards: after a short-screen split
             there are more things to swipe through than the content declares,
-            and dots that disagree with the rail are worse than no dots. */}
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5 }}>
-          {entries.length <= 10 ? (
-            entries.map((_, i) => (
-              <View key={i} style={{ width: i === ix ? 16 : 5, height: 5, borderRadius: 3, backgroundColor: i === ix ? t.acc : t.line(14) }} />
-            ))
-          ) : (
-            <TX role="meta" color={t.txSubtle}>{ix + 1} / {entries.length}</TX>
-          )}
-        </View>
+            and dots that disagree with the rail are worse than no dots.
+
+            SwipeAffordance rather than a local dots row: it carries the same
+            dots AND the breathing arrow, so this deck says "I move sideways"
+            the way every other deck in the lesson does. It also speaks its
+            position to a screen reader, which the bare dots never did. */}
+        <SwipeAffordance index={ix} total={entries.length} />
         {s.hint ? (
           <TX role="meta" color={t.txSubtle} style={{ textAlign: 'center' }} numberOfLines={1}>{s.hint}</TX>
         ) : null}
@@ -876,11 +889,16 @@ export function FlashcardsView({ s, onPlay, playingId }: { s: FlashSection } & P
   const [ix, setIx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [known, setKnown] = useState(0);
-  // The flashcard IS the screen. At 42% the word sat in a panel with half the
-  // viewport empty beneath it, which reads as a caption rather than a card to
-  // study. 58% (floor 400) gives the French word the room the XL scale asks
-  // for.
-  const cardH = useCardHeight(330);
+  // The flashcard IS the screen, so it takes the room it is given — MEASURED,
+  // because the window-derived guess returned ~584dp where the lesson page only
+  // leaves ~507, and the card then ran off the bottom of the screen behind the
+  // nav bar with no visible edge at all.
+  //
+  // The reserve is what must stay on screen with it: the progress row above
+  // (~35) and the Again / I know it row below (50 high + 18 margin). Those
+  // buttons are how the card is answered, so a card that hides them is a card
+  // the learner cannot use.
+  const [onBoxLayout, cardH] = useMeasuredCardHeight(330, 35 + 68);
 
   const anim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
@@ -931,7 +949,10 @@ export function FlashcardsView({ s, onPlay, playingId }: { s: FlashSection } & P
   const pid = `${s.title}-flash-${ix}`;
 
   return (
-    <View>
+    // flex: 1 + onLayout is the pair that makes the measurement real: the box
+    // takes the height the page gives it, and reports that height rather than
+    // the card guessing at it.
+    <View style={{ flex: 1 }} onLayout={onBoxLayout}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 16 }}>
         <View style={{ flex: 1 }}>
           <ProgressBar pct={s.cards.length ? Math.min(100, (ix / s.cards.length) * 100) : 0} height={3} color={t.acc} track={t.line(10)} />
@@ -1015,11 +1036,14 @@ export function PracticeVFView({
   const total = items.length;
   const over = ix >= total;
   const item = items[Math.min(ix, total - 1)];
-  // The prompt card is the screen, not a panel near the top of it. At 42% the
-  // card left half the viewport empty below it and the French word read as a
-  // caption; 62% (floor 420) makes the word the thing you are looking at,
-  // which is the whole point of a production drill.
-  const cardH = useCardHeight(340);
+  // The prompt card is the screen, not a panel near the top of it — but it must
+  // still FIT that screen. MEASURED, because the window-derived guess came out
+  // taller than the room a lesson page leaves, and this card uses minHeight, so
+  // it could only grow: the card ran off the bottom and took the Missed it / I
+  // knew it row with it, which is the only way to grade and advance.
+  //
+  // Reserved: the progress row above (~35) and the grade row below (50 + 18).
+  const [onBoxLayout, cardH] = useMeasuredCardHeight(340, 35 + 68);
 
   if (total === 0) return null;
 
@@ -1037,7 +1061,9 @@ export function PracticeVFView({
   const on = playingId === pid;
 
   return (
-    <View>
+    // flex: 1 + onLayout: the box takes the height the page gives it and
+    // reports it, instead of the card guessing.
+    <View style={{ flex: 1 }} onLayout={onBoxLayout}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 16 }}>
         <View style={{ flex: 1 }}>
           <ProgressBar pct={total ? Math.min(100, (ix / total) * 100) : 0} height={3} color={t.acc} track={t.line(10)} />
@@ -1056,8 +1082,11 @@ export function PracticeVFView({
         </View>
       ) : (
         <View>
-          {/* Prompt card, the Voice Flash shape */}
-          <View style={{ minHeight: cardH, borderRadius: 24, borderWidth: 1, borderColor: t.line(10), backgroundColor: t.card2, paddingVertical: 26, paddingHorizontal: 24, alignItems: 'center', justifyContent: 'center' }}>
+          {/* Prompt card, the Voice Flash shape.
+              `height`, not `minHeight`: a minimum can only grow, so the card
+              still ran past the bottom of a measured box. A fixed height is
+              what makes the measurement binding. */}
+          <View style={{ height: cardH, borderRadius: 24, borderWidth: 1, borderColor: t.line(10), backgroundColor: t.card2, paddingVertical: 26, paddingHorizontal: 24, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
             <View style={{ width: 96, height: 96, borderRadius: 48, backgroundColor: t.accA(10), borderWidth: 1, borderColor: t.accA(30), alignItems: 'center', justifyContent: 'center', marginBottom: 16, overflow: 'hidden' }}>
               <TX font="serifI" size={40} role="display" color={t.accTx}>
                 {item.fr.replace(/^(le |la |les |l')/i, '').charAt(0).toUpperCase()}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { SectionView } from '@/components/LessonSection';
 import { RichImage } from '@/components/LessonRich';
@@ -21,10 +21,12 @@ import { ScenePlayer } from '@/components/ScenePlayer';
 import { InhibitionDrillView, SilentLetterGrid } from '@/components/SilentCards';
 import { CardFrame, SwipeDeck, TermChip, useCardHeight } from '@/components/LessonDeck';
 import { PassagePage, ReadingQuestionsPage } from '@/components/ReadingPages';
+import { WordPractice } from '@/components/WordPractice';
 import { Icon } from '@/components/Icon';
 import { Press } from '@/components/ui';
 import { content } from '@/services/content';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import type { LessonSection, LessonTerm } from '@/content/schema';
 
 // The mission-journey dispatcher. It has the exact same contract as
@@ -42,6 +44,10 @@ import type { LessonSection, LessonTerm } from '@/content/schema';
 // setting card and walks its own beats, so a shared eyebrow above it would
 // sit over the top of a story that has already introduced itself.
 const SELF_LABELLED = new Set<LessonSection['type']>(['story', 'scenario', 'scene']);
+
+/** How many term chips a mission shows before collapsing the rest behind "+N".
+ *  Three fits one row at every supported width and font scale; four wraps. */
+const CHIP_CAP = 3;
 
 function MissionLabel({ text }: { text: string }) {
   const t = useTheme();
@@ -61,15 +67,20 @@ function CommonErrorCard({
   error,
   onPlay,
   playingId,
+  height,
 }: {
   error: { wrong: string; right: string; why: string };
   onPlay: (id: string, text: string, audioRef?: string | null) => void;
   playingId: string | null;
+  /** The height the deck measured. Wins over the guess below. */
+  height?: number | null;
 }) {
   const t = useTheme();
   const rid = `err-right-${error.right}`;
-  // Chrome: eyebrow, deck hint, dots row, page padding.
-  const h = useCardHeight(300);
+  // Chrome: eyebrow, deck hint, dots row, page padding. The guess serves the
+  // first frame; the deck's measurement replaces it as soon as it lands.
+  const fallback = useCardHeight(300);
+  const h = height != null && height > 160 ? height : fallback;
   return (
     <CardFrame height={h}>
       <View style={{ gap: 18, flex: 1 }}>
@@ -106,6 +117,109 @@ function CommonErrorCard({
         </View>
       </View>
     </CardFrame>
+  );
+}
+
+/** The "say it and be heard" control at the foot of a routine card. */
+function InhibitionMicRow({ onPress }: { onPress: () => void }) {
+  const t = useTheme();
+  return (
+    <Press
+      cue="tap"
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel="Say these words"
+      accessibilityHint="Opens the microphone to score your pronunciation"
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 9,
+        minHeight: 48,
+        borderRadius: 24,
+        borderWidth: 1,
+        borderColor: t.accA(45),
+        paddingHorizontal: 18,
+      }}
+    >
+      <Icon name="mic" size={16} color={t.acc} />
+      <TX font="med" role="body" color={t.accTx}>Say these words</TX>
+    </Press>
+  );
+}
+
+/** The inhibition drill plus the mic its targets declare.
+ *
+ *  Every target in sons.06 sets `mic: true`, and nothing rendered a mic: the
+ *  flag reached a `renderMic` prop that no caller ever passed, so the condition
+ *  was always false. A drill that says "say it out loud" and then offers no way
+ *  to be heard is a promise the section makes and does not keep.
+ *
+ *  The mic opens WordPractice over the lesson — the same scored, per-word sheet
+ *  the Speak path uses, on this routine's practice words. Reusing it rather
+ *  than growing a second recogniser here keeps one implementation of "was that
+ *  right", and it is already sized as a sheet, so a card holding five steps
+ *  does not have to find room for a waveform too. */
+function InhibitionMission({
+  s,
+  onPlay,
+  playingId,
+  onIndexChange,
+  initialIndex,
+}: {
+  s: Extract<LessonSection, { type: 'inhibitionDrill' }>;
+  onPlay: (id: string, text: string, audioRef?: string | null) => void;
+  playingId: string | null;
+  onIndexChange?: (index: number) => void;
+  initialIndex?: number | null;
+}) {
+  // Which target's mic is open, or null. Held here rather than in the deck so
+  // that swiping between routines closes nothing by accident.
+  const [micTarget, setMicTarget] = useState<number | null>(null);
+  const target = micTarget == null ? undefined : s.targets[micTarget];
+  const words = (target?.practiceOn ?? [])
+    .map((id) => content.item(id)?.fr)
+    .filter((w): w is string => !!w);
+
+  return (
+    <>
+      <InhibitionDrillView
+        intro={s.intro}
+        targets={s.targets}
+        closing={s.closing}
+        onPlay={onPlay}
+        playingId={playingId}
+        onIndexChange={onIndexChange}
+        initialIndex={initialIndex}
+        renderMic={(_t, i) => <InhibitionMicRow onPress={() => setMicTarget(i)} />}
+      />
+      {/* In a MODAL, not inline. WordPractice positions itself absolutely
+          against its parent and pages its words with a horizontal FlatList —
+          mounted inside the card, that FlatList lands inside the pager's
+          ScrollView and React Native warns ("VirtualizedLists should never be
+          nested inside plain ScrollViews"), because the two scrollers share a
+          gesture and the list loses its virtualisation. A modal hosts it at the
+          window level, which is where a sheet belongs anyway. */}
+      <Modal
+        visible={!!target && words.length > 0}
+        transparent
+        animationType="none"
+        onRequestClose={() => setMicTarget(null)}
+      >
+        {target && words.length ? (
+          <WordPractice
+            words={words}
+            initialIx={0}
+            // sons.06 is a `sons` lesson, and the lenient band is what the rest
+            // of the product uses for foundation material — a beginner shaping
+            // a silent ending should not be failed by a recogniser's
+            // strictness.
+            level="sons"
+            onClose={() => setMicTarget(null)}
+          />
+        ) : null}
+      </Modal>
+    </>
   );
 }
 
@@ -151,6 +265,9 @@ export function MissionSectionView({
   showHero = true,
   onOpenSheet,
   terms,
+  onSubIndexChange,
+  initialSub,
+  onBlockedChange,
 }: {
   s: LessonSection;
   onPlay: (id: string, text: string, audioRef?: string | null) => void;
@@ -163,7 +280,25 @@ export function MissionSectionView({
   onOpenSheet?: (sheetId: string) => void;
   /** The lesson's glossary, for the term chips a section declares. */
   terms?: Record<string, LessonTerm>;
+  /** The card the learner has swiped to inside this section, 0-based.
+   *
+   *  Wired only on the sections that are genuinely SWIPE decks — the pager
+   *  turns this into the sub-mission number in its header (15.1, 15.2 …), so a
+   *  section whose index the pager cannot observe must not report one. The
+   *  tap-advanced decks (flashcards, reviewDeck) deliberately do not: they draw
+   *  their own counter and advance on a button, and subMission.logic's
+   *  subCount() returns 1 for them to match. */
+  onSubIndexChange?: (index: number) => void;
+  /** The card to open on, 0-based — a resume landing inside this mission.
+   *  Undefined means the first card, which is every ordinary visit. */
+  initialSub?: number | null;
+  /** Raised while this section is holding the learner — today only an
+   *  unanswered control page. The pager dims Next while it is true. */
+  onBlockedChange?: (blocked: boolean) => void;
 }) {
+  const t = useTheme();
+  const T = useT();
+  const [chipsOpen, setChipsOpen] = useState(false);
   const hero = showHero ? <RichImage refKey={s.imageRef} /> : null;
   const label = SELF_LABELLED.has(s.type) ? null : <MissionLabel text={s.title} />;
 
@@ -172,9 +307,17 @@ export function MissionSectionView({
   // point of use rather than defined once and then assumed. This is what lets
   // CaReFuL be explained on all eleven missions that use it without any of
   // them carrying the definition in their body copy.
+  //
+  // Capped at CHIP_CAP. Five missions declared four or more, which wraps to two
+  // rows and pushes the content ~120dp down the screen before the learner has
+  // read a word of it — on mission 3, six chips above a card. The rest stay one
+  // tap away rather than being cut: a term a mission genuinely uses should not
+  // become unexplainable because it was fourth in the list.
+  const shownTerms = chipsOpen ? (s.terms ?? []) : (s.terms ?? []).slice(0, CHIP_CAP);
+  const hiddenTerms = (s.terms?.length ?? 0) - shownTerms.length;
   const chips = s.terms?.length && terms ? (
-    <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 14 }}>
-      {s.terms.map((key) => {
+    <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8, marginBottom: 14 }}>
+      {shownTerms.map((key) => {
         const def = terms[key];
         if (!def) return null;
         return (
@@ -194,6 +337,25 @@ export function MissionSectionView({
           />
         );
       })}
+      {hiddenTerms > 0 ? (
+        <Press
+          cue="tap"
+          onPress={() => setChipsOpen(true)}
+          accessibilityRole="button"
+          accessibilityLabel={T.termsMore.replace('{n}', String(hiddenTerms))}
+          accessibilityHint="Shows the rest of this mission's terms"
+          style={{
+            minHeight: 34,
+            paddingHorizontal: 12,
+            justifyContent: 'center',
+            borderRadius: 17,
+            borderWidth: 1,
+            borderColor: t.line(12),
+          }}
+        >
+          <TX role="meta" font="med" color={t.txMuted}>{T.termsMore.replace('{n}', String(hiddenTerms))}</TX>
+        </Press>
+      ) : null}
     </View>
   ) : null;
 
@@ -215,15 +377,21 @@ export function MissionSectionView({
       );
     case 'inhibitionDrill':
       return (
-        <View>
+        // flex: 1 so the deck receives the page's height. The pager already
+        // hands this section the viewport (`swipe: true` -> ownsLayout), but a
+        // hug-content wrapper here gives the deck nothing to MEASURE — which is
+        // what made its cards fall back to the window-derived guess and paint
+        // over the section outline beneath them. Same fix the cardDeck and the
+        // XL group drill already carry.
+        <View style={{ flex: 1 }}>
           {label}
           {chips}
-          <InhibitionDrillView
-            intro={s.intro}
-            targets={s.targets}
-            closing={s.closing}
+          <InhibitionMission
+            s={s}
             onPlay={onPlay}
             playingId={playingId}
+            onIndexChange={onSubIndexChange}
+            initialIndex={initialSub}
           />
         </View>
       );
@@ -270,19 +438,30 @@ export function MissionSectionView({
         </View>
       );
     case 'groupDrill':
+      // Same fill as the cardDeck below: at size xl this drill measures the
+      // room it is given rather than guessing chrome, so a hug-content wrapper
+      // leaves it nothing to measure. Any other size keeps the plain box, and
+      // its scrolling page with it.
       return (
-        <View>
+        <View style={s.size === 'xl' ? { flex: 1 } : undefined}>
           {label}
           {chips}
           {hero}
-          <GroupDrillView s={s} />
+          <GroupDrillView s={s} onBlockedChange={onBlockedChange} />
         </View>
       );
+    // A STEPPED trapDrill walks its three jobs one screen at a time and needs
+    // the fill for the same reason the groupDrill above does: its cards step is
+    // a swipe deck that MEASURES its room, and a hug-content wrapper gives it
+    // nothing to measure, so the cards render at zero height. An unstepped
+    // trapDrill is the original stack inside a scrolling page, unchanged.
     case 'trapDrill':
       return (
-        <View>
+        <View style={s.steps?.length ? { flex: 1 } : undefined}>
           {hero}
-          <TrapDrillView s={s} />
+          {/* Only a STEPPED trap reports a position; without steps it is one
+              stacked screen, and subCount() returns 1 to match. */}
+          <TrapDrillView s={s} onIndexChange={s.steps?.length ? onSubIndexChange : undefined} />
         </View>
       );
 
@@ -293,15 +472,26 @@ export function MissionSectionView({
     case 'commonErrors':
       if (s.swipe) {
         return (
-          <View>
+          // flex: 1 is REQUIRED by the `fill` below, not decoration. A filling
+          // deck measures the box it is given and hands each card the leftover
+          // height — inside a hug-content wrapper there is nothing to measure,
+          // so it measures 0 and every card renders at zero height: title and
+          // dots visible, cards gone. Same pairing as the cardDeck and the
+          // inhibition drill.
+          <View style={{ flex: 1 }}>
             {label}
             {chips}
             <SwipeDeck
               items={s.errors}
               hint="One at a time. Each of these is a good instinct pointed at the wrong language."
+              onIndexChange={onSubIndexChange}
+              initialIndex={initialSub}
+              // MEASURED: without `fill` the card guessed a height taller than
+              // this page leaves and ran over the deck's dots beneath it.
+              fill
               keyFor={(_e: unknown, i: number) => `err-${i}`}
-              renderItem={(er: { wrong: string; right: string; why: string }) => (
-                <CommonErrorCard error={er} onPlay={onPlay} playingId={playingId} />
+              renderItem={(er: { wrong: string; right: string; why: string }, _i: number, height: number | null) => (
+                <CommonErrorCard error={er} onPlay={onPlay} playingId={playingId} height={height} />
               )}
             />
           </View>
@@ -361,7 +551,10 @@ export function MissionSectionView({
       );
     case 'reviewDeck':
       return (
-        <View>
+        // Fills, because the pager now hands this section the viewport so the
+        // card can measure it — a hug-content wrapper would leave it nothing to
+        // measure and put it straight back on the guess.
+        <View style={{ flex: 1 }}>
           {label}
           {chips}
           {hero}
@@ -391,9 +584,20 @@ export function MissionSectionView({
       // of zero height. Passing the fill down is what lets the measurement see
       // the real viewport. Every other type keeps the hug-content box it had.
       return (
-        <View style={s.type === 'cardDeck' ? { flex: 1 } : undefined}>
+        <View style={s.type === 'cardDeck' || s.type === 'flashcards' || s.type === 'practice' ? { flex: 1 } : undefined}>
           {chips}
-          <SectionView s={s} onPlay={onPlay} playingId={playingId} onGrade={onGrade} graded={graded} showHero={showHero} />
+          <SectionView
+            s={s}
+            onPlay={onPlay}
+            playingId={playingId}
+            onGrade={onGrade}
+            graded={graded}
+            showHero={showHero}
+            // Reaches the cardDeck only — SectionView hands it to that one
+            // branch. Every other type here is a single screen, so there is no
+            // sub-position for it to report.
+            onSubIndexChange={onSubIndexChange}
+          />
         </View>
       );
   }

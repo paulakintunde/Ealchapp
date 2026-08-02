@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { ScrollView, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { Press, Badge } from '@/components/ui';
 import { Icon } from '@/components/Icon';
@@ -8,12 +8,13 @@ import { LessonModal } from '@/components/LessonModal';
 import { useTheme } from '@/theme/useTheme';
 import { CardFrame, QuestionModal, SwipeDeck } from '@/components/LessonDeck';
 import { WordCardXL } from '@/components/WordCardXL';
-import { useCardHeight } from '@/hooks/useCardHeight';
+import { useCardHeight, useMeasuredCardHeight } from '@/hooks/useCardHeight';
 import { useT } from '@/i18n/useT';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { content } from '@/services/content';
 import { useProgress } from '@/store/useProgress';
 import { normalizeFr, barsForLevel } from '@/utils/score';
+import { resolveAudio, speedsFor, NORMAL_RATE } from '@/content/lessonAudio.logic';
 import type {
   LessonSection,
   GridSound,
@@ -21,6 +22,7 @@ import type {
   TrapCard,
   LabSound,
   ScenarioTurn,
+  SectionAudio,
 } from '@/content/schema';
 
 // The mission-journey renderers: the 12 section types that only exist for the
@@ -281,29 +283,58 @@ export function SoundGridView({ s }: { s: SoundGridSec }) {
 
 /* ─── 4. Group drill ──────────────────────────────────────────────────────── */
 
-function OneGroup({ g, xl }: { g: SoundGroup; xl?: boolean }) {
+function OneGroup({
+  g,
+  xl,
+  hideLabel,
+  onAnswered,
+}: {
+  g: SoundGroup;
+  xl?: boolean;
+  hideLabel?: boolean;
+  /** Fires once the control has been answered, so the page can stop letting
+   *  the learner swipe past a check they never took. */
+  onAnswered?: () => void;
+}) {
   const t = useTheme();
   const [picked, setPicked] = useState(-1);
 
-  const check = (
+  // A group carries words, a check, or both. At size xl sons.06 splits them
+  // onto separate missions, so each half has to render alone.
+  const q = g.check;
+  const hasWords = g.items.length > 0;
+
+  const check = q ? (
     <View style={{ marginTop: 6, borderRadius: 16, borderWidth: 1, borderColor: t.accA(25), backgroundColor: t.card2, padding: 14 }}>
-      <TX font="semi" role="meta" ls={1.6} color={t.txSubtle} style={{ marginBottom: 8 }}>CONTRÔLE</TX>
-      <TX role="body" style={{ marginBottom: 10 }}>{g.check.q}</TX>
+      {/* No "CONTRÔLE" label here. The section eyebrow above already says it,
+          and on the four split control pages the word appeared three times on
+          one screen — eyebrow, subtitle, and this. */}
+      <TX role="body" style={{ marginBottom: 10 }}>{q.q}</TX>
       <View style={{ gap: 8 }}>
-        {g.check.opts.map((o, i) => (
+        {q.opts.map((o, i) => (
           <OptRow
             key={i}
             label={o}
             onPress={() => {
-              sound.play(i === g.check.correct ? 'success' : 'error');
+              if (picked >= 0) return; // answered once; the verdict is the point
+              sound.play(i === q.correct ? 'success' : 'error');
               setPicked(i);
+              onAnswered?.();
             }}
-            state={picked < 0 ? undefined : i === g.check.correct ? 'correct' : i === picked ? 'wrong' : 'other'}
+            state={picked < 0 ? undefined : i === q.correct ? 'correct' : i === picked ? 'wrong' : 'other'}
           />
         ))}
       </View>
+      {/* The reason, once they have committed to an answer. A control that only
+          recolours two rows tells someone they were wrong without telling them
+          why — and being wrong is the moment the rule was most likely to land. */}
+      {picked >= 0 && q.why ? (
+        <View style={{ marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderTopColor: t.line(9) }}>
+          <TX role="bodySm" color={t.txSecondary} style={{ lineHeight: 22 }}>{q.why}</TX>
+        </View>
+      ) : null}
     </View>
-  );
+  ) : null;
 
   // At size xl each word is its own hero card, swiped: 56pt French, IPA and
   // respelling beneath, and the silent letters greyed and faded from the
@@ -311,16 +342,54 @@ function OneGroup({ g, xl }: { g: SoundGroup; xl?: boolean }) {
   // label beside a play button and the silent letters are invisible, which is
   // the one thing this mission exists to show.
   if (xl) {
+    // Fills the page rather than hugging its content: the pager hands this
+    // mission the whole viewport (ownsLayout), and the deck absorbs it.
+    //
+    // The words and the CONTRÔLE are now SEPARATE missions (see the split in
+    // sons.06's seed), and that is what makes this layout honest. Stacking
+    // both in one fixed viewport meant two competing floors: flex alone let
+    // the four-option check take what it wanted and squeezed the deck to
+    // nothing, so the hero card — the one thing this mission exists to show —
+    // rendered at zero height. Giving each a floor only moved the failure to
+    // the page scroll, which then fought the deck's own drag.
+    //
+    // One thing per page removes the competition rather than refereeing it:
+    // whichever half this group carries gets the entire viewport.
     return (
-      <View style={{ gap: 10 }}>
-        <TX font="semi" role="label" ls={1.6} color={t.accTx}>{g.label}</TX>
-        <SwipeDeck
-          items={g.items}
-          hint="One word at a time. The grey letters are the ones you do not say."
-          keyFor={(it, i) => `${g.label}-${it.fr}-${i}`}
-          renderItem={(it) => <GroupWordCard item={it} />}
-        />
-        {check}
+      <View style={{ gap: 10, flex: 1 }}>
+        {/* The group label is suppressed when it only repeats the mission's own
+            title. sons.06 splits each family onto its own mission and names the
+            mission after the family, so the section eyebrow and this label are
+            the same string — "CaReFuL: the four that stay awake" drawn twice,
+            once by MissionSection and once here. The heading still exists for
+            the multi-group case, where it is the only thing naming which family
+            you are looking at. */}
+        {hideLabel ? null : <TX font="semi" role="label" ls={1.6} color={t.accTx}>{g.label}</TX>}
+        {hasWords ? (
+          <View style={{ flex: 1, minHeight: 0 }}>
+            {/* No hint row. This is the one deck that cannot afford one: the
+                XL card is a full-viewport hero whose play button sits at the
+                bottom, and a hint row above the deck is height the card never
+                gets. The instruction it carried ("the grey letters are the
+                ones you do not say") is also the one thing this card teaches
+                by ITSELF — the silent letters visibly recede from ink over
+                400ms on every card. Saying it in prose above the animation is
+                the caption on a picture of itself.
+
+                It survives for screen readers as the deck's accessibilityHint
+                below, which costs no layout height. */}
+            <SwipeDeck
+              fill
+              items={g.items}
+              a11yHint="One word at a time. The grey letters are the ones you do not say."
+              keyFor={(it, i) => `${g.label}-${it.fr}-${i}`}
+              renderItem={(it, _i, cardH) => <GroupWordCard item={it} height={cardH} />}
+            />
+          </View>
+        ) : null}
+        {/* A check with no words is the whole mission: centre it rather than
+            letting it sit against the label with dead space underneath. */}
+        {check ? <View style={hasWords ? undefined : { flex: 1, justifyContent: 'center' }}>{check}</View> : null}
       </View>
     );
   }
@@ -349,9 +418,23 @@ function OneGroup({ g, xl }: { g: SoundGroup; xl?: boolean }) {
  *  control speaks through the local tts service (PlayDot). Keeping to that
  *  convention means the card behaves like its neighbours instead of
  *  introducing a second audio path through the same screen. */
-function GroupWordCard({ item }: { item: SoundGroup['items'][number] }) {
+function GroupWordCard({
+  item,
+  height,
+}: {
+  item: SoundGroup['items'][number];
+  /** The height the deck measured for this card, in `fill` mode. Null means
+   *  the old behaviour: guess the surrounding chrome via useCardHeight. A
+   *  measured value is always better — the guess is what put the drill's
+   *  CONTRÔLE question below the fold, because 340 did not account for the
+   *  question box and the button underneath it. */
+  height?: number | null;
+}) {
   const [playing, setPlaying] = useState(false);
-  const h = useCardHeight(340);
+  // Hook order is unconditional; the measured height simply wins when present.
+  const fallback = useCardHeight(340);
+  // A floor stops a mid-layout measurement of 0 collapsing the card to nothing.
+  const h = height != null && height > 160 ? height : fallback;
 
   const speak = (slow?: boolean) => {
     if (playing) return;
@@ -382,12 +465,79 @@ function GroupWordCard({ item }: { item: SoundGroup['items'][number] }) {
   );
 }
 
-export function GroupDrillView({ s }: { s: GroupDrillSec }) {
+export function GroupDrillView({
+  s,
+  onBlockedChange,
+}: {
+  s: GroupDrillSec;
+  /** Reports whether this mission is holding the learner. True while a control
+   *  page's question is unanswered — a check you can swipe past was never a
+   *  check. Only ever true for a group that carries a check and no words, which
+   *  is the split shape sons.06 authored; every other drill reports false and
+   *  behaves exactly as before. */
+  onBlockedChange?: (blocked: boolean) => void;
+}) {
   const t = useTheme();
+  const T = useT();
   const [ix, setIx] = useState(0);
   const last = ix >= s.groups.length - 1;
+  // At size xl the pager gives this mission the whole viewport, so the chain
+  // from here down to the card has to flex or the deck cannot claim the
+  // leftover space. Any other size keeps the hugging box it has always had,
+  // inside the scrolling page sons.02 and sons.03 still rely on.
+  const xl = s.size === 'xl';
+
+  // An XL drill now ships ONE group per mission (sons.06 splits its four
+  // families, and each family's check, into their own pages). With a single
+  // group there is nothing to page between here, so the in-section progress
+  // row and the "Groupe suivant" button below are not just redundant — they
+  // are the chrome that pushed the word card past the bottom of the screen.
+  // The pager's own dots and swipe already do this job, one level up.
+  const single = xl && s.groups.length === 1;
+
+  // Compared loosely (case and surrounding space ignored) because the point is
+  // whether the learner READS the same line twice, not whether two strings are
+  // byte-equal.
+  const sameAsTitle = (label: string) =>
+    label.trim().toLowerCase() === (s.title ?? '').trim().toLowerCase();
+
+  // A CONTROL PAGE is a group carrying a question and no words — the shape
+  // sons.06 split its four families into. That page, and only that page, holds
+  // the learner until they answer. A drill that also carries words is teaching
+  // material with a check attached and must stay swipeable.
+  const controlOnly = s.groups.length === 1 && !!s.groups[0].check && s.groups[0].items.length === 0;
+  const [answered, setAnswered] = useState(false);
+  // Hooks run unconditionally and above the early return, so hook order cannot
+  // vary with `single`.
+  useEffect(() => {
+    onBlockedChange?.(controlOnly && !answered);
+    // Reporting false on unmount matters: swiping away from an unanswered check
+    // must not leave the pager blocked on a section that is no longer on screen.
+    return () => onBlockedChange?.(false);
+    // onBlockedChange IS a dependency, deliberately. The pager passes it only to
+    // the page in view (`i === page ? setSectionBlocked : undefined`), and this
+    // section is already mounted by the time it BECOMES that page — inside
+    // PAGE_WINDOW its neighbours render ahead of being swiped to. Without the
+    // callback in the deps the effect never re-runs on that transition, so the
+    // block was raised while the prop was still undefined and the gate never
+    // appeared. eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [controlOnly, answered, onBlockedChange]);
+
+  if (single) {
+    return (
+      <View style={{ flex: 1 }}>
+        <OneGroup
+          g={s.groups[0]}
+          xl
+          hideLabel={sameAsTitle(s.groups[0].label)}
+          onAnswered={() => setAnswered(true)}
+        />
+      </View>
+    );
+  }
+
   return (
-    <View>
+    <View style={xl ? { flex: 1 } : undefined}>
       <View style={{ flexDirection: 'row', gap: 6, marginBottom: 14 }}>
         {s.groups.map((g, i) => (
           <View
@@ -401,14 +551,36 @@ export function GroupDrillView({ s }: { s: GroupDrillSec }) {
           />
         ))}
       </View>
-      <OneGroup key={ix} g={s.groups[ix]} xl={s.size === 'xl'} />
+      {/* The flexing middle: the group takes the space the progress row and
+          the button below it do not, and the deck inside it does the same
+          again. Without this box the `flex: 1` chain breaks here and the card
+          falls back to its guessed height.
+
+          It SCROLLS because the two things inside it both have floors now (a
+          minimum deck height, and a check block whose size is set by its option
+          count). On a tall screen they both fit and this never moves; on a
+          short one, or at a large font scale, the learner scrolls a little
+          instead of the card collapsing or the question dropping off. */}
+      {xl ? (
+        <ScrollView
+          style={{ flex: 1 }}
+          contentContainerStyle={{ flexGrow: 1 }}
+          nestedScrollEnabled
+          directionalLockEnabled
+          showsVerticalScrollIndicator={false}
+        >
+          <OneGroup key={ix} g={s.groups[ix]} xl hideLabel={sameAsTitle(s.groups[ix].label)} />
+        </ScrollView>
+      ) : (
+        <OneGroup key={ix} g={s.groups[ix]} xl={false} hideLabel={sameAsTitle(s.groups[ix].label)} />
+      )}
       {!last ? (
         <Press
           cue="tap"
           onPress={() => setIx((n) => n + 1)}
           style={{ height: 48, borderRadius: 24, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center', marginTop: 14 }}
         >
-          <TX font="semi" role="body" color={t.accInk}>Groupe suivant</TX>
+          <TX font="semi" role="body" color={t.accInk}>{T.nextGroup}</TX>
         </Press>
       ) : (
         <View style={{ marginTop: 14, alignItems: 'center' }}>
@@ -421,19 +593,37 @@ export function GroupDrillView({ s }: { s: GroupDrillSec }) {
 
 /* ─── 5. Trap drill ───────────────────────────────────────────────────────── */
 
-function TrapFlipCard({ c }: { c: TrapCard }) {
+/** `height` is the measured room a filling SwipeDeck hands each card. Null in
+ *  the stacked render, where the card hugs its content as it always did. */
+function TrapFlipCard({ c, height = null }: { c: TrapCard; height?: number | null }) {
   const t = useTheme();
+  const T = useT();
   const [flipped, setFlipped] = useState(false);
+  const face = {
+    borderRadius: 20,
+    borderWidth: 1,
+    padding: 22,
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+    gap: 8,
+    ...(height ? { height } : null),
+  };
   return (
-    <Press cue="flip" onPress={() => setFlipped((f) => !f)} style={{ marginBottom: 10 }}>
+    <Press
+      cue="flip"
+      onPress={() => setFlipped((f) => !f)}
+      accessibilityRole="button"
+      accessibilityLabel={flipped ? `${c.fr}. ${c.tip}` : `${c.promptLabel}. ${T.tapToFlip}.`}
+      style={height ? { flex: 1 } : { marginBottom: 10 }}
+    >
       {!flipped ? (
-        <View style={{ borderRadius: 20, borderWidth: 1, borderColor: t.dangerA(35), backgroundColor: t.dangerA(6), padding: 22, alignItems: 'center', gap: 8 }}>
+        <View style={[face, { borderColor: t.dangerA(35), backgroundColor: t.dangerA(6) }]}>
           <TX font="semi" role="meta" ls={2} color={t.txSubtle}>{c.promptLabel}</TX>
           <TX font="serif" size={64} role="display">{c.promptSound}</TX>
-          <TX role="bodySm" color={t.txSubtle}>Touchez pour retourner</TX>
+          <TX role="bodySm" color={t.txSubtle}>{T.tapToFlip}</TX>
         </View>
       ) : (
-        <View style={{ borderRadius: 20, borderWidth: 1, borderColor: t.accA(45), backgroundColor: t.accCard(10), padding: 22, alignItems: 'center', gap: 8 }}>
+        <View style={[face, { borderColor: t.accA(45), backgroundColor: t.accCard(10) }]}>
           <TX font="serifI" role="titleLg" color={t.acc}>{c.fr}</TX>
           <TX role="body" color={t.txMuted}>{c.ipa}</TX>
           <TX role="bodySm" center lhMult={1.5} style={{ marginTop: 4 }}>{c.tip}</TX>
@@ -443,49 +633,330 @@ function TrapFlipCard({ c }: { c: TrapCard }) {
   );
 }
 
-export function TrapDrillView({ s }: { s: TrapDrillSec }) {
+/** The drill's options.
+ *
+ *  Deliberately NOT a single flex row. Four options across a Pixel 6 gave each
+ *  one ~70px, so a word like "bonjour" wrapped mid-row, and picking one added
+ *  border and background weight that reflowed the whole already-overflowing
+ *  line — the "broken shape on tap". Two per row above three options, one per
+ *  row below, so every option keeps a readable width whatever it holds. */
+function TrapOptions({
+  q,
+  picked,
+  onPick,
+}: {
+  q: { opts: string[]; correct: number };
+  picked: number | undefined;
+  onPick: (oi: number) => void;
+}) {
+  const grid = q.opts.length > 3;
+  return (
+    <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+      {q.opts.map((o, oi) => {
+        const state = picked === undefined ? undefined : oi === q.correct ? 'correct' : oi === picked ? 'wrong' : 'other';
+        return (
+          <View key={oi} style={grid ? { width: '48%', flexGrow: 1 } : { width: '100%' }}>
+            <OptRow
+              label={o}
+              onPress={() => onPick(oi)}
+              state={state as 'correct' | 'wrong' | 'other' | undefined}
+            />
+          </View>
+        );
+      })}
+    </View>
+  );
+}
+
+/** The rule this drill tests, as the drill's opening step.
+ *
+ *  It was its own `teach` mission: 76 words of prose on an otherwise empty
+ *  screen, in a lesson where every neighbouring mission is a card or a deck. It
+ *  also carried the single most important exception in the lesson, so it was
+ *  the material given the least treatment. Here it is the thing you read
+ *  immediately before being tested on it, on a card that looks like the rest of
+ *  the lesson. */
+function TrapRuleStep({ rule }: { rule: { title: string; body: string } }) {
   const t = useTheme();
-  const [answers, setAnswers] = useState<Record<number, number>>({});
+  return (
+    <View style={{ flex: 1, justifyContent: 'center' }}>
+      <View
+        style={{
+          borderRadius: 20,
+          borderWidth: 1,
+          borderColor: t.accA(30),
+          backgroundColor: t.accCard(8),
+          padding: 22,
+          gap: 12,
+        }}
+      >
+        {/* No title here. The step already overrides the section heading with
+            it one level up, and printing it again put the same sentence on the
+            screen twice — the same duplicate the group labels had. */}
+        <TX role="body" color={t.txSecondary} style={{ lineHeight: 26 }}>{rule.body}</TX>
+      </View>
+    </View>
+  );
+}
+
+/** Step 14.1: the traps, one per screen.
+ *
+ *  A swipe deck rather than a column for the same reason commonErrors is one:
+ *  six traps stacked is six ways to be wrong shown at once, and the learner
+ *  scrolls past them. One at a time, each with room for its tip. */
+function TrapCardsStep({ cards }: { cards: TrapCard[] }) {
+  return (
+    <SwipeDeck
+      items={cards}
+      // The step owns the viewport (see the pager's ownsLayout), so the deck
+      // measures the leftover height rather than sizing to a fixed card and
+      // pushing the Continuer button off screen.
+      fill
+      hint="Un piège à la fois. Touchez la carte pour la retourner."
+      a11yHint="Balayez pour le piège suivant"
+      keyFor={(_c: unknown, i: number) => `trap-${i}`}
+      renderItem={(c: TrapCard, _i: number, height: number | null) => <TrapFlipCard c={c} height={height} />}
+    />
+  );
+}
+
+/** Step 14.2: hear the pair.
+ *
+ *  The section has always declared `audio` (a recorded set, 1.0 and 0.65) and
+ *  the stacked render never played a note of it. Speeds come from the authored
+ *  spec via speedsFor, and resolveAudio decides recording-or-TTS per word, so
+ *  this starts playing real clips the day the studio delivers with no content
+ *  edit. */
+function TrapAudioStep({ s }: { s: TrapDrillSec }) {
+  const t = useTheme();
+  const spec = (s as { audio?: SectionAudio }).audio;
+  const rates = speedsFor(spec);
+  const [playing, setPlaying] = useState<string | null>(null);
+
+  const say = (text: string, rate: number) => {
+    if (playing) return;
+    sound.play('tap');
+    const r = resolveAudio(text, spec, { slow: rate < NORMAL_RATE });
+    setPlaying(`${text}@${rate}`);
+    tts.speak(r.text, {
+      rate: r.rate,
+      onDone: () => setPlaying(null),
+      onError: () => setPlaying(null),
+    });
+  };
+
+  return (
+    <ScrollView
+      style={{ flex: 1 }}
+      contentContainerStyle={{ paddingBottom: 8 }}
+      showsVerticalScrollIndicator={false}
+    >
+      <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 12 }}>
+        Écoutez la paire. Le R sonne, puis le R se tait.
+      </TX>
+      {s.cards.map((c, i) => (
+        <View
+          key={i}
+          style={{
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: t.line(9),
+            backgroundColor: t.card,
+            padding: 14,
+            marginBottom: 10,
+          }}
+        >
+          <TX font="serifI" role="titleSm">{c.fr}</TX>
+          <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 10 }}>{c.ipa}</TX>
+          <View style={{ flexDirection: 'row', gap: 8 }}>
+            {rates.map((rate) => {
+              const on = playing === `${c.fr}@${rate}`;
+              return (
+                <Press
+                  key={rate}
+                  cue="tap"
+                  onPress={() => say(c.fr, rate)}
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: 6,
+                    height: 38,
+                    paddingHorizontal: 14,
+                    borderRadius: 19,
+                    borderWidth: 1,
+                    borderColor: on ? t.acc : t.accA(45),
+                    backgroundColor: on ? t.accA(14) : 'transparent',
+                  }}
+                >
+                  <Icon name={on ? 'pause' : 'play'} size={13} color={t.acc} />
+                  <TX role="bodySm" color={t.accTx}>
+                    {rate < NORMAL_RATE ? 'Lent' : 'Normal'}
+                  </TX>
+                </Press>
+              );
+            })}
+          </View>
+        </View>
+      ))}
+    </ScrollView>
+  );
+}
+
+/** Step 14.3: the reflex check, with the whole screen to itself. */
+function TrapDrillStep({
+  s,
+  answers,
+  setAnswers,
+}: {
+  s: TrapDrillSec;
+  answers: Record<number, number>;
+  setAnswers: React.Dispatch<React.SetStateAction<Record<number, number>>>;
+}) {
+  const t = useTheme();
   const scored = Object.keys(answers).length;
   const correct = Object.entries(answers).filter(([qi, oi]) => oi === s.drill[Number(qi)].correct).length;
   return (
-    <View>
-      <TX font="semi" role="meta" ls={2} color={t.danger} style={{ marginBottom: 10 }}>LES PIÈGES</TX>
-      {s.cards.map((c, i) => (
-        <TrapFlipCard key={i} c={c} />
-      ))}
-      <View style={{ marginTop: 16, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card2, padding: 14 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10 }}>
-          <TX font="semi" role="meta" ls={2} color={t.txSubtle}>RÉFLEXE</TX>
-          {scored > 0 ? <TX role="meta" color={t.accTx}>{correct} / {scored}</TX> : null}
-        </View>
-        {s.drill.map((q, qi) => (
-          <View key={qi} style={{ marginBottom: 14 }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-              <TX font="serifI" role="titleSm">{q.promptSay}</TX>
-              <PlayDot text={q.promptSay} size={28} />
-            </View>
-            <View style={{ flexDirection: 'row', gap: 8 }}>
-              {q.opts.map((o, oi) => {
-                const picked = answers[qi];
-                const state = picked === undefined ? undefined : oi === q.correct ? 'correct' : oi === picked ? 'wrong' : 'other';
-                return (
-                  <View key={oi} style={{ flex: 1 }}>
-                    <OptRow
-                      label={o}
-                      onPress={() => {
-                        sound.play(oi === q.correct ? 'success' : 'error');
-                        setAnswers((a) => ({ ...a, [qi]: oi }));
-                      }}
-                      state={state as 'correct' | 'wrong' | 'other' | undefined}
-                    />
-                  </View>
-                );
-              })}
-            </View>
-          </View>
-        ))}
+    <ScrollView
+      style={{ flex: 1 }}
+      contentContainerStyle={{ paddingBottom: 8 }}
+      showsVerticalScrollIndicator={false}
+    >
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12 }}>
+        <TX font="semi" role="meta" ls={2} color={t.txSubtle}>RÉFLEXE</TX>
+        {scored > 0 ? <TX role="meta" color={t.accTx}>{correct} / {scored}</TX> : null}
       </View>
+      {s.drill.map((q, qi) => (
+        <View key={qi} style={{ marginBottom: 20 }}>
+          <View style={{ marginBottom: 10 }}>
+            <TX font="serifI" role="titleSm" style={{ marginBottom: 8 }}>{q.promptSay}</TX>
+            <PlayDot text={q.promptSay} size={28} />
+          </View>
+          <TrapOptions
+            q={q}
+            picked={answers[qi]}
+            onPick={(oi) => {
+              sound.play(oi === q.correct ? 'success' : 'error');
+              setAnswers((a) => ({ ...a, [qi]: oi }));
+            }}
+          />
+        </View>
+      ))}
+    </ScrollView>
+  );
+}
+
+export function TrapDrillView({
+  s,
+  onIndexChange,
+}: {
+  s: TrapDrillSec;
+  /** The step the learner has advanced to, 0-based. Drives the pager's
+   *  sub-mission number (14.1, 14.2, 14.3) — which is what the section's own
+   *  counter used to say, one level down. */
+  onIndexChange?: (index: number) => void;
+}) {
+  const t = useTheme();
+  const T = useT();
+  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [step, setStep] = useState(0);
+  const steps = s.steps;
+
+  // No `steps` authored: the original stacked render, unchanged, which is what
+  // the four trapDrills authored before stepping existed still get.
+  if (!steps?.length) {
+    const scored = Object.keys(answers).length;
+    const correct = Object.entries(answers).filter(([qi, oi]) => oi === s.drill[Number(qi)].correct).length;
+    return (
+      <View>
+        <TX font="semi" role="meta" ls={2} color={t.danger} style={{ marginBottom: 10 }}>LES PIÈGES</TX>
+        {s.cards.map((c, i) => (
+          <TrapFlipCard key={i} c={c} />
+        ))}
+        <View style={{ marginTop: 16, borderRadius: 18, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card2, padding: 14 }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10 }}>
+            <TX font="semi" role="meta" ls={2} color={t.txSubtle}>RÉFLEXE</TX>
+            {scored > 0 ? <TX role="meta" color={t.accTx}>{correct} / {scored}</TX> : null}
+          </View>
+          {s.drill.map((q, qi) => (
+            <View key={qi} style={{ marginBottom: 14 }}>
+              <View style={{ marginBottom: 8 }}>
+                <TX font="serifI" role="titleSm" style={{ marginBottom: 8 }}>{q.promptSay}</TX>
+                <PlayDot text={q.promptSay} size={28} />
+              </View>
+              <TrapOptions
+                q={q}
+                picked={answers[qi]}
+                onPick={(oi) => {
+                  sound.play(oi === q.correct ? 'success' : 'error');
+                  setAnswers((a) => ({ ...a, [qi]: oi }));
+                }}
+              />
+            </View>
+          ))}
+        </View>
+      </View>
+    );
+  }
+
+  const cur = steps[Math.min(step, steps.length - 1)];
+  const last = step >= steps.length - 1;
+  // A gated drill step holds the learner until every question is answered: a
+  // reflex you can swipe past was never tested.
+  const held = cur.kind === 'drill' && cur.gate === true && Object.keys(answers).length < s.drill.length;
+
+  return (
+    <View style={{ flex: 1 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+        <TX font="semi" role="meta" ls={2} color={t.danger}>{cur.label.toUpperCase()}</TX>
+        {/* The position used to be drawn here as "2 / 3". The pager's header
+            now carries it as the sub-mission number (14.2 / 28), which says the
+            same thing and also says WHICH mission it is a part of. Two counters
+            on one screen invite the reader to work out how they relate, and
+            they relate in no useful way. */}
+      </View>
+      {cur.title ? (
+        <TX font="serif" role="titleLg" style={{ marginBottom: 12 }}>{cur.title}</TX>
+      ) : null}
+
+      <View style={{ flex: 1 }}>
+        {cur.kind === 'rule' && s.rule ? <TrapRuleStep rule={s.rule} /> : null}
+        {cur.kind === 'cards' ? <TrapCardsStep cards={s.cards} /> : null}
+        {cur.kind === 'audio' ? <TrapAudioStep s={s} /> : null}
+        {cur.kind === 'drill' ? <TrapDrillStep s={s} answers={answers} setAnswers={setAnswers} /> : null}
+      </View>
+
+      {!last ? (
+        <Press
+          cue="tap"
+          onPress={() =>
+            !held &&
+            setStep((n) => {
+              const next = n + 1;
+              onIndexChange?.(next);
+              return next;
+            })
+          }
+          accessibilityRole="button"
+          accessibilityState={{ disabled: held }}
+          accessibilityLabel={held ? T.answerAllToContinue : T.continueT}
+          style={{
+            height: 48,
+            borderRadius: 24,
+            backgroundColor: held ? t.line(12) : t.acc,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: 14,
+          }}
+        >
+          <TX font="semi" role="body" color={held ? t.txSubtle : t.accInk}>
+            {held ? T.answerToContinue : T.continueT}
+          </TX>
+        </Press>
+      ) : (
+        <View style={{ marginTop: 14, alignItems: 'center' }}>
+          <TX role="bodySm" color={t.txMuted}>Balayez pour continuer.</TX>
+        </View>
+      )}
     </View>
   );
 }
@@ -640,6 +1111,7 @@ function buildTileBank(word: string): { ch: string; id: number }[] {
 
 function OneDictationWord({ itemId, voice, onDone }: { itemId: string; voice: 'amelie' | 'leo'; onDone: (ok: boolean) => void }) {
   const t = useTheme();
+  const T = useT();
   const item = content.item(itemId);
   const logAttempt = useProgress((st) => st.logAttempt);
   const [bank] = useState(() => (item ? buildTileBank(item.fr.replace(/[^A-Za-zÀ-ÿ]/g, '')) : []));
@@ -777,7 +1249,7 @@ function OneDictationWord({ itemId, voice, onDone }: { itemId: string; voice: 'a
           onPress={() => onDone(!!checked)}
           style={{ height: 50, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
         >
-          <TX font="semi" role="body" color={t.accInk}>Continuer</TX>
+          <TX font="semi" role="body" color={t.accInk}>{T.continueT}</TX>
         </Press>
       )}
     </View>
@@ -819,6 +1291,7 @@ export function DictationView({ s }: { s: DictationSec }) {
 
 function ScenarioTurnView({ turn, onNext, isLast }: { turn: ScenarioTurn; onNext: () => void; isLast: boolean }) {
   const t = useTheme();
+  const T = useT();
   const logAttempt = useProgress((st) => st.logAttempt);
   const [listening, setListening] = useState(false);
   const [revealed, setRevealed] = useState(false);
@@ -898,7 +1371,7 @@ function ScenarioTurnView({ turn, onNext, isLast }: { turn: ScenarioTurn; onNext
           onPress={onNext}
           style={{ height: 46, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}
         >
-          <TX font="semi" role="body" color={t.accInk}>{isLast ? 'Terminer la scène' : 'Continuer'}</TX>
+          <TX font="semi" role="body" color={t.accInk}>{isLast ? T.sceneEnd : T.continueT}</TX>
         </Press>
       ) : null}
     </View>
@@ -1059,6 +1532,7 @@ function ListeningQuestionLauncher({
 
 export function ReadingView({ s }: { s: ReadingSec }) {
   const t = useTheme();
+  const T = useT();
   const [open, setOpen] = useState<Record<number, boolean>>({});
   return (
     <View>
@@ -1077,7 +1551,7 @@ export function ReadingView({ s }: { s: ReadingSec }) {
         >
           <TX role="body">{q.q}</TX>
           {open[i] ? <TX role="bodySm" color={t.accTx} style={{ marginTop: 6 }}>{q.a}</TX> : (
-            <TX role="bodySm" color={t.txSubtle} style={{ marginTop: 4 }}>Touchez pour révéler</TX>
+            <TX role="bodySm" color={t.txSubtle} style={{ marginTop: 4 }}>{T.tapToReveal}</TX>
           )}
         </Press>
       ))}
@@ -1089,16 +1563,24 @@ export function ReadingView({ s }: { s: ReadingSec }) {
 
 export function ReviewDeckView({ s }: { s: ReviewDeckSec }) {
   const t = useTheme();
+  const T = useT();
   const [ix, setIx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [buckets, setBuckets] = useState({ again: 0, hard: 0, easy: 0 });
-  // Chrome: eyebrow, counter, and the three rating buttons under the card.
-  const cardH = useCardHeight(300);
+  // MEASURED, not guessed. The guess subtracted a constant from the window and
+  // came out taller than the room a lesson page leaves, so the card ran past
+  // the bottom and took the Encore / Difficile / Facile row with it — the row
+  // that is the only way to rate the card and advance.
+  //
+  // Reserved: the counter above (~30) and the rating row below (46 + 14). The
+  // row is reserved even while the card is face down, so revealing an answer
+  // never resizes the card under the learner's finger.
+  const [onBoxLayout, cardH] = useMeasuredCardHeight(300, 30 + 60);
   const done = ix >= s.cards.length;
   if (done) {
     return (
       <View style={{ alignItems: 'center', gap: 8, paddingVertical: 20 }}>
-        <TX font="serifI" role="display" color={t.accTx}>Révision terminée</TX>
+        <TX font="serifI" role="display" color={t.accTx}>{T.reviewDone}</TX>
         <TX role="bodySm" color={t.txMuted}>Encore {buckets.again} · Difficile {buckets.hard} · Facile {buckets.easy}</TX>
       </View>
     );
@@ -1110,7 +1592,7 @@ export function ReviewDeckView({ s }: { s: ReviewDeckSec }) {
     setIx((n) => n + 1);
   };
   return (
-    <View>
+    <View style={{ flex: 1 }} onLayout={onBoxLayout}>
       <TX font="semi" role="meta" ls={2} color={t.txSubtle} style={{ marginBottom: 12 }}>{ix + 1} / {s.cards.length}</TX>
       <Press cue="flip" onPress={() => setFlipped((f) => !f)}>
         {/* Sized to the viewport, not fixed: the Encore / Difficile / Facile
@@ -1119,7 +1601,7 @@ export function ReviewDeckView({ s }: { s: ReviewDeckSec }) {
             they could already read. */}
         <View style={{ height: cardH, borderRadius: 22, borderWidth: 1, borderColor: flipped ? t.accA(40) : t.line(10), backgroundColor: flipped ? t.accCard(8) : t.card, alignItems: 'center', justifyContent: 'center', padding: 28 }}>
           <TX font="serifI" role="display" size={flipped ? 26 : 30} center color={flipped ? t.accTx : t.txPrimary} style={{ lineHeight: flipped ? 36 : 40 }}>{flipped ? c.back : c.front}</TX>
-          {!flipped ? <TX role="bodySm" color={t.txSubtle} style={{ marginTop: 18 }}>Touchez pour révéler</TX> : null}
+          {!flipped ? <TX role="bodySm" color={t.txSubtle} style={{ marginTop: 18 }}>{T.tapToReveal}</TX> : null}
         </View>
       </Press>
       {flipped ? (

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ScrollView,
   View,
@@ -21,6 +21,7 @@ import { QuizRoundsView } from '@/components/QuizRoundsView';
 import type { PlayFn } from '@/components/LessonDeck';
 import { narrationOf, type LessonAct, type LessonDrill, type LessonSection, type LessonTerm, type QuizQuestion as SchemaQuizQuestion } from '@/content/schema';
 import { quizQuestions as flattenRounds } from '@/content/schema';
+import { a11yMissionLabel, formatMissionLabel, subCount } from '@/content/subMission.logic';
 import type { QuizConfig } from '@/content/quizRounds.logic';
 
 /** The flat index of a question inside a round-based quiz.
@@ -63,6 +64,16 @@ type LessonPagerProps = {
    *  comes in from the screen, which can see the unfiltered list. Optional, and
    *  falls back to the old behaviour for any caller that does not pass it. */
   missionTotal?: number;
+  /** Maps a `sections` index (this component's filtered list) to the mission
+   *  NUMBER the missions hub shows for it — i.e. its 1-based position in the
+   *  lesson's full section list, quiz included.
+   *
+   *  Required for the same reason `missionTotal` is: the quiz is removed from
+   *  `sections` but counted as a mission everywhere else, so every section past
+   *  it is off by one and the pager has no way to see that from here. Optional,
+   *  falling back to the raw index, which is correct for any lesson whose quiz
+   *  is last (every pre-v2 lesson). */
+  missionNumberOf?: (sectionIx: number) => number;
   /** The lesson's glossary, for the term chips its sections declare. Absent
    *  on every pre-v2 lesson, which simply renders no chips. */
   terms?: Record<string, LessonTerm>;
@@ -115,6 +126,17 @@ type LessonPagerProps = {
    *  screen uses this to keep the lesson's resume position current as the
    *  learner swipes, not just at mount. */
   onIndexChange?: (sectionIx: number | null) => void;
+  /** Fires as the learner moves between CARDS inside one mission, with the
+   *  1-based card number (the same one the header shows as 15.2) or null when
+   *  the current page has no sub-position.
+   *
+   *  Separate from onIndexChange because the two change independently: swiping
+   *  a deck moves the card without moving the section, and the screen needs
+   *  both to write a resume that returns to the right card. */
+  onSubIndexChange?: (sub: number | null) => void;
+  /** The card to open the current deck on, 0-based — a resume or deep link
+   *  landing inside a mission rather than at its first card. */
+  initialSub?: number | null;
   /** Safe-area bottom inset, so the nav bar clears the home indicator. */
   bottomInset: number;
 };
@@ -145,6 +167,42 @@ function ownsLayout(s: LessonSection): boolean {
   // sizes itself through useCardHeight; letting it own the viewport is what
   // makes it fit on screen without scrolling.
   if (s.type === 'cardDeck') return true;
+  // An XL groupDrill is the same case, and was missed for the same reason.
+  // GroupDrillView renders one word per swiped hero card at size 'xl' (see
+  // MissionRich's OneGroup) — a 460px card inside a scrolling page, which put
+  // the drill's CONTRÔLE question and its "next group" button below the fold on
+  // a Pixel 6 and left the two scrollers fighting for the drag.
+  //
+  // Deliberately NOT every groupDrill: at any other size the drill is a plain
+  // stack of rows with no horizontal scroller in it, and that genuinely needs
+  // the scrolling page — sons.02 and sons.03 both render that shape, and
+  // pinning them to the viewport would clip their lower rows with no way to
+  // reach them.
+  if (s.type === 'groupDrill' && (s as { size?: string }).size === 'xl') return true;
+  // A stepped trapDrill is the same case again. It walks its content one job
+  // per screen (the traps, the audio, the reflex check) with a Continuer button
+  // pinned below, and its cards step is a filling swipe deck — so it must own
+  // the viewport or the deck measures nothing and the button sits below the
+  // fold, which is the bug that made RÉFLEXE unreachable in the stacked render.
+  //
+  // Deliberately NOT every trapDrill: without `steps` the section is a plain
+  // column of flip cards and needs the scrolling page, and the four lessons
+  // that authored it that way keep it.
+  if (s.type === 'trapDrill' && ((s as { steps?: unknown[] }).steps?.length ?? 0) > 0) return true;
+  // A flashcard deck and a review deck are the same case as the cardDeck above:
+  // each draws ONE full-height card with its answer controls pinned below, and
+  // both sized that card by guessing at the surrounding chrome. The guess came
+  // out ~70-110dp taller than the room a lesson page actually leaves, so the
+  // card ran past the bottom of the screen and took its Again / I know it row
+  // (and the review deck's rating buttons) with it. Owning the viewport is what
+  // lets them MEASURE instead — see useMeasuredCardHeight.
+  if (s.type === 'flashcards' || s.type === 'reviewDeck') return true;
+  // A `practice` section runs the Voice Flash shape: one full-height prompt
+  // card with Missed it / I knew it pinned below. It sized that card from the
+  // window guess AND used minHeight, so it could only grow — the card ran off
+  // the bottom of the screen and took the grade buttons with it, leaving the
+  // mission impossible to advance.
+  if (s.type === 'practice') return true;
   return false;
 }
 
@@ -271,6 +329,7 @@ export function LessonPager({
   intro,
   sections,
   missionTotal,
+  missionNumberOf,
   terms,
   onOpenSheet,
   quizCfg,
@@ -295,6 +354,8 @@ export function LessonPager({
   initialQuiz,
   highlightIndex,
   onIndexChange,
+  onSubIndexChange,
+  initialSub,
   bottomInset,
 }: LessonPagerProps) {
   const t = useTheme();
@@ -356,6 +417,82 @@ export function LessonPager({
   const currentEntry = pages[page];
   const currentSection =
     currentEntry?.kind === 'image' || currentEntry?.kind === 'section' ? sections[currentEntry.sectionIx] : undefined;
+
+  // The mission NUMBER, in the same terms the missions hub counts in.
+  //
+  // `sections` has the quiz removed, so an index into it is NOT a mission
+  // number: every section after the quiz's original slot is off by one. sons.06
+  // puts its quiz at section 20 of 21, so its roundup rendered "MISSION 20 / 21"
+  // while the hub listed it as 21 — the same two-denominators-for-one-lesson
+  // problem `missionTotal` was added to fix, left half-done because only the
+  // denominator was corrected.
+  //
+  // The pager cannot derive the quiz's original position from its own filtered
+  // list, so the screen supplies the mapping (it holds the full list). Falls
+  // back to the raw index for any caller that does not pass one, which is what
+  // every pre-v2 lesson does.
+  const missionNumber = (sectionIx: number): number =>
+    missionNumberOf ? missionNumberOf(sectionIx) : sectionIx + 1;
+
+  // The SUB-mission: which card of a swipe deck the learner is on, so mission
+  // 15 reads 15.1 … 15.5 as they move through it rather than freezing on 15.
+  //
+  // Held here rather than inside the deck because the header is the pager's,
+  // and a deck cannot address a lesson it knows nothing about. Zero means "no
+  // sub-position" — every non-deck section, plus the cover and the quiz — and
+  // formatMissionLabel prints no fraction for it.
+  //
+  // Reset on every page change: swiping to a new mission must not inherit the
+  // last one's card number, and a section swiped back into the window remounts
+  // its deck at card 0 anyway (see the PAGE_WINDOW spacer below), so a stale
+  // sub would disagree with what is actually on screen.
+  const [sub, setSub] = useState(0);
+  useEffect(() => {
+    setSub(0);
+  }, [page]);
+
+  // Whether the section on screen is holding the learner.
+  //
+  // Keyed BY PAGE rather than reset in an effect. A reset effect here runs
+  // AFTER the child's effect that raises the block — parents' effects fire last
+  // — so it clobbered the signal on the very render that set it and the gate
+  // never appeared. Storing the page alongside the flag makes a stale block
+  // from a section swiped away simply not match, with no ordering to get wrong.
+  const [blockedOn, setBlockedOn] = useState<number | null>(null);
+  const sectionBlocked = blockedOn === page;
+  const setSectionBlocked = useCallback(
+    (blocked: boolean) => setBlockedOn((prev) => (blocked ? page : prev === page ? null : prev)),
+    [page],
+  );
+
+  // Tell the screen where inside the mission we are, so a resume written now
+  // returns to this card rather than to the top of the mission. Null on a page
+  // with no sub-position, which is what clears a stale card from the URL when
+  // the learner swipes on to a plain section.
+  useEffect(() => {
+    onSubIndexChange?.(sub > 1 ? sub : null);
+    // onSubIndexChange is redefined every render by the screen; depending on it
+    // would fire this effect on every render rather than on every real move.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sub]);
+
+  // A resume or deep link that named a card opens the deck there ONCE, on the
+  // page it was meant for. Consumed on arrival (`landedSub`) so that swiping
+  // away and back returns to card 1 like any other visit — the anchor names
+  // where this VISIT starts, not a position the mission is pinned to.
+  const landedSub = useRef(false);
+  const openAtSub =
+    !landedSub.current && initialSub != null && initialIndex != null && page === initialIndex + 1
+      ? initialSub
+      : undefined;
+  useEffect(() => {
+    if (openAtSub != null) landedSub.current = true;
+  }, [openAtSub]);
+
+  // How many cards the CURRENT mission has. Drives the "part 2 of 5" spoken
+  // label and is what a11yMissionLabel needs to say anything useful; the
+  // visible decimal does not need it.
+  const currentSubCount = currentSection ? subCount(currentSection) : 1;
 
   // Voice is entirely user-triggered now — nothing here ever auto-starts, so
   // a swipe can never interrupt narration that only exists because the
@@ -459,22 +596,67 @@ export function LessonPager({
   // On the quiz page the lesson can only finish once the quiz is done; the
   // result card inside the deck carries its own finish button too.
   const finishBlocked = onLast && hasQuiz && !quizDone;
+  // A section can hold the learner in place — today only an unanswered control
+  // page (see GroupDrillView). Cleared on every page change so a block can
+  // never outlive the section that raised it and strand the deck.
+  const nextBlocked = !onLast && sectionBlocked;
 
   return (
     <View style={{ flex: 1 }} onLayout={onLayout}>
       {/* Progress + position */}
       <View style={{ paddingHorizontal: 24, paddingBottom: 14 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-          <TX font="semi" role="meta" ls={2} color={t.accTx}>
+          <TX
+            font="semi"
+            role="meta"
+            ls={2}
+            color={t.accTx}
+            // "15.2" is read as a number by a screen reader ("fifteen point
+            // two"), which is not a position. The spoken form says "Mission 15
+            // of 28, part 2 of 5" instead — same information, in the terms the
+            // decimal is standing in for.
+            accessibilityLabel={
+              onFirst || page === quizPage
+                ? undefined
+                : a11yMissionLabel(
+                    missionNumber(currentEntry?.kind === 'image' || currentEntry?.kind === 'section' ? currentEntry.sectionIx : 0),
+                    sub,
+                    currentSubCount,
+                    missionTotal ?? sections.length,
+                  )
+            }
+          >
             {onFirst
               ? T.lessonOverview
               : page === quizPage
                 ? T.quizWord
-                : `MISSION ${(currentEntry?.kind === 'image' || currentEntry?.kind === 'section' ? currentEntry.sectionIx : 0) + 1} / ${missionTotal ?? sections.length}`}
+                : formatMissionLabel(
+                    missionNumber(currentEntry?.kind === 'image' || currentEntry?.kind === 'section' ? currentEntry.sectionIx : 0),
+                    sub,
+                    missionTotal ?? sections.length,
+                  )}
           </TX>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 12,
+              // The page counter used to sit to the RIGHT of the Listen chip and
+              // was quietly holding it clear of the floating settings button
+              // that overlays this corner. Removing the counter let the chip
+              // slide under the gear, so the space it was occupying is now
+              // reserved explicitly rather than by accident.
+              paddingRight: 44,
+            }}
+          >
             {say ? <ListenChip onPress={listen} playing={sayPlaying} /> : null}
-            <TX role="meta" color={t.txSubtle}>{page + 1} / {pageCount}</TX>
+            {/* The page counter is gone. It sat beside "MISSION 6 / 27" reading
+                "7 / 28" — two counters, two denominators, one screen, and no way
+                for a learner to tell which is the real one. They count different
+                things (pager PAGES including the cover and the quiz, versus
+                MISSIONS), and only the mission number means anything to someone
+                working through a lesson. The progress bar below already carries
+                position continuously, so nothing is lost. */}
           </View>
         </View>
         <ProgressBar pct={(page / lastPage) * 100} height={4} color={t.acc} track={t.line(10)} />
@@ -620,7 +802,27 @@ export function LessonPager({
                       : null,
                   ]}
                 >
-                  <MissionSectionView s={s} onPlay={onPlay} playingId={playingId} onGrade={onGrade} graded={graded} showHero={!hasOwnImagePage} terms={terms} onOpenSheet={onOpenSheet} />
+                  <MissionSectionView
+                    s={s}
+                    onPlay={onPlay}
+                    playingId={playingId}
+                    onGrade={onGrade}
+                    graded={graded}
+                    showHero={!hasOwnImagePage}
+                    terms={terms}
+                    onOpenSheet={onOpenSheet}
+                    // Only the page in view drives the header. Neighbouring
+                    // pages stay mounted inside PAGE_WINDOW, and their decks
+                    // fire an index on mount — without this guard the mission
+                    // to the right would overwrite the sub-number of the one
+                    // actually being read.
+                    onSubIndexChange={i === page ? (ix) => setSub(ix + 1) : undefined}
+                    initialSub={i === page ? openAtSub : undefined}
+                    // Only the page in view may block the deck. Neighbours stay
+                    // mounted inside PAGE_WINDOW, and an unanswered check two
+                    // pages ahead must not disable Next on the page being read.
+                    onBlockedChange={i === page ? setSectionBlocked : undefined}
+                  />
                 </View>
               </PageScroll>
             </View>
@@ -662,7 +864,10 @@ export function LessonPager({
 
         <Press
           cue={null}
-          onPress={onLast ? (finishBlocked ? undefined : onFinish) : () => goTo(page + 1)}
+          onPress={onLast ? (finishBlocked ? undefined : onFinish) : nextBlocked ? undefined : () => goTo(page + 1)}
+          accessibilityRole="button"
+          accessibilityState={{ disabled: finishBlocked || nextBlocked }}
+          accessibilityHint={nextBlocked ? T.checkAnswerFirst : undefined}
           style={{
             flex: 1,
             minHeight: 52,
@@ -672,7 +877,7 @@ export function LessonPager({
             alignItems: 'center',
             justifyContent: 'center',
             gap: 8,
-            opacity: finishBlocked ? 0.35 : 1,
+            opacity: finishBlocked || nextBlocked ? 0.35 : 1,
           }}
         >
           <TX font="semi" role="bodyLg" color={t.accInk}>{onLast ? finishLabel : T.lessonNext}</TX>
