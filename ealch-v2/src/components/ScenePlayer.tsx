@@ -21,6 +21,7 @@ import { Press, Button } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { RichImage } from '@/components/LessonRich';
 import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
 import {
   advance,
@@ -140,6 +141,7 @@ function SceneProgress({ value }: { value: number }) {
 
 function SettingCard({ title, setting, onStart }: { title: string; setting: SceneSetting; onStart: () => void }) {
   const t = useTheme();
+  const T = useT();
   return (
     <View style={{ flex: 1, paddingHorizontal: 24, paddingTop: 12, gap: 18 }}>
       {setting.image ? <RichImage refKey={setting.image} /> : null}
@@ -154,7 +156,12 @@ function SettingCard({ title, setting, onStart }: { title: string; setting: Scen
       </View>
       <View style={{ flex: 1 }} />
       <View style={{ paddingBottom: 16 }}>
-        <Button label="Start" onPress={onStart} />
+        {/* OUTLINE, not primary. The pager's own Next bar sits directly beneath
+            this, so two full-width accent buttons appeared ~200dp apart doing
+            different things — one plays the scene, one skips it — with nothing
+            saying which was the way forward. The scene's control is the
+            optional one, so it is the one that steps back. */}
+        <Button label={T.sceneStart} variant="outline" icon="play" onPress={onStart} />
       </View>
     </View>
   );

@@ -34,7 +34,7 @@ export type Strings = {
   stepNames: { decouvrir: string; construire: string; prononcer: string; ecouter: string; scene: string };
   stepSubs: { decouvrir: string; construire: string; prononcer: string; ecouter: string; scene: string };
   stepOf: string; lockedTag: string; inProgressTag: string; finaleTag: string; doneTag: string; newTag: string;
-  noContent: string; levelWord: string; parcoursHead: string; themeContinue: string;
+  noContent: string; levelWord: string; parcoursHead: string; parcoursSub: string; themeContinue: string;
   byThemeT: string; byThemeS: string;
   hubT: string; hubMeta: string;
   flashHubTag: string; flashHubPick: string; ctSoon: string; ctCardsN: string; ctDicteeN: string; ctPhrasesN: string; lvlAll: string; previewT: string;
@@ -70,6 +70,20 @@ export type Strings = {
   denTag: string; denIntro: string; denCont: string;
   // Den lesson overview + missions pages (overview flow, 2026-07-30)
   ovStart: string; ovSeeAll: string; ovSeeList: string; ovMissionsWord: string;
+  /** The letter-grid footer link into the reference sheet, and the sheet's own
+   *  way back out. Takes {n} — the full row count, not the previewed subset. */
+  gridSeeAll: string; gridSeeAllHint: string; gridDefaultNote: string; termsMore: string; sceneStart: string; sheetBackToLesson: string; sheetContinue: string;
+  // Deck and drill chrome. These were hard-coded French inside the components,
+  // which made them untranslatable — a learner on the English UI met
+  // "Touchez pour révéler" on a card whose every other word was English, and a
+  // learner on the French UI met exactly the same string, so the toggle did
+  // nothing for them either.
+  checkAnswerFirst: string; tapToReveal: string; tapToFlip: string; answerToContinue: string; sceneEnd: string;
+  nextGroup: string; reviewDone: string; answerAllToContinue: string;
+  /** Reference-sheet chrome. Sheet TITLES are authored content and stay in the
+   *  language the lesson was written in; only the frame around them is UI.
+   *  sheetLinkA11y takes {n}. */
+  sheetIndexTitle: string; sheetLinkA11y: string; backWord: string;
   ovStatRequired: string; ovStatGates: string; ovStatMilestones: string; ovStatBadge: string;
   ovPrereqNone: string; ovPrereqSome: string; ovMin: string; ovDiff: string;
   moSub: string; moSubNoBadge: string; moListen: string; moXp: string;
@@ -270,7 +284,8 @@ export const T: Record<Lang, Strings> = {
     stepNames: { decouvrir: 'Découvrir', construire: 'Construire', prononcer: 'Prononcer', ecouter: 'Écouter', scene: 'La scène' },
     stepSubs: { decouvrir: 'Cartes, les mots de la scène', construire: 'Phrases, assembler et demander', prononcer: 'Flash vocal, dites-le à voix haute', ecouter: 'La dictée, écoutez et écrivez', scene: 'Jeu de rôle, la scène finale' },
     stepOf: 'ÉTAPE {a} / {b}', lockedTag: 'VERROUILLÉ', inProgressTag: 'EN COURS', finaleTag: 'FINALE', doneTag: 'TERMINÉ', newTag: 'NOUVEAU',
-    noContent: 'Pas encore de contenu', levelWord: 'NIVEAU', parcoursHead: 'LE PARCOURS · {n} ÉTAPES', themeContinue: 'Continuer',
+    noContent: 'Pas encore de contenu', levelWord: 'NIVEAU', parcoursHead: 'LE PARCOURS · {n} ÉTAPES',
+    parcoursSub: 'Chaque étape se débloque une fois la précédente entièrement réussie.', themeContinue: 'Continuer',
     byThemeT: 'Par thème', byThemeS: 'Scènes réelles, cinq étapes chacune',
     hubT: "L'entraînement", hubMeta: 'DIRE · LIRE · ÉCRIRE',
     flashHubTag: 'CARTES · PAR THÈME', flashHubPick: 'Choisissez un jeu de cartes', ctSoon: 'À venir', ctCardsN: '{n} cartes', ctDicteeN: '{n} dictées', ctPhrasesN: '{n} phrases', lvlAll: 'Tous', previewT: 'Aperçu',
@@ -312,6 +327,12 @@ export const T: Record<Lang, Strings> = {
     denIntro: "Un vrai cursus, du premier son jusqu'au passé composé. Idéal pour se remettre à niveau.",
     denCont: 'Continuer',
     ovStart: 'Commencer la leçon', ovSeeAll: 'Voir les {n} missions', ovSeeList: 'voir la liste', ovMissionsWord: 'missions',
+    checkAnswerFirst: 'Répondez pour continuer', tapToReveal: 'Touchez pour révéler', tapToFlip: 'Touchez pour retourner', answerToContinue: 'Répondez pour continuer', sceneEnd: 'Terminer la scène',
+    nextGroup: 'Groupe suivant', reviewDone: 'Révision terminée', answerAllToContinue: 'Répondez à toutes les questions pour continuer',
+    gridDefaultNote: 'Sauf mention contraire, la finale est muette.', termsMore: '+{n}', sceneStart: 'Écouter la scène',
+    gridSeeAll: 'Voir les {n} finales', gridSeeAllHint: 'Ouvre la fiche de référence', sheetBackToLesson: 'Retour à la leçon',
+    sheetContinue: 'Continuer',
+    sheetIndexTitle: 'Référence', sheetLinkA11y: 'Fiches de référence, {n} disponibles', backWord: 'Retour',
     ovStatRequired: 'requises', ovStatGates: 'portes', ovStatMilestones: 'jalons', ovStatBadge: 'badge',
     ovPrereqNone: 'Prérequis : aucun. Cette leçon part de zéro.', ovPrereqSome: 'Prérequis : {t}',
     ovMin: '{n} min', ovDiff: 'Difficulté',
@@ -613,7 +634,8 @@ export const T: Record<Lang, Strings> = {
     stepNames: { decouvrir: 'Discover', construire: 'Build', prononcer: 'Pronounce', ecouter: 'Listen', scene: 'The scene' },
     stepSubs: { decouvrir: 'Flashcards, the words of the scene', construire: 'Sentences, assemble and ask', prononcer: 'Voice flash, say it out loud', ecouter: 'Dictation, listen and write', scene: 'Role play, the final scene' },
     stepOf: 'STEP {a} / {b}', lockedTag: 'LOCKED', inProgressTag: 'IN PROGRESS', finaleTag: 'FINALE', doneTag: 'DONE', newTag: 'NEW',
-    noContent: 'No content yet', levelWord: 'LEVEL', parcoursHead: 'THE PATHWAY · {n} STEPS', themeContinue: 'Continue',
+    noContent: 'No content yet', levelWord: 'LEVEL', parcoursHead: 'THE PATHWAY · {n} STEPS',
+    parcoursSub: 'Each step unlocks once you’ve gotten every item in the one before it right.', themeContinue: 'Continue',
     byThemeT: 'By theme', byThemeS: 'Real scenes, five steps each',
     hubT: 'Practice', hubMeta: 'SAY · READ · WRITE',
     flashHubTag: 'FLASHCARDS · BY THEME', flashHubPick: 'Pick a deck', ctSoon: 'Coming soon', ctCardsN: '{n} cards', ctDicteeN: '{n} dictations', ctPhrasesN: '{n} sentences', lvlAll: 'All', previewT: 'Preview',
@@ -655,6 +677,12 @@ export const T: Record<Lang, Strings> = {
     denIntro: 'A real curriculum, from your first sound to the past tense, built to get you back up to speed.',
     denCont: 'Continue',
     ovStart: 'Start lesson', ovSeeAll: 'See all {n} missions', ovSeeList: 'see the list', ovMissionsWord: 'missions',
+    checkAnswerFirst: 'Answer to continue', tapToReveal: 'Tap to reveal', tapToFlip: 'Tap to flip', answerToContinue: 'Answer to continue', sceneEnd: 'End the scene',
+    nextGroup: 'Next group', reviewDone: 'Review complete', answerAllToContinue: 'Answer every question to continue',
+    gridDefaultNote: 'Unless a row says otherwise, the ending is silent.', termsMore: '+{n}', sceneStart: 'Play the scene',
+    gridSeeAll: 'See all {n} endings', gridSeeAllHint: 'Opens the reference sheet', sheetBackToLesson: 'Back to the lesson',
+    sheetContinue: 'Continue',
+    sheetIndexTitle: 'Reference', sheetLinkA11y: 'Reference sheets, {n} available', backWord: 'Back',
     ovStatRequired: 'required', ovStatGates: 'gates', ovStatMilestones: 'milestones', ovStatBadge: 'badge',
     ovPrereqNone: 'Prerequisites: none. This lesson starts from zero.', ovPrereqSome: 'Prerequisite: {t}',
     ovMin: '{n} min', ovDiff: 'Difficulty',
