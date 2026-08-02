@@ -1,11 +1,19 @@
 // The curriculum spine authoring pass (CF-17 + master plan Phase 1).
 //
-// Gives every one of the 43 units its spine: a CEFR-style canDo anchor, theme
-// slugs where the unit has a lexical field, prerequisites where one unit
-// genuinely assumes another, the `level` backfill the schema has been waiting
-// on, and the A1 resequencing (negation and the two question units move to
-// seq 6-8, immediately after être/avoir; ids never change — display order is
-// `seq`, and progress keys on ids).
+// Gives 43 of the curriculum's units their spine: a CEFR-style canDo anchor,
+// theme slugs where the unit has a lexical field, prerequisites where one unit
+// genuinely assumes another, and the `level` backfill the schema has been
+// waiting on.
+//
+// SCOPE, as of the 75-unit curriculum pass. This script no longer owns the
+// whole Den and no longer sets display order at all:
+//   · author-full-curriculum-spine.ts owns which units exist and their `seq`,
+//     across all 75. It authors canDo/themes/prereqs inline for the units it
+//     creates.
+//   · this script owns the canDo/themes/prereqs of the original 43 only.
+// Units outside its map are carried through untouched rather than treated as
+// an error. The A1 resequencing this script used to perform is now dead (see
+// SpinePatch.seq): two owners of `seq` produced duplicate positions.
 //
 // Prereqs are deliberately minimal: "earlier in the book" is sequence and
 // lives in seq; only a gate the learner actually hits belongs in
@@ -28,7 +36,12 @@ import { describeTarget } from './env';
 import { validateUnit, type Unit } from '../../ealch-v2/src/content/schema.ts';
 
 type SpinePatch = {
-  /** New display position. Only A1 moves; sons and a2 keep their order. */
+  /** DEAD FIELD — retained so the map below still type-checks, and deliberately
+   *  NOT applied. Display order is now owned end to end by
+   *  author-full-curriculum-spine.ts, which sequences all 75 units against the
+   *  approved curriculum. The values still written here are the pre-75 A1
+   *  ordering; re-applying them would reintroduce duplicate seqs and scramble
+   *  the Den. Ordering has exactly one owner on purpose. */
   seq?: number;
   /** Sub-line correction (a1.05 gains everyday `on` alongside nous). */
   sub?: string;
@@ -231,18 +244,39 @@ async function main() {
     // exists to end.
     const missing = Object.keys(SPINE).filter((id) => !byId.has(id));
     if (missing.length) die(`SPINE names units not in the DB: ${missing.join(', ')}`);
+
+    // Units this map does not name are REPORTED, not fatal.
+    //
+    // This assertion was written when these 43 units were the whole curriculum,
+    // and "a unit with no spine" then meant a genuine authoring omission. It
+    // stopped meaning that twice over: b2.01 arrived on a band this script was
+    // never about, and author-full-curriculum-spine.ts then took ownership of
+    // the full 75-unit curriculum, authoring canDo/themes/prereqs inline as it
+    // creates each unit. Its rows are not unpatched, they are patched
+    // elsewhere, and failing here would make this script permanently unrunnable
+    // for the 43 units it does still legitimately own.
     const unpatched = [...byId.keys()].filter((id) => !(id in SPINE));
-    if (unpatched.length) die(`DB has units SPINE does not cover: ${unpatched.join(', ')}`);
+    if (unpatched.length) {
+      console.log(`\n  note: ${unpatched.length} units are outside this map and left untouched`);
+      console.log(`  (owned by author-full-curriculum-spine.ts, or on a non-Den band):`);
+      console.log(`    ${unpatched.sort().join(', ')}`);
+    }
 
     // Build the post-state and validate it BEFORE writing anything.
     const next = new Map<string, Unit>();
     for (const [id, body] of byId) {
       const p = SPINE[id];
+      // Outside this map: carried through untouched so the guards below still
+      // see the WHOLE curriculum (a seq check over a subset proves nothing).
+      if (!p) {
+        next.set(id, body);
+        continue;
+      }
       const band = id.split('.')[0] as Unit['level'];
       next.set(id, {
         ...body,
         level: band, // the documented backfill: level restates the id's band
-        ...(p.seq !== undefined ? { seq: p.seq } : {}),
+        // p.seq is intentionally NOT applied — see SpinePatch.seq.
         ...(p.sub !== undefined ? { sub: p.sub } : {}),
         canDo: p.canDo,
         ...(p.themes ? { themes: p.themes } : {}),
@@ -268,12 +302,10 @@ async function main() {
       }
     }
 
-    // Show the plan.
-    const moved = [...next.values()].filter((u) => byId.get(u.id)!.seq !== u.seq);
-    console.log(`\n  ${next.size} units patched · ${moved.length} A1 units resequenced:`);
-    for (const u of moved.sort((a, b) => a.seq - b.seq)) {
-      console.log(`    ${u.id} "${u.title}"  seq ${byId.get(u.id)!.seq} → ${u.seq}`);
-    }
+    // Show the plan. Nothing is resequenced here any more, so the report is
+    // about the spine fields this script actually owns.
+    const patched = Object.keys(SPINE).length;
+    console.log(`\n  ${patched} units patched (canDo/themes/prereqs), ${next.size - patched} carried through untouched.`);
 
     if (DRY_RUN) {
       console.log('\n✓ dry run — post-state valid, nothing written.\n');

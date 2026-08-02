@@ -29,14 +29,26 @@ export type SeedCut = {
 };
 
 export const SEED_CUT: SeedCut = {
-  // The complete pronunciation track. It is the deepest content we ship, it is
-  // what the app is actually differentiated on, and it is where a beginner
-  // starts — so it must be there before the network is.
-  tracks: ['sons'],
+  // All three Den tracks, in full: SONS 10, A1 30, A2 35.
+  //
+  // 'sons' was here for the reasons below — deepest content, what the app is
+  // differentiated on, where a beginner starts. A1 and A2 joined it when the
+  // curriculum spine was completed to 75 units, because bundling a SUBSET of a
+  // track turned out to be actively misleading rather than merely incomplete:
+  // the Den renders each unit at its real spine `seq`, so shipping seven of
+  // A1's thirty units drew a list numbered 1, 2, 3, 9, 10, 16, 19. A learner
+  // reads that as a broken curriculum with lessons missing, when in fact the
+  // units existed and simply were not in the binary.
+  //
+  // The cost is small and worth naming: a unit is title + sub + canDo + a
+  // lessonIds array, a few hundred bytes. What makes a snapshot big is items,
+  // and those are still gated by `themes` and by which lessons reference them.
+  // Bundling all 75 units buys a curriculum that reads correctly on a fresh
+  // install with no network, which is the property this file exists to protect.
+  tracks: ['sons', 'a1', 'a2'],
 
-  // The first four lessons of A1 and A2. Enough to prove the curriculum is real
-  // without bundling a corpus that has not been written yet.
-  units: ['a1.01', 'a1.02', 'a1.03', 'a1.04', 'a2.01', 'a2.02', 'a2.03', 'a2.04'],
+  // Nothing extra: every Den unit is already covered by `tracks` above.
+  units: [],
 
   // Core themes: the vocabulary a survival-level learner needs first, and drills
   // draw from these on a fresh install. 'objets' and 'dictee' are here so Voice

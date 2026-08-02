@@ -16,6 +16,7 @@
     "content:spine": "tsx scripts/update-spine.ts",
     "content:practice": "tsx scripts/author-practice.ts",
     "content:verbcheck": "tsx scripts/backfill-verb-check.ts",
+    "content:muettes": "tsx scripts/author-muettes-batch.ts",
     "content:publish": "tsx scripts/publish-content.ts",
     "content:generate": "tsx scripts/generate-content.ts",
     "content:rollout": "tsx scripts/set-rollout.ts",

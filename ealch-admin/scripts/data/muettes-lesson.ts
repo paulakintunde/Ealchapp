@@ -924,8 +924,34 @@ const SECTIONS: LessonSection[] = [
     // The existing trapDrill shape takes a rapid-fire drill round after the
     // cards. The source lesson's single `test` is that round, with the rule
     // it teaches carried on the card above it.
+    //
+    // Four questions, not one. This is the gate on the act's hardest section
+    // and `say` calls it the hardest thing in the lesson, so a single
+    // four-option question is a 1-in-4 guess standing in for a reflex check.
+    // Each one attacks the rule from a different side: spot the silent R, spot
+    // the sounded R, separate two spellings that look identical, and catch the
+    // job noun that behaves like an infinitive.
     drill: [
       { promptSay: 'Odd one out. Which word has a silent final R?', opts: ['bonjour', 'premier', 'hiver', 'bonsoir'], correct: 1 },
+      { promptSay: 'Odd one out. Which word SOUNDS its final R?', opts: ['parler', 'manger', 'cher', 'boulanger'], correct: 2 },
+      { promptSay: 'Same ending on paper. Which one is the infinitive?', opts: ['hiver', 'aimer'], correct: 1 },
+      { promptSay: 'Which one drops the R, even though it is a noun?', opts: ['la mer', 'le boulanger', 'hiver'], correct: 1 },
+    ],
+    // 14.1 / 14.2 / 14.3. One section, three steps, because these are three
+    // moves of ONE argument (meet the trap, hear the trap, prove you beat it)
+    // rather than three missions. Splitting them into peer sections would have
+    // renumbered the spine and broken this act's sectionIds; stepping keeps the
+    // id, so `ref: 's06-trap'` on the quiz questions still lands here.
+    //
+    // Stacked, this section was ~900px of column: six flip cards, then the
+    // check permanently below the fold, and the declared audio never played at
+    // all. Each step now gets the screen.
+    steps: [
+      { kind: 'cards', label: 'Les pièges', title: 'Six words, one moving R' },
+      { kind: 'audio', label: 'Écoutez', title: 'Hear the R appear, then vanish' },
+      // Gated: the reflex is the point of the mission, and a check the learner
+      // can swipe past is not a check. Held until all four are answered.
+      { kind: 'drill', label: 'Réflexe', title: 'Now decide without thinking', gate: true },
     ],
   },
 
