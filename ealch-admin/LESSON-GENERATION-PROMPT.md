@@ -76,6 +76,12 @@ Every section has `title: string` and an English `say?: string` (write one on ev
 | { type: 'audio'; title: string; lines: string[] }                                // shadowing lines; omit audioRef/segments/assetKey, they're rendered separately
 | { type: 'practice'; title: string; skill: 'read'|'write'|'speak'|'listen'; itemIds: string[] }   // itemIds must be a subset of {{ITEM_IDS}}
 | { type: 'quiz'; title: string; questions: { q: string; opts: string[]; correct: number; why?: string }[] }  // correct is the 0-based index into opts
+// (v2) A quiz carries EITHER `questions` (flat, short lessons) OR `rounds`, never both:
+| { type: 'quiz'; title: string;
+    rounds: { id: string; label: string; say?: string | SectionNarration; targets?: string[];
+              questions: { q: string; opts: string[]; correct: number; why: string; ref?: string;
+                           format?: 'mcq' | 'tapSilent' | 'listenChoose' | 'typeIn' | 'speak' | 'errorSpot' }[] }[];
+    adaptive?: boolean; passMark?: number; roundFailThreshold?: number }
 | { type: 'letterGrid'; title: string; letters: GridLetter[] }                     // only for sound/alphabet-shaped topics
 | { type: 'cardDeck'; title: string; hint?: string; cards: DeckCard[] }
 | { type: 'tapTable'; title: string; cols: string[]; rows: TapRow[] }
@@ -127,7 +133,7 @@ Pick section TYPES that fit `{{SOURCE_SCRIPT}}`'s actual content, but keep the a
 | 12 | Memory aids | The tricks a good teacher gives at the end | `hacks` / `cardDeck` |
 | 13 | Self-test | Flip-card recall before the graded quiz | `flashcards` |
 | 14 | Roundup | Summary + congratulation, restates the core concept and the one or two rules worth keeping | `roundup` |
-| 15 | Quiz | **(v2)** 24-40 questions in `rounds`, each round a themed pass over the material, each question with a `why`. A failed round fires its remediation drill before the next one starts. The old 4-6 flat questions are still valid schema, but they are not the reference shape. | `quiz` |
+| 15 | Quiz | **(v2)** Sized to the lesson, not to a target. Roughly one question per teaching mission is a good floor, up to ~50 for a long lesson; deliver anything past ~8 in `rounds`, each round a themed pass, each question with a `why`. A failed round fires its remediation drill before the next one starts. **No count is enforced** — schema, validator and tests are all silent on length, so use the number the material needs. Flat `questions` remain valid for short lessons. | `quiz` |
 
 ## Voice rules for `say` and section prose
 
