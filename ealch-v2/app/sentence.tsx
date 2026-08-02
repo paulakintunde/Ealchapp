@@ -32,7 +32,7 @@ const STEP: Record<Phase, string> = { learn: '1', arrange: '2', say: '3', write:
  *  the italic serif, wrapping a multi-word tile's last word onto a second line
  *  the single-line bubble then clips — « un café » drew as « un ». A
  *  non-breaking space removes the break opportunity. The DATA keeps real
- *  spaces: verify() joins sbWords[i].w, never this. */
+ *  spaces: verify() joins arrangeTiles[i].w, never this. */
 const noWrap = (w: string) => w.replace(/ /g, String.fromCharCode(160));
 
 /** The word tiles for the sentence. The port stored them as JSON in the item's
@@ -96,14 +96,46 @@ export default function Sentence() {
   const item = deck.length ? deck[deckIx % deck.length] : undefined;
   const sbTarget = item?.fr ?? '';
   const sbWords = useMemo(() => (item ? tilesFor(item.fr, item.notes) : []), [item]);
+  // Arrange (2/4) mixes a few decoy tiles from OTHER deck sentences in with the
+  // real ones, so the step tests comprehension ("which words belong here?") and
+  // not just re-ordering a bag that's already known to be complete. Decoys are
+  // drawn from other items' words, filtered against the target so a decoy can
+  // never accidentally equal (accent-insensitive) a word the sentence needs —
+  // verify() below never has to know a tile was a decoy, it just won't be part
+  // of a picked sequence that reconstructs sbTarget.
+  const fillerWords = useMemo(() => {
+    if (!item || deck.length < 2 || !sbWords.length) return [];
+    const need = Math.min(4, Math.max(2, Math.round(sbWords.length / 2)));
+    const target = new Set(sbWords.map((w) => normalizeFr(w.w)));
+    const decoys: string[] = [];
+    const usedNorm = new Set<string>();
+    let guard = 0;
+    while (decoys.length < need && guard < 40) {
+      guard++;
+      const other = deck[Math.floor(Math.random() * deck.length)];
+      if (!other || other.id === item.id) continue;
+      const words = other.fr.split(/\s+/).map((w) => w.replace(/[.,!?»«"'’]/g, '')).filter((w) => w.length > 1);
+      if (!words.length) continue;
+      const w = words[Math.floor(Math.random() * words.length)];
+      const norm = normalizeFr(w);
+      if (target.has(norm) || usedNorm.has(norm)) continue;
+      usedNorm.add(norm);
+      decoys.push(w);
+    }
+    return decoys;
+  }, [item, deck, sbWords]);
+  const arrangeTiles = useMemo<Tile[]>(
+    () => [...sbWords, ...fillerWords.map((w) => ({ w, t: '' }))],
+    [sbWords, fillerWords]
+  );
   const sbShuffle = useMemo(() => {
-    const idx = sbWords.map((_, i) => i);
+    const idx = arrangeTiles.map((_, i) => i);
     for (let i = idx.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [idx[i], idx[j]] = [idx[j], idx[i]];
     }
     return idx;
-  }, [sbWords]);
+  }, [arrangeTiles]);
 
   const [phase, setPhase] = useState<Phase>(() => {
     const raw = Array.isArray(resumePhase) ? resumePhase[0] : resumePhase;
@@ -185,7 +217,7 @@ export default function Sentence() {
 
   // ── ARRANGE ──
   const verify = () => {
-    const order = picked.map((i) => sbWords[i].w).join(' ');
+    const order = picked.map((i) => arrangeTiles[i].w).join(' ');
     if (order === sbTarget) {
       sound.play('success');
       setErr(false);
@@ -303,9 +335,14 @@ export default function Sentence() {
         {/* ── LEARN ── */}
         {phase === 'learn' ? (
           <View style={{ flex: 1 }}>
-            <TX font="serif" size={30} role="display" style={{ marginBottom: 20 }}>
+            <TX font="serif" size={30} role="display" style={{ marginBottom: 8 }}>
               {T.learnT}
             </TX>
+            {item?.en ? (
+              <TX font="serifI" role="bodySm" color={t.txMuted} style={{ marginBottom: 16 }}>
+                « {item.en} »
+              </TX>
+            ) : null}
             <View style={{ gap: 10, marginBottom: 24 }}>
               {sbWords.map((w, i) => {
                 const active = playW === i || practiceW === i;
@@ -361,9 +398,14 @@ export default function Sentence() {
         {/* ── ARRANGE ── */}
         {phase === 'arrange' ? (
           <View style={{ flex: 1 }}>
-            <TX font="serif" size={30} role="display" style={{ marginBottom: 20 }}>
+            <TX font="serif" size={30} role="display" style={{ marginBottom: 8 }}>
               {T.arrangeT}
             </TX>
+            {item?.en ? (
+              <TX font="serifI" role="bodySm" color={t.txMuted} style={{ marginBottom: 16 }}>
+                « {item.en} »
+              </TX>
+            ) : null}
             <Animated.View
               style={{ transform: [{ translateX: shakeX }], minHeight: 104, borderRadius: 18, borderWidth: 1.5, borderStyle: 'dashed', borderColor: err ? t.danger : t.line(10), padding: 14, flexDirection: 'row', flexWrap: 'wrap', gap: 8, alignItems: 'flex-start', alignContent: 'flex-start', marginBottom: 20 }}
             >
@@ -378,7 +420,7 @@ export default function Sentence() {
                   style={{ minHeight: 40, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 20, backgroundColor: t.accA(15), borderWidth: 1, borderColor: t.accA(45), alignItems: 'center', justifyContent: 'center' }}
                 >
                   <TX font="serifI" role="titleSm" color={t.accTx}>
-                    {noWrap(sbWords[i].w)}
+                    {noWrap(arrangeTiles[i].w)}
                   </TX>
                 </Press>
               ))}
@@ -397,7 +439,7 @@ export default function Sentence() {
                     style={{ minHeight: 40, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 20, backgroundColor: t.card2, borderWidth: 1, borderColor: t.line(12), alignItems: 'center', justifyContent: 'center' }}
                   >
                     <TX font="serifI" role="titleSm">
-                      {noWrap(sbWords[i].w)}
+                      {noWrap(arrangeTiles[i].w)}
                     </TX>
                   </Press>
                 ))}
