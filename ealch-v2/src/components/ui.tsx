@@ -1,5 +1,7 @@
-import { type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import {
+  Animated,
+  Easing,
   Pressable,
   View,
   type ViewStyle,
@@ -133,6 +135,19 @@ export function ProgressBar({
   height?: number;
 }) {
   const t = useTheme();
+  const target = Math.max(0, Math.min(100, pct));
+  // width % cannot be driven natively, so this animation runs on the JS driver.
+  // It is one interpolated style on a 4px bar — cheap enough, and the
+  // alternative (a scaleX transform) distorts the rounded cap.
+  const grow = useRef(new Animated.Value(target)).current;
+  useEffect(() => {
+    Animated.timing(grow, {
+      toValue: target,
+      duration: 320,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: false,
+    }).start();
+  }, [target, grow]);
   return (
     <View
       style={{
@@ -142,11 +157,20 @@ export function ProgressBar({
         overflow: 'hidden',
       }}
     >
-      <View
+      {/* The fill GROWS to its new width instead of jumping.
+          A progress bar that snaps reads as a redraw; one that travels reads as
+          having advanced, which is the only thing this control is for. 320ms
+          out-cubic is long enough to see and short enough not to lag a fast
+          swipe through several missions. */}
+      <Animated.View
         style={{
           height,
           borderRadius: height,
-          width: `${Math.max(0, Math.min(100, pct))}%`,
+          width: grow.interpolate({
+            inputRange: [0, 100],
+            outputRange: ['0%', '100%'],
+            extrapolate: 'clamp',
+          }),
           backgroundColor: color ?? t.acc,
         }}
       />
@@ -246,6 +270,13 @@ export function FocusHeader({
     >
       <Press
         onPress={onClose}
+        accessibilityRole="button"
+        accessibilityLabel="Close"
+        // The visible circle stays 38 for the design, but the TAP TARGET is
+        // grown to the 44dp minimum with hitSlop. At 38 the button sat under
+        // the platform minimum and close taps landed just outside it — the
+        // control looked unresponsive rather than small.
+        hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
         style={{
           width: 38,
           height: 38,
