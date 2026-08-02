@@ -32,10 +32,27 @@ const norm = (s: string) => s.toLowerCase().replace(/^(le |la |les |l'|un |une |
 // The 2026-07 exam-vocab expansion deliberately authored separate flashcard-pool
 // and voiceflash-pool words (distinct vocabulary per drill, by design, approved
 // per-batch) rather than the paired flashcard+voiceflash convention every earlier
-// batch used. Exempting it by provenance keeps this guard live for everything
-// else — an accidental single-drill regression anywhere but this named batch
-// still fails loudly, which is the whole point of the test.
-const isSeparatePoolsBatch = (it: Item) => it.provenance?.promptVersion === 'exam-vocab-2026-07';
+// batch used.
+//
+// This exemption used to key on `provenance.promptVersion === 'exam-vocab-2026-07'`,
+// which worked only while seed.json was hand-built. It cannot work against a
+// PUBLISHED seed: publish-content.ts deliberately withholds every provenance
+// column (`generated_by`, `model`, `prompt_version`, `source_refs`,
+// `reviewed_by`, `reviewed_at`) so reviewer ids never land in a public snapshot
+// on every phone. So the moment the seed was regenerated from the database, all
+// 4,100 exempt items lost the only field identifying them and this guard went
+// red on content that was authored exactly as approved (incident 2026-07-31).
+//
+// Keying on the DRILL SIGNATURE instead survives the projection: `drills` is a
+// projected column, and the separate-pools batch is precisely the set that
+// carries exactly one of flashcard/voiceflash plus 'review'. The guard stays
+// live for what it was built to catch, because the failures it targets look
+// different: a word stranded by the pre-hub authoring gap carries other drills
+// too (e.g. ['sentence','review'] or ['flashcard'] alone with no 'review'),
+// and any item carrying NEITHER flashcard nor voiceflash still fails below.
+const SEPARATE_POOL_SIGNATURES = new Set(['review+voiceflash', 'flashcard+review']);
+const drillSignature = (it: Item) => [...it.drills].sort().join('+');
+const isSeparatePoolsBatch = (it: Item) => SEPARATE_POOL_SIGNATURES.has(drillSignature(it));
 
 test('every beginner vocab word is reachable by the flashcard drill', () => {
   // kind 'sentence' is exempt on purpose: dictation sentences are spelling

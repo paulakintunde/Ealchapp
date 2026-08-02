@@ -481,6 +481,80 @@ test('small header buttons take a 44px touch target', () => {
   }
 });
 
+test('system back closes a layered surface instead of leaving the lesson', () => {
+  // The bug this exists to catch: the sheet, the preface and the key tour are
+  // local state that REPLACES the lesson body, not routes. The router's stack
+  // still held only /lesson, so Android's back button popped the whole screen
+  // — tapping "See all 16 endings" and pressing back ejected the learner from
+  // the lesson rather than returning them to the grid they came from.
+  const screen = readFileSync(resolve(here, '../../app/lesson.tsx'), 'utf8');
+  ok(/BackHandler/.test(screen), 'the screen handles hardware back at all');
+  ok(
+    /addEventListener\(\s*['"]hardwareBackPress['"]/.test(screen),
+    'and subscribes to the hardware back event'
+  );
+  // Registering without unsubscribing leaks a handler per mount, and this
+  // screen survives router.replace between lessons.
+  ok(/\.remove\(\)/.test(screen), 'and removes the listener on cleanup');
+  // Each layered surface has to be popped, or back still skips past it.
+  // Asserted on the handler body rather than the whole file, so a setter
+  // called somewhere else in the screen cannot satisfy this by accident.
+  const handler = screen.slice(
+    screen.indexOf("addEventListener('hardwareBackPress'"),
+    screen.indexOf('return () => sub.remove()')
+  );
+  ok(handler.length > 0, 'expected a hardware back handler body');
+  for (const [state, clear] of [
+    ['the reference sheet', 'setSheetId(null)'],
+    ['the preface', 'setPreface(null)'],
+    ['the key tour', 'setShowKeyOverride(false)'],
+  ] as const) {
+    ok(handler.includes(clear), `back does not close ${state}`);
+  }
+  // Closing without swallowing the event closes the surface AND pops the
+  // screen in one press, which is the same ejection bug wearing a hat.
+  strictEqual(
+    handler.split('return true').length - 1,
+    3,
+    'each layered surface must swallow the press it consumed'
+  );
+  // Swallowing every press would trap the learner ON the lesson instead.
+  ok(/return false/.test(screen), 'back still leaves the lesson when nothing is layered');
+});
+
+test('the lesson screen calls no hook after an early return', () => {
+  // The bug this exists to catch: useMemo/useState sat BELOW the `!L`,
+  // `bandLocked` and `showKey` returns, so the hook count changed with those
+  // branches. showKeyOverride flips at runtime from the header's "?", which
+  // made reopening the tour mid-lesson throw "rendered fewer hooks".
+  const screen = readFileSync(resolve(here, '../../app/lesson.tsx'), 'utf8');
+  const body = screen.slice(screen.indexOf('export default function LessonScreen'));
+  // The first early return inside the component. Everything after it renders
+  // conditionally, so no hook may appear there.
+  const firstReturn = body.search(/\n  if \([\s\S]{0,200}?\n    return \(/);
+  ok(firstReturn > 0, 'expected a conditional early return in the screen');
+  const after = body.slice(firstReturn);
+  const hooks = after.match(/\buse(State|Memo|Effect|Callback|Ref)\s*\(/g) ?? [];
+  deepStrictEqual(
+    hooks,
+    [],
+    `hooks called after a conditional return: ${hooks.join(', ')} — hoist them above it`
+  );
+});
+
+test('the sheet a learner opened mid-flow offers a way back', () => {
+  // A sheet reached from the grid is a detour. The header arrow is a full
+  // screen away after sixteen rows, so the foot of the sheet has to say how
+  // to get back — but only when back actually EXITS. Opened from the index,
+  // back means the index, and a "back to the lesson" footer would be a lie.
+  const src = readFileSync(resolve(here, '../components/ReferenceSheet.tsx'), 'utf8');
+  ok(/returnLabel/.test(src), 'the sheet view takes a return control');
+  ok(
+    /returnLabel=\{\s*initialSheetId\s*\?/.test(src),
+    'and shows it only for a sheet opened straight from the flow'
+  );
+});
+
 test('the silent-letter toggle announces what is marked', () => {
   // The task is "which letters are silent". Being marked was a border colour.
   const src = readFileSync(resolve(here, '../components/SilentCards.tsx'), 'utf8');
@@ -812,13 +886,87 @@ test('a swipe deck never sits inside a scrolling page', () => {
   }
 });
 
+test('the XL group drill owns its page, and only the XL one', () => {
+  // The bug: groupDrill was not in ownsLayout, so at size 'xl' — where it
+  // renders one word per SWIPED hero card — a horizontal deck sat inside the
+  // page's vertical ScrollView. On a Pixel 6 that put the drill's CONTRÔLE
+  // question and its "next group" button below the fold, and left the two
+  // scrollers fighting for the drag.
+  const pager = readFileSync(resolve(here, '../components/LessonPager.tsx'), 'utf8');
+  const fn = pager.slice(pager.indexOf('function ownsLayout'), pager.indexOf('function PageScroll'));
+  ok(fn.length > 0, 'expected an ownsLayout body');
+  ok(/groupDrill/.test(fn), 'ownsLayout knows about the group drill');
+  // Conditional on SIZE, not on the type. sons.02 and sons.03 both ship a
+  // non-xl groupDrill that is a plain stack of rows with no deck in it; those
+  // need the scrolling page, and pinning them to the viewport would clip
+  // their lower rows with no way to reach them.
+  ok(/groupDrill'\s*&&[\s\S]{0,80}?'xl'/.test(fn), 'and only claims the viewport at size xl');
+
+  // The flex chain has to be unbroken from the section wrapper down to the
+  // card, or the deck measures nothing and the card falls back to a guess.
+  const sec = readFileSync(resolve(here, '../components/MissionSection.tsx'), 'utf8');
+  ok(/s\.size === 'xl' \? \{ flex: 1 \}/.test(sec), 'the section wrapper fills for an xl drill');
+  const rich = readFileSync(resolve(here, '../components/MissionRich.tsx'), 'utf8');
+  ok(/const xl = s\.size === 'xl'/.test(rich), 'GroupDrillView knows its own size');
+  ok(/<SwipeDeck\s+fill/.test(rich), 'the xl deck runs in fill mode');
+  ok(/height=\{cardH\}/.test(rich), 'and the measured height reaches the card');
+
+  // The card must PREFER the measurement over the guess.
+  ok(
+    /height != null && height > 160 \? height : fallback/.test(rich),
+    'a measured height wins, with a floor so a mid-layout 0 cannot collapse the card'
+  );
+
+  // Every non-xl groupDrill in the shipped content must still be the plain
+  // stacked shape this fix deliberately leaves alone.
+  const drills = seed.lessons.flatMap((l) =>
+    (l.sections ?? []).filter((s) => s.type === 'groupDrill').map((s) => ({ lesson: l.id, size: (s as { size?: string }).size }))
+  );
+  ok(drills.length > 0, 'the seed ships group drills at all');
+  ok(drills.some((d) => d.size === 'xl'), 'at least one is xl (sons.06)');
+  ok(drills.some((d) => d.size !== 'xl'), 'and at least one is not, which is why the fix is conditional');
+});
+
+test('the XL word deck spends no layout height on chrome it does not need', () => {
+  // The hero card is a full viewport with its play button at the BOTTOM, so
+  // every row above the deck is subtracted from the one control the card
+  // exists to offer. The hint row was the last of those: prose telling the
+  // learner that grey letters are silent, sitting directly above an animation
+  // that shows exactly that.
+  const rich = readFileSync(resolve(here, '../components/MissionRich.tsx'), 'utf8');
+  const xlDeck = rich.slice(rich.indexOf('<SwipeDeck'), rich.indexOf('/>', rich.indexOf('<SwipeDeck')));
+  ok(/\bfill\b/.test(xlDeck), 'the xl deck still fills the viewport');
+  ok(!/(^|\s)hint=/.test(xlDeck), 'and draws no hint row above itself');
+
+  // Removed from the LAYOUT, not from the product: a screen reader user never
+  // saw the line, so dropping it outright would take instruction from the
+  // people most dependent on it.
+  ok(/a11yHint=/.test(xlDeck), 'the instruction survives as a spoken hint');
+  const deck = readFileSync(resolve(here, '../components/LessonDeck.tsx'), 'utf8');
+  ok(/accessibilityHint=\{a11yHint \?\? hint\}/.test(deck), 'and the deck speaks it whether drawn or not');
+
+  // A deck that DOES draw a hint must keep the row's height for the whole
+  // deck. Unmounting it on swipe would grow the measured box that sizes the
+  // cards, resizing every card mid-drag.
+  ok(/opacity: hintFade/.test(deck), 'a drawn hint fades rather than unmounting');
+
+  // Position is stated once, in the measured footer, and it has to speak:
+  // dots alone are invisible to a screen reader.
+  ok(/accessibilityRole="progressbar"/.test(deck), 'the affordance row announces itself');
+  ok(/accessibilityLabel=\{`Card \$\{index \+ 1\} of \$\{total\}`\}/.test(deck), 'and says where the learner is');
+});
+
 test('a swipe deck measures its own width rather than assuming the screen', () => {
   // The page is inset 24px each side. Initialising card width from
   // useWindowDimensions() made every card 48px too wide, so page two started
   // just off-screen and the swipe read as dead.
   const deck = readFileSync(resolve(here, '../components/LessonDeck.tsx'), 'utf8');
   ok(/useState<number \| null>\(null\)/.test(deck), 'width starts unmeasured');
-  ok(/onLayout=\{\(e\) => setW\(/.test(deck), 'width comes from a real layout');
+  // Matches the BEHAVIOUR (width is set from a layout event) rather than one
+  // exact spelling of the handler. The previous form pinned a single-line
+  // arrow, so adding a second statement to the same onLayout — measuring the
+  // height for fill mode — failed a test whose subject had not changed.
+  ok(/onLayout=\{[\s\S]{0,200}?setW\(/.test(deck), 'width comes from a real layout');
   ok(/\{w \?/.test(deck), 'nothing renders until the width is known');
 });
 
@@ -936,4 +1084,133 @@ test('once published, the seed copy validates and is reachable from the Den', { 
   for (const id of published!.itemIds) ok(known.has(id), `published item ${id} exists in the seed`);
   const unit = seed.units.find((u) => u.id === 'sons.06');
   ok(unit?.lessonIds.includes('sons.06.l1'), 'the unit links the lesson');
+});
+
+test('the mission label counts in the same terms as the missions hub', { skip: !published }, () => {
+  // The bug: the pager's numerator was an index over its OWN section list,
+  // which has the quiz removed, while the denominator counted every mission.
+  // sons.06 puts its quiz at section 20 of 21, so the roundup after it
+  // rendered "MISSION 20 / 21" while the hub listed the same section as 21.
+  const full = published!.sections;
+  const contentIx = full.filter((s) => s.type !== 'quiz');
+  const quizAt = full.findIndex((s) => s.type === 'quiz');
+  ok(quizAt >= 0 && quizAt < full.length - 1, 'this lesson has a quiz that is NOT last, which is what exposes the bug');
+
+  // The screen's mapping, mirrored: resolve by identity against the full list.
+  const missionNumberOf = (ix: number) => full.indexOf(contentIx[ix]) + 1;
+
+  // Every section past the quiz shifts, and the raw index would be wrong.
+  const roundupContentIx = contentIx.findIndex((s) => s.type === 'roundup');
+  strictEqual(missionNumberOf(roundupContentIx), full.length, 'the roundup is the last mission');
+  ok(roundupContentIx + 1 !== full.length, 'and the raw index alone would have got that wrong');
+
+  // Nothing before the quiz moves, and no two missions share a number.
+  const seen = new Set<number>();
+  contentIx.forEach((_s, ix) => {
+    const n = missionNumberOf(ix);
+    ok(n >= 1 && n <= full.length, `mission ${n} is inside 1..${full.length}`);
+    ok(!seen.has(n), `mission number ${n} is not issued twice`);
+    seen.add(n);
+    if (ix < quizAt) strictEqual(n, ix + 1, 'sections before the quiz keep their position');
+  });
+});
+
+test('a reference sheet opened from a mission offers a way FORWARD, not only back', () => {
+  // The bug: the sheet's only exit was "Back to the lesson", which returned the
+  // learner to the mission they had just finished. The silent-letter grid
+  // previews eight of sixteen rows, so someone who reads the full table in the
+  // sheet has completed that material and was being sent backwards to the
+  // preview of it.
+  const sheet = readFileSync(resolve(here, '../components/ReferenceSheet.tsx'), 'utf8');
+  const screen = readFileSync(resolve(here, '../../app/lesson.tsx'), 'utf8');
+
+  ok(/forwardLabel/.test(sheet), 'the sheet view takes a forward label');
+  ok(/onForward/.test(sheet), 'and a forward action');
+  ok(/name="arrowRight"/.test(sheet), 'the forward control carries a forward-pointing arrow');
+  // Both exits are offered together, so looking one row up still gets you back.
+  ok(/returnLabel \|\| forwardLabel/.test(sheet), 'the footer renders when either exit exists');
+
+  // The same asymmetry the return label already had: a sheet reached from the
+  // header index belongs to no mission, so it has no "next" to offer.
+  ok(
+    /initialSheetId && onContinue \? onContinue : undefined/.test(sheet),
+    'forward is offered only for a sheet opened FROM a mission'
+  );
+
+  // The screen must navigate by ANCHOR. The sheet is an early return, so while
+  // it is open the pager is unmounted — anything imperative would be called on
+  // a null ref and silently do nothing.
+  ok(/onContinue=\{continueFromSheet\}/.test(screen), 'the screen handles the forward action');
+  const fn = screen.slice(screen.indexOf('const continueFromSheet'), screen.indexOf('const missionNumberOf'));
+  ok(fn.length > 0, 'expected a continueFromSheet body');
+  ok(/router\.setParams\(\{ at:/.test(fn), 'it navigates by deep-link anchor, as jumpToRef does');
+  ok(/setSheetId\(null\)/.test(fn), 'and closes the sheet');
+  ok(/Math\.min\(from \+ 1/.test(fn), 'it advances one mission, clamped at the last');
+});
+
+// ── The trap mission is stepped, not stacked ────────────────────────────────
+//
+// s06-trap carried three different jobs on one screen: six flip cards, a
+// recorded audio set, and the reflex check. Stacked, that was ~900px of
+// column, so the check sat permanently below the fold and the declared audio
+// never played at all. It is now one section walked in three steps (14.1 the
+// traps, 14.2 the audio, 14.3 the check).
+//
+// It stays ONE section deliberately: act3 claims 's06-trap' by id and the quiz
+// questions carry `ref: 's06-trap'`, so splitting it into peer sections would
+// have renumbered the spine and broken both.
+test('the trap mission walks its three jobs one screen at a time', { skip }, () => {
+  const trap = LESSON!.sections.find((s) => (s as { id?: string }).id === 's06-trap') as
+    | { steps?: { kind: string; label: string; gate?: boolean }[]; cards?: unknown[]; drill?: unknown[]; audio?: unknown }
+    | undefined;
+  ok(trap, 's06-trap exists');
+
+  const kinds = (trap!.steps ?? []).map((st) => st.kind);
+  deepStrictEqual(kinds, ['cards', 'audio', 'drill'], 'meet the trap, hear it, then prove you beat it');
+
+  // Every slice of the section must be named by a step, or it is authored,
+  // validated, and then silently never rendered — which is exactly what
+  // happened to this section's audio in the stacked shape.
+  ok(trap!.audio, 'the section still declares its recorded set');
+  ok(kinds.includes('audio'), 'and a step actually plays it');
+
+  // The reflex is the point of the mission. A check the learner can swipe past
+  // is not a check.
+  const drillStep = trap!.steps!.find((st) => st.kind === 'drill')!;
+  strictEqual(drillStep.gate, true, 'the reflex step holds until it is answered');
+
+  // Gating on a single four-option question is a 1-in-4 guess standing in for
+  // a reflex check.
+  ok((trap!.drill ?? []).length >= 4, `the gate asks ${(trap!.drill ?? []).length} questions, not one`);
+});
+
+// The stepped section owns the viewport, exactly like the XL group drill and
+// the card deck. Its cards step is a swipe deck that MEASURES its room, so a
+// hug-content wrapper leaves it nothing to measure and the cards render at
+// zero height — the bug the cardDeck hit before ownsLayout learned about it.
+test('the stepped trap mission owns its page, and only the stepped one', { skip }, () => {
+  const pager = readFileSync(resolve(here, '../components/LessonPager.tsx'), 'utf8');
+  const section = readFileSync(resolve(here, '../components/MissionSection.tsx'), 'utf8');
+
+  ok(
+    /s\.type === 'trapDrill' && \(\(s as \{ steps\?: unknown\[\] \}\)\.steps\?\.length \?\? 0\) > 0/.test(pager),
+    'the pager lets a stepped trapDrill own the viewport'
+  );
+  ok(/s\.steps\?\.length \? \{ flex: 1 \} : undefined/.test(section), 'and the wrapper passes the fill down');
+
+  // Deliberately conditional: without steps the section is a plain column of
+  // flip cards that needs the scrolling page, and pinning it to the viewport
+  // would clip its lower cards with no way to reach them.
+  ok(!/s\.type === 'trapDrill'\) return true/.test(pager), 'an unstepped trapDrill keeps its scrolling page');
+});
+
+// Four options in one flex row gave each ~70px on a Pixel 6, so a label like
+// "bonjour" wrapped mid-row and picking one added border weight that reflowed
+// the already-overflowing line.
+test('the trap options wrap instead of being crushed into one row', { skip }, () => {
+  const rich = readFileSync(resolve(here, '../components/MissionRich.tsx'), 'utf8');
+  const fn = rich.slice(rich.indexOf('function TrapOptions'), rich.indexOf('function TrapCardsStep'));
+  ok(fn.length > 0, 'expected a TrapOptions body');
+  ok(/flexWrap: 'wrap'/.test(fn), 'the options wrap');
+  ok(/q\.opts\.length > 3/.test(fn), 'and go two-per-row only when there are enough to crush');
 });
