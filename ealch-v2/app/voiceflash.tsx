@@ -13,12 +13,16 @@ import { useT } from '@/i18n/useT';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { sound, tts, stt, type SttResult } from '@/services';
 import { content, contentAssetUrl, useContent } from '@/services/content';
-import { LEVELS, type Level } from '@/content/schema';
+import { LEVELS, type Level, type Item } from '@/content/schema';
 import { domainMeta } from '@/content/domainMeta';
 import { themeMeta } from '@/content/themeMeta';
-import { answerMatches } from '@/utils/score';
+import { answerMatches, markWords, barsForLevel } from '@/utils/score';
 
 type Phase = 'ask' | 'listening' | 'result';
+/** One card of the deck: an item plus which way it's being drilled. Every item
+ *  appears twice — production, then recognition — so a word can no longer be
+ *  called "learned" from only one direction. */
+type VfEntry = { item: Item; isFr: boolean };
 
 export default function VoiceFlash() {
   const t = useTheme();
@@ -34,7 +38,12 @@ export default function VoiceFlash() {
   // Items now come from the corpus, snapshotted at mount. `?theme=&level=`
   // narrows the run to one parcours step (theme detail's Prononcer, or a
   // sub-theme deck opened from /voicethemes).
-  const { theme, level, item: resumeItem } = useLocalSearchParams<{ theme?: string; level?: string; item?: string }>();
+  const { theme, level, item: resumeItem, dir: resumeDir } = useLocalSearchParams<{
+    theme?: string;
+    level?: string;
+    item?: string;
+    dir?: string;
+  }>();
   const items = useMemo(
     () =>
       content.itemsFor(
@@ -44,13 +53,23 @@ export default function VoiceFlash() {
     [theme, level]
   );
 
-  // Resume landing: `?item=` names the item a resumed visit should reopen on.
-  // Deck order is deterministic (selectItems is a plain corpus-order filter),
-  // so the item id reliably locates the same card.
+  // Round one is production (see the English, say the French); round two is
+  // recognition (see/hear the French, give the English back). Block order, not
+  // interleaved per word, so a learner isn't asked to translate a word back
+  // seconds after saying it — that would just be echoing, not recall.
+  const entries = useMemo<VfEntry[]>(
+    () => [...items.map((it) => ({ item: it, isFr: true })), ...items.map((it) => ({ item: it, isFr: false }))],
+    [items]
+  );
+
+  // Resume landing: `?item=&dir=` names the exact card a resumed visit should
+  // reopen on. Deck order is deterministic, so the (item id, direction) pair
+  // reliably locates the same card even though each word now appears twice.
   const [vfIx, setVfIx] = useState(() => {
     const raw = Array.isArray(resumeItem) ? resumeItem[0] : resumeItem;
     if (!raw) return 0;
-    const found = items.findIndex((it) => it.id === raw);
+    const rawDir = Array.isArray(resumeDir) ? resumeDir[0] : resumeDir;
+    const found = entries.findIndex((e) => e.item.id === raw && (rawDir ? (rawDir === 'fr') === e.isFr : true));
     return found >= 0 ? found : 0;
   });
   const [vfPhase, setVfPhase] = useState<Phase>('ask');
@@ -86,16 +105,21 @@ export default function VoiceFlash() {
     };
   }, []);
 
-  const total = items.length;
+  const total = entries.length;
   const finished = vfIx >= total;
-  const item = items[Math.min(vfIx, total - 1)];
-  const vfIsFr = vfIx % 2 === 0;
+  const ix = Math.min(vfIx, Math.max(total - 1, 0));
+  // The cast branch is only ever assigned when total === 0, a state the render
+  // below short-circuits to the honest empty screen and never reads `item`
+  // from — same guarantee the plain corpus-order index gave before entries
+  // existed.
+  const item = total > 0 ? entries[ix].item : (undefined as unknown as Item);
+  const vfIsFr = total > 0 ? entries[ix].isFr : true;
 
   // Keeps voiceflash resumable at the exact item, re-firing every time vfIx
   // changes so leaving mid-theme still lands the home hero on this card.
   useEffect(() => {
-    if (finished || total === 0 || !item) return;
-    const params = new URLSearchParams({ item: item.id });
+    if (finished || total === 0) return;
+    const params = new URLSearchParams({ item: item.id, dir: vfIsFr ? 'fr' : 'en' });
     if (theme) params.set('theme', theme);
     if (level) params.set('level', level);
     setResume('voiceflash', {
@@ -128,10 +152,14 @@ export default function VoiceFlash() {
     setVfPhase('listening');
 
     const target = vfIsFr ? item.fr : item.en;
+    // Strictness scales to the item's CEFR band, same as Speak and the Den
+    // lessons: a "sons" beginner and a C1 speaker should not be graded on the
+    // same bar.
     const res = await stt.listen(target, {
       maxMs: 6000,
       lang: vfIsFr ? 'fr-FR' : 'en-US',
       onPartial: setVfPartial,
+      bars: barsForLevel(item.level),
     });
 
     setVfPartial('');
@@ -181,7 +209,14 @@ export default function VoiceFlash() {
       correct: got,
       modality: vfIsFr ? 'produce' : 'recognise',
     });
-    vfNext();
+    if (got) {
+      vfNext();
+    } else {
+      // A self-admitted miss deserves the same second try a mic- or
+      // typed-graded miss gets, instead of marching straight to the next
+      // card. Reuses the vfCorrect === false branch below.
+      setVfCorrect(false);
+    }
   };
 
   const vfCheck = () => {
@@ -462,6 +497,44 @@ export default function VoiceFlash() {
                         : T.micNoSpeech}
                   </TX>
                 ) : null}
+                {/* Which word(s) missed, not just an overall score — spoken or
+                    typed, same marking rule the score used. */}
+                {vfCorrect === false
+                  ? (() => {
+                      const target = vfIsFr ? item.fr : item.en;
+                      const heardText = vfHeard?.ok ? vfHeard.transcript : vfTyped;
+                      if (!heardText.trim()) return null;
+                      const marks = markWords(target, heardText);
+                      if (!marks.some((m) => !m.hit)) return null;
+                      return (
+                        <View style={{ marginTop: 12, alignItems: 'center' }}>
+                          <TX font="semi" role="eyebrow" ls={1.8} color={t.danger} style={{ marginBottom: 6 }}>
+                            {T.speakFocusOn.toUpperCase()}
+                          </TX>
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              flexWrap: 'wrap',
+                              justifyContent: 'center',
+                              gap: 6,
+                              paddingHorizontal: 8,
+                            }}
+                          >
+                            {marks.map((m, i) => (
+                              <TX
+                                key={`${m.word}-${i}`}
+                                role="meta"
+                                font={m.hit ? undefined : 'semi'}
+                                color={m.hit ? t.txSubtle : t.danger}
+                              >
+                                {m.word}
+                              </TX>
+                            ))}
+                          </View>
+                        </View>
+                      );
+                    })()
+                  : null}
                 {vfCorrect === null ? (
                   <View style={{ flexDirection: 'row', gap: 10, marginTop: 16, alignSelf: 'stretch' }}>
                     <Press
