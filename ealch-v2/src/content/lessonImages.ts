@@ -28,6 +28,11 @@ const REG: Record<string, ImageSourcePropType> = {
   'lessons/muettes/alarm-clock.jpg': require('../../assets/lessons/muettes/alarm-clock.jpg'),
   'lessons/muettes/the-stop.jpg': require('../../assets/lessons/muettes/the-stop.jpg'),
   'lessons/muettes/roundup.jpg': require('../../assets/lessons/muettes/roundup.jpg'),
+  // sons.08.l1 · Rythme & intonation
+  // Generated with `node scripts/gen-rythme-images.mjs` (ealch-admin).
+  // Only register a ref once its file EXISTS: require() resolves statically, so
+  // a missing asset breaks the bundle rather than degrading to no image.
+  'lessons/rythme/errors.jpg': require('../../assets/lessons/rythme/errors.jpg'),
 };
 
 export function lessonImage(ref: string): ImageSourcePropType | undefined {

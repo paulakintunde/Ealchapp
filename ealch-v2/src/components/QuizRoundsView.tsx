@@ -10,7 +10,7 @@
 // the same question afterwards rather than restarting the round.
 
 import { useMemo, useState } from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { Press, Button } from '@/components/ui';
 import { Icon } from '@/components/Icon';
@@ -114,7 +114,27 @@ export function QuizRoundsView({
         </TX>
       </View>
 
-      <View style={{ flex: 1, paddingHorizontal: 24, justifyContent: 'center' }}>
+      {/* A SCROLLER, not a centred fixed box.
+          It was `flex: 1 + justifyContent: 'center'` with nothing to scroll,
+          which is fine until the answer is revealed: the card then grows by the
+          explanation AND the "See this again" row, outgrows the box, and a
+          CENTRED child that overflows spills past BOTH ends at once. That is
+          the text overlap on reveal (Paul, device walk) and no line height can
+          fix it, because the content is simply taller than the space.
+
+          `flexGrow: 1 + justifyContent: 'center'` on the CONTENT keeps the
+          question optically centred while it still fits, and lets it scroll the
+          moment it does not. */}
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'center',
+          paddingHorizontal: 24,
+          paddingVertical: 8,
+        }}
+        showsVerticalScrollIndicator={false}
+      >
         <QuestionCard
           key={`${phase.roundIx}-${phase.questionIx}`}
           question={question}
@@ -123,7 +143,7 @@ export function QuizRoundsView({
           onPlay={onPlay}
           playingId={playingId}
         />
-      </View>
+      </ScrollView>
 
       {answered ? (
         <View style={{ paddingHorizontal: 24, paddingBottom: 16, gap: 10 }}>
@@ -193,7 +213,12 @@ function McqCard({ question, onAnswer }: { question: QuizQuestion; onAnswer: (co
 
   return (
     <View style={{ gap: 18 }}>
-      <TX role="titleLg" font="semi" style={{ lineHeight: 29 }}>{question.q}</TX>
+      {/* `title` not `titleLg`, and the regular weight rather than semi.
+          A quiz question is a sentence to read, not a headline: at titleLg/semi
+          it competed with the options for weight and pushed the card taller,
+          which is what made the reveal overflow in the first place. `lineHeight`
+          was also absolute and did not scale with the OS font size. */}
+      <TX role="title" lhMult={1.4}>{question.q}</TX>
       <View style={{ gap: 10 }}>
         {opts.map((o, i) => {
           const isPicked = picked === i;

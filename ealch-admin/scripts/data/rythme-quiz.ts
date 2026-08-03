@@ -107,12 +107,14 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
     },
     questions: [
       {
+        // Two options, not four. Four long ones wrap to five lines between
+        // them, which is what made this card outgrow the viewport on reveal.
+        // A two-way contrast is also the sharper question here: the whole rule
+        // is French-does-this, English-does-that.
         q: 'What does French do to the syllables in a phrase?',
         opts: [
           'Gives every one the same length',
-          'Stretches the important ones and shortens the rest',
-          'Shortens every one equally',
-          'Alternates long and short',
+          'Stretches the important ones, shortens the rest',
         ],
         correct: 0,
         format: 'mcq',
@@ -168,12 +170,7 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
       },
       {
         q: 'Which of these is the rule, in one line?',
-        opts: [
-          REFRAME,
-          'Stress the word that matters most',
-          'Every syllable gets a push',
-          'French has no rhythm rules',
-        ],
+        opts: [REFRAME, 'Stress the word that matters most'],
         correct: 0,
         format: 'mcq',
         why: `${REFRAME} That is the whole system, and everything else in the lesson follows from it.`,
@@ -202,13 +199,8 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
     questions: [
       {
         q: 'Where does the push go in a French rhythm group?',
-        opts: [
-          'On the word that carries the meaning',
-          'On the first syllable',
-          'On the last syllable of the group',
-          'Wherever the speaker chooses',
-        ],
-        correct: 2,
+        opts: ['On the last syllable of the group', 'On the word that carries the meaning'],
+        correct: 0,
         format: 'mcq',
         why: 'By position, never by meaning. French does not move the push to the important word, which is exactly what English does and why the English version is so recognisable.',
         ref: 's07-push',
@@ -289,13 +281,8 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
     questions: [
       {
         q: 'How does French mark a question with no extra word and no inversion?',
-        opts: [
-          'By speaking faster',
-          'By stressing the first word',
-          'By taking the final syllable upward',
-          'It cannot be done',
-        ],
-        correct: 2,
+        opts: ['By taking the final syllable upward', 'By stressing the first word'],
+        correct: 0,
         format: 'mcq',
         why: 'The contour alone can carry it. That is why a flat question gets answered as a statement: nothing else in the sentence marked it.',
         ref: 's08-rising',
@@ -328,13 +315,8 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
       },
       {
         q: 'What happens to the syllables BEFORE the final one in a question?',
-        opts: [
-          'They rise gradually',
-          'They stay flat and even, exactly as in a statement',
-          'They get faster',
-          'They get louder',
-        ],
-        correct: 1,
+        opts: ['They stay flat, exactly as in a statement', 'They rise gradually'],
+        correct: 0,
         format: 'mcq',
         why: 'The rise is on the last syllable only. Learners often ramp the whole phrase upward, which sounds like surprise rather than a question.',
         ref: 's08-rising',

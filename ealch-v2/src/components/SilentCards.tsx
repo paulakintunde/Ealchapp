@@ -736,20 +736,28 @@ export function ListenChooseCard({
   };
 
   return (
-    <View style={{ gap: 18 }}>
-      <TX role="titleLg" font="semi">{question.q}</TX>
+    // gap 14, not 18: this card carries a question, an audio control AND up to
+    // four options, so it is the tallest in the quiz. Once the answer reveals
+    // its explanation the content runs past the viewport and the last option
+    // gets clipped mid-row. The page scrolls now, but a card that fits without
+    // scrolling is better than one that merely can.
+    <View style={{ gap: 14 }}>
+      {/* Matches McqCard: `title` at regular weight, not `titleLg` semi. A
+          question is a sentence to read, and the heavier size cost two lines
+          of height on exactly the card that could least afford them. */}
+      <TX role="title" lhMult={1.4}>{question.q}</TX>
 
       <Press
         cue={null}
         onPress={play}
         accessibilityLabel="Play the audio"
-        style={{ alignSelf: 'center', alignItems: 'center', gap: 12, paddingVertical: 8 }}
+        style={{ alignSelf: 'center', alignItems: 'center', gap: 8, paddingVertical: 2 }}
       >
         <View
           style={{
-            width: 64,
-            height: 64,
-            borderRadius: 32,
+            width: 54,
+            height: 54,
+            borderRadius: 27,
             borderWidth: 1,
             borderColor: on ? t.acc : t.accA(45),
             backgroundColor: on ? t.accA(12) : 'transparent',
@@ -757,9 +765,9 @@ export function ListenChooseCard({
             justifyContent: 'center',
           }}
         >
-          <Icon name="speaker" size={26} color={t.acc} />
+          <Icon name="speaker" size={22} color={t.acc} />
         </View>
-        <Waveform count={14} height={20} barWidth={3} gap={3} active={on} color={on ? t.acc : t.txNonText} />
+        <Waveform count={12} height={16} barWidth={3} gap={3} active={on} color={on ? t.acc : t.txNonText} />
       </Press>
 
       {!heard ? (
@@ -789,7 +797,10 @@ export function ListenChooseCard({
                   borderColor: border,
                   backgroundColor: t.card,
                   paddingHorizontal: 16,
-                  paddingVertical: 14,
+                  // 11, not 14. Four rows on the tallest card in the quiz: the
+                  // three saved pixels per row are what keep the last option
+                  // and the explanation on screen together.
+                  paddingVertical: 11,
                   opacity: picked !== null && !isPicked && !isRight ? 0.5 : 1,
                 }}
               >
@@ -799,7 +810,7 @@ export function ListenChooseCard({
                     authored prose and DO wrap: "No, the ending stayed flat",
                     "Agreement: it is a statement". Reported as overlapping text
                     on the answer reveal (Paul, device walk). */}
-                <TX font="serifI" role="title" lhMult={1.45}>{o}</TX>
+                <TX font="serifI" role="titleSm" lhMult={1.4}>{o}</TX>
               </Press>
             );
           })}
