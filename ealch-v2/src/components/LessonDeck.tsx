@@ -641,8 +641,12 @@ export function QuestionModal({
           })}
         </View>
 
+        {/* lhMult, not an absolute lineHeight: an absolute one does not grow
+            with the OS font scale, so at a large Dynamic Type setting the
+            glyphs outgrow the line box and the explanation overlaps itself.
+            Same defect as the one fixed in QuizRoundsView. */}
         {picked !== null && question.why ? (
-          <TX role="bodySm" color={t.txSecondary} style={{ lineHeight: 21 }}>{question.why}</TX>
+          <TX role="bodySm" color={t.txSecondary} lhMult={1.55}>{question.why}</TX>
         ) : null}
       </View>
     </LessonModal>

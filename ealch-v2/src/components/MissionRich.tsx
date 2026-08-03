@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { Animated, Easing, ScrollView, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { Press, Badge } from '@/components/ui';
 import { Icon } from '@/components/Icon';
@@ -15,6 +15,7 @@ import { content } from '@/services/content';
 import { useProgress } from '@/store/useProgress';
 import { normalizeFr, barsForLevel } from '@/utils/score';
 import { resolveAudio, speedsFor, NORMAL_RATE } from '@/content/lessonAudio.logic';
+import { dicteeMode, dicteeTarget, dicteeWords } from '@/content/dictee.logic';
 import type {
   LessonSection,
   GridSound,
@@ -493,7 +494,19 @@ export function GroupDrillView({
   // row and the "Groupe suivant" button below are not just redundant — they
   // are the chrome that pushed the word card past the bottom of the screen.
   // The pager's own dots and swipe already do this job, one level up.
-  const single = xl && s.groups.length === 1;
+  // ONE group means there is nothing to page between, whatever the card size.
+  //
+  // This used to be `xl && groups.length === 1`, so a single-group drill at
+  // size md fell through to the multi-group render and drew its chrome: a dots
+  // row with exactly one dot, and a "Every group seen. Swipe to continue."
+  // footer. On a control page that footer is actively wrong — the learner has
+  // answered, the pager's Next has un-greyed, and the card is telling them to
+  // swipe instead. Reported on missions 9 and 14 (Paul, device walk).
+  //
+  // The size only ever mattered because at xl the dots and the "next group"
+  // button pushed the hero card off the bottom. One group has no next group at
+  // any size, so the size is not the condition.
+  const single = s.groups.length === 1;
 
   // Compared loosely (case and surrounding space ignored) because the point is
   // whether the learner READS the same line twice, not whether two strings are
@@ -525,10 +538,14 @@ export function GroupDrillView({
 
   if (single) {
     return (
-      <View style={{ flex: 1 }}>
+      // `xl` passes the AUTHORED size through rather than forcing the hero
+      // layout: a control page is prose and options, and rendering it as a
+      // 56pt word card would be wrong. A filling wrapper only when the hero
+      // layout actually needs the height.
+      <View style={xl ? { flex: 1 } : undefined}>
         <OneGroup
           g={s.groups[0]}
-          xl
+          xl={xl}
           hideLabel={sameAsTitle(s.groups[0].label)}
           onAnswered={() => setAnswered(true)}
         />
@@ -749,7 +766,14 @@ function TrapAudioStep({ s }: { s: TrapDrillSec }) {
   return (
     <ScrollView
       style={{ flex: 1 }}
-      contentContainerStyle={{ paddingBottom: 8 }}
+      // Clears the footer slot below this step.
+      //
+      // The last row used to scroll underneath the "swipe to continue" line,
+      // which sat over live answer buttons. It was easy to miss while the
+      // footer was a bare ~20px of text; giving the footer a fixed 48px slot
+      // (so the step controls stop moving between steps) made the overlap
+      // plain. The scroll has to end above that slot, not behind it.
+      contentContainerStyle={{ paddingBottom: STEP_FOOTER_H + 8 }}
       showsVerticalScrollIndicator={false}
     >
       <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 12 }}>
@@ -819,7 +843,14 @@ function TrapDrillStep({
   return (
     <ScrollView
       style={{ flex: 1 }}
-      contentContainerStyle={{ paddingBottom: 8 }}
+      // Clears the footer slot below this step.
+      //
+      // The last row used to scroll underneath the "swipe to continue" line,
+      // which sat over live answer buttons. It was easy to miss while the
+      // footer was a bare ~20px of text; giving the footer a fixed 48px slot
+      // (so the step controls stop moving between steps) made the overlap
+      // plain. The scroll has to end above that slot, not behind it.
+      contentContainerStyle={{ paddingBottom: STEP_FOOTER_H + 8 }}
       showsVerticalScrollIndicator={false}
     >
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12 }}>
@@ -846,6 +877,19 @@ function TrapDrillStep({
   );
 }
 
+/** How long a step body takes to fade in. Short enough that the learner never
+ *  waits on it, long enough to read as motion rather than as a cut. Matches
+ *  the pager's own label fade in feel, deliberately shorter because this is a
+ *  step inside a mission rather than a whole new mission. */
+const STEP_FADE_MS = 180;
+
+/** The height the step-title row holds open whether or not the step has a
+ *  title, and the height of the footer's control slot. Both exist for the same
+ *  reason: a row that collapses when its content is absent moves everything
+ *  below it, and a stepped mission changes what is present on every advance. */
+const STEP_TITLE_H = 34;
+const STEP_FOOTER_H = 48;
+
 export function TrapDrillView({
   s,
   onIndexChange,
@@ -861,6 +905,23 @@ export function TrapDrillView({
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [step, setStep] = useState(0);
   const steps = s.steps;
+
+  // The step body's cross-fade. Declared HERE, above the early return for the
+  // unstepped shape, because hooks may not sit behind a conditional return:
+  // a trapDrill with no `steps` would otherwise change the hook count and
+  // throw "rendered fewer hooks than expected" the moment one was authored.
+  const stepFade = useRef(new Animated.Value(1)).current;
+  useEffect(() => {
+    stepFade.setValue(0);
+    const anim = Animated.timing(stepFade, {
+      toValue: 1,
+      duration: STEP_FADE_MS,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true,
+    });
+    anim.start();
+    return () => anim.stop();
+  }, [step, stepFade]);
 
   // No `steps` authored: the original stacked render, unchanged, which is what
   // the four trapDrills authored before stepping existed still get.
@@ -915,17 +976,32 @@ export function TrapDrillView({
             on one screen invite the reader to work out how they relate, and
             they relate in no useful way. */}
       </View>
-      {cur.title ? (
-        <TX font="serif" role="titleLg" style={{ marginBottom: 12 }}>{cur.title}</TX>
-      ) : null}
+      {/* The title ROW is always drawn, even when the step has no title.
+          Steps carry titles individually (sons.05's rule step has none, its
+          cards and drill steps do), so a conditional row meant the body moved
+          up ~40px on one step and back down on the next, every time the
+          learner advanced. Reserving the row costs one empty line on the steps
+          without a title and holds everything below it still. */}
+      <View style={{ minHeight: STEP_TITLE_H, marginBottom: 12, justifyContent: 'center' }}>
+        {cur.title ? <TX font="serif" role="titleLg">{cur.title}</TX> : null}
+      </View>
 
-      <View style={{ flex: 1 }}>
+      {/* The step body cross-fades rather than cutting.
+          Every other sub-dividing mission in a lesson is a SwipeDeck, whose
+          cards slide under the finger on a paging ScrollView. This one swapped
+          its body on a setState, so a learner who had just swiped smoothly
+          into the mission tapped Continue and the content changed with no
+          motion at all. The fade is short on purpose: it is there to connect
+          two screens, not to make the learner wait for it. */}
+      <Animated.View style={{ flex: 1, opacity: stepFade }}>
         {cur.kind === 'rule' && s.rule ? <TrapRuleStep rule={s.rule} /> : null}
         {cur.kind === 'cards' ? <TrapCardsStep cards={s.cards} /> : null}
         {cur.kind === 'audio' ? <TrapAudioStep s={s} /> : null}
         {cur.kind === 'drill' ? <TrapDrillStep s={s} answers={answers} setAnswers={setAnswers} /> : null}
-      </View>
+      </Animated.View>
 
+      {/* One slot for the footer, whichever control is in it. */}
+      <View style={{ height: STEP_FOOTER_H, marginTop: 14 }}>
       {!last ? (
         <Press
           cue="tap"
@@ -947,14 +1023,13 @@ export function TrapDrillView({
           // which was the way forward. The mission's internal control is
           // subordinate to the lesson's, so it is the one that steps back.
           style={{
-            height: 48,
+            height: STEP_FOOTER_H,
             borderRadius: 24,
             borderWidth: 1.5,
             borderColor: held ? t.line(12) : t.accA(50),
             backgroundColor: 'transparent',
             alignItems: 'center',
             justifyContent: 'center',
-            marginTop: 14,
           }}
         >
           <TX font="semi" role="body" color={held ? t.txSubtle : t.accTx}>
@@ -962,10 +1037,16 @@ export function TrapDrillView({
           </TX>
         </Press>
       ) : (
-        <View style={{ marginTop: 14, alignItems: 'center' }}>
+        // The last step swaps the button for a hint, and the two used to be
+        // different heights: a 48px control became a ~20px line, so the body
+        // grew on the final step of every stepped mission. Both now sit in the
+        // same slot (see the wrapper below), so the swap changes what the
+        // footer SAYS and never where it is.
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <TX role="bodySm" color={t.txMuted}>{T.swipeToContinue}</TX>
         </View>
       )}
+      </View>
     </View>
   );
 }
@@ -1118,20 +1199,49 @@ function buildTileBank(word: string): { ch: string; id: number }[] {
   return letters.map((ch, id) => ({ ch, id }));
 }
 
+/** The word-tile bank: one tile per word of the sentence, shuffled, plus one
+ *  decoy drawn from the sentence itself (a repeated word is a real trap and
+ *  needs no invented vocabulary). Case is preserved, because with words on the
+ *  tiles the capital is a legitimate clue to where the sentence starts. */
+function buildWordBank(fr: string): { ch: string; id: number }[] {
+  const shuffled = [...dicteeWords(fr)];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.map((ch, id) => ({ ch, id }));
+}
+
 function OneDictationWord({ itemId, voice, onDone }: { itemId: string; voice: 'amelie' | 'leo'; onDone: (ok: boolean) => void }) {
   const t = useTheme();
   const T = useT();
   const item = content.item(itemId);
   const logAttempt = useProgress((st) => st.logAttempt);
-  const [bank] = useState(() => (item ? buildTileBank(item.fr.replace(/[^A-Za-zÀ-ÿ]/g, '')) : []));
+  // Long targets assemble from WORDS, short ones spell from letters. See
+  // dicteeMode: past 16 letters a letter bank stops being a spelling exercise.
+  const mode = item ? dicteeMode(item.fr) : 'letters';
+  const [bank] = useState(() =>
+    !item
+      ? []
+      : mode === 'words'
+        ? buildWordBank(item.fr)
+        : buildTileBank(item.fr.replace(/[^A-Za-zÀ-ÿ]/gu, ''))
+  );
   const [used, setUsed] = useState<number[]>([]);
   const [checked, setChecked] = useState<boolean | null>(null);
   const [plays, setPlays] = useState(3);
   const [speaking, setSpeaking] = useState(false);
   if (!item) return null;
 
-  const target = item.fr.replace(/[^A-Za-zÀ-ÿ]/g, '').toUpperCase();
-  const filled = used.map((id) => bank.find((b) => b.id === id)!.ch).join('');
+  const target =
+    mode === 'words'
+      ? dicteeTarget(item.fr)
+      : item.fr.replace(/[^A-Za-zÀ-ÿ]/gu, '').toUpperCase();
+  // Word tiles join with a space so the answer reads as a sentence; letter
+  // tiles butt together as they always did.
+  const filled = used
+    .map((id) => bank.find((b) => b.id === id)!.ch)
+    .join(mode === 'words' ? ' ' : '');
 
   const play = () => {
     if (speaking || plays <= 0) {
@@ -1193,25 +1303,50 @@ function OneDictationWord({ itemId, voice, onDone }: { itemId: string; voice: 'a
         <Icon name={speaking ? 'pause' : 'play'} size={16} color={t.acc} />
         <TX font="semi" role="body" color={t.accTx}>Écouter le mot {plays > 0 ? `(${plays})` : ''}</TX>
       </Press>
-      <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 22 }}>
-        {Array.from({ length: target.length }).map((_, i) => (
-          <View
-            key={i}
-            style={{
-              width: 40,
-              height: 50,
-              borderRadius: 11,
-              borderWidth: 1.5,
-              borderColor: checked === null ? t.line(16) : checked ? t.accA(55) : t.dangerA(55),
-              backgroundColor: checked === null ? t.card2 : checked ? t.accA(10) : t.dangerA(8),
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <TX font="serif" size={22} role="display">{filled[i] ?? ''}</TX>
-          </View>
-        ))}
-      </View>
+      {/* The answer so far.
+          In LETTER mode this is one fixed slot per character, as it always was.
+          In WORD mode a slot per character would draw thirty boxes for a
+          sentence, so the answer renders as a single growing line instead: the
+          words are the units, and they are variable width. */}
+      {mode === 'words' ? (
+        <View
+          style={{
+            minHeight: 60,
+            borderRadius: 14,
+            borderWidth: 1.5,
+            borderColor: checked === null ? t.line(16) : checked ? t.accA(55) : t.dangerA(55),
+            backgroundColor: checked === null ? t.card2 : checked ? t.accA(10) : t.dangerA(8),
+            paddingHorizontal: 14,
+            paddingVertical: 12,
+            justifyContent: 'center',
+            marginBottom: 22,
+          }}
+        >
+          <TX font="serifI" role="titleSm" center lhMult={1.4}>
+            {filled || ' '}
+          </TX>
+        </View>
+      ) : (
+        <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 22 }}>
+          {Array.from({ length: target.length }).map((_, i) => (
+            <View
+              key={i}
+              style={{
+                width: 40,
+                height: 50,
+                borderRadius: 11,
+                borderWidth: 1.5,
+                borderColor: checked === null ? t.line(16) : checked ? t.accA(55) : t.dangerA(55),
+                backgroundColor: checked === null ? t.card2 : checked ? t.accA(10) : t.dangerA(8),
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <TX font="serif" size={22} role="display">{filled[i] ?? ''}</TX>
+            </View>
+          ))}
+        </View>
+      )}
       {checked === false ? (
         <TX role="bodySm" color={t.danger} center style={{ marginBottom: 12 }}>Ce n'est pas ça — la bonne réponse est {target}.</TX>
       ) : null}
@@ -1222,7 +1357,12 @@ function OneDictationWord({ itemId, voice, onDone }: { itemId: string; voice: 'a
             cue={null}
             onPress={() => tap(b.id)}
             style={{
-              width: 42,
+              // A word tile sizes to its word; a letter tile stays the square
+              // it always was. minWidth keeps a two-letter word ("le", "on")
+              // from becoming a tap target too small to hit.
+              ...(mode === 'words'
+                ? { minWidth: 46, paddingHorizontal: 12 }
+                : { width: 42 }),
               height: 46,
               borderRadius: 11,
               borderWidth: 1,
@@ -1233,7 +1373,9 @@ function OneDictationWord({ itemId, voice, onDone }: { itemId: string; voice: 'a
               opacity: used.includes(b.id) ? 0.28 : 1,
             }}
           >
-            <TX font="serif" size={19} role="display">{b.ch}</TX>
+            <TX font="serif" size={mode === 'words' ? 17 : 19} role="display" numberOfLines={1}>
+              {b.ch}
+            </TX>
           </Press>
         ))}
         <Press

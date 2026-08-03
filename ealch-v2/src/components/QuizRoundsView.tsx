@@ -230,13 +230,22 @@ function McqCard({ question, onAnswer }: { question: QuizQuestion; onAnswer: (co
                 opacity: picked !== null && !isPicked && !isRight ? 0.5 : 1,
               }}
             >
-              <TX role="bodyLg">{o}</TX>
+              {/* Options wrap: several are full sentences. bodyLg ships 1.45,
+                  which is close but sat lines together once an option ran to
+                  three. */}
+              <TX role="bodyLg" lhMult={1.5}>{o}</TX>
             </Press>
           );
         })}
       </View>
       {picked !== null && question.why ? (
-        <TX role="bodySm" color={t.txSecondary} style={{ lineHeight: 21 }}>{question.why}</TX>
+        // `lineHeight: 21` was ABSOLUTE, so it did not grow with the OS font
+        // scale: at 1.3x the glyphs outgrew their line box and the explanation
+        // overlapped itself. lhMult scales with the text, which is the whole
+        // reason TX prefers it (see the note on ROLE in Type.tsx).
+        <TX role="bodySm" color={t.txSecondary} lhMult={1.55} style={{ marginTop: 4 }}>
+          {question.why}
+        </TX>
       ) : null}
     </View>
   );

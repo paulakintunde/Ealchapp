@@ -57,6 +57,13 @@ const en = (id: string) => BY_ID[id].en;
 const ipa = (id: string) => `/${BY_ID[id].ipa}/`;
 const rs = (id: string) => BY_ID[id].respell;
 
+/** The last word of the first rhythm group: the one carrying the push. */
+export function lastWordOf(fr: string): string {
+  const first = fr.split(',')[0];
+  const words = first.replace(/[.!?]/gu, '').trim().split(/\s+/u);
+  return words[words.length - 1];
+}
+
 /** Items by tag, so a section names a BAND rather than a hand-typed id list.
  *  The whole point of tagging the corpus was that the ramp becomes queryable;
  *  a section that lists ids by hand is how the other lessons accumulated their
@@ -697,13 +704,27 @@ export const RYTHME_LESSON: Lesson = {
         { kind: 'audio', label: 'Listen straight through', title: 'Both, back to back' },
         { kind: 'drill', label: 'Which one was French?', title: 'Which one was French?', gate: true },
       ],
-      cards: ids(MED, 6).map((id) => ({
-        promptLabel: 'Where does the push go?',
-        promptSound: rs(id),
-        fr: f(id),
-        ipa: ipa(id),
-        tip: `The push is on the last syllable of the group, not on the word that carries the meaning. ${rs(id)}`,
-      })),
+      // TrapFlipCard renders `promptSound` at 64pt: it is built for a SHORT
+      // fragment (sons.06 shows "/ɛʁ/"), not a whole respelling. Feeding it a
+      // 25-character line gave the giant-letters card Paul reported, and
+      // repeating the same respelling in the tip meant the flip revealed
+      // nothing. Worse, the CAPS in the front respelling gave the answer away
+      // before the flip.
+      //
+      // So: the FRONT is the trap, stated as the wrong syllable an English
+      // mouth reaches for. The BACK is the correction plus what it costs.
+      cards: ids(MED, 6).map((id) => {
+        const words = f(id).replace(/[.!?]/gu, '').split(/\s+/u);
+        return {
+          promptLabel: 'An English mouth leans here',
+          // The first content word, which is what English would stretch. Short
+          // enough for the 64pt face, and it is the ERROR, not the answer.
+          promptSound: words[1] ?? words[0],
+          fr: f(id),
+          ipa: ipa(id),
+          tip: `French leans on "${lastWordOf(f(id))}" instead, because it ends the group. Nothing gets louder: it is held a little longer. ${rs(id)}`,
+        };
+      }),
       drill: ids(MED, 6).map((id) => ({
         promptSay: `Which reading of "${f(id)}" is the French one?`,
         opts: ['The one that pushes the important word', 'The one that pushes the last syllable'],
@@ -931,9 +952,27 @@ export const RYTHME_LESSON: Lesson = {
         timing: 'onEnter',
       },
       audio: { mode: 'recorded', recordingId: 'rec-layered', speeds: [1, 0.65] },
-      text: ids(LONG, 6)
-        .map((id) => `${f(id)}\n${rs(id)}`)
-        .join('\n\n'),
+      // The French ALONE. An earlier version interleaved each sentence with its
+      // respelling, which broke the read: the eye has to skip a bracketed line
+      // between every sentence, and a reading mission whose text is half
+      // notation is not a reading mission.
+      //
+      // The respellings did not go away, they moved: `glossary` puts them one
+      // tap behind the word that carries the push, which is also the word worth
+      // looking at. Reported by Paul on the device.
+      text: ids(LONG, 6).map(f).join('\n\n'),
+      // One entry per pushed word. ReadingPages highlights any glossed word in
+      // the passage and opens this on tap, so the key words are marked AND the
+      // notation is reachable without cluttering the line.
+      glossary: ids(LONG, 6).map((id) => {
+        const word = lastWordOf(f(id));
+        return {
+          word,
+          en: `the pushed word: hold it a little longer`,
+          ipa: ipa(id),
+          note: `${rs(id)} · This word ends the group, so it takes the push. Everything before it stays even.`,
+        };
+      }),
       questions: [
         {
           q: 'Of everything this track has taught, which rule applies last, after all the others?',
@@ -984,6 +1023,12 @@ export const RYTHME_LESSON: Lesson = {
       layer: 'core',
       size: 'md',
       render: 'screens',
+      // Art: an even row of beats with one wrongly swollen in the middle, which
+      // is this mission's whole subject stated without words. Generate with
+      // `node scripts/gen-rythme-images.mjs errors`, then register the file in
+      // lessonImages.ts. Until then lessonImage() returns null and RichImage
+      // renders nothing, so the ref is safe to ship ahead of the asset.
+      imageRef: 'lessons/rythme/errors.jpg',
       say: {
         text: 'Six things that go wrong, in the order you are likely to hit them.',
         voice: 'coach',

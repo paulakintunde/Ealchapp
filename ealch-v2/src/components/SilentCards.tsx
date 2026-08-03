@@ -793,7 +793,13 @@ export function ListenChooseCard({
                   opacity: picked !== null && !isPicked && !isRight ? 0.5 : 1,
                 }}
               >
-                <TX font="serifI" role="title">{o}</TX>
+                {/* lhMult, because `title` ships a 1.3 line height that is fine
+                    for the single short word this card was built for and
+                    collides the moment an option wraps. Quiz options are
+                    authored prose and DO wrap: "No, the ending stayed flat",
+                    "Agreement: it is a statement". Reported as overlapping text
+                    on the answer reveal (Paul, device walk). */}
+                <TX font="serifI" role="title" lhMult={1.45}>{o}</TX>
               </Press>
             );
           })}
@@ -801,7 +807,9 @@ export function ListenChooseCard({
       )}
 
       {picked !== null && question.why ? (
-        <TX role="bodySm" color={t.txSecondary}>{question.why}</TX>
+        <TX role="bodySm" color={t.txSecondary} lhMult={1.55} style={{ marginTop: 4 }}>
+          {question.why}
+        </TX>
       ) : null}
     </View>
   );
