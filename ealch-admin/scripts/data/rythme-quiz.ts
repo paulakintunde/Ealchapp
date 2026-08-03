@@ -55,6 +55,20 @@ const GROUPED = byTag('grouped', 'tappable');
 const RISING = byTag('rising', 'tappable');
 const TRIPLES = byTag('multi-group');
 
+/** The last word of a phrase group: the one that carries the push, and the one
+ *  an errorSpot question asks the learner to name.
+ *
+ *  errorSpot is a FREE-TEXT card (SilentCards.ErrorSpotCard, string-matched
+ *  through the typeIn branch of checkAnswer), so whatever it asks for has to be
+ *  typeable. An earlier draft asked the learner to type a bracketed respelling
+ *  like "[eel feh FRWA]", which is not a realistic thing to type and showed
+ *  nothing about which reading was the mistake. A single French word is. */
+function lastWord(fr: string): string {
+  const firstGroup = fr.split(',')[0];
+  const words = firstGroup.replace(/[.!?]/gu, '').trim().split(/\s+/u);
+  return words[words.length - 1];
+}
+
 /** Move the CAPS to the wrong syllable, so errorSpot has a plausible decoy
  *  that is wrong in exactly the way an English speaker is wrong. */
 function pushedEarly(respell: string): string {
@@ -106,11 +120,12 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         ref: 's04-even',
       },
       {
-        q: 'Listen. Which reading gives every syllable the same length?',
-        opts: ['The first', 'The second'],
-        correct: 1,
+        q: 'Listen. How many syllables did you hear?',
+        opts: ['Two', 'Four', 'Five', 'Three'],
+        correct: 3,
         format: 'listenChoose',
-        why: 'The first stretches one syllable in the middle and hurries the rest, which is English rhythm. The second keeps them even and holds only the last one.',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: SHORT[1].fr, speeds: [1, 0.65] },
+        why: 'Three, and all three the same length. Counting them is the first skill: an English ear tends to hear the stretched one as "the" syllable and lose the others.',
         ref: 's04-even',
       },
       {
@@ -135,11 +150,12 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         ref: 's03-anchors',
       },
       {
-        q: 'Listen. One of these swallows a syllable. Which one is the French reading?',
-        opts: ['The first', 'The second'],
-        correct: 0,
+        q: 'Listen. Which syllable was held the longest?',
+        opts: ['The opening syllable', 'The middle one', 'The last', 'None, they were equal'],
+        correct: 2,
         format: 'listenChoose',
-        why: 'The second collapses a middle syllable the way English would. In French that syllable is as long as its neighbours.',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: SHORT[3].fr, speeds: [1, 0.65] },
+        why: 'The last, and only slightly. If you heard a middle syllable stand out, that was an English ear supplying a stress the speaker did not make.',
         ref: 's04-even',
       },
       {
@@ -165,9 +181,10 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
       },
       {
         q: 'Listen to the four-syllable phrase. How many syllables were held longer than the others?',
-        opts: ['None', 'One', 'Two', 'All four'],
-        correct: 1,
+        opts: ['None', 'Two', 'All four', 'One'],
+        correct: 3,
         format: 'listenChoose',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: SHORT[4].fr, speeds: [1, 0.65] },
         why: 'Exactly one, the last. If you heard two, one of them was an English stress arriving early.',
         ref: 's04-check',
       },
@@ -197,20 +214,20 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         ref: 's07-push',
       },
       {
-        q: `Which respelling puts the push in the right place for "${MED[0].fr}"?`,
-        opts: [pushedEarly(MED[0].respell), MED[0].respell],
-        correct: 1,
+        q: `This reading is WRONG: ${pushedEarly(MED[0].respell)}\n\n"${MED[0].fr}"\n\nType the word that should carry the push instead.`,
         format: 'errorSpot',
-        accept: [MED[0].respell],
-        why: `The CAPS syllable is the pushed one, and it belongs at the end of the group. ${MED[0].respell}`,
+        accept: [lastWord(MED[0].fr)],
+        answer: lastWord(MED[0].fr),
+        why: `The push goes on the last word of the group, not on the word that carries the meaning. ${MED[0].respell}`,
         ref: 's07-push',
       },
       {
-        q: 'Listen. Which reading is the French one?',
-        opts: ['The one pushing the important word', 'The one pushing the last syllable'],
-        correct: 1,
+        q: 'Listen. Which word did the voice hold at the end?',
+        opts: [lastWord(MED[0].fr), MED[0].fr.split(/\s+/u)[0], MED[0].fr.split(/\s+/u)[1]],
+        correct: 0,
         format: 'listenChoose',
-        why: 'The first is an English speaker marking what they think matters. French marks the end of the group and lets the words carry their own weight.',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: MED[0].fr, speeds: [1, 0.65] },
+        why: 'The last word of the group, every time. French marks the end by position and lets the words carry their own weight, where English would lean on whichever word it thought mattered.',
         ref: 's09-contrast',
       },
       {
@@ -222,11 +239,10 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         ref: 's07-push',
       },
       {
-        q: `Spot the error: "${MED[2].fr}"`,
-        opts: [pushedEarly(MED[2].respell), MED[2].respell],
-        correct: 0,
+        q: `This reading is WRONG: ${pushedEarly(MED[2].respell)}\n\n"${MED[2].fr}"\n\nType the word that should carry the push instead.`,
         format: 'errorSpot',
-        accept: [MED[2].respell],
+        accept: [lastWord(MED[2].fr)],
+        answer: lastWord(MED[2].fr),
         why: `The push landed early, on the first content word. That is the English instinct. It belongs on the group-final syllable: ${MED[2].respell}`,
         ref: 's09-contrast',
       },
@@ -248,6 +264,7 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         opts: ['On the first word', 'On the middle word', 'On the last syllable'],
         correct: 2,
         format: 'listenChoose',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: MED[5].fr, speeds: [1, 0.65] },
         why: 'At the end of the group, as always. Whatever the sentence is about, the position does not move.',
         ref: 's07-push',
       },
@@ -288,6 +305,7 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         opts: ['A question', 'A statement'],
         correct: 0,
         format: 'listenChoose',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: RISING[2].fr, speeds: [1, 0.65] },
         why: 'The final syllable went up. Everything before it was as flat as a statement, which is exactly the point: the direction is the only clue.',
         ref: 's08-rising',
       },
@@ -304,6 +322,7 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         opts: ['A question', 'A statement'],
         correct: 1,
         format: 'listenChoose',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: SHORT[5].fr, speeds: [1, 0.65] },
         why: 'The final syllable fell. Same rhythm as the question, opposite direction on one syllable.',
         ref: 's08-rising',
       },
@@ -329,11 +348,12 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         ref: 's08-rising',
       },
       {
-        q: 'Listen to both. Which one would get answered rather than agreed with?',
-        opts: ['The first', 'The second'],
+        q: 'Listen. Does this want an answer, or agreement?',
+        opts: ['An answer: it is a question', 'Agreement: it is a statement'],
         correct: 0,
         format: 'listenChoose',
-        why: 'The one that rose is a question, so it wants an answer. The one that fell is a statement, so it wants agreement.',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: RISING[3].fr, speeds: [1, 0.65] },
+        why: 'It rose on the last syllable, so it is a question and it wants an answer. A falling ending would be a statement, wanting agreement, with not one word changed.',
         ref: 's08-rising',
       },
       {
@@ -341,6 +361,7 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         opts: ['Yes', 'No, the ending stayed flat'],
         correct: 1,
         format: 'listenChoose',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: RISING[4].fr, speeds: [1, 0.65] },
         why: 'A flat ending reads as a statement whatever the speaker intended. This is the single most common way a French question fails to be heard as one.',
         ref: 's20-errors',
       },
@@ -378,20 +399,20 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         ref: 's11-pairs',
       },
       {
-        q: 'Listen to both. Which one is calling the children to the table?',
-        opts: ['The first', 'The second'],
-        correct: 0,
+        q: 'Listen. How many groups did the voice break this into?',
+        opts: ['One, straight through', 'Two, with a breath in the middle'],
+        correct: 1,
         format: 'listenChoose',
-        why: 'The one that breaks after mange. Two groups, two pushes, and les enfants becomes a form of address rather than the object.',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: MINIMAL_PAIRS[1][0].fr, speeds: [1, 0.65] },
+        why: 'Two, breaking after mange. That break is what turns les enfants into who you are speaking TO rather than what you are eating. One group would mean the other thing.',
         ref: 's11-pairs',
       },
       {
-        q: `Where does the break fall? Type the phrase with a comma: "${GROUPED[0].fr.replace(',', '')}"`,
-        opts: [GROUPED[0].fr],
-        correct: 0,
+        q: `"${GROUPED[0].fr.replace(',', '')}"\n\nThe voice breathes once. Type the LAST WORD before the break.`,
         format: 'typeIn',
-        accept: [GROUPED[0].fr],
-        why: `You can hear it without seeing it: the voice holds a syllable, breathes, then starts flat again. ${GROUPED[0].respell}`,
+        accept: [lastWord(GROUPED[0].fr)],
+        answer: lastWord(GROUPED[0].fr),
+        why: `You can hear it without seeing it: the voice holds that syllable, breathes, then starts flat again. ${GROUPED[0].respell}`,
         ref: 's15-dictation',
       },
       {
@@ -399,6 +420,7 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         opts: ['One', 'Two', 'Three'],
         correct: 2,
         format: 'listenChoose',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: TRIPLES[4].fr, speeds: [1, 0.65] },
         why: 'Count the holds, not the words. Each lengthening followed by a short breath is the end of a group.',
         ref: 's13-three',
       },
@@ -424,11 +446,10 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         ref: 's20-errors',
       },
       {
-        q: `Where does the break fall? Type it with the comma: "${GROUPED[2].fr.replace(',', '')}"`,
-        opts: [GROUPED[2].fr],
-        correct: 0,
+        q: `"${GROUPED[2].fr.replace(',', '')}"\n\nType the LAST WORD before the break.`,
         format: 'typeIn',
-        accept: [GROUPED[2].fr],
+        accept: [lastWord(GROUPED[2].fr)],
+        answer: lastWord(GROUPED[2].fr),
         why: `The break follows the sense: the first group sets the scene and the second says what happened. ${GROUPED[2].respell}`,
         ref: 's15-dictation',
       },
@@ -449,24 +470,25 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         opts: ['Nothing', 'The speaker sped up', 'The speaker paused', 'The pitch rose'],
         correct: 1,
         format: 'listenChoose',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: GROUPED[4].fr, speeds: [1, 0.65] },
         why: 'Rushing the middle is English rhythm reappearing under pressure. Even means even the whole way, including the parts that feel like filler.',
         ref: 's20-errors',
       },
       {
-        q: `Spot the error: "${GROUPED[1].fr}"`,
-        opts: [pushedEarly(GROUPED[1].respell), GROUPED[1].respell],
-        correct: 0,
+        q: `This reading is WRONG: ${pushedEarly(GROUPED[1].respell)}\n\n"${GROUPED[1].fr}"\n\nType the word that should carry the push instead.`,
         format: 'errorSpot',
-        accept: [GROUPED[1].respell],
+        accept: [lastWord(GROUPED[1].fr)],
+        answer: lastWord(GROUPED[1].fr),
         why: `The first group lost its push and the sentence ran on as if it were one group. ${GROUPED[1].respell}`,
         ref: 's10-break',
       },
       {
-        q: 'Listen. Which reading stacks the rules correctly: silent letters, liaison AND even rhythm?',
-        opts: ['The first', 'The second'],
+        q: 'Listen. Where does the voice breathe in this one?',
+        opts: ['It does not, it runs straight through', 'Once, part way', 'Twice'],
         correct: 1,
         format: 'listenChoose',
-        why: 'The other rules decide which sounds exist; rhythm decides how they are spaced. Getting the sounds right and the spacing wrong still sounds foreign.',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: GROUPED[5].fr, speeds: [1, 0.65] },
+        why: 'Once. The other rules of this track decide which sounds exist; rhythm decides how they are spaced, and the breath is where the spacing shows.',
         ref: 's18-layered',
       },
       {
@@ -478,11 +500,10 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         ref: 's17-speak',
       },
       {
-        q: `Spot the error: "${MED[4].fr}"`,
-        opts: [pushedEarly(MED[4].respell), MED[4].respell],
-        correct: 0,
+        q: `This reading is WRONG: ${pushedEarly(MED[4].respell)}\n\n"${MED[4].fr}"\n\nType the word that should carry the push instead.`,
         format: 'errorSpot',
-        accept: [MED[4].respell],
+        accept: [lastWord(MED[4].fr)],
+        answer: lastWord(MED[4].fr),
         why: `The push moved to the word carrying the meaning. French does not do that at any speed. ${MED[4].respell}`,
         ref: 's09-contrast',
       },
@@ -491,6 +512,7 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         opts: ['One', 'Two', 'Three', 'None'],
         correct: 1,
         format: 'listenChoose',
+        audio: { mode: 'tts', lang: 'fr-FR', clip: GROUPED[6].fr, speeds: [1, 0.65] },
         why: 'Two groups, so two pushes. The number of pushes tells you how the speaker grouped it, which is information the written sentence does not always give you.',
         ref: 's16-listening',
       },
@@ -503,11 +525,10 @@ export const RYTHME_QUIZ_ROUNDS: QuizRound[] = [
         ref: 's13-three',
       },
       {
-        q: `Spot the error: "${TRIPLES[3].fr}"`,
-        opts: [pushedEarly(TRIPLES[3].respell), TRIPLES[3].respell],
-        correct: 0,
+        q: `This reading is WRONG: ${pushedEarly(TRIPLES[3].respell)}\n\n"${TRIPLES[3].fr}"\n\nType the word that should carry the push instead.`,
         format: 'errorSpot',
-        accept: [TRIPLES[3].respell],
+        accept: [lastWord(TRIPLES[3].fr)],
+        answer: lastWord(TRIPLES[3].fr),
         why: `A three-group sentence needs three pushes. This one front-loads the first group and lets the rest run flat. ${TRIPLES[3].respell}`,
         ref: 's13-three',
       },

@@ -360,6 +360,93 @@ test('the open formats carry what they need to be answerable', () => {
   }
 });
 
+test('every listenChoose question SPEAKS FRENCH, not its English options', () => {
+  // Found on the device: ListenChooseCard plays
+  // `question.audio?.clip ?? opts[correct]`. With no audio spec it fell back to
+  // the option TEXT, so the card said "The second" in a French TTS voice on all
+  // fourteen questions. A listen-and-choose question that speaks the answer
+  // aloud in English is worse than no audio at all.
+  const quiz = L.sections.find((s) => s.type === 'quiz')!;
+  const lc = quizQuestions(quiz as { rounds?: typeof RYTHME_QUIZ_ROUNDS }).filter(
+    (q) => q.format === 'listenChoose'
+  );
+  ok(lc.length >= 12, 'listenChoose is meant to carry this quiz');
+  const corpusFr = new Set(RYTHME.map((r) => r.fr));
+  for (const q of lc) {
+    const clip = q.audio?.clip;
+    ok(clip, `listenChoose with no audio.clip will speak its English options: "${q.q.slice(0, 50)}"`);
+    ok(
+      corpusFr.has(clip!),
+      `listenChoose clip ${JSON.stringify(clip)} is not a French sentence from this lesson's corpus`
+    );
+  }
+});
+
+test('no listenChoose asks the learner to compare two readings of one clip', () => {
+  // Found on the device. A question worded "which READING is the French one?"
+  // with options "The first" / "The second" needs the card to play TWO
+  // contrasting takes. The card plays ONE clip, and until the studio delivers
+  // a wrong-then-right pair, TTS cannot produce a deliberately mis-stressed
+  // reading at all. So those questions were unanswerable: one clip, and the
+  // learner asked to pick between two of them.
+  //
+  // Every listenChoose must be answerable from a SINGLE hearing. That is a
+  // real constraint on the authoring, not a limitation to work around: "how
+  // many syllables", "where did it breathe", "did it rise or fall" all test
+  // the same skill and all work with one clip.
+  const quiz = L.sections.find((s) => s.type === 'quiz')!;
+  const lc = quizQuestions(quiz as { rounds?: typeof RYTHME_QUIZ_ROUNDS }).filter(
+    (q) => q.format === 'listenChoose'
+  );
+  const bad: string[] = [];
+  for (const q of lc) {
+    const opts = (q.opts ?? []).join(' | ');
+    // Options that only make sense against a pair.
+    if (/^(the )?(first|second)$/iu.test(q.opts?.[0]?.trim() ?? '')) {
+      bad.push(`"${q.q.slice(0, 55)}" -> ${opts}`);
+    }
+    if (/listen to both|which reading|one of these/iu.test(q.q)) {
+      bad.push(`"${q.q.slice(0, 55)}" asks about a pair the card never plays`);
+    }
+  }
+  deepStrictEqual(
+    bad,
+    [],
+    `listenChoose questions that need two clips but get one:\n  ${bad.join('\n  ')}`
+  );
+});
+
+test('a free-text answer is something a learner could actually type', () => {
+  // errorSpot and typeIn share checkAnswer's string-matching branch, so
+  // whatever they accept has to be typeable. An earlier draft asked for a
+  // bracketed respelling ("[eel feh FRWA]"); nobody types that.
+  //
+  // And `fold()` STRIPS COMMAS, so a question asking the learner to place a
+  // comma marks right and wrong identically. Two typeIn questions did exactly
+  // that: they asked "type the phrase with a comma" and could not tell whether
+  // one had been typed.
+  const quiz = L.sections.find((s) => s.type === 'quiz')!;
+  const open = quizQuestions(quiz as { rounds?: typeof RYTHME_QUIZ_ROUNDS }).filter(
+    (q) => q.format === 'errorSpot' || q.format === 'typeIn'
+  );
+  for (const q of open) {
+    for (const a of q.accept ?? []) {
+      ok(!a.includes('['), `${q.format} accepts a bracketed respelling, which is not typeable: ${a}`);
+      ok(!a.includes('/'), `${q.format} accepts an IPA transcription, which is not typeable: ${a}`);
+      ok(
+        a.trim().split(/\s+/u).length <= 3,
+        `${q.format} accepts a ${a.trim().split(/\s+/u).length}-word answer; keep free text short: "${a}"`
+      );
+    }
+    // The distinguishing feature must survive folding, or the question cannot
+    // mark itself.
+    ok(
+      !/type the phrase with a comma|type it with the comma/iu.test(q.q),
+      `"${q.q.slice(0, 50)}" asks for a comma, which fold() strips before comparing`
+    );
+  }
+});
+
 /* ─── Audio ───────────────────────────────────────────────────────────────── */
 
 test('every recordingId a section names is declared in lesson.audio.recorded', () => {

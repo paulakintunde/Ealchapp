@@ -24148,14 +24148,25 @@
                   "ref": "s04-even"
                 },
                 {
-                  "q": "Listen. Which reading gives every syllable the same length?",
+                  "q": "Listen. How many syllables did you hear?",
                   "opts": [
-                    "The first",
-                    "The second"
+                    "Two",
+                    "Four",
+                    "Five",
+                    "Three"
                   ],
-                  "correct": 1,
+                  "correct": 3,
                   "format": "listenChoose",
-                  "why": "The first stretches one syllable in the middle and hurries the rest, which is English rhythm. The second keeps them even and holds only the last one.",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Le chat dort.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
+                  "why": "Three, and all three the same length. Counting them is the first skill: an English ear tends to hear the stretched one as \"the\" syllable and lose the others.",
                   "ref": "s04-even"
                 },
                 {
@@ -24180,14 +24191,25 @@
                   "ref": "s03-anchors"
                 },
                 {
-                  "q": "Listen. One of these swallows a syllable. Which one is the French reading?",
+                  "q": "Listen. Which syllable was held the longest?",
                   "opts": [
-                    "The first",
-                    "The second"
+                    "The opening syllable",
+                    "The middle one",
+                    "The last",
+                    "None, they were equal"
                   ],
-                  "correct": 0,
+                  "correct": 2,
                   "format": "listenChoose",
-                  "why": "The second collapses a middle syllable the way English would. In French that syllable is as long as its neighbours.",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "C'est trop chaud.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
+                  "why": "The last, and only slightly. If you heard a middle syllable stand out, that was an English ear supplying a stress the speaker did not make.",
                   "ref": "s04-even"
                 },
                 {
@@ -24215,12 +24237,21 @@
                   "q": "Listen to the four-syllable phrase. How many syllables were held longer than the others?",
                   "opts": [
                     "None",
-                    "One",
                     "Two",
-                    "All four"
+                    "All four",
+                    "One"
                   ],
-                  "correct": 1,
+                  "correct": 3,
                   "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Il neige beaucoup.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
                   "why": "Exactly one, the last. If you heard two, one of them was an English stress arriving early.",
                   "ref": "s04-check"
                 }
@@ -24252,28 +24283,34 @@
                   "ref": "s07-push"
                 },
                 {
-                  "q": "Which respelling puts the push in the right place for \"Il pleut beaucoup dehors.\"?",
-                  "opts": [
-                    "[EEL pluh boh-koo duh-ohr]",
-                    "[eel pluh boh-koo duh-OHR]"
-                  ],
-                  "correct": 1,
+                  "q": "This reading is WRONG: [EEL pluh boh-koo duh-ohr]\n\n\"Il pleut beaucoup dehors.\"\n\nType the word that should carry the push instead.",
                   "format": "errorSpot",
                   "accept": [
-                    "[eel pluh boh-koo duh-OHR]"
+                    "dehors"
                   ],
-                  "why": "The CAPS syllable is the pushed one, and it belongs at the end of the group. [eel pluh boh-koo duh-OHR]",
+                  "answer": "dehors",
+                  "why": "The push goes on the last word of the group, not on the word that carries the meaning. [eel pluh boh-koo duh-OHR]",
                   "ref": "s07-push"
                 },
                 {
-                  "q": "Listen. Which reading is the French one?",
+                  "q": "Listen. Which word did the voice hold at the end?",
                   "opts": [
-                    "The one pushing the important word",
-                    "The one pushing the last syllable"
+                    "dehors",
+                    "Il",
+                    "pleut"
                   ],
-                  "correct": 1,
+                  "correct": 0,
                   "format": "listenChoose",
-                  "why": "The first is an English speaker marking what they think matters. French marks the end of the group and lets the words carry their own weight.",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Il pleut beaucoup dehors.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
+                  "why": "The last word of the group, every time. French marks the end by position and lets the words carry their own weight, where English would lean on whichever word it thought mattered.",
                   "ref": "s09-contrast"
                 },
                 {
@@ -24285,16 +24322,12 @@
                   "ref": "s07-push"
                 },
                 {
-                  "q": "Spot the error: \"Le grand lit est confortable.\"",
-                  "opts": [
-                    "[LUH grahⁿ lee eh kohⁿ-fohr-tabl]",
-                    "[luh grahⁿ lee eh kohⁿ-fohr-TABL]"
-                  ],
-                  "correct": 0,
+                  "q": "This reading is WRONG: [LUH grahⁿ lee eh kohⁿ-fohr-tabl]\n\n\"Le grand lit est confortable.\"\n\nType the word that should carry the push instead.",
                   "format": "errorSpot",
                   "accept": [
-                    "[luh grahⁿ lee eh kohⁿ-fohr-TABL]"
+                    "confortable"
                   ],
+                  "answer": "confortable",
                   "why": "The push landed early, on the first content word. That is the English instinct. It belongs on the group-final syllable: [luh grahⁿ lee eh kohⁿ-fohr-TABL]",
                   "ref": "s09-contrast"
                 },
@@ -24320,6 +24353,15 @@
                   ],
                   "correct": 2,
                   "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Il reste debout très longtemps.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
                   "why": "At the end of the group, as always. Whatever the sentence is about, the position does not move.",
                   "ref": "s07-push"
                 },
@@ -24363,6 +24405,15 @@
                   ],
                   "correct": 0,
                   "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Il pleut encore ?",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
                   "why": "The final syllable went up. Everything before it was as flat as a statement, which is exactly the point: the direction is the only clue.",
                   "ref": "s08-rising"
                 },
@@ -24382,6 +24433,15 @@
                   ],
                   "correct": 1,
                   "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Je pars bientôt.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
                   "why": "The final syllable fell. Same rhythm as the question, opposite direction on one syllable.",
                   "ref": "s08-rising"
                 },
@@ -24407,14 +24467,23 @@
                   "ref": "s08-rising"
                 },
                 {
-                  "q": "Listen to both. Which one would get answered rather than agreed with?",
+                  "q": "Listen. Does this want an answer, or agreement?",
                   "opts": [
-                    "The first",
-                    "The second"
+                    "An answer: it is a question",
+                    "Agreement: it is a statement"
                   ],
                   "correct": 0,
                   "format": "listenChoose",
-                  "why": "The one that rose is a question, so it wants an answer. The one that fell is a statement, so it wants agreement.",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "C'est trop tard ?",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
+                  "why": "It rose on the last syllable, so it is a question and it wants an answer. A falling ending would be a statement, wanting agreement, with not one word changed.",
                   "ref": "s08-rising"
                 },
                 {
@@ -24425,6 +24494,15 @@
                   ],
                   "correct": 1,
                   "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Tu m'entends bien ?",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
                   "why": "A flat ending reads as a statement whatever the speaker intended. This is the single most common way a French question fails to be heard as one.",
                   "ref": "s20-errors"
                 }
@@ -24469,27 +24547,33 @@
                   "ref": "s11-pairs"
                 },
                 {
-                  "q": "Listen to both. Which one is calling the children to the table?",
+                  "q": "Listen. How many groups did the voice break this into?",
                   "opts": [
-                    "The first",
-                    "The second"
+                    "One, straight through",
+                    "Two, with a breath in the middle"
                   ],
-                  "correct": 0,
+                  "correct": 1,
                   "format": "listenChoose",
-                  "why": "The one that breaks after mange. Two groups, two pushes, and les enfants becomes a form of address rather than the object.",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "On mange, les enfants.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
+                  "why": "Two, breaking after mange. That break is what turns les enfants into who you are speaking TO rather than what you are eating. One group would mean the other thing.",
                   "ref": "s11-pairs"
                 },
                 {
-                  "q": "Where does the break fall? Type the phrase with a comma: \"J'ai trop froid ce matin je reste sous les draps.\"",
-                  "opts": [
-                    "J'ai trop froid ce matin, je reste sous les draps."
-                  ],
-                  "correct": 0,
+                  "q": "\"J'ai trop froid ce matin je reste sous les draps.\"\n\nThe voice breathes once. Type the LAST WORD before the break.",
                   "format": "typeIn",
                   "accept": [
-                    "J'ai trop froid ce matin, je reste sous les draps."
+                    "matin"
                   ],
-                  "why": "You can hear it without seeing it: the voice holds a syllable, breathes, then starts flat again. [zhay troh frwa suh ma-TAⁿ | zhuh rehst soo lay DRA]",
+                  "answer": "matin",
+                  "why": "You can hear it without seeing it: the voice holds that syllable, breathes, then starts flat again. [zhay troh frwa suh ma-TAⁿ | zhuh rehst soo lay DRA]",
                   "ref": "s15-dictation"
                 },
                 {
@@ -24501,6 +24585,15 @@
                   ],
                   "correct": 2,
                   "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Après le travail, il rentre, et il dort.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
                   "why": "Count the holds, not the words. Each lengthening followed by a short breath is the end of a group.",
                   "ref": "s13-three"
                 },
@@ -24526,15 +24619,12 @@
                   "ref": "s20-errors"
                 },
                 {
-                  "q": "Where does the break fall? Type it with the comma: \"Le soir je lis un peu.\"",
-                  "opts": [
-                    "Le soir, je lis un peu."
-                  ],
-                  "correct": 0,
+                  "q": "\"Le soir je lis un peu.\"\n\nType the LAST WORD before the break.",
                   "format": "typeIn",
                   "accept": [
-                    "Le soir, je lis un peu."
+                    "soir"
                   ],
+                  "answer": "soir",
                   "why": "The break follows the sense: the first group sets the scene and the second says what happened. [luh SWAR | zhuh lee uhⁿ PUH]",
                   "ref": "s15-dictation"
                 }
@@ -24563,32 +24653,47 @@
                   ],
                   "correct": 1,
                   "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Après le repas, on marche dans le parc.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
                   "why": "Rushing the middle is English rhythm reappearing under pressure. Even means even the whole way, including the parts that feel like filler.",
                   "ref": "s20-errors"
                 },
                 {
-                  "q": "Spot the error: \"Il est tard, le petit village dort sous la neige.\"",
-                  "opts": [
-                    "[EEL eh tar | luh puh-tee vee-lazh dohr soo la nehzh]",
-                    "[eel eh TAR | luh puh-tee vee-lazh dohr soo la NEHZH]"
-                  ],
-                  "correct": 0,
+                  "q": "This reading is WRONG: [EEL eh tar | luh puh-tee vee-lazh dohr soo la nehzh]\n\n\"Il est tard, le petit village dort sous la neige.\"\n\nType the word that should carry the push instead.",
                   "format": "errorSpot",
                   "accept": [
-                    "[eel eh TAR | luh puh-tee vee-lazh dohr soo la NEHZH]"
+                    "tard"
                   ],
+                  "answer": "tard",
                   "why": "The first group lost its push and the sentence ran on as if it were one group. [eel eh TAR | luh puh-tee vee-lazh dohr soo la NEHZH]",
                   "ref": "s10-break"
                 },
                 {
-                  "q": "Listen. Which reading stacks the rules correctly: silent letters, liaison AND even rhythm?",
+                  "q": "Listen. Where does the voice breathe in this one?",
                   "opts": [
-                    "The first",
-                    "The second"
+                    "It does not, it runs straight through",
+                    "Once, part way",
+                    "Twice"
                   ],
                   "correct": 1,
                   "format": "listenChoose",
-                  "why": "The other rules decide which sounds exist; rhythm decides how they are spaced. Getting the sounds right and the spacing wrong still sounds foreign.",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Ce soir, il rentre très tard.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
+                  "why": "Once. The other rules of this track decide which sounds exist; rhythm decides how they are spaced, and the breath is where the spacing shows.",
                   "ref": "s18-layered"
                 },
                 {
@@ -24600,16 +24705,12 @@
                   "ref": "s17-speak"
                 },
                 {
-                  "q": "Spot the error: \"Tu pars toujours si tôt.\"",
-                  "opts": [
-                    "[TÜ par too-zhoor see toh]",
-                    "[tü par too-zhoor see TOH]"
-                  ],
-                  "correct": 0,
+                  "q": "This reading is WRONG: [TÜ par too-zhoor see toh]\n\n\"Tu pars toujours si tôt.\"\n\nType the word that should carry the push instead.",
                   "format": "errorSpot",
                   "accept": [
-                    "[tü par too-zhoor see TOH]"
+                    "tôt"
                   ],
+                  "answer": "tôt",
                   "why": "The push moved to the word carrying the meaning. French does not do that at any speed. [tü par too-zhoor see TOH]",
                   "ref": "s09-contrast"
                 },
@@ -24623,6 +24724,15 @@
                   ],
                   "correct": 1,
                   "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "En hiver, les jours sont courts.",
+                    "speeds": [
+                      1,
+                      0.65
+                    ]
+                  },
                   "why": "Two groups, so two pushes. The number of pushes tells you how the speaker grouped it, which is information the written sentence does not always give you.",
                   "ref": "s16-listening"
                 },
@@ -24635,16 +24745,12 @@
                   "ref": "s13-three"
                 },
                 {
-                  "q": "Spot the error: \"Le samedi, je lis, ou je marche.\"",
-                  "opts": [
-                    "[LUH sam-dee | zhuh lee | oo zhuh marsh]",
-                    "[luh sam-DEE | zhuh LEE | oo zhuh MARSH]"
-                  ],
-                  "correct": 0,
+                  "q": "This reading is WRONG: [LUH sam-dee | zhuh lee | oo zhuh marsh]\n\n\"Le samedi, je lis, ou je marche.\"\n\nType the word that should carry the push instead.",
                   "format": "errorSpot",
                   "accept": [
-                    "[luh sam-DEE | zhuh LEE | oo zhuh MARSH]"
+                    "samedi"
                   ],
+                  "answer": "samedi",
                   "why": "A three-group sentence needs three pushes. This one front-loads the first group and lets the rest run flat. [luh sam-DEE | zhuh LEE | oo zhuh MARSH]",
                   "ref": "s13-three"
                 }
@@ -157307,7 +157413,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel feh FRWA]"
     },
@@ -157332,7 +157438,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh sha DOHR]"
     },
@@ -157357,7 +157463,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü lee TROH]"
     },
@@ -157382,7 +157488,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[seh troh SHOH]"
     },
@@ -157407,7 +157513,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel nehzh boh-KOO]"
     },
@@ -157432,7 +157538,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[zhuh par byaⁿ-TOH]"
     },
@@ -157457,7 +157563,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[too va BYAⁿ]"
     },
@@ -157482,7 +157588,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel a-reev TAR]"
     },
@@ -157507,7 +157613,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh tahⁿ eh GREE]"
     },
@@ -157532,7 +157638,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh ruh-pa eh PREH]"
     },
@@ -157557,7 +157663,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü vyaⁿ troh TAR]"
     },
@@ -157582,7 +157688,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[zhay frwa oh PYAY]"
     },
@@ -157607,7 +157713,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[mohⁿ sha mahⁿzh TROH]"
     },
@@ -157632,7 +157738,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel pluh boh-koo duh-OHR]"
     },
@@ -157657,7 +157763,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[mohⁿ vwa-zaⁿ parl FOHR]"
     },
@@ -157682,7 +157788,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[suh pla sahⁿ BOHⁿ]"
     },
@@ -157707,7 +157813,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[lehr frwa peek fohr duh-OHR]"
     },
@@ -157732,7 +157838,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh grahⁿ lee eh kohⁿ-fohr-TABL]"
     },
@@ -157757,7 +157863,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[zhuh bwa uhⁿ shoh-koh-la SHOH]"
     },
@@ -157782,7 +157888,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü par too-zhoor see TOH]"
     },
@@ -157807,7 +157913,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[mohⁿ doh muh feh MAL]"
     },
@@ -157832,7 +157938,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel rehst duh-boo treh lohⁿ-TAHⁿ]"
     },
@@ -157857,7 +157963,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh vahⁿ suh lehv ahⁿ-FAⁿ]"
     },
@@ -157882,7 +157988,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehl pohrt uhⁿ sha-poh BLAHⁿ]"
     },
@@ -157907,7 +158013,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh loo koor dahⁿ lay BWA]"
     },
@@ -157932,7 +158038,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel feh shoh duh-pwee trwa ZHOOR]"
     },
@@ -157958,7 +158064,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh traⁿ par dahⁿ-z‿uhⁿ-n‿aⁿs-TAHⁿ]"
     },
@@ -157983,7 +158089,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[zhuh rahⁿtr tar too lay SWAR]"
     },
@@ -158008,7 +158114,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh twa eh koo-vehr duh NEHZH]"
     },
@@ -158033,7 +158139,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel meh dü see-roh dahⁿ LOH]"
     },
@@ -158058,7 +158164,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehl prahⁿ sohⁿ tahⁿ luh ma-TAⁿ]"
     },
@@ -158083,7 +158189,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[uhⁿ sha blahⁿ tra-vehrs la RÜ]"
     },
@@ -158108,7 +158214,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh puh-tee sha graⁿp sür luh LEE]"
     },
@@ -158133,7 +158239,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[suh groh mahⁿ-toh gree eh troh GRAHⁿ]"
     },
@@ -158157,7 +158263,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh ruh-pa suh-ra preh dahⁿ vaⁿ mee-NÜT]"
     },
@@ -158182,7 +158288,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[noo par-tohⁿ troh tar poor luh TRAⁿ]"
     },
@@ -158207,7 +158313,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[suh grahⁿ pohⁿ tra-vehrs uhⁿ fluhv proh-FOHⁿ]"
     },
@@ -158232,7 +158338,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel a-tahⁿ sohⁿ-n‿a-mee duh-vahⁿ luh POHR]"
     },
@@ -158257,7 +158363,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehl a-sheht uhⁿ frwee ay dü PAⁿ]"
     },
@@ -158283,7 +158389,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh tahⁿ pas veet kahⁿ-t‿ohⁿ REE]"
     },
@@ -158309,7 +158415,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[zhuh meh mohⁿ mahⁿ-toh kahⁿ-t‿eel feh FRWA]"
     },
@@ -158333,7 +158439,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh puh-tee gar-sohⁿ zhoo duh-vahⁿ la grahⁿd meh-ZOHⁿ]"
     },
@@ -158358,7 +158464,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel eh troh tar poor sohr-teer suh SWAR]"
     },
@@ -158383,7 +158489,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[noo pruh-nohⁿ-z‿uhⁿ ruh-pa shoh too lay SWAR]"
     },
@@ -158408,7 +158514,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[uhⁿ vahⁿ frwa day-sahⁿ sür luh vyuh POHR]"
     },
@@ -158432,7 +158538,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[mohⁿ grahⁿ frehr tra-vay boh-koo duh-pwee luh praⁿ-TAHⁿ]"
     },
@@ -158456,7 +158562,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[zhuh prahⁿ too-zhoor troh duh tahⁿ luh ma-TAⁿ]"
     },
@@ -158481,7 +158587,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh sha gree soht dü lee oh ta-PEE]"
     },
@@ -158505,7 +158611,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehl bwa uhⁿ shoh-koh-la shoh oh kwaⁿ dü FUH]"
     },
@@ -158529,7 +158635,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel zhehl troh fohr poor mar-shay dahⁿ lay BWA]"
     },
@@ -158554,7 +158660,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[mohⁿ-n‿a-mee par duh-maⁿ ma-taⁿ poor uhⁿ lohⁿ vwa-YAZH]"
     },
@@ -158579,7 +158685,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[noo rehs-tohⁿ-z‿oh shoh kahⁿ luh vahⁿ duh-vyaⁿ FOHR]"
     },
@@ -158604,7 +158710,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh dee-nay eh sehr-vee duh-pwee-z‿uhⁿ lohⁿ moh-mahⁿ day-ZHA]"
     },
@@ -158628,7 +158734,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehl rahⁿtr soo-vahⁿ tar a-preh sohⁿ koor duh frahⁿ-SEH]"
     },
@@ -158653,7 +158759,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel rehst uhⁿ puh duh ree dahⁿ luh PLA]"
     },
@@ -158677,7 +158783,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh grahⁿ pohⁿ eh fehr-may duh-pwee luh mwa DOOT]"
     },
@@ -158701,7 +158807,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh puh-tee shyaⁿ koor a-preh luh sha dahⁿ luh zhar-DAⁿ]"
     },
@@ -158727,7 +158833,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[zhay troh frwa suh ma-TAⁿ | zhuh rehst soo lay DRA]"
     },
@@ -158752,7 +158858,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[noo mar-shohⁿ lohⁿ-tahⁿ dahⁿ lay shahⁿ kahⁿ-t‿eel feh BOH]"
     },
@@ -158776,7 +158882,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[mohⁿ grahⁿ-pehr suh ruh-pohz too-zhoor uhⁿ puh a-preh luh ruh-PA]"
     },
@@ -158800,7 +158906,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh vahⁿ dü nohr soofl treh fohr sür luh SHAHⁿ]"
     },
@@ -158825,7 +158931,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[zhuh prahⁿ-z‿uhⁿ frwee ay dü ree blahⁿ oh dee-NAY]"
     },
@@ -158851,7 +158957,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel eh TAR | luh puh-tee vee-lazh dohr soo la NEHZH]"
     },
@@ -158876,7 +158982,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü vyaⁿ duh-MAⁿ]"
     },
@@ -158901,7 +159007,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[voo par-tay day-ZHA]"
     },
@@ -158926,7 +159032,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel pluh ahⁿ-KOHR]"
     },
@@ -158951,7 +159057,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[seh troh TAR]"
     },
@@ -158976,7 +159082,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü mahⁿ-tahⁿ BYAⁿ]"
     },
@@ -159001,7 +159107,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehl dohr day-ZHA]"
     },
@@ -159026,7 +159132,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh tü VYAⁿ]"
     },
@@ -159051,7 +159157,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü a luh TAHⁿ]"
     },
@@ -159076,7 +159182,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh sa MARSH]"
     },
@@ -159102,7 +159208,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[voo-z‿a-vay ün kehs-TYOHⁿ]"
     },
@@ -159127,7 +159233,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh puh-tee dohr ahⁿ-KOHR]"
     },
@@ -159152,7 +159258,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh seh LWAⁿ]"
     },
@@ -159177,7 +159283,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ohⁿ par suh SWAR]"
     },
@@ -159202,7 +159308,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel feh troh SHOH]"
     },
@@ -159227,7 +159333,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh tü em SA]"
     },
@@ -159253,7 +159359,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü vuh uhⁿ-n‿ohtr ka-FAY]"
     },
@@ -159278,7 +159384,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh luh büs a-REEV]"
     },
@@ -159303,7 +159409,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[voo fehr-may byaⁿ-toh suh SWAR]"
     },
@@ -159328,7 +159434,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel eh day-zha troh TAR]"
     },
@@ -159353,7 +159459,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh tohⁿ frehr VYAⁿ]"
     },
@@ -159378,7 +159484,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü prahⁿ luh grahⁿ SAK]"
     },
@@ -159403,7 +159509,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ohⁿ suh vwa duh-maⁿ ma-TAⁿ]"
     },
@@ -159428,7 +159534,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh tü a byaⁿ dohr-MEE]"
     },
@@ -159453,7 +159559,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[voo voo-lay uhⁿ puh duh PAⁿ]"
     },
@@ -159479,7 +159585,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh luh ma-ga-zaⁿ eh-t‿oo-VEHR]"
     },
@@ -159504,7 +159610,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü puh pa-say shay mwa duh-MAⁿ]"
     },
@@ -159529,7 +159635,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh sa koot troh SHEHR]"
     },
@@ -159554,7 +159660,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel rehst uhⁿ puh duh SOOP]"
     },
@@ -159580,7 +159686,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh voo-z‿a-bee-tay preh dee-SEE]"
     },
@@ -159605,7 +159711,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ohⁿ prahⁿ luh traⁿ suh ma-TAⁿ]"
     },
@@ -159630,7 +159736,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh tü vuh vuh-neer a-vehk NOO]"
     },
@@ -159655,7 +159761,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[voo-z‿a-vay day-zha mahⁿ-zhay kehl-kuh shohz oh-zhoor-DWEE]"
     },
@@ -159680,7 +159786,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh luh puh-tee a byaⁿ mahⁿ-ZHAY]"
     },
@@ -159705,7 +159811,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü krwa keel va pluh-vwar suh SWAR]"
     },
@@ -159729,7 +159835,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh voo par-tay toh duh-maⁿ ma-TAⁿ]"
     },
@@ -159754,7 +159860,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü gard ün plas poor MWA]"
     },
@@ -159779,7 +159885,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh ta suhr tra-vay suh sam-DEE]"
     },
@@ -159804,7 +159910,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ohⁿ puh leh-say lay sak dahⁿ loh-TOH]"
     },
@@ -159829,7 +159935,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh tü a luh tahⁿ duh pa-SAY]"
     },
@@ -159854,7 +159960,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü pahⁿs kuh luh ma-ga-zaⁿ eh-t‿ahⁿ-kohr oo-VEHR]"
     },
@@ -159880,7 +159986,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh luh feelm koh-mahⁿs a seh-T‿UHR]"
     },
@@ -159904,7 +160010,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[voo voo-lay prahⁿdr uhⁿ ka-fay a-vahⁿ luh KOOR]"
     },
@@ -159928,7 +160034,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh voo vuh-nay soo-pay shay noo sam-DEE]"
     },
@@ -159952,7 +160058,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü a vü may klay kehl-kuh par ee-SEE]"
     },
@@ -159977,7 +160083,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-keel rehst day bee-yeh poor suh SWAR]"
     },
@@ -160001,7 +160107,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehl vyaⁿ a-vehk noo oh mar-shay duh-maⁿ ma-TAⁿ]"
     },
@@ -160025,7 +160131,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[voo pahⁿ-say kuh luh koh-lee va a-ree-vay duh-maⁿ ma-TAⁿ]"
     },
@@ -160050,7 +160156,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh tü puh gar-day lay-z‿ahⁿ-fahⁿ suh SWAR]"
     },
@@ -160075,7 +160181,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ohⁿ-n‿a luh tahⁿ duh mahⁿ-zhay a-vahⁿ luh FEELM]"
     },
@@ -160100,7 +160206,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh luh traⁿ par too-zhoor a nuh-V‿UHR]"
     },
@@ -160124,7 +160230,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü krwa kuh la nehzh va tohⁿ-bay seht NWEE]"
     },
@@ -160148,7 +160254,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh voo pruh-nay la kart dahⁿ suh ka-FAY]"
     },
@@ -160172,7 +160278,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel ee a ün far-ma-see preh duh la GAR]"
     },
@@ -160197,7 +160303,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh tohⁿ-n‿a-mee zhoo oh oh-keh suh SWAR]"
     },
@@ -160221,7 +160327,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel ee a uhⁿ büs poor luh sahⁿtr a-preh mee-NWEE]"
     },
@@ -160245,7 +160351,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh tü vuh mar-shay uhⁿ puh a-vahⁿ luh soo-PAY]"
     },
@@ -160270,7 +160376,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[voo krwa-yay kuh la bahⁿk oovr a-vahⁿ dee-z‿uhr duh-MAⁿ]"
     },
@@ -160295,7 +160401,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh lay-z‿ahⁿ-fahⁿ puhv zhoo-ay duh-ohr ahⁿ-kohr uhⁿ PUH]"
     },
@@ -160319,7 +160425,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü pahⁿs kuh suh puh-tee rehs-toh eh troh SHEHR]"
     },
@@ -160344,7 +160450,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehs-kuh tohⁿ-n‿a-mee a-reev a-vahⁿ la faⁿ dü KOOR]"
     },
@@ -160368,7 +160474,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ohⁿ puh poh-zay ün kehs-tyohⁿ pahⁿ-dahⁿ la pohz suh ma-TAⁿ]"
     },
@@ -160394,7 +160500,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh SWAR | zhuh lee uhⁿ PUH]"
     },
@@ -160420,7 +160526,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh ma-TAⁿ | zhuh bwa mohⁿ ka-fay trahⁿ-keel-MAHⁿ]"
     },
@@ -160445,7 +160551,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel feh troh frwa suh SWAR]"
     },
@@ -160470,7 +160576,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[mohⁿ puh-tee frehr dohr ahⁿ-KOHR]"
     },
@@ -160496,7 +160602,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[a-preh luh ruh-PA | ohⁿ marsh dahⁿ luh PARK]"
     },
@@ -160522,7 +160628,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[suh SWAR | eel rahⁿtr treh TAR]"
     },
@@ -160547,7 +160653,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh tahⁿ pas veet ee-SEE]"
     },
@@ -160574,7 +160680,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ahⁿ-n‿ee-VEHR | lay zhoor sohⁿ KOOR]"
     },
@@ -160600,7 +160706,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh grahⁿ ma-ga-zaⁿ fehrm a wee-T‿UHR]"
     },
@@ -160626,7 +160732,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[shak ma-TAⁿ | zhuh prahⁿ luh BÜS | pwee luh may-TROH]"
     },
@@ -160652,7 +160758,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh sam-DEE | ohⁿ dohr uhⁿ puh plü lohⁿ-TAHⁿ]"
     },
@@ -160679,7 +160785,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel parl doos-MAHⁿ | meh too luh mohⁿ-d‿ay-KOOT]"
     },
@@ -160705,7 +160811,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[mohⁿ fees eh puh-TEE | meh eel koor VEET]"
     },
@@ -160730,7 +160836,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh ka-fay eh troh shoh poor MWA]"
     },
@@ -160756,7 +160862,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[a-preh luh tra-VAY | ehl pas shay sa MEHR]"
     },
@@ -160781,7 +160887,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh vahⁿ soofl fohr suh ma-TAⁿ]"
     },
@@ -160808,7 +160914,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ahⁿ-n‿ay-TAY | ohⁿ mahⁿzh duh-OHR | sür la teh-RAS]"
     },
@@ -160834,7 +160940,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh traⁿ par a mee-DEE | sahⁿ ruh-TAR]"
     },
@@ -160860,7 +160966,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ma grahⁿd suhr a-beet LWAⁿ | preh duh kay-BEHK]"
     },
@@ -160885,7 +160991,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel nehzh boh-koo seht suh-MEN]"
     },
@@ -160910,7 +161016,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh sha dohr toot la zhoor-NAY]"
     },
@@ -160936,7 +161042,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ohⁿ par duh-MAⁿ | treh TOH | a-vahⁿ luh luh-vay dü soh-LEHY]"
     },
@@ -160962,7 +161068,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh prohf parl lahⁿt-MAHⁿ | ay noo ray-pay-tohⁿ ahⁿ-SAHⁿBL]"
     },
@@ -160988,7 +161094,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[zhuh tra-vay TROH | zhuh dohr MAL]"
     },
@@ -161014,7 +161120,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh paⁿ eh SHOH | eel sohr dü FOOR]"
     },
@@ -161040,7 +161146,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh SWAR | la veel duh-vyaⁿ KALM]"
     },
@@ -161065,7 +161171,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[mohⁿ vwa-zaⁿ shahⁿt fohr soo la DOOSH]"
     },
@@ -161092,7 +161198,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel pluh duh-pwee suh ma-TAⁿ | sahⁿ-z‿a-REH]"
     },
@@ -161119,7 +161225,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[noo mahⁿ-zhohⁿ TOH | vehr see-Z‿UHR]"
     },
@@ -161143,7 +161249,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh puh-tee shyaⁿ a-tahⁿ duh-vahⁿ la POHRT]"
     },
@@ -161169,7 +161275,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ehl a-reev too-zhoor ahⁿ ruh-TAR | meh ehl sehk-SKÜZ]"
     },
@@ -161195,7 +161301,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh lak rehst FRWA | mem ahⁿ zhwee-YEH]"
     },
@@ -161221,7 +161327,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[ohⁿ parl troh VEET | eel nuh kohⁿ-prahⁿ PA]"
     },
@@ -161246,7 +161352,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh ma-ga-zaⁿ oovr tar luh dee-MAHⁿSH]"
     },
@@ -161272,7 +161378,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[zhuh lee luh SWAR | a-vahⁿ duh dohr-MEER]"
     },
@@ -161298,7 +161404,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh bay-bay pluhr la NWEE | pwee eel suh KALM]"
     },
@@ -161324,7 +161430,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[noo par-tohⁿ byaⁿ-TOH | luh tahⁿ duh fehr-may la meh-ZOHⁿ]"
     },
@@ -161350,7 +161456,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[eel feh BOH | ohⁿ SOHR]"
     },
@@ -161376,7 +161482,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[tü parl FOHR | luh bay-bay DOHR]"
     },
@@ -161403,7 +161509,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[luh ruh-pa eh PREH | too luh mohⁿ-d‿a-REEV]"
     },
@@ -161430,7 +161536,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant",
       "respell": "[lay fuhy TOHⁿB | luh vahⁿ lay-z‿ahⁿ-POHRT]"
     },
@@ -167434,7 +167540,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167461,7 +167567,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167490,7 +167596,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167518,7 +167624,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167546,7 +167652,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167573,7 +167679,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167601,7 +167707,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167628,7 +167734,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167656,7 +167762,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167683,7 +167789,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167711,7 +167817,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167738,7 +167844,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167766,7 +167872,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167793,7 +167899,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167821,7 +167927,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167848,7 +167954,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167875,7 +167981,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167902,7 +168008,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167930,7 +168036,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167957,7 +168063,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -167984,7 +168090,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -168011,7 +168117,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -168039,7 +168145,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     },
     {
@@ -168066,7 +168172,7 @@
         "voiceflash"
       ],
       "audioRef": null,
-      "version": 2,
+      "version": 4,
       "register": "courant"
     }
   ],
