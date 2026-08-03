@@ -18,6 +18,28 @@ import { LessonModal } from '@/components/LessonModal';
 // One implementation of "this deck moves sideways", shared with SwipeDeck.
 // LessonDeck does not import from here, so this adds no cycle.
 import { SwipeAffordance } from '@/components/LessonDeck';
+import { BeatRow, fits as beatFits } from '@/components/BeatRow';
+
+/** The rhythm groups of an item, or null when a beat row is not the right thing
+ *  to draw.
+ *
+ *  Gated on the `tappable` TAG rather than on the shape of the IPA. An earlier
+ *  version required a dot or a break mark in the transcription and drew nothing
+ *  for "Il fait froid" /il fɛ fʁwa/, whose three syllables are three separate
+ *  words and so carry neither: a word boundary is a syllable boundary too, and
+ *  that item is exactly the one the first tap-the-beat card teaches. The tag is
+ *  the honest signal, because it is computed from the same syllable split that
+ *  BeatRow lays out and it already encodes the legibility cap.
+ *
+ *  `beatFits` is still consulted, so a mistagged item degrades to the monogram
+ *  rather than drawing an unreadable row. */
+function beatGroups(item: { ipa?: string | null; tags?: string[] }): string[][] | null {
+  if (!item.ipa || !item.tags?.includes('tappable')) return null;
+  const bare = item.ipa.replace(/^\/|\/$/gu, '').trim();
+  const groups = bare.split('|').map((g) => g.trim().split(/[ .]+/u).filter(Boolean));
+  if (!groups.length || groups.some((g) => !g.length)) return null;
+  return beatFits(groups) ? groups : null;
+}
 import { useTheme } from '@/theme/useTheme';
 import { useCardHeight, useMeasuredCardHeight } from '@/hooks/useCardHeight';
 import { useT } from '@/i18n/useT';
@@ -1114,11 +1136,24 @@ export function PracticeVFView({
               still ran past the bottom of a measured box. A fixed height is
               what makes the measurement binding. */}
           <View style={{ height: cardH, borderRadius: 24, borderWidth: 1, borderColor: t.line(10), backgroundColor: t.card2, paddingVertical: 26, paddingHorizontal: 24, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-            <View style={{ width: 96, height: 96, borderRadius: 48, backgroundColor: t.accA(10), borderWidth: 1, borderColor: t.accA(30), alignItems: 'center', justifyContent: 'center', marginBottom: 16, overflow: 'hidden' }}>
-              <TX font="serifI" size={40} role="display" color={t.accTx}>
-                {item.fr.replace(/^(le |la |les |l')/i, '').charAt(0).toUpperCase()}
-              </TX>
-            </View>
+            {/* A rhythm item shows its BEAT instead of its initial letter.
+                sons.08 teaches a property of the whole phrase over time, and an
+                initial-letter monogram says nothing about it: the mission is
+                titled "Tap the beat", so there has to be a beat to tap. Any
+                item whose IPA carries syllable divisions gets the row; anything
+                else (and any phrase too long to draw legibly, see BeatRow's
+                cap) keeps the monogram, so every other lesson is untouched. */}
+            {beatGroups(item) ? (
+              <View style={{ width: '100%', marginBottom: 16 }}>
+                <BeatRow groups={beatGroups(item)!} />
+              </View>
+            ) : (
+              <View style={{ width: 96, height: 96, borderRadius: 48, backgroundColor: t.accA(10), borderWidth: 1, borderColor: t.accA(30), alignItems: 'center', justifyContent: 'center', marginBottom: 16, overflow: 'hidden' }}>
+                <TX font="serifI" size={40} role="display" color={t.accTx}>
+                  {item.fr.replace(/^(le |la |les |l')/i, '').charAt(0).toUpperCase()}
+                </TX>
+              </View>
+            )}
             {/* width '100%' + textAlign center, NEVER center-by-intrinsic-width:
                 self-measured text inside the nested pager clips the second word
                 of multi-word items on Android ("la rue" showed only "la"). Full
