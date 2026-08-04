@@ -1021,8 +1021,15 @@ export const RYTHME_LESSON: Lesson = {
       type: 'commonErrors',
       title: 'What goes wrong',
       layer: 'core',
-      size: 'md',
-      render: 'screens',
+      // `swipe: true, size: 'lg'` because that is what a commonErrors section
+      // IS: MissionSection's comment says eight failures stacked reads as a
+      // list of ways to be bad at French, so it renders one card at a time.
+      // Every other lesson authors it that way. This one did not, took the
+      // unstepped fallthrough, and rendered a BLANK PAGE on the device: the
+      // deck asks for flex:1 from a hug-content wrapper, measures 0, and every
+      // card draws at zero height. That is the blank mission 22 Paul reported.
+      size: 'lg',
+      swipe: true,
       // Art: an even row of beats with one wrongly swollen in the middle, which
       // is this mission's whole subject stated without words. Generate with
       // `node scripts/gen-rythme-images.mjs errors`, then register the file in

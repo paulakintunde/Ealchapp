@@ -210,6 +210,12 @@ export function SectionView({
       return (
         <View style={{ marginBottom: 26 }}>
           {label}
+          {/* commonErrors was the one section type that built a hero and never
+              drew it: `showHero` was threaded all the way down and dropped, so
+              an authored imageRef resolved, registered and rendered nowhere.
+              Same class as the BeatRow bug — authored, valid, and drawn by
+              nothing. Found on sons.08 mission 22 (Paul, device walk). */}
+          {hero}
           <View style={{ gap: 10 }}>
             {s.errors.map((er, i) => (
               <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.dangerA(25), backgroundColor: t.card, padding: 14, paddingHorizontal: 16 }}>

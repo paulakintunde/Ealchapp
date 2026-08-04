@@ -483,18 +483,27 @@ export function MissionSectionView({
     // at once, which reads as a list of ways to be bad at French. One at a
     // time, each with room for its explanation, is a correction the learner
     // can actually take in.
+    //
+    // This type was also the one that BUILT a hero and never drew it, so an
+    // authored imageRef resolved, registered, and rendered nowhere. It now
+    // draws one above the deck. (Found on sons.08 mission 22, which shipped
+    // without `swipe` and so took the unstepped fallthrough: the deck asked
+    // flex:1 of a hug-content wrapper, measured 0, and the whole mission came
+    // out BLANK. Author commonErrors as `swipe: true, size: 'lg'`, which is
+    // what every other lesson does.)
     case 'commonErrors':
       if (s.swipe) {
         return (
-          // flex: 1 is REQUIRED by the `fill` below, not decoration. A filling
-          // deck measures the box it is given and hands each card the leftover
-          // height — inside a hug-content wrapper there is nothing to measure,
-          // so it measures 0 and every card renders at zero height: title and
-          // dots visible, cards gone. Same pairing as the cardDeck and the
-          // inhibition drill.
+          // flex: 1 is REQUIRED by `fill` below. A filling deck inside a
+          // hug-content wrapper measures 0 and renders zero-height cards.
           <View style={{ flex: 1 }}>
             {label}
             {chips}
+            {/* Above the deck and outside its flex:1, so the deck measures what
+                is left. 21:9, not the 16:9 default: a full-height card sits
+                below and a taller band would eat ~200dp of it. See the note
+                above this case. */}
+            {showHero ? <RichImage refKey={s.imageRef} ratio={21 / 9} /> : null}
             <SwipeDeck
               items={s.errors}
               hint="One at a time. Each of these is a good instinct pointed at the wrong language."
