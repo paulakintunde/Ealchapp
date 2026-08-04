@@ -420,6 +420,103 @@ async function main() {
   }
   console.log('  ✓ corpus valid');
 
+  // ── 4·0. RULE no-silent-regression — the git/DB split-brain guard ───────
+  //
+  // Publishing rewrites seed.json from the database (step 9). That is correct
+  // and deliberate: the DB is the source of truth, git is a mirror. But it
+  // means any lesson that exists ONLY in the committed seed is destroyed by a
+  // publish — silently, because a lesson the DB never had is not "changed",
+  // it is simply absent from the query at step 1.
+  //
+  // This has already happened once. On 2026-07-31, sons.02/sons.03 were
+  // authored seed-direct, a publish overwrote them from older DB rows, and
+  // sons.03.l1 collapsed 20 sections -> 6. restore-lesson-bodies-from-seed.ts
+  // exists to undo that, and its header documents the whole incident. The
+  // hazard is structural, not a one-off: seed-direct authoring is a normal
+  // part of the workflow, so the window reopens every time someone uses it.
+  //
+  // So compare the committed seed against what we are about to publish, and
+  // refuse on any lesson that would DISAPPEAR or REGRESS. This is deliberately
+  // narrow — it does not police edits, only losses:
+  //
+  //   - a lesson in the committed seed with no published DB row  (deleted)
+  //   - a DB lesson at a LOWER version than the committed one    (reverted)
+  //
+  // A lesson the DB has and git does not is fine and unremarked: that is the
+  // normal direction, new content flowing DB -> seed.
+  //
+  // Runs during --dry-run too. A dry run is what you use to decide whether it
+  // is safe to publish, so a dry run that stays quiet about a pending loss is
+  // worse than no dry run at all.
+  {
+    // The COMMITTED seed, read through git rather than from disk: the
+    // working-tree file may already be mid-edit, and what we need to protect
+    // is the content that is checked in.
+    let committed: { lessons?: Lesson[] } | null = null;
+    try {
+      const { execFileSync } = await import('node:child_process');
+      const repoRoot = resolve(process.cwd(), '..');
+      committed = JSON.parse(
+        execFileSync('git', ['show', 'HEAD:ealch-v2/src/content/seed.json'], {
+          cwd: repoRoot,
+          maxBuffer: 512 * 1024 * 1024,
+          encoding: 'utf8',
+        })
+      );
+    } catch (err) {
+      // No git, no HEAD, or an unreadable seed. Warn, do not die: publishing
+      // from a tarball or a fresh clone without history is legitimate, and
+      // this guard must not become the reason a good publish cannot run.
+      console.log(
+        `  ! no-silent-regression: could not read the committed seed (${
+          err instanceof Error ? err.message.split('\n')[0] : String(err)
+        }) — guard SKIPPED`
+      );
+    }
+
+    if (committed?.lessons) {
+      const live = new Map(lessons.map((l) => [l.id, l]));
+      const losses: string[] = [];
+
+      for (const git of committed.lessons) {
+        const db = live.get(git.id);
+        if (!db) {
+          losses.push(
+            `${git.id}: in the committed seed (v${git.version}, ${git.sections.length} sections) ` +
+              `but NOT published in the DB — this publish would DELETE it`
+          );
+          continue;
+        }
+        if (db.version < git.version) {
+          losses.push(
+            `${git.id}: DB is v${db.version}, committed seed is v${git.version} ` +
+              `— this publish would REVERT it`
+          );
+        }
+      }
+
+      if (losses.length) {
+        await pool.end();
+        console.error(
+          `\n✖ no-silent-regression: ${losses.length} lesson(s) would be lost. NOTHING was published.\n`
+        );
+        for (const l of losses) console.error(`  ✖ ${l}`);
+        console.error(
+          '\n  The database does not yet contain content that is committed to git.\n' +
+            '  Publishing now would overwrite seed.json and destroy it.\n\n' +
+            '  Push the committed bodies into Postgres first:\n' +
+            '    pnpm tsx scripts/restore-lesson-bodies-from-seed.ts --dry-run\n' +
+            '    pnpm tsx scripts/restore-lesson-bodies-from-seed.ts\n\n' +
+            '  Then re-run this publish. When the DB and git agree, a --dry-run\n' +
+            '  leaves seed.json byte-identical, which is the proof that nothing\n' +
+            '  can be lost.\n'
+        );
+        process.exit(1);
+      }
+      console.log(`  ✓ no-silent-regression (${committed.lessons.length} committed lessons accounted for)`);
+    }
+  }
+
   // ── 4a. RULE deterministic-french-gates (master plan Phase 2.D) ─────────
   // A Python subprocess (publish/CI environment only — never bundled, never
   // installed on device) checks every item carrying a `verbCheck` target
