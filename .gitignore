@@ -9,3 +9,22 @@
 
 # Camille avatar concept art exploration — large PNGs, not yet finalized.
 camille-concepts/
+
+# Device screenshots taken while proving a lesson on the phone. They are named
+# after whatever was being checked at the time (s08-m07-beatrow.png,
+# ob-step7b.png) and are worth nothing once the fix they document is committed.
+# ~75 of them had piled up in the repo root, which is how an unrelated change
+# hid in `git status` long enough to reach a commit unnoticed. Screenshots that
+# are worth keeping belong in a named folder, not at the root.
+/*.png
+s05-device-shots/
+
+# Metro bundler log — regenerated on every dev server start.
+ealch-v2/metro.log
+
+# Python bytecode from the gates/*.py subprocess gates.
+__pycache__/
+
+# Scratch scripts. `_tmp_` is the prefix for something written to answer one
+# question and not meant to survive it.
+ealch-admin/scripts/_tmp_*.ts
