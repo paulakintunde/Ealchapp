@@ -72,6 +72,14 @@ const RESTORE_IDS = [
   'sons.02.l1',
   'sons.03.l1',
   'sons.04.l1',
+  // sons.06.l1 added 2026-08-03, found by diffing every published body against
+  // git rather than by suspecting it: the DB row is the 21-section lesson from
+  // before commit 8469924 ("make the checks teach"), which added the six
+  // silent-letter teaching sections s05-check-default, s05b-careful,
+  // s05c-ghost, s05d-alarm and their checks. Same version on both sides (v1),
+  // so no version comparison could have caught it, and it was in neither
+  // restore list — a publish would have quietly dropped all six.
+  'sons.06.l1',
   'sons.08.l1',
   'a1.04.l1',
   'a2.01.l1',
