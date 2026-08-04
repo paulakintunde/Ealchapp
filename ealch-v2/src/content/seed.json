@@ -851,7 +851,9 @@
       "level": "sons",
       "title": "Masterclass",
       "track": "sons",
-      "lessonIds": [],
+      "lessonIds": [
+        "sons.09.l1"
+      ],
       "prereqUnitIds": [
         "sons.01",
         "sons.02",
@@ -25151,6 +25153,3711 @@
           }
         ]
       }
+    },
+    {
+      "id": "sons.09.l1",
+      "unitId": "sons.09",
+      "seq": 1,
+      "title": "Masterclass",
+      "level": "sons",
+      "tag": "SONS · LEÇON 09",
+      "intro": "Nine lessons taught you five rules, one at a time. In real speech they fire together, on the same word, in a fixed order, and they interact: a letter one rule put to sleep is the letter another rule wakes. This lesson is the order they run in and the speed they have to run at, on sentences where two or three of them collide.",
+      "overview": {
+        "glyph": "‿",
+        "titleEn": "Masterclass: the whole sound system at once",
+        "subFr": "La masterclass",
+        "introFr": "Neuf leçons vous ont appris cinq règles, une par une. Dans la vraie parole, elles agissent ensemble, sur le même mot, dans un ordre fixe. Cette leçon vous donne cet ordre et la vitesse qu'il exige, sur des phrases où deux ou trois règles se rencontrent.",
+        "minutes": 60,
+        "screens": 195,
+        "difficulty": 4
+      },
+      "grammarAssumed": [
+        "elision",
+        "h-aspire-vs-h-muet",
+        "liaison",
+        "nasal-vowels",
+        "silent-final-consonants"
+      ],
+      "grammarIntroduced": [
+        "phrase-group",
+        "rule-ordering"
+      ],
+      "features": [
+        "narrated",
+        "minimalPairs",
+        "voiceflash"
+      ],
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "Five words, one at a time",
+          "frSub": "Au téléphone",
+          "render": "screens",
+          "layer": "core",
+          "say": {
+            "text": "You know every word in this call and every rule it needs. Watch what happens anyway.",
+            "voice": "coach",
+            "timing": "onFirstVisitOnly"
+          },
+          "setting": {
+            "place": "Restaurant Le Comptoir",
+            "city": "Bordeaux",
+            "time": "18:40, a Friday",
+            "image": "lessons/masterclass/scene-phone.jpg",
+            "ambience": "room-tone-street"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "A phone call to a restaurant you have been to twenty times. No face to read, nothing to point at, and the other person is not slowing down for you.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "Le Comptoir",
+              "fr": "Le Comptoir, bonjour ?",
+              "en": "Le Comptoir, good morning?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "You have one line to say and you have known every word in it for weeks. You have also learned every rule it needs. All five of them.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "How do you say it?",
+              "options": [
+                {
+                  "fr": "On arrive à l'heure, comme d'habitude.",
+                  "respell": "[ohⁿ-n‿a-ree-v‿a LUHR | kom da-bee-TÜD]",
+                  "en": "two groups, one stop, everything inside each one joined",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-scene-break"
+                  }
+                },
+                {
+                  "fr": "On... arrive... à... l'heure...",
+                  "respell": "[ohⁿ a-REEV a LUHR]",
+                  "en": "five separate words, each one correct on its own",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-scene-break"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "That is the one. Now hear what the careful version does to this call.",
+                "breaks": "Every word in that was right. Listen to what it costs anyway."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "On... arrive... à... l'heure...",
+              "en": "(five words, each one correct, each one on its own)",
+              "audio": {
+                "mode": "recorded",
+                "recordingId": "rec-scene-break"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "Le Comptoir",
+              "fr": "Pardon, vous... ?",
+              "en": "Sorry, you...?",
+              "stage": "A pause. They are waiting for the sentence to start.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "You were not wrong. You were slow.",
+              "body": "Nothing in that was a mistake. Every word was the right word and every sound was the right sound. What was missing is the thing that turns five words into a sentence: they were never grouped.",
+              "wrong": {
+                "fr": "On... arrive... à... l'heure...",
+                "ipa": "/ɔ̃ a.ʁiv a lœʁ/",
+                "respell": "[ohⁿ a-REEV a LUHR]",
+                "en": "five correct words and no phrase"
+              },
+              "right": {
+                "fr": "On arrive à l'heure, comme d'habitude.",
+                "ipa": "/ɔ̃.n‿a.ʁi.v‿a lœʁ | kɔm da.bi.tyd/",
+                "respell": "[ohⁿ-n‿a-ree-v‿a LUHR | kom da-bee-TÜD]",
+                "en": "We arrive on time, as usual."
+              },
+              "coach": "French pronounces the phrase, not the word. Two groups here, and inside each one everything runs together.",
+              "audio": {
+                "mode": "recorded",
+                "recordingId": "rec-scene-break",
+                "autoplay": true,
+                "audioFirst": true
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "tap",
+              "size": "md",
+              "fr": "On arrive à l'heure, comme d'habitude.",
+              "en": "We arrive on time, as usual.",
+              "ipa": "/ɔ̃.n‿a.ʁi.v‿a lœʁ | kɔm da.bi.tyd/",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ]
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "Le Comptoir",
+              "fr": "Ah, très bien. À ce soir.",
+              "en": "Ah, very good. See you tonight.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "Nine lessons taught you the five rules in that sentence. This one is about running all five at once, fast enough that nobody has to wait."
+            }
+          ],
+          "closing": {
+            "size": "md",
+            "text": "This lesson is not five rules. It is the order they run in, and the speed they have to run at."
+          }
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What you walk out with",
+          "frSub": "Vos objectifs",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "say": {
+            "text": "Five things. Every one is something you do out loud, at speed, on a sentence you have not seen.",
+            "voice": "coach",
+            "timing": "onFirstVisitOnly"
+          },
+          "goals": [
+            {
+              "t": "Group before you decide",
+              "s": "Find where a phrase breaks before you make a single decision about a letter, because nothing joins across a break."
+            },
+            {
+              "t": "Run the joins in one pass",
+              "s": "Handle elision and liaison as one move rather than two, so an unseen phrase takes one scan instead of two."
+            },
+            {
+              "t": "Leave the rest alone",
+              "s": "Say nothing at the end of a word unless something actually woke it, and stop overcorrecting the ones that stay silent."
+            },
+            {
+              "t": "Beat the blockers",
+              "s": "Say les hôtels and les héros correctly first time, and know why the page could not have told you which was which."
+            },
+            {
+              "t": "Do all of it at speed",
+              "s": "Apply five rules to a sentence you have never read, at conversation pace, without stopping to work any of them out."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s03-anchors",
+          "title": "One idea, then three steps",
+          "frSub": "Le système",
+          "render": "deck",
+          "layer": "core",
+          "size": "md",
+          "hint": "Swipe through. Nothing to answer yet.",
+          "terms": [
+            "phraseGroup",
+            "pipeline",
+            "join"
+          ],
+          "say": {
+            "text": "Six cards. The first one is the whole lesson and the other five are it slowed down.",
+            "voice": "coach",
+            "timing": "onFirstVisitOnly"
+          },
+          "cards": [
+            {
+              "head": "French pronounces the phrase, not the word.",
+              "body": "French does not decide how a word sounds and then put words in a row. It builds a phrase group first, and decides what every letter inside it does afterwards.",
+              "imageRef": "lessons/masterclass/phrase.jpg"
+            },
+            {
+              "head": "Group, join, push.",
+              "body": "Three steps, always in that order. Each one depends on the answer to the one before it, so running them out of order gives the wrong answer even when you know all five rules."
+            },
+            {
+              "head": "Step one: group",
+              "body": "Where does the phrase break? Nothing joins across a break, so this decides which words are even allowed to touch. Get it wrong and every later step is wrong too.",
+              "imageRef": "lessons/masterclass/group.jpg"
+            },
+            {
+              "head": "Step two: join",
+              "body": "Inside a group, and only inside it: a vowel meeting a vowel deletes the small word's vowel, and a sleeping consonant meeting a vowel wakes up. One move, not two."
+            },
+            {
+              "head": "Step three: push",
+              "body": "One prominence per group, on its last syllable, wherever the joining ended up putting it. Not one push per word. That is the single loudest giveaway of an English speaker.",
+              "imageRef": "lessons/masterclass/push.jpg"
+            },
+            {
+              "head": "And the rest stays silent",
+              "body": "Anything the joining did not touch keeps doing what it always did, which is nothing. Most letters at the ends of French words never move at all."
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s04-breaks",
+          "title": "Where does it break?",
+          "frSub": "Les groupes",
+          "render": "deck",
+          "layer": "core",
+          "size": "xl",
+          "terms": [
+            "phraseGroup",
+            "notation"
+          ],
+          "sheetId": "sheet.sons.09.system",
+          "say": {
+            "text": "One phrase per card. Say each one and ask a single question: did you have to stop anywhere inside it?",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-breaks",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true
+          },
+          "groups": [
+            {
+              "label": "One group, no stopping",
+              "items": [
+                {
+                  "itemId": "fr.sons.masterclass.026",
+                  "fr": "On est en avance.",
+                  "ipa": "/ɔ̃.n‿ɛ.t‿ɑ̃.n‿a.vɑ̃s/",
+                  "respell": "[ohⁿ-n‿eh-t‿ahⁿ-n‿a-VAHⁿS]",
+                  "en": "We are early.",
+                  "note": "four words, five syllables, no stop"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.025",
+                  "fr": "C'est un ancien hôtel.",
+                  "ipa": "/sɛ.t‿œ̃.n‿ɑ̃.sjɛ̃.n‿o.tɛl/",
+                  "respell": "[seh-t‿uhⁿ-n‿ahⁿ-syaⁿ-n‿oh-TEL]",
+                  "en": "It is a former hotel.",
+                  "note": "four words, one unbroken run"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.056",
+                  "fr": "Ils ont un enfant.",
+                  "ipa": "/il.z‿ɔ̃.t‿œ̃.n‿ɑ̃.fɑ̃/",
+                  "respell": "[eel-z‿ohⁿ-t‿uhⁿ-n‿ahⁿ-FAHⁿ]",
+                  "en": "They have a child.",
+                  "note": "four words, six syllables"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.032",
+                  "fr": "en un instant",
+                  "ipa": "/ɑ̃.n‿œ̃.n‿ɛ̃s.tɑ̃/",
+                  "respell": "[ahⁿ-n‿uhⁿ-n‿aⁿs-TAHⁿ]",
+                  "en": "in an instant",
+                  "note": "three words, four syllables"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.037",
+                  "fr": "Tout est prêt.",
+                  "ipa": "/tu.t‿ɛ pʁɛ/",
+                  "respell": "[too-t‿eh PREH]",
+                  "en": "Everything is ready.",
+                  "note": "three words and no room to pause"
+                }
+              ]
+            },
+            {
+              "label": "Two groups, one stop",
+              "items": [
+                {
+                  "itemId": "fr.sons.masterclass.039",
+                  "fr": "Le matin, les enfants vont à l'école.",
+                  "ipa": "/lə ma.tɛ̃ | le.z‿ɑ̃.fɑ̃ vɔ̃.t‿a le.kɔl/",
+                  "respell": "[luh ma-TAⁿ | lay-z‿ahⁿ-FAHⁿ vohⁿ-t‿a lay-KOL]",
+                  "en": "In the morning, the children go to school.",
+                  "note": "the comma is a real break"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.041",
+                  "fr": "Ce sont mes amis, ils habitent en ville.",
+                  "ipa": "/sə sɔ̃ me.z‿a.mi | il.z‿a.bit ɑ̃ vil/",
+                  "respell": "[suh sohⁿ may-z‿a-MEE | eel-z‿a-beet ahⁿ VEEL]",
+                  "en": "These are my friends, they live in town.",
+                  "note": "nothing joins across the comma"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.043",
+                  "fr": "Après le dîner, on prend un verre d'eau.",
+                  "ipa": "/a.pʁɛ lə di.ne | ɔ̃ pʁɑ̃.t‿œ̃ vɛʁ do/",
+                  "respell": "[a-preh luh dee-NAY | ohⁿ prahⁿ-t‿uhⁿ vehr DOH]",
+                  "en": "After dinner, we have a glass of water.",
+                  "note": "stop once, then run to the end"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.045",
+                  "fr": "Il est tard, mais tout va bien.",
+                  "ipa": "/i.lɛ taʁ | mɛ tu va bjɛ̃/",
+                  "respell": "[ee-leh TAR | meh too va BYAⁿ]",
+                  "en": "It is late, but everything is fine.",
+                  "note": "a break with no join after it"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.048",
+                  "fr": "Un ami arrive, les autres attendent.",
+                  "ipa": "/œ̃.n‿a.mi a.ʁiv | le.z‿otʁ a.tɑ̃d/",
+                  "respell": "[uhⁿ-n‿a-MEE a-REEV | lay-z‿OHTR a-TAHⁿD]",
+                  "en": "One friend arrives, the others wait.",
+                  "note": "the same pattern on both sides"
+                }
+              ]
+            },
+            {
+              "label": "Check",
+              "check": {
+                "q": "Why can nothing join across the comma?",
+                "opts": [
+                  "commas are always pronounced",
+                  "the second group starts a new phrase",
+                  "French forbids joins in long sentences",
+                  "the first group used up its joins"
+                ],
+                "correct": 1,
+                "why": "A break ends a group, and a join only ever happens inside one. That is why finding the break has to come first: it decides what the joining is even allowed to look at."
+              }
+            }
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s05-across",
+          "title": "The edge nobody prints",
+          "frSub": "Le sujet et le verbe",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "phraseGroup",
+            "sleeping"
+          ],
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-subject-verb",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true
+          },
+          "say": {
+            "text": "A group can end where nothing on the page says so. This is the one place that catches everybody.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "rule": {
+            "title": "A noun subject closes its group",
+            "body": "A comma is not the only break. When a noun subject is followed by its verb, the group ends between them: les enfants arrivent has a Z at the front and silence in the middle. A pronoun subject does not, so ils arrivent joins."
+          },
+          "cards": [
+            {
+              "promptLabel": "Joins",
+              "promptSound": "z",
+              "fr": "Ils arrivent en retard.",
+              "ipa": "/il.z‿a.ʁiv ɑ̃ ʁə.taʁ/",
+              "tip": "Pronoun subject. It sits inside the same group as its verb, so the S wakes."
+            },
+            {
+              "promptLabel": "Blocks",
+              "promptSound": "no z",
+              "fr": "Les enfants arrivent.",
+              "ipa": "/le.z‿ɑ̃.fɑ̃ a.ʁiv/",
+              "tip": "Noun subject. The group ends after enfants, and no join crosses the end of a group."
+            },
+            {
+              "promptLabel": "Joins",
+              "promptSound": "z",
+              "fr": "les amis",
+              "ipa": "/le.z‿a.mi/",
+              "tip": "Determiner and noun, always one group. This join is never optional."
+            },
+            {
+              "promptLabel": "Blocks",
+              "promptSound": "no z",
+              "fr": "Mes amis parlent bien.",
+              "ipa": "/me.z‿a.mi paʁl bjɛ̃/",
+              "tip": "Two reasons at once: a group edge, and a consonant starting parlent."
+            },
+            {
+              "promptLabel": "Joins",
+              "promptSound": "n",
+              "fr": "Un ami arrive, les autres attendent.",
+              "ipa": "/œ̃.n‿a.mi a.ʁiv | le.z‿otʁ a.tɑ̃d/",
+              "tip": "Two joins made in front of each subject, two refused behind them."
+            },
+            {
+              "promptLabel": "Blocks",
+              "promptSound": "no z",
+              "fr": "On mange, les enfants.",
+              "ipa": "/ɔ̃ mɑ̃ʒ | le.z‿ɑ̃.fɑ̃/",
+              "tip": "A printed break. Join across it and you have changed who is being eaten."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Which one has NO join between the subject and the verb?",
+              "opts": [
+                "Ils arrivent en retard.",
+                "Les enfants arrivent.",
+                "Ils ont un enfant."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Where does « Ce sont mes amis, ils habitent en ville. » break?",
+              "opts": [
+                "after sont",
+                "after amis",
+                "after habitent",
+                "it does not break"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "A noun subject before its verb is:",
+              "opts": [
+                "a place a group ends",
+                "a place a group starts",
+                "never a break"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "True or not: a break can exist where the page shows nothing.",
+              "opts": [
+                "true",
+                "not true"
+              ],
+              "correct": 0
+            }
+          ],
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "A noun subject closes its group"
+            },
+            {
+              "kind": "cards",
+              "label": "Six phrases",
+              "title": "Three that join, three that do not"
+            },
+            {
+              "kind": "audio",
+              "label": "Listen",
+              "title": "Hear the gap open"
+            },
+            {
+              "kind": "drill",
+              "label": "Reflex",
+              "title": "Now decide without working it out",
+              "gate": true
+            }
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s06-push",
+          "title": "Where the push lands",
+          "frSub": "L'accent de groupe",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "phraseGroup",
+            "notation"
+          ],
+          "questionsInModal": true,
+          "say": {
+            "text": "One push per group, on its last syllable. Listen for how many pushes there are, not where the words end.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-push",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "maxPlays": 4
+          },
+          "lines": [
+            {
+              "fr": "Le matin, les enfants vont à l'école.",
+              "en": "In the morning, the children go to school."
+            },
+            {
+              "fr": "On est en avance.",
+              "en": "We are early."
+            },
+            {
+              "fr": "Quand on est en retard, tout le monde attend.",
+              "en": "When we are late, everyone waits."
+            },
+            {
+              "fr": "Il est tard, mais tout va bien.",
+              "en": "It is late, but everything is fine."
+            },
+            {
+              "fr": "C'est trop tôt, il n'est pas encore arrivé.",
+              "en": "It is too early, he has not arrived yet."
+            }
+          ],
+          "questions": [
+            {
+              "q": "How many pushes were in the first line?",
+              "opts": [
+                "one",
+                "two",
+                "four"
+              ],
+              "correct": 1,
+              "why": "Two, because there are two groups. The push lands on matin and again on école, and nowhere in between."
+            },
+            {
+              "q": "In the second line, which syllable was pushed?",
+              "opts": [
+                "the first",
+                "the last",
+                "every other one"
+              ],
+              "correct": 1,
+              "why": "The last. One group means one push, and a French group always pushes its final syllable."
+            },
+            {
+              "q": "A join moved a consonant onto the next word. What happened to the push?",
+              "opts": [
+                "it moved with the syllable",
+                "it stayed on the letter",
+                "it disappeared"
+              ],
+              "correct": 0,
+              "why": "The push belongs to the last syllable of the group, and joining changes which syllable that is. It follows the sound, not the spelling."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s07-collide",
+          "title": "What happens when they meet",
+          "frSub": "La rencontre",
+          "render": "deck",
+          "layer": "core",
+          "size": "md",
+          "hint": "Five outcomes. Swipe through, then the drill.",
+          "terms": [
+            "join",
+            "sleeping"
+          ],
+          "say": {
+            "text": "Two words meet inside a group. There are only five things that can happen, and you know all five.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "cards": [
+            {
+              "label": "Vowel meets vowel",
+              "head": "The small word loses its vowel",
+              "fr": "Je n'ai pas d'amis ici.",
+              "sub": "[zhuh nay pa da-mee ee-SEE]",
+              "body": "Elision. ne and de both give way here, and neither is optional. This is the only one of the five that shows on the page."
+            },
+            {
+              "label": "Sleeping consonant meets vowel",
+              "head": "The consonant wakes",
+              "fr": "les amis",
+              "sub": "[lay-z‿a-MEE]",
+              "body": "Liaison. The S of les says nothing in every other sentence you have ever read. Here it says Z, because a vowel needs it."
+            },
+            {
+              "label": "Anything meets consonant",
+              "head": "Nothing happens at all",
+              "fr": "les copains",
+              "sub": "[lay ko-PAⁿ]",
+              "body": "The commonest outcome by a long way. No collision, nothing to fill, so every letter stays exactly as it was."
+            },
+            {
+              "label": "Vowel meets vowel, nothing to give",
+              "head": "The gap simply stays",
+              "fr": "On en a assez.",
+              "sub": "[ohⁿ-n‿ahⁿ-n‿a a-SAY]",
+              "body": "a is not a small word that can drop a vowel and has no sleeping consonant to lend. So French leaves the two vowels side by side."
+            },
+            {
+              "label": "And across a break",
+              "head": "None of it applies",
+              "fr": "Les enfants arrivent.",
+              "sub": "[lay-z‿ahⁿ-FAHⁿ a-REEV]",
+              "body": "French pronounces the phrase, not the word. A group is what all four outcomes above happen inside, so a group edge switches every one of them off."
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s08-both",
+          "title": "Two joins, one breath",
+          "frSub": "Les enchaînements",
+          "render": "deck",
+          "layer": "core",
+          "size": "xl",
+          "terms": [
+            "join",
+            "nasalN"
+          ],
+          "say": {
+            "text": "Each of these needs more than one join. Say the whole card as one word before you swipe.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-joins",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "groups": [
+            {
+              "label": "An elision and a liaison",
+              "items": [
+                {
+                  "itemId": "fr.sons.masterclass.025",
+                  "fr": "C'est un ancien hôtel.",
+                  "ipa": "/sɛ.t‿œ̃.n‿ɑ̃.sjɛ̃.n‿o.tɛl/",
+                  "respell": "[seh-t‿uhⁿ-n‿ahⁿ-syaⁿ-n‿oh-TEL]",
+                  "en": "It is a former hotel.",
+                  "note": "one elision, two liaisons"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.028",
+                  "fr": "Qu'est-ce qu'on attend ?",
+                  "ipa": "/kɛs.kɔ̃.n‿a.tɑ̃/",
+                  "respell": "[kehs-kohⁿ-n‿a-TAHⁿ]",
+                  "en": "What are we waiting for?",
+                  "note": "two elisions, then a link"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.034",
+                  "fr": "C'est un très bel appartement.",
+                  "ipa": "/sɛ.t‿œ̃ tʁɛ bɛ.l‿a.paʁ.tə.mɑ̃/",
+                  "respell": "[seh-t‿uhⁿ treh beh-l‿a-par-tuh-MAHⁿ]",
+                  "en": "It is a very nice flat.",
+                  "note": "beau became bel to avoid the gap"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.022",
+                  "fr": "C'est un très bon exemple.",
+                  "ipa": "/sɛ.t‿œ̃ tʁɛ bɔ̃.n‿ɛɡ.zɑ̃pl/",
+                  "respell": "[seh-t‿uhⁿ treh bohⁿ-n‿eg-ZAHⁿPL]",
+                  "en": "That is a very good example.",
+                  "note": "two links, and one S that makes none"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.020",
+                  "fr": "Il n'a pas encore mangé.",
+                  "ipa": "/il na pa.z‿ɑ̃.kɔʁ mɑ̃.ʒe/",
+                  "respell": "[eel na pa-z‿ahⁿ-kohr mahⁿ-ZHAY]",
+                  "en": "He has not eaten yet.",
+                  "note": "the S of pas wakes as a Z"
+                }
+              ]
+            },
+            {
+              "label": "Three links running",
+              "items": [
+                {
+                  "itemId": "fr.sons.masterclass.026",
+                  "fr": "On est en avance.",
+                  "ipa": "/ɔ̃.n‿ɛ.t‿ɑ̃.n‿a.vɑ̃s/",
+                  "respell": "[ohⁿ-n‿eh-t‿ahⁿ-n‿a-VAHⁿS]",
+                  "en": "We are early.",
+                  "note": "n, then t, then n"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.027",
+                  "fr": "Vous avez un accent charmant.",
+                  "ipa": "/vu.z‿a.ve.z‿œ̃.n‿ak.sɑ̃ ʃaʁ.mɑ̃/",
+                  "respell": "[voo-z‿a-vay-z‿uhⁿ-n‿ak-SAHⁿ shar-MAHⁿ]",
+                  "en": "You have a charming accent.",
+                  "note": "z, then z, then n"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.035",
+                  "fr": "Elle est arrivée en avance.",
+                  "ipa": "/ɛ.l‿ɛ.t‿a.ʁi.ve ɑ̃.n‿a.vɑ̃s/",
+                  "respell": "[eh-l‿eh-t‿a-ree-VAY ahⁿ-n‿a-VAHⁿS]",
+                  "en": "She arrived early.",
+                  "note": "l, then t, then n"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.056",
+                  "fr": "Ils ont un enfant.",
+                  "ipa": "/il.z‿ɔ̃.t‿œ̃.n‿ɑ̃.fɑ̃/",
+                  "respell": "[eel-z‿ohⁿ-t‿uhⁿ-n‿ahⁿ-FAHⁿ]",
+                  "en": "They have a child.",
+                  "note": "z, then t, then n"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.030",
+                  "fr": "Nous en avons deux.",
+                  "ipa": "/nu.z‿ɑ̃.n‿a.vɔ̃ dø/",
+                  "respell": "[noo-z‿ahⁿ-n‿a-vohⁿ DUH]",
+                  "en": "We have two of them.",
+                  "note": "the X goes quiet at the end"
+                }
+              ]
+            },
+            {
+              "label": "Check",
+              "check": {
+                "q": "What do elision and liaison have in common?",
+                "opts": [
+                  "both add a consonant",
+                  "both are optional in speech",
+                  "both fire when a vowel sound follows",
+                  "both only happen after articles"
+                ],
+                "correct": 2,
+                "why": "They are one move with two outcomes. The trigger is identical: the next word starts on a vowel sound. Elision deletes a vowel, liaison wakes a consonant, and which one you get depends on what the first word ends in."
+              }
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s09-silence",
+          "title": "The half that stays quiet",
+          "frSub": "Le silence",
+          "render": "deck",
+          "layer": "core",
+          "size": "xl",
+          "terms": [
+            "sleeping",
+            "join"
+          ],
+          "sheetId": "sheet.sons.09.pairs",
+          "say": {
+            "text": "Same letters as the last mission and nothing wakes. Adding a join here is as wrong as missing one.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-pairs",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true
+          },
+          "groups": [
+            {
+              "label": "It wakes",
+              "items": [
+                {
+                  "itemId": "fr.sons.masterclass.001",
+                  "fr": "les amis",
+                  "ipa": "/le.z‿a.mi/",
+                  "respell": "[lay-z‿a-MEE]",
+                  "en": "the friends",
+                  "note": "a vowel follows"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.003",
+                  "fr": "un petit ami",
+                  "ipa": "/œ̃ pə.ti.t‿a.mi/",
+                  "respell": "[uhⁿ puh-tee-t‿a-MEE]",
+                  "en": "a boyfriend",
+                  "note": "a vowel follows"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.011",
+                  "fr": "un grand arbre",
+                  "ipa": "/œ̃ ɡʁɑ̃.t‿aʁbʁ/",
+                  "respell": "[uhⁿ grahⁿ-t‿ARBR]",
+                  "en": "a big tree",
+                  "note": "a vowel follows, and the D says T"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.009",
+                  "fr": "ils ont",
+                  "ipa": "/il.z‿ɔ̃/",
+                  "respell": "[eel-z‿OHⁿ]",
+                  "en": "they have",
+                  "note": "a vowel follows"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.037",
+                  "fr": "Tout est prêt.",
+                  "ipa": "/tu.t‿ɛ pʁɛ/",
+                  "respell": "[too-t‿eh PREH]",
+                  "en": "Everything is ready.",
+                  "note": "a vowel follows"
+                }
+              ]
+            },
+            {
+              "label": "It stays down",
+              "items": [
+                {
+                  "itemId": "fr.sons.masterclass.002",
+                  "fr": "les copains",
+                  "ipa": "/le kɔ.pɛ̃/",
+                  "respell": "[lay ko-PAⁿ]",
+                  "en": "the mates",
+                  "note": "a consonant follows"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.004",
+                  "fr": "un petit chien",
+                  "ipa": "/œ̃ pə.ti ʃjɛ̃/",
+                  "respell": "[uhⁿ puh-tee SHYAⁿ]",
+                  "en": "a small dog",
+                  "note": "a consonant follows"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.012",
+                  "fr": "un grand parc",
+                  "ipa": "/œ̃ ɡʁɑ̃ paʁk/",
+                  "respell": "[uhⁿ grahⁿ PARK]",
+                  "en": "a big park",
+                  "note": "a consonant follows"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.010",
+                  "fr": "ils sont",
+                  "ipa": "/il sɔ̃/",
+                  "respell": "[eel SOHⁿ]",
+                  "en": "they are",
+                  "note": "a consonant follows"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.038",
+                  "fr": "Tout va bien.",
+                  "ipa": "/tu va bjɛ̃/",
+                  "respell": "[too va BYAⁿ]",
+                  "en": "Everything is fine.",
+                  "note": "a consonant follows"
+                }
+              ]
+            },
+            {
+              "label": "Check",
+              "check": {
+                "q": "What decides whether a final consonant sounds?",
+                "opts": [
+                  "the word it belongs to",
+                  "the first sound of the next word",
+                  "whether the word is plural",
+                  "the speaker, freely"
+                ],
+                "correct": 1,
+                "why": "Never the word itself. The same S in les is silent before a consonant and a Z before a vowel, and nothing about les changed between the two. The decision is made by what comes next, inside the same group."
+              }
+            }
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s10-dictation",
+          "title": "Write what you hear",
+          "frSub": "La dictée",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "join",
+            "sleeping"
+          ],
+          "say": {
+            "text": "Ten sentences. You will hear joins that are not written and silence where letters are.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-dictation-10",
+            "maxPlays": 3
+          },
+          "itemIds": [
+            "fr.sons.masterclass.001",
+            "fr.sons.masterclass.015",
+            "fr.sons.masterclass.020",
+            "fr.sons.masterclass.022",
+            "fr.sons.masterclass.025",
+            "fr.sons.masterclass.029",
+            "fr.sons.masterclass.039",
+            "fr.sons.masterclass.042",
+            "fr.sons.masterclass.045",
+            "fr.sons.masterclass.056"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s11-h",
+          "title": "The letter that blocks both",
+          "frSub": "H muet ou H aspiré",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "hAspire",
+            "join"
+          ],
+          "sheetId": "sheet.sons.09.pairs",
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-h-blocks",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true
+          },
+          "say": {
+            "text": "The hardest thing in the track, and nothing on the page will help you. Slow down here.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "rule": {
+            "title": "One H does nothing, and one H stops everything",
+            "body": "No H in French is pronounced, so neither kind makes a sound. What an h aspiré does is BLOCK, and it is the only thing in the language that stops both joins at once. les hôtels takes its Z and les héros does not."
+          },
+          "cards": [
+            {
+              "promptLabel": "Joins",
+              "promptSound": "z",
+              "fr": "les hôtels",
+              "ipa": "/le.z‿o.tɛl/",
+              "tip": "H muet. The word opens on a vowel sound, so the plural S wakes as normal."
+            },
+            {
+              "promptLabel": "Blocks",
+              "promptSound": "gap",
+              "fr": "les héros",
+              "ipa": "/le e.ʁo/",
+              "tip": "H aspiré. Same shape on the page, opposite behaviour, and a small gap instead of a Z."
+            },
+            {
+              "promptLabel": "Joins",
+              "promptSound": "z",
+              "fr": "deux heures",
+              "ipa": "/dø.z‿œʁ/",
+              "tip": "H muet. An X wakes as a Z, exactly as an S would."
+            },
+            {
+              "promptLabel": "Blocks",
+              "promptSound": "gap",
+              "fr": "deux hiboux",
+              "ipa": "/dø i.bu/",
+              "tip": "H aspiré. Both X stay silent and the gap is the only thing marking it."
+            },
+            {
+              "promptLabel": "Joins",
+              "promptSound": "t",
+              "fr": "Le petit hôtel est ouvert.",
+              "ipa": "/lə pə.ti.t‿o.tɛl ɛ.t‿u.vɛʁ/",
+              "tip": "H muet, so both sleeping T in this sentence wake up."
+            },
+            {
+              "promptLabel": "Blocks",
+              "promptSound": "gap",
+              "fr": "Le petit héros est parti.",
+              "ipa": "/lə pə.ti e.ʁo ɛ paʁ.ti/",
+              "tip": "H aspiré. The same two T, and now neither of them says anything."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Which one blocks the join?",
+              "opts": [
+                "les hôtels",
+                "les héros",
+                "deux heures",
+                "les amis"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "An h aspiré blocks:",
+              "opts": [
+                "the liaison only",
+                "the elision only",
+                "both joins"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "How do you tell the two apart by looking at the word?",
+              "opts": [
+                "aspiré words are longer",
+                "aspiré words start with ha-",
+                "you cannot, you learn each one"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "A new H word, and you have to guess. Which way?",
+              "opts": [
+                "aspiré, block it",
+                "muet, let it through"
+              ],
+              "correct": 1
+            }
+          ],
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "One H does nothing, and one H stops everything"
+            },
+            {
+              "kind": "cards",
+              "label": "Three pairs",
+              "title": "Identical on the page, opposite out loud"
+            },
+            {
+              "kind": "audio",
+              "label": "Listen",
+              "title": "Hear the gap that marks it"
+            },
+            {
+              "kind": "drill",
+              "label": "Reflex",
+              "title": "Now decide without working it out",
+              "gate": true
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s12-nasal",
+          "title": "The N that does two jobs",
+          "frSub": "Les voyelles nasales",
+          "render": "deck",
+          "layer": "core",
+          "size": "xl",
+          "terms": [
+            "nasalN",
+            "join"
+          ],
+          "say": {
+            "text": "A nasal vowel swallowed its N. Here you find out what happens when a vowel asks for it back.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-nasal-n",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true
+          },
+          "groups": [
+            {
+              "label": "The N surfaces",
+              "items": [
+                {
+                  "itemId": "fr.sons.masterclass.013",
+                  "fr": "un bon ami",
+                  "ipa": "/œ̃ bɔ̃.n‿a.mi/",
+                  "respell": "[uhⁿ bohⁿ-n‿a-MEE]",
+                  "en": "a good friend",
+                  "note": "the vowel stays nasal and an N appears"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.031",
+                  "fr": "mon ancien appartement",
+                  "ipa": "/mɔ̃.n‿ɑ̃.sjɛ̃.n‿a.paʁ.tə.mɑ̃/",
+                  "respell": "[mohⁿ-n‿ahⁿ-syaⁿ-n‿a-par-tuh-MAHⁿ]",
+                  "en": "my former flat",
+                  "note": "four nasal vowels, two linking N"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.032",
+                  "fr": "en un instant",
+                  "ipa": "/ɑ̃.n‿œ̃.n‿ɛ̃s.tɑ̃/",
+                  "respell": "[ahⁿ-n‿uhⁿ-n‿aⁿs-TAHⁿ]",
+                  "en": "in an instant",
+                  "note": "two N, and neither belongs to the word before"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.056",
+                  "fr": "Ils ont un enfant.",
+                  "ipa": "/il.z‿ɔ̃.t‿œ̃.n‿ɑ̃.fɑ̃/",
+                  "respell": "[eel-z‿ohⁿ-t‿uhⁿ-n‿ahⁿ-FAHⁿ]",
+                  "en": "They have a child.",
+                  "note": "four nasal vowels, three joins"
+                }
+              ]
+            },
+            {
+              "label": "It stays inside the vowel",
+              "items": [
+                {
+                  "itemId": "fr.sons.masterclass.014",
+                  "fr": "un bon copain",
+                  "ipa": "/œ̃ bɔ̃ kɔ.pɛ̃/",
+                  "respell": "[uhⁿ bohⁿ ko-PAⁿ]",
+                  "en": "a good mate",
+                  "note": "three nasal vowels, no audible N"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.004",
+                  "fr": "un petit chien",
+                  "ipa": "/œ̃ pə.ti ʃjɛ̃/",
+                  "respell": "[uhⁿ puh-tee SHYAⁿ]",
+                  "en": "a small dog",
+                  "note": "the N is part of the vowel"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.038",
+                  "fr": "Tout va bien.",
+                  "ipa": "/tu va bjɛ̃/",
+                  "respell": "[too va BYAⁿ]",
+                  "en": "Everything is fine.",
+                  "note": "nothing follows that needs it"
+                },
+                {
+                  "itemId": "fr.sons.masterclass.012",
+                  "fr": "un grand parc",
+                  "ipa": "/œ̃ ɡʁɑ̃ paʁk/",
+                  "respell": "[uhⁿ grahⁿ PARK]",
+                  "en": "a big park",
+                  "note": "a consonant follows"
+                }
+              ]
+            },
+            {
+              "label": "Check",
+              "check": {
+                "q": "In « un bon ami », is the vowel of bon still nasal?",
+                "opts": [
+                  "no, the N took it back",
+                  "yes, and an N is added as well",
+                  "only in careful speech"
+                ],
+                "correct": 1,
+                "why": "The N does both jobs at once and is not spent on either. bon ami and bon copain have three syllables each, and only the first has an N you can hear in the middle."
+              }
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "id": "s13-pairs",
+          "title": "Twelve pairs to know cold",
+          "frSub": "Les paires minimales",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "sleeping",
+            "hAspire"
+          ],
+          "sheetId": "sheet.sons.09.pairs",
+          "say": {
+            "text": "One card per phrase. Say what you think it sounds like before you flip, and be exact about the join.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-pairs"
+          },
+          "cards": [
+            {
+              "front": "les amis",
+              "back": "/le.z‿a.mi/ · [lay-z‿a-MEE] · the friends",
+              "say": "les amis"
+            },
+            {
+              "front": "les copains",
+              "back": "/le kɔ.pɛ̃/ · [lay ko-PAⁿ] · the mates",
+              "say": "les copains"
+            },
+            {
+              "front": "un petit ami",
+              "back": "/œ̃ pə.ti.t‿a.mi/ · [uhⁿ puh-tee-t‿a-MEE] · a boyfriend",
+              "say": "un petit ami"
+            },
+            {
+              "front": "un petit chien",
+              "back": "/œ̃ pə.ti ʃjɛ̃/ · [uhⁿ puh-tee SHYAⁿ] · a small dog",
+              "say": "un petit chien"
+            },
+            {
+              "front": "les hôtels",
+              "back": "/le.z‿o.tɛl/ · [lay-z‿oh-TEL] · the hotels",
+              "say": "les hôtels"
+            },
+            {
+              "front": "les héros",
+              "back": "/le e.ʁo/ · [lay ay-ROH] · the heroes",
+              "say": "les héros"
+            },
+            {
+              "front": "deux heures",
+              "back": "/dø.z‿œʁ/ · [duh-z‿UHR] · two hours",
+              "say": "deux heures"
+            },
+            {
+              "front": "deux hiboux",
+              "back": "/dø i.bu/ · [duh ee-BOO] · two owls",
+              "say": "deux hiboux"
+            },
+            {
+              "front": "ils ont",
+              "back": "/il.z‿ɔ̃/ · [eel-z‿OHⁿ] · they have",
+              "say": "ils ont"
+            },
+            {
+              "front": "ils sont",
+              "back": "/il sɔ̃/ · [eel SOHⁿ] · they are",
+              "say": "ils sont"
+            },
+            {
+              "front": "un grand arbre",
+              "back": "/œ̃ ɡʁɑ̃.t‿aʁbʁ/ · [uhⁿ grahⁿ-t‿ARBR] · a big tree",
+              "say": "un grand arbre"
+            },
+            {
+              "front": "un grand parc",
+              "back": "/œ̃ ɡʁɑ̃ paʁk/ · [uhⁿ grahⁿ PARK] · a big park",
+              "say": "un grand parc"
+            }
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s14-errors",
+          "title": "What goes wrong at speed",
+          "frSub": "Les erreurs courantes",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "swipe": true,
+          "terms": [
+            "join",
+            "sleeping",
+            "phraseGroup"
+          ],
+          "say": {
+            "text": "Seven ways this falls apart. Five of them are things you started doing because you learned a rule.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "errors": [
+            {
+              "wrong": "les enfants-z-arrivent",
+              "right": "Les enfants arrivent.",
+              "why": "Overcorrection. Learning liaison makes people link everything, and a noun subject before its verb is a group edge that nothing crosses."
+            },
+            {
+              "wrong": "les-z-héros",
+              "right": "les héros",
+              "why": "H aspiré blocks it. The H is silent in both kinds, so nothing you can see distinguishes them and this one has to be learned as a word."
+            },
+            {
+              "wrong": "un bonn ami, with a hard N and a flat vowel",
+              "right": "un bon ami",
+              "why": "The vowel stays nasal AND the N links. Un-nasalising it to make room for the N gives away that you are working it out."
+            },
+            {
+              "wrong": "On... arrive... à... l'heure.",
+              "right": "On arrive à l'heure.",
+              "why": "Every word right and no phrase. Applying the rules one word at a time is correct and far too slow to be speech."
+            },
+            {
+              "wrong": "Le matin les enfants vont à l'école, with no stop",
+              "right": "Le matin, les enfants vont à l'école.",
+              "why": "One group where there should be two. Running a break over is the mirror of joining across one, and it costs the listener the structure."
+            },
+            {
+              "wrong": "toutt, with the T said",
+              "right": "tout va bien",
+              "why": "Nothing woke that T. A consonant follows it, so it goes on doing what it does everywhere else, which is nothing."
+            },
+            {
+              "wrong": "a push on every word",
+              "right": "one push per group",
+              "why": "English stresses words and French stresses groups. Pushing each word is the single loudest accent marker there is, more than any individual sound."
+            }
+          ]
+        },
+        {
+          "type": "inhibitionDrill",
+          "id": "s15-inhibition",
+          "title": "Faster than you can decide",
+          "frSub": "Automatiser",
+          "render": "screens",
+          "layer": "core",
+          "size": "md",
+          "swipe": true,
+          "imageRef": "lessons/masterclass/speed.jpg",
+          "terms": [
+            "pipeline",
+            "phraseGroup"
+          ],
+          "say": {
+            "text": "You know all of this. What is left is doing it in the time a conversation actually gives you.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "intro": "The five rules are not the problem any more. The problem is that you are applying them one at a time, in order, consciously, and a conversation does not wait for that. French pronounces the phrase, not the word. So the thing to train is not another rule. It is the habit of taking in a whole group before your mouth starts, which is physical rather than intellectual, and it comes from doing rather than knowing.",
+          "targets": [
+            {
+              "label": "Read the group first",
+              "sub": "For any phrase you have not seen",
+              "steps": [
+                "Cover the sentence and uncover only as far as the first break.",
+                "Read that group silently, all of it, before you make any sound.",
+                "Now say it, in one run, with one push at the end.",
+                "Uncover the next group and do the same. Never start a group you have not finished reading."
+              ],
+              "practiceOn": [
+                "fr.sons.masterclass.039",
+                "fr.sons.masterclass.041",
+                "fr.sons.masterclass.043",
+                "fr.sons.masterclass.044"
+              ],
+              "mic": true,
+              "audio": {
+                "mode": "recorded",
+                "recordingId": "rec-breaks"
+              }
+            },
+            {
+              "label": "The run-on",
+              "sub": "For a group with several joins in it",
+              "steps": [
+                "Say the group deliberately too fast, faster than you can hesitate.",
+                "Notice that the joins survive and only the pauses die.",
+                "Slow back down to normal speed while keeping every join closed.",
+                "Repeat until the slow version has no more gaps than the fast one."
+              ],
+              "practiceOn": [
+                "fr.sons.masterclass.025",
+                "fr.sons.masterclass.026",
+                "fr.sons.masterclass.027",
+                "fr.sons.masterclass.056"
+              ],
+              "mic": true,
+              "audio": {
+                "mode": "recorded",
+                "recordingId": "rec-joins"
+              }
+            },
+            {
+              "label": "Leave it alone",
+              "sub": "For the letters that must stay silent",
+              "steps": [
+                "Say a phrase where nothing joins, and deliberately try to link it.",
+                "Hear how wrong the extra consonant sounds.",
+                "Say it correctly, and notice that correct feels like doing less.",
+                "Alternate the two until leaving a letter alone feels like a decision rather than a lapse."
+              ],
+              "practiceOn": [
+                "fr.sons.masterclass.002",
+                "fr.sons.masterclass.006",
+                "fr.sons.masterclass.015",
+                "fr.sons.masterclass.050"
+              ],
+              "mic": true,
+              "audio": {
+                "mode": "recorded",
+                "recordingId": "rec-pairs"
+              }
+            }
+          ],
+          "closing": {
+            "text": "When you can read a group before your mouth starts, this lesson is done and so is the track."
+          }
+        },
+        {
+          "type": "practice",
+          "id": "s16-speak",
+          "title": "Say it at speed",
+          "frSub": "À voix haute",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "skill": "speak",
+          "terms": [
+            "pipeline"
+          ],
+          "say": {
+            "text": "Ten of them, scored on your voice. Conversation speed, and one stop only where there is a break.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "audio": {
+            "mode": "mic",
+            "scoreOn": "fr"
+          },
+          "itemIds": [
+            "fr.sons.masterclass.025",
+            "fr.sons.masterclass.026",
+            "fr.sons.masterclass.029",
+            "fr.sons.masterclass.032",
+            "fr.sons.masterclass.039",
+            "fr.sons.masterclass.042",
+            "fr.sons.masterclass.044",
+            "fr.sons.masterclass.047",
+            "fr.sons.masterclass.051",
+            "fr.sons.masterclass.056"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s17-scenario",
+          "title": "The same call, for real",
+          "frSub": "Au téléphone",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "pipeline",
+            "join"
+          ],
+          "say": {
+            "text": "Every line you say has at least two joins in it. Read your part out loud before you tap.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "setting": "The restaurant from mission one, calling back the following week. Same voice, same speed, no allowances.",
+          "turns": [
+            {
+              "ai": "Le Comptoir, bonjour ?",
+              "en": "Le Comptoir, good morning?",
+              "user": "Bonjour, c'est un ancien client."
+            },
+            {
+              "ai": "Bien sûr. Vous êtes combien ?",
+              "en": "Of course. How many of you?",
+              "user": "Nous avons deux enfants, donc quatre."
+            },
+            {
+              "ai": "Parfait. Et à quelle heure ?",
+              "en": "Perfect. And at what time?",
+              "user": "On arrive à l'heure, comme d'habitude."
+            },
+            {
+              "ai": "Très bien. La même table ?",
+              "en": "Very good. The same table?",
+              "user": "C'est un très bon choix, oui."
+            },
+            {
+              "ai": "Alors à ce soir.",
+              "en": "See you tonight then.",
+              "user": "Tout est prêt, merci."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s18-listen",
+          "title": "Hear it in the wild",
+          "frSub": "À l'écoute",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "skill": "listen",
+          "terms": [
+            "phraseGroup"
+          ],
+          "say": {
+            "text": "Eight sentences you have not worked on, from earlier lessons. Count the groups before you look.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-reading-passage",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "itemIds": [
+            "fr.sons.rythme.132",
+            "fr.sons.rythme.136",
+            "fr.sons.rythme.141",
+            "fr.sons.rythme.164",
+            "fr.sons.rythme.165",
+            "fr.sons.liaisons.016",
+            "fr.sons.liaisons.039",
+            "fr.sons.nasales.158"
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s19-reading",
+          "title": "A paragraph of all of it",
+          "frSub": "La lecture",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "questionsInModal": true,
+          "terms": [
+            "pipeline",
+            "join",
+            "sleeping"
+          ],
+          "say": {
+            "text": "Read it out loud, all the way through, before you look at a single question.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-reading-passage",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "perSentenceReplay": true
+          },
+          "text": "Le matin, les enfants vont à l'école. On arrive à l'heure, comme d'habitude, parce que c'est un très bon quartier et tout est à côté. Après le dîner, on prend un verre d'eau et les autres attendent dans le petit hôtel en face. Ce sont mes amis, ils habitent en Angleterre depuis deux ans. Ils sont partis très tôt, sans nous attendre, et il n'a pas encore mangé. Quand on est en retard, tout le monde attend, et les héros de cette histoire sont les enfants.",
+          "glossary": [
+            {
+              "word": "les autres",
+              "en": "the others",
+              "ipa": "/le.z‿otʁ/",
+              "note": "The S wakes here and then goes straight back to sleep before attendent."
+            },
+            {
+              "word": "en face",
+              "en": "opposite",
+              "ipa": "/ɑ̃ fas/",
+              "note": "A consonant follows en, so the N stays inside the vowel."
+            },
+            {
+              "word": "depuis deux ans",
+              "en": "for two years",
+              "ipa": "/də.pɥi dø.z‿ɑ̃/",
+              "note": "The X of deux wakes as a Z. The S of depuis has a consonant after it and does not."
+            },
+            {
+              "word": "les héros",
+              "en": "the heroes",
+              "ipa": "/le e.ʁo/",
+              "note": "H aspiré, so no Z and a small gap, in a sentence with three other liaisons in it."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Find every group boundary in the second sentence and say what marks each one.",
+              "a": "Two commas, and nothing else. Everything between them is one run: comme and habitude join, and c'est un très bon carries a T and then nothing before bon."
+            },
+            {
+              "q": "The passage has « les autres attendent » and « les amis ». Why does one of them have two joins and the other one?",
+              "a": "les autres joins on a Z because autres opens on a vowel. autres attendent does not join, because a noun subject closes its group before its verb."
+            },
+            {
+              "q": "Why is it « les héros » with a gap and « les enfants » with a Z, in the same sentence?",
+              "a": "héros is h aspiré and blocks the join. enfants opens on a vowel sound with nothing blocking, so the S of les wakes. Neither H nor E is pronounced."
+            },
+            {
+              "q": "Count the silent final consonants in the last sentence, and say what would have woken any of them.",
+              "a": "Six: the D of quand does wake, but retard, attend, sont and enfants do not, because each is followed by a consonant, a break, or nothing at all."
+            },
+            {
+              "q": "Read the third sentence aloud. How many times should you stop inside it?",
+              "a": "Once, at the comma. Everything after it runs together, including prend un and petit hôtel, which are joins you cannot see on the page."
+            }
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s20-review",
+          "title": "The system, not the sentences",
+          "frSub": "Révision",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "pipeline",
+            "phraseGroup",
+            "join"
+          ],
+          "say": {
+            "text": "Twelve cards. Answer each one out loud before you rate it.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "cards": [
+            {
+              "front": "The one thing all five rules have in common",
+              "back": "French pronounces the phrase, not the word."
+            },
+            {
+              "front": "The order the rules run in",
+              "back": "Group, join, push."
+            },
+            {
+              "front": "What you decide first, on any sentence",
+              "back": "Where it breaks. Nothing joins across a break, so every other decision depends on this one."
+            },
+            {
+              "front": "What triggers a join",
+              "back": "The next word starting on a vowel SOUND, inside the same group. Never a vowel letter."
+            },
+            {
+              "front": "The difference between elision and liaison",
+              "back": "What the first word ends in. A vowel is deleted; a sleeping consonant is woken. Same trigger, two outcomes."
+            },
+            {
+              "front": "What happens to everything else",
+              "back": "Nothing. Silence is the default, and most final consonants never move."
+            },
+            {
+              "front": "Where the push lands",
+              "back": "On the last syllable of each group, after joining has decided which syllable that is."
+            },
+            {
+              "front": "Two things that block both joins",
+              "back": "A phrase break, and an h aspiré. Nothing else blocks both."
+            },
+            {
+              "front": "What blocks a liaison but not an elision",
+              "back": "A noun subject sitting in front of its verb. Les enfants arrivent, with silence in the middle."
+            },
+            {
+              "front": "What a nasal N does before a vowel",
+              "back": "Both jobs at once. The vowel stays nasal and an N appears in front of the next word."
+            },
+            {
+              "front": "Your guess for an unknown H word",
+              "back": "Muet. Most French H are, and nearly every aspiré one is a recent borrowing."
+            },
+            {
+              "front": "Why you are still slow, if you are",
+              "back": "You are deciding word by word. Read the whole group before your mouth starts."
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s21-progress",
+          "title": "Where you are",
+          "frSub": "Votre progression",
+          "render": "screens",
+          "layer": "core",
+          "size": "md",
+          "say": {
+            "text": "Before the exam, a second to see what nine lessons have actually added up to.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "body": "Nine lessons taught you five rules, one at a time, and each of them made sense on its own. What you did not have until today is the order they run in and the speed they have to run at. Those are the only two things this lesson added, and between them they are the difference between reading French correctly and speaking it.",
+          "stats": [
+            {
+              "k": "Rules running together",
+              "v": "5"
+            },
+            {
+              "k": "Collisions drilled",
+              "v": "56"
+            },
+            {
+              "k": "Sons track",
+              "v": "Last lesson"
+            },
+            {
+              "k": "Next up",
+              "v": "A1, and none of this comes up again"
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s22-quiz",
+          "title": "Forty-eight questions",
+          "frSub": "L'examen",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "passMark": 70,
+          "adaptive": true,
+          "roundFailThreshold": 60,
+          "rounds": [
+            {
+              "id": "round1",
+              "label": "Group it",
+              "targets": [
+                "err-cross-break"
+              ],
+              "say": {
+                "text": "Round one. Before anything else, where does the phrase break.",
+                "voice": "coach",
+                "timing": "onEnter"
+              },
+              "questions": [
+                {
+                  "q": "Where does « Le matin, je bois mon café. » break?",
+                  "format": "mcq",
+                  "opts": [
+                    "after je",
+                    "after bois",
+                    "after matin",
+                    "nowhere, it is one group"
+                  ],
+                  "correct": 2,
+                  "why": "At the comma. That is one group and then another, and the push lands twice: once on matin and once at the end.",
+                  "ref": "s04-breaks"
+                },
+                {
+                  "q": "Which one did you hear?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-breaks",
+                    "speeds": [
+                      1,
+                      0.65
+                    ],
+                    "audioFirst": true
+                  },
+                  "opts": [
+                    "On mange, les enfants.",
+                    "On mange les enfants."
+                  ],
+                  "correct": 0,
+                  "why": "The break is the only difference, and it changes who is being eaten. Two groups with a gap, against one group with a Z in it.",
+                  "ref": "s04-breaks"
+                },
+                {
+                  "q": "Which one did you hear?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-subject-verb",
+                    "speeds": [
+                      1,
+                      0.65
+                    ],
+                    "audioFirst": true
+                  },
+                  "opts": [
+                    "Les enfants arrivent.",
+                    "Ils arrivent en retard."
+                  ],
+                  "correct": 1,
+                  "why": "Ils arrivent has a Z in the middle, because a pronoun subject does not close a group. Les enfants arrivent has silence in the same place.",
+                  "ref": "s05-across"
+                },
+                {
+                  "q": "Say it, and break where the comma is: In the morning, the children go to school.",
+                  "format": "speak",
+                  "target": "Le matin, les enfants vont à l'école.",
+                  "ipa": "/lə ma.tɛ̃ | le.z‿ɑ̃.fɑ̃ vɔ̃.t‿a le.kɔl/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "Two groups. Inside the second one, one join is made, one is refused and one is made again, all without slowing down.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Type the word that ends the first group in « Le matin, les enfants vont à l'école. »",
+                  "format": "typeIn",
+                  "accept": [
+                    "matin",
+                    "le matin"
+                  ],
+                  "answer": "matin",
+                  "why": "matin sits right before the comma, so it carries the push and closes the group. Nothing after it can join back across that edge.",
+                  "ref": "s04-breaks"
+                },
+                {
+                  "q": "A learner reads « Les enfants arrivent » with a Z before arrivent. Type the two words that DO join in that sentence.",
+                  "format": "errorSpot",
+                  "accept": [
+                    "les enfants"
+                  ],
+                  "answer": "les enfants",
+                  "why": "les and enfants sit inside one group, so they join. enfants and arrivent are on opposite sides of the subject boundary, so they never do.",
+                  "ref": "s05-across"
+                }
+              ]
+            },
+            {
+              "id": "round2",
+              "label": "The vowel that goes",
+              "targets": [
+                "err-miss-join"
+              ],
+              "say": {
+                "text": "Round two. Elision, and the one thing that stops it.",
+                "voice": "coach",
+                "timing": "onEnter"
+              },
+              "questions": [
+                {
+                  "q": "Type it: I have no friends here.",
+                  "format": "typeIn",
+                  "accept": [
+                    "je n'ai pas d'amis ici",
+                    "je nai pas damis ici",
+                    "je n’ai pas d’amis ici"
+                  ],
+                  "answer": "Je n'ai pas d'amis ici.",
+                  "why": "ne and de both lose their vowel. The S of pas stays silent because a D follows it, not a vowel.",
+                  "ref": "s07-collide"
+                },
+                {
+                  "q": "Type it: What are we waiting for?",
+                  "format": "typeIn",
+                  "accept": [
+                    "qu'est-ce qu'on attend",
+                    "quest-ce quon attend",
+                    "qu’est-ce qu’on attend"
+                  ],
+                  "answer": "Qu'est-ce qu'on attend ?",
+                  "why": "Two elisions turn four written words into four spoken syllables, and then the N of on links straight onto attend.",
+                  "ref": "s08-both"
+                },
+                {
+                  "q": "A learner writes « Je ne ai pas de argent ». Fix both elisions.",
+                  "format": "errorSpot",
+                  "accept": [
+                    "je n'ai pas d'argent",
+                    "je nai pas dargent",
+                    "je n’ai pas d’argent"
+                  ],
+                  "answer": "Je n'ai pas d'argent.",
+                  "why": "ne + ai and de + argent are both vowel collisions, and neither elision is optional. There is no slower French in which they stay whole.",
+                  "ref": "s07-collide"
+                },
+                {
+                  "q": "Say it: It is too early.",
+                  "format": "speak",
+                  "target": "C'est trop tôt.",
+                  "ipa": "/sɛ tʁo to/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "C'est is one syllable. Putting the E of ce back is the single most common way to sound like you are reading rather than speaking.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Why is there no elision before mangé in « Il n'a pas mangé »?",
+                  "format": "mcq",
+                  "opts": [
+                    "mangé is a verb",
+                    "pas never elides",
+                    "mangé starts on a consonant",
+                    "the sentence is negative"
+                  ],
+                  "correct": 2,
+                  "why": "A join only fires where the next word starts on a vowel sound. The M of mangé is a consonant, so nothing collides and nothing gives way.",
+                  "ref": "s07-collide"
+                },
+                {
+                  "q": "Which one did you hear?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-joins",
+                    "speeds": [
+                      1,
+                      0.65
+                    ],
+                    "audioFirst": true
+                  },
+                  "opts": [
+                    "C'est un très bon exemple.",
+                    "C'est un très bel appartement."
+                  ],
+                  "correct": 0,
+                  "why": "Both open on the same elision and the same T. They part on the third join: bon lends an N and bel lends an L.",
+                  "ref": "s08-both"
+                }
+              ]
+            },
+            {
+              "id": "round3",
+              "label": "The letter that comes back",
+              "targets": [
+                "err-miss-join"
+              ],
+              "say": {
+                "text": "Round three. Liaison, and which letter actually wakes.",
+                "voice": "coach",
+                "timing": "onEnter"
+              },
+              "questions": [
+                {
+                  "q": "In « un grand arbre », what sound does the D of grand make?",
+                  "format": "mcq",
+                  "opts": [
+                    "/d/",
+                    "/z/",
+                    "nothing",
+                    "/t/"
+                  ],
+                  "correct": 3,
+                  "why": "A final D wakes as a T, never as a D. The liaison consonant is not always the letter you are looking at.",
+                  "ref": "s08-both"
+                },
+                {
+                  "q": "Which one did you hear?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-pairs",
+                    "speeds": [
+                      1,
+                      0.65
+                    ],
+                    "audioFirst": true
+                  },
+                  "opts": [
+                    "un grand arbre",
+                    "un grand parc"
+                  ],
+                  "correct": 1,
+                  "why": "The same D in both. It says T in front of a vowel and nothing in front of a consonant, and there is no other difference between them.",
+                  "ref": "s09-silence"
+                },
+                {
+                  "q": "Which one did you hear?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-pairs",
+                    "speeds": [
+                      1,
+                      0.65
+                    ],
+                    "audioFirst": true
+                  },
+                  "opts": [
+                    "les amis",
+                    "les copains"
+                  ],
+                  "correct": 0,
+                  "why": "The S of les sounds in one and not the other, and what decided it was the first sound of the word after it.",
+                  "ref": "s09-silence"
+                },
+                {
+                  "q": "Say it: We have two children.",
+                  "format": "speak",
+                  "target": "Nous avons deux enfants.",
+                  "ipa": "/nu.z‿a.vɔ̃ dø.z‿ɑ̃.fɑ̃/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "An S and an X, both silent as written, both saying Z here. Neither join may carry a pause in front of it.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Say it: We are early.",
+                  "format": "speak",
+                  "target": "On est en avance.",
+                  "ipa": "/ɔ̃.n‿ɛ.t‿ɑ̃.n‿a.vɑ̃s/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "Three joins in four words. Said correctly it is five syllables with nothing at all between them.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Type the linking consonant you hear in the middle of « ils ont ». One letter.",
+                  "format": "typeIn",
+                  "accept": [
+                    "z",
+                    "a z"
+                  ],
+                  "answer": "z",
+                  "why": "The S of ils says Z. A liaison S is always voiced, which is why les amis is lay-z and never lay-s.",
+                  "ref": "s08-both"
+                }
+              ]
+            },
+            {
+              "id": "round4",
+              "label": "What stays silent",
+              "targets": [
+                "err-over-join"
+              ],
+              "say": {
+                "text": "Round four. Most of it stays silent, and adding a join is as wrong as missing one.",
+                "voice": "coach",
+                "timing": "onEnter"
+              },
+              "questions": [
+                {
+                  "q": "Tap the letter you do not say in this word.",
+                  "format": "tapSilent",
+                  "word": "partis",
+                  "correct": "s",
+                  "why": "The final S is written and silent. There is no vowel after it inside this group, so nothing is there to wake it.",
+                  "ref": "s09-silence"
+                },
+                {
+                  "q": "How many audible consonants close the words in « Tout va bien »?",
+                  "format": "mcq",
+                  "opts": [
+                    "one",
+                    "two",
+                    "three",
+                    "none"
+                  ],
+                  "correct": 3,
+                  "why": "None. The T of tout is asleep because a consonant follows it, and bien ends in a nasal vowel with no N after it.",
+                  "ref": "s09-silence"
+                },
+                {
+                  "q": "Which one did you hear?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-pairs",
+                    "speeds": [
+                      1,
+                      0.65
+                    ],
+                    "audioFirst": true
+                  },
+                  "opts": [
+                    "Tout est prêt.",
+                    "Tout va bien."
+                  ],
+                  "correct": 1,
+                  "why": "Tout est carries a T in the middle and Tout va carries nothing. It is the same letter of the same word in both.",
+                  "ref": "s09-silence"
+                },
+                {
+                  "q": "Say it: They left very early.",
+                  "format": "speak",
+                  "target": "Ils sont partis très tôt.",
+                  "ipa": "/il sɔ̃ paʁ.ti tʁɛ to/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "Five words, five silent endings, and no join available anywhere in it. Inventing one is the classic way to overcorrect.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Type it: Everything is fine.",
+                  "format": "typeIn",
+                  "accept": [
+                    "tout va bien"
+                  ],
+                  "answer": "Tout va bien.",
+                  "why": "Three short words, and the T you can see is one you must not say. Silence is the default the system falls back to.",
+                  "ref": "s09-silence"
+                },
+                {
+                  "q": "A learner writes « Il ont mangé » and cannot hear where the Z comes from. Fix the spelling.",
+                  "format": "errorSpot",
+                  "accept": [
+                    "ils ont mangé",
+                    "ils ont mange"
+                  ],
+                  "answer": "Ils ont mangé.",
+                  "why": "The plural S is the whole liaison. Drop it from the spelling and the Z you can hear has nothing left to come from.",
+                  "ref": "s09-silence"
+                }
+              ]
+            },
+            {
+              "id": "round5",
+              "label": "The H that blocks both",
+              "targets": [
+                "err-sound-letter"
+              ],
+              "say": {
+                "text": "Round five. The hard part, and nothing on the page will help you.",
+                "voice": "coach",
+                "timing": "onEnter"
+              },
+              "questions": [
+                {
+                  "q": "Which of these blocks BOTH the elision and the liaison?",
+                  "format": "mcq",
+                  "opts": [
+                    "l'hôtel",
+                    "l'heure",
+                    "le hibou",
+                    "l'homme"
+                  ],
+                  "correct": 2,
+                  "why": "hibou is h aspiré. It is the only thing in French that blocks both joins, and nothing in the spelling shows it.",
+                  "ref": "s11-h"
+                },
+                {
+                  "q": "Which one did you hear?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-h-blocks",
+                    "speeds": [
+                      1,
+                      0.65
+                    ],
+                    "audioFirst": true
+                  },
+                  "opts": [
+                    "les hôtels",
+                    "les héros"
+                  ],
+                  "correct": 1,
+                  "why": "One has a Z and one has a small gap where the Z would have been. That gap is the only signal an h aspiré ever gives you.",
+                  "ref": "s11-h"
+                },
+                {
+                  "q": "Which one did you hear?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-h-blocks",
+                    "speeds": [
+                      1,
+                      0.65
+                    ],
+                    "audioFirst": true
+                  },
+                  "opts": [
+                    "deux heures",
+                    "deux hiboux"
+                  ],
+                  "correct": 0,
+                  "why": "The X of deux says Z before an h muet and nothing before an h aspiré. Both of those words are spelled with an H.",
+                  "ref": "s11-h"
+                },
+                {
+                  "q": "Say it: The little hero has left.",
+                  "format": "speak",
+                  "target": "Le petit héros est parti.",
+                  "ipa": "/lə pə.ti e.ʁo ɛ paʁ.ti/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "Two sleeping T and both stay down. Waking the first one turns héros into a word French does not have.",
+                  "ref": "s11-h"
+                },
+                {
+                  "q": "A learner writes « l'héros ». Fix it.",
+                  "format": "errorSpot",
+                  "accept": [
+                    "le héros",
+                    "le heros"
+                  ],
+                  "answer": "le héros",
+                  "why": "h aspiré blocks the elision as well as the liaison. The article keeps its vowel even though the H makes no sound at all.",
+                  "ref": "s11-h"
+                },
+                {
+                  "q": "Type the correct article plus noun for « hibou », the owl.",
+                  "format": "typeIn",
+                  "accept": [
+                    "le hibou"
+                  ],
+                  "answer": "le hibou",
+                  "why": "hibou is h aspiré, so le keeps its E. When you genuinely do not know which H you have, guess muet: it is far more common.",
+                  "ref": "s11-h"
+                }
+              ]
+            },
+            {
+              "id": "round6",
+              "label": "Nasals in connected speech",
+              "targets": [
+                "err-sound-letter"
+              ],
+              "say": {
+                "text": "Round six. The N that does two jobs at once.",
+                "voice": "coach",
+                "timing": "onEnter"
+              },
+              "questions": [
+                {
+                  "q": "In « un bon ami », what happens to the vowel of bon?",
+                  "format": "mcq",
+                  "opts": [
+                    "it stops being nasal",
+                    "it becomes two syllables",
+                    "it disappears",
+                    "it stays nasal and an N is added"
+                  ],
+                  "correct": 3,
+                  "why": "The N does both jobs at once. The vowel still goes through the nose AND an N appears in front of ami, and neither is spent on the other.",
+                  "ref": "s12-nasal"
+                },
+                {
+                  "q": "Which one did you hear?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "recorded",
+                    "recordingId": "rec-nasal-n",
+                    "speeds": [
+                      1,
+                      0.65
+                    ],
+                    "audioFirst": true
+                  },
+                  "opts": [
+                    "un bon ami",
+                    "un bon copain"
+                  ],
+                  "correct": 0,
+                  "why": "Three syllables each, and only one of them has an audible N in the middle. The vowel of bon is nasal in both.",
+                  "ref": "s12-nasal"
+                },
+                {
+                  "q": "Say it: in an instant.",
+                  "format": "speak",
+                  "target": "en un instant",
+                  "ipa": "/ɑ̃.n‿œ̃.n‿ɛ̃s.tɑ̃/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "Four nasal vowels and two linking N in three words. Each N belongs to the syllable after it, not the one before.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Say it: They have a child.",
+                  "format": "speak",
+                  "target": "Ils ont un enfant.",
+                  "ipa": "/il.z‿ɔ̃.t‿œ̃.n‿ɑ̃.fɑ̃/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "Six spoken syllables out of four written words, with three joins holding them together and no pause available anywhere.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Type it: my former flat.",
+                  "format": "typeIn",
+                  "accept": [
+                    "mon ancien appartement"
+                  ],
+                  "answer": "mon ancien appartement",
+                  "why": "Two N link and four vowels stay nasal. The N you hear was never a separate letter you could have chosen to drop.",
+                  "ref": "s12-nasal"
+                },
+                {
+                  "q": "A learner says « un bon copain » with an N before copain. Type the phrase where that N is correct.",
+                  "format": "errorSpot",
+                  "accept": [
+                    "un bon ami"
+                  ],
+                  "answer": "un bon ami",
+                  "why": "An N only surfaces where a vowel follows it. copain starts on a consonant, so there is nothing for the N to attach to.",
+                  "ref": "s12-nasal"
+                }
+              ]
+            },
+            {
+              "id": "round7",
+              "label": "Two rules at once",
+              "targets": [
+                "err-over-join"
+              ],
+              "say": {
+                "text": "Round seven. Every question here needs more than one rule.",
+                "voice": "coach",
+                "timing": "onEnter"
+              },
+              "questions": [
+                {
+                  "q": "In « Il n'a pas encore mangé », what happens to ne and to pas?",
+                  "format": "mcq",
+                  "opts": [
+                    "both keep their vowel",
+                    "both elide",
+                    "ne elides and the S of pas wakes",
+                    "ne elides and pas stays silent"
+                  ],
+                  "correct": 2,
+                  "why": "One rule deletes a vowel and another wakes a consonant, three letters apart. Take encore out and only the second one stops.",
+                  "ref": "s08-both"
+                },
+                {
+                  "q": "Say it: It is a former hotel.",
+                  "format": "speak",
+                  "target": "C'est un ancien hôtel.",
+                  "ipa": "/sɛ.t‿œ̃.n‿ɑ̃.sjɛ̃.n‿o.tɛl/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "One elision and two liaisons, run together as a single unbroken word. Any pause inside it is the error.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Say it: Have a large glass of water.",
+                  "format": "speak",
+                  "target": "Prenez un grand verre d'eau.",
+                  "ipa": "/pʁə.ne.z‿œ̃ ɡʁɑ̃ vɛʁ do/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "The Z of prenez wakes and the D of grand does not, four words apart, and the same one thing decided both of them.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Type it: That is a very good example.",
+                  "format": "typeIn",
+                  "accept": [
+                    "c'est un très bon exemple",
+                    "cest un tres bon exemple",
+                    "c’est un très bon exemple"
+                  ],
+                  "answer": "C'est un très bon exemple.",
+                  "why": "The S of très sits between two liaisons and makes none of its own, because bon opens on a consonant.",
+                  "ref": "s08-both"
+                },
+                {
+                  "q": "Type it: We have had enough.",
+                  "format": "typeIn",
+                  "accept": [
+                    "on en a assez"
+                  ],
+                  "answer": "On en a assez.",
+                  "why": "Two joins, then two vowels side by side with nothing between them. a has no sleeping consonant to lend, so the gap stays.",
+                  "ref": "s07-collide"
+                },
+                {
+                  "q": "A learner reads « les héros » with a Z. Type the phrase from this lesson where les DOES take a Z before an H word.",
+                  "format": "errorSpot",
+                  "accept": [
+                    "les hôtels",
+                    "les hotels"
+                  ],
+                  "answer": "les hôtels",
+                  "why": "Both words open on a silent H and only one lets the join through. Nothing in the spelling could have told you which.",
+                  "ref": "s11-h"
+                }
+              ]
+            },
+            {
+              "id": "round8",
+              "label": "The whole system, at speed",
+              "targets": [
+                "err-word-by-word"
+              ],
+              "say": {
+                "text": "Last round. You know all of this. The only question left is whether you can do it in time.",
+                "voice": "coach",
+                "timing": "onEnter"
+              },
+              "questions": [
+                {
+                  "q": "You meet a sentence you have never seen. What do you decide FIRST?",
+                  "format": "mcq",
+                  "opts": [
+                    "which letters are silent",
+                    "which words elide",
+                    "where the stress falls",
+                    "where the phrase breaks"
+                  ],
+                  "correct": 3,
+                  "why": "Group first. Nothing joins across a break, so deciding a join before you know the groups can only ever be a guess.",
+                  "ref": "s03-anchors"
+                },
+                {
+                  "q": "Say it: When we are late, everyone waits.",
+                  "format": "speak",
+                  "target": "Quand on est en retard, tout le monde attend.",
+                  "ipa": "/kɑ̃.t‿ɔ̃.n‿ɛ.t‿ɑ̃ ʁə.taʁ | tu lə mɔ̃.d‿a.tɑ̃/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "Four joins, one break and five nasal vowels. At conversation speed there is no room to decide any of it word by word.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Say it: In the morning, the children go to school.",
+                  "format": "speak",
+                  "target": "Le matin, les enfants vont à l'école.",
+                  "ipa": "/lə ma.tɛ̃ | le.z‿ɑ̃.fɑ̃ vɔ̃.t‿a le.kɔl/",
+                  "audio": {
+                    "mode": "mic"
+                  },
+                  "why": "All five rules in one line: a break, a join made, a join refused, a join made, and a push at the end of each group.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Type it: We arrive on time, as usual.",
+                  "format": "typeIn",
+                  "accept": [
+                    "on arrive à l'heure, comme d'habitude",
+                    "on arrive a lheure comme dhabitude",
+                    "on arrive à l’heure, comme d’habitude"
+                  ],
+                  "answer": "On arrive à l'heure, comme d'habitude.",
+                  "why": "Two elisions, one liaison and one slide, split across a break. Every one of them is compulsory.",
+                  "ref": "s19-reading"
+                },
+                {
+                  "q": "Type the three steps of the system, in order, separated by commas.",
+                  "format": "typeIn",
+                  "accept": [
+                    "group, join, push",
+                    "group join push"
+                  ],
+                  "answer": "Group, join, push.",
+                  "why": "Group decides where nothing may cross. Join fires inside each group and only there. Push lands on the last syllable of each one.",
+                  "ref": "s03-anchors"
+                },
+                {
+                  "q": "A learner reads « Les enfants arrivent » as three separate words with a pause between each. Type what they should have joined.",
+                  "format": "errorSpot",
+                  "accept": [
+                    "les enfants"
+                  ],
+                  "answer": "les enfants",
+                  "why": "One join, and only one. The pause between enfants and arrivent is correct. The pause between les and enfants is not.",
+                  "ref": "s05-across"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s23-roundup",
+          "title": "What you take with you",
+          "frSub": "L'essentiel",
+          "render": "screens",
+          "layer": "core",
+          "size": "md",
+          "imageRef": "lessons/masterclass/roundup.jpg",
+          "terms": [
+            "pipeline",
+            "phraseGroup"
+          ],
+          "say": {
+            "text": "That is the track. Five things worth keeping, and the first one contains the other four.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
+          "body": "An hour ago you knew five rules and a person on a telephone waited for you to finish a sentence you thought you had started. Nothing was wrong with the words. What was missing was the group, and the order, and the speed. You now read a phrase before you speak it, which is the only version of this that is any use in a conversation, and it is the last thing the sons track had to give you.",
+          "points": [
+            "French pronounces the phrase, not the word. Every rule you have learned is a consequence of that, and none of them is a separate decision.",
+            "Group, join, push. Group first, because nothing joins across a break. Then join, inside each group only. Then push, on the last syllable of each one.",
+            "A join fires on a vowel SOUND, not a vowel letter. Elision deletes a vowel and liaison wakes a consonant, and the trigger for both is identical.",
+            "Everything the joining did not touch stays silent, which is most of it. Adding a link French does not make is as wrong as missing one it does.",
+            "Two things block both joins: a phrase break and an h aspiré. A noun subject in front of its verb blocks the liaison alone, and nothing on the page shows any of them."
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.sons.masterclass.001",
+        "fr.sons.masterclass.002",
+        "fr.sons.masterclass.003",
+        "fr.sons.masterclass.004",
+        "fr.sons.masterclass.005",
+        "fr.sons.masterclass.006",
+        "fr.sons.masterclass.007",
+        "fr.sons.masterclass.008",
+        "fr.sons.masterclass.009",
+        "fr.sons.masterclass.010",
+        "fr.sons.masterclass.011",
+        "fr.sons.masterclass.012",
+        "fr.sons.masterclass.013",
+        "fr.sons.masterclass.014",
+        "fr.sons.masterclass.015",
+        "fr.sons.masterclass.016",
+        "fr.sons.masterclass.017",
+        "fr.sons.masterclass.018",
+        "fr.sons.masterclass.019",
+        "fr.sons.masterclass.020",
+        "fr.sons.masterclass.021",
+        "fr.sons.masterclass.022",
+        "fr.sons.masterclass.023",
+        "fr.sons.masterclass.024",
+        "fr.sons.masterclass.025",
+        "fr.sons.masterclass.026",
+        "fr.sons.masterclass.027",
+        "fr.sons.masterclass.028",
+        "fr.sons.masterclass.029",
+        "fr.sons.masterclass.030",
+        "fr.sons.masterclass.031",
+        "fr.sons.masterclass.032",
+        "fr.sons.masterclass.033",
+        "fr.sons.masterclass.034",
+        "fr.sons.masterclass.035",
+        "fr.sons.masterclass.036",
+        "fr.sons.masterclass.037",
+        "fr.sons.masterclass.038",
+        "fr.sons.masterclass.039",
+        "fr.sons.masterclass.040",
+        "fr.sons.masterclass.041",
+        "fr.sons.masterclass.042",
+        "fr.sons.masterclass.043",
+        "fr.sons.masterclass.044",
+        "fr.sons.masterclass.045",
+        "fr.sons.masterclass.046",
+        "fr.sons.masterclass.047",
+        "fr.sons.masterclass.048",
+        "fr.sons.masterclass.049",
+        "fr.sons.masterclass.050",
+        "fr.sons.masterclass.051",
+        "fr.sons.masterclass.052",
+        "fr.sons.masterclass.053",
+        "fr.sons.masterclass.054",
+        "fr.sons.masterclass.055",
+        "fr.sons.masterclass.056",
+        "fr.sons.rythme.132",
+        "fr.sons.rythme.136",
+        "fr.sons.rythme.141",
+        "fr.sons.rythme.152",
+        "fr.sons.rythme.153",
+        "fr.sons.rythme.164",
+        "fr.sons.rythme.165",
+        "fr.sons.rythme.168",
+        "fr.sons.rythme.092",
+        "fr.sons.rythme.095",
+        "fr.sons.rythme.126",
+        "fr.sons.rythme.129",
+        "fr.sons.liaisons.003",
+        "fr.sons.liaisons.013",
+        "fr.sons.liaisons.016",
+        "fr.sons.liaisons.027",
+        "fr.sons.liaisons.048",
+        "fr.sons.liaisons.076",
+        "fr.sons.liaisons.093",
+        "fr.sons.liaisons.154",
+        "fr.sons.liaisons.039",
+        "fr.sons.nasales.158"
+      ],
+      "acts": [
+        {
+          "id": "act1",
+          "title": "Five rules, one sentence",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-anchors"
+          ],
+          "milestone": "The gap, named.",
+          "estScreens": 20,
+          "restPoints": [
+            "s01-scene/end"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Group it",
+          "sections": [
+            "s04-breaks",
+            "s05-across",
+            "s06-push"
+          ],
+          "milestone": "Where the phrase ends.",
+          "estScreens": 20,
+          "restPoints": [
+            "s04-breaks/6"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "Join it",
+          "sections": [
+            "s07-collide",
+            "s08-both",
+            "s09-silence",
+            "s10-dictation"
+          ],
+          "milestone": "Both joins, one move.",
+          "estScreens": 38,
+          "restPoints": [
+            "s08-both/6",
+            "s10-dictation/5"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "Where the rules fight",
+          "sections": [
+            "s11-h",
+            "s12-nasal",
+            "s13-pairs",
+            "s14-errors"
+          ],
+          "milestone": "The blockers, beaten.",
+          "estScreens": 32,
+          "restPoints": [
+            "s13-pairs/6"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "At speed",
+          "sections": [
+            "s15-inhibition",
+            "s16-speak",
+            "s17-scenario",
+            "s18-listen"
+          ],
+          "milestone": "Fast enough to be speech.",
+          "estScreens": 22,
+          "restPoints": [
+            "s16-speak/5"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s19-reading",
+            "s20-review",
+            "s21-progress",
+            "s22-quiz",
+            "s23-roundup"
+          ],
+          "milestone": "Sons track complete.",
+          "estScreens": 63,
+          "restPoints": [
+            "s20-review",
+            "s22-quiz/round3",
+            "s22-quiz/round6"
+          ]
+        }
+      ],
+      "reframe": "French pronounces the phrase, not the word.",
+      "errorTriggers": [
+        {
+          "id": "err-cross-break",
+          "description": "Joins across a phrase break, or fails to break at all and runs two groups into one.",
+          "detectOn": [
+            "s04-breaks",
+            "s05-across",
+            "s06-push",
+            "s22-quiz/round1"
+          ],
+          "drill": "drill-break",
+          "retest": "retest-break"
+        },
+        {
+          "id": "err-miss-join",
+          "description": "Leaves a compulsory elision or liaison unmade: je aime, les_amis with a gap.",
+          "detectOn": [
+            "s07-collide",
+            "s08-both",
+            "s10-dictation",
+            "s22-quiz/round2",
+            "s22-quiz/round3"
+          ],
+          "drill": "drill-join",
+          "retest": "retest-join"
+        },
+        {
+          "id": "err-over-join",
+          "description": "Makes a join French forbids: a Z into les héros, or a link from a noun subject to its verb.",
+          "detectOn": [
+            "s09-silence",
+            "s14-errors",
+            "s22-quiz/round4",
+            "s22-quiz/round7"
+          ],
+          "drill": "drill-block",
+          "retest": "retest-block"
+        },
+        {
+          "id": "err-sound-letter",
+          "description": "Decides from the letter rather than the sound: reads an H, or says an N after a nasal vowel.",
+          "detectOn": [
+            "s11-h",
+            "s12-nasal",
+            "s13-pairs",
+            "s22-quiz/round5",
+            "s22-quiz/round6"
+          ],
+          "drill": "drill-sound",
+          "retest": "retest-sound"
+        },
+        {
+          "id": "err-word-by-word",
+          "description": "Applies the rules one word at a time, correctly but far too slowly to be speech.",
+          "detectOn": [
+            "s15-inhibition",
+            "s16-speak",
+            "s17-scenario",
+            "s22-quiz/round8"
+          ],
+          "drill": "drill-speed",
+          "retest": "retest-speed"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-break",
+          "title": "Find the edge",
+          "size": "lg",
+          "format": "sort",
+          "buckets": [
+            "One group",
+            "Two groups"
+          ],
+          "items": [
+            "fr.sons.masterclass.015",
+            "fr.sons.masterclass.026",
+            "fr.sons.masterclass.039",
+            "fr.sons.masterclass.041",
+            "fr.sons.masterclass.045",
+            "fr.sons.masterclass.056"
+          ],
+          "coach": "Six phrases. Say each one out loud and decide where, if anywhere, you had to stop.",
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-breaks",
+            "speeds": [
+              1,
+              0.65
+            ]
+          }
+        },
+        {
+          "id": "retest-break",
+          "title": "One more edge",
+          "format": "mcq",
+          "q": "Which of these is TWO groups rather than one?",
+          "opts": [
+            "On est en avance.",
+            "Ils ont un enfant.",
+            "On mange, les enfants.",
+            "C'est un ancien hôtel."
+          ],
+          "correct": 2,
+          "why": "The comma is a real break. The other three run straight through with no place to stop inside them."
+        },
+        {
+          "id": "drill-join",
+          "title": "Make the join",
+          "size": "lg",
+          "format": "typeIn",
+          "items": [
+            "fr.sons.masterclass.001",
+            "fr.sons.masterclass.025",
+            "fr.sons.masterclass.026",
+            "fr.sons.masterclass.028",
+            "fr.sons.masterclass.029",
+            "fr.sons.masterclass.037"
+          ],
+          "coach": "Six phrases, every one of them with a compulsory join in it. Write what the join actually sounds like."
+        },
+        {
+          "id": "retest-join",
+          "title": "Once more",
+          "format": "typeIn",
+          "q": "Type the linking sound in « nous avons ». One letter.",
+          "why": "The S of nous wakes as a Z, because avons opens on a vowel and the two words are inside one group.",
+          "coach": "Just the one."
+        },
+        {
+          "id": "drill-block",
+          "title": "Join, or leave it",
+          "size": "lg",
+          "format": "sort",
+          "buckets": [
+            "Join it",
+            "Leave the gap"
+          ],
+          "items": [
+            "fr.sons.masterclass.005",
+            "fr.sons.masterclass.006",
+            "fr.sons.masterclass.007",
+            "fr.sons.masterclass.008",
+            "fr.sons.masterclass.015",
+            "fr.sons.masterclass.016"
+          ],
+          "coach": "Three of these join and three do not. Two are blocked by an H and one by the edge of a group.",
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-h-blocks",
+            "speeds": [
+              1,
+              0.65
+            ]
+          }
+        },
+        {
+          "id": "retest-block",
+          "title": "The gap",
+          "format": "listenChoose",
+          "q": "Which one did you hear?",
+          "opts": [
+            "les hôtels",
+            "les héros"
+          ],
+          "correct": 0,
+          "why": "les hôtels runs straight through on a Z. les héros leaves a small gap where an h aspiré blocked it.",
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-h-blocks",
+            "audioFirst": true
+          }
+        },
+        {
+          "id": "drill-sound",
+          "title": "The sound, not the letter",
+          "size": "lg",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "fr.sons.masterclass.013",
+              "fr.sons.masterclass.014"
+            ],
+            [
+              "fr.sons.masterclass.005",
+              "fr.sons.masterclass.006"
+            ],
+            [
+              "fr.sons.masterclass.003",
+              "fr.sons.masterclass.004"
+            ],
+            [
+              "fr.sons.masterclass.011",
+              "fr.sons.masterclass.012"
+            ]
+          ],
+          "coach": "Four pairs. In each one the spelling gives you nothing, so listen and then decide.",
+          "audio": {
+            "mode": "recorded",
+            "recordingId": "rec-nasal-n",
+            "speeds": [
+              1,
+              0.65
+            ]
+          }
+        },
+        {
+          "id": "retest-sound",
+          "title": "One decision",
+          "format": "mcq",
+          "q": "You meet a new word starting with H and have to guess. Which way?",
+          "opts": [
+            "aspiré, keep the article whole",
+            "muet, let the join through"
+          ],
+          "correct": 1,
+          "why": "Most French H are muet, and nearly every aspiré one is a recent borrowing. Muet is the better guess by a long way."
+        },
+        {
+          "id": "drill-speed",
+          "title": "Faster than you can decide",
+          "size": "lg",
+          "format": "speak",
+          "items": [
+            "fr.sons.masterclass.039",
+            "fr.sons.masterclass.042",
+            "fr.sons.masterclass.044",
+            "fr.sons.masterclass.047",
+            "fr.sons.masterclass.056"
+          ],
+          "coach": "Five sentences. Say each one faster than you can work it out. The rules survive speed; the hesitation does not.",
+          "audio": {
+            "mode": "mic"
+          }
+        },
+        {
+          "id": "retest-speed",
+          "title": "At speed, once",
+          "format": "speak",
+          "q": "Say « Quand on est en retard, tout le monde attend » with one stop, at the comma, and nowhere else.",
+          "why": "Four joins and one break. If you can place the single stop correctly at speed, the system is running on its own.",
+          "audio": {
+            "mode": "mic"
+          }
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.sons.09.system",
+          "title": "The whole sound system, on one page",
+          "layer": "deep",
+          "contains": [
+            "The three steps",
+            "What each rule decides",
+            "What blocks what"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-system-order",
+              "title": "The order, and what each step decides",
+              "layer": "deep",
+              "cols": [
+                "Step",
+                "Question",
+                "What it settles"
+              ],
+              "rows": [
+                [
+                  "1. Group",
+                  "Where does the phrase break?",
+                  "Which words are allowed to touch each other at all."
+                ],
+                [
+                  "2. Join",
+                  "Does the next word start on a vowel sound?",
+                  "Elision if a vowel would collide, liaison if a sleeping consonant can fill the gap."
+                ],
+                [
+                  "3. Push",
+                  "Which syllable ends this group?",
+                  "Where the one prominence lands, after the joining has moved things."
+                ],
+                [
+                  "Default",
+                  "Did anything above touch this letter?",
+                  "If not, it stays silent. Most letters at the ends of words never move."
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-system-blocks",
+              "title": "What blocks a join",
+              "layer": "deep",
+              "cols": [
+                "Blocker",
+                "Blocks",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "A phrase break",
+                  "both joins",
+                  "On mange, les enfants."
+                ],
+                [
+                  "A noun subject before its verb",
+                  "liaison",
+                  "Les enfants arrivent."
+                ],
+                [
+                  "H aspiré",
+                  "both joins",
+                  "le héros, les héros, le hibou"
+                ],
+                [
+                  "A consonant on the next word",
+                  "both joins",
+                  "un petit chien, je parle"
+                ],
+                [
+                  "et",
+                  "liaison, always",
+                  "et un, never with a T"
+                ],
+                [
+                  "Nothing following at all",
+                  "both joins",
+                  "Ils sont partis."
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-system-consonants",
+              "title": "Which letter wakes as which sound",
+              "layer": "deep",
+              "cols": [
+                "Written",
+                "Sounds as",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "s, x, z",
+                  "/z/",
+                  "les amis, deux heures, chez elle"
+                ],
+                [
+                  "t, d",
+                  "/t/",
+                  "tout est, un grand arbre"
+                ],
+                [
+                  "n",
+                  "/n/",
+                  "un bon ami, on est"
+                ],
+                [
+                  "r",
+                  "/ʁ/",
+                  "le premier étage"
+                ],
+                [
+                  "p",
+                  "/p/",
+                  "trop aimable"
+                ],
+                [
+                  "f (in neuf)",
+                  "/v/",
+                  "neuf ans, neuf heures, and nowhere else"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sheet.sons.09.pairs",
+          "title": "The twelve pairs, in full",
+          "layer": "deep",
+          "contains": [
+            "Every minimal pair this lesson teaches",
+            "What differs in each",
+            "Which rule decides"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-pairs-table",
+              "title": "Same letters, two behaviours",
+              "layer": "deep",
+              "cols": [
+                "Joins",
+                "Does not join",
+                "What decided it"
+              ],
+              "rows": [
+                [
+                  "les amis",
+                  "les copains",
+                  "A vowel against a consonant."
+                ],
+                [
+                  "un petit ami",
+                  "un petit chien",
+                  "A vowel against a consonant."
+                ],
+                [
+                  "un grand arbre",
+                  "un grand parc",
+                  "A vowel against a consonant, and the D says T."
+                ],
+                [
+                  "un bon ami",
+                  "un bon copain",
+                  "A vowel against a consonant, and the vowel stays nasal in both."
+                ],
+                [
+                  "les hôtels",
+                  "les héros",
+                  "H muet against h aspiré. Nothing on the page shows it."
+                ],
+                [
+                  "deux heures",
+                  "deux hiboux",
+                  "H muet against h aspiré."
+                ],
+                [
+                  "ils ont",
+                  "ils sont",
+                  "A vowel against a consonant, and the Z is the only audible difference."
+                ],
+                [
+                  "Ils arrivent en retard.",
+                  "Les enfants arrivent.",
+                  "A pronoun subject against a noun subject."
+                ],
+                [
+                  "Le petit hôtel est ouvert.",
+                  "Le petit héros est parti.",
+                  "H muet against h aspiré, twice in one sentence."
+                ],
+                [
+                  "Il n'a pas encore mangé.",
+                  "Il n'a pas mangé.",
+                  "One word removed, and the Z goes with it."
+                ],
+                [
+                  "Tout est prêt.",
+                  "Tout va bien.",
+                  "A vowel against a consonant."
+                ],
+                [
+                  "Ils sont partis très tôt, sans nous attendre.",
+                  "Ils sont partis très tôt.",
+                  "A sixth word arrives and one S wakes."
+                ]
+              ]
+            },
+            {
+              "type": "focus",
+              "id": "sheet-pairs-why",
+              "title": "What every pair on this page has in common",
+              "layer": "deep",
+              "points": [
+                "The two halves are spelled the same up to the point where they differ.",
+                "Nothing in the spelling of the differing word tells you which way it goes.",
+                "The decision is always made by the first SOUND of the next word, or by a group edge.",
+                "That is why the ear has to lead here, and why every one of these has a recording."
+              ]
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [],
+        [
+          "fr.sons.masterclass.039",
+          "fr.sons.masterclass.040",
+          "fr.sons.masterclass.041",
+          "fr.sons.masterclass.042",
+          "fr.sons.masterclass.043",
+          "fr.sons.masterclass.044",
+          "fr.sons.masterclass.045",
+          "fr.sons.masterclass.046",
+          "fr.sons.masterclass.047",
+          "fr.sons.masterclass.048"
+        ],
+        [
+          "fr.sons.masterclass.025",
+          "fr.sons.masterclass.026",
+          "fr.sons.masterclass.027",
+          "fr.sons.masterclass.028",
+          "fr.sons.masterclass.029",
+          "fr.sons.masterclass.030",
+          "fr.sons.masterclass.031",
+          "fr.sons.masterclass.032",
+          "fr.sons.masterclass.033",
+          "fr.sons.masterclass.034",
+          "fr.sons.masterclass.035",
+          "fr.sons.masterclass.036",
+          "fr.sons.masterclass.037",
+          "fr.sons.masterclass.038"
+        ],
+        [
+          "fr.sons.masterclass.001",
+          "fr.sons.masterclass.002",
+          "fr.sons.masterclass.003",
+          "fr.sons.masterclass.004",
+          "fr.sons.masterclass.005",
+          "fr.sons.masterclass.006",
+          "fr.sons.masterclass.007",
+          "fr.sons.masterclass.008",
+          "fr.sons.masterclass.009",
+          "fr.sons.masterclass.010",
+          "fr.sons.masterclass.011",
+          "fr.sons.masterclass.012",
+          "fr.sons.masterclass.013",
+          "fr.sons.masterclass.014"
+        ],
+        [
+          "fr.sons.masterclass.015",
+          "fr.sons.masterclass.016",
+          "fr.sons.masterclass.017",
+          "fr.sons.masterclass.018",
+          "fr.sons.masterclass.019",
+          "fr.sons.masterclass.020",
+          "fr.sons.masterclass.021",
+          "fr.sons.masterclass.022",
+          "fr.sons.masterclass.023",
+          "fr.sons.masterclass.024",
+          "fr.sons.masterclass.049",
+          "fr.sons.masterclass.050",
+          "fr.sons.masterclass.051",
+          "fr.sons.masterclass.052",
+          "fr.sons.masterclass.053",
+          "fr.sons.masterclass.054",
+          "fr.sons.masterclass.055",
+          "fr.sons.masterclass.056"
+        ],
+        []
+      ],
+      "terms": {
+        "phraseGroup": {
+          "term": "the phrase group",
+          "title": "The unit French actually pronounces",
+          "body": "English decides how a word sounds and then puts words in a row. French does not. It builds a GROUP first, a short run of syllables said in one flow with a single push at the end, and only then decides what each letter inside it does. That is why the same word changes: petit before a consonant and petit before a vowel are the same word in two different groups, and the group is what chose. Everything in this lesson follows from it. A letter goes silent because nothing in its group needs it. A letter comes back because the next sound in the group needs a consonant. A vowel is deleted because the group will not carry two vowels in a row. Find the group before you decide anything else, because nothing joins across the edge of one.",
+          "examples": [
+            {
+              "itemId": "fr.sons.masterclass.015",
+              "note": "the subject closes its group, so the second S stays down"
+            },
+            {
+              "itemId": "fr.sons.masterclass.041",
+              "note": "two groups, one Z inside each"
+            },
+            {
+              "itemId": "fr.sons.masterclass.039",
+              "note": "a break, then three joins inside one group"
+            }
+          ]
+        },
+        "pipeline": {
+          "term": "group, join, push",
+          "title": "The order the rules run in",
+          "body": "The five rules are not five decisions you make at once. They are a sequence, and each step depends on the one before it. FIRST group: find where the phrase breaks, because nothing joins across a break and getting this wrong makes every later step wrong. THEN join, inside each group and only inside it: two vowels meeting means the small word loses its vowel, and a sleeping consonant in front of a vowel wakes up. Everything the joining did not touch stays exactly as silent as it was. THEN push: one prominence per group, on its last syllable, wherever the joining ended up putting that syllable. Run it in that order and a sentence you have never seen comes out right the first time.",
+          "examples": [
+            {
+              "itemId": "fr.sons.masterclass.039",
+              "note": "break, then join, then two pushes"
+            },
+            {
+              "itemId": "fr.sons.masterclass.044",
+              "note": "four joins inside two groups"
+            },
+            {
+              "itemId": "fr.sons.masterclass.047",
+              "note": "the second group runs seven syllables with no stop"
+            }
+          ]
+        },
+        "join": {
+          "term": "a join",
+          "title": "Elision and liaison are one operation",
+          "body": "You met these as two lessons and they are one move. Both fire at exactly the same moment, when a word is about to run into a vowel sound, and both exist to stop the group stumbling. Elision handles the case where the first word ENDS in a vowel: the vowel goes and an apostrophe marks the spot. Liaison handles the case where the first word ends in a silent consonant: the consonant comes back and attaches to the front of the next word. One deletes, one adds, and neither is optional where it applies. Thinking of them as one thing is what lets you scan a phrase once instead of twice, and speed is the whole difficulty at this stage.",
+          "examples": [
+            {
+              "itemId": "fr.sons.masterclass.025",
+              "note": "an elision and two liaisons in four words"
+            },
+            {
+              "itemId": "fr.sons.masterclass.020",
+              "note": "the elision and the liaison land two words apart"
+            },
+            {
+              "itemId": "fr.sons.masterclass.024",
+              "note": "two elisions, and then a gap nothing can join"
+            }
+          ]
+        },
+        "sleeping": {
+          "term": "a sleeping letter",
+          "title": "Silent, or silent for now",
+          "body": "A final consonant in French is written and not said, which is what sons.06 called silent unless there is a reason. This lesson is where the reason arrives. The letter is not absent, it is asleep, and a vowel sound immediately after it in the same group wakes it. The S of les says nothing in les copains and says a Z in les amis. The T of petit says nothing in un petit chien and says a T in un petit ami. Nothing about the word changed. What changed is what came next. So there is no such thing as a permanently silent final consonant: there are letters that happen to have nothing after them, and letters that do.",
+          "examples": [
+            {
+              "itemId": "fr.sons.masterclass.001",
+              "note": "awake"
+            },
+            {
+              "itemId": "fr.sons.masterclass.002",
+              "note": "asleep, same letter"
+            },
+            {
+              "itemId": "fr.sons.masterclass.011",
+              "note": "a D that wakes up as a T"
+            }
+          ]
+        },
+        "hAspire": {
+          "term": "H aspiré",
+          "title": "The one thing that blocks both joins",
+          "body": "Every H in French is silent, so the H itself never makes a sound. What some of them do is BLOCK. An h muet does nothing at all: the word behaves as if the H were not written, so elision and liaison both fire normally. An h aspiré blocks both of them, and it is the only thing in the language that does. les hôtels links and les héros does not; l'homme contracts and le hibou does not. Out loud the block leaves a small gap where the join would have been, and that gap is the only signal there is. Nothing in the spelling separates the two kinds, so each aspiré word is learned with its article, the way a noun is learned with its gender. When you genuinely do not know, guess muet: it is far more common.",
+          "examples": [
+            {
+              "itemId": "fr.sons.masterclass.005",
+              "note": "h muet, so the join fires"
+            },
+            {
+              "itemId": "fr.sons.masterclass.006",
+              "note": "h aspiré, so it does not"
+            },
+            {
+              "itemId": "fr.sons.masterclass.019",
+              "note": "both joins in the sentence blocked"
+            }
+          ]
+        },
+        "nasalN": {
+          "term": "the nasal N",
+          "title": "The N that keeps its vowel and still links",
+          "body": "A nasal vowel is a vowel with an N or an M written after it that is not a separate sound: bon is one syllable, not two, and the N is inside the vowel rather than after it. The question this lesson answers is what happens when a vowel follows. The answer is that the N does both jobs at once. In un bon ami the vowel of bon is still nasal AND an N appears in front of ami, and the N is not spent on either job. That is why bon ami has three syllables and bon copain has three too, but only one of them has an audible N in the middle. The N was always there. It only becomes audible when the next sound needs a consonant.",
+          "examples": [
+            {
+              "itemId": "fr.sons.masterclass.013",
+              "note": "nasal kept, N heard"
+            },
+            {
+              "itemId": "fr.sons.masterclass.014",
+              "note": "nasal kept, no N anywhere"
+            },
+            {
+              "itemId": "fr.sons.masterclass.032",
+              "note": "four nasal vowels, two linking N"
+            }
+          ]
+        },
+        "notation": {
+          "term": "the marks",
+          "title": "Four marks, and what each one claims",
+          "body": "This lesson brings together the notation of five earlier ones and adds nothing. A tie, as in lay-z‿a-MEE, means a consonant has attached to the FOLLOWING syllable, which is where it is really said. A vertical bar means a phrase break: nothing joins across it. CAPITALS mark the pushed syllable, always the last one in its group. A small raised n, as in bohⁿ, means the vowel goes through the nose and does NOT mean you should say an N. IPA sits between slashes and is exact; the respelling sits between brackets and is a reading aid. When the two disagree, trust the IPA.",
+          "examples": [
+            {
+              "itemId": "fr.sons.masterclass.039",
+              "note": "all four marks in one line"
+            },
+            {
+              "itemId": "fr.sons.masterclass.056",
+              "note": "three ties and four raised n"
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "ambienceDefault": "off",
+        "recorded": [
+          {
+            "id": "rec-scene-break",
+            "desc": "The phone-call break beat. ONE VOICE, ONE SPEED, ONE TAKE, back to back: first the word-by-word reading with a real pause between each of the five words, then the correct reading with two groups and a single stop at the comma. The two takes must be the same speaker at the same tempo, because the ONLY difference being taught is where the stops are, and a listener cannot judge that across two recordings.",
+            "clipIds": [
+              "broken",
+              "correct"
+            ]
+          },
+          {
+            "id": "rec-breaks",
+            "desc": "The grouping contrast, and the recording this lesson depends on most after rec-pairs. Ten phrases: five that run as one group (On est en avance, C'est un ancien hôtel, Ils ont un enfant, en un instant, Tout est prêt) and five with one internal break. CRITICAL: the break must be a real pause of roughly 200ms plus a pitch reset, not merely a lengthened syllable, and every phrase must be one voice at one speed in one take. Include « On mange, les enfants » and « On mange les enfants » as an adjacent pair: the break is the only difference and device TTS renders it inconsistently, so this pair is unusable until it is recorded.",
+            "clipIds": [
+              "one-group",
+              "two-groups",
+              "on-mange-comma",
+              "on-mange-no-comma"
+            ]
+          },
+          {
+            "id": "rec-subject-verb",
+            "desc": "The subject/verb block. Six phrases in three adjacent pairs: Ils arrivent en retard against Les enfants arrivent, les amis against Mes amis parlent bien, Un ami arrive against les autres attendent. CRITICAL: one voice, one speed, one take per pair. The blocked side needs a genuine small gap where the Z would have been, not a glottal stop and not a lengthened vowel.",
+            "clipIds": [
+              "ils-arrivent",
+              "les-enfants-arrivent",
+              "mes-amis",
+              "un-ami-arrive"
+            ]
+          },
+          {
+            "id": "rec-push",
+            "desc": "Five sentences read for PROMINENCE rather than for words, at normal pace plus a 0.65 pass. One push per group, on its final syllable, and no secondary stress anywhere. At the slow speed the group structure must survive: slowing down is not permission to push every word, and a slow take with word-level stress teaches the exact error the lesson exists to remove."
+          },
+          {
+            "id": "rec-joins",
+            "desc": "The ten multi-join phrases from mission 8, isolated, 900ms gaps, normal and 0.65. Each one must be a single unbroken run with no internal pause whatsoever: these are the reference for what a fully joined group sounds like, so they have to be flawless on that one point. At 0.65 the joins must STAY joined.",
+            "clipIds": [
+              "ancien-hotel",
+              "quest-ce-quon-attend",
+              "bel-appartement",
+              "bon-exemple",
+              "pas-encore",
+              "on-est-en-avance",
+              "accent-charmant",
+              "elle-est-arrivee",
+              "ils-ont-un-enfant",
+              "nous-en-avons"
+            ]
+          },
+          {
+            "id": "rec-pairs",
+            "desc": "The twelve minimal pairs, and the single most important recording in the lesson. les amis / les copains, un petit ami / un petit chien, un grand arbre / un grand parc, un bon ami / un bon copain, les hôtels / les héros, deux heures / deux hiboux, ils ont / ils sont, Tout est prêt / Tout va bien, and the four sentence pairs. CRITICAL: each pair must be the SAME voice at the SAME speed in ONE take. The difference inside a pair is a single consonant or a gap of about 120ms, and a listener cannot judge either across two takes. Two takes at different tempos makes the pair uncomparable and the mission teaches nothing.",
+            "clipIds": [
+              "les-amis",
+              "les-copains",
+              "petit-ami",
+              "petit-chien",
+              "grand-arbre",
+              "grand-parc",
+              "bon-ami",
+              "bon-copain",
+              "les-hotels",
+              "les-heros",
+              "deux-heures",
+              "deux-hiboux",
+              "ils-ont",
+              "ils-sont",
+              "tout-est-pret",
+              "tout-va-bien"
+            ]
+          },
+          {
+            "id": "rec-h-blocks",
+            "desc": "The h muet against h aspiré contrast, in sentence frames rather than isolated words. les hôtels / les héros, deux heures / deux hiboux, Le petit hôtel est ouvert / Le petit héros est parti. CRITICAL: one voice, one speed, one take per pair. The aspiré side needs a real, audible, deliberate gap rather than a glottal stop, because that gap is the only signal the learner is ever given and a glottal stop is a different sound teaching a different thing.",
+            "clipIds": [
+              "les-hotels",
+              "les-heros",
+              "deux-heures",
+              "deux-hiboux",
+              "petit-hotel",
+              "petit-heros"
+            ]
+          },
+          {
+            "id": "rec-nasal-n",
+            "desc": "The nasal N pairs: un bon ami / un bon copain, mon ancien appartement, en un instant, un petit chien, Ils ont un enfant. CRITICAL: one voice, one speed, one take per pair, and the vowel of bon must stay AUDIBLY nasal in both halves. A take that de-nasalises it before ami teaches the opposite of the mission, and it is the single easiest thing for a speaker to do by accident when concentrating on the N.",
+            "clipIds": [
+              "bon-ami",
+              "bon-copain",
+              "mon-ancien-appartement",
+              "en-un-instant",
+              "ils-ont-un-enfant"
+            ]
+          },
+          {
+            "id": "rec-dictation-10",
+            "desc": "The ten dictation sentences, normal speed only, natural connected delivery. No exaggerated separation between words: the learner is being asked to hear a joined group and write it back as separate words with the right silent letters, and a hyper-articulated take does that job for them.",
+            "clipIds": [
+              "les-amis",
+              "les-enfants-arrivent",
+              "pas-encore-mange",
+              "bon-exemple",
+              "ancien-hotel",
+              "nous-avons-deux-enfants",
+              "le-matin",
+              "on-arrive-a-lheure",
+              "il-est-tard",
+              "ils-ont-un-enfant"
+            ]
+          },
+          {
+            "id": "rec-reading-passage",
+            "desc": "The six-sentence reading passage, one take at natural conversational pace, plus per-sentence stems for tap-to-replay, plus the eight listening-mission sentences. The les héros instance must carry its blocked gap audibly, since a comprehension question turns on it, and the breaks must be real pauses because another question asks the learner to count them."
+          }
+        ]
+      },
+      "narration": {
+        "camilleVoiceId": "camille-fr-ca-01",
+        "ratioEnFr": 0.7,
+        "stages": [
+          {
+            "stage": "warm",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "I am Camille. This is the last lesson in the sound track, and it does not teach you a new rule."
+              },
+              {
+                "voice": "en",
+                "text": "You have five already. What you have never done is run all five at once, on a sentence you have not seen, at the speed a conversation actually goes."
+              },
+              {
+                "voice": "fr",
+                "text": "On commence."
+              }
+            ]
+          },
+          {
+            "stage": "focus",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "One idea first, and everything else follows from it. French does not pronounce words. It pronounces phrases."
+              },
+              {
+                "voice": "fr",
+                "text": "les copains"
+              },
+              {
+                "voice": "fr",
+                "text": "les amis"
+              },
+              {
+                "voice": "en",
+                "text": "Same S, same word. It is silent in the first and a Z in the second, and nothing about les changed. What changed is what came after it."
+              },
+              {
+                "kind": "repeat",
+                "itemId": "fr.sons.masterclass.001"
+              }
+            ]
+          },
+          {
+            "stage": "input",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "So there is an order. Group, join, push. Find where the phrase breaks first, because nothing joins across a break."
+              },
+              {
+                "voice": "fr",
+                "text": "Le matin, les enfants vont à l'école."
+              },
+              {
+                "voice": "en",
+                "text": "Two groups. Inside the second one, les and enfants join, enfants and vont do not, and vont and à join again."
+              },
+              {
+                "kind": "repeat",
+                "itemId": "fr.sons.masterclass.039"
+              },
+              {
+                "voice": "en",
+                "text": "Then the push, once at the end of each group. Not once per word."
+              }
+            ]
+          },
+          {
+            "stage": "practice",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "Now the part that decides everything. Listen to these two and tell me which one has an N in the middle."
+              },
+              {
+                "voice": "fr",
+                "text": "un bon ami"
+              },
+              {
+                "voice": "fr",
+                "text": "un bon copain"
+              },
+              {
+                "voice": "en",
+                "text": "The first one. And notice the vowel of bon stayed nasal in both: the N did two jobs at once rather than choosing one."
+              },
+              {
+                "kind": "repeat",
+                "itemId": "fr.sons.masterclass.013"
+              }
+            ]
+          },
+          {
+            "stage": "produce",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "Your turn, and read the whole group before you start. Say: it is a former hotel."
+              },
+              {
+                "kind": "produce",
+                "itemId": "fr.sons.masterclass.025",
+                "expected": "C'est un ancien hôtel.",
+                "gradeAs": "produce"
+              },
+              {
+                "voice": "en",
+                "text": "Again, and this one has a break in it. When we are late, everyone waits."
+              },
+              {
+                "kind": "produce",
+                "itemId": "fr.sons.masterclass.044",
+                "expected": "Quand on est en retard, tout le monde attend.",
+                "gradeAs": "produce"
+              }
+            ]
+          },
+          {
+            "stage": "check",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "One trap before we finish. Two H words, both silent, and only one of them lets the join through. Which of these is correct?"
+              },
+              {
+                "voice": "fr",
+                "text": "les héros"
+              },
+              {
+                "kind": "check",
+                "itemId": "fr.sons.masterclass.006",
+                "expected": "les héros",
+                "gradeAs": "discriminate"
+              },
+              {
+                "voice": "en",
+                "text": "les héros, with a small gap and no Z. Compare les hôtels, which is spelled the same way and joins."
+              }
+            ]
+          },
+          {
+            "stage": "cheat",
+            "segments": [
+              {
+                "voice": "en",
+                "text": "Three things to keep. French pronounces the phrase, not the word. Group, join, push, always in that order."
+              },
+              {
+                "voice": "en",
+                "text": "And everything the joining did not touch stays silent, which is most of it. That is the whole sound system, and that is the track."
+              },
+              {
+                "voice": "fr",
+                "text": "Bravo, et à bientôt."
+              }
+            ]
+          }
+        ]
+      },
+      "version": 1
     }
   ],
   "items": [
@@ -168870,6 +172577,1561 @@
       "audioRef": null,
       "version": 7,
       "register": "courant"
+    },
+    {
+      "id": "fr.sons.masterclass.001",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "les amis",
+      "en": "the friends",
+      "ipa": "/le.z‿a.mi/",
+      "respell": "lay-z‿a-MEE",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The S of les is silent everywhere else in French. A vowel follows, so it sounds, as a Z.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "contrast",
+        "liaison-z",
+        "plural-s"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.002",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "les copains",
+      "en": "the mates",
+      "ipa": "/le kɔ.pɛ̃/",
+      "respell": "lay ko-PAⁿ",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Same S, same determiner. A consonant follows, so nothing wakes and both S sounds stay away.",
+      "tags": [
+        "muettes",
+        "nasales",
+        "contrast",
+        "no-liaison",
+        "plural-s"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.003",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "un petit ami",
+      "en": "a boyfriend",
+      "ipa": "/œ̃ pə.ti.t‿a.mi/",
+      "respell": "uhⁿ puh-tee-t‿a-MEE",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The T of petit is written and never said. Here a vowel follows it, so it says itself.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "contrast",
+        "liaison-t",
+        "after-adjective"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.004",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "un petit chien",
+      "en": "a small dog",
+      "ipa": "/œ̃ pə.ti ʃjɛ̃/",
+      "respell": "uhⁿ puh-tee SHYAⁿ",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Same adjective, same T. A consonant follows, so it goes back to being written only.",
+      "tags": [
+        "muettes",
+        "nasales",
+        "contrast",
+        "no-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.005",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "les hôtels",
+      "en": "the hotels",
+      "ipa": "/le.z‿o.tɛl/",
+      "respell": "lay-z‿oh-TEL",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "H muet, so the word opens on a vowel sound and the plural S wakes.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "contrast",
+        "liaison-z",
+        "h-muet"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.006",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "les héros",
+      "en": "the heroes",
+      "ipa": "/le e.ʁo/",
+      "respell": "lay ay-ROH",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "H aspiré. Nothing on the page differs from les hôtels, and the liaison is blocked anyway.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "contrast",
+        "h-aspire",
+        "blocked-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.007",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "deux heures",
+      "en": "two hours",
+      "ipa": "/dø.z‿œʁ/",
+      "respell": "duh-z‿UHR",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The X of deux comes back as a Z, which is what an X does in liaison.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "contrast",
+        "liaison-z",
+        "h-muet"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.008",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "deux hiboux",
+      "en": "two owls",
+      "ipa": "/dø i.bu/",
+      "respell": "duh ee-BOO",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "H aspiré blocks it, so both X stay silent and a small gap opens where the Z would have been.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "contrast",
+        "h-aspire",
+        "blocked-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.009",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "ils ont",
+      "en": "they have",
+      "ipa": "/il.z‿ɔ̃/",
+      "respell": "eel-z‿OHⁿ",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Two syllables. The S of ils sounds, and ont is one nasal vowel with no T at the end of it.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "contrast",
+        "liaison-z",
+        "after-pronoun"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.010",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "ils sont",
+      "en": "they are",
+      "ipa": "/il sɔ̃/",
+      "respell": "eel SOHⁿ",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Two syllables again, and the only audible difference between them is the Z.",
+      "tags": [
+        "muettes",
+        "nasales",
+        "contrast",
+        "no-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.011",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "un grand arbre",
+      "en": "a big tree",
+      "ipa": "/œ̃ ɡʁɑ̃.t‿aʁbʁ/",
+      "respell": "uhⁿ grahⁿ-t‿ARBR",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The D wakes as a T. A liaison consonant is not always the letter you see.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "contrast",
+        "liaison-t",
+        "after-adjective",
+        "devoicing"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.012",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "un grand parc",
+      "en": "a big park",
+      "ipa": "/œ̃ ɡʁɑ̃ paʁk/",
+      "respell": "uhⁿ grahⁿ PARK",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Same D, asleep. The vowel of grand stays nasal either way.",
+      "tags": [
+        "muettes",
+        "nasales",
+        "contrast",
+        "no-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.013",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "un bon ami",
+      "en": "a good friend",
+      "ipa": "/œ̃ bɔ̃.n‿a.mi/",
+      "respell": "uhⁿ bohⁿ-n‿a-MEE",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The N does two jobs at once: it keeps the vowel nasal AND it links. It is not spent on either.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "contrast",
+        "liaison-n",
+        "after-adjective"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.014",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "un bon copain",
+      "en": "a good mate",
+      "ipa": "/œ̃ bɔ̃ kɔ.pɛ̃/",
+      "respell": "uhⁿ bohⁿ ko-PAⁿ",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Three nasal vowels and not one audible N. The N only surfaces when a vowel needs it.",
+      "tags": [
+        "muettes",
+        "nasales",
+        "contrast",
+        "no-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.015",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Les enfants arrivent.",
+      "en": "The children are arriving.",
+      "ipa": "/le.z‿ɑ̃.fɑ̃ a.ʁiv/",
+      "respell": "lay-z‿ahⁿ-FAHⁿ a-REEV",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "One S links and one does not. A noun subject closes its group before the verb, and no join crosses that edge.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "rythme",
+        "blocked",
+        "liaison-z",
+        "blocked-liaison",
+        "subject-verb"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.016",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Ils arrivent en retard.",
+      "en": "They are arriving late.",
+      "ipa": "/il.z‿a.ʁiv ɑ̃ ʁə.taʁ/",
+      "respell": "eel-z‿a-REEV ahⁿ ruh-TAR",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "A pronoun subject does not close a group, so here the S does link.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "blocked",
+        "liaison-z",
+        "after-pronoun"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.017",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Mes amis parlent bien.",
+      "en": "My friends speak well.",
+      "ipa": "/me.z‿a.mi paʁl bjɛ̃/",
+      "respell": "may-z‿a-MEE parl BYAⁿ",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The S of amis is followed by a consonant anyway, so two separate reasons keep it quiet.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "blocked",
+        "liaison-z",
+        "blocked-liaison",
+        "subject-verb"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.018",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Le petit hôtel est ouvert.",
+      "en": "The small hotel is open.",
+      "ipa": "/lə pə.ti.t‿o.tɛl ɛ.t‿u.vɛʁ/",
+      "respell": "luh puh-tee-t‿oh-TEL eh-t‿oo-VEHR",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Two sleeping T, both woken, in one short sentence.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "blocked",
+        "liaison-t",
+        "h-muet"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.019",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Le petit héros est parti.",
+      "en": "The little hero has left.",
+      "ipa": "/lə pə.ti e.ʁo ɛ paʁ.ti/",
+      "respell": "luh puh-tee ay-ROH eh par-TEE",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The same two T, both asleep: an h aspiré blocks the first and a consonant blocks the second.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "blocked",
+        "h-aspire",
+        "blocked-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.020",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Il n'a pas encore mangé.",
+      "en": "He has not eaten yet.",
+      "ipa": "/il na pa.z‿ɑ̃.kɔʁ mɑ̃.ʒe/",
+      "respell": "eel na pa-z‿ahⁿ-kohr mahⁿ-ZHAY",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Three rules on four words: ne elides, the S of pas wakes as a Z, and mangé keeps its silent E.",
+      "tags": [
+        "elision",
+        "liaison",
+        "muettes",
+        "nasales",
+        "blocked",
+        "liaison-z",
+        "after-adverb"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.021",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Il n'a pas mangé.",
+      "en": "He has not eaten.",
+      "ipa": "/il na pa mɑ̃.ʒe/",
+      "respell": "eel na pa mahⁿ-ZHAY",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Remove one word and the Z disappears with it. The elision is untouched: it never depended on encore.",
+      "tags": [
+        "elision",
+        "muettes",
+        "nasales",
+        "blocked",
+        "no-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.022",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "C'est un très bon exemple.",
+      "en": "That is a very good example.",
+      "ipa": "/sɛ.t‿œ̃ tʁɛ bɔ̃.n‿ɛɡ.zɑ̃pl/",
+      "respell": "seh-t‿uhⁿ treh bohⁿ-n‿eg-ZAHⁿPL",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The S of très sits between two liaisons and makes none, because bon opens on a consonant.",
+      "tags": [
+        "elision",
+        "liaison",
+        "muettes",
+        "nasales",
+        "blocked",
+        "liaison-t",
+        "liaison-n",
+        "blocked-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.023",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Prenez un grand verre d'eau.",
+      "en": "Have a large glass of water.",
+      "ipa": "/pʁə.ne.z‿œ̃ ɡʁɑ̃ vɛʁ do/",
+      "respell": "pruh-nay-z‿uhⁿ grahⁿ vehr DOH",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The Z of prenez wakes and the D of grand does not, four words apart, for the same one reason.",
+      "tags": [
+        "elision",
+        "liaison",
+        "muettes",
+        "nasales",
+        "blocked",
+        "liaison-z",
+        "blocked-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.024",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Je n'ai pas d'amis ici.",
+      "en": "I have no friends here.",
+      "ipa": "/ʒə ne pa da.mi i.si/",
+      "respell": "zhuh nay pa da-mee ee-SEE",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Two elisions, then two vowels meeting with nothing to join them. French tolerates that gap: no rule applies.",
+      "tags": [
+        "elision",
+        "muettes",
+        "blocked",
+        "no-liaison",
+        "hiatus"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.025",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "C'est un ancien hôtel.",
+      "en": "It is a former hotel.",
+      "ipa": "/sɛ.t‿œ̃.n‿ɑ̃.sjɛ̃.n‿o.tɛl/",
+      "respell": "seh-t‿uhⁿ-n‿ahⁿ-syaⁿ-n‿oh-TEL",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Four written words, one unbroken run of syllables. Every join in it is compulsory.",
+      "tags": [
+        "elision",
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-t",
+        "liaison-n",
+        "h-muet"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.026",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "On est en avance.",
+      "en": "We are early.",
+      "ipa": "/ɔ̃.n‿ɛ.t‿ɑ̃.n‿a.vɑ̃s/",
+      "respell": "ohⁿ-n‿eh-t‿ahⁿ-n‿a-VAHⁿS",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Three liaisons in four words, and not one of the linking letters is audible on its own.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-n",
+        "liaison-t"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.027",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Vous avez un accent charmant.",
+      "en": "You have a charming accent.",
+      "ipa": "/vu.z‿a.ve.z‿œ̃.n‿ak.sɑ̃ ʃaʁ.mɑ̃/",
+      "respell": "voo-z‿a-vay-z‿uhⁿ-n‿ak-SAHⁿ shar-MAHⁿ",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Three liaisons, then a stop: the T of accent has a consonant after it and stays down.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-z",
+        "liaison-n"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.028",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Qu'est-ce qu'on attend ?",
+      "en": "What are we waiting for?",
+      "ipa": "/kɛs.kɔ̃.n‿a.tɑ̃/",
+      "respell": "kehs-kohⁿ-n‿a-TAHⁿ",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Four written words and four spoken syllables. Two elisions took two of them away.",
+      "tags": [
+        "elision",
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-n",
+        "question"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.029",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Nous avons deux enfants.",
+      "en": "We have two children.",
+      "ipa": "/nu.z‿a.vɔ̃ dø.z‿ɑ̃.fɑ̃/",
+      "respell": "noo-z‿a-vohⁿ duh-z‿ahⁿ-FAHⁿ",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "An S and an X, both silent as written, both saying Z here.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-z"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.030",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Nous en avons deux.",
+      "en": "We have two of them.",
+      "ipa": "/nu.z‿ɑ̃.n‿a.vɔ̃ dø/",
+      "respell": "noo-z‿ahⁿ-n‿a-vohⁿ DUH",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The same words rearranged, and the X of deux goes quiet because nothing follows it.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-z",
+        "liaison-n"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.031",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "mon ancien appartement",
+      "en": "my former flat",
+      "ipa": "/mɔ̃.n‿ɑ̃.sjɛ̃.n‿a.paʁ.tə.mɑ̃/",
+      "respell": "mohⁿ-n‿ahⁿ-syaⁿ-n‿a-par-tuh-MAHⁿ",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Four nasal vowels and two N doing double duty. Say it as one word or it falls apart.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-n",
+        "after-possessive"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.032",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "en un instant",
+      "en": "in an instant",
+      "ipa": "/ɑ̃.n‿œ̃.n‿ɛ̃s.tɑ̃/",
+      "respell": "ahⁿ-n‿uhⁿ-n‿aⁿs-TAHⁿ",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Four nasal vowels in three words, joined by two N that belong to neither side.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-n"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.033",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "On en a assez.",
+      "en": "We have had enough.",
+      "ipa": "/ɔ̃.n‿ɑ̃.n‿a a.se/",
+      "respell": "ohⁿ-n‿ahⁿ-n‿a a-SAY",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Two joins, then two vowels sitting side by side untouched. a has no sleeping consonant to lend.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-n",
+        "hiatus"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.034",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "C'est un très bel appartement.",
+      "en": "It is a very nice flat.",
+      "ipa": "/sɛ.t‿œ̃ tʁɛ bɛ.l‿a.paʁ.tə.mɑ̃/",
+      "respell": "seh-t‿uhⁿ treh beh-l‿a-par-tuh-MAHⁿ",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "beau became bel before the vowel. French changed the word rather than allow the gap.",
+      "tags": [
+        "elision",
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-l",
+        "liaison-t"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.035",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Elle est arrivée en avance.",
+      "en": "She arrived early.",
+      "ipa": "/ɛ.l‿ɛ.t‿a.ʁi.ve ɑ̃.n‿a.vɑ̃s/",
+      "respell": "eh-l‿eh-t‿a-ree-VAY ahⁿ-n‿a-VAHⁿS",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Three different linking consonants, one sentence. The ée at the end contributes nothing at all.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-l",
+        "liaison-t",
+        "liaison-n"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.036",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Ils habitent en Angleterre.",
+      "en": "They live in England.",
+      "ipa": "/il.z‿a.bit ɑ̃.n‿ɑ̃ɡ.lə.tɛʁ/",
+      "respell": "eel-z‿a-BEET ahⁿ-n‿ahⁿ-gluh-TEHR",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "habitent ends in four written letters that make no sound. The Z in front of it makes plenty.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "join",
+        "liaison-z",
+        "liaison-n",
+        "h-muet"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.037",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Tout est prêt.",
+      "en": "Everything is ready.",
+      "ipa": "/tu.t‿ɛ pʁɛ/",
+      "respell": "too-t‿eh PREH",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Three words, three final consonants, and exactly one of them is heard.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "join",
+        "liaison-t"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.038",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Tout va bien.",
+      "en": "Everything is fine.",
+      "ipa": "/tu va bjɛ̃/",
+      "respell": "too va BYAⁿ",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Same tout, and now none of them is heard.",
+      "tags": [
+        "muettes",
+        "nasales",
+        "join",
+        "no-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.039",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Le matin, les enfants vont à l'école.",
+      "en": "In the morning, the children go to school.",
+      "ipa": "/lə ma.tɛ̃ | le.z‿ɑ̃.fɑ̃ vɔ̃.t‿a le.kɔl/",
+      "respell": "luh ma-TAⁿ | lay-z‿ahⁿ-FAHⁿ vohⁿ-t‿a lay-KOL",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "All five rules, in order: a break, then a join made, a join refused, a join made, and a push at each end.",
+      "tags": [
+        "rythme",
+        "elision",
+        "liaison",
+        "muettes",
+        "nasales",
+        "pipeline",
+        "liaison-z",
+        "liaison-t",
+        "blocked-liaison",
+        "all-five"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.040",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Quand il arrive, tout le monde est content.",
+      "en": "When he arrives, everyone is happy.",
+      "ipa": "/kɑ̃.t‿i.la.ʁiv | tu lə mɔ̃.d‿ɛ kɔ̃.tɑ̃/",
+      "respell": "kahⁿ-t‿ee-la-REEV | too luh mohⁿ-d‿eh kohⁿ-TAHⁿ",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The D of quand says T and the D of monde says D. One was asleep and one was already awake.",
+      "tags": [
+        "rythme",
+        "liaison",
+        "muettes",
+        "nasales",
+        "pipeline",
+        "liaison-t",
+        "devoicing"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.041",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Ce sont mes amis, ils habitent en ville.",
+      "en": "These are my friends, they live in town.",
+      "ipa": "/sə sɔ̃ me.z‿a.mi | il.z‿a.bit ɑ̃ vil/",
+      "respell": "suh sohⁿ may-z‿a-MEE | eel-z‿a-beet ahⁿ VEEL",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Two groups, one Z each. Nothing joins across the comma, however fast you say it.",
+      "tags": [
+        "rythme",
+        "liaison",
+        "muettes",
+        "nasales",
+        "pipeline",
+        "liaison-z",
+        "h-muet"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.042",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "On arrive à l'heure, comme d'habitude.",
+      "en": "We arrive on time, as usual.",
+      "ipa": "/ɔ̃.n‿a.ʁi.v‿a lœʁ | kɔm da.bi.tyd/",
+      "respell": "ohⁿ-n‿a-ree-v‿a LUHR | kom da-bee-TÜD",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "All five again. The V of arrive was never silent, so it simply slides onto the next word.",
+      "tags": [
+        "rythme",
+        "elision",
+        "liaison",
+        "muettes",
+        "nasales",
+        "pipeline",
+        "liaison-n",
+        "liaison-v",
+        "all-five"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.043",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Après le dîner, on prend un verre d'eau.",
+      "en": "After dinner, we have a glass of water.",
+      "ipa": "/a.pʁɛ lə di.ne | ɔ̃ pʁɑ̃.t‿œ̃ vɛʁ do/",
+      "respell": "a-preh luh dee-NAY | ohⁿ prahⁿ-t‿uhⁿ vehr DOH",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The S of après is next to a consonant and stays down. One word later a D wakes as a T.",
+      "tags": [
+        "rythme",
+        "elision",
+        "liaison",
+        "muettes",
+        "nasales",
+        "pipeline",
+        "liaison-t",
+        "devoicing",
+        "all-five"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.044",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Quand on est en retard, tout le monde attend.",
+      "en": "When we are late, everyone waits.",
+      "ipa": "/kɑ̃.t‿ɔ̃.n‿ɛ.t‿ɑ̃ ʁə.taʁ | tu lə mɔ̃.d‿a.tɑ̃/",
+      "respell": "kahⁿ-t‿ohⁿ-n‿eh-t‿ahⁿ ruh-TAR | too luh mohⁿ-d‿a-TAHⁿ",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Four joins, one break, five nasal vowels, and two final D that say nothing at the end of it.",
+      "tags": [
+        "rythme",
+        "liaison",
+        "muettes",
+        "nasales",
+        "pipeline",
+        "liaison-t",
+        "liaison-n",
+        "showcase"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.045",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Il est tard, mais tout va bien.",
+      "en": "It is late, but everything is fine.",
+      "ipa": "/i.lɛ taʁ | mɛ tu va bjɛ̃/",
+      "respell": "ee-leh TAR | meh too va BYAⁿ",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Six silent final letters and no liaison anywhere. Silence is what the system does by default.",
+      "tags": [
+        "rythme",
+        "muettes",
+        "nasales",
+        "pipeline",
+        "no-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.046",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Ils sont partis très tôt, sans nous attendre.",
+      "en": "They left very early, without waiting for us.",
+      "ipa": "/il sɔ̃ paʁ.ti tʁɛ to | sɑ̃ nu.z‿a.tɑ̃dʁ/",
+      "respell": "eel sohⁿ par-tee treh TOH | sahⁿ noo-z‿a-TAHⁿDR",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Five silent S before the comma and one sounding one after it.",
+      "tags": [
+        "rythme",
+        "liaison",
+        "muettes",
+        "nasales",
+        "pipeline",
+        "liaison-z",
+        "after-pronoun"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.047",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "C'est trop tôt, il n'est pas encore arrivé.",
+      "en": "It is too early, he has not arrived yet.",
+      "ipa": "/sɛ tʁo to | il nɛ pa.z‿ɑ̃.kɔ.ʁ‿a.ʁi.ve/",
+      "respell": "seh troh TOH | eel neh pa-z‿ahⁿ-ko-r‿a-ree-VAY",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Two elisions, one liaison, one slide, one break. The second group runs seven syllables without stopping.",
+      "tags": [
+        "rythme",
+        "elision",
+        "liaison",
+        "muettes",
+        "nasales",
+        "pipeline",
+        "liaison-z",
+        "all-five"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.048",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Un ami arrive, les autres attendent.",
+      "en": "One friend arrives, the others wait.",
+      "ipa": "/œ̃.n‿a.mi a.ʁiv | le.z‿otʁ a.tɑ̃d/",
+      "respell": "uhⁿ-n‿a-MEE a-REEV | lay-z‿OHTR a-TAHⁿD",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Two joins made in front of the subject, two refused behind it. The pattern is the same on both sides of the comma.",
+      "tags": [
+        "rythme",
+        "liaison",
+        "muettes",
+        "nasales",
+        "pipeline",
+        "liaison-n",
+        "liaison-z",
+        "blocked-liaison",
+        "subject-verb"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.049",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Vous êtes prêts ?",
+      "en": "Are you ready?",
+      "ipa": "/vu.z‿ɛt pʁɛ/",
+      "respell": "voo-z‿eht PREH",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Three plural S. The first one sounds and the other two do not.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "silence",
+        "liaison-z",
+        "question"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.050",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Ils sont partis très tôt.",
+      "en": "They left very early.",
+      "ipa": "/il sɔ̃ paʁ.ti tʁɛ to/",
+      "respell": "eel sohⁿ par-tee treh TOH",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Five words, five silent endings, one nasal vowel, and no join available anywhere in it.",
+      "tags": [
+        "muettes",
+        "nasales",
+        "silence",
+        "no-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.051",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "C'est trop tôt.",
+      "en": "It is too early.",
+      "ipa": "/sɛ tʁo to/",
+      "respell": "seh troh TOH",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The elision is compulsory and the liaison is impossible. Both decisions were made by the next sound.",
+      "tags": [
+        "elision",
+        "muettes",
+        "silence",
+        "no-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.052",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Il n'y a plus d'eau ici.",
+      "en": "There is no more water here.",
+      "ipa": "/il nja ply do i.si/",
+      "respell": "eel nya plü doh ee-SEE",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Two elisions and a silent S on plus, which is the S that would have linked if a vowel had followed.",
+      "tags": [
+        "elision",
+        "muettes",
+        "silence",
+        "no-liaison",
+        "hiatus"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.053",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "deux hommes",
+      "en": "two men",
+      "ipa": "/dø.z‿ɔm/",
+      "respell": "duh-z‿OM",
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The M at the end is a real consonant, not a nasal vowel: homme has two of them written and one said.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "silence",
+        "liaison-z",
+        "h-muet"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.054",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Elle est en retard.",
+      "en": "She is late.",
+      "ipa": "/ɛ.l‿ɛ.t‿ɑ̃ ʁə.taʁ/",
+      "respell": "eh-l‿eh-t‿ahⁿ ruh-TAR",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Four words, two joins, and a final D that nothing can wake because the sentence stops there.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "silence",
+        "liaison-l",
+        "liaison-t"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.055",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Elle est partie sans rien dire.",
+      "en": "She left without saying anything.",
+      "ipa": "/ɛ.l‿ɛ paʁ.ti sɑ̃ ʁjɛ̃ diʁ/",
+      "respell": "eh-l‿eh par-tee sahⁿ ryaⁿ DEER",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "One join at the front, then five words of silence at the ends. The T of est has a consonant after it.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "silence",
+        "liaison-l",
+        "no-liaison"
+      ]
+    },
+    {
+      "id": "fr.sons.masterclass.056",
+      "kind": "sentence",
+      "level": "sons",
+      "theme": "masterclass",
+      "fr": "Ils ont un enfant.",
+      "en": "They have a child.",
+      "ipa": "/il.z‿ɔ̃.t‿œ̃.n‿ɑ̃.fɑ̃/",
+      "respell": "eel-z‿ohⁿ-t‿uhⁿ-n‿ahⁿ-FAHⁿ",
+      "drills": [
+        "sentence",
+        "review",
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Four written words, six spoken syllables, three joins and four nasal vowels. Nothing in it may be paused.",
+      "tags": [
+        "liaison",
+        "muettes",
+        "nasales",
+        "silence",
+        "liaison-z",
+        "liaison-t",
+        "liaison-n",
+        "showcase"
+      ]
     }
   ],
   "scenarios": [

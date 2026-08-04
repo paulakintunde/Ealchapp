@@ -21,6 +21,7 @@
     "content:elision": "tsx scripts/author-elision-batch.ts",
     "content:liaison": "tsx scripts/author-liaison-batch.ts",
     "content:rythme": "tsx scripts/author-rythme-batch.ts",
+    "content:masterclass": "tsx scripts/author-masterclass-batch.ts",
     "content:consonnes": "tsx scripts/author-consonnes-corpus-batch.ts",
     "content:sons03scene": "tsx scripts/author-sons03-scene-batch.ts",
     "content:publish": "tsx scripts/publish-content.ts",
