@@ -707,3 +707,54 @@ test('the ownsLayout predicate mirrored above still matches the pager', () => {
   // No eighth branch has appeared unnoticed.
   strictEqual((fn.match(/return true;/g) ?? []).length, 7, 'ownsLayout has exactly the seven branches mirrored here');
 });
+
+test('a control-page group renders, rather than crashing on its missing items', () => {
+  // The failure this catches, found by walking sons.09 on a Pixel 6:
+  //
+  //   Render Error: Cannot read property 'length' of undefined
+  //   MissionRich.tsx:306   const hasWords = g.items.length > 0;
+  //
+  // `SoundGroup.items` is OPTIONAL. The schema is explicit that at size xl a
+  // group carries EITHER words OR a check, and MissionRich's own comment says
+  // "a check with no words is the whole mission" and renders that case
+  // deliberately. The line computing `hasWords` did not, so every control page
+  // took the whole mission down with a red screen.
+  //
+  // It was latent in sons.07 s05-drill-trigger, which has shipped this exact
+  // shape since August, and became unmissable in sons.09, which uses the
+  // pattern in four separate missions. Nothing in the suite caught it because
+  // every existing guard reads the CONTENT, and the content was legal: this
+  // was a renderer that never handled what the schema allows an author to say.
+  //
+  // Pinned from two directions, because either alone would rot: the content
+  // side proves such groups really exist to be rendered, and the source side
+  // proves the renderer still guards.
+  const seed = JSON.parse(readFileSync(join(here, 'seed.json'), 'utf8')) as {
+    lessons: { id: string; sections: LessonSection[] }[];
+  };
+
+  const controlPages: string[] = [];
+  for (const lesson of seed.lessons) {
+    for (const sec of lesson.sections) {
+      if (sec.type !== 'groupDrill') continue;
+      for (const g of (sec as { groups?: { label: string; items?: unknown[]; check?: unknown }[] }).groups ?? []) {
+        if (g.items === undefined) {
+          ok(g.check, `${lesson.id} ${(sec as { id?: string }).id}: group "${g.label}" has neither words nor a check`);
+          controlPages.push(`${lesson.id}/${g.label}`);
+        }
+      }
+    }
+  }
+  ok(controlPages.length >= 2, `only ${controlPages.length} control-page groups in the seed, so this guard is untested by real content`);
+
+  const rich = readFileSync(join(here, '..', 'components', 'MissionRich.tsx'), 'utf8');
+  // The two places a group's words are read. Both must tolerate their absence.
+  ok(
+    /const hasWords = \(g\.items\?\.length \?\? 0\) > 0;/.test(rich),
+    'MissionRich reads g.items.length unguarded again — a control page will crash its mission',
+  );
+  ok(
+    /\{\(g\.items \?\? \[\]\)\.map\(/.test(rich),
+    'MissionRich maps g.items unguarded again — a check-only group at any other size will crash',
+  );
+});

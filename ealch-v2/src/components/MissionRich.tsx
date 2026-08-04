@@ -302,8 +302,21 @@ function OneGroup({
 
   // A group carries words, a check, or both. At size xl sons.06 splits them
   // onto separate missions, so each half has to render alone.
+  //
+  // `items` is OPTIONAL on a SoundGroup and absent on every control page: the
+  // schema says a group carries EITHER items OR a check, and the xl branch
+  // below already renders the check-only case deliberately ("a check with no
+  // words is the whole mission"). This line contradicted both and read
+  // `.length` off undefined, so a control page crashed the whole mission with
+  // "Cannot read property 'length' of undefined" instead of rendering.
+  //
+  // Found on a device walk of sons.09 mission 4. It was already latent in
+  // sons.07 s05-drill-trigger, which ships the same shape and has the same
+  // crash; no test caught it because every guard in the suite reads the
+  // CONTENT and this is a renderer that never handled what the content is
+  // allowed to say. Pinned now by subMission.logic.test.ts.
   const q = g.check;
-  const hasWords = g.items.length > 0;
+  const hasWords = (g.items?.length ?? 0) > 0;
 
   const check = q ? (
     <View style={{ marginTop: 6, borderRadius: 16, borderWidth: 1, borderColor: t.accA(25), backgroundColor: t.card2, padding: 14 }}>
@@ -398,7 +411,11 @@ function OneGroup({
   return (
     <View style={{ gap: 8 }}>
       <TX font="semi" role="label" ls={1.6} color={t.accTx}>{g.label}</TX>
-      {g.items.map((it, i) => (
+      {/* Same optional-`items` contract as the xl branch above. No shipped
+          content reaches a check-only group at this size today, but the schema
+          permits one and an unguarded `.map` here would crash it exactly as
+          line 306 did. */}
+      {(g.items ?? []).map((it, i) => (
         <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
           <View style={{ flex: 1 }}>
             <TX role="body">{it.fr} {it.ipa ? <TX role="bodySm" color={t.txMuted}>{it.ipa}</TX> : null}</TX>
@@ -853,10 +870,24 @@ function TrapDrillStep({
       contentContainerStyle={{ paddingBottom: STEP_FOOTER_H + 8 }}
       showsVerticalScrollIndicator={false}
     >
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12 }}>
-        <TX font="semi" role="meta" ls={2} color={t.txSubtle}>RÉFLEXE</TX>
-        {scored > 0 ? <TX role="meta" color={t.accTx}>{correct} / {scored}</TX> : null}
-      </View>
+      {/* No "RÉFLEXE" label here, for exactly the reason the control page drops
+          "CONTRÔLE" a few hundred lines up: in the STEPPED render the drill step
+          already carries its own label and title in the header above, so this
+          drew the same word twice, one line apart, in two languages. Seen on
+          sons.09 mission 5.4 as "REFLEX" sitting directly over "RÉFLEXE".
+
+          It was invisible on sons.06 and sons.07 only because both name their
+          step "Réflexe" in French, which hid the duplication behind an exact
+          match and put a French UI label in authored content to do it.
+
+          The score stays: it is the one thing here the header does not say.
+          The STACKED render below keeps its label, because there is no step
+          header there and it is the only thing naming that block. */}
+      {scored > 0 ? (
+        <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 12 }}>
+          <TX role="meta" color={t.accTx}>{correct} / {scored}</TX>
+        </View>
+      ) : null}
       {s.drill.map((q, qi) => (
         <View key={qi} style={{ marginBottom: 20 }}>
           <View style={{ marginBottom: 10 }}>
