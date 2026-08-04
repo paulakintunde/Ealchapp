@@ -24,14 +24,29 @@
 // publish reproduces the good content instead of destroying it.
 //
 // ── SAFETY ─────────────────────────────────────────────────────────────────
-// - Restores ONLY the lessons named in RESTORE_IDS. a1.01.l1 and sons.04.l1
-//   are deliberately excluded: those rows are legitimately NEWER in the DB.
+// - Restores ONLY the lessons named in RESTORE_IDS. a1.01.l1 is deliberately
+//   excluded: that row is legitimately NEWER in the DB.
 // - Refuses to run unless the git body is strictly at least as rich as the DB
 //   body (never fewer sections, never drops an overview), so it can never be
 //   the thing that loses content.
 // - Every body runs validateLesson before anything is written.
 // - One transaction, rolled back on any row-count mismatch.
 // - Idempotent: re-running when the DB already matches writes nothing.
+//
+// ── 2026-08-03: three changes, for a second round of seed-direct work ───────
+// sons.02/03 were re-authored onto the v2 `scene` player, sons.04/08 gained
+// French section subtitles, and sons.08 was authored end to end. None of it
+// reached Postgres, so publish-content.ts's new no-silent-regression gate
+// (correctly) refuses to publish at all until this script closes the gap.
+//
+//   1. sons.04.l1 joins RESTORE_IDS. It was excluded when the DB was ahead of
+//      git; that is now reversed (DB v1, git v2 with 21 frSub subtitles).
+//   2. sons.08.l1 joins it too, and needs an INSERT: unlike every previous
+//      case this script handled, there is no row to update at all.
+//   3. sons.02.l1 needs a check the version guard cannot make. DB and git are
+//      BOTH v4, so nothing about the version says the DB is stale — but the DB
+//      body is the old `story` shape and git is the new `scene` one. See the
+//      same-version note in the guard block below.
 //
 // Usage (from ealch-admin/):
 //   pnpm tsx scripts/restore-lesson-bodies-from-seed.ts --dry-run
@@ -49,9 +64,29 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { validateItem, validateLesson, type Item, type Lesson } from '../../ealch-v2/src/content/schema.ts';
 
-/** Lessons whose good body exists only in git. a1.01.l1 / sons.04.l1 excluded
- *  on purpose: the DB is correctly ahead for those two. */
-const RESTORE_IDS = ['sons.01.l1', 'sons.02.l1', 'sons.03.l1', 'a1.04.l1', 'a2.01.l1'];
+/** Lessons whose good body exists only in git. a1.01.l1 excluded on purpose:
+ *  the DB is correctly ahead there. sons.04.l1 and sons.08.l1 were added
+ *  2026-08-03 — see the header. */
+const RESTORE_IDS = [
+  'sons.01.l1',
+  'sons.02.l1',
+  'sons.03.l1',
+  'sons.04.l1',
+  'sons.08.l1',
+  'a1.04.l1',
+  'a2.01.l1',
+];
+
+/** Columns for a lesson row this script has to CREATE rather than update.
+ *  content_units defaults cover the rest (locale 'fr', generated_by 'human',
+ *  version 1, updated_at now()); `level` and `title` have no default and are
+ *  NOT NULL, so both must be supplied. `level` is the unit band the lesson
+ *  belongs to, read off its own id — never guessed. */
+function levelForLessonId(id: string): string {
+  const band = id.split('.')[0];
+  if (band === 'sons' || band === 'a1' || band === 'a2' || band === 'b1' || band === 'b2') return band;
+  die(`cannot infer a content_level for ${id} — refusing to insert a row with a guessed level`);
+}
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const fromIx = process.argv.indexOf('--from');
@@ -61,6 +96,33 @@ function die(msg: string): never {
   console.error(`\n✗ ${msg}\n`);
   process.exit(1);
 }
+
+/** Key-order-independent JSON, for comparing a Postgres `jsonb` body against a
+ *  body parsed from seed.json.
+ *
+ *  jsonb does not preserve key order — it stores a decomposed binary form and
+ *  hands keys back in its own order (shorter keys first, then bytewise). So
+ *  `JSON.stringify(db) === JSON.stringify(git)` compares two serializations of
+ *  what may be identical data and reports a difference that does not exist.
+ *
+ *  That is not cosmetic here. It made this script plan a rewrite for sons.03.l1
+ *  when the DB body was already correct field for field, and it made the
+ *  same-version warning fire on a lesson with nothing wrong with it — which is
+ *  the kind of false alarm that teaches you to ignore a real one. Arrays keep
+ *  their order, which is meaningful; only object keys are sorted. */
+function canonical(v: unknown): unknown {
+  if (Array.isArray(v)) return v.map(canonical);
+  if (v && typeof v === 'object') {
+    const out: Record<string, unknown> = {};
+    for (const k of Object.keys(v as Record<string, unknown>).sort()) {
+      out[k] = canonical((v as Record<string, unknown>)[k]);
+    }
+    return out;
+  }
+  return v;
+}
+
+const sameBody = (a: unknown, b: unknown) => JSON.stringify(canonical(a)) === JSON.stringify(canonical(b));
 
 /** The committed seed at HEAD. Read through git, not the working tree: the
  *  working-tree file is the post-regression output we are trying to undo. */
@@ -110,6 +172,9 @@ async function main() {
 
   try {
     const plan: { id: string; body: Lesson; from: string; to: string }[] = [];
+    /** Lessons with no DB row at all, to be created rather than updated. */
+    const inserts: { id: string; body: Lesson }[] = [];
+    const fmt = (l: Lesson) => `${l.sections.length} sec/${l.overview ? 'ov' : '--'}/v${l.version}`;
 
     for (const id of RESTORE_IDS) {
       const git = byId.get(id);
@@ -124,7 +189,20 @@ async function main() {
         `select body from content_units where kind = 'lesson' and slug = $1`,
         [id]
       );
-      if (row.rowCount !== 1) die(`${id} not found in content_units`);
+
+      // No row at all. Previously fatal, because every lesson this script knew
+      // about already existed in Postgres and a missing one meant the wrong id
+      // had been typed. sons.08.l1 broke that assumption: it was authored
+      // entirely seed-direct and Postgres has never seen it, so the row has to
+      // be created. There is nothing to compare against and therefore nothing
+      // to lose, which makes an insert the safest operation here rather than
+      // the most dangerous one.
+      if (row.rowCount === 0) {
+        console.log(`  + ${id.padEnd(12)} absent from the DB — will INSERT (${fmt(git)})`);
+        inserts.push({ id, body: git });
+        continue;
+      }
+      if (row.rowCount !== 1) die(`${id} matched ${row.rowCount} rows in content_units — refusing to guess`);
       const db = row.rows[0].body;
 
       // Guard: never let this script be the thing that loses content.
@@ -153,11 +231,31 @@ async function main() {
         die(`${id}: DB has an overview and the reference does not. Refusing to restore.`);
       }
 
-      const same = JSON.stringify(db) === JSON.stringify(git);
-      const fmt = (l: Lesson) => `${l.sections.length} sec/${l.overview ? 'ov' : '--'}/v${l.version}`;
+      const same = sameBody(db, git);
       if (same) {
         console.log(`  = ${id.padEnd(12)} already matches (${fmt(git)})`);
       } else {
+        // A same-version divergence is the case nothing else can see.
+        //
+        // Every guard above reasons about VERSION, and publish-content.ts's
+        // no-silent-regression gate does too. sons.02.l1 defeats both: DB and
+        // git are both v4, so by version they agree, while the DB body is the
+        // old `story` mission 1 and git is the `scene` rewrite. A publish would
+        // quietly reinstate the story and nothing would report a loss.
+        //
+        // It cannot be auto-resolved — equal versions mean the content itself
+        // has to say which is newer — so print it loudly instead, with the
+        // first-section type that is usually where the divergence shows.
+        if (git.version === db.version) {
+          const shape = (l: Lesson) =>
+            `${l.sections.length} sec, mission 1 = ${(l.sections[0] as { type?: string })?.type ?? '?'}`;
+          console.log(
+            `  ! ${id.padEnd(12)} SAME VERSION (v${git.version}) but the bodies differ — no version says which is newer.\n` +
+              `      DB:  ${shape(db)}\n` +
+              `      git: ${shape(git)}\n` +
+              `      Restoring git over the DB. Check the plan below before running for real.`
+          );
+        }
         plan.push({ id, body: git, from: fmt(db), to: fmt(git) });
       }
     }
@@ -167,8 +265,13 @@ async function main() {
     // they never reached Postgres. Restoring the lesson without them would
     // publish a lesson pointing at nonexistent items, which validateCorpus
     // rejects, blocking every future publish.
+    // Inserted lessons count here too, and matter MORE than updated ones: a
+    // lesson Postgres has never seen is the most likely to reference items it
+    // has never seen either. Walking only `plan` would insert sons.08.l1 and
+    // leave every item it points at missing, which fails validateCorpus and
+    // blocks the publish this script exists to unblock.
     const neededIds = new Set<string>();
-    for (const p of plan) for (const id of referencedItemIds(p.body)) neededIds.add(id);
+    for (const p of [...plan, ...inserts]) for (const id of referencedItemIds(p.body)) neededIds.add(id);
 
     const itemPlan: Item[] = [];
     if (neededIds.size) {
@@ -189,7 +292,7 @@ async function main() {
       }
     }
 
-    if (!plan.length && !itemPlan.length) {
+    if (!plan.length && !inserts.length && !itemPlan.length) {
       console.log('\n✓ nothing to restore, every lesson already matches the reference.\n');
       return;
     }
@@ -197,6 +300,10 @@ async function main() {
     if (plan.length) {
       console.log('\n  lesson restore plan:');
       for (const p of plan) console.log(`    ${p.id.padEnd(12)} ${p.from.padEnd(16)} → ${p.to}`);
+    }
+    if (inserts.length) {
+      console.log('\n  lessons to CREATE (no row exists today):');
+      for (const p of inserts) console.log(`    ${p.id.padEnd(12)} ${'(absent)'.padEnd(16)} → ${fmt(p.body)}`);
     }
     if (itemPlan.length) {
       console.log(`\n  missing corpus items to insert: ${itemPlan.length}`);
@@ -242,12 +349,37 @@ async function main() {
         die(`${p.id} update touched ${res.rowCount} rows — rolled back, nothing changed`);
       }
     }
+
+    // Creating a lesson row. `id`, `locale`, `generated_by`, `version` and
+    // `updated_at` all take their column defaults; `slug`, `title`, `kind`,
+    // `level` and `body` are NOT NULL with no default and are supplied.
+    //
+    // `on conflict do nothing` with a row-count check rather than a plain
+    // insert: if a row appeared between the SELECT above and this write, the
+    // insert affects 0 rows and the whole transaction rolls back, instead of
+    // this script silently overwriting a body it never compared against.
+    for (const p of inserts) {
+      const res = await client.query(
+        `insert into content_units (slug, title, kind, level, body, status, published_at)
+         values ($1, $2, 'lesson', $3::content_level, $4::jsonb, 'published', now())
+         on conflict (slug) do nothing`,
+        [p.id, p.body.title, levelForLessonId(p.id), JSON.stringify(p.body)]
+      );
+      if (res.rowCount !== 1) {
+        await client.query('rollback');
+        die(
+          `${p.id} insert touched ${res.rowCount} rows — a row appeared since the plan was built. ` +
+            `Rolled back, nothing changed. Re-run to replan against the current state.`
+        );
+      }
+    }
     await client.query('commit');
 
     console.log(
-      `\n✓ restored ${plan.length} lesson body/bodies` +
-        (itemPlan.length ? ` and ${itemPlan.length} corpus item(s)` : '') +
-        ` into Postgres. Run pnpm content:publish to ship the corrected snapshot.\n`
+      `\n✓ ${plan.length} lesson body/bodies restored` +
+        (inserts.length ? `, ${inserts.length} created` : '') +
+        (itemPlan.length ? `, ${itemPlan.length} corpus item(s) inserted` : '') +
+        `.\n  Next: pnpm content:publish --dry-run, and confirm seed.json comes back byte-identical.\n`
     );
   } catch (e) {
     await client.query('rollback').catch(() => {});
