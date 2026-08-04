@@ -212,7 +212,18 @@ export function hasPlainNasalFor(fr: string, respell: string): boolean {
   // A lone vowel closed by N or M in the respelling, e.g. [OM], [VAN], [AN].
   if (!/(?:^|[\s-])[A-ZÀ-Ý]*[AEIOUY][NM](?![A-Za-zÀ-ÿ])/iu.test(inner)) return false;
   // Doubled in the source: the consonant is real, so this is not the error.
-  return !/(?:nn|mm)/i.test(fr);
+  if (/(?:nn|mm)/i.test(fr)) return false;
+  // A French nasal vowel only exists where the m/n is NOT followed by a vowel:
+  // bon, grand, temps, pain. Where a vowel letter DOES follow it, the consonant
+  // is genuinely pronounced and the respelling is right to end in it: aime
+  // /ɛm/, dame /dam/, jaune /ʒon/, scène /sɛn/, pleine /plɛn/.
+  //
+  // Without this, the rule fired on every one of those. It was invisible while
+  // the only v2 lesson was sons.06, whose one m-final word (homme) happens to
+  // be spelled with a double m and so took the branch above. sons.07 teaches
+  // j'aime, which is the same shape with a single m, and the check called a
+  // correct respelling an error.
+  return !/[aeiouyàâäéèêëîïôöûüù][nm]e/i.test(fr);
 }
 
 /** Words that are all-caps for reasons other than being a respelling: acronyms

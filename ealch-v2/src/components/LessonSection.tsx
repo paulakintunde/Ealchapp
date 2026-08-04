@@ -120,17 +120,49 @@ export function SectionView({
       );
 
     case 'examples':
+      // Every `ex.fr` is a French sentence the learner is meant to SAY, and
+      // until now the card showed it silently: the row was a plain View, so a
+      // section could author an `audio` spec and get no control to trigger it.
+      // sons.06 worked around that by authoring no audio here at all, which
+      // reads as a decision and was really the absence of an affordance.
+      //
+      // The whole row is the tap target, matching the `audio` case below, and
+      // the gloss and the note stay exactly where they were.
       return (
         <View style={{ marginBottom: 26 }}>
           {label}
           <View style={{ gap: 10 }}>
-            {s.examples.map((ex, i) => (
-              <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 14, paddingHorizontal: 16 }}>
-                <TX font="serifI" role="titleLg" size={19} style={{ marginBottom: 4 }}>« {ex.fr} »</TX>
-                <TX role="label" color={t.txMuted}>{ex.en}</TX>
-                {ex.note ? <TX role="meta" color={t.txSubtle} style={{ marginTop: 6 }}>{ex.note}</TX> : null}
-              </View>
-            ))}
+            {s.examples.map((ex, i) => {
+              const id = `${s.title}-ex-${i}`;
+              const on = playingId === id;
+              return (
+                <Press
+                  key={i}
+                  cue={null}
+                  onPress={() => onPlay(id, ex.fr)}
+                  accessibilityRole="button"
+                  accessibilityLabel={`${ex.fr}. ${ex.en}`}
+                  accessibilityHint="Plays the French sentence"
+                  style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(8), backgroundColor: t.card, padding: 14, paddingHorizontal: 16 }}
+                >
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <View style={{ flex: 1 }}>
+                      <TX font="serifI" role="titleLg" size={19} style={{ marginBottom: 4 }}>« {ex.fr} »</TX>
+                      <TX role="label" color={t.txMuted}>{ex.en}</TX>
+                    </View>
+                    <View style={{ width: 40, height: 40, borderRadius: 20, backgroundColor: t.accA(14), alignItems: 'center', justifyContent: 'center' }}>
+                      <Icon name="play" size={15} color={t.acc} />
+                    </View>
+                  </View>
+                  {ex.note ? <TX role="meta" color={t.txSubtle} style={{ marginTop: 6 }}>{ex.note}</TX> : null}
+                  {on ? (
+                    <View style={{ marginTop: 8 }}>
+                      <Waveform count={14} height={18} barWidth={3.25} gap={3.5} active color={t.acc} />
+                    </View>
+                  ) : null}
+                </Press>
+              );
+            })}
           </View>
         </View>
       );

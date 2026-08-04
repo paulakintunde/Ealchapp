@@ -4,10 +4,10 @@
     {
       "id": "sons.06",
       "seq": 6,
-      "sub": "silent letters — why « ils parlent » ends quietly",
+      "sub": "Les lettres muettes",
       "canDo": "Can spot the silent letters in written French and stop pronouncing them",
       "level": "sons",
-      "title": "Les lettres muettes",
+      "title": "Silent Letters",
       "track": "sons",
       "lessonIds": [
         "sons.06.l1"
@@ -19,10 +19,10 @@
     {
       "id": "sons.01",
       "seq": 1,
-      "sub": "the 26 letters & their French names",
+      "sub": "L'alphabet",
       "canDo": "Can name the letters of the French alphabet and spell their own name aloud",
       "level": "sons",
-      "title": "L'alphabet",
+      "title": "The French Alphabet",
       "track": "sons",
       "lessonIds": [
         "sons.01.l1"
@@ -31,10 +31,10 @@
     {
       "id": "sons.02",
       "seq": 2,
-      "sub": "pure vowels — a, e, i, o, u, ou, eu",
+      "sub": "Les voyelles",
       "canDo": "Can produce the pure French vowels, including ou and eu, without gliding",
       "level": "sons",
-      "title": "Les voyelles",
+      "title": "French Vowels in Depth",
       "track": "sons",
       "lessonIds": [
         "sons.02.l1"
@@ -46,10 +46,10 @@
     {
       "id": "sons.03",
       "seq": 3,
-      "sub": "on · en · in · un — through the nose",
+      "sub": "Les voyelles nasales",
       "canDo": "Can hear and produce the nasal vowels of on, en and in",
       "level": "sons",
-      "title": "Les voyelles nasales",
+      "title": "Nasal Vowels",
       "track": "sons",
       "lessonIds": [
         "sons.03.l1"
@@ -61,10 +61,10 @@
     {
       "id": "sons.04",
       "seq": 4,
-      "sub": "consonant sounds & the French r",
+      "sub": "Les consonnes",
       "canDo": "Can produce the French r and the consonant sounds that differ from English",
       "level": "sons",
-      "title": "Les consonnes",
+      "title": "French Consonants",
       "track": "sons",
       "lessonIds": [
         "sons.04.l1"
@@ -76,10 +76,10 @@
     {
       "id": "sons.05",
       "seq": 5,
-      "sub": "é è ê ë ç — what each mark changes",
+      "sub": "Les accents",
       "canDo": "Can read é, è, ê, ë and ç and say what each mark changes",
       "level": "sons",
-      "title": "Les accents",
+      "title": "Accents",
       "track": "sons",
       "lessonIds": [
         "sons.05.l1"
@@ -91,10 +91,10 @@
     {
       "id": "sons.07",
       "seq": 8,
-      "sub": "je → j', le → l' — dropping the vowel",
+      "sub": "L'élision",
       "canDo": "Can drop the vowel in je, le and la before a vowel sound, as in j'aime and l'école",
       "level": "sons",
-      "title": "L'élision",
+      "title": "Elision",
       "track": "sons",
       "lessonIds": [
         "sons.07.l1"
@@ -106,10 +106,10 @@
     {
       "id": "sons.08",
       "seq": 9,
-      "sub": "the music of French — even syllables",
+      "sub": "Rythme & intonation",
       "canDo": "Can keep syllables even and place the stress at the end of the phrase, the French way",
       "level": "sons",
-      "title": "Rythme & intonation",
+      "title": "Rhythm and Intonation",
       "track": "sons",
       "lessonIds": [
         "sons.08.l1"
@@ -121,10 +121,10 @@
     {
       "id": "a1.16",
       "seq": 18,
-      "sub": "adjective placement — the BANGS rule",
+      "sub": "La place de l'adjectif",
       "canDo": "Can put the adjective on the right side of the noun, and knows which ones go before",
       "level": "a1",
-      "title": "La place de l'adjectif",
+      "title": "Adjective Placement",
       "track": "a1",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -134,10 +134,10 @@
     {
       "id": "a1.15",
       "seq": 19,
-      "sub": "family vocabulary — immediate & extended",
+      "sub": "La famille",
       "canDo": "Can introduce their family and say who is who",
       "level": "a1",
-      "title": "La famille",
+      "title": "Family Vocabulary",
       "track": "a1",
       "themes": [
         "famille"
@@ -150,10 +150,10 @@
     {
       "id": "a1.17",
       "seq": 20,
-      "sub": "mon, ma, mes, notre… — and the vowel rule",
+      "sub": "Adjectifs possessifs",
       "canDo": "Can say whose things are whose with mon, ma, mes and their kin",
       "level": "a1",
-      "title": "Adjectifs possessifs",
+      "title": "Possessive Adjectives",
       "track": "a1",
       "themes": [
         "famille"
@@ -166,10 +166,10 @@
     {
       "id": "a1.18",
       "seq": 21,
-      "sub": "ne… pas — and what happens to the article",
+      "sub": "La négation",
       "canDo": "Can turn any sentence they know negative with ne… pas",
       "level": "a1",
-      "title": "La négation",
+      "title": "Negation",
       "track": "a1",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -180,10 +180,10 @@
     {
       "id": "a1.19",
       "seq": 22,
-      "sub": "three ways — intonation, est-ce que, inversion",
+      "sub": "Questions oui / non",
       "canDo": "Can ask and answer yes-no questions three ways and pick the right register",
       "level": "a1",
-      "title": "Questions oui / non",
+      "title": "Yes/No Questions",
       "track": "a1",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -193,10 +193,10 @@
     {
       "id": "a1.20",
       "seq": 23,
-      "sub": "qui, que, où, quand, comment, pourquoi, combien",
+      "sub": "Les mots interrogatifs",
       "canDo": "Can ask who, what, where, when, why and how much questions",
       "level": "a1",
-      "title": "Les mots interrogatifs",
+      "title": "Question Words",
       "track": "a1",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -206,10 +206,10 @@
     {
       "id": "a1.08",
       "seq": 12,
-      "sub": "lundi to dimanche — and what le lundi changes",
+      "sub": "Les jours de la semaine",
       "canDo": "Can name the days and say what they do on a given day",
       "level": "a1",
-      "title": "Les jours de la semaine",
+      "title": "Days of the Week",
       "track": "a1",
       "themes": [
         "temps",
@@ -223,20 +223,20 @@
     {
       "id": "a1.21",
       "seq": 24,
-      "sub": "à, dans, sur, sous, devant, derrière",
+      "sub": "Prépositions de lieu",
       "canDo": "Can say where things are with sur, sous, dans, devant and derrière",
       "level": "a1",
-      "title": "Prépositions de lieu",
+      "title": "Prepositions of Place",
       "track": "a1",
       "lessonIds": []
     },
     {
       "id": "a1.09",
       "seq": 13,
-      "sub": "janvier to décembre — no capitals, en + month",
+      "sub": "Les mois de l’année",
       "canDo": "Can name the months and give a date",
       "level": "a1",
-      "title": "Les mois de l’année",
+      "title": "Months of the Year",
       "track": "a1",
       "themes": [
         "temps",
@@ -250,10 +250,10 @@
     {
       "id": "a1.10",
       "seq": 14,
-      "sub": "seasons & weather — il fait beau, il pleut",
+      "sub": "Les saisons & la météo",
       "canDo": "Can name the seasons and describe today's weather",
       "level": "a1",
-      "title": "Les saisons & la météo",
+      "title": "Seasons and Weather",
       "track": "a1",
       "themes": [
         "temps",
@@ -264,10 +264,10 @@
     {
       "id": "a1.12",
       "seq": 15,
-      "sub": "telling time — il est, et demie, moins le quart",
+      "sub": "L'heure",
       "canDo": "Can ask and tell the time and make a simple appointment",
       "level": "a1",
-      "title": "L'heure",
+      "title": "Telling Time",
       "track": "a1",
       "themes": [
         "temps"
@@ -280,10 +280,10 @@
     {
       "id": "a1.13",
       "seq": 16,
-      "sub": "colours & the ones that never agree",
+      "sub": "Les couleurs",
       "canDo": "Can name the colours, agree them with the noun, and leave marron and orange alone",
       "level": "a1",
-      "title": "Les couleurs",
+      "title": "Colors",
       "track": "a1",
       "themes": [
         "couleurs"
@@ -296,10 +296,10 @@
     {
       "id": "a1.14",
       "seq": 17,
-      "sub": "basic adjectives — grand, petit, beau, vieux",
+      "sub": "Adjectifs de base",
       "canDo": "Can describe people and things with common adjectives, agreed for gender",
       "level": "a1",
-      "title": "Adjectifs de base",
+      "title": "Basic Adjectives",
       "track": "a1",
       "themes": [
         "famille"
@@ -312,10 +312,10 @@
     {
       "id": "a2.04",
       "seq": 13,
-      "sub": "the full set — with countries & cities",
+      "sub": "Prépositions de lieu",
       "canDo": "Can pick à, de, en, au, aux and chez, and dodge their classic traps",
       "level": "a2",
-      "title": "Prépositions de lieu",
+      "title": "Prepositions of Place, in Depth",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -325,10 +325,10 @@
     {
       "id": "sons.10",
       "seq": 7,
-      "sub": "when silent letters wake up — les_amis, vous_avez",
+      "sub": "La liaison",
       "canDo": "Can link a silent final consonant onto the next word when French requires it, and leave it silent when French forbids it",
       "level": "sons",
-      "title": "La liaison",
+      "title": "Liaison",
       "track": "sons",
       "lessonIds": [
         "sons.10.l1"
@@ -361,10 +361,10 @@
     {
       "id": "a1.01",
       "seq": 1,
-      "sub": "greetings & politeness — bonjour, merci",
+      "sub": "Les salutations",
       "canDo": "Can greet someone, ask how they are, and take leave, politely or informally",
       "level": "a1",
-      "title": "Les salutations",
+      "title": "Greetings",
       "track": "a1",
       "themes": [
         "salutations",
@@ -377,10 +377,10 @@
     {
       "id": "a1.02",
       "seq": 2,
-      "sub": "counting to twenty — the ones you say every day",
+      "sub": "Les nombres 1–20",
       "canDo": "Can count to twenty, hear the difference between them, and give a small quantity",
       "level": "a1",
-      "title": "Les nombres 1–20",
+      "title": "Numbers 1 to 20",
       "track": "a1",
       "themes": [
         "nombres"
@@ -390,10 +390,10 @@
     {
       "id": "a1.27",
       "seq": 3,
-      "sub": "the pattern — and the quirky 70s, 80s and 90s",
+      "sub": "Les nombres 21–100",
       "canDo": "Can count to a hundred, including soixante-dix, quatre-vingts and quatre-vingt-dix",
       "level": "a1",
-      "title": "Les nombres 21–100",
+      "title": "Numbers 21 to 100",
       "track": "a1",
       "themes": [
         "nombres"
@@ -406,10 +406,10 @@
     {
       "id": "a1.28",
       "seq": 4,
-      "sub": "cent, mille, millions — and when they take an s",
+      "sub": "Les grands nombres",
       "canDo": "Can say prices, years and large quantities with cent, mille and million",
       "level": "a1",
-      "title": "Les grands nombres",
+      "title": "Large Numbers",
       "track": "a1",
       "themes": [
         "nombres"
@@ -422,20 +422,20 @@
     {
       "id": "a1.03",
       "seq": 5,
-      "sub": "noun gender — masculin & féminin",
+      "sub": "Le genre des noms",
       "canDo": "Can tell masculine from feminine nouns and pick un or une",
       "level": "a1",
-      "title": "Le genre des noms",
+      "title": "Noun Gender",
       "track": "a1",
       "lessonIds": []
     },
     {
       "id": "a1.04",
       "seq": 6,
-      "sub": "le, la, l', les",
+      "sub": "Les articles définis",
       "canDo": "Can pick le, la, l' or les for any noun they know",
       "level": "a1",
-      "title": "Les articles définis",
+      "title": "The Definite Articles",
       "track": "a1",
       "lessonIds": [
         "a1.04.l1"
@@ -447,10 +447,10 @@
     {
       "id": "a1.11",
       "seq": 7,
-      "sub": "un, une, des — first mention",
+      "sub": "Les articles indéfinis",
       "canDo": "Can pick un, une or des, and say when French wants the indefinite rather than the definite",
       "level": "a1",
-      "title": "Les articles indéfinis",
+      "title": "The Indefinite Articles",
       "track": "a1",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -460,10 +460,10 @@
     {
       "id": "a1.29",
       "seq": 8,
-      "sub": "du, de la, de l' — some coffee, some water",
+      "sub": "Les articles partitifs",
       "canDo": "Can ask for an unspecified amount of food or drink with du, de la and de l",
       "level": "a1",
-      "title": "Les articles partitifs",
+      "title": "The Partitive Articles",
       "track": "a1",
       "themes": [
         "nourriture"
@@ -476,20 +476,20 @@
     {
       "id": "a1.05",
       "seq": 9,
-      "sub": "je, tu, il, elle, on, nous, vous, ils",
+      "sub": "Les pronoms sujets",
       "canDo": "Can pick the right subject pronoun, including tu versus vous, and everyday on for nous",
       "level": "a1",
-      "title": "Les pronoms sujets",
+      "title": "Subject Pronouns",
       "track": "a1",
       "lessonIds": []
     },
     {
       "id": "a1.06",
       "seq": 10,
-      "sub": "to be — je suis, tu es…",
+      "sub": "Le verbe être",
       "canDo": "Can say who they are, what they do and where they are from with être",
       "level": "a1",
-      "title": "Le verbe être",
+      "title": "The Verb Être (To Be)",
       "track": "a1",
       "themes": [
         "identite"
@@ -502,10 +502,10 @@
     {
       "id": "a1.07",
       "seq": 11,
-      "sub": "to have — j'ai, tu as…",
+      "sub": "Le verbe avoir",
       "canDo": "Can say their age and what they have with avoir",
       "level": "a1",
-      "title": "Le verbe avoir",
+      "title": "The Verb Avoir (To Have)",
       "track": "a1",
       "themes": [
         "identite"
@@ -518,10 +518,10 @@
     {
       "id": "a2.18",
       "seq": 14,
-      "sub": "depuis, pendant, il y a, dans, en",
+      "sub": "Prépositions de temps",
       "canDo": "Can say how long, how long ago and when with the right time preposition",
       "level": "a2",
-      "title": "Prépositions de temps",
+      "title": "Prepositions of Time",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -531,10 +531,10 @@
     {
       "id": "a1.22",
       "seq": 25,
-      "sub": "countries, nationalities — en, au, aux",
+      "sub": "Pays & nationalités",
       "canDo": "Can say which country they are from and are going to, and what nationality they are",
       "level": "a1",
-      "title": "Pays & nationalités",
+      "title": "Countries and Nationalities",
       "track": "a1",
       "themes": [
         "identite"
@@ -547,10 +547,10 @@
     {
       "id": "a1.23",
       "seq": 26,
-      "sub": "everyday food vocabulary with its articles",
+      "sub": "La nourriture",
       "canDo": "Can name everyday food and say what they like and eat",
       "level": "a1",
-      "title": "La nourriture",
+      "title": "Food Vocabulary",
       "track": "a1",
       "themes": [
         "nourriture"
@@ -563,10 +563,10 @@
     {
       "id": "a1.24",
       "seq": 27,
-      "sub": "body parts & describing people",
+      "sub": "Le corps",
       "canDo": "Can name the parts of the body, say what hurts, and describe how someone looks",
       "level": "a1",
-      "title": "Le corps",
+      "title": "The Body",
       "track": "a1",
       "themes": [
         "corps",
@@ -580,10 +580,10 @@
     {
       "id": "a1.25",
       "seq": 28,
-      "sub": "matin, midi, soir — se lever, manger, dormir",
+      "sub": "La routine quotidienne",
       "canDo": "Can describe their day from getting up to going to bed",
       "level": "a1",
-      "title": "La routine quotidienne",
+      "title": "Daily Routine",
       "track": "a1",
       "themes": [
         "routine"
@@ -596,10 +596,10 @@
     {
       "id": "a1.26",
       "seq": 29,
-      "sub": "rooms, furniture & household items",
+      "sub": "La maison",
       "canDo": "Can name the rooms and the furniture and say where things are at home",
       "level": "a1",
-      "title": "La maison",
+      "title": "The House",
       "track": "a1",
       "themes": [
         "maison"
@@ -612,10 +612,10 @@
     {
       "id": "a1.30",
       "seq": 30,
-      "sub": "A1 capstone — everything, put together",
+      "sub": "Bilan A1",
       "canDo": "Can hold a short everyday exchange using the whole A1 band: introduce themselves, ask questions, count, tell the time and describe their world",
       "level": "a1",
-      "title": "Bilan A1",
+      "title": "A1 Review",
       "track": "a1",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -628,10 +628,10 @@
     {
       "id": "a2.01",
       "seq": 1,
-      "sub": "the full system — endings & 30 common verbs",
+      "sub": "Les verbes en -ER",
       "canDo": "Can conjugate any regular -er verb in the present and use it in a real sentence",
       "level": "a2",
-      "title": "Les verbes en -ER",
+      "title": "Regular -ER Verbs",
       "track": "a2",
       "lessonIds": [
         "a2.01.l1"
@@ -643,10 +643,10 @@
     {
       "id": "a2.09",
       "seq": 2,
-      "sub": "-ger, -cer, -eler, -eter and the é_er patterns",
+      "sub": "Les verbes en -ER : exceptions",
       "canDo": "Can spell the stem changes in manger, commencer, appeler and préférer without guessing",
       "level": "a2",
-      "title": "Les verbes en -ER : exceptions",
+      "title": "-ER Verbs: The Exceptions",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -656,10 +656,10 @@
     {
       "id": "a2.10",
       "seq": 3,
-      "sub": "the finir model — and the -iss- in the plural",
+      "sub": "Les verbes en -IR",
       "canDo": "Can conjugate regular -ir verbs and hear where the -iss- belongs",
       "level": "a2",
-      "title": "Les verbes en -IR",
+      "title": "Regular -IR Verbs",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -669,10 +669,10 @@
     {
       "id": "a2.11",
       "seq": 4,
-      "sub": "the vendre model — and the bare il form",
+      "sub": "Les verbes en -RE",
       "canDo": "Can conjugate regular -re verbs, including the il form that takes no ending",
       "level": "a2",
-      "title": "Les verbes en -RE",
+      "title": "Regular -RE Verbs",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -682,10 +682,10 @@
     {
       "id": "a2.02",
       "seq": 5,
-      "sub": "the going & coming family",
+      "sub": "Irréguliers 1 : aller, venir, tenir",
       "canDo": "Can use aller, venir and tenir in the present, including venir de for the recent past",
       "level": "a2",
-      "title": "Irréguliers 1 : aller, venir, tenir",
+      "title": "Irregular Verbs 1: Aller, Venir, Tenir",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -695,10 +695,10 @@
     {
       "id": "a2.12",
       "seq": 6,
-      "sub": "three verbs, thirty everyday expressions",
+      "sub": "Irréguliers 2 : faire, dire, lire",
       "canDo": "Can use faire, dire and lire and the common expressions built on faire",
       "level": "a2",
-      "title": "Irréguliers 2 : faire, dire, lire",
+      "title": "Irregular Verbs 2: Faire, Dire, Lire",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -708,10 +708,10 @@
     {
       "id": "a2.13",
       "seq": 7,
-      "sub": "the modals — want, can, must + infinitive",
+      "sub": "Irréguliers 3 : vouloir, pouvoir, devoir",
       "canDo": "Can say what they want, can and must do with a modal plus an infinitive",
       "level": "a2",
-      "title": "Irréguliers 3 : vouloir, pouvoir, devoir",
+      "title": "Irregular Verbs 3: Vouloir, Pouvoir, Devoir",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -721,10 +721,10 @@
     {
       "id": "a2.14",
       "seq": 8,
-      "sub": "the two ways French knows things",
+      "sub": "Irréguliers 4 : savoir & connaître",
       "canDo": "Can pick savoir or connaître correctly, the distinction English does not make",
       "level": "a2",
-      "title": "Irréguliers 4 : savoir & connaître",
+      "title": "Irregular Verbs 4: Savoir and Connaître",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -734,10 +734,10 @@
     {
       "id": "a2.15",
       "seq": 9,
-      "sub": "pattern families & their compounds",
+      "sub": "Irréguliers 5 : prendre, mettre, battre",
       "canDo": "Can conjugate prendre, mettre and battre and recognise their compounds",
       "level": "a2",
-      "title": "Irréguliers 5 : prendre, mettre, battre",
+      "title": "Irregular Verbs 5: Prendre, Mettre, Battre",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -747,10 +747,10 @@
     {
       "id": "a2.03",
       "seq": 10,
-      "sub": "the full system — -eux/-euse, -if/-ive, invariable",
+      "sub": "L'accord des adjectifs",
       "canDo": "Can agree any adjective in all four forms and spot the invariable ones",
       "level": "a2",
-      "title": "L'accord des adjectifs",
+      "title": "Adjective Agreement",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -761,10 +761,10 @@
     {
       "id": "a2.16",
       "seq": 11,
-      "sub": "the triple forms — bel, nouvel, vieil",
+      "sub": "Beau, nouveau, vieux",
       "canDo": "Can use bel, nouvel and vieil before a vowel and agree all three in the plural",
       "level": "a2",
-      "title": "Beau, nouveau, vieux",
+      "title": "Beau, Nouveau, Vieux",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -774,10 +774,10 @@
     {
       "id": "a2.17",
       "seq": 12,
-      "sub": "formation & placement — the -ment pattern",
+      "sub": "Les adverbes",
       "canDo": "Can build -ment adverbs, use the irregular ones, and place them correctly",
       "level": "a2",
-      "title": "Les adverbes",
+      "title": "Adverbs",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -787,10 +787,10 @@
     {
       "id": "a2.19",
       "seq": 15,
-      "sub": "aller + infinitive — what happens next",
+      "sub": "Le futur proche",
       "canDo": "Can say what they are going to do, and make it negative",
       "level": "a2",
-      "title": "Le futur proche",
+      "title": "The Near Future",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -800,10 +800,10 @@
     {
       "id": "a2.05",
       "seq": 16,
-      "sub": "formation, 60 participles, negation",
+      "sub": "Le passé composé avec avoir",
       "canDo": "Can talk about the past with avoir and place the negation around the auxiliary",
       "level": "a2",
-      "title": "Le passé composé avec avoir",
+      "title": "The Passé Composé with Avoir",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -814,10 +814,10 @@
     {
       "id": "a2.20",
       "seq": 17,
-      "sub": "the full list — the 40 that must be learnt",
+      "sub": "Participes passés irréguliers",
       "canDo": "Can produce the irregular past participles rather than guessing from the infinitive",
       "level": "a2",
-      "title": "Participes passés irréguliers",
+      "title": "Irregular Past Participles",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -827,10 +827,10 @@
     {
       "id": "a2.21",
       "seq": 18,
-      "sub": "DR MRS VANDERTRAMP & agreement",
+      "sub": "Le passé composé avec être",
       "canDo": "Can pick être as the auxiliary where French requires it and agree the participle",
       "level": "a2",
-      "title": "Le passé composé avec être",
+      "title": "The Passé Composé with Être",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -840,10 +840,10 @@
     {
       "id": "a2.22",
       "seq": 19,
-      "sub": "present tense — se lever, se coucher, se laver",
+      "sub": "Les verbes pronominaux",
       "canDo": "Can describe their routine with reflexive verbs in the present",
       "level": "a2",
-      "title": "Les verbes pronominaux",
+      "title": "Pronominal (Reflexive) Verbs",
       "track": "a2",
       "themes": [
         "routine"
@@ -856,10 +856,10 @@
     {
       "id": "a2.23",
       "seq": 20,
-      "sub": "être auxiliary & the agreement rule",
+      "sub": "Pronominaux au passé composé",
       "canDo": "Can put reflexive verbs into the past with être and agree them correctly",
       "level": "a2",
-      "title": "Pronominaux au passé composé",
+      "title": "Pronominal Verbs in the Passé Composé",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -870,10 +870,10 @@
     {
       "id": "a2.06",
       "seq": 21,
-      "sub": "le, la, les — position & past agreement",
+      "sub": "Pronoms d'objet direct",
       "canDo": "Can replace a direct object with le, la or les and place it before the verb",
       "level": "a2",
-      "title": "Pronoms d'objet direct",
+      "title": "Direct Object Pronouns",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -883,10 +883,10 @@
     {
       "id": "a2.24",
       "seq": 22,
-      "sub": "lui, leur — the verbs that take à",
+      "sub": "Pronoms d'objet indirect",
       "canDo": "Can replace an indirect object with lui or leur and knows which verbs take à",
       "level": "a2",
-      "title": "Pronoms d'objet indirect",
+      "title": "Indirect Object Pronouns",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -896,10 +896,10 @@
     {
       "id": "a2.25",
       "seq": 23,
-      "sub": "the two neutral pronouns — à + thing, de + thing",
+      "sub": "Y et EN",
       "canDo": "Can replace a place or a quantity with y and en in the right slot",
       "level": "a2",
-      "title": "Y et EN",
+      "title": "The Pronouns Y and EN",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -909,10 +909,10 @@
     {
       "id": "a2.07",
       "seq": 24,
-      "sub": "ordering — the partitive in real use",
+      "sub": "Au restaurant",
       "canDo": "Can order a full meal, ask for the bill and handle the waiter’s questions",
       "level": "a2",
-      "title": "Au restaurant",
+      "title": "At the Restaurant",
       "track": "a2",
       "themes": [
         "nourriture",
@@ -926,10 +926,10 @@
     {
       "id": "a2.26",
       "seq": 25,
-      "sub": "shopping, money & prices",
+      "sub": "Les courses & l’argent",
       "canDo": "Can shop, ask a price, count change and complete a purchase",
       "level": "a2",
-      "title": "Les courses & l’argent",
+      "title": "Shopping and Money",
       "track": "a2",
       "themes": [
         "courses"
@@ -942,10 +942,10 @@
     {
       "id": "a2.27",
       "seq": 26,
-      "sub": "getting around, directions & transport modes",
+      "sub": "Les transports",
       "canDo": "Can buy a ticket, ask for directions and follow the answer",
       "level": "a2",
-      "title": "Les transports",
+      "title": "Transportation",
       "track": "a2",
       "themes": [
         "transport",
@@ -959,10 +959,10 @@
     {
       "id": "a2.28",
       "seq": 27,
-      "sub": "health — symptoms & the body",
+      "sub": "Chez le médecin",
       "canDo": "Can describe a symptom, say what hurts and understand simple medical advice",
       "level": "a2",
-      "title": "Chez le médecin",
+      "title": "At the Doctor's",
       "track": "a2",
       "themes": [
         "sante",
@@ -976,10 +976,10 @@
     {
       "id": "a2.29",
       "seq": 28,
-      "sub": "check-in, requests & complaints",
+      "sub": "À l'hôtel",
       "canDo": "Can check in, make a request and raise a problem politely",
       "level": "a2",
-      "title": "À l'hôtel",
+      "title": "At the Hotel",
       "track": "a2",
       "themes": [
         "voyage"
@@ -992,10 +992,10 @@
     {
       "id": "a2.30",
       "seq": 29,
-      "sub": "job titles & workplace vocabulary",
+      "sub": "Le travail & les métiers",
       "canDo": "Can say what they do for a living and describe a workplace",
       "level": "a2",
-      "title": "Le travail & les métiers",
+      "title": "Work and Jobs",
       "track": "a2",
       "themes": [
         "metiers"
@@ -1008,10 +1008,10 @@
     {
       "id": "a2.31",
       "seq": 30,
-      "sub": "subjects, grades & academic vocabulary",
+      "sub": "L'école & les études",
       "canDo": "Can talk about what they studied, which subjects and how it went",
       "level": "a2",
-      "title": "L'école & les études",
+      "title": "School and Studies",
       "track": "a2",
       "themes": [
         "ecole"
@@ -1024,10 +1024,10 @@
     {
       "id": "a2.32",
       "seq": 31,
-      "sub": "smartphone, internet & digital life",
+      "sub": "La technologie",
       "canDo": "Can talk about their phone, the internet and everyday digital tasks",
       "level": "a2",
-      "title": "La technologie",
+      "title": "Technology",
       "track": "a2",
       "themes": [
         "technologie"
@@ -1040,10 +1040,10 @@
     {
       "id": "a2.08",
       "seq": 32,
-      "sub": "plus / moins / aussi que — le plus, le moins",
+      "sub": "Comparatifs & superlatifs",
       "canDo": "Can compare two things and say which is the most or the least",
       "level": "a2",
-      "title": "Comparatifs & superlatifs",
+      "title": "Comparatives and Superlatives",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -1053,10 +1053,10 @@
     {
       "id": "a2.33",
       "seq": 33,
-      "sub": "ce, cet, cette, ces — celui, celle, ceux",
+      "sub": "Démonstratifs",
       "canDo": "Can point something out with ce and cette and replace it with celui and celle",
       "level": "a2",
-      "title": "Démonstratifs",
+      "title": "Demonstrative Adjectives and Pronouns",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -1066,10 +1066,10 @@
     {
       "id": "a2.34",
       "seq": 34,
-      "sub": "le mien, le tien, le sien — the full paradigm",
+      "sub": "Pronoms possessifs",
       "canDo": "Can say mine, yours and theirs with the right gender and number",
       "level": "a2",
-      "title": "Pronoms possessifs",
+      "title": "Possessive Pronouns",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -1079,10 +1079,10 @@
     {
       "id": "a2.35",
       "seq": 35,
-      "sub": "A2 capstone — everything, put together",
+      "sub": "Bilan A2",
       "canDo": "Can hold a conversation about their life past and present using the whole A2 band: verbs in three tenses, pronouns, and the everyday situations",
       "level": "a2",
-      "title": "Bilan A2",
+      "title": "A2 Review",
       "track": "a2",
       "lessonIds": [],
       "prereqUnitIds": [
@@ -7918,38 +7918,102 @@
       },
       "sections": [
         {
-          "say": "Listen to what almost went wrong on an ordinary café morning.",
-          "type": "story",
-          "frSub": "Un petit malentendu",
+          "type": "scene",
+          "id": "s01-scene",
           "title": "A Small Misunderstanding",
-          "bubbles": [
+          "frSub": "Un petit malentendu",
+          "render": "screens",
+          "layer": "core",
+          "say": {
+            "text": "Listen to what almost went wrong on an ordinary café morning.",
+            "voice": "coach",
+            "timing": "onFirstVisitOnly"
+          },
+          "setting": {
+            "place": "A café counter",
+            "city": "Paris",
+            "time": "8:14, an ordinary morning"
+          },
+          "beats": [
             {
-              "en": "Good morning! What would you like?",
+              "kind": "narration",
+              "size": "md",
+              "text": "You are ordering breakfast. Everything you are about to say, you already know how to say. One vowel is going to decide how much butter arrives."
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "Serveur",
+              "reveal": "auto",
               "fr": "Bonjour ! Vous désirez ?",
-              "from": "coach"
+              "en": "Good morning! What would you like?"
             },
             {
-              "en": "I would like a little butter, please.",
-              "fr": "Je voudrais un peu de beurre, s'il vous plaît.",
-              "from": "user",
-              "warn": "Letting EU slide toward an O opens the door to a misunderstanding: 'un peu de beurre' (a little butter) can turn into 'un pot de beurre' (a tub of butter) in the waiter's ear."
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "You want a little butter with your bread. How do you say « un peu de beurre » ?",
+              "options": [
+                {
+                  "fr": "un peu de beurre",
+                  "respell": "UHⁿ PEU DUH BEUR",
+                  "en": "a little butter, the EU held flat and rounded",
+                  "outcome": "works"
+                },
+                {
+                  "fr": "un pot de beurre",
+                  "respell": "UHⁿ POH DUH BEUR",
+                  "en": "letting the EU slide toward an O",
+                  "outcome": "breaks"
+                }
+              ],
+              "followUp": {
+                "works": "That is it. Now see how little has to slip for the other one to come out.",
+                "breaks": "That is the slide, and the waiter has no way to know you did not mean it."
+              }
             },
             {
+              "kind": "break",
+              "size": "lg",
+              "heading": "One vowel, a whole tub of butter.",
+              "body": "EU and O are one small move apart. Let the EU relax backward and you have not made an accent mistake, you have ordered something else. The waiter hears a word that exists and serves it.",
+              "wrong": {
+                "fr": "un pot de beurre",
+                "ipa": "/œ̃ po də bœʁ/",
+                "respell": "UHⁿ POH DUH BEUR",
+                "en": "a tub of butter"
+              },
+              "right": {
+                "fr": "un peu de beurre",
+                "ipa": "/œ̃ pø də bœʁ/",
+                "respell": "UHⁿ PEU DUH BEUR",
+                "en": "a little butter"
+              },
+              "coach": "Keep the lips rounded and the tongue forward. The moment it drifts back, you are asking for a tub."
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "Serveur",
+              "reveal": "tap",
+              "fr": "Un pot de beurre ? Vous êtes sûr ? Un pot, c’est beaucoup !",
               "en": "A whole tub of butter? Are you sure? A tub is a lot!",
-              "fr": "Un pot de beurre ? Vous êtes sûr ? Un pot, c'est beaucoup !",
-              "from": "coach"
+              "stage": "He pauses, already reaching for the tub."
             },
             {
-              "en": "The waiter comes back with an entire tub of butter, not the small pat that was expected.",
-              "fr": "Le serveur revient avec un pot de beurre entier, pas la petite noisette attendue.",
-              "from": "narrator"
+              "kind": "narration",
+              "size": "md",
+              "text": "The waiter comes back with an entire tub of butter, not the small pat that was expected."
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "Nobody misheard you. French vowels carry meaning on their own, and this lesson is about holding each one still enough that the word you meant is the word that lands."
             }
           ],
           "closing": {
-            "en": "'Un peu de beurre' (a little butter) and 'un pot de beurre' (a tub of butter) are one vowel apart, but they produce completely different amounts of butter.",
-            "fr": "Un peu de beurre, ou un pot de beurre ?"
-          },
-          "setting": "CAFÉ IN PARIS · 8:14 AM"
+            "size": "md",
+            "text": "« Un peu de beurre » and « un pot de beurre » are one vowel apart, and they produce completely different amounts of butter."
+          }
         },
         {
           "say": "Here's what this lesson will get you doing by voice.",
@@ -8342,6 +8406,17 @@
         },
         {
           "type": "trapDrill",
+          "id": "s06-trap-u-ou",
+          "title": "Trap Number One: U versus OU",
+          "frSub": "Le piège U contre OU",
+          "render": "screens",
+          "layer": "core",
+          "size": "lg",
+          "say": {
+            "text": "This is the one that changes words on you. Slow down and feel where your tongue sits.",
+            "voice": "coach",
+            "timing": "onEnter"
+          },
           "cards": [
             {
               "fr": "tu",
@@ -8414,8 +8489,19 @@
               "promptSay": "dessous"
             }
           ],
-          "frSub": "Le piège U contre OU",
-          "title": "Trap Number One: U versus OU"
+          "steps": [
+            {
+              "kind": "cards",
+              "label": "The traps",
+              "title": "Four words, one vowel to keep forward"
+            },
+            {
+              "kind": "drill",
+              "label": "Réflexe",
+              "title": "Now hear the difference without checking",
+              "gate": true
+            }
+          ]
         },
         {
           "say": "Time to say the two sounds English simply doesn't have.",
@@ -9081,37 +9167,102 @@
       },
       "sections": [
         {
-          "type": "story",
-          "frSub": "L'accueil qui a mal tourné",
+          "type": "scene",
+          "id": "s01-scene",
           "title": "The Welcome That Went Wrong",
-          "bubbles": [
+          "frSub": "L'accueil qui a mal tourné",
+          "render": "screens",
+          "layer": "core",
+          "say": {
+            "text": "Listen to what one extra consonant did at a hotel desk late at night.",
+            "voice": "coach",
+            "timing": "onFirstVisitOnly"
+          },
+          "setting": {
+            "place": "The front desk of the Hôtel Fleurie",
+            "city": "Lyon",
+            "time": "9:04 PM, checking in late"
+          },
+          "beats": [
             {
-              "en": "You arrive at the Hôtel Fleurie, late at night. The receptionist hands you a form.",
-              "fr": "Vous arrivez à l'Hôtel Fleurie, tard le soir. La réceptionniste vous tend une fiche.",
-              "from": "narrator"
+              "kind": "narration",
+              "size": "md",
+              "text": "You arrive late and the receptionist hands you a form. You already know every word you are about to say. One nasal vowel is going to decide which box she ticks."
             },
             {
-              "en": "Your nationality, please?",
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "Réceptionniste",
+              "reveal": "auto",
               "fr": "Votre nationalité, s'il vous plaît ?",
-              "from": "coach"
+              "en": "Your nationality, please?"
             },
             {
-              "en": "I am American.",
-              "fr": "Je suis américain.",
-              "from": "user",
-              "warn": "Watch the final syllable. Pronounce the N and you accidentally say américaine, the feminine form."
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "You are a man saying you are American. How do you say « je suis américain » ?",
+              "options": [
+                {
+                  "fr": "je suis américain",
+                  "respell": "ZHUH SWEE A-MEH-REE-KANⁿ",
+                  "en": "the final N nasalizes the vowel and stays silent",
+                  "outcome": "works"
+                },
+                {
+                  "fr": "je suis américaine",
+                  "respell": "ZHUH SWEE A-MEH-REE-KEN",
+                  "en": "sounding the N, the way the spelling tempts you to",
+                  "outcome": "breaks"
+                }
+              ],
+              "followUp": {
+                "works": "That is it. Now see how little has to change for the other one to come out.",
+                "breaks": "That is the slip, and she has no reason to think you meant anything else."
+              }
             },
             {
-              "en": "The receptionist nods and ticks the 'Ms.' box on the form.",
-              "fr": "La réceptionniste hoche la tête et coche la case « Madame » sur la fiche.",
-              "from": "narrator"
+              "kind": "break",
+              "size": "lg",
+              "heading": "One sounded N, and you changed gender.",
+              "body": "Let the N out and the vowel stops being nasal. You have not made an accent mistake, you have said the feminine form. Both words exist, so nobody hears an error, they just hear the other one.",
+              "wrong": {
+                "fr": "je suis américaine",
+                "ipa": "/ʒə sɥi ameʁikɛn/",
+                "respell": "ZHUH SWEE A-MEH-REE-KEN",
+                "en": "I am American, said by a woman"
+              },
+              "right": {
+                "fr": "je suis américain",
+                "ipa": "/ʒə sɥi ameʁikɛ̃/",
+                "respell": "ZHUH SWEE A-MEH-REE-KANⁿ",
+                "en": "I am American, said by a man"
+              },
+              "coach": "Send the vowel through the nose and stop before the tongue reaches the roof. The moment the N lands, the gender flips."
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "speaker": "Réceptionniste",
+              "reveal": "tap",
+              "fr": "Très bien, madame. Chambre 12.",
+              "en": "Very good, madam. Room 12.",
+              "stage": "She ticks the « Madame » box without looking up."
+            },
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "The form goes in the drawer with the wrong box ticked, and nothing about the exchange sounded like a mistake."
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "Nobody misheard you. A nasal vowel carries grammar on its own, and this lesson is about keeping the N in your nose instead of on your tongue."
             }
           ],
           "closing": {
-            "en": "One sound changed your grammatical gender, with no letter added out loud. Nasal versus oral, that is exactly what gender sounds like in spoken French.",
-            "fr": "Nasal ou oral, voilà le genre en français parlé."
-          },
-          "setting": "HOTEL FLEURIE, LYON · 9:04 PM"
+            "size": "md",
+            "text": "One sound changed your grammatical gender, with no letter added out loud. Nasal versus oral, that is exactly what gender sounds like in spoken French."
+          }
         },
         {
           "type": "goals",
@@ -10376,7 +10527,7 @@
         "fr.sons.consonnes.009",
         "fr.sons.consonnes.010"
       ],
-      "version": 1,
+      "version": 2,
       "features": [
         "narrated",
         "minimalPairs"
@@ -10394,7 +10545,8 @@
           "say": "Picture this. You order a coffee with total confidence, but the barista pauses for half a second before understanding you. Here is the reassuring part: most French consonants are nearly identical to English. B, D, F, L, M, N, P, T, V, Z, say them the way you already do. This lesson is a short, closed list of exceptions, not a whole new system.",
           "body": "You say « un café, s’il vous plaît » with confidence, but the barista hesitates before understanding you. Your C slipped toward an S, and your R never left the tip of your tongue.\n\nThe good news: most French consonants are nearly identical to English. B, D, F, L, M, N, P, T, V, Z sound the way you already say them. This lesson is not a new consonant system, it is a short, closed list of exceptions to the one you already have.",
           "type": "teach",
-          "title": "Why this matters"
+          "title": "Why this matters",
+          "frSub": "Pourquoi ça compte"
         },
         {
           "say": "By the end of this lesson you can produce the throat R and soft J, apply the C and G rule from spelling alone, read every forced-spelling override, and handle CH, GN, QU, PH, TH and silent H on sight.",
@@ -10407,13 +10559,15 @@
             "Apply the matching G rule, plus the three forced-spelling overrides: ç, gu, ge.",
             "Read CH, GN, QU, PH, TH and silent H correctly, every time.",
             "Tell which ten consonants need zero new muscle memory."
-          ]
+          ],
+          "frSub": "Vos objectifs"
         },
         {
           "say": "Three buckets. Bucket one is unchanged from English, nothing to learn. Bucket two is a new but fixed sound: R, J, CH, GN, QU, PH, TH, H. Bucket three is a letter that switches sound depending on what follows it: C and G. Today lives almost entirely in buckets two and three.",
           "body": "Every French consonant sorts into one of three buckets. Bucket one: unchanged from English, no new skill, that’s B D F L M N P T V Z. Bucket two: a genuinely different but fixed sound, no ambiguity once learned, that’s R, J, CH, GN, QU, PH, TH, H. Bucket three: a letter that switches between two sounds depending on the next letter, that’s C and G.\n\nThis lesson spends almost all its time in buckets two and three, because that’s where every real mistake lives.",
           "type": "teach",
-          "title": "The three buckets"
+          "title": "The three buckets",
+          "frSub": "Les trois catégories"
         },
         {
           "say": "Five letters, one grid. Tap any letter to open its card: its French name, the sound it makes inside words, and an example. C and G each carry two sounds, that’s worth extra attention, and it’s exactly what the next few cards go deep on.",
@@ -10465,7 +10619,8 @@
               "sound": "hard g before a, o, u; soft zh before e, i, y",
               "exNote": "cake · gel"
             }
-          ]
+          ],
+          "frSub": "Les cinq lettres pièges"
         },
         {
           "say": "Building the throat R, one step at a time. Start from a relaxed hard G, drop the scrape in front of a vowel, then try it in a cluster and at the end of a word. The last card stacks five R’s into one sentence.",
@@ -10508,7 +10663,8 @@
               "label": "CHECK"
             }
           ],
-          "title": "Build the throat R"
+          "title": "Build the throat R",
+          "frSub": "Construire le R de gorge"
         },
         {
           "say": "J is always soft in French, and soft G is the exact same sound wearing a different spelling. Swipe through and say each one, feeling for that buzzy measure sound with no hard stop at the front.",
@@ -10551,7 +10707,8 @@
               "label": "4"
             }
           ],
-          "title": "J and soft G: one sound, two spellings"
+          "title": "J and soft G: one sound, two spellings",
+          "frSub": "J et G doux : un seul son"
         },
         {
           "say": "The single most useful rule in this lesson. C and G both flip sound depending on the very next letter. A, o, u keeps them hard. E, i, y makes them soft. Tap any row for the detail, and watch the third and sixth rows: ç and gu are how French forces the “wrong” sound on purpose.",
@@ -10641,7 +10798,8 @@
             }
           ],
           "type": "tapTable",
-          "title": "C and G: the two-sound gate"
+          "title": "C and G: the two-sound gate",
+          "frSub": "C et G : la double porte"
         },
         {
           "say": "Three override spellings do all the work: ç forces a soft sound before a, o, u. Gu forces a hard sound before e, i. Ge forces a soft sound before a, o. Once you see them as a permission slip rather than an exception, they stop needing memorization word by word.",
@@ -10677,7 +10835,8 @@
               "label": "4"
             }
           ],
-          "title": "The forced-spelling trap"
+          "title": "The forced-spelling trap",
+          "frSub": "Le piège de l'orthographe forcée"
         },
         {
           "say": "CH and GN behave as single, indivisible units. CH is always the plain sh sound. GN is always one merged nasal sound, never a hard g followed by a separate n.",
@@ -10713,7 +10872,8 @@
               "label": "4"
             }
           ],
-          "title": "CH and GN: two fixed digraphs"
+          "title": "CH and GN: two fixed digraphs",
+          "frSub": "CH et GN : deux sons fixes"
         },
         {
           "say": "The vocabulary bank, sorted by sound rather than by topic: throat R words, soft J and soft G words, hard C and hard G words, then CH and GN. Tap a theme to open its own mini deck.",
@@ -10830,7 +10990,8 @@
               ],
               "title": "CH and GN"
             }
-          ]
+          ],
+          "frSub": "Le vocabulaire"
         },
         {
           "say": "A simple scanning habit turns this rule from a guess into a reflex. Spot every C and G, check the next letter, watch for the three override spellings, then speak. A few days of doing this on short phrases and it becomes automatic.",
@@ -10841,7 +11002,8 @@
             "Watch for the three overrides: ç forces soft, gu forces hard, ge forces soft.",
             "Say the phrase once in your head, then say it out loud."
           ],
-          "title": "Read any C or G before you say it"
+          "title": "Read any C or G before you say it",
+          "frSub": "Lire un C ou un G avant de le dire"
         },
         {
           "say": "Four borrowed spellings, each simplified to one clean sound. QU is k, never a kw glide. PH is f. TH is t. And H, no matter where it sits, makes no sound at all.",
@@ -10905,7 +11067,8 @@
             }
           ],
           "type": "tapTable",
-          "title": "QU, PH, TH, and silent H"
+          "title": "QU, PH, TH, and silent H",
+          "frSub": "QU, PH, TH et le H muet"
         },
         {
           "say": "A short phrase ladder. Tap each line, listen, then say it yourself before moving to the next. Watch the last line: it runs the C and G rule twice in one breath.",
@@ -10916,7 +11079,8 @@
             "un grand café, merci",
             "Ce garçon regarde la guitare rouge."
           ],
-          "title": "Say it back"
+          "title": "Say it back",
+          "frSub": "À vous de répéter"
         },
         {
           "say": "Six mistakes almost every English speaker makes with these consonants, one per card. Each one gets the fix and the reason your mouth wants to make it.",
@@ -10966,7 +11130,8 @@
               "label": "MISTAKE 6"
             }
           ],
-          "title": "Common mistakes"
+          "title": "Common mistakes",
+          "frSub": "Les erreurs fréquentes"
         },
         {
           "say": "Speaking drills. Tap each word to hear it, say it out loud, then grade yourself: got it, or missed it. Your answers feed your review deck, so accurate grading means better practice later.",
@@ -10990,7 +11155,8 @@
             "fr.sons.consonnes.008",
             "fr.sons.consonnes.007",
             "fr.sons.consonnes.009"
-          ]
+          ],
+          "frSub": "Exercices oraux"
         },
         {
           "say": "Four minimal pairs, the exact contrasts that trip up an English-trained ear. Say each pair out loud and feel your mouth change between the two.",
@@ -11026,7 +11192,8 @@
               "label": "PAIR 4"
             }
           ],
-          "title": "Minimal pairs"
+          "title": "Minimal pairs",
+          "frSub": "Les paires minimales"
         },
         {
           "say": "Shadowing. Tap each line, then say it three times, matching a smooth rhythm. Three sentences, three different consonant combinations stacked together.",
@@ -11036,7 +11203,8 @@
             "Ce garçon regarde la guitare rouge.",
             "Le chien dort près de la montagne."
           ],
-          "title": "Shadowing"
+          "title": "Shadowing",
+          "frSub": "Répétition en écho"
         },
         {
           "say": "Now ears only. Play each word without looking if you can, decide what you heard, then check. These are the digraphs and borrowed spellings that fool an English-trained ear the longest.",
@@ -11059,7 +11227,8 @@
             "fr.sons.consonnes.005",
             "fr.sons.consonnes.006",
             "fr.sons.consonnes.010"
-          ]
+          ],
+          "frSub": "Entraînement de l'oreille"
         },
         {
           "say": "Practice flashcards. Answer out loud, tap the card to flip it, then grade yourself. The effort of recalling is what makes it stick.",
@@ -11124,7 +11293,8 @@
               "front": "Is H ever pronounced?"
             }
           ],
-          "title": "Practice flashcards"
+          "title": "Practice flashcards",
+          "frSub": "Cartes de révision"
         },
         {
           "say": "Bravo. Before the quiz, your key takeaways. Ten letters need nothing new. R is a throat scrape. J and soft G are the same buzzy sound. C and G both flip on the next letter, and ç, gu, ge are the built-in overrides. Ready? The quiz is one tap away.",
@@ -11138,7 +11308,8 @@
             "C and G both flip on the next letter: a, o, u is hard, e, i, y is soft.",
             "Ç forces soft, GU forces hard, GE forces soft. The rule’s built-in overrides.",
             "CH is sh, GN is one merged sound, QU is k, PH is f, TH is t, H is silent."
-          ]
+          ],
+          "frSub": "Les consonnes, maîtrisées"
         },
         {
           "type": "quiz",
@@ -11264,7 +11435,8 @@
               ],
               "correct": 1
             }
-          ]
+          ],
+          "frSub": "L'examen final"
         }
       ],
       "narration": {
@@ -22155,7 +22327,7 @@
       "level": "sons",
       "tag": "SONS · LEÇON 08",
       "title": "Rythme & intonation",
-      "version": 1,
+      "version": 2,
       "reframe": "Even syllables, then one push at the end.",
       "intro": "You have spent this track getting individual sounds right. This lesson is about the shape they make together. French gives every syllable the same length and saves its one push for the end of the group, which is the opposite of what English does. Get this and sentences you already know start sounding French.",
       "itemIds": [
@@ -22839,7 +23011,8 @@
               "size": "md",
               "text": "That is what this lesson fixes, and it is the last rule in the sound track. Even syllables, then one push at the end."
             }
-          ]
+          ],
+          "frSub": "La phrase que vous connaissiez déjà"
         },
         {
           "id": "s02-goals",
@@ -22925,7 +23098,8 @@
               "head": "Chips, rows, and CAPS",
               "body": "Through this lesson: even chips are even syllables, the bigger outlined chip is the push, and a new row is a new group. In the respelling, the CAPS syllable is the pushed one and the | mark is the break."
             }
-          ]
+          ],
+          "frSub": "Cinq points à retenir"
         },
         {
           "id": "s04-even",
@@ -23325,7 +23499,8 @@
               "head": "This is the whole question form",
               "body": "French can turn a statement into a question with nothing but the direction of the last syllable. No inversion, no est-ce que, no extra word. If you keep the contour flat, a question lands as a statement and gets answered as one."
             }
-          ]
+          ],
+          "frSub": "Monte pour une question, descend pour une phrase"
         },
         {
           "id": "s09-contrast",
@@ -23541,7 +23716,8 @@
               "head": "The comma is a clue, not the rule",
               "body": "A written comma usually marks a group boundary, which is why these are easy to see. But French breaks phrases where the sense breaks, and plenty of boundaries have no comma at all. The ear is the real guide."
             }
-          ]
+          ],
+          "frSub": "Une virgule, c'est un souffle"
         },
         {
           "id": "s11-pairs",
@@ -23671,7 +23847,8 @@
               "sub": "[ehl shahⁿt treh BYAⁿ]",
               "body": "She sings very well. One group: one statement about how she sings."
             }
-          ]
+          ],
+          "frSub": "Mêmes mots, sens différent"
         },
         {
           "id": "s12-pairs-check",
@@ -23815,7 +23992,8 @@
               "en": "This big bridge crosses a deep river.",
               "note": "[suh grahⁿ pohⁿ tra-vehrs uhⁿ fluhv proh-FOHⁿ] · 9 syllables, one group."
             }
-          ]
+          ],
+          "frSub": "Des phrases à emprunter"
         },
         {
           "id": "s15-dictation",
@@ -24032,7 +24210,8 @@
               "q": "Read the last sentence aloud. How many pushes did you make?",
               "a": "One per group. Count the rows in the respelling: each | is a break, and each group ends on the CAPS syllable."
             }
-          ]
+          ],
+          "frSub": "Tout à la fois"
         },
         {
           "id": "s19-review",
@@ -24067,7 +24246,8 @@
               "front": "Can grouping change the meaning?",
               "back": "Yes. \"On mange, les enfants\" and \"On mange les enfants\" are the same five syllables and are not the same sentence."
             }
-          ]
+          ],
+          "frSub": "Le système, pas les phrases"
         },
         {
           "id": "s20-errors",
@@ -24113,7 +24293,8 @@
               "right": "The same syllable length from the first to the last",
               "why": "Rushing the middle is English rhythm reappearing under pressure. Even means even the whole way, including the boring parts."
             }
-          ]
+          ],
+          "frSub": "Ce qui dérape"
         },
         {
           "id": "s21-progress",
@@ -24144,7 +24325,8 @@
               "k": "The contour",
               "v": "Up for a question, down for a statement"
             }
-          ]
+          ],
+          "frSub": "Votre progression"
         },
         {
           "id": "s22-quiz",
@@ -24785,7 +24967,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "frSub": "Quarante questions"
         },
         {
           "id": "s23-roundup",
@@ -24805,7 +24988,8 @@
             "Nothing gets louder. The final syllable is simply held a little longer.",
             "Up is a question, down is a statement, and no word has to change.",
             "Where you break a phrase can change what you said."
-          ]
+          ],
+          "frSub": "Ce que vous emportez"
         }
       ],
       "narration": {
@@ -24978,6 +25162,14 @@
             ]
           }
         ]
+      },
+      "overview": {
+        "titleEn": "Rhythm and Intonation: How French Syllables Move Together",
+        "subFr": "Rythme et intonation",
+        "introFr": "Vous avez passé ce parcours à perfectionner chaque son individuel. Cette leçon porte sur la forme qu'ils prennent ensemble. Le français donne la même durée à chaque syllabe et garde sa seule poussée pour la fin du groupe, l'inverse de l'anglais. Maîtrisez cela, et les phrases que vous connaissez déjà commencent à sonner vraiment françaises.",
+        "minutes": 50,
+        "difficulty": 3,
+        "glyph": "♪"
       }
     }
   ],

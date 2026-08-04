@@ -1,0 +1,520 @@
+[
+  {
+    "id": "sons.06",
+    "oldTitle": "Les lettres muettes",
+    "oldSub": "silent letters — why « ils parlent » ends quietly",
+    "newTitle": "Silent Letters",
+    "newSub": "Les lettres muettes"
+  },
+  {
+    "id": "sons.01",
+    "oldTitle": "L'alphabet",
+    "oldSub": "the 26 letters & their French names",
+    "newTitle": "The French Alphabet",
+    "newSub": "L'alphabet"
+  },
+  {
+    "id": "sons.02",
+    "oldTitle": "Les voyelles",
+    "oldSub": "pure vowels — a, e, i, o, u, ou, eu",
+    "newTitle": "French Vowels in Depth",
+    "newSub": "Les voyelles"
+  },
+  {
+    "id": "sons.03",
+    "oldTitle": "Les voyelles nasales",
+    "oldSub": "on · en · in · un — through the nose",
+    "newTitle": "Nasal Vowels",
+    "newSub": "Les voyelles nasales"
+  },
+  {
+    "id": "sons.04",
+    "oldTitle": "Les consonnes",
+    "oldSub": "consonant sounds & the French r",
+    "newTitle": "French Consonants",
+    "newSub": "Les consonnes"
+  },
+  {
+    "id": "sons.05",
+    "oldTitle": "Les accents",
+    "oldSub": "é è ê ë ç — what each mark changes",
+    "newTitle": "Accents",
+    "newSub": "Les accents"
+  },
+  {
+    "id": "sons.07",
+    "oldTitle": "L'élision",
+    "oldSub": "je → j', le → l' — dropping the vowel",
+    "newTitle": "Elision",
+    "newSub": "L'élision"
+  },
+  {
+    "id": "sons.08",
+    "oldTitle": "Rythme & intonation",
+    "oldSub": "the music of French — even syllables",
+    "newTitle": "Rhythm and Intonation",
+    "newSub": "Rythme & intonation"
+  },
+  {
+    "id": "a1.16",
+    "oldTitle": "La place de l'adjectif",
+    "oldSub": "adjective placement — the BANGS rule",
+    "newTitle": "Adjective Placement",
+    "newSub": "La place de l'adjectif"
+  },
+  {
+    "id": "a1.15",
+    "oldTitle": "La famille",
+    "oldSub": "family vocabulary — immediate & extended",
+    "newTitle": "Family Vocabulary",
+    "newSub": "La famille"
+  },
+  {
+    "id": "a1.17",
+    "oldTitle": "Adjectifs possessifs",
+    "oldSub": "mon, ma, mes, notre… — and the vowel rule",
+    "newTitle": "Possessive Adjectives",
+    "newSub": "Adjectifs possessifs"
+  },
+  {
+    "id": "a1.18",
+    "oldTitle": "La négation",
+    "oldSub": "ne… pas — and what happens to the article",
+    "newTitle": "Negation",
+    "newSub": "La négation"
+  },
+  {
+    "id": "a1.19",
+    "oldTitle": "Questions oui / non",
+    "oldSub": "three ways — intonation, est-ce que, inversion",
+    "newTitle": "Yes/No Questions",
+    "newSub": "Questions oui / non"
+  },
+  {
+    "id": "a1.20",
+    "oldTitle": "Les mots interrogatifs",
+    "oldSub": "qui, que, où, quand, comment, pourquoi, combien",
+    "newTitle": "Question Words",
+    "newSub": "Les mots interrogatifs"
+  },
+  {
+    "id": "a1.08",
+    "oldTitle": "Les jours de la semaine",
+    "oldSub": "lundi to dimanche — and what le lundi changes",
+    "newTitle": "Days of the Week",
+    "newSub": "Les jours de la semaine"
+  },
+  {
+    "id": "a1.21",
+    "oldTitle": "Prépositions de lieu",
+    "oldSub": "à, dans, sur, sous, devant, derrière",
+    "newTitle": "Prepositions of Place",
+    "newSub": "Prépositions de lieu"
+  },
+  {
+    "id": "a1.09",
+    "oldTitle": "Les mois de l’année",
+    "oldSub": "janvier to décembre — no capitals, en + month",
+    "newTitle": "Months of the Year",
+    "newSub": "Les mois de l’année"
+  },
+  {
+    "id": "a1.10",
+    "oldTitle": "Les saisons & la météo",
+    "oldSub": "seasons & weather — il fait beau, il pleut",
+    "newTitle": "Seasons and Weather",
+    "newSub": "Les saisons & la météo"
+  },
+  {
+    "id": "a1.12",
+    "oldTitle": "L'heure",
+    "oldSub": "telling time — il est, et demie, moins le quart",
+    "newTitle": "Telling Time",
+    "newSub": "L'heure"
+  },
+  {
+    "id": "a1.13",
+    "oldTitle": "Les couleurs",
+    "oldSub": "colours & the ones that never agree",
+    "newTitle": "Colors",
+    "newSub": "Les couleurs"
+  },
+  {
+    "id": "a1.14",
+    "oldTitle": "Adjectifs de base",
+    "oldSub": "basic adjectives — grand, petit, beau, vieux",
+    "newTitle": "Basic Adjectives",
+    "newSub": "Adjectifs de base"
+  },
+  {
+    "id": "a2.04",
+    "oldTitle": "Prépositions de lieu",
+    "oldSub": "the full set — with countries & cities",
+    "newTitle": "Prepositions of Place, in Depth",
+    "newSub": "Prépositions de lieu"
+  },
+  {
+    "id": "sons.10",
+    "oldTitle": "La liaison",
+    "oldSub": "when silent letters wake up — les_amis, vous_avez",
+    "newTitle": "Liaison",
+    "newSub": "La liaison"
+  },
+  {
+    "id": "a1.01",
+    "oldTitle": "Les salutations",
+    "oldSub": "greetings & politeness — bonjour, merci",
+    "newTitle": "Greetings",
+    "newSub": "Les salutations"
+  },
+  {
+    "id": "a1.02",
+    "oldTitle": "Les nombres 1–20",
+    "oldSub": "counting to twenty — the ones you say every day",
+    "newTitle": "Numbers 1 to 20",
+    "newSub": "Les nombres 1–20"
+  },
+  {
+    "id": "a1.27",
+    "oldTitle": "Les nombres 21–100",
+    "oldSub": "the pattern — and the quirky 70s, 80s and 90s",
+    "newTitle": "Numbers 21 to 100",
+    "newSub": "Les nombres 21–100"
+  },
+  {
+    "id": "a1.28",
+    "oldTitle": "Les grands nombres",
+    "oldSub": "cent, mille, millions — and when they take an s",
+    "newTitle": "Large Numbers",
+    "newSub": "Les grands nombres"
+  },
+  {
+    "id": "a1.03",
+    "oldTitle": "Le genre des noms",
+    "oldSub": "noun gender — masculin & féminin",
+    "newTitle": "Noun Gender",
+    "newSub": "Le genre des noms"
+  },
+  {
+    "id": "a1.04",
+    "oldTitle": "Les articles définis",
+    "oldSub": "le, la, l', les",
+    "newTitle": "The Definite Articles",
+    "newSub": "Les articles définis"
+  },
+  {
+    "id": "a1.11",
+    "oldTitle": "Les articles indéfinis",
+    "oldSub": "un, une, des — first mention",
+    "newTitle": "The Indefinite Articles",
+    "newSub": "Les articles indéfinis"
+  },
+  {
+    "id": "a1.29",
+    "oldTitle": "Les articles partitifs",
+    "oldSub": "du, de la, de l' — some coffee, some water",
+    "newTitle": "The Partitive Articles",
+    "newSub": "Les articles partitifs"
+  },
+  {
+    "id": "a1.05",
+    "oldTitle": "Les pronoms sujets",
+    "oldSub": "je, tu, il, elle, on, nous, vous, ils",
+    "newTitle": "Subject Pronouns",
+    "newSub": "Les pronoms sujets"
+  },
+  {
+    "id": "a1.06",
+    "oldTitle": "Le verbe être",
+    "oldSub": "to be — je suis, tu es…",
+    "newTitle": "The Verb Être (To Be)",
+    "newSub": "Le verbe être"
+  },
+  {
+    "id": "a1.07",
+    "oldTitle": "Le verbe avoir",
+    "oldSub": "to have — j'ai, tu as…",
+    "newTitle": "The Verb Avoir (To Have)",
+    "newSub": "Le verbe avoir"
+  },
+  {
+    "id": "a2.18",
+    "oldTitle": "Prépositions de temps",
+    "oldSub": "depuis, pendant, il y a, dans, en",
+    "newTitle": "Prepositions of Time",
+    "newSub": "Prépositions de temps"
+  },
+  {
+    "id": "a1.22",
+    "oldTitle": "Pays & nationalités",
+    "oldSub": "countries, nationalities — en, au, aux",
+    "newTitle": "Countries and Nationalities",
+    "newSub": "Pays & nationalités"
+  },
+  {
+    "id": "a1.23",
+    "oldTitle": "La nourriture",
+    "oldSub": "everyday food vocabulary with its articles",
+    "newTitle": "Food Vocabulary",
+    "newSub": "La nourriture"
+  },
+  {
+    "id": "a1.24",
+    "oldTitle": "Le corps",
+    "oldSub": "body parts & describing people",
+    "newTitle": "The Body",
+    "newSub": "Le corps"
+  },
+  {
+    "id": "a1.25",
+    "oldTitle": "La routine quotidienne",
+    "oldSub": "matin, midi, soir — se lever, manger, dormir",
+    "newTitle": "Daily Routine",
+    "newSub": "La routine quotidienne"
+  },
+  {
+    "id": "a1.26",
+    "oldTitle": "La maison",
+    "oldSub": "rooms, furniture & household items",
+    "newTitle": "The House",
+    "newSub": "La maison"
+  },
+  {
+    "id": "a1.30",
+    "oldTitle": "Bilan A1",
+    "oldSub": "A1 capstone — everything, put together",
+    "newTitle": "A1 Review",
+    "newSub": "Bilan A1"
+  },
+  {
+    "id": "a2.01",
+    "oldTitle": "Les verbes en -ER",
+    "oldSub": "the full system — endings & 30 common verbs",
+    "newTitle": "Regular -ER Verbs",
+    "newSub": "Les verbes en -ER"
+  },
+  {
+    "id": "a2.09",
+    "oldTitle": "Les verbes en -ER : exceptions",
+    "oldSub": "-ger, -cer, -eler, -eter and the é_er patterns",
+    "newTitle": "-ER Verbs: The Exceptions",
+    "newSub": "Les verbes en -ER : exceptions"
+  },
+  {
+    "id": "a2.10",
+    "oldTitle": "Les verbes en -IR",
+    "oldSub": "the finir model — and the -iss- in the plural",
+    "newTitle": "Regular -IR Verbs",
+    "newSub": "Les verbes en -IR"
+  },
+  {
+    "id": "a2.11",
+    "oldTitle": "Les verbes en -RE",
+    "oldSub": "the vendre model — and the bare il form",
+    "newTitle": "Regular -RE Verbs",
+    "newSub": "Les verbes en -RE"
+  },
+  {
+    "id": "a2.02",
+    "oldTitle": "Irréguliers 1 : aller, venir, tenir",
+    "oldSub": "the going & coming family",
+    "newTitle": "Irregular Verbs 1: Aller, Venir, Tenir",
+    "newSub": "Irréguliers 1 : aller, venir, tenir"
+  },
+  {
+    "id": "a2.12",
+    "oldTitle": "Irréguliers 2 : faire, dire, lire",
+    "oldSub": "three verbs, thirty everyday expressions",
+    "newTitle": "Irregular Verbs 2: Faire, Dire, Lire",
+    "newSub": "Irréguliers 2 : faire, dire, lire"
+  },
+  {
+    "id": "a2.13",
+    "oldTitle": "Irréguliers 3 : vouloir, pouvoir, devoir",
+    "oldSub": "the modals — want, can, must + infinitive",
+    "newTitle": "Irregular Verbs 3: Vouloir, Pouvoir, Devoir",
+    "newSub": "Irréguliers 3 : vouloir, pouvoir, devoir"
+  },
+  {
+    "id": "a2.14",
+    "oldTitle": "Irréguliers 4 : savoir & connaître",
+    "oldSub": "the two ways French knows things",
+    "newTitle": "Irregular Verbs 4: Savoir and Connaître",
+    "newSub": "Irréguliers 4 : savoir & connaître"
+  },
+  {
+    "id": "a2.15",
+    "oldTitle": "Irréguliers 5 : prendre, mettre, battre",
+    "oldSub": "pattern families & their compounds",
+    "newTitle": "Irregular Verbs 5: Prendre, Mettre, Battre",
+    "newSub": "Irréguliers 5 : prendre, mettre, battre"
+  },
+  {
+    "id": "a2.03",
+    "oldTitle": "L'accord des adjectifs",
+    "oldSub": "the full system — -eux/-euse, -if/-ive, invariable",
+    "newTitle": "Adjective Agreement",
+    "newSub": "L'accord des adjectifs"
+  },
+  {
+    "id": "a2.16",
+    "oldTitle": "Beau, nouveau, vieux",
+    "oldSub": "the triple forms — bel, nouvel, vieil",
+    "newTitle": "Beau, Nouveau, Vieux",
+    "newSub": "Beau, nouveau, vieux"
+  },
+  {
+    "id": "a2.17",
+    "oldTitle": "Les adverbes",
+    "oldSub": "formation & placement — the -ment pattern",
+    "newTitle": "Adverbs",
+    "newSub": "Les adverbes"
+  },
+  {
+    "id": "a2.19",
+    "oldTitle": "Le futur proche",
+    "oldSub": "aller + infinitive — what happens next",
+    "newTitle": "The Near Future",
+    "newSub": "Le futur proche"
+  },
+  {
+    "id": "a2.05",
+    "oldTitle": "Le passé composé avec avoir",
+    "oldSub": "formation, 60 participles, negation",
+    "newTitle": "The Passé Composé with Avoir",
+    "newSub": "Le passé composé avec avoir"
+  },
+  {
+    "id": "a2.20",
+    "oldTitle": "Participes passés irréguliers",
+    "oldSub": "the full list — the 40 that must be learnt",
+    "newTitle": "Irregular Past Participles",
+    "newSub": "Participes passés irréguliers"
+  },
+  {
+    "id": "a2.21",
+    "oldTitle": "Le passé composé avec être",
+    "oldSub": "DR MRS VANDERTRAMP & agreement",
+    "newTitle": "The Passé Composé with Être",
+    "newSub": "Le passé composé avec être"
+  },
+  {
+    "id": "a2.22",
+    "oldTitle": "Les verbes pronominaux",
+    "oldSub": "present tense — se lever, se coucher, se laver",
+    "newTitle": "Pronominal (Reflexive) Verbs",
+    "newSub": "Les verbes pronominaux"
+  },
+  {
+    "id": "a2.23",
+    "oldTitle": "Pronominaux au passé composé",
+    "oldSub": "être auxiliary & the agreement rule",
+    "newTitle": "Pronominal Verbs in the Passé Composé",
+    "newSub": "Pronominaux au passé composé"
+  },
+  {
+    "id": "a2.06",
+    "oldTitle": "Pronoms d'objet direct",
+    "oldSub": "le, la, les — position & past agreement",
+    "newTitle": "Direct Object Pronouns",
+    "newSub": "Pronoms d'objet direct"
+  },
+  {
+    "id": "a2.24",
+    "oldTitle": "Pronoms d'objet indirect",
+    "oldSub": "lui, leur — the verbs that take à",
+    "newTitle": "Indirect Object Pronouns",
+    "newSub": "Pronoms d'objet indirect"
+  },
+  {
+    "id": "a2.25",
+    "oldTitle": "Y et EN",
+    "oldSub": "the two neutral pronouns — à + thing, de + thing",
+    "newTitle": "The Pronouns Y and EN",
+    "newSub": "Y et EN"
+  },
+  {
+    "id": "a2.07",
+    "oldTitle": "Au restaurant",
+    "oldSub": "ordering — the partitive in real use",
+    "newTitle": "At the Restaurant",
+    "newSub": "Au restaurant"
+  },
+  {
+    "id": "a2.26",
+    "oldTitle": "Les courses & l’argent",
+    "oldSub": "shopping, money & prices",
+    "newTitle": "Shopping and Money",
+    "newSub": "Les courses & l’argent"
+  },
+  {
+    "id": "a2.27",
+    "oldTitle": "Les transports",
+    "oldSub": "getting around, directions & transport modes",
+    "newTitle": "Transportation",
+    "newSub": "Les transports"
+  },
+  {
+    "id": "a2.28",
+    "oldTitle": "Chez le médecin",
+    "oldSub": "health — symptoms & the body",
+    "newTitle": "At the Doctor's",
+    "newSub": "Chez le médecin"
+  },
+  {
+    "id": "a2.29",
+    "oldTitle": "À l'hôtel",
+    "oldSub": "check-in, requests & complaints",
+    "newTitle": "At the Hotel",
+    "newSub": "À l'hôtel"
+  },
+  {
+    "id": "a2.30",
+    "oldTitle": "Le travail & les métiers",
+    "oldSub": "job titles & workplace vocabulary",
+    "newTitle": "Work and Jobs",
+    "newSub": "Le travail & les métiers"
+  },
+  {
+    "id": "a2.31",
+    "oldTitle": "L'école & les études",
+    "oldSub": "subjects, grades & academic vocabulary",
+    "newTitle": "School and Studies",
+    "newSub": "L'école & les études"
+  },
+  {
+    "id": "a2.32",
+    "oldTitle": "La technologie",
+    "oldSub": "smartphone, internet & digital life",
+    "newTitle": "Technology",
+    "newSub": "La technologie"
+  },
+  {
+    "id": "a2.08",
+    "oldTitle": "Comparatifs & superlatifs",
+    "oldSub": "plus / moins / aussi que — le plus, le moins",
+    "newTitle": "Comparatives and Superlatives",
+    "newSub": "Comparatifs & superlatifs"
+  },
+  {
+    "id": "a2.33",
+    "oldTitle": "Démonstratifs",
+    "oldSub": "ce, cet, cette, ces — celui, celle, ceux",
+    "newTitle": "Demonstrative Adjectives and Pronouns",
+    "newSub": "Démonstratifs"
+  },
+  {
+    "id": "a2.34",
+    "oldTitle": "Pronoms possessifs",
+    "oldSub": "le mien, le tien, le sien — the full paradigm",
+    "newTitle": "Possessive Pronouns",
+    "newSub": "Pronoms possessifs"
+  },
+  {
+    "id": "a2.35",
+    "oldTitle": "Bilan A2",
+    "oldSub": "A2 capstone — everything, put together",
+    "newTitle": "A2 Review",
+    "newSub": "Bilan A2"
+  }
+]

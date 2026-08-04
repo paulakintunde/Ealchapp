@@ -272,6 +272,12 @@ function PageScroll({
  *  starts itself, it stays visible on the page the whole time it is relevant,
  *  and a tap always (re)starts the section's `say` script from the top —
  *  which doubles as "replay" with no separate control needed. */
+/** The Listen chip's height, and the height its row reserves whether or not
+ *  the chip is drawn. One constant because the two must not drift: the row
+ *  exists to hold the chip's space open on sections that have no `say`, and a
+ *  row shorter than the chip would reintroduce the jump it prevents. */
+const LISTEN_CHIP_H = 37;
+
 function ListenChip({ onPress, playing }: { onPress: () => void; playing: boolean }) {
   const t = useTheme();
   const T = useT();
@@ -284,7 +290,7 @@ function ListenChip({ onPress, playing }: { onPress: () => void; playing: boolea
         flexDirection: 'row',
         alignItems: 'center',
         gap: 9,
-        height: 37,
+        height: LISTEN_CHIP_H,
         paddingHorizontal: 15,
         borderRadius: 18.5,
         borderWidth: 1,
@@ -702,6 +708,21 @@ export function LessonPager({
               // slide under the gear, so the space it was occupying is now
               // reserved explicitly rather than by accident.
               paddingRight: 44,
+              // Reserved whether or not the chip is drawn.
+              //
+              // The chip is 37px tall and conditionally mounted, and this row
+              // had no height of its own, so it collapsed to zero on any
+              // section without a `say` and the whole header (and everything
+              // measured below it) jumped 37px on the way in and back on the
+              // way out. A lesson that alternates — a drill, then a control
+              // page, then a drill — fires that on every other swipe, which
+              // reads as the page fluctuating rather than as one bad screen.
+              // sons.05 alternates seven times and sons.06 has the same shape.
+              //
+              // Reserving the height fixes it for every lesson at once,
+              // including any future section that omits its `say`. An empty
+              // row is invisible; a moving header is not.
+              minHeight: LISTEN_CHIP_H,
             }}
           >
             {say ? <ListenChip onPress={listen} playing={sayPlaying} /> : null}
