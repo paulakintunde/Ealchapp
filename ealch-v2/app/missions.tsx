@@ -9,7 +9,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { content } from '@/services/content';
 import { useProgress } from '@/store/useProgress';
-import { cefrLabel, lessonEyebrow, missionLabel, missionStats } from '@/content/missions';
+import { lessonEyebrow, missionLabel, missionStats } from '@/content/missions';
 import { audio, sound } from '@/services';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 
@@ -79,7 +79,11 @@ export default function Missions() {
           <Press onPress={() => router.back()} style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name="chevronLeft" size={20} color={t.txNonText} strokeWidth={1.7} />
           </Press>
-          <TX font="semi" role="meta" ls={2.2} color={t.txSecondary}>{`${lessonEyebrow(L, content.unit(L.unitId))} · ${cefrLabel(L.level)}`}</TX>
+          {/* The eyebrow already opens with the band (SONS, A1), so appending
+              cefrLabel here said it twice: 'A1 · LEÇON 01 · A1'. The overview
+              page is the one that carries the CEFR chip; this header just
+              places the lesson. */}
+          <TX font="semi" role="meta" ls={2.2} color={t.txSecondary}>{lessonEyebrow(L, content.unit(L.unitId))}</TX>
           <View style={{ width: 44 }} />
         </View>
 
