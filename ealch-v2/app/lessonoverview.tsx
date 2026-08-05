@@ -8,7 +8,7 @@ import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { content } from '@/services/content';
-import { cefrLabel, missionStats } from '@/content/missions';
+import { cefrLabel, lessonEyebrow, missionStats } from '@/content/missions';
 import { useReadingBrightness } from '@/hooks/useReadingBrightness';
 
 // The den lesson's front door (spec 2026-07-30): the ENGLISH overview card.
@@ -57,7 +57,7 @@ export default function LessonOverview() {
           <Press onPress={() => router.back()} style={{ width: 44, height: 44, marginLeft: -12, alignItems: 'center', justifyContent: 'center' }}>
             <Icon name="chevronLeft" size={20} color={t.txNonText} strokeWidth={1.7} />
           </Press>
-          <TX font="semi" role="meta" ls={2.2} color={t.txSecondary}>{L.tag}</TX>
+          <TX font="semi" role="meta" ls={2.2} color={t.txSecondary}>{lessonEyebrow(L, unit)}</TX>
           <View style={{ width: 44 }} />
         </View>
 

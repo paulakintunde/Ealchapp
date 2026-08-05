@@ -90,3 +90,22 @@ export function missionStats(sections: readonly LessonSection[]): MissionStats {
 export function cefrLabel(level: Level): string {
   return level === 'sons' ? 'A0' : level.toUpperCase();
 }
+
+/** The lesson eyebrow: 'SONS · LEÇON 07'.
+ *
+ *  Derived from the UNIT'S SEQ, never from the unit id and never from the
+ *  authored `lesson.tag`. Ids are historical: sons.10 (liaison) was slotted in
+ *  at seq 7 rather than renumbered, and a1.27/a1.28 were inserted at seq 3/4,
+ *  so an id-shaped number tells the learner the wrong position. seq is the
+ *  order the Den sorts on and the order the learner actually walks, so it is
+ *  the only number that can honestly appear here.
+ *
+ *  Falls back to the authored tag when the unit is missing, so a lesson opened
+ *  outside its unit still shows something rather than a blank eyebrow. */
+export function lessonEyebrow(
+  lesson: { level: Level; tag: string },
+  unit: { seq: number } | null | undefined
+): string {
+  if (!unit || !Number.isFinite(unit.seq)) return lesson.tag;
+  return `${lesson.level.toUpperCase()} · LEÇON ${String(unit.seq).padStart(2, '0')}`;
+}

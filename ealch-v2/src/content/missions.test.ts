@@ -7,8 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
-import { cefrLabel, missionLabel, missionRole, missionStats } from './missions.ts';
-import type { Lesson, LessonSection } from './schema.ts';
+import { cefrLabel, lessonEyebrow, missionLabel, missionRole, missionStats } from './missions.ts';
+import type { Lesson, LessonSection, Unit } from './schema.ts';
 
 test('roles: gates, badge, milestones, required', () => {
   strictEqual(missionRole('quiz'), 'gate');
@@ -66,4 +66,39 @@ test('the live seed derives sane stats for sons.02.l1', () => {
   strictEqual(s.missions, s.required + s.gates + s.milestones + s.badge, 'roles partition the sections');
   strictEqual(s.badge, 1, 'roundup present');
   ok(s.gates >= 2, 'quiz + progressCheck at minimum');
+});
+
+test('the eyebrow numbers a lesson by its unit seq, not by its id', () => {
+  // sons.10 IS the liaison unit but sits at seq 7, and sons.07 (elision) sits
+  // at seq 8. The eyebrow must follow the walk order, not the id.
+  strictEqual(lessonEyebrow({ level: 'sons', tag: 'SONS · LEÇON 10' }, { seq: 7 }), 'SONS · LEÇON 07');
+  strictEqual(lessonEyebrow({ level: 'sons', tag: 'SONS · LEÇON 07' }, { seq: 8 }), 'SONS · LEÇON 08');
+  strictEqual(lessonEyebrow({ level: 'a1', tag: 'A1 · LEÇON 04' }, { seq: 6 }), 'A1 · LEÇON 06');
+  // A missing unit is not a blank eyebrow: fall back to what was authored.
+  strictEqual(lessonEyebrow({ level: 'sons', tag: 'SONS · LEÇON 03' }, null), 'SONS · LEÇON 03');
+});
+
+test('every seed lesson gets an eyebrow matching its position in its track', () => {
+  const here = dirname(fileURLToPath(import.meta.url));
+  const seed = JSON.parse(readFileSync(resolve(here, 'seed.json'), 'utf8')) as {
+    lessons: Lesson[];
+    units: Unit[];
+  };
+  const byId = new Map(seed.units.map((u) => [u.id, u]));
+  for (const L of seed.lessons) {
+    const unit = byId.get(L.unitId);
+    ok(unit, `${L.id} resolves its unit ${L.unitId}`);
+    const eyebrow = lessonEyebrow(L, unit);
+    // The number in the eyebrow is the unit's rank among its own track, which
+    // is what the Den sorts on and what the learner counts through.
+    const rank = seed.units
+      .filter((u) => u.track === unit!.track)
+      .sort((a, b) => a.seq - b.seq)
+      .findIndex((u) => u.id === unit!.id) + 1;
+    strictEqual(
+      eyebrow,
+      `${L.level.toUpperCase()} · LEÇON ${String(rank).padStart(2, '0')}`,
+      `${L.id} should be numbered ${rank} in the ${unit!.track} track, got "${eyebrow}"`
+    );
+  }
 });
