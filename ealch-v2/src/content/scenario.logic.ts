@@ -39,11 +39,48 @@ export type TurnPhase = 'ask' | 'reveal';
 export type Attempt =
   /** Spoke, and the recognizer produced a transcript. */
   | { kind: 'spoke'; heard: string; score: number; verdict: Verdict; matched: Reply }
-  /** Spoke, but nothing usable came back (no mic, denied, silence). */
-  | { kind: 'unheard' }
+  /** Tried to speak, but nothing usable came back. `reason` is what to SAY
+   *  about it — see unheardReason. */
+  | { kind: 'unheard'; reason: UnheardReason }
   /** Asked to see the answers without speaking. This is a first-class way
    *  through the turn, not a failure — see the note on `revealOnly` below. */
   | { kind: 'shown' };
+
+/* ─── Why there was no transcript ─────────────────────────────────────────── */
+
+/**
+ * 'silent'  the recognizer listened and heard nothing. The learner's problem.
+ * 'denied'  microphone permission is refused. Fixable, in Settings.
+ * 'blocked' the recognizer never ran at all. NOT the learner's problem.
+ */
+export type UnheardReason = 'silent' | 'denied' | 'blocked';
+
+/**
+ * Which of those happened, from `SttResult.error`.
+ *
+ * WHY THIS EXISTS, found on a Pixel 6 rather than in a test:
+ *
+ * Tapping Speak opened the mic for 84ms and gave up. The device was in
+ * airplane mode, so Google's network recognizer failed with
+ * ERR_INTERNET_DISCONNECTED; it fell back to the on-device recognizer, which
+ * reported LANGUAGE_PACK_ERROR (code 13) because the FRENCH SPEECH PACK IS NOT
+ * DOWNLOADED. The app received 'language-not-supported' and told the learner
+ * "Not heard, your line is shown."
+ *
+ * That sentence blames the learner for the phone's missing download. They will
+ * say it again, louder, and it will fail again, because nothing they can do
+ * with their voice will fix it. A learner offline on a train is the ordinary
+ * case for this app, not an edge one.
+ *
+ * So: a hard error code means the recognizer did not do its job, and the app
+ * must say so. Only 'no-speech' (or no code at all) means it genuinely
+ * listened and heard nothing.
+ */
+export function unheardReason(error?: string): UnheardReason {
+  if (!error || error === 'no-speech') return 'silent';
+  if (error === 'not-allowed') return 'denied';
+  return 'blocked';
+}
 
 /* ─── Accepted answers ────────────────────────────────────────────────────── */
 

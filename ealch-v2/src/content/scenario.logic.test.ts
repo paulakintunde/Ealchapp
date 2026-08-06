@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BEAT, acceptedReplies, bestReply, transcriptOf, type Attempt } from './scenario.logic.ts';
+import { BEAT, acceptedReplies, bestReply, transcriptOf, unheardReason, type Attempt } from './scenario.logic.ts';
 import { barsForLevel } from '../utils/score.ts';
 import type { ScenarioTurn } from './schema.ts';
 
@@ -94,6 +94,40 @@ test('ties keep the model, so the reveal stays anchored to what was taught', () 
   strictEqual(bestReply(twin, 'Oui.', bars).matched.en, undefined);
 });
 
+/* ─── why there was no transcript ─────────────────────────────────────────── */
+
+test('a recognizer that never ran is not reported as the learner being quiet', () => {
+  // The exact code the app received on a Pixel 6: airplane mode killed the
+  // network recognizer, the on-device fallback had no French pack, and
+  // expo-speech-recognition surfaced Android error 13 as this string. The mic
+  // was open for 84ms. Telling that learner "not heard" invites them to say it
+  // again, louder, forever.
+  strictEqual(unheardReason('language-not-supported'), 'blocked');
+  strictEqual(unheardReason('service-not-allowed'), 'blocked');
+  strictEqual(unheardReason('network'), 'blocked');
+  strictEqual(unheardReason('audio-capture'), 'blocked');
+  strictEqual(unheardReason('unavailable'), 'blocked');
+  strictEqual(unheardReason('busy'), 'blocked');
+});
+
+test('a refused microphone is its own message, because it is fixable', () => {
+  strictEqual(unheardReason('not-allowed'), 'denied');
+});
+
+test('only genuine silence is reported as silence', () => {
+  strictEqual(unheardReason('no-speech'), 'silent');
+  strictEqual(unheardReason(undefined), 'silent');
+  strictEqual(unheardReason(''), 'silent');
+});
+
+test('the renderer says all three, and never the wrong one', () => {
+  const src = readFileSync(resolve(here, '../components/MissionRich.tsx'), 'utf8');
+  const block = src.slice(src.indexOf('/* ─── 8. Scenario'), src.indexOf('/* ─── 9. Listening'));
+  ok(/unheardReason\(res\.error\)/.test(block), 'the reason comes from the recognizer error');
+  ok(/T\.rpNotHeard/.test(block) && /T\.micDenied/.test(block) && /T\.rpMicBlocked/.test(block), 'all three are said');
+  ok(/reason === 'silent'/.test(block), 'and silence is the only one that reads as a verdict on the learner');
+});
+
 /* ─── the visible conversation ────────────────────────────────────────────── */
 
 const turns: ScenarioTurn[] = [
@@ -126,7 +160,7 @@ test('the live turn is never in the scrollback — it is rendered separately', (
 });
 
 test('a finished conversation shows every turn', () => {
-  const attempts: Attempt[] = [{ kind: 'shown' }, { kind: 'unheard' }, { kind: 'shown' }];
+  const attempts: Attempt[] = [{ kind: 'shown' }, { kind: 'unheard', reason: 'silent' }, { kind: 'shown' }];
   strictEqual(transcriptOf(turns, attempts, turns.length).length, 6);
 });
 

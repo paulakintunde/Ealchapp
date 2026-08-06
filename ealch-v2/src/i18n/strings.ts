@@ -142,6 +142,7 @@ export type Strings = {
   chooseLevel: string; startRp: string; rpDoneT: string; rpDoneS: string; rpYourLine: string; rpTag: string; rpReport: string; rpNotHeard: string;
   rpYourTurn: string; rpRespond: string; rpModel: string;
   rpSpeak: string; rpShowMe: string; rpListening: string; rpAlsoWorks: string; rpSceneDone: string; rpUnheardShort: string;
+  rpMicBlocked: string;
   narrTag: string; narrCta: string; narrRepeat: string; narrYourTurn: string; narrCheck: string;
   narrSkip: string; narrDoneT: string; narrDoneS: string;
   bannerText: string;
@@ -415,6 +416,7 @@ export const T: Record<Lang, Strings> = {
     chooseLevel: 'Choisissez votre niveau', startRp: 'Commencer la conversation', rpDoneT: 'Scène terminée', rpDoneS: '{name} : « Votre marchand vous adore. »', rpYourLine: 'VOTRE RÉPLIQUE — À DIRE À VOIX HAUTE', rpTag: 'JEU DE RÔLE', rpReport: 'Le rapport →', rpNotHeard: 'Pas entendu, votre réplique est affichée.',
     rpYourTurn: 'À VOUS', rpRespond: 'Répondez en français, puis vérifiez', rpModel: 'Réponse modèle',
     rpSpeak: 'Parler', rpShowMe: 'Voir les réponses', rpListening: 'Écoute…', rpAlsoWorks: 'Marche aussi', rpSceneDone: 'Conversation terminée', rpUnheardShort: 'Pas entendu',
+    rpMicBlocked: 'La correction orale n’a pas pu démarrer. Il manque peut-être le pack vocal français à votre téléphone. Ce n’est pas vous : continuez, les réponses sont affichées.',
     narrTag: 'LEÇON NARRÉE', narrCta: 'Narré', narrRepeat: 'Répétez après {name}', narrYourTurn: 'À vous, dites-le', narrCheck: 'Répondez à la question de {name}',
     narrSkip: 'Passer', narrDoneT: 'Leçon terminée', narrDoneS: 'Vous avez traversé les sept étapes avec {name}.',
     bannerText: 'Votre séance de {t} vous attend : Au Café, 4 min avec {name}.',
@@ -766,6 +768,7 @@ export const T: Record<Lang, Strings> = {
     chooseLevel: 'Choose your level', startRp: 'Start the conversation', rpDoneT: 'Scene complete', rpDoneS: '{name}: "Your market vendor adores you."', rpYourLine: 'YOUR LINE — SAY IT ALOUD', rpTag: 'ROLE PLAY', rpReport: 'The report →', rpNotHeard: 'Not heard, your line is shown.',
     rpYourTurn: 'YOUR TURN', rpRespond: 'Respond in French, then check', rpModel: 'Model reply',
     rpSpeak: 'Speak', rpShowMe: 'Show me', rpListening: 'Listening…', rpAlsoWorks: 'Also works', rpSceneDone: 'Conversation complete', rpUnheardShort: 'Not heard',
+    rpMicBlocked: 'Speech checking could not start. Your phone may be missing the French voice pack. This is not you: carry on, the answers are shown.',
     narrTag: 'NARRATED LESSON', narrCta: 'Narrated', narrRepeat: 'Repeat after {name}', narrYourTurn: 'Your turn, say it', narrCheck: "Answer {name}'s question",
     narrSkip: 'Skip', narrDoneT: 'Lesson complete', narrDoneS: '{name} walked you through all seven stages.',
     bannerText: 'Your {t} session is waiting: Au Café, 4 min with {name}.',

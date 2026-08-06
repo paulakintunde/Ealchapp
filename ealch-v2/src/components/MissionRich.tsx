@@ -21,6 +21,7 @@ import {
   acceptedReplies,
   bestReply,
   transcriptOf,
+  unheardReason,
   type Attempt,
   type Reply,
   type TurnPhase,
@@ -1723,7 +1724,9 @@ function ScenarioTurnView({
     const heardOk = res.ok && res.verdict !== 'none';
     if (!heardOk) {
       sound.play('flip');
-      settle({ kind: 'unheard' });
+      // WHY the transcript is missing decides what the learner is told. Saying
+      // "not heard" when the recognizer never ran blames them for their phone.
+      settle({ kind: 'unheard', reason: unheardReason(res.error) });
       return;
     }
 
@@ -1775,8 +1778,21 @@ function ScenarioTurnView({
                 </TX>
               </View>
             ) : attempt.kind === 'unheard' ? (
-              <View style={{ alignItems: 'flex-end' }}>
-                <TX role="meta" color={t.txSubtle}>{T.rpNotHeard}</TX>
+              <View style={{ alignItems: attempt.reason === 'silent' ? 'flex-end' : 'stretch' }}>
+                <TX
+                  role="meta"
+                  color={t.txSubtle}
+                  // A recognizer that never ran gets a full-width line, not a
+                  // right-aligned aside: it is a message about the phone, not
+                  // a verdict on what the learner just said.
+                  style={attempt.reason === 'silent' ? undefined : { lineHeight: 19 }}
+                >
+                  {attempt.reason === 'silent'
+                    ? T.rpNotHeard
+                    : attempt.reason === 'denied'
+                      ? T.micDenied
+                      : T.rpMicBlocked}
+                </TX>
               </View>
             ) : null}
             <AnswerCard turn={turn} matched={spoke?.matched} />
