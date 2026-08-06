@@ -105,6 +105,38 @@ export function subCount(s: LessonSection): number {
       return Math.max(1, sec.cards?.length ?? 0);
     }
 
+    // An XL group drill renders one word per swiped hero card, exactly like a
+    // cardDeck, and it was missed when this module was written. The comment on
+    // hasSubMissions says the mirror of `ownsLayout` is the answer to "does this
+    // section paginate itself", and ownsLayout has tested `groupDrill` at xl
+    // since sons.06 — so the two had drifted, and the pinning test below only
+    // ever checked that ownsLayout still names groupDrill, never that this
+    // switch handled it.
+    //
+    // The visible cost: a learner swiping the eleven cards of a1.07 mission 10
+    // watched the header sit frozen on "MISSION 10 / 27" from the first card to
+    // the eleventh, with no way to tell how far in they were and no anchor
+    // finer than the mission's first card. Reported from a device (Paul,
+    // 2026-08-06).
+    //
+    // ONE GROUP ONLY, and that is not a shortcut. With several groups the
+    // position is two-dimensional — GroupDrillView holds a group index in `ix`
+    // and the deck holds a card index inside it — so a single number cannot name
+    // where the learner is, and an anchor built from one could not restore it.
+    // That is the same line this module already draws for the review deck:
+    // number a position only when it is STABLE AND RESTORABLE. sons.07 and
+    // sons.09 author the multi-group shape and keep today's behaviour.
+    //
+    // A control page (`items: []` plus a check) counts 1 and prints no fraction,
+    // which is right: it is one screen.
+    case 'groupDrill': {
+      const sec = s as LessonSection & { size?: string; groups?: { items?: unknown[] }[] };
+      if (sec.size !== 'xl') return 1;
+      const groups = sec.groups ?? [];
+      if (groups.length !== 1) return 1;
+      return Math.max(1, groups[0].items?.length ?? 0);
+    }
+
     // A STEPPED trapDrill walks its jobs one screen at a time behind a
     // Continuer button. It is not swiped, but the pager can still observe the
     // step — it is plain component state advanced by a press, not the internal

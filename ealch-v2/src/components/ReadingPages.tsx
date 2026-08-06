@@ -20,6 +20,7 @@ import { CardFrame, SwipeDeck, useCardHeight } from '@/components/LessonDeck';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { sound } from '@/services';
+import { glossKeys, segmentSentence, splitAffixes } from '@/content/gloss.logic';
 
 import type { PlayFn } from '@/components/LessonDeck';
 
@@ -71,7 +72,13 @@ export function PassagePage({
 
   const byWord = useMemo(() => {
     const m = new Map<string, Glossed>();
-    for (const g of glossary ?? []) m.set(g.word.toLowerCase(), g);
+    // Keyed by the SAME normalisation the passage tokens go through, under
+    // every form the entry can take. It used to be `g.word.toLowerCase()`,
+    // which kept punctuation the token had already lost, so an entry with an
+    // apostrophe in it could never be found.
+    for (const g of glossary ?? []) {
+      for (const k of glossKeys(g.word)) if (k && !m.has(k)) m.set(k, g);
+    }
     return m;
   }, [glossary]);
 
@@ -237,19 +244,17 @@ function Sentence({
   onWord: (g: Glossed) => void;
 }) {
   const t = useTheme();
-  // Split on whitespace but keep it, so the passage reflows exactly as written.
-  const parts = sentence.split(/(\s+)/);
+  // The matching lives in gloss.logic.ts so it can be tested; see the note
+  // there for the three ways the old one-line lookup silently missed. This
+  // component now only draws what that returned.
+  const keys = useMemo(() => new Set(byWord.keys()), [byWord]);
+  const segments = useMemo(() => segmentSentence(sentence, keys), [sentence, keys]);
   return (
     <>
-      {parts.map((part, i) => {
-        // Punctuation is stripped for the lookup but kept in the output, so
-        // "gentil." still matches the entry for "gentil".
-        const bare = part.replace(/[.,!?;:«»"']/g, '').toLowerCase();
-        const g = byWord.get(bare);
-        if (!g) return part;
-        const lead = part.match(/^[«"']*/)?.[0] ?? '';
-        const trail = part.match(/[.,!?;:»"']*$/)?.[0] ?? '';
-        const core = part.slice(lead.length, part.length - trail.length);
+      {segments.map((seg, i) => {
+        const g = seg.key ? byWord.get(seg.key) : undefined;
+        if (!g) return seg.text;
+        const { lead, core, trail } = splitAffixes(seg.text);
         return (
           <TX key={i} font="serif" role="titleSm" style={{ lineHeight: 34 }}>
             {lead}

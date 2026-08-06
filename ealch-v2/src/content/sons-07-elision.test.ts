@@ -730,3 +730,52 @@ test('once published, the seed copy matches what was authored', () => {
   const strandedTranche = (shipped.deckTranche ?? []).flat().filter((id) => !authoredIds.has(id));
   strictEqual(strandedTranche.length, 0, `tranches still release withdrawn ids: ${strandedTranche.join(', ')}`);
 });
+
+/* ─── Layout regression ───────────────────────────────────────────────────── */
+
+test('scene text carries its flex on a wrapper, never on the Text itself', () => {
+  // Runs unconditionally: this checks SOURCE, not content, so it must fail even
+  // when the admin repo is absent.
+  //
+  // The bug this exists to catch, reported on sons.07 mission 1: the scene
+  // bubble showed "Ah, à Lyon. Très" while the audio said "Très bien". Every
+  // clipped string was the beat's French line, and every intact one was a plain
+  // column child.
+  //
+  // Mechanism. The bubble hugs its content and is capped at maxWidth 92%. Yoga
+  // measures the Text at its natural single-line width during the hug pass,
+  // caps the box, then shrinks the text box, and the already-measured text does
+  // not re-wrap: the tail is cut. Audio is unaffected because the play call
+  // takes the string, not the layout, which is exactly why this reads as a
+  // content bug and is not one.
+  //
+  // It has now regressed twice in the same file. `flex: 1` collapsed the text to
+  // its shortest word ("Pardon ?" became "Pa"); `flexShrink: 1` was the first
+  // fix and shrank the same unwrapped measurement, so short strings survived and
+  // longer ones still clipped. Neither is correct. The flex has to sit on a
+  // WRAPPER VIEW so the Text has a resolved width to wrap inside, which is what
+  // FrenchLine (LessonDeck) already does.
+  //
+  // Seven lessons render a scene, so this is mission 1 of sons.02, .03, .05,
+  // .06, .07, .08 and .10.
+  const src = readFileSync(resolve(here, '../components/ScenePlayer.tsx'), 'utf8');
+  // Matched across the whole tag rather than from `<TX` to the first `{{`: the
+  // offending line carries font/role attributes before its style prop, and an
+  // earlier version of this check anchored too tightly and passed while the bug
+  // was reintroduced. Verified by putting the bug back and watching it fail.
+  const offenders = (src.match(/<TX\b[^>]*>/g) ?? [])
+    .filter((tag) => /style=\{\{[^}]*\bflex(?:Shrink)?\s*:/.test(tag))
+    .map((tag) => tag.replace(/\s+/g, ' ').slice(0, 90));
+  strictEqual(
+    offenders.length,
+    0,
+    `ScenePlayer puts flex on a <TX> directly, which clips the tail of a long line. ` +
+      `Wrap it in a <View> that carries the flex instead: ${offenders.join(' | ')}`,
+  );
+  // And the working shape must still be present, so the rule above cannot be
+  // satisfied by deleting the row altogether.
+  ok(
+    /<View style=\{\{ flexShrink: 1 \}\}>\s*<TX/.test(src),
+    'the bubble line still wraps its Text in a flexShrink wrapper',
+  );
+});

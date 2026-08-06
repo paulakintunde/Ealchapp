@@ -36,18 +36,27 @@
 //      is an en/fr LANGUAGE hint used only to pick ElevenLabs' language_code,
 //      same as item 2.)
 //
+//   4. every section's `say` script → the coach line the Listen chip plays,
+//      voice = Liam, language en. Stored on the SECTION's own `audioRef`.
+//
+//      This was previously listed here as un-renderable, on the grounds that
+//      "SectionExtras has no sibling `audioRef`". That is no longer true: the
+//      field exists on SectionExtras, and LessonPager's `listen()` already
+//      passes it straight to speakItem as
+//      `{ fr: sayText, audioRef: currentSection?.audioRef }`. The read path
+//      was already there, so this is storage that is used, not invented.
+//
+//      Both `say` shapes are covered — the bare string and the v2
+//      `{text, voice, timing}` object — by reading through `narrationOf()`,
+//      which is the same accessor the app uses.
+//
 // ── Deliberately NOT rendered here, and why ─────────────────────────────────
-//   `say` scripts (SectionExtras.say, TapRow.say/detail.say, flashcards
-//   cards[].say) are named in the spec's render-unit list, but the CURRENT
-//   schema.ts gives them nowhere to put a rendered clip — SectionExtras has no
-//   sibling `audioRef`, and the app's own doc-comment on SectionExtras.say
-//   ("device TTS, en-US") confirms that surface is device-TTS-only today. This
-//   script cannot invent that storage: schema.ts is the single source of truth
-//   shared with the app, generator and publish pipeline, and this task is
-//   explicitly scoped to ealch-admin/ only — schema.ts lives in ealch-v2/.
-//   Rendering clips with nowhere valid to record their ref would just be spend
-//   with no read path. Land the schema fields first (a small, separate,
-//   app-side change), then extend this script's `collectLessonUnits()`.
+//   The OTHER `say` surfaces — TapRow.say, TapRow.detail.say, flashcards
+//   cards[].say — are still device-TTS-only. Those are per-ROW and per-CARD
+//   strings inside a section, and the schema gives a row or a card nowhere to
+//   record a ref; only the section has `audioRef`. Rendering clips with nowhere
+//   valid to record them would be spend with no read path. Land a per-row ref
+//   first if that surface is ever wanted.
 //
 // ── The `audio_assets` ledger is ITEM-scoped only ───────────────────────────
 //   `audio_assets.item_id` is `NOT NULL REFERENCES content_items(id)` (see
@@ -103,10 +112,12 @@ import {
   validateItem,
   validateLesson,
   isNarrationInteraction,
+  narrationOf,
   type Item,
   type Lesson,
   type LessonSection,
   type NarrationSegment,
+  type SectionExtras,
 } from '../../ealch-v2/src/content/schema.ts';
 
 /* ─── CLI ────────────────────────────────────────────────────────────────── */
@@ -374,13 +385,41 @@ type LessonNarrationUnit = {
   text: string;
 };
 
-type LessonUnit = LessonAudioUnit | LessonNarrationUnit;
+/** A section's `say` narration — the coach line the Listen chip plays.
+ *
+ *  Cast to the narrator voice in English, like a NarrationSegment with
+ *  `voice: 'en'`: `say` is coach script, the app speaks it with `lang: 'en-US'`
+ *  (LessonPager's `listen()`), and the spec casts all lesson narration to Liam. */
+type LessonSayUnit = {
+  kind: 'lessonSay';
+  sectionIndex: number;
+  role: 'narrator';
+  lang: 'en';
+  text: string;
+};
 
-/** Walks one lesson body for every render-eligible span — the two kinds
- *  described in the header (`audio` sections, narration segments). Does NOT
- *  walk `say` scripts; see the header note on why. */
+type LessonUnit = LessonAudioUnit | LessonNarrationUnit | LessonSayUnit;
+
+/** Walks one lesson body for every render-eligible span — `audio` sections,
+ *  narration segments, and `say` scripts. */
 function collectLessonUnits(lesson: Lesson): LessonUnit[] {
   const units: LessonUnit[] = [];
+
+  // `say` scripts. The header used to say these were unrenderable because
+  // "SectionExtras has no sibling audioRef" — that is out of date. The field is
+  // there, and LessonPager's `listen()` already hands it to speakItem as
+  // `{ fr: sayText, audioRef: currentSection?.audioRef }`, so a ref written
+  // here is read by the app today with no further change.
+  //
+  // Idempotency comes from the ref's own filename stem, the same way a
+  // NarrationSegment's does; no assetKey field is added to SectionExtras for
+  // it. See assetKeyFromRef.
+  (lesson.sections as LessonSection[]).forEach((sec, i) => {
+    const text = narrationOf(sec as SectionExtras)?.text?.trim();
+    if (text) {
+      units.push({ kind: 'lessonSay', sectionIndex: i, role: 'narrator', lang: 'en', text });
+    }
+  });
 
   (lesson.sections as LessonSection[]).forEach((sec, i) => {
     if (sec.type === 'audio' && sec.lines.length > 0) {
@@ -421,10 +460,27 @@ function collectLessonUnits(lesson: Lesson): LessonUnit[] {
 
 /** What's already recorded for a lesson unit, read back from the lesson body
  *  itself (there is no audio_assets row for these — see header). */
+/** Where a lesson unit sits, for an error a human can act on. One function so
+ *  a new unit kind is a compile error here rather than a silent `undefined` in
+ *  a message somebody reads at 2am. */
+function lessonUnitLabel(unit: LessonUnit): string {
+  switch (unit.kind) {
+    case 'lessonSection':
+    case 'lessonSay':
+      return String(unit.sectionIndex);
+    case 'lessonNarration':
+      return `${unit.stageIndex}.${unit.segmentIndex}`;
+  }
+}
+
 function existingLessonAssetKey(lesson: Lesson, unit: LessonUnit): string | null {
   if (unit.kind === 'lessonSection') {
     const sec = lesson.sections[unit.sectionIndex] as Extract<LessonSection, { type: 'audio' }>;
     return sec.assetKey ?? assetKeyFromRef(sec.audioRef);
+  }
+  if (unit.kind === 'lessonSay') {
+    const sec = lesson.sections[unit.sectionIndex] as SectionExtras;
+    return assetKeyFromRef(sec.audioRef);
   }
   const seg = lesson.narration!.stages[unit.stageIndex].segments[unit.segmentIndex] as NarrationSegment;
   return assetKeyFromRef(seg.audioRef);
@@ -435,6 +491,16 @@ function applyLessonAudioRef(lesson: Lesson, unit: LessonUnit, path: string, ass
     const sec = lesson.sections[unit.sectionIndex] as Extract<LessonSection, { type: 'audio' }>;
     sec.audioRef = path;
     sec.assetKey = assetKey;
+    return;
+  }
+  if (unit.kind === 'lessonSay') {
+    // Only `audioRef` is written. A `say` clip belongs to the section's
+    // narration, and the section's own `audioRef` is exactly what the app
+    // reads for it; adding a parallel assetKey field to SectionExtras would
+    // change the shared schema for an idempotency detail the filename already
+    // carries.
+    const sec = lesson.sections[unit.sectionIndex] as SectionExtras;
+    sec.audioRef = path;
     return;
   }
   const seg = lesson.narration!.stages[unit.stageIndex].segments[unit.segmentIndex] as NarrationSegment;
@@ -524,7 +590,7 @@ async function main() {
       ...lessonBundles.flatMap((b) =>
         b.units
           .filter((u) => u.text.length > MAX_RENDER_CHARS)
-          .map((u) => `lesson ${b.lesson.id} ${u.kind}#${u.kind === 'lessonSection' ? u.sectionIndex : `${u.stageIndex}.${u.segmentIndex}`} (${u.text.length} chars)`)
+          .map((u) => `lesson ${b.lesson.id} ${u.kind}#${lessonUnitLabel(u)} (${u.text.length} chars)`)
       ),
     ];
     if (tooLong.length) {

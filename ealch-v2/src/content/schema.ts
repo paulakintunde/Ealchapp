@@ -1618,7 +1618,28 @@ export type Unit = {
  * it is a script — so it is its own corpus shape rather than being forced into
  * one of the others. `turns[].user` is the line the learner is meant to produce
  * and the STT scores against; `ai` is the other speaker's prompt. */
-export type ScenarioTurn = { ai: string; en: string; user: string };
+export type ScenarioTurn = {
+  ai: string;
+  en: string;
+  user: string;
+  /** What the model line MEANS. Without it the reveal shows a French sentence
+   *  the learner is told they should have said and cannot read, which is the
+   *  one moment in the turn where comprehension is the whole point. Optional
+   *  because every scenario shipped before this field existed lacks it. */
+  userEn?: string;
+  /** Other answers that would also have worked at this turn.
+   *
+   *  A conversation is not a cloze test: "Oui, je cherche un sac" and "Je
+   *  voudrais un sac, s'il vous plaît" are both correct, and showing only the
+   *  first teaches the learner that dialogue has one right answer. These are
+   *  shown alongside the model on the reveal, and `stt` scores against ALL of
+   *  them (best match wins) so a learner who says a listed alternative is
+   *  marked right rather than "not quite".
+   *
+   *  Alternatives, not near-misses: everything here must be something a French
+   *  speaker would actually say in reply to `ai`. */
+  alts?: { fr: string; en: string }[];
+};
 export type Scenario = {
   /** 'sc.<level>.<theme>.<seq>' — e.g. 'sc.a1.marche.001' */
   id: string;
@@ -3051,16 +3072,7 @@ function validateSection(s: unknown, path: string): Issue[] {
         push('turns must be a non-empty array');
         break;
       }
-      turns.forEach((t, i) => {
-        if (typeof t !== 'object' || t === null) {
-          push(`turns[${i}] is not an object`);
-          return;
-        }
-        const tt = t as Partial<ScenarioTurn>;
-        if (!isStr(tt.ai)) push(`turns[${i}].ai is required`);
-        if (!isStr(tt.en)) push(`turns[${i}].en is required`);
-        if (!isStr(tt.user)) push(`turns[${i}].user is required`);
-      });
+      turns.forEach((t, i) => pushTurnIssues(t, i, push));
       break;
     }
     case 'listening': {
@@ -3537,6 +3549,56 @@ export function validateUnit(v: unknown, path = 'unit'): Issue[] {
   return out;
 }
 
+/**
+ * One dialogue turn, checked identically wherever it appears.
+ *
+ * It appears in two places — a corpus `Scenario.turns` and a lesson's inline
+ * `scenario` section — and those two had drifted into separate copies of the
+ * same three `isStr` lines. Adding `userEn`/`alts` to one copy and not the
+ * other would have meant a lesson could ship a malformed alternative that the
+ * standalone role play would have rejected, so the check is written once.
+ */
+function pushTurnIssues(t: unknown, i: number, push: (m: string) => void): void {
+  if (typeof t !== 'object' || t === null) {
+    push(`turns[${i}] is not an object`);
+    return;
+  }
+  const tt = t as Partial<ScenarioTurn>;
+  if (!isStr(tt.ai)) push(`turns[${i}].ai is required`);
+  if (!isStr(tt.en)) push(`turns[${i}].en is required`);
+  if (!isStr(tt.user)) push(`turns[${i}].user is required`);
+  if (tt.userEn !== undefined && !isStr(tt.userEn)) push(`turns[${i}].userEn must be a string`);
+  if (tt.alts !== undefined) {
+    if (!isArr(tt.alts)) {
+      push(`turns[${i}].alts must be an array`);
+    } else {
+      tt.alts.forEach((a, j) => {
+        const alt = a as Partial<{ fr: string; en: string }>;
+        if (typeof a !== 'object' || a === null || !isStr(alt.fr) || !isStr(alt.en)) {
+          push(`turns[${i}].alts[${j}] must be { fr, en } strings`);
+          return;
+        }
+        // An "alternative" identical to the model teaches nothing — the reveal
+        // would show the same sentence twice and claim they were two ways to
+        // say it. Compared loosely so casing and spacing cannot smuggle one in.
+        if (isStr(tt.user) && loose(alt.fr) === loose(tt.user)) {
+          push(`turns[${i}].alts[${j}] repeats the model line`);
+        }
+      });
+    }
+  }
+}
+
+/** Casing/spacing/punctuation-insensitive compare, for "is this the same line". */
+function loose(s: string): string {
+  return s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
 export function validateScenario(v: unknown, path = 'scenario'): Issue[] {
   const out: Issue[] = [];
   const push = (m: string) => out.push({ path, message: m });
@@ -3570,16 +3632,7 @@ export function validateScenario(v: unknown, path = 'scenario'): Issue[] {
   if (!isArr(s.turns)) push('turns must be an array');
   else if (s.turns.length === 0) push('turns must not be empty — a scenario with no dialogue is nothing');
   else {
-    s.turns.forEach((t, i) => {
-      if (typeof t !== 'object' || t === null) {
-        push(`turns[${i}] is not an object`);
-        return;
-      }
-      const tt = t as Partial<ScenarioTurn>;
-      if (!isStr(tt.ai)) push(`turns[${i}].ai is required`);
-      if (!isStr(tt.en)) push(`turns[${i}].en is required`);
-      if (!isStr(tt.user)) push(`turns[${i}].user is required`);
-    });
+    s.turns.forEach((t, i) => pushTurnIssues(t, i, push));
   }
 
   return out;

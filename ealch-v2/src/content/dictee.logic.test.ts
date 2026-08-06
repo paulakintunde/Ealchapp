@@ -2,7 +2,7 @@
 import { strictEqual, ok, deepStrictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
-import { DICTEE_LETTER_LIMIT, dicteeMode, dicteeTarget, dicteeWords, letterCount } from './dictee.logic.ts';
+import { DICTEE_LETTER_LIMIT, dicteeMode, dicteeTarget, dicteeWords, letterCount, wordDecoys } from './dictee.logic.ts';
 import type { Item, Lesson } from './schema.ts';
 
 const seed = JSON.parse(
@@ -100,6 +100,46 @@ test('the rule changes the right lessons and leaves the others alone', () => {
     rythme!.words > rythme!.letters,
     `sons.08 is a sentence dictée: expected mostly word mode, got ${rythme!.letters} letters / ${rythme!.words} words`
   );
+});
+
+test('a word-mode bank always offers more tiles than the answer needs', () => {
+  // Without decoys every tile belonged to the answer, so "place all of them"
+  // solved it and the learner never judged whether a word was in what they
+  // heard. Checked on the real sentences a1.01's dictée drills.
+  for (const fr of [
+    'Bonjour madame, comment allez-vous ?',
+    "Salut, ça va bien aujourd'hui ?",
+    'On se dit bonjour avant de commencer la réunion.',
+    'Bonne journée, à demain matin.',
+  ]) {
+    const decoys = wordDecoys(fr);
+    ok(decoys.length > 0, `no decoy offered for "${fr}"`);
+    const answer = dicteeWords(fr);
+    for (const d of decoys) {
+      ok(
+        !answer.some((w) => w.normalize('NFD').replace(/[̀-ͯ]/gu, '').toLowerCase() === d.normalize('NFD').replace(/[̀-ͯ]/gu, '').toLowerCase()),
+        `"${d}" is a decoy for "${fr}" but the answer already contains it`
+      );
+    }
+  }
+});
+
+test('a decoy is never a word the sentence already uses, accents and case aside', () => {
+  // "Très bien, merci" must not be offered "très", "bien" or "merci" back: a
+  // decoy that belongs is not a decoy, it is a duplicate the learner can place
+  // anywhere with no consequence.
+  const decoys = wordDecoys('Très bien, merci et bonjour', 6);
+  for (const d of decoys) {
+    ok(!['tres', 'bien', 'merci', 'et', 'bonjour'].includes(d.normalize('NFD').replace(/[̀-ͯ]/gu, '').toLowerCase()), `"${d}" is already in the sentence`);
+  }
+  deepStrictEqual([...new Set(decoys)], decoys, 'the same decoy was offered twice');
+});
+
+test('the word bank actually includes the decoys', () => {
+  // The old comment claimed a decoy the code never added. Read from source
+  // because the runner cannot import the .tsx.
+  const src = readFileSync(new URL('../components/MissionRich.tsx', import.meta.url), 'utf8');
+  ok(/buildWordBank[\s\S]{0,400}wordDecoys\(fr\)/u.test(src), 'buildWordBank does not mix in wordDecoys');
 });
 
 test('MissionRich renders both modes, and does not draw a slot per character in word mode', () => {

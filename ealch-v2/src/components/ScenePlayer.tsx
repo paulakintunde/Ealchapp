@@ -14,7 +14,7 @@
 // rendering and gestures only. In particular, the rule that the BREAK PLAYS ON
 // A CORRECT CHOICE is enforced there, not here — see the note in that file.
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Animated, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { Press, Button } from '@/components/ui';
@@ -239,6 +239,16 @@ function BubbleBeat({
   const t = useTheme();
   const mine = beat.from === 'you';
   const on = playingId === id;
+  // A bubble is only playable if there is something to say. a1.01's scene has a
+  // beat whose whole content is an ellipsis — the baker says nothing, and the
+  // silence IS the teaching — but the speaker icon still rendered on it and the
+  // bubble still took a press, so the learner was offered audio that would read
+  // out punctuation.
+  //
+  // Gated on the TEXT, not on `beat.audio`. Six bubbles across the shipped
+  // scenes carry real French with no per-beat audio spec and fall back to the
+  // section default; keying off `audio` would silently strip their icons too.
+  const speakable = /[\p{L}\p{N}]/u.test(beat.fr ?? '');
   return (
     <View style={{ alignItems: mine ? 'flex-end' : 'flex-start', gap: 6 }}>
       {beat.speaker ? (
@@ -246,7 +256,8 @@ function BubbleBeat({
       ) : null}
       <Press
         cue={null}
-        onPress={() => onPlay?.(id, beat.fr)}
+        disabled={!speakable}
+        onPress={speakable ? () => onPlay?.(id, beat.fr) : undefined}
         accessibilityLabel={beat.fr}
         style={{
           maxWidth: '92%',
@@ -261,16 +272,28 @@ function BubbleBeat({
           gap: 5,
         }}
       >
-        {/* flexShrink: 1, NOT flex: 1.
-            The bubble hugs its content, so `flex: 1` asked the text to fill a
-            width nobody had decided yet — RN resolved that against the shortest
-            word and clipped the rest, which is why "Pardon ?" rendered as "Pa".
-            Shrink-only lets the text measure itself first and give way only when
-            the bubble really is at its 92% ceiling. Same failure the XL word
-            card hit; see the LAYOUT RULE note in LessonRich. */}
+        {/* The flex lives on a WRAPPER VIEW, never on the Text itself.
+            This bubble hugs its content and is capped at 92%, and that pair is
+            what breaks text measurement: Yoga measures the Text at its natural
+            single-line width during the hug pass, caps the box, then shrinks
+            the text box, and the already-measured text does NOT re-wrap. The
+            tail is simply cut off. Reported on sons.07 mission 1 as
+            "Ah, à Lyon. Très bien." rendering without "bien", while the audio
+            spoke the whole line, because onPlay gets the string and not the
+            layout.
+            `flex: 1` here collapsed the text to the shortest word ("Pardon ?"
+            became "Pa"). `flexShrink: 1` was the first fix and was better but
+            still wrong: it shrank the same unwrapped measurement, so short
+            strings survived and longer ones kept clipping.
+            Wrapping in a View gives the Text a RESOLVED width to wrap inside,
+            which is the idiom FrenchLine already uses (LessonDeck) and the same
+            reason MissionRich's story bubble keeps its play control on its own
+            line instead of beside the text. */}
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-          <TX font="serifI" role="titleSm" style={{ flexShrink: 1 }}>{beat.fr}</TX>
-          <Icon name="speaker" size={15} color={on ? t.acc : t.txNonText} />
+          <View style={{ flexShrink: 1 }}>
+            <TX font="serifI" role="titleSm">{beat.fr}</TX>
+          </View>
+          {speakable ? <Icon name="speaker" size={15} color={on ? t.acc : t.txNonText} /> : null}
         </View>
         <TX role="bodySm" color={t.txMuted}>{beat.en}</TX>
         {beat.ipa ? <TX role="meta" color={t.txSubtle}>{beat.ipa}</TX> : null}
@@ -367,15 +390,25 @@ function BreakBeat({
   const framing = breakFraming(beats, state, index);
 
   // Audio-first: hold the text back briefly on entry while the model plays.
+  //
+  // This MUST run in an effect, not during render. It used to fire from a
+  // `if (!started.current)` guard in the render body, and `onPlay` reaches
+  // lesson.tsx's play(), which calls setPlayingId — a state update on
+  // LessonScreen while ScenePlayer was still rendering. React reported it on a
+  // device as the red toast "Cannot update a component (`LessonScreen`) while
+  // rendering a different component", sitting over the break card, which is the
+  // one screen in a scene lesson the learner is most meant to read.
+  //
+  // It affected every scene whose break sets audioFirst — sons.02, .03, .05,
+  // .06, .07, .09, .10 and a1.01 — because the flag is what triggers the call.
+  // An empty dep array keeps the once-per-mount semantics the ref guard had.
   const reveal = useRef(new Animated.Value(beat.audio?.audioFirst ? 0 : 1)).current;
-  const started = useRef(false);
-  if (!started.current) {
-    started.current = true;
-    if (beat.audio?.audioFirst) {
-      onPlay?.(id, beat.right.fr);
-      Animated.timing(reveal, { toValue: 1, duration: 260, delay: 900, useNativeDriver: true }).start();
-    }
-  }
+  useEffect(() => {
+    if (!beat.audio?.audioFirst) return;
+    onPlay?.(id, beat.right.fr);
+    Animated.timing(reveal, { toValue: 1, duration: 260, delay: 900, useNativeDriver: true }).start();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <View style={{ gap: 18 }}>
@@ -433,9 +466,16 @@ function ReadingRow({
         gap: 4,
       }}
     >
+      {/* Same rule as the bubble above: the flex belongs to a wrapper View, not
+          to the Text. This card is full-width today, so `flex: 1` on the Text
+          happens to resolve, but the strings it shows are the scene's wrong/right
+          pair and a longer one would clip exactly as the bubble did. Kept
+          consistent so the working shape is the one that gets copied. */}
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
         <Icon name={tone === 'right' ? 'check' : 'x'} size={14} color={c} />
-        <TX font="serifI" role="titleLg" style={{ flex: 1 }}>{side.fr}</TX>
+        <View style={{ flex: 1 }}>
+          <TX font="serifI" role="titleLg">{side.fr}</TX>
+        </View>
         {onPlay ? <Icon name="speaker" size={15} color={playing ? t.acc : t.txNonText} /> : null}
       </View>
       <TX role="body" color={t.txSecondary}>{side.ipa}</TX>

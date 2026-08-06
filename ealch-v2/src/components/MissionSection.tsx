@@ -461,7 +461,19 @@ export function MissionSectionView({
           {label}
           {chips}
           {hero}
-          <GroupDrillView s={s} onBlockedChange={onBlockedChange} />
+          {/* The sub-position is forwarded the same way the cardDeck and the
+              swipe-flagged commonErrors below forward theirs. Without it an XL
+              drill's header froze on the mission number while the learner
+              swiped eleven cards, because this was the one self-paging section
+              type that never reported its index. subCount() now counts these to
+              match; the two have to move together or the header would print a
+              denominator for a position nothing sends. */}
+          <GroupDrillView
+            s={s}
+            onBlockedChange={onBlockedChange}
+            onIndexChange={onSubIndexChange}
+            initialIndex={initialSub}
+          />
         </View>
       );
     // A STEPPED trapDrill walks its three jobs one screen at a time and needs
@@ -541,8 +553,12 @@ export function MissionSectionView({
           <DictationView s={s} />
         </View>
       );
+    // `active` matters here and nowhere else in this switch: the scenario's
+    // first beat SPEAKS. Neighbouring missions stay mounted inside the pager's
+    // window, so without this the next conversation's opening line talks over
+    // the one being read.
     case 'scenario':
-      return <ScenarioView s={s} />;
+      return <ScenarioView s={s} active={active !== false} />;
     case 'listening':
       return (
         <View>
@@ -596,35 +612,56 @@ export function MissionSectionView({
         </View>
       );
     default:
-      // Every pre-existing section type (teach, steps, examples, useCases,
-      // hacks, cheatSheet, commonErrors, focus, table, audio, practice, quiz,
-      // letterGrid, cardDeck, tapTable, vocabThemes, flashcards, roundup):
-      // unchanged behavior, unchanged component. The term chips are additive
-      // and render above it when the section declares any.
-      //
-      // The cardDeck is the one type here that SIZES ITSELF from the room it is
-      // given (it measures its rail rather than guessing chrome). This wrapper
-      // was a plain View, so it hugged its content: the deck asked for `flex: 1`
-      // of a parent that had no height to give, measured ~0 and rendered cards
-      // of zero height. Passing the fill down is what lets the measurement see
-      // the real viewport. Every other type keeps the hug-content box it had.
-      return (
-        <View style={s.type === 'cardDeck' || s.type === 'flashcards' || s.type === 'practice' ? { flex: 1 } : undefined}>
-          {chips}
-          <SectionView
-            s={s}
-            onPlay={onPlay}
-            playingId={playingId}
-            onGrade={onGrade}
-            graded={graded}
-            showHero={showHero}
-            // Reaches the cardDeck only — SectionView hands it to that one
-            // branch. Every other type here is a single screen, so there is no
-            // sub-position for it to report.
-            onSubIndexChange={onSubIndexChange}
-            onEdgeSwipe={onEdgeSwipe}
-          />
-        </View>
-      );
+      break;
   }
+
+  // The shared fallback, and it MUST live after the switch rather than inside
+  // `default:`.
+  //
+  // Two cases above are conditional — `letterGrid` renders its own grid only
+  // when the letters carry verdicts, `commonErrors` renders its own deck only
+  // when the section sets `swipe` — and both end in `break`. When this block
+  // was the body of `default:`, a `break` exited the switch and fell off the
+  // end of the function, which returns undefined and draws NOTHING. A learner
+  // got a blank mission with working Back/Next either side of it.
+  //
+  // That shipped twice: sons.08 mission 22 (fixed by adding `swipe` to the
+  // content, commit d8f4ca6) and a1.01 mission 5, reported on a device. Four
+  // more lessons were one publish away from the same thing — sons.02, sons.03,
+  // a2.01 and a1.04 all author commonErrors without `swipe`.
+  //
+  // Adding the flag to each lesson treats the symptom. A switch whose fallback
+  // is unreachable by `break` is the bug, so the fallback moved out here where
+  // every `break` lands on it.
+  //
+  // Every pre-existing section type (teach, steps, examples, useCases, hacks,
+  // cheatSheet, commonErrors, focus, table, audio, practice, quiz, letterGrid,
+  // cardDeck, tapTable, vocabThemes, flashcards, roundup): unchanged behavior,
+  // unchanged component. The term chips are additive and render above it when
+  // the section declares any.
+  //
+  // The cardDeck is the one type here that SIZES ITSELF from the room it is
+  // given (it measures its rail rather than guessing chrome). This wrapper was
+  // a plain View, so it hugged its content: the deck asked for `flex: 1` of a
+  // parent that had no height to give, measured ~0 and rendered cards of zero
+  // height. Passing the fill down is what lets the measurement see the real
+  // viewport. Every other type keeps the hug-content box it had.
+  return (
+    <View style={s.type === 'cardDeck' || s.type === 'flashcards' || s.type === 'practice' ? { flex: 1 } : undefined}>
+      {chips}
+      <SectionView
+        s={s}
+        onPlay={onPlay}
+        playingId={playingId}
+        onGrade={onGrade}
+        graded={graded}
+        showHero={showHero}
+        // Reaches the cardDeck only — SectionView hands it to that one branch.
+        // Every other type here is a single screen, so there is no sub-position
+        // for it to report.
+        onSubIndexChange={onSubIndexChange}
+        onEdgeSwipe={onEdgeSwipe}
+      />
+    </View>
+  );
 }

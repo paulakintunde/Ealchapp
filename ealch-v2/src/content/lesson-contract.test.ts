@@ -149,7 +149,10 @@ const WHY_WAIVED = new Map<string, string>([
   ['sons.02.l1', '0/12 authored'],
   ['sons.03.l1', '1/12 authored'],
   ['a2.01.l1', '0/3 authored'],
-  ['a1.04.l1', '0/3 authored'],
+  // a1.04.l1 came off this list on 2026-08-05. It was waived at "0/3 authored";
+  // the rebuild to v3 replaced that three-question quiz with 22 round-based
+  // questions, every one carrying a `why` and a `ref`. Taking a lesson off the
+  // list is the point of the list, so the line is deleted rather than updated.
 ]);
 
 test('a quiz question that can be got wrong says why', () => {
@@ -299,6 +302,67 @@ test('a quiz question that references a section points at a real one', () => {
   }
 });
 
+test('every authored quiz question is reachable by a learner', () => {
+  // Failure class 2 above, in its most expensive form: content that is
+  // authored, schema-valid, and rendered by nothing.
+  //
+  // lessonPager.logic.ts strips EVERY quiz section in contentSections(), then
+  // appends exactly ONE quiz page in buildPages(), resolved with
+  // `sections.find(s => s.type === 'quiz')`. That is the first one. A second
+  // quiz section is therefore a set of questions no learner can ever reach.
+  //
+  // a1.01.l1 shipped this way: a 3-question "Quick Check" at position 9 and a
+  // 12-question final exam at position 19. The exam was never reachable, and
+  // the lesson's own test asserted it was "substantial and every question
+  // teaches" — reading the data and never asking whether the data renders.
+  //
+  // Fix by folding the extra check into the mission it follows, which is what
+  // every v2 lesson does. If a lesson ever genuinely needs a mid-flow exam,
+  // this test is the thing to change, and buildPages / quizSection /
+  // app/lesson.tsx / acts.logic.ts all have to learn WHICH quiz at the same
+  // time. Changing the test alone would restore the bug.
+  for (const { id, lesson } of LESSONS) {
+    const quizzes = lesson.sections.filter((s) => s.type === 'quiz');
+    if (!quizzes.length) continue;
+    const count = (sec: LessonSection) => {
+      const rounds = (sec as { rounds?: { questions?: unknown[] }[] }).rounds ?? [];
+      if (rounds.length) return rounds.reduce((n, r) => n + (r.questions?.length ?? 0), 0);
+      return ((sec as { questions?: unknown[] }).questions ?? []).length;
+    };
+    const authored = quizzes.reduce((n, q) => n + count(q), 0);
+    const reachable = count(quizzes[0]);
+    strictEqual(
+      reachable,
+      authored,
+      `${id}: ${authored - reachable} authored quiz question(s) are unreachable. ` +
+      `This lesson has ${quizzes.length} quiz sections and the pager renders only the first.`
+    );
+  }
+});
+
+test('a reading glossary is only authored where something renders it', () => {
+  // Failure class 2 again. MissionSection routes `reading` to ReadingMission —
+  // the only path that reaches PassagePage, and so the only path that draws the
+  // glossary underlines — when `questionsInModal` is set and the section has
+  // questions. The fallback path never mentions `glossary`: grep MissionRich.
+  //
+  // a1.01.l1 shipped five entries down that fallback. The passage rendered, the
+  // questions rendered, and the glossary was invisible. Nothing failed, because
+  // the entries were all valid; they were just never asked for.
+  for (const { id, lesson } of LESSONS) {
+    for (const sec of lesson.sections) {
+      if (sec.type !== 'reading') continue;
+      const s = sec as { glossary?: unknown[]; questionsInModal?: boolean; questions?: unknown[] };
+      if (!s.glossary?.length) continue;
+      ok(
+        s.questionsInModal && s.questions?.length,
+        `${where(id, lesson, sec)}: authors ${s.glossary.length} glossary entries but does not set ` +
+        `questionsInModal with questions, so nothing renders them`
+      );
+    }
+  }
+});
+
 test('no lesson ships an empty section', () => {
   // A section that renders nothing is a page the learner swipes past wondering
   // what they missed.
@@ -333,6 +397,41 @@ test('no lesson ships an empty section', () => {
         Array.isArray(s.steps) ||
         Array.isArray(s.rows);
       ok(hasBody, `${where(id, lesson, sec)}: a ${sec.type} section with no content to render`);
+    }
+  }
+});
+
+test('an xl group drill never stacks words and a check in one group', () => {
+  // GroupDrillView renders an xl group as a filling SwipeDeck. A group that
+  // ALSO carries a check stacks the check under that deck, and its own comments
+  // say what happens: "two competing floors ... the four-option check take[s]
+  // what it wanted and squeeze[s] the deck to nothing". The check lands below
+  // the fold, so the learner never answers it, and the hero card the mission
+  // exists to show renders short.
+  //
+  // The schema already states the rule ("at that size the words and their check
+  // are separate pages, so a group carries EITHER items OR a check"), and the
+  // component repeats it, and nothing enforced it. a1.07.l1's s10-eleven shipped
+  // the shape at v3 and was found by looking at a phone, not by any test here.
+  //
+  // The house pattern is a words mission followed by its own control page:
+  // sons.05, sons.06, sons.10, a1.03, a1.11 and a1.29 all do it. sons.07 and
+  // sons.09 use the other legal shape, a multi-group xl drill whose check is its
+  // OWN group. Both keep one thing per screen, which is the point.
+  for (const { id, lesson } of LESSONS) {
+    for (const sec of lesson.sections) {
+      if (sec.type !== 'groupDrill') continue;
+      if ((sec as { size?: string }).size !== 'xl') continue;
+      for (const [i, g] of sec.groups.entries()) {
+        const words = g.items?.length ?? 0;
+        if (words > 0 && g.check) {
+          ok(
+            false,
+            `${where(id, lesson, sec)}: groups[${i}] carries ${words} words AND a check at size xl. ` +
+            `Split them into a words mission and a control page, or give the check its own group.`,
+          );
+        }
+      }
     }
   }
 });

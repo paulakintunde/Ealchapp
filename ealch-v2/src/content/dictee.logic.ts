@@ -61,3 +61,47 @@ export function dicteeWords(fr: string): string[] {
 export function dicteeTarget(fr: string): string {
   return dicteeWords(fr).join(' ');
 }
+
+/** High-frequency French words a decoy is drawn from.
+ *
+ *  Deliberately function words and A1 filler, not vocabulary: a decoy has to be
+ *  something the learner could plausibly believe they heard, and an unfamiliar
+ *  noun is just noise they can rule out on sight. Everything here could sit in
+ *  an A1 greeting sentence without looking out of place. */
+const WORD_DECOY_POOL = [
+  'et', 'le', 'la', 'les', 'de', 'un', 'une', 'très',
+  'bien', 'merci', 'pour', 'avec', 'mais', 'oui',
+];
+
+/** Accent- and case-insensitive compare, so a decoy is not offered when the
+ *  sentence already contains the same word wearing an accent or a capital. */
+function sameWord(a: string, b: string): boolean {
+  const fold = (s: string) =>
+    s.normalize('NFD').replace(/[̀-ͯ]/gu, '').replace(/[^\p{L}]/gu, '').toLowerCase();
+  return fold(a) === fold(b);
+}
+
+/** Extra word tiles that do NOT belong in the answer.
+ *
+ *  Word mode shipped with none. Its bank was the sentence's own words shuffled,
+ *  so every tile belonged and the learner could place them all without ever
+ *  deciding whether a tile was wanted — "use everything" solved it. That is an
+ *  ordering puzzle, not a dictée. (The old comment above buildWordBank claimed
+ *  it added a decoy "drawn from the sentence itself", which the code never did,
+ *  and which would not have worked anyway: a duplicate of a word already in the
+ *  answer produces the same string whichever copy is used, so it is invisible.)
+ *
+ *  Letter mode has had three decoy letters all along; this is the same idea for
+ *  words. Deterministic — the component shuffles the bank, so choosing here
+ *  stays pure and testable. */
+export function wordDecoys(fr: string, count = 2): string[] {
+  const present = dicteeWords(fr);
+  const out: string[] = [];
+  for (const cand of WORD_DECOY_POOL) {
+    if (out.length >= count) break;
+    if (present.some((w) => sameWord(w, cand))) continue;
+    if (out.some((w) => sameWord(w, cand))) continue;
+    out.push(cand);
+  }
+  return out;
+}
