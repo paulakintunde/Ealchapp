@@ -89,7 +89,9 @@ function reach(id: string, ownUnit: string): { score: number; units: string[] } 
   return { score: hit.size, units: [...hit].sort() };
 }
 
-console.log('unit    seq  kind      pick  reach  id                              fr');
+// Everything below goes to STDERR so the manifest generator can import
+// CONTRIBUTION_IDS without this file's report landing in the generated output.
+console.error('unit    seq  kind      pick  reach  id                              fr');
 const chosen: { unit: string; id: string; fr: string; kind: string; reach: number }[] = [];
 /** Every French string already spoken for, so no two units hand the learner the
  *  same card. Units are walked in curriculum order, so the earlier unit keeps
@@ -126,11 +128,11 @@ for (const l of A1) {
   for (const [n, r] of ranked.entries()) {
     const it = ITEM.get(r.id)!;
     chosen.push({ unit: l.unitId, id: r.id, fr: it.fr, kind: it.kind, reach: r.score });
-    console.log(
+    console.error(
       `${n === 0 ? l.unitId.padEnd(7) : ''.padEnd(7)} ${n === 0 ? String(unit?.seq ?? '').padStart(3) : '   '}  ${n === 0 ? kind.padEnd(9) : ''.padEnd(9)} ${String(n + 1).padStart(4)} ${String(r.score).padStart(6)}  ${r.id.padEnd(31)} ${it.fr.slice(0, 46)}`,
     );
   }
-  if (ranked.length < 3) console.log(`  !! ${l.unitId} could only supply ${ranked.length}`);
+  if (ranked.length < 3) console.error(`  !! ${l.unitId} could only supply ${ranked.length}`);
 }
 
 /** The selection, exported so the manifest generator consumes it rather than
@@ -138,7 +140,7 @@ for (const l of A1) {
 export const CONTRIBUTIONS = chosen;
 export const CONTRIBUTION_IDS = chosen.map((c) => c.id);
 
-console.log('\n=== themes these 87 sit in, which is what the unit binds to ===');
+console.error('\n=== themes these 87 sit in, which is what the unit binds to ===');
 {
   const byTheme = new Map<string, number>();
   for (const c of chosen) {
@@ -146,12 +148,12 @@ console.log('\n=== themes these 87 sit in, which is what the unit binds to ===')
     byTheme.set(t, (byTheme.get(t) ?? 0) + 1);
   }
   const sorted = [...byTheme.entries()].sort((a, b) => b[1] - a[1]);
-  console.log(`  ${sorted.length} distinct themes`);
-  console.log(`  ${sorted.map(([t, n]) => `${t}:${n}`).join('  ')}`);
+  console.error(`  ${sorted.length} distinct themes`);
+  console.error(`  ${sorted.map(([t, n]) => `${t}:${n}`).join('  ')}`);
 }
 
-console.log(`\n  ${chosen.length} contributions from ${A1.length} units`);
-console.log(`  headwords ${chosen.filter((c) => c.kind !== 'sentence').length}, sentences ${chosen.filter((c) => c.kind === 'sentence').length}`);
+console.error(`\n  ${chosen.length} contributions from ${A1.length} units`);
+console.error(`  headwords ${chosen.filter((c) => c.kind !== 'sentence').length}, sentences ${chosen.filter((c) => c.kind === 'sentence').length}`);
 const zero = chosen.filter((c) => c.reach === 0);
-console.log(`  reaching NO other unit: ${zero.length}${zero.length ? ` (${zero.map((c) => c.unit).join(', ')})` : ''}`);
-console.log(`  every id already released by its own unit: ${chosen.every((c) => owner.get(c.id) === c.unit)}`);
+console.error(`  reaching NO other unit: ${zero.length}${zero.length ? ` (${zero.map((c) => c.unit).join(', ')})` : ''}`);
+console.error(`  every id already released by its own unit: ${chosen.every((c) => owner.get(c.id) === c.unit)}`);
