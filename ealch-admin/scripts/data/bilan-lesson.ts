@@ -48,6 +48,7 @@ import type {
 import { BILAN_TERMS, REFRAME } from './bilan-terms.ts';
 import { KIT_IMPORTED, KIT_REUSED, REVIEW } from './bilan-imported.ts';
 import { AUTHORED_ITEMS, BAND_STATS, CANDO_CLAUSES, COVERED_UNITS } from './bilan-corpus.ts';
+import { BILAN_ROUNDS } from './bilan-rounds.ts';
 
 export { REFRAME };
 
@@ -469,49 +470,6 @@ const SECTIONS: LessonSection[] = [
     ],
   },
 
-  {
-    type: 'cardDeck',
-    id: 's08-mixed',
-    title: 'Two At A Time',
-    frSub: 'Deux leçons, une phrase',
-    hint: 'Four cards, each one built from two different mornings.',
-    render: 'deck',
-    layer: 'core',
-    size: 'lg',
-    terms: ['oneTurn'],
-    audio: { mode: 'tts', lang: 'fr-FR', speeds: [1.0, 0.65], recordingId: 'rec-a1-30-mixed' },
-    say: 'Nothing new on any of these. Only the combination is new.',
-    cards: [
-      {
-        label: 'an article and a noun',
-        head: 'One word, three articles, three lessons',
-        fr: `${top('a1.03').fr} · ${top('a1.11').fr} · ${top('a1.29').fr}`,
-        sub: 'the same noun, taught three times by three different units',
-        body: 'The three article lessons each handed you this noun with a different word in front. Ordering one means choosing between them in the moment.',
-      },
-      {
-        label: 'a number and a time',
-        head: 'The clock needs two lessons to read',
-        fr: `${top('a1.02').fr} · ${top('a1.27').fr} · ${top('a1.12').fr}`,
-        sub: 'a small number, a bigger one, and the frame they sit in',
-        body: 'Saying when you are free needs the number lessons and the clock lesson at once. Either alone gets you a figure with nothing attached to it.',
-      },
-      {
-        label: 'a noun and an adjective',
-        head: 'And the adjective has to agree and sit right',
-        fr: `${top('a1.13').fr} · ${top('a1.14').fr} · ${top('a1.16').fr}`,
-        sub: 'a colour, a basic adjective, and where it goes',
-        body: 'Three lessons for one short description: which word, what shape it takes, and which side of the noun it stands on. In a real sentence all three decisions happen together.',
-      },
-      {
-        label: 'a question and its answer',
-        head: 'The question shape decides the answer shape',
-        fr: `${top('a1.19').fr} · ${top('a1.20').fr}`,
-        sub: 'a yes-or-no frame, and a question word',
-        body: `Hearing which one arrived tells you what kind of answer to build. ${REFRAME}`,
-      },
-    ],
-  },
 
   {
     type: 'groupDrill',
@@ -566,58 +524,9 @@ const SECTIONS: LessonSection[] = [
     ],
   },
 
-  {
-    type: 'vocabThemes',
-    id: 's10-bank',
-    title: 'Everything, Banked',
-    frSub: 'Tout ce que vous avez',
-    layer: 'core',
-    terms: ['youAlreadyHave'],
-    say: 'Every unit of the band, three words each. If one looks new, go back to the lesson that owns it.',
-    themes: [
-      { title: 'saying who you are, and counting', cards: ['a1.01', 'a1.02', 'a1.27', 'a1.28', 'a1.22'].flatMap((u) => ofUnit(u)).map((r) => ({ fr: r.fr, sub: r.en, en: r.en })) },
-      { title: 'the little words in front', cards: ['a1.03', 'a1.04', 'a1.11', 'a1.29', 'a1.17'].flatMap((u) => ofUnit(u)).map((r) => ({ fr: r.fr, sub: r.en, en: r.en })) },
-      { title: 'time, weather and the day', cards: ['a1.08', 'a1.09', 'a1.10', 'a1.12', 'a1.25'].flatMap((u) => ofUnit(u)).map((r) => ({ fr: r.fr, sub: r.en, en: r.en })) },
-      { title: 'describing your world', cards: ['a1.13', 'a1.14', 'a1.16', 'a1.15', 'a1.24', 'a1.26', 'a1.21', 'a1.23'].flatMap((u) => ofUnit(u)).map((r) => ({ fr: r.fr, sub: r.en, en: r.en })) },
-      { title: 'verbs, questions and saying no', cards: ['a1.05', 'a1.06', 'a1.07', 'a1.18', 'a1.19', 'a1.20'].flatMap((u) => ofUnit(u)).map((r) => ({ fr: r.fr, sub: r.en, en: r.en })) },
-    ],
-  },
 
   /* ══ Act 3: produce one turn ════════════════════════════════════════════ */
 
-  {
-    type: 'tapTable',
-    id: 's11-oneturn',
-    title: 'A Question, And The Turn That Answers It',
-    frSub: 'Une question, une réponse',
-    layer: 'core',
-    terms: ['oneTurn'],
-    audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a1-30-mixed' },
-    say: 'The question on the left, what your answer has to contain on the right.',
-    cols: ['what they ask', 'what your answer needs'],
-    rows: [
-      {
-        cells: ['Vous venez d\'où ?', 'a country, and the right little word in front'],
-        say: 'Vous venez d\'où ?',
-        detail: { title: 'Two lessons', body: 'The country lesson stored the article, and the article decides the preposition. You look the fact up once, when you learn the country, and never again.', say: 'Je viens du Canada.' },
-      },
-      {
-        cells: ['Vous êtes libre quand ?', 'a time of day, or an hour, or both'],
-        say: 'Vous êtes libre quand ?',
-        detail: { title: 'Two lessons', body: 'A part of the day carries its little word; an hour comes from the clock lesson. Answering with both is more useful than either, and costs nothing extra.', say: `${top('a1.25').fr}, vers six heures.` },
-      },
-      {
-        cells: ['C\'est comment, chez vous ?', 'a room, an adjective, and agreement'],
-        say: 'C\'est comment, chez vous ?',
-        detail: { title: 'Three lessons', body: 'The house lesson gives the noun, the adjective lessons give the word and its shape, and the placement lesson decides which side it goes. All three at once.', say: 'J\'ai un grand jardin.' },
-      },
-      {
-        cells: [frOf(K.repeat), 'nothing. This one is free'],
-        say: frOf(K.repeat),
-        detail: { title: 'The turn that costs you nothing', body: 'Every other row needs two lessons assembled under time pressure. This one is a fixed phrase you say whole, and it buys you the time to assemble the others.', say: frOf(K.repeat) },
-      },
-    ],
-  },
 
   {
     type: 'groupDrill',
@@ -862,47 +771,6 @@ const SECTIONS: LessonSection[] = [
 
   /* ══ Act 5: hold a long exchange ════════════════════════════════════════ */
 
-  {
-    type: 'reading',
-    id: 's19-reading',
-    title: 'A Conversation That Does Not Stay Still',
-    frSub: 'Une vraie conversation',
-    layer: 'core',
-    terms: ['oneTurn', 'repairKit'],
-    questionsInModal: true,
-    say: 'One passage. Tap any underlined phrase.',
-    // ONE BLOCK. PassagePage splits on sentence ends and silently discards an
-    // authored newline. Instruction is English, French sits inside « ».
-    text:
-      'Karim has been in Bordeaux for eight months and describes his French as "enough to get into trouble". '
-      + 'He can order, he can ask directions, and he can tell anybody what he does on a Tuesday. '
-      + 'What used to happen, he says, is that the other person would answer and he would lose the entire reply. '
-      + 'He would smile, say « oui », and walk away with no idea what had been agreed. '
-      + `Then a colleague taught him four words. « ${frOf(K.dontUnderstand)} » `
-      + 'He describes the first time he used it as the moment his French actually started. '
-      + `Now he says « ${frOf(K.repeat)} » without embarrassment, and if the repetition is still too fast he says « ${frOf(K.slower)} » and people simply do. `
-      + `When he needs a second to build a sentence he says « ${frOf(K.moment)} » and nobody has ever minded. `
-      + 'He points out that none of this is vocabulary. '
-      + 'It is knowing that a conversation you have lost is not over, and that saying so out loud is the ordinary thing to do rather than an admission of failure.',
-    questions: [
-      { q: 'What could Karim already do before the four words?', a: 'Order, ask directions, and describe his routine. The producing half was fine.' },
-      { q: 'What was actually going wrong?', a: 'He lost the replies and covered it with oui, so he agreed to things he had not understood.' },
-      { q: 'Why does he say none of this is vocabulary?', a: 'Because the fix was knowing a lost conversation can be repaired and that asking is normal, not a bigger word list.' },
-    ],
-    // MAX_GLOSS_WORDS IS FOUR. A first draft glossed the two authored phrases
-    // whole and neither could ever match: « Vous pouvez répéter, s'il vous
-    // plaît ? » is six words and the lookup never sees it. The repo-wide
-    // glossary test caught it, the same way it caught a1.25's.
-    //
-    // Matching is longest-first, so no key here sits inside another: a short
-    // entry buried in a longer one underlines nothing and fails silently.
-    glossary: [
-      { word: frOf(K.dontUnderstand), en: enOf(K.dontUnderstand), note: 'The four words. No lesson in this app taught them before this one.' },
-      { word: 'répéter', en: 'to repeat', note: 'Asked with vous pouvez in front of it, which is the formal form you need with a stranger.' },
-      { word: 'Plus lentement', en: 'more slowly', note: 'The second ask. Repeating rarely helps; slowing down does.' },
-      { word: frOf(K.moment), en: enOf(K.moment), note: 'For when you understood and just need time to build the answer.' },
-    ],
-  },
 
   {
     type: 'scenario',
@@ -999,38 +867,7 @@ const SECTIONS: LessonSection[] = [
     ],
   },
 
-  {
-    type: 'flashcards',
-    id: 's21-flash',
-    title: 'The Kit, Both Ways',
-    frSub: 'Révision rapide',
-    layer: 'core',
-    render: 'deck',
-    say: 'Thirteen cards. These are the ones worth having without thinking.',
-    cards: [...Object.values(K)].map((id) => ({ front: enOf(id), back: frOf(id), say: frOf(id) })),
-  },
 
-  {
-    type: 'reviewDeck',
-    id: 's22-review',
-    title: 'Everything, Once More',
-    frSub: 'Tout, encore une fois',
-    layer: 'core',
-    render: 'deck',
-    say: 'Again, hard or easy on each.',
-    cards: [
-      { front: 'You understood nothing at all', back: frOf(K.dontUnderstand), say: frOf(K.dontUnderstand) },
-      { front: 'Ask for the whole thing again', back: frOf(K.repeat), say: frOf(K.repeat) },
-      { front: 'It was still too fast', back: frOf(K.slower), say: frOf(K.slower) },
-      { front: 'You need a second to think', back: frOf(K.moment), say: frOf(K.moment) },
-      { front: 'Get a stranger\'s attention', back: frOf(K.excuseMe), say: frOf(K.excuseMe) },
-      { front: 'Tell them you are still following', back: `${frOf(K.okay)} · ${frOf(K.thereYouGo)}`, say: frOf(K.okay) },
-      { front: 'They thanked you', back: `${frOf(K.welcome)} · ${frOf(K.noProblem)}`, say: frOf(K.welcome) },
-      { front: 'One noun, three articles, three lessons', back: `${top('a1.03').fr} · ${top('a1.11').fr} · ${top('a1.29').fr}`, say: top('a1.11').fr },
-      { front: 'A habit rather than one morning', back: top('a1.25').fr, say: top('a1.25').fr },
-      { front: 'Where you are from, with its little word', back: top('a1.22').fr, say: top('a1.22').fr },
-    ],
-  },
 
   /* ══ Act 6: prove it ════════════════════════════════════════════════════ */
 
@@ -1060,138 +897,14 @@ const SECTIONS: LessonSection[] = [
     //
     // NO ROUND IS ABOUT ONE UNIT. Each names the SKILL it tests, and its five
     // questions pull from different places on purpose.
-    rounds: [
-      {
-        id: 'r1-the-kit',
-        label: 'When you are lost',
-        targets: ['err-no-repair', 'err-english'],
-        say: 'The only thing here you were not taught before today.',
-        questions: [
-          { q: 'Somebody answers you at full speed and you catch nothing. What do you say?', format: 'typeIn', accept: [frOf(K.dontUnderstand), 'je ne comprends pas'], answer: frOf(K.dontUnderstand), why: 'Say that you have not understood. It is four words, nobody minds, and it is the difference between a conversation that continues and one that quietly ends.', ref: 's03-lost' },
-          { q: 'Write the phrase that asks somebody to repeat something, formally.', format: 'typeIn', accept: [frOf(K.repeat), 'vous pouvez répéter, s\'il vous plaît ?', 'vous pouvez repeter s il vous plait'], answer: frOf(K.repeat), why: 'The formal vous, because the person you most need this with is the one you have just met. Written whole rather than as two words.', ref: 's05-repeat' },
-          { q: 'They repeated it and it was still too fast. Now what?', format: 'typeIn', accept: [frOf(K.slower), 'plus lentement, s\'il vous plaît.', 'plus lentement'], answer: frOf(K.slower), why: 'Ask for slower rather than again. People repeat at the same speed by default, so the second ask has to change what you are asking for.', ref: 's05-repeat' },
-          { q: 'Say the phrase that buys you a second while you build a sentence.', format: 'speak', target: frOf(K.moment), accept: [frOf(K.moment), 'un instant'], answer: frOf(K.moment), why: 'A different problem from not understanding, and a different phrase. Asking for repetition here gets you something you did not need.', ref: 's05-repeat' },
-          { q: 'Which of these ends the French for the rest of the conversation?', format: 'mcq', opts: [frOf(K.dontUnderstand), frOf(K.repeat), 'Sorry, I don\'t understand.', frOf(K.moment)], correct: 2, why: 'The English one. It is understood perfectly and it is the most expensive thing you can say, because the other person will helpfully stay in English from then on.', ref: 's15-errors' },
-        ],
-      },
-      {
-        id: 'r2-two-at-once',
-        label: 'Two lessons in one turn',
-        targets: ['err-one-lesson', 'err-no-repair'],
-        say: 'Every answer here needs more than one place you learned it.',
-        questions: [
-          { q: 'Somebody asks where you are from. What does the answer need besides the country?', format: 'mcq', opts: ['A number', 'An adjective', 'Nothing else', 'The right little word in front of it'], correct: 3, why: 'The preposition, and it is chosen by the article you stored when you learned the country. Two lessons, one decision, made weeks apart.', ref: 's11-oneturn' },
-          { q: 'To say a room is big you need the house lesson and which others?', format: 'mcq', opts: ['Only the colours', 'The numbers', 'The negation', 'The adjectives, and where they go'], correct: 3, why: 'The adjective lessons: which word, what shape it takes, and which side of the noun it stands on. Three decisions inside one short description.', ref: 's08-mixed' },
-          { q: 'Write the two words for the morning, with its little word.', format: 'typeIn', accept: [top('a1.25').fr, 'le matin'], answer: top('a1.25').fr, why: 'The article is what makes it mornings in general rather than one morning, which is the daily routine lesson arriving inside somebody else\'s question.', ref: 's07-sort' },
-          { q: 'Somebody asks the price. A number on its own is not an answer. Why not?', format: 'mcq', opts: ['Numbers are rude', 'It needs the thing it counts, and the word in front of that', 'It needs a verb', 'It needs to be plural'], correct: 1, why: 'A figure with nothing attached is not an answer. What makes it one is the noun it counts and whatever little word that noun takes.', ref: 's12-drill' },
-          { q: 'Fix this: « Je viens de Canada. »', format: 'errorSpot', accept: ['Je viens du Canada.', 'je viens du canada', 'Je viens du Canada'], answer: 'Je viens du Canada.', why: 'du, because Canada is the le kind and de plus le folds into du. The country lesson stored the article and this is the moment it pays.', ref: 's11-oneturn' },
-        ],
-      },
-      {
-        id: 'r3-articles',
-        label: 'The little words',
-        targets: ['err-article', 'err-one-lesson'],
-        say: 'Four lessons taught these and they arrive together.',
-        questions: [
-          { q: 'You want one cup of coffee at a counter. Which?', format: 'typeIn', accept: [top('a1.11').fr, 'un cafe'], answer: top('a1.11').fr, why: 'The indefinite one: you are introducing it and counting one of it. The definite one would mean a coffee you had both already mentioned.', ref: 's16-trap-articles' },
-          { q: 'You want some coffee, an amount nobody is counting. Which?', format: 'typeIn', accept: [top('a1.29').fr, 'du cafe'], answer: top('a1.29').fr, why: 'The one for some of something. This is where that lesson finally pays: you order some of a thing far more often than you order exactly one of it.', ref: 's16-trap-articles' },
-          { q: 'What does a negation usually do to the article behind it?', format: 'mcq', opts: ['Nothing', 'Makes it plural', 'Removes it entirely', 'Flattens it to de'], correct: 3, why: 'It flattens to de. That is the negation lesson and the article lessons in the same clause, and it is the commonest place a nearly correct sentence goes wrong.', ref: 's17-trap-shapes' },
-          { q: 'Write the word for my, feminine, in front of a noun beginning with a consonant.', format: 'typeIn', accept: ['ma'], answer: 'ma', why: 'It agrees with the thing owned and never with the owner, which is the opposite of English and the single most useful fact from the possessives lesson.', ref: 's17-trap-shapes' },
-          { q: 'Which pair means the same noun with two different little words in front?', format: 'mcq', opts: [`${top('a1.03').fr} and ${top('a1.11').fr}`, 'two unrelated nouns', 'a noun and a verb', 'a noun and an adjective'], correct: 0, why: 'One noun, taught three separate times by three units, with a different word in front each time. Choosing between them is a decision you make in the moment.', ref: 's08-mixed' },
-        ],
-      },
-      {
-        id: 'r4-time',
-        label: 'Time, and when it happened',
-        targets: ['err-time', 'err-one-lesson'],
-        say: 'Days, months, the clock and the parts of a day, together.',
-        questions: [
-          { q: 'What does the little word in front of a part of the day tell you?', format: 'mcq', opts: ['That it is formal', 'That it happens regularly', 'That there is one of them', 'That it is masculine'], correct: 1, why: 'That it repeats. le matin is mornings as a rule, exactly as le lundi was every Monday, and it is the same word doing the same job on a bigger set of nouns.', ref: 's07-sort' },
-          { q: 'You want to say you have lunch at midday. Write the two words for at midday.', format: 'typeIn', accept: ['à midi', 'a midi'], answer: 'à midi', why: 'à midi, with nothing in front of midi. It names a moment rather than a stretch of time, so there is nothing to mark as habitual.', ref: 's18-fast' },
-          { q: 'Somebody says a time on the twenty-four hour clock. Which lesson do you need?', format: 'mcq', opts: ['The months', 'The colours', 'The numbers and the clock, together', 'The weather'], correct: 2, why: 'Both, and neither alone. The number lesson gives you the figure and the clock lesson gives you the frame it sits in.', ref: 's08-mixed' },
-          { q: 'Say that you get up at six.', format: 'speak', target: 'Je me lève à six heures.', accept: ['Je me lève à six heures.', 'je me leve a six heures'], answer: 'Je me lève à six heures.', why: 'The daily routine lesson gave you the verb with its small word, and the clock lesson gave you the hour. One short sentence, two mornings of work.', ref: 's06-listen' },
-          { q: 'Which of these is NOT a way French marks something as a habit?', format: 'mcq', opts: ['tous les jours', 'the article on a part of the day', 'saying the verb twice', 'chaque matin'], correct: 2, why: 'Saying the verb twice is not a thing. The other three are all ordinary, and French will happily use two of them in one sentence.', ref: 's07-sort' },
-        ],
-      },
-      {
-        id: 'r5-describe',
-        label: 'Describing your world',
-        targets: ['err-agreement', 'err-one-lesson'],
-        say: 'Colours, adjectives, placement, the house and the body.',
-        questions: [
-          { q: 'A short common adjective like grand goes where?', format: 'mcq', opts: ['In front of the noun', 'After the noun', 'Either side, freely', 'At the end of the sentence'], correct: 0, why: 'In front. That is a small closed set; almost everything else, including every colour, goes behind the noun.', ref: 's17-trap-shapes' },
-          { q: 'And a colour?', format: 'mcq', opts: ['In front of the noun', 'Either side', 'After the noun', 'It depends on the gender'], correct: 2, why: 'Behind. The placement lesson exists because English puts every adjective in front and French does not, and colours are the clearest case.', ref: 's17-trap-shapes' },
-          { q: 'Saying something hurts needs a body word and which verb?', format: 'mcq', opts: ['être', 'aller', 'faire', 'avoir'], correct: 3, why: 'avoir. French says you HAVE a pain somewhere rather than that something IS painful, which is a frame rather than a word and is why the body lesson had to teach both.', ref: 's12-drill' },
-          { q: 'Fix this: « J\'ai une maison blanc. »', format: 'errorSpot', accept: ['J\'ai une maison blanche.', 'j ai une maison blanche', 'J\'ai une maison blanche'], answer: 'J\'ai une maison blanche.', why: 'The adjective agrees with the noun it describes. The house is the feminine kind, so the colour grows an ending, and here you can hear it as well as see it.', ref: 's17-trap-shapes' },
-          { q: 'Which two lessons does « a big green garden » need at once?', format: 'mcq', opts: ['Numbers and time', 'Adjective placement and agreement', 'Negation and questions', 'Greetings and the weather'], correct: 1, why: 'Placement puts one adjective in front and one behind, and agreement decides both endings. Two lessons, one noun phrase, and no time to think about either.', ref: 's08-mixed' },
-        ],
-      },
-      {
-        id: 'r6-asking',
-        label: 'Asking, and hearing what was asked',
-        targets: ['err-question', 'err-no-repair'],
-        say: 'The shape of the question decides the shape of the answer.',
-        questions: [
-          { q: 'You hear a question beginning with a question word rather than a yes-or-no frame. What changes?', format: 'mcq', opts: ['Nothing', 'Your answer needs information, not just oui or non', 'You must answer in the negative', 'You must repeat the question'], correct: 1, why: 'A question word wants a fact back. A yes-or-no frame can be answered with one syllable, and hearing which one arrived tells you what to build.', ref: 's08-mixed' },
-          { q: 'Write the question word for how many.', format: 'typeIn', accept: ['combien'], answer: 'combien', why: 'combien, and it is nearly always followed by de before the thing being counted, which is the question lesson and the article lessons meeting again.', ref: 's10-bank' },
-          { q: 'Somebody asks a two-part question and you caught only the first part. Best move?', format: 'mcq', opts: ['Answer the first part and say you missed the rest', 'Answer only the first part silently', 'Say oui', 'Switch to English'], correct: 0, why: 'Answer what you got and flag what you did not. Answering half in silence is how you end up agreeing to something nobody explained.', ref: 's15-errors' },
-          { q: 'Say that you do not understand, politely, with an apology in front.', format: 'speak', target: frOf(K.excuseAndLost), accept: [frOf(K.excuseAndLost), 'excusez-moi, je ne comprends pas'], answer: frOf(K.excuseAndLost), why: 'Attention first, then the problem. Two moves in one line, and it is the version that works with somebody you have never met.', ref: 's03-lost' },
-          { q: 'Which is the odd one out?', format: 'typeIn', accept: [frOf(K.welcome), 'de rien'], answer: frOf(K.welcome), why: 'The last one closes a loop politely and the other three open a repair. Reaching for the wrong group is what makes a stumble feel like an interruption.', ref: 's04-kit' },
-        ],
-      },
-      {
-        id: 'r7-numbers',
-        label: 'Counting, in use',
-        targets: ['err-number', 'err-one-lesson'],
-        say: 'Three lessons taught numbers and none of them taught a price.',
-        questions: [
-          { q: 'Which of these needs the large-number lesson rather than the small one?', format: 'mcq', opts: ['A phone number', 'A price in the hundreds', 'An age', 'A time of day'], correct: 1, why: 'Hundreds and above. The band split counting across three units because the shapes genuinely differ, and a price is where the largest one turns up first.', ref: 's12-drill' },
-          { q: 'Write the number twenty-one.', format: 'typeIn', accept: ['vingt et un', 'vingt-et-un'], answer: 'vingt et un', why: 'The one that breaks the pattern either side of it, which is why the twenty-one to a hundred lesson exists as its own unit.', ref: 's10-bank' },
-          { q: 'Somebody says a number too fast to catch. What is the fastest fix?', format: 'typeIn', accept: [frOf(K.slower), 'plus lentement'], answer: frOf(K.slower), why: 'Ask for slower. Numbers are the single most common thing a learner loses at speed, and repeating them at the same speed almost never helps.', ref: 's16-trap-articles' },
-          { q: 'How many lessons does answering "how much does that cost" actually use?', format: 'mcq', opts: ['One', 'At least three', 'Two', 'None'], correct: 1, why: 'At least three: a number, the thing being counted, and the little word in front of it. Every one of those was a separate morning.', ref: 's12-drill' },
-          { q: 'Fix this: « Je voudrais deux café. »', format: 'errorSpot', accept: ['Je voudrais deux cafés.', 'je voudrais deux cafes', 'Je voudrais deux cafés'], answer: 'Je voudrais deux cafés.', why: 'The noun goes plural behind the number. Silent on the ear and required on the page, which is the kind of thing only writing catches.', ref: 's17-trap-shapes' },
-        ],
-      },
-      {
-        id: 'r8-keeping-going',
-        label: 'Keeping them talking',
-        targets: ['err-silence', 'err-no-repair'],
-        say: 'The cheapest words in the lesson, and the ones that do the most.',
-        questions: [
-          { q: 'Why do the short agreement words matter more than ten more nouns?', format: 'mcq', opts: ['They are easier', 'They signal you are still following', 'They are more formal', 'They are shorter to write'], correct: 1, why: 'They tell the other person you are with them. Without them you sound like you are being interviewed, and people slow down or stop before you have said anything wrong.', ref: 's18-fast' },
-          { q: 'Somebody thanks you for something small. What do you say?', format: 'typeIn', accept: [frOf(K.welcome), 'de rien'], answer: frOf(K.welcome), why: 'Close the loop. It is two words and leaving it out is the sort of gap that reads as coldness rather than as a language problem.', ref: 's04-kit' },
-          { q: 'A long silence while you build a sentence reads to the other person as what?', format: 'mcq', opts: ['You are thinking carefully', 'The conversation is over', 'You are being polite', 'You disagree'], correct: 1, why: 'As the end of it. The silence feels much shorter to you than to them, and one word holds your turn while you assemble the rest.', ref: 's15-errors' },
-          { q: 'Write the one-word French for okay, as agreement.', format: 'typeIn', accept: [frOf(K.okay), 'd accord', 'daccord'], answer: frOf(K.okay), why: 'The most useful two syllables in the kit. You will say it more often than any noun you learned this band.', ref: 's04-kit' },
-          { q: 'They have just slowed down for you and you understood. Best next move?', format: 'mcq', opts: ['Ask again anyway', 'Say nothing', `${frOf(K.okay)}, then answer`, 'Apologise at length'], correct: 2, why: 'Acknowledge and carry on. The repair worked; treating it as an embarrassment is what turns a two-second stumble into an awkward exchange.', ref: 's18-fast' },
-        ],
-      },
-      {
-        id: 'r9-mixed',
-        label: 'No warning',
-        targets: ['err-one-lesson', 'err-article'],
-        say: 'These do not tell you which lesson they came from.',
-        questions: [
-          { q: 'Fix this: « Il ne a pas de voiture. »', format: 'errorSpot', accept: ['Il n\'a pas de voiture.', 'il n a pas de voiture', 'Il n\'a pas de voiture'], answer: 'Il n\'a pas de voiture.', why: 'Two lessons in one short sentence: ne shortens in front of a vowel, and the article behind the negation has already flattened to de.', ref: 's17-trap-shapes' },
-          { q: 'Which sentence uses the most separate lessons?', format: 'mcq', opts: ['Bonjour.', 'Je suis canadien.', 'Le matin, je bois un café dans la cuisine.', 'Oui.'], correct: 2, why: 'A time of day with its article, a verb, an indefinite article, a noun and a preposition of place: five units in nine words. That is what ordinary French costs.', ref: 's06-listen' },
-          { q: 'Say where you are from and how long you have been here.', format: 'speak', target: 'Je viens du Canada, depuis deux ans.', accept: ['Je viens du Canada, depuis deux ans.', 'je viens du canada depuis deux ans'], answer: 'Je viens du Canada, depuis deux ans.', why: 'A country with its preposition and a number with a time span. Three lessons, one breath, and this is the single most common thing anybody will ask you.', ref: 's20-scenario' },
-          { q: 'Write the phrase asking somebody to speak more slowly.', format: 'typeIn', accept: [frOf(K.slower), 'plus lentement s il vous plait', 'plus lentement'], answer: frOf(K.slower), why: 'Said on its own, after asking for a repetition that came back at the same speed. It is the ask that actually changes what happens.', ref: 's05-repeat' },
-          { q: 'Somebody uses two words you have never met, in an otherwise easy sentence. What is the mistake?', format: 'mcq', opts: ['Guessing and saying oui', 'Asking what they meant', 'Answering the part you understood', 'Asking them to slow down'], correct: 0, why: 'Guessing and agreeing. It is the reflex that feels least embarrassing in the moment and it is how you end up agreeing to things nobody explained.', ref: 's19-reading' },
-        ],
-      },
-      {
-        id: 'r10-the-exchange',
-        label: 'The whole thing',
-        targets: ['err-english', 'err-silence'],
-        say: 'Last round. This is the conversation, not the vocabulary.',
-        questions: [
-          { q: 'What actually ends most conversations for a learner at this level?', format: 'mcq', opts: ['Not enough vocabulary', 'Bad pronunciation', 'Having no way to say you are lost', 'Wrong genders'], correct: 2, why: 'The repair, not the vocabulary. A learner with a thousand words and no way to ask for a repetition loses the first exchange where somebody speaks quickly.', ref: 's19-reading' },
-          { q: 'A conversation changes subject four times in two minutes. What does that require of you?', format: 'mcq', opts: ['Reaching for a different lesson each time', 'Staying on one subject', 'Answering only in single words', 'Asking them to stop'], correct: 0, why: `${REFRAME} A real exchange never stays where you left it, and no role play in this whole band has ever moved off its own subject until this one.`, ref: 's20-scenario' },
-          { q: 'Say the four words that keep a lost conversation alive.', format: 'speak', target: frOf(K.dontUnderstand), accept: [frOf(K.dontUnderstand), 'je ne comprends pas'], answer: frOf(K.dontUnderstand), why: 'The whole point of this lesson in four words, and twenty-nine lessons went past without putting them on a single card.', ref: 's03-lost' },
-          { q: 'Which of these did this lesson actually teach you?', format: 'mcq', opts: ['The numbers', 'The colours', 'The house words', 'What to say when you are lost'], correct: 3, why: 'Only the last. Everything else you brought with you, and using two of them at once is the skill rather than the content.', ref: 's18-fast' },
-          { q: 'Fix this: « Excusez-moi, je comprends pas bien, vous pouvez répéter s\'il vous plaît. »', format: 'errorSpot', accept: ['Excusez-moi, je ne comprends pas. Vous pouvez répéter, s\'il vous plaît ?', 'excusez moi je ne comprends pas vous pouvez repeter s il vous plait'], answer: 'Excusez-moi, je ne comprends pas. Vous pouvez répéter, s\'il vous plaît ?', why: 'The ne belongs in written French even though speech often drops it, and the request is a question. Both halves of the repair, written the way you would write them.', ref: 's05-repeat' },
-        ],
-      },
-    ],
+    // FIFTEEN BY-UNIT ROUNDS, generated in bilan-rounds.ts from the selection.
+    // Hand-written rounds drift from the coverage rule the moment the corpus
+    // moves. These cannot: a round can only ask about rows the selector chose.
+    //
+    // They are also what keeps the 87 review rows REACHABLE after v2 cut the
+    // vocab, flashcard and review sections. Each round names its two units'
+    // six contributions, so the exam is the screen. 87 of 87, checked.
+    rounds: BILAN_ROUNDS,
   },
 
   {
@@ -1240,17 +953,17 @@ const ACTS: LessonAct[] = [
   {
     id: 'act2',
     title: 'Recognise it, whoever says it',
-    sections: ['s06-listen', 's07-sort', 's08-mixed', 's09-check', 's10-bank'],
+    sections: ['s06-listen', 's07-sort', 's09-check'],
     milestone: 'You can hear two lessons arriving in one sentence.',
-    estScreens: 30,
-    restPoints: ['s07-sort/halfway', 's09-check/halfway'],
+    estScreens: 20,
+    restPoints: ['s07-sort/halfway'],
   },
   {
     id: 'act3',
     title: 'Produce one turn',
-    sections: ['s11-oneturn', 's12-drill', 's13-speak', 's14-dictation', 's15-errors'],
+    sections: ['s12-drill', 's13-speak', 's14-dictation', 's15-errors'],
     milestone: 'You can build an answer that needs more than one morning of work.',
-    estScreens: 30,
+    estScreens: 24,
     restPoints: ['s12-drill/halfway', 's13-speak/halfway'],
   },
   {
@@ -1264,18 +977,18 @@ const ACTS: LessonAct[] = [
   {
     id: 'act5',
     title: 'Hold a long exchange',
-    sections: ['s19-reading', 's20-scenario', 's21-flash', 's22-review'],
+    sections: ['s20-scenario'],
     milestone: 'Eight turns, four changes of subject, and you stayed in it.',
-    estScreens: 34,
-    restPoints: ['s20-scenario/halfway', 's22-review/halfway'],
+    estScreens: 18,
+    restPoints: ['s20-scenario/halfway'],
   },
   {
     id: 'act6',
-    title: 'Prove it',
+    title: 'The exam',
     sections: ['s23-progress', 's24-quiz', 's25-roundup'],
     milestone: 'A1 complete.',
-    estScreens: 56,
-    restPoints: ['s24-quiz/after-r3', 's24-quiz/after-r6', 's24-quiz/after-r8'],
+    estScreens: 82,
+    restPoints: ['s24-quiz/after-r3', 's24-quiz/after-r6', 's24-quiz/after-r9', 's24-quiz/after-r12'],
   },
 ];
 
@@ -1332,15 +1045,15 @@ const DECK_TRANCHE: string[][] = [
 /* ─── Error triggers and their drills ───────────────────────────────────── */
 
 const ERROR_TRIGGERS: ErrorTrigger[] = [
-  { id: 'err-no-repair', description: 'Has no way to say they are lost, so a missed reply ends the exchange. The error twenty-nine lessons left in place.', detectOn: ['s03-lost', 's05-repeat', 's24-quiz/r1-the-kit'], drill: 'drill-repair', retest: 'retest-repair' },
-  { id: 'err-one-lesson', description: 'Answers from one lesson when the question needed two, so the answer is correct and incomplete.', detectOn: ['s08-mixed', 's11-oneturn', 's24-quiz/r2-two-at-once'], drill: 'drill-two', retest: 'retest-two' },
-  { id: 'err-article', description: 'Reaches for the wrong little word under time pressure, most often the one for a known thing where the one for some of it was needed.', detectOn: ['s16-trap-articles', 's24-quiz/r3-articles'], drill: 'drill-articles', retest: 'retest-articles' },
-  { id: 'err-time', description: 'Drops the article on a part of the day, or adds one to midi, so a habit becomes one particular day or the reverse.', detectOn: ['s07-sort', 's24-quiz/r4-time'], drill: 'drill-time', retest: 'retest-time' },
-  { id: 'err-agreement', description: 'Leaves an adjective unagreed or puts it on the wrong side of the noun. Two lessons failing together in one noun phrase.', detectOn: ['s17-trap-shapes', 's24-quiz/r5-describe'], drill: 'drill-agreement', retest: 'retest-agreement' },
-  { id: 'err-question', description: 'Answers a question word with oui, or a yes-or-no frame with a fact, because the shape of the question was not heard.', detectOn: ['s08-mixed', 's24-quiz/r6-asking'], drill: 'drill-question', retest: 'retest-question' },
-  { id: 'err-number', description: 'Produces a number with nothing attached to it, or loses one at speed and does not ask for it again.', detectOn: ['s12-drill', 's24-quiz/r7-numbers'], drill: 'drill-number', retest: 'retest-number' },
-  { id: 'err-silence', description: 'Goes quiet while assembling a sentence, which reads as the conversation being over rather than as thinking.', detectOn: ['s15-errors', 's24-quiz/r8-keeping-going'], drill: 'drill-silence', retest: 'retest-silence' },
-  { id: 'err-english', description: 'Switches to English at the first difficulty, after which the other person stays there for the rest of the conversation.', detectOn: ['s01-scene', 's15-errors', 's24-quiz/r10-the-exchange'], drill: 'drill-english', retest: 'retest-english' },
+  { id: 'err-no-repair', description: 'Has no way to say they are lost, so a missed reply ends the exchange. The error twenty-nine lessons left in place.', detectOn: ['s03-lost', 's05-repeat', 's24-quiz'], drill: 'drill-repair', retest: 'retest-repair' },
+  { id: 'err-one-lesson', description: 'Answers from one lesson when the question needed two, so the answer is correct and incomplete.', detectOn: ['s07-sort', 's12-drill', 's24-quiz'], drill: 'drill-two', retest: 'retest-two' },
+  { id: 'err-article', description: 'Reaches for the wrong little word under time pressure, most often the one for a known thing where the one for some of it was needed.', detectOn: ['s16-trap-articles', 's24-quiz'], drill: 'drill-articles', retest: 'retest-articles' },
+  { id: 'err-time', description: 'Drops the article on a part of the day, or adds one to midi, so a habit becomes one particular day or the reverse.', detectOn: ['s07-sort', 's24-quiz'], drill: 'drill-time', retest: 'retest-time' },
+  { id: 'err-agreement', description: 'Leaves an adjective unagreed or puts it on the wrong side of the noun. Two lessons failing together in one noun phrase.', detectOn: ['s17-trap-shapes', 's24-quiz'], drill: 'drill-agreement', retest: 'retest-agreement' },
+  { id: 'err-question', description: 'Answers a question word with oui, or a yes-or-no frame with a fact, because the shape of the question was not heard.', detectOn: ['s07-sort', 's24-quiz'], drill: 'drill-question', retest: 'retest-question' },
+  { id: 'err-number', description: 'Produces a number with nothing attached to it, or loses one at speed and does not ask for it again.', detectOn: ['s12-drill', 's24-quiz'], drill: 'drill-number', retest: 'retest-number' },
+  { id: 'err-silence', description: 'Goes quiet while assembling a sentence, which reads as the conversation being over rather than as thinking.', detectOn: ['s15-errors', 's24-quiz'], drill: 'drill-silence', retest: 'retest-silence' },
+  { id: 'err-english', description: 'Switches to English at the first difficulty, after which the other person stays there for the rest of the conversation.', detectOn: ['s01-scene', 's15-errors', 's24-quiz'], drill: 'drill-english', retest: 'retest-english' },
 ];
 
 const DRILLS: LessonDrill[] = [
@@ -1422,7 +1135,22 @@ export const BILAN_LESSON: Lesson = {
 
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 1,
+  // v1 shipped as an integration lesson: 25 sections, 88 scored moments, and it
+  // was verified on a device. Seeing it there, the product owner's judgement was
+  // that a band capstone should feel like an exam across lessons 1 to 29.
+  //
+  // v2 keeps act 1, because twenty-nine lessons teach production and none teaches
+  // repair, and this is the band's only remaining slot. Everything after it is
+  // assessment. Six sections are cut and the ten hand-written mixed rounds become
+  // fifteen generated by-unit rounds.
+  //
+  // The two halves of that are NOT independent. Cutting s10-bank, s21-flash and
+  // s22-review removes the only screens 87 of the 101 items lived on, and every
+  // itemId must be on a screen. A by-unit round names its own two units' six
+  // contributions, so the exam becomes the screen: 87 of 87, checked. A
+  // mixed-topic exam cannot do that, which is why reverting the rounds while
+  // keeping the cut goes red on reachability.
+  version: 2,
 
   grammarAssumed: [
     'The whole A1 band: every unit from a1.01 to a1.29 is a prerequisite in practice, and this lesson teaches none of them again',

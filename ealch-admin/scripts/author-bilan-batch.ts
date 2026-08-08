@@ -44,17 +44,17 @@ const DRY_RUN = process.argv.includes('--dry-run');
 const LESSON: Lesson = BILAN_LESSON;
 const UNIT_ID = 'a1.30';
 
-const REFRAME_APPEARANCES = 7;
-const EXPECTED_SECTIONS = 25;
+const REFRAME_APPEARANCES = 5;
+const EXPECTED_SECTIONS = 19;
 const EXPECTED_ACTS = 6;
 const EXPECTED_TRIGGERS = 9;
-const EXPECTED_ROUNDS = 10;
-const EXPECTED_QUESTIONS = 50;
+const EXPECTED_ROUNDS = 15;
+const EXPECTED_QUESTIONS = 75;
 const EXPECTED_AUTHORED = 2;
 const EXPECTED_REVIEW = 87;
 const EXPECTED_KIT_IMPORTED = 11;
 /** The target set with the product owner, against sons.09's 63 and a1.25's 37. */
-const EXPECTED_SCORED_MIN = 85;
+const EXPECTED_SCORED_MIN = 110;
 
 /** THE BINDING. The unit declares NULL, not an empty array. */
 const UNIT_THEMES_BEFORE: string[] = [];
