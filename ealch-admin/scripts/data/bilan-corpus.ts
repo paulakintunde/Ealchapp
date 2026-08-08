@@ -82,6 +82,21 @@ export const AUTHORED_ITEMS: Item[] = [
   },
 ];
 
+/** Three kit rows the dictée names that carry no `dictation` drill, so the
+ *  section would have drawn a card the renderer could not build a tile bank for.
+ *  Found by the validator rather than by eye. Added by the batch, the same way
+ *  a1.25 added voiceflash to three rows a spoken mission named.
+ *
+ *  All three are in LETTERS mode, checked through the real `dicteeMode`, so the
+ *  learner spells them rather than tapping pre-spelled tiles. That matters more
+ *  here than in an ordinary lesson: these are the phrases they will need to
+ *  produce fastest, and a tile bank tests recognition. */
+export const DRILL_ADDITIONS: { id: string; fr: string; add: string; why: string }[] = [
+  { id: 'fr.sons.expressions-utiles.038', fr: 'je ne comprends pas', add: 'dictation', why: 'The dictée names it and it is the single most useful phrase in the lesson.' },
+  { id: 'fr.sons.expressions-utiles.044', fr: 'un instant', add: 'dictation', why: 'Named by the dictée.' },
+  { id: 'fr.a1.expressions-frequentes.099', fr: 'pardon', add: 'dictation', why: 'Named by the dictée.' },
+];
+
 /** Neither authored row carries a gender and neither is a single-word noun, so
  *  a1.03's measured ending population does not move. The batch proves it through
  *  the real endingPopulation rather than trusting this sentence. */
