@@ -895,12 +895,17 @@
       "level": "a1",
       "title": "A1 Review",
       "track": "a1",
-      "lessonIds": [],
+      "lessonIds": [
+        "a1.30.l1"
+      ],
       "prereqUnitIds": [
         "a1.20",
         "a1.23",
         "a1.25",
         "a1.26"
+      ],
+      "themes": [
+        "expressions-frequentes"
       ]
     },
     {
@@ -118330,6 +118335,4028 @@
             ]
           }
         ]
+      }
+    },
+    {
+      "id": "a1.30.l1",
+      "unitId": "a1.30",
+      "seq": 1,
+      "title": "Bilan A1",
+      "level": "a1",
+      "tag": "A1 · LEÇON 30",
+      "intro": "Twenty-nine lessons handed you one thing at a time. This half hour uses them two at a time, at speed, in a conversation that will not stay on one subject, and adds the handful of phrases that stop you losing it.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "The Morning You Ran Out Of Words",
+          "frSub": "Je ne comprends pas",
+          "render": "screens",
+          "layer": "core",
+          "terms": [
+            "repairKit"
+          ],
+          "say": {
+            "text": "Twenty-nine lessons, and the sentence you needed was in none of them.",
+            "voice": "coach",
+            "timing": "onFirstVisitOnly"
+          },
+          "setting": {
+            "place": "A market stall with a queue behind you",
+            "city": "Toulouse",
+            "time": "Saturday, just after nine",
+            "ambience": "room-tone-lobby"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "A market stall in Toulouse, Saturday morning. You have done twenty-nine lessons and you are about to buy tomatoes, which you can absolutely do.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "You",
+              "fr": "Bonjour ! Un kilo de tomates, s'il vous plaît.",
+              "en": "Hello! A kilo of tomatoes, please.",
+              "stage": "Perfect. Nothing wrong with it at all.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a1-30-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "The stallholder",
+              "fr": "Et avec ceci, ce sera tout ou je vous mets aussi des courgettes ?",
+              "en": "(a long, fast, completely ordinary question)",
+              "stage": "He is friendly and he is talking at the speed people actually talk. You caught the first two words.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a1-30-scene"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "You did not understand. You have about one second. What comes out?",
+              "options": [
+                {
+                  "fr": "Sorry, I don't understand.",
+                  "en": "the words you actually have, in the wrong language",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "en-GB"
+                  }
+                },
+                {
+                  "fr": "Excusez-moi, je ne comprends pas.",
+                  "respell": "[ex-kü-zay MWAH]",
+                  "en": "four French words, and the conversation stays in French",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "Yes. And you have never been taught that sentence, in twenty-nine lessons.",
+                "breaks": "Understandable, and watch what it costs. He is not annoyed. He just switches."
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "You had a thousand words and none of the five that mattered",
+              "body": "Nothing you were taught was wrong and nothing you said was wrong. The conversation ended because you had no way to say that you were lost, which is the one thing nobody showed you how to do.",
+              "wrong": {
+                "fr": "Sorry, I don't understand.",
+                "ipa": "/ˈsɒri aɪ dəʊnt ʌndəˈstænd/",
+                "respell": "",
+                "en": "Understood, and the conversation is over"
+              },
+              "right": {
+                "fr": "Excusez-moi, je ne comprends pas.",
+                "ipa": "/ɛk.sky.ze mwa ʒə nə kɔ̃.pʁɑ̃ pa/",
+                "respell": "[zhuh nuh kohⁿ-prahⁿ PAH]",
+                "en": "Excuse me, I do not understand"
+              },
+              "coach": "One turn, more than one lesson. And the turn that keeps you in the conversation is the one nobody taught you.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "audioFirst": true,
+                "recordingId": "rec-a1-30-kit"
+              }
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "The next half hour is everything you already have, used two things at a time, plus the handful of words that stop you losing it."
+            }
+          ],
+          "closing": {
+            "size": "md",
+            "text": "One turn, more than one lesson. That is the next half hour."
+          }
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What This Half Hour Is",
+          "frSub": "Ce que vous allez faire",
+          "layer": "core",
+          "say": "Four things, and only one of them is new.",
+          "goals": [
+            {
+              "t": "Use two lessons in one turn",
+              "s": "Everything here you already have. What is new is reaching for two of them at the same time, under time pressure."
+            },
+            {
+              "t": "Say when you are lost",
+              "s": "The handful of phrases that keep a conversation alive when you have not understood. This is the new part and it is small."
+            },
+            {
+              "t": "Answer at speed",
+              "s": "Two rapid-fire rounds where the words are easy and the clock is the difficulty."
+            },
+            {
+              "t": "Hold a long exchange",
+              "s": "One conversation that crosses six units and does not stay on one subject, which is what real ones do."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s03-lost",
+          "title": "The Moment It Goes Wrong",
+          "frSub": "Quand vous perdez le fil",
+          "hint": "Four cards on the gap in your French.",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "repairKit",
+            "youAlreadyHave"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a1-30-kit"
+          },
+          "say": "It is never the vocabulary. It is always the moment after.",
+          "cards": [
+            {
+              "label": "what you have",
+              "head": "1658 things, across 29 lessons",
+              "fr": "Bonjour · huit heures · français · la porte",
+              "sub": "greetings, time, nationality, the house",
+              "body": "Four words from four different mornings, and you know all four. Nothing in the next five acts is a word you have not met."
+            },
+            {
+              "label": "what happens anyway",
+              "head": "Somebody answers at full speed",
+              "fr": "je ne comprends pas",
+              "sub": "[zhuh nuh kohn-prahn PAH]",
+              "body": "This is the sentence. It is four words, none of them hard, and no lesson in this app has ever put it on a card. That is the gap you are here to close."
+            },
+            {
+              "label": "the polite front half",
+              "head": "And the version with an apology on it",
+              "fr": "Excusez-moi, je ne comprends pas.",
+              "sub": "Excuse me, I don't understand.",
+              "body": "Get their attention, then say what is wrong. Two moves in one line, and it works with a stranger, which is when you need it most."
+            },
+            {
+              "label": "why it matters more than words",
+              "head": "A conversation ends where the repair stops",
+              "fr": "Vous pouvez répéter, s'il vous plaît ?",
+              "sub": "[voo poo-VAY ray-pay-TAY, seel voo PLEH]",
+              "body": "A learner with a thousand words and none of these loses the first exchange where somebody speaks quickly. One turn, more than one lesson."
+            }
+          ]
+        },
+        {
+          "type": "vocabThemes",
+          "id": "s04-kit",
+          "title": "The Repair Kit",
+          "frSub": "Pour continuer la conversation",
+          "layer": "core",
+          "terms": [
+            "repairKit",
+            "buyTime",
+            "keepThemGoing"
+          ],
+          "say": "Thirteen short moves, in four groups, and the groups are what each one is for.",
+          "themes": [
+            {
+              "title": "saying you are lost",
+              "cards": [
+                {
+                  "fr": "je ne comprends pas",
+                  "sub": "zhuh nuh kohn-prahn PAH · I don't understand",
+                  "en": "I don't understand"
+                },
+                {
+                  "fr": "Excusez-moi, je ne comprends pas.",
+                  "sub": "· Excuse me, I don't understand.",
+                  "en": "Excuse me, I don't understand."
+                },
+                {
+                  "fr": "je ne sais pas",
+                  "sub": "zhuh nuh seh PA · I do not know",
+                  "en": "I do not know"
+                }
+              ]
+            },
+            {
+              "title": "asking for it again",
+              "cards": [
+                {
+                  "fr": "Vous pouvez répéter, s'il vous plaît ?",
+                  "sub": "voo poo-VAY ray-pay-TAY, seel voo PLEH · Could you say that again, please?",
+                  "en": "Could you say that again, please?"
+                },
+                {
+                  "fr": "Plus lentement, s'il vous plaît.",
+                  "sub": "plü lahⁿt-MAHⁿ, seel voo PLEH · More slowly, please.",
+                  "en": "More slowly, please."
+                }
+              ]
+            },
+            {
+              "title": "buying a second, and getting attention",
+              "cards": [
+                {
+                  "fr": "un instant",
+                  "sub": "uh-nan-STAHN · one moment",
+                  "en": "one moment"
+                },
+                {
+                  "fr": "peut-être",
+                  "sub": "· maybe",
+                  "en": "maybe"
+                },
+                {
+                  "fr": "excusez-moi",
+                  "sub": "ex-kü-zay MWAH · excuse me (formal)",
+                  "en": "excuse me (formal)"
+                },
+                {
+                  "fr": "pardon",
+                  "sub": "· sorry",
+                  "en": "sorry"
+                }
+              ]
+            },
+            {
+              "title": "keeping them talking",
+              "cards": [
+                {
+                  "fr": "d'accord",
+                  "sub": "· okay",
+                  "en": "okay"
+                },
+                {
+                  "fr": "bien sûr",
+                  "sub": "· of course",
+                  "en": "of course"
+                },
+                {
+                  "fr": "voilà",
+                  "sub": "· there you go",
+                  "en": "there you go"
+                },
+                {
+                  "fr": "de rien",
+                  "sub": "· you're welcome",
+                  "en": "you're welcome"
+                },
+                {
+                  "fr": "pas de problème",
+                  "sub": "· no problem",
+                  "en": "no problem"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s05-repeat",
+          "title": "Ask Again, Then Ask Slower",
+          "frSub": "Répéter, puis ralentir",
+          "layer": "core",
+          "terms": [
+            "repairKit"
+          ],
+          "sheetId": "sheet.a1.30.kit",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a1-30-repeat"
+          },
+          "say": "Two phrases, in the order you need them. Tap a row to hear it.",
+          "cols": [
+            "what you say",
+            "what it gets you"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Vous pouvez répéter, s'il vous plaît ?",
+                "the same sentence again"
+              ],
+              "say": "Vous pouvez répéter, s'il vous plaît ?",
+              "detail": {
+                "title": "The first ask",
+                "body": "Vous pouvez répéter, s'il vous plaît ? [voo poo-VAY ray-pay-TAY, seel voo PLEH]. The formal vous, because you need this most with somebody you have never met. Nobody minds being asked this.",
+                "say": "Vous pouvez répéter, s'il vous plaît ?"
+              }
+            },
+            {
+              "cells": [
+                "Plus lentement, s'il vous plaît.",
+                "the same sentence, but slower"
+              ],
+              "say": "Plus lentement, s'il vous plaît.",
+              "detail": {
+                "title": "The second ask, when repeating was not enough",
+                "body": "Plus lentement, s'il vous plaît. [plü lahⁿt-MAHⁿ, seel voo PLEH]. People repeat at the same speed by default. This is the one that actually helps, and it is said on its own.",
+                "say": "Plus lentement, s'il vous plaît."
+              }
+            },
+            {
+              "cells": [
+                "un instant",
+                "time to build your answer"
+              ],
+              "say": "un instant",
+              "detail": {
+                "title": "When you understood and just need a moment",
+                "body": "un instant [uh-nan-STAHN]. A different problem from not understanding, and a different phrase. Using the wrong one gets you a repetition you did not need.",
+                "say": "un instant"
+              }
+            }
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s06-listen",
+          "title": "One Conversation, Six Lessons",
+          "frSub": "Écoutez",
+          "layer": "core",
+          "terms": [
+            "oneTurn"
+          ],
+          "questionsInModal": true,
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a1-30-listening"
+          },
+          "say": "Five lines. No line stays on one subject and none of the words is new.",
+          "lines": [
+            {
+              "fr": "Bonjour ! Vous habitez à Lyon ?",
+              "en": "Hello! Do you live in Lyon?"
+            },
+            {
+              "fr": "Non, je suis canadien. J'habite ici depuis deux ans.",
+              "en": "No, I am Canadian. I have lived here for two years."
+            },
+            {
+              "fr": "Et vous travaillez le matin ou le soir ?",
+              "en": "And do you work mornings or evenings?"
+            },
+            {
+              "fr": "Le matin. Je me lève à six heures, c'est difficile.",
+              "en": "Mornings. I get up at six, it is hard."
+            },
+            {
+              "fr": "Excusez-moi, je ne comprends pas.",
+              "en": "Excuse me, I don't understand."
+            }
+          ],
+          "questions": [
+            {
+              "q": "The first line uses two lessons at once. Which two?",
+              "opts": [
+                "Numbers and colours",
+                "The house and the body",
+                "A question shape and a preposition of place",
+                "Adjectives and the weather"
+              ],
+              "correct": 2,
+              "why": "A yes-or-no question wrapped around à plus a city. Two units, one line, and neither is hard on its own. That combination is the whole point of this lesson."
+            },
+            {
+              "q": "In the second line, what does the speaker give you besides their nationality?",
+              "opts": [
+                "How long they have been there",
+                "Their job",
+                "Their age",
+                "Where they were born"
+              ],
+              "correct": 0,
+              "why": "A number and a time span, sitting behind a nationality. Three units in eleven words, which is what an ordinary sentence looks like once you stop teaching one thing at a time."
+            },
+            {
+              "q": "The third line offers a choice between two times of day. Which two?",
+              "opts": [
+                "Midday and midnight",
+                "The afternoon and the night",
+                "Yesterday and tomorrow",
+                "The morning and the evening"
+              ],
+              "correct": 3,
+              "why": "le matin and the evening, both carrying the little word that makes them habits rather than one particular morning. That is a1.25's rule arriving inside somebody else's question."
+            },
+            {
+              "q": "What time does the fourth speaker get up?",
+              "opts": [
+                "Seven",
+                "Six",
+                "Midday",
+                "Eight"
+              ],
+              "correct": 1,
+              "why": "Six. The clock lesson gave you the number and the daily routine lesson gave you the verb, and the sentence needs both at once to mean anything."
+            },
+            {
+              "q": "The last line is the only one that is not about a fact. What is it doing?",
+              "opts": [
+                "Saying the speaker has not understood",
+                "Asking a new question",
+                "Ending the conversation",
+                "Agreeing"
+              ],
+              "correct": 0,
+              "why": "It is the repair move. Notice it arrives in the middle of an ordinary exchange rather than at the end, which is exactly where you will need it."
+            },
+            {
+              "q": "Across all five lines, roughly how many different lessons were used?",
+              "opts": [
+                "One",
+                "Two",
+                "Six or more",
+                "None, this is new material"
+              ],
+              "correct": 2,
+              "why": "Six or more, and not one word was new. Greetings, places, nationalities, numbers, times of day, the clock, a verb, and the repair kit. That is what an ordinary conversation costs."
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s07-sort",
+          "title": "Which Lesson Answers This?",
+          "frSub": "Où avez-vous appris ça ?",
+          "layer": "core",
+          "terms": [
+            "oneTurn",
+            "youAlreadyHave"
+          ],
+          "say": "Three groups, and a question about each. Every word here you already know.",
+          "groups": [
+            {
+              "label": "things you say about yourself",
+              "items": [
+                {
+                  "fr": "français",
+                  "itemId": "fr.a1.pays-et-nationalites.002",
+                  "en": "French"
+                },
+                {
+                  "fr": "la France",
+                  "itemId": "fr.a1.pays-et-nationalites.001",
+                  "en": "France"
+                },
+                {
+                  "fr": "canadien",
+                  "itemId": "fr.a1.pays-et-nationalites.004",
+                  "en": "Canadian"
+                },
+                {
+                  "fr": "Bonjour",
+                  "itemId": "fr.a1.salutations.001",
+                  "en": "Hello / Good morning"
+                },
+                {
+                  "fr": "Excusez-moi",
+                  "itemId": "fr.a1.salutations.014",
+                  "en": "Excuse me"
+                }
+              ],
+              "check": {
+                "q": "Somebody asks where you are from AND how long you have been here. How many lessons does answering need?",
+                "opts": [
+                  "One",
+                  "At least three",
+                  "Two",
+                  "None, it is one phrase"
+                ],
+                "correct": 1,
+                "why": "At least three: the country with its preposition, a number, and a way of saying a span of time. Each was one morning's work and the answer needs all three in one breath."
+              }
+            },
+            {
+              "label": "things you say about a day",
+              "items": [
+                {
+                  "fr": "le matin",
+                  "itemId": "fr.a1.routines.002",
+                  "en": "the morning"
+                },
+                {
+                  "fr": "le soir",
+                  "itemId": "fr.a1.routines.023",
+                  "en": "the evening"
+                },
+                {
+                  "fr": "dormir",
+                  "itemId": "fr.a1.routines.021",
+                  "en": "to sleep"
+                },
+                {
+                  "fr": "huit heures",
+                  "itemId": "fr.a1.heure-et-date.108",
+                  "en": "eight o'clock"
+                },
+                {
+                  "fr": "midi",
+                  "itemId": "fr.a1.routines.035",
+                  "en": "noon"
+                }
+              ],
+              "check": {
+                "q": "Which of these gives you a habit rather than one particular day?",
+                "opts": [
+                  "A number on its own",
+                  "A greeting",
+                  "The name of a month",
+                  "le matin, with its little word"
+                ],
+                "correct": 3,
+                "why": "le matin. The article is doing the work, exactly as the daily routine lesson said, and you need it the moment somebody asks what you usually do."
+              }
+            },
+            {
+              "label": "things you say about where you live",
+              "items": [
+                {
+                  "fr": "la porte",
+                  "itemId": "fr.a1.maison.012",
+                  "en": "the door"
+                },
+                {
+                  "fr": "le lit",
+                  "itemId": "fr.a1.maison.014",
+                  "en": "the bed"
+                },
+                {
+                  "fr": "le jardin",
+                  "itemId": "fr.a1.maison.018",
+                  "en": "the garden"
+                },
+                {
+                  "fr": "dans",
+                  "itemId": "fr.sons.mots-essentiels.013",
+                  "en": "in, inside"
+                },
+                {
+                  "fr": "sur",
+                  "itemId": "fr.sons.mots-essentiels.014",
+                  "en": "on, on top of"
+                }
+              ],
+              "check": {
+                "q": "To say something is in a room you need a place word and one more thing. What?",
+                "opts": [
+                  "A preposition, and the article that follows it",
+                  "A number",
+                  "A colour",
+                  "A verb in the past"
+                ],
+                "correct": 0,
+                "why": "A preposition and whatever article it drags along. The preposition lesson taught the word and the article lessons taught what happens behind it, and neither is any use alone."
+              }
+            },
+            {
+              "label": "and the one that is new",
+              "items": [],
+              "check": {
+                "q": "Of everything in this lesson, which part were you never taught?",
+                "opts": [
+                  "The numbers",
+                  "The times of day",
+                  "What to say when you have not understood",
+                  "The greetings"
+                ],
+                "correct": 2,
+                "why": "Twenty-nine lessons and not one of them put je ne comprends pas on a card. Everything else here you have rated on a flashcard already."
+              }
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s08-mixed",
+          "title": "Two At A Time",
+          "frSub": "Deux leçons, une phrase",
+          "hint": "Four cards, each one built from two different mornings.",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "oneTurn"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a1-30-mixed"
+          },
+          "say": "Nothing new on any of these. Only the combination is new.",
+          "cards": [
+            {
+              "label": "an article and a noun",
+              "head": "One word, three articles, three lessons",
+              "fr": "le café · un café · du café",
+              "sub": "the same noun, taught three times by three different units",
+              "body": "The three article lessons each handed you this noun with a different word in front. Ordering one means choosing between them in the moment."
+            },
+            {
+              "label": "a number and a time",
+              "head": "The clock needs two lessons to read",
+              "fr": "deux · trente · huit heures",
+              "sub": "a small number, a bigger one, and the frame they sit in",
+              "body": "Saying when you are free needs the number lessons and the clock lesson at once. Either alone gets you a figure with nothing attached to it."
+            },
+            {
+              "label": "a noun and an adjective",
+              "head": "And the adjective has to agree and sit right",
+              "fr": "noir · grand · chaud",
+              "sub": "a colour, a basic adjective, and where it goes",
+              "body": "Three lessons for one short description: which word, what shape it takes, and which side of the noun it stands on. In a real sentence all three decisions happen together."
+            },
+            {
+              "label": "a question and its answer",
+              "head": "The question shape decides the answer shape",
+              "fr": "est-ce que · combien",
+              "sub": "a yes-or-no frame, and a question word",
+              "body": "Hearing which one arrived tells you what kind of answer to build. One turn, more than one lesson."
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s09-check",
+          "title": "Spot The Second Lesson",
+          "frSub": "Repérez la deuxième leçon",
+          "layer": "core",
+          "terms": [
+            "oneTurn"
+          ],
+          "say": "Three groups. In each one the question is what ELSE the sentence needed.",
+          "groups": [
+            {
+              "label": "food, and what goes in front of it",
+              "items": [
+                {
+                  "fr": "le thé",
+                  "itemId": "fr.a1.au-restaurant.082",
+                  "en": "the tea"
+                },
+                {
+                  "fr": "la viande",
+                  "itemId": "fr.a1.cuisine.014",
+                  "en": "the meat"
+                },
+                {
+                  "fr": "la soupe",
+                  "itemId": "fr.a1.cuisine.019",
+                  "en": "the soup"
+                },
+                {
+                  "fr": "du café",
+                  "itemId": "fr.a1.cafe.151",
+                  "en": "some coffee"
+                },
+                {
+                  "fr": "du pain",
+                  "itemId": "fr.a1.cuisine.265",
+                  "en": "some bread"
+                }
+              ],
+              "check": {
+                "q": "Ordering some of something, rather than one of something, needs which lesson?",
+                "opts": [
+                  "The colours",
+                  "The numbers",
+                  "The greetings",
+                  "The one for some of something"
+                ],
+                "correct": 3,
+                "why": "The one for some of something. Food is where that lesson finally pays: you almost never order one bread, you order some, and the little word in front is the whole difference."
+              }
+            },
+            {
+              "label": "family, and whose it is",
+              "items": [
+                {
+                  "fr": "le frère",
+                  "itemId": "fr.a1.famille.003",
+                  "en": "the brother"
+                },
+                {
+                  "fr": "la sœur",
+                  "itemId": "fr.a1.famille.004",
+                  "en": "the sister"
+                },
+                {
+                  "fr": "la grand-mère",
+                  "itemId": "fr.a1.famille.021",
+                  "en": "the grandmother"
+                },
+                {
+                  "fr": "mon",
+                  "itemId": "fr.sons.mots-essentiels.093",
+                  "en": "my (masculine)"
+                },
+                {
+                  "fr": "mes",
+                  "itemId": "fr.sons.mots-essentiels.095",
+                  "en": "my (plural)"
+                }
+              ],
+              "check": {
+                "q": "Naming a relative usually needs a second lesson attached. Which?",
+                "opts": [
+                  "The weather",
+                  "The possessives",
+                  "The body",
+                  "The months"
+                ],
+                "correct": 1,
+                "why": "The possessives. You almost never say the sister, you say my sister, and the possessive lesson taught that the word changes with the thing owned rather than the owner."
+              }
+            },
+            {
+              "label": "the weather, and how you say it",
+              "items": [
+                {
+                  "fr": "il pleut",
+                  "itemId": "fr.a1.meteo.006",
+                  "en": "it rains / it is raining"
+                },
+                {
+                  "fr": "il fait beau",
+                  "itemId": "fr.a1.meteo.027",
+                  "en": "the weather is nice"
+                },
+                {
+                  "fr": "en hiver",
+                  "itemId": "fr.sons.jours-et-mois.121",
+                  "en": "in winter"
+                },
+                {
+                  "fr": "il fait chaud",
+                  "itemId": "fr.a1.meteo.029",
+                  "en": "it is hot"
+                },
+                {
+                  "fr": "avoir faim",
+                  "itemId": "fr.a1.cuisine.185",
+                  "en": "to be hungry"
+                }
+              ],
+              "check": {
+                "q": "Most weather sentences in French are built on which verb?",
+                "opts": [
+                  "être",
+                  "faire",
+                  "aller",
+                  "avoir"
+                ],
+                "correct": 2,
+                "why": "None of the three offered first. French says it MAKES hot rather than it IS hot, which is why the weather lesson had to teach a frame rather than a list of adjectives."
+              }
+            },
+            {
+              "label": "and when it all falls apart",
+              "items": [],
+              "check": {
+                "q": "You have combined two lessons, said the sentence, and understood nothing of the reply. Now what?",
+                "opts": [
+                  "Vous pouvez répéter, s'il vous plaît ?",
+                  "Repeat your own sentence louder",
+                  "Switch to English",
+                  "Say nothing and hope"
+                ],
+                "correct": 0,
+                "why": "Ask for it again. Nobody minds, it costs one short sentence, and it is the difference between a conversation that continues and one that stops."
+              }
+            }
+          ]
+        },
+        {
+          "type": "vocabThemes",
+          "id": "s10-bank",
+          "title": "Everything, Banked",
+          "frSub": "Tout ce que vous avez",
+          "layer": "core",
+          "terms": [
+            "youAlreadyHave"
+          ],
+          "say": "Every unit of the band, three words each. If one looks new, go back to the lesson that owns it.",
+          "themes": [
+            {
+              "title": "saying who you are, and counting",
+              "cards": [
+                {
+                  "fr": "Bonjour",
+                  "sub": "Hello / Good morning",
+                  "en": "Hello / Good morning"
+                },
+                {
+                  "fr": "Excusez-moi",
+                  "sub": "Excuse me",
+                  "en": "Excuse me"
+                },
+                {
+                  "fr": "Comment vous appelez-vous ?",
+                  "sub": "What is your name? (formal)",
+                  "en": "What is your name? (formal)"
+                },
+                {
+                  "fr": "deux",
+                  "sub": "two",
+                  "en": "two"
+                },
+                {
+                  "fr": "trois",
+                  "sub": "three",
+                  "en": "three"
+                },
+                {
+                  "fr": "huit",
+                  "sub": "eight",
+                  "en": "eight"
+                },
+                {
+                  "fr": "trente",
+                  "sub": "thirty",
+                  "en": "thirty"
+                },
+                {
+                  "fr": "soixante-cinq",
+                  "sub": "sixty-five",
+                  "en": "sixty-five"
+                },
+                {
+                  "fr": "vingt et un",
+                  "sub": "twenty-one",
+                  "en": "twenty-one"
+                },
+                {
+                  "fr": "deux cent cinquante",
+                  "sub": "two hundred fifty",
+                  "en": "two hundred fifty"
+                },
+                {
+                  "fr": "un million d’habitants",
+                  "sub": "a million inhabitants",
+                  "en": "a million inhabitants"
+                },
+                {
+                  "fr": "deux cents",
+                  "sub": "two hundred",
+                  "en": "two hundred"
+                },
+                {
+                  "fr": "français",
+                  "sub": "French",
+                  "en": "French"
+                },
+                {
+                  "fr": "la France",
+                  "sub": "France",
+                  "en": "France"
+                },
+                {
+                  "fr": "canadien",
+                  "sub": "Canadian",
+                  "en": "Canadian"
+                }
+              ]
+            },
+            {
+              "title": "the little words in front",
+              "cards": [
+                {
+                  "fr": "le café",
+                  "sub": "the coffee",
+                  "en": "the coffee"
+                },
+                {
+                  "fr": "la maison",
+                  "sub": "the house",
+                  "en": "the house"
+                },
+                {
+                  "fr": "la voiture",
+                  "sub": "the car",
+                  "en": "the car"
+                },
+                {
+                  "fr": "le pain",
+                  "sub": "the bread",
+                  "en": "the bread"
+                },
+                {
+                  "fr": "l'homme",
+                  "sub": "the man",
+                  "en": "the man"
+                },
+                {
+                  "fr": "l'hôtel",
+                  "sub": "the hotel",
+                  "en": "the hotel"
+                },
+                {
+                  "fr": "un café",
+                  "sub": "a coffee",
+                  "en": "a coffee"
+                },
+                {
+                  "fr": "un thé",
+                  "sub": "a tea",
+                  "en": "a tea"
+                },
+                {
+                  "fr": "des amis",
+                  "sub": "friends",
+                  "en": "friends"
+                },
+                {
+                  "fr": "du café",
+                  "sub": "some coffee",
+                  "en": "some coffee"
+                },
+                {
+                  "fr": "du pain",
+                  "sub": "some bread",
+                  "en": "some bread"
+                },
+                {
+                  "fr": "des légumes",
+                  "sub": "some vegetables",
+                  "en": "some vegetables"
+                },
+                {
+                  "fr": "mon",
+                  "sub": "my (masculine)",
+                  "en": "my (masculine)"
+                },
+                {
+                  "fr": "mes",
+                  "sub": "my (plural)",
+                  "en": "my (plural)"
+                },
+                {
+                  "fr": "ton",
+                  "sub": "your (masculine)",
+                  "en": "your (masculine)"
+                }
+              ]
+            },
+            {
+              "title": "time, weather and the day",
+              "cards": [
+                {
+                  "fr": "demain",
+                  "sub": "tomorrow",
+                  "en": "tomorrow"
+                },
+                {
+                  "fr": "tous les jours",
+                  "sub": "every day",
+                  "en": "every day"
+                },
+                {
+                  "fr": "samedi",
+                  "sub": "Saturday",
+                  "en": "Saturday"
+                },
+                {
+                  "fr": "janvier",
+                  "sub": "January",
+                  "en": "January"
+                },
+                {
+                  "fr": "février",
+                  "sub": "February",
+                  "en": "February"
+                },
+                {
+                  "fr": "mars",
+                  "sub": "March",
+                  "en": "March"
+                },
+                {
+                  "fr": "il pleut",
+                  "sub": "it rains / it is raining",
+                  "en": "it rains / it is raining"
+                },
+                {
+                  "fr": "il fait beau",
+                  "sub": "the weather is nice",
+                  "en": "the weather is nice"
+                },
+                {
+                  "fr": "en hiver",
+                  "sub": "in winter",
+                  "en": "in winter"
+                },
+                {
+                  "fr": "huit heures",
+                  "sub": "eight o'clock",
+                  "en": "eight o'clock"
+                },
+                {
+                  "fr": "midi",
+                  "sub": "noon",
+                  "en": "noon"
+                },
+                {
+                  "fr": "en retard",
+                  "sub": "late",
+                  "en": "late"
+                },
+                {
+                  "fr": "le matin",
+                  "sub": "the morning",
+                  "en": "the morning"
+                },
+                {
+                  "fr": "le soir",
+                  "sub": "the evening",
+                  "en": "the evening"
+                },
+                {
+                  "fr": "dormir",
+                  "sub": "to sleep",
+                  "en": "to sleep"
+                }
+              ]
+            },
+            {
+              "title": "describing your world",
+              "cards": [
+                {
+                  "fr": "noir",
+                  "sub": "black",
+                  "en": "black"
+                },
+                {
+                  "fr": "rouge",
+                  "sub": "red",
+                  "en": "red"
+                },
+                {
+                  "fr": "blanc",
+                  "sub": "white",
+                  "en": "white"
+                },
+                {
+                  "fr": "grand",
+                  "sub": "big, tall",
+                  "en": "big, tall"
+                },
+                {
+                  "fr": "bon",
+                  "sub": "good",
+                  "en": "good"
+                },
+                {
+                  "fr": "beau",
+                  "sub": "beautiful, handsome",
+                  "en": "beautiful, handsome"
+                },
+                {
+                  "fr": "chaud",
+                  "sub": "hot, warm",
+                  "en": "hot, warm"
+                },
+                {
+                  "fr": "nouveau",
+                  "sub": "new",
+                  "en": "new"
+                },
+                {
+                  "fr": "court",
+                  "sub": "short",
+                  "en": "short"
+                },
+                {
+                  "fr": "le frère",
+                  "sub": "the brother",
+                  "en": "the brother"
+                },
+                {
+                  "fr": "la sœur",
+                  "sub": "the sister",
+                  "en": "the sister"
+                },
+                {
+                  "fr": "la grand-mère",
+                  "sub": "the grandmother",
+                  "en": "the grandmother"
+                },
+                {
+                  "fr": "la tête",
+                  "sub": "the head",
+                  "en": "the head"
+                },
+                {
+                  "fr": "la main",
+                  "sub": "the hand",
+                  "en": "the hand"
+                },
+                {
+                  "fr": "le dos",
+                  "sub": "the back",
+                  "en": "the back"
+                },
+                {
+                  "fr": "la porte",
+                  "sub": "the door",
+                  "en": "the door"
+                },
+                {
+                  "fr": "le lit",
+                  "sub": "the bed",
+                  "en": "the bed"
+                },
+                {
+                  "fr": "le jardin",
+                  "sub": "the garden",
+                  "en": "the garden"
+                },
+                {
+                  "fr": "dans",
+                  "sub": "in, inside",
+                  "en": "in, inside"
+                },
+                {
+                  "fr": "sur",
+                  "sub": "on, on top of",
+                  "en": "on, on top of"
+                },
+                {
+                  "fr": "près de",
+                  "sub": "near, close to",
+                  "en": "near, close to"
+                },
+                {
+                  "fr": "le thé",
+                  "sub": "the tea",
+                  "en": "the tea"
+                },
+                {
+                  "fr": "la viande",
+                  "sub": "the meat",
+                  "en": "the meat"
+                },
+                {
+                  "fr": "la soupe",
+                  "sub": "the soup",
+                  "en": "the soup"
+                }
+              ]
+            },
+            {
+              "title": "verbs, questions and saying no",
+              "cards": [
+                {
+                  "fr": "Je prends un café noir.",
+                  "sub": "I'm having a black coffee.",
+                  "en": "I'm having a black coffee."
+                },
+                {
+                  "fr": "Nous allons au café ce matin.",
+                  "sub": "We are going to the café this morning.",
+                  "en": "We are going to the café this morning."
+                },
+                {
+                  "fr": "Il est au comptoir du café.",
+                  "sub": "He is at the café counter.",
+                  "en": "He is at the café counter."
+                },
+                {
+                  "fr": "Ce sont mes parents.",
+                  "sub": "These are my parents.",
+                  "en": "These are my parents."
+                },
+                {
+                  "fr": "C'est ma sœur.",
+                  "sub": "This is my sister.",
+                  "en": "This is my sister."
+                },
+                {
+                  "fr": "C'est mon collègue.",
+                  "sub": "This is my colleague.",
+                  "en": "This is my colleague."
+                },
+                {
+                  "fr": "il fait chaud",
+                  "sub": "it is hot",
+                  "en": "it is hot"
+                },
+                {
+                  "fr": "avoir faim",
+                  "sub": "to be hungry",
+                  "en": "to be hungry"
+                },
+                {
+                  "fr": "avoir faim",
+                  "sub": "to be hungry",
+                  "en": "to be hungry"
+                },
+                {
+                  "fr": "non",
+                  "sub": "no",
+                  "en": "no"
+                },
+                {
+                  "fr": "c'est pas donné",
+                  "sub": "it's not cheap",
+                  "en": "it's not cheap"
+                },
+                {
+                  "fr": "ne",
+                  "sub": "not",
+                  "en": "not"
+                },
+                {
+                  "fr": "est-ce que",
+                  "sub": "turns a statement into a yes-no question",
+                  "en": "turns a statement into a yes-no question"
+                },
+                {
+                  "fr": "si",
+                  "sub": "yes (contradicting a negative)",
+                  "en": "yes (contradicting a negative)"
+                },
+                {
+                  "fr": "peut-être",
+                  "sub": "maybe",
+                  "en": "maybe"
+                },
+                {
+                  "fr": "combien",
+                  "sub": "how much, how many",
+                  "en": "how much, how many"
+                },
+                {
+                  "fr": "quel",
+                  "sub": "which, what (masculine)",
+                  "en": "which, what (masculine)"
+                },
+                {
+                  "fr": "le train",
+                  "sub": "the train",
+                  "en": "the train"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s11-oneturn",
+          "title": "A Question, And The Turn That Answers It",
+          "frSub": "Une question, une réponse",
+          "layer": "core",
+          "terms": [
+            "oneTurn"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a1-30-mixed"
+          },
+          "say": "The question on the left, what your answer has to contain on the right.",
+          "cols": [
+            "what they ask",
+            "what your answer needs"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Vous venez d'où ?",
+                "a country, and the right little word in front"
+              ],
+              "say": "Vous venez d'où ?",
+              "detail": {
+                "title": "Two lessons",
+                "body": "The country lesson stored the article, and the article decides the preposition. You look the fact up once, when you learn the country, and never again.",
+                "say": "Je viens du Canada."
+              }
+            },
+            {
+              "cells": [
+                "Vous êtes libre quand ?",
+                "a time of day, or an hour, or both"
+              ],
+              "say": "Vous êtes libre quand ?",
+              "detail": {
+                "title": "Two lessons",
+                "body": "A part of the day carries its little word; an hour comes from the clock lesson. Answering with both is more useful than either, and costs nothing extra.",
+                "say": "le matin, vers six heures."
+              }
+            },
+            {
+              "cells": [
+                "C'est comment, chez vous ?",
+                "a room, an adjective, and agreement"
+              ],
+              "say": "C'est comment, chez vous ?",
+              "detail": {
+                "title": "Three lessons",
+                "body": "The house lesson gives the noun, the adjective lessons give the word and its shape, and the placement lesson decides which side it goes. All three at once.",
+                "say": "J'ai un grand jardin."
+              }
+            },
+            {
+              "cells": [
+                "Vous pouvez répéter, s'il vous plaît ?",
+                "nothing. This one is free"
+              ],
+              "say": "Vous pouvez répéter, s'il vous plaît ?",
+              "detail": {
+                "title": "The turn that costs you nothing",
+                "body": "Every other row needs two lessons assembled under time pressure. This one is a fixed phrase you say whole, and it buys you the time to assemble the others.",
+                "say": "Vous pouvez répéter, s'il vous plaît ?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s12-drill",
+          "title": "Build The Answer",
+          "frSub": "Construisez la réponse",
+          "layer": "core",
+          "terms": [
+            "oneTurn",
+            "repairKit"
+          ],
+          "say": "Three groups. Each question is about what an answer must contain, not about a word.",
+          "groups": [
+            {
+              "label": "numbers, when they are not on their own",
+              "items": [
+                {
+                  "fr": "deux",
+                  "itemId": "fr.a1.nombres.234",
+                  "en": "two"
+                },
+                {
+                  "fr": "trois",
+                  "itemId": "fr.sons.nombres.002",
+                  "en": "three"
+                },
+                {
+                  "fr": "huit",
+                  "itemId": "fr.sons.nombres.007",
+                  "en": "eight"
+                },
+                {
+                  "fr": "deux cent cinquante",
+                  "itemId": "fr.a1.nombres.238",
+                  "en": "two hundred fifty"
+                },
+                {
+                  "fr": "un million d’habitants",
+                  "itemId": "fr.a1.nombres.239",
+                  "en": "a million inhabitants"
+                }
+              ],
+              "check": {
+                "q": "Somebody asks the price. Your answer needs a number and what else?",
+                "opts": [
+                  "The currency, and often a little word before the thing",
+                  "A colour",
+                  "A time of day",
+                  "A nationality"
+                ],
+                "correct": 0,
+                "why": "A number alone is a figure floating in the air. What makes it an answer is the thing it is counting and the little word in front of that thing."
+              }
+            },
+            {
+              "label": "the body, and the verb it needs",
+              "items": [
+                {
+                  "fr": "la tête",
+                  "itemId": "fr.a1.corps.001",
+                  "en": "the head"
+                },
+                {
+                  "fr": "la main",
+                  "itemId": "fr.a1.corps.003",
+                  "en": "the hand"
+                },
+                {
+                  "fr": "le dos",
+                  "itemId": "fr.a1.corps.004",
+                  "en": "the back"
+                }
+              ],
+              "check": {
+                "q": "Saying something hurts needs a body word and which other lesson?",
+                "opts": [
+                  "The colours",
+                  "The months",
+                  "The verb avoir, in a fixed frame",
+                  "The greetings"
+                ],
+                "correct": 2,
+                "why": "avoir. French says you HAVE a pain somewhere rather than that something IS painful, which is the frame the body lesson had to teach alongside the words."
+              }
+            },
+            {
+              "label": "saying no",
+              "items": [
+                {
+                  "fr": "non",
+                  "itemId": "fr.sons.mots-essentiels.043",
+                  "en": "no"
+                },
+                {
+                  "fr": "c'est pas donné",
+                  "itemId": "fr.a1.argot-du-quotidien.042",
+                  "en": "it's not cheap"
+                },
+                {
+                  "fr": "ne",
+                  "itemId": "fr.sons.voyelles.182",
+                  "en": "not"
+                }
+              ],
+              "check": {
+                "q": "Negation wraps around the verb. What happens to an article behind it?",
+                "opts": [
+                  "Nothing changes",
+                  "It usually becomes de",
+                  "It disappears entirely",
+                  "It becomes plural"
+                ],
+                "correct": 1,
+                "why": "It usually flattens to de. That is the negation lesson and the article lessons arriving in the same clause, and it is the most common place a learner gets a correct sentence half right."
+              }
+            },
+            {
+              "label": "and the move that buys you time",
+              "items": [],
+              "check": {
+                "q": "You understood the question and need a second to build the answer. Which phrase?",
+                "opts": [
+                  "je ne comprends pas",
+                  "Vous pouvez répéter, s'il vous plaît ?",
+                  "Plus lentement, s'il vous plaît.",
+                  "un instant"
+                ],
+                "correct": 3,
+                "why": "un instant. The other three ask them to do something again. This one asks them to wait, which is a different problem and needs a different phrase."
+              }
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s13-speak",
+          "title": "Say The Repair Kit",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "terms": [
+            "repairKit"
+          ],
+          "say": "Seven phrases, out loud. These are the ones you need fastest, so they are the ones worth having in your mouth.",
+          "skill": "speak",
+          "itemIds": [
+            "fr.a1.expressions-frequentes.123",
+            "fr.a1.expressions-frequentes.124",
+            "fr.sons.expressions-utiles.038",
+            "fr.a1.rp-etiquette.016",
+            "fr.sons.expressions-utiles.044",
+            "fr.a1.expressions-frequentes.106",
+            "fr.a1.expressions-frequentes.122"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s14-dictation",
+          "title": "Write What You Hear",
+          "frSub": "La dictée",
+          "layer": "core",
+          "terms": [
+            "repairKit"
+          ],
+          "say": "Three phrases from the kit.",
+          "itemIds": [
+            "fr.sons.expressions-utiles.038",
+            "fr.sons.expressions-utiles.044",
+            "fr.a1.expressions-frequentes.099"
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s15-errors",
+          "title": "What Goes Wrong At Speed",
+          "frSub": "Les erreurs sous pression",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "terms": [
+            "repairKit",
+            "buyTime",
+            "oneTurn"
+          ],
+          "say": "Four, one per screen, and none of them is a vocabulary problem.",
+          "errors": [
+            {
+              "wrong": "Sorry, I don't understand.",
+              "right": "Excusez-moi, je ne comprends pas.",
+              "why": "The most expensive mistake in the band, and it is not a French mistake. One English sentence ends the French for the rest of the conversation, and usually for the rest of the day."
+            },
+            {
+              "wrong": "Vous pouvez répéter, s'il vous plaît ? ... Vous pouvez répéter, s'il vous plaît ? ... Vous pouvez répéter, s'il vous plaît ?",
+              "right": "Plus lentement, s'il vous plaît.",
+              "why": "Asking three times gets you the same sentence at the same speed three times. The second ask should change what you are asking for, and speed is usually the real problem."
+            },
+            {
+              "wrong": "(a long silence while you build the sentence)",
+              "right": "un instant",
+              "why": "The silence feels much longer to you than to them, and it reads as the conversation being over. One word keeps your turn while you think."
+            },
+            {
+              "wrong": "Answering only the first half of a two-part question",
+              "right": "Answering both, or asking which half they meant",
+              "why": "A real question often carries two lessons and you catch one. Answering half is fine; noticing you only caught half, and saying so, is what keeps it from becoming a misunderstanding."
+            }
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s16-trap-articles",
+          "title": "Fast: Which Little Word?",
+          "frSub": "Vite : quel petit mot ?",
+          "layer": "core",
+          "terms": [
+            "oneTurn"
+          ],
+          "rule": {
+            "title": "You know all of these. The clock is the difficulty",
+            "body": "Eight questions, each one a choice between little words you learned months apart. None is hard on its own. Answering without stopping to think is the whole exercise, because that is the only speed a real conversation runs at."
+          },
+          "steps": [
+            {
+              "label": "the traps",
+              "kind": "cards"
+            },
+            {
+              "label": "hear them",
+              "kind": "audio"
+            },
+            {
+              "label": "go",
+              "kind": "drill",
+              "gate": true
+            }
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a1-30-fast"
+          },
+          "cards": [
+            {
+              "promptLabel": "one of them, or some of it",
+              "promptSound": "un / du",
+              "fr": "un café · du café",
+              "ipa": "/œ̃ ka.fe/ · /dy ka.fe/",
+              "tip": "One cup, or an unspecified amount. The noun does not change and the little word does everything."
+            },
+            {
+              "promptLabel": "the one you mean, or one of many",
+              "promptSound": "le / un",
+              "fr": "le café · un café",
+              "ipa": "/lə ka.fe/ · /œ̃ ka.fe/",
+              "tip": "Already known between you, or introduced for the first time. That is the whole difference."
+            },
+            {
+              "promptLabel": "in, or on",
+              "promptSound": "dans / sur",
+              "fr": "dans · sur",
+              "ipa": "/dɑ̃/ · /syʁ/",
+              "tip": "Inside something, or resting on top of it. English blurs these more than French does."
+            },
+            {
+              "promptLabel": "a habit, or right now",
+              "promptSound": "le matin / ce matin",
+              "fr": "le matin",
+              "ipa": "/lə ma.tɛ̃/",
+              "tip": "The little word in front makes it every morning. Without it you are talking about one."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "You want one cup of coffee, ordered at a counter.",
+              "opts": [
+                "du café",
+                "un café",
+                "le café"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "You want some coffee, an amount nobody is counting.",
+              "opts": [
+                "un café",
+                "le café",
+                "du café"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "The coffee you both already know about.",
+              "opts": [
+                "le café",
+                "du café",
+                "un café"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "You do mornings, as a rule, every week.",
+              "opts": [
+                "ce matin",
+                "un matin",
+                "le matin"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "Somebody speaks and you catch nothing at all.",
+              "opts": [
+                "un instant",
+                "d'accord",
+                "voilà",
+                "je ne comprends pas"
+              ],
+              "correct": 3
+            },
+            {
+              "promptSay": "You understood, and you need three seconds.",
+              "opts": [
+                "je ne comprends pas",
+                "un instant",
+                "Plus lentement, s'il vous plaît."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "They repeated it and it was still too fast.",
+              "opts": [
+                "Vous pouvez répéter, s'il vous plaît ?",
+                "d'accord",
+                "Plus lentement, s'il vous plaît."
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "They thanked you and you want to wave it off.",
+              "opts": [
+                "de rien",
+                "je ne comprends pas",
+                "Plus lentement, s'il vous plaît."
+              ],
+              "correct": 0
+            }
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s17-trap-shapes",
+          "title": "Fast: Which Shape?",
+          "frSub": "Vite : quelle forme ?",
+          "layer": "core",
+          "terms": [
+            "oneTurn"
+          ],
+          "rule": {
+            "title": "Same words, different shape",
+            "body": "Eight more, and this time the choice is not which word but what shape it takes: agreement, placement, and what negation does to whatever is behind it. Speed again, not difficulty."
+          },
+          "steps": [
+            {
+              "label": "the traps",
+              "kind": "cards"
+            },
+            {
+              "label": "hear them",
+              "kind": "audio"
+            },
+            {
+              "label": "go",
+              "kind": "drill",
+              "gate": true
+            }
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a1-30-fast"
+          },
+          "cards": [
+            {
+              "promptLabel": "before, or after the noun",
+              "promptSound": "grand / vert",
+              "fr": "chaud · nouveau",
+              "ipa": "/ɡʁɑ̃/ · /vɛʁ/",
+              "tip": "A short common adjective goes in front. Most others, including every colour, go behind."
+            },
+            {
+              "promptLabel": "the ending that agrees",
+              "promptSound": "noir / noire",
+              "fr": "noir · rouge",
+              "ipa": "/nwaʁ/ · /nwaʁ/",
+              "tip": "Sometimes you hear the agreement and sometimes it is only on the page. Both still have to be written."
+            },
+            {
+              "promptLabel": "my, depending on the thing owned",
+              "promptSound": "mon / ma",
+              "fr": "mon · mes",
+              "ipa": "/mɔ̃/ · /ma/",
+              "tip": "It agrees with what is owned, never with who owns it. That is the opposite of English."
+            },
+            {
+              "promptLabel": "what negation does behind it",
+              "promptSound": "un → de",
+              "fr": "non · c'est pas donné",
+              "ipa": "/nə ... pa/",
+              "tip": "The article behind a negation usually flattens to de, whatever it was before."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "A big garden. Where does the adjective go?",
+              "opts": [
+                "after the noun",
+                "either side, freely",
+                "in front of the noun"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "A green door. Where does this one go?",
+              "opts": [
+                "after the noun",
+                "in front of the noun",
+                "either side, freely"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "My sister. Which form of my?",
+              "opts": [
+                "mes",
+                "mon",
+                "notre",
+                "ma"
+              ],
+              "correct": 3
+            },
+            {
+              "promptSay": "My friend, feminine, beginning with a vowel.",
+              "opts": [
+                "ma",
+                "mon",
+                "mes"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "I do not have a car. What happens to the article?",
+              "opts": [
+                "it becomes de",
+                "it stays as it was",
+                "it disappears"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Somebody speaks quickly and you catch one word.",
+              "opts": [
+                "d'accord",
+                "voilà",
+                "Plus lentement, s'il vous plaît."
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "You need their attention before you ask anything.",
+              "opts": [
+                "voilà",
+                "excusez-moi",
+                "de rien"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "They apologised for bumping into you. You are fine.",
+              "opts": [
+                "je ne comprends pas",
+                "Vous pouvez répéter, s'il vous plaît ?",
+                "Plus lentement, s'il vous plaît.",
+                "pas de problème"
+              ],
+              "correct": 3
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s18-fast",
+          "title": "Still Fast",
+          "frSub": "Encore vite",
+          "layer": "core",
+          "terms": [
+            "oneTurn",
+            "keepThemGoing"
+          ],
+          "say": "Two groups and four questions. Same speed, mixed subjects.",
+          "groups": [
+            {
+              "label": "the short words that keep them talking",
+              "items": [
+                {
+                  "fr": "d'accord",
+                  "itemId": "fr.a1.expressions-frequentes.106",
+                  "en": "okay"
+                },
+                {
+                  "fr": "bien sûr",
+                  "itemId": "fr.a1.expressions-frequentes.104",
+                  "en": "of course"
+                },
+                {
+                  "fr": "voilà",
+                  "itemId": "fr.a1.expressions-frequentes.122",
+                  "en": "there you go"
+                }
+              ],
+              "check": {
+                "q": "Why are these worth more than another ten vocabulary words?",
+                "opts": [
+                  "They are shorter",
+                  "They are formal",
+                  "They tell the other person you are still with them",
+                  "They are easier to spell"
+                ],
+                "correct": 2,
+                "why": "They signal that you are following. Without them a learner sounds like they are being interviewed, and the other person slows down or gives up before you have said anything wrong."
+              }
+            },
+            {
+              "label": "the whole band, at random",
+              "items": [
+                {
+                  "fr": "demain",
+                  "itemId": "fr.sons.jours-et-mois.026",
+                  "en": "tomorrow"
+                },
+                {
+                  "fr": "tous les jours",
+                  "itemId": "fr.sons.jours-et-mois.040",
+                  "en": "every day"
+                },
+                {
+                  "fr": "samedi",
+                  "itemId": "fr.sons.jours-et-mois.006",
+                  "en": "Saturday"
+                },
+                {
+                  "fr": "janvier",
+                  "itemId": "fr.sons.jours-et-mois.008",
+                  "en": "January"
+                },
+                {
+                  "fr": "février",
+                  "itemId": "fr.sons.jours-et-mois.009",
+                  "en": "February"
+                },
+                {
+                  "fr": "mars",
+                  "itemId": "fr.sons.jours-et-mois.010",
+                  "en": "March"
+                }
+              ],
+              "check": {
+                "q": "Days, months and weather were three separate lessons. What do they have in common in use?",
+                "opts": [
+                  "They all take the same article",
+                  "They are almost never the whole answer on their own",
+                  "They are all masculine",
+                  "They all need a number"
+                ],
+                "correct": 0,
+                "why": "None of the first three. What they share is that a real answer pins them to something else: a day to a plan, a month to a year, the weather to a place or a time."
+              }
+            },
+            {
+              "label": "and the last one",
+              "items": [],
+              "check": {
+                "q": "Which of these is the only thing in this lesson you had never met?",
+                "opts": [
+                  "The numbers",
+                  "The colours",
+                  "The house words",
+                  "The repair kit"
+                ],
+                "correct": 3,
+                "why": "The repair kit. Everything else was taught, drilled and rated. Those thirteen phrases are the capstone's own material and the reason it is not a revision sheet."
+              }
+            },
+            {
+              "label": "one more",
+              "items": [],
+              "check": {
+                "q": "You have said Vous pouvez répéter, s'il vous plaît ? and they have slowed down. What now?",
+                "opts": [
+                  "Say it again",
+                  "d'accord, and answer",
+                  "Switch to English",
+                  "Apologise"
+                ],
+                "correct": 1,
+                "why": "Acknowledge and move on. The repair worked; carrying on as though it had not is what makes a small stumble feel like a failure to both of you."
+              }
+            }
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s19-reading",
+          "title": "A Conversation That Does Not Stay Still",
+          "frSub": "Une vraie conversation",
+          "layer": "core",
+          "terms": [
+            "oneTurn",
+            "repairKit"
+          ],
+          "questionsInModal": true,
+          "say": "One passage. Tap any underlined phrase.",
+          "text": "Karim has been in Bordeaux for eight months and describes his French as \"enough to get into trouble\". He can order, he can ask directions, and he can tell anybody what he does on a Tuesday. What used to happen, he says, is that the other person would answer and he would lose the entire reply. He would smile, say « oui », and walk away with no idea what had been agreed. Then a colleague taught him four words. « je ne comprends pas » He describes the first time he used it as the moment his French actually started. Now he says « Vous pouvez répéter, s'il vous plaît ? » without embarrassment, and if the repetition is still too fast he says « Plus lentement, s'il vous plaît. » and people simply do. When he needs a second to build a sentence he says « un instant » and nobody has ever minded. He points out that none of this is vocabulary. It is knowing that a conversation you have lost is not over, and that saying so out loud is the ordinary thing to do rather than an admission of failure.",
+          "questions": [
+            {
+              "q": "What could Karim already do before the four words?",
+              "a": "Order, ask directions, and describe his routine. The producing half was fine."
+            },
+            {
+              "q": "What was actually going wrong?",
+              "a": "He lost the replies and covered it with oui, so he agreed to things he had not understood."
+            },
+            {
+              "q": "Why does he say none of this is vocabulary?",
+              "a": "Because the fix was knowing a lost conversation can be repaired and that asking is normal, not a bigger word list."
+            }
+          ],
+          "glossary": [
+            {
+              "word": "je ne comprends pas",
+              "en": "I don't understand",
+              "note": "The four words. No lesson in this app taught them before this one."
+            },
+            {
+              "word": "répéter",
+              "en": "to repeat",
+              "note": "Asked with vous pouvez in front of it, which is the formal form you need with a stranger."
+            },
+            {
+              "word": "Plus lentement",
+              "en": "more slowly",
+              "note": "The second ask. Repeating rarely helps; slowing down does."
+            },
+            {
+              "word": "un instant",
+              "en": "one moment",
+              "note": "For when you understood and just need time to build the answer."
+            }
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s20-scenario",
+          "title": "The Long One",
+          "frSub": "La conversation entière",
+          "layer": "core",
+          "say": "Eight turns, and it does not stay on one subject. That is the point.",
+          "setting": "A neighbour you half know stops you by the letterboxes. She has time and she is in no hurry.",
+          "turns": [
+            {
+              "ai": "Bonjour ! Vous êtes nouveau dans l'immeuble, non ?",
+              "en": "Hello! You are new in the building, are you not?",
+              "user": "Bonjour ! Oui, depuis deux mois.",
+              "userEn": "Hello! Yes, for two months.",
+              "alts": [
+                {
+                  "fr": "Oui, je suis nouveau.",
+                  "en": "Yes, I am new."
+                },
+                {
+                  "fr": "Bonjour ! Oui, depuis septembre.",
+                  "en": "Hello! Yes, since September."
+                }
+              ]
+            },
+            {
+              "ai": "Et vous venez d'où ?",
+              "en": "And where are you from?",
+              "user": "Je viens du Canada.",
+              "userEn": "I come from Canada.",
+              "alts": [
+                {
+                  "fr": "Je suis canadien.",
+                  "en": "I am Canadian."
+                },
+                {
+                  "fr": "Du Canada, et vous ?",
+                  "en": "From Canada, and you?"
+                }
+              ]
+            },
+            {
+              "ai": "Ah ! Et l'appartement, il est comment ?",
+              "en": "Ah! And the flat, what is it like?",
+              "user": "Il est petit, mais il y a un grand balcon.",
+              "userEn": "It is small, but there is a big balcony.",
+              "alts": [
+                {
+                  "fr": "Il est très bien, merci.",
+                  "en": "It is very good, thank you."
+                },
+                {
+                  "fr": "Petit, mais il y a de la lumière.",
+                  "en": "Small, but there is light."
+                }
+              ]
+            },
+            {
+              "ai": "Vous travaillez dans le quartier ?",
+              "en": "Do you work in the area?",
+              "user": "Oui, je travaille le matin.",
+              "userEn": "Yes, I work mornings.",
+              "alts": [
+                {
+                  "fr": "Non, je travaille à Bordeaux.",
+                  "en": "No, I work in Bordeaux."
+                },
+                {
+                  "fr": "Oui, tout près.",
+                  "en": "Yes, very close."
+                }
+              ]
+            },
+            {
+              "ai": "Le syndic passe jeudi pour les compteurs, on vous a prévenu ?",
+              "en": "(a fast sentence with two words you have never met)",
+              "user": "je ne comprends pas",
+              "userEn": "I don't understand",
+              "alts": [
+                {
+                  "fr": "Excusez-moi, je ne comprends pas.",
+                  "en": "Excuse me, I don't understand."
+                },
+                {
+                  "fr": "Vous pouvez répéter, s'il vous plaît ?",
+                  "en": "Could you say that again, please?"
+                }
+              ]
+            },
+            {
+              "ai": "Ah pardon ! Jeudi, quelqu'un vient. Pour l'eau et l'électricité.",
+              "en": "Ah sorry! Thursday, somebody is coming. For the water and the electricity.",
+              "user": "d'accord",
+              "userEn": "okay",
+              "alts": [
+                {
+                  "fr": "d'accord, merci.",
+                  "en": "Okay, thank you."
+                },
+                {
+                  "fr": "Plus lentement, s'il vous plaît.",
+                  "en": "More slowly, please."
+                }
+              ]
+            },
+            {
+              "ai": "Vous serez là jeudi matin ?",
+              "en": "Will you be there Thursday morning?",
+              "user": "Oui, je suis là le matin.",
+              "userEn": "Yes, I am there in the mornings.",
+              "alts": [
+                {
+                  "fr": "Oui, jusqu'à midi.",
+                  "en": "Yes, until midday."
+                },
+                {
+                  "fr": "Non, je travaille.",
+                  "en": "No, I am working."
+                }
+              ]
+            },
+            {
+              "ai": "Parfait. Bonne journée !",
+              "en": "Perfect. Have a good day!",
+              "user": "Merci, bonne journée !",
+              "userEn": "Thank you, have a good day!",
+              "alts": [
+                {
+                  "fr": "Merci, à bientôt !",
+                  "en": "Thank you, see you soon!"
+                },
+                {
+                  "fr": "Vous aussi, au revoir !",
+                  "en": "You too, goodbye!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "id": "s21-flash",
+          "title": "The Kit, Both Ways",
+          "frSub": "Révision rapide",
+          "layer": "core",
+          "render": "deck",
+          "say": "Thirteen cards. These are the ones worth having without thinking.",
+          "cards": [
+            {
+              "front": "I don't understand",
+              "back": "je ne comprends pas",
+              "say": "je ne comprends pas"
+            },
+            {
+              "front": "Excuse me, I don't understand.",
+              "back": "Excusez-moi, je ne comprends pas.",
+              "say": "Excusez-moi, je ne comprends pas."
+            },
+            {
+              "front": "I do not know",
+              "back": "je ne sais pas",
+              "say": "je ne sais pas"
+            },
+            {
+              "front": "one moment",
+              "back": "un instant",
+              "say": "un instant"
+            },
+            {
+              "front": "maybe",
+              "back": "peut-être",
+              "say": "peut-être"
+            },
+            {
+              "front": "excuse me (formal)",
+              "back": "excusez-moi",
+              "say": "excusez-moi"
+            },
+            {
+              "front": "sorry",
+              "back": "pardon",
+              "say": "pardon"
+            },
+            {
+              "front": "okay",
+              "back": "d'accord",
+              "say": "d'accord"
+            },
+            {
+              "front": "of course",
+              "back": "bien sûr",
+              "say": "bien sûr"
+            },
+            {
+              "front": "there you go",
+              "back": "voilà",
+              "say": "voilà"
+            },
+            {
+              "front": "you're welcome",
+              "back": "de rien",
+              "say": "de rien"
+            },
+            {
+              "front": "no problem",
+              "back": "pas de problème",
+              "say": "pas de problème"
+            },
+            {
+              "front": "Could you say that again, please?",
+              "back": "Vous pouvez répéter, s'il vous plaît ?",
+              "say": "Vous pouvez répéter, s'il vous plaît ?"
+            },
+            {
+              "front": "More slowly, please.",
+              "back": "Plus lentement, s'il vous plaît.",
+              "say": "Plus lentement, s'il vous plaît."
+            }
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s22-review",
+          "title": "Everything, Once More",
+          "frSub": "Tout, encore une fois",
+          "layer": "core",
+          "render": "deck",
+          "say": "Again, hard or easy on each.",
+          "cards": [
+            {
+              "front": "You understood nothing at all",
+              "back": "je ne comprends pas",
+              "say": "je ne comprends pas"
+            },
+            {
+              "front": "Ask for the whole thing again",
+              "back": "Vous pouvez répéter, s'il vous plaît ?",
+              "say": "Vous pouvez répéter, s'il vous plaît ?"
+            },
+            {
+              "front": "It was still too fast",
+              "back": "Plus lentement, s'il vous plaît.",
+              "say": "Plus lentement, s'il vous plaît."
+            },
+            {
+              "front": "You need a second to think",
+              "back": "un instant",
+              "say": "un instant"
+            },
+            {
+              "front": "Get a stranger's attention",
+              "back": "excusez-moi",
+              "say": "excusez-moi"
+            },
+            {
+              "front": "Tell them you are still following",
+              "back": "d'accord · voilà",
+              "say": "d'accord"
+            },
+            {
+              "front": "They thanked you",
+              "back": "de rien · pas de problème",
+              "say": "de rien"
+            },
+            {
+              "front": "One noun, three articles, three lessons",
+              "back": "le café · un café · du café",
+              "say": "un café"
+            },
+            {
+              "front": "A habit rather than one morning",
+              "back": "le matin",
+              "say": "le matin"
+            },
+            {
+              "front": "Where you are from, with its little word",
+              "back": "français",
+              "say": "français"
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s23-progress",
+          "title": "Where You Are",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "say": "One card, then ten rounds.",
+          "body": "You have used the whole band two lessons at a time, at speed, and held a conversation that changed subject four times. What is left is proving it on questions that do not tell you which lesson they came from.",
+          "stats": [
+            {
+              "k": "Units revisited",
+              "v": "29"
+            },
+            {
+              "k": "New phrases",
+              "v": "14"
+            },
+            {
+              "k": "Missions done",
+              "v": "22 of 25"
+            },
+            {
+              "k": "Exam rounds ahead",
+              "v": "10"
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s24-quiz",
+          "title": "The Exam",
+          "frSub": "L'examen",
+          "layer": "core",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "say": "Ten rounds. Miss too many in a round and you get that round's drill before the next one starts.",
+          "rounds": [
+            {
+              "id": "r1-the-kit",
+              "label": "When you are lost",
+              "targets": [
+                "err-no-repair",
+                "err-english"
+              ],
+              "say": "The only thing here you were not taught before today.",
+              "questions": [
+                {
+                  "q": "Somebody answers you at full speed and you catch nothing. What do you say?",
+                  "format": "typeIn",
+                  "accept": [
+                    "je ne comprends pas",
+                    "je ne comprends pas"
+                  ],
+                  "answer": "je ne comprends pas",
+                  "why": "Say that you have not understood. It is four words, nobody minds, and it is the difference between a conversation that continues and one that quietly ends.",
+                  "ref": "s03-lost"
+                },
+                {
+                  "q": "Write the phrase that asks somebody to repeat something, formally.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Vous pouvez répéter, s'il vous plaît ?",
+                    "vous pouvez répéter, s'il vous plaît ?",
+                    "vous pouvez repeter s il vous plait"
+                  ],
+                  "answer": "Vous pouvez répéter, s'il vous plaît ?",
+                  "why": "The formal vous, because the person you most need this with is the one you have just met. Written whole rather than as two words.",
+                  "ref": "s05-repeat"
+                },
+                {
+                  "q": "They repeated it and it was still too fast. Now what?",
+                  "format": "typeIn",
+                  "accept": [
+                    "Plus lentement, s'il vous plaît.",
+                    "plus lentement, s'il vous plaît.",
+                    "plus lentement"
+                  ],
+                  "answer": "Plus lentement, s'il vous plaît.",
+                  "why": "Ask for slower rather than again. People repeat at the same speed by default, so the second ask has to change what you are asking for.",
+                  "ref": "s05-repeat"
+                },
+                {
+                  "q": "Say the phrase that buys you a second while you build a sentence.",
+                  "format": "speak",
+                  "target": "un instant",
+                  "accept": [
+                    "un instant",
+                    "un instant"
+                  ],
+                  "answer": "un instant",
+                  "why": "A different problem from not understanding, and a different phrase. Asking for repetition here gets you something you did not need.",
+                  "ref": "s05-repeat"
+                },
+                {
+                  "q": "Which of these ends the French for the rest of the conversation?",
+                  "format": "mcq",
+                  "opts": [
+                    "je ne comprends pas",
+                    "Vous pouvez répéter, s'il vous plaît ?",
+                    "Sorry, I don't understand.",
+                    "un instant"
+                  ],
+                  "correct": 2,
+                  "why": "The English one. It is understood perfectly and it is the most expensive thing you can say, because the other person will helpfully stay in English from then on.",
+                  "ref": "s15-errors"
+                }
+              ]
+            },
+            {
+              "id": "r2-two-at-once",
+              "label": "Two lessons in one turn",
+              "targets": [
+                "err-one-lesson",
+                "err-no-repair"
+              ],
+              "say": "Every answer here needs more than one place you learned it.",
+              "questions": [
+                {
+                  "q": "Somebody asks where you are from. What does the answer need besides the country?",
+                  "format": "mcq",
+                  "opts": [
+                    "A number",
+                    "An adjective",
+                    "Nothing else",
+                    "The right little word in front of it"
+                  ],
+                  "correct": 3,
+                  "why": "The preposition, and it is chosen by the article you stored when you learned the country. Two lessons, one decision, made weeks apart.",
+                  "ref": "s11-oneturn"
+                },
+                {
+                  "q": "To say a room is big you need the house lesson and which others?",
+                  "format": "mcq",
+                  "opts": [
+                    "Only the colours",
+                    "The numbers",
+                    "The negation",
+                    "The adjectives, and where they go"
+                  ],
+                  "correct": 3,
+                  "why": "The adjective lessons: which word, what shape it takes, and which side of the noun it stands on. Three decisions inside one short description.",
+                  "ref": "s08-mixed"
+                },
+                {
+                  "q": "Write the two words for the morning, with its little word.",
+                  "format": "typeIn",
+                  "accept": [
+                    "le matin",
+                    "le matin"
+                  ],
+                  "answer": "le matin",
+                  "why": "The article is what makes it mornings in general rather than one morning, which is the daily routine lesson arriving inside somebody else's question.",
+                  "ref": "s07-sort"
+                },
+                {
+                  "q": "Somebody asks the price. A number on its own is not an answer. Why not?",
+                  "format": "mcq",
+                  "opts": [
+                    "Numbers are rude",
+                    "It needs the thing it counts, and the word in front of that",
+                    "It needs a verb",
+                    "It needs to be plural"
+                  ],
+                  "correct": 1,
+                  "why": "A figure with nothing attached is not an answer. What makes it one is the noun it counts and whatever little word that noun takes.",
+                  "ref": "s12-drill"
+                },
+                {
+                  "q": "Fix this: « Je viens de Canada. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Je viens du Canada.",
+                    "je viens du canada",
+                    "Je viens du Canada"
+                  ],
+                  "answer": "Je viens du Canada.",
+                  "why": "du, because Canada is the le kind and de plus le folds into du. The country lesson stored the article and this is the moment it pays.",
+                  "ref": "s11-oneturn"
+                }
+              ]
+            },
+            {
+              "id": "r3-articles",
+              "label": "The little words",
+              "targets": [
+                "err-article",
+                "err-one-lesson"
+              ],
+              "say": "Four lessons taught these and they arrive together.",
+              "questions": [
+                {
+                  "q": "You want one cup of coffee at a counter. Which?",
+                  "format": "typeIn",
+                  "accept": [
+                    "un café",
+                    "un cafe"
+                  ],
+                  "answer": "un café",
+                  "why": "The indefinite one: you are introducing it and counting one of it. The definite one would mean a coffee you had both already mentioned.",
+                  "ref": "s16-trap-articles"
+                },
+                {
+                  "q": "You want some coffee, an amount nobody is counting. Which?",
+                  "format": "typeIn",
+                  "accept": [
+                    "du café",
+                    "du cafe"
+                  ],
+                  "answer": "du café",
+                  "why": "The one for some of something. This is where that lesson finally pays: you order some of a thing far more often than you order exactly one of it.",
+                  "ref": "s16-trap-articles"
+                },
+                {
+                  "q": "What does a negation usually do to the article behind it?",
+                  "format": "mcq",
+                  "opts": [
+                    "Nothing",
+                    "Makes it plural",
+                    "Removes it entirely",
+                    "Flattens it to de"
+                  ],
+                  "correct": 3,
+                  "why": "It flattens to de. That is the negation lesson and the article lessons in the same clause, and it is the commonest place a nearly correct sentence goes wrong.",
+                  "ref": "s17-trap-shapes"
+                },
+                {
+                  "q": "Write the word for my, feminine, in front of a noun beginning with a consonant.",
+                  "format": "typeIn",
+                  "accept": [
+                    "ma"
+                  ],
+                  "answer": "ma",
+                  "why": "It agrees with the thing owned and never with the owner, which is the opposite of English and the single most useful fact from the possessives lesson.",
+                  "ref": "s17-trap-shapes"
+                },
+                {
+                  "q": "Which pair means the same noun with two different little words in front?",
+                  "format": "mcq",
+                  "opts": [
+                    "le café and un café",
+                    "two unrelated nouns",
+                    "a noun and a verb",
+                    "a noun and an adjective"
+                  ],
+                  "correct": 0,
+                  "why": "One noun, taught three separate times by three units, with a different word in front each time. Choosing between them is a decision you make in the moment.",
+                  "ref": "s08-mixed"
+                }
+              ]
+            },
+            {
+              "id": "r4-time",
+              "label": "Time, and when it happened",
+              "targets": [
+                "err-time",
+                "err-one-lesson"
+              ],
+              "say": "Days, months, the clock and the parts of a day, together.",
+              "questions": [
+                {
+                  "q": "What does the little word in front of a part of the day tell you?",
+                  "format": "mcq",
+                  "opts": [
+                    "That it is formal",
+                    "That it happens regularly",
+                    "That there is one of them",
+                    "That it is masculine"
+                  ],
+                  "correct": 1,
+                  "why": "That it repeats. le matin is mornings as a rule, exactly as le lundi was every Monday, and it is the same word doing the same job on a bigger set of nouns.",
+                  "ref": "s07-sort"
+                },
+                {
+                  "q": "You want to say you have lunch at midday. Write the two words for at midday.",
+                  "format": "typeIn",
+                  "accept": [
+                    "à midi",
+                    "a midi"
+                  ],
+                  "answer": "à midi",
+                  "why": "à midi, with nothing in front of midi. It names a moment rather than a stretch of time, so there is nothing to mark as habitual.",
+                  "ref": "s18-fast"
+                },
+                {
+                  "q": "Somebody says a time on the twenty-four hour clock. Which lesson do you need?",
+                  "format": "mcq",
+                  "opts": [
+                    "The months",
+                    "The colours",
+                    "The numbers and the clock, together",
+                    "The weather"
+                  ],
+                  "correct": 2,
+                  "why": "Both, and neither alone. The number lesson gives you the figure and the clock lesson gives you the frame it sits in.",
+                  "ref": "s08-mixed"
+                },
+                {
+                  "q": "Say that you get up at six.",
+                  "format": "speak",
+                  "target": "Je me lève à six heures.",
+                  "accept": [
+                    "Je me lève à six heures.",
+                    "je me leve a six heures"
+                  ],
+                  "answer": "Je me lève à six heures.",
+                  "why": "The daily routine lesson gave you the verb with its small word, and the clock lesson gave you the hour. One short sentence, two mornings of work.",
+                  "ref": "s06-listen"
+                },
+                {
+                  "q": "Which of these is NOT a way French marks something as a habit?",
+                  "format": "mcq",
+                  "opts": [
+                    "tous les jours",
+                    "the article on a part of the day",
+                    "saying the verb twice",
+                    "chaque matin"
+                  ],
+                  "correct": 2,
+                  "why": "Saying the verb twice is not a thing. The other three are all ordinary, and French will happily use two of them in one sentence.",
+                  "ref": "s07-sort"
+                }
+              ]
+            },
+            {
+              "id": "r5-describe",
+              "label": "Describing your world",
+              "targets": [
+                "err-agreement",
+                "err-one-lesson"
+              ],
+              "say": "Colours, adjectives, placement, the house and the body.",
+              "questions": [
+                {
+                  "q": "A short common adjective like grand goes where?",
+                  "format": "mcq",
+                  "opts": [
+                    "In front of the noun",
+                    "After the noun",
+                    "Either side, freely",
+                    "At the end of the sentence"
+                  ],
+                  "correct": 0,
+                  "why": "In front. That is a small closed set; almost everything else, including every colour, goes behind the noun.",
+                  "ref": "s17-trap-shapes"
+                },
+                {
+                  "q": "And a colour?",
+                  "format": "mcq",
+                  "opts": [
+                    "In front of the noun",
+                    "Either side",
+                    "After the noun",
+                    "It depends on the gender"
+                  ],
+                  "correct": 2,
+                  "why": "Behind. The placement lesson exists because English puts every adjective in front and French does not, and colours are the clearest case.",
+                  "ref": "s17-trap-shapes"
+                },
+                {
+                  "q": "Saying something hurts needs a body word and which verb?",
+                  "format": "mcq",
+                  "opts": [
+                    "être",
+                    "aller",
+                    "faire",
+                    "avoir"
+                  ],
+                  "correct": 3,
+                  "why": "avoir. French says you HAVE a pain somewhere rather than that something IS painful, which is a frame rather than a word and is why the body lesson had to teach both.",
+                  "ref": "s12-drill"
+                },
+                {
+                  "q": "Fix this: « J'ai une maison blanc. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "J'ai une maison blanche.",
+                    "j ai une maison blanche",
+                    "J'ai une maison blanche"
+                  ],
+                  "answer": "J'ai une maison blanche.",
+                  "why": "The adjective agrees with the noun it describes. The house is the feminine kind, so the colour grows an ending, and here you can hear it as well as see it.",
+                  "ref": "s17-trap-shapes"
+                },
+                {
+                  "q": "Which two lessons does « a big green garden » need at once?",
+                  "format": "mcq",
+                  "opts": [
+                    "Numbers and time",
+                    "Adjective placement and agreement",
+                    "Negation and questions",
+                    "Greetings and the weather"
+                  ],
+                  "correct": 1,
+                  "why": "Placement puts one adjective in front and one behind, and agreement decides both endings. Two lessons, one noun phrase, and no time to think about either.",
+                  "ref": "s08-mixed"
+                }
+              ]
+            },
+            {
+              "id": "r6-asking",
+              "label": "Asking, and hearing what was asked",
+              "targets": [
+                "err-question",
+                "err-no-repair"
+              ],
+              "say": "The shape of the question decides the shape of the answer.",
+              "questions": [
+                {
+                  "q": "You hear a question beginning with a question word rather than a yes-or-no frame. What changes?",
+                  "format": "mcq",
+                  "opts": [
+                    "Nothing",
+                    "Your answer needs information, not just oui or non",
+                    "You must answer in the negative",
+                    "You must repeat the question"
+                  ],
+                  "correct": 1,
+                  "why": "A question word wants a fact back. A yes-or-no frame can be answered with one syllable, and hearing which one arrived tells you what to build.",
+                  "ref": "s08-mixed"
+                },
+                {
+                  "q": "Write the question word for how many.",
+                  "format": "typeIn",
+                  "accept": [
+                    "combien"
+                  ],
+                  "answer": "combien",
+                  "why": "combien, and it is nearly always followed by de before the thing being counted, which is the question lesson and the article lessons meeting again.",
+                  "ref": "s10-bank"
+                },
+                {
+                  "q": "Somebody asks a two-part question and you caught only the first part. Best move?",
+                  "format": "mcq",
+                  "opts": [
+                    "Answer the first part and say you missed the rest",
+                    "Answer only the first part silently",
+                    "Say oui",
+                    "Switch to English"
+                  ],
+                  "correct": 0,
+                  "why": "Answer what you got and flag what you did not. Answering half in silence is how you end up agreeing to something nobody explained.",
+                  "ref": "s15-errors"
+                },
+                {
+                  "q": "Say that you do not understand, politely, with an apology in front.",
+                  "format": "speak",
+                  "target": "Excusez-moi, je ne comprends pas.",
+                  "accept": [
+                    "Excusez-moi, je ne comprends pas.",
+                    "excusez-moi, je ne comprends pas"
+                  ],
+                  "answer": "Excusez-moi, je ne comprends pas.",
+                  "why": "Attention first, then the problem. Two moves in one line, and it is the version that works with somebody you have never met.",
+                  "ref": "s03-lost"
+                },
+                {
+                  "q": "Which is the odd one out?",
+                  "format": "typeIn",
+                  "accept": [
+                    "de rien",
+                    "de rien"
+                  ],
+                  "answer": "de rien",
+                  "why": "The last one closes a loop politely and the other three open a repair. Reaching for the wrong group is what makes a stumble feel like an interruption.",
+                  "ref": "s04-kit"
+                }
+              ]
+            },
+            {
+              "id": "r7-numbers",
+              "label": "Counting, in use",
+              "targets": [
+                "err-number",
+                "err-one-lesson"
+              ],
+              "say": "Three lessons taught numbers and none of them taught a price.",
+              "questions": [
+                {
+                  "q": "Which of these needs the large-number lesson rather than the small one?",
+                  "format": "mcq",
+                  "opts": [
+                    "A phone number",
+                    "A price in the hundreds",
+                    "An age",
+                    "A time of day"
+                  ],
+                  "correct": 1,
+                  "why": "Hundreds and above. The band split counting across three units because the shapes genuinely differ, and a price is where the largest one turns up first.",
+                  "ref": "s12-drill"
+                },
+                {
+                  "q": "Write the number twenty-one.",
+                  "format": "typeIn",
+                  "accept": [
+                    "vingt et un",
+                    "vingt-et-un"
+                  ],
+                  "answer": "vingt et un",
+                  "why": "The one that breaks the pattern either side of it, which is why the twenty-one to a hundred lesson exists as its own unit.",
+                  "ref": "s10-bank"
+                },
+                {
+                  "q": "Somebody says a number too fast to catch. What is the fastest fix?",
+                  "format": "typeIn",
+                  "accept": [
+                    "Plus lentement, s'il vous plaît.",
+                    "plus lentement"
+                  ],
+                  "answer": "Plus lentement, s'il vous plaît.",
+                  "why": "Ask for slower. Numbers are the single most common thing a learner loses at speed, and repeating them at the same speed almost never helps.",
+                  "ref": "s16-trap-articles"
+                },
+                {
+                  "q": "How many lessons does answering \"how much does that cost\" actually use?",
+                  "format": "mcq",
+                  "opts": [
+                    "One",
+                    "At least three",
+                    "Two",
+                    "None"
+                  ],
+                  "correct": 1,
+                  "why": "At least three: a number, the thing being counted, and the little word in front of it. Every one of those was a separate morning.",
+                  "ref": "s12-drill"
+                },
+                {
+                  "q": "Fix this: « Je voudrais deux café. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Je voudrais deux cafés.",
+                    "je voudrais deux cafes",
+                    "Je voudrais deux cafés"
+                  ],
+                  "answer": "Je voudrais deux cafés.",
+                  "why": "The noun goes plural behind the number. Silent on the ear and required on the page, which is the kind of thing only writing catches.",
+                  "ref": "s17-trap-shapes"
+                }
+              ]
+            },
+            {
+              "id": "r8-keeping-going",
+              "label": "Keeping them talking",
+              "targets": [
+                "err-silence",
+                "err-no-repair"
+              ],
+              "say": "The cheapest words in the lesson, and the ones that do the most.",
+              "questions": [
+                {
+                  "q": "Why do the short agreement words matter more than ten more nouns?",
+                  "format": "mcq",
+                  "opts": [
+                    "They are easier",
+                    "They signal you are still following",
+                    "They are more formal",
+                    "They are shorter to write"
+                  ],
+                  "correct": 1,
+                  "why": "They tell the other person you are with them. Without them you sound like you are being interviewed, and people slow down or stop before you have said anything wrong.",
+                  "ref": "s18-fast"
+                },
+                {
+                  "q": "Somebody thanks you for something small. What do you say?",
+                  "format": "typeIn",
+                  "accept": [
+                    "de rien",
+                    "de rien"
+                  ],
+                  "answer": "de rien",
+                  "why": "Close the loop. It is two words and leaving it out is the sort of gap that reads as coldness rather than as a language problem.",
+                  "ref": "s04-kit"
+                },
+                {
+                  "q": "A long silence while you build a sentence reads to the other person as what?",
+                  "format": "mcq",
+                  "opts": [
+                    "You are thinking carefully",
+                    "The conversation is over",
+                    "You are being polite",
+                    "You disagree"
+                  ],
+                  "correct": 1,
+                  "why": "As the end of it. The silence feels much shorter to you than to them, and one word holds your turn while you assemble the rest.",
+                  "ref": "s15-errors"
+                },
+                {
+                  "q": "Write the one-word French for okay, as agreement.",
+                  "format": "typeIn",
+                  "accept": [
+                    "d'accord",
+                    "d accord",
+                    "daccord"
+                  ],
+                  "answer": "d'accord",
+                  "why": "The most useful two syllables in the kit. You will say it more often than any noun you learned this band.",
+                  "ref": "s04-kit"
+                },
+                {
+                  "q": "They have just slowed down for you and you understood. Best next move?",
+                  "format": "mcq",
+                  "opts": [
+                    "Ask again anyway",
+                    "Say nothing",
+                    "d'accord, then answer",
+                    "Apologise at length"
+                  ],
+                  "correct": 2,
+                  "why": "Acknowledge and carry on. The repair worked; treating it as an embarrassment is what turns a two-second stumble into an awkward exchange.",
+                  "ref": "s18-fast"
+                }
+              ]
+            },
+            {
+              "id": "r9-mixed",
+              "label": "No warning",
+              "targets": [
+                "err-one-lesson",
+                "err-article"
+              ],
+              "say": "These do not tell you which lesson they came from.",
+              "questions": [
+                {
+                  "q": "Fix this: « Il ne a pas de voiture. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Il n'a pas de voiture.",
+                    "il n a pas de voiture",
+                    "Il n'a pas de voiture"
+                  ],
+                  "answer": "Il n'a pas de voiture.",
+                  "why": "Two lessons in one short sentence: ne shortens in front of a vowel, and the article behind the negation has already flattened to de.",
+                  "ref": "s17-trap-shapes"
+                },
+                {
+                  "q": "Which sentence uses the most separate lessons?",
+                  "format": "mcq",
+                  "opts": [
+                    "Bonjour.",
+                    "Je suis canadien.",
+                    "Le matin, je bois un café dans la cuisine.",
+                    "Oui."
+                  ],
+                  "correct": 2,
+                  "why": "A time of day with its article, a verb, an indefinite article, a noun and a preposition of place: five units in nine words. That is what ordinary French costs.",
+                  "ref": "s06-listen"
+                },
+                {
+                  "q": "Say where you are from and how long you have been here.",
+                  "format": "speak",
+                  "target": "Je viens du Canada, depuis deux ans.",
+                  "accept": [
+                    "Je viens du Canada, depuis deux ans.",
+                    "je viens du canada depuis deux ans"
+                  ],
+                  "answer": "Je viens du Canada, depuis deux ans.",
+                  "why": "A country with its preposition and a number with a time span. Three lessons, one breath, and this is the single most common thing anybody will ask you.",
+                  "ref": "s20-scenario"
+                },
+                {
+                  "q": "Write the phrase asking somebody to speak more slowly.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Plus lentement, s'il vous plaît.",
+                    "plus lentement s il vous plait",
+                    "plus lentement"
+                  ],
+                  "answer": "Plus lentement, s'il vous plaît.",
+                  "why": "Said on its own, after asking for a repetition that came back at the same speed. It is the ask that actually changes what happens.",
+                  "ref": "s05-repeat"
+                },
+                {
+                  "q": "Somebody uses two words you have never met, in an otherwise easy sentence. What is the mistake?",
+                  "format": "mcq",
+                  "opts": [
+                    "Guessing and saying oui",
+                    "Asking what they meant",
+                    "Answering the part you understood",
+                    "Asking them to slow down"
+                  ],
+                  "correct": 0,
+                  "why": "Guessing and agreeing. It is the reflex that feels least embarrassing in the moment and it is how you end up agreeing to things nobody explained.",
+                  "ref": "s19-reading"
+                }
+              ]
+            },
+            {
+              "id": "r10-the-exchange",
+              "label": "The whole thing",
+              "targets": [
+                "err-english",
+                "err-silence"
+              ],
+              "say": "Last round. This is the conversation, not the vocabulary.",
+              "questions": [
+                {
+                  "q": "What actually ends most conversations for a learner at this level?",
+                  "format": "mcq",
+                  "opts": [
+                    "Not enough vocabulary",
+                    "Bad pronunciation",
+                    "Having no way to say you are lost",
+                    "Wrong genders"
+                  ],
+                  "correct": 2,
+                  "why": "The repair, not the vocabulary. A learner with a thousand words and no way to ask for a repetition loses the first exchange where somebody speaks quickly.",
+                  "ref": "s19-reading"
+                },
+                {
+                  "q": "A conversation changes subject four times in two minutes. What does that require of you?",
+                  "format": "mcq",
+                  "opts": [
+                    "Reaching for a different lesson each time",
+                    "Staying on one subject",
+                    "Answering only in single words",
+                    "Asking them to stop"
+                  ],
+                  "correct": 0,
+                  "why": "One turn, more than one lesson. A real exchange never stays where you left it, and no role play in this whole band has ever moved off its own subject until this one.",
+                  "ref": "s20-scenario"
+                },
+                {
+                  "q": "Say the four words that keep a lost conversation alive.",
+                  "format": "speak",
+                  "target": "je ne comprends pas",
+                  "accept": [
+                    "je ne comprends pas",
+                    "je ne comprends pas"
+                  ],
+                  "answer": "je ne comprends pas",
+                  "why": "The whole point of this lesson in four words, and twenty-nine lessons went past without putting them on a single card.",
+                  "ref": "s03-lost"
+                },
+                {
+                  "q": "Which of these did this lesson actually teach you?",
+                  "format": "mcq",
+                  "opts": [
+                    "The numbers",
+                    "The colours",
+                    "The house words",
+                    "What to say when you are lost"
+                  ],
+                  "correct": 3,
+                  "why": "Only the last. Everything else you brought with you, and using two of them at once is the skill rather than the content.",
+                  "ref": "s18-fast"
+                },
+                {
+                  "q": "Fix this: « Excusez-moi, je comprends pas bien, vous pouvez répéter s'il vous plaît. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Excusez-moi, je ne comprends pas. Vous pouvez répéter, s'il vous plaît ?",
+                    "excusez moi je ne comprends pas vous pouvez repeter s il vous plait"
+                  ],
+                  "answer": "Excusez-moi, je ne comprends pas. Vous pouvez répéter, s'il vous plaît ?",
+                  "why": "The ne belongs in written French even though speech often drops it, and the request is a question. Both halves of the repair, written the way you would write them.",
+                  "ref": "s05-repeat"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s25-roundup",
+          "title": "That Is A1",
+          "frSub": "C'est fini",
+          "say": "Four things, and then what comes next.",
+          "body": "You have finished the A1 band. Across twenty-nine lessons you were handed one thing at a time, and in this half hour you used them two at a time, at speed, in a conversation that would not stay on one subject. That is the difference between knowing French and having French, and it is not a difference in vocabulary. The part that was genuinely new here is small enough to write on a hand: what to say when you have not understood. Keep those thirteen phrases closer than any noun you learned this band, because they are what stop a conversation ending and they are the reason the next one goes better than the last.",
+          "points": [
+            "One turn, more than one lesson. No real answer comes from a single lesson.",
+            "When you are lost, say so. Excusez-moi, je ne comprends pas. Nobody minds and it costs you nothing.",
+            "If a repetition comes back at the same speed, ask for slower rather than for again.",
+            "The short words that mean carry on are cheaper than vocabulary and do more work than any of it."
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.a1.salutations.001",
+        "fr.a1.salutations.014",
+        "fr.a1.salutations.018",
+        "fr.a1.nombres.234",
+        "fr.sons.nombres.002",
+        "fr.sons.nombres.007",
+        "fr.sons.nombres.022",
+        "fr.a1.nombres.012",
+        "fr.sons.nombres.020",
+        "fr.a1.nombres.238",
+        "fr.a1.nombres.239",
+        "fr.sons.nombres.034",
+        "fr.a1.routines.103",
+        "fr.a1.maison.001",
+        "fr.a1.deplacements.018",
+        "fr.a1.cuisine.002",
+        "fr.sons.elision.012",
+        "fr.sons.elision.015",
+        "fr.a1.cafe.009",
+        "fr.a1.cafe.010",
+        "fr.a1.famille.219",
+        "fr.a1.cafe.151",
+        "fr.a1.cuisine.265",
+        "fr.a1.expressions-de-quantite.068",
+        "fr.a1.cafe.088",
+        "fr.a1.cafe.090",
+        "fr.a1.cafe.156",
+        "fr.a1.metiers.259",
+        "fr.a1.metiers.257",
+        "fr.a1.metiers.258",
+        "fr.a1.meteo.029",
+        "fr.a1.cuisine.185",
+        "fr.a1.emotions.012",
+        "fr.sons.jours-et-mois.026",
+        "fr.sons.jours-et-mois.040",
+        "fr.sons.jours-et-mois.006",
+        "fr.sons.jours-et-mois.008",
+        "fr.sons.jours-et-mois.009",
+        "fr.sons.jours-et-mois.010",
+        "fr.a1.meteo.006",
+        "fr.a1.meteo.027",
+        "fr.sons.jours-et-mois.121",
+        "fr.a1.heure-et-date.108",
+        "fr.a1.routines.035",
+        "fr.a1.deplacements.058",
+        "fr.sons.couleurs.005",
+        "fr.sons.couleurs.001",
+        "fr.sons.couleurs.006",
+        "fr.sons.adjectifs-essentiels.001",
+        "fr.sons.adjectifs-essentiels.003",
+        "fr.sons.adjectifs-essentiels.005",
+        "fr.sons.adjectifs-essentiels.016",
+        "fr.sons.adjectifs-essentiels.007",
+        "fr.sons.adjectifs-essentiels.011",
+        "fr.a1.famille.003",
+        "fr.a1.famille.004",
+        "fr.a1.famille.021",
+        "fr.sons.mots-essentiels.093",
+        "fr.sons.mots-essentiels.095",
+        "fr.sons.mots-essentiels.096",
+        "fr.sons.mots-essentiels.043",
+        "fr.a1.argot-du-quotidien.042",
+        "fr.sons.voyelles.182",
+        "fr.sons.questions.014",
+        "fr.sons.argot-de-base.037",
+        "fr.sons.expressions-utiles.051",
+        "fr.sons.questions.008",
+        "fr.sons.questions.010",
+        "fr.a1.deplacements.001",
+        "fr.sons.mots-essentiels.013",
+        "fr.sons.mots-essentiels.014",
+        "fr.sons.mots-essentiels.030",
+        "fr.a1.pays-et-nationalites.002",
+        "fr.a1.pays-et-nationalites.001",
+        "fr.a1.pays-et-nationalites.004",
+        "fr.a1.au-restaurant.082",
+        "fr.a1.cuisine.014",
+        "fr.a1.cuisine.019",
+        "fr.a1.corps.001",
+        "fr.a1.corps.003",
+        "fr.a1.corps.004",
+        "fr.a1.routines.002",
+        "fr.a1.routines.023",
+        "fr.a1.routines.021",
+        "fr.a1.maison.012",
+        "fr.a1.maison.014",
+        "fr.a1.maison.018",
+        "fr.sons.elision.033",
+        "fr.sons.expressions-utiles.038",
+        "fr.a1.expressions-frequentes.079",
+        "fr.sons.expressions-utiles.044",
+        "fr.a1.expressions-frequentes.118",
+        "fr.a1.rp-etiquette.016",
+        "fr.a1.expressions-frequentes.099",
+        "fr.a1.expressions-frequentes.106",
+        "fr.a1.expressions-frequentes.104",
+        "fr.a1.expressions-frequentes.122",
+        "fr.a1.expressions-frequentes.100",
+        "fr.a1.expressions-frequentes.105",
+        "fr.a1.expressions-frequentes.123",
+        "fr.a1.expressions-frequentes.124"
+      ],
+      "version": 1,
+      "grammarAssumed": [
+        "The whole A1 band: every unit from a1.01 to a1.29 is a prerequisite in practice, and this lesson teaches none of them again"
+      ],
+      "grammarIntroduced": [
+        "Conversational repair as a category: signalling non-comprehension, requesting repetition, requesting reduced speed, and holding the floor",
+        "Combining two or more previously separate units inside a single conversational turn"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "A1 Review",
+        "subFr": "Bilan A1",
+        "introFr": "Tout ce que vous savez, deux choses à la fois, plus ce qu'il faut dire quand vous êtes perdu.",
+        "minutes": 34,
+        "difficulty": 3,
+        "glyph": "🏁",
+        "screens": 200
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "What you have, and the one thing you do not",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-lost",
+            "s04-kit",
+            "s05-repeat"
+          ],
+          "milestone": "You have the thirteen phrases nobody taught you.",
+          "estScreens": 28,
+          "restPoints": [
+            "s01-scene/after-break",
+            "s04-kit/halfway"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Recognise it, whoever says it",
+          "sections": [
+            "s06-listen",
+            "s07-sort",
+            "s08-mixed",
+            "s09-check",
+            "s10-bank"
+          ],
+          "milestone": "You can hear two lessons arriving in one sentence.",
+          "estScreens": 30,
+          "restPoints": [
+            "s07-sort/halfway",
+            "s09-check/halfway"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "Produce one turn",
+          "sections": [
+            "s11-oneturn",
+            "s12-drill",
+            "s13-speak",
+            "s14-dictation",
+            "s15-errors"
+          ],
+          "milestone": "You can build an answer that needs more than one morning of work.",
+          "estScreens": 30,
+          "restPoints": [
+            "s12-drill/halfway",
+            "s13-speak/halfway"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "Under pressure",
+          "sections": [
+            "s16-trap-articles",
+            "s17-trap-shapes",
+            "s18-fast"
+          ],
+          "milestone": "Sixteen questions at speed, and the words were never the difficulty.",
+          "estScreens": 22,
+          "restPoints": [
+            "s16-trap-articles/halfway",
+            "s17-trap-shapes/halfway"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Hold a long exchange",
+          "sections": [
+            "s19-reading",
+            "s20-scenario",
+            "s21-flash",
+            "s22-review"
+          ],
+          "milestone": "Eight turns, four changes of subject, and you stayed in it.",
+          "estScreens": 34,
+          "restPoints": [
+            "s20-scenario/halfway",
+            "s22-review/halfway"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s23-progress",
+            "s24-quiz",
+            "s25-roundup"
+          ],
+          "milestone": "A1 complete.",
+          "estScreens": 56,
+          "restPoints": [
+            "s24-quiz/after-r3",
+            "s24-quiz/after-r6",
+            "s24-quiz/after-r8"
+          ]
+        }
+      ],
+      "reframe": "One turn, more than one lesson.",
+      "errorTriggers": [
+        {
+          "id": "err-no-repair",
+          "description": "Has no way to say they are lost, so a missed reply ends the exchange. The error twenty-nine lessons left in place.",
+          "detectOn": [
+            "s03-lost",
+            "s05-repeat",
+            "s24-quiz/r1-the-kit"
+          ],
+          "drill": "drill-repair",
+          "retest": "retest-repair"
+        },
+        {
+          "id": "err-one-lesson",
+          "description": "Answers from one lesson when the question needed two, so the answer is correct and incomplete.",
+          "detectOn": [
+            "s08-mixed",
+            "s11-oneturn",
+            "s24-quiz/r2-two-at-once"
+          ],
+          "drill": "drill-two",
+          "retest": "retest-two"
+        },
+        {
+          "id": "err-article",
+          "description": "Reaches for the wrong little word under time pressure, most often the one for a known thing where the one for some of it was needed.",
+          "detectOn": [
+            "s16-trap-articles",
+            "s24-quiz/r3-articles"
+          ],
+          "drill": "drill-articles",
+          "retest": "retest-articles"
+        },
+        {
+          "id": "err-time",
+          "description": "Drops the article on a part of the day, or adds one to midi, so a habit becomes one particular day or the reverse.",
+          "detectOn": [
+            "s07-sort",
+            "s24-quiz/r4-time"
+          ],
+          "drill": "drill-time",
+          "retest": "retest-time"
+        },
+        {
+          "id": "err-agreement",
+          "description": "Leaves an adjective unagreed or puts it on the wrong side of the noun. Two lessons failing together in one noun phrase.",
+          "detectOn": [
+            "s17-trap-shapes",
+            "s24-quiz/r5-describe"
+          ],
+          "drill": "drill-agreement",
+          "retest": "retest-agreement"
+        },
+        {
+          "id": "err-question",
+          "description": "Answers a question word with oui, or a yes-or-no frame with a fact, because the shape of the question was not heard.",
+          "detectOn": [
+            "s08-mixed",
+            "s24-quiz/r6-asking"
+          ],
+          "drill": "drill-question",
+          "retest": "retest-question"
+        },
+        {
+          "id": "err-number",
+          "description": "Produces a number with nothing attached to it, or loses one at speed and does not ask for it again.",
+          "detectOn": [
+            "s12-drill",
+            "s24-quiz/r7-numbers"
+          ],
+          "drill": "drill-number",
+          "retest": "retest-number"
+        },
+        {
+          "id": "err-silence",
+          "description": "Goes quiet while assembling a sentence, which reads as the conversation being over rather than as thinking.",
+          "detectOn": [
+            "s15-errors",
+            "s24-quiz/r8-keeping-going"
+          ],
+          "drill": "drill-silence",
+          "retest": "retest-silence"
+        },
+        {
+          "id": "err-english",
+          "description": "Switches to English at the first difficulty, after which the other person stays there for the rest of the conversation.",
+          "detectOn": [
+            "s01-scene",
+            "s15-errors",
+            "s24-quiz/r10-the-exchange"
+          ],
+          "drill": "drill-english",
+          "retest": "retest-english"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-repair",
+          "title": "When you are lost",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "you understood nothing",
+              "je ne comprends pas"
+            ],
+            [
+              "ask for it again",
+              "Vous pouvez répéter, s'il vous plaît ?"
+            ],
+            [
+              "still too fast",
+              "Plus lentement, s'il vous plaît."
+            ],
+            [
+              "you need a second",
+              "un instant"
+            ],
+            [
+              "get their attention first",
+              "excusez-moi"
+            ]
+          ],
+          "coach": "Five moves and they are not interchangeable. Not understanding, needing it slower, and needing a moment are three different problems with three different phrases."
+        },
+        {
+          "id": "retest-repair",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "You caught nothing at all. Which?",
+          "opts": [
+            "un instant",
+            "je ne comprends pas",
+            "d'accord"
+          ],
+          "correct": 1,
+          "why": "Say you have not understood. The other two answer different problems and will get you something you did not need."
+        },
+        {
+          "id": "drill-two",
+          "title": "What else does the answer need?",
+          "format": "sort",
+          "buckets": [
+            "needs one lesson",
+            "needs two or more"
+          ],
+          "items": [
+            "fr.a1.salutations.001",
+            "fr.a1.pays-et-nationalites.002",
+            "fr.a1.heure-et-date.108",
+            "fr.a1.maison.012",
+            "fr.sons.couleurs.005",
+            "fr.a1.nombres.234"
+          ],
+          "coach": "A greeting stands alone. Almost nothing else does: a country needs its preposition, an hour needs its frame, a room needs an adjective that agrees and sits on the right side."
+        },
+        {
+          "id": "retest-two",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Somebody asks where you are from. Besides the country, what?",
+          "opts": [
+            "a number",
+            "the right little word in front of it",
+            "an adjective"
+          ],
+          "correct": 1,
+          "why": "The preposition, chosen by the article you stored when you learned the country. Two lessons, one decision."
+        },
+        {
+          "id": "drill-articles",
+          "title": "Which little word?",
+          "format": "sort",
+          "buckets": [
+            "one of them",
+            "some of it"
+          ],
+          "items": [
+            "fr.a1.cafe.009",
+            "fr.a1.cafe.151",
+            "fr.a1.cafe.010",
+            "fr.a1.cuisine.265"
+          ],
+          "coach": "Counting one, or an amount nobody counts. The noun never changes and the word in front does all the work."
+        },
+        {
+          "id": "retest-articles",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Some coffee, an amount nobody is counting. Which?",
+          "opts": [
+            "un café",
+            "du café",
+            "le café"
+          ],
+          "correct": 1,
+          "why": "The one for some of something. It is the little word you will use most often once you are ordering anything."
+        },
+        {
+          "id": "drill-time",
+          "title": "Habit, or one particular day?",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "in the mornings, as a rule",
+              "le matin"
+            ],
+            [
+              "at midday",
+              "à midi"
+            ],
+            [
+              "every day",
+              "tous les jours"
+            ],
+            [
+              "on Mondays",
+              "le lundi"
+            ]
+          ],
+          "coach": "The little word in front is what makes it a habit. Midi and minuit refuse it, because they name a moment rather than a stretch of time."
+        },
+        {
+          "id": "retest-time",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "What does the article on a part of the day tell you?",
+          "opts": [
+            "it is formal",
+            "it happens regularly",
+            "there is one of them"
+          ],
+          "correct": 1,
+          "why": "That it repeats, exactly as le lundi meant every Monday."
+        },
+        {
+          "id": "drill-agreement",
+          "title": "Shape and position",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "a big garden",
+              "un grand jardin"
+            ],
+            [
+              "a green door",
+              "une porte verte"
+            ],
+            [
+              "my sister",
+              "ma sœur"
+            ],
+            [
+              "my friend, feminine, vowel",
+              "mon amie"
+            ]
+          ],
+          "coach": "Short common adjectives go in front, colours go behind, and the possessive agrees with the thing owned rather than with you."
+        },
+        {
+          "id": "retest-agreement",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Where does a colour go?",
+          "opts": [
+            "in front of the noun",
+            "after the noun",
+            "either side"
+          ],
+          "correct": 1,
+          "why": "Behind. English puts every adjective in front and French does not, and colours are the clearest case of it."
+        },
+        {
+          "id": "drill-question",
+          "title": "What kind of answer?",
+          "format": "sort",
+          "buckets": [
+            "oui or non is enough",
+            "needs a fact back"
+          ],
+          "items": [
+            "fr.sons.questions.014",
+            "fr.sons.questions.008",
+            "fr.sons.questions.010",
+            "fr.sons.argot-de-base.037"
+          ],
+          "coach": "A yes-or-no frame can be answered in one syllable. A question word wants information, and hearing which one arrived is what tells you what to build."
+        },
+        {
+          "id": "retest-question",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "A question beginning with a question word wants what?",
+          "opts": [
+            "oui or non",
+            "information",
+            "a repetition"
+          ],
+          "correct": 1,
+          "why": "A fact back. Answering it with oui is the commonest way a learner accidentally says nothing."
+        },
+        {
+          "id": "drill-number",
+          "title": "A number is not an answer",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "two coffees",
+              "deux cafés"
+            ],
+            [
+              "twenty-one",
+              "vingt et un"
+            ],
+            [
+              "a hundred",
+              "cent"
+            ],
+            [
+              "how many",
+              "combien"
+            ]
+          ],
+          "coach": "A figure alone floats. What makes it an answer is the thing it counts and the little word in front of that thing."
+        },
+        {
+          "id": "retest-number",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "You lost a number at speed. Fastest fix?",
+          "opts": [
+            "d'accord",
+            "Plus lentement, s'il vous plaît.",
+            "de rien"
+          ],
+          "correct": 1,
+          "why": "Ask for slower. Numbers are the thing learners lose most often, and a repetition at the same speed rarely helps."
+        },
+        {
+          "id": "drill-silence",
+          "title": "Hold your turn",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "you need a second",
+              "un instant"
+            ],
+            [
+              "you are not sure of the answer",
+              "peut-être"
+            ],
+            [
+              "you are still following",
+              "d'accord"
+            ],
+            [
+              "that has landed",
+              "voilà"
+            ]
+          ],
+          "coach": "Silence reads as the end of the conversation. Any one of these keeps your turn open while you assemble the rest."
+        },
+        {
+          "id": "retest-silence",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "A long silence reads to the other person as what?",
+          "opts": [
+            "careful thinking",
+            "the conversation being over",
+            "politeness"
+          ],
+          "correct": 1,
+          "why": "As the end of it. It feels far shorter to you than to them."
+        },
+        {
+          "id": "drill-english",
+          "title": "Stay in it",
+          "format": "flashcard",
+          "pairs": [
+            [
+              "you understood nothing",
+              "je ne comprends pas"
+            ],
+            [
+              "politely, with an apology first",
+              "Excusez-moi, je ne comprends pas."
+            ],
+            [
+              "ask for it again",
+              "Vous pouvez répéter, s'il vous plaît ?"
+            ],
+            [
+              "ask for it slower",
+              "Plus lentement, s'il vous plaît."
+            ]
+          ],
+          "coach": "Every one of these keeps the conversation in French. One English sentence hands it over for good, and the other person will helpfully stay there."
+        },
+        {
+          "id": "retest-english",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Which of these ends the French for the rest of the conversation?",
+          "opts": [
+            "je ne comprends pas",
+            "Sorry, I don't understand.",
+            "Vous pouvez répéter, s'il vous plaît ?"
+          ],
+          "correct": 1,
+          "why": "The English one. It is understood perfectly and it is the most expensive thing you can say."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.a1.30.kit",
+          "title": "When you are lost",
+          "sections": [
+            {
+              "type": "table",
+              "title": "The thirteen phrases",
+              "cols": [
+                "when",
+                "what you say"
+              ],
+              "rows": [
+                [
+                  "you understood nothing",
+                  "je ne comprends pas"
+                ],
+                [
+                  "the same, politely",
+                  "Excusez-moi, je ne comprends pas."
+                ],
+                [
+                  "you do not know the answer",
+                  "je ne sais pas"
+                ],
+                [
+                  "ask for it again",
+                  "Vous pouvez répéter, s'il vous plaît ?"
+                ],
+                [
+                  "it was still too fast",
+                  "Plus lentement, s'il vous plaît."
+                ],
+                [
+                  "you need a second",
+                  "un instant"
+                ],
+                [
+                  "you are not sure",
+                  "peut-être"
+                ],
+                [
+                  "get their attention",
+                  "excusez-moi"
+                ],
+                [
+                  "apologise",
+                  "pardon"
+                ],
+                [
+                  "agree, keep them going",
+                  "d'accord · bien sûr · voilà"
+                ],
+                [
+                  "they thanked you",
+                  "de rien · pas de problème"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "title": "Why these are worth more than more vocabulary",
+              "body": "A conversation at this level almost never ends because you did not know a word. It ends at the moment somebody answers at full speed, you catch two words out of twelve, and you have no way to say so. The instinct is to smile, say oui, and walk away having agreed to something. The alternative is four words. Ask for a repetition and people give you the same sentence at the same speed, so the second ask should be for slower rather than for again. If you understood and simply need time, say so, because a silence feels much longer to the person waiting than it does to you. And drop the short agreement words into the gaps: they cost nothing, they are almost impossible to get wrong, and leaving them out makes an ordinary chat feel like an interview. None of this is difficult and none of it was in the twenty-nine lessons before it."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.sons.expressions-utiles.038",
+          "fr.a1.expressions-frequentes.079",
+          "fr.sons.expressions-utiles.044",
+          "fr.a1.expressions-frequentes.118",
+          "fr.a1.rp-etiquette.016",
+          "fr.a1.expressions-frequentes.099",
+          "fr.a1.expressions-frequentes.106",
+          "fr.a1.expressions-frequentes.104",
+          "fr.a1.expressions-frequentes.122",
+          "fr.a1.expressions-frequentes.100",
+          "fr.a1.expressions-frequentes.105",
+          "fr.a1.expressions-frequentes.123"
+        ],
+        [],
+        [],
+        [
+          "fr.a1.expressions-frequentes.124"
+        ],
+        [],
+        []
+      ],
+      "terms": {
+        "oneTurn": {
+          "term": "one turn, more than one lesson",
+          "title": "Nothing you say next comes from a single place",
+          "body": "Every lesson so far handed you one thing and then asked you to use it on its own. Somebody asking where you live wants a place and a preposition and probably a number, and those came from three different mornings. That is the only thing this half hour asks of you and it is the only thing the twenty-nine lessons behind it never did. You are not learning anything new here. You are learning to reach for two things at the same time, which is a different skill and it is the one that decides whether a conversation keeps going.",
+          "examples": [
+            {
+              "itemId": "fr.a1.cafe.088",
+              "note": "A verb, an article and a colour, from three separate lessons, in six words."
+            },
+            {
+              "itemId": "fr.a1.cafe.090",
+              "note": "A place, a time of day and a plural verb, in one ordinary sentence."
+            }
+          ]
+        },
+        "repairKit": {
+          "term": "what to say when you are lost",
+          "title": "The five words that keep a conversation alive",
+          "body": "You have been taught to say things and never once been taught what to do when you have not understood what was said back. That is the moment every real conversation actually breaks, and it has nothing to do with how much vocabulary you have. Excusez-moi. Je ne comprends pas. Vous pouvez répéter ? Plus lentement. Un instant. Five short moves, none of them difficult, and between them they turn a conversation you lost into a conversation that carries on. A learner with a thousand words and none of these loses the first exchange where somebody speaks quickly.",
+          "examples": [
+            {
+              "itemId": "fr.a1.expressions-frequentes.123",
+              "note": "The one the corpus could not supply, and the most useful thing here."
+            },
+            {
+              "itemId": "fr.a1.expressions-frequentes.079",
+              "note": "Both halves together: get their attention, then say what is wrong."
+            }
+          ]
+        },
+        "buyTime": {
+          "term": "buying yourself a second",
+          "title": "You are allowed to think",
+          "body": "A pause while you assemble a sentence feels much longer to you than it does to the person waiting, and the instinct is to fill it with English or to give up. There is a French move for it and it is one word: un instant. Peut-être does similar work when you are not sure of the answer rather than not sure of the words. Neither of these is a stalling tactic you should feel bad about. They are what people who speak the language do, and using them is what keeps you inside the conversation instead of outside it.",
+          "examples": [
+            {
+              "itemId": "fr.sons.expressions-utiles.044",
+              "note": "One word, and the conversation waits for you."
+            },
+            {
+              "itemId": "fr.a1.expressions-frequentes.118",
+              "note": "For when it is the answer you are unsure of rather than the words."
+            }
+          ]
+        },
+        "keepThemGoing": {
+          "term": "keeping them talking",
+          "title": "Short words that mean carry on",
+          "body": "A conversation is not only your turns. The other person needs to know you are still with them, and French does that with very short words dropped into the gaps: d'accord, bien sûr, voilà. They cost nothing, they are almost impossible to get wrong, and leaving them out is what makes a learner sound like they are being interviewed rather than talking. If you only take three things from this lesson, these are cheaper than any of the vocabulary and they do more work.",
+          "examples": [
+            {
+              "itemId": "fr.a1.expressions-frequentes.106",
+              "note": "The most useful of the three, and the one you will say most."
+            },
+            {
+              "itemId": "fr.a1.expressions-frequentes.122",
+              "note": "For when something has just landed or been handed over."
+            }
+          ]
+        },
+        "youAlreadyHave": {
+          "term": "you already have this",
+          "title": "Twenty-nine lessons, and nothing new in the review half",
+          "body": "Every word in the first five acts of this lesson has been taught to you already, by a lesson you have finished, and you have rated most of them on a flashcard. That is deliberate. If something here looks unfamiliar it is worth going back to the unit that owns it rather than treating this as the place to learn it. What is genuinely new in this half hour is small and it is all in one act: the handful of things to say when you have lost the thread.",
+          "examples": [
+            {
+              "itemId": "fr.a1.routines.103",
+              "note": "Taught by the noun gender lesson, and it turns up in nine other units."
+            },
+            {
+              "itemId": "fr.a1.cafe.151",
+              "note": "The same noun with a third article, from a third lesson."
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a1-30-kit",
+            "desc": "THE THIRTEEN REPAIR PHRASES, ONE TAKE, READ AT ORDINARY CONVERSATIONAL SPEED AND NOT SLOWLY. These are emergency phrases and the learner will say them under pressure, so a slow careful reading teaches a version they will never produce and never hear. « je ne comprends pas » MUST NOT BE READ APOLOGETICALLY. The whole teaching is that saying it is ordinary rather than an admission of failure, and a reader who sounds embarrassed is teaching the opposite of the lesson. Flat, friendly, unremarkable. Keep every nasal closed: comprends is /kɔ̃.pʁɑ̃/ with no n sound behind either vowel.",
+            "clipIds": [
+              "je ne comprends pas",
+              "Excusez-moi, je ne comprends pas.",
+              "je ne sais pas",
+              "un instant",
+              "peut-être",
+              "excusez-moi",
+              "pardon",
+              "d'accord",
+              "bien sûr",
+              "voilà",
+              "de rien",
+              "pas de problème",
+              "la-trousse-de-secours"
+            ]
+          },
+          {
+            "id": "rec-a1-30-repeat",
+            "desc": "THE TWO AUTHORED PHRASES, ADJACENT IN ONE TAKE, IN THIS ORDER: « Vous pouvez répéter, s'il vous plaît ? » then « Plus lentement, s'il vous plaît. » They are a SEQUENCE, not alternatives, and recording them apart loses the fact that the second is what you say when the first did not work. THE FIRST IS A QUESTION and must rise. The second is NOT and must not. lentement CARRIES TWO NASAL VOWELS, /lɑ̃t.mɑ̃/, and neither takes an n sound. The app respells it lahⁿt-MAHⁿ deliberately; the shared checker can only see the second of the two, so a reader following a transcription rather than the IPA may let an n out of the first.",
+            "clipIds": [
+              "Vous pouvez répéter, s'il vous plaît ?",
+              "Plus lentement, s'il vous plaît.",
+              "repeter-puis-ralentir",
+              "un instant"
+            ]
+          },
+          {
+            "id": "rec-a1-30-scene",
+            "desc": "The opening scene. The stallholder is warm, busy and completely ordinary. HIS LONG LINE MUST BE READ AT FULL NATURAL SPEED, genuinely too fast for an A1 learner to follow. That is the content of the scene and slowing it down to be kind destroys it: the learner is supposed to fail to understand, notice that they failed, and discover they have no move. He is not testing anybody and there is no unkindness in him at all.",
+            "clipIds": [
+              "Et avec ceci, ce sera tout ou je vous mets aussi des courgettes ?",
+              "Bonjour ! Un kilo de tomates, s'il vous plaît."
+            ]
+          },
+          {
+            "id": "rec-a1-30-listening",
+            "desc": "The five listening lines at ORDINARY pace. Each crosses two or more units and the exercise is hearing that, so a slow reading that separates the units defeats it. The 0.65 speed exists in the player for anybody who needs it.",
+            "clipIds": [
+              "Bonjour ! Vous habitez à Lyon ?",
+              "Non, je suis canadien. J'habite ici depuis deux ans.",
+              "Et vous travaillez le matin ou le soir ?",
+              "Le matin. Je me lève à six heures, c'est difficile.",
+              "Excusez-moi, je ne comprends pas."
+            ]
+          },
+          {
+            "id": "rec-a1-30-fast",
+            "desc": "The two rapid-fire drills. EVERY PROMPT AT THE SAME BRISK PACE, with no pause for effect between them, because the difficulty being trained is speed and a reader who leaves thinking time has removed it. Nothing here is hard and nothing should sound hard.",
+            "clipIds": [
+              "un café",
+              "du café",
+              "le café",
+              "le matin",
+              "vitesse-1",
+              "vitesse-2"
+            ]
+          },
+          {
+            "id": "rec-a1-30-mixed",
+            "desc": "The mixed cards and the question-and-answer table. Read each French example WHOLE, never as the separate units it is assembled from, because the entire claim of this lesson is that a turn is one thing rather than two things joined. No pause at the seam.",
+            "clipIds": [
+              "Je viens du Canada.",
+              "le matin, vers six heures.",
+              "J'ai un grand jardin.",
+              "Vous venez d'où ?",
+              "Vous êtes libre quand ?"
+            ]
+          }
+        ],
+        "ambienceDefault": "off"
       }
     }
   ],
@@ -281982,6 +286009,217 @@
       ],
       "version": 1,
       "notes": "Final 't' is silent."
+    },
+    {
+      "id": "fr.sons.expressions-utiles.038",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "expressions-utiles",
+      "fr": "je ne comprends pas",
+      "en": "I don't understand",
+      "ipa": "ʒə nə kɔ̃.pʁɑ̃ pa",
+      "respell": "zhuh nuh kohn-prahn PAH",
+      "tags": [
+        "understanding"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.079",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "Excusez-moi, je ne comprends pas.",
+      "en": "Excuse me, I don't understand.",
+      "tags": [],
+      "drills": [
+        "sentence"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.sons.expressions-utiles.044",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "expressions-utiles",
+      "fr": "un instant",
+      "en": "one moment",
+      "ipa": "œ̃.nɛ̃s.tɑ̃",
+      "respell": "uh-nan-STAHN",
+      "tags": [
+        "practical"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.118",
+      "kind": "word",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "peut-être",
+      "en": "maybe",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.rp-etiquette.016",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "rp-etiquette",
+      "fr": "excusez-moi",
+      "en": "excuse me (formal)",
+      "ipa": "ɛk.sky.ze mwa",
+      "respell": "ex-kü-zay MWAH",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.099",
+      "kind": "word",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "pardon",
+      "en": "sorry",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.106",
+      "kind": "word",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "d'accord",
+      "en": "okay",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.104",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "bien sûr",
+      "en": "of course",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.122",
+      "kind": "word",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "voilà",
+      "en": "there you go",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.100",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "de rien",
+      "en": "you're welcome",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.105",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "pas de problème",
+      "en": "no problem",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.123",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "Vous pouvez répéter, s'il vous plaît ?",
+      "en": "Could you say that again, please?",
+      "ipa": "/vu pu.ve ʁe.pe.te sil vu plɛ/",
+      "respell": "voo poo-VAY ray-pay-TAY, seel voo PLEH",
+      "notes": "The formal form, because this is most needed with somebody you do not know.",
+      "tags": [
+        "repair",
+        "core"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.expressions-frequentes.124",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "expressions-frequentes",
+      "fr": "Plus lentement, s'il vous plaît.",
+      "en": "More slowly, please.",
+      "ipa": "/ply lɑ̃t.mɑ̃ sil vu plɛ/",
+      "respell": "plü lahⁿt-MAHⁿ, seel voo PLEH",
+      "notes": "Said on its own, after asking for repetition, when the repetition was still too fast.",
+      "tags": [
+        "repair",
+        "core"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "version": 1,
+      "cardType": "vocab"
     }
   ],
   "scenarios": [

@@ -889,10 +889,17 @@ const SECTIONS: LessonSection[] = [
       { q: 'What was actually going wrong?', a: 'He lost the replies and covered it with oui, so he agreed to things he had not understood.' },
       { q: 'Why does he say none of this is vocabulary?', a: 'Because the fix was knowing a lost conversation can be repaired and that asking is normal, not a bigger word list.' },
     ],
+    // MAX_GLOSS_WORDS IS FOUR. A first draft glossed the two authored phrases
+    // whole and neither could ever match: « Vous pouvez répéter, s'il vous
+    // plaît ? » is six words and the lookup never sees it. The repo-wide
+    // glossary test caught it, the same way it caught a1.25's.
+    //
+    // Matching is longest-first, so no key here sits inside another: a short
+    // entry buried in a longer one underlines nothing and fails silently.
     glossary: [
       { word: frOf(K.dontUnderstand), en: enOf(K.dontUnderstand), note: 'The four words. No lesson in this app taught them before this one.' },
-      { word: frOf(K.repeat), en: enOf(K.repeat), note: 'The formal vous, because you need it most with a stranger.' },
-      { word: frOf(K.slower), en: enOf(K.slower), note: 'The second ask. Repeating rarely helps; slowing down does.' },
+      { word: 'répéter', en: 'to repeat', note: 'Asked with vous pouvez in front of it, which is the formal form you need with a stranger.' },
+      { word: 'Plus lentement', en: 'more slowly', note: 'The second ask. Repeating rarely helps; slowing down does.' },
       { word: frOf(K.moment), en: enOf(K.moment), note: 'For when you understood and just need time to build the answer.' },
     ],
   },
