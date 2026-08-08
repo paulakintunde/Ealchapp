@@ -6,6 +6,103 @@ You have latitude on the teaching. You have none on the gates.
 
 **This lesson is not shaped like the twenty-nine before it, and the differences are not stylistic.** Three of them will break your build if you carry an ordinary lesson's habits into it. They are the first three sections of this brief.
 
+---
+
+## SETTLED DECISIONS
+
+Taken 2026-08-08 with the product owner, after measurement. These are not open.
+
+**Item selection: EVEN COVERAGE across all 29 units, three contributions each.**
+
+A contribution is a HEADWORD for a vocabulary unit and a SENTENCE for a grammar
+unit, because two units cannot supply a headword at all. Measured:
+
+```
+a1.05  Subject Pronouns    0 headwords, 45 sentences
+a1.06  The Verb Être       0 headwords, 45 sentences
+a1.18  Negation            3 headwords, 48 sentences
+a1.19  Yes/No Questions    7 headwords, 44 sentences
+```
+
+Insisting on three headwords per unit is impossible. Three contributions per unit
+is not, and for a grammar unit the sentence is the better representative anyway:
+a sentence carries vocabulary from other units for free, which is the whole point
+of this lesson.
+
+**Assessment target: ~90 scored moments**, against sons.09's 63 and a1.25's 37.
+Roughly 60 quiz questions across 10 rounds, plus ~30 in-mission. **You cannot add
+a second quiz section**; `lessonPager.logic.ts:87` uses `.find()` and only the
+first renders. Weight goes into rounds and into in-mission surfaces.
+
+**"Fluid" means three specific things, all live in the engine:**
+
+1. **Branching via rounds and drills.** Ten or more rounds, each with its own
+   error trigger, drill and retest, so `roundFailThreshold` and `drillForRound`
+   give a failing learner a genuinely different path. **`adaptive` is a DEAD
+   FIELD** (declared `schema.ts:1068`, read by no component, same class as
+   `autoplay`). Do not author it.
+2. **Mixed topic in every section.** No act is about one unit. Every card, drill
+   and question pulls from two or more units at once.
+3. **`trapDrill` rapid-fire rounds.** Scored, fast, and **never used anywhere in
+   the A1 band**, though every sons lesson has one and it renders correctly
+   (`MissionSection.tsx:484`). Two of them.
+
+Deliberately NOT chosen: shorter denser missions.
+
+**Theme: bind to the live themes the chosen items actually sit in**, as a
+multi-theme array. a1.24 shows multi-theme units are legal.
+
+> **This is bookkeeping, not design.** `unit.themes` is read by a validator at
+> `schema.ts:4034` and by NOTHING ELSE: no screen, no query, no item selection
+> consumes it. Get it truthful and spend no further thought on it. The a1.25
+> rebinding was correct and also changed nothing a learner sees.
+
+### What this means for the tranche contract, which is the subtle part
+
+Even coverage means every review item is one its own unit already released. So
+**the review half of this lesson releases NOTHING**, and that is correct rather
+than a bug.
+
+What it releases instead is the one genuinely new thing a capstone can own:
+
+**THE CONVERSATIONAL REPAIR KIT.** Measured 2026-08-08:
+
+```
+excusez-moi           published in Postgres, 0 in the seed, taught by NO lesson
+pardon                published, 0 in the seed, taught by NO lesson
+bien sûr              published, 0 in the seed, taught by NO lesson
+voilà                 published, 0 in the seed, taught by NO lesson
+je ne comprends pas   published, 0 in the seed, taught by NO lesson
+plus lentement        ABSENT everywhere. The only candidate to author.
+d'accord              already taught. Reuse, do not re-release.
+peut-être             already taught. Reuse, do not re-release.
+```
+
+Twenty-nine lessons teach a learner to produce French and **not one teaches them
+what to say when they do not understand.** "Can hold a short everyday exchange"
+is exactly the thing that fails without it. This is the capstone's own material,
+it is roughly a dozen rows, it is outside the seed cut so it must be carried, and
+it is the only content the tranches release.
+
+### The act structure that follows
+
+Mixed topic forbids the usual one-unit-per-act shape, so the organising axis is
+PRESSURE rather than topic:
+
+```
+act 1  What you already have, and the one thing you do not   the repair kit
+act 2  Recognise it, whoever says it                          mixed listening and sorting
+act 3  Produce one turn                                       mixed drills
+act 4  Under pressure                                         the two trapDrills
+act 5  Hold a long exchange                                   the signature scenario
+act 6  The exam                                               10 rounds, roundup
+```
+
+**The signature section is act 5's scenario.** Every role play in the band runs
+3 to 6 turns on ONE topic, 144 turns in total. This one runs longer and crosses
+units deliberately, so a single turn needs two lessons at once. That is the only
+thing the band has never asked for.
+
 **Read first, in this order:**
 
 1. **`ealch-admin/A1-BUILD-INVARIANTS.md`.** The gates, the layout traps, the wiring pattern, the respelling convention and its blind spots, the quiz rules, the house rules.
