@@ -8,6 +8,85 @@ You have latitude on the teaching. You have none on the gates.
 
 ---
 
+## v2 REWORK, DECIDED AFTER SEEING v1 ON A DEVICE
+
+v1 SHIPPED AND IS LIVE: applied to Postgres, merged to the seed, 2514 tests
+green, and verified on a Pixel 6 including the trapDrill. **Do not start the
+rework until you can finish it**, because a half-applied restructure leaves the
+capstone broken in both copies and it is currently working.
+
+The product owner's reaction to v1 was that it should feel more like an exam
+across lessons 1 to 29. Two decisions follow, and one correction.
+
+**The correction:** the exam engine is NOT the home for this. `EXAM_FORMATS` is
+`['delf_b2', 'tef_canada', 'tcf_canada']` and `ExamTask` is built for
+certification prep. There is no `delf_a1`. a1.30 is the right home and this is
+not a case of building in the wrong place.
+
+**Decision 1: keep act 1, exam everything after it.** The five repair-kit
+sections stay, because twenty-nine lessons teach production and none teaches
+repair, and a1.30 is the band's only remaining slot. Everything from act 2 on
+becomes assessment. Target ~16 sections and 110 to 130 scored moments, against
+v1's 25 and 88.
+
+> A caution to carry into the build: 130 scored moments is 45 to 60 minutes.
+> sons.09 is 63 and a1.25 is 37. The risk is not that it is wrong, it is that a
+> learner abandons it halfway. 110 is the safer number.
+
+**Decision 2: the final exam is BY UNIT; the in-mission drills stay MIXED.**
+In-mission trains combining, which is what the reframe claims. The exam diagnoses
+which lesson leaked, which is what a band review is for. Fifteen rounds of five,
+paired in curriculum order:
+
+```
+r1  a1.01 a1.02      r6  a1.07 a1.18      r11 a1.17 a1.21
+r2  a1.27 a1.28      r7  a1.08 a1.09      r12 a1.19 a1.20
+r3  a1.03 a1.04      r8  a1.10 a1.12      r13 a1.22 a1.23
+r4  a1.11 a1.29      r9  a1.13 a1.14      r14 a1.24 a1.26
+r5  a1.05 a1.06      r10 a1.16 a1.15      r15 a1.25 + the repair kit
+```
+
+### THE THING THAT MAKES THE CUT POSSIBLE, AND THE ONLY THING THAT DOES
+
+Cutting the review sections strands the review items. **Every `itemId` must be on
+a screen**, that is a1.08's failure and the test asserts it, and a lesson that
+shows nothing cannot declare 101 of them. Dropping `s10-bank`, `s21-flash` and
+`s22-review` removes the screens that 87 rows currently live on.
+
+**A by-unit exam fixes this and a mixed-topic one cannot.** If each round names
+its own two units' six contributions inside its questions and explanations, the
+EXAM BECOMES THE SCREEN. Fifteen rounds times six rows is ninety, which covers
+all 87 with room to spare.
+
+So the two decisions are not independent. **By-unit rounds are a precondition of
+the section cut, not a separate preference.** If a later author reverts the exam
+to mixed-topic while keeping the cut, the reachability test goes red and the
+obvious fix, re-adding the vocab sections, undoes the exam.
+
+### What to cut, what to keep
+
+```
+KEEP   act 1 entire            s01-s05   the repair kit, the only new content
+KEEP   s16, s17 trapDrills               the best exam-shaped surface in the app
+KEEP   s20-scenario                      performance, and the signature section
+KEEP   s23, s24, s25                     progress, exam, roundup
+CUT    s08-mixed, s10-bank               teaching and banking, replaced by the exam
+CUT    s11-oneturn, s19-reading          prose, not assessment
+CUT    s21-flash, s22-review             their job moves into the by-unit rounds
+KEEP   s06, s07, s09, s12, s15, s18      already assessment, stay mixed
+ADD    one or two more trapDrills        to reach the in-mission target
+```
+
+### What must NOT change
+
+- the tranche contract, which still releases only the 13 owned rows
+- the reframe, which is still true of a by-unit exam: a round pairs two units
+- even coverage, three contributions per unit, now surfaced through the rounds
+- both answer-spread checks, on a quiz that is half again as long
+- `version: 2` on the lesson, and the batch and merge re-run in that order
+
+---
+
 ## SETTLED DECISIONS
 
 Taken 2026-08-08 with the product owner, after measurement. These are not open.
