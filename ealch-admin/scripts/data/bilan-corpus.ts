@@ -95,6 +95,10 @@ export const DRILL_ADDITIONS: { id: string; fr: string; add: string; why: string
   { id: 'fr.sons.expressions-utiles.038', fr: 'je ne comprends pas', add: 'dictation', why: 'The dictée names it and it is the single most useful phrase in the lesson.' },
   { id: 'fr.sons.expressions-utiles.044', fr: 'un instant', add: 'dictation', why: 'Named by the dictée.' },
   { id: 'fr.a1.expressions-frequentes.099', fr: 'pardon', add: 'dictation', why: 'Named by the dictée.' },
+  // Spoken practice plays only rows carrying voiceflash. This one is named by
+  // s13-speak and had none, so the card would have drawn with no audio. Found by
+  // the batch checking the postcondition rather than by reading the manifest.
+  { id: 'fr.a1.rp-etiquette.016', fr: 'excusez-moi', add: 'voiceflash', why: 'Named by s13-speak, and it is the first move of the whole repair kit.' },
 ];
 
 /** Neither authored row carries a gender and neither is a single-word noun, so

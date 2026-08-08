@@ -370,7 +370,13 @@ async function main() {
   }
   for (const id of BILAN_SPEAK_IDS) {
     const x = byId.get(id) ?? { drills: [] as string[] };
-    const has = pgArray(x.drills).includes('voiceflash') || AUTHORED_ITEMS.some((a) => a.id === id && (a.drills ?? []).includes('voiceflash'));
+    // Three ways a row legitimately has voiceflash by the time a learner sees
+    // it: it already does, this build authored it with one, or DRILL_ADDITIONS
+    // is about to add one. Checking only the first made the script non-idempotent
+    // and, worse, unable to see its own fix.
+    const has = pgArray(x.drills).includes('voiceflash')
+      || AUTHORED_ITEMS.some((a) => a.id === id && (a.drills ?? []).includes('voiceflash'))
+      || DRILL_ADDITIONS.some((d) => d.id === id && d.add === 'voiceflash');
     if (!has) await fail(`spoken practice names ${id}, which carries no voiceflash and would play nothing`);
   }
 

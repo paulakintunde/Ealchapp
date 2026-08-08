@@ -232,9 +232,9 @@ export const REVIEW: ReviewRow[] = [
   { id: "fr.a1.cuisine.019", unit: "a1.23", fr: "la soupe", en: "the soup", respell: "lah SOOP", kind: "word", reach: 2 },
 
   // ── a1.24 ──
-  { id: "fr.a1.corps.001", unit: "a1.24", fr: "la tête", en: "the head", respell: "LAH TEHT", kind: "word", reach: 1 },
-  { id: "fr.a1.corps.003", unit: "a1.24", fr: "la main", en: "the hand", respell: "LAH MAN", kind: "word", reach: 1 },
-  { id: "fr.a1.corps.004", unit: "a1.24", fr: "le dos", en: "the back", respell: "LUH DOH", kind: "word", reach: 1 },
+  { id: "fr.a1.corps.001", unit: "a1.24", fr: "la tête", en: "the head", respell: "lah TEHT", kind: "word", reach: 1 },
+  { id: "fr.a1.corps.003", unit: "a1.24", fr: "la main", en: "the hand", respell: "lah MAⁿ", kind: "word", reach: 1 },
+  { id: "fr.a1.corps.004", unit: "a1.24", fr: "le dos", en: "the back", respell: "luh DOH", kind: "word", reach: 1 },
 
   // ── a1.25 ──
   { id: "fr.a1.routines.002", unit: "a1.25", fr: "le matin", en: "the morning", respell: "luh mah-TAⁿ", kind: "word", reach: 9 },
