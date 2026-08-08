@@ -487,7 +487,7 @@ const SECTIONS: LessonSection[] = [
         head: 'One word, three articles, three lessons',
         fr: `${top('a1.03').fr} · ${top('a1.11').fr} · ${top('a1.29').fr}`,
         sub: 'the same noun, taught three times by three different units',
-        body: 'The gender lesson, the indefinite lesson and the partitive lesson each handed you this noun with a different word in front. Ordering one means choosing between them in the moment.',
+        body: 'The three article lessons each handed you this noun with a different word in front. Ordering one means choosing between them in the moment.',
       },
       {
         label: 'a number and a time',
@@ -528,9 +528,9 @@ const SECTIONS: LessonSection[] = [
         items: [...ofUnit('a1.23'), ...ofUnit('a1.29')].slice(0, 5).map((r) => ({ fr: r.fr, itemId: r.id, en: r.en })),
         check: {
           q: 'Ordering some of something, rather than one of something, needs which lesson?',
-          opts: ['The colours', 'The numbers', 'The greetings', 'The partitive articles'],
+          opts: ['The colours', 'The numbers', 'The greetings', 'The one for some of something'],
           correct: 3,
-          why: 'The partitive. Food is where that lesson finally pays: you almost never order one bread, you order some, and the little word in front is the whole difference.',
+          why: 'The one for some of something. Food is where that lesson finally pays: you almost never order one bread, you order some, and the little word in front is the whole difference.',
         },
       },
       {
@@ -634,7 +634,7 @@ const SECTIONS: LessonSection[] = [
         items: [...ofUnit('a1.02'), ...ofUnit('a1.28')].slice(0, 5).map((r) => ({ fr: r.fr, itemId: r.id, en: r.en })),
         check: {
           q: 'Somebody asks the price. Your answer needs a number and what else?',
-          opts: ['The currency, and often a partitive before the thing', 'A colour', 'A time of day', 'A nationality'],
+          opts: ['The currency, and often a little word before the thing', 'A colour', 'A time of day', 'A nationality'],
           correct: 0,
           why: 'A number alone is a figure floating in the air. What makes it an answer is the thing it is counting and the little word in front of that thing.',
         },
@@ -1087,7 +1087,7 @@ const SECTIONS: LessonSection[] = [
         say: 'Four lessons taught these and they arrive together.',
         questions: [
           { q: 'You want one cup of coffee at a counter. Which?', format: 'typeIn', accept: [top('a1.11').fr, 'un cafe'], answer: top('a1.11').fr, why: 'The indefinite one: you are introducing it and counting one of it. The definite one would mean a coffee you had both already mentioned.', ref: 's16-trap-articles' },
-          { q: 'You want some coffee, an amount nobody is counting. Which?', format: 'typeIn', accept: [top('a1.29').fr, 'du cafe'], answer: top('a1.29').fr, why: 'The partitive. This is where that lesson finally pays: you order some of a thing far more often than you order exactly one of it.', ref: 's16-trap-articles' },
+          { q: 'You want some coffee, an amount nobody is counting. Which?', format: 'typeIn', accept: [top('a1.29').fr, 'du cafe'], answer: top('a1.29').fr, why: 'The one for some of something. This is where that lesson finally pays: you order some of a thing far more often than you order exactly one of it.', ref: 's16-trap-articles' },
           { q: 'What does a negation usually do to the article behind it?', format: 'mcq', opts: ['Nothing', 'Makes it plural', 'Removes it entirely', 'Flattens it to de'], correct: 3, why: 'It flattens to de. That is the negation lesson and the article lessons in the same clause, and it is the commonest place a nearly correct sentence goes wrong.', ref: 's17-trap-shapes' },
           { q: 'Write the word for my, feminine, in front of a noun beginning with a consonant.', format: 'typeIn', accept: ['ma'], answer: 'ma', why: 'It agrees with the thing owned and never with the owner, which is the opposite of English and the single most useful fact from the possessives lesson.', ref: 's17-trap-shapes' },
           { q: 'Which pair means the same noun with two different little words in front?', format: 'mcq', opts: [`${top('a1.03').fr} and ${top('a1.11').fr}`, 'two unrelated nouns', 'a noun and a verb', 'a noun and an adjective'], correct: 0, why: 'One noun, taught three separate times by three units, with a different word in front each time. Choosing between them is a decision you make in the moment.', ref: 's08-mixed' },
@@ -1327,7 +1327,7 @@ const DECK_TRANCHE: string[][] = [
 const ERROR_TRIGGERS: ErrorTrigger[] = [
   { id: 'err-no-repair', description: 'Has no way to say they are lost, so a missed reply ends the exchange. The error twenty-nine lessons left in place.', detectOn: ['s03-lost', 's05-repeat', 's24-quiz/r1-the-kit'], drill: 'drill-repair', retest: 'retest-repair' },
   { id: 'err-one-lesson', description: 'Answers from one lesson when the question needed two, so the answer is correct and incomplete.', detectOn: ['s08-mixed', 's11-oneturn', 's24-quiz/r2-two-at-once'], drill: 'drill-two', retest: 'retest-two' },
-  { id: 'err-article', description: 'Reaches for the wrong little word under time pressure, most often the definite where the partitive was needed.', detectOn: ['s16-trap-articles', 's24-quiz/r3-articles'], drill: 'drill-articles', retest: 'retest-articles' },
+  { id: 'err-article', description: 'Reaches for the wrong little word under time pressure, most often the one for a known thing where the one for some of it was needed.', detectOn: ['s16-trap-articles', 's24-quiz/r3-articles'], drill: 'drill-articles', retest: 'retest-articles' },
   { id: 'err-time', description: 'Drops the article on a part of the day, or adds one to midi, so a habit becomes one particular day or the reverse.', detectOn: ['s07-sort', 's24-quiz/r4-time'], drill: 'drill-time', retest: 'retest-time' },
   { id: 'err-agreement', description: 'Leaves an adjective unagreed or puts it on the wrong side of the noun. Two lessons failing together in one noun phrase.', detectOn: ['s17-trap-shapes', 's24-quiz/r5-describe'], drill: 'drill-agreement', retest: 'retest-agreement' },
   { id: 'err-question', description: 'Answers a question word with oui, or a yes-or-no frame with a fact, because the shape of the question was not heard.', detectOn: ['s08-mixed', 's24-quiz/r6-asking'], drill: 'drill-question', retest: 'retest-question' },
@@ -1342,7 +1342,7 @@ const DRILLS: LessonDrill[] = [
   { id: 'drill-two', title: 'What else does the answer need?', format: 'sort', buckets: ['needs one lesson', 'needs two or more'], items: [top('a1.01').id, top('a1.22').id, top('a1.12').id, top('a1.26').id, top('a1.13').id, top('a1.02').id], coach: 'A greeting stands alone. Almost nothing else does: a country needs its preposition, an hour needs its frame, a room needs an adjective that agrees and sits on the right side.' },
   { id: 'retest-two', title: 'One more time', format: 'mcq', q: 'Somebody asks where you are from. Besides the country, what?', opts: ['a number', 'the right little word in front of it', 'an adjective'], correct: 1, why: 'The preposition, chosen by the article you stored when you learned the country. Two lessons, one decision.' },
   { id: 'drill-articles', title: 'Which little word?', format: 'sort', buckets: ['one of them', 'some of it'], items: [top('a1.11').id, top('a1.29').id, ofUnit('a1.11')[1].id, ofUnit('a1.29')[1].id], coach: 'Counting one, or an amount nobody counts. The noun never changes and the word in front does all the work.' },
-  { id: 'retest-articles', title: 'One more time', format: 'mcq', q: 'Some coffee, an amount nobody is counting. Which?', opts: [top('a1.11').fr, top('a1.29').fr, top('a1.03').fr], correct: 1, why: 'The partitive. It is the article you will use most often once you are ordering anything.' },
+  { id: 'retest-articles', title: 'One more time', format: 'mcq', q: 'Some coffee, an amount nobody is counting. Which?', opts: [top('a1.11').fr, top('a1.29').fr, top('a1.03').fr], correct: 1, why: 'The one for some of something. It is the little word you will use most often once you are ordering anything.' },
   { id: 'drill-time', title: 'Habit, or one particular day?', format: 'flashcard', pairs: [['in the mornings, as a rule', top('a1.25').fr], ['at midday', 'à midi'], ['every day', 'tous les jours'], ['on Mondays', 'le lundi']] as [string, string][], coach: 'The little word in front is what makes it a habit. Midi and minuit refuse it, because they name a moment rather than a stretch of time.' },
   { id: 'retest-time', title: 'One more time', format: 'mcq', q: 'What does the article on a part of the day tell you?', opts: ['it is formal', 'it happens regularly', 'there is one of them'], correct: 1, why: 'That it repeats, exactly as le lundi meant every Monday.' },
   { id: 'drill-agreement', title: 'Shape and position', format: 'flashcard', pairs: [['a big garden', 'un grand jardin'], ['a green door', 'une porte verte'], ['my sister', 'ma sœur'], ['my friend, feminine, vowel', 'mon amie']] as [string, string][], coach: 'Short common adjectives go in front, colours go behind, and the possessive agrees with the thing owned rather than with you.' },

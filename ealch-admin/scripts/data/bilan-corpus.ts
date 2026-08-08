@@ -131,9 +131,19 @@ export const JARGON = [
  *  a thirtieth ordinary lesson and the band has no capstone. These are the
  *  openings that signal teaching rather than reminding, checked on card bodies. */
 export const TEACHING_TELLS = [
-  'a new rule', 'you have not seen', 'for the first time', 'this lesson introduces',
-  'here is a new', 'now learn',
+  'a new rule', 'you have not seen', 'this lesson introduces', 'here is a new', 'now learn',
 ];
+
+/* `for the first time` WAS in that list and has been removed, because it fired
+ * on correct content the first time the batch ran:
+ *
+ *     'Already known between you, or introduced for the first time.'
+ *
+ * That is a card describing what the indefinite article DOES, not the lesson
+ * claiming to teach something new. The phrase is too generic to be a tell, and
+ * the invariants are explicit that a guard which fires on legitimate content is
+ * a guard somebody deletes. The remaining five all address the LEARNER about the
+ * LESSON, which is the thing actually being guarded against. */
 
 /** The 29 units this capstone must represent, in curriculum order. Exported so
  *  the batch, the merge and the test all check coverage against ONE list rather
