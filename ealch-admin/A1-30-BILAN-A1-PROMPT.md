@@ -49,8 +49,14 @@ first renders. Weight goes into rounds and into in-mission surfaces.
 
 Deliberately NOT chosen: shorter denser missions.
 
-**Theme: bind to the live themes the chosen items actually sit in**, as a
-multi-theme array. a1.24 shows multi-theme units are legal.
+**Theme: `expressions-frequentes`.**
+
+The instruction was to bind to the themes the chosen items sit in. Computed, the
+87 review items span **26 distinct themes**, which is a truthful and useless
+array. The reading that survives contact is: bind to the theme this unit OWNS,
+because the other 26 are owned by the units that taught them. a1.30 owns the
+repair kit and nine of its thirteen rows are in `expressions-frequentes`,
+including both authored ones.
 
 > **This is bookkeeping, not design.** `unit.themes` is read by a validator at
 > `schema.ts:4034` and by NOTHING ELSE: no screen, no query, no item selection
@@ -68,15 +74,33 @@ What it releases instead is the one genuinely new thing a capstone can own:
 **THE CONVERSATIONAL REPAIR KIT.** Measured 2026-08-08:
 
 ```
-excusez-moi           published in Postgres, 0 in the seed, taught by NO lesson
-pardon                published, 0 in the seed, taught by NO lesson
-bien sûr              published, 0 in the seed, taught by NO lesson
-voilà                 published, 0 in the seed, taught by NO lesson
-je ne comprends pas   published, 0 in the seed, taught by NO lesson
-plus lentement        ABSENT everywhere. The only candidate to author.
-d'accord              already taught. Reuse, do not re-release.
-peut-être             already taught. Reuse, do not re-release.
+IMPORT, published in Postgres and ABSENT from the seed:
+  fr.a1.expressions-frequentes.099   pardon                 sorry
+  fr.a1.expressions-frequentes.100   de rien                you're welcome
+  fr.a1.expressions-frequentes.104   bien sûr               of course
+  fr.a1.expressions-frequentes.105   pas de problème        no problem
+  fr.a1.expressions-frequentes.106   d'accord               okay
+  fr.a1.expressions-frequentes.118   peut-être              maybe
+  fr.a1.expressions-frequentes.122   voilà                  there you go
+  fr.a1.expressions-frequentes.079   Excusez-moi, je ne comprends pas.
+  fr.a1.rp-etiquette.016             excusez-moi            excuse me (formal)
+  fr.sons.expressions-utiles.038     je ne comprends pas    I don't understand
+  fr.sons.expressions-utiles.044     un instant             one moment
+
+REUSED, already in the seed:
+  fr.sons.elision.033                je ne sais pas         I do not know
+
+AUTHOR, because the corpus has no usable A1 form of either:
+  fr.a1.expressions-frequentes.123   Vous pouvez répéter, s'il vous plaît ?
+  fr.a1.expressions-frequentes.124   Plus lentement, s'il vous plaît.
 ```
+
+**The two authored rows are the point.** A search for répéter and lentement at
+a1 and sons returns only long narrative sentences: « Elle a demandé de répéter le
+nom une deuxième fois, plus lentement. » is a story about somebody else asking.
+**The corpus cannot currently teach a learner to ask for repetition**, which is
+the single most useful thing an A1 speaker can say. `fr.a1.expressions-
+frequentes` runs to 122 with no gaps, so 123 and 124 are free. Re-probe first.
 
 Twenty-nine lessons teach a learner to produce French and **not one teaches them
 what to say when they do not understand.** "Can hold a short everyday exchange"
