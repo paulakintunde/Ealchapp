@@ -435,3 +435,62 @@ test('an xl group drill never stacks words and a check in one group', () => {
     }
   }
 });
+
+/* ─── 5. Teaching lessons feed the SRS; assessment lessons declare that they
+        do not ──────────────────────────────────────────────────────────────
+   These three mirror the `lesson-has-practice` gate in
+   ealch-admin/scripts/publish-content.ts. They are duplicated here on purpose.
+   That gate only speaks at publish time, against Postgres, and on 2026-08-09 it
+   was the thing that discovered — after the content was authored, applied and
+   committed — that the A1 capstone could not ship at all. `pnpm test` runs in
+   ten seconds and should have been able to say so first.
+
+   ealch-admin has no unit-test harness (Playwright only), so the rule cannot be
+   tested where it lives. Testing its CONSEQUENCE on the seed is the next best
+   thing, and the seed is what the gate is protecting. */
+
+const isAssessment = (l: Lesson) => l.features?.includes('assessment') === true;
+const practicesOf = (l: Lesson) => l.sections.filter((s) => s.type === 'practice');
+
+test('every teaching lesson ships resolvable practice, as the publish gate demands', () => {
+  // The gate's reason, verbatim: a lesson referencing no items feeds the SRS
+  // nothing and the Den's progress bars divide by zero. Catching it here means
+  // catching it before the content is applied to Postgres, not after.
+  for (const { id, lesson } of LESSONS) {
+    if (isAssessment(lesson)) continue;
+    const practices = practicesOf(lesson);
+    ok(practices.length > 0, `${id}: no practice section. Author one, or mark the lesson features: ['assessment'].`);
+    for (const p of practices) {
+      const ids = (p as { itemIds?: string[] }).itemIds ?? [];
+      ok(ids.length > 0, `${id} (${idOf(p)}): practice section with an empty itemIds`);
+      for (const itemId of ids) ok(ITEM_IDS.has(itemId), `${id} (${idOf(p)}): itemIds -> ${itemId} is not in the corpus`);
+    }
+    ok(lesson.itemIds.length > 0, `${id}: Lesson.itemIds is empty, so the lesson releases no SRS cards`);
+  }
+});
+
+test('an assessment lesson owns no corpus rows and carries no practice', () => {
+  // The marker is a claim about what the lesson IS, and this is the claim being
+  // checked. A lesson that says 'assessment' while owning rows is either
+  // mislabelled or is a teaching lesson exempting itself from the gate — which
+  // is exactly the hole a negative test (infer 'assessment' from missing
+  // practice) would have left open.
+  for (const { id, lesson } of LESSONS) {
+    if (!isAssessment(lesson)) continue;
+    strictEqual(lesson.itemIds.length, 0, `${id}: claims 'assessment' but owns ${lesson.itemIds.length} corpus rows`);
+    strictEqual(practicesOf(lesson).length, 0, `${id}: claims 'assessment' but carries a practice section`);
+  }
+});
+
+test("only the A1 capstone claims 'assessment'", () => {
+  // Not a style rule. The flag is the one way past lesson-has-practice, so its
+  // spread is worth noticing: a third lesson acquiring it should be a decision
+  // somebody makes, not a line that arrives inside a large diff. Widen this
+  // list deliberately when a B1 or B2 bilan lands.
+  const marked = LESSONS.filter(({ lesson }) => isAssessment(lesson)).map(({ id }) => id).sort();
+  ok(
+    marked.length > 0,
+    "no lesson claims 'assessment'. If the A1 capstone lost the flag it can no longer be published — see bilan-lesson.ts.",
+  );
+  strictEqual(marked.join(', '), 'a1.30.l1, a1.30.l2', `unexpected assessment lessons: ${marked.join(', ')}`);
+});

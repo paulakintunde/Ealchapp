@@ -579,24 +579,62 @@ async function main() {
   // validateCorpus on device — putting the rule there would invalidate every
   // corpus already in the field. The publish contract is where a rule about
   // what may SHIP belongs.
+  //
+  // EXCEPT for assessment lessons. A bilan or an exam tests what other lessons
+  // taught; it owns no corpus rows and must release no SRS cards, because every
+  // row it quotes already belongs to the lesson that introduced it. The A1
+  // capstone met this rule first, on 2026-08-09, and the two were in deliberate
+  // opposition: a1-30-bilan.test.ts pins `itemIds.length === 0` ("a unit that
+  // quotes twenty-nine lessons owns none of their rows") while this rule
+  // demanded the opposite. The old a1.30 did list 101 itemIds and released all
+  // of them to SRS a second time, which is the bug that test exists to prevent.
+  //
+  // The exemption is POSITIVE — `features: ['assessment']`, declared on the
+  // lesson — and never inferred from the absence of practice. Inferring it
+  // would let every genuinely broken lesson exempt itself, which is the whole
+  // failure this gate was built to catch.
+  //
+  // A marked lesson that DOES own rows or DOES carry practice is a
+  // contradiction: either the marker is wrong or the body is. That fails too,
+  // separately, so the flag cannot be used to wave a teaching lesson through.
   const itemIdSet = new Set(items.map((i) => i.id));
   const practiceless: string[] = [];
+  const contradictory: string[] = [];
+  const assessments: string[] = [];
   for (const l of lessons) {
     const practices = (l.sections as LessonSection[]).filter((s) => s.type === 'practice');
+    const joined = Array.isArray(l.itemIds) && l.itemIds.length > 0;
+
+    if (l.features?.includes('assessment')) {
+      assessments.push(l.id);
+      if (joined || practices.length > 0) contradictory.push(l.id);
+      continue;
+    }
+
     const resolvable =
       practices.length > 0 &&
       practices.every((p) => p.itemIds.length > 0 && p.itemIds.every((id) => itemIdSet.has(id)));
-    const joined = Array.isArray(l.itemIds) && l.itemIds.length > 0;
     if (!resolvable || !joined) practiceless.push(l.id);
+  }
+  if (contradictory.length) {
+    await pool.end();
+    console.error(`\n✖ RULE lesson-has-practice: ${contradictory.length} lesson(s) claim 'assessment' but own corpus rows or carry practice. NOTHING was published.`);
+    console.error(`  ${contradictory.join(', ')}`);
+    console.error("  An assessment lesson releases no SRS cards. Drop the feature, or drop the itemIds and practice.\n");
+    process.exit(1);
   }
   if (practiceless.length) {
     await pool.end();
     console.error(`\n✖ RULE lesson-has-practice: ${practiceless.length} lesson(s) ship no resolvable practice. NOTHING was published.`);
     console.error(`  ${practiceless.join(', ')}`);
-    console.error('  Author real practice sections (scripts/author-practice.ts is the pattern), or unpublish the lesson.\n');
+    console.error("  Author real practice sections (scripts/author-practice.ts is the pattern), mark the lesson");
+    console.error("  features: ['assessment'] if it examines rather than teaches, or unpublish it.\n");
     process.exit(1);
   }
-  console.log('  ✓ lesson-has-practice: every lesson feeds the SRS');
+  console.log(
+    `  ✓ lesson-has-practice: every teaching lesson feeds the SRS` +
+    (assessments.length ? ` (${assessments.length} assessment lesson(s) exempt: ${assessments.join(', ')})` : ''),
+  );
 
   // ── 4c. MACHINE GATES (Phase 6b, CF-24) — warnings, never failures ──────
   // Breadth rules the corpus is expected to GROW INTO. They warn instead of

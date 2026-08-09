@@ -1378,8 +1378,25 @@ export type LessonAudio = {
   recorded?: { id: string; desc: string; clipIds?: string[] }[];
 };
 
-/** What a lesson can offer beyond reading it. Order here is display order. */
-export const LESSON_FEATURES = ['narrated', 'minimalPairs', 'roleplay', 'voiceflash'] as const;
+/** What a lesson can offer beyond reading it. Order here is display order.
+ *
+ *  `assessment` is the odd one out and is deliberately here rather than in a
+ *  field of its own: it declares what a lesson IS, not what it offers. It marks
+ *  a lesson that tests material other lessons taught and therefore owns no
+ *  corpus rows of its own — a bilan, an exam. The A1 capstone is the first.
+ *
+ *  It lives in this list because this is already the validated, enumerated,
+ *  round-tripping slot for lesson-level flags, and a second field would have to
+ *  be threaded through the schema, the validator and both copies of the content
+ *  for one boolean. Nothing renders this array — `den.tsx` reads exactly one
+ *  value from it, 'narrated' — so adding a member has no effect on screen.
+ *
+ *  The one consumer that cares is the `lesson-has-practice` publish gate, which
+ *  requires every lesson to release SRS cards. That is right for a lesson that
+ *  teaches and wrong for one that examines, and this flag is how the gate tells
+ *  them apart. It is checked positively: the gate never infers "assessment"
+ *  from missing practice, or a broken teaching lesson would exempt itself. */
+export const LESSON_FEATURES = ['narrated', 'minimalPairs', 'roleplay', 'voiceflash', 'assessment'] as const;
 export type LessonFeature = (typeof LESSON_FEATURES)[number];
 
 /* ─── Narration: the Den's spoken-lesson script ──────────────────────────── */

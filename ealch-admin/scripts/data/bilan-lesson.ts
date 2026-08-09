@@ -574,7 +574,12 @@ export const REVIEW_LESSON: Lesson = {
     'The whole A1 band, a1.01 to a1.29. Every question quotes a lesson that has already been taught and none of them is taught again here',
   ],
   grammarIntroduced: [],
-  features: [],
+  // 'assessment' is not decoration. The `lesson-has-practice` publish gate
+  // requires every lesson to release SRS cards, and this one deliberately
+  // releases none — see the itemIds: [] above and the test that pins it. The
+  // flag is how the gate tells a lesson that examines from one that teaches;
+  // without it a1.30 cannot ship at all.
+  features: ['assessment'],
   overview: {
     titleEn: 'A1 Review, lesson by lesson',
     subFr: 'Bilan A1',
@@ -702,7 +707,12 @@ export const EXAM_LESSON: Lesson = {
     'The whole A1 band, a1.01 to a1.29, and the lesson-by-lesson review in a1.30.l1',
   ],
   grammarIntroduced: [],
-  features: [],
+  // 'assessment' is not decoration. The `lesson-has-practice` publish gate
+  // requires every lesson to release SRS cards, and this one deliberately
+  // releases none — see the itemIds: [] above and the test that pins it. The
+  // flag is how the gate tells a lesson that examines from one that teaches;
+  // without it a1.30 cannot ship at all.
+  features: ['assessment'],
   overview: {
     titleEn: 'The A1 Exam',
     subFr: "L'examen A1",
