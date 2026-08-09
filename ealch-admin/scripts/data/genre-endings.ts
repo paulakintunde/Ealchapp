@@ -321,10 +321,28 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     ending: 'e',
     accuracy: 70,
     // 871 until a1.11 authored `une chambre` and `une avocate` into the shared
-    // corpus on 2026-08-05. This figure is MEASURED (a1-03-genre.test.ts
-    // recomputes it from the seed on every run), so a corpus edit anywhere in
-    // the app moves it and the card has to move with it.
-    items: 873,
+    // corpus on 2026-08-05, and 873 until a1.22 IMPORTED twenty-four country and
+    // nationality headwords on 2026-08-07. Seven of those twenty-four end in -e:
+    // France, Belgique, Espagne, Allemagne and Italie, which the rule gets
+    // right, plus `le Mexique` and `belge`, which are new counterexamples.
+    //
+    // 881 since a1.23 CARRIED `la bière` into the seed on 2026-08-07. That
+    // lesson's two themes are inside SEED_CUT.themes, but eight rows it serves
+    // are not and had to be carried; nine of its eleven new rows join this
+    // population. The accuracy did not move. See ealch-admin/scripts/
+    // _nourriture_endings_moved.ts.
+    //
+    // The accuracy did not move: 70% before and 70% after. Nor did any of the
+    // ten endings this lesson teaches in its FLOW. Six of the twenty-seven
+    // printed figures moved and all six were counts, modelled through the real
+    // measureEnding before a1.22 wrote anything (ealch-admin/scripts/
+    // _pays_genre_impact.ts). This is unavoidable rather than careless: every
+    // feminine country ends in -e, which is the rule a1.22 is built on.
+    //
+    // This figure is MEASURED (a1-03-genre.test.ts recomputes it from the seed
+    // on every run), so a corpus edit anywhere in the app moves it and the card
+    // has to move with it.
+    items: 881,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
@@ -334,7 +352,9 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
   {
     ending: 'on',
     accuracy: 60,
-    items: 142,
+    // 142 until a1.22 imported `le Japon` on 2026-08-07. The accuracy did not
+    // move and the ending is still dismissed for being under the floor.
+    items: 143,
     bothWays: [
       { id: 'fr.a1.cuisine.016', fr: 'le poisson', en: 'the fish' },
       { id: 'fr.a1.maison.001', fr: 'la maison', en: 'the house' },
@@ -343,8 +363,13 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
   },
   {
     ending: 'é',
-    accuracy: 52,
-    items: 50,
+    // 52% and 50 until a1.23 carried `le café` (fr.a1.au-restaurant.081) and
+    // `le thé` (.082) into the seed on 2026-08-07. Both are masculine and the
+    // ending predicts masculine, so the accuracy rose two points. Still far
+    // under the 90% floor, so the lesson still dismisses it, which is the only
+    // thing this figure is used to claim.
+    accuracy: 54,
+    items: 52,
     bothWays: [
       { id: 'fr.a1.routines.103', fr: 'le café', en: 'the coffee' },
       { id: 'fr.a1.maison.022', fr: 'la clé', en: 'the key' },
@@ -369,18 +394,27 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
 
 export type SheetEnding = { ending: string; predicts: 'm' | 'f'; accuracy: number; items: number };
 
+// FOUR OF THESE COUNTS MOVED ON 2026-08-07 when a1.22 imported twenty-four
+// country and nationality headwords. Every move is a count: not one accuracy and
+// not one predicted gender changed, and none of the four came near the 90%
+// floor. -in gained américain and mexicain, -ien gained canadien and italien,
+// -al gained Sénégal and Portugal, -ance gained France. Modelled through the
+// real measureEnding before anything was written, in
+// ealch-admin/scripts/_pays_genre_impact.ts.
 export const MORE_ENDINGS: SheetEnding[] = [
-  { ending: 'in', predicts: 'm', accuracy: 98, items: 41 },
+  // 43 until a1.23 carried `le vin` (fr.a1.au-restaurant.007) on 2026-08-07.
+  // Masculine, and the ending predicts masculine, so the accuracy held at 98%.
+  { ending: 'in', predicts: 'm', accuracy: 98, items: 44 },
   { ending: 'ent', predicts: 'm', accuracy: 96, items: 28 },
   { ending: 'ard', predicts: 'm', accuracy: 100, items: 17 },
   { ending: 'ant', predicts: 'm', accuracy: 100, items: 17 },
   { ending: 'oir', predicts: 'm', accuracy: 100, items: 16 },
   { ending: 'ot', predicts: 'm', accuracy: 100, items: 16 },
-  { ending: 'ien', predicts: 'm', accuracy: 100, items: 13 },
-  { ending: 'al', predicts: 'm', accuracy: 100, items: 9 },
+  { ending: 'ien', predicts: 'm', accuracy: 100, items: 15 },
+  { ending: 'al', predicts: 'm', accuracy: 100, items: 11 },
   { ending: 'ail', predicts: 'm', accuracy: 100, items: 7 },
   { ending: 'ité', predicts: 'f', accuracy: 93, items: 15 },
-  { ending: 'ance', predicts: 'f', accuracy: 100, items: 9 },
+  { ending: 'ance', predicts: 'f', accuracy: 100, items: 10 },
   { ending: 'sion', predicts: 'f', accuracy: 100, items: 7 },
   { ending: 'esse', predicts: 'f', accuracy: 100, items: 7 },
   { ending: 'euse', predicts: 'f', accuracy: 100, items: 6 },
