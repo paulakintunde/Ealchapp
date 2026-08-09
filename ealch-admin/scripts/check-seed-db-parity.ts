@@ -31,7 +31,7 @@ import './env';
 import { describeTarget } from './env';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import type { Lesson } from '../../ealch-v2/src/content/schema.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -45,7 +45,11 @@ type Seed = { lessons: Lesson[]; items: { id: string }[]; units: { id: string; l
  *  sides carry the same TEACHING: same section count, same section types in
  *  the same order, same item count, same quiz size. A drift in any of those is
  *  a real divergence, and the ones that bit us were all visible at this
- *  resolution (20 sections -> 6). */
+ *  resolution (20 sections -> 6).
+ *
+ *  NOT SUFFICIENT ON ITS OWN — see contentDrift() below. This fingerprint is
+ *  blind to anything that changes a section's CONTENT without changing its
+ *  type or the section count, and on 2026-08-09 that hid 80 authored turns. */
 function shape(l: Lesson): string {
   const quizzes = l.sections
     .filter((s) => s.type === 'quiz')
@@ -62,6 +66,58 @@ function shape(l: Lesson): string {
     l.overview ? 'overview' : 'no-overview',
     l.sections.map((s) => s.type).join('>'),
   ].join(' ');
+}
+
+/** Canonical form: object keys sorted recursively, array order preserved.
+ *
+ *  Postgres round-trips jsonb with its own key ordering, so the DB body and the
+ *  git body serialise their keys differently even when they are the same
+ *  object. A plain JSON.stringify comparison reports EVERY section as changed
+ *  and is worse than useless — it was the first thing I tried and it produced
+ *  10 false positives out of 16. Sort the keys and the noise disappears. */
+export function canon(v: unknown): unknown {
+  if (Array.isArray(v)) return v.map(canon);
+  if (v && typeof v === 'object') {
+    return Object.fromEntries(
+      Object.keys(v as Record<string, unknown>).sort().map((k) => [k, canon((v as Record<string, unknown>)[k])]),
+    );
+  }
+  return v;
+}
+const canonStr = (v: unknown) => JSON.stringify(canon(v));
+
+/** What shape() cannot see: a section whose type and position are unchanged but
+ *  whose CONTENT differs.
+ *
+ *  ── WHY THIS EXISTS (2026-08-09) ──────────────────────────────────────────
+ *  `apply-scenario-alts.ts` added `userEn` and `alts[]` to the turns of the
+ *  `scenario` section in 16 lessons, writing seed.json only and leaving "the
+ *  database as a separate step" that nobody took. Section count unchanged,
+ *  section types unchanged, version unchanged, overview unchanged. shape()
+ *  called all 16 identical. 80 authored turns sat one publish away from being
+ *  reverted, and the gate that was supposed to catch exactly this reported
+ *  green.
+ *
+ *  The projection caveat on shape() does NOT apply at section level: publish
+ *  withholds provenance columns from the lesson and item ROWS, not from the
+ *  section bodies. Measured on all 16 drifted lessons, every non-scenario
+ *  section compared byte-identical once keys were sorted. So a section-level
+ *  comparison is sound, and any difference it reports is a real one.
+ *
+ *  Direction is the whole point. A publish rewrites the seed FROM the DB:
+ *    · DB richer  -> a publish IMPROVES the seed. Informational.
+ *    · seed richer -> a publish DESTROYS the difference. Fatal.
+ *  Size is a proxy for richness, which is why an equal-size difference is not
+ *  waved through: it is reported as unknown-direction and treated as fatal. */
+export type SectionDrift = { ix: number; type: string; seedBytes: number; dbBytes: number };
+export function contentDrift(s: Lesson, d: Lesson): SectionDrift[] {
+  const out: SectionDrift[] = [];
+  for (let i = 0; i < Math.min(s.sections.length, d.sections.length); i++) {
+    const a = canonStr(s.sections[i]);
+    const b = canonStr(d.sections[i]);
+    if (a !== b) out.push({ ix: i, type: s.sections[i].type, seedBytes: a.length, dbBytes: b.length });
+  }
+  return out;
 }
 
 async function main() {
@@ -90,11 +146,31 @@ async function main() {
     const both = [...seedById.keys()].filter((id) => dbById.has(id)).sort();
 
     const drifted: { id: string; seed: string; db: string }[] = [];
+    // Content drift is only reported for lessons whose SHAPE already agrees.
+    // A shape-drifted lesson is loud enough on its own; repeating it here would
+    // bury the quiet class this check exists to surface.
+    const seedRicher: { id: string; secs: SectionDrift[] }[] = [];
+    const dbRicher: { id: string; secs: SectionDrift[] }[] = [];
+    const unknownDir: { id: string; secs: SectionDrift[] }[] = [];
     for (const id of both) {
-      const s = shape(seedById.get(id)!);
-      const d = shape(dbById.get(id)!.body);
-      if (s !== d) drifted.push({ id, seed: s, db: d });
+      const sl = seedById.get(id)!;
+      const dl = dbById.get(id)!.body;
+      const s = shape(sl);
+      const d = shape(dl);
+      if (s !== d) {
+        drifted.push({ id, seed: s, db: d });
+        continue;
+      }
+      const secs = contentDrift(sl, dl);
+      if (!secs.length) continue;
+      const seedBytes = secs.reduce((n, x) => n + x.seedBytes, 0);
+      const dbBytes = secs.reduce((n, x) => n + x.dbBytes, 0);
+      if (seedBytes > dbBytes) seedRicher.push({ id, secs });
+      else if (dbBytes > seedBytes) dbRicher.push({ id, secs });
+      else unknownDir.push({ id, secs });
     }
+    const fmtSecs = (secs: SectionDrift[]) =>
+      secs.map((x) => `${x.type}[${x.ix}] ${x.seedBytes}b/${x.dbBytes}b`).join(', ');
 
     const unpublished = res.rows.filter((r) => r.status !== 'published').map((r) => `${r.slug} (${r.status})`);
 
@@ -121,17 +197,30 @@ async function main() {
         console.log(`        db:   ${d.db}`);
       }
     }
+    if (seedRicher.length) {
+      console.log(`\n  ✗ CONTENT DRIFT, SEED RICHER (same shape — a publish would REVERT this):`);
+      for (const c of seedRicher) console.log(`      ${c.id}  ${fmtSecs(c.secs)}`);
+    }
+    if (unknownDir.length) {
+      console.log(`\n  ✗ CONTENT DRIFT, DIRECTION UNKNOWN (same shape, same size, different bytes):`);
+      for (const c of unknownDir) console.log(`      ${c.id}  ${fmtSecs(c.secs)}`);
+    }
+    if (dbRicher.length) {
+      console.log(`\n  ! content drift, database richer (a publish would bring the seed UP — informational):`);
+      for (const c of dbRicher) console.log(`      ${c.id}  ${fmtSecs(c.secs)}`);
+    }
     if (unpublished.length) {
       console.log(`\n  ! NOT PUBLISHED in the database: ${unpublished.join(', ')}`);
     }
 
-    const bad = seedOnly.length + drifted.length;
-    if (bad === 0 && dbOnly.length === 0) {
-      console.log('\n✓ seed.json and Postgres agree. A publish is safe.\n');
+    const bad = seedOnly.length + drifted.length + seedRicher.length + unknownDir.length;
+    if (bad === 0 && dbOnly.length === 0 && dbRicher.length === 0) {
+      console.log('\n✓ seed.json and Postgres agree, shape AND content. A publish is safe.\n');
       return;
     }
     if (bad === 0) {
-      console.log('\n✓ Nothing in the seed is at risk from a publish. The database-only lessons above would be ADDED by one.\n');
+      console.log('\n✓ Nothing in the seed is at risk from a publish. The database-only lessons and the');
+      console.log('  database-richer sections above would be ADDED or brought up by one.\n');
       return;
     }
     console.error(
@@ -145,7 +234,15 @@ async function main() {
   }
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+// Only run when invoked as a script. `canon` and `contentDrift` are exported so
+// they can be exercised directly against a captured body without opening a
+// connection — importing this file must not start a parity run.
+const invokedDirectly =
+  !!process.argv[1] && resolve(fileURLToPath(import.meta.url)) === resolve(process.argv[1]);
+
+if (invokedDirectly) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}
