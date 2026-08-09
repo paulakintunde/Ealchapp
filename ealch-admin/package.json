@@ -53,6 +53,7 @@
     "content:questions": "tsx scripts/author-questions-batch.ts",
     "content:nourriture": "tsx scripts/author-nourriture-batch.ts",
     "content:routine": "tsx scripts/author-routine-batch.ts",
+    "content:bilan": "tsx scripts/author-bilan-batch.ts",
     "content:parity": "tsx scripts/check-seed-db-parity.ts",
     "corpus:probe": "tsx scripts/probe-corpus.ts",
     "content:publish": "tsx scripts/publish-content.ts",

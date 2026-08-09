@@ -220,6 +220,7 @@ export default function LessonScreen() {
       drills: L.drills,
       roundFailThreshold: quizSection.roundFailThreshold,
       passMark: quizSection.passMark,
+      exam: quizSection.exam,
     });
   }, [L?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 

@@ -87,6 +87,20 @@ export function QuizRoundsView({
         score={totalScore(cfg, state)}
         pass={passed(cfg, state)}
         rounds={cfg.rounds.map((r, i) => ({ label: r.label, score: roundScore(cfg, state, i) }))}
+        // Under exam conditions nothing was explained as it happened, so the
+        // whole teaching payload is handed over here instead. Deferred, not
+        // withheld: a1.30.l2 is the only lesson that takes this branch.
+        review={
+          cfg.exam
+            ? cfg.rounds.flatMap((r, ri) =>
+                r.questions.map((q, qi) => ({
+                  q: q.q,
+                  why: q.why,
+                  correct: state.answers[ri]?.[qi] === true,
+                }))
+              )
+            : undefined
+        }
         onFinish={onFinish}
         finishLabel={finishLabel}
       />
@@ -135,9 +149,13 @@ export function QuizRoundsView({
         }}
         showsVerticalScrollIndicator={false}
       >
+        {/* Exam conditions strip the explanation off the COPY handed to the
+            card, never off `question` itself: `record` and the weak-spot
+            logger behind it identify a question by object identity against
+            the flattened round list, so the original has to stay intact. */}
         <QuestionCard
           key={`${phase.roundIx}-${phase.questionIx}`}
-          question={question}
+          question={cfg.exam ? { ...question, why: undefined } : question}
           id={`q-${phase.roundIx}-${phase.questionIx}`}
           onAnswer={(ok) => record(question, ok)}
           onPlay={onPlay}
@@ -147,7 +165,7 @@ export function QuizRoundsView({
 
       {answered ? (
         <View style={{ paddingHorizontal: 24, paddingBottom: 16, gap: 10 }}>
-          {question.ref && onJumpToRef ? (
+          {question.ref && onJumpToRef && !cfg.exam ? (
             <Press
               cue="tap"
               onPress={() => onJumpToRef(question.ref!)}
@@ -420,44 +438,82 @@ function DrillCard({
 }
 
 /** The closing card. Per-round scores, because "70%" tells a learner nothing
- *  about which rule to look at again. */
+ *  about which rule to look at again.
+ *
+ *  The list SCROLLS. It did not need to when a quiz was four rounds and the
+ *  card was a fixed box with a spacer, but a1.30.l1 reviews all twenty-nine A1
+ *  lessons in one run: twenty-nine rows plus a heading plus a button is taller
+ *  than a phone, and the fixed layout silently clipped the tail — the same
+ *  overflow-past-a-fixed-box failure the question card above was fixed for.
+ *  `review` adds a per-question pass under it, populated only under exam
+ *  conditions, where nothing was explained at the time it was answered. */
 function ResultCard({
   score,
   pass,
   rounds,
+  review,
   onFinish,
   finishLabel,
 }: {
   score: number;
   pass: boolean;
   rounds: { label: string; score: number }[];
+  review?: { q: string; why?: string; correct: boolean }[];
   onFinish?: () => void;
   finishLabel?: string;
 }) {
   const t = useTheme();
+  const missed = review?.filter((r) => !r.correct) ?? [];
   return (
-    <View style={{ flex: 1, paddingHorizontal: 24, paddingVertical: 20, gap: 20 }}>
-      <View style={{ gap: 6 }}>
-        <TX role="display" font="semi">{score}%</TX>
-        <TX role="body" color={t.txSecondary}>
-          {pass ? 'You have the system.' : 'Worth another pass through the rules.'}
-        </TX>
-      </View>
+    <View style={{ flex: 1 }}>
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 20, gap: 20 }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={{ gap: 6 }}>
+          <TX role="display" font="semi">{score}%</TX>
+          <TX role="body" color={t.txSecondary}>
+            {pass ? 'You have the system.' : 'Worth another pass through the rules.'}
+          </TX>
+        </View>
 
-      <View style={{ gap: 10 }}>
-        {rounds.map((r) => (
-          <View key={r.label} style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-            <TX role="bodySm" color={t.txSecondary} style={{ flex: 1 }}>{r.label}</TX>
-            <View style={{ width: 90, height: 4, borderRadius: 2, backgroundColor: t.line(8) }}>
-              <View style={{ width: `${r.score}%`, height: 4, borderRadius: 2, backgroundColor: r.score >= 60 ? t.acc : t.danger }} />
+        <View style={{ gap: 10 }}>
+          {rounds.map((r, i) => (
+            // Keyed by index, not label: twenty-nine authored labels are
+            // unique today, but a duplicate would silently drop a row.
+            <View key={`${i}-${r.label}`} style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+              <TX role="bodySm" color={t.txSecondary} style={{ flex: 1 }}>{r.label}</TX>
+              <View style={{ width: 90, height: 4, borderRadius: 2, backgroundColor: t.line(8) }}>
+                <View style={{ width: `${r.score}%`, height: 4, borderRadius: 2, backgroundColor: r.score >= 60 ? t.acc : t.danger }} />
+              </View>
+              <TX role="meta" color={t.txMuted} style={{ width: 38, textAlign: 'right' }}>{r.score}%</TX>
             </View>
-            <TX role="meta" color={t.txMuted} style={{ width: 38, textAlign: 'right' }}>{r.score}%</TX>
-          </View>
-        ))}
-      </View>
+          ))}
+        </View>
 
-      <View style={{ flex: 1 }} />
-      {onFinish ? <Button label={finishLabel ?? 'Done'} onPress={onFinish} /> : null}
+        {missed.length ? (
+          <View style={{ gap: 14, paddingTop: 4 }}>
+            <TX role="eyebrow" font="med" color={t.txMuted} ls={0.8} style={{ textTransform: 'uppercase' }}>
+              {missed.length === 1 ? 'The one you missed' : `The ${missed.length} you missed`}
+            </TX>
+            {missed.map((r, i) => (
+              <View key={i} style={{ gap: 4 }}>
+                <TX role="bodySm" font="med">{r.q}</TX>
+                {r.why ? (
+                  <TX role="bodySm" color={t.txSecondary} lhMult={1.55}>{r.why}</TX>
+                ) : null}
+              </View>
+            ))}
+          </View>
+        ) : null}
+      </ScrollView>
+
+      {onFinish ? (
+        <View style={{ paddingHorizontal: 24, paddingBottom: 16, paddingTop: 8 }}>
+          <Button label={finishLabel ?? 'Done'} onPress={onFinish} />
+        </View>
+      ) : null}
     </View>
   );
 }

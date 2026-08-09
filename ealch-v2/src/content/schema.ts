@@ -1068,6 +1068,12 @@ export type LessonSection = (
       adaptive?: boolean;
       /** Percent below which a ROUND fires its remediation drill. */
       roundFailThreshold?: number;
+      /** Exam conditions: no explanation and no "see this again" jump as the
+       *  learner answers, and the whole review is handed over on the result
+       *  card instead. Rounds that also declare no `targets` fire no
+       *  remediation drills, which is what makes the sitting a measurement
+       *  rather than a lesson. Off everywhere but a1.30.l2. */
+      exam?: boolean;
     }
   /** The full A-Z as a tappable grid; each letter opens a detail card. */
   | { type: 'letterGrid'; title: string; letters: GridLetter[] }
