@@ -64,9 +64,8 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { validateItem, validateLesson, type Item, type Lesson } from '../../ealch-v2/src/content/schema.ts';
 
-/** Lessons whose good body exists only in git. a1.01.l1 excluded on purpose:
- *  the DB is correctly ahead there. sons.04.l1 and sons.08.l1 were added
- *  2026-08-03 — see the header. */
+/** Lessons whose good body exists only in git. sons.04.l1 and sons.08.l1 were
+ *  added 2026-08-03 — see the header. */
 const RESTORE_IDS = [
   'sons.01.l1',
   'sons.02.l1',
@@ -80,9 +79,55 @@ const RESTORE_IDS = [
   // so no version comparison could have caught it, and it was in neither
   // restore list — a publish would have quietly dropped all six.
   'sons.06.l1',
-  'sons.08.l1',
+  // sons.08.l1 REMOVED 2026-08-09. It was added 2026-08-03 when git led the DB.
+  // That has since reversed: the DB is v2 and carries an `overview`, git is
+  // still v1 without one, and the version guard below refuses the restore —
+  // correctly. Leaving the id here aborts the whole run before any of the
+  // role-play lessons are reached. The DB is the good copy; a publish will
+  // bring the seed up to v2, which is the direction we want.
   'a1.04.l1',
   'a2.01.l1',
+
+  // ── The role-play conversation rebuild, 2026-08-09 ──────────────────────
+  //
+  // `apply-scenario-alts.ts` enriched the `scenario` section of 16 lessons
+  // with `userEn` and `alts[]`, and says in its own header that it writes
+  // seed.json ONLY and that the database "is a separate step". That step was
+  // never taken. Measured against the live DB: 179 rich turns in the seed, 99
+  // in Postgres. 80 turns across 16 lessons exist in git alone.
+  //
+  // Why nobody noticed: `check-seed-db-parity.ts` fingerprints a lesson by
+  // section COUNT and section TYPES. Enriching turns inside an existing
+  // `scenario` section changes neither, so parity called all 16 in agreement.
+  // Same blind spot as sons.06.l1 above, one level deeper — there the section
+  // count moved and still went unseen; here nothing structural moves at all.
+  //
+  // The ids below are the measured set, not the set apply-scenario-alts.ts
+  // was aimed at. Four of them (sons.02, sons.03, sons.06, a1.04) were already
+  // in this list for unrelated reasons.
+  'sons.05.l1',
+  'sons.07.l1',
+  // sons.09.l1: its authored source (data/masterclass-lesson.ts) still holds
+  // the PRE-rebuild scenario, 982 bytes against the seed's 2032. Re-running
+  // `pnpm content:masterclass` would regress this row again. Fix the source
+  // before anyone does.
+  'sons.09.l1',
+  'sons.10.l1',
+  // a1.01.l1 was excluded from this list on 2026-07-31 with the note "the DB
+  // is correctly ahead there". That was true of the overview restore and may
+  // still be true of the rest of the body. It is NOT true of the scenario:
+  // seed has 5 rich turns, the DB has 0. Included deliberately so the richness
+  // guard below adjudicates it on evidence instead of on that stale note. If
+  // the guard refuses, restore a1.01 by scenario-only patch, not by widening
+  // the guard.
+  'a1.01.l1',
+  'a1.02.l1',
+  'a1.05.l1',
+  'a1.06.l1',
+  'a1.11.l1',
+  'a1.27.l1',
+  'a1.28.l1',
+  'a1.29.l1',
 ];
 
 /** Columns for a lesson row this script has to CREATE rather than update.
