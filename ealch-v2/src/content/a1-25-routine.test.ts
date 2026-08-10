@@ -57,7 +57,7 @@ import { dirname, resolve } from 'node:path';
 import { test } from 'node:test';
 
 import type { Item, Lesson } from './schema.ts';
-import { quizQuestions, validateLesson, formatIssues } from './schema.ts';
+import { canonicalJson, quizQuestions, validateLesson, formatIssues } from './schema.ts';
 import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logic.ts';
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode, wordDecoys } from './dictee.logic.ts';
@@ -818,7 +818,9 @@ test('no groupDrill carries a size, and every control page carries items: []', {
 /* ═══ 18. Seed / source parity, every figure DERIVED ══════════════════════ */
 
 test('the seed lesson and the authored lesson are the same object', { skip: noLesson || noSrc }, () => {
-  strictEqual(JSON.stringify(L), JSON.stringify(SRC), 'seed.json and ealch-admin have drifted; re-run merge-routine-into-seed.ts');
+  // Canonical, not byte-for-byte: a publish rewrites the seed from Postgres and
+  // reorders keys with no content change. See canonicalJson in schema.ts.
+  strictEqual(canonicalJson(L), canonicalJson(SRC), 'seed.json and ealch-admin have drifted; re-run merge-routine-into-seed.ts');
 });
 
 test('the item counts agree with the authored source', { skip: noLesson || noSrc }, () => {

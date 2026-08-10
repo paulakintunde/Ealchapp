@@ -33,7 +33,7 @@ import { ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 
 import type { Item, Lesson } from './schema.ts';
-import { quizQuestions, validateLesson, formatIssues } from './schema.ts';
+import { canonicalJson, quizQuestions, validateLesson, formatIssues } from './schema.ts';
 import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logic.ts';
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
@@ -133,6 +133,22 @@ const itemById = (id: string) => seed.items.find((i) => i.id === id);
 /** The surfaces a learner READS or is TESTED on, not every string in the file.
  *  A guard written against every string fires on the audio brief and the
  *  handover notes and gets deleted rather than fixed. */
+/** Surfaces are joined with a NEWLINE, never a space, before a regex runs over
+ *  them.
+ *
+ *  The neighbour guards below ask "is any one surface drilling a1.29's rule?"
+ *  and they answer it with patterns like `du.{0,10}de la.{0,10}des.{0,40}which`.
+ *  `.` does not match a newline without the /s flag, so a newline join confines
+ *  every match to a single surface, which is the question being asked.
+ *
+ *  With a space join the match can straddle two unrelated surfaces. It did:
+ *  publishing v21 reordered the seed's keys, `strings()` walks objects in key
+ *  order, and two innocent strings — "...all three take du, de la or des." and
+ *  "which verbs point at an amount?" — landed next to each other and read as
+ *  one partitive drill. Same content, same 1418 surfaces, different order, and
+ *  a guard that had passed for weeks went red on a lesson nobody had touched. */
+const SURFACE_SEP = '\n';
+
 function productionSurfaces(): string[] {
   if (!L) return [];
   const decks = L.sections.filter((s) => ['cardDeck', 'flashcards', 'reviewDeck'].includes(s.type));
@@ -338,7 +354,7 @@ test('the partitive RULE is not re-taught, so a1.29 keeps its lesson', skipSeed,
   //
   // What is forbidden is a section whose JOB is choosing between du and de la
   // and des, which is a1.29's whole lesson.
-  const surfaces = productionSurfaces().join(' ').toLowerCase();
+  const surfaces = productionSurfaces().join(SURFACE_SEP).toLowerCase();
   ok(!/which (one )?do you use.{0,40}de la/.test(surfaces),
     'a drill is asking the learner to choose between the partitive forms; that is a1.29');
   ok(!/du.{0,10}de la.{0,10}des.{0,40}(choose|which|pick)/.test(surfaces),
@@ -346,7 +362,7 @@ test('the partitive RULE is not re-taught, so a1.29 keeps its lesson', skipSeed,
 });
 
 test('the ordering script is not taught, so a2.07 keeps its lesson', skipSeed, () => {
-  const surfaces = productionSurfaces().join(' ').toLowerCase();
+  const surfaces = productionSurfaces().join(SURFACE_SEP).toLowerCase();
   for (const forbidden of ["l'addition", 'le serveur', 'le plat du jour']) {
     ok(!surfaces.includes(forbidden), `${forbidden} is a2.07's and it is being taught here`);
   }
@@ -355,7 +371,7 @@ test('the ordering script is not taught, so a2.07 keeps its lesson', skipSeed, (
 test('the meal set is not taught as a group, so a1.25 keeps its lesson', skipSeed, () => {
   // A meal may be NAMED to place a sentence in time. What is forbidden is
   // teaching petit déjeuner / déjeuner / dîner as a set, which is a1.25's.
-  const surfaces = productionSurfaces().join(' ').toLowerCase();
+  const surfaces = productionSurfaces().join(SURFACE_SEP).toLowerCase();
   const meals = ['petit déjeuner', 'déjeuner', 'dîner'].filter((m) => surfaces.includes(m));
   ok(meals.length < 3, `all three meal names are on production surfaces as a set: ${meals.join(', ')}`);
 });
@@ -757,8 +773,10 @@ test('no U+203F tie, which renders as a low underscore on a Pixel 6', skipSeed, 
    12. Seed parity, every figure DERIVED from the authored source
    ══════════════════════════════════════════════════════════════════════════ */
 
-test('the seed lesson is byte-identical to the authored source', skipBoth, () => {
-  strictEqual(JSON.stringify(L), JSON.stringify(SRC), 'seed.json and the source have drifted');
+test('the seed lesson and the authored source teach the same lesson', skipBoth, () => {
+  // Canonical, not byte-for-byte: a publish rewrites the seed from Postgres and
+  // reorders keys with no content change. See canonicalJson in schema.ts.
+  strictEqual(canonicalJson(L), canonicalJson(SRC), 'seed.json and the source have drifted');
 });
 
 test('the unit was rebound off the dead theme', skipBoth, () => {

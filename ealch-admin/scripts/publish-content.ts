@@ -41,6 +41,7 @@ import {
   formatIssues,
   unitBand,
   validateCorpus,
+  ITEM_ID_RE,
   type Corpus,
   type ExamSeries,
   type ExamTask,
@@ -219,15 +220,48 @@ function assertItemProjectionIsComplete(): void {
   }
 }
 
-/** Every item a lesson depends on: its itemIds plus anything a practice section
- *  points at. Miss the practice sections and the seed ships a lesson whose
- *  practice block is silently empty. */
+/** Every item a lesson depends on, found by WALKING THE WHOLE BODY rather than
+ *  by listing the places an item is known to be named.
+ *
+ *  ── Why a walk and not a list (2026-08-09) ─────────────────────────────────
+ *
+ *  This read `l.itemIds` plus practice sections, and its own comment warned
+ *  that missing the practice sections would ship a lesson whose practice block
+ *  is silently empty. It was missing more than practice. Publishing v20 cut 60
+ *  rows out of the seed, and among them were rows referenced from
+ *  `terms[].examples[].itemId`: a1.12's term chips resolved to nothing in the
+ *  bundle, and a1.08 lost an imported row the same way. `dictation` sections,
+ *  `drills[].items` and a target's `practiceOn` were all equally invisible to
+ *  this function.
+ *
+ *  The defect was the shape of the answer, not the three missing entries. An
+ *  allowlist of reference sites has to be extended every time a section type
+ *  learns to name an item, nothing fails when somebody forgets, and the symptom
+ *  appears only for a learner with no network — the row is simply absent from
+ *  the bundle and the card draws blank. A walk cannot fall behind the schema.
+ *
+ *  Over-inclusion is the safe direction and is nearly impossible in practice:
+ *  an item id is `fr.<band>.<theme>.<nnn>` and no authored prose contains one.
+ *  A false positive costs one surplus row in the bundle. A false negative costs
+ *  a blank card offline, silently, for as long as nobody opens that lesson on a
+ *  plane. */
 function itemsReferencedBy(l: Lesson): string[] {
-  const ids = [...l.itemIds];
-  for (const s of l.sections as LessonSection[]) {
-    if (s.type === 'practice') ids.push(...s.itemIds);
-  }
-  return ids;
+  const found: string[] = [];
+  const walk = (v: unknown): void => {
+    if (typeof v === 'string') {
+      if (ITEM_ID_RE.test(v)) found.push(v);
+      return;
+    }
+    if (Array.isArray(v)) {
+      for (const x of v) walk(x);
+      return;
+    }
+    if (v && typeof v === 'object') {
+      for (const x of Object.values(v)) walk(x);
+    }
+  };
+  walk(l);
+  return found;
 }
 
 /* ─── main ───────────────────────────────────────────────────────────────── */

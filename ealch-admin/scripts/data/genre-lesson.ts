@@ -907,12 +907,74 @@ const SECTIONS: LessonSection[] = [
     audio: { mode: 'tts', lang: 'fr-FR', speeds: [1.0, 0.65], recordingId: 'rec-a1-03-scenario' },
     say: 'A hardware shop, and every line you say has an article decision inside it.',
     setting: 'A hardware shop in Nantes, late on a Saturday morning.',
+    // ── `userEn` AND `alts` WERE IN THE SEED AND NOT IN THIS FILE ───────────
+    //
+    // Commit 523a44e ("a conversation you can answer more than one way") added
+    // both fields to every scenario turn in seed.json and did NOT add them
+    // here, so this source and the shipped lesson had drifted apart on a field
+    // nobody re-reads. Nothing failed, because the tests read the SEED.
+    //
+    // It surfaced on 2026-08-07 when a1.22 had to re-render a1.03 to move six
+    // measured ending counts: the merge wrote this file's version over the
+    // seed's and five turns lost their translation and their alternatives in
+    // one step. The values below are the seed's own, copied back verbatim, so
+    // the two copies agree again.
+    //
+    // scenario.logic.ts requires both of every turn in the whole seed: a reveal
+    // with no translation shows the learner the one sentence comprehension
+    // matters on and asks them to read it, and a single accepted answer makes a
+    // conversation a cloze test.
     turns: [
-      { ai: 'Bonjour ! Je peux vous aider ?', en: 'Hello! Can I help you?', user: 'Bonjour. Je cherche une ampoule.' },
-      { ai: 'Une ampoule, oui. Pour quelle pièce ?', en: 'A bulb, yes. For which room?', user: 'Pour la cuisine.' },
-      { ai: 'Très bien. Et avec ça ?', en: 'Very good. Anything else?', user: 'Il me faut aussi un couteau.' },
-      { ai: 'Un couteau de cuisine ?', en: 'A kitchen knife?', user: 'Oui, c’est ça. Et le prix ?' },
-      { ai: 'Douze euros les deux.', en: 'Twelve euros for the two.', user: 'D’accord. Merci beaucoup.' },
+      {
+        ai: 'Bonjour ! Je peux vous aider ?',
+        en: 'Hello! Can I help you?',
+        user: 'Bonjour. Je cherche une ampoule.',
+        userEn: 'Hello. I\'m looking for a bulb.',
+        alts: [
+          { fr: 'Bonjour. Il me faut une ampoule.', en: 'Hello. I need a bulb.' },
+          { fr: 'Bonjour, vous avez des ampoules ?', en: 'Hello, do you have any bulbs?' },
+        ],
+      },
+      {
+        ai: 'Une ampoule, oui. Pour quelle pièce ?',
+        en: 'A bulb, yes. For which room?',
+        user: 'Pour la cuisine.',
+        userEn: 'For the kitchen.',
+        alts: [
+          { fr: 'Pour la salle de bains.', en: 'For the bathroom.' },
+          { fr: 'C’est pour le salon.', en: 'It\'s for the living room.' },
+        ],
+      },
+      {
+        ai: 'Très bien. Et avec ça ?',
+        en: 'Very good. Anything else?',
+        user: 'Il me faut aussi un couteau.',
+        userEn: 'I also need a knife.',
+        alts: [
+          { fr: 'Je voudrais aussi un couteau.', en: 'I\'d also like a knife.' },
+          { fr: 'Un couteau, s’il vous plaît.', en: 'A knife, please.' },
+        ],
+      },
+      {
+        ai: 'Un couteau de cuisine ?',
+        en: 'A kitchen knife?',
+        user: 'Oui, c’est ça. Et le prix ?',
+        userEn: 'Yes, that\'s it. And the price?',
+        alts: [
+          { fr: 'Oui, exactement. Il coûte combien ?', en: 'Yes, exactly. How much is it?' },
+          { fr: 'Oui, un couteau de cuisine. C’est combien ?', en: 'Yes, a kitchen knife. How much is it?' },
+        ],
+      },
+      {
+        ai: 'Douze euros les deux.',
+        en: 'Twelve euros for the two.',
+        user: 'D’accord. Merci beaucoup.',
+        userEn: 'All right. Thank you very much.',
+        alts: [
+          { fr: 'Douze euros, très bien. Merci.', en: 'Twelve euros, very good. Thank you.' },
+          { fr: 'Parfait, je prends les deux.', en: 'Perfect, I\'ll take both.' },
+        ],
+      },
     ],
   },
 
@@ -1647,7 +1709,57 @@ export const GENRE_LESSON: Lesson = {
   // nouns into the shared corpus (2026-08-05). Nothing else changed. The number
   // is printed on two cards and is re-measured from the seed by
   // a1-03-genre.test.ts on every run, so it cannot be left stale.
-  version: 2,
+  //
+  // v3: SIX figures moved on 2026-08-07 when a1.22 "Pays & nationalités"
+  // imported twenty-four country and nationality headwords into the seed. Every
+  // one is a COUNT and nothing this lesson teaches changed:
+  //
+  //     -e     873 -> 880   worthless, still 70%
+  //     -on    142 -> 143   worthless, still 60%
+  //     -in     41 ->  43   sheet, still 98% masculine
+  //     -ien    13 ->  15   sheet, still 100% masculine
+  //     -al      9 ->  11   sheet, still 100% masculine
+  //     -ance    9 ->  10   sheet, still 100% feminine
+  //
+  // Not one of the TEN endings this lesson teaches in its flow was touched, no
+  // accuracy moved, no predicted gender flipped and nothing crossed the 90%
+  // floor in either direction. a1.22 modelled the whole move through the real
+  // measureEnding before it wrote anything (ealch-admin/scripts/
+  // _pays_genre_impact.ts) and its batch refuses to run if a floor or a
+  // prediction would change rather than a count.
+  //
+  // Worth stating for the next author: this was unavoidable rather than
+  // careless. `la France` ends in -e because every feminine country does, which
+  // is the rule a1.22 is built on, so there is no country set that teaches its
+  // decision and leaves these counts alone.
+  //
+  // v4: NINE figures moved on 2026-08-09, and this time no content was authored
+  // at all. 'jours-et-mois' and 'heure-et-date' joined SEED_CUT.themes, which
+  // brought 730 rows that were always in Postgres into the SEED for the first
+  // time. The population this lesson measures over is the seed, so it grew:
+  //
+  //     -e     881 -> 904   worthless, still 70%
+  //     -é      52 ->  54   worthless, still 54%
+  //     -ier    55 ->  56   taught, still 100%
+  //     -ure    24 ->  26   taught, still 100%
+  //     -ine    28 ->  29   taught, 96% -> 97%
+  //     -in     44 ->  45   sheet, still 98%
+  //     -ent    28 ->  29   sheet, 96% -> 97%
+  //     -ant    17 ->  18   sheet, still 100%
+  //     -ité    15 ->  16   sheet, 93% -> 94%
+  //
+  // No prediction flipped, nothing crossed the 90% floor, and the two accuracy
+  // changes in the taught set went UP. The lesson teaches exactly what it did.
+  //
+  // The 881 above never reached a card: a1.23 moved the figure to 881 in
+  // genre-endings.ts on 2026-08-07 and nobody re-rendered this lesson, so the
+  // seed still printed 880 until now. Two pending re-renders, discovered
+  // together, applied together.
+  //
+  // The general point, for whoever moves the cut next: what ships offline is a
+  // packaging decision in seed-cut.config.ts, and it silently owns numbers this
+  // lesson prints on cards. Widening the cut is never only a size change.
+  version: 4,
 
   // a1.02 introduced un against une on exactly two words, framed as a fact
   // about the number one. This lesson does not introduce the idea, it

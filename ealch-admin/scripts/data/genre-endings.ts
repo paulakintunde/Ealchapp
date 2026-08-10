@@ -143,7 +143,9 @@ const MASCULINE: EndingRule[] = [
     ending: 'ier',
     predicts: 'm',
     accuracy: 100,
-    items: 55,
+    // 56 since 2026-08-09: 'jours-et-mois' and 'heure-et-date' joined
+    // SEED_CUT.themes and one -ier noun entered the seed with them. Still 100%.
+    items: 56,
     article: 'un',
     example: { id: 'fr.a1.ecole.003', fr: 'le cahier', en: 'notebook' },
     sheetExamples: ['le papier', 'le quartier', 'l’escalier', 'un policier', 'un pompier'],
@@ -238,7 +240,8 @@ const FEMININE: EndingRule[] = [
     ending: 'ure',
     predicts: 'f',
     accuracy: 100,
-    items: 24,
+    // 26 since 2026-08-09, same cause as -ier above. Still 100%.
+    items: 26,
     article: 'une',
     example: { id: 'fr.a1.deplacements.018', fr: 'la voiture', en: 'the car' },
     sheetExamples: ['la confiture', 'la peinture', 'la ceinture', 'la couverture'],
@@ -263,8 +266,11 @@ const FEMININE: EndingRule[] = [
     id: 'ine',
     ending: 'ine',
     predicts: 'f',
-    accuracy: 96,
-    items: 28,
+    // 97% and 29 since 2026-08-09, same cause as -ier above. The one noun the
+    // two themes added is feminine, so the accuracy rose a point rather than
+    // fell — the only taught ending whose percentage moved at all.
+    accuracy: 97,
+    items: 29,
     article: 'une',
     example: { id: 'fr.a1.cuisine.001', fr: 'la cuisine', en: 'the kitchen' },
     sheetExamples: ['la piscine', 'la cantine', 'la farine', 'la cousine'],
@@ -339,10 +345,24 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // _pays_genre_impact.ts). This is unavoidable rather than careless: every
     // feminine country ends in -e, which is the rule a1.22 is built on.
     //
+    // 904 since 2026-08-09, and this one moved for a reason none of the others
+    // did: nothing was authored, imported or carried. `jours-et-mois` and
+    // `heure-et-date` joined SEED_CUT.themes, so 730 rows that had always been
+    // in Postgres entered the SEED for the first time, and 23 of them end in -e.
+    //
+    // Worth sitting with, because it is the sharpest example of the trap: this
+    // population is the SEED, not the corpus. The nouns were always there and
+    // the app could always drill them; all that changed is which of them ship
+    // inside the binary, which is a packaging decision made in
+    // seed-cut.config.ts by someone thinking about offline users. It moved a
+    // number printed on a card. Any future change to the cut will move it again.
+    //
+    // The accuracy did not move: 70% before, 70% after.
+    //
     // This figure is MEASURED (a1-03-genre.test.ts recomputes it from the seed
     // on every run), so a corpus edit anywhere in the app moves it and the card
     // has to move with it.
-    items: 881,
+    items: 904,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
@@ -368,8 +388,11 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // ending predicts masculine, so the accuracy rose two points. Still far
     // under the 90% floor, so the lesson still dismisses it, which is the only
     // thing this figure is used to claim.
+    // 54 since 2026-08-09: the two themes added to SEED_CUT.themes brought two
+    // more -é nouns into the seed. Accuracy held at 54%, still far under the
+    // floor, so the lesson's dismissal of this ending is unchanged.
     accuracy: 54,
-    items: 52,
+    items: 54,
     bothWays: [
       { id: 'fr.a1.routines.103', fr: 'le café', en: 'the coffee' },
       { id: 'fr.a1.maison.022', fr: 'la clé', en: 'the key' },
@@ -404,16 +427,21 @@ export type SheetEnding = { ending: string; predicts: 'm' | 'f'; accuracy: numbe
 export const MORE_ENDINGS: SheetEnding[] = [
   // 43 until a1.23 carried `le vin` (fr.a1.au-restaurant.007) on 2026-08-07.
   // Masculine, and the ending predicts masculine, so the accuracy held at 98%.
-  { ending: 'in', predicts: 'm', accuracy: 98, items: 44 },
-  { ending: 'ent', predicts: 'm', accuracy: 96, items: 28 },
+  // -in, -ent, -ant and -ité below moved on 2026-08-09 when 'jours-et-mois' and
+  // 'heure-et-date' joined SEED_CUT.themes. Counts only; -ent and -ité each
+  // gained a point of accuracy, neither crossed a threshold, no prediction
+  // flipped. See the note on -e in WORTHLESS_ENDINGS for why a packaging
+  // decision moves figures printed on cards.
+  { ending: 'in', predicts: 'm', accuracy: 98, items: 45 },
+  { ending: 'ent', predicts: 'm', accuracy: 97, items: 29 },
   { ending: 'ard', predicts: 'm', accuracy: 100, items: 17 },
-  { ending: 'ant', predicts: 'm', accuracy: 100, items: 17 },
+  { ending: 'ant', predicts: 'm', accuracy: 100, items: 18 },
   { ending: 'oir', predicts: 'm', accuracy: 100, items: 16 },
   { ending: 'ot', predicts: 'm', accuracy: 100, items: 16 },
   { ending: 'ien', predicts: 'm', accuracy: 100, items: 15 },
   { ending: 'al', predicts: 'm', accuracy: 100, items: 11 },
   { ending: 'ail', predicts: 'm', accuracy: 100, items: 7 },
-  { ending: 'ité', predicts: 'f', accuracy: 93, items: 15 },
+  { ending: 'ité', predicts: 'f', accuracy: 94, items: 16 },
   { ending: 'ance', predicts: 'f', accuracy: 100, items: 10 },
   { ending: 'sion', predicts: 'f', accuracy: 100, items: 7 },
   { ending: 'esse', predicts: 'f', accuracy: 100, items: 7 },

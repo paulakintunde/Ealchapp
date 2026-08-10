@@ -32,7 +32,7 @@ import { describeTarget } from './env';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
-import type { Lesson } from '../../ealch-v2/src/content/schema.ts';
+import { canonicalJson, type Lesson } from '../../ealch-v2/src/content/schema.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED = join(here, '../../ealch-v2/src/content/seed.json');
@@ -68,23 +68,11 @@ function shape(l: Lesson): string {
   ].join(' ');
 }
 
-/** Canonical form: object keys sorted recursively, array order preserved.
- *
- *  Postgres round-trips jsonb with its own key ordering, so the DB body and the
- *  git body serialise their keys differently even when they are the same
- *  object. A plain JSON.stringify comparison reports EVERY section as changed
- *  and is worse than useless — it was the first thing I tried and it produced
- *  10 false positives out of 16. Sort the keys and the noise disappears. */
-export function canon(v: unknown): unknown {
-  if (Array.isArray(v)) return v.map(canon);
-  if (v && typeof v === 'object') {
-    return Object.fromEntries(
-      Object.keys(v as Record<string, unknown>).sort().map((k) => [k, canon((v as Record<string, unknown>)[k])]),
-    );
-  }
-  return v;
-}
-const canonStr = (v: unknown) => JSON.stringify(canon(v));
+/** Canonical comparison lives in schema.ts and is shared with the lesson tests,
+ *  which hit the same trap from the other direction: Postgres round-trips jsonb
+ *  in its own key order, so a plain JSON.stringify marks every section changed.
+ *  It produced 10 false positives out of 16 here before the keys were sorted. */
+const canonStr = canonicalJson;
 
 /** What shape() cannot see: a section whose type and position are unchanged but
  *  whose CONTENT differs.
@@ -234,7 +222,7 @@ async function main() {
   }
 }
 
-// Only run when invoked as a script. `canon` and `contentDrift` are exported so
+// Only run when invoked as a script. `contentDrift` is exported so
 // they can be exercised directly against a captured body without opening a
 // connection — importing this file must not start a parity run.
 const invokedDirectly =

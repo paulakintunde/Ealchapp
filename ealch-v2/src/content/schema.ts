@@ -282,6 +282,40 @@ export type ContentStatus = (typeof CONTENT_STATUSES)[number];
  */
 const BANDS_RE = LEVELS.join('|');
 
+/** Compare two pieces of content for SAMENESS rather than for byte equality:
+ *  object keys sorted recursively, array order preserved because array order is
+ *  content (mission 3 is not mission 5).
+ *
+ *  ── Why this exists (2026-08-09) ───────────────────────────────────────────
+ *  A lesson body has two homes, the authored source in ealch-admin and the copy
+ *  in seed.json, and several tests assert they agree. They did it with
+ *  `JSON.stringify(a) === JSON.stringify(b)`, which is byte equality, and byte
+ *  equality includes KEY ORDER.
+ *
+ *  Key order depends on how the seed was last written. `merge-*-into-seed.ts`
+ *  writes the authored object and preserves the author's field order;
+ *  `content:publish` rewrites the seed from Postgres, and jsonb round-trips
+ *  keys in its own order. So those tests passed only in the window between a
+ *  merge and the next publish. Publishing v20 reordered 39 of 42 lessons with
+ *  ZERO content change and turned four of them red at once.
+ *
+ *  Sorting the keys keeps the guarantee that matters — the two copies teach the
+ *  same lesson — and drops a serialization detail no learner can observe. The
+ *  same trap caught check-seed-db-parity.ts first, where a naive stringify
+ *  reported 10 false positives out of 16 lessons; that script now imports this. */
+export function canonicalJson(v: unknown): string {
+  const canon = (x: unknown): unknown => {
+    if (Array.isArray(x)) return x.map(canon);
+    if (x && typeof x === 'object') {
+      return Object.fromEntries(
+        Object.keys(x as Record<string, unknown>).sort().map((k) => [k, canon((x as Record<string, unknown>)[k])]),
+      );
+    }
+    return x;
+  };
+  return JSON.stringify(canon(v));
+}
+
 export const ITEM_ID_RE = new RegExp(`^fr\\.(${BANDS_RE})\\.[a-z0-9-]+\\.\\d{3,}$`);
 export const UNIT_ID_RE = new RegExp(`^(${BANDS_RE})\\.\\d{2}$`);
 export const LESSON_ID_RE = new RegExp(`^(${BANDS_RE})\\.\\d{2}\\.l\\d+$`);

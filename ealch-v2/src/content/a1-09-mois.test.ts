@@ -40,7 +40,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
-import { quizQuestions, validateLesson, type Lesson, type LessonSection } from './schema.ts';
+import { canonicalJson, quizQuestions, validateLesson, type Lesson, type LessonSection } from './schema.ts';
 import { hasPlainNasalFor, validateDensity, formatDensity } from './density.logic.ts';
 import { glossKeys, segmentSentence } from './gloss.logic.ts';
 import { dicteeMode, wordDecoys } from './dictee.logic.ts';
@@ -1125,7 +1125,9 @@ test('the seed copy and the authored source are the same lesson', () => {
   strictEqual(Object.keys(L!.terms ?? {}).length, Object.keys(SRC!.terms ?? {}).length, 'term count differs');
   strictEqual(quizQuestions(theQuiz()).length, quizQuestions(SRC!.sections.find((s) => s.type === 'quiz') as never).length, 'quiz size differs');
   strictEqual(L!.version, SRC!.version, 'the seed and the source are at different versions');
-  strictEqual(JSON.stringify(L!), JSON.stringify(SRC!), 'the seed copy and the authored source have diverged');
+  // Canonical, not byte-for-byte: a publish rewrites the seed from Postgres and
+  // reorders keys with no content change. See canonicalJson in schema.ts.
+  strictEqual(canonicalJson(L!), canonicalJson(SRC!), 'the seed copy and the authored source have diverged');
 });
 
 test('the speak and dictation lists in the seed match the ones the source exports', () => {
