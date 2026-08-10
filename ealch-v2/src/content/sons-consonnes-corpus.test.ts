@@ -228,7 +228,19 @@ test('no em dash and no banned word in anything authored here', { skip }, () => 
 
 test('once shipped, the seed carries the whole repair', { skip }, () => {
   const seedConsonnes = SEED.items.filter((i) => i.theme === 'consonnes');
-  if (seedConsonnes.length <= 10) return; // batch not applied yet
+
+  // "Applied" has to mean THIS BATCH has run, not that some consonnes row is
+  // present. Another lesson can legitimately import one or two as evidence:
+  // a1.14 imports fr.sons.consonnes.138 for `belle`, because reusing an existing
+  // row is better than authoring a second one, and that single row took the seed
+  // from 10 to 11 and read as the batch having shipped. The count then failed
+  // against 170 and turned the suite red on a lesson nobody had touched.
+  //
+  // Measured against the corpus's OWN ids instead, which cannot be tripped by a
+  // neighbour importing a handful. The intent of the assertion is unchanged.
+  const inSeed = new Set(SEED.items.map((i) => i.id));
+  const landed = CONSONNES.filter((i) => inSeed.has(i.id)).length;
+  if (landed < CONSONNES.length / 2) return; // batch not applied yet
 
   ok(
     seedConsonnes.length >= CONSONNES.length,

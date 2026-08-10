@@ -1427,15 +1427,37 @@ test('no two non-sentence items in an authored theme share an fr', { skip: noSee
 
 test('the authored ids continue their theme and renumber nothing', { skip: noBoth && 'seed or source unavailable' }, () => {
   // Ids are the SRS key and every attempt ever logged hangs off them.
+  //
+  // WHAT THIS CHECKS, and why it is no longer "a1.07 holds the highest ids".
+  //
+  // The original form asserted that a1.07's lowest id was above every other a1
+  // id in the theme. That was true the day it was written and it re-measured
+  // itself against the CURRENT seed, so it was really asserting "no later
+  // lesson may ever author into `famille` again". a1.15 did, legitimately, at
+  // .235-.252 (the next free ids at the time), and this assertion went red on
+  // content that had done nothing wrong.
+  //
+  // The real invariant is the one the comment always claimed: a1.07 must not
+  // have RENUMBERED anything, which means its block must not overlap anybody
+  // else's and must be contiguous. Both are checked below, and both stay true
+  // however many lessons land in the theme afterwards.
   const mine = new Set(SRC_CORPUS.map((w) => w.id));
   for (const theme of new Set(SRC_CORPUS.map((w) => w.theme))) {
-    const ours = SRC_CORPUS.filter((w) => w.theme === theme);
-    const others = seed.items
-      .filter((i) => i.theme === theme && i.level === 'a1' && !mine.has(i.id))
-      .map((i) => Number(i.id.split('.').pop()));
-    if (!others.length) continue;
-    const lowestMine = Math.min(...ours.map((w) => Number(w.id.split('.').pop())));
-    ok(lowestMine > Math.max(...others), `${theme}: this lesson starts at .${lowestMine} and the theme already runs to .${Math.max(...others)}`);
+    const ourSeqs = SRC_CORPUS.filter((w) => w.theme === theme)
+      .map((w) => Number(w.id.split('.').pop()))
+      .sort((a, b) => a - b);
+    const others = new Set(
+      seed.items
+        .filter((i) => i.theme === theme && i.level === 'a1' && !mine.has(i.id))
+        .map((i) => Number(i.id.split('.').pop()))
+    );
+    // No id this lesson claims is also claimed by anybody else.
+    const overlap = ourSeqs.filter((n) => others.has(n));
+    strictEqual(overlap.length, 0, `${theme}: a1.07 shares id(s) with another lesson: ${overlap.join(', ')}`);
+    // And this lesson's own block is one unbroken run, so nothing inside it was
+    // renumbered around.
+    const gaps = ourSeqs.filter((n, i) => i > 0 && n !== ourSeqs[i - 1] + 1);
+    strictEqual(gaps.length, 0, `${theme}: a1.07's block is not contiguous, breaking before .${gaps.join(', .')}`);
   }
 });
 
