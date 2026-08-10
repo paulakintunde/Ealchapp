@@ -332,7 +332,7 @@ Order: **apply to Postgres first, merge into the seed second, publish only when 
 `pnpm content:parity` answers the question directly. **It currently exits 1**, for reasons that predate you and that you should not try to fix. As of 2026-08-05, after a1.11 landed:
 
 ```
-✗ SEED ONLY  sons.09.l1   23 sections, 78 items — a publish would DELETE it
+✗ SEED ONLY  sons.09.l1   23 sections, 78 items, and a publish would DELETE it
 ! DB ONLY    b2.01.l1     in_review, so no learner has it
 ✗ DRIFT      sons.08.l1   the database is a version ahead of the seed
 ```

@@ -239,7 +239,7 @@ Grep it. The only `.prompt` in the component tree is `ScenePlayer` reading a sce
 
 So a `practice` or `flashcards` section built from conjugation items will show `j'ai` and `I have` and **silently drop the "avoir · présent · je" front that makes it a conjugation card at all.** The paradigm would render as six vocabulary cards.
 
-This is the "authored, valid, invisible" failure in its purest form and it is aimed directly at this lesson. Two honest ways out:
+This is the "authored, valid, invisible" failure in its purest form and it is aimed directly at this lesson. Two ways out, and both are defensible:
 
 - **Carry the paradigm in the section**, not in the items: a `cardDeck` or a `groupDrill` whose cards state the pronoun and the form themselves, with `itemId` joining each card to its corpus row for audio and scoring. This is what a1.03 does with `wordCard` and it needs no component change.
 - **Wire `prompt` into the practice card**, which is a real fix, touches `PracticeVFView`, and needs its own test. Bigger, and it would make every conjugation card in the app work properly.
