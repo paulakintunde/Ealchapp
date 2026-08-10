@@ -117,6 +117,7 @@
 
 import type { Lesson, LessonAct, LessonDrill, LessonSection, ErrorTrigger, ReferenceSheet, SceneBeat } from '../../../ealch-v2/src/content/schema.ts';
 import { REFRAME, NOMBRES_LARGE_TERMS } from './nombres-large-terms.ts';
+import { withScenarioAlts } from '../scenario-alts.logic.ts';
 import {
   CENT_ANCHOR_ID,
   CENT_IDS,
@@ -1948,7 +1949,7 @@ const SHEETS: ReferenceSheet[] = [
   },
 ];
 
-export const NOMBRES_LARGE_LESSON: Lesson = {
+const NOMBRES_LARGE_LESSON_AUTHORED: Lesson = {
   id: 'a1.28.l1',
   unitId: 'a1.28',
   seq: 1,
@@ -2203,3 +2204,16 @@ export {
   CENT_ANCHOR_ID as NOMBRES_LARGE_CENT_ANCHOR_ID,
   S_PAIR_IDS as NOMBRES_LARGE_S_PAIR_IDS,
 };
+
+// The role-play alternatives are NOT authored in this file. `userEn` and the
+// accepted `alts[]` for this lesson's scenario live in data/scenario-alts.ts,
+// and withScenarioAlts attaches them here so that every consumer — the batch
+// that writes Postgres, the merge script that writes seed.json, and the tests
+// that compare the two — sees the same enriched lesson.
+//
+// Before 2026-08-09 they lived in seed.json ONLY. apply-scenario-alts.ts wrote
+// the seed and said so; nobody updated the fourteen authored sources, so each
+// of their batches held a poorer copy of its own lesson and would have written
+// it straight back. That is not hypothetical: re-rendering a1.03 destroyed five
+// turns exactly this way on 2026-08-07.
+export const NOMBRES_LARGE_LESSON: Lesson = withScenarioAlts(NOMBRES_LARGE_LESSON_AUTHORED);

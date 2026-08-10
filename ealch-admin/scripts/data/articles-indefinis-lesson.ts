@@ -88,6 +88,7 @@ import type {
 } from '../../../ealch-v2/src/content/schema.ts';
 import { display as d } from './articles-indefinis-corpus.ts';
 import { INDEFINIS_TERMS, REFRAME } from './articles-indefinis-terms.ts';
+import { withScenarioAlts } from '../scenario-alts.logic.ts';
 
 export { REFRAME };
 
@@ -1595,7 +1596,7 @@ const SHEETS: ReferenceSheet[] = [
   },
 ];
 
-export const INDEFINIS_LESSON: Lesson = {
+const INDEFINIS_LESSON_AUTHORED: Lesson = {
   id: 'a1.11.l1',
   unitId: 'a1.11',
   seq: 1,
@@ -1703,3 +1704,16 @@ export const INDEFINIS_SPEAK_IDS = SPEAK_IDS;
 export const INDEFINIS_DICTATION_IDS = DICTATION_IDS;
 export const INDEFINIS_MENTION_IDS = MENTION;
 export const INDEFINIS_TRANCHES = DECK_TRANCHE;
+
+// The role-play alternatives are NOT authored in this file. `userEn` and the
+// accepted `alts[]` for this lesson's scenario live in data/scenario-alts.ts,
+// and withScenarioAlts attaches them here so that every consumer — the batch
+// that writes Postgres, the merge script that writes seed.json, and the tests
+// that compare the two — sees the same enriched lesson.
+//
+// Before 2026-08-09 they lived in seed.json ONLY. apply-scenario-alts.ts wrote
+// the seed and said so; nobody updated the fourteen authored sources, so each
+// of their batches held a poorer copy of its own lesson and would have written
+// it straight back. That is not hypothetical: re-rendering a1.03 destroyed five
+// turns exactly this way on 2026-08-07.
+export const INDEFINIS_LESSON: Lesson = withScenarioAlts(INDEFINIS_LESSON_AUTHORED);

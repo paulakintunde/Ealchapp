@@ -26,11 +26,11 @@
 // Rule of thumb for what belongs here: if the assertion reads a lesson and
 // could sensibly be asked of any lesson, it goes here. If it reads component
 // source, it belongs with the component's own guards.
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { ok, strictEqual } from 'node:assert';
-import { test } from 'node:test';
+import { before, test } from 'node:test';
 import type { Lesson, LessonSection } from './schema.ts';
 import { subCount } from './subMission.logic.ts';
 
@@ -479,6 +479,66 @@ test('an assessment lesson owns no corpus rows and carries no practice', () => {
     if (!isAssessment(lesson)) continue;
     strictEqual(lesson.itemIds.length, 0, `${id}: claims 'assessment' but owns ${lesson.itemIds.length} corpus rows`);
     strictEqual(practicesOf(lesson).length, 0, `${id}: claims 'assessment' but carries a practice section`);
+  }
+});
+
+/* ─── 6. An authored source may not be poorer than what ships ─────────────
+   The drift this catches is silent in every direction that matters. A lesson's
+   body has three copies — the authored source in ealch-admin, the row in
+   Postgres, and seed.json — and only the last two are ever compared. A source
+   that has fallen behind looks fine, validates fine, and does nothing at all
+   until somebody re-runs its batch, at which point the poorer copy is written
+   over the richer one and the loss is discovered later, by hand, if at all. */
+
+const ADMIN_DATA = join(here, '../../../ealch-admin/scripts/data');
+const scenarioOf = (l: Lesson | undefined) =>
+  (l?.sections ?? []).find((s) => s.type === 'scenario') as { turns?: { userEn?: string; alts?: unknown[] }[] } | undefined;
+/** A turn is "rich" when it carries the two fields the role-play rebuild added.
+ *  Counting them is enough: the failure mode is always losing them wholesale. */
+const richTurns = (l: Lesson | undefined) =>
+  (scenarioOf(l)?.turns ?? []).filter((t) => t.alts || t.userEn).length;
+
+let SOURCES: { id: string; file: string; lesson: Lesson }[] = [];
+let adminPresent = false;
+
+before(async () => {
+  // ealch-admin is a sibling package and a checkout may not have it. Absent is
+  // a skip, never a failure — the same self-skipping the per-lesson tests use.
+  adminPresent = existsSync(ADMIN_DATA);
+  if (!adminPresent) return;
+  const seen = new Set<string>();
+  for (const f of readdirSync(ADMIN_DATA).filter((x) => x.endsWith('-lesson.ts'))) {
+    let mod: Record<string, unknown>;
+    try {
+      mod = (await import(`../../../ealch-admin/scripts/data/${f}`)) as Record<string, unknown>;
+    } catch {
+      continue; // a source that cannot even load is another test's problem
+    }
+    for (const v of Object.values(mod)) {
+      const l = v as Lesson;
+      if (!l || typeof l !== 'object' || Array.isArray(l) || typeof l.id !== 'string' || !Array.isArray(l.sections)) continue;
+      if (seen.has(l.id)) continue;
+      seen.add(l.id);
+      SOURCES.push({ id: l.id, file: f, lesson: l });
+    }
+  }
+});
+
+test('no authored lesson source has fewer role-play answers than the seed', () => {
+  if (!adminPresent) return;
+  ok(SOURCES.length > 0, 'ealch-admin is present but no lesson source could be loaded');
+  const bySeedId = new Map(seed.lessons.map((l) => [l.id, l]));
+  for (const { id, file, lesson } of SOURCES) {
+    const shipped = bySeedId.get(id);
+    if (!shipped) continue; // authored but not merged yet: not this guard's business
+    const src = richTurns(lesson);
+    const shp = richTurns(shipped);
+    ok(
+      src >= shp,
+      `${id} (${file}): the source has ${src} enriched turns and the seed has ${shp}. ` +
+      `Running this lesson's batch would overwrite ${shp - src} turn(s) of authored answers. ` +
+      `The answers live in ealch-admin/scripts/data/scenario-alts.ts — wrap the export in withScenarioAlts().`,
+    );
   }
 });
 

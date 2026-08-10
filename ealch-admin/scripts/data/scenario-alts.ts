@@ -822,54 +822,29 @@ export const SCENARIO_ALTS: Record<string, TurnAlt[]> = {
     },
   ],
 
-  /* ── A1 11: Le verbe avoir ─ At The Chemist ────────────────────────────
-   * Course position 11, just past the range this batch was asked for. It is
-   * included because it is the same scenario shape as the ten before it, and
-   * leaving exactly one lesson in the sequence without alternatives would be
-   * a ragged edge a learner walks straight into.
+  /* ── A1 07: Le verbe avoir ─ REMOVED 2026-08-09 ────────────────────────
    *
-   * j'ai mal, j'ai de la fièvre, j'ai soif, j'ai vingt ans, j'ai besoin de:
-   * the avoir idioms are the lesson, so they are what varies. */
-  'a1.07.l1': [
-    {
-      user: "Bonjour. J'ai mal à la tête depuis ce matin.",
-      userEn: "Hello. I've had a headache since this morning.",
-      alts: [
-        { fr: "Bonjour. J'ai mal à la gorge.", en: 'Hello. I have a sore throat.' },
-        { fr: "Bonjour. J'ai mal au dos depuis hier.", en: "Hello. I've had a bad back since yesterday." },
-      ],
-    },
-    {
-      user: "Je ne sais pas. J'ai chaud, oui.",
-      userEn: "I don't know. I do feel hot.",
-      alts: [
-        { fr: "Oui, j'ai de la fièvre.", en: 'Yes, I have a fever.' },
-        { fr: "Non, mais j'ai froid.", en: 'No, but I feel cold.' },
-      ],
-    },
-    {
-      user: "Oui, très soif. Et j'ai sommeil.",
-      userEn: "Yes, very thirsty. And I'm sleepy.",
-      alts: [
-        { fr: "Oui, j'ai très soif.", en: "Yes, I'm very thirsty." },
-        { fr: "Non, mais j'ai sommeil.", en: "No, but I'm sleepy." },
-      ],
-    },
-    {
-      user: "J'ai vingt ans.",
-      userEn: "I'm twenty.",
-      alts: [
-        { fr: "J'ai trente-deux ans.", en: "I'm thirty-two." },
-        { fr: "J'ai vingt-cinq ans.", en: "I'm twenty-five." },
-      ],
-    },
-    {
-      user: "Merci. J'ai besoin d'eau, alors.",
-      userEn: 'Thank you. I need water, then.',
-      alts: [
-        { fr: "Merci. J'ai besoin d'une ordonnance ?", en: 'Thank you. Do I need a prescription?' },
-        { fr: "D'accord, merci beaucoup.", en: 'All right, thank you very much.' },
-      ],
-    },
-  ],
+   * This file used to carry a1.07.l1 as well, five turns whose alternatives
+   * varied the avoir IDIOM rather than the wording — j'ai mal à la gorge and
+   * j'ai mal au dos against a model line about a headache — on the reasoning
+   * that the idioms are what the lesson teaches, so the idioms are what should
+   * vary. It is a real argument and it lost to a simpler one.
+   *
+   * Those alternatives were never applied. a1.07 authored its own inline, in
+   * avoir-lesson.ts, and they stay on the complaint the learner opened with:
+   * "J'ai très mal à la tête, depuis ce matin" against "Bonjour. J'ai mal à la
+   * tête depuis ce matin". Source, seed and database all carry that version and
+   * agree with each other exactly. Three copies to one.
+   *
+   * The deciding point is not authorship, it is the conversation. A turn's
+   * alts are ACCEPTED ANSWERS, scored best-of by scenario.logic.ts, and the
+   * coach's next line is already written. Accept "j'ai mal à la gorge" at turn
+   * 0 and the chemist answers about a headache, which is the kind of defect
+   * that reads fine on the page and is obvious on a device.
+   *
+   * Removed rather than left in place because withScenarioAlts() now refuses
+   * to run when this file and a lesson disagree, and a permanently disagreeing
+   * entry would mean a1.07's batch could never be run again. Recover it from
+   * git if the idiom-varying idea is ever wanted; it needs the coach's replies
+   * rewritten to match, which is why it is not a small change. */
 };

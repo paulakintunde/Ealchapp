@@ -88,6 +88,7 @@ import type {
 } from '../../../ealch-v2/src/content/schema.ts';
 import { PRONOMS_TERMS, REFRAME } from './pronoms-sujets-terms.ts';
 import { PRONOUN_IDS, REUSED_IDS, THE_NINE, THE_SIX, fr, sub } from './pronoms-sujets-corpus.ts';
+import { withScenarioAlts } from '../scenario-alts.logic.ts';
 
 export { REFRAME };
 
@@ -1615,7 +1616,7 @@ const SHEETS: ReferenceSheet[] = [
   },
 ];
 
-export const PRONOMS_LESSON: Lesson = {
+const PRONOMS_LESSON_AUTHORED: Lesson = {
   id: 'a1.05.l1',
   unitId: 'a1.05',
   // The lesson's index WITHIN its unit, not its place in the track. Every
@@ -1747,3 +1748,16 @@ export const PRONOMS_LISTEN_IDS = LISTEN_IDS;
 export const PRONOMS_DICTATION_IDS = DICTATION_IDS;
 export const PRONOMS_PARADIGM_IDS = PARADIGM;
 export const PRONOMS_CONTRAST_IDS = CONTRAST;
+
+// The role-play alternatives are NOT authored in this file. `userEn` and the
+// accepted `alts[]` for this lesson's scenario live in data/scenario-alts.ts,
+// and withScenarioAlts attaches them here so that every consumer — the batch
+// that writes Postgres, the merge script that writes seed.json, and the tests
+// that compare the two — sees the same enriched lesson.
+//
+// Before 2026-08-09 they lived in seed.json ONLY. apply-scenario-alts.ts wrote
+// the seed and said so; nobody updated the fourteen authored sources, so each
+// of their batches held a poorer copy of its own lesson and would have written
+// it straight back. That is not hypothetical: re-rendering a1.03 destroyed five
+// turns exactly this way on 2026-08-07.
+export const PRONOMS_LESSON: Lesson = withScenarioAlts(PRONOMS_LESSON_AUTHORED);

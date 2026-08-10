@@ -112,6 +112,7 @@ import type {
 } from '../../../ealch-v2/src/content/schema.ts';
 import { display as d } from './articles-partitifs-corpus.ts';
 import { PARTITIFS_TERMS, REFRAME } from './articles-partitifs-terms.ts';
+import { withScenarioAlts } from '../scenario-alts.logic.ts';
 
 export { REFRAME };
 
@@ -1656,7 +1657,7 @@ const SHEETS: ReferenceSheet[] = [
   },
 ];
 
-export const PARTITIFS_LESSON: Lesson = {
+const PARTITIFS_LESSON_AUTHORED: Lesson = {
   id: 'a1.29.l1',
   unitId: 'a1.29',
   seq: 1,
@@ -1771,3 +1772,16 @@ export const PARTITIFS_TRANCHES = DECK_TRANCHE;
 /** The theme the unit is rebound to. Named here so the batch, the merge and the
  *  test all read the decision from one place instead of three string literals. */
 export const PARTITIFS_UNIT_THEME = 'cuisine';
+
+// The role-play alternatives are NOT authored in this file. `userEn` and the
+// accepted `alts[]` for this lesson's scenario live in data/scenario-alts.ts,
+// and withScenarioAlts attaches them here so that every consumer — the batch
+// that writes Postgres, the merge script that writes seed.json, and the tests
+// that compare the two — sees the same enriched lesson.
+//
+// Before 2026-08-09 they lived in seed.json ONLY. apply-scenario-alts.ts wrote
+// the seed and said so; nobody updated the fourteen authored sources, so each
+// of their batches held a poorer copy of its own lesson and would have written
+// it straight back. That is not hypothetical: re-rendering a1.03 destroyed five
+// turns exactly this way on 2026-08-07.
+export const PARTITIFS_LESSON: Lesson = withScenarioAlts(PARTITIFS_LESSON_AUTHORED);

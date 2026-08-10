@@ -59,6 +59,7 @@ import {
 } from '../../../ealch-v2/src/content/schema.ts';
 import { ACCENTS_IDS, BY_ID, type AccentWord } from './accents-corpus.ts';
 import { TERMS } from './accents-terms.ts';
+import { withScenarioAlts } from '../scenario-alts.logic.ts';
 
 /* ─── Corpus accessors ────────────────────────────────────────────────────── */
 
@@ -2401,7 +2402,7 @@ const TRANCHES: string[][] = [
 
 /* ─── The lesson ──────────────────────────────────────────────────────────── */
 
-export const ACCENTS_LESSON: Lesson = {
+const ACCENTS_LESSON_AUTHORED: Lesson = {
   id: 'sons.05.l1',
   unitId: 'sons.05',
   seq: 1,
@@ -2435,3 +2436,16 @@ export const ACCENTS_LESSON: Lesson = {
     screens: 189,
   },
 };
+
+// The role-play alternatives are NOT authored in this file. `userEn` and the
+// accepted `alts[]` for this lesson's scenario live in data/scenario-alts.ts,
+// and withScenarioAlts attaches them here so that every consumer — the batch
+// that writes Postgres, the merge script that writes seed.json, and the tests
+// that compare the two — sees the same enriched lesson.
+//
+// Before 2026-08-09 they lived in seed.json ONLY. apply-scenario-alts.ts wrote
+// the seed and said so; nobody updated the fourteen authored sources, so each
+// of their batches held a poorer copy of its own lesson and would have written
+// it straight back. That is not hypothetical: re-rendering a1.03 destroyed five
+// turns exactly this way on 2026-08-07.
+export const ACCENTS_LESSON: Lesson = withScenarioAlts(ACCENTS_LESSON_AUTHORED);

@@ -31,40 +31,21 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateLesson } from '../../ealch-v2/src/content/schema.ts';
-import { SCENARIO_ALTS, type TurnAlt } from './data/scenario-alts.ts';
+import { SCENARIO_ALTS } from './data/scenario-alts.ts';
+import { altsPlanFor, apostropheOf, scenarioAltsIssues, type AltTurn } from './scenario-alts.logic.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED = resolve(here, '../../ealch-v2/src/content/seed.json');
 const dryRun = process.argv.includes('--dry-run');
 
-type Turn = { ai: string; en: string; user: string; userEn?: string; alts?: { fr: string; en: string }[] };
+// fold(), apostropheOf() and the whole matching-and-refusal contract moved to
+// scenario-alts.logic.ts on 2026-08-09, so the fourteen authoring batches can
+// attach the same answers the same way. They were defined here first; this
+// script is now one of two callers rather than the only one. See that module's
+// header for why the batches needed them at all.
+type Turn = AltTurn;
 type Section = { type: string; title?: string; turns?: Turn[] };
 type Lesson = { id: string; sections?: Section[] };
-
-/** Casing/accent/punctuation-insensitive compare — the same fold the schema
- *  validator uses. A curly apostrophe must not read as a re-authored line. */
-const fold = (s: string): string =>
-  s
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim();
-
-/**
- * Match the apostrophe the lesson already uses.
- *
- * The a1 lessons were authored with the typographic apostrophe (’) and the
- * sons lessons with the straight one ('). Mixing both inside a single
- * conversation is visible on a device, so new lines adopt whichever the
- * surrounding turns use rather than imposing one.
- */
-function apostropheOf(turns: Turn[]): "'" | '’' {
-  const text = turns.map((t) => `${t.ai}${t.user}`).join('');
-  const curly = (text.match(/’/g) ?? []).length;
-  const straight = (text.match(/'/g) ?? []).length;
-  return curly > straight ? '’' : "'";
-}
 
 const seed = JSON.parse(readFileSync(SEED, 'utf8')) as { lessons?: Lesson[] };
 const lessons = seed.lessons ?? [];
@@ -72,46 +53,22 @@ const lessons = seed.lessons ?? [];
 const problems: string[] = [];
 const planned: { lessonId: string; title: string; turns: number; alts: number; mark: "'" | '’' }[] = [];
 
-for (const [lessonId, rows] of Object.entries(SCENARIO_ALTS)) {
+for (const lessonId of Object.keys(SCENARIO_ALTS)) {
   const lesson = lessons.find((l) => l.id === lessonId);
   if (!lesson) {
     problems.push(`${lessonId}: no such lesson in seed.json`);
     continue;
   }
-  const section = (lesson.sections ?? []).find((s) => s.type === 'scenario');
-  if (!section?.turns?.length) {
-    problems.push(`${lessonId}: no scenario section with turns`);
+  // One definition of what enrichment means, shared with every authoring batch.
+  const issues = scenarioAltsIssues(lesson);
+  if (issues.length) {
+    problems.push(...issues);
     continue;
   }
-  if (section.turns.length !== rows.length) {
-    problems.push(`${lessonId}: seed has ${section.turns.length} turns, the batch has ${rows.length}`);
-    continue;
-  }
-  rows.forEach((row: TurnAlt, i: number) => {
-    const seedUser = section.turns![i].user;
-    if (fold(seedUser) !== fold(row.user)) {
-      problems.push(
-        `${lessonId} turn ${i}: the model line has changed.\n` +
-          `    seed:  ${seedUser}\n` +
-          `    batch: ${row.user}`
-      );
-    }
-    if (!row.alts.length) problems.push(`${lessonId} turn ${i}: no alternatives`);
-    for (const a of row.alts) {
-      if (fold(a.fr) === fold(row.user)) {
-        problems.push(`${lessonId} turn ${i}: alternative "${a.fr}" repeats the model line`);
-      }
-    }
-    const seen = new Set(row.alts.map((a) => fold(a.fr)));
-    if (seen.size !== row.alts.length) problems.push(`${lessonId} turn ${i}: two alternatives are the same line`);
-  });
-  planned.push({
-    lessonId,
-    title: section.title ?? '(untitled)',
-    turns: rows.length,
-    alts: rows.reduce((n, r) => n + r.alts.length, 0),
-    mark: apostropheOf(section.turns),
-  });
+  const plan = altsPlanFor(lesson);
+  if (!plan) continue;
+  const section = (lesson.sections ?? []).find((s) => s.type === 'scenario')!;
+  planned.push({ lessonId, title: section.title ?? '(untitled)', ...plan });
 }
 
 if (problems.length) {
