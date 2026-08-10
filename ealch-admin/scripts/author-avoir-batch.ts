@@ -76,6 +76,7 @@ import {
 import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { dicteeMode } from '../../ealch-v2/src/content/dictee.logic.ts';
 import { matchesAccept } from '../../ealch-v2/src/content/answer.logic.ts';
+import { guardLessonVersion } from './version-guard.logic.ts';
 import {
   AVOIR, FOURTEEN, IMPORTED, METALANGUAGE_IDS, RESPELL, REUSED, THE_ELEVEN, THE_SIX, THE_THREE,
   toImportedItem, toItem,
@@ -571,13 +572,10 @@ async function main() {
       [LESSON.id]
     );
     const prior = existingLesson.rows[0]?.version;
-    if (prior !== undefined && prior >= LESSON.version) {
-      die(
-        `the database already carries ${LESSON.id} at v${prior} and this batch is v${LESSON.version}. ` +
-        `Move the version counter forward in avoir-lesson.ts: a rebuild that reuses its own number reads as a ` +
-        `rollback in the log.`
-      );
-    }
+    guardLessonVersion({
+      lessonId: LESSON.id, prior, authored: LESSON.version,
+      sourceFile: 'avoir-lesson.ts', dryRun: DRY_RUN, die,
+    });
 
     const formats = qs.reduce<Record<string, number>>((a, q) => {
       const f = q.format ?? 'mcq';

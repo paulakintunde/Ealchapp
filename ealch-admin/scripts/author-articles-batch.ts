@@ -53,6 +53,7 @@ import {
   type Unit,
 } from '../../ealch-v2/src/content/schema.ts';
 import { formatDensity, validateDensity } from '../../ealch-v2/src/content/density.logic.ts';
+import { guardLessonVersion } from './version-guard.logic.ts';
 import {
   ARTICLES_LESSON,
   ARTICLES_ITEM_IDS,
@@ -289,9 +290,10 @@ async function main() {
     const prior = existingLesson.rows[0];
 
     // A rebuild that restarts its own numbering reads as a rollback in the log.
-    if (prior && LESSON.version <= prior.version) {
-      die(`this lesson is authored at v${LESSON.version} and the database already holds v${prior.version}. Move the version forward.`);
-    }
+    guardLessonVersion({
+      lessonId: LESSON.id, prior: prior?.version, authored: LESSON.version,
+      sourceFile: 'articles-lesson.ts', dryRun: DRY_RUN, die,
+    });
 
     // ── Report ─────────────────────────────────────────────────────────────
 

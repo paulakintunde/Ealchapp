@@ -53,6 +53,7 @@ import {
 } from '../../ealch-v2/src/content/schema.ts';
 import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
 import { dicteeMode, dicteeWords } from '../../ealch-v2/src/content/dictee.logic.ts';
+import { guardLessonVersion } from './version-guard.logic.ts';
 import {
   CONTRAST_PAIRS,
   ETRE,
@@ -395,12 +396,10 @@ async function main() {
       [LESSON.id]
     );
     const prior = existingLesson.rows[0]?.version;
-    if (prior !== undefined && prior >= LESSON.version) {
-      die(
-        `the database already carries ${LESSON.id} at v${prior} and this batch is v${LESSON.version}. ` +
-        `Move the version counter forward: a rebuild that restarts its own numbering reads as a rollback in the log.`
-      );
-    }
+    guardLessonVersion({
+      lessonId: LESSON.id, prior, authored: LESSON.version,
+      sourceFile: 'etre-lesson.ts', dryRun: DRY_RUN, die,
+    });
 
     // ── Report ─────────────────────────────────────────────────────────────
 
