@@ -9,7 +9,7 @@
 // section that taught it, and a miss offers "see this again", which returns to
 // the same question afterwards rather than restarting the round.
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { TX } from '@/components/Type';
 import { Press, Button } from '@/components/ui';
@@ -66,13 +66,7 @@ export function QuizRoundsView({
 
   const next = () => {
     setAnswered(false);
-    setState((s) => {
-      const nextState = advanceQuiz(cfg, s);
-      if (nextState.phase.kind === 'result' && s.phase.kind !== 'result') {
-        onComplete?.(totalScore(cfg, nextState), progress.total);
-      }
-      return nextState;
-    });
+    setState((s) => advanceQuiz(cfg, s));
   };
 
   const record = (q: QuizQuestion, correct: boolean) => {
@@ -80,6 +74,38 @@ export function QuizRoundsView({
     onAnswer?.(q, correct);
     setState((s) => answerQuestion(s, correct));
   };
+
+  // ── Completion is an EFFECT, not something the updater does ────────────────
+  //
+  // `onComplete` used to be called INSIDE the setState updater above, on the
+  // transition into `result`. React runs updaters during the RENDER phase, so
+  // every store write behind that callback landed mid-render:
+  //
+  //   onQuizComplete -> logSession + clearResume + markMissionDone
+  //
+  // and the Den's home screen subscribes to all three. The device logged it on
+  // every quiz screen:
+  //
+  //   Cannot update a component (`Home(./home.tsx)`) while rendering a
+  //   different component (`QuizRoundsView`).
+  //
+  // A dev-only warning, but not a cosmetic one — an updater must be pure
+  // because React is free to call it more than once (StrictMode does exactly
+  // that), and each extra call fired a session log, cleared the resume point
+  // and marked a mission done again.
+  //
+  // The ref keeps it to once per mount. lesson.tsx guards on its own side too;
+  // this component's contract says "once, when the last round is answered", so
+  // it holds that itself rather than relying on every caller to.
+  const completedRef = useRef(false);
+  useEffect(() => {
+    if (state.phase.kind !== 'result' || completedRef.current) return;
+    completedRef.current = true;
+    // `progress.total` counts cfg.rounds and does not depend on state, so
+    // reading it after the advance reports the same figure it did before.
+    onComplete?.(totalScore(cfg, state), progress.total);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.phase.kind]);
 
   if (phase.kind === 'result') {
     return (

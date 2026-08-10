@@ -626,17 +626,28 @@ export function TapSilentCard({
   const toggle = (i: number) => {
     if (checked !== null) return;
     sound.play('tap');
-    setPicked((p) => {
-      const next = p.includes(i) ? p.filter((x) => x !== i) : [...p, i];
-      if (next.length === needed) {
-        const res = checkAnswer(question, next.map((ix) => letters[ix].ch));
-        const ok = res?.correct ?? false;
-        setChecked(ok);
-        sound.play(ok ? 'success' : 'error');
-        onAnswer?.(ok);
-      }
-      return next;
-    });
+    // The next selection is computed HERE, not inside a setState updater.
+    //
+    // Scoring the answer used to live inside `setPicked((p) => ...)`, and an
+    // updater runs during the RENDER phase: it played a sound, set a second
+    // piece of state and called `onAnswer` from there. `onAnswer` reaches the
+    // lesson's progress writes, which is the same "Cannot update a component
+    // (`Home`) while rendering a different component" the quiz was logging.
+    //
+    // React may also call an updater more than once — StrictMode does, by
+    // design — so the success chime and the answer could both fire twice for
+    // one tap. Reading `picked` directly is safe in a tap handler: a second tap
+    // cannot be processed before this render commits, because `checked` gates
+    // the whole function.
+    const next = picked.includes(i) ? picked.filter((x) => x !== i) : [...picked, i];
+    setPicked(next);
+    if (next.length === needed) {
+      const res = checkAnswer(question, next.map((ix) => letters[ix].ch));
+      const ok = res?.correct ?? false;
+      setChecked(ok);
+      sound.play(ok ? 'success' : 'error');
+      onAnswer?.(ok);
+    }
   };
 
   return (

@@ -1084,14 +1084,19 @@ export function TrapDrillView({
       {!last ? (
         <Press
           cue="tap"
-          onPress={() =>
-            !held &&
-            setStep((n) => {
-              const next = n + 1;
-              onIndexChange?.(next);
-              return next;
-            })
-          }
+          // `onIndexChange` is called HERE, not inside a setState updater.
+          // React runs updaters during render, and this callback reaches the
+          // lesson's progress writes — the same "Cannot update a component
+          // (`Home`) while rendering a different component" the quiz logged.
+          // An updater may also run twice, which would have reported two step
+          // advances for one tap. `step` is what this button already renders
+          // from, and `held` gates re-entry, so reading it directly is safe.
+          onPress={() => {
+            if (held) return;
+            const next = step + 1;
+            setStep(next);
+            onIndexChange?.(next);
+          }}
           accessibilityRole="button"
           accessibilityState={{ disabled: held }}
           accessibilityLabel={held ? T.answerAllToContinue : T.continueT}
