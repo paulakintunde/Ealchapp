@@ -11,6 +11,7 @@ import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import { validateCorpus, type Corpus, type Item, type Lesson, type Unit } from '../content/schema.ts';
 import {
+  adoptedForLaunch,
   anchorForItem,
   examSeriesFor,
   examTasksOfSeries,
@@ -369,6 +370,55 @@ test('mergeCorpus overlays domains/themes by slug, snapshot winning conflicts', 
   const merged = mergeCorpus(seed, snap);
   strictEqual(merged.domains?.length, 2);
   strictEqual(merged.domains?.find((d) => d.slug === 'vie-quotidienne')?.title, 'NEW');
+});
+
+/* ─── The dev overlay guard (found on a Pixel 6, 2026-08-06) ──────────────── */
+
+test('adoptedForLaunch drops the cached snapshot in dev and keeps it in release', () => {
+  const cached: Corpus = { version: 11, units: [], lessons: [], items: [] };
+  strictEqual(adoptedForLaunch(cached, true), null, 'dev must not overlay a cached snapshot onto the seed');
+  strictEqual(adoptedForLaunch(cached, false), cached, 'release must still adopt the cache');
+  strictEqual(adoptedForLaunch(null, false), null);
+  strictEqual(adoptedForLaunch(undefined, true), null);
+});
+
+test('in dev, a stale cached lesson can no longer outrank the edited seed', () => {
+  // The actual defect. `mergeCorpus` overlays the snapshot ON TOP of the seed, so
+  // for any id in both, the cache wins. A device holding a published snapshot
+  // therefore showed the OLD copy of a lesson the author had just edited, through
+  // any number of Metro rebuilds, because the bundle is only layer 1 of 3.
+  //
+  // Note the shape of the confusion this caused: the NEW lesson appears either
+  // way (nothing to lose to) and only the EDITED one is suppressed, which is why
+  // it read as "Metro is serving a stale bundle" for two sessions.
+  const seed: Corpus = {
+    version: 19,
+    units: [],
+    lessons: [
+      { id: 'a1.09.l1', unitId: 'a1.09', seq: 1, title: 'EDITED LOCALLY', level: 'a1', sections: [], itemIds: [], version: 2 },
+      { id: 'a1.99.l1', unitId: 'a1.99', seq: 1, title: 'BRAND NEW', level: 'a1', sections: [], itemIds: [], version: 1 },
+    ] as unknown as Lesson[],
+    items: [],
+  };
+  const cached: Corpus = {
+    version: 19,
+    units: [],
+    lessons: [
+      { id: 'a1.09.l1', unitId: 'a1.09', seq: 1, title: 'STALE PUBLISHED COPY', level: 'a1', sections: [], itemIds: [], version: 1 },
+    ] as unknown as Lesson[],
+    items: [],
+  };
+
+  // Release: the cache still wins, which is the shipped contract and is correct.
+  const release = mergeCorpus(seed, adoptedForLaunch(cached, false));
+  strictEqual(release.lessons.find((l) => l.id === 'a1.09.l1')?.title, 'STALE PUBLISHED COPY');
+
+  // Dev: the seed is authoritative, which is what makes device verification mean
+  // anything at all.
+  const dev = mergeCorpus(seed, adoptedForLaunch(cached, true));
+  strictEqual(dev.lessons.find((l) => l.id === 'a1.09.l1')?.title, 'EDITED LOCALLY');
+  strictEqual(dev.lessons.find((l) => l.id === 'a1.99.l1')?.title, 'BRAND NEW');
+  strictEqual(dev.lessons.length, 2, 'dev must not lose seed content');
 });
 
 test('scenariosFor filters by level and theme', () => {

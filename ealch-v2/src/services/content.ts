@@ -21,6 +21,7 @@ import seedJson from '@/content/seed.json';
 import type { Corpus, DrillKind, ExamFormat, Item, Lesson, Level, Scenario, Track, Unit } from '@/content/schema';
 import { validateCorpus } from '@/content/schema';
 import {
+  adoptedForLaunch,
   anchorForItem,
   examSeriesFor,
   examTasksOfSeries,
@@ -121,7 +122,15 @@ export async function initContent(): Promise<void> {
 
   let adopted: Corpus | null = null;
   try {
-    adopted = await readCache();
+    // In dev this is always null, so the corpus is exactly the bundled seed.
+    // The cache is NOT read past this point and NOT purged: a device keeps
+    // whatever it holds and behaves normally again in a release build.
+    //
+    // Without this, a cached snapshot overlaid the seed and won every id it
+    // shared with it, so an edited lesson stayed invisible through any number of
+    // Metro rebuilds. See adoptedForLaunch in content.logic.ts for the full
+    // account; it is the other half of the dev guard on refreshFromRemote.
+    adopted = adoptedForLaunch(await readCache(), __DEV__);
     if (adopted) cachedSnapshotVersion = adopted.version;
     useContent.getState().setCorpus(mergeCorpus(SEED, adopted));
   } catch {
@@ -166,6 +175,28 @@ export async function contentCacheInfo(): Promise<{ bytes: number } | null> {
   } catch {
     return null;
   }
+}
+
+/**
+ * Drop the cached OTA snapshot and fall back to the bundled seed, now.
+ *
+ * The dev guard in `initContent` makes the cache invisible in a dev build, which
+ * is enough for authoring. This is for the case it cannot help: a RELEASE build
+ * on a real device holding a snapshot you need it to stop using, which until now
+ * had no remedy short of clearing app data.
+ *
+ * Safe to call at any time and never throws. `cachedSnapshotVersion` drops to 0
+ * so the next `refreshFromRemote` re-fetches from scratch rather than believing
+ * the device is already current.
+ */
+export async function clearContentCache(): Promise<void> {
+  try {
+    await AsyncStorage.multiRemove([CACHE_KEY, CACHE_META_KEY]);
+  } catch {
+    // Storage unavailable: the seed still stands, which is the safe state.
+  }
+  cachedSnapshotVersion = 0;
+  useContent.getState().setCorpus(SEED);
 }
 
 /** This install's staged-rollout lot number, 0-99: drawn once, persisted, and

@@ -81,6 +81,50 @@ export function mergeCorpus(seed: Corpus, snapshot: Corpus | null | undefined): 
   };
 }
 
+/**
+ * Which cached snapshot a launch is allowed to overlay onto the seed.
+ *
+ * In DEV the answer is none, and that is the whole point of this function.
+ *
+ * ── The bug this closes, found on a Pixel 6 ────────────────────────────────
+ *
+ * `refreshFromRemote()` has been dev-guarded since the Phase 10 sons.02/03
+ * incident, on the reasoning written at its own call site: in dev the published
+ * snapshot is routinely BEHIND the seed being hand-edited right now, so adopting
+ * it would silently overlay in-progress local edits with old content.
+ *
+ * That guard stopped the app ACQUIRING a stale overlay. It did nothing about one
+ * the device already held. `initContent` read the cache unconditionally, and
+ * `mergeCorpus` overlays the snapshot ON TOP of the seed, so for any id present
+ * in both, THE CACHE WON. On any device that had ever run a release build or
+ * fetched once, a locally edited lesson or a repaired respelling was invisible
+ * no matter how many times Metro rebuilt the bundle, because the bundle is only
+ * layer 1 of 3 and layer 2 silently outranked it.
+ *
+ * That is what made this look like a Metro caching problem for two sessions. It
+ * never was. The bundle was fresh every time; the corpus on top of it was not,
+ * and nothing in the app could clear it.
+ *
+ * New ids still appeared (nothing to lose to), which is what made it so
+ * confusing: adding a lesson worked, editing one did not.
+ *
+ * ── Why "seed only" rather than "seed wins the overlay" ───────────────────
+ *
+ * Reversing the merge order in dev (`overlay(snapshot, seed)`) would also work
+ * and would keep OTA-only content visible. It was rejected because it makes dev
+ * and production disagree about the DIRECTION of the merge, which is the one
+ * property of this path most worth testing honestly. Dropping the overlay
+ * entirely keeps one rule ("dev shows exactly what is in your seed") and leaves
+ * the merge itself identical in both.
+ *
+ * Production behaviour is unchanged: a release build adopts the cache exactly as
+ * before.
+ */
+export function adoptedForLaunch(cached: Corpus | null | undefined, isDev: boolean): Corpus | null {
+  if (isDev) return null;
+  return cached ?? null;
+}
+
 /** The Speak trail, in walk order. Stages ship unordered (they are keyed rows,
  *  not a sequence) — (world, seq) is the one true order, so the single sort
  *  lives here rather than in every screen that renders the path. */
