@@ -542,6 +542,53 @@ test('no authored lesson source has fewer role-play answers than the seed', () =
   }
 });
 
+/* ─── 7. A quiz question may not carry a field nothing renders ────────────
+   The third instance of "authored, valid, invisible" this file has had to
+   answer for, and the most expensive: a1.25 authored `say` on two listening
+   questions and a1.16 authored `prompt` on two errorSpot questions, both
+   passed the schema, both shipped in v22, and neither field was read by any
+   card. The listening questions played the English option instead of the
+   French sentence — which is also the correct answer, said out loud. The
+   errorSpot questions asked the learner to correct a phrase that appeared
+   nowhere on screen.
+
+   Both fields are wired now. This is the guard for the next one, and it is
+   written as an ALLOWLIST because the failure is always a field nobody thought
+   to look for: an unknown key fails until somebody either renders it or
+   deletes it. */
+const QUESTION_FIELDS = new Set([
+  'q', 'format', 'opts', 'correct', 'accept', 'answer', 'word',
+  'target', 'ipa', 'scoreSegment', 'audio', 'say', 'prompt', 'why', 'ref',
+]);
+
+test('no quiz question carries a field the cards do not read', () => {
+  const seen = new Map<string, string[]>();
+  for (const { id, lesson } of LESSONS) {
+    for (const sec of lesson.sections) {
+      if (sec.type !== 'quiz') continue;
+      const qs = [
+        ...((sec as { questions?: unknown[] }).questions ?? []),
+        ...(((sec as { rounds?: { questions?: unknown[] }[] }).rounds ?? []).flatMap((r) => r.questions ?? [])),
+      ] as Record<string, unknown>[];
+      for (const q of qs) {
+        for (const k of Object.keys(q)) {
+          if (QUESTION_FIELDS.has(k)) continue;
+          const where = seen.get(k) ?? [];
+          if (!where.includes(id)) where.push(id);
+          seen.set(k, where);
+        }
+      }
+    }
+  }
+  const unknown = [...seen.entries()].map(([k, ids]) => `"${k}" in ${ids.join(', ')}`);
+  strictEqual(
+    unknown.join(' | '),
+    '',
+    `quiz question field(s) no card reads, so a learner never sees them: ${unknown.join(' | ')}. ` +
+    `Render it, delete it, or add it to QUESTION_FIELDS once QuizQuestion and a card both know about it.`,
+  );
+});
+
 test("only the A1 capstone claims 'assessment'", () => {
   // Not a style rule. The flag is the one way past lesson-has-practice, so its
   // spread is worth noticing: a third lesson acquiring it should be a decision

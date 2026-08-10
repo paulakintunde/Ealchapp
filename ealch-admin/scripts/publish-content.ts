@@ -23,6 +23,7 @@
 import './env';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { getTableColumns } from 'drizzle-orm';
 import { describeTarget } from './env';
 import { contentItems } from '../src/db/schema';
@@ -245,7 +246,7 @@ function assertItemProjectionIsComplete(): void {
  *  A false positive costs one surplus row in the bundle. A false negative costs
  *  a blank card offline, silently, for as long as nobody opens that lesson on a
  *  plane. */
-function itemsReferencedBy(l: Lesson): string[] {
+export function itemsReferencedBy(l: Lesson): string[] {
   const found: string[] = [];
   const walk = (v: unknown): void => {
     if (typeof v === 'string') {
@@ -999,7 +1000,16 @@ async function main() {
 // panic mid-teardown; main()'s catch reports it cleanly, and the snapshot row
 // is inserted after upload so a failed upload leaves no orphan version.
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+// Only publish when RUN. `itemsReferencedBy` is exported so it can be tested
+// against a hand-built lesson, and importing this file must not start a
+// publish to do it — the same guard check-seed-db-parity.ts carries, for the
+// same reason, on a considerably more dangerous script.
+const invokedDirectly =
+  !!process.argv[1] && resolve(fileURLToPath(import.meta.url)) === resolve(process.argv[1]);
+
+if (invokedDirectly) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

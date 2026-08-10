@@ -336,9 +336,11 @@ for (const q of qs) {
 /** THE ACT-6 QUIZ IS SHUFFLED AT RUNTIME (QuizDeckView), so the authored slot is
  *  invisible to a learner. The cap is authoring hygiene and it stays. */
 {
-  const closed = qs.filter((q) => typeof q.correct === 'number');
+  // A type PREDICATE, not a bare filter — see the note in _routine_validate.ts.
+  // `correct` is `number | string` and .filter() does not narrow it out.
+  const closed = qs.filter((q): q is (typeof qs)[number] & { correct: number } => typeof q.correct === 'number');
   const slots = new Map<number, number>();
-  for (const q of closed) slots.set(q.correct!, (slots.get(q.correct!) ?? 0) + 1);
+  for (const q of closed) slots.set(q.correct, (slots.get(q.correct) ?? 0) + 1);
   for (const [s, c] of slots) {
     if ((c / closed.length) * 100 > 40) die(`quiz answer slot ${s} holds ${Math.round((c / closed.length) * 100)}% of the ${closed.length} closed questions, over 40`);
   }

@@ -902,8 +902,21 @@ export type SoundGroup = {
    *  `silent` are the XL card's other lines, and `pair` marks a card that
    *  deliberately shows a contrast pair rather than one unit — without it the
    *  xl-single-unit density rule refuses "grand · grande". All optional:
-   *  absence is exactly today's behaviour. */
-  items: {
+   *  absence is exactly today's behaviour.
+   *
+   *  The ARRAY is optional too, because a control-page group has a label and a
+   *  check and no words at all — that is what a control page is. 233 of the
+   *  238 groups in the seed carry it and five do not (sons.09's four checks and
+   *  sons.07's "Contrôle"), and the renderer reads `g.items?.length ?? 0`, so
+   *  both shapes have always worked. The type said otherwise and produced five
+   *  of the twenty standing tsc errors.
+   *
+   *  The house pattern is still an explicit `items: []` on a control page —
+   *  a1-23-nourriture.test.ts pins it for that lesson — and those five are the
+   *  outliers rather than the model. They are left alone here because changing
+   *  them means re-running two batches and publishing a snapshot to move a key
+   *  that no learner can observe. */
+  items?: {
     fr: string;
     ipa?: string;
     note?: string;
@@ -1017,6 +1030,25 @@ export type QuizQuestion = {
   ipa?: string;
   scoreSegment?: string;
   audio?: SectionAudio;
+  /** listenChoose: the line the learner HEARS, when it is not one of the
+   *  options.
+   *
+   *  Without it ListenChooseCard falls back to speaking `opts[correct]`, which
+   *  is wrong twice over: on an English-option question it speaks English at a
+   *  French listening exercise, and on any question it speaks the answer. a1.25
+   *  authored this field for two questions and shipped in v22 with neither
+   *  rendered — "Listen. Is this sentence about a habit?" played the words
+   *  "A habit" and nothing else. Added to the type and to the card together, so
+   *  the fallback is now only for questions that genuinely test an option. */
+  say?: string;
+  /** errorSpot / typeIn: the text the learner is working ON, shown above the
+   *  input.
+   *
+   *  `q` is the instruction ("write it out corrected"); this is the thing to
+   *  correct. a1.16 authored two questions whose phrase lived only here, and
+   *  ErrorSpotCard rendered `q` alone — so the learner was asked to fix a
+   *  phrase that never appeared on screen. Unanswerable, and shipped. */
+  prompt?: string;
   why?: string;
   /** Section id this question tests, for the "see this again" jump. */
   ref?: string;
@@ -2559,6 +2591,8 @@ function validateSection(s: unknown, path: string): Issue[] {
         if (qq.format !== undefined && !oneOf(QUIZ_FORMATS, qq.format)) {
           push(`${qp}.format must be one of ${QUIZ_FORMATS.join(' | ')}`);
         }
+        if (qq.say !== undefined && !isStr(qq.say)) push(`${qp}.say must be a non-empty string when present`);
+        if (qq.prompt !== undefined && !isStr(qq.prompt)) push(`${qp}.prompt must be a non-empty string when present`);
         const open = qq.format === 'typeIn' || qq.format === 'errorSpot' || qq.format === 'speak';
         if (open) {
           // An open question with nothing to accept can never be answered

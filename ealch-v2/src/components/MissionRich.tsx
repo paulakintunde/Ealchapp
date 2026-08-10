@@ -413,7 +413,7 @@ function OneGroup({
                 below, which costs no layout height. */}
             <SwipeDeck
               fill
-              items={g.items}
+              items={g.items ?? []}
               a11yHint="One word at a time. The grey letters are the ones you do not say."
               keyFor={(it, i) => `${g.label}-${it.fr}-${i}`}
               renderItem={(it, _i, cardH) => <GroupWordCard item={it} height={cardH} />}
@@ -461,7 +461,7 @@ function GroupWordCard({
   item,
   height,
 }: {
-  item: SoundGroup['items'][number];
+  item: NonNullable<SoundGroup['items']>[number];
   /** The height the deck measured for this card, in `fill` mode. Null means
    *  the old behaviour: guess the surrounding chrome via useCardHeight. A
    *  measured value is always better — the guess is what put the drill's
@@ -567,7 +567,12 @@ export function GroupDrillView({
   // sons.06 split its four families into. That page, and only that page, holds
   // the learner until they answer. A drill that also carries words is teaching
   // material with a check attached and must stay swipeable.
-  const controlOnly = s.groups.length === 1 && !!s.groups[0].check && s.groups[0].items.length === 0;
+  // `items` may be ABSENT rather than empty on a control page — five groups in
+  // the seed omit the key entirely (sons.09's four checks, sons.07's Contrôle).
+  // Reading `.length` off those would throw; it has never fired only because
+  // the `groups.length === 1` test short-circuits before reaching it, which is
+  // luck rather than design.
+  const controlOnly = s.groups.length === 1 && !!s.groups[0].check && (s.groups[0].items?.length ?? 0) === 0;
   const [answered, setAnswered] = useState(false);
   // Hooks run unconditionally and above the early return, so hook order cannot
   // vary with `single`.

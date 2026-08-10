@@ -61,7 +61,7 @@
  * anything, and only because it had no respelling at all.
  */
 
-import type { Item } from '../../../ealch-v2/src/content/schema.ts';
+import type { DrillKind, Item } from '../../../ealch-v2/src/content/schema.ts';
 
 export const THEME = 'routines';
 export const LEVEL = 'a1';
@@ -185,7 +185,11 @@ export const RESPELL_ADDITIONS: RespellChange[] = [
 
 /** Three rows the lesson SHOWS that carry no `voiceflash`, so nothing would play
  *  if a spoken-practice section named them. Added by the batch. */
-export const DRILL_ADDITIONS: { id: string; fr: string; add: string; why: string }[] = [
+// `add` is a DrillKind, not a string: it is written straight onto Item.drills,
+// and a typo ('voiceflashh') would have produced a drill nothing can ever fire
+// and no error anywhere. Typing it here is what makes the merge script's write
+// type-check rather than needing a cast at the far end.
+export const DRILL_ADDITIONS: { id: string; fr: string; add: DrillKind; why: string }[] = [
   {
     id: 'fr.a1.routines.005', fr: 'je me réveille', add: 'voiceflash',
     why: 'Named by s12-persons, which is a card the learner hears.',

@@ -60,9 +60,13 @@ else {
     }
     if (q.opts && new Set(q.opts).size !== q.opts.length) fail(`duplicate option in: ${q.q}`);
   }
-  const closed = qs.filter((q) => typeof q.correct === 'number');
+  // A type PREDICATE, not a bare filter. `correct` is `number | string` because
+  // tapSilent names the silent letters rather than indexing options, and
+  // .filter() does not carry that narrowing out, so the Map key below was
+  // `string | number` and the non-null assertions were hiding it.
+  const closed = qs.filter((q): q is (typeof qs)[number] & { correct: number } => typeof q.correct === 'number');
   const slots = new Map<number, number>();
-  for (const q of closed) slots.set(q.correct!, (slots.get(q.correct!) ?? 0) + 1);
+  for (const q of closed) slots.set(q.correct, (slots.get(q.correct) ?? 0) + 1);
   const spread = [...slots.entries()].sort((a, b) => a[0] - b[0])
     .map(([s, c]) => `${s}:${c} (${Math.round((c / closed.length) * 100)}%)`).join('  ');
   console.log(`  quiz answer slots over ${closed.length} closed questions: ${spread}`);
