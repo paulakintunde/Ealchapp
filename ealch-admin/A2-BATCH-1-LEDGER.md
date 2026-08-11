@@ -92,7 +92,7 @@ nobody needs a second block.
 ```
 seq  id      block                                    status
  1   a2.01   fr.a2.verbes.101 .. .140                 TAKEN, 101-125 used, 126-140 free
- 2   a2.09   fr.a2.verbes.141 .. .180
+ 2   a2.09   fr.a2.verbes.141 .. .180                 TAKEN, 141-166 used, 167-180 free
  3   a2.10   fr.a2.verbes.181 .. .220
  4   a2.11   fr.a2.verbes.221 .. .260
  5   a2.02   fr.a2.verbes.261 .. .300
@@ -108,6 +108,16 @@ build hour to a concurrent lesson landing *below* the top of its range, where a
 highest-id check cannot see it. `fr.a2.verbes` had exactly 100 rows and no gaps
 when `a2.01` claimed .101; if your count is not `100 + everything applied since`,
 somebody has landed inside a block.
+
+Counts so far, so seq 3 onward has a figure to check against:
+
+```
+125 rows   after a2.01 (100 + 25),  max .125,  gaps: none
+151 rows   after a2.09 (125 + 26),  max .166,  gaps: .126-.140, .167-.180
+```
+
+The gaps are the unused tails of the two claimed blocks and are deliberate. Ids
+are the SRS key: do not backfill them.
 
 ---
 
@@ -248,7 +258,35 @@ renders cards the mic cannot score. `a2.01` speaks its authored sentences instea
 **The dictée mode is not a free choice.** `dicteeMode()` switches to WORD tiles
 above 16 letters, and word mode hands every real word over pre-spelled. **A
 silent-ending lesson can only be tested in LETTERS mode**, so every dictée target
-in this band must be ≤ 16 letters. All seven of `a2.01`'s are.
+in this band must be ≤ 16 letters. All seven of `a2.01`'s are, and all nine of
+`a2.09`'s.
+
+**NO SCORED SURFACE IN THIS APP CAN TEST AN ACCENT OR A CEDILLA.** Measured by
+`a2.09` on 2026-08-11, and it binds every later lesson in the band that teaches a
+diacritic (`a2.03`, `a2.16` and the participle set are the obvious ones).
+
+`fold()` in `answer.logic.ts` normalises to NFD and strips every combining mark,
+so for `typeIn` and `errorSpot`:
+
+```
+commençons == commencons        préfère == préfére == prefere
+```
+
+`normalizeFr()` in `score.ts` does exactly the same, and that is what the DICTÉE
+compares with (`MissionRich.tsx`: `normalizeFr(filled) === normalizeFr(target)`)
+and what the speech recogniser is scored against.
+
+So a typed question that turns on a diacritic **accepts the mistake and tells the
+learner they spelled it right**, which is worse than not asking. Only `mcq` and
+`listenChoose` can test one, because their options are picked rather than typed
+and `quiz-duplicate-option` compares them exactly. A doubled consonant and an
+inserted letter DO survive a fold and are safe for `typeIn`.
+
+`a2.09` runs both claims through the real functions rather than writing them in a
+comment: `DICTEE_NEAR_MISS` in its corpus pairs every dictée target with the near
+miss a learner would actually make and asserts, in both directions, whether
+`normalizeFr` can tell them apart. Copy that shape rather than the conclusion —
+if `fold` is ever fixed, the assertion fails instead of quietly going stale.
 
 ---
 
@@ -257,11 +295,24 @@ in this band must be ≤ 16 letters. All seven of `a2.01`'s are.
 ```
 node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
   tests 2542   pass 2542   fail 0        measured 2026-08-11, before a2.01
-seed.json                                version 22, 8524 items, 42 lessons
+  tests 2672   pass 2672   fail 0        measured 2026-08-11, before a2.09
+  tests 2773   pass 2773   fail 0        after a2.09 (+101)
+seed.json                                version 22, 8524 items, 42 lessons  (before a2.01)
+                                         version 23, 8615 items, 43 lessons  (after a2.09)
 pnpm content:parity                      exits 1 on three PRE-EXISTING divergences
                                          (sons.09.l1 seed-only, b2.01.l1 db-only,
                                           sons.08.l1 shape drift). Not yours.
 ```
+
+**Parity has improved since that note and the note is now stale.** Measured after
+`a2.09` on 2026-08-11, `content:parity` reports ONE divergence, `b2.01.l1`
+database-only, and exits saying *"Nothing in the seed is at risk from a publish"*.
+`sons.09.l1` and the `sons.08.l1` shape drift are no longer reported. Nobody in
+this batch fixed them, so somebody else did; measure it yourself rather than
+carrying either figure forward.
+
+`ealch-admin` `npx tsc --noEmit` is also CLEAN as of `a2.09`. The five
+pre-existing errors this file recorded are gone. Do not add any.
 
 `content:publish` is **blocked** and publishing is not part of a lesson build.
 Applying to Postgres and merging into the seed is the end of your job.
