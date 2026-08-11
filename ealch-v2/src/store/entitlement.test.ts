@@ -222,3 +222,23 @@ test('currency detection reads the region subtag and refuses to guess', () => {
   strictEqual(detectCurrency(['sv-SE']), null, 'EU member outside the euro is not EUR');
   strictEqual(detectCurrency([]), null);
 });
+
+/* ─── The TEMPORARY dev unlock of the A2 band ─────────────────────────────────
+ *
+ * Added 2026-08-11 alongside DEV_UNLOCK_A2 in useEntitlement.ts, which lifts the
+ * `levels.all` gate so A2 lessons can be walked on a device while batch 1 is
+ * being built.
+ *
+ * The whole safety claim for that switch is "a release build cannot take the
+ * branch", and this is the proof rather than the assertion. The node test runner
+ * has no `__DEV__` global, which is exactly the shape of a production bundle for
+ * this purpose: if the flag alone were enough to lift the gate, this goes red.
+ *
+ * It stays useful after the switch is turned off: it holds the `typeof` guard in
+ * place, so nobody can simplify it to a bare `__DEV__` and crash every consumer
+ * that has no such global. */
+test('the A2 dev unlock cannot lift the gate outside a dev build', async () => {
+  strictEqual(typeof (globalThis as { __DEV__?: boolean }).__DEV__, 'undefined', 'this test is only meaningful where __DEV__ is absent');
+  const { a2LockLifted } = await import('./entitlement.logic.ts');
+  strictEqual(a2LockLifted(), false, 'the A2 band lock was lifted without a dev build; DEV_UNLOCK_A2 must never be enough on its own');
+});

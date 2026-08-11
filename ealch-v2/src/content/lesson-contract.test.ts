@@ -148,11 +148,16 @@ test('a control page explains its answer', () => {
 const WHY_WAIVED = new Map<string, string>([
   ['sons.02.l1', '0/12 authored'],
   ['sons.03.l1', '1/12 authored'],
-  ['a2.01.l1', '0/3 authored'],
   // a1.04.l1 came off this list on 2026-08-05. It was waived at "0/3 authored";
   // the rebuild to v3 replaced that three-question quiz with 22 round-based
   // questions, every one carrying a `why` and a `ref`. Taking a lesson off the
   // list is the point of the list, so the line is deleted rather than updated.
+  //
+  // a2.01.l1 came off it on 2026-08-11, the same way and for the same reason. It
+  // was waived at "0/3 authored"; the rebuild to v3 replaced that pre-v2 stub
+  // with 30 round-based questions, every one carrying a `why` and a `ref`. Two
+  // of the three remaining entries are now sons lessons, which is the list doing
+  // what it is for: it can only shrink.
 ]);
 
 test('a quiz question that can be got wrong says why', () => {

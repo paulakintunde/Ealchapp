@@ -1,0 +1,311 @@
+# A2 batch 1 ledger
+
+Doctrine §D. Produced 2026-08-11 by the `a2.01` build, which is seq 1 and had to
+go first. **Nobody in batch 1 authors until they have read this.** An author whose
+block turns out wrong amends this file and says so in their report; they do not
+quietly take another range.
+
+Everything here was measured against **Postgres**, not `seed.json`. The seed is a
+cut: `verbes` shows 5 rows in the seed and holds 368 in the database.
+
+---
+
+## 0. The two things that will cost you a session if you skip them
+
+**`scripts/author-verbes-batch.ts` DOES NOT DESCRIBE THE DATABASE.** The doctrine
+sends every batch-1 author to its header. That header is stale, and the script
+body is worse than stale: it declares
+
+```
+fr.a2.verbes.016 = 'les devoirs'   Postgres says 'rentrer'
+fr.a2.verbes.019 = 'le vélo'       Postgres says 'demander'
+```
+
+and it upserts by id. **Running `pnpm content:verbes` today would overwrite two of
+the thirty verbs `a2.01` imports with nouns.** Nobody in batch 1 should run it.
+Its header's claim that `verbes` holds 5 sentences and 16 new words describes a
+state that no longer exists: the theme now holds 368 published rows.
+
+**The unit spine and the briefs disagree about `title` and `sub`.** The
+`A2-01-VERBES-ER-PROMPT.md` identity block gives `title: Les verbes en -ER` and
+`sub: the full system, endings & 30 common verbs`. The unit dump says:
+
+```
+t:     "Regular -ER Verbs"
+sub:   "Les verbes en -ER"
+cando: "Can conjugate any regular -er verb in the present and use it in a real sentence"
+seq:   "1"          <- a STRING, not a number
+```
+
+The title and the sub are swapped in the brief, and the brief's `sub` is not in
+the database at all. Probe your own unit and copy from the dump. `seq` being a
+string matters: the lesson eyebrow is
+`` `${level} · LEÇON ${String(unit.seq).padStart(2, '0')}` `` (missions.ts:110), so
+`a2.01`'s tag is `A2 · LEÇON 01`.
+
+---
+
+## 1. Units in flight, and what is already there
+
+```
+seq  id      lessonIds already in the unit      state
+ 1   a2.01   ['a2.01.l1']                       LEGACY STUB, rebuilt by this build to v3
+ 2   a2.09   probe it                           not started
+ 3   a2.10   probe it                           not started
+ 4   a2.11   probe it                           not started
+ 5   a2.02   probe it                           not started
+ 6   a2.12   probe it                           not started
+ 7   a2.13   probe it                           not started
+ 8   a2.14   probe it                           not started
+ 9   a2.15   probe it                           not started
+10   a2.03   probe it                           not started
+```
+
+**`lessonIds` is not empty for `a2.01`, and the brief said it would be.** `a2.01.l1`
+shipped as a seven-section pre-v2 stub: no `id` on any section, no `acts`, no
+`reframe`, no `deckTranche`, `practice` with `skill: 'write'` (which draws no
+writing surface), and a flat quiz whose questions carry no `why` — which is why
+`a2.01.l1` sits on the `why` waiver list in `lesson-contract.test.ts`. This build
+rebuilds it in place and takes it off that list. **Assume the same for your unit:
+probe before you plan a greenfield build.**
+
+---
+
+## 2. Id blocks
+
+`verbes` is the batch-1 home. Measured 2026-08-11:
+
+```
+theme verbes             368 published in postgres,  5 in seed
+  fr.a2.verbes           count=100  max=100   NEXT FREE = fr.a2.verbes.101   gaps: none
+  fr.b1.verbes           count=268  max=290                                  gaps: 22
+theme verbes-essentiels  535 published in postgres,  2 in seed
+  fr.a1.verbes-essentiels  count=230  max=230  NEXT FREE = .231
+  fr.a2.verbes-essentiels  count=60   max=60   NEXT FREE = .061
+  fr.b1.verbes-essentiels  count=15   max=15   NEXT FREE = .016
+  fr.sons.verbes-essentiels count=230 max=230  NEXT FREE = .231
+```
+
+Forty ids each, non-overlapping, allocated from NEXT FREE. Wide enough that
+nobody needs a second block.
+
+```
+seq  id      block                                    status
+ 1   a2.01   fr.a2.verbes.101 .. .140                 TAKEN, 101-125 used, 126-140 free
+ 2   a2.09   fr.a2.verbes.141 .. .180
+ 3   a2.10   fr.a2.verbes.181 .. .220
+ 4   a2.11   fr.a2.verbes.221 .. .260
+ 5   a2.02   fr.a2.verbes.261 .. .300
+ 6   a2.12   fr.a2.verbes.301 .. .340
+ 7   a2.13   fr.a2.verbes.341 .. .380
+ 8   a2.14   fr.a2.verbes.381 .. .420
+ 9   a2.15   fr.a2.verbes.421 .. .460
+10   a2.03   NOT verbes. See §3.
+```
+
+**Check the row COUNT after your apply, not just the highest id.** a1.20 lost a
+build hour to a concurrent lesson landing *below* the top of its range, where a
+highest-id check cannot see it. `fr.a2.verbes` had exactly 100 rows and no gaps
+when `a2.01` claimed .101; if your count is not `100 + everything applied since`,
+somebody has landed inside a block.
+
+---
+
+## 3. a2.03 has no theme yet, and the doctrine's probe line is wrong
+
+Doctrine §D says to probe `adjectifs,adverbes,routine,pays,lieux,temps`. Measured
+2026-08-11:
+
+```
+theme adjectifs   0 published in postgres, 0 in seed   THEME DOES NOT EXIST
+theme adverbes    0 published in postgres, 0 in seed   THEME DOES NOT EXIST
+```
+
+Both are empty. The A1 adjective lessons (a1.14, a1.16) did not write into an
+`adjectifs` theme, so `a2.03` and batch 2's `a2.16`/`a2.17` cannot inherit one.
+That is a real decision and it is **not made here**: whoever builds `a2.03` probes
+what a1.14/a1.16 actually used, and amends this section with the answer before
+authoring. Creating a new theme is product-visible in the flashcard hub and the
+Den, so it is not a thing to do quietly.
+
+---
+
+## 4. The headwords that already exist. Import, do not author.
+
+**Every one of the thirty verbs `a2.01` teaches already exists in Postgres**, most
+of them several times over. Nothing in batch 1 should author an infinitive without
+probing first. The brief's claim that `author-verbes-batch.ts` "placed eight
+infinitives" understates it by a factor of five: `fr.a2.verbes.013` through `.056`
+are forty-four infinitives, and `verbes-essentiels` holds hundreds more.
+
+The rows `a2.01` imports, and which are shared with the rest of batch 1:
+
+```
+parler      fr.sons.verbes-essentiels.015      regarder    fr.sons.verbes-essentiels.024
+écouter     fr.sons.verbes-essentiels.025      aimer       fr.sons.verbes-essentiels.016
+habiter     fr.sons.verbes-essentiels.026      travailler  fr.a2.verbes.031
+chercher    fr.a2.verbes.017                   trouver     fr.a2.verbes.018
+demander    fr.a2.verbes.019                   arriver     fr.a2.verbes.013
+rester      fr.a2.verbes.015                   rentrer     fr.a2.verbes.016
+gagner      fr.a2.verbes.032                   donner      fr.sons.consonnes.140
+aider       fr.a1.amis.024                     porter      fr.sons.verbes-essentiels.141
+entrer      fr.sons.verbes-essentiels.043      montrer     fr.sons.verbes-essentiels.054
+jouer       fr.a1.amis.023                     chanter     fr.a1.evenements-familiaux.059
+danser      fr.a1.evenements-familiaux.060     visiter     fr.sons.verbes-essentiels.129
+inviter     fr.a1.amis.019                     étudier     fr.a1.verbes-essentiels.001
+adorer      fr.sons.verbes-essentiels.110      détester    fr.sons.verbes-essentiels.109
+fermer      fr.sons.verbes-essentiels.035      marcher     fr.a1.routines.108
+téléphoner  fr.a1.verbes-essentiels.003        oublier     fr.sons.verbes-essentiels.055
+```
+
+Also already present and relevant to later lessons in the batch, so **probe before
+you author any of these**: `partir`, `répondre`, `remplir`, `signer`, `envoyer`,
+`recevoir`, `payer`, `acheter`, `vendre`, `louer`, `déménager`, `embaucher`,
+`économiser`, `dépenser`, `soigner`, `guérir`, `vacciner`, `consulter`, `examiner`,
+`prescrire`, `voter`, `déclarer`, `immigrer`, `émigrer`, `s'installer`, `renouveler`,
+`confirmer`, `annuler`, `réserver`, `appeler`, `rappeler`, `présenter`,
+`accompagner`, `surveiller`, `protéger`, `respecter`, `commencer`, `préférer`,
+`manger`, `finir`, `choisir`, `attendre`, `aller`, `venir`, `tenir`, `faire`,
+`dire`, `lire`, `vouloir`, `pouvoir`, `devoir`, `savoir`, `connaître`, `prendre`,
+`mettre`.
+
+`corpus:probe` **does not strip accents and does not add them**: probe
+`préférer`, not `preferer`, or you will be told a word that exists is absent.
+
+---
+
+## 5. Decisions identical across the level (doctrine §E)
+
+Settled here by `a2.01`. Every later lesson in the band inherits them.
+
+**Headword shape for a verb.** The **bare infinitive**, no article, no gloss frame,
+no `gender`. Infinitives are not nouns. This matches all 44 rows already in
+`fr.a2.verbes.013..056`. A `gender` on a single-word row joins a1.03's measured
+ending population and moves twenty printed figures in `a1-03-genre.test.ts`; none
+of the thirty carries one, and this was checked row by row rather than assumed.
+
+**Is a conjugated form ever a corpus item?** **No. Only infinitives and full
+sentences.** The `verbes` theme already holds conjugation *sentences* and no bare
+conjugated forms, and `a2.01` does not depart from that. A bare `parles` as a row
+would be served by the flashcard hub as a card with no subject, which is the one
+thing this level teaches you not to do.
+
+**Is a past participle a corpus item?** Not decided here. Batch 2, seq 16 to 20.
+Left open deliberately: `a2.01` authors no past tense at all.
+
+**How a paradigm is written in prose when it is not in a `table`.** Pronoun order
+`je · tu · il · nous · vous · ils`, six rows and not nine (a1.05 already taught
+that `il/elle/on` share a form and `ils/elles` share another; re-deriving it spends
+missions on last week's lesson). Silent endings are marked **in a column of their
+own headed "What you hear"**, never with a strike-through or a bracket inside the
+form: the form has to stay copyable.
+
+**Respelling of the silent endings.** A silent ending is written **as nothing**.
+`il parle` is `eel parl`, not `eel parl-uh`. `ils parlent` is `eel parl`, the same
+string, because that is the fact of the matter. The two audible ones are
+`-ons` → `OHⁿ` and `-ez` → `AY`.
+
+Nasal vowels close with a **superscript ⁿ**, never a plain n or m. Import
+`hasPlainNasalFor` from `density.logic.ts`; never write your own. Read invariants
+§3 for its two blind spots before you trust it. The one that will bite seq 5 to 9
+is the word-internal nasal: the checker requires the n or m to end a token, so
+`PRAHNDR` and `VYENN` pass while being wrong. `viennent`, `prennent`,
+`connaissent` and `apprennent` are all this shape. **Assert those by name as well
+as calling the shared checker.**
+
+`a2.01` repaired eight rows that broke the stated rule; all eight are listed in
+`data/verbes-er-corpus.ts`. If your lesson imports `entrer`, `montrer`, `rentrer`,
+`demander`, `chanter`, `danser` or `inviter`, the repaired value is the one in
+Postgres now.
+
+**`nous` versus `on`.** Stated once, in `a2.01.l1` section `s06-nous-on`, and
+inherited verbatim by the other nineteen:
+
+> **nous parlons is what you write. on parle is what you say.**
+
+Both are correct and both mean *we*. `on` takes the same form as `il`, so it costs
+no new ending. a1.05 already said the register half of this (*"nous is never
+wrong; it simply sits a register above where the conversation is"*), and this
+wording was chosen to sit on top of that rather than contradict it. **Do not teach
+`on` as a curiosity in one lesson and use `nous` in every example of the next.**
+
+**`drills` is a Postgres enum array**, `drill_kind[]`, not `text[]`. Concatenating
+a `text[]` fails with `operator does not exist: drill_kind[] || text[]` and takes
+the whole transaction with it. The only route is the double cast:
+
+```sql
+drills = (select array_agg(distinct e order by e)
+            from unnest(drills || $2::text[]::drill_kind[]) e)
+```
+
+**Reachability.** Every item is named by a section or released by a `deckTranche`
+and carrying a `flashcard` drill. `practice` with `skill: 'speak'` needs
+`voiceflash` on every item it names; `dictation` needs `dictation`. Check against
+**Postgres**. Note that many `fr.a2.verbes.*` infinitives carry only
+`{flashcard,review}` and no `voiceflash`, so a speak mission that names them
+renders cards the mic cannot score. `a2.01` speaks its authored sentences instead.
+
+**The dictée mode is not a free choice.** `dicteeMode()` switches to WORD tiles
+above 16 letters, and word mode hands every real word over pre-spelled. **A
+silent-ending lesson can only be tested in LETTERS mode**, so every dictée target
+in this band must be ≤ 16 letters. All seven of `a2.01`'s are.
+
+---
+
+## 6. Baseline
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 2542   pass 2542   fail 0        measured 2026-08-11, before a2.01
+seed.json                                version 22, 8524 items, 42 lessons
+pnpm content:parity                      exits 1 on three PRE-EXISTING divergences
+                                         (sons.09.l1 seed-only, b2.01.l1 db-only,
+                                          sons.08.l1 shape drift). Not yours.
+```
+
+`content:publish` is **blocked** and publishing is not part of a lesson build.
+Applying to Postgres and merging into the seed is the end of your job.
+
+---
+
+## 7. Device verification, and what it costs (measured 2026-08-11 on a Pixel 6)
+
+**A2 is behind the `levels.all` paywall in the dev build.** `app/lesson.tsx` is the
+chokepoint and it catches every route in, including deep links. `missions` and
+`lessonoverview` do NOT gate, so the overview, the mission list and the mechanic
+labels are all verifiable without an entitlement. The 24 cards are not.
+
+To open them, grant a local entitlement and remove it afterwards:
+
+```
+adb shell run-as app.ealch.mobile        # the dev build is debuggable
+# pull databases/RKStorage, edit with node:sqlite, push back, clear -wal/-shm
+key   ealch-entitlement:anon
+value {"userId":"anon","plan":"annual","features":["levels.all", ...],"source":"iap"}
+```
+
+**`plan` must be one of `free|monthly|annual`.** Anything else fails
+`isValidEntitlement` and reads as free with no error, which looks exactly like the
+write not landing. Ask before touching anybody's phone.
+
+**Dev-client deep links.** `exp+wonerock://expo-development-client/?url=…%2F--%2Froute`
+does not work: the launcher fetches the manifest at that path and dies with
+`Cannot GET /--/route`. Load the app plainly first, then send
+`exp+wonerock://<route>?key=<id>` to the running app.
+
+### The break card is the most fragile screen in an A2 scene
+
+Three device passes on `a2.01`'s, each finding something no test could see: the
+card's own Continue sat below the fold on first paint. **The budget is LINES, not
+words**, and the doctrine's "break body between 24 and 40 words" hides that. What
+fits on a Pixel 6, for a break carrying both reading rows:
+
+```
+heading            <= ~13 characters      it wraps at ~12, and each line costs ~85px
+reading-row gloss  <= ~24 characters      one line each; 39 and 45 chars cost two lines apiece
+body               ~26 words              a1.06 ships 25
+coach              ~8 words
+```
+
+A right-hand row carrying BOTH `ipa` and `respell` is four lines on its own. Budget
+for it. Anything you cut from the body goes in a glossary term instead.

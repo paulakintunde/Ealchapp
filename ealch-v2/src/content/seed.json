@@ -85762,177 +85762,6 @@
       ]
     },
     {
-      "id": "a2.01.l1",
-      "seq": 1,
-      "tag": "A2 · LEÇON 01",
-      "intro": "About 90% of French verbs are regular -ER verbs. Learn one conjugation pattern and you unlock thousands of verbs at once. This unit has four sub-lessons — start with the full -ER system.",
-      "level": "a2",
-      "title": "Verbes réguliers",
-      "unitId": "a2.01",
-      "itemIds": [
-        "fr.a2.verbes.001",
-        "fr.a2.verbes.002",
-        "fr.a2.verbes.003",
-        "fr.a2.verbes.004",
-        "fr.a2.verbes.005",
-        "fr.a1.dictee.003"
-      ],
-      "version": 2,
-      "overview": {
-        "glyph": "Er",
-        "subFr": "Les verbes réguliers",
-        "introFr": "Environ 90% des verbes français sont des verbes réguliers en -ER. Apprenez un seul schéma de conjugaison et des milliers de verbes se débloquent d'un coup.",
-        "minutes": 30,
-        "titleEn": "Regular -ER Verbs: One Pattern, Thousands of Verbs",
-        "difficulty": 2
-      },
-      "sections": [
-        {
-          "cols": [
-            "parler",
-            "Ending",
-            "Sounds like"
-          ],
-          "rows": [
-            [
-              "je parle",
-              "-e",
-              "parl"
-            ],
-            [
-              "tu parles",
-              "-es",
-              "parl"
-            ],
-            [
-              "il / elle parle",
-              "-e",
-              "parl"
-            ],
-            [
-              "nous parlons",
-              "-ons",
-              "par-lõ"
-            ],
-            [
-              "vous parlez",
-              "-ez",
-              "par-lé"
-            ],
-            [
-              "ils parlent",
-              "-ent",
-              "parl (silent!)"
-            ]
-          ],
-          "type": "table",
-          "frSub": "La référence",
-          "title": "Reference"
-        },
-        {
-          "type": "examples",
-          "frSub": "Les exemples",
-          "title": "Examples",
-          "examples": [
-            {
-              "en": "They speak French — the -ent is completely silent",
-              "fr": "Ils parlent français"
-            },
-            {
-              "en": "We eat — manger keeps the e before -ons (a spelling quirk, see sub-lesson 2)",
-              "fr": "Nous mangeons"
-            }
-          ]
-        },
-        {
-          "type": "audio",
-          "frSub": "À l'écoute",
-          "lines": [
-            "Je parle, tu parles, il parle",
-            "Nous parlons français ensemble",
-            "Elles écoutent la radio"
-          ],
-          "title": "Listen"
-        },
-        {
-          "type": "commonErrors",
-          "frSub": "Les erreurs classiques",
-          "title": "Common errors",
-          "errors": [
-            {
-              "why": "Only tu takes the s. Four of the six forms sound identical — the spelling differs.",
-              "right": "« je parle »",
-              "wrong": "« je parles »"
-            },
-            {
-              "why": "The third-person plural ending is written but never voiced.",
-              "right": "« parl » — the -ent is silent",
-              "wrong": "pronouncing « ils parlent » as \" parlont \""
-            }
-          ]
-        },
-        {
-          "type": "focus",
-          "frSub": "Dans cette unité",
-          "title": "In this unit",
-          "points": [
-            "Regular -ER Verbs — The Full System",
-            "-ER Verbs — Spelling Quirks",
-            "Regular -IR Verbs",
-            "Regular -RE Verbs"
-          ]
-        },
-        {
-          "type": "practice",
-          "frSub": "Par écrit",
-          "skill": "write",
-          "title": "Practice",
-          "itemIds": [
-            "fr.a2.verbes.001",
-            "fr.a2.verbes.002",
-            "fr.a2.verbes.003",
-            "fr.a2.verbes.004",
-            "fr.a2.verbes.005",
-            "fr.a1.dictee.003"
-          ]
-        },
-        {
-          "type": "quiz",
-          "frSub": "L'examen final",
-          "title": "Quiz",
-          "questions": [
-            {
-              "q": "« Nous ___ » (parler)",
-              "opts": [
-                "parlons",
-                "parlez",
-                "parlent"
-              ],
-              "correct": 0
-            },
-            {
-              "q": "How is the -ent in « ils parlent » pronounced?",
-              "opts": [
-                "\" ent \"",
-                "\" on \"",
-                "it is silent"
-              ],
-              "correct": 2
-            },
-            {
-              "q": "Which forms of parler SOUND identical?",
-              "opts": [
-                "je / nous / vous",
-                "je / tu / il / ils",
-                "tu / vous"
-              ],
-              "correct": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "a1.20.l1",
       "seq": 1,
       "tag": "A1 · LEÇON 23",
@@ -122283,6 +122112,3118 @@
         "The whole A1 band, a1.01 to a1.29, and the lesson-by-lesson review in a1.30.l1"
       ],
       "grammarIntroduced": []
+    },
+    {
+      "id": "a2.01.l1",
+      "unitId": "a2.01",
+      "seq": 1,
+      "title": "Les verbes en -ER",
+      "level": "a2",
+      "tag": "A2 · LEÇON 01",
+      "intro": "Nine in ten French verbs work exactly like this one, so learning the pattern once gives you thousands of them. Six endings, four of which make no sound at all, which is why the little word in front of the verb is doing more work than you think.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "The Evening You Did Not Get",
+          "frSub": "Le soir qu'on ne vous a pas donné",
+          "render": "screens",
+          "layer": "core",
+          "terms": [
+            "infinitive",
+            "silentEnding"
+          ],
+          "say": {
+            "text": "Nothing goes wrong out loud here. Watch where the sentence runs out.",
+            "voice": "coach",
+            "timing": "onFirstVisitOnly"
+          },
+          "setting": {
+            "place": "The desk at a community centre",
+            "city": "Lyon",
+            "time": "Tuesday, just after six",
+            "ambience": "room-tone-lobby"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "Enrolment evening at a community centre in Lyon. You have the verb you need. What you do not have yet is the end of it.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "Nadia",
+              "fr": "Bonsoir. Vous cherchez quel cours ?",
+              "en": "Good evening. Which class are you looking for?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-01-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Le cours du soir.",
+              "en": "The evening class.",
+              "stage": "That lands. She turns the screen towards you.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "Nadia",
+              "fr": "Et vous travaillez quels jours ?",
+              "en": "And which days do you work?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-01-scene"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "You work Monday and Thursday. What goes back?",
+              "options": [
+                {
+                  "fr": "Je travailler lundi et jeudi.",
+                  "en": "the form the dictionary gave you",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                },
+                {
+                  "fr": "Je travaille lundi et jeudi.",
+                  "en": "the form with a person on it",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "Yes, and the four letters you added make no sound at all. Watch what the other one costs.",
+                "breaks": "English lets you do that. French has no bare form to fall back on."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "Nadia",
+              "fr": "Bon. Je vous mets au mardi, alors.",
+              "en": "Right. I will put you down for Tuesday, then.",
+              "stage": "Nobody corrects you. She waits four seconds, then types something and prints the card.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-01-scene"
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "The stall",
+              "body": "You knew the verb. You knew the day. What you did not have was four letters on the end, and French offers no bare form instead.",
+              "wrong": {
+                "fr": "Je travailler lundi.",
+                "ipa": "/ʒə tʁa.va.je lœ̃.di/",
+                "en": "not a sentence"
+              },
+              "right": {
+                "fr": "Je travaille lundi.",
+                "ipa": "/ʒə tʁa.vaj lœ̃.di/",
+                "respell": "[zhuh tra-vahy luhⁿ-DEE]",
+                "en": "four letters, no sound"
+              },
+              "coach": "An ending you must write and never hear.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "audioFirst": true,
+                "recordingId": "rec-a2-01-silent-four"
+              }
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "She was not annoyed and you were not misunderstood. You just did not get Thursday."
+            }
+          ],
+          "closing": {
+            "size": "md",
+            "text": "Four of the six forms sound the same, so the pronoun carries the person. You will spend this lesson writing endings you cannot hear."
+          }
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "say": "Four of the six forms sound the same, so the pronoun carries the person. By the end you will build a form for a verb this lesson never shows you.",
+          "goals": [
+            {
+              "t": "Build any -er verb",
+              "s": "Cut two letters off the naming form and put a person on what is left."
+            },
+            {
+              "t": "Hear who is speaking",
+              "s": "From the pronoun, because four of the six endings give your ear nothing."
+            },
+            {
+              "t": "Spell what you cannot hear",
+              "s": "The part of this that is genuinely hard, and the part everything later rests on."
+            },
+            {
+              "t": "Say it flat",
+              "s": "With the weight at the end of the phrase, not on the end of the verb."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s03-derived",
+          "title": "This One You Work Out",
+          "frSub": "Un verbe qui se déduit",
+          "hint": "Swipe through the four cards.",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "infinitive",
+            "stem"
+          ],
+          "say": "Read this one properly. It decides what you should be doing for the next twenty minutes.",
+          "cards": [
+            {
+              "label": "What you already have",
+              "head": "The pronouns are done",
+              "body": "You met the six subject pronouns last unit, and the tu against vous split that runs through the whole product. Nothing here re-teaches them. They are about to start doing more work than they ever have."
+            },
+            {
+              "label": "The two you memorised",
+              "head": "être and avoir were the exception",
+              "fr": "suis · es · est",
+              "sub": "six words, no shared stem",
+              "body": "Those two had to be learned outright because there was nothing to derive. It would be reasonable to conclude that French verbs are memorised one at a time. They are not."
+            },
+            {
+              "label": "The deal",
+              "head": "This one hands you a stem",
+              "fr": "parler → parl-",
+              "sub": "plus six endings",
+              "body": "Learn one pattern and roughly nine in ten French verbs come with it. That is the deal the language offers almost everywhere, and this is where you collect on it."
+            },
+            {
+              "label": "The catch, and it is not the endings",
+              "head": "Four of them make no sound",
+              "body": "Four of the six forms sound the same, so the pronoun carries the person. Writing the verb is the easy half. Hearing it is the half this lesson is built around."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s04-machine",
+          "title": "Cut Two Letters Off",
+          "frSub": "La machine",
+          "hint": "Swipe through the four cards.",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "infinitive",
+            "stem"
+          ],
+          "say": "Three steps, and the third one is where every mistake in this lesson happens.",
+          "cards": [
+            {
+              "label": "Step 1",
+              "head": "Start from the naming form",
+              "fr": "travailler",
+              "sub": "[trah-vah-YAY]",
+              "body": "This is how the verb is listed. Nobody speaks in this form, and reaching for it under pressure is what stopped the sentence in the scene."
+            },
+            {
+              "label": "Step 2",
+              "head": "Take the last two letters off",
+              "fr": "travailler → travaill-",
+              "sub": "the part that never moves",
+              "body": "Whatever is left is the stem, and it is the same for all six persons. There is nothing else to remember about it."
+            },
+            {
+              "label": "Step 3",
+              "head": "Put the person on the end",
+              "fr": "travaill- + e",
+              "sub": "je travaille",
+              "body": "One ending per person, six in total, and the same six on every regular verb in the language. That is the entire machine."
+            },
+            {
+              "label": "The eleventh verb",
+              "head": "It works on words you have never seen",
+              "fr": "bavarder → tu bavardes",
+              "sub": "to chat, and you just built that form",
+              "body": "You were not taught that verb. You did not need to be. This is what makes a verb regular, and it is why thirty is a starting number rather than a limit."
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s05-six",
+          "title": "Six Forms, And What You Hear",
+          "frSub": "Les six formes",
+          "layer": "core",
+          "terms": [
+            "silentEnding",
+            "audibleTwo",
+            "stem"
+          ],
+          "sheetId": "sheet.a2.01.endings",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-01-paradigm"
+          },
+          "say": "Four of the six forms sound the same, so the pronoun carries the person. Read the right-hand column down before you read anything else. Tap any row to hear it.",
+          "cols": [
+            "Person",
+            "parler",
+            "What you hear"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "je",
+                "je parle",
+                "nothing at the end"
+              ],
+              "say": "Je parle français.",
+              "detail": {
+                "title": "je parle",
+                "body": "The ending is one letter and it is silent. What arrives at the ear is the stem and nothing after it, which is exactly what arrives for tu, for il and for ils.",
+                "say": "Je parle français."
+              }
+            },
+            {
+              "cells": [
+                "tu",
+                "tu parles",
+                "nothing at the end"
+              ],
+              "say": "Tu parles français.",
+              "detail": {
+                "title": "tu parles",
+                "body": "Two letters, no sound. The s here is the same silent s you already write on tu es. It is the one ending in the six that only ever goes with tu, which makes it the one worth checking when you write.",
+                "say": "Tu parles français."
+              }
+            },
+            {
+              "cells": [
+                "il · elle · on",
+                "il parle",
+                "nothing at the end"
+              ],
+              "say": "Il parle français.",
+              "detail": {
+                "title": "The row that does the most work",
+                "body": "Three pronouns, one form, and the ending is silent. on means we and still takes this form, which is the collapse a1.05 spent a mission on and the reason on costs you no new ending.",
+                "say": "On regarde la télé."
+              }
+            },
+            {
+              "cells": [
+                "nous",
+                "nous parlons",
+                "OHⁿ"
+              ],
+              "say": "Nous parlons français.",
+              "detail": {
+                "title": "nous parlons",
+                "body": "A syllable of its own, so you hear it. It is a nasal vowel with no N sound on the end of it. This is one of only two endings your ear ever receives.",
+                "say": "Nous parlons français."
+              }
+            },
+            {
+              "cells": [
+                "vous",
+                "vous parlez",
+                "AY"
+              ],
+              "say": "Vous parlez français.",
+              "detail": {
+                "title": "vous parlez",
+                "body": "The other audible one, and it is said exactly like the naming form parler. Only the vous in front tells you which of the two you are hearing, which is the reframe arriving early.",
+                "say": "Vous parlez français."
+              }
+            },
+            {
+              "cells": [
+                "ils · elles",
+                "ils parlent",
+                "nothing at the end"
+              ],
+              "say": "Ils parlent français.",
+              "detail": {
+                "title": "ils parlent",
+                "body": "Four letters, and not one of them sounds. This is the ending everybody wants to pronounce, and it is the emptiest one in the set. Said out loud it is the same as il parle.",
+                "say": "Ils parlent français."
+              }
+            }
+          ]
+        },
+        {
+          "type": "teach",
+          "id": "s06-nous-on",
+          "title": "What You Write, And What You Say",
+          "frSub": "nous ou on",
+          "layer": "core",
+          "terms": [
+            "nousOn"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "say": "One screen, and it holds for every verb in this level. Say the second sentence out loud twice.",
+          "body": "nous parlons is what you write. on parle is what you say. Both are correct and both mean we. on takes the same form as il, so it costs you no new ending: Nous regardons la télé. On regarde la télé."
+        },
+        {
+          "type": "groupDrill",
+          "id": "s07-thirty",
+          "title": "Thirty Verbs, One Pattern",
+          "frSub": "Les trente verbes",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "infinitive",
+            "stem"
+          ],
+          "sheetId": "sheet.a2.01.thirty",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-01-thirty"
+          },
+          "say": "Five groups of six. Cut the last two letters off each one before you move on, out loud.",
+          "groups": [
+            {
+              "label": "The six the lesson runs on",
+              "items": [
+                {
+                  "fr": "parler",
+                  "itemId": "fr.sons.verbes-essentiels.015",
+                  "respell": "[par-LAY]",
+                  "en": "to speak, to talk"
+                },
+                {
+                  "fr": "regarder",
+                  "itemId": "fr.sons.verbes-essentiels.024",
+                  "respell": "[ruh-gar-DAY]",
+                  "en": "to watch, to look at"
+                },
+                {
+                  "fr": "écouter",
+                  "itemId": "fr.sons.verbes-essentiels.025",
+                  "respell": "[ay-koo-TAY]",
+                  "en": "to listen to"
+                },
+                {
+                  "fr": "aimer",
+                  "itemId": "fr.sons.verbes-essentiels.016",
+                  "respell": "[eh-MAY]",
+                  "en": "to like, to love"
+                },
+                {
+                  "fr": "habiter",
+                  "itemId": "fr.sons.verbes-essentiels.026",
+                  "respell": "[ah-bee-TAY]",
+                  "en": "to live (in a place)"
+                },
+                {
+                  "fr": "travailler",
+                  "itemId": "fr.a2.verbes.031",
+                  "respell": "[trah-vah-YAY]",
+                  "en": "to work"
+                }
+              ],
+              "check": {
+                "q": "What is the stem of travailler?",
+                "opts": [
+                  "travaille",
+                  "travai",
+                  "travaill",
+                  "travailler"
+                ],
+                "correct": 2,
+                "why": "Take off the last two letters and stop. What is left is travaill-, and it does not change for any person."
+              }
+            },
+            {
+              "label": "Getting things done",
+              "items": [
+                {
+                  "fr": "chercher",
+                  "itemId": "fr.a2.verbes.017",
+                  "respell": "[shair-SHAY]",
+                  "en": "to look for"
+                },
+                {
+                  "fr": "trouver",
+                  "itemId": "fr.a2.verbes.018",
+                  "respell": "[troo-VAY]",
+                  "en": "to find"
+                },
+                {
+                  "fr": "demander",
+                  "itemId": "fr.a2.verbes.019",
+                  "respell": "[duh-mahⁿ-DAY]",
+                  "en": "to ask for"
+                },
+                {
+                  "fr": "arriver",
+                  "itemId": "fr.a2.verbes.013",
+                  "respell": "[ah-ree-VAY]",
+                  "en": "to arrive"
+                },
+                {
+                  "fr": "rester",
+                  "itemId": "fr.a2.verbes.015",
+                  "respell": "[res-TAY]",
+                  "en": "to stay"
+                },
+                {
+                  "fr": "rentrer",
+                  "itemId": "fr.a2.verbes.016",
+                  "respell": "[rahⁿ-TRAY]",
+                  "en": "to go home"
+                }
+              ],
+              "check": {
+                "q": "Nous ___ la gare. (chercher)",
+                "opts": [
+                  "cherchons",
+                  "cherchez",
+                  "cherchent",
+                  "cherche"
+                ],
+                "correct": 0,
+                "why": "nous takes -ons, and it is one of the only two endings you can actually hear."
+              }
+            },
+            {
+              "label": "Giving and going in",
+              "items": [
+                {
+                  "fr": "gagner",
+                  "itemId": "fr.a2.verbes.032",
+                  "respell": "[gah-NYAY]",
+                  "en": "to earn"
+                },
+                {
+                  "fr": "donner",
+                  "itemId": "fr.sons.consonnes.140",
+                  "respell": "[doh-NAY]",
+                  "en": "to give"
+                },
+                {
+                  "fr": "aider",
+                  "itemId": "fr.a1.amis.024",
+                  "respell": "[eh-DAY]",
+                  "en": "to help"
+                },
+                {
+                  "fr": "porter",
+                  "itemId": "fr.sons.verbes-essentiels.141",
+                  "respell": "[por-TAY]",
+                  "en": "to carry"
+                },
+                {
+                  "fr": "entrer",
+                  "itemId": "fr.sons.verbes-essentiels.043",
+                  "respell": "[ahⁿ-TRAY]",
+                  "en": "to enter, to go in"
+                },
+                {
+                  "fr": "montrer",
+                  "itemId": "fr.sons.verbes-essentiels.054",
+                  "respell": "[mohⁿ-TRAY]",
+                  "en": "to show"
+                }
+              ],
+              "check": {
+                "q": "Which of these four is NOT a regular -er verb?",
+                "opts": [
+                  "entrer",
+                  "montrer",
+                  "donner",
+                  "aller"
+                ],
+                "correct": 3,
+                "why": "aller ends in -er and behaves like nothing else in this lesson. It is its own unit, and it is the one trap in the whole ending."
+              }
+            },
+            {
+              "label": "Time off",
+              "items": [
+                {
+                  "fr": "jouer",
+                  "itemId": "fr.a1.amis.023",
+                  "respell": "[ZHWAY]",
+                  "en": "to play"
+                },
+                {
+                  "fr": "chanter",
+                  "itemId": "fr.a1.evenements-familiaux.059",
+                  "respell": "[shahⁿ-TAY]",
+                  "en": "to sing"
+                },
+                {
+                  "fr": "danser",
+                  "itemId": "fr.a1.evenements-familiaux.060",
+                  "respell": "[dahⁿ-SAY]",
+                  "en": "to dance"
+                },
+                {
+                  "fr": "visiter",
+                  "itemId": "fr.sons.verbes-essentiels.129",
+                  "respell": "[vee-zee-TAY]",
+                  "en": "to visit (a place)"
+                },
+                {
+                  "fr": "inviter",
+                  "itemId": "fr.a1.amis.019",
+                  "respell": "[aⁿ-vee-TAY]",
+                  "en": "to invite"
+                },
+                {
+                  "fr": "étudier",
+                  "itemId": "fr.a1.verbes-essentiels.001",
+                  "respell": "[ay-tew-DYAY]",
+                  "en": "to study"
+                }
+              ],
+              "check": {
+                "q": "Elles ___ bien. (danser)",
+                "opts": [
+                  "danse",
+                  "dansent",
+                  "dansons",
+                  "dansez"
+                ],
+                "correct": 1,
+                "why": "elles takes -ent, which is four letters and no sound. Said out loud this is identical to elle danse."
+              }
+            },
+            {
+              "label": "Liking, leaving, forgetting",
+              "items": [
+                {
+                  "fr": "adorer",
+                  "itemId": "fr.sons.verbes-essentiels.110",
+                  "respell": "[ah-doh-RAY]",
+                  "en": "to love, to adore"
+                },
+                {
+                  "fr": "détester",
+                  "itemId": "fr.sons.verbes-essentiels.109",
+                  "respell": "[day-teh-STAY]",
+                  "en": "to hate"
+                },
+                {
+                  "fr": "fermer",
+                  "itemId": "fr.sons.verbes-essentiels.035",
+                  "respell": "[fehr-MAY]",
+                  "en": "to close"
+                },
+                {
+                  "fr": "marcher",
+                  "itemId": "fr.a1.routines.108",
+                  "respell": "[mar-SHAY]",
+                  "en": "to walk"
+                },
+                {
+                  "fr": "téléphoner",
+                  "itemId": "fr.a1.verbes-essentiels.003",
+                  "respell": "[tay-lay-foh-NAY]",
+                  "en": "to phone, to call"
+                },
+                {
+                  "fr": "oublier",
+                  "itemId": "fr.sons.verbes-essentiels.055",
+                  "respell": "[oo-blee-AY]",
+                  "en": "to forget"
+                }
+              ],
+              "check": {
+                "q": "You have never met the verb bavarder. What is tu ___ ?",
+                "opts": [
+                  "bavarde",
+                  "bavardez",
+                  "bavardes",
+                  "bavarder"
+                ],
+                "correct": 2,
+                "why": "Stem bavard-, tu ending -es. You were not taught this verb and you did not need to be, which is the whole point of a regular one."
+              }
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s08-onesound",
+          "title": "One Sound, Four Spellings",
+          "frSub": "Un seul son",
+          "hint": "Swipe. Say each one out loud, and notice nothing changes.",
+          "render": "deck",
+          "layer": "core",
+          "size": "xl",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-01-silent-four"
+          },
+          "say": "Four screens and one sound. Listen before you read each one.",
+          "cards": [
+            {
+              "label": "1 of 6",
+              "fr": "je parle",
+              "sub": "[zhuh PARL]",
+              "body": "I speak. Silent -e."
+            },
+            {
+              "label": "2 of 6",
+              "fr": "tu parles",
+              "sub": "[tü PARL]",
+              "body": "You speak. Silent -es."
+            },
+            {
+              "label": "3 of 6",
+              "fr": "il parle",
+              "sub": "[eel PARL]",
+              "body": "He speaks. Silent -e."
+            },
+            {
+              "label": "4 of 6",
+              "fr": "ils parlent",
+              "sub": "[eel PARL]",
+              "body": "They speak. Silent -ent."
+            },
+            {
+              "label": "5 of 6",
+              "fr": "nous parlons",
+              "sub": "[noo par-LOHⁿ]",
+              "body": "We speak. This one sounds."
+            },
+            {
+              "label": "6 of 6",
+              "fr": "vous parlez",
+              "sub": "[voo par-LAY]",
+              "body": "You speak. This one sounds too."
+            }
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s09-pronoun",
+          "title": "The Pronoun Is Doing It All",
+          "frSub": "Le pronom fait le travail",
+          "layer": "core",
+          "terms": [
+            "silentEnding"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-01-ear"
+          },
+          "say": "Four of the six forms sound the same, so the pronoun carries the person. Each pair is one sound. Cover the screen and the pairs are indistinguishable. Tap any line.",
+          "examples": [
+            {
+              "fr": "Il parle français.",
+              "en": "He speaks French.",
+              "note": "One person."
+            },
+            {
+              "fr": "Ils parlent français.",
+              "en": "They speak French.",
+              "note": "A whole group, and the same sound exactly. Six letters differ on the page and none in the air."
+            },
+            {
+              "fr": "Elle travaille ici.",
+              "en": "She works here.",
+              "note": "One person again."
+            },
+            {
+              "fr": "Elles travaillent ici.",
+              "en": "They work here.",
+              "note": "A whole team. Only elles told you, and it told you before the verb arrived."
+            },
+            {
+              "fr": "Tu cherches la gare.",
+              "en": "You are looking for the station.",
+              "note": "The verb here is the same sound as il cherche. The pronoun in front is the entire difference."
+            }
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s10-ear",
+          "title": "Who Is Speaking?",
+          "frSub": "À l'oreille",
+          "layer": "core",
+          "questionsInModal": true,
+          "terms": [
+            "silentEnding",
+            "audibleTwo"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-01-ear"
+          },
+          "say": "Four lines. Two of them your ear can settle and two of them it cannot, and knowing which is which is the skill.",
+          "lines": [
+            {
+              "fr": "Il cherche la gare.",
+              "en": "He is looking for the station."
+            },
+            {
+              "fr": "Nous cherchons la gare.",
+              "en": "We are looking for the station."
+            },
+            {
+              "fr": "Vous cherchez la gare.",
+              "en": "You are looking for the station."
+            },
+            {
+              "fr": "Elles dansent bien.",
+              "en": "They dance well."
+            }
+          ],
+          "questions": [
+            {
+              "q": "You hear the verb « cherche » on its own, with no pronoun. How many people could be doing it?",
+              "opts": [
+                "One, certainly",
+                "Two, certainly",
+                "One or several, the sound does not say",
+                "It is not a real form"
+              ],
+              "correct": 2,
+              "why": "je cherche, tu cherches, il cherche and ils cherchent are four spellings and one sound. Without the pronoun in front there is nothing to go on."
+            },
+            {
+              "q": "Listen. « Nous cherchons la gare. » What told you it was nous?",
+              "opts": [
+                "The ending, which is a syllable you can hear",
+                "The pronoun only",
+                "The word gare",
+                "Nothing, it is a guess"
+              ],
+              "correct": 0,
+              "why": "-ons is one of the two endings that carry their own syllable, so here the verb really does tell you. This is the exception, not the rule."
+            },
+            {
+              "q": "Two people say « Elles dansent bien » and « Elle danse bien ». What is different out loud?",
+              "opts": [
+                "The verb",
+                "The ending",
+                "The last syllable",
+                "Nothing at all"
+              ],
+              "correct": 3,
+              "why": "dansent and danse are the same single syllable. The whole difference lives in elle against elles, and even that is only the s you cannot hear either."
+            },
+            {
+              "q": "Which of the six endings would let you name the person with your eyes shut?",
+              "opts": [
+                "-e and -es",
+                "-ons and -ez",
+                "-ent and -e",
+                "All six"
+              ],
+              "correct": 1,
+              "why": "Those two are syllables of their own. The other four give the ear nothing, which is why the pronoun is what you hold on to."
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s11-spell",
+          "title": "Write What You Cannot Hear",
+          "frSub": "Écrire le silence",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "silentEnding",
+            "stem"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-01-silent-four"
+          },
+          "say": "Three rounds. The sound is the same every time and the spelling is not, so read the pronoun first.",
+          "groups": [
+            {
+              "label": "One person or many",
+              "items": [
+                {
+                  "fr": "Il parle français.",
+                  "itemId": "fr.a2.verbes.102",
+                  "respell": "[eel parl frahⁿ-SEH]",
+                  "en": "He speaks French."
+                },
+                {
+                  "fr": "Ils parlent français.",
+                  "itemId": "fr.a2.verbes.105",
+                  "respell": "[eel parl frahⁿ-SEH]",
+                  "en": "They speak French."
+                }
+              ],
+              "check": {
+                "q": "You hear « eel PARL frahⁿ-SEH ». Which is on the page?",
+                "opts": [
+                  "Il parle français.",
+                  "Ils parlent français.",
+                  "Either one",
+                  "Neither, it is il parlent"
+                ],
+                "correct": 2,
+                "why": "Both, and the recording cannot settle it. This is the one question in the lesson whose true answer is that the sound does not decide."
+              }
+            },
+            {
+              "label": "The s that only tu takes",
+              "items": [
+                {
+                  "fr": "Tu cherches la gare.",
+                  "itemId": "fr.a2.verbes.110",
+                  "respell": "[tü shairsh la GAR]",
+                  "en": "You are looking for the station."
+                },
+                {
+                  "fr": "Il cherche la gare.",
+                  "itemId": "fr.a2.verbes.111",
+                  "respell": "[eel shairsh la GAR]",
+                  "en": "He is looking for the station."
+                }
+              ],
+              "check": {
+                "q": "Tu ___ la gare. (chercher)",
+                "opts": [
+                  "cherche",
+                  "cherchent",
+                  "cherchez",
+                  "cherches"
+                ],
+                "correct": 3,
+                "why": "tu always takes the s, and you will never hear it. It is the ending most often dropped in writing for exactly that reason."
+              }
+            },
+            {
+              "label": "The one everyone pronounces",
+              "items": [
+                {
+                  "fr": "Ils parlent fort.",
+                  "itemId": "fr.a2.verbes.112",
+                  "respell": "[eel parl FOR]",
+                  "en": "They talk loudly."
+                },
+                {
+                  "fr": "Elles dansent bien.",
+                  "itemId": "fr.a2.verbes.113",
+                  "respell": "[el dahⁿs BYAⁿ]",
+                  "en": "They dance well."
+                }
+              ],
+              "check": {
+                "q": "How much of « -ent » reaches the ear?",
+                "opts": [
+                  "None of it",
+                  "The n",
+                  "A nasal vowel",
+                  "The whole ending"
+                ],
+                "correct": 0,
+                "why": "None. It is the longest ending in the set and the emptiest, and treating it as a syllable is the most audible mistake in the whole lesson."
+              }
+            }
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s12-errors",
+          "swipe": true,
+          "size": "lg",
+          "title": "Three Ways The Spelling Goes",
+          "frSub": "Trois pièges à l'écrit",
+          "layer": "core",
+          "terms": [
+            "silentEnding"
+          ],
+          "say": "All three come from writing down what you heard, which was nothing.",
+          "errors": [
+            {
+              "wrong": "Writing « je parles » with an s.",
+              "right": "Writing « je parle ».",
+              "why": "The s belongs to tu and to nowhere else in these six. Both are said identically, so nothing you can hear will ever catch this one for you."
+            },
+            {
+              "wrong": "Writing « ils parle » for a group.",
+              "right": "Writing « ils parlent ».",
+              "why": "The ending is silent, not absent. A reader has only the spelling to go on, so the four letters are doing work in writing that they never do out loud."
+            },
+            {
+              "wrong": "Writing « nous parle ».",
+              "right": "Writing « nous parlons ».",
+              "why": "This one your ear would have caught, because -ons is a syllable. If the ending is audible and you left it off, you were reading rather than listening."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "id": "s13-flash",
+          "title": "Flip and Recall",
+          "frSub": "Retournez la carte",
+          "render": "deck",
+          "layer": "core",
+          "say": "The person is on the front. Say the whole sentence, ending and all, before you flip.",
+          "cards": [
+            {
+              "front": "How many of the six can your ear name?",
+              "back": "Four of the six forms sound the same, so the pronoun carries the person. Two of them, and only two."
+            },
+            {
+              "front": "The stem of parler",
+              "back": "parl-. Cut the last two letters off and stop."
+            },
+            {
+              "front": "You, telling somebody you speak French",
+              "back": "Je parle français.",
+              "say": "Je parle français."
+            },
+            {
+              "front": "One friend, speaking French",
+              "back": "Il parle français.",
+              "say": "Il parle français."
+            },
+            {
+              "front": "A whole group, speaking French",
+              "back": "Ils parlent français.",
+              "say": "Ils parlent français."
+            },
+            {
+              "front": "You and somebody else, in writing",
+              "back": "Nous parlons français.",
+              "say": "Nous parlons français."
+            },
+            {
+              "front": "You and somebody else, out loud",
+              "back": "On regarde la télé.",
+              "say": "On regarde la télé."
+            },
+            {
+              "front": "Asking one stranger politely about Saturdays",
+              "back": "Vous travaillez le samedi ?",
+              "say": "Vous travaillez le samedi ?"
+            },
+            {
+              "front": "One woman, working here",
+              "back": "Elle travaille ici.",
+              "say": "Elle travaille ici."
+            },
+            {
+              "front": "A whole team, working here",
+              "back": "Elles travaillent ici.",
+              "say": "Elles travaillent ici."
+            },
+            {
+              "front": "The two endings you can hear",
+              "back": "-ons and -ez. Everything else gives the ear nothing."
+            },
+            {
+              "front": "The four you cannot",
+              "back": "-e, -es, -e, -ent. Four spellings, one sound."
+            }
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s14-stress",
+          "title": "Do Not Lean On The End",
+          "frSub": "Ne pas appuyer sur la fin",
+          "layer": "core",
+          "swipe": true,
+          "terms": [
+            "flatEnding",
+            "silentEnding"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "wrongThenRight": true,
+            "recordingId": "rec-a2-01-flat"
+          },
+          "say": "This is a habit rather than a gap. Say each one flat, three times, before you move on.",
+          "rule": {
+            "title": "English weighs the end of a verb",
+            "body": "he WALKS, they WALKED. English puts weight on the end of a verb. French has nothing there to weigh: the weight lands on the last syllable of the phrase, never on the word, and leaning on an ending is heard at once."
+          },
+          "cards": [
+            {
+              "promptLabel": "they speak",
+              "promptSound": "ils par-LENT",
+              "fr": "ils parlent",
+              "ipa": "/il paʁl/",
+              "tip": "Nothing after parl. The card ends where the stem ends."
+            },
+            {
+              "promptLabel": "you look for",
+              "promptSound": "tu cher-CHES",
+              "fr": "tu cherches",
+              "ipa": "/ty ʃɛʁʃ/",
+              "tip": "One syllable for the verb. The s is written and never said."
+            },
+            {
+              "promptLabel": "she works",
+              "promptSound": "elle tra-vaille-EUH",
+              "fr": "elle travaille",
+              "ipa": "/ɛl tʁa.vaj/",
+              "tip": "No little uh on the end. The e closes the spelling, not the sound."
+            },
+            {
+              "promptLabel": "we watch",
+              "promptSound": "nous re-gar-DONS",
+              "fr": "nous regardons",
+              "ipa": "/nu ʁə.ɡaʁ.dɔ̃/",
+              "tip": "Here there IS an ending, and still no N at the end of it."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "ils parlent",
+              "opts": [
+                "eel parl",
+                "eel par-LENT",
+                "eel par-LEUH"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "tu cherches",
+              "opts": [
+                "tü shair-SHESS",
+                "tü shairsh",
+                "tü shair-SHAY"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "nous regardons",
+              "opts": [
+                "noo ruh-gar-DONN",
+                "noo ruh-GARD",
+                "noo ruh-gar-dohⁿ"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "vous cherchez",
+              "opts": [
+                "voo shair-shay",
+                "voo shair-SHEZZ",
+                "voo shairsh"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "elle travaille",
+              "opts": [
+                "el tra-vah-YEUH",
+                "el tra-vahy",
+                "el tra-VAY-uh"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "ils dansent",
+              "opts": [
+                "eel dahⁿ-SENT",
+                "eel dahⁿ-SUH",
+                "eel dahⁿs"
+              ],
+              "correct": 2
+            }
+          ],
+          "steps": [
+            {
+              "label": "The rule",
+              "kind": "rule",
+              "title": "Where English Puts The Weight"
+            },
+            {
+              "label": "The traps",
+              "kind": "cards",
+              "title": "Four Endings You Will Want To Say"
+            },
+            {
+              "label": "Hear it",
+              "kind": "audio",
+              "title": "Wrong, Then Right"
+            },
+            {
+              "label": "Prove it",
+              "kind": "drill",
+              "title": "Which One Did You Say?",
+              "gate": true
+            }
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s15-slips",
+          "swipe": true,
+          "size": "lg",
+          "title": "Two Ways It Goes Out Loud",
+          "frSub": "Deux pièges à voix haute",
+          "layer": "core",
+          "terms": [
+            "flatEnding",
+            "infinitive"
+          ],
+          "say": "Neither of these stops you being understood, and both are heard immediately.",
+          "errors": [
+            {
+              "wrong": "Saying « ils par-LENT », with the ending sounded.",
+              "right": "Saying « ils parl », and stopping.",
+              "why": "The letters are there for the reader. Sounding them turns one syllable into two and marks the sentence as read rather than spoken."
+            },
+            {
+              "wrong": "Reaching for « je travailler » when the form will not come.",
+              "right": "Reaching for « je travaille », even if you are not sure of the spelling.",
+              "why": "English lets a bare verb stand and French does not. The naming form in a sentence is the one error here that a listener has to work to understand."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s16-notmine",
+          "title": "Two Things This Is Not",
+          "frSub": "Ce que ce n'est pas",
+          "hint": "Swipe through the three cards.",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "stem",
+            "infinitive"
+          ],
+          "say": "Two exceptions, both named so you stop looking for them, and both belong to the next two units.",
+          "cards": [
+            {
+              "label": "Not this one",
+              "head": "aller ends in -er and is not one of these",
+              "fr": "aller",
+              "sub": "the one real trap in the ending",
+              "body": "It looks exactly like the thirty and behaves like nothing in this lesson. Do not try the machine on it. It has a unit of its own further along the trail."
+            },
+            {
+              "label": "Almost this one",
+              "head": "A few change one letter in the stem",
+              "fr": "manger · commencer · préférer",
+              "sub": "regular endings, moving stem",
+              "body": "The endings you just learned are exactly right for these. What moves is one letter in front of them, for a reason you can predict, and that is the very next lesson."
+            },
+            {
+              "label": "What you have",
+              "head": "Thirty verbs and a machine",
+              "body": "Four of the six forms sound the same, so the pronoun carries the person. The endings do not change again. Everything ahead of you is either a different set of endings or a stem that moves, and you have the shape of both."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s17-speak",
+          "title": "Say The Whole Sentence",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "audio": {
+            "mode": "mic",
+            "lang": "fr-FR"
+          },
+          "say": "Pronoun and verb as one movement, and flat. A form on its own proves nothing.",
+          "skill": "speak",
+          "itemIds": [
+            "fr.a2.verbes.001",
+            "fr.a2.verbes.101",
+            "fr.a2.verbes.102",
+            "fr.a2.verbes.103",
+            "fr.a2.verbes.104",
+            "fr.a2.verbes.105",
+            "fr.a2.verbes.106",
+            "fr.a2.verbes.107",
+            "fr.a2.verbes.114",
+            "fr.a2.verbes.115",
+            "fr.a2.verbes.116",
+            "fr.a2.verbes.117",
+            "fr.a2.verbes.118",
+            "fr.a2.verbes.119",
+            "fr.a2.verbes.120",
+            "fr.a2.verbes.121",
+            "fr.a2.verbes.122",
+            "fr.a2.verbes.123",
+            "fr.a2.verbes.124",
+            "fr.a2.verbes.125"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s18-dictation",
+          "title": "Spell What You Hear",
+          "frSub": "La dictée",
+          "layer": "core",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 4,
+            "recordingId": "rec-a2-01-silent-four"
+          },
+          "say": "Seven lines, and every one of them ends in something you will not hear. The pronoun is your only evidence.",
+          "itemIds": [
+            "fr.a2.verbes.102",
+            "fr.a2.verbes.107",
+            "fr.a2.verbes.108",
+            "fr.a2.verbes.110",
+            "fr.a2.verbes.111",
+            "fr.a2.verbes.112",
+            "fr.a2.verbes.113"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s19-scenario",
+          "title": "Back At The Desk",
+          "frSub": "À vous",
+          "layer": "core",
+          "terms": [
+            "nousOn",
+            "silentEnding"
+          ],
+          "say": "The same desk, a week later. Every answer wants a person on the end of a verb.",
+          "setting": "You are back at the community centre to sort out the class you did not get. Nadia recognises you and picks up where you left off.",
+          "turns": [
+            {
+              "ai": "Rebonsoir. Vous cherchez toujours le cours du soir ?",
+              "en": "Good evening again. Are you still looking for the evening class?",
+              "user": "Oui, je cherche le cours du soir.",
+              "userEn": "Yes, I am looking for the evening class.",
+              "alts": [
+                {
+                  "fr": "Oui, toujours.",
+                  "en": "Yes, still."
+                },
+                {
+                  "fr": "Oui, je cherche le cours du mardi soir.",
+                  "en": "Yes, I am looking for the Tuesday evening class."
+                }
+              ]
+            },
+            {
+              "ai": "Et vous travaillez quels jours, exactement ?",
+              "en": "And which days do you work, exactly?",
+              "user": "Je travaille lundi et jeudi.",
+              "userEn": "I work Monday and Thursday.",
+              "alts": [
+                {
+                  "fr": "Lundi et jeudi.",
+                  "en": "Monday and Thursday."
+                },
+                {
+                  "fr": "Je travaille le lundi et le jeudi.",
+                  "en": "I work Mondays and Thursdays."
+                }
+              ]
+            },
+            {
+              "ai": "Vous venez seul, ou avec quelqu un ?",
+              "en": "Are you coming on your own, or with somebody?",
+              "user": "On arrive à deux.",
+              "userEn": "The two of us are coming.",
+              "alts": [
+                {
+                  "fr": "Nous arrivons à deux.",
+                  "en": "The two of us are coming."
+                },
+                {
+                  "fr": "Avec un ami. On arrive à deux.",
+                  "en": "With a friend. The two of us are coming."
+                }
+              ]
+            },
+            {
+              "ai": "Vos amis parlent déjà un peu français ?",
+              "en": "Do your friends already speak a little French?",
+              "user": "Ils parlent un peu.",
+              "userEn": "They speak a little.",
+              "alts": [
+                {
+                  "fr": "Un peu, oui.",
+                  "en": "A little, yes."
+                },
+                {
+                  "fr": "Ils parlent un peu et ils étudient le soir.",
+                  "en": "They speak a little and they study in the evening."
+                }
+              ]
+            },
+            {
+              "ai": "Parfait. Alors je vous mets au mardi et au jeudi.",
+              "en": "Perfect. Then I will put you down for Tuesday and Thursday.",
+              "user": "Merci beaucoup.",
+              "userEn": "Thank you very much.",
+              "alts": [
+                {
+                  "fr": "Merci, c est parfait.",
+                  "en": "Thank you, that is perfect."
+                },
+                {
+                  "fr": "Merci. On arrive jeudi, alors.",
+                  "en": "Thank you. We will be there on Thursday, then."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s20-reading",
+          "title": "A Tuesday At The Centre",
+          "frSub": "Un mardi au centre",
+          "layer": "core",
+          "terms": [
+            "silentEnding",
+            "nousOn"
+          ],
+          "questionsInModal": true,
+          "say": "Read it once for the shape. Every one of the six forms is in here. Tap any word you do not know.",
+          "text": "Six in the evening at the community centre, and the corridor is full. « Bonsoir. Vous cherchez le cours du soir ? » « Oui. Je parle français, mais pas beaucoup. » Two other people are waiting behind you with the same form in their hands. « Et eux ? » « Ils habitent à Montréal depuis deux ans. Ils parlent bien. » Nadia looks at the list and then at the clock on the wall. « Alors on commence à sept heures. Vous travaillez le samedi ? » « Non. Nous restons à la maison le samedi. » She writes two names down and hands the card across.",
+          "glossary": [
+            {
+              "word": "cherchez",
+              "en": "are looking for",
+              "note": "vous plus -ez, one of the two endings you can hear."
+            },
+            {
+              "word": "habitent",
+              "en": "live",
+              "note": "ils plus -ent. Four letters and no sound at all; only ils tells you."
+            },
+            {
+              "word": "parlent",
+              "en": "speak",
+              "note": "The same -ent again. Said exactly like il parle."
+            },
+            {
+              "word": "travaillez",
+              "en": "work",
+              "note": "The audible one again, and identical to the naming form travailler."
+            },
+            {
+              "word": "restons",
+              "en": "are staying",
+              "note": "nous plus -ons. In speech this sentence would more often start with on."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Two sentences in this passage use an ending you could hear, and three use one you could not. Which two are audible?",
+              "a": "Vous cherchez and vous travaillez, both -ez, plus nous restons with -ons. The -e and -ent endings on parle, habitent and parlent give the ear nothing, so the pronoun is the only evidence in those three."
+            },
+            {
+              "q": "« Ils parlent bien » and « Il parle bien » would sound identical. What decides which one is written here?",
+              "a": "Only the ils in front of it, and the two other people waiting behind you. There is no sound anywhere in the sentence that settles it."
+            },
+            {
+              "q": "Nadia says « on commence à sept heures ». What would she have written instead?",
+              "a": "nous commençons. on is what gets said and nous is what gets written, and on takes the same form as il, so the ending she used is the silent one."
+            }
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s21-review",
+          "title": "The Whole System, One Deck",
+          "frSub": "Révision",
+          "render": "deck",
+          "layer": "core",
+          "terms": [
+            "stem",
+            "silentEnding",
+            "nousOn"
+          ],
+          "sheetId": "sheet.a2.01.endings",
+          "say": "Rate each card objectively. Again, hard, or easy. The ones you mark again come back.",
+          "cards": [
+            {
+              "front": "How many of the six can the ear name?",
+              "back": "Four of the six forms sound the same, so the pronoun carries the person. Two of six, and the pronoun covers the rest."
+            },
+            {
+              "front": "How do you build any -er verb?",
+              "back": "Cut the last two letters off the naming form, then put the person on what is left."
+            },
+            {
+              "front": "The six endings, in order",
+              "back": "-e · -es · -e · -ons · -ez · -ent"
+            },
+            {
+              "front": "Which two make a sound?",
+              "back": "-ons and -ez. OHⁿ and AY, each a syllable of its own."
+            },
+            {
+              "front": "Which four make none?",
+              "back": "-e, -es, -e, -ent. One sound between all four of them."
+            },
+            {
+              "front": "What you write for we",
+              "back": "Nous regardons la télé.",
+              "say": "Nous regardons la télé."
+            },
+            {
+              "front": "What you say for we",
+              "back": "On regarde la télé.",
+              "say": "On regarde la télé."
+            },
+            {
+              "front": "Which form does on take?",
+              "back": "The il form, every time. on regarde, never on regardons."
+            },
+            {
+              "front": "One person working here",
+              "back": "Elle travaille ici.",
+              "say": "Elle travaille ici."
+            },
+            {
+              "front": "A whole team working here",
+              "back": "Elles travaillent ici.",
+              "say": "Elles travaillent ici."
+            },
+            {
+              "front": "The ending only tu ever takes",
+              "back": "-es. Silent, and the one most often left off in writing."
+            },
+            {
+              "front": "vous parlez sounds exactly like…",
+              "back": "parler, the naming form. Only the vous in front separates them."
+            },
+            {
+              "front": "A verb you were never taught: tu bavardes",
+              "back": "Stem bavard-, tu ending -es. The machine works on anything regular."
+            },
+            {
+              "front": "The one -er verb this does not work on",
+              "back": "aller. It is its own unit further along the trail."
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s22-progress",
+          "title": "Where You Stand",
+          "frSub": "Votre progression",
+          "say": "One screen before the exam, so you know what you are walking into.",
+          "body": "You have taken the naming form apart, put six endings on it, heard which two of them survive the trip to somebody else's ear, and written the four that do not. You have used the pattern on a verb this lesson never showed you. What is left is the part that says whether it stuck. Each round is tied to one of the mistakes this lesson exists to stop, and failing a round gets you its drill before the next one starts. The drill is the teaching, not the punishment.",
+          "stats": [
+            {
+              "k": "Verbs you can build",
+              "v": "30"
+            },
+            {
+              "k": "Endings you can hear",
+              "v": "2 of 6"
+            },
+            {
+              "k": "Missions done",
+              "v": "21 of 24"
+            },
+            {
+              "k": "Exam rounds ahead",
+              "v": "5"
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s23-quiz",
+          "title": "The Exam",
+          "frSub": "L'examen",
+          "layer": "core",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "say": "Five rounds. Miss too many in a round and you get a drill before the next one starts.",
+          "rounds": [
+            {
+              "id": "r1-the-machine",
+              "label": "Building the form",
+              "targets": [
+                "err-stem-lost",
+                "err-silent-ending"
+              ],
+              "say": "Two letters off, one person on.",
+              "questions": [
+                {
+                  "q": "What is the stem of regarder?",
+                  "format": "mcq",
+                  "opts": [
+                    "regard",
+                    "regarde",
+                    "regar",
+                    "regarder"
+                  ],
+                  "correct": 0,
+                  "why": "The last two letters come off and nothing else moves. regard- takes all six endings without changing.",
+                  "ref": "s04-machine"
+                },
+                {
+                  "q": "Write the form that goes with je, for the verb habiter.",
+                  "format": "typeIn",
+                  "accept": [
+                    "habite",
+                    "j'habite",
+                    "j habite"
+                  ],
+                  "answer": "habite",
+                  "why": "Stem habit-, je ending -e. The e is silent, so nothing about the sound would have told you it was there.",
+                  "ref": "s04-machine"
+                },
+                {
+                  "q": "Fix this. Somebody asking about your week: « Je travailler lundi. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Je travaille lundi",
+                    "travaille"
+                  ],
+                  "answer": "Je travaille lundi.",
+                  "why": "The naming form cannot stand in a sentence. English lets a bare verb do this and French has no bare form at all, which is why the reflex is so strong.",
+                  "ref": "s01-scene"
+                },
+                {
+                  "q": "You have never met the verb bavarder, meaning to chat. Write the nous form.",
+                  "format": "typeIn",
+                  "accept": [
+                    "bavardons",
+                    "nous bavardons"
+                  ],
+                  "answer": "bavardons",
+                  "why": "Stem bavard-, nous ending -ons. You were not taught this verb, and that is what regular means.",
+                  "ref": "s07-thirty"
+                },
+                {
+                  "q": "Which of these is NOT a regular -er verb?",
+                  "format": "mcq",
+                  "opts": [
+                    "montrer",
+                    "aller",
+                    "fermer",
+                    "oublier"
+                  ],
+                  "correct": 1,
+                  "why": "aller ends in -er and behaves like nothing in this lesson. It is the one real trap in the ending and it has a unit of its own.",
+                  "ref": "s16-notmine"
+                },
+                {
+                  "q": "How many endings does a regular -er verb have in the present?",
+                  "format": "mcq",
+                  "opts": [
+                    "Four",
+                    "Nine",
+                    "It depends on the verb",
+                    "Six"
+                  ],
+                  "correct": 3,
+                  "why": "Six endings for nine pronouns, because il, elle and on share one and ils and elles share another. That collapse is a1.05's and it holds for every verb.",
+                  "ref": "s05-six"
+                }
+              ]
+            },
+            {
+              "id": "r2-the-endings",
+              "label": "The four you cannot hear",
+              "targets": [
+                "err-silent-ending",
+                "err-hear-person"
+              ],
+              "say": "The sound will not help you here. Read the pronoun.",
+              "questions": [
+                {
+                  "q": "Ils ___ français. (parler)",
+                  "format": "typeIn",
+                  "accept": [
+                    "parlent"
+                  ],
+                  "answer": "parlent",
+                  "why": "ils takes -ent, four letters and no sound. Out loud this is identical to il parle, so only the ils decides it.",
+                  "ref": "s05-six"
+                },
+                {
+                  "q": "Tu ___ la gare. (chercher)",
+                  "format": "typeIn",
+                  "accept": [
+                    "cherches"
+                  ],
+                  "answer": "cherches",
+                  "why": "tu always takes the s and you will never hear it. It is the ending most often left off in writing for exactly that reason.",
+                  "ref": "s11-spell"
+                },
+                {
+                  "q": "Fix this. One woman, at work: « Elle travaillent ici. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Elle travaille ici",
+                    "travaille"
+                  ],
+                  "answer": "Elle travaille ici.",
+                  "why": "elle is one person and takes -e. Both spellings are said the same way, which is why this survives being read back aloud.",
+                  "ref": "s09-pronoun"
+                },
+                {
+                  "q": "Which ending belongs to tu, and to nothing else in the six?",
+                  "format": "mcq",
+                  "opts": [
+                    "-e",
+                    "-ent",
+                    "-es",
+                    "-ons"
+                  ],
+                  "correct": 2,
+                  "why": "-es is tu's alone. -e is shared by je and il, and -ent belongs to ils and elles.",
+                  "ref": "s05-six"
+                },
+                {
+                  "q": "Tap the letters you do not say.",
+                  "format": "tapSilent",
+                  "word": "parlent",
+                  "correct": "ent",
+                  "why": "The whole ending. It is the longest of the six and the emptiest, and treating it as a syllable is the most audible mistake in this lesson.",
+                  "ref": "s08-onesound"
+                },
+                {
+                  "q": "Fix this. You, about yourself: « Je parles français. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Je parle français",
+                    "parle"
+                  ],
+                  "answer": "Je parle français.",
+                  "why": "The s belongs to tu. Nothing you can hear will ever catch this one, so it has to be caught by the pronoun on the page.",
+                  "ref": "s12-errors"
+                }
+              ]
+            },
+            {
+              "id": "r3-by-ear",
+              "label": "By ear",
+              "targets": [
+                "err-hear-person",
+                "err-silent-ending"
+              ],
+              "say": "Two of these the sound settles. One of them it does not, and saying so is the right answer.",
+              "questions": [
+                {
+                  "q": "Listen. Which is on the page?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Il parle français.",
+                    "recordingId": "rec-a2-01-silent-four"
+                  },
+                  "say": "Il parle français.",
+                  "opts": [
+                    "Il parle français.",
+                    "Ils parlent français.",
+                    "Both are said exactly like this",
+                    "Neither, it is il parlent"
+                  ],
+                  "correct": 2,
+                  "why": "Both, and no recording could separate them. This is the whole lesson in one question: the sound does not decide, and the pronoun on the page does.",
+                  "ref": "s11-spell"
+                },
+                {
+                  "q": "Listen. Who is speaking?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Nous cherchons la gare.",
+                    "recordingId": "rec-a2-01-paradigm"
+                  },
+                  "say": "Nous cherchons la gare.",
+                  "opts": [
+                    "nous",
+                    "tu",
+                    "il",
+                    "You cannot tell"
+                  ],
+                  "correct": 0,
+                  "why": "-ons carries its own syllable, so here the verb really does tell you. That is true of exactly two of the six endings.",
+                  "ref": "s10-ear"
+                },
+                {
+                  "q": "Which two endings could you identify with your eyes shut?",
+                  "format": "mcq",
+                  "opts": [
+                    "-e and -es",
+                    "-es and -ent",
+                    "-e and -ent",
+                    "-ons and -ez"
+                  ],
+                  "correct": 3,
+                  "why": "Those two are syllables of their own. The other four give the ear nothing at all, which is why the pronoun is what you hold on to.",
+                  "ref": "s10-ear"
+                },
+                {
+                  "q": "You hear « voo tra-va-YAY ». Which two things could that be?",
+                  "format": "mcq",
+                  "opts": [
+                    "vous travaillez or the naming form travailler",
+                    "vous travaillez or nous travaillons",
+                    "tu travailles or il travaille",
+                    "Only vous travaillez"
+                  ],
+                  "correct": 0,
+                  "why": "-ez and -er are the same sound, so the vous in front is the only thing separating the sentence form from the dictionary one.",
+                  "ref": "s05-six"
+                },
+                {
+                  "q": "Somebody says a verb with no pronoun in front of it and the ending is silent. How many people could be doing it?",
+                  "format": "mcq",
+                  "opts": [
+                    "One",
+                    "Two",
+                    "One or several, the sound does not say",
+                    "Three"
+                  ],
+                  "correct": 2,
+                  "why": "je, tu, il and ils all land on the same sound. Without the pronoun there is nothing left to go on, which is why French never drops it.",
+                  "ref": "s10-ear"
+                },
+                {
+                  "q": "Write what a whole team of women working here would be, in full.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Elles travaillent ici.",
+                    "Elles travaillent ici"
+                  ],
+                  "answer": "Elles travaillent ici.",
+                  "why": "Said out loud this is identical to Elle travaille ici. Four letters of difference exist only for the reader.",
+                  "ref": "s09-pronoun"
+                }
+              ]
+            },
+            {
+              "id": "r4-nous-or-on",
+              "label": "nous or on",
+              "targets": [
+                "err-nous-form",
+                "err-silent-ending"
+              ],
+              "say": "One meaning, two registers, and two different endings.",
+              "questions": [
+                {
+                  "q": "Which form does on take?",
+                  "format": "mcq",
+                  "opts": [
+                    "The nous form",
+                    "The il form",
+                    "The ils form",
+                    "Its own form"
+                  ],
+                  "correct": 1,
+                  "why": "on takes the il form, so it is on regarde and never on regardons. That is what makes it cost you no new ending.",
+                  "ref": "s06-nous-on"
+                },
+                {
+                  "q": "Fix this. Somebody saying what the two of you are watching: « On regardons la télé. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "On regarde la télé",
+                    "regarde"
+                  ],
+                  "answer": "On regarde la télé.",
+                  "why": "on means we and takes the il ending. The meaning pulls one way and the form goes the other, which is the whole difficulty of it.",
+                  "ref": "s06-nous-on"
+                },
+                {
+                  "q": "Nous ___ à la maison. (rester)",
+                  "format": "typeIn",
+                  "accept": [
+                    "restons"
+                  ],
+                  "answer": "restons",
+                  "why": "nous takes -ons. This is one of the two endings you would have heard, so getting it wrong in writing means you were reading rather than listening.",
+                  "ref": "s06-nous-on"
+                },
+                {
+                  "q": "You are writing an email to a class about what your group does. Which is right?",
+                  "format": "mcq",
+                  "opts": [
+                    "On étudie le soir.",
+                    "Nous étudie le soir.",
+                    "On étudions le soir.",
+                    "Nous étudions le soir."
+                  ],
+                  "correct": 3,
+                  "why": "Writing takes nous, and nous takes -ons. The first option is not wrong French; it is just the spoken register in a written place.",
+                  "ref": "s06-nous-on"
+                },
+                {
+                  "q": "You are saying the same thing out loud to a friend. Which would you actually say?",
+                  "format": "mcq",
+                  "opts": [
+                    "Nous étudions le soir.",
+                    "On étudie le soir.",
+                    "On étudions le soir.",
+                    "Nous étudie le soir."
+                  ],
+                  "correct": 1,
+                  "why": "Speech takes on, and on takes the il form. Both of the first two are correct French and only one of them is what a room sounds like.",
+                  "ref": "s06-nous-on"
+                },
+                {
+                  "q": "Vous ___ la gare. (chercher)",
+                  "format": "typeIn",
+                  "accept": [
+                    "cherchez"
+                  ],
+                  "answer": "cherchez",
+                  "why": "vous takes -ez, said AY. It is the second of the two audible endings, and it sounds exactly like the naming form.",
+                  "ref": "s05-six"
+                }
+              ]
+            },
+            {
+              "id": "r5-out-loud",
+              "label": "Out loud",
+              "targets": [
+                "err-stress-ending",
+                "err-hear-person"
+              ],
+              "say": "Flat, and stopping where the stem stops.",
+              "questions": [
+                {
+                  "q": "How is « ils parlent » said?",
+                  "format": "mcq",
+                  "opts": [
+                    "eel par-LENT",
+                    "eel PARL",
+                    "eel par-LEUH",
+                    "eel par-LOHⁿ"
+                  ],
+                  "correct": 1,
+                  "why": "One syllable for the verb, and the card ends where the stem ends. Sounding the -ent turns one syllable into two and is heard immediately.",
+                  "ref": "s14-stress"
+                },
+                {
+                  "q": "Say it out loud, the way you would answer at the desk.",
+                  "format": "speak",
+                  "target": "Je travaille lundi et jeudi.",
+                  "ipa": "/ʒə tʁa.vaj lœ̃.di e ʒø.di/",
+                  "why": "One movement, no weight on the verb. The four letters you added to travaill- do not exist for the person listening.",
+                  "ref": "s17-speak"
+                },
+                {
+                  "q": "Where does the weight land in a French phrase?",
+                  "format": "mcq",
+                  "opts": [
+                    "On the verb ending",
+                    "On the pronoun",
+                    "On the last syllable of the phrase",
+                    "On the first word"
+                  ],
+                  "correct": 2,
+                  "why": "At the end of the phrase, not the end of the word. English leans on the end of a verb and French has nothing there to lean on.",
+                  "ref": "s14-stress"
+                },
+                {
+                  "q": "Fix this. A group at a party: « Elles dansent bien », said as elles dahⁿ-SENT bien.",
+                  "format": "errorSpot",
+                  "accept": [
+                    "el dahⁿs byaⁿ",
+                    "dahⁿs",
+                    "el dahⁿs BYAⁿ"
+                  ],
+                  "answer": "el dahⁿs BYAⁿ",
+                  "why": "dansent is one syllable. The -ent adds four letters to the page and nothing to the air.",
+                  "ref": "s14-stress"
+                },
+                {
+                  "q": "Which pair is said exactly the same way?",
+                  "format": "mcq",
+                  "opts": [
+                    "nous parlons and vous parlez",
+                    "je parle and nous parlons",
+                    "vous parlez and ils parlent",
+                    "tu parles and ils parlent"
+                  ],
+                  "correct": 3,
+                  "why": "Both land on parl and stop. Only the pronoun in front separates them, which is true of four of the six forms.",
+                  "ref": "s08-onesound"
+                },
+                {
+                  "q": "Write the sentence you would say about a friend who works here.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Elle travaille ici.",
+                    "Elle travaille ici",
+                    "Il travaille ici.",
+                    "Il travaille ici"
+                  ],
+                  "answer": "Elle travaille ici.",
+                  "why": "One person takes -e, silent. If you wrote the plural, the sound would have been no help either way and the pronoun was the only clue.",
+                  "ref": "s09-pronoun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s24-roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "say": "Four things, and then the lesson that picks this up.",
+          "body": "You can build the present tense of any regular -er verb, including ones nobody has shown you, and that is most of the verbs in the language. You know which two of the six endings survive the trip to somebody else's ear and which four do not, which is why French keeps its subject pronouns when English could drop them. The next unit takes the same six endings and moves one letter in the stem in front of them, for a reason you will be able to predict. Nothing about the endings changes again.",
+          "points": [
+            "Four of the six forms sound the same, so the pronoun carries the person.",
+            "Cut the last two letters off the naming form, then put the person on what is left.",
+            "-ons and -ez are the two you hear. -e, -es, -e, -ent give the ear nothing.",
+            "Write the nous form and say the on one. on takes the il ending, so it costs you nothing new."
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.a2.verbes.101",
+        "fr.a2.verbes.102",
+        "fr.a2.verbes.103",
+        "fr.a2.verbes.104",
+        "fr.a2.verbes.105",
+        "fr.a2.verbes.106",
+        "fr.a2.verbes.107",
+        "fr.a2.verbes.108",
+        "fr.a2.verbes.109",
+        "fr.a2.verbes.110",
+        "fr.a2.verbes.111",
+        "fr.a2.verbes.112",
+        "fr.a2.verbes.113",
+        "fr.a2.verbes.114",
+        "fr.a2.verbes.115",
+        "fr.a2.verbes.116",
+        "fr.a2.verbes.117",
+        "fr.a2.verbes.118",
+        "fr.a2.verbes.119",
+        "fr.a2.verbes.120",
+        "fr.a2.verbes.121",
+        "fr.a2.verbes.122",
+        "fr.a2.verbes.123",
+        "fr.a2.verbes.124",
+        "fr.a2.verbes.125",
+        "fr.sons.verbes-essentiels.015",
+        "fr.sons.verbes-essentiels.024",
+        "fr.sons.verbes-essentiels.025",
+        "fr.sons.verbes-essentiels.016",
+        "fr.sons.verbes-essentiels.026",
+        "fr.a2.verbes.031",
+        "fr.a2.verbes.017",
+        "fr.a2.verbes.018",
+        "fr.a2.verbes.019",
+        "fr.a2.verbes.013",
+        "fr.a2.verbes.015",
+        "fr.a2.verbes.016",
+        "fr.a2.verbes.032",
+        "fr.sons.consonnes.140",
+        "fr.a1.amis.024",
+        "fr.sons.verbes-essentiels.141",
+        "fr.sons.verbes-essentiels.043",
+        "fr.sons.verbes-essentiels.054",
+        "fr.a1.amis.023",
+        "fr.a1.evenements-familiaux.059",
+        "fr.a1.evenements-familiaux.060",
+        "fr.sons.verbes-essentiels.129",
+        "fr.a1.amis.019",
+        "fr.a1.verbes-essentiels.001",
+        "fr.sons.verbes-essentiels.110",
+        "fr.sons.verbes-essentiels.109",
+        "fr.sons.verbes-essentiels.035",
+        "fr.a1.routines.108",
+        "fr.a1.verbes-essentiels.003",
+        "fr.sons.verbes-essentiels.055",
+        "fr.a2.verbes.001",
+        "fr.a2.verbes.061"
+      ],
+      "version": 8,
+      "grammarAssumed": [
+        "The six subject pronouns and the nine they cover, introduced in a1.05",
+        "on takes third-person-singular agreement, introduced in a1.05",
+        "The tu against vous register split, introduced in a1.05",
+        "The present tense of être, introduced in a1.06",
+        "The present tense of avoir, introduced in a1.07",
+        "The definite and indefinite articles, introduced in a1.04 and a1.11"
+      ],
+      "grammarIntroduced": [
+        "The present tense of regular -er verbs, as a stem plus six endings",
+        "The infinitive as the form a verb is listed under and never used in",
+        "That -e, -es and -ent are silent and -ons and -ez are not",
+        "That the subject pronoun carries the person where the ending cannot",
+        "nous as the written first-person plural against on as the spoken one"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "Regular -ER Verbs",
+        "subFr": "Les verbes en -ER",
+        "introFr": "Neuf verbes français sur dix marchent comme celui-ci. Six terminaisons, dont quatre ne s'entendent pas.",
+        "minutes": 28,
+        "difficulty": 2,
+        "glyph": "Er",
+        "screens": 189
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The sentence that stopped",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-derived"
+          ],
+          "milestone": "You know what runs out mid-sentence, and that this verb is worked out rather than memorised.",
+          "estScreens": 17,
+          "restPoints": [
+            "s01-scene/after-break"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "One stem, six endings",
+          "sections": [
+            "s04-machine",
+            "s05-six",
+            "s06-nous-on",
+            "s07-thirty"
+          ],
+          "milestone": "You can build all six forms of any of the thirty, and you know which we to write.",
+          "estScreens": 24,
+          "restPoints": [
+            "s07-thirty/halfway"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "Four spellings, one sound",
+          "sections": [
+            "s08-onesound",
+            "s09-pronoun",
+            "s10-ear",
+            "s11-spell",
+            "s12-errors",
+            "s13-flash"
+          ],
+          "milestone": "You can name the person from the pronoun, and write an ending your ear never gave you.",
+          "estScreens": 40,
+          "restPoints": [
+            "s10-ear/halfway",
+            "s13-flash/halfway"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "Nothing to lean on",
+          "sections": [
+            "s14-stress",
+            "s15-slips",
+            "s16-notmine"
+          ],
+          "milestone": "You say it flat, and you know which two things in this ending are not yours.",
+          "estScreens": 20
+        },
+        {
+          "id": "act5",
+          "title": "Out in the world",
+          "sections": [
+            "s17-speak",
+            "s18-dictation",
+            "s19-scenario",
+            "s20-reading"
+          ],
+          "milestone": "You have said all six out loud and spelled the silent four from sound alone.",
+          "estScreens": 40,
+          "restPoints": [
+            "s17-speak/halfway",
+            "s18-dictation/halfway"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s21-review",
+            "s22-progress",
+            "s23-quiz",
+            "s24-roundup"
+          ],
+          "milestone": "Lesson complete. The next unit keeps these endings and moves the stem.",
+          "estScreens": 48,
+          "restPoints": [
+            "s21-review/halfway",
+            "s23-quiz/after-r2",
+            "s23-quiz/after-r4"
+          ]
+        }
+      ],
+      "reframe": "Four of the six forms sound the same, so the pronoun carries the person.",
+      "errorTriggers": [
+        {
+          "id": "err-stem-lost",
+          "description": "Reaches for the naming form under pressure, or cuts the wrong amount off it: je travailler, je travail.",
+          "detectOn": [
+            "s01-scene",
+            "s04-machine",
+            "s23-quiz/r1-the-machine"
+          ],
+          "drill": "drill-cut-the-er",
+          "retest": "retest-cut-the-er"
+        },
+        {
+          "id": "err-silent-ending",
+          "description": "Writes the wrong silent ending, because no sound distinguishes them: je parles, ils parle, elle travaillent.",
+          "detectOn": [
+            "s11-spell",
+            "s12-errors",
+            "s18-dictation",
+            "s23-quiz/r2-the-endings"
+          ],
+          "drill": "drill-endings-write",
+          "retest": "retest-endings-write"
+        },
+        {
+          "id": "err-hear-person",
+          "description": "Tries to name the person from the verb, which for four of the six forms is not information the sound carries.",
+          "detectOn": [
+            "s09-pronoun",
+            "s10-ear",
+            "s23-quiz/r3-by-ear"
+          ],
+          "drill": "drill-hear-person",
+          "retest": "retest-hear-person"
+        },
+        {
+          "id": "err-nous-form",
+          "description": "Puts the nous ending on on, or writes on where a written register wants nous.",
+          "detectOn": [
+            "s06-nous-on",
+            "s19-scenario",
+            "s23-quiz/r4-nous-or-on"
+          ],
+          "drill": "drill-nous-on",
+          "retest": "retest-nous-on"
+        },
+        {
+          "id": "err-stress-ending",
+          "description": "Leans on the ending out loud, sounding -ent or adding a vowel after a silent -e. A habit, not a knowledge gap.",
+          "detectOn": [
+            "s14-stress",
+            "s15-slips",
+            "s23-quiz/r5-out-loud"
+          ],
+          "drill": "drill-flat-ending",
+          "retest": "retest-flat-ending"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-cut-the-er",
+          "title": "Naming form in, stem out",
+          "format": "flashcard",
+          "coach": "The naming form is on the left. Say the stem out loud before you turn the card.",
+          "pairs": [
+            [
+              "parler",
+              "parl-"
+            ],
+            [
+              "travailler",
+              "travaill-"
+            ],
+            [
+              "chercher",
+              "cherch-"
+            ],
+            [
+              "habiter",
+              "habit-"
+            ],
+            [
+              "écouter",
+              "écout-"
+            ],
+            [
+              "oublier",
+              "oubli-"
+            ]
+          ]
+        },
+        {
+          "id": "retest-cut-the-er",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "What is left of montrer once the ending comes off?",
+          "opts": [
+            "montre",
+            "montr",
+            "mont"
+          ],
+          "correct": 1,
+          "why": "The last two letters, and nothing else. montr- takes all six endings without moving."
+        },
+        {
+          "id": "drill-endings-write",
+          "title": "Which ending, for which person?",
+          "format": "flashcard",
+          "coach": "The person is on the left. Say the ending, then say whether you would hear it.",
+          "pairs": [
+            [
+              "je",
+              "-e, silent"
+            ],
+            [
+              "tu",
+              "-es, silent, and only tu takes it"
+            ],
+            [
+              "il, elle, on",
+              "-e, silent"
+            ],
+            [
+              "nous",
+              "-ons, and you hear it"
+            ],
+            [
+              "vous",
+              "-ez, and you hear it"
+            ],
+            [
+              "ils, elles",
+              "-ent, silent, all four letters"
+            ]
+          ]
+        },
+        {
+          "id": "retest-endings-write",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Ils ___ ici. (travailler)",
+          "opts": [
+            "travaille",
+            "travaillent",
+            "travaillons"
+          ],
+          "correct": 1,
+          "why": "ils takes -ent. It makes no sound, so the only thing that decides it is the pronoun in front."
+        },
+        {
+          "id": "drill-hear-person",
+          "title": "What did the sound tell you?",
+          "format": "sort",
+          "buckets": [
+            "The verb told me",
+            "Only the pronoun told me"
+          ],
+          "items": [
+            "fr.a2.verbes.103",
+            "fr.a2.verbes.104",
+            "fr.a2.verbes.114",
+            "fr.a2.verbes.115",
+            "fr.a2.verbes.102",
+            "fr.a2.verbes.105",
+            "fr.a2.verbes.108",
+            "fr.a2.verbes.109",
+            "fr.a2.verbes.110",
+            "fr.a2.verbes.111"
+          ],
+          "coach": "Play each one. If the ending was a syllable of its own, the verb told you. Otherwise it did not."
+        },
+        {
+          "id": "retest-hear-person",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "You hear a verb with a silent ending and no pronoun. Who is doing it?",
+          "opts": [
+            "One person",
+            "Several people",
+            "The sound does not say"
+          ],
+          "correct": 2,
+          "why": "je, tu, il and ils all land on the same sound. The pronoun is the only evidence there ever was."
+        },
+        {
+          "id": "drill-nous-on",
+          "title": "Written, or said?",
+          "format": "sort",
+          "buckets": [
+            "What you write",
+            "What you say"
+          ],
+          "items": [
+            "fr.a2.verbes.106",
+            "fr.a2.verbes.103",
+            "fr.a2.verbes.119",
+            "fr.a2.verbes.125",
+            "fr.a2.verbes.107",
+            "fr.a2.verbes.122"
+          ],
+          "coach": "nous takes -ons and belongs on the page. on takes the il form and belongs in the room."
+        },
+        {
+          "id": "retest-nous-on",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Which form does on take?",
+          "opts": [
+            "on regardons",
+            "on regarde",
+            "on regardent"
+          ],
+          "correct": 1,
+          "why": "The il form, every time. on means we and takes third-person singular, which is the collapse a1.05 taught."
+        },
+        {
+          "id": "drill-flat-ending",
+          "title": "Where does it stop?",
+          "format": "flashcard",
+          "coach": "Read the written form, then say out loud where the sound actually stops.",
+          "pairs": [
+            [
+              "ils parlent",
+              "stops at parl"
+            ],
+            [
+              "tu cherches",
+              "stops at cherch"
+            ],
+            [
+              "elle travaille",
+              "stops at travaille, with no uh after it"
+            ],
+            [
+              "ils dansent",
+              "stops at dans"
+            ],
+            [
+              "nous parlons",
+              "ends on a nasal vowel, and no N"
+            ],
+            [
+              "vous parlez",
+              "ends on AY, exactly like parler"
+            ]
+          ]
+        },
+        {
+          "id": "retest-flat-ending",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "How many syllables are there in « ils dansent »?",
+          "opts": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "correct": 0,
+          "why": "eel and dahⁿs. The -ent adds four letters to the page and no syllable at all."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.a2.01.endings",
+          "title": "The -ER endings, in full",
+          "layer": "deep",
+          "contains": [
+            "All nine pronouns with their ending",
+            "What each one sounds like",
+            "The silent four, listed"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-endings-set",
+              "title": "The six endings",
+              "layer": "deep",
+              "cols": [
+                "Person",
+                "Ending",
+                "What you hear"
+              ],
+              "rows": [
+                [
+                  "je",
+                  "-e",
+                  "nothing"
+                ],
+                [
+                  "tu",
+                  "-es",
+                  "nothing"
+                ],
+                [
+                  "il · elle · on",
+                  "-e",
+                  "nothing"
+                ],
+                [
+                  "nous",
+                  "-ons",
+                  "OHⁿ"
+                ],
+                [
+                  "vous",
+                  "-ez",
+                  "AY"
+                ],
+                [
+                  "ils · elles",
+                  "-ent",
+                  "nothing"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-endings-paradigm",
+              "title": "parler, all nine pronouns",
+              "layer": "deep",
+              "cols": [
+                "Pronoun",
+                "parler",
+                "Sounds like",
+                "English"
+              ],
+              "rows": [
+                [
+                  "je / j'",
+                  "parle",
+                  "[zhuh PARL]",
+                  "I speak"
+                ],
+                [
+                  "tu",
+                  "parles",
+                  "[tü PARL]",
+                  "you speak, one person, close"
+                ],
+                [
+                  "il",
+                  "parle",
+                  "[eel PARL]",
+                  "he speaks"
+                ],
+                [
+                  "elle",
+                  "parle",
+                  "[el PARL]",
+                  "she speaks"
+                ],
+                [
+                  "on",
+                  "parle",
+                  "[ohⁿ PARL]",
+                  "we speak, said out loud"
+                ],
+                [
+                  "nous",
+                  "parlons",
+                  "[noo par-LOHⁿ]",
+                  "we speak, written"
+                ],
+                [
+                  "vous",
+                  "parlez",
+                  "[voo par-LAY]",
+                  "you speak, politely or plural"
+                ],
+                [
+                  "ils",
+                  "parlent",
+                  "[eel PARL]",
+                  "they speak, any group with a man in it"
+                ],
+                [
+                  "elles",
+                  "parlent",
+                  "[el PARL]",
+                  "they speak, all women"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-endings-silent",
+              "title": "The letters you do not say",
+              "layer": "deep",
+              "body": "Four of the six endings are silent, and they are silent completely: nothing is slurred or dropped, and the letters were never pronounced in the first place. The -e of je parle and il parle makes no sound. The -es of tu parles makes no sound, and the s there is the same silent s you already write on tu es. The -ent of ils parlent makes no sound either, and it is the longest ending in the set and the emptiest one, which is why it is the ending learners most want to pronounce and the one that marks a sentence as read rather than spoken. So je parle, tu parles, il parle and ils parlent are four spellings and one sound, and out loud only the pronoun in front separates them. That is the reason French keeps its subject pronouns everywhere English could drop them: the verb is not carrying the person, so something has to. Only two endings survive the trip to somebody else's ear. The -ons of nous parlons is a nasal vowel with no N sound at the end of it, and the -ez of vous parlez is AY, which is exactly how the naming form parler is said, so vous parlez and parler are one sound and two jobs."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-endings-next",
+              "title": "What carries forward",
+              "layer": "deep",
+              "body": "These six endings do not change again. The next unit keeps every one of them and moves a single letter in the stem in front of them, for a reason you can predict from the spelling, so nothing you have learned here is spent. The -IR and -RE units after it swap the endings for two other short sets and leave the method exactly as it is: find the stem, add the person. The unit on the past tense will take the naming form you started from, change its last two letters, and produce something that sounds identical to what you started with, which is a problem it will hand you fully formed rather than one you have to see coming. And the two later units on agreement rest on one thing you already have: French writes distinctions it does not say. You met that here, on four endings that exist entirely for the reader."
+            }
+          ]
+        },
+        {
+          "id": "sheet.a2.01.thirty",
+          "title": "The thirty verbs",
+          "layer": "deep",
+          "contains": [
+            "All thirty with their stem",
+            "What each one means",
+            "Why none of them changes its stem"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-thirty-table",
+              "title": "Thirty regular -er verbs",
+              "layer": "deep",
+              "cols": [
+                "Verb",
+                "Stem",
+                "Meaning"
+              ],
+              "rows": [
+                [
+                  "parler",
+                  "parl-",
+                  "to speak, to talk"
+                ],
+                [
+                  "regarder",
+                  "regard-",
+                  "to watch, to look at"
+                ],
+                [
+                  "écouter",
+                  "écout-",
+                  "to listen to"
+                ],
+                [
+                  "aimer",
+                  "aim-",
+                  "to like, to love"
+                ],
+                [
+                  "habiter",
+                  "habit-",
+                  "to live (in a place)"
+                ],
+                [
+                  "travailler",
+                  "travaill-",
+                  "to work"
+                ],
+                [
+                  "chercher",
+                  "cherch-",
+                  "to look for"
+                ],
+                [
+                  "trouver",
+                  "trouv-",
+                  "to find"
+                ],
+                [
+                  "demander",
+                  "demand-",
+                  "to ask for"
+                ],
+                [
+                  "arriver",
+                  "arriv-",
+                  "to arrive"
+                ],
+                [
+                  "rester",
+                  "rest-",
+                  "to stay"
+                ],
+                [
+                  "rentrer",
+                  "rentr-",
+                  "to go home"
+                ],
+                [
+                  "gagner",
+                  "gagn-",
+                  "to earn"
+                ],
+                [
+                  "donner",
+                  "donn-",
+                  "to give"
+                ],
+                [
+                  "aider",
+                  "aid-",
+                  "to help"
+                ],
+                [
+                  "porter",
+                  "port-",
+                  "to carry"
+                ],
+                [
+                  "entrer",
+                  "entr-",
+                  "to enter, to go in"
+                ],
+                [
+                  "montrer",
+                  "montr-",
+                  "to show"
+                ],
+                [
+                  "jouer",
+                  "jou-",
+                  "to play"
+                ],
+                [
+                  "chanter",
+                  "chant-",
+                  "to sing"
+                ],
+                [
+                  "danser",
+                  "dans-",
+                  "to dance"
+                ],
+                [
+                  "visiter",
+                  "visit-",
+                  "to visit (a place)"
+                ],
+                [
+                  "inviter",
+                  "invit-",
+                  "to invite"
+                ],
+                [
+                  "étudier",
+                  "étudi-",
+                  "to study"
+                ],
+                [
+                  "adorer",
+                  "ador-",
+                  "to love, to adore"
+                ],
+                [
+                  "détester",
+                  "détest-",
+                  "to hate"
+                ],
+                [
+                  "fermer",
+                  "ferm-",
+                  "to close"
+                ],
+                [
+                  "marcher",
+                  "march-",
+                  "to walk"
+                ],
+                [
+                  "téléphoner",
+                  "téléphon-",
+                  "to phone, to call"
+                ],
+                [
+                  "oublier",
+                  "oubli-",
+                  "to forget"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-thirty-why",
+              "title": "Why these thirty",
+              "layer": "deep",
+              "body": "Every verb here has a stem that does not move. Take the last two letters off and what is left is the same for all six persons and stays the same however the verb is used, so one pattern gives you thirty verbs and about a hundred and eighty forms. That is not true of every verb ending in -er. A small group changes one letter in the stem, and they are deliberately not on this list even though several of them are more common than some that are: manger, commencer, acheter, appeler, préférer, payer, essayer and jeter all keep these endings exactly and move something in front of them. They are the next unit and they will make more sense once this one is automatic. One verb ending in -er belongs to neither group. aller looks exactly like the thirty and behaves like nothing in this lesson, and it has a unit of its own. If you try the machine on it you will produce something that no French speaker says, so it is worth knowing by name from the start rather than discovering it at speed."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [],
+        [
+          "fr.a2.verbes.001",
+          "fr.a2.verbes.101",
+          "fr.a2.verbes.102",
+          "fr.a2.verbes.103",
+          "fr.a2.verbes.104",
+          "fr.a2.verbes.105",
+          "fr.a2.verbes.106",
+          "fr.a2.verbes.107",
+          "fr.sons.verbes-essentiels.015",
+          "fr.sons.verbes-essentiels.024",
+          "fr.sons.verbes-essentiels.025",
+          "fr.sons.verbes-essentiels.016",
+          "fr.sons.verbes-essentiels.026",
+          "fr.a2.verbes.031",
+          "fr.a2.verbes.017",
+          "fr.a2.verbes.018",
+          "fr.a2.verbes.019",
+          "fr.a2.verbes.013",
+          "fr.a2.verbes.015",
+          "fr.a2.verbes.016",
+          "fr.a2.verbes.032",
+          "fr.sons.consonnes.140",
+          "fr.a1.amis.024",
+          "fr.sons.verbes-essentiels.141",
+          "fr.sons.verbes-essentiels.043",
+          "fr.sons.verbes-essentiels.054",
+          "fr.a1.amis.023",
+          "fr.a1.evenements-familiaux.059",
+          "fr.a1.evenements-familiaux.060",
+          "fr.sons.verbes-essentiels.129",
+          "fr.a1.amis.019",
+          "fr.a1.verbes-essentiels.001",
+          "fr.sons.verbes-essentiels.110",
+          "fr.sons.verbes-essentiels.109",
+          "fr.sons.verbes-essentiels.035",
+          "fr.a1.routines.108",
+          "fr.a1.verbes-essentiels.003",
+          "fr.sons.verbes-essentiels.055"
+        ],
+        [
+          "fr.a2.verbes.108",
+          "fr.a2.verbes.109",
+          "fr.a2.verbes.110",
+          "fr.a2.verbes.111",
+          "fr.a2.verbes.112",
+          "fr.a2.verbes.113",
+          "fr.a2.verbes.114",
+          "fr.a2.verbes.115"
+        ],
+        [],
+        [
+          "fr.a2.verbes.116",
+          "fr.a2.verbes.117",
+          "fr.a2.verbes.118",
+          "fr.a2.verbes.119",
+          "fr.a2.verbes.120",
+          "fr.a2.verbes.121",
+          "fr.a2.verbes.122",
+          "fr.a2.verbes.123",
+          "fr.a2.verbes.124",
+          "fr.a2.verbes.125",
+          "fr.a2.verbes.061"
+        ],
+        []
+      ],
+      "terms": {
+        "infinitive": {
+          "term": "the naming form",
+          "title": "The form in the dictionary",
+          "body": "parler, regarder, chanter. This is the form a verb is listed under and it is not a form anybody uses in a sentence. Its last two letters are the instruction: cut them off and what is left is the part that never changes. Thirty of the verbs in this lesson end this way, and so do roughly nine in ten French verbs.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.001",
+              "note": "parler, cut back to parl-, with the je ending on it."
+            },
+            {
+              "itemId": "fr.a2.verbes.104",
+              "note": "And the vous ending, which sounds exactly like the naming form itself."
+            }
+          ]
+        },
+        "stem": {
+          "term": "the part that stays",
+          "title": "What is left when -er comes off",
+          "body": "parler gives parl-. regarder gives regard-. chercher gives cherch-. It does not move, whoever is speaking, so once you have it you have all six forms of that verb and you never have to learn them separately. This is why a regular verb is worked out rather than memorised, and why etre and avoir were the exception rather than the rule.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.110",
+              "note": "cherch- with the tu ending, which makes no sound."
+            },
+            {
+              "itemId": "fr.a2.verbes.114",
+              "note": "The same cherch-, with the nous ending, which does."
+            }
+          ]
+        },
+        "silentEnding": {
+          "term": "a silent ending",
+          "title": "Letters that are written and not said",
+          "body": "-e, -es and -ent are all silent. il parle and ils parlent are six letters apart on the page and identical in the air. French writes distinctions it does not say, and this is the first place you meet that: the spelling is doing work for the reader that the sound is not doing for the listener. Nothing is dropped or slurred. The letters were never pronounced.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.102",
+              "note": "One person."
+            },
+            {
+              "itemId": "fr.a2.verbes.105",
+              "note": "A whole group, and the same sound exactly."
+            }
+          ]
+        },
+        "audibleTwo": {
+          "term": "the two you hear",
+          "title": "-ons and -ez",
+          "body": "These two are syllables of their own, so they arrive at the ear as clearly as anything else in the sentence. -ons is a nasal vowel, OHⁿ, with no N sound at the end of it. -ez is AY, which means vous parlez and the naming form parler are said exactly the same way. Those two are the whole of what your ear gets from an -er verb.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.103",
+              "note": "The nous ending, audible."
+            },
+            {
+              "itemId": "fr.a2.verbes.104",
+              "note": "The vous ending, audible, and identical to parler."
+            }
+          ]
+        },
+        "nousOn": {
+          "term": "nous and on",
+          "title": "One meaning, two registers",
+          "body": "nous parlons is what you write. on parle is what you say. Both are correct and both mean we. on takes the same form as il, so it costs you no new ending at all: on parle, on regarde, on cherche. Every table in this level prints nous, and almost every conversation you hear will use on. Writing nous is never wrong; it just sits a register above where the conversation is.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.106",
+              "note": "The written one, with the ending you can hear."
+            },
+            {
+              "itemId": "fr.a2.verbes.107",
+              "note": "The spoken one, taking the il form."
+            }
+          ]
+        },
+        "flatEnding": {
+          "term": "where the weight goes",
+          "title": "Nothing to lean on",
+          "body": "English puts weight on the end of a verb: he WALKS, they WALKED. French has nothing there to weigh, because in four of the six forms there is no sound at the end at all. Leaning on the ending is the single most recognisable thing an English speaker does to a French verb, and it is a habit rather than a gap in knowledge. The weight goes at the end of the phrase, not the end of the word.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.105",
+              "note": "Said flat, and the last thing you hear is parl."
+            },
+            {
+              "itemId": "fr.a2.verbes.112",
+              "note": "The weight lands on fort, which is where the phrase ends."
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-01-silent-four",
+            "desc": "THE FOUR SILENT FORMS, IN ONE CONTINUOUS TAKE, BY ONE VOICE AT ONE SPEED, AND THEY MUST BE INDISTINGUISHABLE FROM EACH OTHER. This is the single most important instruction in this lesson and it is the opposite of the usual note. Do not help. Do not differentiate them. Do not lean on the ending of ils parlent to make it clearer than il parle, and do not add the faintest vowel after a silent -e. If a listener can tell any of these four apart from the audio alone, the recording has taught the opposite of what the lesson teaches. Read them at conversational pace with no pause for teaching between them. Four recordings made in four sessions are four performances and the drift between them will be heard as French; one take is the only way this works.",
+            "clipIds": [
+              "je parle",
+              "tu parles",
+              "il parle",
+              "ils parlent",
+              "Il parle français.",
+              "Ils parlent français.",
+              "Tu cherches la gare.",
+              "Il cherche la gare.",
+              "Ils parlent fort.",
+              "Elles dansent bien.",
+              "On regarde la télé.",
+              "Elle travaille ici."
+            ]
+          },
+          {
+            "id": "rec-a2-01-paradigm",
+            "desc": "All six forms as one continuous take, in paradigm order, by one voice at one speed, then the six full sentences in the same take. The two audible endings must sound ORDINARY rather than emphasised: -ons is a nasal vowel with no N on the end of it, and -ez is AY, identical to the naming form parler. Do not stress the verb anywhere. These are the most frequent words in the language and they are never leaned on in speech, and the whole trap this lesson drills is an English speaker putting weight where French puts none.",
+            "clipIds": [
+              "je parle",
+              "tu parles",
+              "il parle",
+              "nous parlons",
+              "vous parlez",
+              "ils parlent",
+              "Je parle français.",
+              "Tu parles français.",
+              "Il parle français.",
+              "Nous parlons français.",
+              "Vous parlez français.",
+              "Ils parlent français.",
+              "Nous cherchons la gare.",
+              "Vous cherchez la gare."
+            ]
+          },
+          {
+            "id": "rec-a2-01-ear",
+            "desc": "The homophone pairs, EACH PAIR IN ONE TAKE BACK TO BACK, so the identity is real rather than an artefact of two sessions: « Il parle français. » then « Ils parlent français. », then « Elle travaille ici. » then « Elles travaillent ici. » The point of every pair is that the two halves are the same, so any difference in pace, pitch or emphasis between them is a defect. The third pair is different and must be recorded differently: « Tu cherches la gare. » against « Il cherche la gare. » are NOT identical, because tü and eel are audibly different, and that pair is what proves the pronoun is doing the work. Keep the verbs identical and let the pronouns differ naturally.",
+            "clipIds": [
+              "Il parle français.",
+              "Ils parlent français.",
+              "Elle travaille ici.",
+              "Elles travaillent ici.",
+              "Tu cherches la gare.",
+              "Il cherche la gare.",
+              "Elles dansent bien."
+            ]
+          },
+          {
+            "id": "rec-a2-01-flat",
+            "desc": "The stress trap, WRONG THEN RIGHT in one take. The wrong version is an English speaker leaning on the ending: ils par-LENT with a real second syllable, tu cher-CHES with an audible s, elle travaille with a small uh after it. The right version is flat, one syllable for the verb, weight at the end of the phrase and nothing on the word. Both halves must be spoken by the same voice at the same pace, because the difference being taught is where the weight sits and not how careful the speaker is. Do not caricature the wrong one; it should sound like a competent learner, which is what makes it worth correcting.",
+            "clipIds": [
+              "ils parlent",
+              "tu cherches",
+              "elle travaille",
+              "nous regardons",
+              "vous cherchez",
+              "ils dansent"
+            ]
+          },
+          {
+            "id": "rec-a2-01-thirty",
+            "desc": "The thirty naming forms, read as a flat list at conversational pace, one voice. Every one of them ends in the same AY sound and that sameness is the teaching: the learner should come away hearing -er as one ending rather than thirty word-endings. Do not vary the intonation to keep the list interesting. Keep roughly a second between them so a learner can repeat into the gap.",
+            "clipIds": [
+              "parler",
+              "regarder",
+              "écouter",
+              "aimer",
+              "habiter",
+              "travailler",
+              "chercher",
+              "trouver",
+              "demander",
+              "arriver",
+              "rester",
+              "rentrer",
+              "gagner",
+              "donner",
+              "aider",
+              "porter",
+              "entrer",
+              "montrer",
+              "jouer",
+              "chanter",
+              "danser",
+              "visiter",
+              "inviter",
+              "étudier",
+              "adorer",
+              "détester",
+              "fermer",
+              "marcher",
+              "téléphoner",
+              "oublier"
+            ]
+          },
+          {
+            "id": "rec-a2-01-scene",
+            "desc": "The opening scene, French bubbles only, one woman in her thirties at an ordinary reception-desk pace. The beat where she moves on (« Bon. Je vous mets au mardi, alors. ») must be brisk and unbothered rather than pointed: the whole scene turns on nobody minding, so any hint of impatience or of correction would destroy it. There is a four-second wait written into the stage direction before that line and it should be audible as a pause, not filled.",
+            "clipIds": [
+              "Bonsoir. Vous cherchez quel cours ?",
+              "Et vous travaillez quels jours ?",
+              "Bon. Je vous mets au mardi, alors."
+            ]
+          }
+        ],
+        "ambienceDefault": "off"
+      }
     }
   ],
   "items": [
@@ -122489,25 +125430,17 @@
       "theme": "verbes",
       "fr": "Je parle français.",
       "en": "I speak French.",
-      "respell": "ZHUH PARL frahn-SEH",
+      "respell": "zhuh parl frahⁿ-SEH",
       "notes": "{\"tiles\":[{\"w\":\"Je\",\"t\":\"I\"},{\"w\":\"parle\",\"t\":\"speak\"},{\"w\":\"français.\",\"t\":\"French\"}]}",
       "tags": [],
       "drills": [
         "flashcard",
+        "review",
         "sentence",
-        "review"
+        "voiceflash"
       ],
       "audioRef": null,
-      "version": 1,
-      "grammarPoints": [
-        "present-er"
-      ],
-      "verbCheck": {
-        "tense": "présent",
-        "number": "s",
-        "person": "1",
-        "infinitive": "parler"
-      }
+      "version": 1
     },
     {
       "id": "fr.a1.cafe.002",
@@ -298073,6 +301006,1215 @@
         "flashcard",
         "voiceflash",
         "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.015",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "parler",
+      "en": "to speak, to talk",
+      "ipa": "/paʁle/",
+      "respell": "par-LAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.024",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "regarder",
+      "en": "to watch, to look at",
+      "ipa": "/ʁəɡaʁde/",
+      "respell": "ruh-gar-DAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.025",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "écouter",
+      "en": "to listen to",
+      "ipa": "/ekute/",
+      "respell": "ay-koo-TAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.016",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "aimer",
+      "en": "to like, to love",
+      "ipa": "/eme/",
+      "respell": "eh-MAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.026",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "habiter",
+      "en": "to live (in a place)",
+      "ipa": "/abite/",
+      "respell": "ah-bee-TAY",
+      "notes": "regular -er verb · j'habite à Paris",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a2.verbes.031",
+      "kind": "word",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "travailler",
+      "en": "to work",
+      "ipa": "tʁa.va.je",
+      "respell": "trah-vah-YAY",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.017",
+      "kind": "word",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "chercher",
+      "en": "to look for",
+      "ipa": "ʃɛʁ.ʃe",
+      "respell": "shair-SHAY",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.018",
+      "kind": "word",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "trouver",
+      "en": "to find",
+      "ipa": "tʁu.ve",
+      "respell": "troo-VAY",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.019",
+      "kind": "word",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "demander",
+      "en": "to ask for",
+      "ipa": "də.mɑ̃.de",
+      "respell": "duh-mahⁿ-DAY",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.013",
+      "kind": "word",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "arriver",
+      "en": "to arrive",
+      "ipa": "a.ʁi.ve",
+      "respell": "ah-ree-VAY",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.015",
+      "kind": "word",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "rester",
+      "en": "to stay",
+      "ipa": "ʁɛs.te",
+      "respell": "res-TAY",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.016",
+      "kind": "word",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "rentrer",
+      "en": "to go home",
+      "ipa": "ʁɑ̃.tʁe",
+      "respell": "rahⁿ-TRAY",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.032",
+      "kind": "word",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "gagner",
+      "en": "to earn",
+      "ipa": "ga.ɲe",
+      "respell": "gah-NYAY",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.consonnes.140",
+      "kind": "word",
+      "level": "sons",
+      "theme": "consonnes",
+      "fr": "donner",
+      "en": "to give",
+      "ipa": "/dɔ.ne/",
+      "respell": "doh-NAY",
+      "tags": [
+        "doubled"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.amis.024",
+      "kind": "word",
+      "level": "a1",
+      "theme": "amis",
+      "fr": "aider",
+      "en": "to help",
+      "ipa": "/ɛ.de/",
+      "respell": "eh-DAY",
+      "notes": "Verb, regular er group.",
+      "tags": [
+        "amis",
+        "verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.141",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "porter",
+      "en": "to carry",
+      "ipa": "/pɔʁte/",
+      "respell": "por-TAY",
+      "tags": [
+        "verb",
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.043",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "entrer",
+      "en": "to enter, to go in",
+      "ipa": "/ɑ̃tʁe/",
+      "respell": "ahⁿ-TRAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.054",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "montrer",
+      "en": "to show",
+      "ipa": "/mɔ̃tʁe/",
+      "respell": "mohⁿ-TRAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.amis.023",
+      "kind": "word",
+      "level": "a1",
+      "theme": "amis",
+      "fr": "jouer",
+      "en": "to play",
+      "ipa": "/ʒwe/",
+      "respell": "ZHWAY",
+      "notes": "Verb, regular er group.",
+      "tags": [
+        "amis",
+        "verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.evenements-familiaux.059",
+      "kind": "word",
+      "level": "a1",
+      "theme": "evenements-familiaux",
+      "fr": "chanter",
+      "en": "to sing",
+      "ipa": "ʃɑ̃.te",
+      "respell": "shahⁿ-TAY",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.evenements-familiaux.060",
+      "kind": "word",
+      "level": "a1",
+      "theme": "evenements-familiaux",
+      "fr": "danser",
+      "en": "to dance",
+      "ipa": "dɑ̃.se",
+      "respell": "dahⁿ-SAY",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.129",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "visiter",
+      "en": "to visit (a place)",
+      "ipa": "/vizite/",
+      "respell": "vee-zee-TAY",
+      "notes": "for places, not people",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.amis.019",
+      "kind": "word",
+      "level": "a1",
+      "theme": "amis",
+      "fr": "inviter",
+      "en": "to invite",
+      "ipa": "/ɛ̃.vi.te/",
+      "respell": "aⁿ-vee-TAY",
+      "notes": "Verb, regular er group.",
+      "tags": [
+        "amis",
+        "verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.verbes-essentiels.001",
+      "kind": "word",
+      "level": "a1",
+      "theme": "verbes-essentiels",
+      "fr": "étudier",
+      "en": "to study",
+      "ipa": "/etydje/",
+      "respell": "ay-tew-DYAY",
+      "tags": [
+        "verbe",
+        "ecole"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.110",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "adorer",
+      "en": "to love, to adore",
+      "ipa": "/adɔʁe/",
+      "respell": "ah-doh-RAY",
+      "notes": "j'adore, I love it",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.109",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "détester",
+      "en": "to hate",
+      "ipa": "/detɛste/",
+      "respell": "day-teh-STAY",
+      "notes": "regular er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.035",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "fermer",
+      "en": "to close",
+      "ipa": "/fɛʁme/",
+      "respell": "fehr-MAY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.verbes-essentiels.003",
+      "kind": "word",
+      "level": "a1",
+      "theme": "verbes-essentiels",
+      "fr": "téléphoner",
+      "en": "to phone, to call",
+      "ipa": "/telefɔne/",
+      "respell": "tay-lay-foh-NAY",
+      "notes": "Followed by à: téléphoner à quelqu'un.",
+      "tags": [
+        "verbe",
+        "communication"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.055",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "oublier",
+      "en": "to forget",
+      "ipa": "/ublije/",
+      "respell": "oo-blee-AY",
+      "notes": "regular -er verb",
+      "tags": [
+        "er-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a2.verbes.061",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils habitent à Montréal depuis deux ans.",
+      "en": "They have been living in Montreal for two years.",
+      "ipa": "il.z‿a.bit a mɔ̃.ʁe.al də.pɥi dø.z‿ɑ̃",
+      "tags": [],
+      "drills": [
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.101",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu parles français.",
+      "en": "You speak French.",
+      "ipa": "/ty paʁl fʁɑ̃.sɛ/",
+      "respell": "tü parl frahⁿ-SEH",
+      "tags": [
+        "er-verb",
+        "paradigm",
+        "silent-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The -es is silent. Only the pronoun says this is you."
+    },
+    {
+      "id": "fr.a2.verbes.102",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il parle français.",
+      "en": "He speaks French.",
+      "ipa": "/il paʁl fʁɑ̃.sɛ/",
+      "respell": "eel parl frahⁿ-SEH",
+      "tags": [
+        "er-verb",
+        "paradigm",
+        "silent-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Said exactly like Ils parlent français. Nothing in the sound separates them."
+    },
+    {
+      "id": "fr.a2.verbes.103",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous parlons français.",
+      "en": "We speak French.",
+      "ipa": "/nu paʁ.lɔ̃ fʁɑ̃.sɛ/",
+      "respell": "noo par-lohⁿ frahⁿ-SEH",
+      "tags": [
+        "er-verb",
+        "paradigm",
+        "audible-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "One of the two endings you can hear. Out loud most rooms say on parle instead."
+    },
+    {
+      "id": "fr.a2.verbes.104",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous parlez français.",
+      "en": "You speak French.",
+      "ipa": "/vu paʁ.le fʁɑ̃.sɛ/",
+      "respell": "voo par-lay frahⁿ-SEH",
+      "tags": [
+        "er-verb",
+        "paradigm",
+        "audible-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The other audible one, and it sounds exactly like the infinitive parler."
+    },
+    {
+      "id": "fr.a2.verbes.105",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils parlent français.",
+      "en": "They speak French.",
+      "ipa": "/il paʁl fʁɑ̃.sɛ/",
+      "respell": "eel parl frahⁿ-SEH",
+      "tags": [
+        "er-verb",
+        "paradigm",
+        "silent-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Six letters at the end and not one of them sounds. Identical to Il parle français."
+    },
+    {
+      "id": "fr.a2.verbes.106",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous regardons la télé.",
+      "en": "We watch TV.",
+      "ipa": "/nu ʁə.ɡaʁ.dɔ̃ la te.le/",
+      "respell": "noo ruh-gar-dohⁿ la tay-LAY",
+      "tags": [
+        "er-verb",
+        "register",
+        "nous",
+        "audible-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "What you write."
+    },
+    {
+      "id": "fr.a2.verbes.107",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "On regarde la télé.",
+      "en": "We watch TV.",
+      "ipa": "/ɔ̃ ʁə.ɡaʁd la te.le/",
+      "respell": "ohⁿ ruh-gard la tay-LAY",
+      "tags": [
+        "er-verb",
+        "register",
+        "on",
+        "silent-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "What you say. Same meaning, and on takes the form il takes."
+    },
+    {
+      "id": "fr.a2.verbes.108",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle travaille ici.",
+      "en": "She works here.",
+      "ipa": "/ɛl tʁa.vaj i.si/",
+      "respell": "el tra-vahy ee-SEE",
+      "tags": [
+        "er-verb",
+        "ear",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "One person."
+    },
+    {
+      "id": "fr.a2.verbes.109",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elles travaillent ici.",
+      "en": "They work here.",
+      "ipa": "/ɛl tʁa.vaj i.si/",
+      "respell": "el tra-vahy ee-SEE",
+      "tags": [
+        "er-verb",
+        "ear",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "A whole team, and not one sound has changed. Only elles told you."
+    },
+    {
+      "id": "fr.a2.verbes.110",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu cherches la gare.",
+      "en": "You are looking for the station.",
+      "ipa": "/ty ʃɛʁʃ la ɡaʁ/",
+      "respell": "tü shairsh la GAR",
+      "tags": [
+        "er-verb",
+        "ear",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Four letters at the end, no sound."
+    },
+    {
+      "id": "fr.a2.verbes.111",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il cherche la gare.",
+      "en": "He is looking for the station.",
+      "ipa": "/il ʃɛʁʃ la ɡaʁ/",
+      "respell": "eel shairsh la GAR",
+      "tags": [
+        "er-verb",
+        "ear",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The verb is the same sound as tu cherches. The pronoun is the whole difference."
+    },
+    {
+      "id": "fr.a2.verbes.112",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils parlent fort.",
+      "en": "They talk loudly.",
+      "ipa": "/il paʁl fɔʁ/",
+      "respell": "eel parl FOR",
+      "tags": [
+        "er-verb",
+        "ear",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The -ent that everyone wants to say. It is not there."
+    },
+    {
+      "id": "fr.a2.verbes.113",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elles dansent bien.",
+      "en": "They dance well.",
+      "ipa": "/ɛl dɑ̃s bjɛ̃/",
+      "respell": "el dahⁿs BYAⁿ",
+      "tags": [
+        "er-verb",
+        "ear",
+        "silent-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "dansent is one syllable. The -ent adds nothing you can hear."
+    },
+    {
+      "id": "fr.a2.verbes.114",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous cherchons la gare.",
+      "en": "We are looking for the station.",
+      "ipa": "/nu ʃɛʁ.ʃɔ̃ la ɡaʁ/",
+      "respell": "noo shair-shohⁿ la GAR",
+      "tags": [
+        "er-verb",
+        "audible-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Here the ending is a syllable and you hear it."
+    },
+    {
+      "id": "fr.a2.verbes.115",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous cherchez la gare.",
+      "en": "You are looking for the station.",
+      "ipa": "/vu ʃɛʁ.ʃe la ɡaʁ/",
+      "respell": "voo shair-shay la GAR",
+      "tags": [
+        "er-verb",
+        "audible-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "And here. These two are the only ones the ear can pick out on its own."
+    },
+    {
+      "id": "fr.a2.verbes.116",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "J'aime beaucoup mon quartier.",
+      "en": "I like my neighbourhood a lot.",
+      "ipa": "/ʒɛm bo.ku mɔ̃ kaʁ.tje/",
+      "respell": "zhem bo-koo mohⁿ kar-TYAY",
+      "tags": [
+        "er-verb",
+        "apply",
+        "silent-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "je aime cannot stand, so je loses its e. The ending is still silent."
+    },
+    {
+      "id": "fr.a2.verbes.117",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu trouves toujours une solution.",
+      "en": "You always find a solution.",
+      "ipa": "/ty tʁuv tu.ʒuʁ yn sɔ.ly.sjɔ̃/",
+      "respell": "tü troov too-zhoor ün so-lü-SYOHⁿ",
+      "tags": [
+        "er-verb",
+        "apply",
+        "silent-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.118",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle habite près de la gare.",
+      "en": "She lives near the station.",
+      "ipa": "/ɛ la.bit pʁɛ də la ɡaʁ/",
+      "respell": "e la-beet preh duh la GAR",
+      "tags": [
+        "er-verb",
+        "apply",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "elle habite runs together as one word, and the ending is still silent underneath it."
+    },
+    {
+      "id": "fr.a2.verbes.119",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous restons à la maison.",
+      "en": "We are staying home.",
+      "ipa": "/nu ʁɛs.tɔ̃ a la mɛ.zɔ̃/",
+      "respell": "noo res-tohⁿ a la meh-ZOHⁿ",
+      "tags": [
+        "er-verb",
+        "apply",
+        "audible-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.120",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous travaillez le samedi ?",
+      "en": "Do you work on Saturdays?",
+      "ipa": "/vu tʁa.va.je lə sam.di/",
+      "respell": "voo tra-va-yay luh sam-DEE",
+      "tags": [
+        "er-verb",
+        "apply",
+        "audible-ending",
+        "question"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "travaillez sounds exactly like travailler. Only the vous in front tells you which one it is."
+    },
+    {
+      "id": "fr.a2.verbes.121",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils arrivent demain matin.",
+      "en": "They arrive tomorrow morning.",
+      "ipa": "/il.za.ʁiv də.mɛ̃ ma.tɛ̃/",
+      "respell": "eel-za-reev duh-maⁿ ma-TAⁿ",
+      "tags": [
+        "er-verb",
+        "apply",
+        "silent-ending",
+        "liaison",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The silent s of ils wakes up in front of the vowel. The -ent at the end still does nothing."
+    },
+    {
+      "id": "fr.a2.verbes.122",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "On donne son adresse à l'agent.",
+      "en": "You give your address to the officer.",
+      "ipa": "/ɔ̃ dɔn sɔ̃.na.dʁɛs a la.ʒɑ̃/",
+      "respell": "ohⁿ don sohⁿ-na-dress a la-ZHAHⁿ",
+      "tags": [
+        "er-verb",
+        "apply",
+        "on",
+        "silent-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "on takes the il form, so it is donne and never donnons."
+    },
+    {
+      "id": "fr.a2.verbes.123",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu montres tes papiers à l'entrée.",
+      "en": "You show your papers at the entrance.",
+      "ipa": "/ty mɔ̃tʁ te pa.pje a lɑ̃.tʁe/",
+      "respell": "tü mohⁿtr tay pa-pyay a lahⁿ-TRAY",
+      "tags": [
+        "er-verb",
+        "apply",
+        "silent-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.124",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle étudie le français.",
+      "en": "She studies French.",
+      "ipa": "/ɛ le.ty.di lə fʁɑ̃.sɛ/",
+      "respell": "e lay-tü-dee luh frahⁿ-SEH",
+      "tags": [
+        "er-verb",
+        "apply",
+        "silent-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The stem ends in a vowel already, so the silent -e just sits behind it."
+    },
+    {
+      "id": "fr.a2.verbes.125",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous téléphonons à nos voisins.",
+      "en": "We phone our neighbours.",
+      "ipa": "/nu te.le.fɔ.nɔ̃ a no vwa.zɛ̃/",
+      "respell": "noo tay-lay-fo-nohⁿ a no vwa-ZAⁿ",
+      "tags": [
+        "er-verb",
+        "apply",
+        "audible-ending",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
       ],
       "audioRef": null,
       "version": 1
