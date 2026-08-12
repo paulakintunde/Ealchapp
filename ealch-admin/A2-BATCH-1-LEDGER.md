@@ -26,6 +26,26 @@ the thirty verbs `a2.01` imports with nouns.** Nobody in batch 1 should run it.
 Its header's claim that `verbes` holds 5 sentences and 16 new words describes a
 state that no longer exists: the theme now holds 368 published rows.
 
+**ONE REFERENCE SHEET PER LESSON IS NOT A RULE, AND CROSS-LESSON SHEETS DO NOT
+EXIST.** Settled by `a2.11` on 2026-08-12 because its brief asked for something
+impossible and the next author will be asked the same thing.
+
+A `sheetId` resolves ONLY inside the lesson that declares it: `schema.ts:3490`
+collects sheet ids from the lesson being validated and fails any section naming
+one it does not declare, and `lesson-contract.test.ts:91` re-checks it against
+`lesson.sheets`. **No section of one lesson can point at another lesson's sheet.**
+So "extend a2.01's sheet rather than making a second one" is not a thing any
+lesson in this band can do, at any price.
+
+What a2.11 did instead, and the precedent worth copying: it ships ONE sheet whose
+centre is a table **neither predecessor could have held** (all three ending sets at
+once), and that sheet NAMES the two earlier units in its own prose so a learner
+knows the set is finished. The id and the count are recorded as a constant in the
+corpus and asserted, so a later author reaching for a fourth "the -RE endings, in
+full" breaks a test rather than shipping a competing reference. If your lesson's
+sheet would only restate one pattern that already has a sheet, ask what it holds
+that the earlier ones could not.
+
 **The unit spine and the briefs disagree about `title` and `sub`.** The
 `A2-01-VERBES-ER-PROMPT.md` identity block gives `title: Les verbes en -ER` and
 `sub: the full system, endings & 30 common verbs`. The unit dump says:
@@ -68,7 +88,8 @@ seq  id      lessonIds already in the unit      state
  2   a2.09   probe it                           not started
  3   a2.10   ['a2.10.l1','a2.10.l2']            BUILT x2. l1 v3 24 missions 25 rows;
                                                 l2 v1 23 missions 26 rows
- 4   a2.11   probe it                           not started
+ 4   a2.11   ['a2.11.l1']                       BUILT. v1, 24 missions, 24 rows,
+                                                7 verbs imported and 0 authored
  5   a2.02   probe it                           not started
  6   a2.12   probe it                           not started
  7   a2.13   probe it                           not started
@@ -111,7 +132,7 @@ seq  id      block                                    status
  2   a2.09   fr.a2.verbes.141 .. .180                 TAKEN, 141-166 used, 167-180 free
  3   a2.10   fr.a2.verbes.181 .. .220                 TAKEN by l1, 181-205 used
  -   a2.10.l2 fr.a2.verbes.461 .. .500                TAKEN, 461-486 used. See below.
- 4   a2.11   fr.a2.verbes.221 .. .260
+ 4   a2.11   fr.a2.verbes.221 .. .260                 TAKEN, 221-244 used, 245-260 free
  5   a2.02   fr.a2.verbes.261 .. .300
  6   a2.12   fr.a2.verbes.301 .. .340
  7   a2.13   fr.a2.verbes.341 .. .380
@@ -133,7 +154,17 @@ Counts so far, so seq 3 onward has a figure to check against:
 151 rows   after a2.09 (125 + 26),  max .166,  gaps: .126-.140, .167-.180
 176 rows   after a2.10.l1 (151 + 25),  max .205,  gaps: + .206-.220
 202 rows   after a2.10.l2 (176 + 26),  max .486,  gaps: + .206-.460 unclaimed tails
+226 rows   after a2.11 (202 + 24),     max .486,  gaps: + .245-.260
 ```
+
+`a2.11`'s block HELD: `fr.a2.verbes` held exactly 202 rows when it claimed `.221`,
+which is this table's own figure after a2.10.l2, and 226 after, which is 202 plus
+its 24 and nothing else.
+
+**FROM a2.11 ONWARD THE MAXIMUM IS NO USE AT ALL.** a2.10.l2 took `.461..500`,
+above the whole batch-1 reservation, so `max` has been past every remaining block
+since before any of them was claimed. **The row COUNT is the only signal left**, and
+seq 5 to 10 should check it and nothing else.
 
 **a2.10.l2 took `.461 .. .500`, ABOVE the whole batch-1 reservation.** It is the
 second lesson of an existing unit rather than a new one, so it had no block of its
@@ -251,6 +282,34 @@ is the word-internal nasal: the checker requires the n or m to end a token, so
 `PRAHNDR` and `VYENN` pass while being wrong. `viennent`, `prennent`,
 `connaissent` and `apprennent` are all this shape. **Assert those by name as well
 as calling the shared checker.**
+
+**MEASURED BY a2.11 ON 2026-08-12, AND IT IS WORSE THAN THIS SECTION SAYS.** Every
+superscript in that lesson was broken back to a plain n, one at a time, and the
+checker was asked whether it noticed: **25 nasals it can see, 11 it cannot.** The
+eleven have one shape between them, and it is not a curiosity — it is every verb
+in the lesson:
+
+```
+a nasal followed by a CONSONANT inside the token
+  vahⁿd  tahⁿd  rahⁿd  sahⁿd          every plural of every regular -RE verb
+  VAHⁿDR  TAHⁿDR  POHⁿDR  RAHⁿDR      every -RE infinitive
+```
+
+`entendre` is the whole problem on one row. `ahn-TAHNDR` **is** flagged, because
+its first nasal ends a token; `ahⁿ-TAHNDR` is **not**, because its second does
+not. **A repair that trusts the checker fixes the half it can see, produces a
+value it then calls clean, and leaves the wrong half in place.**
+
+**This breaks the repair guard a2.10 wrote and seq 5 to 10 will inherit.** That
+guard requires the stored value to be flagged by `hasPlainNasalFor` before it will
+accept a repair, which is right for a variant somebody is about to overwrite
+(invariants §9) and **rejects four of a2.11's six repairs as "not a violation"**.
+a2.11 splits the table into `RESPELL_REPAIRS_VISIBLE` (guarded through the shared
+function, exactly as a2.10 does) and `RESPELL_REPAIRS_INVISIBLE` (guarded the
+opposite way: the stored value must be UNSEEN, the replacement must be UNSEEN, and
+the replacement is asserted BY NAME). **Copy that split rather than the
+conclusion.** It will bite `prendre`, `mettre`, `battre`, `comprendre` and
+`apprendre` at seq 9, and `venir` and `tenir` at seq 5.
 
 `a2.01` repaired eight rows that broke the stated rule; all eight are listed in
 `data/verbes-er-corpus.ts`. If your lesson imports `entrer`, `montrer`, `rentrer`,
@@ -371,10 +430,13 @@ node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
   tests 2870   pass 2870   fail 0        after a2.10.l1 (+97)
   tests 2877   pass 2877   fail 0        after the spine reconciliation (+7)
   tests 2951   pass 2951   fail 0        after a2.10.l2 (+74)
+  tests 2964   pass 2964   fail 0        measured 2026-08-12, before a2.11
+  tests 3074   pass 3074   fail 0        after a2.11 (+110)
 seed.json                                version 22, 8524 items, 42 lessons  (before a2.01)
                                          version 23, 8615 items, 43 lessons  (after a2.09)
                                          version 25, 8649 items, 44 lessons  (after a2.10.l1)
                                          version 25, 8687 items, 45 lessons  (after a2.10.l2)
+                                         version 26, 8718 items, 46 lessons  (after a2.11)
 pnpm content:parity                      exits 1 on three PRE-EXISTING divergences
                                          (sons.09.l1 seed-only, b2.01.l1 db-only,
                                           sons.08.l1 shape drift). Not yours.
