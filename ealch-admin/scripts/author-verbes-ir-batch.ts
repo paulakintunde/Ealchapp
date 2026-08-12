@@ -102,7 +102,11 @@ const EXPECTED_GROWING = 3;
  *  not in the database at all, and carries an em dash besides. */
 const UNIT_TITLE = 'Regular -IR Verbs';
 const UNIT_SUB = 'Les verbes en -IR';
-const UNIT_CANDO = 'Can conjugate regular -ir verbs and hear where the -iss- belongs';
+// WIDENED by a2.10.l2 on 2026-08-11. The unit now carries a second lesson
+// about the -ir verbs the first one excluded, so the canDo it advertises had
+// to cover both. Changed here, in the merge and in the test in one change,
+// deliberately rather than by discovery.
+const UNIT_CANDO = 'Can conjugate regular -ir verbs, hear where the -iss- belongs, and tell them apart from the -ir verbs that take no -iss- at all';
 
 /** Grammar vocabulary that must not reach a learner surface. Deliberately short:
  *  a checker that fires on ordinary teaching prose gets silenced wholesale.

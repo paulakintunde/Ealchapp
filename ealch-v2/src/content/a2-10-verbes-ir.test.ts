@@ -1026,7 +1026,9 @@ test('the unit advertises this lesson and its own copy is unchanged', { skip: no
   // SWAPPED and its sub is not in the database at all.
   strictEqual(u!.title, 'Regular -IR Verbs');
   strictEqual(u!.sub, 'Les verbes en -IR');
-  strictEqual(u!.canDo, 'Can conjugate regular -ir verbs and hear where the -iss- belongs');
+  // WIDENED by a2.10.l2, which added a second lesson to this unit about the
+  // -ir verbs l1 excludes. The unit's promise had to grow to cover both.
+  strictEqual(u!.canDo, 'Can conjugate regular -ir verbs, hear where the -iss- belongs, and tell them apart from the -ir verbs that take no -iss- at all');
   ok((u!.prereqUnitIds ?? []).includes('a2.01'), 'the unit no longer declares a2.01 as its prerequisite');
   strictEqual(`A2 · LEÇON ${String(u!.seq).padStart(2, '0')}`, L!.tag);
 });

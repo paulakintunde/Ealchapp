@@ -54,7 +54,9 @@ const LESSON: Lesson = VERBES_IR_LESSON;
 const UNIT_ID = 'a2.10';
 const UNIT_TITLE = 'Regular -IR Verbs';
 const UNIT_SUB = 'Les verbes en -IR';
-const UNIT_CANDO = 'Can conjugate regular -ir verbs and hear where the -iss- belongs';
+// WIDENED by a2.10.l2: the unit now carries two lessons. See the note in
+// author-verbes-ir-batch.ts.
+const UNIT_CANDO = 'Can conjugate regular -ir verbs, hear where the -iss- belongs, and tell them apart from the -ir verbs that take no -iss- at all';
 const REFRAME_APPEARANCES = 10;
 const AUTHORED_ITEMS: Item[] = VERBES_IR.map(toItem);
 const AUTHORED_IDS = new Set(AUTHORED_ITEMS.map((i) => i.id));

@@ -66,7 +66,8 @@ it is a standing reminder that the probe's dump is a RENDERING and not the row.
 seq  id      lessonIds already in the unit      state
  1   a2.01   ['a2.01.l1']                       LEGACY STUB, rebuilt by this build to v3
  2   a2.09   probe it                           not started
- 3   a2.10   []  (probed, greenfield)           BUILT, v2, 24 missions, 25 rows
+ 3   a2.10   ['a2.10.l1','a2.10.l2']            BUILT x2. l1 v3 24 missions 25 rows;
+                                                l2 v1 23 missions 26 rows
  4   a2.11   probe it                           not started
  5   a2.02   probe it                           not started
  6   a2.12   probe it                           not started
@@ -108,7 +109,8 @@ nobody needs a second block.
 seq  id      block                                    status
  1   a2.01   fr.a2.verbes.101 .. .140                 TAKEN, 101-125 used, 126-140 free
  2   a2.09   fr.a2.verbes.141 .. .180                 TAKEN, 141-166 used, 167-180 free
- 3   a2.10   fr.a2.verbes.181 .. .220
+ 3   a2.10   fr.a2.verbes.181 .. .220                 TAKEN by l1, 181-205 used
+ -   a2.10.l2 fr.a2.verbes.461 .. .500                TAKEN, 461-486 used. See below.
  4   a2.11   fr.a2.verbes.221 .. .260
  5   a2.02   fr.a2.verbes.261 .. .300
  6   a2.12   fr.a2.verbes.301 .. .340
@@ -129,8 +131,15 @@ Counts so far, so seq 3 onward has a figure to check against:
 ```
 125 rows   after a2.01 (100 + 25),  max .125,  gaps: none
 151 rows   after a2.09 (125 + 26),  max .166,  gaps: .126-.140, .167-.180
-176 rows   after a2.10 (151 + 25),  max .205,  gaps: + .206-.220
+176 rows   after a2.10.l1 (151 + 25),  max .205,  gaps: + .206-.220
+202 rows   after a2.10.l2 (176 + 26),  max .486,  gaps: + .206-.460 unclaimed tails
 ```
+
+**a2.10.l2 took `.461 .. .500`, ABOVE the whole batch-1 reservation.** It is the
+second lesson of an existing unit rather than a new one, so it had no block of its
+own; taking one above a2.15's `.421..460` rather than filling a2.10.l1's unused
+`.206..220` tail means it cannot collide with a range somebody is still holding.
+Both blocks held: 176 was exactly 151 + 25, and 202 is exactly 176 + 26.
 
 The gaps are the unused tails of the claimed blocks and are deliberate. Ids are the
 SRS key: do not backfill them.
@@ -359,10 +368,13 @@ node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
   tests 2542   pass 2542   fail 0        measured 2026-08-11, before a2.01
   tests 2672   pass 2672   fail 0        measured 2026-08-11, before a2.09
   tests 2773   pass 2773   fail 0        after a2.09 (+101)
-  tests 2870   pass 2870   fail 0        after a2.10 (+97)
+  tests 2870   pass 2870   fail 0        after a2.10.l1 (+97)
+  tests 2877   pass 2877   fail 0        after the spine reconciliation (+7)
+  tests 2951   pass 2951   fail 0        after a2.10.l2 (+74)
 seed.json                                version 22, 8524 items, 42 lessons  (before a2.01)
                                          version 23, 8615 items, 43 lessons  (after a2.09)
-                                         version 25, 8649 items, 44 lessons  (after a2.10)
+                                         version 25, 8649 items, 44 lessons  (after a2.10.l1)
+                                         version 25, 8687 items, 45 lessons  (after a2.10.l2)
 pnpm content:parity                      exits 1 on three PRE-EXISTING divergences
                                          (sons.09.l1 seed-only, b2.01.l1 db-only,
                                           sons.08.l1 shape drift). Not yours.

@@ -967,12 +967,13 @@
       "id": "a2.10",
       "seq": 3,
       "sub": "Les verbes en -IR",
-      "canDo": "Can conjugate regular -ir verbs and hear where the -iss- belongs",
+      "canDo": "Can conjugate regular -ir verbs, hear where the -iss- belongs, and tell them apart from the -ir verbs that take no -iss- at all",
       "level": "a2",
       "title": "Regular -IR Verbs",
       "track": "a2",
       "lessonIds": [
-        "a2.10.l1"
+        "a2.10.l1",
+        "a2.10.l2"
       ],
       "prereqUnitIds": [
         "a2.01"
@@ -130970,6 +130971,2827 @@
               "Le bus est là à six heures.",
               "Alors, qui finit à six heures ce soir ?",
               "D'accord. Une place à six heures."
+            ]
+          }
+        ],
+        "ambienceDefault": "off"
+      }
+    },
+    {
+      "id": "a2.10.l2",
+      "unitId": "a2.10",
+      "seq": 2,
+      "title": "Les autres verbes en -IR",
+      "level": "a2",
+      "tag": "A2 · LEÇON 03 · SUITE",
+      "intro": "Twelve verbs end in -ir and take none of the pattern you just learned. They split into two families, and each one runs a rule you already have, so the only new skill here is deciding which before you build.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "The Word That Was Not There",
+          "frSub": "Le mot qui n'existait pas",
+          "render": "screens",
+          "layer": "core",
+          "terms": [
+            "theFamilies",
+            "endingLies"
+          ],
+          "say": {
+            "text": "The rule you use here is correct. Watch which verb it is used on.",
+            "voice": "coach",
+            "timing": "onFirstVisitOnly"
+          },
+          "setting": {
+            "place": "The desk of a hostel",
+            "city": "Bordeaux",
+            "time": "Saturday, just after seven",
+            "ambience": "room-tone-lobby"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "A hostel desk in Bordeaux, just after seven. Three of you are checking out, and only one of you is at the desk.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "Salomé",
+              "fr": "Bonjour. Vous partez tous les trois ?",
+              "en": "Morning. Are all three of you leaving?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-10l2-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Oui, tous les trois.",
+              "en": "Yes, all three.",
+              "stage": "She finds the room on the screen and waits for the time.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "Salomé",
+              "fr": "Et vos amis, à quelle heure ?",
+              "en": "And your friends, what time?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-10l2-scene"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "Your friends leave at eight. What goes back?",
+              "options": [
+                {
+                  "fr": "Ils partissent à huit heures.",
+                  "en": "last lesson, applied faithfully",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                },
+                {
+                  "fr": "Ils partent à huit heures.",
+                  "en": "the T that was there all along",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "Yes. The t was in partir the whole time and the singular was hiding it. Watch what the other one costs.",
+                "breaks": "That is the rule from last lesson, applied correctly, to a verb that does not take it."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "Salomé",
+              "fr": "Pardon ?",
+              "en": "Sorry?",
+              "stage": "Not impatient. She simply did not catch a word, because there was no word to catch.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-10l2-scene"
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "Not a word",
+              "body": "You had the verb and you had the hour. The machine from last lesson fitted so well that it built a word French does not have.",
+              "wrong": {
+                "fr": "Ils partissent à huit.",
+                "ipa": "/il paʁ.tis a ɥit/",
+                "en": "not a French word"
+              },
+              "right": {
+                "fr": "Ils partent à huit.",
+                "ipa": "/il paʁt a ɥit/",
+                "respell": "[eel part a WEET]",
+                "en": "one T, and it lands"
+              },
+              "coach": "The right rule, on the wrong verb.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "audioFirst": true,
+                "recordingId": "rec-a2-10l2-shed"
+              }
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "She was not correcting you and she was not annoyed. There was simply nothing there for her to hear."
+            }
+          ],
+          "closing": {
+            "size": "md",
+            "text": "Check the family before you build. There are two of them, and you already know what each one does."
+          }
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "say": "Check the family before you build. By the end you will place a verb in its family before you build a single form.",
+          "goals": [
+            {
+              "t": "Build the six that shed",
+              "s": "partir, sortir, dormir and three more, where a consonant leaves and comes back."
+            },
+            {
+              "t": "Build the five that do not",
+              "s": "ouvrir, offrir and their group take the endings of an -er verb outright."
+            },
+            {
+              "t": "Sort a verb before you build it",
+              "s": "The hard half, and the only part of this that is new."
+            },
+            {
+              "t": "Hear the s of ils wake up",
+              "s": "In front of a vowel the plural is audible after all, and that is the link, not the verb."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s03-twofamilies",
+          "title": "You Already Know Both Rules",
+          "frSub": "Deux familles, deux règles connues",
+          "hint": "Swipe through the four cards.",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "theFamilies",
+            "endingLies"
+          ],
+          "say": "Nothing here is a new sound. What is new is deciding which of two rules a verb takes.",
+          "cards": [
+            {
+              "label": "What went wrong",
+              "head": "The rule was right, the verb was not",
+              "body": "Two families, and you already know both rules. Twelve verbs end in -ir and take no -iss- anywhere. Running last lesson's machine on one of them makes a word nobody says."
+            },
+            {
+              "label": "Family one",
+              "head": "The consonant comes back",
+              "fr": "il part · ils partent",
+              "sub": "[eel par] · [eel part]",
+              "body": "a2.10 taught you this: The plural puts a sound on the end. These six do exactly that. The plural is audible, and it is a T rather than an -iss-."
+            },
+            {
+              "label": "Family two",
+              "head": "Nothing comes back at all",
+              "fr": "il couvre · ils couvrent",
+              "sub": "[eel koovr] · [eel koovr]",
+              "body": "And a2.01 taught you this: Four of the six forms sound the same, so the pronoun carries the person. These five take -er endings, so four of their six forms are one sound."
+            },
+            {
+              "label": "What to do",
+              "head": "Decide first, build second",
+              "body": "Check the family before you build. The last four letters of the naming form will not tell you which, so the six that shed are worth holding as a list."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s04-shed",
+          "title": "The Letter That Leaves And Comes Back",
+          "frSub": "La consonne qui revient",
+          "hint": "Swipe through the three cards.",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "shedding",
+            "theFamilies"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-10l2-shed"
+          },
+          "say": "Three cards. The second one is the whole mechanism.",
+          "cards": [
+            {
+              "label": "The stem",
+              "head": "Cut two letters off, as always",
+              "fr": "partir → part-",
+              "sub": "and the t is real",
+              "body": "The method has not changed since the first verb lesson. What is different is what happens to that t in the singular."
+            },
+            {
+              "label": "The singular drops it",
+              "head": "part- becomes par",
+              "fr": "je pars · tu pars · il part",
+              "sub": "[par] three times",
+              "body": "The t is written every time and said none of them. Three spellings and one sound, which is the half of the older rule that never goes away."
+            },
+            {
+              "label": "The plural gives it back",
+              "head": "And then you hear it",
+              "fr": "ils partent · nous partons",
+              "sub": "[part] · [par-tohⁿ]",
+              "body": "a2.10 put an -iss- in to do this. These six had the letter already and were only hiding it. Same ear, different spelling."
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s05-shedtable",
+          "title": "partir, And Where The T Goes",
+          "frSub": "Les six formes de partir",
+          "layer": "core",
+          "terms": [
+            "shedding"
+          ],
+          "sheetId": "sheet.a2.10l2.families",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-10l2-shed"
+          },
+          "say": "Tap row three and then row four. One consonant apart, and that is the lesson.",
+          "cols": [
+            "Person",
+            "partir",
+            "What you hear"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "je",
+                "je pars",
+                "nothing at the end"
+              ],
+              "say": "Je pars tôt.",
+              "detail": {
+                "title": "je pars",
+                "body": "The t of the stem is not said. What arrives is par and nothing after it.",
+                "say": "Je pars tôt."
+              }
+            },
+            {
+              "cells": [
+                "tu",
+                "tu pars",
+                "nothing at the end"
+              ],
+              "say": "Tu pars tôt.",
+              "detail": {
+                "title": "tu pars",
+                "body": "Spelled like the je form and said like it too. The s has never been pronounced.",
+                "say": "Tu pars tôt."
+              }
+            },
+            {
+              "cells": [
+                "il · elle · on",
+                "il part",
+                "nothing at the end"
+              ],
+              "say": "Il part tôt.",
+              "detail": {
+                "title": "il part",
+                "body": "A t on the page and nothing in the air. Put it beside il finit from the last lesson: both stop dead.",
+                "say": "Il part tôt."
+              }
+            },
+            {
+              "cells": [
+                "ils · elles",
+                "ils partent",
+                "a T"
+              ],
+              "say": "Ils partent tôt.",
+              "detail": {
+                "title": "ils partent",
+                "body": "Tap the row above and then this one. One consonant has arrived, right at the end, and it is the only thing saying more than one.",
+                "say": "Ils partent tôt."
+              }
+            },
+            {
+              "cells": [
+                "nous",
+                "nous partons",
+                "par-tohⁿ"
+              ],
+              "say": "Nous partons tôt.",
+              "detail": {
+                "title": "nous partons",
+                "body": "The t is back and it brings a whole syllable with it, ending on the nasal vowel you already know.",
+                "say": "Nous partons tôt."
+              }
+            },
+            {
+              "cells": [
+                "vous",
+                "vous partez",
+                "par-tay"
+              ],
+              "say": "Vous partez tôt.",
+              "detail": {
+                "title": "vous partez",
+                "body": "The same t again, and the same extra syllable. Only the singular ever drops it.",
+                "say": "Vous partez tôt."
+              }
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s06-ercase",
+          "title": "Five That Are -ER Verbs In Disguise",
+          "frSub": "Cinq faux amis",
+          "hint": "Swipe through the three cards.",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "erEndings",
+            "theFamilies"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-10l2-er"
+          },
+          "say": "These five you can spot from the spelling, which makes them the easy half.",
+          "cards": [
+            {
+              "label": "The tell",
+              "head": "They end in -vrir or -frir",
+              "fr": "ouvrir · offrir · couvrir · découvrir · souffrir",
+              "sub": "and nothing else does",
+              "body": "-vrir and -frir are the one ending in this whole area that decides the answer. No verb from the last lesson ends either way."
+            },
+            {
+              "label": "What they take",
+              "head": "The endings of an -er verb",
+              "fr": "-e · -es · -e · -ons · -ez · -ent",
+              "sub": "exactly as parler",
+              "body": "a2.01 gave you these six and they have not changed. So four of the forms are one sound, and the pronoun in front is doing the work again."
+            },
+            {
+              "label": "The catch",
+              "head": "Two of them start with a vowel",
+              "fr": "ouvrir · offrir",
+              "sub": "and they are the common two",
+              "body": "For those two the plural turns out to be audible after all, for a reason that has nothing to do with the ending. That is four missions from here."
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s07-ertable",
+          "title": "couvrir, Where Nothing Moves",
+          "frSub": "Les six formes de couvrir",
+          "layer": "core",
+          "terms": [
+            "erEndings"
+          ],
+          "sheetId": "sheet.a2.10l2.families",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-10l2-er"
+          },
+          "say": "Four of the six forms sound the same, so the pronoun carries the person. Tap rows one to four and hear it.",
+          "cols": [
+            "Person",
+            "couvrir",
+            "What you hear"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "je",
+                "je couvre",
+                "nothing at the end"
+              ],
+              "say": "Je couvre tout.",
+              "detail": {
+                "title": "je couvre",
+                "body": "A silent -e, exactly as on an -er verb. The r and the v run together and then it stops.",
+                "say": "Je couvre tout."
+              }
+            },
+            {
+              "cells": [
+                "tu",
+                "tu couvres",
+                "nothing at the end"
+              ],
+              "say": "Tu couvres tout.",
+              "detail": {
+                "title": "tu couvres",
+                "body": "A silent -es. Only tu takes it, and you will never hear it.",
+                "say": "Tu couvres tout."
+              }
+            },
+            {
+              "cells": [
+                "il · elle · on",
+                "il couvre",
+                "nothing at the end"
+              ],
+              "say": "Il couvre tout.",
+              "detail": {
+                "title": "il couvre",
+                "body": "Said exactly like ils couvrent. Nothing in the sound separates the two.",
+                "say": "Il couvre tout."
+              }
+            },
+            {
+              "cells": [
+                "ils · elles",
+                "ils couvrent",
+                "nothing at the end"
+              ],
+              "say": "Ils couvrent tout.",
+              "detail": {
+                "title": "ils couvrent",
+                "body": "Tap the row above and then this one. They are the same. Seven letters at the end and not one of them sounds.",
+                "say": "Ils couvrent tout."
+              }
+            },
+            {
+              "cells": [
+                "nous",
+                "nous couvrons",
+                "koo-vrohⁿ"
+              ],
+              "say": "Nous couvrons tout.",
+              "detail": {
+                "title": "nous couvrons",
+                "body": "One of the two the ear gets, and it is the -ons you have had since the first verb lesson.",
+                "say": "Nous couvrons tout."
+              }
+            },
+            {
+              "cells": [
+                "vous",
+                "vous couvrez",
+                "koo-vray"
+              ],
+              "say": "Vous couvrez tout.",
+              "detail": {
+                "title": "vous couvrez",
+                "body": "The other one, -ez. Two audible out of six, which is where this family started.",
+                "say": "Vous couvrez tout."
+              }
+            }
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s08-sort",
+          "title": "Twelve Verbs, Two Answers",
+          "frSub": "Ranger les douze",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "theFamilies",
+            "endingLies"
+          ],
+          "sheetId": "sheet.a2.10l2.lists",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-10l2-twelve"
+          },
+          "say": "Check the family before you build. Say the family out loud for each one before you move on.",
+          "groups": [
+            {
+              "label": "The six that shed: the consonant comes back",
+              "items": [
+                {
+                  "fr": "partir",
+                  "itemId": "fr.sons.verbes-essentiels.040",
+                  "respell": "[par-TEER]",
+                  "en": "to leave, to depart"
+                },
+                {
+                  "fr": "sortir",
+                  "itemId": "fr.sons.verbes-essentiels.041",
+                  "respell": "[sor-TEER]",
+                  "en": "to go out"
+                },
+                {
+                  "fr": "dormir",
+                  "itemId": "fr.sons.verbes-essentiels.039",
+                  "respell": "[dor-MEER]",
+                  "en": "to sleep"
+                },
+                {
+                  "fr": "servir",
+                  "itemId": "fr.a2.courses.080",
+                  "respell": "[sehr-VEER]",
+                  "en": "to serve"
+                },
+                {
+                  "fr": "sentir",
+                  "itemId": "fr.sons.verbes-essentiels.074",
+                  "respell": "[sahⁿ-TEER]",
+                  "en": "to smell, to feel"
+                },
+                {
+                  "fr": "mentir",
+                  "itemId": "fr.sons.verbes-essentiels.204",
+                  "respell": "[mahⁿ-TEER]",
+                  "en": "to lie"
+                }
+              ],
+              "check": {
+                "q": "Which of these four is NOT in this group?",
+                "opts": [
+                  "sortir",
+                  "dormir",
+                  "couvrir",
+                  "servir"
+                ],
+                "correct": 2,
+                "why": "couvrir ends in -vrir, and every -vrir and -frir verb takes -er endings instead. It is the one group the spelling gives away."
+              }
+            },
+            {
+              "label": "The five that take -er endings: nothing comes back",
+              "items": [
+                {
+                  "fr": "ouvrir",
+                  "itemId": "fr.sons.verbes-essentiels.034",
+                  "respell": "[oo-VREER]",
+                  "en": "to open"
+                },
+                {
+                  "fr": "offrir",
+                  "itemId": "fr.sons.verbes-essentiels.053",
+                  "respell": "[oh-FREER]",
+                  "en": "to offer, to give (a gift)"
+                },
+                {
+                  "fr": "couvrir",
+                  "itemId": "fr.sons.verbes-essentiels.157",
+                  "respell": "[koo-VREER]",
+                  "en": "to cover"
+                },
+                {
+                  "fr": "découvrir",
+                  "itemId": "fr.sons.verbes-essentiels.158",
+                  "respell": "[day-koo-VREER]",
+                  "en": "to discover, to uncover"
+                },
+                {
+                  "fr": "souffrir",
+                  "itemId": "fr.b1.verbes.054",
+                  "respell": "[soo-FREER]",
+                  "en": "to suffer"
+                }
+              ],
+              "check": {
+                "q": "Ils ___ la table. (couvrir)",
+                "opts": [
+                  "couvrent",
+                  "couvre",
+                  "couvrons",
+                  "couvrez"
+                ],
+                "correct": 0,
+                "why": "The -ent of an -er verb, silent. Said exactly like il couvre, so only the pronoun on the page decides it."
+              }
+            },
+            {
+              "label": "And one that is neither: nothing to come back",
+              "items": [
+                {
+                  "fr": "courir",
+                  "itemId": "fr.sons.verbes-essentiels.045",
+                  "respell": "[koo-REER]",
+                  "en": "to run"
+                }
+              ],
+              "check": {
+                "q": "il court and ils courent. What is different out loud?",
+                "opts": [
+                  "The verb",
+                  "Nothing at all",
+                  "The last consonant",
+                  "The vowel"
+                ],
+                "correct": 1,
+                "why": "courir takes the endings of the shedders and has no consonant to shed, so it never gives one back. Its plural sounds like its singular."
+              }
+            }
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s09-ear",
+          "title": "One Person, Or Several?",
+          "frSub": "Un ou plusieurs ?",
+          "layer": "core",
+          "questionsInModal": true,
+          "terms": [
+            "shedding",
+            "erEndings"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-10l2-pairs"
+          },
+          "say": "Four lines from two different families. The same question has two different answers.",
+          "lines": [
+            {
+              "fr": "Il part tôt.",
+              "en": "He leaves early."
+            },
+            {
+              "fr": "Ils partent tôt.",
+              "en": "They leave early."
+            },
+            {
+              "fr": "Il couvre tout.",
+              "en": "He covers everything."
+            },
+            {
+              "fr": "Ils couvrent tout.",
+              "en": "They cover everything."
+            }
+          ],
+          "questions": [
+            {
+              "q": "You hear « eel part ». How many people?",
+              "opts": [
+                "One",
+                "Several",
+                "The sound does not say",
+                "It is not a real form"
+              ],
+              "correct": 1,
+              "why": "A consonant arrived at the end of the verb. On a shedder that settles it, because the singular drops that letter every time."
+            },
+            {
+              "q": "Now « eel koovr ». How many people?",
+              "opts": [
+                "One",
+                "Several",
+                "It is not a real form",
+                "One or several, the sound does not say"
+              ],
+              "correct": 3,
+              "why": "couvrir takes -er endings, so il couvre and ils couvrent are one sound. Here the pronoun on the page is the only evidence there is."
+            },
+            {
+              "q": "So why does the same question have two answers?",
+              "opts": [
+                "Because the two verbs are in different families",
+                "Because one is longer",
+                "Because one is a question",
+                "Because the recording changed"
+              ],
+              "correct": 0,
+              "why": "A shedder gives a consonant back and an -er-ending verb has none to give. The verb tells you the number only when its family allows it."
+            },
+            {
+              "q": "Which of these could your ear NOT settle?",
+              "opts": [
+                "il part against ils partent",
+                "elle sent against elles sentent",
+                "il couvre against ils couvrent",
+                "il dort against ils dorment"
+              ],
+              "correct": 2,
+              "why": "The other three are shedders and all give a consonant back. couvrir gives nothing, so that pair is silent and identical."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s10-nopredict",
+          "title": "The Ending Decides Nothing",
+          "frSub": "La terminaison ne dit rien",
+          "hint": "Swipe through the three cards.",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "endingLies",
+            "theFamilies"
+          ],
+          "say": "Two pairs. In each one the naming forms end the same way and the verbs behave differently.",
+          "cards": [
+            {
+              "label": "Both end in -tir",
+              "head": "One takes it, one does not",
+              "fr": "ralentir · sentir",
+              "sub": "-iss- · a returning t",
+              "body": "Les voitures ralentissent ici. And Elles sentent le café. You met the first one last lesson."
+            },
+            {
+              "label": "Both end in -rir",
+              "head": "And again",
+              "fr": "guérir · courir",
+              "sub": "-iss- · nothing",
+              "body": "Ils guérissent vite. And Ils courent vite. Same four letters, opposite behaviour."
+            },
+            {
+              "label": "So what does work",
+              "head": "One tell, and one list",
+              "fr": "-vrir · -frir",
+              "sub": "the only reliable sign",
+              "body": "Check the family before you build. A verb ending in -vrir or -frir takes -er endings. Everything else you hold as a list of six, and six is not many."
+            }
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s11-waking",
+          "title": "When The Plural Is Audible Anyway",
+          "frSub": "Le s qui se réveille",
+          "layer": "core",
+          "terms": [
+            "wakingS",
+            "erEndings"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-10l2-liaison"
+          },
+          "say": "The verb is identical in both. Listen to the word in front of it instead.",
+          "examples": [
+            {
+              "fr": "Il ouvre à huit heures.",
+              "en": "He opens at eight.",
+              "note": "The l of il links straight onto the vowel: ee-loovr, as one word."
+            },
+            {
+              "fr": "Ils ouvrent à huit heures.",
+              "en": "They open at eight.",
+              "note": "The silent s of ils wakes up as a z. The verb did not change at all; the link did."
+            },
+            {
+              "fr": "Ils offrent un cadeau.",
+              "en": "They are giving a present.",
+              "note": "offrir does the same, and offrir and ouvrir are the two of this family you will meet most."
+            },
+            {
+              "fr": "Ils couvrent tout.",
+              "en": "They cover everything.",
+              "note": "And couvrir does not, because a consonant blocks the link. That is why the table used couvrir."
+            }
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s12-trap",
+          "title": "Sort It, Then Build It",
+          "frSub": "Ranger puis construire",
+          "layer": "core",
+          "swipe": true,
+          "terms": [
+            "theFamilies",
+            "endingLies"
+          ],
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "wrongThenRight": true,
+            "recordingId": "rec-a2-10l2-shed"
+          },
+          "say": "Check the family before you build. Six of them, and that half-second is the whole exercise.",
+          "rule": {
+            "title": "The reflex is the problem",
+            "body": "The machine from the last lesson is new, fast and correct, so it fires before you have decided which verb you are holding. Deciding first is the only thing that stops it, and it costs half a second."
+          },
+          "cards": [
+            {
+              "promptLabel": "they leave",
+              "promptSound": "eel par-TEES",
+              "fr": "ils partent",
+              "ipa": "/il paʁt/",
+              "tip": "A t and then stop. No -iss- anywhere in this verb."
+            },
+            {
+              "promptLabel": "they cover",
+              "promptSound": "eel koo-VREES",
+              "fr": "ils couvrent",
+              "ipa": "/il kuvʁ/",
+              "tip": "Nothing at all after koovr. This one is an -er verb."
+            },
+            {
+              "promptLabel": "they sleep",
+              "promptSound": "eel dor-MEES",
+              "fr": "ils dorment",
+              "ipa": "/il dɔʁm/",
+              "tip": "The m comes back. It was in dormir the whole time."
+            },
+            {
+              "promptLabel": "they run",
+              "promptSound": "eel koo-REES",
+              "fr": "ils courent",
+              "ipa": "/il kuʁ/",
+              "tip": "Identical to il court. courir has nothing to give back."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "ils partent",
+              "opts": [
+                "eel part",
+                "eel par-TEES",
+                "eel par"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "ils couvrent",
+              "opts": [
+                "eel koo-VREES",
+                "eel koovr-uh",
+                "eel koovr"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "ils dorment",
+              "opts": [
+                "eel dor-MEES",
+                "eel dorm",
+                "eel dor"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "il part",
+              "opts": [
+                "eel par",
+                "eel part",
+                "eel par-TEE"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "ils courent",
+              "opts": [
+                "eel koo-REES",
+                "eel koor-uh",
+                "eel koor"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "ils ouvrent",
+              "opts": [
+                "eel oovr",
+                "eel-zoovr",
+                "eel zoo-VREES"
+              ],
+              "correct": 1
+            }
+          ],
+          "steps": [
+            {
+              "label": "The rule",
+              "kind": "rule",
+              "title": "Why The Wrong One Comes First"
+            },
+            {
+              "label": "The traps",
+              "kind": "cards",
+              "title": "Four You Will Want To Say Wrong"
+            },
+            {
+              "label": "Hear it",
+              "kind": "audio",
+              "title": "Wrong, Then Right"
+            },
+            {
+              "label": "Prove it",
+              "kind": "drill",
+              "title": "Which One Did You Say?",
+              "gate": true
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "id": "s13-flash",
+          "title": "Flip and Recall",
+          "frSub": "Retournez la carte",
+          "render": "deck",
+          "layer": "core",
+          "say": "The verb is on the front. Say its family before you flip, then say the plural.",
+          "cards": [
+            {
+              "front": "What do you do before you build an -ir verb?",
+              "back": "Check the family before you build. There are only two of them, and one is spottable."
+            },
+            {
+              "front": "partir, sortir, dormir, servir, sentir, mentir",
+              "back": "the consonant comes back. il part, ils partent."
+            },
+            {
+              "front": "ouvrir, offrir, couvrir, découvrir, souffrir",
+              "back": "nothing comes back. il couvre, ils couvrent, and they are one sound."
+            },
+            {
+              "front": "Which ending gives the family away?",
+              "back": "-vrir and -frir. Those five take -er endings."
+            },
+            {
+              "front": "One colleague, leaving early",
+              "back": "Il part tôt.",
+              "say": "Il part tôt."
+            },
+            {
+              "front": "Three colleagues, leaving early",
+              "back": "Ils partent tôt.",
+              "say": "Ils partent tôt."
+            },
+            {
+              "front": "One person, covering everything",
+              "back": "Il couvre tout.",
+              "say": "Il couvre tout."
+            },
+            {
+              "front": "Several people, covering everything",
+              "back": "Ils couvrent tout.",
+              "say": "Ils couvrent tout."
+            },
+            {
+              "front": "Why can you hear ils ouvrent but not ils couvrent?",
+              "back": "ouvrir starts with a vowel, so the s of ils wakes up as a z. couvrir starts with a consonant and blocks it."
+            },
+            {
+              "front": "courir: il court against ils courent",
+              "back": "One sound. It uses the shedders’ endings and has no consonant to shed."
+            },
+            {
+              "front": "Both end in -tir. Which takes the -iss-?",
+              "back": "ralentir does and sentir does not. The ending decides nothing."
+            },
+            {
+              "front": "Where do venir and tenir go?",
+              "back": "a2.02. Their mechanism is the shedders’, with a vowel change on top."
+            }
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s14-errors",
+          "swipe": true,
+          "size": "lg",
+          "title": "Three Ways The Sort Goes Wrong",
+          "frSub": "Trois erreurs de famille",
+          "layer": "core",
+          "terms": [
+            "theFamilies",
+            "shedding"
+          ],
+          "say": "All three are the right rule reaching the wrong verb.",
+          "errors": [
+            {
+              "wrong": "Saying « ils partissent » for a group.",
+              "right": "Saying « ils partent ».",
+              "why": "partir takes no -iss- anywhere. The t on the end is the plural marker, and it was in the naming form the whole time."
+            },
+            {
+              "wrong": "Saying « ils part » and stopping at the singular.",
+              "right": "Saying « ils partent », landing the t.",
+              "why": "This is the opposite mistake and it is the commoner one. The singular drops that consonant, so leaving it off says one person."
+            },
+            {
+              "wrong": "Sounding the ending of « ils couvrent ».",
+              "right": "Saying « ils couvrent » exactly like « il couvre ».",
+              "why": "That family takes -er endings, and -ent has never been pronounced on any of them. Nothing comes back because nothing left."
+            }
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s15-notmine",
+          "title": "Three That Belong Elsewhere",
+          "frSub": "Ce que ce n'est pas",
+          "hint": "Swipe through the three cards.",
+          "render": "deck",
+          "layer": "core",
+          "size": "lg",
+          "terms": [
+            "theFamilies"
+          ],
+          "say": "Two of these have a unit waiting. The third is worth knowing by name.",
+          "cards": [
+            {
+              "label": "Coming next",
+              "head": "venir and tenir",
+              "fr": "venir · tenir",
+              "sub": "their unit is a2.02",
+              "body": "They run the shedders’ mechanism with a vowel change on top, so what you learned here is most of the way there. Their own unit builds them out in full and this one does not."
+            },
+            {
+              "label": "The same shape, a different ending",
+              "head": "The -RE verbs do this too",
+              "fr": "vendre · attendre",
+              "sub": "their unit is a2.11",
+              "body": "il vend and ils vendent is a consonant leaving and coming back, exactly like il part and ils partent. That unit will feel like a second helping of this one."
+            },
+            {
+              "label": "One with no home yet",
+              "head": "mourir does something else again",
+              "fr": "mourir",
+              "sub": "the vowel itself moves",
+              "body": "je meurs against nous mourons changes the vowel of the stem, which is a third mechanism and not one of these two. Treat it as a single word for now."
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s16-speak",
+          "title": "Say The Whole Sentence",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "audio": {
+            "mode": "mic",
+            "lang": "fr-FR"
+          },
+          "say": "Decide the family, then say it. On a shedder, land the consonant and stop there.",
+          "skill": "speak",
+          "itemIds": [
+            "fr.a2.verbes.461",
+            "fr.a2.verbes.462",
+            "fr.a2.verbes.463",
+            "fr.a2.verbes.464",
+            "fr.a2.verbes.465",
+            "fr.a2.verbes.466",
+            "fr.a2.verbes.467",
+            "fr.a2.verbes.468",
+            "fr.a2.verbes.469",
+            "fr.a2.verbes.470",
+            "fr.a2.verbes.471",
+            "fr.a2.verbes.472",
+            "fr.a2.verbes.473",
+            "fr.a2.verbes.474",
+            "fr.a2.verbes.479",
+            "fr.a2.verbes.480",
+            "fr.a2.verbes.481",
+            "fr.a2.verbes.482",
+            "fr.a2.verbes.483",
+            "fr.a2.verbes.484",
+            "fr.a2.verbes.485",
+            "fr.a2.verbes.486"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s17-dictation",
+          "title": "Spell What You Heard",
+          "frSub": "La dictée",
+          "layer": "core",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 4,
+            "recordingId": "rec-a2-10l2-er"
+          },
+          "say": "Eight lines. Four of them are the same sound four times, so the pronoun is your only evidence.",
+          "itemIds": [
+            "fr.a2.verbes.461",
+            "fr.a2.verbes.463",
+            "fr.a2.verbes.464",
+            "fr.a2.verbes.467",
+            "fr.a2.verbes.468",
+            "fr.a2.verbes.469",
+            "fr.a2.verbes.470",
+            "fr.a2.verbes.471"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s18-scenario",
+          "title": "The Same Desk, Checking Out",
+          "frSub": "À vous",
+          "layer": "core",
+          "terms": [
+            "shedding",
+            "wakingS"
+          ],
+          "say": "The same desk, and this time every answer wants a family decided first.",
+          "setting": "You are back at the hostel desk the following Saturday, and Salomé has the same three names on her screen.",
+          "turns": [
+            {
+              "ai": "Bonjour. Vous partez à quelle heure aujourd’hui ?",
+              "en": "Morning. What time are you leaving today?",
+              "user": "Nous partons à huit heures.",
+              "userEn": "We are leaving at eight.",
+              "alts": [
+                {
+                  "fr": "On part à huit heures.",
+                  "en": "We are leaving at eight."
+                },
+                {
+                  "fr": "Je pars à huit heures.",
+                  "en": "I am leaving at eight."
+                }
+              ]
+            },
+            {
+              "ai": "Et vos amis ? Ils partent avec vous ?",
+              "en": "And your friends? Are they leaving with you?",
+              "user": "Oui, ils partent avec moi.",
+              "userEn": "Yes, they are leaving with me.",
+              "alts": [
+                {
+                  "fr": "Oui, tous les trois.",
+                  "en": "Yes, all three of us."
+                },
+                {
+                  "fr": "Non, ils partent plus tard.",
+                  "en": "No, they are leaving later."
+                }
+              ]
+            },
+            {
+              "ai": "Le petit déjeuner, c’est jusqu’à neuf heures. On ouvre à sept.",
+              "en": "Breakfast is until nine. We open at seven.",
+              "user": "Vous ouvrez à sept heures ?",
+              "userEn": "You open at seven?",
+              "alts": [
+                {
+                  "fr": "Parfait, on descend à sept heures.",
+                  "en": "Perfect, we will come down at seven."
+                },
+                {
+                  "fr": "Et vous servez le café ?",
+                  "en": "And do you serve coffee?"
+                }
+              ]
+            },
+            {
+              "ai": "Vous dormez bien, ici ?",
+              "en": "Do you sleep well here?",
+              "user": "Oui, je dors très bien.",
+              "userEn": "Yes, I sleep very well.",
+              "alts": [
+                {
+                  "fr": "Oui, nous dormons bien.",
+                  "en": "Yes, we sleep well."
+                },
+                {
+                  "fr": "Très bien, merci.",
+                  "en": "Very well, thank you."
+                }
+              ]
+            },
+            {
+              "ai": "Parfait. Je vous laisse la clé sur le comptoir.",
+              "en": "Perfect. I will leave the key on the counter for you.",
+              "user": "Merci beaucoup.",
+              "userEn": "Thank you very much.",
+              "alts": [
+                {
+                  "fr": "Merci, c’est gentil.",
+                  "en": "Thank you, that is kind."
+                },
+                {
+                  "fr": "Merci. On part à huit heures, alors.",
+                  "en": "Thank you. We leave at eight, then."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s19-reading",
+          "title": "Saturday, Seven In The Morning",
+          "frSub": "Samedi, sept heures du matin",
+          "layer": "core",
+          "terms": [
+            "shedding",
+            "wakingS"
+          ],
+          "questionsInModal": true,
+          "say": "Read it once for the shape. Both families are in here. Tap any word you do not know.",
+          "text": "Seven in the morning at the hostel, and the kitchen is not open yet. « Vous partez tous à huit heures ? » « Moi, je pars à huit heures. Mes amis partent à midi. » Salomé writes two times on the board behind her and looks at the clock. « Et le petit déjeuner ? » « Ils ouvrent à sept heures, normalement. On descend maintenant. » Two other guests are waiting behind you with their bags already packed. « Bon. Je vous sers un café en attendant. »",
+          "glossary": [
+            {
+              "word": "partez",
+              "en": "are leaving",
+              "note": "vous plus -ez. The t of the stem is back, with a syllable on it."
+            },
+            {
+              "word": "pars",
+              "en": "am leaving",
+              "note": "je plus -s, and the t is gone. Said just par."
+            },
+            {
+              "word": "partent",
+              "en": "are leaving",
+              "note": "The t returns, and it is the only thing here saying more than one."
+            },
+            {
+              "word": "ouvrent",
+              "en": "open",
+              "note": "An -er ending, silent. What you hear is the z of ils waking up in front of the vowel."
+            },
+            {
+              "word": "sers",
+              "en": "will serve",
+              "note": "servir is a shedder too, so the v disappears in the singular."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Three verbs here are in the shedding family. Which one is not?",
+              "a": "ouvrent. ouvrir ends in -vrir and takes the endings of an -er verb, so nothing comes back in its plural. partez, pars, partent and sers are all shedders."
+            },
+            {
+              "q": "« Mes amis partent à midi. » What tells you it is more than one person?",
+              "a": "The t at the end of partent, and nothing else. mes amis is plural on the page but amis sounds exactly like ami, so the verb is carrying it."
+            },
+            {
+              "q": "The speaker says « Ils ouvrent à sept heures ». Could you hear that it was plural?",
+              "a": "Yes, but not from the verb. ouvre and ouvrent are one sound; what you hear is the silent s of ils waking up as a z in front of the vowel."
+            }
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s20-review",
+          "title": "Both Families, One Deck",
+          "frSub": "Révision",
+          "render": "deck",
+          "layer": "core",
+          "terms": [
+            "theFamilies",
+            "shedding",
+            "erEndings"
+          ],
+          "sheetId": "sheet.a2.10l2.families",
+          "say": "Rate each card objectively. Again, hard, or easy. The ones you mark again come back.",
+          "cards": [
+            {
+              "front": "What do you do before you build an -ir verb?",
+              "back": "Check the family before you build. Two families, and you already know both rules."
+            },
+            {
+              "front": "The six that shed a consonant",
+              "back": "partir, sortir, dormir, servir, sentir, mentir."
+            },
+            {
+              "front": "The five that take -er endings",
+              "back": "ouvrir, offrir, couvrir, découvrir, souffrir."
+            },
+            {
+              "front": "The ending that gives it away",
+              "back": "-vrir and -frir, and nothing else does."
+            },
+            {
+              "front": "One colleague, leaving early",
+              "back": "Il part tôt.",
+              "say": "Il part tôt."
+            },
+            {
+              "front": "Three colleagues, leaving early",
+              "back": "Ils partent tôt.",
+              "say": "Ils partent tôt."
+            },
+            {
+              "front": "One person, covering everything",
+              "back": "Il couvre tout.",
+              "say": "Il couvre tout."
+            },
+            {
+              "front": "Several people, covering everything",
+              "back": "Ils couvrent tout.",
+              "say": "Ils couvrent tout."
+            },
+            {
+              "front": "They open at eight",
+              "back": "Ils ouvrent à huit heures.",
+              "say": "Ils ouvrent à huit heures."
+            },
+            {
+              "front": "Why is that one audible?",
+              "back": "ouvrir starts with a vowel, so the s of ils wakes up as a z. The verb itself did not change."
+            },
+            {
+              "front": "ralentir against sentir",
+              "back": "Both end in -tir. One takes the -iss- and one gives a t back, and the spelling does not say which."
+            },
+            {
+              "front": "courir",
+              "back": "The shedders’ endings with no consonant to shed, so il court and ils courent are one sound."
+            },
+            {
+              "front": "Where do venir and tenir go?",
+              "back": "a2.02, and the -RE verbs at a2.11 run this same mechanism."
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s21-progress",
+          "title": "Where You Stand",
+          "frSub": "Votre progression",
+          "say": "One screen before the exam, so you know what you are walking into.",
+          "body": "You have taken twelve verbs that all end in -ir and split them into two groups, and neither group asked you to learn a new sound. One gives a consonant back in the plural and one gives nothing, and the naming form only tells you which when it ends in -vrir or -frir. What is left is the part that says whether the sort has stuck. Each round is tied to one of the mistakes this lesson exists to stop, and failing a round gets you its drill before the next one starts.",
+          "stats": [
+            {
+              "k": "Verbs you can place",
+              "v": "12"
+            },
+            {
+              "k": "New sounds to learn",
+              "v": "0"
+            },
+            {
+              "k": "Missions done",
+              "v": "20 of 23"
+            },
+            {
+              "k": "Exam rounds ahead",
+              "v": "5"
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s22-quiz",
+          "title": "The Exam",
+          "frSub": "L'examen",
+          "layer": "core",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "say": "Five rounds. Miss too many in a round and you get a drill before the next one starts.",
+          "rounds": [
+            {
+              "id": "r1-which-family",
+              "label": "Which family",
+              "targets": [
+                "err-wrong-family",
+                "err-over-iss"
+              ],
+              "say": "Sort it before you build it.",
+              "questions": [
+                {
+                  "q": "Which of these four takes the endings of an -er verb?",
+                  "format": "mcq",
+                  "opts": [
+                    "offrir",
+                    "sortir",
+                    "servir",
+                    "mentir"
+                  ],
+                  "correct": 0,
+                  "why": "offrir ends in -frir. Every -vrir and -frir verb takes -er endings, and it is the only ending in this area that decides the answer.",
+                  "ref": "s06-ercase"
+                },
+                {
+                  "q": "Which of these four sheds a consonant in the singular?",
+                  "format": "mcq",
+                  "opts": [
+                    "couvrir",
+                    "découvrir",
+                    "souffrir",
+                    "dormir"
+                  ],
+                  "correct": 3,
+                  "why": "dormir gives je dors and ils dorment. The other three end in -vrir or -frir and never move a letter.",
+                  "ref": "s04-shed"
+                },
+                {
+                  "q": "Both ralentir and sentir end in -tir. Which one takes the -iss-?",
+                  "format": "mcq",
+                  "opts": [
+                    "sentir",
+                    "Both of them",
+                    "ralentir",
+                    "Neither of them"
+                  ],
+                  "correct": 2,
+                  "why": "ralentir, from the last lesson. sentir gives elles sentent with a t. The last four letters decide nothing, which is why six verbs have to be held as a list.",
+                  "ref": "s10-nopredict"
+                },
+                {
+                  "q": "Ils ___ à huit heures. (partir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "partent"
+                  ],
+                  "answer": "partent",
+                  "why": "partir sheds its t in the singular and gives it back here. No -iss- anywhere in this verb.",
+                  "ref": "s05-shedtable"
+                },
+                {
+                  "q": "Fix this. Three friends, at the desk: « Ils partissent à huit heures. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Ils partent à huit heures",
+                    "partent"
+                  ],
+                  "answer": "Ils partent à huit heures.",
+                  "why": "That is the last lesson’s rule on a verb that does not take it. The t was in partir all along.",
+                  "ref": "s01-scene"
+                },
+                {
+                  "q": "Nous ___ tout. (couvrir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "couvrons"
+                  ],
+                  "answer": "couvrons",
+                  "why": "couvrir takes -er endings, so nous takes -ons exactly as it does on parler.",
+                  "ref": "s07-ertable"
+                }
+              ]
+            },
+            {
+              "id": "r2-the-consonant",
+              "label": "The consonant that comes back",
+              "targets": [
+                "err-lost-consonant",
+                "err-wrong-family"
+              ],
+              "say": "These six are all shedders. Land the letter.",
+              "questions": [
+                {
+                  "q": "Listen. How many people?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Ils partent tôt.",
+                    "recordingId": "rec-a2-10l2-shed"
+                  },
+                  "say": "Ils partent tôt.",
+                  "opts": [
+                    "Several",
+                    "One",
+                    "It is not a real form",
+                    "The sound does not say"
+                  ],
+                  "correct": 0,
+                  "why": "A t arrived at the end of the verb, and on a shedder the singular never has one.",
+                  "ref": "s09-ear"
+                },
+                {
+                  "q": "Ils ___ encore. (dormir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "dorment"
+                  ],
+                  "answer": "dorment",
+                  "why": "The m of dormir comes back in the plural. je dors is just dor; ils dorment ends on the m.",
+                  "ref": "s08-sort"
+                },
+                {
+                  "q": "Which form of sortir has NO consonant at the end of the sound?",
+                  "format": "mcq",
+                  "opts": [
+                    "nous sortons",
+                    "il sort",
+                    "ils sortent",
+                    "vous sortez"
+                  ],
+                  "correct": 1,
+                  "why": "il sort is just sor. The t is written and never said, which is true of all three singular forms.",
+                  "ref": "s05-shedtable"
+                },
+                {
+                  "q": "Fix this. Two colleagues: « Ils part à huit heures. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Ils partent à huit heures",
+                    "partent"
+                  ],
+                  "answer": "Ils partent à huit heures.",
+                  "why": "The singular form on a plural subject. This is the commoner of the two mistakes, and out loud it says one person.",
+                  "ref": "s14-errors"
+                },
+                {
+                  "q": "Elles ___ le café. (sentir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "sentent"
+                  ],
+                  "answer": "sentent",
+                  "why": "sentir sheds its t in the singular and restores it here, exactly like partir. Both end in -tir and neither takes the -iss-.",
+                  "ref": "s10-nopredict"
+                },
+                {
+                  "q": "Listen. Which is on the page?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Il part tôt.",
+                    "recordingId": "rec-a2-10l2-shed"
+                  },
+                  "say": "Il part tôt.",
+                  "opts": [
+                    "Ils partent tôt.",
+                    "Both are said exactly like this",
+                    "Neither of these",
+                    "Il part tôt."
+                  ],
+                  "correct": 3,
+                  "why": "No consonant arrived, so it is the singular. On a shedder the ear really does settle this, which is the whole reason the family is worth naming.",
+                  "ref": "s09-ear"
+                }
+              ]
+            },
+            {
+              "id": "r3-nothing-comes-back",
+              "label": "Where nothing comes back",
+              "targets": [
+                "err-heard-nothing",
+                "err-lost-consonant"
+              ],
+              "say": "These are the -er endings. The recording will not help you.",
+              "questions": [
+                {
+                  "q": "Listen. How many people?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Ils couvrent tout.",
+                    "recordingId": "rec-a2-10l2-er"
+                  },
+                  "say": "Ils couvrent tout.",
+                  "opts": [
+                    "One or several, the sound does not say",
+                    "Several, certainly",
+                    "One, certainly",
+                    "It is not a real form"
+                  ],
+                  "correct": 0,
+                  "why": "couvrir takes -er endings, so il couvre and ils couvrent are one sound. Nothing in the recording can settle it.",
+                  "ref": "s07-ertable"
+                },
+                {
+                  "q": "Tu ___ tout. (couvrir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "couvres"
+                  ],
+                  "answer": "couvres",
+                  "why": "The -es of an -er verb. Silent, only tu takes it, and nothing you can hear will ever catch it.",
+                  "ref": "s07-ertable"
+                },
+                {
+                  "q": "je couvre, tu couvres, il couvre, ils couvrent. How many different sounds?",
+                  "format": "mcq",
+                  "opts": [
+                    "Four",
+                    "Three",
+                    "One",
+                    "Two"
+                  ],
+                  "correct": 2,
+                  "why": "One, and that is the same claim the very first verb lesson made about parler. This family never left it.",
+                  "ref": "s06-ercase"
+                },
+                {
+                  "q": "Tap the letters you do not say.",
+                  "format": "tapSilent",
+                  "word": "couvrent",
+                  "correct": "ent",
+                  "why": "The whole ending, exactly as on an -er verb. Nothing comes back in this family because nothing ever left.",
+                  "ref": "s07-ertable"
+                },
+                {
+                  "q": "Fix this. One person: « Il couvrent tout. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Il couvre tout",
+                    "couvre"
+                  ],
+                  "answer": "Il couvre tout.",
+                  "why": "Both spellings are said identically, so this survives being read back aloud. Only the pronoun on the page decides it.",
+                  "ref": "s17-dictation"
+                },
+                {
+                  "q": "Ils ___ un cadeau. (offrir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "offrent"
+                  ],
+                  "answer": "offrent",
+                  "why": "offrir ends in -frir, so -ent, silent. What you would actually hear is the z of ils in front of the vowel.",
+                  "ref": "s11-waking"
+                }
+              ]
+            },
+            {
+              "id": "r4-the-waking-s",
+              "label": "The s that wakes up",
+              "targets": [
+                "err-liaison-missed",
+                "err-heard-nothing"
+              ],
+              "say": "Two of this family start with a vowel, and they are the two you will meet.",
+              "questions": [
+                {
+                  "q": "Listen. How many people?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Ils ouvrent à huit heures.",
+                    "recordingId": "rec-a2-10l2-liaison"
+                  },
+                  "say": "Ils ouvrent à huit heures.",
+                  "opts": [
+                    "One",
+                    "The verb does not say",
+                    "It is not a real form",
+                    "Several"
+                  ],
+                  "correct": 3,
+                  "why": "A z arrived in front of the verb. That is the silent s of ils waking up before a vowel, and the verb itself is unchanged.",
+                  "ref": "s11-waking"
+                },
+                {
+                  "q": "So what is different between il ouvre and ils ouvrent, out loud?",
+                  "format": "mcq",
+                  "opts": [
+                    "The ending of the verb",
+                    "The link in front of the verb",
+                    "Nothing at all",
+                    "The vowel of the verb"
+                  ],
+                  "correct": 1,
+                  "why": "ee-loovr against eel-zoovr. The verb is identical in both; the s of ils is what arrives.",
+                  "ref": "s11-waking"
+                },
+                {
+                  "q": "Why can you NOT hear the difference in ils couvrent?",
+                  "format": "mcq",
+                  "opts": [
+                    "couvrir starts with a consonant, so nothing links",
+                    "couvrir is a shedder",
+                    "couvrent is not a real form",
+                    "The ending is different"
+                  ],
+                  "correct": 0,
+                  "why": "A liaison needs a vowel to land on. couvrir begins with a c, so the s of ils stays silent and the pair stays identical.",
+                  "ref": "s07-ertable"
+                },
+                {
+                  "q": "Vous ___ à sept heures ? (ouvrir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "ouvrez"
+                  ],
+                  "answer": "ouvrez",
+                  "why": "-ez, an -er ending. And the s of vous wakes up in front of the vowel too: voo-zoo-vray.",
+                  "ref": "s18-scenario"
+                },
+                {
+                  "q": "Say it: they open at eight.",
+                  "format": "speak",
+                  "target": "Ils ouvrent à huit heures.",
+                  "why": "Land the z between ils and ouvrent as one movement. The verb itself stops after oovr.",
+                  "ref": "s16-speak"
+                },
+                {
+                  "q": "Fix this. A shop, several staff: « Il ouvrent à huit heures. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Ils ouvrent à huit heures",
+                    "Ils"
+                  ],
+                  "answer": "Ils ouvrent à huit heures.",
+                  "why": "The verb is right and the pronoun is not. Out loud this one IS catchable, because the missing s is a missing z.",
+                  "ref": "s11-waking"
+                }
+              ]
+            },
+            {
+              "id": "r5-mixed",
+              "label": "Both families at once",
+              "targets": [
+                "err-over-iss",
+                "err-wrong-family"
+              ],
+              "say": "No warning which family. Decide, then build.",
+              "questions": [
+                {
+                  "q": "Nous ___ ce soir. (sortir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "sortons"
+                  ],
+                  "answer": "sortons",
+                  "why": "A shedder, so the t comes back and brings a syllable. No -iss-, because sortir is not that family.",
+                  "ref": "s08-sort"
+                },
+                {
+                  "q": "Tu ___ la ville. (découvrir)",
+                  "format": "typeIn",
+                  "accept": [
+                    "découvres",
+                    "decouvres"
+                  ],
+                  "answer": "découvres",
+                  "why": "-vrir, so -er endings, so -es and silent. The accent is on the stem and is not what is being asked.",
+                  "ref": "s06-ercase"
+                },
+                {
+                  "q": "Which pair sounds IDENTICAL?",
+                  "format": "mcq",
+                  "opts": [
+                    "il part / ils partent",
+                    "elle sent / elles sentent",
+                    "il court / ils courent",
+                    "il dort / ils dorment"
+                  ],
+                  "correct": 2,
+                  "why": "courir uses the shedders’ endings and has no consonant to shed, so it gives none back. The other three all restore one.",
+                  "ref": "s08-sort"
+                },
+                {
+                  "q": "Listen. Which one is it?",
+                  "format": "listenChoose",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR",
+                    "clip": "Ils dorment encore.",
+                    "recordingId": "rec-a2-10l2-pairs"
+                  },
+                  "say": "Ils dorment encore.",
+                  "opts": [
+                    "Il dort encore.",
+                    "Ils dorment encore.",
+                    "Elle dort encore.",
+                    "Both the first and the third"
+                  ],
+                  "correct": 1,
+                  "why": "The m landed, so it is the plural. The other three all stop at dor, which is what a shedder does when only one person is doing it.",
+                  "ref": "s12-trap"
+                },
+                {
+                  "q": "Fix this. A group, still asleep: « Ils dormissent encore. »",
+                  "format": "errorSpot",
+                  "accept": [
+                    "Ils dorment encore",
+                    "dorment"
+                  ],
+                  "answer": "Ils dorment encore.",
+                  "why": "dormir sheds its m and gives it back. It never takes an -iss-, and nor do the other five in its family.",
+                  "ref": "s14-errors"
+                },
+                {
+                  "q": "One verb ends in -rir and takes the -iss-. Which?",
+                  "format": "mcq",
+                  "opts": [
+                    "guérir",
+                    "courir",
+                    "ouvrir",
+                    "offrir"
+                  ],
+                  "correct": 0,
+                  "why": "guérir, from the last lesson. courir does not, and ouvrir and offrir end in -vrir and -frir and take -er endings instead.",
+                  "ref": "s10-nopredict"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s23-roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "say": "Four things, and then the unit that picks this up.",
+          "body": "You can take any verb ending in -ir and place it before you build it, which is the only new skill in this lesson: everything after the decision is a rule you already had. Two families, and you already know both rules. Six shed a consonant and give it back, five take the endings of an -er verb, and one is neither. The next unit on the trail teaches a2.02’s venir and tenir, which run the shedding mechanism with a vowel change on top, and a2.11 does the same thing with a whole different ending.",
+          "points": [
+            "Check the family before you build.",
+            "6 shed a consonant in the singular and give it back in the plural.",
+            "5 end in -vrir or -frir and take the endings of an -er verb.",
+            "In front of a vowel the s of ils wakes up, so the plural is audible after all."
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.a2.verbes.461",
+        "fr.a2.verbes.462",
+        "fr.a2.verbes.463",
+        "fr.a2.verbes.464",
+        "fr.a2.verbes.465",
+        "fr.a2.verbes.466",
+        "fr.a2.verbes.467",
+        "fr.a2.verbes.468",
+        "fr.a2.verbes.469",
+        "fr.a2.verbes.470",
+        "fr.a2.verbes.471",
+        "fr.a2.verbes.472",
+        "fr.a2.verbes.473",
+        "fr.a2.verbes.474",
+        "fr.a2.verbes.475",
+        "fr.a2.verbes.476",
+        "fr.a2.verbes.477",
+        "fr.a2.verbes.478",
+        "fr.a2.verbes.479",
+        "fr.a2.verbes.480",
+        "fr.a2.verbes.481",
+        "fr.a2.verbes.482",
+        "fr.a2.verbes.483",
+        "fr.a2.verbes.484",
+        "fr.a2.verbes.485",
+        "fr.a2.verbes.486",
+        "fr.sons.verbes-essentiels.040",
+        "fr.sons.verbes-essentiels.041",
+        "fr.sons.verbes-essentiels.039",
+        "fr.a2.courses.080",
+        "fr.sons.verbes-essentiels.074",
+        "fr.sons.verbes-essentiels.204",
+        "fr.sons.verbes-essentiels.034",
+        "fr.sons.verbes-essentiels.053",
+        "fr.sons.verbes-essentiels.157",
+        "fr.sons.verbes-essentiels.158",
+        "fr.b1.verbes.054",
+        "fr.sons.verbes-essentiels.045",
+        "fr.a2.verbes.202",
+        "fr.a2.verbes.198"
+      ],
+      "version": 1,
+      "grammarAssumed": [
+        "The present tense of regular -er verbs, introduced in a2.01",
+        "That -e, -es and -ent are silent and -ons and -ez are not, introduced in a2.01",
+        "The present tense of regular -ir verbs and the -iss- of the plural, introduced in a2.10",
+        "That the plural of a regular -ir verb is audible where the singular is not, introduced in a2.10",
+        "Liaison, and that a silent final consonant links onto a following vowel, introduced in sons.10"
+      ],
+      "grammarIntroduced": [
+        "That a verb ending in -ir belongs to one of three families, decided verb by verb",
+        "The present tense of the verbs whose stem sheds a consonant in the singular",
+        "That -vrir and -frir verbs take the endings of a regular -er verb",
+        "That the infinitive ending does not predict which family a verb is in",
+        "That liaison makes the plural of a vowel-initial verb audible when the ending cannot"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "The Other -IR Verbs",
+        "subFr": "Les autres verbes en -IR",
+        "introFr": "Douze verbes en -ir qui ne prennent pas le -iss-. Deux familles, et deux règles que vous avez déjà.",
+        "minutes": 26,
+        "difficulty": 3,
+        "glyph": "Ir²",
+        "screens": 180
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "Two families",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-twofamilies"
+          ],
+          "milestone": "You know what made a non-word, and that both rules ahead of you are ones you already have.",
+          "estScreens": 18,
+          "restPoints": [
+            "s01-scene/after-break"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "The consonant comes back",
+          "sections": [
+            "s04-shed",
+            "s05-shedtable"
+          ],
+          "milestone": "You can build all six forms of a shedder, and you have heard the letter arrive.",
+          "estScreens": 14
+        },
+        {
+          "id": "act3",
+          "title": "And the ones where it does not",
+          "sections": [
+            "s06-ercase",
+            "s07-ertable"
+          ],
+          "milestone": "You can build the five that are -er verbs, and you have heard four of their forms be one sound.",
+          "estScreens": 14
+        },
+        {
+          "id": "act4",
+          "title": "Which family is this?",
+          "sections": [
+            "s08-sort",
+            "s09-ear",
+            "s10-nopredict",
+            "s11-waking",
+            "s12-trap",
+            "s13-flash"
+          ],
+          "milestone": "You can place a verb before you build it, and you know the one ending that gives the answer away.",
+          "estScreens": 42,
+          "restPoints": [
+            "s09-ear/halfway",
+            "s12-trap/after-cards"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Out in the world",
+          "sections": [
+            "s14-errors",
+            "s15-notmine",
+            "s16-speak",
+            "s17-dictation",
+            "s18-scenario",
+            "s19-reading"
+          ],
+          "milestone": "You have said both families out loud and spelled the four forms that are one sound.",
+          "estScreens": 44,
+          "restPoints": [
+            "s16-speak/halfway",
+            "s18-scenario/halfway"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s20-review",
+            "s21-progress",
+            "s22-quiz",
+            "s23-roundup"
+          ],
+          "milestone": "Lesson complete. The unit is done, and the mechanism carries into a2.02 and a2.11.",
+          "estScreens": 48,
+          "restPoints": [
+            "s20-review/halfway",
+            "s22-quiz/after-r2",
+            "s22-quiz/after-r4"
+          ]
+        }
+      ],
+      "reframe": "Check the family before you build.",
+      "errorTriggers": [
+        {
+          "id": "err-wrong-family",
+          "description": "Sorts a verb into the wrong family, usually by reading the last four letters of the naming form.",
+          "detectOn": [
+            "s08-sort",
+            "s10-nopredict",
+            "s22-quiz/r1-which-family"
+          ],
+          "drill": "drill-place-it",
+          "retest": "retest-place-it"
+        },
+        {
+          "id": "err-lost-consonant",
+          "description": "Leaves the consonant off a shedder’s plural: ils part, ils dorm. Says one person out loud.",
+          "detectOn": [
+            "s05-shedtable",
+            "s14-errors",
+            "s22-quiz/r2-the-consonant"
+          ],
+          "drill": "drill-land-it",
+          "retest": "retest-land-it"
+        },
+        {
+          "id": "err-heard-nothing",
+          "description": "Expects the plural of an -er-ending verb to be audible, and hears a difference that is not there.",
+          "detectOn": [
+            "s07-ertable",
+            "s09-ear",
+            "s22-quiz/r3-nothing-comes-back"
+          ],
+          "drill": "drill-one-sound",
+          "retest": "retest-one-sound"
+        },
+        {
+          "id": "err-liaison-missed",
+          "description": "Misses the z of ils in front of a vowel, or adds one where a consonant blocks it.",
+          "detectOn": [
+            "s11-waking",
+            "s19-reading",
+            "s22-quiz/r4-the-waking-s"
+          ],
+          "drill": "drill-waking-s",
+          "retest": "retest-waking-s"
+        },
+        {
+          "id": "err-over-iss",
+          "description": "Puts the -iss- of the last lesson on a verb that never takes it: ils partissent, ils dormissent.",
+          "detectOn": [
+            "s01-scene",
+            "s12-trap",
+            "s22-quiz/r5-mixed"
+          ],
+          "drill": "drill-no-iss",
+          "retest": "retest-no-iss"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-place-it",
+          "title": "Which family?",
+          "format": "flashcard",
+          "coach": "A naming form on the left. Say the family out loud before you turn the card.",
+          "pairs": [
+            [
+              "partir",
+              "the consonant comes back"
+            ],
+            [
+              "sortir",
+              "the consonant comes back"
+            ],
+            [
+              "dormir",
+              "the consonant comes back"
+            ],
+            [
+              "servir",
+              "the consonant comes back"
+            ],
+            [
+              "sentir",
+              "the consonant comes back"
+            ],
+            [
+              "mentir",
+              "the consonant comes back"
+            ],
+            [
+              "ouvrir",
+              "nothing comes back"
+            ],
+            [
+              "offrir",
+              "nothing comes back"
+            ],
+            [
+              "couvrir",
+              "nothing comes back"
+            ],
+            [
+              "découvrir",
+              "nothing comes back"
+            ],
+            [
+              "souffrir",
+              "nothing comes back"
+            ],
+            [
+              "courir",
+              "nothing to come back"
+            ]
+          ]
+        },
+        {
+          "id": "retest-place-it",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Which of these three takes the endings of an -er verb?",
+          "opts": [
+            "mentir",
+            "souffrir",
+            "servir"
+          ],
+          "correct": 1,
+          "why": "souffrir ends in -frir. mentir and servir both shed a consonant, and nothing in -tir or -vir says so."
+        },
+        {
+          "id": "drill-land-it",
+          "title": "The letter that comes back",
+          "format": "sort",
+          "buckets": [
+            "One person",
+            "Several"
+          ],
+          "items": [
+            "fr.a2.verbes.463",
+            "fr.a2.verbes.464",
+            "fr.a2.verbes.475",
+            "fr.a2.verbes.476",
+            "fr.a2.verbes.479",
+            "fr.a2.verbes.480"
+          ],
+          "coach": "Play each one and listen at the very end. A consonant there means several. These are all shedders, so the ear can settle every one."
+        },
+        {
+          "id": "retest-land-it",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Ils ___ ce soir. (sortir)",
+          "opts": [
+            "sort",
+            "sortent",
+            "sortissent"
+          ],
+          "correct": 1,
+          "why": "The t comes back for the plural. ils sort says one person and ils sortissent is not a word."
+        },
+        {
+          "id": "drill-one-sound",
+          "title": "Four spellings, one sound",
+          "format": "sort",
+          "buckets": [
+            "You can hear which",
+            "You cannot"
+          ],
+          "items": [
+            "fr.a2.verbes.467",
+            "fr.a2.verbes.469",
+            "fr.a2.verbes.470",
+            "fr.a2.verbes.471",
+            "fr.a2.verbes.463",
+            "fr.a2.verbes.464",
+            "fr.a2.verbes.477",
+            "fr.a2.verbes.478"
+          ],
+          "coach": "The couvrir forms are one sound and the partir ones are not. Play each one; the last pair is the one to think about."
+        },
+        {
+          "id": "retest-one-sound",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "How many of couvrir’s six forms sound the same?",
+          "opts": [
+            "Two",
+            "Four",
+            "All six"
+          ],
+          "correct": 1,
+          "why": "je, tu, il and ils are all koovr. Only nous and vous are audible, exactly as on any -er verb."
+        },
+        {
+          "id": "drill-waking-s",
+          "title": "Does the s wake up?",
+          "format": "flashcard",
+          "coach": "A verb on the left. Say whether the plural would be audible, and why.",
+          "pairs": [
+            [
+              "ils ouvrent",
+              "yes, a z, because the verb starts with a vowel"
+            ],
+            [
+              "ils couvrent",
+              "no, the c blocks the link"
+            ],
+            [
+              "ils offrent",
+              "yes, a z again"
+            ],
+            [
+              "ils souffrent",
+              "no, the s of souffrir is a consonant"
+            ],
+            [
+              "ils partent",
+              "yes, but from the t of the verb, not from a link"
+            ]
+          ]
+        },
+        {
+          "id": "retest-waking-s",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Which one would you hear as plural?",
+          "opts": [
+            "ils couvrent",
+            "ils ouvrent",
+            "ils découvrent"
+          ],
+          "correct": 1,
+          "why": "Only ouvrir starts with a vowel, so only it takes the z. The other two begin with a consonant and stay identical to their singular."
+        },
+        {
+          "id": "drill-no-iss",
+          "title": "Does it take the -iss-?",
+          "format": "sort",
+          "buckets": [
+            "Takes the -iss-",
+            "Does not"
+          ],
+          "items": [
+            "fr.a2.verbes.202",
+            "fr.a2.verbes.198",
+            "fr.a2.verbes.464",
+            "fr.a2.verbes.470",
+            "fr.a2.verbes.476",
+            "fr.a2.verbes.478"
+          ],
+          "coach": "Two of these are from the last lesson and four are from this one. Play each and listen for the extra syllable in the middle of the verb."
+        },
+        {
+          "id": "retest-no-iss",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Which of these three takes the -iss- in the plural?",
+          "opts": [
+            "dormir",
+            "grandir",
+            "servir"
+          ],
+          "correct": 1,
+          "why": "grandir is from the last lesson and grows the -iss-. dormir and servir both shed a consonant instead."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.a2.10l2.families",
+          "title": "Both families, in full",
+          "layer": "deep",
+          "contains": [
+            "partir and couvrir with all nine pronouns",
+            "What each form sounds like",
+            "Where the liaison changes it"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-fam-shed",
+              "title": "partir, all nine pronouns",
+              "layer": "deep",
+              "cols": [
+                "Pronoun",
+                "partir",
+                "Sounds like",
+                "English"
+              ],
+              "rows": [
+                [
+                  "je / j'",
+                  "pars",
+                  "[zhuh par]",
+                  "I leave"
+                ],
+                [
+                  "tu",
+                  "pars",
+                  "[tü par]",
+                  "you leave, one person, close"
+                ],
+                [
+                  "il",
+                  "part",
+                  "[eel par]",
+                  "he leaves"
+                ],
+                [
+                  "elle",
+                  "part",
+                  "[el par]",
+                  "she leaves"
+                ],
+                [
+                  "on",
+                  "part",
+                  "[ohⁿ par]",
+                  "we leave, said out loud"
+                ],
+                [
+                  "nous",
+                  "partons",
+                  "[noo par-tohⁿ]",
+                  "we leave, written"
+                ],
+                [
+                  "vous",
+                  "partez",
+                  "[voo par-tay]",
+                  "you leave, politely or plural"
+                ],
+                [
+                  "ils",
+                  "partent",
+                  "[eel part]",
+                  "they leave, any group with a man in it"
+                ],
+                [
+                  "elles",
+                  "partent",
+                  "[el part]",
+                  "they leave, all women"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-fam-er",
+              "title": "couvrir, all nine pronouns",
+              "layer": "deep",
+              "cols": [
+                "Pronoun",
+                "couvrir",
+                "Sounds like",
+                "English"
+              ],
+              "rows": [
+                [
+                  "je / j'",
+                  "couvre",
+                  "[zhuh koovr]",
+                  "I cover"
+                ],
+                [
+                  "tu",
+                  "couvres",
+                  "[tü koovr]",
+                  "you cover, one person, close"
+                ],
+                [
+                  "il",
+                  "couvre",
+                  "[eel koovr]",
+                  "he covers"
+                ],
+                [
+                  "elle",
+                  "couvre",
+                  "[el koovr]",
+                  "she covers"
+                ],
+                [
+                  "on",
+                  "couvre",
+                  "[ohⁿ koovr]",
+                  "we cover, said out loud"
+                ],
+                [
+                  "nous",
+                  "couvrons",
+                  "[noo koo-vrohⁿ]",
+                  "we cover, written"
+                ],
+                [
+                  "vous",
+                  "couvrez",
+                  "[voo koo-vray]",
+                  "you cover, politely or plural"
+                ],
+                [
+                  "ils",
+                  "couvrent",
+                  "[eel koovr]",
+                  "they cover, any group with a man in it"
+                ],
+                [
+                  "elles",
+                  "couvrent",
+                  "[el koovr]",
+                  "they cover, all women"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-fam-why",
+              "title": "Why the two tables look so different",
+              "layer": "deep",
+              "body": "Put the two side by side and the shedders have five different sounds across nine pronouns while the -er-ending family has three. That is the whole of the difference, and neither of them is new. The plural puts a sound on the end. is what the first table does: par in the singular and part in the plural, and the t was in the naming form the whole time. Four of the six forms sound the same, so the pronoun carries the person. is what the second table does, unchanged from the very first verb lesson, because these five simply are -er verbs wearing an -ir infinitive. The only genuinely new thing in this lesson is deciding which table a verb belongs to before you start, and the naming form tells you only when it ends in -vrir or -frir. There is one wrinkle in the second table and it matters because it covers the two commonest verbs in that family. ouvrir and offrir begin with a vowel, so the silent s of ils wakes up in front of them: ils ouvrent is eel-zoovr and il ouvre is ee-loovr, and the plural is audible after all. The verb has not changed. The link in front of it has. A consonant blocks that, which is why couvrir and not ouvrir is the verb this lesson used to state the four-spellings-one-sound claim."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-fam-next",
+              "title": "What carries forward",
+              "layer": "deep",
+              "body": "The shedding mechanism is the one that keeps coming back. a2.02 teaches venir and tenir, which shed a consonant and change the vowel of the stem as well: je viens against ils viennent is the same movement with more happening. a2.11 teaches the regular -RE verbs, and il vend against ils vendent is exactly this lesson's first table with a different letter. So the six verbs you held as a list here are the entry price for three later units rather than a dead end. What does NOT carry forward is the -iss- of the previous lesson: it belongs to that family and to no other, and knowing where it stops is worth as much as knowing where it applies."
+            }
+          ]
+        },
+        {
+          "id": "sheet.a2.10l2.lists",
+          "title": "The twelve, sorted",
+          "layer": "deep",
+          "contains": [
+            "Which verb is in which family",
+            "What each one means",
+            "The one ending that gives it away"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-lists-table",
+              "title": "Twelve verbs and their family",
+              "layer": "deep",
+              "cols": [
+                "Verb",
+                "Family",
+                "Plural",
+                "Meaning"
+              ],
+              "rows": [
+                [
+                  "partir",
+                  "sheds",
+                  "the consonant comes back",
+                  "to leave, to depart"
+                ],
+                [
+                  "sortir",
+                  "sheds",
+                  "the consonant comes back",
+                  "to go out"
+                ],
+                [
+                  "dormir",
+                  "sheds",
+                  "the consonant comes back",
+                  "to sleep"
+                ],
+                [
+                  "servir",
+                  "sheds",
+                  "the consonant comes back",
+                  "to serve"
+                ],
+                [
+                  "sentir",
+                  "sheds",
+                  "the consonant comes back",
+                  "to smell, to feel"
+                ],
+                [
+                  "mentir",
+                  "sheds",
+                  "the consonant comes back",
+                  "to lie"
+                ],
+                [
+                  "ouvrir",
+                  "-er endings",
+                  "nothing comes back",
+                  "to open"
+                ],
+                [
+                  "offrir",
+                  "-er endings",
+                  "nothing comes back",
+                  "to offer, to give (a gift)"
+                ],
+                [
+                  "couvrir",
+                  "-er endings",
+                  "nothing comes back",
+                  "to cover"
+                ],
+                [
+                  "découvrir",
+                  "-er endings",
+                  "nothing comes back",
+                  "to discover, to uncover"
+                ],
+                [
+                  "souffrir",
+                  "-er endings",
+                  "nothing comes back",
+                  "to suffer"
+                ],
+                [
+                  "courir",
+                  "neither",
+                  "nothing to come back",
+                  "to run"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-lists-why",
+              "title": "Which of these you can work out, and which you cannot",
+              "layer": "deep",
+              "body": "Five of the twelve are free. ouvrir, offrir, couvrir, découvrir, souffrir all end in -vrir or -frir, and no verb that takes the -iss- ends either way, so the spelling settles them before you have to think. The other six are the price of the lesson: partir, sortir, dormir, servir, sentir, mentir have to be held as a list, because ralentir takes the -iss- and sentir does not and both end in -tir, and guérir takes it and courir does not and both end in -rir. Six is not many, and they are six you need early: partir, sortir and dormir turn up in the first week of anybody's French. courir is the odd one out and is worth a sentence of its own. It uses the endings of the shedders, so it looks like them on the page, but its stem has no consonant to shed, so it never gives one back and il court and ils courent are one sound. Filed with the shedders it will mislead you; filed on its own it costs nothing."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [],
+        [
+          "fr.a2.verbes.461",
+          "fr.a2.verbes.462",
+          "fr.a2.verbes.463",
+          "fr.a2.verbes.464",
+          "fr.a2.verbes.465",
+          "fr.a2.verbes.466",
+          "fr.sons.verbes-essentiels.040",
+          "fr.sons.verbes-essentiels.041",
+          "fr.sons.verbes-essentiels.039",
+          "fr.a2.courses.080",
+          "fr.sons.verbes-essentiels.074",
+          "fr.sons.verbes-essentiels.204"
+        ],
+        [
+          "fr.a2.verbes.467",
+          "fr.a2.verbes.468",
+          "fr.a2.verbes.469",
+          "fr.a2.verbes.470",
+          "fr.a2.verbes.471",
+          "fr.a2.verbes.472",
+          "fr.sons.verbes-essentiels.034",
+          "fr.sons.verbes-essentiels.053",
+          "fr.sons.verbes-essentiels.157",
+          "fr.sons.verbes-essentiels.158",
+          "fr.b1.verbes.054"
+        ],
+        [
+          "fr.a2.verbes.475",
+          "fr.a2.verbes.476",
+          "fr.a2.verbes.477",
+          "fr.a2.verbes.478",
+          "fr.a2.verbes.473",
+          "fr.a2.verbes.474",
+          "fr.sons.verbes-essentiels.045"
+        ],
+        [
+          "fr.a2.verbes.479",
+          "fr.a2.verbes.480",
+          "fr.a2.verbes.481",
+          "fr.a2.verbes.482",
+          "fr.a2.verbes.483",
+          "fr.a2.verbes.484",
+          "fr.a2.verbes.485",
+          "fr.a2.verbes.486",
+          "fr.a2.verbes.202",
+          "fr.a2.verbes.198"
+        ],
+        []
+      ],
+      "terms": {
+        "theFamilies": {
+          "term": "the two families",
+          "title": "Which rule this verb runs",
+          "body": "Every verb ending in -ir is in one of three groups. The ones from the last lesson add -iss- in the plural. Six shed a consonant in the singular and give it back in the plural: partir, sortir, dormir, servir, sentir, mentir. Five take the endings of an -er verb outright: ouvrir, offrir, couvrir, decouvrir, souffrir. Knowing which group a verb is in is the whole job, because each group runs a rule you already have.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.464",
+              "note": "A shedder: the t comes back and you hear it."
+            },
+            {
+              "itemId": "fr.a2.verbes.470",
+              "note": "An -er-ending verb: nothing comes back and nothing is heard."
+            }
+          ]
+        },
+        "shedding": {
+          "term": "the consonant that comes back",
+          "title": "partir, sortir, dormir",
+          "body": "Take the last two letters off partir and you have part-. In the singular the t goes too, so je pars, tu pars and il part are all just par. In the plural it returns: ils partent ends on a t you can hear, and nous partons and vous partez bring a whole syllable. That is the same shape as finir from the last lesson, arriving by a different route: finir puts an -iss- in, and these give back a letter they already had.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.463",
+              "note": "Nothing after par."
+            },
+            {
+              "itemId": "fr.a2.verbes.464",
+              "note": "One consonant more, and it is the only thing saying several."
+            }
+          ]
+        },
+        "erEndings": {
+          "term": "the ones that are -er verbs",
+          "title": "ouvrir, offrir, couvrir",
+          "body": "These five end in -ir and take the endings of an -er verb: -e, -es, -e, -ons, -ez, -ent. So je couvre, tu couvres, il couvre and ils couvrent are four spellings and one sound, exactly as je parle and ils parlent were. Their infinitives all end in -vrir or -frir, and no verb from the last lesson does, so this is the one group you can spot from the spelling alone.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.469",
+              "note": "One person."
+            },
+            {
+              "itemId": "fr.a2.verbes.470",
+              "note": "Several, and not one sound has changed."
+            }
+          ]
+        },
+        "wakingS": {
+          "term": "the s that wakes up",
+          "title": "When the plural is audible anyway",
+          "body": "ouvrir and offrir begin with a vowel, and the silent s of ils wakes up in front of a vowel. So il ouvre is ee-loovr and ils ouvrent is eel-zoovr: the verb is identical and the little word in front is not. The plural is audible after all, and it is the link doing it rather than the ending. These two are the most common verbs of their group, so this is the version you will meet first.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.473",
+              "note": "The l of il links onto the vowel."
+            },
+            {
+              "itemId": "fr.a2.verbes.474",
+              "note": "The s of ils arrives as a z, and that is the whole difference."
+            }
+          ]
+        },
+        "endingLies": {
+          "term": "what the ending hides",
+          "title": "The last four letters decide nothing",
+          "body": "ralentir takes the -iss- and sentir does not, and both end in -tir. guerir takes it and courir does not, and both end in -rir. So the infinitive cannot be read off for the answer, and the six that shed have to be held as a list rather than worked out. Six is not many, and they are worth it: partir, sortir and dormir are among the first verbs anybody needs.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.476",
+              "note": "sentir, and the t comes back."
+            },
+            {
+              "itemId": "fr.a2.verbes.478",
+              "note": "courir, where nothing comes back at all."
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-10l2-shed",
+            "desc": "IL PART AND ILS PARTENT, ONE CONTINUOUS TAKE, ONE VOICE, RECORDED ADJACENTLY AND IN THAT ORDER. The two are one consonant apart: eel par, then eel part. The T at the end of the plural must be ORDINARY: a final consonant released the way any French speaker releases it, not a taught, lengthened or emphasised one. RECORDED APART THE LEARNER COMPARES TWO PERFORMANCES INSTEAD OF TWO FORMS, and any drift in pace or pitch between the halves will be heard as the difference instead of the T. The same instruction covers every pair in this clip list, and each pair is one take. The wrong-then-right pass for the trap drill goes in the same session: the wrong version is a competent learner saying eel par-TEES, which is confident and fluent and not a word, and it must not be caricatured.",
+            "clipIds": [
+              "il part",
+              "ils partent",
+              "Il part tôt.",
+              "Ils partent tôt.",
+              "Ils dorment encore.",
+              "Elles sentent le café."
+            ]
+          },
+          {
+            "id": "rec-a2-10l2-er",
+            "desc": "THE COUVRIR QUARTET, IN ONE TAKE, AND THE FOUR MUST BE INDISTINGUISHABLE. je couvre, tu couvres, il couvre, ils couvrent. This is the opposite instruction from the shedder clip and it is just as important: do not help, do not differentiate them, do not let the final -ent surface as anything at all. If a listener can tell any of these four apart from the audio alone, the recording has taught the opposite of what the lesson teaches. Then nous couvrons and vous couvrez in the same take, ordinary and unemphasised, because they are the only two the ear is supposed to get.",
+            "clipIds": [
+              "je couvre",
+              "tu couvres",
+              "il couvre",
+              "ils couvrent",
+              "Je couvre tout.",
+              "Tu couvres tout.",
+              "Il couvre tout.",
+              "Ils couvrent tout.",
+              "Nous couvrons tout.",
+              "Vous couvrez tout."
+            ]
+          },
+          {
+            "id": "rec-a2-10l2-liaison",
+            "desc": "THE WAKING S, and the pair must differ ONLY in the link. « Il ouvre à huit heures. » then « Ils ouvrent à huit heures. », one take, back to back. In the first the l of il runs onto the vowel as one word, ee-loovr. In the second the s of ils arrives as a z, eel-zoovr. THE VERB ITSELF IS IDENTICAL IN BOTH and must sound it: the whole teaching is that what changed is in front of the verb and not inside it. Do not separate the pronoun from the verb with a pause in either half, because the pause is exactly what destroys a liaison.",
+            "clipIds": [
+              "Il ouvre à huit heures.",
+              "Ils ouvrent à huit heures.",
+              "Ils offrent un cadeau."
+            ]
+          },
+          {
+            "id": "rec-a2-10l2-pairs",
+            "desc": "The mixed listening pairs, each pair one take back to back, singular then plural: il part / ils partent, il couvre / ils couvrent, il court / ils courent. Two of those three pairs are AUDIBLY DIFFERENT and one is IDENTICAL, and the learner is being asked to notice which is which, so the recording must not flatten the difference in the first two or invent one in the third. il court and ils courent in particular must be the same sound: courir has no consonant to give back and a helpful reading that hints at one would make the hardest question in the lesson unanswerable.",
+            "clipIds": [
+              "Il part tôt.",
+              "Ils partent tôt.",
+              "Il couvre tout.",
+              "Ils couvrent tout.",
+              "Il court vite.",
+              "Ils courent vite.",
+              "Ils dorment encore."
+            ]
+          },
+          {
+            "id": "rec-a2-10l2-twelve",
+            "desc": "The twelve naming forms, read as a flat list at conversational pace, one voice, in the order the lesson groups them: the six shedders, then the five that take -er endings, then courir. Every one ends in the same EER sound and that sameness is the point, and the learner should come away hearing that the infinitive tells them nothing, which is exactly what the lesson claims. Do not vary the intonation between the groups; the grouping is on the screen and must not be given away by the reading. About a second between them so a learner can repeat into the gap.",
+            "clipIds": [
+              "partir",
+              "sortir",
+              "dormir",
+              "servir",
+              "sentir",
+              "mentir",
+              "ouvrir",
+              "offrir",
+              "couvrir",
+              "découvrir",
+              "souffrir",
+              "courir"
+            ]
+          },
+          {
+            "id": "rec-a2-10l2-scene",
+            "desc": "The opening scene, French bubbles only, one woman in her twenties at an ordinary hostel-desk pace, friendly and unhurried. The « Pardon ? » is the whole scene and it is the hardest line to get right: it is a genuine, mild, unbothered request for a repeat, from somebody who simply did not catch a word. NOT a correction, not surprise, not amusement, and above all not pointed. She has no idea anything went wrong; there was just no word there. If it sounds at all like a raised eyebrow the scene stops being about the language and starts being about her.",
+            "clipIds": [
+              "Bonjour. Vous partez tous les trois ?",
+              "Et vos amis, à quelle heure ?",
+              "Pardon ?"
             ]
           }
         ],
@@ -309645,6 +312467,7 @@
       "en": "The cars slow down here.",
       "ipa": "/le vwa.tyʁ ʁa.lɑ̃.tis i.si/",
       "respell": "lay vwah-tür ra-lahⁿ-tees ee-SEE",
+      "notes": "Nothing in the sentence is plural to the ear except the verb.",
       "tags": [
         "ir-verb",
         "apply",
@@ -309658,8 +312481,7 @@
         "review"
       ],
       "audioRef": null,
-      "version": 1,
-      "notes": "Nothing in the sentence is plural to the ear except the verb."
+      "version": 1
     },
     {
       "id": "fr.a2.verbes.203",
@@ -309736,6 +312558,902 @@
       "audioRef": null,
       "version": 1,
       "notes": "on means we and takes the il form, so the spoken we grows nothing at all."
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.040",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "partir",
+      "en": "to leave, to depart",
+      "ipa": "/paʁtiʁ/",
+      "respell": "par-TEER",
+      "notes": "irregular · je pars, nous partons",
+      "tags": [
+        "irregular"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.041",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "sortir",
+      "en": "to go out",
+      "ipa": "/sɔʁtiʁ/",
+      "respell": "sor-TEER",
+      "notes": "irregular · je sors, nous sortons",
+      "tags": [
+        "irregular"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.039",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "dormir",
+      "en": "to sleep",
+      "ipa": "/dɔʁmiʁ/",
+      "respell": "dor-MEER",
+      "notes": "irregular · je dors, nous dormons",
+      "tags": [
+        "irregular"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a2.courses.080",
+      "kind": "word",
+      "level": "a2",
+      "theme": "courses",
+      "fr": "servir",
+      "en": "to serve",
+      "ipa": "/sɛʁ.viʁ/",
+      "respell": "sehr-VEER",
+      "tags": [
+        "verb",
+        "shopping"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.074",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "sentir",
+      "en": "to smell, to feel",
+      "ipa": "/sɑ̃tiʁ/",
+      "respell": "sahⁿ-TEER",
+      "notes": "irregular · je sens, tu sens, il sent",
+      "tags": [
+        "irregular",
+        "ir-verb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.204",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "mentir",
+      "en": "to lie",
+      "ipa": "/mɑ̃tiʁ/",
+      "respell": "mahⁿ-TEER",
+      "notes": "Irregular; conjugates like partir.",
+      "tags": [
+        "verb",
+        "irregular"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.034",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "ouvrir",
+      "en": "to open",
+      "ipa": "/uvʁiʁ/",
+      "respell": "oo-VREER",
+      "notes": "irregular · conjugates like an -er verb: j'ouvre",
+      "tags": [
+        "irregular"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.053",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "offrir",
+      "en": "to offer, to give (a gift)",
+      "ipa": "/ɔfʁiʁ/",
+      "respell": "oh-FREER",
+      "notes": "irregular · conjugates like an -er verb: j'offre",
+      "tags": [
+        "irregular"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.157",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "couvrir",
+      "en": "to cover",
+      "ipa": "/kuvʁiʁ/",
+      "respell": "koo-VREER",
+      "notes": "Irregular: conjugates like ouvrir, je couvre.",
+      "tags": [
+        "verb",
+        "irregular"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.158",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "découvrir",
+      "en": "to discover, to uncover",
+      "ipa": "/dekuvʁiʁ/",
+      "respell": "day-koo-VREER",
+      "notes": "Irregular: conjugates like ouvrir, je découvre.",
+      "tags": [
+        "verb",
+        "irregular"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.b1.verbes.054",
+      "kind": "word",
+      "level": "b1",
+      "theme": "verbes",
+      "fr": "souffrir",
+      "en": "to suffer",
+      "ipa": "su.fʁiʁ",
+      "respell": "soo-FREER",
+      "example": {
+        "en": "He has been suffering from back pain for several weeks.",
+        "fr": "Il souffre de maux de dos depuis plusieurs semaines."
+      },
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "skill": "CE",
+      "register": "courant"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.045",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "courir",
+      "en": "to run",
+      "ipa": "/kuʁiʁ/",
+      "respell": "koo-REER",
+      "notes": "irregular · je cours, nous courons",
+      "tags": [
+        "irregular"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a2.verbes.461",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je pars tôt.",
+      "en": "I leave early.",
+      "ipa": "/ʒə paʁ to/",
+      "respell": "zhuh par TOH",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "singular"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The t of the stem is gone. Said exactly like Tu pars tôt and Il part tôt."
+    },
+    {
+      "id": "fr.a2.verbes.462",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu pars tôt.",
+      "en": "You leave early.",
+      "ipa": "/ty paʁ to/",
+      "respell": "tü par TOH",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "singular"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Same sound again. Only the pronoun separates the three."
+    },
+    {
+      "id": "fr.a2.verbes.463",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il part tôt.",
+      "en": "He leaves early.",
+      "ipa": "/il paʁ to/",
+      "respell": "eel par TOH",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "singular"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Put this beside Il finit tôt from the last lesson. Both stop dead."
+    },
+    {
+      "id": "fr.a2.verbes.464",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils partent tôt.",
+      "en": "They leave early.",
+      "ipa": "/il paʁt to/",
+      "respell": "eel part TOH",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "plural"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "One consonant more than Il part tôt, at the very end. That T is the whole difference."
+    },
+    {
+      "id": "fr.a2.verbes.465",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous partons tôt.",
+      "en": "We leave early.",
+      "ipa": "/nu paʁ.tɔ̃ to/",
+      "respell": "noo par-tohⁿ TOH",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "plural",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The t is back and it brings a whole syllable with it."
+    },
+    {
+      "id": "fr.a2.verbes.466",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous partez tôt.",
+      "en": "You leave early.",
+      "ipa": "/vu paʁ.te to/",
+      "respell": "voo par-tay TOH",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "plural"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The same t, the same extra syllable. Only the singular ever drops it."
+    },
+    {
+      "id": "fr.a2.verbes.467",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je couvre tout.",
+      "en": "I cover everything.",
+      "ipa": "/ʒə kuvʁ tu/",
+      "respell": "zhuh koovr TOO",
+      "tags": [
+        "ir-verb",
+        "er-endings",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "An -e ending, silent, exactly as on an -er verb."
+    },
+    {
+      "id": "fr.a2.verbes.468",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu couvres tout.",
+      "en": "You cover everything.",
+      "ipa": "/ty kuvʁ tu/",
+      "respell": "tü koovr TOO",
+      "tags": [
+        "ir-verb",
+        "er-endings",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "An -es ending. Silent, and only tu takes it."
+    },
+    {
+      "id": "fr.a2.verbes.469",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il couvre tout.",
+      "en": "He covers everything.",
+      "ipa": "/il kuvʁ tu/",
+      "respell": "eel koovr TOO",
+      "tags": [
+        "ir-verb",
+        "er-endings",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Said exactly like Ils couvrent tout. Nothing in the sound separates them."
+    },
+    {
+      "id": "fr.a2.verbes.470",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils couvrent tout.",
+      "en": "They cover everything.",
+      "ipa": "/il kuvʁ tu/",
+      "respell": "eel koovr TOO",
+      "tags": [
+        "ir-verb",
+        "er-endings",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "Seven letters at the end and not one of them sounds. Identical to Il couvre tout."
+    },
+    {
+      "id": "fr.a2.verbes.471",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous couvrons tout.",
+      "en": "We cover everything.",
+      "ipa": "/nu ku.vʁɔ̃ tu/",
+      "respell": "noo koo-vrohⁿ TOO",
+      "tags": [
+        "ir-verb",
+        "er-endings",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "One of the two the ear gets, and it is the -ons of an -er verb."
+    },
+    {
+      "id": "fr.a2.verbes.472",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous couvrez tout.",
+      "en": "You cover everything.",
+      "ipa": "/vu ku.vʁe tu/",
+      "respell": "voo koo-vray TOO",
+      "tags": [
+        "ir-verb",
+        "er-endings"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The other one, and it is -ez. Two audible out of six, exactly as in a2.01."
+    },
+    {
+      "id": "fr.a2.verbes.473",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il ouvre à huit heures.",
+      "en": "He opens at eight.",
+      "ipa": "/i.luvʁ a ɥi tœʁ/",
+      "respell": "ee-loovr a wee-TEUR",
+      "tags": [
+        "ir-verb",
+        "er-endings",
+        "liaison"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The l of il links onto the vowel: ee-loovr, one word."
+    },
+    {
+      "id": "fr.a2.verbes.474",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils ouvrent à huit heures.",
+      "en": "They open at eight.",
+      "ipa": "/il.zuvʁ a ɥi tœʁ/",
+      "respell": "eel-zoovr a wee-TEUR",
+      "tags": [
+        "ir-verb",
+        "er-endings",
+        "liaison"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The silent s of ils wakes up as a z. The verb did not change; the link did."
+    },
+    {
+      "id": "fr.a2.verbes.475",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle sent le café.",
+      "en": "She can smell the coffee.",
+      "ipa": "/ɛl sɑ̃ lə ka.fe/",
+      "respell": "el sahⁿ luh ka-FAY",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "singular",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "sentir ends in -tir and takes no -iss-. ralentir ends in -tir and takes one."
+    },
+    {
+      "id": "fr.a2.verbes.476",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elles sentent le café.",
+      "en": "They can smell the coffee.",
+      "ipa": "/ɛl sɑ̃t lə ka.fe/",
+      "respell": "el sahⁿt luh ka-FAY",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "plural",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The t comes back. Compare Les voitures ralentissent, where an -iss- comes instead."
+    },
+    {
+      "id": "fr.a2.verbes.477",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il court vite.",
+      "en": "He runs fast.",
+      "ipa": "/il kuʁ vit/",
+      "respell": "eel koor VEET",
+      "tags": [
+        "ir-verb",
+        "courir",
+        "singular"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "courir ends in -rir and takes no -iss-. guérir ends in -rir and takes one."
+    },
+    {
+      "id": "fr.a2.verbes.478",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils courent vite.",
+      "en": "They run fast.",
+      "ipa": "/il kuʁ vit/",
+      "respell": "eel koor VEET",
+      "tags": [
+        "ir-verb",
+        "courir",
+        "plural"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The same sound as Il court vite. courir sheds nothing, so it has nothing to give back."
+    },
+    {
+      "id": "fr.a2.verbes.479",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je dors bien ici.",
+      "en": "I sleep well here.",
+      "ipa": "/ʒə dɔʁ bjɛ̃ i.si/",
+      "respell": "zhuh dor byaⁿ ee-SEE",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "singular",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.480",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils dorment encore.",
+      "en": "They are still asleep.",
+      "ipa": "/il dɔʁm ɑ̃.kɔʁ/",
+      "respell": "eel dorm ahⁿ-KOR",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "plural",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The m of the stem comes back, and it is the only thing saying more than one."
+    },
+    {
+      "id": "fr.a2.verbes.481",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous sortons ce soir.",
+      "en": "We are going out tonight.",
+      "ipa": "/nu sɔʁ.tɔ̃ sə swaʁ/",
+      "respell": "noo sor-tohⁿ suh SWAR",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "plural",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.482",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous servez le dîner ?",
+      "en": "Are you serving dinner?",
+      "ipa": "/vu sɛʁ.ve lə di.ne/",
+      "respell": "voo sehr-vay luh dee-NAY",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "plural",
+        "question"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.483",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "On ment rarement ici.",
+      "en": "People rarely lie here.",
+      "ipa": "/ɔ̃ mɑ̃ ʁaʁ.mɑ̃ i.si/",
+      "respell": "ohⁿ mahⁿ rar-mahⁿ ee-SEE",
+      "tags": [
+        "ir-verb",
+        "shed",
+        "on",
+        "singular",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "on takes the il form, so the t stays away even though on means we."
+    },
+    {
+      "id": "fr.a2.verbes.484",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils offrent un cadeau.",
+      "en": "They are giving a present.",
+      "ipa": "/il.zɔfʁ œ̃ ka.do/",
+      "respell": "eel-zofr uhⁿ ka-DOH",
+      "tags": [
+        "ir-verb",
+        "er-endings",
+        "liaison",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "notes": "The verb sounds the same as il offre. The z in front of it is what says several."
+    },
+    {
+      "id": "fr.a2.verbes.485",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu découvres la ville.",
+      "en": "You are discovering the city.",
+      "ipa": "/ty de.kuvʁ la vil/",
+      "respell": "tü day-koovr la VEEL",
+      "tags": [
+        "ir-verb",
+        "er-endings",
+        "silent-ending"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.486",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "On souffre en silence.",
+      "en": "People suffer in silence.",
+      "ipa": "/ɔ̃ sufʁ ɑ̃ si.lɑ̃s/",
+      "respell": "ohⁿ soofr ahⁿ see-LAHⁿS",
+      "tags": [
+        "ir-verb",
+        "er-endings",
+        "on",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
     }
   ],
   "scenarios": [

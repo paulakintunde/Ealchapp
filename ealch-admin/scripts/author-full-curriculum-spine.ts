@@ -553,7 +553,11 @@ const A2: SpineUnit[] = [
     title: 'Regular -IR Verbs',
     sub: 'Les verbes en -IR',
     gloss: 'the finir model — and the -iss- in the plural',
-    canDo: 'Can conjugate regular -ir verbs and hear where the -iss- belongs',
+    // WIDENED 2026-08-11 when a2.10.l2 was added to this unit. The unit now
+    // carries two lessons and its promise had to cover both. Caught by
+    // spine-drift.test.ts the moment the database moved, which is what that
+    // test is for.
+    canDo: 'Can conjugate regular -ir verbs, hear where the -iss- belongs, and tell them apart from the -ir verbs that take no -iss- at all',
     prereqUnitIds: ['a2.01'],
   },
   {
