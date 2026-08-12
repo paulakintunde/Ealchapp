@@ -1,5 +1,5 @@
 {
-  "version": 24,
+  "version": 25,
   "units": [
     {
       "id": "sons.06",
@@ -32052,7 +32052,7 @@
         "fr.a2.verbes.055"
       ],
       "reframe": "The spelling changes so the sound does not.",
-      "version": 2,
+      "version": 3,
       "features": [
         "roleplay",
         "voiceflash"
@@ -32128,7 +32128,7 @@
             {
               "kind": "choice",
               "size": "lg",
-              "prompt": "The pen is on the board. What goes up?",
+              "prompt": "The pen is in your hand. What goes on the board?",
               "options": [
                 {
                   "en": "the sentence you were sure of",
@@ -305198,32 +305198,6 @@
       "version": 1
     },
     {
-      "id": "fr.a2.verbes.141",
-      "kind": "sentence",
-      "level": "a2",
-      "theme": "verbes",
-      "fr": "Je mange ici.",
-      "en": "I eat here.",
-      "ipa": "/ʒə mɑ̃ʒ i.si/",
-      "respell": "zhuh mahⁿzh ee-SEE",
-      "notes": "No change. The ending is silent and there is no o for the g to go hard in front of.",
-      "tags": [
-        "er-verb",
-        "stem-change",
-        "ger",
-        "nasal"
-      ],
-      "drills": [
-        "sentence",
-        "flashcard",
-        "voiceflash",
-        "review",
-        "dictation"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
       "id": "fr.a2.verbes.124",
       "kind": "sentence",
       "level": "a2",
@@ -305268,32 +305242,6 @@
         "flashcard",
         "voiceflash",
         "review"
-      ],
-      "audioRef": null,
-      "version": 1
-    },
-    {
-      "id": "fr.a2.verbes.142",
-      "kind": "sentence",
-      "level": "a2",
-      "theme": "verbes",
-      "fr": "Nous mangeons ici.",
-      "en": "We eat here.",
-      "ipa": "/nu mɑ̃.ʒɔ̃ i.si/",
-      "respell": "noo mahⁿ-ZHOHⁿ ee-SEE",
-      "notes": "The e is written so the g stays soft in front of the o. Without it: mangons, with a hard g.",
-      "tags": [
-        "er-verb",
-        "stem-change",
-        "ger",
-        "nasal"
-      ],
-      "drills": [
-        "sentence",
-        "flashcard",
-        "voiceflash",
-        "review",
-        "dictation"
       ],
       "audioRef": null,
       "version": 1
@@ -305392,6 +305340,58 @@
         "person": "1",
         "infinitive": "parler"
       }
+    },
+    {
+      "id": "fr.a2.verbes.141",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je mange ici.",
+      "en": "I eat here.",
+      "ipa": "/ʒə mɑ̃ʒ i.si/",
+      "respell": "zhuh mahⁿzh ee-SEE",
+      "notes": "No change. The ending is silent and there is no o for the g to go hard in front of.",
+      "tags": [
+        "er-verb",
+        "stem-change",
+        "ger",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.142",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous mangeons ici.",
+      "en": "We eat here.",
+      "ipa": "/nu mɑ̃.ʒɔ̃ i.si/",
+      "respell": "noo mahⁿ-ZHOHⁿ ee-SEE",
+      "notes": "The e is written so the g stays soft in front of the o. Without it: mangons, with a hard g.",
+      "tags": [
+        "er-verb",
+        "stem-change",
+        "ger",
+        "nasal"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "audioRef": null,
+      "version": 1
     },
     {
       "id": "fr.a2.verbes.143",

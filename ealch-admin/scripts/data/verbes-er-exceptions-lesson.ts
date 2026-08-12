@@ -258,7 +258,11 @@ const SCENE_BEATS: SceneBeat[] = [
   {
     kind: 'choice',
     size: 'lg',
-    prompt: 'The pen is on the board. What goes up?',
+    // "The pen is on the board. What goes up?" until a device pass, where it read
+    // as the pen LYING on the board rather than hovering over it, and "what goes
+    // up" had nothing to attach to. Found by looking at the screen; no test could
+    // have caught it.
+    prompt: 'The pen is in your hand. What goes on the board?',
     options: [
       {
         fr: 'Le travail commence à huit heures.',
@@ -1948,7 +1952,19 @@ export const VERBES_ER_EXC_LESSON: Lesson = {
   // actually teaches. The counter moves rather than the guard being relaxed: two
   // different bodies under one number is the drift that makes Postgres and
   // seed.json disagree while both report the same version.
-  version: 2,
+  //
+  // v3 is the first real device pass, with the A2 paywall lifted, walking the
+  // scene end to end and missions 5 and 10. It found ONE thing and it is copy:
+  // the choice beat asked "The pen is on the board. What goes up?", which on a
+  // screen reads as the pen LYING on the board. See the note at the beat.
+  //
+  // What the same pass MEASURED and did not change: the break card's own Continue
+  // clears the bottom action bar by 48px on a Pixel 6. It fits, and it is the
+  // thinnest margin in the lesson. The doctrine's break budget was written for a
+  // card WITHOUT the two-line "you got it" chrome that a break following a choice
+  // beat carries above its heading, so anything added to this card has to be
+  // re-measured on a device rather than checked against the budget.
+  version: 3,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',
