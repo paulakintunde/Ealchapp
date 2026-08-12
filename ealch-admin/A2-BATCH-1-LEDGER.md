@@ -34,14 +34,29 @@ state that no longer exists: the theme now holds 368 published rows.
 t:     "Regular -ER Verbs"
 sub:   "Les verbes en -ER"
 cando: "Can conjugate any regular -er verb in the present and use it in a real sentence"
-seq:   "1"          <- a STRING, not a number
+seq:   "1"          <- see the correction below
 ```
 
 The title and the sub are swapped in the brief, and the brief's `sub` is not in
-the database at all. Probe your own unit and copy from the dump. `seq` being a
-string matters: the lesson eyebrow is
+the database at all. Probe your own unit and copy from the dump. **This has now
+held for three briefs in a row (a2.01, a2.09, a2.10) and should be treated as
+certain rather than as a thing to check.** The lesson eyebrow is
 `` `${level} · LEÇON ${String(unit.seq).padStart(2, '0')}` `` (missions.ts:110), so
 `a2.01`'s tag is `A2 · LEÇON 01`.
+
+**CORRECTION, measured by `a2.10` on 2026-08-11: `seq` is a NUMBER, not a string.**
+This section said "a STRING, not a number". That was read off `corpus:probe`'s unit
+dump, which stringifies before printing. Queried directly:
+
+```sql
+select body->>'id', jsonb_typeof(body->'seq') from content_units
+ where kind = 'curriculum_unit' and body->>'id' in ('a2.01','a2.09','a2.10','a2.11');
+--  a2.01 number | a2.09 number | a2.10 number | a2.11 number
+```
+
+Nothing depends on it, because every consumer goes through `String(unit.seq)`. It is
+corrected because the ledger states it as a fact somebody might act on, and because
+it is a standing reminder that the probe's dump is a RENDERING and not the row.
 
 ---
 
@@ -51,7 +66,7 @@ string matters: the lesson eyebrow is
 seq  id      lessonIds already in the unit      state
  1   a2.01   ['a2.01.l1']                       LEGACY STUB, rebuilt by this build to v3
  2   a2.09   probe it                           not started
- 3   a2.10   probe it                           not started
+ 3   a2.10   []  (probed, greenfield)           BUILT, v2, 24 missions, 25 rows
  4   a2.11   probe it                           not started
  5   a2.02   probe it                           not started
  6   a2.12   probe it                           not started
@@ -114,10 +129,15 @@ Counts so far, so seq 3 onward has a figure to check against:
 ```
 125 rows   after a2.01 (100 + 25),  max .125,  gaps: none
 151 rows   after a2.09 (125 + 26),  max .166,  gaps: .126-.140, .167-.180
+176 rows   after a2.10 (151 + 25),  max .205,  gaps: + .206-.220
 ```
 
-The gaps are the unused tails of the two claimed blocks and are deliberate. Ids
-are the SRS key: do not backfill them.
+The gaps are the unused tails of the claimed blocks and are deliberate. Ids are the
+SRS key: do not backfill them.
+
+`a2.10`'s block HELD: `fr.a2.verbes` held exactly 151 rows with max `.166` when it
+claimed `.181`, and 176 after, which is 151 plus its 25 and nothing else. Nobody had
+landed inside it.
 
 ---
 
@@ -266,6 +286,30 @@ populated column that is neither an `Item` field nor a known workflow column.
 If you add a column to `content_items`, the generators stop and tell you to
 classify it. Do not go back to a hand-listed field set.
 
+**A CURRICULUM HOLE, FOUND BY a2.10 AND NOT FIXABLE INSIDE A LESSON.**
+
+`partir`, `sortir`, `dormir`, `servir`, `sentir`, `ouvrir`, `offrir` and `courir`
+are owned by NO UNIT AT ANY LEVEL. All 76 curriculum units were read out of
+`content_units` on 2026-08-11 and searched for every one of those eight; the only
+unit whose body contains the string `-ir` or `iss` at all is `a2.10` itself, which
+teaches the regular class and explicitly excludes them. `venir` and `tenir` have a
+home at `a2.02`, seq 5. The other eight do not.
+
+That is not a small gap. Several of them are commoner than any verb in `a2.10`'s
+regular set, and **36 of their 63 present-tense forms are already published as
+sentences** — `nous partons` alone has 43. The paradigm is in front of learners today
+with no lesson anywhere that explains it, and a learner who has done `a2.10` and
+generalises its pattern onto them produces a form no French speaker says.
+
+**SCOPED 2026-08-11: `A2-10-L2-VERBES-IR-IRREGULIERS-SCOPE.md`.** The answer is a
+SECOND LESSON IN a2.10 (`a2.10.l2`), not a new unit. `a1.30` already ships two
+lessons, `lessonsOfUnit` sorts by `Lesson.seq`, and `lesson.tsx`'s `nextL` hands a
+learner from l1 straight into l2, so it is a continuation rather than a reorder. A
+new unit would have needed a `seq` insert across 16 units and ~16 briefs, and would
+have wanted `author-full-curriculum-spine.ts`, **which is 74/75 units stale and would
+revert every A2 title if run**. Two riders in the scope must ship with it:
+`den.tsx:169` opens `lessonIds[0]` only, and this unit's `canDo` has to widen.
+
 **Reachability.** Every item is named by a section or released by a `deckTranche`
 and carrying a `flashcard` drill. `practice` with `skill: 'speak'` needs
 `voiceflash` on every item it names; `dictation` needs `dictation`. Check against
@@ -315,8 +359,10 @@ node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
   tests 2542   pass 2542   fail 0        measured 2026-08-11, before a2.01
   tests 2672   pass 2672   fail 0        measured 2026-08-11, before a2.09
   tests 2773   pass 2773   fail 0        after a2.09 (+101)
+  tests 2870   pass 2870   fail 0        after a2.10 (+97)
 seed.json                                version 22, 8524 items, 42 lessons  (before a2.01)
                                          version 23, 8615 items, 43 lessons  (after a2.09)
+                                         version 25, 8649 items, 44 lessons  (after a2.10)
 pnpm content:parity                      exits 1 on three PRE-EXISTING divergences
                                          (sons.09.l1 seed-only, b2.01.l1 db-only,
                                           sons.08.l1 shape drift). Not yours.
@@ -356,6 +402,12 @@ value {"userId":"anon","plan":"annual","features":["levels.all", ...],"source":"
 **`plan` must be one of `free|monthly|annual`.** Anything else fails
 `isValidEntitlement` and reads as free with no error, which looks exactly like the
 write not landing. Ask before touching anybody's phone.
+
+**AS OF 2026-08-11 THE PIXEL ALREADY HOLDS AN ENTITLEMENT.** `a2.10` opened all
+twenty-four of its cards on the device without granting anything, so a2.01's
+entitlement write is still in `RKStorage`. Nobody in batch 2 needs to touch the
+phone's database, and nobody should assume they will be stopped by the paywall
+either: if you meant to verify the FREE path, you will have to remove it first.
 
 **Dev-client deep links.** `exp+wonerock://expo-development-client/?url=…%2F--%2Froute`
 does not work: the launcher fetches the manifest at that path and dies with
