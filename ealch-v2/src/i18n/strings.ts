@@ -86,6 +86,9 @@ export type Strings = {
   sheetIndexTitle: string; sheetLinkA11y: string; backWord: string;
   ovStatRequired: string; ovStatGates: string; ovStatMilestones: string; ovStatBadge: string;
   ovPrereqNone: string; ovPrereqSome: string; ovMin: string; ovDiff: string;
+  /** Header over the sibling-lesson rows. Only drawn by a unit with more than
+   *  one lesson, which today means a1.30 (review + exam) and a2.10 (l1 + l2). */
+  ovAlsoHere: string;
   moSub: string; moSubNoBadge: string; moListen: string; moXp: string;
   trackDescs: { sons: string; a1: string; a2: string };
   trackLabels: { sons: string; a1: string; a2: string };
@@ -337,6 +340,7 @@ export const T: Record<Lang, Strings> = {
     sheetIndexTitle: 'Référence', sheetLinkA11y: 'Fiches de référence, {n} disponibles', backWord: 'Retour',
     ovStatRequired: 'requises', ovStatGates: 'portes', ovStatMilestones: 'jalons', ovStatBadge: 'badge',
     ovPrereqNone: 'Prérequis : aucun. Cette leçon part de zéro.', ovPrereqSome: 'Prérequis : {t}',
+    ovAlsoHere: 'AUSSI DANS CETTE UNITÉ',
     ovMin: '{n} min', ovDiff: 'Difficulté',
     moSub: '{n} missions, un badge à la fin. Chaque mission a sa propre mécanique.',
     moSubNoBadge: '{n} missions. Chaque mission a sa propre mécanique.',
@@ -689,6 +693,7 @@ export const T: Record<Lang, Strings> = {
     sheetIndexTitle: 'Reference', sheetLinkA11y: 'Reference sheets, {n} available', backWord: 'Back',
     ovStatRequired: 'required', ovStatGates: 'gates', ovStatMilestones: 'milestones', ovStatBadge: 'badge',
     ovPrereqNone: 'Prerequisites: none. This lesson starts from zero.', ovPrereqSome: 'Prerequisite: {t}',
+    ovAlsoHere: 'ALSO IN THIS UNIT',
     ovMin: '{n} min', ovDiff: 'Difficulty',
     moSub: '{n} missions, one badge at the end. Each mission has its own mechanic.',
     moSubNoBadge: '{n} missions. Each mission has its own mechanic.',

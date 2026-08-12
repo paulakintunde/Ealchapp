@@ -1,7 +1,10 @@
 # Proposal: a route to the second lesson of a unit
 
-Rider 1 of `A2-10-L2-VERBES-IR-IRREGULIERS-SCOPE.md`. **Investigation and proposal
-only — no app code has been changed.**
+Rider 1 of `A2-10-L2-VERBES-IR-IRREGULIERS-SCOPE.md`.
+
+> **LANDED 2026-08-12.** Written as investigation-only; the recommended option in
+> §3 was then approved and implemented. See **§7** for what shipped and for the
+> one thing this document got wrong.
 
 Read 2026-08-11 across `app/den.tsx`, `app/lessonoverview.tsx`, `app/missions.tsx`,
 `app/lesson.tsx`, `src/content/missions.ts`, `src/services/content.logic.ts` and
@@ -150,3 +153,51 @@ What the fix adds is the ability to *return* to it.
 If it does not land, that gap must be stated in a2.10.l2's build report rather than
 discovered later — invariants §1 is a list of seven things that were authored, valid
 and drawn by nothing, and this would be the eighth.
+
+---
+
+## 7. What landed, 2026-08-12
+
+The **recommended** option in §3 and nothing else. The optional Den chip was not
+built; §3's four rejections all held.
+
+### The change
+
+| file | what |
+|---|---|
+| `app/lessonoverview.tsx` | `siblings`, derived from `content.lessonsOf(L.unitId)` minus the current lesson, rendered as tappable rows between the prerequisites line and the CTA. +36 lines. |
+| `src/i18n/strings.ts` | `ovAlsoHere` in both tables (`ALSO IN THIS UNIT` / `AUSSI DANS CETTE UNITÉ`). The mission count reuses the existing `ovMissionsWord`. +5 lines. |
+| `src/content/lesson-siblings.test.ts` | new, 13 tests. |
+
+No change to `den.tsx`, to `lessonEyebrow`, to the router, or to any content.
+
+### Gates
+
+- Suite **2951 → 2964, 0 fail**. `tsc --noEmit` clean.
+- Ten mutations, all confirmed red — including one on `den.tsx`, so the file this
+  document is about is pinned even though it was not edited.
+- Device (Pixel 6, dev client on Metro 8082), all four checks in §5:
+  1. `ealch://lessonoverview?key=a1.30.l1` → **ALSO IN THIS UNIT / The A1 Exam / 4 missions**, above the fold.
+  2. Tapping it opens **The A1 Exam**, which carries the reciprocal row back to the review. **The A1 exam is retakeable.**
+  3. `a2.10.l1` → **The Other -IR Verbs / 23 missions**.
+  4. `a2.09.l1`, a one-lesson unit → nothing between the prerequisite line and the CTA. The inert case is genuinely inert.
+- The eyebrow read `A1 · LEÇON 30` on **both** a1.30 lessons on the device, which is
+  §2 holding rather than a defect.
+
+### What this document got wrong
+
+§5 gives the device URL as `exp+wonerock://lessonoverview?key=…`. The scheme in
+`app.json` is **`ealch`**; `wonerock` is a dead name. The working form is
+`adb shell am start -a android.intent.action.VIEW -d "ealch://lessonoverview?key=a1.30.l1"`.
+Anyone who had tried the printed command would have got nothing and concluded the
+route did not work.
+
+### Two things the tests do NOT cover
+
+- **Layout.** The assertions read the source as text, so they prove the row is wired
+  and cannot prove it is legible. That is what the four screenshots are for, and a
+  future unit with three lessons has never been drawn.
+- **The l1 → l2 hand-off.** `lesson.tsx`'s result card is still the first-time path
+  and it is still unwalked end to end on a device: `nextL` is read in code and
+  asserted through the real `lessonsOfUnit`, not played. That gap predates this
+  change and survives it.
