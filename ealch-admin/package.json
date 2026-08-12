@@ -61,6 +61,7 @@
     "content:verbes-ir-familles": "tsx scripts/author-verbes-ir-familles-batch.ts",
     "content:verbes-re": "tsx scripts/author-verbes-re-batch.ts",
     "content:aller-venir": "tsx scripts/author-aller-venir-batch.ts",
+    "content:faire-dire-lire": "tsx scripts/author-faire-dire-lire-batch.ts",
     "content:parity": "tsx scripts/check-seed-db-parity.ts",
     "corpus:probe": "tsx scripts/probe-corpus.ts",
     "content:publish": "tsx scripts/publish-content.ts",

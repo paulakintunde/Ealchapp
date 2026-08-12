@@ -111,8 +111,11 @@ seq  id      lessonIds already in the unit      state
                                                 l2 v1 23 missions 26 rows
  4   a2.11   ['a2.11.l1']                       BUILT. v1, 24 missions, 24 rows,
                                                 7 verbs imported and 0 authored
- 5   a2.02   probe it                           not started
- 6   a2.12   probe it                           not started
+ 5   a2.02   ['a2.02.l1']                       BUILT. v4, 24 missions, 29 rows,
+                                                6 verbs imported and 0 authored
+ 6   a2.12   ['a2.12.l1']                       BUILT. v2, 24 missions, 25 rows,
+                                                26 rows imported out of 15 THEMES
+                                                and 0 headwords authored
  7   a2.13   probe it                           not started
  8   a2.14   probe it                           not started
  9   a2.15   probe it                           not started
@@ -154,8 +157,8 @@ seq  id      block                                    status
  3   a2.10   fr.a2.verbes.181 .. .220                 TAKEN by l1, 181-205 used
  -   a2.10.l2 fr.a2.verbes.461 .. .500                TAKEN, 461-486 used. See below.
  4   a2.11   fr.a2.verbes.221 .. .260                 TAKEN, 221-244 used, 245-260 free
- 5   a2.02   fr.a2.verbes.261 .. .300
- 6   a2.12   fr.a2.verbes.301 .. .340
+ 5   a2.02   fr.a2.verbes.261 .. .300                 TAKEN, 261-289 used, 290-300 free
+ 6   a2.12   fr.a2.verbes.301 .. .340                 TAKEN, 301-325 used, 326-340 free
  7   a2.13   fr.a2.verbes.341 .. .380
  8   a2.14   fr.a2.verbes.381 .. .420
  9   a2.15   fr.a2.verbes.421 .. .460
@@ -176,7 +179,17 @@ Counts so far, so seq 3 onward has a figure to check against:
 176 rows   after a2.10.l1 (151 + 25),  max .205,  gaps: + .206-.220
 202 rows   after a2.10.l2 (176 + 26),  max .486,  gaps: + .206-.460 unclaimed tails
 226 rows   after a2.11 (202 + 24),     max .486,  gaps: + .245-.260
+255 rows   after a2.02 (226 + 29),     max .486,  gaps: + .290-.300
+280 rows   after a2.12 (255 + 25),     max .486,  gaps: + .326-.340
 ```
+
+`a2.12`'s block HELD: `fr.a2.verbes` held exactly 255 rows when it claimed `.301`,
+which is this table's own figure after a2.02, and 280 after, which is 255 plus its
+25 and nothing else. It is the first build in the batch to assert that figure as a
+CONSTANT rather than only printing it: `ROW_COUNT_BEFORE` in
+`data/faire-dire-lire-corpus.ts`, and the batch refuses any count that is not that
+or that plus its own rows. Copy the shape — a printed figure nobody compares is
+how a1.20 lost an hour.
 
 `a2.11`'s block HELD: `fr.a2.verbes` held exactly 202 rows when it claimed `.221`,
 which is this table's own figure after a2.10.l2, and 226 after, which is 202 plus
@@ -453,12 +466,18 @@ node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
   tests 2951   pass 2951   fail 0        after a2.10.l2 (+74)
   tests 2964   pass 2964   fail 0        measured 2026-08-12, before a2.11
   tests 3075   pass 3075   fail 0        after a2.11 (+111)
+  tests 3135   pass 3135   fail 0        measured 2026-08-12, before a2.12
+  tests 3195   pass 3195   fail 0        after a2.12 (+60)
 seed.json                                version 22, 8524 items, 42 lessons  (before a2.01)
                                          version 23, 8615 items, 43 lessons  (after a2.09)
                                          version 25, 8649 items, 44 lessons  (after a2.10.l1)
                                          version 25, 8687 items, 45 lessons  (after a2.10.l2)
                                          version 27, 8718 items, 46 lessons  (after a2.11,
                                            which was PUBLISHED as OTA snapshot v27)
+                                         version 28, 8753 items, 47 lessons  (after a2.02,
+                                           which was PUBLISHED as OTA snapshot v28)
+                                         version 28, 8787 items, 48 lessons  (after a2.12,
+                                           NOT published; the merge left the version alone)
 pnpm content:parity                      exits 1 on three PRE-EXISTING divergences
                                          (sons.09.l1 seed-only, b2.01.l1 db-only,
                                           sons.08.l1 shape drift). Not yours.
