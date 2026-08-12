@@ -39,7 +39,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
-  formatIssues, quizQuestions, validateItem, validateLesson,
+  DRILL_KINDS, formatIssues, quizQuestions, validateItem, validateLesson,
   type Item, type Lesson, type Unit,
 } from '../../ealch-v2/src/content/schema.ts';
 import { formatDensity, validateDensity, hasPlainNasalFor } from '../../ealch-v2/src/content/density.logic.ts';
@@ -127,6 +127,24 @@ function hasPhrase(hay: string, needle: string): boolean {
 const REPAIR_BY_ID = new Map(RESPELL_REPAIRS.map((r) => [r.id, r] as const));
 const ADD_BY_ID = new Map(DRILL_ADDITIONS.map((d) => [d.id, d] as const));
 
+/** ORDER A DRILL ARRAY THE WAY POSTGRES DOES, which is `DRILL_KINDS` order and
+ *  NOT alphabetical order.
+ *
+ *  FOUND BY `content:publish` AFTER v29, which regenerates the seed from the
+ *  database and reported three of this build's rows as CHANGED. The batch adds a
+ *  drill with `array_agg(distinct e order by e)`, and ordering a Postgres ENUM
+ *  orders by its DECLARATION order — so the database holds
+ *  `flashcard, voiceflash, review`. This merge was sorting the same three as
+ *  STRINGS and writing `flashcard, review, voiceflash`.
+ *
+ *  Same set, same meaning, and still a divergence between the seed and the
+ *  database on rows this build owns, which is the exact class of thing the a2.09
+ *  incident was made of. `DRILL_KINDS` is the canonical order and
+ *  `enum-parity.test.ts` already asserts it equals the `drill_kind` enum, so
+ *  sorting by its index is pinned rather than guessed. */
+const drillOrder = (ds: Item['drills']): Item['drills'] =>
+  [...(ds ?? [])].sort((x, y) => DRILL_KINDS.indexOf(x) - DRILL_KINDS.indexOf(y)) as Item['drills'];
+
 const CARRIED: Item[] = IMPORTED_ROWS.map((row) => {
   const fix = REPAIR_BY_ID.get(row.id);
   const add = ADD_BY_ID.get(row.id);
@@ -135,7 +153,7 @@ const CARRIED: Item[] = IMPORTED_ROWS.map((row) => {
     die(`${row.id} is recorded as ${JSON.stringify(row.respell)} and the repair expects ${JSON.stringify(fix.from)}. Regenerate the manifest.`);
   }
   const drills = add && !(row.drills ?? []).includes(add.add)
-    ? ([...(row.drills ?? []), add.add].sort() as Item['drills'])
+    ? drillOrder([...(row.drills ?? []), add.add])
     : row.drills;
   return { ...row, ...(fix ? { respell: fix.to } : {}), drills };
 });
