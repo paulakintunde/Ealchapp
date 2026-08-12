@@ -44,7 +44,7 @@ import { ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 
 import type { Item, Lesson } from './schema.ts';
-import { quizQuestions, validateLesson, formatIssues } from './schema.ts';
+import { canonicalJson, quizQuestions, validateLesson, formatIssues } from './schema.ts';
 import { validateDensity, formatDensity, hasPlainNasalFor } from './density.logic.ts';
 import { endingPopulation } from './gender.logic.ts';
 import { dicteeMode } from './dictee.logic.ts';
@@ -906,7 +906,13 @@ test('no duplicate fr within a theme, computed the way flashhub-coverage compute
 });
 
 test('the seed lesson is the authored lesson', { skip: noLesson || noSrc }, () => {
-  strictEqual(JSON.stringify(L), JSON.stringify(SRC), 'seed.json and the source have drifted; re-run the merge');
+  // canonicalJson, NOT JSON.stringify. `content:publish` regenerates seed.json
+  // FROM the database with sorted keys, and Postgres `jsonb` normalises key order
+  // on write, so a byte comparison against the authored object fails the first
+  // time this lesson is published while the content is identical. The batch hit
+  // the same wall against `content_units` and reaches for the same function.
+  // Compare the CONTENT; the key order is not ours to assert.
+  strictEqual(canonicalJson(L), canonicalJson(SRC), 'seed.json and the source have drifted; re-run the merge');
 });
 
 test('every authored row is in the seed and says what the source says', { skip: noLesson || noSrc }, () => {
