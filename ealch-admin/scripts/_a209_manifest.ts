@@ -19,6 +19,11 @@ import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { Pool } from 'pg';
+// ONE implementation of "row -> Item literal", shared with _a201_manifest.ts.
+// This file used to carry its own, emitting fifteen of the twenty-seven fields an
+// Item has and dropping the rest in silence — which is how a2.09's merge stripped
+// `example`, `skill` and `register` from fr.a1.dictee.099. See manifest-item.ts.
+import { itemLiteral, unknownPopulatedColumns } from './manifest-item.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const OUT = join(here, 'data/verbes-er-exceptions-rows.gen.ts');
@@ -68,51 +73,18 @@ const VERBS: [string, string][] = [
  *  corpus header. */
 const REUSED_SENTENCES: string[] = [];
 
-type Row = {
-  id: string; kind: string; level: string; theme: string; fr: string; en: string;
-  ipa: string | null; respell: string | null; gender: string | null; notes: string | null;
-  tags: string[] | null; drills: string[]; version: number; card_type: string | null;
-  audio_ref: string | null; status: string;
-};
-
-function pgArray(v: unknown): string[] {
-  if (Array.isArray(v)) return v as string[];
-  if (typeof v !== 'string') return [];
-  return v.replace(/^\{|\}$/g, '').split(',').map((s) => s.trim().replace(/^"|"$/g, '')).filter(Boolean);
-}
-
-/** An Item literal with the fields the schema carries and nothing else.
- *  Undefined-valued keys are dropped rather than emitted as `undefined`, which is
- *  not valid in a `.ts` data file the seed merge round-trips. */
-function itemLiteral(r: Row): string {
-  const parts = [
-    `id: ${JSON.stringify(r.id)}`,
-    `kind: ${JSON.stringify(r.kind)}`,
-    `level: ${JSON.stringify(r.level)}`,
-    `theme: ${JSON.stringify(r.theme)}`,
-    `fr: ${JSON.stringify(r.fr)}`,
-    `en: ${JSON.stringify(r.en)}`,
-  ];
-  if (r.ipa) parts.push(`ipa: ${JSON.stringify(r.ipa)}`);
-  if (r.respell) parts.push(`respell: ${JSON.stringify(r.respell)}`);
-  if (r.gender) parts.push(`gender: ${JSON.stringify(r.gender)}`);
-  if (r.notes) parts.push(`notes: ${JSON.stringify(r.notes)}`);
-  parts.push(`tags: ${JSON.stringify(r.tags ?? [])}`);
-  parts.push(`drills: ${JSON.stringify(pgArray(r.drills))}`);
-  parts.push(`audioRef: ${r.audio_ref ? JSON.stringify(r.audio_ref) : 'null'}`);
-  parts.push(`version: ${r.version ?? 1}`);
-  if (r.card_type) parts.push(`cardType: ${JSON.stringify(r.card_type)}`);
-  return `  { ${parts.join(', ')} },`;
-}
+/** The row shape the generator needs to reason about directly. Every OTHER
+ *  column is carried through by manifest-item.ts rather than named here: a
+ *  hand-listed row type is how the old itemLiteral came to emit fifteen of an
+ *  Item's twenty-seven fields and drop the rest without saying so. */
+type Row = Record<string, unknown> & { id: string; fr: string; gender: string | null; status: string };
 
 async function main() {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 1 });
   const c = await pool.connect();
   const ids = [...VERBS.map((t) => t[1]), ...REUSED_SENTENCES];
   const r = await c.query<Row>(
-    `select id, kind, level, theme, fr, en, ipa, respell, gender, notes, tags, drills,
-            version, card_type, audio_ref, status
-       from content_items where id = any($1)`,
+    `select * from content_items where id = any($1)`,
     [ids],
   );
   const by = new Map(r.rows.map((x) => [x.id, x]));
@@ -121,6 +93,27 @@ async function main() {
   if (missing.length) { console.error('MISSING FROM POSTGRES:', missing.join(', ')); process.exit(1); }
   const unpublished = r.rows.filter((x) => x.status !== 'published');
   if (unpublished.length) { console.error('NOT PUBLISHED:', unpublished.map((x) => `${x.id} (${x.status})`).join(', ')); process.exit(1); }
+
+  /* THE COLUMN THIS GENERATOR DOES NOT KNOW ABOUT.
+   *
+   * A manifest is a recorded read that a merge later writes back into the seed,
+   * so a field this file fails to emit is a field the merge STRIPS from every row
+   * it carries. That is not hypothetical: `example`, `skill` and `register` were
+   * dropped this way until content:publish put them back. Rather than trust the
+   * map in manifest-item.ts to stay complete, stop when a populated column is
+   * neither an Item field nor a known workflow column. */
+  const unknown = [...new Set(r.rows.flatMap((x) => unknownPopulatedColumns(x as Record<string, unknown>)))];
+  if (unknown.length) {
+    console.error(
+      [
+        `!! content_items has populated column(s) this generator does not map: ${unknown.join(', ')}`,
+        '   Add them to ITEM_FIELD_TO_COLUMN (if they belong on an Item) or to NON_ITEM_COLUMNS',
+        '   (if they are workflow) in scripts/manifest-item.ts. Emitting the manifest without them',
+        '   would make every merge that carries these rows strip the column silently.',
+      ].join('\n'),
+    );
+    process.exit(1);
+  }
   for (const [verb, id] of VERBS) {
     const x = by.get(id)!;
     if (x.fr !== verb) { console.error(`!! ${id} fr is ${JSON.stringify(x.fr)}, expected ${JSON.stringify(verb)}`); process.exit(1); }
@@ -164,7 +157,7 @@ ${VERBS.map(([v, id]) => `  [${JSON.stringify(v)}, ${JSON.stringify(id)}],`).joi
   console.log(`  ${VERBS.length} verbs, ${REUSED_SENTENCES.length} sentences, all published, none carrying a gender`);
   for (const [verb, id] of VERBS) {
     const x = by.get(id)!;
-    console.log(`    ${verb.padEnd(12)} ${id.padEnd(36)} respell=${x.respell ?? '-'}`);
+    console.log(`    ${verb.padEnd(12)} ${id.padEnd(36)} respell=${(x.respell as string | null) ?? '-'}`);
   }
 
   c.release();

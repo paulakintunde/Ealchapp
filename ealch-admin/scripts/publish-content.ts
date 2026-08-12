@@ -20,6 +20,7 @@
 //   pnpm content:publish              publish for real
 //   pnpm content:publish --dry-run    validate + report, write and upload nothing
 //   pnpm content:publish --no-upload  everything except the Storage upload
+//   pnpm content:publish --allow-noop publish even if the corpus has not moved
 import './env';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -30,7 +31,7 @@ import { contentItems } from '../src/db/schema';
 import { buildVocabPoolFromItems, recycledShare, themeLevelKey, tokenize, RECYCLED_VOCAB_FLOOR } from '../src/lib/vocab';
 import { buildLevelPools, loadLexiconFreqRank, scoreCefrFit, type ItemLevel } from '../src/lib/gates/cefr';
 import { SEED_CUT, describeCut } from './seed-cut.config.ts';
-import { stableStringify, sha256, uploadToStorage } from './snapshot-utils.ts';
+import { stableStringify, sha256, uploadToStorage, downloadFromStorage } from './snapshot-utils.ts';
 // The app's own ceiling: a device REFUSES to parse a snapshot past this, so
 // producing one would publish bytes no phone will adopt. One number, app-side,
 // imported — never restated here.
@@ -66,6 +67,14 @@ const NO_UPLOAD = args.has('--no-upload') || DRY_RUN;
 // Ramp a risky publish: --rollout 10, then content:rollout 50 / 100 to widen
 // WITHOUT republishing. content:rollout 0 is the kill switch (halts adoption);
 // content:rollback heals devices that already took a bad version.
+// --allow-noop: publish even when the corpus is byte-identical to the previous
+// snapshot. Off by default, because a no-op publish is not free: it burns an OTA
+// version and every device on the channel re-downloads a snapshot to arrive at
+// exactly the content it already had. Kept as an escape hatch rather than a
+// refusal, because there are legitimate reasons to reissue the same bytes (a
+// corrupted upload, a Storage object deleted by hand).
+const ALLOW_NOOP = args.has('--allow-noop');
+
 const rolloutIx = argv.indexOf('--rollout');
 const ROLLOUT = rolloutIx === -1 ? 100 : Number(argv[rolloutIx + 1]);
 if (!Number.isInteger(ROLLOUT) || ROLLOUT < 0 || ROLLOUT > 100) {
@@ -900,6 +909,31 @@ async function main() {
   }
   const checksum = sha256(snapshotJson);
   const path = `snapshots/v${version}.json`;
+
+  /* THE CONTENT DIGEST, WHICH IS NOT THE CHECKSUM, AND THE REASON BOTH EXIST.
+   *
+   * `checksum` is sha256 of the snapshot file EXACTLY as uploaded, and it has to
+   * stay that way: content.logic.ts:612 re-stringifies the parsed corpus and
+   * compares, so a device rejects a snapshot whose bytes are not what the
+   * manifest promised. That contract is not ours to bend.
+   *
+   * But the corpus carries `version` INSIDE the hashed body, so the checksum
+   * changes on every publish attempt whether or not one byte of content moved.
+   * That made `previous.checksum === checksum` — the "nothing changed" branch
+   * below — unreachable from the day it was written: the candidate always
+   * carries a higher version than the snapshot it is compared against, so the
+   * one guard meant to stop a pointless publish could never fire. Found while
+   * a dry run reported every count at +0 and a different checksum, which reads
+   * exactly like real content movement.
+   *
+   * So: hash the corpus WITHOUT its version for the comparison, and compare
+   * against the previously published bytes with their version stripped the same
+   * way. Same corpus, same digest, whatever version each was stamped with. */
+  const contentDigest = (c: unknown): string => {
+    const { version: _v, ...rest } = c as Record<string, unknown>;
+    return sha256(stableStringify(rest));
+  };
+  const candidateContent = contentDigest(corpus);
   const counts = {
     units: corpus.units.length,
     lessons: corpus.lessons.length,
@@ -924,12 +958,42 @@ async function main() {
   if (ROLLOUT < 100) console.log(`  staged rollout: ${ROLLOUT}% of devices adopt v${version}`);
 
   // ── 7. What changed ────────────────────────────────────────────────────
+  //
+  // Read the PREVIOUSLY PUBLISHED BYTES and digest them the same way. Storage
+  // rather than the database, because the question is "would a device receive
+  // anything new", and what a device receives is the snapshot file.
+  //
+  // A failure to read it is a WARNING and not a refusal: not being able to
+  // compare is not evidence that nothing changed, and blocking a publish because
+  // Storage was briefly unreachable would be the wrong way round.
+  let previousContent: string | null = null;
+  let compareNote = '';
+  if (previous) {
+    const url = process.env.SUPABASE_URL;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!url || !key) {
+      compareNote = 'no Storage credentials in the environment';
+    } else {
+      try {
+        const body = await downloadFromStorage(url, key, `snapshots/v${previous.version}.json`);
+        previousContent = contentDigest(JSON.parse(body));
+      } catch (e) {
+        compareNote = (e as Error).message.slice(0, 90);
+      }
+    }
+  }
+  const noop = !!previous && previousContent !== null && previousContent === candidateContent;
+
   console.log('\n  ── diff ──');
   if (!previous) {
     console.log(`  v${version} is the FIRST snapshot.`);
-  } else if (previous.checksum === checksum) {
-    console.log(`  identical to v${previous.version} — nothing changed.`);
+  } else if (noop) {
+    console.log(`  IDENTICAL to v${previous.version} — not one byte of content differs.`);
   } else {
+    if (compareNote) {
+      console.log(`  ! could not compare content against v${previous.version}: ${compareNote}`);
+      console.log('    Publishing anyway. The counts below are still real; a no-op cannot be ruled out.');
+    }
     const p = previous.counts ?? {};
     const d = (k: keyof typeof counts) => {
       const delta = counts[k] - (Number(p[k]) || 0);
@@ -945,6 +1009,24 @@ async function main() {
     console.log(`    examSeries: ${d('examSeries')}`);
   }
   console.log(`  checksum: ${checksum.slice(0, 16)}…`);
+  console.log(`  content:  ${candidateContent.slice(0, 16)}…  (the same corpus digests the same at any version)`);
+
+  // A no-op publish burns an OTA version and makes every device on the channel
+  // re-download a snapshot to arrive at the content it already holds. Refused by
+  // default; --allow-noop is there for reissuing bytes deliberately.
+  if (noop && !ALLOW_NOOP) {
+    await pool.end();
+    if (DRY_RUN) {
+      console.log('\n✓ dry run — NOTHING TO PUBLISH. The corpus is identical to what is already live.\n');
+      return;
+    }
+    die(
+      `nothing to publish: the corpus is byte-identical to v${previous!.version}.\n` +
+        '  Publishing would spend an OTA version and make every device re-download the same content.\n' +
+        '  If that is genuinely what you want (a corrupted upload, a Storage object deleted by hand),\n' +
+        '  re-run with --allow-noop.'
+    );
+  }
 
   if (DRY_RUN) {
     await pool.end();

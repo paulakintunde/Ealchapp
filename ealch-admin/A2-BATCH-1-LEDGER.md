@@ -248,6 +248,24 @@ drills = (select array_agg(distinct e order by e)
             from unnest(drills || $2::text[]::drill_kind[]) e)
 ```
 
+**A MANIFEST THAT CARRIES ROWS MUST CARRY ALL OF THEM.** Fixed 2026-08-11, and
+worth knowing because the fix is in shared code you will inherit rather than
+write.
+
+`_a201_manifest.ts` and `_a209_manifest.ts` each had their own `itemLiteral()`
+emitting a FIXED list of fifteen columns out of the twenty-seven an `Item` has.
+Everything else was dropped in silence. Since a merge overwrites the rows it
+carries, a2.09's merge replaced `fr.a1.dictee.099` — which had `example`, `skill`
+and `register` — with a copy that had none. Six other carried rows arrived
+incomplete the same way. Nobody noticed until `content:publish` regenerated the
+seed from the database and the fields came back.
+
+Both generators now share `scripts/manifest-item.ts`, which selects `*`, emits
+every `Item` field the database holds, and REFUSES to run when it meets a
+populated column that is neither an `Item` field nor a known workflow column.
+If you add a column to `content_items`, the generators stop and tell you to
+classify it. Do not go back to a hand-listed field set.
+
 **Reachability.** Every item is named by a section or released by a `deckTranche`
 and carrying a `flashcard` drill. `practice` with `skill: 'speak'` needs
 `voiceflash` on every item it names; `dictation` needs `dictation`. Check against
