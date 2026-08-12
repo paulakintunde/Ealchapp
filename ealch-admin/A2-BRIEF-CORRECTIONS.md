@@ -1,0 +1,470 @@
+# A2 brief corrections
+
+**Read this after `A2-BUILD-DOCTRINE.md` and `A1-BUILD-INVARIANTS.md`, and before
+your own brief. Then read your brief knowing which of its sentences are already
+known to be wrong.**
+
+Five A2 lessons have shipped: `a2.01` (seq 1), `a2.09` (seq 2), `a2.10.l1` (seq 3),
+`a2.10.l2`, `a2.11` (seq 4). Between them they measured **twenty-one brief claims
+false**:
+
+```
+a2.01   6   verbes-er-corpus.ts header, items 1 to 6
+a2.09   5   A2-09-BUILD-REPORT.md §2
+a2.10   5   A2-10-BUILD-REPORT.md §3.1 to §3.5  (§3.6 is a ledger error, not the brief's)
+a2.11   5   A2-11-BUILD-REPORT.md §3
+```
+
+**Almost all of them are one of the shapes in §1 to §7 below.** Not one of the five
+builds found a brief wrong about *teaching*; every failure was a fact about the
+corpus, the app or the curriculum that nobody had measured when the briefs were
+written in one pass.
+
+The per-lesson briefs were written in one pass, before any corpus measurement
+existed. They are good on teaching and unreliable on facts. This file is the
+delta, measured, with the evidence attached. Where a claim is now settled it is
+settled for the whole level and your brief's version of it is superseded.
+
+> **What this file is not.** It does not repeat the doctrine or the invariants,
+> and it holds nothing lesson-specific. §11 holds the measurements for all sixteen
+> undeveloped lessons, so you do not spend your first hour rediscovering them.
+
+`*.md` is gitignored here. `git add -f` anything you write.
+
+---
+
+## §1. Your identity block is swapped. All sixteen of them are.
+
+**Measured 2026-08-12 for every remaining unit. Not one brief has it right.**
+
+Four briefs in four got this wrong, and it is now confirmed for the other sixteen
+by reading `content_units` directly. The pattern is always the same: the brief's
+`title` is the database's `sub`, and the brief's `sub` **does not exist anywhere in
+the database**.
+
+```
+a2.02  brief sub: "the going & coming family"
+       db    sub: "Irréguliers 1 : aller, venir, tenir"
+       db  title: "Irregular Verbs 1: Aller, Venir, Tenir"
+```
+
+**Take your identity block from §11 of this file, or from the probe's unit dump.
+Never from your brief.** Several brief `sub` values also carry an em dash, which is
+banned in every user-facing string.
+
+`canDo` is the one field the briefs usually get right: `a2.11`'s matched byte for
+byte. Check it anyway; it costs one line.
+
+**`seq` is a NUMBER**, not a string. `corpus:probe` stringifies it when it prints,
+which is how the ledger came to record it wrongly. Nothing depends on it because
+every consumer goes through `String(unit.seq)`.
+
+**Every remaining unit has `lessonIds: []`.** Measured, all sixteen. Unlike `a2.01`
+— which the brief said was empty and which actually held a pre-v2 stub — you are
+building greenfield and your version counter starts at 1. That is now a fact
+rather than an assumption, so do not spend a probe on it.
+
+---
+
+## §2. The vocabulary already exists. You will author almost no headwords.
+
+**Five builds. Five that authored NOT ONE INFINITIVE.**
+
+```
+a2.01   30 verbs   30 imported   0 authored
+a2.09   17 rows    17 imported   0 authored
+a2.10   10 verbs   10 imported   0 authored
+a2.10.l2 12 verbs  12 imported   0 authored
+a2.11    7 verbs    7 imported   0 authored
+```
+
+Every brief said some version of *"probe whether these exist"*, and every time the
+answer was "yes, several times over, in themes you did not think to look in".
+`a2.01`'s brief said eight infinitives had been placed; forty-four had.
+
+**§11 has the count and the id for every headword the remaining sixteen briefs
+name.** Across all of them there are **six absences**, and three of them belong to
+one lesson:
+
+```
+sportif · sportive     a2.03
+Londres                a2.04
+remettre               a2.15
+battre · combattre     a2.15   ← the unit is titled after battre
+il y a                 a2.18   (a phrase, not a headword; expected)
+```
+
+**`a2.15` is the first A2 lesson that will have to author its own infinitives.**
+Everyone else imports.
+
+Two consequences that have bitten:
+
+- **Import from the row with a home in your theme, a respelling, and NO `gender`.**
+  A gendered single-word row joins a1.03's measured ending population and moves
+  twenty printed figures in `a1-03-genre.test.ts`. §11 flags the gendered rows.
+- **`corpus:probe` does not strip or add accents.** Probe `préférer`, not
+  `preferer`, or you will be told a word that exists is absent.
+
+**Do not run `pnpm content:verbes`.** `author-verbes-batch.ts` declares
+`fr.a2.verbes.016 = 'les devoirs'` and `.019 = 'le vélo'` while Postgres holds
+`rentrer` and `demander` there, and it upserts by id. Ledger §0.
+
+---
+
+## §3. The corpus has forms and no minimal pairs. You will author your paradigm.
+
+**Five builds, five times, without exception.** This is the most reliable single
+prediction in this file.
+
+The corpus is full of the forms you want. It contains no two sentences that differ
+by one thing. Every published sentence was written for its own theme and carries
+its own object, so comparing two of them compares their subject matter as well as
+the thing you are teaching.
+
+```
+a2.01   je parle 12 · nous parlons 7 · ils parlent 3      authored all 5 paradigm rows
+a2.09   nous mangeons 30 · je préfère 40 · je jette 0     authored all 26
+a2.10   nous choisissons 9 · vous finissez 0              authored all 6
+a2.11   il vend 3 · je vends 0 · tu vends 0               authored all 6
+```
+
+**And the forms that are missing are the ones you need.** In three of the four the
+zero-count forms were precisely the ones the lesson existed to teach. `a2.11` found
+that two of the three members of its headline triple do not occur once in 27,499
+published sentences.
+
+So: **budget for authoring your whole paradigm in one frame**, and pick the frame
+word by §4 rather than by taste. Reusing a published sentence for one cell of a
+paradigm is almost always wrong; `a2.01` is the only build that did it and only
+because `fr.a2.verbes.001` happened to fit exactly.
+
+---
+
+## §4. `dicteeMode` picks your frame word, and it is a hard limit
+
+`dicteeMode()` switches to WORD tiles above **16 letters**, and word mode hands
+every real word over pre-spelled. **A lesson about a spelling can only be tested in
+LETTERS mode.** So every row you want in the dictée must be ≤ 16 letters, and that
+constrains the frame word before any other consideration.
+
+```
+Il finit tôt.            15   letters   a2.10 chose tôt for this reason
+Ils finissent le travail. 21  words     rejected
+Ils vendent ici.         13   letters   a2.11 chose ici
+Ils vendent des fruits.  19   words     rejected
+Ils partent tôt.         13   letters   a2.10.l2 reused a2.10's tôt deliberately
+```
+
+Prove it through the real `dicteeMode` in your batch, not by counting characters
+by hand. And **reusing a neighbour's frame word is a feature**: `Il finit tôt.`
+beside `Il part tôt.` is a cross-lesson claim in two sentences.
+
+---
+
+## §5. What the app cannot test. This reshapes your quiz, not just a footnote.
+
+Measured through the real functions, and it has changed two lessons' whole format
+mix.
+
+**No typed, spotted or assembled surface can test an accent or a cedilla.**
+`fold()` in `answer.logic.ts` normalises to NFD and strips every combining mark;
+`normalizeFr()` in `score.ts`, which is what the DICTÉE and the speech recogniser
+compare with, does the same.
+
+```
+commençons == commencons        préfère == préfére == prefere
+```
+
+A typed question turning on a diacritic **accepts the mistake and tells the learner
+they spelled it right**, which is worse than not asking. Only `mcq` and
+`listenChoose` can test one, because their options are picked rather than typed.
+`a2.09` lost the single most useful production question in its lesson to this and
+wrote it as an mcq instead.
+
+**`fold()` also cannot test a capital letter or a space.** `errorSpot` runs the
+same path as `typeIn`; both the a1.08 and a1.09 briefs recommended `errorSpot` for
+a capital and both were wrong. It **does** keep a final `-e` and `-s`, so agreement,
+a doubled consonant and an inserted letter are genuinely testable.
+
+**No ear question may ask between two forms that are one sound.** A `listenChoose`
+offering two members of one homophone group has no correct answer and marking one
+right certifies a bug. `a2.10` and `a2.11` both enforce this with a
+`HOMOPHONE_FORMS` list rather than reporting it, because a sentence in a report
+cannot fail. Copy the shape:
+
+```ts
+// fires only when two options differ ONLY by a member of one group, so
+// « Il vend ici. » against « Je vends ici. » stays legal: the pronouns differ
+if (x !== y && opts[i].replace(x, y) === opts[j]) bad.push(...)
+```
+
+**`practice` with `skill: 'write'` draws no writing surface.** The only surfaces
+that make a learner produce are `typeIn`, `errorSpot`, a `groupDrill` check and the
+dictée.
+
+**Say which questions you wanted and could not write.** `a2.09` §"Questions I
+wanted and could not write" is the model.
+
+---
+
+## §6. The nasal checker is blind to more than the invariants say
+
+`A1-BUILD-INVARIANTS.md` §3 records two blind spots. `a2.11` measured the first one
+properly and it is **much wider than "word-internal"**.
+
+Every superscript in the lesson was broken back to a plain `n`, one at a time, and
+the checker asked whether it noticed: **25 seen, 11 missed.** The eleven have one
+shape between them:
+
+> **A nasal followed by any consonant inside the token.** `hasPlainNasalFor` needs
+> the `n` or `m` to END a space-delimited token.
+
+That is not a corner case for a verb lesson. Every regular `-RE` stem ends in `d`,
+so every plural form and every infinitive was invisible. **§11 flags the same shape
+in `prendre` (`PRAHNDR`), `comprendre` (`kohn-PRAHNDR`), `lentement` (`lahnt-MAHN`),
+`monter` (`mohn-TAY`), `tomber` (`tohn-BAY`), `entrer` (`ahn-TRAY`) and a dozen
+more** that the remaining lessons will import.
+
+**`entendre` is the whole problem on one row.** `ahn-TAHNDR` **is** flagged, because
+its first nasal ends a token; `ahⁿ-TAHNDR` is **not**, because its second does not.
+Repairing what the checker reports produces a value it then calls clean and which
+is still wrong.
+
+### This breaks the repair guard you will inherit
+
+`a2.10`'s guard requires the stored value to be flagged before it accepts a repair.
+That is right for a variant somebody is about to overwrite (invariants §9) and it
+**rejected four of `a2.11`'s six legitimate repairs**. Split the table:
+
+```
+RESPELL_REPAIRS_VISIBLE     the checker flags `from`. Guard through the function,
+                            exactly as a2.10 does.
+RESPELL_REPAIRS_INVISIBLE   the checker does NOT flag `from`. Guard the opposite
+                            way: `from` must be unseen, `to` must be unseen, `to`
+                            must carry the superscript, and assert it BY NAME.
+```
+
+And assert the blindness itself as a negative, so the day the checker improves you
+find out rather than carrying a dead by-name list.
+
+**The other blind spot — the false positive on a real /n/ — is real but rarer.**
+`a2.10` met it on `la semaine`; `a2.11` tried four candidates and met it on none,
+and said so rather than leaving a silence. Look for it, and report the absence if
+you do not find one.
+
+---
+
+## §7. "No unit owns X" is usually an artifact of the query
+
+**This corrects a claim `a2.10` and `a2.11` both made, including mine.**
+
+A curriculum unit body holds nine fields and **no content manifest**:
+
+```
+id · seq · title · sub · canDo · level · track · lessonIds · prereqUnitIds
+```
+
+So searching all 76 unit bodies for a word returns nothing for almost every word in
+the language. Running that query and reporting "no unit at any level owns
+`descendre`" is technically true and close to meaningless: `a2.21`'s canDo is *"Can
+pick être as the auxiliary where French requires it and agree the participle"*,
+which covers `descendre` by topic without naming it.
+
+**The ownership question can only be answered three ways, in this order:**
+
+1. **Read the brief files.** `A2-<ID>-<TOPIC>-PROMPT.md` is where scope actually
+   lives. Twenty of them exist.
+2. **Read shipped lessons' `grammarIntroduced`.** That field is addressed to the
+   curriculum and says what a lesson claims to have taught.
+3. **Then, and only then**, the unit-body search — and only for a term that WOULD
+   appear in a title, a sub or a canDo if the unit owned it.
+
+`a2.10`'s hole was real because it passed that test: it searched for `-ir` and
+`iss`, which a unit owning the class would have named, and cross-checked the
+briefs. **`a2.11`'s `descendre` finding did not pass it and is softer than the
+report implies.** Do not repeat that shape.
+
+**What §11 does confirm**: every hand-off target unit **exists**, at the seq its
+brief claims, with a canDo that covers the topic. Cite the unit by id and move on.
+
+---
+
+## §8. Layout facts that have already cost a build each
+
+- **A `table` at layer `core` is a `table-in-core` density failure.** `a2.01`'s
+  brief asked for one in the flow; it is impossible. The in-flow version is a
+  `tapTable` and the full table lives in a reference sheet.
+- **`tapTable` is not in `ownsLayout()`**, so it renders inside a scrolling page.
+  Six rows is the ceiling on a Pixel 6; `a2.11` used three and had room to spare.
+- **A `sheetId` resolves only inside the lesson that declares it**
+  (`schema.ts:3490`, `lesson-contract.test.ts:91`). **Cross-lesson sheets do not
+  exist.** `a2.11`'s brief asked it to extend `a2.01`'s sheet; that was never
+  possible at any price. If your sheet would only restate a pattern that already
+  has one, ask what it holds that the earlier ones could not.
+- **One quiz per lesson.** A second `quiz` section is silently never rendered.
+- **`commonErrors` needs `swipe: true`** or it draws a blank screen.
+- **Quizzes shuffle, missions do not.** `MissionRich` renders authored order, so
+  hand-randomise in-mission and never in the quiz.
+- **Three term chips per section.** The renderer shows three.
+- **`cheatSheet` inside a reference sheet draws its title and nothing else.**
+  `ReferenceSheet.tsx` draws `teach`, `letterGrid` and `table` and nothing else.
+
+---
+
+## §9. The guards you will copy have two holes in them
+
+Both found by mutation-testing, both after the lesson had already been applied.
+
+**The jargon walk does not read `intro`.** `a2.01` through `a2.11` all build their
+learner-surface string as `sections + sheets + terms`. **`Lesson.intro` is drawn on
+the lesson overview card AND the lesson cover**, and `a2.11` shipped the phrase
+"third person" there in v1 while the same `JARGON` list had already caught and
+reworded four other occurrences inside the body. Every host-side gate was green;
+only a Pixel 6 found it.
+
+```ts
+const learnerText = [
+  ...strings(L.sections), ...strings(L.sheets ?? []), ...strings(L.terms ?? {}),
+  L.intro ?? '', ...strings(L.overview ?? {}),          // ← add these two
+].join('\n');
+```
+
+Widen it in the batch, the merge **and** the test, and pin `intro` in its own
+assertion so a later author who trims it back fails with the reason. Do **not** add
+`grammarAssumed` or `grammarIntroduced`: invariants §8 says those are addressed to
+the curriculum and may use the precise words.
+
+**A source that throws silently disables half your test file.** Every A2 test wraps
+its source import in `try { … } catch {}` and skips ~30 source-derived assertions
+when it fails. That is right for a checkout without `ealch-admin` and wrong for a
+broken build. Tell the two apart:
+
+```ts
+const MISSING = new Set(['ERR_MODULE_NOT_FOUND', 'MODULE_NOT_FOUND', 'ENOENT']);
+const srcMerelyAbsent = !!SRC_ERROR && MISSING.has((SRC_ERROR as {code?:string}).code ?? '');
+test('the source either imports or is genuinely absent', () => ok(SRC || srcMerelyAbsent, ...));
+```
+
+**Mutation-test everything, and expect two of your mutations to find a weakness
+rather than confirm a strength.** That is the measured rate: `a2.10.l2` had two of
+eleven do it, `a2.11` one of thirteen. A mutation caught only by the batch and not
+by the test is a hole in the test.
+
+---
+
+## §10. Process facts that are settled
+
+- **The id block: the maximum is now useless.** `a2.10.l2` took `.461..500`, above
+  the whole batch-1 reservation, so `max(id)` has been past every remaining block
+  since before any of them was claimed. **The row COUNT is the only signal.** Check
+  it before and after; it must be `before + exactly what you applied`.
+- **The seed is a CUT and your merge must carry imported rows.** `verbes` shows 119
+  in the seed and holds 494 in Postgres. `a2.11` found that **neither** of the two
+  rows its lesson leaned on hardest was in the seed. A lesson whose itemIds resolve
+  to nothing renders empty cards.
+- **Order: Postgres first, seed second.** `content:publish` regenerates the seed
+  FROM the database.
+- **Never `git checkout seed.json`.** Re-run the merge scripts.
+- **A guard firing on your own content is the guard working.** `a2.09` shipped
+  `commencions` — the imperfect — as a distractor, its own tense guard went red,
+  and the version counter moved rather than the guard being relaxed. Do the same.
+- **Move the version counter rather than correcting under the same number.** Two
+  different bodies under one version is the drift this project has lost work to
+  twice.
+- **`content:publish` works and is no longer blocked.** The `sons.09.l1` hazard the
+  doctrine records is resolved; `content:parity` reports one pre-existing
+  divergence (`b2.01.l1`, database-only, `in_review`) and says nothing is at risk.
+  Publishing is still not part of a lesson build unless you are asked.
+- **A device pass is not optional and it finds things.** The host half was
+  completely green on `a2.11` while `intro` said "third person" on two screens.
+  If adb is unreachable, do the host half and **name the gaps**.
+- **Device navigation**: the resume interstitial swallows the first tap; horizontal
+  swipes drift because deck sections eat them; the reliable route is the missions
+  list; inside a `render: 'screens'` scene the beats advance on the card's own
+  Continue, not the pager's Next. The deep-link scheme is `ealch://` for routes and
+  `exp+wonerock://` for the dev launcher.
+
+---
+
+## §11. The measurements, for all sixteen remaining lessons
+
+Taken 2026-08-12 against Postgres by `scripts/_a2_preflight.ts`. **Re-run it if you
+are reading this more than a few days later**; it is one command and it prints
+everything below.
+
+### Identity blocks, byte for byte
+
+```
+unit    seq  title                                         sub
+a2.02    5   Irregular Verbs 1: Aller, Venir, Tenir        Irréguliers 1 : aller, venir, tenir
+a2.12    6   Irregular Verbs 2: Faire, Dire, Lire          Irréguliers 2 : faire, dire, lire
+a2.13    7   Irregular Verbs 3: Vouloir, Pouvoir, Devoir   Irréguliers 3 : vouloir, pouvoir, devoir
+a2.14    8   Irregular Verbs 4: Savoir and Connaître       Irréguliers 4 : savoir & connaître
+a2.15    9   Irregular Verbs 5: Prendre, Mettre, Battre    Irréguliers 5 : prendre, mettre, battre
+a2.03   10   Adjective Agreement                           L'accord des adjectifs
+a2.16   11   Beau, Nouveau, Vieux                          Beau, nouveau, vieux
+a2.17   12   Adverbs                                       Les adverbes
+a2.04   13   Prepositions of Place, in Depth               Prépositions de lieu
+a2.18   14   Prepositions of Time                          Prépositions de temps
+a2.19   15   The Near Future                               Le futur proche
+a2.05   16   The Passé Composé with Avoir                  Le passé composé avec avoir
+a2.20   17   Irregular Past Participles                    Participes passés irréguliers
+a2.21   18   The Passé Composé with Être                   Le passé composé avec être
+a2.22   19   Pronominal (Reflexive) Verbs                  Les verbes pronominaux
+a2.23   20   Pronominal Verbs in the Passé Composé         Pronominaux au passé composé
+```
+
+Every one has `lessonIds: []`. The `canDo` values are in each prompt's own
+identity block, corrected in place.
+
+### Headwords: what exists
+
+Full output in `scripts/_a2_preflight.ts`. The summary that matters:
+
+**Everything exists except six.** `sportif`, `sportive` (a2.03), `Londres` (a2.04),
+`remettre`, `battre`, `combattre` (a2.15), and `il y a` (a2.18, a phrase). Import
+the rest.
+
+**Rows carrying a nasal the checker cannot see**, which the remaining lessons will
+import and must repair by name:
+
+```
+prendre      PRAHNDR            comprendre   kohn-PRAHNDR
+apprendre    ah-PRAHNDR         surprendre   sür-PRAHNDR
+descendre    day-SAHN-druh      entrer       ahn-TRAY
+monter       mohn-TAY           tomber       tohn-BAY
+lentement    lahnt-MAHN         constamment  kohns-ta-MAHN
+rapidement   ra-peed-MAHN       la France    LAH FRAHⁿSS / la FRAHNS
+```
+
+`fr.sons.consonnes.107` already holds the correct `PRAHⁿDR`, so the house form is
+in the corpus and you are bringing a theme into line rather than inventing one.
+
+### Themes
+
+```
+verbes                494 published    fr.a2.* 226 rows, max .486
+verbes-essentiels     535 published    fr.a2.* 60 rows, max .060
+routines              339 published    fr.a2.* 65 rows
+temps-et-frequence    310 published    fr.a2.* 108 rows
+adjectifs               0              THEME DOES NOT EXIST
+adverbes                0              THEME DOES NOT EXIST
+pays · lieux · temps    0              THEME DOES NOT EXIST
+```
+
+**`adjectifs` and `adverbes` do not exist**, so `a2.03`, `a2.16` and `a2.17` cannot
+inherit one. The doctrine §D tells you to probe them and the ledger §3 says the
+decision is not made. It is still not made. **Creating a theme is product-visible in
+the flashcard hub and the Den; probe what `a1.14` and `a1.16` actually used and
+amend the ledger before authoring.**
+
+---
+
+## §12. What to report, in addition to doctrine §F
+
+- **Every claim in your brief you measured false**, with the measurement. The rate
+  across five builds is three to six per lesson and it has not fallen.
+- **Anything in THIS file you found to be wrong or stale.** It is measured, not
+  eternal, and the corpus moves.
+- **Which of your mutations found a weakness rather than confirming a strength.**
+- **Which half of the device verification you did**, and the gaps by name.

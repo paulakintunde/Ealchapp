@@ -8,19 +8,31 @@ spine, and the one whose vocabulary is most likely already built.
 **you must read it before authoring a single item** — plus **`a2.01`** (your prerequisite)
 and **`a1.18` (negation)**, whose rule you extend.
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.22   Les verbes pronominaux                             seq 19
-  sub:    present tense — se lever, se coucher, se laver
+a2.22   seq 19
+  title:  Pronominal (Reflexive) Verbs
+  sub:    Les verbes pronominaux
   canDo:  Can describe their routine with reflexive verbs in the present
-  themes: ['routine']
   prereqUnitIds: ['a2.01']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump. **`themes` is
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above. **`themes` is
 declared in the spine**, which is unusual: most A2 units declare none. Check what the
 probe says the `routine` theme actually holds before assuming it is yours to fill.
 
@@ -34,6 +46,25 @@ pnpm corpus:probe --unit a2.22 --theme routine
 pnpm corpus:probe --words "se lever,se coucher,se laver,s'habiller,se réveiller,se brosser,se dépêcher,s'appeler"
 pnpm corpus:probe --tokens "je me lève,il se couche,nous nous levons,je ne me lève pas"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**The eight reflexives were probed as bare infinitives with `se`. Re-probe them.**
+
+`corpus:probe --words "se lever"` searches for the literal string. The corpus may
+hold `lever`, `se lever`, or the conjugated `je me lève` and no headword at
+all — three different answers with three different authoring cases. **Probe all
+three shapes before you plan**, and remember that `corpus:probe` does not strip
+accents: probe `se réveiller`, not `se reveiller`.
+
+**THE PROBE LINE ABOVE NAMES A THEME THAT DOES NOT EXIST.** `routine` (singular)
+has **0 rows**. `routines` (plural) exists with **339 published rows, 65 of them
+at `fr.a2.*`**. That is almost certainly your home, and it is already populated,
+so expect to import rather than author.
+
+**`a2.09` teaches `s'appeler`'s stem change** (`je m'appelle` doubles the l).
+It is shipped. Read its `-eler`/`-eter` treatment before you conjugate
+`s'appeler` here; the spelling half is already taught.
 
 **`a1.25` shipped the daily routine lesson and it owns this theme.** The realistic outcome
 is that the routine vocabulary exists and **you author grammar, not words.** That is the
@@ -196,8 +227,18 @@ re-author a routine noun, explain the object pronoun system.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
 
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- `routines` (plural) is a real theme with 339 rows; `routine` does not exist.
+- `a2.09` (seq 2) shipped and owns `appeler`'s doubling.
+
+## Still unverified
+
+- **Which shape the reflexives are stored in** — bare infinitive, `se` + infinitive, or
+  conjugated only. Three different authoring cases, and `--words "se lever"` searches for
+  the literal string.
 - **What `a1.25` actually placed in `routine`.** This brief assumes most of the vocabulary
   exists and that assumption is unmeasured. It is the first thing to probe.
 - Whether the corpus stores reflexives bare or framed with `se`. Ledger decision if

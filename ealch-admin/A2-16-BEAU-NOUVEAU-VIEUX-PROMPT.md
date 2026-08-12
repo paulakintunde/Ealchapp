@@ -9,18 +9,31 @@ forbidden from touching your three adjectives), **`a1.16` (placement)**, and
 **`sons.07` (L'élision)**, because the reason your third forms exist is the reason
 elision exists and the learner has already met it.
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.16   Beau, nouveau, vieux                               seq 11
-  sub:    the triple forms — bel, nouvel, vieil
+a2.16   seq 11
+  title:  Beau, Nouveau, Vieux
+  sub:    Beau, nouveau, vieux
   canDo:  Can use bel, nouvel and vieil before a vowel and agree all three in the plural
   prereqUnitIds: ['a2.03']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -32,6 +45,27 @@ pnpm corpus:probe --unit a2.16 --theme adjectifs
 pnpm corpus:probe --words "beau,belle,bel,nouveau,nouvelle,nouvel,vieux,vieille,vieil"
 pnpm corpus:probe --tokens "un bel appartement,un nouvel ami,un vieil homme,de beaux enfants"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**All six exist. The three you actually teach do not.**
+
+```
+beau      10 rows   fr.sons.voyelles.688        ⚠ fr.b2.philosophie.174 gender=m
+belle      1 row    fr.sons.consonnes.138 [BEL]
+nouveau    2 rows   fr.sons.adjectifs-essentiels.007 [noo-VOH]
+nouvelle   3 rows   fr.sons.noms-essentiels.132 ⚠ gender=f — that is the NOUN (a short story)
+vieux      2 rows   fr.sons.adjectifs-essentiels.008 [VYUH]
+vieille    1 row    fr.sons.adjectifs-essentiels.312 [VYEY]
+```
+
+**`bel`, `nouvel` and `vieil` were not probed and are the Owns.** Probe them
+before you plan. If they are absent — which is likely, since they only ever appear
+before a vowel — this lesson authors its three headline forms and that is the
+authoring case.
+
+**`nouvelle` is two words.** The feminine adjective and the noun *a short story*,
+and the published rows are mostly the noun, gendered. Do not import a gendered row.
 
 ---
 
@@ -186,10 +220,19 @@ separate the audible contrast, cut the `sons.07` reference.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
 
-- Whether these three adjectives already exist in `adjectifs`. Given a1.14 found
-  forty-four pre-existing adjectives, **assume they do until the probe says otherwise.**
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- The six ordinary forms exist; several rows are gendered nouns rather than
+  adjectives.
+- `a2.03` (seq 10) is your prerequisite and decides the theme. Read it first; do
+  not create a second adjective theme.
+
+## Still unverified
+
+- **Whether `bel`, `nouvel` and `vieil` exist at all.** Not probed by anyone, and they
+  are the lesson. One command.
 - Whether `a2.03` shipped clean and left all three alone. Read the shipped lesson.
 - **Whether `sons.07` shipped with a quotable reframe.** `sons.07` was authored but the
   memory of this project records it as not yet applied to DB or seed at the time of

@@ -10,18 +10,31 @@ Trail seq **14** of 32.
 (seq 13, which was told to leave the temporal senses of `en` and `dans` to you), and
 **`a2.02`** (whose `venir de` trap is the same shape as yours).
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.18   Prépositions de temps                              seq 14
-  sub:    depuis, pendant, il y a, dans, en
+a2.18   seq 14
+  title:  Prepositions of Time
+  sub:    Prépositions de temps
   canDo:  Can say how long, how long ago and when with the right time preposition
   prereqUnitIds: ['a1.12']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -62,6 +75,30 @@ pnpm corpus:probe --unit a2.18 --theme temps,heure
 pnpm corpus:probe --words "depuis,pendant,dans,il y a,en,pour"
 pnpm corpus:probe --tokens "depuis deux ans,pendant une heure,il y a trois jours,dans dix minutes,en deux heures"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**Five of six exist as headwords. `il y a` does not, and cannot.**
+
+```
+depuis    2 rows   fr.sons.mots-essentiels.027 [duh-PWEE]
+pendant   1 row    fr.sons.mots-essentiels.028 [pahn-DAHN]   ⚠ TWO nasals, one invisible
+dans      1 row    fr.sons.mots-essentiels.013 [DAHⁿ]        already correct
+en        1 row    fr.sons.mots-essentiels.088 [AHN]         ⚠ nasal
+pour      2 rows   fr.sons.mots-essentiels.018 [POOR]
+
+il y a    0 rows   it is a PHRASE, not a headword — probe it with --tokens
+```
+
+**`temps` (bare) has 0 rows and does not exist as a theme.**
+`temps-et-frequence` exists with 310 published rows, 108 of them at `fr.a2.*`.
+That is almost certainly your home; probe it before deciding.
+
+**This lesson carries the second instance of doctrine §B.7's recurring shape**:
+`il y a` "there is" against `il y a` "ago". You are the FIRST lesson told to
+**name the earlier instance by unit id** — that is `a2.02` (seq 5), `venir de`
++ infinitive against `venir de` + place. Read `a2.02`'s report for the name it
+gave the pattern in `terms`; the doctrine tells you to quote it.
 
 ---
 
@@ -208,14 +245,22 @@ futur proche, paraphrase the `a2.02` term.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
+
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- Five of six exist. `il y a` is a phrase and needs a token probe, not a word probe.
+- `temps` does not exist as a theme; `temps-et-frequence` does and holds 310 rows.
+- `a2.02` (seq 5) owns the first instance of the one-form-two-jobs shape and you
+  are the first lesson required to point back at it.
+
+## Still unverified
 
 - **Whether a resequence after `a2.05` is wanted.** Nobody has decided and the canDo was
   written without checking. This is the biggest open question in batch 2.
 - Whether `a2.02` shipped the "one form, two jobs" term this brief tells you to quote. If
   it did not, name the pattern yourself and report it, so `a2.19` and `a2.15` can quote
   you instead.
-- Whether a `temps` theme exists. Ledger decision.
 - Whether `a2.04` left the temporal senses alone as instructed. Read the shipped lesson.
 - Whether `a1.12` already teaches any duration expression.
 - Baseline test count and mission range.

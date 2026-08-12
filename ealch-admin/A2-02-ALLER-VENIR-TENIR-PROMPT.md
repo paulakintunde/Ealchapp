@@ -8,18 +8,31 @@ lessons declare it as a prerequisite. Build it before seq 6, 7 and 9.
 as an exception and did not conjugate them. You are the payoff of three deferrals, and
 the learner arrives expecting them.
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.02   Irréguliers 1 : aller, venir, tenir                seq 5
-  sub:    the going & coming family
+a2.02   seq 5
+  title:  Irregular Verbs 1: Aller, Venir, Tenir
+  sub:    Irréguliers 1 : aller, venir, tenir
   canDo:  Can use aller, venir and tenir in the present, including venir de for the recent past
   prereqUnitIds: ['a2.01']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -31,6 +44,24 @@ pnpm corpus:probe --unit a2.02 --theme verbes,verbes-essentiels
 pnpm corpus:probe --words "aller,venir,tenir,revenir,devenir,obtenir,appartenir"
 pnpm corpus:probe --tokens "je viens de,je vais,nous allons,ils viennent"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**All seven headwords exist. You author none of them.**
+
+```
+aller       2 rows   fr.sons.verbes-essentiels.003 [ah-LAY]
+venir       1 row    fr.sons.verbes-essentiels.010 [vuh-NEER]
+tenir       1 row    fr.sons.verbes-essentiels.052 [tuh-NEER]
+revenir     3 rows   fr.sons.verbes-essentiels.084
+devenir     2 rows   fr.sons.verbes-essentiels.083   ⚠ fr.b2.philosophie.136 carries gender=m; do not import that one
+obtenir     2 rows   fr.a2.examens-et-diplomes.038
+appartenir  1 row    fr.sons.verbes-essentiels.218
+```
+
+**`viennent` and `tiennent` are the nasal shape the checker cannot see** (nasal
+followed by a consonant inside the token). Corrections §6: assert them by name and
+split your repair table.
 
 ---
 
@@ -171,9 +202,16 @@ they exist.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
 
-- Whether `aller`, `venir` or `tenir` already exist as items. Probe.
+- The identity block, above. Measured, not guessed.
+- `lessonIds: []`. This is a first build and your version counter starts at 1.
+- All seven headwords exist and are imported, not authored.
+- `a2.10` and `a2.11` both shipped and both name `venir`/`tenir` as an
+  exception they do not conjugate. You are the payoff; read them.
+
+## Still unverified
+
 - Whether `a2.10` shipped the non-`-iss-` exception naming this brief assumes. Read the
   shipped lesson.
 - Whether any corpus sentence already uses `venir de`. If some do, check which use.

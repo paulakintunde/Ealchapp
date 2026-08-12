@@ -9,18 +9,31 @@ conjugate them — you are the payoff), **`a2.09`** (whose stem principle you po
 at), and **`a2.02`** (which was told to name two or three compounds and leave the family
 principle to you).
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.15   Irréguliers 5 : prendre, mettre, battre            seq 9
-  sub:    pattern families & their compounds
+a2.15   seq 9
+  title:  Irregular Verbs 5: Prendre, Mettre, Battre
+  sub:    Irréguliers 5 : prendre, mettre, battre
   canDo:  Can conjugate prendre, mettre and battre and recognise their compounds
   prereqUnitIds: ['a2.02']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -32,6 +45,37 @@ pnpm corpus:probe --unit a2.15 --theme verbes,verbes-essentiels
 pnpm corpus:probe --words "prendre,apprendre,comprendre,surprendre,mettre,permettre,promettre,remettre,battre,combattre"
 pnpm corpus:probe --tokens "je prends,nous prenons,ils prennent,je mets,ils mettent"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**YOU ARE THE FIRST A2 LESSON THAT HAS TO AUTHOR ITS OWN INFINITIVES.**
+Seven of the ten exist, three do not, and one of the absentees is in your title.
+
+```
+prendre      3 rows   fr.sons.consonnes.107 [PRAHⁿDR]  ← already the house form
+apprendre    4 rows   fr.a1.ecole.051 [ah-PRAHNDR]     ⚠ gender=m on that row
+comprendre   5 rows   fr.sons.verbes-essentiels.030 [kohn-PRAHNDR]
+surprendre   2 rows   fr.sons.verbes-essentiels.225 [sür-PRAHNDR]
+mettre       1 row    fr.sons.verbes-essentiels.014 [METR]
+permettre    2 rows   fr.sons.verbes-essentiels.196 [pehr-MEHTR]
+promettre    1 row    fr.sons.verbes-essentiels.191 [proh-MEHTR]
+
+remettre     0 rows   ABSENT — author it
+battre       0 rows   ABSENT — author it
+combattre    0 rows   ABSENT — author it
+```
+
+**Every `prendre` compound carries the nasal the checker cannot see** and every
+one of them is wrong today: `PRAHNDR`, `ah-PRAHNDR`, `kohn-PRAHNDR`,
+`sür-PRAHNDR`. `fr.sons.consonnes.107` already holds `PRAHⁿDR`, so the house
+form is in the corpus and you are bringing a theme into line. **Corrections §6:
+a2.10's repair guard will reject all four. Split the table.**
+
+**`a2.11` named `prendre`, `mettre`, `battre` and all five compounds on one
+card and conjugated none of them**, and its guard bans every form of them from a
+production surface. You are the release. Read `verbes-re-corpus.ts`'s
+`NOT_THIS_FAMILY_FORMS` and `OVER_GENERALISED_FORMS`: the first is what you now
+teach, the second is what nobody may ever print.
 
 ---
 
@@ -180,9 +224,22 @@ mission, separate the `prenons`/`prennent` pair, cut the `a2.09` reference.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
 
-- Whether `prendre`, `mettre` or any compound already exists as an item. Probe.
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- **Three headwords are genuinely absent and you author them**: `remettre`,
+  `battre`, `combattre`. That is a first for this band; budget for it.
+- Four `prendre`-family respellings are wrong in a way `hasPlainNasalFor`
+  cannot see.
+- `a2.11` (seq 4) shipped and hands this class to you by unit id. Its card names
+  all eight; your job is to build them.
+
+## Still unverified
+
+- **You author `remettre`, `battre` and `combattre`.** All three are absent, which makes
+  you the first A2 lesson to author an infinitive. Budget for it, and settle the headword
+  shape against the ledger before you start.
 - **Whether `a2.11` shipped the exception naming this brief assumes**, and whether
   `a2.02` left the family principle alone as instructed. Read both shipped lessons.
 - Whether `a2.09` shipped its stem principle in a form quotable here.

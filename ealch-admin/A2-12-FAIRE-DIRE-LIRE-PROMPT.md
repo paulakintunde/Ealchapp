@@ -7,18 +7,31 @@ the point: the `sub` promises thirty expressions and the canDo names them.
 **`a2.02` as shipped** (your prerequisite), and **`a1.10` (meteo) as shipped**, because
 you are about to walk into its vocabulary.
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.12   Irréguliers 2 : faire, dire, lire                  seq 6
-  sub:    three verbs, thirty everyday expressions
+a2.12   seq 6
+  title:  Irregular Verbs 2: Faire, Dire, Lire
+  sub:    Irréguliers 2 : faire, dire, lire
   canDo:  Can use faire, dire and lire and the common expressions built on faire
   prereqUnitIds: ['a2.02']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -30,6 +43,20 @@ pnpm corpus:probe --unit a2.12 --theme verbes,verbes-essentiels,meteo
 pnpm corpus:probe --words "faire,dire,lire,écrire"
 pnpm corpus:probe --tokens "il fait beau,il fait froid,faire les courses,faire la cuisine,faire attention,vous faites,vous dites,ils font"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**All four headwords exist. You author none of them.**
+
+```
+faire    1 row    fr.sons.verbes-essentiels.004 [FEHR]
+dire     1 row    fr.sons.verbes-essentiels.005 [DEER]
+lire     5 rows   fr.sons.verbes-essentiels.*   ⚠ fr.a1.ecole.048 carries gender=m
+écrire   5 rows   fr.sons.verbes-essentiels.*   ⚠ fr.a1.ecole.049 carries gender=m
+```
+
+A gendered single-word row joins a1.03's measured ending population. **Import the
+ungendered row**, and if none exists say so rather than importing the gendered one.
 
 **Run the `il fait beau` token probe before authoring anything.** a1.10 shipped the
 weather lesson and the `meteo` theme. The `faire` weather expressions almost certainly
@@ -175,8 +202,18 @@ section, re-author an imported id.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
 
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- All four headwords exist; two have gendered rows you must not import.
+- The `faire` expressions the brief wants are a phrase set, not headwords. Probe
+  them as `--tokens`, not `--words`.
+
+## Still unverified
+
+- Which `lire` and `écrire` rows are ungendered. `fr.a1.ecole.048` and `.049` both carry
+  `gender=m`; importing one moves a1.03's printed figures.
 - **Whether the `faire` weather expressions exist in `meteo`.** Very likely, from a1.10.
   Unchecked. This is the single most important thing to probe before you write a line.
 - Whether thirty distinct expressions can be assembled without padding.

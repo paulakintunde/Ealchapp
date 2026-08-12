@@ -9,18 +9,31 @@ from using it futurally), **`a1.18` (negation) as shipped**, whose rule you are 
 extend and must not contradict, and **`a2.13` (modaux)**, whose two-verb structure is the
 same shape as yours.
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.19   Le futur proche                                    seq 15
-  sub:    aller + infinitive — what happens next
+a2.19   seq 15
+  title:  The Near Future
+  sub:    Le futur proche
   canDo:  Can say what they are going to do, and make it negative
   prereqUnitIds: ['a2.02']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -31,6 +44,25 @@ cd ealch-admin
 pnpm corpus:probe --unit a2.19 --theme verbes,verbes-essentiels
 pnpm corpus:probe --tokens "je vais manger,je ne vais pas manger,il va pleuvoir,nous allons partir,je vais à Paris"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**`aller` exists (2 rows) and `a2.02` conjugates it. You author no headword
+for it.**
+
+```
+aller   2 rows   fr.sons.verbes-essentiels.003 [ah-LAY] · fr.sons.consonnes.143 [a-LAY]
+```
+
+**`a2.02` (seq 5) is your prerequisite and its brief forbids it from teaching the
+futur proche** — one line acknowledging it exists is that lesson's ceiling. So the
+construction arrives here untouched, and `aller`'s paradigm arrives already
+taught. **Do not re-teach the paradigm.** One recap mission is the ceiling, the
+same way `a2.11` gave the shared endings one card.
+
+**This is the third instance of doctrine §B.7's recurring shape**: `aller` +
+infinitive against `aller` + place. Name the earlier instances by unit id
+(`a2.02`, and `a2.18` at seq 14 if it has shipped).
 
 ---
 
@@ -187,7 +219,15 @@ negative, conjugate the futur simple, paraphrase the `a2.02` term.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
+
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- `aller` exists and `a2.02` conjugates it; you inherit the paradigm.
+- You are the third instance of the one-form-two-jobs shape and the doctrine
+  requires you to point backwards by unit id.
+
+## Still unverified
 
 - Whether `a2.02` shipped the "one form, two jobs" term. If not, `a2.18` may have named
   the pattern instead; check both and quote whichever exists.

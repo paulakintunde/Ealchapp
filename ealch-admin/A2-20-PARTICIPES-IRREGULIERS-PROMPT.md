@@ -11,18 +11,31 @@ project has a 20-mission standard that a list cannot honestly fill.
 split), and **`a2.15` as shipped** (seq 9, which reserved `pris` and `mis` for you and
 whose family principle is the shape you should borrow).
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.20   Participes passés irréguliers                      seq 17
-  sub:    the full list — the 40 that must be learnt
+a2.20   seq 17
+  title:  Irregular Past Participles
+  sub:    Participes passés irréguliers
   canDo:  Can produce the irregular past participles rather than guessing from the infinitive
   prereqUnitIds: ['a2.05']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -45,6 +58,27 @@ cd ealch-admin
 pnpm corpus:probe --unit a2.20 --theme verbes,verbes-essentiels
 pnpm corpus:probe --tokens "j'ai fait,j'ai dit,j'ai pris,j'ai vu,j'ai lu,j'ai bu,j'ai ouvert,j'ai eu,j'ai été"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**Every infinitive whose participle you teach already exists.**
+
+```
+faire    1 row   fr.sons.verbes-essentiels.004 [FEHR]
+prendre  3 rows  fr.sons.consonnes.107 [PRAHⁿDR]   ⚠ the other two are broken
+voir     1 row   fr.sons.verbes-essentiels.011 [VWAR]
+mettre   1 row   fr.sons.verbes-essentiels.014 [METR]
+écrire   5 rows  fr.a1.ecole.049                   ⚠ gender=m on that row
+ouvrir   2 rows  fr.sons.verbes-essentiels.034 [oo-VREER]
+```
+
+**THE PARTICIPLES THEMSELVES WERE NOT PROBED and they are the lesson.** Probe
+`fait, dit, pris, mis, vu, écrit, ouvert, eu, été` before you plan anything. Their
+existence, or absence, is the authoring case.
+
+**`a2.05` (seq 16) decides whether a participle is a corpus item at all.** If it
+has not shipped, you cannot start: the answer changes whether this lesson authors
+forty rows or zero.
 
 Several of your forty are the participles of verbs `a2.02`, `a2.12`, `a2.13`, `a2.14` and
 `a2.15` already taught in the present. **Those infinitives exist as items. Import them and
@@ -214,8 +248,18 @@ teach an auxiliary choice, drop a participle, replace a `typeIn` with an mcq.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
 
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- Every infinitive exists; several `prendre`-family respellings are broken in the
+  way Corrections §6 describes.
+
+## Still unverified
+
+- **Whether the participles themselves exist as rows.** `fait, dit, pris, mis, vu,
+  écrit, ouvert, eu, été` were not probed by anyone. That is the authoring case and it is
+  one command.
 - **The corpus split with `a2.05`.** Unmade, and it is the first thing to settle.
 - **Whether participles are corpus items at all.** Ledger decision, unmade.
 - Whether forty items can honestly fill 19 to 24 missions without padding. **This brief

@@ -10,18 +10,31 @@ three of which are your prerequisites in practice. Read `a1.14`'s build report b
 anything else: its brief claimed four adjectives needed authoring when forty-four had
 already been imported.
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.03   L'accord des adjectifs                             seq 10
-  sub:    the full system — -eux/-euse, -if/-ive, invariable
+a2.03   seq 10
+  title:  Adjective Agreement
+  sub:    L'accord des adjectifs
   canDo:  Can agree any adjective in all four forms and spot the invariable ones
   prereqUnitIds: ['a1.14', 'a1.16']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -33,6 +46,35 @@ pnpm corpus:probe --unit a2.03 --theme adjectifs,couleurs
 pnpm corpus:probe --words "heureux,heureuse,sportif,sportive,sérieux,actif,marron,orange,bleu clair"
 pnpm corpus:probe --tokens "elle est heureuse,ils sont sportifs,une veste marron"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**Mostly exists, and TWO of the brief's examples do not.**
+
+```
+heureux    2 rows   fr.a1.emotions.001 [uh-RUH]
+heureuse   2 rows   fr.sons.muettes.053 [eu-REUZ]
+sérieux    3 rows   fr.sons.adjectifs-essentiels.037    ⚠ fr.b2.valeurs.070 gender=m
+actif      4 rows   fr.a1.animaux-domestiques.119       ⚠ fr.b2.affaires.046 gender=m
+marron     1 row    fr.sons.couleurs.011 [mah-ROHⁿ]
+orange     5 rows   fr.sons.consonnes.055               ⚠ ALL carry gender=f
+
+sportif    0 rows   ABSENT
+sportive   0 rows   ABSENT
+```
+
+**`orange` and `marron` are the invariable colours this lesson turns on, and
+every `orange` row carries `gender`.** Importing one puts a gendered single-word
+row in your itemIds and moves a1.03's printed figures. Read invariants §5 before
+you decide; withdrawing is cheaper than arguing.
+
+**THE THEME DECISION IS STILL OPEN AND IT IS YOURS.** `adjectifs` has **0 rows in
+Postgres — the theme does not exist**, and neither does `adverbes`. The probe line
+above asks for `--theme adjectifs,couleurs`; `couleurs` is real, `adjectifs` is
+not. Ledger §3 says whoever builds a2.03 probes what `a1.14` and `a1.16` actually
+used and amends the ledger *before* authoring. Creating a theme is product-visible
+in the flashcard hub and the Den. **`a2.16` and `a2.17` both inherit whatever you
+decide.**
 
 **This is the block most likely to be wrong.** Three A1 adjective lessons have shipped
 and a1.14's build found forty-four adjectives already imported against a brief claiming
@@ -201,8 +243,20 @@ separate the invariable class from its regular neighbour.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
 
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- `sportif`/`sportive` are genuinely absent; everything else exists.
+- `adjectifs` and `adverbes` are empty themes. Still 0 rows as of 2026-08-12.
+
+## Still unverified
+
+- **Which theme this lesson writes into.** `adjectifs` has 0 rows and does not exist;
+  `couleurs` does. Probe what `a1.14` and `a1.16` actually used, decide, and amend the
+  ledger. `a2.16` and `a2.17` are both waiting on the answer.
+- Whether an UNGENDERED `orange` or `marron` row exists anywhere. All five `orange`
+  rows carry `gender=f`, and invariants §5 makes a gendered single-word row radioactive.
 - **The true state of the `adjectifs` theme.** a1.14's build report is the place to start
   and it is one build old. Everything this brief says about what you will author is a
   guess.

@@ -9,18 +9,31 @@ conjugated verb.
 politeness half of this lesson is the only place in batch 1 where A1's social register
 returns and it must not contradict what a1.01 taught.
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.13   Irréguliers 3 : vouloir, pouvoir, devoir           seq 7
-  sub:    the modals — want, can, must + infinitive
+a2.13   seq 7
+  title:  Irregular Verbs 3: Vouloir, Pouvoir, Devoir
+  sub:    Irréguliers 3 : vouloir, pouvoir, devoir
   canDo:  Can say what they want, can and must do with a modal plus an infinitive
   prereqUnitIds: ['a2.02']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -32,6 +45,22 @@ pnpm corpus:probe --unit a2.13 --theme verbes,verbes-essentiels
 pnpm corpus:probe --words "vouloir,pouvoir,devoir,savoir"
 pnpm corpus:probe --tokens "je veux,je voudrais,je peux,je dois,est-ce que je peux"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**All four headwords exist. You author none of them.**
+
+```
+vouloir   1 row    fr.sons.verbes-essentiels.007 [voo-LWAR]
+pouvoir   2 rows   fr.sons.verbes-essentiels.006 [poo-VWAR]   ⚠ fr.b2.philosophie.165 is the NOUN, gender=m
+devoir   10 rows   fr.sons.verbes-essentiels.008 [duh-VWAR]   ⚠ SEVEN of the ten are the NOUN "le devoir", gender=m
+savoir    1 row    fr.sons.verbes-essentiels.009 [sah-VWAR]
+```
+
+**`devoir` is the trap in this list and it is a corpus trap, not a teaching one.**
+Most published `devoir` rows are the noun (*homework, duty*), gendered, and
+importing one would move twenty printed figures in `a1-03-genre.test.ts`. Import
+`fr.sons.verbes-essentiels.008` and check `gender` on every row you touch.
 
 ---
 
@@ -167,9 +196,19 @@ argument of the lesson and it should be true of the corpus too.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
 
-- Whether `vouloir`, `pouvoir`, `devoir` already exist as items. Probe.
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- All four headwords exist. Seven of `devoir`'s ten rows are the gendered noun.
+- `a2.14` (seq 8) declares this unit as its prerequisite and takes `savoir`
+  against `connaître`. Conjugate `savoir` here if the paradigm needs it; the
+  DISTINCTION is a2.14's and naming it is the ceiling.
+
+## Still unverified
+
+- Which `devoir` row is the VERB. Seven of its ten published rows are the gendered noun
+  (*homework, duty*). `fr.sons.verbes-essentiels.008` is the one you want.
 - **Whether any A2 unit owns `il faut`.** A scan of the spine suggests not. Unconfirmed,
   and it is the kind of gap that only shows up when somebody builds this lesson.
 - Whether a1.01's politeness wording is compatible with what you write about

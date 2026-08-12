@@ -10,18 +10,31 @@ Trail seq **16** of 32. The largest single lesson in A2 and the head of a five-l
 **`a2.19` as shipped** (seq 15, whose negation rule you extend and must match verbatim),
 and **`a2.18` as shipped** (seq 14, which was told to defer "ago" to you).
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.05   Le passé composé avec avoir                        seq 16
-  sub:    formation, 60 participles, negation
+a2.05   seq 16
+  title:  The Passé Composé with Avoir
+  sub:    Le passé composé avec avoir
   canDo:  Can talk about the past with avoir and place the negation around the auxiliary
   prereqUnitIds: ['a2.01', 'a1.07']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -32,6 +45,30 @@ cd ealch-admin
 pnpm corpus:probe --unit a2.05 --theme verbes,verbes-essentiels
 pnpm corpus:probe --tokens "j'ai mangé,j'ai fini,j'ai vendu,je n'ai pas mangé,hier j'ai"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**`avoir` and the regular infinitives all exist.**
+
+```
+avoir     2 rows   fr.sons.verbes-essentiels.002 [ah-VWAR]   ⚠ fr.b1.courses.042 gender=m
+parler    8 rows   fr.sons.verbes-essentiels.015
+manger    5 rows   fr.a1.cuisine.041 [mahn-ZHAY]             ⚠ nasal
+finir     2 rows   fr.sons.verbes-essentiels.037
+vendre    5 rows   fr.a2.verbes.027 [VAHⁿDR]                 repaired by a2.11
+```
+
+**THE DECISION THIS LESSON MUST MAKE AND THE LEDGER LEFT OPEN**: is a past
+participle a corpus item? Doctrine §E lists it as undecided and says forty
+irregular participles is either forty new rows or zero. **You are seq 16 and
+`a2.20` (seq 17) is built on your answer.** Settle it in the ledger, not in your
+own corpus header.
+
+**`a2.01` authored its rows so that this lesson could import cleanly**: its corpus
+header records that every row is a simple present with an explicit subject, so no
+sentence is ambiguous between an infinitive and a past participle. `parler` and
+`parlé` are both /paʁle/ and that collision is yours. The evidence is clean; keep
+it that way for `a2.20`.
 
 Then, and this decides how much work the lesson is:
 
@@ -237,7 +274,15 @@ participle with `avoir`, teach an irregular participle, drop a deferral loop.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
+
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- `avoir` and the regular infinitives all exist.
+- `a2.01` deliberately kept its corpus free of infinitive/participle ambiguity for
+  you. Read its header.
+
+## Still unverified
 
 - **Whether participles are corpus items at all.** Ledger decision, unmade, and it changes
   the size of this build by sixty rows.

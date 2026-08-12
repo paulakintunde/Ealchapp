@@ -9,18 +9,31 @@ agree — you are the other side of that contrast), **`a2.20` as shipped** (whic
 which of its participles take `être`), **`a2.03`** (agreement), and **`a2.01`** (the
 silent-agreement reframe you are about to pay off).
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.21   Le passé composé avec être                         seq 18
-  sub:    DR MRS VANDERTRAMP & agreement
+a2.21   seq 18
+  title:  The Passé Composé with Être
+  sub:    Le passé composé avec être
   canDo:  Can pick être as the auxiliary where French requires it and agree the participle
   prereqUnitIds: ['a2.05']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -31,6 +44,35 @@ cd ealch-admin
 pnpm corpus:probe --unit a2.21 --theme verbes,verbes-essentiels
 pnpm corpus:probe --tokens "je suis allé,elle est allée,ils sont partis,elles sont venues,je suis né"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**All fifteen être-verbs exist. You author none of them.**
+
+```
+aller · venir · partir · sortir · monter · descendre · rester · tomber
+naître · mourir · entrer · rentrer · retourner · arriver · passer      all present
+```
+
+**Six carry a nasal that is wrong, and four of those the checker cannot see:**
+
+```
+monter      mohn-TAY        ⚠ invisible   descendre   day-SAHN-druh   ⚠ visible + schwa tail
+tomber      tohn-BAY        ⚠ invisible   entrer      ahn-TRAY        ⚠ visible
+rentrer     rahn-TRAY       ⚠ visible     (fr.a2.verbes.016 already holds rahⁿ-TRAY)
+```
+
+`a2.11` already repaired `fr.a1.transports-quotidiens.045` (`descendre`) to
+`day-SAHⁿDR`. Import that row, not one of the other two.
+
+**`a2.11` (seq 4) recorded that no unit body names `descendre`'s auxiliary
+split.** Corrections §7 explains why that finding is weaker than it reads: a unit
+body has no content manifest, and **your canDo covers it by topic**. You own it.
+Say so, and close the loop `a2.11` opened.
+
+**`a2.10.l2` teaches `partir`, `sortir` and the shedders**, and `a2.11`
+teaches `descendre` in the present. Both are shipped. Read them: the present-tense
+paradigms arrive already taught and re-teaching them spends missions on last month.
 
 Read `a2.20`'s corpus header for the participles it flagged as `être`-taking. Import them;
 do not re-author.
@@ -197,7 +239,17 @@ participle, teach a reflexive, remove the pattern and leave only the mnemonic.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
+
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- All fifteen être-verbs exist; six respellings need repair, four invisibly.
+- **You own `descendre`'s transitive/intransitive split.** `a2.11` handed it to
+  you by unit id and reported that no unit body names it; Corrections §7 explains
+  why that is a query artifact rather than a hole.
+- `a2.10.l2` and `a2.11` have shipped and teach these verbs in the present.
+
+## Still unverified
 
 - **`a2.01`'s exact reframe wording.** Read the shipped lesson; do not reconstruct it from
   this file. If `a2.01` shipped a different reframe, quote what it actually shipped and

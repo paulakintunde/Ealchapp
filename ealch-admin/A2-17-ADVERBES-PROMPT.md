@@ -8,18 +8,31 @@ learner gets paid for.
 need), and **`a1.18` (negation)**, because adverb placement and negation placement
 interact and must not contradict each other.
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.17   Les adverbes                                       seq 12
-  sub:    formation & placement — the -ment pattern
+a2.17   seq 12
+  title:  Adverbs
+  sub:    Les adverbes
   canDo:  Can build -ment adverbs, use the irregular ones, and place them correctly
   prereqUnitIds: ['a2.03']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -31,6 +44,32 @@ pnpm corpus:probe --unit a2.17 --theme adjectifs,adverbes
 pnpm corpus:probe --words "lentement,rapidement,heureusement,vraiment,bien,mal,vite,souvent,toujours,évidemment,constamment"
 pnpm corpus:probe --tokens "je mange souvent,il parle lentement,elle chante bien"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**All eleven exist, and there is a whole `adverbes-essentiels` theme you can
+import from.**
+
+```
+lentement      2 rows   fr.sons.adverbes-essentiels.001 [lahnt-MAHN]     ⚠ nasal
+rapidement     2 rows   fr.sons.adverbes-essentiels.002 [ra-peed-MAHN]   ⚠ nasal
+heureusement   2 rows   fr.sons.adverbes-essentiels.006 [uh-ruhz-MAHN]   ⚠ nasal
+vraiment       2 rows   fr.sons.mots-essentiels.069 [vreh-MAHN]          ⚠ nasal
+évidemment     1 row    fr.sons.adverbes-essentiels.018 [ay-vee-da-MAHN] ⚠ nasal
+constamment    1 row    fr.sons.adverbes-essentiels.045 [kohns-ta-MAHN]  ⚠ TWO nasals
+bien           4 rows   fr.sons.mots-essentiels.045 [BYAN]               ⚠ nasal
+souvent        2 rows   fr.sons.mots-essentiels.056 [soo-VAHN]           ⚠ nasal
+mal · vite · toujours   exist, no nasal
+```
+
+**EIGHT OF ELEVEN CARRY A BROKEN NASAL, and `-ment` guarantees it**: every
+`-ment` adverb ends in the same nasal vowel. This is the largest single repair set
+in the level. **Corrections §6 applies to all of them** — `lahnt-MAHN` is
+token-final so the checker CAN see it, but `kohns-ta-MAHN` has a first nasal
+followed by `s` inside the token and it cannot. **Split your repair table.**
+
+The theme is `adverbes-essentiels`, which exists and holds rows. **`adverbes`
+(no suffix) has 0 rows and does not exist** — do not create it.
 
 `adverbes` may not exist as a theme. If it holds 0 rows in **both** Postgres and the
 seed, it is dead and the answer is to place your items in an existing theme, not to
@@ -201,10 +240,19 @@ tense, drop the unseen-adjective item.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
 
-- **Whether an `adverbes` theme exists.** If it holds 0 rows in both copies it is dead.
-  Probe Postgres before proposing anything.
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- All eleven exist. `adverbes-essentiels` is a real theme with rows in it;
+  `adverbes` is not and must not be created.
+- Eight of the eleven carry a nasal that needs repairing, and `-ment` means every
+  adverb you add will too.
+
+## Still unverified
+
+- Which theme this lesson WRITES into. `adverbes-essentiels` exists and holds rows;
+  `adverbes` has 0 and must not be created. `a2.03` decides the adjective side.
 - Whether any adverbs already exist scattered across other themes. `souvent`, `toujours`,
   `vite` and `bien` are frequent enough that A1 lessons may already carry them, in which
   case you import.

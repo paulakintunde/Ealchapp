@@ -8,18 +8,31 @@ as a contrast.
 **`a2.13` as shipped** (your prerequisite). `a2.13` was told to leave `savoir` entirely
 alone. Confirm it did, and if it leaked, report it rather than working around it.
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.14   Irréguliers 4 : savoir & connaître                 seq 8
-  sub:    the two ways French knows things
+a2.14   seq 8
+  title:  Irregular Verbs 4: Savoir and Connaître
+  sub:    Irréguliers 4 : savoir & connaître
   canDo:  Can pick savoir or connaître correctly, the distinction English does not make
   prereqUnitIds: ['a2.13']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -31,6 +44,25 @@ pnpm corpus:probe --unit a2.14 --theme verbes,verbes-essentiels
 pnpm corpus:probe --words "savoir,connaître,reconnaître,paraître"
 pnpm corpus:probe --tokens "je sais,je connais,je sais nager,je ne sais pas,nous connaissons"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**All four headwords exist. You author none of them.**
+
+```
+savoir        1 row    fr.sons.verbes-essentiels.009 [sah-VWAR]
+connaître     3 rows   fr.sons.verbes-essentiels.048 [koh-NETR]
+reconnaître   3 rows   fr.sons.verbes-essentiels.187
+paraître      1 row    fr.sons.verbes-essentiels.217
+```
+
+**Three competing respellings for `connaître`**: `koh-NETR`, `kon-NETR`,
+`koh-NEHTR`. Invariants §9: a variant is not a violation, so repair only what
+breaks a stated rule. `kon-NETR` (fr.a2.communaute.050) closes a nasal with a
+plain n and the checker cannot see it — Corrections §6.
+
+**`connaissent` is the word the invariants name** as the checker's blind spot.
+Assert it by name.
 
 **`connaître` carries a circumflex and the probe does not strip accents.** Probe it with
 real orthography or you will be told it does not exist when it does. This has produced a
@@ -186,9 +218,17 @@ respellings, add a `connaître` + clause sentence outside the errorSpot.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
 
-- Whether `savoir` or `connaître` already exist as items. Probe with the circumflex.
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- All four headwords exist; `connaître` has three competing respellings and one
+  real violation.
+- `a2.13` (seq 7) is your prerequisite and will have conjugated `savoir`. Read
+  it before deciding how much paradigm you owe.
+
+## Still unverified
+
 - **Whether `a2.13` leaked `savoir`.** It was told not to. Read the shipped lesson.
 - Whether the project has an existing convention on the circumflex in `connaître` /
   `connaitre`. Check other themes before deciding.

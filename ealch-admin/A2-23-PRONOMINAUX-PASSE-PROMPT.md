@@ -11,18 +11,31 @@ against briefs; build it against the lessons as shipped.
 `être` and agreement — quote its agreement rule), **`a2.05`** (formation and negation),
 and **`a2.20`** (the participles).
 
+**And read `A2-BRIEF-CORRECTIONS.md` before you read the rest of this file.** It
+holds the twenty-one claims the five shipped A2 briefs got wrong, the measurements
+that replace them, and the two holes in the guards you are about to copy. The
+sections below have been corrected against it; the ones that were measured are
+marked.
+
 ---
 
 ## Identity
 
+**Measured against Postgres 2026-08-12. This block replaces the one this brief
+originally carried, which had `title` and `sub` swapped and a `sub` that exists
+nowhere in the database — the same error all four shipped A2 briefs made.**
+
 ```
-a2.23   Pronominaux au passé composé                       seq 20
-  sub:    être auxiliary & the agreement rule
+a2.23   seq 20
+  title:  Pronominal Verbs in the Passé Composé
+  sub:    Pronominaux au passé composé
   canDo:  Can put reflexive verbs into the past with être and agree them correctly
   prereqUnitIds: ['a2.22', 'a2.21']
+  lessonIds:     []          <- first build, version starts at 1
 ```
 
-Copy `title`, `sub` and `canDo` byte-for-byte from the probe's unit dump.
+Use it as it stands. Re-run `scripts/_a2_preflight.ts` if you are reading this
+more than a few days after the date above.
 
 ---
 
@@ -33,6 +46,22 @@ cd ealch-admin
 pnpm corpus:probe --unit a2.23 --theme routine,verbes
 pnpm corpus:probe --tokens "je me suis levé,elle s'est levée,ils se sont couchés,elle s'est lavé les mains,je ne me suis pas levé"
 ```
+
+### What the probe already returned, measured 2026-08-12
+
+**You are the last lesson of batch 2 and you depend on three that are not
+built yet**: `a2.22` (seq 19) for the reflexives, `a2.21` (seq 18) for être as
+auxiliary, and `a2.05`/`a2.20` (seq 16, 17) for participles. **Build order is
+not negotiable here.**
+
+Probe as `a2.22` does, and read whatever it settled about the shape reflexives are
+stored in. Do not re-derive it.
+
+**The agreement rule is this lesson's Owns and it is the hardest in A2**: the
+participle agrees with a preceding direct object, so `elle s'est lavée` agrees and
+`elle s'est lavé les mains` does not. **`fold()` keeps a final `-e` and
+`-s`**, so agreement IS testable by `typeIn` — Corrections §5. That is unusual
+for this band and it should shape your quiz.
 
 Read `a2.22`'s corpus header for what it imported from `routine` and what it authored. You
 import the same items; you do not author a second set.
@@ -210,7 +239,14 @@ header. If your id block goes unused, that is the right outcome.
 
 ---
 
-## UNVERIFIED
+## Settled before you start
+
+- The identity block, above.
+- `lessonIds: []`. First build, version 1.
+- Agreement is testable by `typeIn` because `fold()` keeps a final `-e` and
+  `-s`. Most A2 spelling distinctions are not; this one is.
+
+## Still unverified
 
 - **Whether `a2.22` and `a2.21` are both shipped.** They are hard prerequisites and this
   lesson cannot be built against briefs. If either is unbuilt, stop and say so.

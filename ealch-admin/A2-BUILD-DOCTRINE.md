@@ -53,6 +53,15 @@ situational block. They are not briefed yet.
 
 ## §A. Read first, in this order
 
+0. **`ealch-admin/A2-BRIEF-CORRECTIONS.md`.** ADDED 2026-08-12, after five lessons
+   shipped. It holds the **twenty-one claims the shipped A2 briefs got wrong**, the
+   measurements that replace them, the pre-flight for all sixteen remaining lessons
+   (identity blocks, which vocabulary already exists, which themes are empty), and
+   the two holes in the guards you are about to copy. **Every per-lesson brief has
+   been corrected against it and says so.** Read it before your own brief, not
+   after: it is the difference between finding these things yourself and being
+   told them.
+
 1. **`ealch-admin/A1-BUILD-INVARIANTS.md`.** The gates, the layout traps, the wiring
    pattern, the respelling convention and its blind spots, the quiz rules, the publish
    hazard, the house rules. It is written for A1 and every word holds for A2. It is not
