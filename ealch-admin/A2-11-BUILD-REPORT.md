@@ -418,13 +418,14 @@ this lesson and neither neighbour could have staged it.
 
 ```
                                  before          after
-node --test (full suite)         2964 pass       3074 pass, 0 fail    (+110)
+node --test (full suite)         2964 pass       3075 pass, 0 fail    (+111)
 npx tsc --noEmit  ealch-v2       clean           clean
 npx tsc --noEmit  ealch-admin    clean           clean
 seed.json                        v26, 8687 items, 45 lessons
-                                 v26, 8718 items, 46 lessons
+                                 v27, 8718 items, 46 lessons
 fr.a2.verbes row count           202             226                  (202 + 24 exactly)
 content:parity                   1 divergence    1 divergence, the same one
+lesson version                   -               v2  (see §9, the device defect)
 ```
 
 The baseline was measured, not carried: the ledger records 2951 after a2.10.l2 and
@@ -473,12 +474,76 @@ is caught by the test alone.
 
 ---
 
-## 9. Device verification: the HOST HALF ONLY
+## 9. Device verification: BOTH HALVES, on a Pixel 6
 
-**adb reported no device attached, so the phone half was not done. Saying which
-half plainly, per invariants §7.**
+**The phone pass ran on 2026-08-12 (Pixel 6, oriole, 21041FDF600BMN), against
+Metro on 8082 over `adb reverse`. All four gaps named below are closed, and it
+found one real defect that every host-side gate had passed.**
 
-What was done, against Metro on 8082 and a served 23.3 MB bundle:
+### THE DEFECT: `third person` on two learner surfaces
+
+The lesson's `intro` read *"...and the one where the THIRD PERSON is finished
+before you expect it to be"*, and it is drawn on **the lesson overview card AND
+the lesson cover**. `third person` is grammar vocabulary that invariants §8 keeps
+off a learner surface, this build has a `JARGON` list for exactly that, and it had
+already caught and reworded four other occurrences (s07-cells' title, the
+`threeGroups` term, the r5 `why`, and the sheet's teach section).
+
+**It missed this one because the guard walked `sections`, `sheets` and `terms` and
+not `intro`** — a walk copied from a2.10, where the same hole exists. A guard that
+reads the fields somebody remembered to check is how a1.08's 43 invisible itemIds
+happened, and this is the same shape.
+
+Fixed in `intro` (it now says "the il form", which is what the unit's own canDo
+says), and the walk widened to include `intro` and `overview` in the batch, the
+merge and the test. `grammarAssumed` and `grammarIntroduced` are still excluded,
+deliberately: invariants §8 says they are addressed to the curriculum and may use
+the precise words. The widened guard was mutation-confirmed: putting the phrase
+back makes the batch die with *"grammar vocabulary reached a learner surface:
+third person"*. A test pins `intro` separately from the walk, so a later author
+who trims `learnerText` back fails with the reason rather than reopening the hole.
+
+**The lesson went to v2 for this.** v1 was already applied, and correcting content
+under an unchanged version is the drift that has made Postgres and seed.json
+disagree twice.
+
+### The four gaps, all closed
+
+1. **The three rows of `s07-cells` sit well above the fold**, with room to spare:
+   the whole card ends at under 60% of the screen. `il parle` / `il finit` /
+   `il vend` against `-e` / `-it` / `nothing`, each row with a working detail
+   sheet and its own `say` (verified by opening the `-re` row, which plays
+   `Il vend ici.`).
+2. **The break card's Continue is above the fold on first paint.** Heading
+   "The extra D", both reading rows one line each, the body, the coach line and
+   the button all visible without scrolling. The measured budget a2.01 paid three
+   device passes for held on the first try here.
+3. **`s09-triple` at `size: 'xl'` sizes correctly.** One card per screen,
+   `je vends` with `[zhuh vahⁿ]`, its own audio and a two-word body, with the
+   4-card pager beneath.
+4. **The dictée is `DICTÉE · MOT 1 / 11` and is in LETTERS mode** — individual
+   letter tiles and a letter bank, not word tiles. This is the single most
+   important confirmation of the pass: word mode would have handed `vends` over
+   pre-spelled and the heaviest production section in the lesson would have been
+   testing nothing.
+
+Also confirmed incidentally: the eyebrow draws `A2 · LEÇON 04`; all 24 missions
+list with their mechanic labels; the superscript `ⁿ` renders correctly everywhere
+it appears (respellings, break card, scene follow-up) and is NOT the U+203F
+underscore defect; the `breaks` follow-up prints *"She heard vahⁿd, which is what
+several sellers sound like"*; and A2 is not paywalled on this device, so the
+entitlement a2.01 wrote is still in `RKStorage`.
+
+**Two navigation notes for the next author**, both already in invariants §7 and
+both reproduced exactly: the resume interstitial swallows the first tap, and
+horizontal swipes drift because deck sections eat them (three swipes intended for
+scene beats advanced two whole missions). The reliable route is the missions list,
+and inside a `render: 'screens'` scene the beats advance on the card's own
+Continue rather than the pager's Next.
+
+### The host half, run first
+
+Against Metro on 8082 and a served 23.3 MB bundle:
 
 - **Every section type this lesson uses has a renderer `case`.** All eighteen
   (`scene`, `goals`, `cardDeck`, `examples`, `groupDrill`, `tapTable`,
@@ -492,29 +557,16 @@ What was done, against Metro on 8082 and a served 23.3 MB bundle:
   `rec-a2-11-cells` and the repaired `VAHⁿDR`. A form the lesson never authored
   (`Il repond vite.`, unaccented) is correctly absent.
 
-**What this cannot tell anybody, and what a phone pass should look at first:**
-
-1. **Whether the three rows of `s07-cells` sit above the fold on a Pixel 6.**
-   `tapTable` is not in `ownsLayout()`, so it renders inside a scrolling page.
-   Three rows should be comfortable where a2.10's six were the limit, but that is
-   an inference from a2.10's measurement, not a measurement.
-2. **Whether the break card's Continue is above the fold on first paint.** The
-   heading (11 characters), body (26 words), coach (7 words) and both glosses (19
-   and 18 characters) are all inside the budget a2.01 established over three
-   device passes and are asserted by test, but a2.01 needed three passes to find
-   those numbers and this card has not been looked at.
-3. **Whether `s09-triple` at `size: 'xl'` sizes correctly.** Every string in it is
-   a two-word form, which is the one case where `xl` is right, but the 12-word cap
-   is a validator rule rather than a layout proof.
-4. **Whether an eleven-item dictée reads as thorough or as long.** It is the
-   heaviest section in the lesson by design and the only one whose length is a
-   judgement rather than a constraint.
+Every one of these was necessary and none of them was sufficient: the host half
+was completely green while `intro` said "third person" on two screens.
 
 ---
 
 ## 10. Anything I could not verify, said plainly
 
-- **The device half, above.** Four named gaps.
+- **Whether an eleven-item dictée reads as thorough or as long.** It renders
+  correctly and in the right mode, but its length is a judgement rather than a
+  constraint and one pass through it is not a verdict.
 - **`a2.21` and `descendre`'s auxiliary split.** a2.21 has no lesson, so nothing
   can be confirmed beyond "no unit's body mentions it today". Reported for
   whoever builds seq 18.
@@ -535,9 +587,50 @@ What was done, against Metro on 8082 and a served 23.3 MB bundle:
 ## 11. Ledger amendments
 
 `A2-BATCH-1-LEDGER.md` §2, §5 and §6 amended in place: the block, the row count
-after this apply, the new baseline, and two decisions later lessons in the band
-will need (the checker's blind spot on any stem ending in a consonant, and the
-one-sheet precedent).
+after this apply, the new baseline, and three decisions later lessons in the band
+will need (the checker's blind spot on any stem ending in a consonant, the
+one-sheet precedent, and the jargon walk that has to include `intro`).
 
-**Not committed.** `*.md` is gitignored here, so the report and the ledger need
-`git add -f`.
+---
+
+## 12. Shipped
+
+```
+3c9bc99  feat(a2.11): the -RE verbs, and the cell where you write nothing
+3c537af  chore(publish): snapshot v27, and the seed regenerated from the database
+```
+
+Both pushed to `origin/feat/sons-course`. `*.md` is gitignored here, so this
+report and the ledger went in with `git add -f`.
+
+**Published as OTA snapshot v27.** `content:publish` ran clean: corpus valid,
+no-silent-regression (45 committed lessons accounted for), the French conjugation
+gate over 3385 items, and lesson-has-practice all passed. The advisory machine
+gates it prints (14658 single-drill items, 21970 recycled-vocab, 3351 IPA issues,
+1199 CEFR flags) are corpus-wide and pre-existing, not this build's. It uploaded
+`snapshots/v27.json` and `manifest.json`, then regenerated `seed.json` from
+Postgres.
+
+**That regeneration is a 52961-line diff each way and it is entirely key
+reordering.** Checked semantically rather than trusted: with keys sorted, all 8718
+items, 46 lessons, 75 units and 60 scenarios are byte-identical across it, and the
+only change is `version: 26 → 27`. The suite was re-run afterwards and is still
+3075 / 0.
+
+Confirmed in Postgres after the publish:
+
+```
+a2.11.l1                          v2, 24 sections
+unit a2.11 lessonIds              ["a2.11.l1"]
+fr.a2.verbes rows                 226
+snapshots                         v27, v26, v25
+fr.a2.verbes.027   vendre         VAHⁿDR
+fr.a2.verbes.020   répondre       ray-POHⁿDR
+fr.sons.verbes-essentiels.029     ahⁿ-TAHⁿDR      (both nasals)
+fr.a1.transports-quotidiens.045   day-SAHⁿDR
+intro contains "third person"     no
+```
+
+`content:parity` after the publish reports the same single pre-existing
+divergence it reported before the build started (`b2.01.l1`, database-only,
+`in_review`) and says *"Nothing in the seed is at risk from a publish."*

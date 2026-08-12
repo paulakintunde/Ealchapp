@@ -26,6 +26,27 @@ the thirty verbs `a2.01` imports with nouns.** Nobody in batch 1 should run it.
 Its header's claim that `verbes` holds 5 sentences and 16 new words describes a
 state that no longer exists: the theme now holds 368 published rows.
 
+**THE JARGON GUARD MUST WALK `intro` AND `overview`, AND THE ONE YOU WILL COPY
+DOES NOT.** Found on a Pixel 6 by `a2.11` on 2026-08-12, after v1 had already been
+applied.
+
+`a2.10`'s batch and test both build their learner-surface string as
+`sections + sheets + terms`. **`Lesson.intro` is not in that walk and it is drawn
+on TWO screens**: the lesson overview card and the lesson cover. `a2.11` shipped
+the phrase "third person" there while the same `JARGON` list had already caught
+and reworded four other occurrences inside the lesson body. Every host-side gate
+was green.
+
+Widen the walk to `+ LESSON.intro + strings(LESSON.overview)` in the batch, the
+merge AND the test, and pin `intro` in its own assertion so a later author who
+trims it back fails with the reason. **Do NOT add `grammarAssumed` or
+`grammarIntroduced`**: invariants §8 says those are addressed to the curriculum
+and may use the precise words.
+
+The lesson went to v2 for the fix rather than being corrected under v1. Two
+different bodies under one version number is the drift this project has lost work
+to twice.
+
 **ONE REFERENCE SHEET PER LESSON IS NOT A RULE, AND CROSS-LESSON SHEETS DO NOT
 EXIST.** Settled by `a2.11` on 2026-08-12 because its brief asked for something
 impossible and the next author will be asked the same thing.
@@ -431,12 +452,13 @@ node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
   tests 2877   pass 2877   fail 0        after the spine reconciliation (+7)
   tests 2951   pass 2951   fail 0        after a2.10.l2 (+74)
   tests 2964   pass 2964   fail 0        measured 2026-08-12, before a2.11
-  tests 3074   pass 3074   fail 0        after a2.11 (+110)
+  tests 3075   pass 3075   fail 0        after a2.11 (+111)
 seed.json                                version 22, 8524 items, 42 lessons  (before a2.01)
                                          version 23, 8615 items, 43 lessons  (after a2.09)
                                          version 25, 8649 items, 44 lessons  (after a2.10.l1)
                                          version 25, 8687 items, 45 lessons  (after a2.10.l2)
-                                         version 26, 8718 items, 46 lessons  (after a2.11)
+                                         version 27, 8718 items, 46 lessons  (after a2.11,
+                                           which was PUBLISHED as OTA snapshot v27)
 pnpm content:parity                      exits 1 on three PRE-EXISTING divergences
                                          (sons.09.l1 seed-only, b2.01.l1 db-only,
                                           sons.08.l1 shape drift). Not yours.
