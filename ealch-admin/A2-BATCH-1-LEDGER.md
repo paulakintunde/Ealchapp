@@ -1033,3 +1033,42 @@ valid and read by nothing: the second `quiz`, the `cheatSheet` inside a referenc
 sheet, and now `respell` on an `lg` groupDrill item. **The host half cannot find
 this class at all.** Budget a device pass for it, and if there is no device, say
 that this specific class is unverified rather than that the host half is done.
+
+### 13. DO NOT DESCRIBE OTA STATE FROM A PUBLISH LOG, AND DO NOT OFFER `rollout 0` AS A FIX
+
+Two messaging errors made by the `a2.13` build, corrected 2026-08-13 after the
+claims were checked against the code and against the served bytes.
+
+**`content:rollout 0` STOPS NEW ADOPTERS AND HEALS NOBODY.** a2.13's report and
+its commit messages called it "the kill switch" that "halts adoption without a
+republish", and offered it as protection against a defect that was already live
+at 100%. `set-rollout.ts:13` says the missing half outright: *"What this cannot
+do: heal a device that already adopted a bad version. That is content:rollback.
+Kill first to stop the bleed, then roll back to heal."* `shouldAdopt`
+(content.logic.ts:526) needs `manifestIsNewer` AND `bucket < rollout`, and the
+on-device cache only moves FORWARD.
+
+```
+content:rollout 0    stop the bleed. Never the fix.
+content:rollback     old CONTENT as a NEW version. The only heal that does not
+                     ship whatever else is published in Postgres right now.
+content:publish      heals, and ships everything else too.
+```
+
+`OTA-RUNBOOK.md:44` had it right all along. **A build report is a lossy copy of
+the runbook; act on the runbook.**
+
+**AND WHAT A LEARNER SEES CANNOT BE READ OFF A PUBLISH LOG.** The log says what
+was uploaded. It does not say what is being SERVED, at what rollout, or what a
+lesson body inside it contains. `scripts/_a213_wire.ts` downloads the live
+manifest and snapshot and reads a lesson out of them:
+
+```
+manifest    v30, rollout 100%, snapshots/v30.json, published 02:20:20Z
+a2.13.l1    body v1 — 59 lg groupDrill cards, 0 carrying a note
+a2.14.l1    ABSENT
+```
+
+That is what proved the defect was real on the served bytes rather than only in
+the source, and that holding the publish had in fact kept a2.14 unreleased.
+**Quote the wire, not the log.**

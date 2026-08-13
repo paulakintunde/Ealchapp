@@ -331,8 +331,8 @@ of that is a device. Untested on glass:
 - the **45-question quiz** across six rounds
 - the scene break card, which took a2.01 three device passes to settle
 
-`pnpm content:rollout 0` is the kill switch and halts adoption without a
-republish. **Nothing has been published**: seed.version is still 29.
+`pnpm content:rollout 0` stops NEW adopters and heals nobody. See §10.
+**Nothing has been published**: seed.version is still 29.
 
 Open and not blocking:
 
@@ -474,3 +474,78 @@ The device pass covered the hub, the cover, the act checkpoint and one
 groupDrill. **Not yet walked on glass**: the `s13-unseen` trapDrill, the
 45-question quiz, the dictée, the scenario, the reading passage and the reference
 sheet.
+
+---
+
+## 10. A CORRECTION TO THIS REPORT, AND TO HOW THE OTA STATE WAS DESCRIBED
+
+Added 2026-08-13 after every claim in §6 and §9.5 was checked against the code
+and against the bytes actually being served. Five held. **One was materially
+incomplete and it was the one offered as a remedy.**
+
+### 10.1 `content:rollout 0` is a tourniquet, not a fix
+
+§6 and the a2.13 commit messages describe it as "the kill switch" that "halts
+adoption without a republish". Every word is true and the framing is wrong,
+because it was offered as protection against a defect that was ALREADY LIVE.
+
+`set-rollout.ts:13` says the part that was missing:
+
+> **What this cannot do: heal a device that already adopted a bad version.**
+> That is content:rollback (republishes the last good snapshot as a NEW
+> version). Kill first to stop the bleed, then roll back to heal.
+
+`shouldAdopt` (content.logic.ts:526) confirms the mechanism: adoption needs
+`manifestIsNewer` AND `bucket < rollout`, so rollout 0 admits nobody — and the
+on-device cache only ever moves FORWARD. A device that already holds a bad
+snapshot keeps it, permanently, until a strictly newer one is published.
+
+`OTA-RUNBOOK.md:44` had it right all along: *"This does NOT fix devices that
+already adopted it."* The runbook was correct and the summaries in this report
+were the lossy copy. **Read the runbook, not a build report, before acting on an
+incident.**
+
+The three real options, stated properly:
+
+```
+content:rollout 0    stops NEW adopters. Anyone already on the bad version
+                     stays on it. Use to stop the bleed, never as the fix.
+content:rollback     republishes older CONTENT as a NEW version, so devices
+                     "upgrade" onto it. The only move that heals a fleet
+                     without shipping whatever else is now in the database.
+content:publish      heals, and ships everything else that is published in
+                     Postgres at that moment.
+```
+
+### 10.2 What the wire actually held, fetched rather than inferred
+
+Every earlier statement about "what a learner sees" was reasoned from the
+publish log. `scripts/_a213_wire.ts` downloads the live manifest and snapshot
+and reads a2.13 out of them. Measured 2026-08-13:
+
+```
+manifest    v30, rollout 100%, snapshots/v30.json, published 02:20:20Z
+a2.13.l1    body v1, 32 sections
+            59 lg groupDrill cards
+              carrying a note       0
+              carrying respell/en  59   <- dropped by MissionRich.tsx:439
+            10 titles over the 27-character hub budget
+a2.14.l1    ABSENT
+```
+
+So the defect was real on the served bytes, not merely in the source, and it was
+live at 100% from 02:20. Holding the publish did keep a2.14 unreleased, which
+was the point of holding it.
+
+**Any claim about learner-visible state should be made with this script, not
+from a publish log.** The log says what was uploaded; it does not say what is
+being served, at what rollout, or what a body inside it contains.
+
+### 10.3 A smaller one: `seedv` is a local signal
+
+The watch in `_a214_signal.ts` treats a move in `seed.version` as "somebody
+published". That holds only for a publish run IN THIS WORKING TREE, because
+`publish-content.ts` rewrites the local `seed.json`. A publish from another
+clone would not touch it. **`live`, read from the manifest in Storage, is the
+authoritative field**; `seedv` is a convenience that happens to work while two
+sessions share one tree.
