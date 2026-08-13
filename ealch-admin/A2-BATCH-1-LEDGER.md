@@ -973,3 +973,63 @@ inside YOUR range that you do not own, the a1.20 failure — stays fatal.
 seed edits. The Pixel therefore shows whatever METRO serves, and a cold restart
 is needed after a seed change. A deep link that falls through to `/den` means
 `content.lesson(id)` was null against a stale bundle, not that the link is wrong.
+
+### 12. a2.14 HAD BOTH OF a2.13's DEVICE-PASS DEFECTS, AND NO GUARD COULD SEE EITHER
+
+Added after a2.14 was finished, green on three layers and mutation-tested to zero
+blind spots. It was caught because a2.13's device pass was **sitting uncommitted
+in the working tree** when a2.14 came to be committed, and `git status` had to be
+read before staging.
+
+**Both budgets are house-wide and every remaining lesson in this band inherits
+them.** They are now constants in a2.14's corpus as well as a2.13's, refused by
+both builds' batch, merge and test, and mutation-tested in both.
+
+**1. `respell` AND `en` DO NOT RENDER ON A `groupDrill` ITEM AT `lg`.**
+
+`MissionRich.tsx:439` draws `fr`, `ipa` and `note` and nothing else.
+`schema.ts:899` records it: `respell`, `en` and `silent` are the XL card's lines.
+
+```
+a2.13 v1   59 item cards, 8 lg groupDrills   SHIPPED AND PUBLISHED
+a2.14 v2   53 item cards, 9 lg groupDrills   caught before commit
+```
+
+In both cases every card was a bare French sentence with no pronunciation and no
+meaning, and every host gate was green, because the data is schema-valid and
+simply read by nothing. **Put the respelling and the gloss in `note`, and do not
+also pass `respell` and `en` — their presence is the trap.** The a1.08 class:
+valid data no component reads.
+
+**If your lesson uses `rowCard`-style helpers, check what size your groupDrills
+are before you trust them.** a2.15's, a2.03's and every batch-2 lesson's will be
+`lg` unless they say otherwise, because `lg` is what this band has copied since
+a2.01.
+
+**2. THE MISSION-ROW TITLE CEILING IS 27 CHARACTERS.**
+
+The missions hub draws the section title and a TYPE CHIP on one row and the chip
+wins, so a longer title ellipsises. The same titles render in FULL on the act
+checkpoint screen, which is why nothing looks wrong anywhere else.
+
+```
+a2.13   8 of 32 titles cut in v1
+a2.14   4 of 28 titles cut in v2
+a2.12   "One Verb, A Dozen English Ones" is 29 and is CUT TODAY
+```
+
+**3. WHAT THIS SAYS ABOUT THE HOST HALF, AND IT IS SHARPER THAN INVARIANTS §7.**
+
+a2.14's host half did everything the invariants ask: it served the bundle, grepped
+it for every new string and for the strings that must be absent, and grepped the
+renderer for a `case` handling every section type. All of it passed. **Every one
+of those strings was on a card that would not draw it.**
+
+> A grep proves a string is in the bundle. It proves nothing about whether any
+> component reads it.
+
+Three of the four a1.08-class defects in this project are fields that are present,
+valid and read by nothing: the second `quiz`, the `cheatSheet` inside a reference
+sheet, and now `respell` on an `lg` groupDrill item. **The host half cannot find
+this class at all.** Budget a device pass for it, and if there is no device, say
+that this specific class is unverified rather than that the host half is done.

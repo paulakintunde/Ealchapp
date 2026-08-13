@@ -3,14 +3,20 @@
 Built 2026-08-12. Trail seq 8 of 32. Doctrine §F, corrections §12, plus the five
 things `A2-14-SAVOIR-CONNAITRE-PROMPT.md` asks for by name.
 
+> **v3, AND THE REASON IS IN §3.12.** This lesson shipped v2 with 53 groupDrill
+> cards showing a bare French sentence with no pronunciation and no meaning, and
+> four mission titles ellipsised in the hub. Both were caught only because
+> a2.13's device pass was sitting UNCOMMITTED in the working tree when a2.14 came
+> to be committed. Nothing in this build's three guard layers could see either.
+
 ```
-lesson      a2.14.l1 v2     28 sections · 6 acts · 36 questions · 42 items
+lesson      a2.14.l1 v3     28 sections · 6 acts · 36 questions · 42 items
 authored    30 rows         fr.a2.verbes.381 .. .410
 imported    12 rows         out of 6 themes, 0 naming forms authored
 postgres    fr.a2.verbes    310 -> 340
 seed        8832 -> 8865 items, 49 -> 50 lessons, version 30 UNCHANGED
-suite       3261 -> 3325    (64 new, 0 fail)
-mutations   25 run          0 invisible to all three layers
+suite       3261 -> 3330    (66 new, 0 fail)
+mutations   27 run          0 caught by nothing, 0 invisible to the test
 ```
 
 ---
@@ -399,6 +405,67 @@ for it rather than being corrected under v1**, which is the ledger §10 rule: tw
 different bodies under one number is the drift this project has lost work to
 twice, and the batch refuses it by comparing `canonicalJson`.
 
+### 3.12 THE TWO DEFECTS THIS BUILD COULD NOT SEE, AND FOUND BY ACCIDENT
+
+**The most important thing in this report, and it is not to this build's credit.**
+
+a2.14 was finished, green on all three layers, mutation-tested to zero blind
+spots, and about to be committed. `git status` showed six modified `modaux` files
+that were not mine: **a2.13's device pass, complete and applied and merged and
+uncommitted.** Reading it before staging is the only reason the following was
+caught.
+
+**1. FIFTY-THREE CARDS WITH NO PRONUNCIATION AND NO MEANING.**
+
+`MissionRich.tsx:439` draws `fr`, `ipa` and `note` on a `groupDrill` item at
+`lg` and nothing else. `schema.ts:899` says so in as many words: `respell`, `en`
+and `silent` are the XL card's lines. **Every groupDrill in this lesson is `lg`**,
+and `rowCard` and `importedCard` were both passing `respell` and `en`.
+
+```
+53 item cards across 9 sections
+53 carrying respell and en, which are dropped
+53 carrying no note, so the ONLY thing that rendered was the French
+```
+
+A learner would have met every scored card in this lesson as a bare French
+sentence. a2.13 shipped 59 of these in v1 and published them.
+
+It is the a1.08 class of defect — valid data read by nothing — and it is the
+fourth entry on that list after the second `quiz`, the `reading` glossary and the
+`cheatSheet` in a reference sheet. **Not one of the batch, the merge, the test,
+`validateLesson`, `validateDensity` or 25 mutations could see it**, because the
+data was schema-valid and simply never read.
+
+**2. FOUR MISSION TITLES ELLIPSISED IN THE HUB.**
+
+The missions hub draws the title and a type chip on one row and the chip wins.
+The ceiling is 27 characters at default font scale. Four of this lesson's
+twenty-eight were over it, and the same titles render in full on the act
+checkpoint screen, which is why nothing looked wrong anywhere else.
+
+```
+28  Two Verbs Where You Have One   ->  Two Verbs, One In English   25
+28  Things You Learned How To Do   ->  What You Learned To Do      22
+29  Three Verbs, One English Word  ->  Three Verbs, One Word       21
+30  The Same Landing, A Week Later ->  The Landing, A Week On      22
+```
+
+**What was done.** Both budgets are now constants in the corpus with the
+measurement attached, both are refused by the batch, the merge and the test, and
+both are mutation-tested. `respell` and `en` are REFUSED at `lg` rather than
+merely accompanied, because their presence is the trap: a card carrying them
+looks complete in the source and renders empty.
+
+**What this says about the host half.** §6 of this report claims the host half
+verified what it could. It did, and it was not close to enough: the bundle grep
+found every string present and correct, and every one of those strings was on a
+card that would not draw it. **A grep proves a string is in the bundle. It proves
+nothing about whether anything reads it.** That is the gap between the host half
+and a device, stated more precisely than the invariants state it, and it is worth
+carrying: three of the four a1.08-class defects in this project are fields that
+are present, valid and read by no component.
+
 ### 3.11 `nager` was released an act before it was drawn
 
 The act-2 tranche released the savoir frame verb while the ROW is first drawn in
@@ -561,12 +628,15 @@ useful part:
   `say`, a group label and a check `q` — and the mutation covered three. The
   fourth left the claim true and the test was right to pass again.
 
-### 5.3 The third run
+### 5.3 The third run, and the fourth
+
+The third run closed both remaining gaps. The FOURTH added the two defects §3.12
+describes, once a2.13's device pass had turned them up:
 
 ```
-25 mutations run, 0 skipped
+27 mutations run, 0 skipped
 caught by all three : 18
-caught by two       : 7
+caught by two       : 9
 caught by one       : 0
 CAUGHT BY NOTHING   : 0
 invisible to the TEST alone: 0
