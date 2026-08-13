@@ -475,7 +475,7 @@ if (form(PLURAL_UNCHANGED, 'plain') !== form(PLURAL_UNCHANGED, 'plainPl')) {
   if (!owns || !para) die('act2 or act3 is missing');
   if (owns.sections.length <= para.sections.length) {
     die(`the paradigm act has ${para.sections.length} missions and the Owns act has ${owns.sections.length}. `
-      + 'Doctrine B.5: if the paradigm outweighs the Owns, the wrong lesson was built. '
+      + 'Doctrine §B.5: if the paradigm outweighs the Owns, the wrong lesson was built. '
       + 'a2.03 already printed four of these five columns at seq 10, and a1.13 and a1.14 before it.');
   }
 }
