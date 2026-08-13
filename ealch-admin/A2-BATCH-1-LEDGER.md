@@ -116,7 +116,10 @@ seq  id      lessonIds already in the unit      state
  6   a2.12   ['a2.12.l1']                       BUILT. v2, 24 missions, 25 rows,
                                                 26 rows imported out of 15 THEMES
                                                 and 0 headwords authored
- 7   a2.13   probe it                           not started
+ 7   a2.13   ['a2.13.l1']                       BUILT. v1, 32 SECTIONS, 30 rows,
+                                                20 imported out of 11 THEMES and
+                                                0 infinitives authored. The largest
+                                                lesson in the corpus. See below.
  8   a2.14   probe it                           not started
  9   a2.15   probe it                           not started
 10   a2.03   probe it                           not started
@@ -159,7 +162,7 @@ seq  id      block                                    status
  4   a2.11   fr.a2.verbes.221 .. .260                 TAKEN, 221-244 used, 245-260 free
  5   a2.02   fr.a2.verbes.261 .. .300                 TAKEN, 261-289 used, 290-300 free
  6   a2.12   fr.a2.verbes.301 .. .340                 TAKEN, 301-325 used, 326-340 free
- 7   a2.13   fr.a2.verbes.341 .. .380
+ 7   a2.13   fr.a2.verbes.341 .. .380                 TAKEN, 341-370 used, 371-380 free
  8   a2.14   fr.a2.verbes.381 .. .420
  9   a2.15   fr.a2.verbes.421 .. .460
 10   a2.03   NOT verbes. See §3.
@@ -181,6 +184,7 @@ Counts so far, so seq 3 onward has a figure to check against:
 226 rows   after a2.11 (202 + 24),     max .486,  gaps: + .245-.260
 255 rows   after a2.02 (226 + 29),     max .486,  gaps: + .290-.300
 280 rows   after a2.12 (255 + 25),     max .486,  gaps: + .326-.340
+310 rows   after a2.13 (280 + 30),     max .486,  gaps: + .371-.380
 ```
 
 `a2.12`'s block HELD: `fr.a2.verbes` held exactly 255 rows when it claimed `.301`,
@@ -545,3 +549,171 @@ coach              ~8 words
 
 A right-hand row carrying BOTH `ipa` and `respell` is four lines on its own. Budget
 for it. Anything you cut from the body goes in a glossary term instead.
+
+---
+
+## a2.13 amendments, 2026-08-12
+
+Written by the `a2.13` build. Seven of the ten batch-1 lessons are now built.
+
+### 0. THE 24-SECTION SHAPE IS A CONVENTION, NOT A RULE, AND IT WAS NEVER MEASURED
+
+Every A2 lesson before `a2.13` shipped exactly 24 sections, 6 acts and 30
+questions. That shape came from `a2.01` and was copied six times without anyone
+checking it against a subject.
+
+**There is NO ceiling on section count in `schema.ts`.** The only assertion is
+`sections must not be empty` (schema.ts:3281). The real limits are per-screen —
+45 words on a core screen, 12 on an `xl` — and the corpus has already shipped, on
+real devices:
+
+```
+most sections   sons.05.l1   31
+most questions  a1.30.l1    145
+largest body    a1.19.l1    100 KiB
+most ids        sons.10.l1  213
+```
+
+`a2.13` ships **32 sections, 7 acts and 45 questions** because its subject
+carries one Owns and four contexts, and folding those into 24 turns three of them
+into a single card each. **Size the lesson to the subject and say why in the
+header.** Do not copy 24 because it is there.
+
+### 1. THE CORPUS IS RICH IN EVIDENCE AND POOR IN CARDS, AND THEY ARE NOT THE SAME THING
+
+The single most useful measurement in this build, and it decided the design.
+
+```
+sentences holding modal + infinitive        628
+                       ... with a respell    12
+```
+
+**A row without a respelling reaches a card the learner cannot say.** So the
+importable pool was not 628 but 12. Any future brief that quotes a corpus figure
+is quoting an EVIDENCE count; before planning around it, re-count with
+`respell is not null`.
+
+The same measurement in the other direction: the corpus holds **857 distinct
+ungendered infinitives, 815 of them respelled**. Words are abundant, sentences
+are not.
+
+### 2. `--tokens` AND `--words` BOTH LIE, IN OPPOSITE DIRECTIONS
+
+`a2.12` recorded that a `--tokens` probe reports sentence evidence and hides rows
+that exist as published phrases. The mirror holds: a `--words` probe reports rows
+and tells you nothing about whether they are usable on a card.
+
+**Probe with `select ... where respell is not null` when the thing you are about
+to build is a card.**
+
+### 3. TWO SHIPPED ROWS CARRY U+203F AND WILL IMPORT THE UNDERSCORE BUG
+
+```
+fr.sons.voyelles.311        neu-v‿EUR          refused outright
+fr.a2.verbes-essentiels.013 mohn eg-zah-MAN    UNREPAIRABLE, see below
+```
+
+U+203F UNDERTIE renders as a low underscore on a Pixel 6, against shipped
+`sons.10` content. **Any manifest generator in this band should refuse a row
+carrying it**; `_a213_manifest.ts` does, and the check is four lines.
+
+**AND SOME ROWS CANNOT BE RESPELLED IN THE HOUSE NOTATION AT ALL.**
+`Je dois étudier pour mon examen demain.` liaises at `mon examen`: the vowel of
+`mon` stays nasal AND the n is pronounced into the next word. Correct notation
+needs a superscript and a tie, and the tie is banned. `hasPlainNasalFor` flags it
+however you repair the rest of the line. There is no fix; the row does not belong
+in a lesson that displays respellings. Put it in `READ_NOT_IMPORTED`.
+
+### 4. `Ce que vous savez faire` IS A FORM OF savoir, AND a2.14 OWNS savoir
+
+The house roundup heading in this band is `Ce que vous savez faire` and the goals
+heading is `Ce que vous saurez faire`. **Both are savoir.** `a2.14`'s entire
+payload is savoir against connaître.
+
+`a2.13` uses `pouvoir` instead (`Ce que vous allez pouvoir faire`,
+`Ce que vous pouvez faire maintenant`), which is better copy for that lesson
+anyway. **a2.14 has to decide** whether the chrome is exempt or whether every A2
+lesson's heading is a collision. It is not a decision a2.13 could take.
+
+### 5. THE MANIFEST STALENESS CHECK MUST EXEMPT YOUR OWN TRANSFORMS
+
+A manifest is a read of Postgres taken BEFORE the batch runs. If your batch
+repairs a respelling or supplies one, the manifest will legitimately disagree
+with Postgres **after a successful run**, and a strict equality check makes the
+batch refuse its own second run and call it staleness.
+
+`a2.12` got this right for repairs by accident (it checked "contains neither the
+old nor the new value") and `a2.13` got it wrong for additions. **Exempt the rows
+your build transforms and check them separately.** Found by the mutation
+harness's baseline step, not by anybody reading the code.
+
+### 6. TWO GUARDS EVERY LATER LESSON SHOULD COPY
+
+**Every itemId must be DRAWN by some section, drill or term.** Being in `itemIds`
+makes a row available; it does not put it on a screen. `a1.08` shipped
+forty-three ids that resolved perfectly and were rendered by nothing. `a2.13`
+shipped one before the guard caught it. Walk sections + drills + terms and
+compare against `itemIds`.
+
+**A grid rendered from a table must be compared to the rows it drills.** Changing
+the paradigm table from `veulent` to `voulent` was caught by the batch and the
+merge and sailed through the test file, because the grid section renders from its
+own table and nothing compared that table to the cards the learner is scored on.
+A learner would have read one spelling and been graded on another with every gate
+green.
+
+### 7. THE MUTATION HARNESS NEEDS A BASELINE STEP, AND CRLF WILL COST YOU ONE
+
+Two harness facts, both learned the hard way here:
+
+- **Run all three layers unmutated first.** If the baseline is not green, every
+  row below it is noise. This is what found §5.
+- **These files are CRLF.** A multi-line mutation anchor written with `\n`
+  matches nothing. Report a missing anchor as SKIPPED rather than treating it as
+  a pass, and try the anchor in both line-ending forms.
+
+### 8. `il faut` IS OWNED BY NO UNIT AT ANY LEVEL, AND IT IS THE COMMONEST MODAL FORM
+
+```
+il faut     319 published sentences, 0 units naming it
+peut 190 · doit 103 · dois 76 · veux/veut 63 · doivent 58
+```
+
+More frequent than any conjugated form of the three verbs `a2.13` teaches.
+`a2.13` ships **one recognition card** and says so; that is a compromise, not a
+fix. The natural home is `a2.19` or `a2.35`, neither of which mentions it.
+**Whoever builds those should take it.**
+
+### 9. INVARIANTS §3 AND THE CORPUS DISAGREE ON /ø œ/
+
+§3 gives `EU`. The shipped corpus gives `UH`: `peux` is already `puh`
+(fr.a1.verbes-essentiels.033), `veut` is `vuh` (fr.a2.verbes-essentiels.041),
+`la queue` is `KUH`, `le neveu` is `nuh-VUH`, `nerveux` is `nehr-VUH`.
+
+`a2.13` ships `UH`, matching practice, because inventing a fourth spelling for
+one sound is what invariants §9 records as the ɥ-glide mistake. **The document
+and the corpus should be reconciled by somebody**, and this build did not do it.
+
+### 10. a2.13 IS NOT A LEAF, AND THE DEPENDENTS CHECK CAN BE KEPT
+
+`a2.12` had to loosen `a2.02`'s "die when nothing depends on this unit" check to
+a report, because it genuinely had no dependents. **`a2.13` has two:**
+
+```
+a2.14 (seq 8)    declares a2.13 as a prerequisite so it can bring pouvoir back
+a2.29 (seq 28)   At the Hotel
+```
+
+So the strict check was kept here. Probe your own unit rather than copying either
+decision.
+
+### 11. THE VERB ARC DOES NOT CLOSE IN BATCH 1
+
+Measured against all 35 A2 units: **20 are verb units, 7 are built, 13 are open.**
+The verbs run past batch 1 entirely — a2.17, a2.19, a2.05, a2.20, a2.21, a2.22,
+a2.23, a2.06, a2.24, a2.27 and a2.35 are all still verb lessons.
+
+The **"Irréguliers 1–5" arc** closes at `a2.15`, which is the right place for a
+closing gesture: it is the first lesson that must author its own infinitives, so
+the arc ends where importing stops working. Do not write a farewell into a2.13 or
+a2.14.
