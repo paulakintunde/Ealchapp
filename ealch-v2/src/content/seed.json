@@ -146398,16 +146398,16 @@
               "kind": "break",
               "size": "lg",
               "heading": "Two knows",
-              "body": "Nothing you said was wrong. You answered a different question, because English gave you one verb where French keeps two.",
+              "body": "Nothing you said was wrong. You answered a different question, because English keeps one verb here and French keeps two.",
               "wrong": {
                 "fr": "Oui, je sais qu'elle habite ici",
                 "ipa": "/wi ʒə sɛ kɛl a.bit i.si/",
                 "en": "I know about her"
               },
               "right": {
-                "fr": "Tu connais la nouvelle voisine ?",
-                "ipa": "/ty kɔ.nɛ la nu.vɛl vwa.zin/",
-                "respell": "[tü koh-NEH la noo-VELL vwah-ZEEN]",
+                "fr": "Tu connais la voisine ?",
+                "ipa": "/ty kɔ.nɛ la vwa.zin/",
+                "respell": "[tü koh-NEH la vwah-ZEEN]",
                 "en": "have you met her"
               },
               "coach": "What comes next decides.",
@@ -146871,7 +146871,7 @@
           "type": "cardDeck",
           "id": "s08-next",
           "title": "What Comes Next",
-          "frSub": "what comes next decides",
+          "frSub": "Ce qui suit décide",
           "hint": "Swipe. Four sentences, and the verb is decided by the word after it every time.",
           "render": "deck",
           "layer": "core",
@@ -147724,7 +147724,7 @@
         {
           "type": "examples",
           "id": "s19-never",
-          "title": "The One That Does Not Exist",
+          "title": "No Such Sentence",
           "frSub": "La phrase impossible",
           "layer": "core",
           "terms": [
@@ -148752,7 +148752,7 @@
         "fr.sons.elision.072",
         "fr.sons.elision.033"
       ],
-      "version": 3,
+      "version": 5,
       "grammarAssumed": [
         "The six subject pronouns and the nine they cover, introduced in a1.05",
         "on takes third-person-singular agreement, introduced in a1.05",

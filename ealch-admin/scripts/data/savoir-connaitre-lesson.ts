@@ -294,17 +294,34 @@ const SCENE_BEATS: SceneBeat[] = [
   {
     kind: 'break',
     size: 'lg',
+    // ── BUDGETED ON GLASS, AND v3 WAS OVER IT ─────────────────────────────
+    //
+    // v3 shipped this card with the card's own Continue CLIPPED UNDER THE
+    // PAGER BAR on a Pixel 6, which is the defect that cost a2.01 three device
+    // passes and which ledger §7 exists to prevent. It is on mission 1 of 28,
+    // so a learner meets it immediately.
+    //
+    // The cause was one line, and it was the right-hand row. Ledger §7: "A
+    // right-hand row carrying BOTH ipa and respell is four lines on its own.
+    // Budget for it." `ipa` is REQUIRED by the schema on a break row, so the
+    // only lever is the French, and « Tu connais la nouvelle voisine ? » is 31
+    // characters and WRAPPED, making it five lines rather than four.
+    //
+    // Shortened to 23 characters so it sets on one line. The scene's own
+    // question keeps `nouvelle`; this row does not need it, because the card is
+    // contrasting the two VERBS and nothing else on it changed.
     heading: 'Two knows',
-    body: 'Nothing you said was wrong. You answered a different question, because English gave you one verb where French keeps two.',
+    body: 'Nothing you said was wrong. You answered a different question, because English keeps one verb here and French keeps two.',
     wrong: {
       fr: noStop(fr('fr.a2.verbes.408')),
       ipa: '/wi ʒə sɛ kɛl a.bit i.si/',
       en: 'I know about her',
     },
     right: {
-      fr: noStop(fr('fr.a2.verbes.407')),
-      ipa: '/ty kɔ.nɛ la nu.vɛl vwa.zin/',
-      respell: sub('fr.a2.verbes.407'),
+      // NOT `fr('fr.a2.verbes.407')`: that row is 31 characters and wraps.
+      fr: 'Tu connais la voisine ?',
+      ipa: '/ty kɔ.nɛ la vwa.zin/',
+      respell: '[tü koh-NEH la vwah-ZEEN]',
       en: 'have you met her',
     },
     coach: 'What comes next decides.',
@@ -623,7 +640,11 @@ const SECTIONS: LessonSection[] = [
     type: 'cardDeck',
     id: NEXT_SECTION_ID,
     title: 'What Comes Next',
-    frSub: WHAT_FOLLOWS,
+    // FRENCH. `frSub` is the one field that is deliberately French (invariants
+    // §8), and v4 put a2.02's English pattern NAME here, so this row was the only
+    // lowercase English line in a column of French subs on the hub. The pattern
+    // name still appears verbatim in the body, the terms and the sheet.
+    frSub: 'Ce qui suit décide',
     hint: 'Swipe. Four sentences, and the verb is decided by the word after it every time.',
     render: 'deck',
     layer: 'core',
@@ -1081,7 +1102,12 @@ const SECTIONS: LessonSection[] = [
     // version of the rule safe to assert here. Corpus header, item 4.
     type: 'examples',
     id: IMPOSSIBLE_SECTION_ID,
-    title: 'The One That Does Not Exist',
+    // 'The One That Does Not Exist' was 27 characters, the SAME count as the
+    // house heading in mission 2, and it was CUT while that one fits. The hub
+    // budget is rendered WIDTH, not characters: this title's glyphs (O D N E x s)
+    // are wider than that one's (W h i l t B). Measured on a Pixel 6. Shortened
+    // well under the ceiling rather than tuned to it.
+    title: 'No Such Sentence',
     frSub: 'La phrase impossible',
     layer: 'core',
     terms: ['theImpossible', 'connaitreReach'],
@@ -2145,6 +2171,21 @@ export const SAVOIR_CONNAITRE_LESSON: Lesson = {
 
   sections: SECTIONS,
   itemIds: ITEM_IDS,
+  // v5: TWO MORE FOUND ON GLASS, BOTH ON THE MISSIONS HUB.
+  //   * « The One That Does Not Exist » was CUT at 27 characters while the house
+  //     heading in mission 2 fits at the SAME count. The budget is rendered
+  //     WIDTH; the character ceiling is an approximation and 26-27 with wide
+  //     glyphs has to be checked on glass. Retitled well under it.
+  //   * s08-next's `frSub` was a2.02's ENGLISH pattern name, so it was the only
+  //     English line in a column of French subs. `frSub` is the one field that
+  //     is deliberately French.
+  //
+  // v4: THE SCENE BREAK CARD'S OWN CONTINUE WAS CLIPPED UNDER THE PAGER BAR
+  // on a Pixel 6, on mission 1 of 28. The right-hand reading row was five lines
+  // rather than the four ledger §7 budgets, because its French ran to 31
+  // characters and wrapped. Shortened to 23. Found on glass; nothing on the
+  // host could see it, and it is the same defect that cost a2.01 three passes.
+  //
   // v3: THE FIELDS THAT DO NOT RENDER AT `lg`, and the mission-title ceiling.
   // Both were measured on a Pixel 6 by a2.13's device pass, which was sitting
   // UNCOMMITTED in the working tree when this lesson came to be committed.
@@ -2166,7 +2207,7 @@ export const SAVOIR_CONNAITRE_LESSON: Lesson = {
   // The counter moves rather than the body being corrected under v1. Two
   // different bodies under one number is the drift this project has lost work to
   // twice, and the batch refuses it.
-  version: 3,
+  version: 5,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

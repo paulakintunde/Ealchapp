@@ -1072,3 +1072,62 @@ a2.14.l1    ABSENT
 That is what proved the defect was real on the served bytes rather than only in
 the source, and that holding the publish had in fact kept a2.14 unreleased.
 **Quote the wire, not the log.**
+
+### 13. THE MISSION-TITLE CEILING IS A WIDTH, NOT A CHARACTER COUNT
+
+**This corrects §12 and a2.13's own finding, and it was measured on the same
+screen at the same font scale.**
+
+```
+FITS  "What You Will Be Able To Do"   27 chars   chip OBJECTIFS
+CUT   "The One That Does Not Exist"   27 chars   chip EXEMPLES
+```
+
+Same count, same screen, one cut. The glyphs differ: the second carries O, D, N,
+E, x and s where the first carries W, h, i, l, t and B.
+
+**So a character guard is NECESSARY AND NOT SUFFICIENT.** Keep it at 27 —
+lowering it fails the house heading that 36 lessons ship and that demonstrably
+fits — and treat 26 to 27 with wide glyphs as UNVERIFIED until it has been read
+off the hub. a2.14 read all 28 of its titles off three hub screens; one was cut
+and the other 27 fit.
+
+### 14. `frSub` IS THE ONE FIELD THAT IS DELIBERATELY FRENCH, AND A CONSTANT CAN BREAK THAT
+
+a2.14 put `WHAT_FOLLOWS` — a2.02's pattern NAME, "what comes next decides" — into
+a section's `frSub`. It is the right phrase to quote and the wrong field to quote
+it in: every other sub on the hub is French, so that row was the only lowercase
+English line in the column.
+
+Doctrine §B.7 tells later lessons to quote an earlier unit's pattern name
+verbatim. **Quote it in the body, the terms and the sheet. Not in `frSub`.**
+Invariants §8: English UI chrome, French content, and `frSub` is the one field
+that is deliberately French.
+
+Neither the batch, the merge nor the test could see this: the string is valid,
+the field is populated, and no guard in the band checks that `frSub` is French.
+It is worth one, and a2.14 did not add it.
+
+### 15. WHAT THE a2.14 DEVICE PASS COST, AND WHERE THE HOST HALF'S PREDICTION FAILED
+
+Three defects, v3 → v5, all on screens a learner meets in the first two minutes:
+
+```
+9.1  the scene break card's own Continue, clipped under the pager bar
+       ledger §7's defect, on mission 1 of 28. One line over budget, and the
+       line was the right-hand reading row: ipa is REQUIRED on a break row, so
+       the only lever is the French, and 31 characters WRAPPED.
+9.2   a cut mission title at 27 characters (see §13)
+9.3   an English frSub (see §14)
+```
+
+**And the report's own prediction of what would be wrong was right about the
+wrong thing.** It flagged the two-column grid hardest, as "the one thing most
+likely to be wrong"; the grid was clean. It gave the break card one line; that
+was the one. The two hub defects were not anticipated at all.
+
+The general lesson, and it is sharper than invariants §7: **the host half can
+tell you a string is in the bundle and cannot tell you anything about how it
+sets.** Wrapping, clipping, ellipsis and field-level house rules are all
+invisible to it. Budget a device pass; if there is no device, say which of those
+four classes is unverified rather than that the host half is done.

@@ -3,11 +3,18 @@
 Built 2026-08-12. Trail seq 8 of 32. Doctrine §F, corrections §12, plus the five
 things `A2-14-SAVOIR-CONNAITRE-PROMPT.md` asks for by name.
 
-> **v3, AND THE REASON IS IN §3.12.** This lesson shipped v2 with 53 groupDrill
-> cards showing a bare French sentence with no pronunciation and no meaning, and
-> four mission titles ellipsised in the hub. Both were caught only because
-> a2.13's device pass was sitting UNCOMMITTED in the working tree when a2.14 came
-> to be committed. Nothing in this build's three guard layers could see either.
+> **v5. THE VERSION HISTORY IS THE POINT OF THIS REPORT.**
+>
+>   v1 → v2  a term sentence tripped its own guard (§3.10)
+>   v2 → v3  53 cards with no pronunciation, 4 titles cut (§3.12), found only
+>            because a2.13's device pass was sitting uncommitted in the tree
+>   v3 → v4  the scene break card's Continue clipped under the pager bar (§9.1)
+>   v4 → v5  a cut title that a CHARACTER guard cannot catch, and an English
+>            string in the one field that must be French (§9.2, §9.3)
+>
+> **Three of those five were invisible to every host gate**, and all three were
+> found on glass. The lesson was green on all three layers and mutation-tested to
+> zero blind spots at v3.
 
 ```
 lesson      a2.14.l1 v3     28 sections · 6 acts · 36 questions · 42 items
@@ -15,8 +22,9 @@ authored    30 rows         fr.a2.verbes.381 .. .410
 imported    12 rows         out of 6 themes, 0 naming forms authored
 postgres    fr.a2.verbes    310 -> 340
 seed        8832 -> 8865 items, 49 -> 50 lessons, version 30 UNCHANGED
-suite       3261 -> 3330    (66 new, 0 fail)
+suite       3261 -> 3333    (66 new, 0 fail)
 mutations   27 run          0 caught by nothing, 0 invisible to the test
+device      Pixel 6         3 defects found, all fixed and re-verified
 ```
 
 ---
@@ -651,20 +659,26 @@ does not re-check quiz internals.
 
 ## 6. WHAT IS NOT DONE
 
-**NO DEVICE PASS.** `adb devices` returns nothing on this machine, so there is no
-phone attached. The host half is complete and every gate is green, and none of
-that is glass. Untested on a device:
+**THE DEVICE PASS IS DONE. See §9 for what it cost.** This section is kept as it
+stood before the Pixel was available, because the gap between what it predicted
+and what §9 found is the most useful thing in this report.
 
-- **the 28-section spine**, and whether act 3's eight missions read as a stretch
-- **the two-column grid** in `s04-grid`, which is the brief's layout claim and the
-  one thing on this list most likely to be wrong: six lines each carrying two
-  verbs and two complements is a wide row on a Pixel 6, and `examples` is not in
-  `ownsLayout()`
-- **`s05-situations`**, a five-row tapTable, which renders inside a scrolling page
-- **the scene break card**, which took a2.01 three device passes to settle
-- **the 36-question quiz** across six rounds
-- `s17-three`, a four-step stepped trapDrill
-- the six new groupDrill checks added in §3.4
+What it said was untested, and what actually happened:
+
+- **the two-column grid** in `s04-grid` — called "the one thing on this list most
+  likely to be wrong". IT WAS FINE. Both verbs on all six lines, adjacent.
+- **the scene break card**, "which took a2.01 three device passes to settle" —
+  THIS WAS THE ONE. Its Continue was clipped under the pager bar. §9.1.
+- **`s05-situations`**, the five-row tapTable — fine, with room to spare.
+- **the 28-section spine** — the hub is where the other two defects were, and
+  neither was on the list: a cut title no character guard can catch, and an
+  English string in a French field. §9.2, §9.3.
+- **the 36-question quiz**, `s17-three`, the scenario, the dictée and the speak
+  deck — STILL UNOPENED. §9.5 names them.
+
+The prediction was half right and it was right about the wrong thing. The grid,
+which the report flagged hardest, was clean; the break card, flagged in one line,
+was broken; and the two defects on the hub were not anticipated at all.
 
 **What the host half DID verify.** Metro served the entry bundle (200, 23.9 MB)
 and it was grepped for every string this build adds and for the strings it must
@@ -707,6 +721,101 @@ Open and not blocking:
 - `fr.sons.expressions-utiles.228` (`on ne sait jamais`) respells a nasal with a
   plain n and IS flagged. Not repaired, because this build does not display it;
   recorded in `NOT_REPAIRED` with the value it needs.
+
+---
+
+## 9. THE DEVICE PASS, AND WHAT IT COST
+
+Done on a Pixel 6 (`oriole`, transport 1) after v3 had been committed and pushed.
+Metro on 8082 over `adb reverse`, dev client, bundle re-served and verified as v3
+before the first tap: the four shortened titles present, the four v2 titles gone,
+and the `note` card format present. Not a stale bundle.
+
+**THREE DEFECTS, ALL LEARNER-VISIBLE, NONE FINDABLE ANYWHERE ELSE.** The lesson
+went v3 → v5 and every one of them was on a screen a learner meets in the first
+two minutes.
+
+### 9.1 The scene break card's own Continue was clipped under the pager bar
+
+**Mission 1 of 28.** Exactly the defect ledger §7 exists to prevent and that cost
+a2.01 three device passes.
+
+The cause was one line, and it was the right-hand reading row. Ledger §7: *"A
+right-hand row carrying BOTH ipa and respell is four lines on its own. Budget for
+it."* `ipa` is REQUIRED by the schema on a break row, so the only lever is the
+French, and « Tu connais la nouvelle voisine ? » is 31 characters and WRAPPED,
+making it five lines rather than four.
+
+Shortened to « Tu connais la voisine ? », 23 characters, one line. Re-verified on
+glass: the Continue is fully clear of the pager bar. **v4.**
+
+### 9.2 A cut mission title, AND IT REFINES a2.13's FINDING
+
+Mission 19 read **"The One That Does Not Exi…"** on the hub.
+
+It is **27 characters**. So is the house heading on mission 2, *"What You Will Be
+Able To Do"*, and **that one fits**. Both were measured on the same screen at the
+same font scale.
+
+> **THE HUB BUDGET IS RENDERED WIDTH, NOT CHARACTER COUNT.** a2.13 measured 27
+> from two examples and recorded it as a character ceiling. It is an
+> approximation: "The One That Does Not Exist" carries O, D, N, E, x and s where
+> "What You Will Be Able To Do" carries W, h, i, l, t and B, and the second set
+> is narrower.
+
+The character guard is therefore **necessary and not sufficient**. It is kept at
+27 — lowering it would fail the house heading that 36 lessons ship and that
+demonstrably fits — and the corpus now records that 26-27 with wide glyphs has to
+be checked on glass. The title is now "No Such Sentence", well under. **v5.**
+
+All 28 titles were then read off the hub across three screens. One was cut; the
+other 27 fit.
+
+### 9.3 An English string in the one field that must be French
+
+`s08-next`'s `frSub` was `WHAT_FOLLOWS` — a2.02's pattern name, *"what comes next
+decides"*. Correct as a quotation and wrong as a sub: `frSub` is the one field
+that is deliberately French (invariants §8), and this row was the only lowercase
+English line in a column of French subs on the hub.
+
+Changed to « Ce qui suit décide ». The pattern name still appears verbatim in the
+section body, the terms and the sheet, which is where the doctrine §B.7 payoff
+actually lives. **v5.**
+
+### 9.4 What the device CONFIRMED
+
+Everything else held, including the two things §3.12 fixed blind:
+
+- **THE LAYOUT CLAIM.** `s04-grid` puts both verbs on all six lines, adjacent,
+  with both frames visible. The brief's requirement is met on glass. Three of the
+  six lines wrap on a Pixel 6, so it reads as six wrapped lines rather than as
+  two aligned columns; a true column layout would need a `table`, which is a
+  density failure at layer core, so this is the best available rendering.
+- **THE v3 CARD FIX.** `s06-savoir` draws `savoir` with `[sah-VWAR] · to know (a
+  fact)` underneath. At v2 that card was a bare word. The repaired naming form
+  `koh-NEHTR` renders.
+- **`s05-situations`**, the five-row tapTable, fits one screen with room to
+  spare. Five against the six-row ceiling was the right call.
+- The eyebrow computes `A2 · LEÇON 08`; the unit shows 28 missions and 42 items.
+- The scene's choice, both follow-ups, the stage directions and the resume
+  interstitial all render.
+- The goals card names `a2.13` and carries all four goals.
+
+### 9.5 What is still unverified on glass
+
+The device pass covered missions 1 to 8 and the hub in full. Not opened:
+
+- the **36-question quiz** across six rounds, including the single `listenChoose`
+  and the two `tapSilent` items
+- `s17-three`, the four-step stepped trapDrill with its gate
+- `s21-scenario`, five turns
+- `s23-dictation`, ten targets in LETTERS mode
+- `s24-speak`, 21 mic-scored sentences
+- the reference sheet at layer deep
+
+Those are named rather than claimed. The three defects found were all in the
+first eight missions, which is where a learner starts and where the budgets are
+tightest, but it is not evidence that the rest is clean.
 
 ---
 
