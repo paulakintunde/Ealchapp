@@ -54,7 +54,8 @@ import { dirname, join } from 'node:path';
 import { Pool } from 'pg';
 import { itemLiteral, unknownPopulatedColumns } from './manifest-item.ts';
 import {
-  NAMING_FORMS, NOT_REPAIRED, READ_NOT_IMPORTED, RESPELL_REPAIRS_VISIBLE,
+  NAMING_FORMS, NOT_REPAIRED, READ_NOT_IMPORTED, RESPELL_REPAIRS_INVISIBLE,
+  RESPELL_REPAIRS_VISIBLE,
 } from './data/prendre-mettre-corpus.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -193,20 +194,51 @@ async function main() {
      none of them is evidence that a learner meets battre inflected.
      Boundary-aware: a bare substring query for `bat` reports every `bâtiment`
      and every English `bat` in an en gloss. Invariants §0. */
+  /* AND IT EXCLUDES THIS BUILD'S OWN ROWS. a2.13 §5: a check taken BEFORE the
+     batch runs will legitimately disagree with Postgres AFTER a successful run,
+     and a strict version makes the generator refuse its own second run and call
+     it a finding. This one did exactly that: once fr.a2.verbes.436..452 landed,
+     `battons`, `battent` and `combattent` existed and the guard reported four
+     rows of battre evidence, all of them written by the lesson the figure is
+     supposed to justify. */
+  const MINE = "id not between 'fr.a2.verbes.421' and 'fr.a2.verbes.454'";
   const battre = await c.query<{ n: string }>(
-    `select count(*) n from content_items where status='published'
+    `select count(*) n from content_items where status='published' and ${MINE}
        and fr ~* '(^|[^a-zà-ÿ])(bats|battons|battez|battent|combattons|combattez|combattent)([^a-zà-ÿ]|$)'`);
   const prendre = await c.query<{ n: string }>(
-    `select count(*) n from content_items where status='published' and kind='sentence'
+    `select count(*) n from content_items where status='published' and kind='sentence' and ${MINE}
        and fr ~* '(^|[^a-zà-ÿ])(prends|prend|prenons|prenez|prennent)([^a-zà-ÿ]|$)'`);
   const mettre = await c.query<{ n: string }>(
-    `select count(*) n from content_items where status='published' and kind='sentence'
+    `select count(*) n from content_items where status='published' and kind='sentence' and ${MINE}
        and fr ~* '(^|[^a-zà-ÿ])(mets|met|mettons|mettez|mettent)([^a-zà-ÿ]|$)'`);
-  console.log(`  evidence: prendre cells ${prendre.rows[0].n} published sentences, mettre ${mettre.rows[0].n}, battre ${battre.rows[0].n}`);
+  console.log(`  evidence, excluding this build's own rows: prendre cells ${prendre.rows[0].n} published sentences, mettre ${mettre.rows[0].n}, battre ${battre.rows[0].n}`);
   if (Number(battre.rows[0].n) > 0) {
     console.error('!! battre now has published evidence and this build\'s weight argument is measured on it holding none.');
     console.error('   Re-read BATTRE_EVIDENCE in the corpus before regenerating; the two-mission decision may need revisiting.');
     process.exit(1);
+  }
+
+  /* AND THE GENERATOR REFUSES TO RUN ONCE THE BATCH HAS LANDED.
+   *
+   * THE MANIFEST IS A PRE-BATCH READ AND IT HAS TO STAY ONE. Regenerating it
+   * after `pnpm content:prendre-mettre` records the POST-batch values, and the
+   * merge then finds no `from` value to replace and dies with "the repair
+   * expects to find PRAHNDR in it". a2.13 §5 records the same class from the
+   * other side: a strict staleness check makes a batch refuse its own second
+   * run. This is the third face of it and it is the dangerous one, because the
+   * regenerated file looks correct.
+   *
+   * If you genuinely need to regenerate, revert the five repairs in Postgres
+   * first, or drop the RESPELL_REPAIRS entries and say why in the corpus. */
+  for (const r of RESPELL_REPAIRS_VISIBLE.concat(RESPELL_REPAIRS_INVISIBLE)) {
+    const stored = String(by.get(r.id)?.respell ?? '');
+    if (stored === r.to) {
+      console.error(`!! ${r.id} already holds the repaired value ${JSON.stringify(r.to)}, so the batch has run.`);
+      console.error('   THE MANIFEST IS A PRE-BATCH READ AND MUST STAY ONE. Regenerating now would record the');
+      console.error('   post-batch value, and the merge would then find nothing to repair and die on it.');
+      console.error('   Leave data/prendre-mettre-rows.gen.ts as committed.');
+      process.exit(1);
+    }
   }
 
   const stamp = new Date().toISOString().slice(0, 10);
