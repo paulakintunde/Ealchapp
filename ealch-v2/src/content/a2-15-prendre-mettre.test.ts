@@ -840,13 +840,22 @@ test('THE FIVE REPAIRED ROWS CARRY THE REPAIRED VALUE IN THE SEED', skip, () => 
   strictEqual(invisible, 3, 'the number of repairs the shared checker cannot see has moved; the brief said four and all four invisible');
 });
 
-test('the repair-only row is in the seed and in NO itemId', skip, () => {
-  // fr.a1.transports-quotidiens.041 is repaired and shown on no screen. It has
-  // to reach the seed or the two copies disagree on a row nothing compares.
-  const r = item(REPAIR_ONLY);
-  ok(r, `${REPAIR_ONLY} was repaired in Postgres and is not in the seed`);
-  strictEqual(r!.respell, 'PRAHⁿDR');
+test('the repair-only row is in NO itemId, and holds the repair if it is here at all', skip, () => {
+  // fr.a1.transports-quotidiens.041 is repaired in Postgres and shown on no
+  // screen. The merge carries it so the two copies agree on the repair between
+  // the apply and the next publish.
+  //
+  // ITS PRESENCE IS NOT PERMANENT AND MUST NOT BE ASSERTED. `content:publish`
+  // regenerates the seed FROM the database and this row is outside
+  // SEED_CUT.themes and referenced by no lesson, so a publish correctly drops
+  // it. The first version of this test asserted it was there and would have gone
+  // red the moment anybody published — a guard that turns a routine operation
+  // into a failure is worse than no guard. What is asserted is the part that
+  // stays true: it is in no itemId, and if it IS in the seed it carries the
+  // repaired value rather than the broken one.
   ok(!(L!.itemIds ?? []).includes(REPAIR_ONLY), `${REPAIR_ONLY} is in itemIds and this lesson shows it nowhere`);
+  const r = item(REPAIR_ONLY);
+  if (r) strictEqual(r.respell, 'PRAHⁿDR', `${REPAIR_ONLY} is in the seed carrying the pre-repair value`);
 });
 
 /* ══════════════════════════════════════════════════════════════════════════
