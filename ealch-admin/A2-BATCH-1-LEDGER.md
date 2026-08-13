@@ -236,6 +236,52 @@ what a1.14/a1.16 actually used, and amends this section with the answer before
 authoring. Creating a new theme is product-visible in the flashcard hub and the
 Den, so it is not a thing to do quietly.
 
+### DECIDED 2026-08-13 by the a2.03 build. The theme is `adjectifs-essentiels`.
+
+**No theme is created and none needs to be.** The question was asked the wrong
+way round: it assumed a1.14 and a1.16 had no home, when they had one and it was
+never named here. Measured against Postgres:
+
+```
+theme adjectifs-essentiels   645 published,  92 in seed
+  fr.a1.adjectifs-essentiels    count=330  max=.340   NEXT FREE = .341
+  fr.sons.adjectifs-essentiels  count=315  max=.315   NEXT FREE = .316
+  fr.a2.adjectifs-essentiels    count=0                NEXT FREE = .001
+theme couleurs               339 published,  48 in seed   (a1.13's home)
+theme adjectifs                0    theme does not exist, and will not
+theme adverbes                 0    theme does not exist
+```
+
+The id counts in the three lessons' own corpus files say the same thing:
+`adjectifs-corpus.ts` (a1.14) references `fr.a1.adjectifs-essentiels` 61 times
+and `fr.sons.adjectifs-essentiels` 32; `placement-corpus.ts` (a1.16) 46 and 31.
+`couleurs-corpus.ts` (a1.13) lives in `couleurs`.
+
+**So `a2.03` writes into `adjectifs-essentiels` under a NEW LEVEL NAMESPACE,
+`fr.a2.adjectifs-essentiels.001..040`.** Opening a level namespace inside a live
+theme is not the product-visible act the question was worried about: the theme
+already has a flashcard hub entry and a Den presence with 645 rows in it, and
+`fr.a2.description-personnes-objets` (120 rows) is the precedent for an A2
+namespace opened inside an A1 theme.
+
+**`a2.16` and `a2.17` inherit this**, and both should take a block from
+`fr.a2.adjectifs-essentiels` rather than reviving `adjectifs` or `adverbes`.
+`adverbes` is still empty and `a2.17` should not create it either: an adverb
+built off a feminine adjective belongs beside the adjective it is built from,
+and `a2.17` imports `sérieuse`, `heureuse` and `sportive` from exactly here.
+
+```
+seq  id      block                                          status
+10   a2.03   fr.a2.adjectifs-essentiels.001 .. .040         TAKEN
+11   a2.16   fr.a2.adjectifs-essentiels.041 .. .080         reserved
+12   a2.17   fr.a2.adjectifs-essentiels.081 .. .120         reserved
+```
+
+`ROW_COUNT_BEFORE` for `fr.a2.adjectifs-essentiels` is **0**, which is the one
+case where the ledger's "the maximum is useless, count the rows" rule is easy:
+any row at all inside the block that a2.03 does not own is somebody else landing
+in it.
+
 ---
 
 ## 4. The headwords that already exist. Import, do not author.
@@ -1290,3 +1336,192 @@ on it. Three builds in this batch, three different answers; probe your own unit.
   homophone offence; they differ by the PRONOUN as well as by the form, and je
   against il is perfectly audible, so the guard was right to ignore it. The rule
   fires only when two options differ ONLY by a homophone.
+
+---
+
+## a2.03 amendments, 2026-08-13
+
+Written by the `a2.03` build. **BATCH 1 IS COMPLETE.** Ten of ten.
+
+Full report: `A2-03-BUILD-REPORT.md`.
+
+### 0. THE THEME DECISION IS MADE. IT IS IN §3 ABOVE, AMENDED IN PLACE.
+
+`adjectifs-essentiels`, and no theme was created. §3 asked the question the wrong
+way round: a1.14 and a1.16 had a home and this file never named it. Blocks
+reserved there for a2.16 (`.041..080`) and a2.17 (`.081..120`).
+
+### 1. THE ID BLOCK, AND THE ONE EASY CASE IN THIS BATCH
+
+```
+10   a2.03   fr.a2.adjectifs-essentiels.001 .. .040   TAKEN, 001-033 used, 034-040 free
+     0 rows before, 33 after
+```
+
+The namespace did not exist, so unlike `fr.a2.verbes` there is no row-count
+arithmetic to get right: **any row inside the block this build does not own is
+somebody else landing in it**, full stop. The theme-wide total (645 published,
+excluding this build) is checked the way §a2.14-12 asks: growth is a report,
+shrinkage is fatal.
+
+### 2. `scenario.logic.test.ts` REQUIRES TWO ALTERNATIVES PER ROLE-PLAY TURN
+
+**New, seed-wide, and mentioned in NO document this band reads** — not the
+doctrine, not the invariants, not corrections, not this file.
+
+> *"one accepted answer per turn is the cloze-test failure this content exists to
+> fix"*
+
+It also requires `userEn` on every turn. a2.03 v1 shipped three turns with one
+alternative apiece; the batch and the merge were both green and the suite went red
+the moment the merge landed. Same class as a2.15 §3's banned word in a `cardDeck`
+`sub`, and it will bite every remaining lesson in the level, because every one of
+them ships a `scenario`. **Budget two alternatives and a `userEn` per turn.**
+
+### 3. A TERM-CHIP ROW BUDGET, WHICH IS A THIRD WIDTH NOBODY HAD MEASURED
+
+§a2.14-13 established that the mission-title ceiling is a WIDTH rather than a
+count. **The same is true of the term chips, and the budget is 37.** Read off
+three hub screens on a Pixel 6:
+
+```
+37   "the ones that never change" + "four shapes"      BOTH FULL
+39   "words ending in -eux" + "words ending in -if"    SECOND CHIP CUT
+40   three chips on one row                            over
+```
+
+The cut chip lost the `-if`, which was the entire distinguishing content of the
+term. Every host gate was green: the strings are valid, both chips render, and
+only the width is wrong. **A first version of the guard was set at 32 and failed
+two screens that are demonstrably fine**, so the number matters: 37, and anything
+from 34 up stays unverified until it has been read off the hub.
+
+### 4. THE GUARD WALK MUST INCLUDE THE AUTHORED CORPUS ROWS, NOT JUST THE LESSON
+
+Found by the mutation harness, and it is the only class it found that nothing
+caught. Every build in this band walks `sections + sheets + terms + intro +
+overview`. Two mutations wrote a neighbouring unit's subject into an authored
+row's **`notes`** and all three layers missed them.
+
+`Item.notes` reaches no component today — referenced by `density.logic.ts`,
+`schema.ts` and `content.logic.ts`, and by nothing in `src/components` — so
+nothing shipped. It is still a hole: the claim a neighbour guard makes is about
+what the LESSON teaches, and the corpus rows are content the build authored and
+owns. `schema.ts` calls the field "a teaching note, hack or clue" and says the
+dictation why-tip lands there, so a renderer arriving later would ship it.
+**Add `fr`, `en` and `notes` on every authored row to the walk.** It is one line.
+
+### 5. THE JARGON LINE IS MEASURABLE, AND IT IS EASY TO SET IT TOO HIGH
+
+a2.03's first `JARGON` list banned `adjective`, `masculine`, `feminine` and
+`plural` — which would have made it the only lesson in the adjective arc that
+avoids them. a1.13 uses `feminine` **71 times** on its learner surfaces and
+`plural` 40; a1.16 uses `noun` 115 times.
+
+**The line is what the neighbouring lessons already ship, not what reads as
+technical.** `scripts/_a203_jargon.ts` prints the table for any candidate list
+across a chosen set of lessons; point it at your own neighbours before writing the
+list. What none of the five uses even once is the real ban list, and it is 21
+words long.
+
+### 6. A FOURTH INSTANCE OF INVARIANTS §3's FALSE POSITIVE, AND THE FIRST ON A COLOUR
+
+Corrections §6 asks for the false-positive path to be looked for and its absence
+reported. **It was found**, on a published row a2.03 imports:
+
+```
+crème   /kʁɛm/   a real /m/, NO nasal vowel in the word
+        KREHM    FLAGGED       fr.sons.couleurs.032
+        KREM     not flagged   and this is the repair
+```
+
+`jaune`/`ZHOHN` exactly. Invariants §3 already says the fix is to **drop the H,
+never to add a superscript** — there is no nasal vowel to close and a `ⁿ` teaches
+a sound that is not there. `KREHMM` also passes by the `nn|mm` rescue and was
+rejected: `automne` needs a doubled letter because its spelling forces it and
+`crème` does not. After `jaune`, `automne` and `la semaine`, this is the fourth.
+
+**And the nasal PREDICTION was wrong again, in the direction §a2.14-2 records.**
+Two rows were listed as blind on the reasoning that the nasal is followed by a
+consonant inside the token; the checker sees both. 29 superscripts, 27 seen, 2
+missed, and the two are one token. **Measure, never predict.**
+
+### 7. A MERGE PATH FOR `RESPELL_ADDITIONS`, WHICH a2.15's DIES ON
+
+a2.15's merge dies if the table is non-empty, with the note that it "has no path
+for them". a2.03's has the path and the difference that makes it safe is one line:
+**an addition may only land on a row whose respelling is EMPTY.** A row somebody
+has respelled since the manifest read is left alone and the staleness check then
+reports it, rather than the merge silently overwriting.
+
+Worth having: a2.13 §1 established that a row without a respelling reaches a card
+the learner cannot say, and the two rows carrying the only published evidence of
+`sportif` and `sportive` in 27,600 rows had none.
+
+### 8. THE ABSENCE LIST IN CORRECTIONS §2 IS A FLOOR, NOT AN INVENTORY
+
+§2 records six absences for the whole level. a2.15 found three more and one
+listed-absent word that exists. a2.03 found a tenth: **`sérieuse`, 0 rows at any
+status**, which neither the brief nor §2 names. Probe every form you intend to
+display, not just the ones a list gives you.
+
+### 9. a2.03 IS NOT A LEAF, AND ITS THIRD DEPENDENT IS NOT IN ITS BRIEF
+
+```
+a2.16 (seq 11)   a2.17 (seq 12)   a2.08 (seq 32)
+```
+
+The brief names the first two. `a2.08` "Comparatives and Superlatives" also
+declares `a2.03` as a prerequisite. Three builds in this batch, three different
+answers to the dependents question; probe your own unit.
+
+### 10. THE SECTION MIX OF THE WHOLE BAND, MEASURED
+
+`scripts/_a203_mix.ts` prints it. Across the ten shipped A2 lessons before a2.03:
+
+```
+groupDrill 45 · cardDeck 42   out of 255 sections, 34% between them
+tapTable 10 · reading 8 · flashcards 6 · teach 3 · cheatSheet 1
+useCases 0 and vocabThemes 0   in ALL TEN
+```
+
+a2.03 ships one groupDrill against an average of 4.5, and is the first lesson in
+the band to use `useCases` or `vocabThemes`. **Both render**: `MissionSection.tsx`
+has no `case` for either and its shared fallback — which lives after the switch so
+a `break` lands on it — hands both to `SectionView`. Confirmed on a Pixel 6,
+because a grep proves a string is in the bundle and nothing else.
+
+### 11. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3403   pass 3403   fail 0        measured 2026-08-13, before a2.03
+  tests 3451   pass 3451   fail 0        after a2.03 (+48)
+a1-03-genre.test.ts   35 pass before, 35 pass after, ending population unchanged
+seed.json                                version 32, 8906 items, 51 lessons (before)
+                                         version 32, 8956 items, 52 lessons (after,
+                                           NOT published; the merge left the version alone)
+pnpm content:parity                      ONE pre-existing divergence (b2.01.l1,
+                                           database-only, in_review)
+```
+
+**a2.15's report records seed.version as 31 and it is 32 now.** A publish landed
+between the two builds. Measure it yourself rather than carrying either figure
+forward.
+
+### 12. WHAT BATCH 2 SHOULD TAKE FROM THE WHOLE OF BATCH 1
+
+The four guard holes this batch found, in the order they were found, are all
+"a layer nobody was walking":
+
+```
+a2.11   `intro` and `overview`          drawn on two screens, walked by nothing
+a2.15   `sub` on a cardDeck card        prose() drops it as notation
+a2.15   the -s plural of a jargon term  hasPhrase is boundary-exact
+a2.03   `notes` on an authored row      the walk stopped at the lesson
+```
+
+Each was found one layer further out than the last. The walk that now holds is
+`sections + sheets + terms + intro + overview + acts + drills`, over BOTH
+`prose()` and `display()`, plus `fr`/`en`/`notes` on every authored row, with
+every jargon entry checked in its plural.
