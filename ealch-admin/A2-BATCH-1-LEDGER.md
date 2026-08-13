@@ -1525,3 +1525,193 @@ Each was found one layer further out than the last. The walk that now holds is
 `sections + sheets + terms + intro + overview + acts + drills`, over BOTH
 `prose()` and `display()`, plus `fr`/`en`/`notes` on every authored row, with
 every jargon entry checked in its plural.
+
+---
+
+## a2.16 amendments, 2026-08-13
+
+Written by the `a2.16` build, which is **seq 11 and the first lesson of BATCH 2**.
+It is recorded here rather than in a batch-2 ledger because it takes an id block
+this file reserved, and because everything below binds `a2.17` at seq 12.
+
+Full report: `A2-16-BUILD-REPORT.md`.
+
+### 0. THE BLOCK HELD, AND §3's RESERVATION WAS EXACTLY RIGHT
+
+`fr.a2.adjectifs-essentiels` held exactly **33** rows when a2.16 claimed `.041`,
+which is a2.03's own figure after its apply, and **51** after, which is 33 plus
+its 18 and nothing else. **Zero rows were inside `.041..080`.**
+
+```
+11   a2.16   fr.a2.adjectifs-essentiels.041 .. .080   TAKEN, 041-058 used, 059-080 free
+12   a2.17   fr.a2.adjectifs-essentiels.081 .. .120   reserved, still empty
+     51 rows in the namespace after a2.16
+```
+
+### 1. a2.03's TEST FILE CLAIMED THE WHOLE NAMESPACE, AND IT BROKE THIS BUILD
+
+**Four of a2.03's forty-eight tests went red the moment a2.16's merge landed**,
+and not one of them was about a2.16. They filtered on
+`id.startsWith('fr.a2.adjectifs-essentiels.')` and meant "the rows a2.03
+authored" — the same set only while a2.03 is the only lesson in the namespace.
+**a2.03's own report reserved `.041..080` for a2.16 and `.081..120` for a2.17**,
+so the guards were guaranteed to break on the next lesson in the arc, and to
+break it in a way that reads like a defect in the new build.
+
+It is **§a2.14-12 one level up**: the row-count discipline in §2 was narrowed
+from "the total must not move" to "nothing may land inside MY range" for exactly
+this reason, and the test file never got the same treatment.
+
+Fixed by scoping, not by relaxing: every assertion is byte-identical and only the
+filter changed. `a2-03-accord.test.ts` now carries `MY_BLOCK`/`isMine`/`myRows`
+and the four tests read `myRows()`. **The duplicate-`fr` check is deliberately
+NOT scoped** — `flashhub-coverage.test.ts` counts two rows sharing an `fr` in one
+theme as one card served twice, and that is true whoever authored them.
+
+**a2.17 will land in this namespace too.** If its test files filter on the
+namespace prefix they will break a2.03 and a2.16 together.
+
+### 2. THE FIFTH WIDTH DEFECT IN THIS BAND, AND THE THIRD FIELD
+
+§a2.14-13 established that the mission-title ceiling is a WIDTH rather than a
+count, and §a2.03-3 found the same for the term-chip row. **a2.16 found it in a
+third field: a tapTable's COLUMN HEADERS.**
+
+```
+For a woman     ->  For a / woma / n
+Several         ->  Severa / l
+Several women   ->  Severa / l wom / en
+```
+
+Every host gate was green — the strings are valid, the table renders, all fifteen
+cells sit on one screen with no horizontal scroll — and only the width is wrong.
+v1 to v2.
+
+**The measurement is in the failure and it is glyph-based, not length-based:**
+
+```
+plain     5 chars, 0 wide glyphs   ONE LINE
+vowel     5 chars, 1 wide glyph    ONE LINE
+woman     5 chars, 2 wide glyphs   BROKE   woma|n
+Several   7 chars, 0 wide glyphs   BROKE   Severa|l
+```
+
+So the budget for a five-column header is **six characters, and at most one `w`
+or `m` past four**. The first version of the guard was one glyph too strict and
+rejected `vowel`, which demonstrably fits.
+
+**AND THE CELLS HAVE A LIMIT THIS BUILD DID NOT FIX.** A five-column cell on a
+Pixel 6 holds about six characters, so the `nouveau` row wraps mid-word:
+`nouve|au`, `nouvell|e`, `nouve|aux`, `nouvell|es`. `beau` and `vieux` are clean.
+The only fixes are dropping to four columns or shortening a word that is the
+content. **a2.17 should know the number before it reaches for five columns.**
+
+### 3. A GUARD THAT LOOPS OVER THE CONSTANT THE CONTENT RENDERS IS GUARDING NOTHING
+
+Found by the mutation harness, and it is invariants §5 in a shape that reads as
+correct. a2.16's plural screen names the two lessons that already own two thirds
+of its trap, and the guard was:
+
+```ts
+for (const u of PLURAL_UNCHANGED_UNITS) {         // the section RENDERS this
+  if (!strings(section).some((s) => hasPhrase(s, u))) die(...);
+}
+```
+
+Renaming the constant to `['the earlier lessons']` passed **every layer**, because
+the section then rendered the new value and the guard looked for it. The batch
+reported "caught" and the message was the version check (§a2.14-7: read the
+message, not the column).
+
+**Assert the literal.** A back-reference to a unit id is not a variable.
+
+### 4. THE MERGE LAYER DRIFTS THINNER THAN THE BATCH, AND THE HARNESS IS HOW YOU FIND OUT
+
+Six of a2.16's twenty-nine mutations were caught by the batch and MISSED by the
+merge: the jargon walk, the act weights, a column position, the placement ban,
+the plural owners and the audio brief. None shipped, because the batch runs first
+and two of three layers caught each one.
+
+It is still worth fixing, and the reason is procedural: **the merge is the layer
+that runs when somebody re-merges without re-applying.** A merge thinner than the
+batch has stopped being a check.
+
+### 5. CORRECTIONS §3 HAS ITS FIRST COUNTEREXAMPLE, AND ONLY HALF OF ONE
+
+"The corpus has forms and no minimal pairs" had held for seven builds. a2.16
+found four published rows in ONE frame holding the third form of all three
+adjectives, in its own home theme:
+
+```
+fr.a1.adjectifs-essentiels.204   C'est un bel arbre.
+fr.a1.adjectifs-essentiels.038   C'est un nouvel ami.
+fr.a1.adjectifs-essentiels.214   C'est un vieil immeuble.
+fr.a1.adjectifs-essentiels.026   C'est un bel homme.
+```
+
+**The second half of §3 held completely: not one of the four had a respelling**,
+so all four reached a card the learner cannot say. Import and SUPPLY, rather than
+authoring a fifth copy of a frame the corpus already has.
+
+### 6. CORRECTIONS §2's ABSENCE LIST IS A FLOOR, AND IT IS ALSO WRONG THE OTHER WAY
+
+§8 of the a2.03 amendments records that the list is a floor. a2.16 found the
+opposite error as well: **its brief predicted three absences and two of the three
+EXIST**, published and respelled, in the lesson's own home theme.
+
+```
+bel     fr.sons.adjectifs-essentiels.314   EXISTS
+vieil   fr.sons.adjectifs-essentiels.315   EXISTS
+nouvel  ABSENT at any status in any theme
+```
+
+**And a2.03's own corpus file already said so**, in `READ_NOT_IMPORTED`, marked
+"a2.16's". Doctrine §A.4 sends every author to the newest shipped lesson's corpus
+header first; this is the second time in the band that reading it would have
+saved the first hour.
+
+### 7. A NOTATION DECISION FOR THE WHOLE PROJECT: THE JOIN IS A HYPHEN
+
+Every `bel`/`nouvel`/`vieil` phrase runs its final consonant into the following
+vowel, so the join has to be marked, and U+203F is banned (§a2.13-3). The only
+respelled third-form sentence in 27,691 published rows carries **two** of them
+(`fr.sons.masterclass.034`) and is unusable.
+
+**The house had already made the decision.** The shipped corpus writes exactly
+that join with a plain hyphen: `un ami` = `uh-nah-MEE`, `une amie` = `ü-nah-MEE`,
+`un ordinateur` = `uh-nor-dee-nah-TUHR`. So `C'est un bel arbre.` is
+`seh-tuhⁿ beh-LAHRBR` and nothing was invented.
+
+**A consequence worth knowing: the short form's respelling never appears intact
+in a phrase.** `BEL` is not inside `beh-LAHRBR` and must not be. A guard that
+checks a phrase respelling CONTAINS its adjective's respelling will fail on a
+correct row; assert the JOIN instead.
+
+### 8. THE NASAL CHECKER SAW EVERYTHING, WHICH IS A FIRST
+
+17 superscripts, **17 seen, 0 missed**. a2.11 missed 11 of 25, a2.14 1 of 14,
+a2.15 2 of 29, a2.03 2 of 29. Not luck: every nasal here is `uhⁿ` or `sohⁿ` and
+both END a token, which is the one shape corrections §6 says the checker can see.
+The false-positive path is **not met** and four candidates were tried, all
+asserted through the real function.
+
+a2.14 §1's doubled-nasal blind spot IS met, on one imported row (`immeuble`),
+which carries no superscript to lose.
+
+### 9. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3451   pass 3451   fail 0        measured 2026-08-13, before a2.16
+  tests 3489   pass 3489   fail 0        after a2.16 (+38)
+a1-03-genre.test.ts   35 pass before, 35 pass after, ending population unchanged
+seed.json                                version 33, 8956 items, 52 lessons (before)
+                                         version 33, 8976 items, 53 lessons (after,
+                                           NOT published; the merge left the version alone)
+pnpm content:parity                      ONE pre-existing divergence (b2.01.l1,
+                                           database-only, in_review)
+```
+
+**a2.03's report records seed.version as 32 and it is 33 now.** A publish landed
+between the two builds. Measure it yourself rather than carrying either figure
+forward.

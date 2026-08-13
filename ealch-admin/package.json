@@ -74,7 +74,8 @@
     "test:e2e": "playwright test",
     "content:savoir-connaitre": "tsx scripts/author-savoir-connaitre-batch.ts",
     "content:prendre-mettre": "tsx scripts/author-prendre-mettre-batch.ts",
-    "content:accord-adjectifs": "tsx scripts/author-accord-adjectifs-batch.ts"
+    "content:accord-adjectifs": "tsx scripts/author-accord-adjectifs-batch.ts",
+    "content:beau-nouveau": "tsx scripts/author-beau-nouveau-batch.ts"
   },
   "dependencies": {
     "@blocknote/core": "^0.51.4",

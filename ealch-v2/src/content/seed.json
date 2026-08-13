@@ -971,7 +971,9 @@
       "level": "a2",
       "title": "Beau, Nouveau, Vieux",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.16.l1"
+      ],
       "prereqUnitIds": [
         "a2.03"
       ]
@@ -156001,6 +156003,2503 @@
         "The whole A1 band, a1.01 to a1.29, and the lesson-by-lesson review in a1.30.l1"
       ],
       "grammarIntroduced": []
+    },
+    {
+      "id": "a2.16.l1",
+      "unitId": "a2.16",
+      "seq": 1,
+      "title": "Beau, nouveau, vieux",
+      "level": "a2",
+      "tag": "A2 · LEÇON 11",
+      "intro": "Three describing words in French have a fifth shape that nothing else has, and you use it in front of anything that starts with a vowel sound. It is not a new word to learn: it is the form you already use about a woman, with the last two letters taken off, and it sounds exactly the same. This lesson is about when to reach for it, why it is there at all, and the one mistake it causes that nobody can hear.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "Where You Live Now",
+          "frSub": "Le nouveau quartier",
+          "render": "screens",
+          "layer": "core",
+          "setting": {
+            "place": "Outside the office",
+            "city": "Nantes",
+            "time": "Tuesday evening"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "A Tuesday evening in Nantes. A colleague you like but do not know well has asked where you have moved to, and you have been waiting all week for somebody to ask.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "Le collègue",
+              "fr": "C'est un grand appartement ?",
+              "en": "Is it a big flat?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-16-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Oui, et c'est un beau... un beau... euh...",
+              "en": "Yes, and it is a lovely... a lovely... er...",
+              "stage": "You know the word. You have said « beau » a thousand times. It went into your mouth, it hit the front of the next word, and it would not come out.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "You have stopped twice now and he is still waiting. What comes out?",
+              "options": [
+                {
+                  "fr": "Oui, et c'est un bel immeuble",
+                  "respell": "[wee ay seh-tuhⁿ beh-lee-MUHBL]",
+                  "en": "the word you own, two letters shorter",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                },
+                {
+                  "fr": "It is very nice.",
+                  "en": "and you have given up on the sentence you wanted",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "en-GB"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "He asks which street, in French, and you spend the rest of the walk to the tram talking about the neighbourhood.",
+                "breaks": "He says \"oh, nice\" and asks somebody else about their weekend. Nothing went wrong and you told him nothing."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "Le collègue",
+              "fr": "Ah, cool. Bon, à demain !",
+              "en": "Ah, cool. Right, see you tomorrow!",
+              "stage": "Nobody corrected anything, because there was nothing to correct. You stopped before the wrong word arrived and the sentence stopped with it.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "Two vowels",
+              "body": "You did not stall on a word you had not learned. You stalled because the word you had ran straight into the front of the next one and your mouth stopped before your grammar did.",
+              "wrong": {
+                "fr": "un beau immeuble",
+                "ipa": "/œ̃ bo i.mœbl/",
+                "respell": "[uhⁿ boh ee-MUHBL]",
+                "en": "what would not come out"
+              },
+              "right": {
+                "fr": "un bel immeuble",
+                "ipa": "/œ̃ bɛ.li.mœbl/",
+                "respell": "[uhⁿ beh-lee-MUHBL]",
+                "en": "and this is the one"
+              },
+              "coach": "Listen to the front of the next word.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "audioFirst": true,
+                "recordingId": "rec-a2-16-break"
+              }
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "Before a vowel, say the feminine and drop its last two letters. Three words do this, you already know all six of the shapes it needs, and by the end of this you will not stop in the middle again."
+            }
+          ],
+          "closing": {
+            "text": "Before a vowel, say the feminine and drop its last two letters.",
+            "size": "md"
+          },
+          "terms": [
+            "theShortOne"
+          ]
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "goals": [
+            {
+              "t": "Use the short form",
+              "s": "In front of anything starting with a vowel sound. Before a vowel, say the feminine and drop its last two letters."
+            },
+            {
+              "t": "Build it without learning it",
+              "s": "The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same."
+            },
+            {
+              "t": "Keep it away from the feminine",
+              "s": "There is no woman version of it, and you will never hear the mistake. The short form exists to run into the word after it, so it only turns up in front of a thing."
+            },
+            {
+              "t": "Get the plural right in writing",
+              "s": "beaux and nouveaux take an x, and vieux takes nothing."
+            }
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s03-front",
+          "title": "Listen To The Next Word",
+          "frSub": "Le mot d’après",
+          "layer": "core",
+          "say": "Before a vowel, say the feminine and drop its last two letters. Four sentences. In two of them nothing happens, and in two of them the word in the middle is two letters shorter than you expect.",
+          "examples": [
+            {
+              "fr": "C'est un beau sac.",
+              "en": "It is a nice bag.",
+              "note": "A consonant starts sac, so nothing has to happen and nothing does."
+            },
+            {
+              "fr": "C'est un bel arbre.",
+              "en": "It's a beautiful tree.",
+              "note": "A vowel starts the next word, and the same describing word has arrived two letters shorter."
+            },
+            {
+              "fr": "C'est un vieux sac.",
+              "en": "It is an old bag.",
+              "note": "Second word, consonant again, plain form again."
+            },
+            {
+              "fr": "C'est un vieil immeuble.",
+              "en": "It's an old building.",
+              "note": "And a vowel again. Different word, same two letters gone, same reason."
+            }
+          ],
+          "terms": [
+            "aVowelIsComing",
+            "theShortOne"
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s04-grid",
+          "title": "Three Words, Five Shapes",
+          "frSub": "Les cinq formes",
+          "layer": "core",
+          "say": "5 ways to write each of these three, and 2 ways to say them. a2.03 gave you four of the five and this is the one it could not. Tap a row to hear all five. a2.03 said the plain form tells you the other three, and it still does. These three have a fourth, and the plain form tells you that one too.",
+          "cols": [
+            "Plain",
+            "Before a vowel",
+            "For her",
+            "For them",
+            "For her, plural"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "beau",
+                "bel",
+                "belle",
+                "beaux",
+                "belles"
+              ],
+              "say": "C'est un bel arbre.",
+              "detail": {
+                "title": "beau · bel",
+                "body": "Il est beau. Elle est belle. Ils sont beaux. Elles sont belles. BOH · BEL · BEL · BOH · BEL. The plural takes an x, and it makes no sound either way.",
+                "say": "Elle est belle."
+              }
+            },
+            {
+              "cells": [
+                "nouveau",
+                "nouvel",
+                "nouvelle",
+                "nouveaux",
+                "nouvelles"
+              ],
+              "say": "C'est un nouvel ami.",
+              "detail": {
+                "title": "nouveau · nouvel",
+                "body": "Il est nouveau. Elle est nouvelle. Ils sont nouveaux. Elles sont nouvelles. noo-VOH · noo-VEL · noo-VEL · noo-VOH · noo-VEL. The plural takes an x, and it makes no sound either way.",
+                "say": "Elle est nouvelle."
+              }
+            },
+            {
+              "cells": [
+                "vieux",
+                "vieil",
+                "vieille",
+                "vieux",
+                "vieilles"
+              ],
+              "say": "C'est un vieil immeuble.",
+              "detail": {
+                "title": "vieux · vieil",
+                "body": "Il est vieux. Elle est vieille. Ils sont vieux. Elles sont vieilles. VYUH · VYEY · VYEY · VYUH · VYEY. Its plural is the same word as its singular, which a1.14 told you about this word.",
+                "say": "Elle est vieille."
+              }
+            }
+          ],
+          "terms": [
+            "fiveForms",
+            "theShortOne"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s05-known",
+          "title": "The Four You Have",
+          "frSub": "Ce que vous savez déjà",
+          "layer": "core",
+          "hint": "Swipe through the four you already own.",
+          "cards": [
+            {
+              "label": "Plain",
+              "head": "beau",
+              "sub": "[BOH]",
+              "body": "The plain form and the one you learn the word in. a2.03 said the plain form tells you the other three, and it still does. These three have a fourth, and the plain form tells you that one too."
+            },
+            {
+              "label": "For her",
+              "fr": "Elle est belle.",
+              "sub": "[el eh BEL]",
+              "body": "a1.14 gave you this one and it has not changed. Say it out loud twice, because the shape this lesson is about is built out of it and out of nothing else."
+            },
+            {
+              "label": "For them",
+              "fr": "Ils sont beaux.",
+              "sub": "[eel sohⁿ BOH]",
+              "body": "An x on the end rather than an s, and it makes exactly as much noise as an s would, which is none. Act 4 is about that x."
+            },
+            {
+              "label": "For her, plural",
+              "fr": "Elles sont belles.",
+              "sub": "[el sohⁿ BEL]",
+              "body": "The woman form with an ordinary s after it. Out loud it is the woman form, and there is nothing new here at all."
+            },
+            {
+              "label": "And the fifth",
+              "head": "5 shapes, 2 sounds",
+              "body": "Five ways to write it and two ways to say it. Three of the five are one sound and the other two are the other. The one you have not met is the one the scene stopped on."
+            }
+          ],
+          "terms": [
+            "fiveForms",
+            "whatYouCanHear"
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s06-hear",
+          "title": "Five Shapes, Two Sounds",
+          "frSub": "Cinq formes, deux sons",
+          "layer": "core",
+          "swipe": true,
+          "say": "Five ways to write it and two ways to say it. Three of the five are one sound and the other two are the other. Listen to all four before you answer anything.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-16-ear"
+          },
+          "lines": [
+            {
+              "fr": "Il est beau.",
+              "en": "He is good-looking."
+            },
+            {
+              "fr": "Ils sont beaux.",
+              "en": "They are good-looking."
+            },
+            {
+              "fr": "Elle est belle.",
+              "en": "She is beautiful."
+            },
+            {
+              "fr": "Elles sont belles.",
+              "en": "They are beautiful."
+            }
+          ],
+          "questions": [
+            {
+              "q": "The first two sound identical. What is written differently?",
+              "opts": [
+                "An x on the second one",
+                "An s on the second one",
+                "Nothing is written differently"
+              ],
+              "correct": 0,
+              "why": "beaux takes an x where almost every other describing word in French takes an s, and neither letter has ever been pronounced."
+            },
+            {
+              "q": "The third and fourth also sound identical. Which is about several people?",
+              "opts": [
+                "The third",
+                "The fourth",
+                "You cannot tell from the sound"
+              ],
+              "correct": 2,
+              "why": "The plural s is silent here as it is everywhere. Four written shapes have just reached you as two."
+            },
+            {
+              "q": "So how many different sounds do the 5 shapes make?",
+              "opts": [
+                "One",
+                "Two",
+                "Three",
+                "Five"
+              ],
+              "correct": 1,
+              "why": "Five ways to write it and two ways to say it. Three of the five are one sound and the other two are the other."
+            }
+          ],
+          "terms": [
+            "whatYouCanHear",
+            "fiveForms"
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s07-pairs",
+          "title": "Same Word, Next Word",
+          "frSub": "Le même mot, deux fois",
+          "layer": "core",
+          "say": "Three pairs. In each one the describing word is the same word and the thing after it is different, and that is the only reason anything changed. Tap a row to hear both.",
+          "cols": [
+            "Word",
+            "Before sac",
+            "Before a vowel"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "beau",
+                "beau",
+                "bel"
+              ],
+              "say": "C'est un bel arbre.",
+              "detail": {
+                "title": "beau · bel",
+                "body": "« C'est un beau sac » then « C'est un bel arbre ». BOH then BEL. Nothing about the describing word decided that. The word after it did.",
+                "say": "C'est un beau sac."
+              }
+            },
+            {
+              "cells": [
+                "nouveau",
+                "nouveau",
+                "nouvel"
+              ],
+              "say": "C'est un nouvel ami.",
+              "detail": {
+                "title": "nouveau · nouvel",
+                "body": "« C'est un nouveau sac » then « C'est un nouvel ami ». noo-VOH then noo-VEL. Nothing about the describing word decided that. The word after it did.",
+                "say": "C'est un nouveau sac."
+              }
+            },
+            {
+              "cells": [
+                "vieux",
+                "vieux",
+                "vieil"
+              ],
+              "say": "C'est un vieil immeuble.",
+              "detail": {
+                "title": "vieux · vieil",
+                "body": "« C'est un vieux sac » then « C'est un vieil immeuble ». VYUH then VYEY. Nothing about the describing word decided that. The word after it did.",
+                "say": "C'est un vieux sac."
+              }
+            }
+          ],
+          "terms": [
+            "aVowelIsComing",
+            "theShortOne"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s08-borrow",
+          "title": "It Is The Woman Form",
+          "frSub": "La forme féminine, raccourcie",
+          "layer": "core",
+          "hint": "Swipe. Say each pair out loud before you move on.",
+          "cards": [
+            {
+              "label": "The claim",
+              "head": "Same sound",
+              "body": "The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same."
+            },
+            {
+              "label": "belle · bel",
+              "fr": "belle · bel",
+              "sub": "[BEL] · [BEL]",
+              "body": "Two words on the page and one word in the mouth. Take the last two letters off belle and you have bel, and you have not changed a single sound doing it."
+            },
+            {
+              "label": "nouvelle · nouvel",
+              "fr": "nouvelle · nouvel",
+              "sub": "[noo-VEL] · [noo-VEL]",
+              "body": "Two words on the page and one word in the mouth. Take the last two letters off nouvelle and you have nouvel, and you have not changed a single sound doing it."
+            },
+            {
+              "label": "vieille · vieil",
+              "fr": "vieille · vieil",
+              "sub": "[VYEY] · [VYEY]",
+              "body": "Two words on the page and one word in the mouth. Take the last two letters off vieille and you have vieil, and you have not changed a single sound doing it."
+            },
+            {
+              "label": "All three at once",
+              "head": "Drop the le",
+              "body": "The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same. belle without the le is bel, nouvelle without the le is nouvel, vieille without the le is vieil. Three words, one operation."
+            },
+            {
+              "label": "And the proof is not mine",
+              "fr": "bel · belle",
+              "sub": "[BEL] · [BEL]",
+              "body": "These two cards were written into this course years apart, by different people, for different lessons. Look at what is under them. Nobody was trying to make a point and they came out the same."
+            }
+          ],
+          "terms": [
+            "theShortOne",
+            "whatYouCanHear"
+          ]
+        },
+        {
+          "type": "teach",
+          "id": "s09-why",
+          "title": "Why It Exists At All",
+          "frSub": "Pourquoi cette forme",
+          "layer": "core",
+          "body": "sons.07 put it this way: Two vowels collide, the little word gives way. It said that about the little words in front of a noun. This is the same pressure on the word after them. You met that rule in a pronunciation lesson.",
+          "terms": [
+            "aVowelIsComing",
+            "theShortOne"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s10-chain",
+          "title": "You Have Done This Before",
+          "frSub": "Déjà vu",
+          "layer": "core",
+          "say": "a1.17 taught you « mon amie » rather than « ma amie ». Same trade, other direction: a form borrowed from the other side so a consonant lands in front of the vowel. 3 of your lessons have made you do it already.",
+          "examples": [
+            {
+              "fr": "ma amie → mon amie",
+              "en": "my friend",
+              "note": "a1.17. A word swapped for the one from the other side, so that a consonant lands in front of the vowel. Nothing about the friend changed."
+            },
+            {
+              "fr": "je aime → j’aime",
+              "en": "I like",
+              "note": "sons.07. Here the vowel is thrown away instead of the word being swapped, and the apostrophe marks where it stood."
+            },
+            {
+              "fr": "beau → bel",
+              "en": "lovely",
+              "note": "And this lesson. A word swapped for the one from the other side, exactly as in the first row, and it is the third solution to one problem."
+            },
+            {
+              "fr": "Two vowels collide, the little word gives way.",
+              "en": "sons.07",
+              "note": "That sentence was written for a pronunciation lesson and it is the shortest description of this one."
+            }
+          ],
+          "terms": [
+            "aVowelIsComing"
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s11-onlypair",
+          "title": "The One You Can Hear",
+          "frSub": "La seule différence audible",
+          "layer": "core",
+          "swipe": true,
+          "say": "You can hear the plain one against the one before a vowel, and that is the only difference here your ear will ever get.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-16-pairs"
+          },
+          "lines": [
+            {
+              "fr": "C'est un beau sac.",
+              "en": "It is a nice bag."
+            },
+            {
+              "fr": "C'est un bel arbre.",
+              "en": "It's a beautiful tree."
+            },
+            {
+              "fr": "C'est un nouveau sac.",
+              "en": "It is a new bag."
+            },
+            {
+              "fr": "C'est un nouvel ami.",
+              "en": "He's a new friend."
+            }
+          ],
+          "questions": [
+            {
+              "q": "The first two. Did the describing word change?",
+              "opts": [
+                "Yes, and you can hear it",
+                "No",
+                "It changed on the page only"
+              ],
+              "correct": 0,
+              "why": "BOH against BEL. This is the one difference in the lesson your ear gets for free."
+            },
+            {
+              "q": "Now the second one against « Elle est belle ». Which of the two did you hear?",
+              "opts": [
+                "The first",
+                "The second",
+                "They are the same sound"
+              ],
+              "correct": 2,
+              "why": "The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same."
+            },
+            {
+              "q": "So what will the ear never tell you here?",
+              "opts": [
+                "Whether the plain form or the short form was used",
+                "Whether the short form or the woman form was used",
+                "Neither of those"
+              ],
+              "correct": 1,
+              "why": "You can hear the plain one against the one before a vowel, and that is the only difference here your ear will ever get. Everything else on the grid is one of two noises, so the page is the only place it shows."
+            }
+          ],
+          "terms": [
+            "whatYouCanHear",
+            "theShortOne"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s12-h",
+          "title": "The H That Is Not There",
+          "frSub": "Le h muet",
+          "layer": "core",
+          "say": "The word after this one starts with an h on the page and with a vowel in the mouth. French is listening to the mouth, which is why this is the short form and not the plain one. sons.07 already gave you the two kinds of h and this is the ordinary kind.",
+          "examples": [
+            {
+              "fr": "C'est un bel arbre.",
+              "en": "It's a beautiful tree.",
+              "note": "A vowel at the front of the next word, on the page and in the mouth. The short form, for the obvious reason."
+            },
+            {
+              "fr": "C'est un bel homme.",
+              "en": "He is a handsome man.",
+              "note": "A consonant at the front of the next word ON THE PAGE. The short form anyway, because there is no consonant in the mouth and the mouth is what decides."
+            },
+            {
+              "fr": "C'est un beau sac.",
+              "en": "It is a nice bag.",
+              "note": "And the control. A real consonant, so the plain form, and the difference between this row and the one above it is invisible in writing."
+            },
+            {
+              "fr": "sons.07 · Two vowels collide, the little word gives way.",
+              "en": "the lesson that already told you",
+              "note": "The same h behaves the same way in front of the little words, and that is where you met it. Nothing new has been introduced here."
+            }
+          ],
+          "terms": [
+            "aVowelIsComing",
+            "onlyForAMan"
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s13-reading",
+          "title": "The Flat, Described",
+          "frSub": "L’appartement",
+          "layer": "core",
+          "questionsInModal": true,
+          "text": "Nous avons déménagé le mois dernier. C'est un bel immeuble, assez vieux, dans une rue calme. Notre appartement est petit mais il est très beau : les fenêtres sont belles et il y a un vieil arbre devant la porte. Le voisin du troisième est un vieil homme très gentil ; il connaît tout le monde ici. Il y a aussi un nouvel habitant au deuxième, et deux nouveaux commerces au coin de la rue. Les rues sont vieilles et les magasins sont nouveaux, et c'est ce que nous voulions.",
+          "glossary": [
+            {
+              "word": "déménagé",
+              "en": "moved house",
+              "note": "Past tense, which you have not had yet. Read it as a fact about the story rather than as something to build."
+            },
+            {
+              "word": "immeuble",
+              "en": "building",
+              "note": "Starts with a vowel sound, so look at the describing word in front of it."
+            },
+            {
+              "word": "habitant",
+              "en": "resident",
+              "note": "Starts with a silent h, so it counts as a vowel and the word in front of it is the short one."
+            },
+            {
+              "word": "commerces",
+              "en": "shops",
+              "note": "Several of them, and masculine, so the describing word in front takes an x."
+            },
+            {
+              "word": "coin",
+              "en": "corner",
+              "note": "A consonant at the front, and nothing in front of it had to change."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Three describing words in this passage are two letters shorter than their plain form. What do the words after all three have in common?",
+              "a": "Every one of them starts with a vowel sound. Two start with a vowel letter and one starts with a silent h."
+            },
+            {
+              "q": "The passage says les rues sont vieilles and les magasins sont nouveaux. Why does one take an s and the other an x?",
+              "a": "One is the woman form, which takes an ordinary s. The other is the plain form of a word that takes an x in the plural."
+            },
+            {
+              "q": "Would anything sound different if the writer had put the plain form in front of immeuble?",
+              "a": "Yes. It is the one difference in this whole lesson you can hear, and it is why the sentence would stop."
+            },
+            {
+              "q": "The building is described as vieux and the neighbour as vieil. Same word. What decided it?",
+              "a": "The sound at the front of the next word, and nothing else. Neither the building nor the neighbour had anything to do with it."
+            }
+          ],
+          "terms": [
+            "aVowelIsComing",
+            "theXPlural"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s14-which",
+          "title": "Plain One Or Short One?",
+          "frSub": "Quelle forme ?",
+          "layer": "core",
+          "size": "lg",
+          "rule": {
+            "title": "One decision, and it is not about the adjective",
+            "body": "Listen to the front of the next word, not to its spelling. If a vowel is coming, take the woman form and drop its last two letters."
+          },
+          "cards": [
+            {
+              "promptLabel": "consonant",
+              "promptSound": "C'est un beau sac.",
+              "fr": "C'est un beau sac.",
+              "ipa": "/s‿ɛ tœ̃ bo sak/",
+              "tip": "sac starts with a consonant, so nothing happens."
+            },
+            {
+              "promptLabel": "vowel",
+              "promptSound": "C'est un bel arbre.",
+              "fr": "C'est un bel arbre.",
+              "ipa": "/s‿ɛ tœ̃ bɛ.laʁbʁ/",
+              "tip": "A vowel starts the next word, so the short form."
+            },
+            {
+              "promptLabel": "vowel",
+              "promptSound": "C'est un nouvel ami.",
+              "fr": "C'est un nouvel ami.",
+              "ipa": "/s‿ɛ tœ̃ nu.vɛ.la.mi/",
+              "tip": "Same again, different word, same two letters gone."
+            },
+            {
+              "promptLabel": "consonant",
+              "promptSound": "C'est un vieux sac.",
+              "fr": "C'est un vieux sac.",
+              "ipa": "/s‿ɛ tœ̃ vjø sak/",
+              "tip": "Consonant, so the plain form stands."
+            },
+            {
+              "promptLabel": "silent h",
+              "promptSound": "C'est un bel homme.",
+              "fr": "C'est un bel homme.",
+              "ipa": "/s‿ɛ tœ̃ bɛ.lɔm/",
+              "tip": "A consonant on the page and a vowel in the mouth. The mouth decides."
+            },
+            {
+              "promptLabel": "vowel",
+              "promptSound": "C'est un vieil immeuble.",
+              "fr": "C'est un vieil immeuble.",
+              "ipa": "/s‿ɛ tœ̃ vjɛ.ji.mœbl/",
+              "tip": "The third word, and the last of the three you have to know."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "un ___ sac",
+              "opts": [
+                "nouvel",
+                "nouveau",
+                "nouvelle"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "un ___ ami",
+              "opts": [
+                "vieil",
+                "vieux",
+                "vieille"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "un ___ hôtel",
+              "opts": [
+                "beau",
+                "belle",
+                "bel"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "un ___ vélo",
+              "opts": [
+                "bel",
+                "beau",
+                "belles"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "un ___ appartement",
+              "opts": [
+                "nouvelle",
+                "nouvel",
+                "nouveau"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "un ___ château",
+              "opts": [
+                "vieux",
+                "vieil",
+                "vieille"
+              ],
+              "correct": 0
+            }
+          ],
+          "terms": [
+            "aVowelIsComing"
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s15-invented",
+          "title": "The One Nobody Hears",
+          "frSub": "L’erreur inaudible",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "errors": [
+            {
+              "wrong": "une belle appartement",
+              "right": "un bel appartement",
+              "why": "The flat is masculine, so the woman form was never wanted. Nobody hears this mistake, including the person making it. The two forms are one sound, so only the page shows it."
+            },
+            {
+              "wrong": "un belle ami",
+              "right": "un bel ami",
+              "why": "The short form is the one that goes here, and it is four letters shorter than what got written. Same sound, and only the page objects."
+            },
+            {
+              "wrong": "un vieille homme",
+              "right": "un vieil homme",
+              "why": "A silent h in front of a masculine thing, so the short form, and it is the same trade as the row above."
+            },
+            {
+              "wrong": "Il est bel.",
+              "right": "Il est beau.",
+              "why": "The short form exists to run into the word after it, so it only turns up in front of a thing."
+            },
+            {
+              "wrong": "une nouvel amie",
+              "right": "une nouvelle amie",
+              "why": "The other direction, and it is the one people reach for once they have learned the short form. A feminine thing takes the woman form whatever sound comes next, because there was never a collision to prevent."
+            }
+          ],
+          "terms": [
+            "onlyForAMan"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s16-plural",
+          "title": "An X, Not An S",
+          "frSub": "Le pluriel en -x",
+          "layer": "core",
+          "say": "beaux and nouveaux take an x. vieux already ends in one, so it takes nothing at all, and a1.14 and a2.03 both told you so.",
+          "examples": [
+            {
+              "fr": "Ils sont beaux.",
+              "en": "They are good-looking.",
+              "note": "An x. There is no reasoning that gets you here and there is no sound that tells you either. You have to have seen it."
+            },
+            {
+              "fr": "Ils sont nouveaux.",
+              "en": "They are new.",
+              "note": "The second of the two, and the same ending for the same reason."
+            },
+            {
+              "fr": "Ils sont vieux.",
+              "en": "They are old.",
+              "note": "The same four letters as the singular, because there is no room after an x for another one. a1.14 and a2.03 both told you this and it has not changed."
+            },
+            {
+              "fr": "Elles sont vieilles.",
+              "en": "They are old.",
+              "note": "And here the s does turn up, because the woman form gave it somewhere to go. Compare it with the row above."
+            }
+          ],
+          "terms": [
+            "theXPlural"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s17-errors",
+          "title": "Build It Under Pressure",
+          "frSub": "Sous pression",
+          "layer": "core",
+          "size": "lg",
+          "say": "Three groups, and each one gives you a thing rather than a word. Decide what noise it starts with before you decide anything else.",
+          "groups": [
+            {
+              "label": "beau · beautiful, handsome",
+              "items": [
+                {
+                  "fr": "C'est un beau sac.",
+                  "itemId": "fr.a2.adjectifs-essentiels.053",
+                  "note": "[seh-tuhⁿ boh SAK] · It is a nice bag."
+                },
+                {
+                  "fr": "C'est un bel arbre.",
+                  "itemId": "fr.a1.adjectifs-essentiels.204",
+                  "note": "[seh-tuhⁿ beh-LAHRBR] · It's a beautiful tree."
+                }
+              ],
+              "check": {
+                "q": "un ___ hôtel",
+                "opts": [
+                  "bel",
+                  "belle",
+                  "beau"
+                ],
+                "correct": 0,
+                "why": "A silent h, so a vowel sound, so the short form. belle is the right noise and the wrong word, because the thing is masculine."
+              }
+            },
+            {
+              "label": "nouveau · new",
+              "items": [
+                {
+                  "fr": "C'est un nouveau sac.",
+                  "itemId": "fr.a2.adjectifs-essentiels.054",
+                  "note": "[seh-tuhⁿ noo-voh SAK] · It is a new bag."
+                },
+                {
+                  "fr": "C'est un nouvel ami.",
+                  "itemId": "fr.a1.adjectifs-essentiels.038",
+                  "note": "[seh-tuhⁿ noo-veh-la-MEE] · He's a new friend."
+                }
+              ],
+              "check": {
+                "q": "un ___ ordinateur",
+                "opts": [
+                  "nouveau",
+                  "nouvel",
+                  "nouvelle"
+                ],
+                "correct": 1,
+                "why": "A vowel at the front of the next word, so the short form. nouvelle is the right noise and the wrong word, because the thing is masculine."
+              }
+            },
+            {
+              "label": "vieux · old",
+              "items": [
+                {
+                  "fr": "C'est un vieux sac.",
+                  "itemId": "fr.a2.adjectifs-essentiels.055",
+                  "note": "[seh-tuhⁿ vyuh SAK] · It is an old bag."
+                },
+                {
+                  "fr": "C'est un vieil immeuble.",
+                  "itemId": "fr.a1.adjectifs-essentiels.214",
+                  "note": "[seh-tuhⁿ vyeh-yee-MUHBL] · It's an old building."
+                }
+              ],
+              "check": {
+                "q": "un ___ appartement",
+                "opts": [
+                  "vieil",
+                  "vieille",
+                  "vieux"
+                ],
+                "correct": 0,
+                "why": "A vowel at the front of the next word, so the short form. vieille is the right noise and the wrong word, because the thing is masculine."
+              }
+            }
+          ],
+          "terms": [
+            "aVowelIsComing",
+            "onlyForAMan"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s18-scenario",
+          "title": "Describing The Move",
+          "frSub": "Raconter le déménagement",
+          "layer": "core",
+          "setting": "The same colleague, a week later, and this time he has time for the whole answer. Every reply wants a shape rather than a phrase.",
+          "turns": [
+            {
+              "ai": "Alors, ce nouvel appartement ? Il est comment ?",
+              "en": "So, this new flat? What is it like?",
+              "user": "C'est un bel appartement.",
+              "userEn": "It is a lovely flat.",
+              "alts": [
+                {
+                  "fr": "Il est très beau.",
+                  "en": "It is very nice."
+                },
+                {
+                  "fr": "C'est un bel appartement, oui.",
+                  "en": "It is a lovely flat, yes."
+                }
+              ]
+            },
+            {
+              "ai": "Et l'immeuble ? Il est récent ?",
+              "en": "And the building? Is it recent?",
+              "user": "Non, c'est un vieil immeuble.",
+              "userEn": "No, it is an old building.",
+              "alts": [
+                {
+                  "fr": "Non, il est vieux.",
+                  "en": "No, it is old."
+                },
+                {
+                  "fr": "Non, c'est un immeuble assez vieux.",
+                  "en": "No, it is quite an old building."
+                }
+              ]
+            },
+            {
+              "ai": "Tu connais tes voisins ?",
+              "en": "Do you know your neighbours?",
+              "user": "Oui, il y a un vieil homme très gentil.",
+              "userEn": "Yes, there is a very kind old man.",
+              "alts": [
+                {
+                  "fr": "Oui, un vieil homme au troisième.",
+                  "en": "Yes, an old man on the third floor."
+                },
+                {
+                  "fr": "Oui, et il y a un nouvel habitant aussi.",
+                  "en": "Yes, and there is a new resident too."
+                }
+              ]
+            },
+            {
+              "ai": "Et le quartier ? Il y a des commerces ?",
+              "en": "And the neighbourhood? Are there shops?",
+              "user": "Oui, il y a deux nouveaux commerces.",
+              "userEn": "Yes, there are two new shops.",
+              "alts": [
+                {
+                  "fr": "Oui, les commerces sont nouveaux.",
+                  "en": "Yes, the shops are new."
+                },
+                {
+                  "fr": "Oui, deux nouveaux magasins au coin.",
+                  "en": "Yes, two new shops on the corner."
+                }
+              ]
+            },
+            {
+              "ai": "Les rues sont jolies ?",
+              "en": "Are the streets pretty?",
+              "user": "Oui, elles sont belles. Elles sont vieilles aussi.",
+              "userEn": "Yes, they are beautiful. They are old too.",
+              "alts": [
+                {
+                  "fr": "Oui, les rues sont belles.",
+                  "en": "Yes, the streets are beautiful."
+                },
+                {
+                  "fr": "Elles sont vieilles et elles sont belles.",
+                  "en": "They are old and they are beautiful."
+                }
+              ]
+            },
+            {
+              "ai": "Tu as pris quoi comme meubles ?",
+              "en": "What did you get in the way of furniture?",
+              "user": "J'ai un vieux sac et deux chaises.",
+              "userEn": "I have an old bag and two chairs.",
+              "alts": [
+                {
+                  "fr": "J'ai gardé mon vieux sac.",
+                  "en": "I kept my old bag."
+                },
+                {
+                  "fr": "Pas grand-chose. Un vieux sac.",
+                  "en": "Not much. An old bag."
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "theShortOne",
+            "theXPlural"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s19-dictation",
+          "title": "Spell What You Hear",
+          "frSub": "La dictée",
+          "layer": "core",
+          "itemIds": [
+            "fr.a2.adjectifs-essentiels.041",
+            "fr.a2.adjectifs-essentiels.042",
+            "fr.a2.adjectifs-essentiels.043",
+            "fr.a2.adjectifs-essentiels.044",
+            "fr.a2.adjectifs-essentiels.045",
+            "fr.a2.adjectifs-essentiels.046",
+            "fr.a2.adjectifs-essentiels.047",
+            "fr.a2.adjectifs-essentiels.049",
+            "fr.a2.adjectifs-essentiels.050",
+            "fr.a2.adjectifs-essentiels.051",
+            "fr.a2.adjectifs-essentiels.053",
+            "fr.a2.adjectifs-essentiels.054",
+            "fr.a2.adjectifs-essentiels.055",
+            "fr.a1.adjectifs-essentiels.204",
+            "fr.a1.adjectifs-essentiels.038",
+            "fr.a1.adjectifs-essentiels.026"
+          ],
+          "say": "Sixteen sentences, and every one of them turns on letters you cannot hear. Three of the nineteen are too long to spell letter by letter and they are named on the grid instead.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-a2-16-dictee"
+          },
+          "terms": [
+            "theXPlural",
+            "whatYouCanHear"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s20-speak",
+          "title": "Say It Out Loud",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "skill": "speak",
+          "itemIds": [
+            "fr.a2.adjectifs-essentiels.041",
+            "fr.a2.adjectifs-essentiels.042",
+            "fr.a2.adjectifs-essentiels.043",
+            "fr.a2.adjectifs-essentiels.044",
+            "fr.a2.adjectifs-essentiels.045",
+            "fr.a2.adjectifs-essentiels.046",
+            "fr.a2.adjectifs-essentiels.047",
+            "fr.a2.adjectifs-essentiels.048",
+            "fr.a2.adjectifs-essentiels.049",
+            "fr.a2.adjectifs-essentiels.050",
+            "fr.a2.adjectifs-essentiels.051",
+            "fr.a2.adjectifs-essentiels.052",
+            "fr.a2.adjectifs-essentiels.053",
+            "fr.a2.adjectifs-essentiels.054",
+            "fr.a2.adjectifs-essentiels.055",
+            "fr.a1.adjectifs-essentiels.204",
+            "fr.a1.adjectifs-essentiels.038",
+            "fr.a1.adjectifs-essentiels.214",
+            "fr.a1.adjectifs-essentiels.026",
+            "fr.a2.adjectifs-essentiels.058"
+          ],
+          "terms": [
+            "whatYouCanHear"
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s21-review",
+          "title": "The Whole Thing, One Deck",
+          "frSub": "Tout, en un paquet",
+          "layer": "core",
+          "cards": [
+            {
+              "front": "beau · in front of a vowel",
+              "back": "beau · bel · belle · beaux · belles",
+              "say": "C'est un bel arbre."
+            },
+            {
+              "front": "nouveau · in front of a vowel",
+              "back": "nouveau · nouvel · nouvelle · nouveaux · nouvelles",
+              "say": "C'est un nouvel ami."
+            },
+            {
+              "front": "vieux · in front of a vowel",
+              "back": "vieux · vieil · vieille · vieux · vieilles",
+              "say": "C'est un vieil immeuble."
+            },
+            {
+              "front": "What is the short form made of?",
+              "back": "The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same.",
+              "say": "Elle est belle."
+            },
+            {
+              "front": "What decides which one you use?",
+              "back": "Listen to the front of the next word, not to its spelling. If a vowel is coming, take the woman form and drop its last two letters.",
+              "say": "C'est un bel arbre."
+            },
+            {
+              "front": "Why is there no woman version of it?",
+              "back": "The short form exists to run into the word after it, so it only turns up in front of a thing.",
+              "say": "Elle est belle."
+            },
+            {
+              "front": "Which two take an x?",
+              "back": "beaux and nouveaux take an x. vieux already ends in one, so it takes nothing at all, and a1.14 and a2.03 both told you so.",
+              "say": "Ils sont beaux."
+            },
+            {
+              "front": "What can you actually hear?",
+              "back": "You can hear the plain one against the one before a vowel, and that is the only difference here your ear will ever get.",
+              "say": "C'est un beau sac."
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s22-progress",
+          "title": "Where You Stand",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "body": "Before a vowel, say the feminine and drop its last two letters. The exam has five rounds. Two of them are written rather than spoken, and that is not a preference: the mistake this lesson exists to stop is one nobody can hear, including the person making it.",
+          "stats": [
+            {
+              "k": "Words",
+              "v": "3"
+            },
+            {
+              "k": "Shapes each",
+              "v": "5 written, 2 heard"
+            },
+            {
+              "k": "New to learn",
+              "v": "0. You had all six sounds already."
+            },
+            {
+              "k": "Take an x",
+              "v": "2 of 3"
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s23-quiz",
+          "title": "The Exam",
+          "frSub": "L’examen",
+          "layer": "core",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "say": "Five rounds. Miss too many in a round and you get a drill before the next one starts.",
+          "rounds": [
+            {
+              "id": "r1-which-form",
+              "label": "Which form",
+              "targets": [
+                "err-plain-before-vowel",
+                "err-invented-feminine"
+              ],
+              "say": "Six. Every one of them turns on the word after the gap.",
+              "questions": [
+                {
+                  "q": "un ___ sac   (beau)",
+                  "format": "mcq",
+                  "opts": [
+                    "beau",
+                    "bel",
+                    "belle",
+                    "beaux"
+                  ],
+                  "correct": 0,
+                  "why": "sac starts with a consonant, so there is no collision and nothing to prevent.",
+                  "ref": "s03-front"
+                },
+                {
+                  "q": "un ___ arbre   (beau)",
+                  "format": "mcq",
+                  "opts": [
+                    "beau",
+                    "belle",
+                    "bel",
+                    "belles"
+                  ],
+                  "correct": 2,
+                  "why": "A vowel at the front of the next word. The short form, and it is the woman form two letters shorter.",
+                  "ref": "s07-pairs"
+                },
+                {
+                  "q": "un ___ ami   (vieux)",
+                  "format": "typeIn",
+                  "accept": [
+                    "vieil",
+                    "un vieil ami"
+                  ],
+                  "answer": "vieil",
+                  "why": "vieille without its last two letters. Same sound, shorter word.",
+                  "ref": "s08-borrow"
+                },
+                {
+                  "q": "un ___ ordinateur   (nouveau)",
+                  "format": "typeIn",
+                  "accept": [
+                    "nouvel",
+                    "un nouvel ordinateur"
+                  ],
+                  "answer": "nouvel",
+                  "why": "nouvelle without the le. This is the one of the three that had no card anywhere in this course before today.",
+                  "ref": "s08-borrow"
+                },
+                {
+                  "q": "un ___ hôtel   (beau)",
+                  "format": "mcq",
+                  "opts": [
+                    "belle",
+                    "beau",
+                    "beaux",
+                    "bel"
+                  ],
+                  "correct": 3,
+                  "why": "An h on the page and a vowel in the mouth. French listens to the mouth.",
+                  "ref": "s12-h"
+                },
+                {
+                  "q": "Listen. Which sentence is this?",
+                  "format": "listenChoose",
+                  "say": "C'est un bel arbre.",
+                  "opts": [
+                    "C'est un beau sac.",
+                    "C'est un bel arbre."
+                  ],
+                  "correct": 1,
+                  "why": "BOH against BEL. You can hear the plain one against the one before a vowel, and that is the only difference here your ear will ever get.",
+                  "ref": "s11-onlypair"
+                }
+              ]
+            },
+            {
+              "id": "r2-the-borrow",
+              "label": "Where it comes from",
+              "targets": [
+                "err-invented-short",
+                "err-plain-before-vowel"
+              ],
+              "say": "Six on what the short form is actually made of.",
+              "questions": [
+                {
+                  "q": "Take the last two letters off belle. Type what is left.",
+                  "format": "typeIn",
+                  "accept": [
+                    "bel"
+                  ],
+                  "answer": "bel",
+                  "why": "The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same.",
+                  "ref": "s08-borrow"
+                },
+                {
+                  "q": "Now the same with vieille.",
+                  "format": "typeIn",
+                  "accept": [
+                    "vieil"
+                  ],
+                  "answer": "vieil",
+                  "why": "vieille minus le is vieil. Three words, one operation.",
+                  "ref": "s08-borrow"
+                },
+                {
+                  "q": "And nouvelle.",
+                  "format": "typeIn",
+                  "accept": [
+                    "nouvel"
+                  ],
+                  "answer": "nouvel",
+                  "why": "The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same. belle without the le is bel, nouvelle without the le is nouvel, vieille without the le is vieil. Three words, one operation.",
+                  "ref": "s08-borrow"
+                },
+                {
+                  "q": "How does bel sound next to belle?",
+                  "format": "mcq",
+                  "opts": [
+                    "Shorter, because the word is shorter",
+                    "The same but with the last sound missing",
+                    "Longer",
+                    "Exactly the same"
+                  ],
+                  "correct": 3,
+                  "why": "Both are BEL. Two words on the page and one in the mouth, and two different people wrote those two cards years apart.",
+                  "ref": "s08-borrow"
+                },
+                {
+                  "q": "Why does this form exist at all?",
+                  "format": "mcq",
+                  "opts": [
+                    "Because French will not let two vowel sounds run into each other",
+                    "Because these three words are irregular and have to be learned",
+                    "Because they are old words that kept an older spelling",
+                    "Because they go in front of the noun rather than after it"
+                  ],
+                  "correct": 0,
+                  "why": "sons.07 said it first: Two vowels collide, the little word gives way.",
+                  "ref": "s09-why"
+                },
+                {
+                  "q": "a1.17 taught you « mon amie » rather than « ma amie ». What has that got to do with this?",
+                  "format": "mcq",
+                  "opts": [
+                    "Nothing. One is about possession and one is about describing.",
+                    "It is the same trade: a form borrowed from the other side so a consonant lands in front of the vowel.",
+                    "They are both irregular.",
+                    "Both only happen in front of the letter a."
+                  ],
+                  "correct": 1,
+                  "why": "a1.17 taught you « mon amie » rather than « ma amie ». Same trade, other direction: a form borrowed from the other side so a consonant lands in front of the vowel. 3 of your lessons have made you do it already.",
+                  "ref": "s10-chain"
+                }
+              ]
+            },
+            {
+              "id": "r3-only-for-a-man",
+              "label": "The one nobody hears",
+              "targets": [
+                "err-invented-feminine",
+                "err-short-in-predicate"
+              ],
+              "say": "Six written questions, and they are written because you could not hear any of these go wrong.",
+              "questions": [
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "une belle appartement",
+                  "accept": [
+                    "un bel appartement",
+                    "bel"
+                  ],
+                  "answer": "un bel appartement",
+                  "why": "The flat is masculine, so the woman form was never wanted. Nobody hears this mistake, including the person making it. The two forms are one sound, so only the page shows it.",
+                  "ref": "s15-invented"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "un belle ami",
+                  "accept": [
+                    "un bel ami",
+                    "bel"
+                  ],
+                  "answer": "un bel ami",
+                  "why": "Same sound, four letters too many, and a masculine noun in front of it.",
+                  "ref": "s15-invented"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "un vieille homme",
+                  "accept": [
+                    "un vieil homme",
+                    "vieil"
+                  ],
+                  "answer": "un vieil homme",
+                  "why": "A silent h in front of a masculine thing. The short form, and the woman form sounds identical.",
+                  "ref": "s12-h"
+                },
+                {
+                  "q": "une ___ amie   (nouveau)",
+                  "format": "typeIn",
+                  "accept": [
+                    "nouvelle",
+                    "une nouvelle amie"
+                  ],
+                  "answer": "nouvelle",
+                  "why": "The other direction. A feminine thing takes the woman form whatever sound comes next, because there was never a collision to prevent.",
+                  "ref": "s15-invented"
+                },
+                {
+                  "q": "Which of these is not a French sentence?",
+                  "format": "mcq",
+                  "opts": [
+                    "Il est bel.",
+                    "Il est beau.",
+                    "Elle est belle.",
+                    "Ils sont beaux."
+                  ],
+                  "correct": 0,
+                  "why": "The short form exists to run into the word after it, so it only turns up in front of a thing.",
+                  "ref": "s15-invented"
+                },
+                {
+                  "q": "Why is this the one mistake in the lesson that a listening test could never catch?",
+                  "format": "mcq",
+                  "opts": [
+                    "Because the endings are too quiet",
+                    "Because French speakers say both",
+                    "Because the noun comes afterwards",
+                    "Because the short form and the woman form are the same sound"
+                  ],
+                  "correct": 3,
+                  "why": "Nobody hears this mistake, including the person making it. The two forms are one sound, so only the page shows it. The short form exists to run into the word after it, so it only turns up in front of a thing.",
+                  "ref": "s11-onlypair"
+                }
+              ]
+            },
+            {
+              "id": "r4-the-x",
+              "label": "An x, not an s",
+              "targets": [
+                "err-plural-s",
+                "err-invented-short"
+              ],
+              "say": "Six on the half of this you can only get from having seen it written.",
+              "questions": [
+                {
+                  "q": "Ils sont ___ .   (beau)",
+                  "format": "typeIn",
+                  "accept": [
+                    "beaux",
+                    "Ils sont beaux."
+                  ],
+                  "answer": "beaux",
+                  "why": "An x. Not an s, and not for a reason anybody could work out.",
+                  "ref": "s16-plural"
+                },
+                {
+                  "q": "Ils sont ___ .   (nouveau)",
+                  "format": "typeIn",
+                  "accept": [
+                    "nouveaux",
+                    "Ils sont nouveaux."
+                  ],
+                  "answer": "nouveaux",
+                  "why": "The second of the two, same ending.",
+                  "ref": "s16-plural"
+                },
+                {
+                  "q": "Ils sont ___ .   (vieux)",
+                  "format": "typeIn",
+                  "accept": [
+                    "vieux",
+                    "Ils sont vieux."
+                  ],
+                  "answer": "vieux",
+                  "why": "The same four letters as the singular. a1.14 and a2.03 both told you so and it is a fact about the letter x rather than about this word.",
+                  "ref": "s16-plural"
+                },
+                {
+                  "q": "Which of these four is spelled correctly?",
+                  "format": "mcq",
+                  "opts": [
+                    "Ils sont beaus.",
+                    "Ils sont belle.",
+                    "Ils sont beaux.",
+                    "Ils sont beau."
+                  ],
+                  "correct": 2,
+                  "why": "An x on the end. The first is the s a learner reaches for, the second is the woman form and the third has no plural on it at all.",
+                  "ref": "s16-plural"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Ils sont vieuxs.",
+                  "accept": [
+                    "Ils sont vieux.",
+                    "vieux",
+                    "Ils sont vieux"
+                  ],
+                  "answer": "Ils sont vieux.",
+                  "why": "There is no room after an x for another letter, so nothing goes on the end and the word is finished already.",
+                  "ref": "s16-plural"
+                },
+                {
+                  "q": "Elles sont ___ .   (vieux)",
+                  "format": "typeIn",
+                  "accept": [
+                    "vieilles",
+                    "Elles sont vieilles."
+                  ],
+                  "answer": "vieilles",
+                  "why": "And here an ordinary s does turn up, because the woman form gave it somewhere to go.",
+                  "ref": "s16-plural"
+                }
+              ]
+            },
+            {
+              "id": "r5-in-a-sentence",
+              "label": "All of it at once",
+              "targets": [
+                "err-short-in-predicate",
+                "err-plural-s"
+              ],
+              "say": "Six, and each one wants a different one of the five shapes.",
+              "questions": [
+                {
+                  "q": "C'est un ___ immeuble.   (vieux)",
+                  "format": "typeIn",
+                  "accept": [
+                    "vieil",
+                    "un vieil immeuble"
+                  ],
+                  "answer": "vieil",
+                  "why": "A vowel at the front of the next word, and a masculine thing, so the short form.",
+                  "ref": "s07-pairs"
+                },
+                {
+                  "q": "Elle est ___ .   (vieux)",
+                  "format": "typeIn",
+                  "accept": [
+                    "vieille",
+                    "Elle est vieille."
+                  ],
+                  "answer": "vieille",
+                  "why": "Nothing follows it, so nothing can collide with it, and the woman form is what stands here.",
+                  "ref": "s04-grid"
+                },
+                {
+                  "q": "C'est un ___ habitant.   (nouveau)",
+                  "format": "typeIn",
+                  "accept": [
+                    "nouvel",
+                    "un nouvel habitant"
+                  ],
+                  "answer": "nouvel",
+                  "why": "A silent h, so a vowel sound, so the short form. The reading passage had this exact phrase in it.",
+                  "ref": "s13-reading"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Il est vieil.",
+                  "accept": [
+                    "Il est vieux.",
+                    "vieux",
+                    "Il est vieux"
+                  ],
+                  "answer": "Il est vieux.",
+                  "why": "The short form exists to run into the word after it, so it only turns up in front of a thing.",
+                  "ref": "s15-invented"
+                },
+                {
+                  "q": "Listen. Did the describing word change?",
+                  "format": "listenChoose",
+                  "say": "C'est un vieux sac.",
+                  "opts": [
+                    "C'est un vieux sac.",
+                    "C'est un vieil immeuble."
+                  ],
+                  "correct": 0,
+                  "why": "VYUH against VYEY, and this was the first one.",
+                  "ref": "s11-onlypair"
+                },
+                {
+                  "q": "You are about to say a describing word and you have half a second. What do you check?",
+                  "format": "mcq",
+                  "opts": [
+                    "Whether the thing is one or several",
+                    "Whether the word goes in front of the thing or after it",
+                    "What sound the next word starts with",
+                    "Whether you have said this word before"
+                  ],
+                  "correct": 2,
+                  "why": "Before a vowel, say the feminine and drop its last two letters. Where these three go is a1.16 and it has not changed: they are three of the small set that stand in front of the thing.",
+                  "ref": "s09-why"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s24-roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "layer": "core",
+          "body": "Before a vowel, say the feminine and drop its last two letters. Listen to the front of the next word, not to its spelling. If a vowel is coming, take the woman form and drop its last two letters.",
+          "points": [
+            "5 ways to write each of these three, and 2 ways to say them. a2.03 gave you four of the five and this is the one it could not.",
+            "The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same. belle without the le is bel, nouvelle without the le is nouvel, vieille without the le is vieil. Three words, one operation.",
+            "sons.07 said it about the little words in front of a noun: Two vowels collide, the little word gives way. It was the same rule then and it is the same rule now.",
+            "a1.17 taught you « mon amie » rather than « ma amie ». Same trade, other direction: a form borrowed from the other side so a consonant lands in front of the vowel. 3 of your lessons have made you do it already.",
+            "beaux and nouveaux take an x. vieux already ends in one, so it takes nothing at all, and a1.14 and a2.03 both told you so.",
+            "You can hear the plain one against the one before a vowel, and that is the only difference here your ear will ever get. That is why two of the five exam rounds are written.",
+            "a2.17 is next and it is built on the woman form, which you have now used more than any other shape of these three. Nothing here expires when you get there.",
+            "a1.16 owns where the word goes and a2.03 owns the four shapes underneath these five. Neither of them is this."
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.a2.adjectifs-essentiels.041",
+        "fr.a2.adjectifs-essentiels.042",
+        "fr.a2.adjectifs-essentiels.043",
+        "fr.a2.adjectifs-essentiels.044",
+        "fr.a2.adjectifs-essentiels.045",
+        "fr.a2.adjectifs-essentiels.046",
+        "fr.a2.adjectifs-essentiels.047",
+        "fr.a2.adjectifs-essentiels.048",
+        "fr.a2.adjectifs-essentiels.049",
+        "fr.a2.adjectifs-essentiels.050",
+        "fr.a2.adjectifs-essentiels.051",
+        "fr.a2.adjectifs-essentiels.052",
+        "fr.a2.adjectifs-essentiels.053",
+        "fr.a2.adjectifs-essentiels.054",
+        "fr.a2.adjectifs-essentiels.055",
+        "fr.a2.adjectifs-essentiels.056",
+        "fr.a2.adjectifs-essentiels.057",
+        "fr.a2.adjectifs-essentiels.058",
+        "fr.sons.adjectifs-essentiels.005",
+        "fr.sons.adjectifs-essentiels.007",
+        "fr.sons.adjectifs-essentiels.008",
+        "fr.sons.adjectifs-essentiels.314",
+        "fr.sons.adjectifs-essentiels.315",
+        "fr.sons.consonnes.138",
+        "fr.sons.adjectifs-essentiels.312",
+        "fr.a1.rencontres.095",
+        "fr.a1.adjectifs-essentiels.204",
+        "fr.a1.adjectifs-essentiels.038",
+        "fr.a1.adjectifs-essentiels.214",
+        "fr.a1.adjectifs-essentiels.026"
+      ],
+      "version": 2,
+      "grammarAssumed": [
+        "That a describing word changes shape to match what it describes, introduced in a1.13 through colour",
+        "The feminine -e and the plural -s on a describing word, and that the -s is never pronounced, introduced in a1.13",
+        "The irregular feminines belle and vieille by suppletion, introduced in a1.14",
+        "That a word already ending in -s or -x does not change in the masculine plural, introduced in a1.14 for vieux and mauvais and generalised to the class in a2.03",
+        "The pre-nominal position of this closed set, introduced in a1.16, including bel, vieil and nouvel as position-bound",
+        "Adjective agreement as a system of inflectional classes, introduced in a2.03",
+        "Elision and the distinction between h muet and h aspiré, introduced in sons.07",
+        "The pre-vocalic mon, ton and son in front of a feminine noun, introduced in a1.17",
+        "être in the present, introduced in a1.06, which is the frame twelve of the fifteen cells use"
+      ],
+      "grammarIntroduced": [
+        "The pre-vocalic masculine as a fifth inflectional cell rather than as a positional variant, completing the account a1.16 began",
+        "That the pre-vocalic masculine is phonologically identical to the feminine singular and derivable from it by deletion of the final -le, uniformly across beau, nouveau and vieux",
+        "Anti-hiatus as a single productive principle across the language, with elision, the pre-vocalic possessive and the pre-vocalic adjective as three of its realisations",
+        "That h muet is transparent to the pre-vocalic rule, extending sons.07 h-aspire-vs-h-muet distinction from proclitics to the adjective",
+        "The -eaux masculine plural on beau and nouveau, claimed by no unit at any level before this one",
+        "That the pre-vocalic form has no feminine counterpart, because the feminine is already consonant-final and licenses no hiatus",
+        "That the pre-vocalic form is licensed only pre-nominally and is ungrammatical in predicate position",
+        "That five written forms are realised as two phonological forms, so the pre-vocalic against feminine contrast is undetectable by ear and testable only in writing"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "Beau, Nouveau, Vieux",
+        "subFr": "Beau, nouveau, vieux",
+        "introFr": "Une cinquième forme, devant une voyelle, et vous la connaissez déjà.",
+        "minutes": 30,
+        "difficulty": 3,
+        "glyph": "Bel",
+        "screens": 190
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The word that would not come out",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-front"
+          ],
+          "milestone": "You know what stopped the sentence, and it was not a word you had never learned.",
+          "estScreens": 18,
+          "restPoints": [
+            "s01-scene/after-break"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Five shapes, not four",
+          "sections": [
+            "s04-grid",
+            "s05-known",
+            "s06-hear"
+          ],
+          "milestone": "You can see all five shapes of all three words at once, and you already owned four of them.",
+          "estScreens": 22,
+          "restPoints": [
+            "s04-grid/after"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "The short one, and where it comes from",
+          "sections": [
+            "s07-pairs",
+            "s08-borrow",
+            "s09-why",
+            "s10-chain",
+            "s11-onlypair",
+            "s12-h",
+            "s13-reading"
+          ],
+          "milestone": "You can build the short form of any of the three without having learned it, because it was never a new word.",
+          "estScreens": 46,
+          "restPoints": [
+            "s08-borrow/after",
+            "s10-chain/after",
+            "s12-h/after"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "The two traps",
+          "sections": [
+            "s14-which",
+            "s15-invented",
+            "s16-plural",
+            "s17-errors"
+          ],
+          "milestone": "You will not put the woman form in front of a masculine thing, and you will not put an s where an x goes.",
+          "estScreens": 28,
+          "restPoints": [
+            "s15-invented/after-cards"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Out loud",
+          "sections": [
+            "s18-scenario",
+            "s19-dictation",
+            "s20-speak",
+            "s21-review"
+          ],
+          "milestone": "You held the conversation the scene lost, and every answer in it wanted a shape rather than a phrase.",
+          "estScreens": 38,
+          "restPoints": [
+            "s18-scenario/after",
+            "s19-dictation/halfway"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s22-progress",
+            "s23-quiz",
+            "s24-roundup"
+          ],
+          "milestone": "You got the two written rounds right, which is the half of this no listening test could ever have found.",
+          "estScreens": 38,
+          "restPoints": [
+            "s23-quiz/r3-only-for-a-man"
+          ]
+        }
+      ],
+      "reframe": "Before a vowel, say the feminine and drop its last two letters.",
+      "errorTriggers": [
+        {
+          "id": "err-plain-before-vowel",
+          "description": "Uses the plain form in front of a vowel, which is the error the scene opens on. It is not a slip: the learner owns the plain form completely and has never been given a reason to reach past it.",
+          "detectOn": [
+            "s03-front",
+            "s07-pairs",
+            "s23-quiz/r1-which-form"
+          ],
+          "drill": "drill-next-sound",
+          "retest": "retest-next-sound"
+        },
+        {
+          "id": "err-invented-short",
+          "description": "Builds the short form off the plain form rather than off the feminine, producing something with the right letters and the wrong sound. The learner who does this has understood that a form is needed and not what it is made of.",
+          "detectOn": [
+            "s08-borrow",
+            "s17-errors",
+            "s23-quiz/r2-the-borrow"
+          ],
+          "drill": "drill-drop-two",
+          "retest": "retest-drop-two"
+        },
+        {
+          "id": "err-invented-feminine",
+          "description": "Writes the woman form in front of a masculine noun starting with a vowel. It is the commonest error in this subject and it is INAUDIBLE: the two forms are one sound, so the learner hears themselves say the right thing.",
+          "detectOn": [
+            "s15-invented",
+            "s12-h",
+            "s23-quiz/r3-only-for-a-man"
+          ],
+          "drill": "drill-which-noun",
+          "retest": "retest-which-noun"
+        },
+        {
+          "id": "err-plural-s",
+          "description": "Writes beaus or nouveaus. The learner is applying the plural rule they have and it is the right rule for almost every other describing word in the language.",
+          "detectOn": [
+            "s16-plural",
+            "s23-quiz/r4-the-x"
+          ],
+          "drill": "drill-x-plural",
+          "retest": "retest-x-plural"
+        },
+        {
+          "id": "err-short-in-predicate",
+          "description": "Puts the short form where nothing follows it, as in « Il est bel. » Comes from learning the form as a property of the word rather than of the position, which is exactly what a1.16 warned it would.",
+          "detectOn": [
+            "s15-invented",
+            "s23-quiz/r5-in-a-sentence"
+          ],
+          "drill": "drill-position",
+          "retest": "retest-position"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-next-sound",
+          "title": "What starts the next word",
+          "format": "sort",
+          "buckets": [
+            "a vowel sound",
+            "a consonant sound"
+          ],
+          "items": [
+            "fr.a1.adjectifs-essentiels.204",
+            "fr.a2.adjectifs-essentiels.053",
+            "fr.a1.adjectifs-essentiels.038",
+            "fr.a2.adjectifs-essentiels.054",
+            "fr.a1.adjectifs-essentiels.026",
+            "fr.a2.adjectifs-essentiels.055"
+          ],
+          "coach": "Say the thing being described out loud. Do not look at how it is spelled."
+        },
+        {
+          "id": "retest-next-sound",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "un ___ arbre",
+          "opts": [
+            "beau",
+            "bel",
+            "belle"
+          ],
+          "correct": 1,
+          "why": "A vowel is coming, so the short form."
+        },
+        {
+          "id": "drill-drop-two",
+          "title": "Take two letters off",
+          "format": "flashcard",
+          "coach": "The woman form is on the front. Say it, then say it again two letters shorter.",
+          "pairs": [
+            [
+              "belle",
+              "bel"
+            ],
+            [
+              "nouvelle",
+              "nouvel"
+            ],
+            [
+              "vieille",
+              "vieil"
+            ]
+          ]
+        },
+        {
+          "id": "retest-drop-two",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "nouvelle without its last two letters is ___ .",
+          "opts": [
+            "nouveau",
+            "nouvel",
+            "nouveaux"
+          ],
+          "correct": 1,
+          "why": "The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same."
+        },
+        {
+          "id": "drill-which-noun",
+          "title": "Man or woman, not sound",
+          "format": "sort",
+          "buckets": [
+            "the short one",
+            "the woman one"
+          ],
+          "items": [
+            "fr.a1.adjectifs-essentiels.204",
+            "fr.a2.adjectifs-essentiels.042",
+            "fr.a1.adjectifs-essentiels.038",
+            "fr.a2.adjectifs-essentiels.046",
+            "fr.a1.adjectifs-essentiels.026",
+            "fr.a2.adjectifs-essentiels.050"
+          ],
+          "coach": "Both piles sound the same. Ask what is being described, not what you can hear."
+        },
+        {
+          "id": "retest-which-noun",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "une ___ amie",
+          "opts": [
+            "bel",
+            "belle",
+            "beau"
+          ],
+          "correct": 1,
+          "why": "A feminine thing, so the woman form, whatever sound comes next."
+        },
+        {
+          "id": "drill-x-plural",
+          "title": "Where the s can go",
+          "format": "sort",
+          "buckets": [
+            "takes an x",
+            "takes an s",
+            "takes nothing"
+          ],
+          "items": [
+            "fr.a2.adjectifs-essentiels.043",
+            "fr.a2.adjectifs-essentiels.047",
+            "fr.a2.adjectifs-essentiels.051",
+            "fr.a2.adjectifs-essentiels.044",
+            "fr.a2.adjectifs-essentiels.048",
+            "fr.a2.adjectifs-essentiels.052"
+          ],
+          "coach": "Look at the last letter of the shape before the ending would go on. If it is already an x, there is nowhere to put one."
+        },
+        {
+          "id": "retest-x-plural",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Ils sont ___ .",
+          "opts": [
+            "beaus",
+            "beaux",
+            "belles"
+          ],
+          "correct": 1,
+          "why": "An x, and it is as silent as the s would have been."
+        },
+        {
+          "id": "drill-position",
+          "title": "Is anything following it?",
+          "format": "sort",
+          "buckets": [
+            "something follows it",
+            "nothing follows it"
+          ],
+          "items": [
+            "fr.a1.adjectifs-essentiels.204",
+            "fr.a2.adjectifs-essentiels.041",
+            "fr.a1.adjectifs-essentiels.214",
+            "fr.a2.adjectifs-essentiels.049",
+            "fr.a2.adjectifs-essentiels.054",
+            "fr.a2.adjectifs-essentiels.045"
+          ],
+          "coach": "The short form only exists to run into the next word. If there is no next word, it cannot be the answer."
+        },
+        {
+          "id": "retest-position",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Il est ___ .",
+          "opts": [
+            "vieil",
+            "vieux",
+            "vieille"
+          ],
+          "correct": 1,
+          "why": "The short form exists to run into the word after it, so it only turns up in front of a thing."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.a2.16.forms",
+          "title": "Three words, five shapes each, and how to say them",
+          "layer": "deep",
+          "contains": [
+            "All fifteen",
+            "What each one sounds like",
+            "Which one to use",
+            "What is not here"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-grid",
+              "title": "All three, every shape",
+              "layer": "deep",
+              "cols": [
+                "Word",
+                "Plain",
+                "Before a vowel",
+                "For her",
+                "For them",
+                "For her, plural"
+              ],
+              "rows": [
+                [
+                  "beau",
+                  "beau",
+                  "bel",
+                  "belle",
+                  "beaux",
+                  "belles"
+                ],
+                [
+                  "nouveau",
+                  "nouveau",
+                  "nouvel",
+                  "nouvelle",
+                  "nouveaux",
+                  "nouvelles"
+                ],
+                [
+                  "vieux",
+                  "vieux",
+                  "vieil",
+                  "vieille",
+                  "vieux",
+                  "vieilles"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-say",
+              "title": "How to say each one",
+              "layer": "deep",
+              "cols": [
+                "Word",
+                "Plain",
+                "Before a vowel",
+                "For her",
+                "For them",
+                "For her, plural"
+              ],
+              "rows": [
+                [
+                  "beau",
+                  "BOH",
+                  "BEL",
+                  "BEL",
+                  "BOH",
+                  "BEL"
+                ],
+                [
+                  "nouveau",
+                  "noo-VOH",
+                  "noo-VEL",
+                  "noo-VEL",
+                  "noo-VOH",
+                  "noo-VEL"
+                ],
+                [
+                  "vieux",
+                  "VYUH",
+                  "VYEY",
+                  "VYEY",
+                  "VYUH",
+                  "VYEY"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-decide",
+              "title": "Which one to use",
+              "layer": "deep",
+              "cols": [
+                "The thing being described",
+                "And the next word starts with",
+                "Use"
+              ],
+              "rows": [
+                [
+                  "one masculine thing",
+                  "a consonant sound",
+                  "plain"
+                ],
+                [
+                  "one masculine thing",
+                  "a vowel sound, or a silent h",
+                  "before a vowel"
+                ],
+                [
+                  "one feminine thing",
+                  "anything at all",
+                  "for her"
+                ],
+                [
+                  "several masculine things",
+                  "anything at all",
+                  "for them"
+                ],
+                [
+                  "several feminine things",
+                  "anything at all",
+                  "for her, plural"
+                ],
+                [
+                  "nothing follows it",
+                  "nothing follows it",
+                  "plain"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-why",
+              "title": "Why the extra shape is there",
+              "layer": "deep",
+              "body": "sons.07 put it this way: Two vowels collide, the little word gives way. It said that about the little words in front of a noun. This is the same pressure on the word after them. The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same. belle without the le is bel, nouvelle without the le is nouvel, vieille without the le is vieil. Three words, one operation. a1.17 taught you « mon amie » rather than « ma amie ». Same trade, other direction: a form borrowed from the other side so a consonant lands in front of the vowel. 3 of your lessons have made you do it already. None of that is a rule you have to hold separately from the ones you already had. It is one habit the language has, and you have been obeying it since your third lesson."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-carries-forward",
+              "title": "What carries forward",
+              "layer": "deep",
+              "body": "Before a vowel, say the feminine and drop its last two letters. Listen to the front of the next word, not to its spelling. If a vowel is coming, take the woman form and drop its last two letters. beaux and nouveaux take an x. vieux already ends in one, so it takes nothing at all, and a1.14 and a2.03 both told you so. a2.17 is next and it is built on the woman form, which you have now used more than any other shape of these three. Nothing here expires when you get there. Where these three go is a1.16 and it has not changed: they are three of the small set that stand in front of the thing."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [],
+        [
+          "fr.a2.adjectifs-essentiels.041",
+          "fr.a2.adjectifs-essentiels.042",
+          "fr.a2.adjectifs-essentiels.043",
+          "fr.a2.adjectifs-essentiels.044",
+          "fr.a2.adjectifs-essentiels.045",
+          "fr.a2.adjectifs-essentiels.046",
+          "fr.a2.adjectifs-essentiels.047",
+          "fr.a2.adjectifs-essentiels.048",
+          "fr.a2.adjectifs-essentiels.049",
+          "fr.a2.adjectifs-essentiels.050",
+          "fr.a2.adjectifs-essentiels.051",
+          "fr.a2.adjectifs-essentiels.052",
+          "fr.sons.adjectifs-essentiels.005",
+          "fr.sons.adjectifs-essentiels.007",
+          "fr.sons.adjectifs-essentiels.008"
+        ],
+        [
+          "fr.a2.adjectifs-essentiels.053",
+          "fr.a2.adjectifs-essentiels.054",
+          "fr.a2.adjectifs-essentiels.055",
+          "fr.a1.adjectifs-essentiels.204",
+          "fr.a1.adjectifs-essentiels.038",
+          "fr.a1.adjectifs-essentiels.214",
+          "fr.a1.adjectifs-essentiels.026",
+          "fr.sons.adjectifs-essentiels.314",
+          "fr.sons.adjectifs-essentiels.315",
+          "fr.a2.adjectifs-essentiels.056",
+          "fr.sons.consonnes.138",
+          "fr.sons.adjectifs-essentiels.312",
+          "fr.a1.rencontres.095"
+        ],
+        [],
+        [
+          "fr.a2.adjectifs-essentiels.057",
+          "fr.a2.adjectifs-essentiels.058"
+        ],
+        []
+      ],
+      "terms": {
+        "fiveForms": {
+          "term": "five forms",
+          "title": "Three words that have one more shape than the rest",
+          "body": "5 ways to write each of these three, and 2 ways to say them. a2.03 gave you four of the five and this is the one it could not. Five ways to write it and two ways to say it. Three of the five are one sound and the other two are the other. The extra shape is the one you use in front of a word that starts with a vowel sound, and it is only ever used about a man or about a masculine thing. Everything else on the grid you already know how to build, because a2.03 taught you the system these three sit inside.",
+          "examples": [
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.041",
+              "note": "The plain one."
+            },
+            {
+              "itemId": "fr.a1.adjectifs-essentiels.204",
+              "note": "The extra one, and the reason the other four are not enough."
+            },
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.042",
+              "note": "And the one the extra one borrows its sound from."
+            }
+          ]
+        },
+        "theShortOne": {
+          "term": "the short one",
+          "title": "It is the woman form with two letters taken off",
+          "body": "The form before a vowel is not a new word. It is the woman form two letters shorter, and it sounds the same. belle without the le is bel, nouvelle without the le is nouvel, vieille without the le is vieil. Three words, one operation. That is why it is worth knowing rather than memorising: you are not learning three new words, you are shortening three you already have. Say the woman form out loud, stop two letters early, and you have said the right thing. Before a vowel, say the feminine and drop its last two letters.",
+          "examples": [
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.042",
+              "note": "Say this one."
+            },
+            {
+              "itemId": "fr.a1.adjectifs-essentiels.204",
+              "note": "Now say it two letters shorter. Same sound, and it is a different word on the page."
+            },
+            {
+              "itemId": "fr.a1.adjectifs-essentiels.214",
+              "note": "Third word, and the same two letters have come off again."
+            }
+          ]
+        },
+        "aVowelIsComing": {
+          "term": "a vowel is coming",
+          "title": "What sets the whole thing off",
+          "body": "sons.07 put it this way: Two vowels collide, the little word gives way. It said that about the little words in front of a noun. This is the same pressure on the word after them. a1.17 taught you « mon amie » rather than « ma amie ». Same trade, other direction: a form borrowed from the other side so a consonant lands in front of the vowel. 3 of your lessons have made you do it already. What decides it is the SOUND at the front of the next word rather than the letter, which is why a silent h counts as a vowel and why you have to listen to the word rather than look at it. Nothing about the thing being described matters here: not what it means, not how long it is, only what noise it starts with.",
+          "examples": [
+            {
+              "itemId": "fr.a1.adjectifs-essentiels.038",
+              "note": "A vowel at the front of the next word, so the short form."
+            },
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.054",
+              "note": "A consonant at the front of the next word, so the plain form and nothing to do."
+            },
+            {
+              "itemId": "fr.a1.adjectifs-essentiels.026",
+              "note": "An h on the page and a vowel in the mouth. French listens to the mouth."
+            }
+          ]
+        },
+        "onlyForAMan": {
+          "term": "only for a man",
+          "title": "There is no woman version of the short one",
+          "body": "Nobody hears this mistake, including the person making it. The two forms are one sound, so only the page shows it. The short form exists to run into the word after it, so it only turns up in front of a thing. The woman form already ends in a consonant sound, so there is no collision for a short form to prevent and French never made one. Writing « une belle amie » is right and writing « une belle appartement » is not, and the two sound exactly the same, which is the whole difficulty. The only way to catch it is to know which word you are describing.",
+          "examples": [
+            {
+              "itemId": "fr.a1.adjectifs-essentiels.204",
+              "note": "A masculine thing, so the short form."
+            },
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.042",
+              "note": "And the full woman form, which is what goes in front of anything feminine, vowel or no vowel."
+            },
+            {
+              "itemId": "fr.a1.adjectifs-essentiels.214",
+              "note": "A masculine thing again. If this were feminine the word would be four letters longer and sound identical."
+            }
+          ]
+        },
+        "theXPlural": {
+          "term": "the x plural",
+          "title": "Two of them take an x and one takes nothing",
+          "body": "beaux and nouveaux take an x. vieux already ends in one, so it takes nothing at all, and a1.14 and a2.03 both told you so. None of the three is audible: an x on the end of a describing word has never been pronounced in French, any more than an s has, so the plural of all three sounds exactly like the singular. That is the half of this you can only get by having seen it written.",
+          "examples": [
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.043",
+              "note": "An x. Not an s, and not for any reason you could work out."
+            },
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.047",
+              "note": "The second one, same ending."
+            },
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.051",
+              "note": "And the third, which is the same four letters as the singular. a1.14 told you about this word by name."
+            }
+          ]
+        },
+        "whatYouCanHear": {
+          "term": "what you can hear",
+          "title": "Five shapes reaching your ear as two",
+          "body": "You can hear the plain one against the one before a vowel, and that is the only difference here your ear will ever get. Five ways to write it and two ways to say it. Three of the five are one sound and the other two are the other. So the ear tells you one thing and one thing only: whether the speaker used the plain form or the short one. It will not tell you whether they meant one thing or several, and it will not tell you whether the short form or the woman form came out, because those two are the same noise. Everything else on this grid is a decision you make with your eyes and your grammar rather than your ears.",
+          "examples": [
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.041",
+              "note": "One sound."
+            },
+            {
+              "itemId": "fr.a1.adjectifs-essentiels.204",
+              "note": "And the other one. This is the whole of what is audible in this lesson."
+            },
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.043",
+              "note": "Back to the first sound. The x makes no more noise than nothing would."
+            }
+          ]
+        },
+        "whereItGoes": {
+          "term": "where it goes",
+          "title": "Not this lesson, and it is why this lesson exists",
+          "body": "Where these three go is a1.16 and it has not changed: they are three of the small set that stand in front of the thing. That is the one thing about placement worth saying here, and it is worth saying because it is the CAUSE: a describing word that comes after the thing never meets the sound that starts it, so it never needs a short form. These three come first, so they do. a2.17 is next and it is built on the woman form, which you have now used more than any other shape of these three. Nothing here expires when you get there.",
+          "examples": [
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.053",
+              "note": "In front of the thing, which is where all three of these live."
+            },
+            {
+              "itemId": "fr.a1.adjectifs-essentiels.038",
+              "note": "In front of the thing, and now the sound of the thing has changed the word."
+            },
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.045",
+              "note": "After the verb, where nothing follows it and nothing has to happen."
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-16-pairs",
+            "desc": "THE THREE CONTRAST PAIRS, AND THIS IS THE MOST IMPORTANT TAKE IN THE LESSON. Each pair is ONE TAKE, ONE VOICE, the two lines recorded back to back with the smallest gap the recording allows and no change of pitch, pace or weight between them: « C'est un beau sac. » then « C'est un bel arbre. »; « C'est un nouveau sac. » then « C'est un nouvel ami. »; « C'est un vieux sac. » then « C'est un vieil homme. » RECORDED APART, THE LEARNER COMPARES TWO PERFORMANCES INSTEAD OF TWO SOUNDS AND THE ENTIRE TEACHING IS LOST. The third pair matters most and is the hardest: the h of homme is silent, so the reader must NOT pause before it or aspirate it, and the l of vieil runs straight into the vowel exactly as it does in vieil ami. If the reader gives homme even a breath of a consonant, the take proves the opposite of the screen. What must be audible in every pair is the describing word and nothing else; the two nouns differ and that is not the point.",
+            "clipIds": [
+              "C'est un beau sac.",
+              "C'est un bel arbre.",
+              "C'est un nouveau sac.",
+              "C'est un nouvel ami.",
+              "C'est un vieux sac.",
+              "C'est un vieil immeuble.",
+              "C'est un bel homme."
+            ]
+          },
+          {
+            "id": "rec-a2-16-grid",
+            "desc": "THE FIFTEEN CELLS, THREE TAKES, ONE PER WORD, EACH WORD'S FIVE IN ONE BREATH GROUP. Within each take the FIRST AND FOURTH lines must be acoustically identical, and so must the SECOND, THIRD AND FIFTH: « Il est beau. » and « Ils sont beaux. » differ on the page and not in the mouth, and a reader who knows the fourth is spelled with an x will lengthen something or put a fraction of a z on it, and that instinct destroys the screen. If a listener with their eyes shut can tell the first from the fourth, or the second from the third, the take is unusable. FIVE WRITTEN SHAPES MUST REACH THE EAR AS TWO. That is the whole claim of the lesson and this take is where it is either proved or lost.",
+            "clipIds": [
+              "Il est beau.",
+              "Elle est belle.",
+              "Ils sont beaux.",
+              "Elles sont belles.",
+              "Il est nouveau.",
+              "Elle est nouvelle.",
+              "Ils sont nouveaux.",
+              "Elles sont nouvelles.",
+              "Il est vieux.",
+              "Elle est vieille.",
+              "Ils sont vieux.",
+              "Elles sont vieilles."
+            ]
+          },
+          {
+            "id": "rec-a2-16-ear",
+            "desc": "THE FOUR LINES FOR THE LISTENING SCREEN, WITH AUDIO BEFORE TEXT, IN THIS ORDER: Il est beau, Ils sont beaux, Elle est belle, Elles sont belles. The first pair and the second pair are each ONE take and must be indistinguishable within the pair; the learner is being asked to fail to hear a difference and to notice that they failed. Between the pairs the difference is real and should be left exactly as large as the language makes it, with no help. Do not put anything on the end of beaux.",
+            "clipIds": [
+              "Il est beau.",
+              "Elle est belle.",
+              "Ils sont beaux.",
+              "Elles sont belles."
+            ]
+          },
+          {
+            "id": "rec-a2-16-borrow",
+            "desc": "THE THREE FEMININE-AGAINST-SHORT PAIRS, WHICH ARE THE SAME SOUND TWICE. « belle » then « bel »; « nouvelle » then « nouvel »; « vieille » then « vieil ». Each pair is one take and the two members MUST BE INDISTINGUISHABLE. This is the only take in the lesson whose value is that nothing happens in it, and it is the one a reader will be most tempted to help with, because the two words look different on the page and a reader who can see the page will differentiate them without meaning to. If it is possible to record this take without the reader seeing the spelling of the second member, do that.",
+            "clipIds": [
+              "belle",
+              "bel",
+              "nouvelle",
+              "nouvel",
+              "vieille",
+              "vieil"
+            ]
+          },
+          {
+            "id": "rec-a2-16-dictee",
+            "desc": "THE SIXTEEN DICTÉE LINES, ONE TAKE EACH, CLEAN AND UNHURRIED, WITH NO CONTRAST INTENT AT ALL. This is the opposite instruction to every other take in the lesson: here the learner is spelling rather than comparing, and any pair-reading would hand them the answer. Read each line as though it were the only line. The x on beaux and nouveaux and the s on belles and vieilles must be neither helped nor hidden; say the sentence the way somebody would say it, which is the whole difficulty the exercise exists to create.",
+            "clipIds": [
+              "Il est beau.",
+              "Elle est belle.",
+              "Ils sont beaux.",
+              "Elles sont belles.",
+              "Il est nouveau.",
+              "Elle est nouvelle.",
+              "Ils sont nouveaux.",
+              "Il est vieux.",
+              "Elle est vieille.",
+              "Ils sont vieux.",
+              "C'est un beau sac.",
+              "C'est un nouveau sac.",
+              "C'est un vieux sac.",
+              "C'est un bel arbre.",
+              "C'est un nouvel ami.",
+              "C'est un bel homme."
+            ]
+          },
+          {
+            "id": "rec-a2-16-break",
+            "desc": "THE BREAK CARD, AND IT IS THE ONE PLACE IN THIS LESSON A WRONG FORM IS SPOKEN. « un beau immeuble » then « un bel immeuble », one take, back to back. The first is NOT to be read as a mistake, with a wince or a rising edge or a pause: it must be read as somebody genuinely trying to say it, which means the two vowels grinding into each other and the phrase almost stopping. That difficulty IS the teaching, and a clean, confident reading of it would teach that the wrong form is perfectly sayable. The second should then arrive easily and at ordinary pace, and the contrast between the effort in the first and the ease of the second is the whole card.",
+            "clipIds": [
+              "un beau immeuble",
+              "un bel immeuble"
+            ]
+          },
+          {
+            "id": "rec-a2-16-scene",
+            "desc": "OUTSIDE THE OFFICE IN NANTES. He is friendly, in a hurry, and asking to be polite rather than because he needs to know. « C'est un grand appartement ? » is quick and light. The learner's own line, « Oui, et c'est un beau... un beau... euh... », is the take that has to be right: two false starts and a stall, and the stall must sound like somebody whose mouth has stopped rather than like somebody who has forgotten a word. There is a difference and it is audible. His last line is cheerful and completely unbothered; nothing in the delivery should suggest he noticed anything, because he did not, and that is what makes it expensive.",
+            "clipIds": [
+              "C'est un grand appartement ?",
+              "Oui, et c'est un bel immeuble."
+            ]
+          }
+        ]
+      }
     }
   ],
   "items": [
@@ -323694,10 +326193,15 @@
         "grammaire"
       ],
       "drills": [
-        "dictation"
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
       ],
       "audioRef": null,
-      "version": 1
+      "version": 1,
+      "respell": "seh-tuhⁿ beh-LOM"
     },
     {
       "id": "fr.a1.adjectifs-essentiels.204",
@@ -323709,12 +326213,15 @@
       "notes": "{\"tiles\":[{\"w\":\"C'est un\",\"t\":\"it's a\"},{\"w\":\"bel\",\"t\":\"beautiful\"},{\"w\":\"arbre.\",\"t\":\"tree\"}]}",
       "tags": [],
       "drills": [
-        "sentence",
         "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
         "review"
       ],
       "audioRef": null,
-      "version": 1
+      "version": 1,
+      "respell": "seh-tuhⁿ beh-LAHRBR"
     },
     {
       "id": "fr.a1.adjectifs-essentiels.044",
@@ -323744,12 +326251,14 @@
       "notes": "{\"tiles\":[{\"w\":\"C'est un\",\"t\":\"it's an\"},{\"w\":\"vieil\",\"t\":\"old\"},{\"w\":\"immeuble.\",\"t\":\"building\"}]}",
       "tags": [],
       "drills": [
-        "sentence",
         "flashcard",
+        "voiceflash",
+        "sentence",
         "review"
       ],
       "audioRef": null,
-      "version": 1
+      "version": 1,
+      "respell": "seh-tuhⁿ vyeh-yee-MUHBL"
     },
     {
       "id": "fr.a1.adjectifs-essentiels.043",
@@ -342202,6 +344711,468 @@
         "dictation"
       ],
       "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.rencontres.095",
+      "kind": "word",
+      "level": "a1",
+      "theme": "rencontres",
+      "fr": "nouvelle",
+      "en": "new (feminine)",
+      "ipa": "nu.vɛl",
+      "respell": "noo-VEL",
+      "example": {
+        "en": "Here is my new address.",
+        "fr": "Voici ma nouvelle adresse."
+      },
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "skill": "CE",
+      "register": "courant"
+    },
+    {
+      "id": "fr.a1.adjectifs-essentiels.038",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "adjectifs-essentiels",
+      "fr": "C'est un nouvel ami.",
+      "en": "He's a new friend.",
+      "ipa": "sɛ.tœ̃ nu.vɛl a.mi",
+      "notes": "'Nouvel' replaces 'nouveau' before a vowel-starting masculine noun.",
+      "tags": [
+        "grammaire"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "respell": "seh-tuhⁿ noo-veh-la-MEE"
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.041",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Il est beau.",
+      "en": "He is good-looking.",
+      "ipa": "/il ɛ bo/",
+      "respell": "eel eh BOH",
+      "notes": "The plain form, and the one you learn the word in.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-beau"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.042",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Elle est belle.",
+      "en": "She is beautiful.",
+      "ipa": "/ɛl ɛ bɛl/",
+      "respell": "el eh BEL",
+      "notes": "Nothing about this one is regular, and you have had it since a1.14. Say it out loud, because the next form borrows the sound.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-beau"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.043",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Ils sont beaux.",
+      "en": "They are good-looking.",
+      "ipa": "/il sɔ̃ bo/",
+      "respell": "eel sohⁿ BOH",
+      "notes": "An x, not an s, and it makes no more sound than an s would. This is the one you have to have seen.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-beau",
+        "bnv-pluriel"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.044",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Elles sont belles.",
+      "en": "They are beautiful.",
+      "ipa": "/ɛl sɔ̃ bɛl/",
+      "respell": "el sohⁿ BEL",
+      "notes": "The woman form with an ordinary s on it, and it sounds exactly like the woman form without one.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-beau",
+        "bnv-pluriel"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.045",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Il est nouveau.",
+      "en": "It is new.",
+      "ipa": "/il ɛ nu.vo/",
+      "respell": "eel eh noo-VOH",
+      "notes": "A phone, a job, a flat. The plain form for anything masculine.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-nouveau"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.046",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Elle est nouvelle.",
+      "en": "It is new.",
+      "ipa": "/ɛl ɛ nu.vɛl/",
+      "respell": "el eh noo-VEL",
+      "notes": "Two ls and an e. Take those last two letters off and you have the form that goes in front of a vowel.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-nouveau"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.047",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Ils sont nouveaux.",
+      "en": "They are new.",
+      "ipa": "/il sɔ̃ nu.vo/",
+      "respell": "eel sohⁿ noo-VOH",
+      "notes": "The second of the two that take an x. Same ending as the first, and for the same reason.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-nouveau",
+        "bnv-pluriel"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.048",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Elles sont nouvelles.",
+      "en": "They are new.",
+      "ipa": "/ɛl sɔ̃ nu.vɛl/",
+      "respell": "el sohⁿ noo-VEL",
+      "notes": "Woman form plus s, and out loud it is the woman form. Eighteen letters, which is why it is not in the dictée.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-nouveau",
+        "bnv-pluriel"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.049",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Il est vieux.",
+      "en": "He is old.",
+      "ipa": "/il ɛ vjø/",
+      "respell": "eel eh VYUH",
+      "notes": "Already ends in an x, which decides the plural before you get there.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-vieux"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.050",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Elle est vieille.",
+      "en": "She is old.",
+      "ipa": "/ɛl ɛ vjɛj/",
+      "respell": "el eh VYEY",
+      "notes": "A different word to look at and the same job. Drop the last two letters for the form before a vowel.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-vieux"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.051",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Ils sont vieux.",
+      "en": "They are old.",
+      "ipa": "/il sɔ̃ vjø/",
+      "respell": "eel sohⁿ VYUH",
+      "notes": "The same four letters as the singular. There is no room after an x and a1.14 told you so about this exact word.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-vieux",
+        "bnv-pluriel"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.052",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Elles sont vieilles.",
+      "en": "They are old.",
+      "ipa": "/ɛl sɔ̃ vjɛj/",
+      "respell": "el sohⁿ VYEY",
+      "notes": "The only plural of the three that takes an ordinary s, because the woman form gave it somewhere to put one.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-vieux",
+        "bnv-pluriel"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.053",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "C'est un beau sac.",
+      "en": "It is a nice bag.",
+      "ipa": "/s‿ɛ tœ̃ bo sak/",
+      "respell": "seh-tuhⁿ boh SAK",
+      "notes": "A consonant starts the next word, so nothing has to happen and nothing does.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-beau",
+        "bnv-consonne"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.054",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "C'est un nouveau sac.",
+      "en": "It is a new bag.",
+      "ipa": "/s‿ɛ tœ̃ nu.vo sak/",
+      "respell": "seh-tuhⁿ noo-voh SAK",
+      "notes": "Same bag, same reason. The plain form does the job whenever a consonant follows it.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-nouveau",
+        "bnv-consonne"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.055",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "C'est un vieux sac.",
+      "en": "It is an old bag.",
+      "ipa": "/s‿ɛ tœ̃ vjø sak/",
+      "respell": "seh-tuhⁿ vyuh SAK",
+      "notes": "Third one, and the last time in this lesson that the plain form is what you want in front of a thing.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-vieux",
+        "bnv-consonne"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.056",
+      "kind": "word",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "nouvel",
+      "en": "new (before a vowel)",
+      "ipa": "/nu.vɛl/",
+      "respell": "noo-VEL",
+      "notes": "The only one of the three that had no card anywhere in this course. Same sound as nouvelle, two letters shorter.",
+      "tags": [
+        "adjectifs-essentiels",
+        "beau-nouveau-vieux"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.057",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "C'est un grand appartement ?",
+      "en": "Is it a big flat?",
+      "ipa": "/s‿ɛ tœ̃ ɡʁɑ̃ t‿a.paʁ.tə.mɑ̃/",
+      "respell": "seh-tuhⁿ grahⁿ-ta-par-tuh-MAHⁿ",
+      "notes": "The question that started the sentence. Everything in it is a1.16 and the answer is not.",
+      "tags": [
+        "beau-nouveau-vieux"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adjectifs-essentiels.058",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adjectifs-essentiels",
+      "fr": "Oui, et c'est un bel immeuble.",
+      "en": "Yes, and it is a lovely building.",
+      "ipa": "/wi e s‿ɛ tœ̃ bɛ.li.mœbl/",
+      "respell": "wee ay seh-tuhⁿ beh-lee-MUHBL",
+      "notes": "Six words, and the only one that had to be built is the fifth.",
+      "tags": [
+        "beau-nouveau-vieux",
+        "bnv-beau"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
       "version": 1
     }
   ],

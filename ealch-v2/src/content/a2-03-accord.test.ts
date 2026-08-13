@@ -127,6 +127,33 @@ const SUBJECTS = ['Il est', 'Elle est', 'Ils sont', 'Elles sont'];
  *  in reading order: four cells of each pattern, patterns in the order above. */
 const cellId = (p: number, c: number) => `fr.a2.adjectifs-essentiels.${String(p * 4 + c + 1).padStart(3, '0')}`;
 
+/** THE ROWS THIS BUILD OWNS, WHICH IS ITS BLOCK AND NOT THE WHOLE NAMESPACE.
+ *
+ *  ADDED 2026-08-13 by the a2.16 build, and it is a scope fix rather than a
+ *  relaxation: every assertion below is byte-identical, and only the filter
+ *  changed.
+ *
+ *  Four tests in this file counted `id.startsWith('fr.a2.adjectifs-essentiels.')`
+ *  and meant "the rows a2.03 authored". Those are the same set only while a2.03
+ *  is the only lesson in the namespace, and a2.03's OWN report reserved
+ *  `.041..080` for a2.16 and `.081..120` for a2.17 — so the guards were
+ *  guaranteed to break on the next lesson in the arc, and to break it in a way
+ *  that reads like a defect in the new build.
+ *
+ *  It is ledger §a2.14-12 one level up: the row-count discipline was narrowed
+ *  from "the total must not move" to "nothing may land inside MY range" for
+ *  exactly this reason, and the test file never got the same treatment. a2.17
+ *  will land in this namespace too; this is what stops it happening a third
+ *  time.
+ *
+ *  What is deliberately NOT scoped is the duplicate-`fr` check below, which is
+ *  theme-wide on purpose: `flashhub-coverage.test.ts` counts two rows sharing an
+ *  `fr` in one theme as one card served twice, and that is true whoever authored
+ *  them. */
+const MY_BLOCK = { from: 'fr.a2.adjectifs-essentiels.001', to: 'fr.a2.adjectifs-essentiels.040' };
+const isMine = (id: string) => id >= MY_BLOCK.from && id <= MY_BLOCK.to;
+const myRows = () => seed.items.filter((i) => isMine(i.id));
+
 /** The respellings, hand-written, so the sheet and the rows can be compared to
  *  something that is neither of them. a2.14 §5: if a lesson prints a respelling
  *  in more than one place, compare them. */
@@ -227,8 +254,11 @@ const production = () => [
   // src/components — so nothing shipped to a learner, and it was still a hole,
   // because the claim these guards make is about what this lesson TEACHES and
   // the notes are content this build authored.
-  ...seed.items.filter((i) => i.id.startsWith('fr.a2.adjectifs-essentiels.'))
-    .flatMap((i) => [i.fr, i.en ?? '', i.notes ?? '']),
+  // SCOPED TO THIS BUILD'S BLOCK. It walked the whole namespace, which from
+  // a2.16 onward includes another lesson's rows, and this walk is the one that
+  // checks a2.16's forms are absent — so it would have reported a2.16's own
+  // corpus as a leak in a2.03.
+  ...myRows().flatMap((i) => [i.fr, i.en ?? '', i.notes ?? '']),
 ];
 
 const quizSection = () => sections().find((s) => s.type === 'quiz');
@@ -656,7 +686,7 @@ test('this build authored exactly three headwords, bare and ungendered', { skip:
   // sportif and sportive are two of the six absences corrections §2 lists for
   // the whole level. `sérieuse` is a THIRD and it is in NO absence list
   // anywhere: 0 rows at any status, against `sérieux`'s three.
-  const authored = seed.items.filter((i) => i.id.startsWith('fr.a2.adjectifs-essentiels.') && i.kind === 'word');
+  const authored = myRows().filter((i) => i.kind === 'word');
   deepStrictEqual(authored.map((r) => r.fr).sort(), [...AUTHORED_HEADWORDS].sort());
   for (const r of authored) {
     strictEqual((r as { gender?: string }).gender ?? null, null, `${r.id} carries a gender; adjectives are not nouns`);
@@ -666,7 +696,7 @@ test('this build authored exactly three headwords, bare and ungendered', { skip:
 });
 
 test('the whole authored set is 33 rows in one theme, and the lesson holds 56 items', { skip: noLesson }, () => {
-  const authored = seed.items.filter((i) => i.id.startsWith('fr.a2.adjectifs-essentiels.'));
+  const authored = myRows();
   strictEqual(authored.length, AUTHORED_COUNT);
   for (const r of authored) strictEqual(r.theme, THEME);
   strictEqual(L!.itemIds.length, ITEM_COUNT);
@@ -688,7 +718,7 @@ test('no two rows in this theme share an fr, the way flashhub-coverage counts it
 test('29 superscripts, 27 the checker sees and 2 it cannot, both asserted by name', { skip: noLesson }, () => {
   // Corrections §6, measured through the REAL checker by breaking each
   // superscript back to a plain n one at a time.
-  const authored = seed.items.filter((i) => i.id.startsWith('fr.a2.adjectifs-essentiels.'));
+  const authored = myRows();
   let seen = 0; let missed = 0;
   const blind: string[] = [];
   for (const r of authored) {
