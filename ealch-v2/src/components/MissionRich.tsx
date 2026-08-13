@@ -440,7 +440,33 @@ function OneGroup({
         <View key={i} style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(9), backgroundColor: t.card, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
           <View style={{ flex: 1 }}>
             <TX role="body">{it.fr} {it.ipa ? <TX role="bodySm" color={t.txMuted}>{it.ipa}</TX> : null}</TX>
-            {it.note ? <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{it.note}</TX> : null}
+            {/* THE SECOND LINE, AND `note` IS NOT THE ONLY THING THAT BELONGS ON IT.
+             *
+             *  Until 2026-08-13 this drew `note` alone. `respell` and `en` were
+             *  documented as XL-only (schema.ts:899) and dropped here in
+             *  silence — so a card carrying them and no note rendered as a bare
+             *  French string: no pronunciation, no meaning, just the word and a
+             *  play button.
+             *
+             *  Measured across the shipped seed when a2.13's device pass found
+             *  it: 591 OF 730 `lg` GROUP-DRILL CARDS, ACROSS 28 LESSONS. a1.08
+             *  ships 39 of them, a1.09 and a1.10 forty each. The data was there
+             *  and correct in every one; only this line was lossy.
+             *
+             *  Fixing it HERE rather than in the content is what makes it stay
+             *  fixed: 28 lessons would each have needed a source edit, a version
+             *  bump, a re-apply and a re-merge, and every future lesson would
+             *  have had to remember. The renderer is the one place that knows
+             *  what it can draw.
+             *
+             *  `note` still wins when present, because a lesson that wrote one
+             *  chose its wording deliberately (a2.13 pairs the respelling with
+             *  the gloss in exactly this shape). Otherwise the two fields are
+             *  joined the same way, so both paths look identical on glass. */}
+            {(() => {
+              const second = it.note ?? [it.respell, it.en].filter(Boolean).join(' · ');
+              return second ? <TX role="bodySm" color={t.txMuted} style={{ marginTop: 2 }}>{second}</TX> : null;
+            })()}
           </View>
           <PlayDot text={it.fr} size={30} />
         </View>
