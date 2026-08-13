@@ -468,3 +468,50 @@ amend the ledger before authoring.**
   eternal, and the corpus moves.
 - **Which of your mutations found a weakness rather than confirming a strength.**
 - **Which half of the device verification you did**, and the gaps by name.
+
+---
+
+## §13. What a2.15 found wrong or incomplete in THIS file
+
+§12 asks every build to say what in here it measured wrong. a2.15 found three
+things, all in §2, and one addition to §6.
+
+**§2's absence list is INCOMPLETE, in both directions.** It records six absences
+for the whole level and gives a2.15 three of them. Measured 2026-08-12 against
+every row at every status:
+
+```
+also ABSENT and not listed:   reprendre · débattre · abattre
+listed as absent, and EXISTS: (none)
+NOT listed, and it EXISTS:    admettre   fr.b1.verbes.086, ad-METR, published
+```
+
+`admettre` matters, because a2.15's brief names it as one of the two compounds
+the exam should give cold, and a build reading §2 would conclude it had to author
+it. It must not: it exists, and importing it would delete the mission.
+
+**§2's "you will author almost no headwords" is right for five builds and wrong
+for a2.15, which §2 itself predicts.** Worth restating with the measurement:
+a2.15 authored THREE infinitives, and `battre` was in its unit title.
+
+**And "absent" is not the same as "nowhere".** `battre` and `combattre` exist as
+infinitives inside four published phrases, one of which respells `battre` as
+`BATR`. So the house respelling for a verb with no headword was READ OFF a
+published row rather than invented. Probe for the word inside a phrase before
+concluding a respelling has to be made up.
+
+**§6 has a third shape to record, and it is not about the respelling either.**
+`hasPlainNasalFor` is not the only guard with a boundary problem. The JARGON
+check every build in this band runs uses `hasPhrase`, which is boundary-exact, so
+a list holding `paradigm` does not catch `paradigms`. a2.15 shipped an act title
+reading "Three paradigms, eighteen cells" past all three of its layers and it was
+found on a Pixel 6, on the resume interstitial. a2.14's list works round it one
+word at a time (`infinitive`, `infinitives`). Check the `-s` plural of every
+entry.
+
+**And §9's list of holes in the guards you will copy gains a third.** `prose()`
+drops NOTATION_KEYS, and `sub` is on that list because on most cards it holds a
+respelling. On a `cardDeck` card `sub` holds PROSE, so the house-copy and jargon
+checks never see it. a2.15 v1 put a banned word in one and only the seed-wide
+`sons-alphabet.test.ts` caught it. Run those checks over a `display()` walk as
+well, which keeps `sub` and drops only machine keys.

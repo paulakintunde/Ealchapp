@@ -1131,3 +1131,162 @@ tell you a string is in the bundle and cannot tell you anything about how it
 sets.** Wrapping, clipping, ellipsis and field-level house rules are all
 invisible to it. Budget a device pass; if there is no device, say which of those
 four classes is unverified rather than that the host half is done.
+
+---
+
+## a2.15 amendments, 2026-08-12
+
+Written by the `a2.15` build. **Batch 1 is complete except `a2.03` (seq 10),**
+which needs the theme decision in §3 above before anybody authors it.
+
+### 0. THE BLOCK HELD, AND THE COUNT IS STILL THE ONLY REASON WE KNOW
+
+`fr.a2.verbes` held exactly **340** rows when a2.15 claimed `.421`, which is this
+file's own figure after a2.14, and **374** after, which is 340 plus its 34 and
+nothing else. `.421..460` was clear. The maximum is still `.486`.
+
+```
+374 rows   after a2.15 (340 + 34),  max .486,  gaps: + .455-.460
+ 9   a2.15   fr.a2.verbes.421 .. .460   TAKEN, 421-454 used, 455-460 free
+```
+
+### 1. THE FIRST A2 BUILD TO AUTHOR AN INFINITIVE, AND CORRECTIONS §2 CALLED IT
+
+`battre`, `combattre` and `remettre` do not exist at any status in any theme.
+Five builds in a row before this one authored none.
+
+**Corrections §2's list of six absences for the whole level is incomplete.**
+Also absent: `reprendre`, `débattre`, `abattre`. And **`admettre` EXISTS**
+(fr.b1.verbes.086, `ad-METR`), which that list implies it does not. None of it
+changed the build, because `reprendre` and `admettre` are the two the exam gives
+cold and must not be authored, but a later author reading corrections §2 as
+complete will be wrong.
+
+**And `battre` is not quite absent.** It appears as an infinitive inside four
+published phrases, one of which is `fr.a1.cuisine.166`, respelled `BATR LAY ZUH`.
+The house form for a verb nobody had written a headword for was READ OFF a
+published row rather than invented, which is the same move
+`fr.sons.consonnes.107` makes possible for `PRAHⁿDR`. What is genuinely absent is
+any conjugated form: `bats`, `battons`, `battez`, `battent`, `combattons` and
+`combattent` are all zero across 27,600 published rows.
+
+### 2. THE DICTÉE CANNOT SEE U+0153, AND IT DROPS IT FROM BOTH SIDES
+
+**New, measured, and it binds every lesson in the level that touches a word with
+that ligature in it.**
+
+`letterCount()` in `dictee.logic.ts` strips everything outside `[A-Za-zÀ-ÿ]`, and
+U+0153 is outside it. So is the letter bank at `MissionRich.tsx:1343`, and so is
+the target it is compared against.
+
+```
+"Je bats les œufs."       letterCount 12, real letters 13
+"Vous battez les œufs."   letterCount 16, real letters 17, and it spells in LETTERS
+bank and target both      "Jebatslesufs"
+```
+
+A learner spelling the word without the ligature assembles the target exactly and
+is told they are right. It is corrections §5 in a new dimension. `battre les
+œufs` was the natural frame for a2.15 and it is the reason that lesson's frame is
+`Paul`.
+
+**Any manifest generator in this band should refuse a carried row holding it**,
+the way a2.13's refuses U+203F. a2.15's does, and the check is four lines. Words
+already in the corpus that will meet this: `le cœur`, `la sœur`, `l'œuf`,
+`le bœuf`, `une œuvre`.
+
+### 3. TWO HOLES IN THE GUARDS EVERY A2 LESSON BEFORE THIS ONE CARRIES
+
+Both were found by a device pass and a seed-wide test, after every host gate in
+the build was green.
+
+**THE JARGON MATCH DOES NOT COVER A PLURAL.** `hasPhrase` is boundary-exact, so a
+list holding `paradigm` does not catch `paradigms`. a2.15 v2 titled act 2 "Three
+paradigms, eighteen cells" and an act title is drawn on the RESUME INTERSTITIAL,
+which is the first screen a returning learner meets. a2.14's list works round
+this one word at a time, carrying `infinitive` AND `infinitives`; the fix is one
+line, and all three of a2.15's layers now carry it.
+
+**`prose()` DROPS `sub`, AND ON A cardDeck CARD `sub` IS PROSE.** `sub` is in
+NOTATION_KEYS because on most cards it holds a respelling. a2.15 v1 put a banned
+word in one; the batch and the merge were green and `sons-alphabet.test.ts` went
+red the moment the merge landed. Run the house-copy and jargon checks over
+`display()` as well, which keeps `sub` and drops only machine keys. Nothing in an
+IPA or a respelling can be an em dash, a banned word or grammar jargon, so the
+wider walk costs nothing.
+
+### 4. THE FRAME CHECK IS NOT UNIVERSAL, AND a2.14 IS THE SPECIAL CASE
+
+a2.14's batch asserts its two columns use **different** frames, because the
+complement was the thing it taught and a shared frame would have deleted the
+lesson. **a2.15 asserts the opposite**, and copying a2.14's check would have
+failed a correct build: here the stem is the teaching and the complement is
+noise, so the back of the sentence must not move. `la clé` is the only object
+tried that puts all twelve prendre and mettre cells in LETTERS mode.
+
+Before copying either, ask which half of the sentence your lesson is about.
+
+### 5. a2.14's BLIND-SPOT PREDICTION HELD, AND THE OLDER ONE BIT INSTEAD
+
+a2.14 §1 predicted a2.15 would be clear of the doubled-nasal blind spot, because
+`AHⁿ` and `OHⁿ` are two-letter house spellings that `hasPlainNasal` catches on
+its first branch before the French is consulted. **Measured and true**: six of
+a2.15's sentences carry `prennent` or `apprennent`, which put a doubled n in the
+French, and every superscript in them is still seen.
+
+What bit instead is corrections §6's original shape. 29 superscripts, 27 seen,
+**2 missed**, and both are `ray-POHⁿS` in `réponse`, where the nasal is followed
+by a consonant INSIDE the token.
+
+The **false-positive path is not met**, and the candidate that looks like it
+should fire is `PREN`: a vowel, a plain N, at a token boundary. It does not,
+because `hasPlainNasal`'s own list is (AH OH EH UH EU AI OU) and `EN` is not in
+it. Reported as an absence, as corrections §6 asks.
+
+### 6. A groupDrill CHECK IS AN mcq, SO A MISSION CANNOT BE A PRODUCTION SURFACE
+
+Worth stating plainly, because three briefs in this band ask for production in a
+mission. `check` carries `q`, `opts`, `correct` and `why` and nothing else. The
+only surfaces in this app that make a learner produce free text are the quiz's
+`typeIn` and `errorSpot`, and the dictée, and a dictée can only name a corpus
+row, so it cannot test a word the lesson deliberately does not have a row for.
+
+a2.15 needed a learner to build a verb it never showed them. The mission before
+the exam is recognition under pressure and **round 4 of the exam is the
+production**: five free-text answers on four distinct cells.
+
+### 7. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3333   pass 3333   fail 0        measured 2026-08-12, before a2.15
+  tests 3403   pass 3403   fail 0        after a2.15 (+70)
+seed.json                                version 31, 8865 items, 50 lessons  (before)
+                                         version 31, 8907 items, 51 lessons  (after,
+                                           NOT published; the merge left the version alone)
+pnpm content:parity                      ONE pre-existing divergence (b2.01.l1,
+                                           database-only, in_review)
+```
+
+**a2.14's report records seed.version as 30 and it is 31 now.** A publish landed
+between the two builds (`8590a15 chore(publish): snapshot v31`). Measure it
+yourself rather than carrying either figure forward.
+
+### 8. a2.15 IS A LEAF, AND SO WAS a2.14
+
+No unit at any level declares `a2.15` as a prerequisite. a2.03 (seq 10) is next
+on the trail and rests on a1.14 and a1.16. The batch reports it rather than dying
+on it. Three builds in this batch, three different answers; probe your own unit.
+
+### 9. THE MUTATION HARNESS: TWO THINGS TO COPY
+
+- **A missing seed anchor is a skipped LAYER, not a skipped mutation.** The test
+  reads `seed.json` and nothing else, so a source mutation it cannot see is n/a
+  rather than MISS, and dropping the whole row throws away the batch and merge
+  results with it. a2.15's first run called eight correct assertions blind for
+  this reason.
+- **A bad mutation proves nothing and costs a diagnosis cycle.** One of a2.15's
+  twenty offered « Je prends la clé. » against « Il prend la clé. » as a
+  homophone offence; they differ by the PRONOUN as well as by the form, and je
+  against il is perfectly audible, so the guard was right to ignore it. The rule
+  fires only when two options differ ONLY by a homophone.
