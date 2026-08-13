@@ -826,7 +826,15 @@ test('THE FIVE REPAIRED ROWS CARRY THE REPAIRED VALUE IN THE SEED', skip, () => 
   // the carry silently shipped the pre-batch value.
   for (const { id, from, to, visible } of REPAIRS) {
     const r = item(id);
-    ok(r, `${id} was not carried through the seed cut`);
+    // FOUR OF THE FIVE ARE REFERENCED BY itemIds, so they are always in the cut.
+    // The fifth is the repair-only row, which no lesson references and which
+    // `content:publish` correctly drops when it regenerates the seed from the
+    // database. Its presence is not asserted; its VALUE is, if it is here.
+    if (id === REPAIR_ONLY) {
+      if (!r) continue;
+    } else {
+      ok(r, `${id} was not carried through the seed cut`);
+    }
     strictEqual(r!.respell, to, `${id} carries ${JSON.stringify(r!.respell)}`);
     ok(!hasPlainNasalFor(r!.fr, r!.respell!), `${id} is still flagged after the repair`);
     // AND THE SPLIT THE CORPUS DECLARES IS THE SPLIT THE CHECKER MAKES, on the
