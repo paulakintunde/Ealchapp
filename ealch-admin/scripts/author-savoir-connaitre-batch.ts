@@ -851,16 +851,25 @@ for (const s of LESSON.sections) {
     for (const g of ((s as { groups?: { items?: Record<string, unknown>[] }[] }).groups ?? [])) {
       for (const it of (g.items ?? [])) {
         items += 1;
-        const bad = GROUPDRILL_LG_DROPS.filter((k) => it[k] !== undefined && it[k] !== '');
-        if (bad.length) {
-          die(`${(s as { id?: string }).id} is a groupDrill at size ${JSON.stringify(size ?? '(default)')} and one of its items carries ${bad.join(', ')}: ${JSON.stringify(it.fr)}\n`
-            + `  MissionRich.tsx:439 draws ${GROUPDRILL_LG_RENDERS.join(', ')} and NOTHING ELSE at this size, and schema.ts:899\n`
-            + `  records that ${GROUPDRILL_LG_DROPS.join(', ')} are the XL card's lines. a2.13 shipped 59 cards like this and\n`
-            + `  a2.14 shipped 53: a bare French sentence with no pronunciation and no meaning, with every host gate green.\n`
-            + `  Put the respelling and the gloss in \`note\`.`);
-        }
-        if (!it.note && !it.ipa) {
-          die(`${(s as { id?: string }).id} has a groupDrill item with neither note nor ipa, so only the French renders: ${JSON.stringify(it.fr)}`);
+        /* RELAXED 2026-08-13, AND THE REASON MATTERS.
+         *
+         * This guard used to REFUSE `respell` and `en` here, because the `lg`
+         * branch drew `note` alone and dropped them in silence, which is how
+         * a2.13 shipped 59 bare cards and a2.14 built 53.
+         *
+         * e584bd8 fixed that in the RENDERER rather than in the content:
+         * MissionRich now draws respell and en on the second line, with `note`
+         * winning when present, across all 583 affected cards in 28 lessons.
+         * Refusing the two fields would now block a legal pattern, and the
+         * comment justifying it would be false.
+         *
+         * WHAT STILL HAS TO HOLD IS THE THING THAT WAS ACTUALLY BROKEN: a card
+         * must put SOMETHING under the French. That survives the renderer fix,
+         * because a card carrying none of the four still renders as a word and
+         * a play button. */
+        if (!it.note && !it.ipa && !it.respell && !it.en) {
+          die(`${(s as { id?: string }).id} has a groupDrill item with no note, ipa, respell or en, so the learner gets the French and a play button and nothing else: ${JSON.stringify(it.fr)}\n`
+            + '  583 cards across 28 lessons rendered that way until e584bd8. Valid data is not the same as data that reaches a screen.');
         }
       }
     }
