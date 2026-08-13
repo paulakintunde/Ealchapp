@@ -574,6 +574,47 @@ export const EXPECTED_SOURCE_THEMES = 11;
 /** Eighteen cells: three verbs, six persons, one frame. */
 export const EXPECTED_FRAME_ROWS = 18;
 
+/* ══════════════════════════════════════════════════════════════════════════
+ *  TWO BUDGETS MEASURED ON GLASS, NOT DERIVED FROM ANY DOCUMENT
+ *
+ *  Both were found by the a2.13 device pass on a Pixel 6, 2026-08-12, AFTER
+ *  v1 had shipped and published. Every host gate was green for both.
+ * ═══════════════════════════════════════════════════════════════════════ */
+
+/** THE MISSION-ROW TITLE CEILING.
+ *
+ *  The missions hub draws the section title and a TYPE CHIP on one row, and the
+ *  chip wins: a longer title ellipsises. Measured at default font scale:
+ *
+ *    FITS  "What You Will Be Able To Do"   27 chars, chip OBJECTIFS (9 wide)
+ *    CUT   "Ten Verbs From Other Lessons"  28 chars, chip GROUPES   (7 wide)
+ *
+ *  Eight of a2.13's thirty-two titles were cut in v1. The same titles render in
+ *  FULL on the act checkpoint screen, so this is the hub row layout alone.
+ *
+ *  It is a HOUSE-WIDE budget that no document records: a2.12's "One Verb, A
+ *  Dozen English Ones" is 29 and is cut today. */
+export const MISSION_TITLE_MAX = 27;
+
+/** THE groupDrill FIELDS THAT DO NOT RENDER AT `lg`.
+ *
+ *  schema.ts:899 states it and this build missed it: "`fr`, `ipa` and `note`
+ *  are the shipped shape. The rest are v2 additions FOR A groupDrill RENDERING
+ *  AT XL: `itemId` joins the word to the corpus, `respell`, `en` and `silent`
+ *  are the XL card's other lines." MissionRich.tsx:439 draws `fr`, `ipa` and
+ *  `note` and nothing else.
+ *
+ *  a2.13 v1 shipped 59 item cards carrying `respell` and `en` across eight
+ *  `lg` groupDrills, so a learner saw a bare French sentence with no
+ *  pronunciation and no meaning on every one of them. The respelling and gloss
+ *  now ride in `note`. These two are refused at `lg` by the batch, the merge
+ *  and the test, because their PRESENCE is the trap. */
+export const GROUPDRILL_LG_RENDERS = ['fr', 'ipa', 'note'] as const;
+export const GROUPDRILL_LG_DROPS = ['respell', 'en', 'silent'] as const;
+/** Fifty-nine item cards across eight sections, all `lg`. */
+export const EXPECTED_GROUPDRILL_ITEMS = 59;
+export const EXPECTED_GROUPDRILLS = 8;
+
 /** The seed's standing nasal debt, re-measured for this build so the figure is
  *  not carried forward on trust. a2.12 measured 904 of 8787 on 2026-08-12. */
 export const SEED_NASAL_DEBT = { flagged: 904, ofRows: 8787, mine: 0, measured: '2026-08-12' } as const;

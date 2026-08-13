@@ -216,9 +216,27 @@ const SPEAK_IDS = [
   'fr.a2.verbes.359', 'fr.a2.verbes.365', 'fr.a2.verbes.366', 'fr.a2.verbes.367', 'fr.a2.verbes.368',
 ];
 
-/** One authored row as a groupDrill item, so no screen restates a gloss or a
- *  respelling the corpus already holds. */
-const rowCard = (id: string) => ({ fr: fr(id), itemId: id, respell: sub(id), en: en(id) });
+/** One authored row as a groupDrill item.
+ *
+ *  ── THE FIELD THAT DOES NOT RENDER, FOUND ON A PIXEL 6 ─────────────────
+ *
+ *  v1 passed `respell` and `en`. NEITHER REACHES A SCREEN AT THIS SIZE.
+ *  schema.ts:899 says so outright: "`fr`, `ipa` and `note` are the shipped
+ *  shape. The rest are v2 additions FOR A groupDrill RENDERING AT XL:
+ *  `itemId` joins the word to the corpus, `respell`, `en` and `silent` are the
+ *  XL card's other lines." MissionRich.tsx:439 confirms it — the lg branch
+ *  draws `fr`, `ipa` and `note` and nothing else.
+ *
+ *  Every groupDrill in this lesson is `lg`, so v1 shipped FIFTY-NINE cards
+ *  showing a bare French sentence with no pronunciation and no meaning. Every
+ *  host gate was green, because the data was valid and simply read by nothing:
+ *  the same class as the `cheatSheet` a1.13 still ships inside a reference
+ *  sheet, which draws its title and no rows.
+ *
+ *  The respelling and the gloss now ride in `note`, which the lg branch does
+ *  draw. `respell` and `en` are NOT also passed: their presence is exactly the
+ *  trap, and the batch refuses them at this size. */
+const rowCard = (id: string) => ({ fr: fr(id), itemId: id, note: `${sub(id)} · ${en(id)}` });
 
 /** The six ids of one verb's column. */
 const col = (m: Modal): string[] => paradigmIds(m);
@@ -389,7 +407,7 @@ const SECTIONS: LessonSection[] = [
     // rewording there moves this card too.
     type: 'cardDeck',
     id: 's03-reach',
-    title: 'Three Verbs, And Then Any Verb',
+    title: 'Three Verbs, Then Any Verb',
     frSub: 'Trois verbes, et puis tous les autres',
     hint: 'Swipe through the four cards. The third one is the whole lesson.',
     render: 'deck',
@@ -435,7 +453,7 @@ const SECTIONS: LessonSection[] = [
     // resolved perfectly and were drawn by nothing.
     type: 'groupDrill',
     id: 's04-verbs',
-    title: 'The Three, And The One Behind Them',
+    title: 'The Three, And One More',
     frSub: 'Les trois verbes',
     layer: 'core',
     size: 'lg',
@@ -507,7 +525,7 @@ const SECTIONS: LessonSection[] = [
     // its consequence.
     type: 'groupDrill',
     id: 's06-stems',
-    title: 'Two Stems, And One You Work Out',
+    title: 'Two Stems, And A Recipe',
     frSub: 'La recette',
     layer: 'core',
     size: 'lg',
@@ -540,7 +558,7 @@ const SECTIONS: LessonSection[] = [
     // expects from a lesson called "irregular verbs 3".
     type: 'groupDrill',
     id: 's07-newletter',
-    title: 'One Letter You Have Not Written',
+    title: 'The One New Letter',
     frSub: `Le -${THE_NEW_ENDING}`,
     layer: 'core',
     size: 'lg',
@@ -668,7 +686,7 @@ const SECTIONS: LessonSection[] = [
     // vocabulary, because the vocabulary is one word and it never changes.
     type: 'groupDrill',
     id: 's10-frames',
-    title: 'Eighteen Sentences, One Ending',
+    title: 'Eighteen, One Ending',
     frSub: 'Le cadre',
     layer: 'core',
     size: 'lg',
@@ -697,7 +715,7 @@ const SECTIONS: LessonSection[] = [
     // else's is visible in the cards rather than only in the prose.
     type: 'groupDrill',
     id: 's11-infinitives',
-    title: 'Ten Verbs From Other Lessons',
+    title: 'Ten Borrowed Verbs',
     frSub: `${INFINITIVES.length} verbes empruntés`,
     layer: 'core',
     size: 'lg',
@@ -940,7 +958,7 @@ const SECTIONS: LessonSection[] = [
     // because it is the sentence a1.01 already put in their mouth.
     type: 'examples',
     id: 's16-register',
-    title: 'Two Ways To Ask For The Same Thing',
+    title: 'Two Ways To Ask',
     frSub: 'Demander ou exiger',
     layer: 'core',
     terms: ['thePolite', 'theRegister'],
@@ -993,7 +1011,7 @@ const SECTIONS: LessonSection[] = [
     // lesson, unexplained. This is where that debt is paid.
     type: 'cardDeck',
     id: 's18-a101',
-    title: 'You Have Been Saying This Since Lesson One',
+    title: 'Since Your First Lesson',
     frSub: `Depuis ${A1_01_UNIT}`,
     hint: 'Three cards.',
     render: 'deck',
@@ -1029,7 +1047,7 @@ const SECTIONS: LessonSection[] = [
     // rows exist for exactly that.
     type: 'groupDrill',
     id: 's19-senses',
-    title: 'One Verb, Three English Words',
+    title: 'One Verb, Three Words',
     frSub: 'Les trois emplois de pouvoir',
     layer: 'core',
     size: 'lg',
@@ -1307,7 +1325,7 @@ const SECTIONS: LessonSection[] = [
     // every turn requires a front on a verb.
     type: 'scenario',
     id: 's27-scenario',
-    title: 'The Same Counter, A Week Later',
+    title: 'The Counter, A Week Later',
     frSub: 'À vous',
     layer: 'core',
     terms: ['thePolite', 'nousOn'],
@@ -2329,7 +2347,7 @@ export const MODAUX_LESSON: Lesson = {
 
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 1,
+  version: 2,
 
   grammarAssumed: [
     'The six subject pronouns and the nine they cover, introduced in a1.05',

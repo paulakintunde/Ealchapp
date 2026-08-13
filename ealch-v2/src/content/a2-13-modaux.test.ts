@@ -951,6 +951,81 @@ test('a2.01\'s nous/on statement has exactly one home', { skip: noLesson }, () =
  *  RENDERER RULES
  * ═══════════════════════════════════════════════════════════════════════ */
 
+/* ══════════════════════════════════════════════════════════════════════════
+ *  TWO BUDGETS MEASURED ON A PIXEL 6, BOTH VIOLATED BY v1
+ *
+ *  Neither is derivable from any document and both shipped green through every
+ *  host gate. They are here because the only thing that found them was walking
+ *  the published lesson on glass.
+ * ═══════════════════════════════════════════════════════════════════════ */
+
+/** MissionRich.tsx:439 draws these at `lg`, and nothing else. */
+const GROUPDRILL_LG_RENDERS = ['fr', 'ipa', 'note'];
+/** schema.ts:899: "`respell`, `en` and `silent` are the XL card's other lines." */
+const GROUPDRILL_LG_DROPS = ['respell', 'en', 'silent'];
+const EXPECTED_GROUPDRILLS = 8;
+const EXPECTED_GROUPDRILL_ITEMS = 59;
+/** 27 fits beside the widest chip on a Pixel 6; 28 ellipsises. */
+const MISSION_TITLE_MAX = 27;
+
+test('NO groupDrill CARD RENDERS AS A BARE FRENCH STRING', { skip: noLesson }, () => {
+  let sections = 0;
+  let items = 0;
+  const ghosts: string[] = [];
+  const noNote: string[] = [];
+  for (const s of L!.sections) {
+    if (s.type !== 'groupDrill') continue;
+    const id = (s as { id?: string }).id ?? '(anon)';
+    const size = (s as { size?: string }).size ?? '';
+    sections++;
+    for (const g of (s as { groups?: { items?: Record<string, unknown>[] }[] }).groups ?? []) {
+      for (const it of g.items ?? []) {
+        items++;
+        if (size === 'xl') continue;
+        const bad = GROUPDRILL_LG_DROPS.filter((k) => it[k] !== undefined && it[k] !== '');
+        if (bad.length) ghosts.push(`${id} "${String(it.fr).slice(0, 28)}" carries ${bad.join(', ')}`);
+        if (!it.note) noNote.push(`${id} "${String(it.fr).slice(0, 28)}"`);
+      }
+    }
+  }
+  strictEqual(
+    ghosts.length, 0,
+    `groupDrill item(s) at lg carry a field the renderer does not draw:\n  ${ghosts.slice(0, 6).join('\n  ')}\n`
+    + `  MissionRich.tsx:439 draws ${GROUPDRILL_LG_RENDERS.join(', ')} and nothing else at this size, so a card\n`
+    + `  carrying respell and en shows the learner a bare French sentence with no pronunciation and no meaning.\n`
+    + `  a2.13 v1 shipped 59 of them and every gate was green.`,
+  );
+  strictEqual(noNote.length, 0, `groupDrill item(s) at lg with no note:\n  ${noNote.slice(0, 6).join('\n  ')}`);
+  strictEqual(sections, EXPECTED_GROUPDRILLS);
+  strictEqual(items, EXPECTED_GROUPDRILL_ITEMS);
+});
+
+test('every groupDrill note carries BOTH a respelling and a gloss', { skip: noLesson }, () => {
+  for (const s of L!.sections) {
+    if (s.type !== 'groupDrill') continue;
+    for (const g of (s as { groups?: { items?: { fr: string; note?: string }[] }[] }).groups ?? []) {
+      for (const it of g.items ?? []) {
+        const note = it.note ?? '';
+        ok(/\[[^\]]+\]/.test(note), `"${it.fr}" has a note with no bracketed respelling: ${JSON.stringify(note)}`);
+        ok(note.includes('·'), `"${it.fr}" has a note with no gloss after the respelling: ${JSON.stringify(note)}`);
+      }
+    }
+  }
+});
+
+test('NO MISSION TITLE ELLIPSISES IN THE HUB', { skip: noLesson }, () => {
+  const over = L!.sections
+    .map((s) => ({ id: (s as { id?: string }).id, title: (s as { title?: string }).title ?? '' }))
+    .filter((s) => s.title.length > MISSION_TITLE_MAX);
+  strictEqual(
+    over.length, 0,
+    `mission title(s) past the ${MISSION_TITLE_MAX}-character hub budget:\n`
+    + over.map((s) => `  ${String(s.title.length).padStart(2)}  ${s.id}  ${s.title}`).join('\n')
+    + `\n  The hub draws the title beside a type chip and the chip wins. Measured on a Pixel 6: 27 fits beside\n`
+    + `  OBJECTIFS, 28 is cut. The same titles render in full on the act checkpoint, so it is the hub row alone.`,
+  );
+});
+
 test('the reference sheet draws only what ReferenceSheet.tsx can draw', { skip: noLesson }, () => {
   const DRAWABLE = new Set(['teach', 'letterGrid', 'table']);
   strictEqual((L!.sheets ?? []).length, 1);

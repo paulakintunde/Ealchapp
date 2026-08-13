@@ -57,6 +57,8 @@ import {
   POUVOIR_SENSES, READ_NOT_IMPORTED, RESERVED_FOR_NEIGHBOURS, RESPELL_ADDITIONS,
   RESPELL_REPAIRS_SENTENCES, RESPELL_REPAIRS_VISIBLE, SAVOIR_SHAPE,
   SINGULAR_SPELLINGS, SINGULAR_TRIPLES, STEMS, UNSEEN_VERB, toItem,
+  MISSION_TITLE_MAX, GROUPDRILL_LG_DROPS, GROUPDRILL_LG_RENDERS,
+  EXPECTED_GROUPDRILLS, EXPECTED_GROUPDRILL_ITEMS,
 } from './data/modaux-corpus.ts';
 import {
   IMPORTED_BY_ID, INFINITIVES, READ_ONLY_ROWS, SOURCE_THEMES, infinitiveId,
@@ -448,6 +450,49 @@ if ((LESSON.deckTranche ?? []).flat().includes(UNSEEN_VERB.sourceId)) die(`${UNS
     const ref = (s as { sheetId?: string }).sheetId;
     if (ref && !declared.has(ref)) die(`${(s as { id?: string }).id} names sheet ${ref}, which this lesson does not declare`);
   }
+}
+
+/* ── THE TWO BUDGETS MEASURED ON GLASS ───────────────────────────────────
+ *
+ * Added after the a2.13 DEVICE PASS, which found both of these in v1 with every
+ * host gate green. They are re-checked here rather than trusted to the batch,
+ * because the merge is what decides what a learner actually receives.        */
+{
+  let sections = 0; let items = 0;
+  const ghosts: string[] = []; const noNote: string[] = [];
+  for (const s of LESSON.sections) {
+    if (s.type !== 'groupDrill') continue;
+    const id = (s as { id?: string }).id ?? '(anon)';
+    const size = (s as { size?: string }).size ?? '';
+    sections++;
+    for (const g of (s as { groups?: { items?: Record<string, unknown>[] }[] }).groups ?? []) {
+      for (const it of g.items ?? []) {
+        items++;
+        if (size === 'xl') continue;
+        const bad = GROUPDRILL_LG_DROPS.filter((k) => it[k] !== undefined && it[k] !== '');
+        if (bad.length) ghosts.push(`${id} "${String(it.fr).slice(0, 28)}" carries ${bad.join(', ')}`);
+        if (!it.note) noNote.push(`${id} "${String(it.fr).slice(0, 28)}"`);
+      }
+    }
+  }
+  if (ghosts.length) {
+    die(`${ghosts.length} groupDrill item(s) at lg carry a field the renderer does not draw:\n  ${ghosts.slice(0, 6).join('\n  ')}\n`
+      + `  MissionRich.tsx:439 draws ${GROUPDRILL_LG_RENDERS.join(', ')} and nothing else at this size.`);
+  }
+  if (noNote.length) {
+    die(`${noNote.length} groupDrill item(s) at lg render as a bare French string:\n  ${noNote.slice(0, 6).join('\n  ')}`);
+  }
+  if (sections !== EXPECTED_GROUPDRILLS || items !== EXPECTED_GROUPDRILL_ITEMS) {
+    die(`${items} groupDrill items across ${sections} sections, expected ${EXPECTED_GROUPDRILL_ITEMS} across ${EXPECTED_GROUPDRILLS}`);
+  }
+  const over = LESSON.sections
+    .map((x) => ({ id: (x as { id?: string }).id, title: (x as { title?: string }).title ?? '' }))
+    .filter((x) => x.title.length > MISSION_TITLE_MAX);
+  if (over.length) {
+    die(`${over.length} mission title(s) exceed the ${MISSION_TITLE_MAX}-char hub budget and will ellipsise:\n`
+      + over.map((x) => `  ${String(x.title.length).padStart(2)}  ${x.id}  ${x.title}`).join('\n'));
+  }
+  console.log(`  cards: ${items} groupDrill items, all carrying a note; longest title ${Math.max(...LESSON.sections.map((x) => ((x as { title?: string }).title ?? '').length))} of ${MISSION_TITLE_MAX}`);
 }
 
 /* ── The unit ────────────────────────────────────────────────────────────── */

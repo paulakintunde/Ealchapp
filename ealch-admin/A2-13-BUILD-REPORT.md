@@ -383,3 +383,94 @@ close at **a2.35**.
 
 Two units rest on a2.13: **a2.14 (seq 8)** and **a2.29 (seq 28)**. So a2.02's
 strict dependents check was kept rather than loosened the way a2.12 had to.
+
+---
+
+## 9. THE DEVICE PASS, 2026-08-12, Pixel 6
+
+Run on a USB Pixel 6 (oriole) against Metro on 8082. The app is DEBUGGABLE, so
+`__DEV__` is true and `refreshFromRemote` returns immediately (content.ts:255) —
+**this device never OTA-fetches** and reads whatever Metro serves. A cold restart
+was needed before the current seed appeared; the first deep link fell through to
+`/den` because `content.lesson('a2.13.l1')` was null against the stale bundle.
+
+**TWO DEFECTS, BOTH SHIPPED IN v1, BOTH GREEN THROUGH EVERY HOST GATE.**
+
+### 9.1 Fifty-nine cards rendered as a bare French string
+
+The one that matters. Eight `lg` groupDrill sections, 59 item cards, every one
+passing `respell` and `en` to a renderer that draws neither.
+
+```
+schema.ts:899        "fr, ipa and note are the shipped shape. The rest are v2
+                      additions FOR A groupDrill RENDERING AT XL: ... respell,
+                      en and silent are the XL card's other lines."
+MissionRich.tsx:439   draws fr, ipa and note. Nothing else.
+```
+
+Every groupDrill in this lesson is `lg`. So on `Je veux payer.` a learner got the
+sentence, a play button, **no pronunciation and no meaning** — across six of the
+teaching missions, including the whole eighteen-cell frame.
+
+The data was valid, which is why nothing caught it. Same class as the
+`cheatSheet` a1.13 still ships inside a reference sheet, which draws its title
+and no rows.
+
+**Fixed** by moving the respelling and gloss into `note`, which the `lg` branch
+does draw. `respell` and `en` are now REFUSED at that size by all three layers,
+because their presence is exactly what reads as correct while doing nothing.
+
+```
+before   Je veux payer.
+after    Je veux payer.
+         [zhuh VUH pay-YAY] · I want to pay.
+```
+
+### 9.2 Eight of thirty-two mission titles ellipsised
+
+The hub draws the section title beside a TYPE CHIP and the chip wins.
+
+```
+FITS  "What You Will Be Able To Do"   27 chars, chip OBJECTIFS (9)
+CUT   "Ten Verbs From Other Lessons"  28 chars, chip GROUPES   (7)
+```
+
+Cut in v1: missions 03, 04, 06, 07, 10, 11, 16, 27 — and 18 and 19 by the same
+measure. The same titles render IN FULL on the act checkpoint screen, so this is
+the hub row layout alone.
+
+**This is a house-wide budget no document records.** a2.12's "One Verb, A Dozen
+English Ones" is 29 characters and is cut today.
+
+**Fixed**: ten titles rewritten, longest now 27. `MISSION_TITLE_MAX` is pinned in
+the corpus and asserted by the batch, the merge and the test.
+
+### 9.3 What rendered correctly
+
+The tag `A2 · LEÇON 07`, the title, all 32 mission rows and their French
+subtitles, the lesson cover with its full intro, the act checkpoint, and the
+groupDrill structure itself: section title, both term chips, group progress bar,
+the check with four options, and the `Next group` control.
+
+### 9.4 A third finding, in the guards rather than the content
+
+The batch's row-count check compared `fr.a2.verbes` against an equality. A
+CONCURRENT a2.14 BUILD landed 30 rows in its own block during this device pass,
+taking the theme from 310 to 340, and the guard failed a build that was entirely
+correct. The ledger's row-count discipline assumes SERIAL builds.
+
+Narrowed: a total that has grown by somebody else's allocation is reported, a
+total that has SHRUNK is fatal, and the check that actually matters — rows inside
+this build's range that this build does not own, the a1.20 failure — is unchanged
+and still fatal.
+
+### 9.5 Still not done
+
+`a2.13.l1` is now **v2** in Postgres and in the seed, and **v30 on the wire still
+carries v1**. A publish would ship v2, and it would ALSO ship a2.14, which is
+another session's work and not this build's to release.
+
+The device pass covered the hub, the cover, the act checkpoint and one
+groupDrill. **Not yet walked on glass**: the `s13-unseen` trapDrill, the
+45-question quiz, the dictée, the scenario, the reading passage and the reference
+sheet.

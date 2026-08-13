@@ -71,7 +71,8 @@
     "content:rollback": "tsx scripts/rollback-content.ts",
     "audio:render": "tsx scripts/render-audio.ts",
     "routing:sync": "tsx scripts/sync-routing.ts",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "content:savoir-connaitre": "tsx scripts/author-savoir-connaitre-batch.ts"
   },
   "dependencies": {
     "@blocknote/core": "^0.51.4",

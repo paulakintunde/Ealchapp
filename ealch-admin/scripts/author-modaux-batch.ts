@@ -90,6 +90,8 @@ import {
   ROW_COUNT_BEFORE, SAVOIR_SHAPE, SINGULAR_PERSONS, SINGULAR_SPELLINGS,
   SINGULAR_TRIPLES, STEMS, THEME, THE_NEW_ENDING, THE_NEW_ENDING_FORMS,
   UNIT_ID as CORPUS_UNIT_ID, UNIT_SEQ, UNSEEN_VERB, VISIBLE_NASALS, toItem,
+  MISSION_TITLE_MAX, GROUPDRILL_LG_DROPS, GROUPDRILL_LG_RENDERS,
+  EXPECTED_GROUPDRILLS, EXPECTED_GROUPDRILL_ITEMS,
 } from './data/modaux-corpus.ts';
 import {
   ALL_REPAIRS, IMPORTED_BY_ID, IMPORTED_IDS, INFINITIVES, SOURCE_THEMES,
@@ -722,6 +724,71 @@ for (const s of LESSON.sections) {
   for (const t of chips) if (!LESSON.terms?.[t]) die(`${(s as { id?: string }).id} names undefined term "${t}"`);
 }
 
+/* ── TWO BUDGETS MEASURED ON GLASS, BOTH VIOLATED BY v1 ──────────────────
+ *
+ * Neither of these is derivable from any document, both shipped green through
+ * every host gate, and both were found by walking the lesson on a Pixel 6.    */
+
+/* 1. THE FIELDS A `lg` groupDrill DOES NOT DRAW.
+ *
+ *    MissionRich.tsx:439 renders `fr`, `ipa` and `note`. `respell` and `en`
+ *    are XL-only lines (schema.ts:899) and are dropped in silence at this
+ *    size, which is how v1 shipped 59 cards showing a bare French sentence
+ *    with no pronunciation and no meaning.
+ *
+ *    The guard refuses their PRESENCE rather than merely requiring a note,
+ *    because passing them is exactly what reads as correct while doing
+ *    nothing. */
+{
+  let sections = 0; let items = 0;
+  const noNote: string[] = []; const ghostFields: string[] = [];
+  for (const s of LESSON.sections) {
+    if (s.type !== 'groupDrill') continue;
+    const id = (s as { id?: string }).id ?? '(anon)';
+    const size = (s as { size?: string }).size ?? '';
+    sections++;
+    for (const g of (s as { groups?: { items?: Record<string, unknown>[] }[] }).groups ?? []) {
+      for (const it of g.items ?? []) {
+        items++;
+        if (size === 'xl') continue; // the XL card draws all five lines
+        const ghosts = GROUPDRILL_LG_DROPS.filter((f) => it[f] !== undefined && it[f] !== '');
+        if (ghosts.length) ghostFields.push(`${id} "${String(it.fr).slice(0, 30)}" carries ${ghosts.join(', ')}`);
+        if (!it.note) noNote.push(`${id} "${String(it.fr).slice(0, 30)}"`);
+      }
+    }
+  }
+  if (ghostFields.length) {
+    die(`${ghostFields.length} groupDrill item(s) at lg carry a field the renderer DOES NOT DRAW:\n  ${ghostFields.slice(0, 8).join('\n  ')}\n`
+      + `  MissionRich.tsx:439 draws ${GROUPDRILL_LG_RENDERS.join(', ')} and nothing else at this size.\n`
+      + `  Put the respelling and the gloss in \`note\`. a2.13 v1 shipped 59 cards with neither.`);
+  }
+  if (noNote.length) {
+    die(`${noNote.length} groupDrill item(s) at lg have no \`note\`, so they render as a bare French string:\n  ${noNote.slice(0, 8).join('\n  ')}`);
+  }
+  if (sections !== EXPECTED_GROUPDRILLS) die(`${sections} groupDrill sections, expected ${EXPECTED_GROUPDRILLS}`);
+  if (items !== EXPECTED_GROUPDRILL_ITEMS) die(`${items} groupDrill item cards, expected ${EXPECTED_GROUPDRILL_ITEMS}`);
+  console.log(`  cards         ${items} groupDrill items across ${sections} sections, every one carrying a note`);
+}
+
+/* 2. THE MISSION-ROW TITLE CEILING.
+ *
+ *    The hub draws the title beside a type chip and the chip wins. Measured on
+ *    a Pixel 6: 27 characters fit beside the widest chip, 28 ellipsised. Eight
+ *    of a2.13's titles were cut in v1. */
+{
+  const over = LESSON.sections
+    .map((s) => ({ id: (s as { id?: string }).id, title: (s as { title?: string }).title ?? '' }))
+    .filter((s) => s.title.length > MISSION_TITLE_MAX);
+  if (over.length) {
+    die(`${over.length} mission title(s) exceed the ${MISSION_TITLE_MAX}-character hub budget and will ELLIPSISE:\n`
+      + over.map((s) => `  ${String(s.title.length).padStart(2)}  ${s.id}  ${s.title}`).join('\n')
+      + `\n  Measured on a Pixel 6: 27 fits beside OBJECTIFS, 28 is cut. The same titles render in full on the\n`
+      + `  act checkpoint, so this is the hub row layout alone.`);
+  }
+  const longest = Math.max(...LESSON.sections.map((s) => ((s as { title?: string }).title ?? '').length));
+  console.log(`  titles        longest ${longest} of ${MISSION_TITLE_MAX} characters`);
+}
+
 /* ── The deck, and what it releases ──────────────────────────────────────── */
 
 if ((LESSON.deckTranche ?? []).length !== EXPECTED_ACTS) die(`${(LESSON.deckTranche ?? []).length} deck tranches, expected one per act (${EXPECTED_ACTS})`);
@@ -795,10 +862,26 @@ async function main() {
     "select count(*) n, coalesce(max(id),'') mx from content_items where id like 'fr.a2.verbes.%'",
   );
   const before = Number(blk.rows[0].n);
-  if (before !== ROW_COUNT_BEFORE && before !== ROW_COUNT_BEFORE + AUTHORED_ITEMS.length) {
+  /* THE LEDGER'S ROW-COUNT DISCIPLINE ASSUMES SERIAL BUILDS, AND THAT STOPPED
+     BEING TRUE DURING THIS ONE. a2.14 applied 30 rows to its own block while
+     a2.13 was being device-tested, taking the theme from 310 to 340. An equality
+     check on the total then fails a build that is entirely correct.
+
+     What actually matters is narrower and is checked below: rows inside THIS
+     build's range that this build does not own. That is the a1.20 failure — a
+     concurrent lesson landing inside a claimed block, where a highest-id check
+     cannot see it. A total that has grown by somebody else's allocation is
+     reported, not fatal. A total that has SHRUNK is fatal either way: rows have
+     been deleted. */
+  const expected = [ROW_COUNT_BEFORE, ROW_COUNT_BEFORE + AUTHORED_ITEMS.length];
+  if (before < Math.min(...expected)) {
     c.release(); await pool.end();
-    die(`fr.a2.verbes holds ${before} rows. The ledger says ${ROW_COUNT_BEFORE} before this build and ${ROW_COUNT_BEFORE + AUTHORED_ITEMS.length} after.\n`
-      + `  Somebody has landed inside a block. Do not take another range quietly: amend A2-BATCH-1-LEDGER.md and say so.`);
+    die(`fr.a2.verbes holds ${before} rows and the ledger says at least ${Math.min(...expected)}. Rows have been DELETED.`);
+  }
+  if (!expected.includes(before)) {
+    const others = before - (AUTHORED_IDS.length ? ROW_COUNT_BEFORE + AUTHORED_ITEMS.length : ROW_COUNT_BEFORE);
+    console.log(`  !! fr.a2.verbes holds ${before} rows, ${others} more than this build accounts for.`);
+    console.log(`     A concurrent build has taken its own block. Not fatal, and the ledger needs the figure.`);
   }
   const inBlock = await c.query<{ id: string; fr: string }>(
     'select id, fr from content_items where id >= $1 and id <= $2 and id <> all($3) order by id',

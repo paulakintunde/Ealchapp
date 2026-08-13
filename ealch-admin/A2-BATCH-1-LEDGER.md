@@ -717,3 +717,259 @@ The **"Irréguliers 1–5" arc** closes at `a2.15`, which is the right place for
 closing gesture: it is the first lesson that must author its own infinitives, so
 the arc ends where importing stops working. Do not write a farewell into a2.13 or
 a2.14.
+
+---
+
+## a2.14 amendments, 2026-08-12
+
+Written by the `a2.14` build. Eight of the ten batch-1 lessons are now built.
+
+### 0. THE BLOCK HELD, AND THE ROW COUNT IS THE ONLY REASON WE KNOW
+
+`fr.a2.verbes` held exactly **310** rows when a2.14 claimed `.381`, which is this
+file's own figure after a2.13, and **340** after, which is 310 plus its 30 and
+nothing else. `.381..420` was clear. The maximum is still `.486` and still tells
+you nothing.
+
+```
+340 rows   after a2.14 (310 + 30),  max .486,  gaps: + .411-.420
+```
+
+Block table, updated:
+
+```
+ 8   a2.14   fr.a2.verbes.381 .. .420   TAKEN, 381-410 used, 411-420 free
+```
+
+### 1. `hasPlainNasalFor` HAS A THIRD BLIND SPOT AND IT IS ABOUT THE FRENCH
+
+Invariants §3 records two. Corrections §6 widens the first one to "a nasal
+followed by any consonant inside the TOKEN". **There is a third, it is not a
+property of the respelling at all, and any lesson in this band whose sentences
+hold a word spelled with `nn` or `mm` will meet it.**
+
+```js
+// hasPlainNasalFor, density.logic.ts
+if (/(?:nn|mm)/i.test(fr)) return false;
+```
+
+That rescue runs on the **WHOLE FRENCH STRING**. For a WORD it is right:
+`connaître` has a real /n/ and its respelling may legitimately end in one. **For
+a SENTENCE it is not**: ONE doubled nasal anywhere in the line switches the check
+off for every other word in it.
+
+It bites only where the respelling puts a BARE VOWEL LETTER before the n, because
+`hasPlainNasal`'s own list (`AH OH EH UH EU AI OU`) catches the two-letter house
+spellings on the first branch before the French is ever consulted. `SOHⁿ` is
+seen; `byaⁿ` is not.
+
+The proof is one pair, identical but for the doubled n:
+
+```
+Il sait bien nager.        eel SEH byan nah-ZHAY        SEEN
+Il connaît bien la ville.  eel koh-NEH byan la VEEL     MISSED
+```
+
+`scripts/_a214_blindspot.ts` isolates it and prints the rule. **a2.13 is not
+exposed** — it uses the same bare-vowel spellings (`PAⁿ`, `MAⁿ`, `zhar-DAⁿ`) and
+not one of its French strings holds a doubled nasal. a2.14 measured **13 seen, 1
+missed** and asserts the missed one by name in all three layers.
+
+**Who this will bite next:** any lesson whose sentences hold `connaître`,
+`comment`, `personne`, `femme`, `homme`, `bonne`, `année` or `pomme` AND respell
+a nasal with a bare vowel. a2.15's nasals are `AHⁿ`, which the first branch
+catches, so it is probably clear — but measure rather than assume.
+
+### 2. THE BRIEFS' NASAL PREDICTIONS ARE UNRELIABLE IN BOTH DIRECTIONS
+
+a2.14's brief said `connaissons`, `connaissez` and `connaissent` meet the
+false-positive path. **Measured through the real function: not one of them is
+flagged, and not one should be.** The path needs a token ENDING in a vowel plus a
+plain n; `koh-NEHS` ends in S and `koh-neh-SAY` in a vowel.
+
+The same brief said `kon-NETR` (fr.a2.communaute.050) "closes a nasal with a
+plain n and the checker cannot see it". **Neither half is true.** `connaître` is
+/kɔ.nɛtʁ/ and the `nn` makes the vowel a plain /ɔ/, so there is no nasal to
+close; the checker returning false is the checker being RIGHT. It is a variant
+that puts the syllable break one letter late, and invariants §9 says a variant is
+not a violation. It was not imported and it was NOT repaired.
+
+**Run every respelling through `hasPlainNasalFor` before believing any brief
+about it, in either direction.** a2.14 shipped ZERO nasal repairs, which is a
+first in this band, and the reason is that eight of its twelve imports come out
+of `verbes-essentiels` and `muettes`, which the sons band already went through.
+
+### 3. THE CIRCUMFLEX IS SETTLED FOR THE WHOLE PROJECT
+
+Measured 2026-08-12 across every published row:
+
+```
+82 rows hold a word ending in -aître     68 of those are one of the verbs
+0 spell one flat
+```
+
+**One spelling, no exceptions, in 27,600 published sentences.** `connaître`,
+`reconnaître`, `paraître`, `naître`, `disparaître`, `apparaître`, `maître`.
+Spelling reform allows the flat form and this project has never used it. a2.15,
+a2.16 and everyone after them can take this as decided.
+
+**And the first measurement of it was wrong in the way invariants §0 promises.** A
+bare substring query reported TWO flat rows; both were `préparait`, which contains
+`parait`. Use a boundary-aware query or you will report a defect that is not
+there.
+
+**No typed surface can test the accent.** `fold()` strips combining marks, so
+`connaît` and `connait` are one string to `typeIn`, `errorSpot` and the dictée.
+Only `mcq` can ask.
+
+### 4. THE HOUSE CHROME IS SAVOIR, AND IT SHIPS
+
+a2.13 §1.4 raised this and could not decide it. **DECIDED: the chrome is not a
+collision and every lesson keeps it.**
+
+```
+Ce que vous saurez faire   goals    36 of the 49 lessons in the seed
+Ce que vous savez faire    roundup  34 of 49
+```
+
+`Ce que vous savez faire` IS savoir plus a verb, which is a2.14's own headline
+structure, and a2.14 names it in the roundup and asks about it in the last
+question of the exam rather than dodging it. a2.13's pouvoir versions are fine
+where they are and nobody needs to change them back.
+
+**The FUTURE form is contained.** `saurez` is permitted in the goals heading and
+nowhere else, and a2.14's guards refuse it anywhere else including inside a
+`why`. Any later lesson teaching the future should know that 36 lessons already
+print it unexplained.
+
+### 5. TWO INDEPENDENT COPIES OF A RESPELLING IS a2.13 §6.2 IN A NEW DIMENSION
+
+a2.13 found that a grid rendered from its own table can disagree with the cards
+the learner is scored on. **The same shape exists for RESPELLINGS and it is
+easier to miss**, because the two copies live in different files.
+
+a2.14's reference sheet has a `How to say each one` table rendered from
+`PARADIGM.respells`; its cards render from the authored rows' own `respell`
+fields. Twelve values, twice, and nothing comparing them. Two mutations that
+"corrected" the sheet's copy were caught by the batch and the merge and **missed
+by the test**, which reads the seed and was looking at the cards.
+
+**If your lesson prints a respelling in more than one place, compare them.**
+
+### 6. A DISPLAY GUARD MUST NOT READ SECTION IDS OR `accept` LISTS
+
+a2.14's circumflex guard fired on the section id `s07-connaitre`, on the trigger
+id `err-connaitre-clause`, and on two `accept` entries that deliberately carry the
+flat spelling because `fold()` cannot tell them apart.
+
+Two fixes, and the second is the one worth copying: walk DISPLAY strings and skip
+machine keys (`id`, `ref`, `sheetId`, `itemId`, `itemIds`, `targets`, `detectOn`,
+`drill`, `retest`, `accept`, `recordingId`), **and rename any identifier that
+contains a string a guard is looking for.** A guard with an exception list nobody
+can reason about is worse than a rename.
+
+### 7. THE MUTATION HARNESS'S BATCH COLUMN GOES PARTLY UNINFORMATIVE AFTER THE APPLY
+
+The batch compares the source against the stored body through `canonicalJson` and
+refuses equal versions with different content. **So once the lesson has been
+applied, EVERY content mutation trips the version check**, and the batch reports
+"caught" with that message rather than on the guard you meant to test.
+
+a2.14's first run had four of those. **Read the failure MESSAGE, not the column.**
+The harness prints the first line of it for exactly this reason.
+
+### 8. `also` MUTATIONS: ONE ANCHOR IS OFTEN NOT ENOUGH
+
+Two of a2.14's twenty-five mutations reported the test as blind when the test was
+CORRECT: the claim being attacked was made in three or four strings in one
+section, and changing one left it true. A mutation that does not actually remove
+the claim proves nothing, and it costs a diagnosis cycle to find that out.
+
+a2.14's harness gained an `also` list per mutation. The measured shape: a section
+states its claim in the title, the `say`, a group label and a check `q`, so
+budget four anchors for any claim about what a section names.
+
+### 9. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3261   pass 3261   fail 0        measured 2026-08-12, before a2.14
+  tests 3325   pass 3325   fail 0        after a2.14 (+64)
+seed.json                                version 30, 8832 items, 49 lessons  (before a2.14)
+                                         version 30, 8865 items, 50 lessons  (after a2.14,
+                                           NOT published; the merge left the version alone)
+pnpm content:parity                      ONE pre-existing divergence (b2.01.l1, database-only,
+                                           in_review). "Nothing in the seed is at risk."
+```
+
+**a2.13's report records seed.version as 29 and it is 30 now.** A publish landed
+between the two builds (`399b04a chore(publish): snapshot v30`). Measure it
+yourself rather than carrying either figure forward.
+
+### 10. a2.14 IS A LEAF, AND a2.15 IS NOT DOWNSTREAM OF IT
+
+Measured against all 76 curriculum units: **no unit at any level declares `a2.14`
+as a prerequisite.** a2.15 (seq 9) rests on `a2.02`, not on this one. The batch
+reports that rather than dying on it, the way a2.12 had to and a2.13 did not need
+to. Probe your own unit; the three answers in this batch are all different.
+
+### 11. WHAT a2.15 INHERITS
+
+- **`reconnaître` is named ONCE, for its endings only.** The family principle is
+  a2.15's, and a2.14 measured something a2.15 needs before it writes it:
+  **`reconnaître` does NOT share `connaître`'s complements.** Six published
+  sentences put it straight before `que` (fr.b2.recherche.151,
+  fr.b2.recits-au-passe.007, fr.b2.methode-scientifique.232,
+  fr.c1.discours-dexamen.136, fr.c1.rhetorique.037,
+  fr.a2.conflits-reconciliation.029), which is the exact shape a2.14 teaches the
+  learner to reject for `connaître`. Verbs in a family share their inflection and
+  do not always share what may follow them.
+- **`paraître`, `apparaître`, `disparaître` and `naître` are named nowhere** in
+  a2.14, and its batch refuses them. They are free.
+- **a2.15 is the first A2 lesson that must author its own infinitives.**
+  `battre`, `combattre` and `remettre` are three of the six absences corrections
+  §2 lists. Every one of the eight lessons before it imported everything.
+
+### 12. TWO BUDGETS THAT ONLY A DEVICE FINDS, AND ONE THE SCHEMA ALREADY TOLD US
+
+Found by the `a2.13` device pass on a Pixel 6, 2026-08-12, **after v1 had shipped
+and published with every host gate green**.
+
+**A `lg` groupDrill DRAWS `fr`, `ipa` AND `note`. NOTHING ELSE.**
+`MissionRich.tsx:439`. And `schema.ts:899` says so in as many words: "`fr`, `ipa`
+and `note` are the shipped shape. The rest are v2 additions FOR A groupDrill
+RENDERING AT XL: `itemId` joins the word to the corpus, `respell`, `en` and
+`silent` are the XL card's other lines."
+
+a2.13 v1 passed `respell` and `en` on **59 item cards across eight sections**, so
+a learner saw a bare French sentence with no pronunciation and no meaning on six
+of the teaching missions. Put the respelling and the gloss in **`note`**, and
+refuse `respell`/`en` at `lg` outright — their presence is what reads as correct
+while doing nothing. Same class as the `cheatSheet` a1.13 ships inside a
+reference sheet.
+
+**THE MISSION-ROW TITLE CEILING IS 27 CHARACTERS.** The hub draws the title
+beside a TYPE CHIP and the chip wins.
+
+```
+FITS  "What You Will Be Able To Do"   27, chip OBJECTIFS (9)
+CUT   "Ten Verbs From Other Lessons"  28, chip GROUPES   (7)
+```
+
+Ten of a2.13's thirty-two were cut. **The same titles render in full on the act
+checkpoint screen**, so it is the hub row layout alone, and it is HOUSE-WIDE:
+a2.12's "One Verb, A Dozen English Ones" is 29 and is cut today. Target 25 and
+you will never see it.
+
+**AND THE ROW-COUNT DISCIPLINE IN §2 ASSUMES SERIAL BUILDS.** a2.14 applied 30
+rows to its own block while a2.13 was being device-tested, taking `fr.a2.verbes`
+from 310 to 340, and a2.13's equality check failed a build that was entirely
+correct. Narrow it: a total that has GROWN by somebody else's allocation is a
+report, a total that has SHRUNK is fatal, and the check that matters — rows
+inside YOUR range that you do not own, the a1.20 failure — stays fatal.
+
+**A DEV BUILD NEVER OTA-FETCHES.** `content.ts:255` returns immediately when
+`__DEV__`, deliberately, so the published snapshot cannot overlay in-progress
+seed edits. The Pixel therefore shows whatever METRO serves, and a cold restart
+is needed after a seed change. A deep link that falls through to `/den` means
+`content.lesson(id)` was null against a stale bundle, not that the link is wrong.

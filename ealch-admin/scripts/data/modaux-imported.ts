@@ -92,10 +92,17 @@ export function repairedRespell(id: string, repairs: readonly Repair[] = ALL_REP
  *  respelling rather than the whole value. */
 export const ALL_REPAIRS: readonly Repair[] = [...RESPELL_REPAIRS_VISIBLE, ...RESPELL_REPAIRS_SENTENCES];
 
-/** An imported row as a card, respelling already repaired. */
+/** An imported row as a groupDrill item, respelling already repaired.
+ *
+ *  `note` rather than `respell` + `en`. At `lg` — which every groupDrill in
+ *  this lesson is — MissionRich.tsx:439 draws `fr`, `ipa` and `note` and
+ *  nothing else, so the other two are dropped in silence. Found on a Pixel 6
+ *  after v1 shipped; see the note on `rowCard` in modaux-lesson.ts. */
 export const importedCard = (id: string) => {
   const r = repairedRespell(id);
-  return { fr: importedFr(id), itemId: id, respell: r ? `[${r}]` : '', en: importedEn(id) };
+  const en = importedEn(id);
+  const note = [r ? `[${r}]` : '', en].filter(Boolean).join(' · ');
+  return { fr: importedFr(id), itemId: id, ...(note ? { note } : {}) };
 };
 
 /* ── The three naming forms ─────────────────────────────────────────────── */
