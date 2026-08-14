@@ -959,7 +959,9 @@
       "level": "a2",
       "title": "The Passé Composé with Avoir",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.05.l1"
+      ],
       "prereqUnitIds": [
         "a2.01",
         "a1.07"
@@ -169541,6 +169543,3017 @@
         "Post-verbal placement of the manner adverb in a simple tense, and its position outside the discontinuous negative morpheme",
         "That placement in a compound tense is DEFERRED to a2.05, named on the learner surface rather than left silent"
       ]
+    },
+    {
+      "id": "a2.05.l1",
+      "unitId": "a2.05",
+      "seq": 1,
+      "title": "Le passé composé avec avoir",
+      "level": "a2",
+      "tag": "A2 · LEÇON 16",
+      "intro": "Somebody is going to ask you about yesterday, and to answer you need a verb that is suddenly two words long. The first one is avoir, which you have had for fifteen lessons and do not have to learn again. The second is built off the verb you mean, and its ending comes straight off the group you already put that verb in. What is new is the space between the two, because it turns out to be a real place: some words go in it, one of them is the negative, and the thing you actually ate does not.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "Yesterday, Or Tonight",
+          "frSub": "Lundi, à la machine à café",
+          "render": "screens",
+          "layer": "core",
+          "setting": {
+            "place": "The office kitchen",
+            "city": "Lyon",
+            "time": "Monday morning"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "Monday, twenty to nine, the kettle. Your colleague is waiting for it too and has decided to be friendly about it.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Et hier soir, alors ?",
+              "en": "And last night, then?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-05-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Hier soir, j'ai... j'ai...",
+              "en": "Last night, I... I...",
+              "stage": "You have the first word out and it is already committed. Avoir has been said, everybody can hear that something happened, and the word that says what is not arriving.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "The kettle clicks off. What comes out?",
+              "options": [
+                {
+                  "fr": "J'ai mangé avec des amis.",
+                  "respell": "[zhay mahⁿ-ZHAY ah-VEK day-za-MEE]",
+                  "en": "the second word, and the evening stays where it was",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                },
+                {
+                  "fr": "Je mange avec des amis.",
+                  "en": "I am eating with friends. (which is tonight, not yesterday)",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "She asks where, you tell her, and the coffee is ready.",
+                "breaks": "Nothing sounds wrong. That is the problem."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Ah, ce soir alors.",
+              "en": "Ah, tonight then!",
+              "stage": "She has moved your evening to tonight, cheerfully, because that is what the tense told her. Nobody corrected anything, so nothing was learned, and she now thinks you have plans.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "Two words now",
+              "body": "You did not get a form wrong. The verb needed a second half, and the sentence went on without it.",
+              "wrong": {
+                "fr": "Je mange avec des amis.",
+                "ipa": "/ʒə mɑ̃ʒ a.vɛk de.za.mi/",
+                "respell": "[zhuh mahⁿzh ah-VEK day-za-MEE]",
+                "en": "the half that arrived"
+              },
+              "right": {
+                "fr": "J'ai mangé avec des amis.",
+                "ipa": "/ʒe mɑ̃.ʒe a.vɛk de.za.mi/",
+                "respell": "[zhay mahⁿ-ZHAY ah-VEK day-za-MEE]",
+                "en": "what you meant"
+              }
+            }
+          ],
+          "closing": {
+            "text": "One verb, two words, and the small ones go in between.",
+            "size": "md"
+          },
+          "terms": [
+            "twoWords",
+            "pastForm"
+          ]
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "goals": [
+            {
+              "t": "Talk about yesterday",
+              "s": "A form of avoir you already have, then the past form of the verb. Two words, and no new endings on the first one."
+            },
+            {
+              "t": "Build the second word from any regular verb",
+              "s": "Three groups, three endings, and they are the same three groups you already have. An -ER verb ends in -é, an -IR verb ends in -i, an -RE verb ends in -u, and there is nothing else to learn about a regular one."
+            },
+            {
+              "t": "Put the negative where French puts it",
+              "s": "The two words are a pair with a gap in the middle, and the gap is where the small words live. Pas goes in it, bien and déjà go in it, and the thing you ate does not."
+            },
+            {
+              "t": "Hear the difference between a plan and a memory",
+              "s": "Je vais manger and j'ai mangé end on exactly the same sound. Vais against ai is the whole difference between something that has not happened and something that is over, and both of them are one short unstressed syllable."
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s03-endings",
+          "title": "Three Groups, Three Ends",
+          "frSub": "Trois groupes, trois fins",
+          "layer": "core",
+          "say": "Three groups, three endings, and they are the same three groups you already have. An -ER verb ends in -é, an -IR verb ends in -i, an -RE verb ends in -u, and there is nothing else to learn about a regular one. Tap a row to hear the pair.",
+          "cols": [
+            "Group",
+            "Verb",
+            "Past"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "-ER",
+                "parler",
+                "parlé"
+              ],
+              "say": "J'ai parlé.",
+              "detail": {
+                "title": "J'ai parlé.",
+                "body": "[zhay par-LAY] I spoke. The -ER group, and a2.01's own headline verb. An -ER naming form ends in -er and its past form ends in -é, and those are the same sound.",
+                "say": "J'ai parlé."
+              }
+            },
+            {
+              "cells": [
+                "-IR",
+                "finir",
+                "fini"
+              ],
+              "say": "Il a fini.",
+              "detail": {
+                "title": "Il a fini.",
+                "body": "[eel ah fee-NEE] He finished. The -IR group, and a2.10's own frame verb. « Il a fini. » beside that lesson's « Il finit tôt. » is one verb in two tenses with the same three letters in front.",
+                "say": "Il a fini."
+              }
+            },
+            {
+              "cells": [
+                "-RE",
+                "vendre",
+                "vendu"
+              ],
+              "say": "Il a vendu.",
+              "detail": {
+                "title": "Il a vendu.",
+                "body": "[eel ah vahⁿ-DÜ] He sold. The -RE group, and a2.11's own frame verb. The naming form loses its -re and takes -u, and this is the only one of the three where the ending is not already on the naming form somewhere.",
+                "say": "Il a vendu."
+              }
+            }
+          ],
+          "terms": [
+            "endings",
+            "pastForm",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s04-pair",
+          "title": "Both, Side By Side",
+          "frSub": "Les deux, côte à côte",
+          "layer": "core",
+          "say": "One verb, two words, and the small ones go in between. Three pairs. Read each one down rather than across, and watch the two extra words land in the same place every time.",
+          "examples": [
+            {
+              "fr": "J'ai mangé.",
+              "en": "I ate. / I have eaten.",
+              "note": "[zhay mahⁿ-ZHAY] Avoir changed for je. Mangé did not, and it is not going to."
+            },
+            {
+              "fr": "Je n'ai pas mangé.",
+              "en": "I did not eat.",
+              "note": "[zhuh nay pa mahⁿ-ZHAY] Ne in front of avoir, pas straight after it, and the past form outside both. The gap is one word wide and nothing longer goes in it."
+            },
+            {
+              "fr": "Il a mangé.",
+              "en": "He ate.",
+              "note": "[eel ah mahⁿ-ZHAY] The same two words with il in front."
+            },
+            {
+              "fr": "Il n'a pas mangé.",
+              "en": "He has not eaten.",
+              "note": "[eel na pa mahⁿ-ZHAY] And the same gap, in the same place. This card was in the app years before this lesson was written."
+            },
+            {
+              "fr": "Ils ont mangé.",
+              "en": "They ate.",
+              "note": "[eel zohⁿ mahⁿ-ZHAY] The plural, and mangé still has not moved."
+            },
+            {
+              "fr": "Ils n'ont pas mangé.",
+              "en": "They did not eat.",
+              "note": "[eel nohⁿ pa mahⁿ-ZHAY] Ne, ont, pas, mangé. Every negative in this lesson is that shape."
+            }
+          ],
+          "terms": [
+            "inBetween",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s05-english",
+          "title": "Where English Puts It",
+          "frSub": "Là où l’anglais le met",
+          "layer": "core",
+          "hint": "Swipe. Six cards, and the last one is the measurement rather than an opinion.",
+          "cards": [
+            {
+              "label": "the English",
+              "head": "I have not eaten.",
+              "body": "English has the same shape and puts the \"not\" in the same gap: have, not, eaten. You already do this in your own language, which is why it feels wrong rather than difficult when it comes out backwards."
+            },
+            {
+              "label": "what you produce",
+              "head": "Je n'ai mangé pas.",
+              "body": "The pas has gone past the gap and landed behind the past form. English puts \"not\" beside the word carrying the meaning, and French puts it in the gap, and those are two different places as soon as the verb is two words."
+            },
+            {
+              "label": "the French",
+              "head": "Je n'ai pas mangé.",
+              "sub": "[zhuh nay pa mahⁿ-ZHAY]",
+              "body": "Ne in front of avoir, pas straight after it, and mangé outside both. One verb, two words, and the small ones go in between."
+            },
+            {
+              "label": "and the other one",
+              "head": "Je ne mangé pas.",
+              "body": "Avoir has gone missing altogether. Both halves went round the past form, which is the word that did not change for anybody, and a past form on its own is not a sentence in any person."
+            },
+            {
+              "label": "the rule you have",
+              "head": "Wrap the verb that changed, not the one carrying the meaning.",
+              "body": "a2.19 said it one lesson ago: Wrap the verb that changed, not the one carrying the meaning. Here the one that changed is avoir, so both halves go round avoir and the past form stays outside them."
+            },
+            {
+              "label": "the evidence",
+              "head": "ninety to nothing",
+              "body": "90 sentences in this app already put the two halves round avoir with a past form behind it. Every one puts the pas in the same place, in every person and with every verb."
+            }
+          ],
+          "terms": [
+            "whichVerb",
+            "inBetween",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s06-six",
+          "title": "Six People, One Gap",
+          "frSub": "Six personnes, un seul trou",
+          "layer": "core",
+          "say": "Every person, negative, one after another. Avoir changes six times, the ne shortens four times, and the position of the two extra words does not change once.",
+          "examples": [
+            {
+              "fr": "Je n'ai pas mangé.",
+              "en": "I did not eat.",
+              "note": "[zhuh nay pa mahⁿ-ZHAY] je, and the ne has already shortened to n'."
+            },
+            {
+              "fr": "Tu n'as pas mangé.",
+              "en": "You did not eat.",
+              "note": "[tü na pa mahⁿ-ZHAY] tu. It shortens in front of every form of avoir, because every one of them starts on a vowel."
+            },
+            {
+              "fr": "Nous n'avons pas mangé.",
+              "en": "We did not eat.",
+              "note": "[noo na-vohⁿ pa mahⁿ-ZHAY] nous, and the liaison z is gone with the ne: noo na, not noo za."
+            },
+            {
+              "fr": "Vous n'avez pas mangé.",
+              "en": "You did not eat. (to more than one person, or politely)",
+              "note": "[voo na-vay pa mahⁿ-ZHAY] vous, the same shortening and the same lost liaison."
+            },
+            {
+              "fr": "Ils n'ont pas mangé.",
+              "en": "They did not eat.",
+              "note": "[eel nohⁿ pa mahⁿ-ZHAY] ils, and the gap has held for six people running."
+            }
+          ],
+          "terms": [
+            "inBetween",
+            "whichVerb",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s07-where",
+          "title": "What Goes In The Gap",
+          "frSub": "Ce qui va au milieu",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. Both words are right in every one of the six and the only thing being asked about is where the little one landed.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-05-where",
+            "wrongThenRight": true
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "One Gap, One Word"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "In It, Or After It"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Wrong, Then Right"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Where Does It Land",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "It goes in the middle",
+            "body": "One verb, two words, and the small ones go in between. Ne in front of avoir, pas straight after it, and the past form outside both. The gap is one word wide and nothing longer goes in it."
+          },
+          "cards": [
+            {
+              "promptLabel": "the English order",
+              "promptSound": "Je n'ai mangé pas.",
+              "fr": "Je n'ai mangé pas.",
+              "ipa": "/ʒə ne mɑ̃.ʒe pa/",
+              "tip": "The pas has gone past the gap and landed behind the past form. English puts \"not\" beside the word carrying the meaning, and French puts it in the gap, and those are two different places as soon as the verb is two words."
+            },
+            {
+              "promptLabel": "the French",
+              "promptSound": "Je n'ai pas mangé.",
+              "fr": "Je n'ai pas mangé.",
+              "ipa": "/ʒə ne pa mɑ̃.ʒe/",
+              "tip": "Ne in front of avoir and pas straight after it. Mangé is outside both and has not been touched."
+            },
+            {
+              "promptLabel": "on the end again",
+              "promptSound": "J'ai mangé bien.",
+              "fr": "J'ai mangé bien.",
+              "ipa": "/ʒe mɑ̃.ʒe bjɛ̃/",
+              "tip": "A short adverb goes in the gap, not on the end. This is the rule a2.17 taught for one-word tenses and then handed forward, because a two-word verb has somewhere new to put it."
+            },
+            {
+              "promptLabel": "in the gap",
+              "promptSound": "J'ai bien mangé.",
+              "fr": "J'ai bien mangé.",
+              "ipa": "/ʒe bjɛ̃ mɑ̃.ʒe/",
+              "tip": "The same gap with something other than pas in it. a2.17 taught this placement for one-word verbs and handed the two-word case here."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Je n'ai pas mangé.",
+              "opts": [
+                "Je n'ai mangé pas.",
+                "Je n'ai pas mangé.",
+                "Je pas n'ai mangé."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Ils n'ont pas mangé.",
+              "opts": [
+                "Ils n'ont pas mangé.",
+                "Ils n'ont mangé pas.",
+                "Ils ont pas n'mangé."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "J'ai bien mangé.",
+              "opts": [
+                "J'ai mangé bien.",
+                "Bien j'ai mangé.",
+                "J'ai bien mangé."
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "Tu n'as pas mangé.",
+              "opts": [
+                "Tu n'as mangé pas.",
+                "Tu n'as pas mangé.",
+                "Tu as n'pas mangé."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Il a déjà fini.",
+              "opts": [
+                "Il a déjà fini.",
+                "Il a fini déjà.",
+                "Déjà il a fini."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Nous n'avons pas mangé.",
+              "opts": [
+                "Nous n'avons mangé pas.",
+                "Nous avons ne pas mangé.",
+                "Nous n'avons pas mangé."
+              ],
+              "correct": 2
+            }
+          ],
+          "terms": [
+            "inBetween",
+            "whichVerb",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s08-produce",
+          "title": "Say It About Yesterday",
+          "frSub": "Parlez d’hier",
+          "layer": "core",
+          "size": "lg",
+          "say": "Four things that were or were not true of your own yesterday. Build each one out loud before you pick, and put the little word in the gap.",
+          "groups": [
+            {
+              "label": "you did not eat out",
+              "items": [
+                {
+                  "fr": "J'ai mangé.",
+                  "ipa": "/ʒe mɑ̃.ʒe/",
+                  "note": "[zhay mahⁿ-ZHAY] I ate. / I have eaten."
+                }
+              ],
+              "check": {
+                "q": "You did not eat.",
+                "opts": [
+                  "J'ai mangé pas.",
+                  "Je n'ai mangé pas.",
+                  "Je n'ai pas mangé."
+                ],
+                "correct": 2,
+                "why": "Ne in front of ai, pas straight after it, and mangé outside them both."
+              }
+            },
+            {
+              "label": "you worked, and well",
+              "items": [
+                {
+                  "fr": "Tu as travaillé.",
+                  "ipa": "/ty a tʁa.va.je/",
+                  "note": "[tü ah trah-vah-YAY] You worked."
+                }
+              ],
+              "check": {
+                "q": "You worked well.",
+                "opts": [
+                  "J'ai bien travaillé.",
+                  "J'ai travaillé bien.",
+                  "Bien, j'ai travaillé."
+                ],
+                "correct": 0,
+                "why": "A short adverb goes in the same gap the pas goes in. a2.17 put it straight after the verb when there was one verb, and this is where straight-after has gone."
+              }
+            },
+            {
+              "label": "they did not answer",
+              "items": [
+                {
+                  "fr": "Ils ont répondu.",
+                  "ipa": "/il.zɔ̃ ʁe.pɔ̃.dy/",
+                  "note": "[eel zohⁿ ray-pohⁿ-DÜ] They answered."
+                }
+              ],
+              "check": {
+                "q": "They did not answer.",
+                "opts": [
+                  "Ils n'ont répondu pas.",
+                  "Ils n'ont pas répondu.",
+                  "Ils ont pas n'répondu."
+                ],
+                "correct": 1,
+                "why": "The plural of the same shape, on an -RE verb. Ont is the word that changed for ils, so the two halves go round ont."
+              }
+            },
+            {
+              "label": "she has already finished",
+              "items": [
+                {
+                  "fr": "Il a déjà fini.",
+                  "ipa": "/il a de.ʒa fi.ni/",
+                  "note": "[eel ah day-ZHAH fee-NEE] He has already finished."
+                }
+              ],
+              "check": {
+                "q": "He has already finished.",
+                "opts": [
+                  "Il a fini déjà.",
+                  "Déjà il a fini.",
+                  "Il a déjà fini."
+                ],
+                "correct": 2,
+                "why": "Déjà is a short adverb and it goes where the pas goes. Nothing about the verb group changes it."
+              }
+            }
+          ],
+          "terms": [
+            "inBetween",
+            "twoWords",
+            "pastForm"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s09-avoir",
+          "title": "Only The First Word Moves",
+          "frSub": "Seul le premier bouge",
+          "layer": "core",
+          "say": "One column changes and one column does not. Avoir moves for the person you are talking about, and the past form is the same five letters in all six rows. a1.07 gave you all six of these forms and you are not learning one new one here.",
+          "examples": [
+            {
+              "fr": "J'ai mangé.",
+              "en": "I ate. / I have eaten.",
+              "note": "[zhay mahⁿ-ZHAY] j'ai"
+            },
+            {
+              "fr": "Tu as mangé.",
+              "en": "You ate.",
+              "note": "[tü ah mahⁿ-ZHAY] tu as"
+            },
+            {
+              "fr": "Il a mangé.",
+              "en": "He ate.",
+              "note": "[eel ah mahⁿ-ZHAY] il a, and elle a and on a are the same word."
+            },
+            {
+              "fr": "Nous avons mangé.",
+              "en": "We ate.",
+              "note": "[noo za-vohⁿ mahⁿ-ZHAY] nous avons, and the liaison pulls a z across."
+            },
+            {
+              "fr": "Vous avez mangé.",
+              "en": "You ate. (to more than one person, or politely)",
+              "note": "[voo za-vay mahⁿ-ZHAY] vous avez, the same liaison."
+            },
+            {
+              "fr": "Ils ont mangé.",
+              "en": "They ate.",
+              "note": "[eel zohⁿ mahⁿ-ZHAY] ils ont, and the second word is where it was six sentences ago."
+            }
+          ],
+          "terms": [
+            "twoWords",
+            "pastForm"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s10-groups",
+          "title": "One Ending Per Group",
+          "frSub": "Une fin par groupe",
+          "layer": "core",
+          "say": "Six sentences, three groups, and the ending is the group rather than the verb. a2.01, a2.10 and a2.11 taught you all three of these classes and they have not changed.",
+          "examples": [
+            {
+              "fr": "J'ai parlé.",
+              "en": "I spoke.",
+              "note": "[zhay par-LAY] a2.01's own verb. -er goes to -é, and the two are the same sound."
+            },
+            {
+              "fr": "Tu as travaillé.",
+              "en": "You worked.",
+              "note": "[tü ah trah-vah-YAY] A four-syllable -ER verb, and the ending does not care how long it is."
+            },
+            {
+              "fr": "Il a fini.",
+              "en": "He finished.",
+              "note": "[eel ah fee-NEE] a2.10's frame verb. Beside its own « Il finit tôt. » it is one verb in two tenses."
+            },
+            {
+              "fr": "Nous avons choisi.",
+              "en": "We chose.",
+              "note": "[noo za-vohⁿ shwah-ZEE] A second -IR verb, in another person, so the -i is clearly the group."
+            },
+            {
+              "fr": "Il a vendu.",
+              "en": "He sold.",
+              "note": "[eel ah vahⁿ-DÜ] a2.11's frame verb. The -re comes off and -u goes on."
+            },
+            {
+              "fr": "Ils ont répondu.",
+              "en": "They answered.",
+              "note": "[eel zohⁿ ray-pohⁿ-DÜ] And a second -RE verb, which behaves exactly like the first."
+            }
+          ],
+          "terms": [
+            "endings",
+            "pastForm",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s11-noagree",
+          "title": "It Never Agrees",
+          "frSub": "Il ne s’accorde jamais",
+          "layer": "core",
+          "swipe": true,
+          "hint": "Swipe. Six cards, and the last two are lessons you have not reached yet.",
+          "cards": [
+            {
+              "label": "the shape",
+              "head": "J'ai mangé une pomme.",
+              "sub": "[zhay mahⁿ-ZHAY ün POM]",
+              "body": "The apple is feminine and mangé has not moved a letter. After avoir the past form is one shape and it stays that shape."
+            },
+            {
+              "label": "and again",
+              "head": "Elle a mangé une pomme.",
+              "sub": "[ehl ah mahⁿ-ZHAY ün POM]",
+              "body": "A feminine subject as well, and still mangé. Not mangée, not mangés, not mangées. Elle a mangé, ils ont mangé, elles ont mangé."
+            },
+            {
+              "label": "where it goes",
+              "head": "the apple is outside",
+              "body": "And this is what stops the rule being « everything goes in the gap ». The thing you ate is not a small word, so it sits after the past form, where objects sit."
+            },
+            {
+              "label": "the wrong one",
+              "head": "J'ai mangée une pomme.",
+              "body": "Nobody can hear this and everybody writes it, because English speakers who have learned French adjectives expect agreement to be everywhere. After avoir it is not."
+            },
+            {
+              "label": "the other first word",
+              "head": "a short list of verbs",
+              "body": "A short list of verbs uses être instead of avoir for the first word, and their past form does change to match the person. That is a2.21, and it is the opposite of this rule. Learn this one cleanly first."
+            },
+            {
+              "label": "and the one case",
+              "head": "that does agree",
+              "body": "There is exactly one case where a past form agrees with avoir, and it needs the little words that replace an object. That is a2.06, five lessons after this one, and until then the rule above has no exceptions you can meet."
+            }
+          ],
+          "terms": [
+            "noAgree",
+            "pastForm",
+            "laterOn"
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s12-errors",
+          "title": "The Four You Will Make",
+          "frSub": "Les quatre erreurs",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "errors": [
+            {
+              "wrong": "Je n'ai mangé pas.",
+              "right": "Je n'ai pas mangé.",
+              "why": "The pas has gone past the gap and landed behind the past form. English puts \"not\" beside the word carrying the meaning, and French puts it in the gap, and those are two different places as soon as the verb is two words."
+            },
+            {
+              "wrong": "Je ne mangé pas.",
+              "right": "Je n'ai pas mangé.",
+              "why": "Avoir has gone missing altogether. Both halves went round the past form, which is the word that did not change for anybody, and a past form on its own is not a sentence in any person."
+            },
+            {
+              "wrong": "J'ai manger.",
+              "right": "J'ai mangé.",
+              "why": "This is the one nobody hears themselves make. Manger and mangé are the same sound, so the sentence is perfect out loud and wrong the moment it is written down. Behind avoir it is always the past form."
+            },
+            {
+              "wrong": "J'ai mangé bien.",
+              "right": "J'ai bien mangé.",
+              "why": "A short adverb goes in the gap, not on the end. This is the rule a2.17 taught for one-word tenses and then handed forward, because a two-word verb has somewhere new to put it."
+            }
+          ],
+          "terms": [
+            "inBetween",
+            "pastForm",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s13-listen",
+          "title": "Going To, Or Already Gone",
+          "frSub": "Projet ou souvenir",
+          "layer": "core",
+          "say": "Je vais manger and j'ai mangé end on exactly the same sound. Vais against ai is the whole difference between something that has not happened and something that is over, and both of them are one short unstressed syllable. a2.19 was one lesson ago and these two are going to arrive in the same conversation for the rest of your life.",
+          "examples": [
+            {
+              "fr": "Je vais manger.",
+              "en": "I am going to eat.",
+              "note": "[zhuh veh mahⁿ-ZHAY] a2.19's construction. Vais, and then the naming form."
+            },
+            {
+              "fr": "J'ai mangé.",
+              "en": "I ate. / I have eaten.",
+              "note": "[zhay mahⁿ-ZHAY] This lesson. Ai, and then the past form, and the last word is the same sound in both."
+            },
+            {
+              "fr": "Je vais manger avec des amis.",
+              "en": "I am going to eat with friends.",
+              "note": "[zhuh veh mahⁿ-ZHAY ah-VEK day-za-MEE] a2.19's own card on the left, published one seq back and already respelled, and this build's on the right. Five words in common, one syllable apart, and the syllable is the entire tense."
+            },
+            {
+              "fr": "J'ai mangé avec des amis.",
+              "en": "I ate with friends.",
+              "note": "[zhay mahⁿ-ZHAY ah-VEK day-za-MEE] And the same evening, over. Five words in common with the card above it."
+            },
+            {
+              "fr": "Il va manger.",
+              "en": "He is going to eat.",
+              "note": "[eel va mahⁿ-ZHAY] With il in front the two little words are va and a, and neither of them is stressed."
+            },
+            {
+              "fr": "Il a mangé.",
+              "en": "He ate.",
+              "note": "[eel ah mahⁿ-ZHAY] Which is the one you have to catch, and it is the shortest word in the sentence."
+            }
+          ],
+          "terms": [
+            "oneSound",
+            "whenWord",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s14-which",
+          "title": "Vais Or Ai",
+          "frSub": "Vais ou ai",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. Every one of them ends on the same sound and the tense is decided before the verb arrives. The ear has one job in this lesson and it is the little word in front. Vais against ai is a real difference and you can be taught to catch it. Manger against mangé is not a difference at all, and no exercise anywhere can make it into one.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-05-tense"
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "Listen To The Front"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "One Syllable Apart"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "The Same Last Word"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Plan Or Memory",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "The front decides it",
+            "body": "Je vais manger and j'ai mangé end on exactly the same sound. Vais against ai is the whole difference between something that has not happened and something that is over, and both of them are one short unstressed syllable."
+          },
+          "cards": [
+            {
+              "promptLabel": "a plan",
+              "promptSound": "Je vais manger.",
+              "fr": "Je vais manger.",
+              "ipa": "/ʒə vɛ mɑ̃.ʒe/",
+              "tip": "a2.19's construction, and the last word is the naming form."
+            },
+            {
+              "promptLabel": "a memory",
+              "promptSound": "J'ai mangé.",
+              "fr": "J'ai mangé.",
+              "ipa": "/ʒe mɑ̃.ʒe/",
+              "tip": "This lesson, and the last word is the past form. It is the same sound and it is a different word."
+            },
+            {
+              "promptLabel": "a plan",
+              "promptSound": "Je vais manger avec des amis.",
+              "fr": "Je vais manger avec des amis.",
+              "ipa": "/ʒə vɛ mɑ̃.ʒe a.vɛk de.za.mi/",
+              "tip": "a2.19's own published card, from the lesson you did last."
+            },
+            {
+              "promptLabel": "a memory",
+              "promptSound": "J'ai mangé avec des amis.",
+              "fr": "J'ai mangé avec des amis.",
+              "ipa": "/ʒe mɑ̃.ʒe a.vɛk de.za.mi/",
+              "tip": "And the same evening in the other direction. Nothing after the second word tells you anything."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "J'ai mangé.",
+              "opts": [
+                "a plan",
+                "a memory"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Je vais manger.",
+              "opts": [
+                "a plan",
+                "a memory"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Il va manger.",
+              "opts": [
+                "a memory",
+                "a plan"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Il a mangé.",
+              "opts": [
+                "a memory",
+                "a plan"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Je vais manger avec des amis.",
+              "opts": [
+                "a plan",
+                "a memory"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "J'ai mangé avec des amis.",
+              "opts": [
+                "a plan",
+                "a memory"
+              ],
+              "correct": 1
+            }
+          ],
+          "terms": [
+            "oneSound",
+            "twoWords",
+            "whenWord"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s15-nothear",
+          "title": "What No Ear Can Do",
+          "frSub": "Ce que l’oreille ne peut pas",
+          "layer": "core",
+          "hint": "Swipe. Five cards, and one of them is about a thing this app deliberately never asks you.",
+          "cards": [
+            {
+              "label": "the pair",
+              "head": "manger · mangé",
+              "sub": "[mahⁿ-ZHAY]",
+              "body": "Manger and mangé are one sound. There is no listening exercise anywhere that can tell you which one you heard, and anybody who says otherwise is selling you something. What you listen for is the little word in front."
+            },
+            {
+              "label": "and again",
+              "head": "parler · parlé",
+              "sub": "[par-LAY]",
+              "body": "One sound, two spellings, and it is true of every single -ER verb in the language. There are more of those than of everything else put together."
+            },
+            {
+              "label": "so this app",
+              "head": "never asks you to hear it",
+              "body": "You will not find a listening question anywhere in this lesson that offers you manger against mangé, because there would be no right answer to it. What you get asked instead is the little word in front, which is a real difference."
+            },
+            {
+              "label": "what you do get",
+              "head": "the dictée",
+              "body": "Spelling is where the difference lives, so spelling is where it is tested. Listen to the front of the sentence, decide the tense, and then write the second word the way that tense wants it."
+            },
+            {
+              "label": "and the time word",
+              "head": "hier, avant-hier",
+              "body": "French does not need the time word to tell you the thing is over. You do, for a while, because English keeps two different pasts and French is handing you one. Put a time on it until you stop needing to."
+            }
+          ],
+          "terms": [
+            "oneSound",
+            "whenWord",
+            "pastForm"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s16-unseen",
+          "title": "Five You Have Not Met",
+          "frSub": "Cinq cas nouveaux",
+          "layer": "core",
+          "size": "lg",
+          "say": "Five verbs whose past form this lesson has never printed. You can build all five without being told, because the group decides the ending and you have had the groups since a2.01.",
+          "groups": [
+            {
+              "label": "the keys",
+              "items": [
+                {
+                  "fr": "J'ai parlé.",
+                  "ipa": "/ʒe paʁ.le/",
+                  "note": "[zhay par-LAY] I spoke."
+                }
+              ],
+              "check": {
+                "q": "Chercher. I looked for the keys. J'ai ___ mes clés.",
+                "opts": [
+                  "cherché",
+                  "chercher",
+                  "cherchi"
+                ],
+                "correct": 0,
+                "why": "An -ER verb, so -é. The first option and the second are the same sound and only one of them can go behind avoir."
+              }
+            },
+            {
+              "label": "the form",
+              "items": [
+                {
+                  "fr": "Nous avons choisi.",
+                  "ipa": "/nu.za.vɔ̃ ʃwa.zi/",
+                  "note": "[noo za-vohⁿ shwah-ZEE] We chose."
+                }
+              ],
+              "check": {
+                "q": "Remplir. We filled in the form. Nous avons ___ le formulaire.",
+                "opts": [
+                  "rempli",
+                  "remplu",
+                  "rempler"
+                ],
+                "correct": 0,
+                "why": "An -IR verb, so -i. Remplir behaves exactly like finir and choisir, which is the whole point of having groups."
+              }
+            },
+            {
+              "label": "the bus",
+              "items": [
+                {
+                  "fr": "Il a vendu.",
+                  "ipa": "/il a vɑ̃.dy/",
+                  "note": "[eel ah vahⁿ-DÜ] He sold."
+                }
+              ],
+              "check": {
+                "q": "Attendre. They waited for the bus. Ils ont ___ le bus.",
+                "opts": [
+                  "attendé",
+                  "attendi",
+                  "attendu"
+                ],
+                "correct": 2,
+                "why": "An -RE verb, so -u. The -re comes off and the -u goes on, exactly as it does for vendre and répondre."
+              }
+            },
+            {
+              "label": "the film",
+              "items": [
+                {
+                  "fr": "Tu as travaillé.",
+                  "ipa": "/ty a tʁa.va.je/",
+                  "note": "[tü ah trah-vah-YAY] You worked."
+                }
+              ],
+              "check": {
+                "q": "Regarder. She watched a film. Elle a ___ un film.",
+                "opts": [
+                  "regardée",
+                  "regardé",
+                  "regardi"
+                ],
+                "correct": 1,
+                "why": "An -ER verb, so -é, and a feminine subject changes nothing at all after avoir."
+              }
+            },
+            {
+              "label": "the door",
+              "items": [
+                {
+                  "fr": "Ils n'ont pas mangé.",
+                  "ipa": "/il nɔ̃ pa mɑ̃.ʒe/",
+                  "note": "[eel nohⁿ pa mahⁿ-ZHAY] They did not eat."
+                }
+              ],
+              "check": {
+                "q": "Fermer, negative. We did not close the door. Nous ___ la porte.",
+                "opts": [
+                  "n'avons pas fermé",
+                  "n'avons fermé pas",
+                  "avons ne pas fermé"
+                ],
+                "correct": 0,
+                "why": "The gap again, on a verb the lesson has not used. Ne shortens in front of avons and the pas sits in the gap with it."
+              }
+            }
+          ],
+          "terms": [
+            "endings",
+            "pastForm",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s17-inside",
+          "title": "Not Only Pas",
+          "frSub": "Pas seulement « pas »",
+          "layer": "core",
+          "say": "a2.17 taught you where a short adverb goes and then said this: « In a past tense the short ones move, and that rule arrives with the tense in a2.05. » This is the tense, and this is the rule. a2.17 put the short ones straight after the verb when there was one verb. There are two now, so \"straight after the verb\" has become \"in the gap\", and it is the same instruction.",
+          "examples": [
+            {
+              "fr": "J'ai bien mangé.",
+              "en": "I ate well.",
+              "note": "[zhay byehⁿ mahⁿ-ZHAY] Bien in the gap, where the pas goes."
+            },
+            {
+              "fr": "Il a déjà fini.",
+              "en": "He has already finished.",
+              "note": "[eel ah day-ZHAH fee-NEE] Déjà in the gap, on an -IR verb."
+            },
+            {
+              "fr": "J'ai mal entendu la deuxième lettre.",
+              "en": "I misheard the second letter.",
+              "note": "[ZHAY MAL ahⁿ-tahⁿ-DÜ LA deu-ZYEHM LEHTR] A published card, in the gap, on an -RE verb. One of three in the whole corpus that carries a respelling."
+            },
+            {
+              "fr": "Son style d'écriture a beaucoup changé cette année.",
+              "en": "Her writing style has changed a lot this year.",
+              "note": "[SOHⁿ STEEL day-kree-TÜR A boh-KOO shahⁿ-ZHAY SEHT a-NAY] And a three-syllable adverb in the same gap, so the gap is clearly not one-syllable-wide."
+            },
+            {
+              "fr": "Nous avons beaucoup travaillé.",
+              "en": "We worked a lot.",
+              "note": "[noo za-vohⁿ boh-KOO trah-vah-YAY] The same word this build authors, in the nous form."
+            },
+            {
+              "fr": "J'ai mangé une pomme.",
+              "en": "I ate an apple.",
+              "note": "[zhay mahⁿ-ZHAY ün POM] And the limit of it. An apple is not a small word, so it goes after the past form and not in the gap."
+            }
+          ],
+          "terms": [
+            "inBetween",
+            "pastForm",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s18-ago",
+          "title": "How Long Ago",
+          "frSub": "Il y a combien de temps",
+          "layer": "core",
+          "say": "a2.18 taught « il y a » as a length of time behind you and then had to hand the sentence forward, because saying how long ago something happened needs a past tense and that tense is this one. Its own card is on the left and it already holds this lesson's tense. French does not need the time word to tell you the thing is over. You do, for a while, because English keeps two different pasts and French is handing you one. Put a time on it until you stop needing to.",
+          "examples": [
+            {
+              "fr": "il y a trois jours",
+              "en": "three days ago",
+              "note": "[EEL EE AH trwah ZHOOR] a2.18's phrase card, and this lesson spells it exactly as that one does."
+            },
+            {
+              "fr": "J'ai commencé il y a trois jours.",
+              "en": "I started three days ago.",
+              "note": "[zhay ko-mahⁿ-SAY eel ee ah trwah ZHOOR] That lesson's own sentence, and it already holds this tense: it is the one past-referring row a2.18 authored and it flagged it for this build by name."
+            },
+            {
+              "fr": "On a mangé il y a une heure.",
+              "en": "We ate an hour ago.",
+              "note": "[ohⁿ na mahⁿ-ZHAY eel ee ah ün UHR] The same shape with an hour instead of three days. On rather than nous, which is a2.01's rule for the whole level."
+            },
+            {
+              "fr": "J'ai travaillé hier.",
+              "en": "I worked yesterday.",
+              "note": "[zhay trah-vah-YAY YEHR] And the ordinary way, with a day word rather than a length."
+            },
+            {
+              "fr": "Il a fini la semaine dernière.",
+              "en": "He finished last week.",
+              "note": "[eel ah fee-NEE lah suh-MEN dehr-NYEHR] A longer one, spelled the way fr.sons.jours-et-mois.036 spells it."
+            },
+            {
+              "fr": "Tu as parlé avant-hier ?",
+              "en": "Did you speak the day before yesterday?",
+              "note": "[tü ah par-LAY ah-vahⁿ-TYEHR] And a question, with no inversion, which is how it is actually asked."
+            }
+          ],
+          "terms": [
+            "whenWord",
+            "twoWords",
+            "pastForm"
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s19-reading",
+          "title": "Monday, At The Kettle",
+          "frSub": "Lundi matin",
+          "layer": "core",
+          "questionsInModal": true,
+          "text": "Hier, j'ai travaillé jusqu'à sept heures. Après, j'ai mangé avec des amis dans un petit restaurant près du bureau. Nous avons beaucoup parlé et nous avons choisi le menu ensemble. Je n'ai pas payé, parce que Camille a insisté. Ensuite, j'ai cherché mes clés pendant dix minutes. Je n'ai pas trouvé mon parapluie. Ce matin, je n'ai pas encore fini le rapport. J'ai commencé il y a trois jours, et je vais finir ce soir.",
+          "glossary": [
+            {
+              "word": "jusqu'à",
+              "en": "until, up to",
+              "ipa": "/ʒys.ka/",
+              "note": "A point in time you stop at. Nothing about it is this lesson."
+            },
+            {
+              "word": "ensuite",
+              "en": "then, next",
+              "ipa": "/ɑ̃.sɥit/",
+              "note": "The word that puts one finished thing after another, which is what this tense is for."
+            },
+            {
+              "word": "parce que",
+              "en": "because",
+              "ipa": "/paʁs kə/",
+              "note": "Two words, and the verb after it behaves exactly as it would anywhere else."
+            },
+            {
+              "word": "insisté",
+              "en": "insisted",
+              "ipa": "/ɛ̃.sis.te/",
+              "note": "From insister, an -ER verb, so its past form ends in -é. You could have built it without being told."
+            },
+            {
+              "word": "parapluie",
+              "en": "umbrella",
+              "ipa": "/pa.ʁa.plɥi/",
+              "note": "The thing that was not found. It sits after the past form, where objects sit."
+            }
+          ],
+          "questions": [
+            {
+              "q": "The passage holds four negatives. What do all four have in common?",
+              "a": "The ne has shortened to n' every time, because every form of avoir starts on a vowel, and the pas is in the gap every time: n'ai pas payé, n'ai pas trouvé, n'ai pas encore fini, and the encore is in the gap with it. Four verbs, four gaps, one position."
+            },
+            {
+              "q": "« Je n'ai pas encore fini le rapport. » There are two words in the gap. Is that allowed?",
+              "a": "Yes. The gap takes small words and pas encore is two of them, sitting together in front of the past form. What it does not take is the report, which is what the sentence is about and which sits after fini where it belongs."
+            },
+            {
+              "q": "Count the groups. How many different endings are in the passage?",
+              "a": "Three, and they are the three you have: travaillé, mangé, parlé, payé, cherché, trouvé, commencé and insisté are all -ER verbs ending in -é; choisi and fini are -IR verbs ending in -i; and there is no -RE verb in it at all. Eight of the ten are the commonest group in the language."
+            },
+            {
+              "q": "The last sentence has two tenses in it. What are they and what is the difference?",
+              "a": "« J'ai commencé » is over and « je vais finir » has not happened. The two constructions are the same shape: a little word you conjugate, then a word you do not. The little word is the entire difference. Ai against vais."
+            }
+          ],
+          "terms": [
+            "twoWords",
+            "inBetween",
+            "endings"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s20-scenario",
+          "title": "Telling It Back",
+          "frSub": "On raconte",
+          "layer": "core",
+          "setting": "The same colleague, the same kettle, and this time she has more time and is asking about the weekend rather than about last night. Every answer is something that is over.",
+          "turns": [
+            {
+              "ai": "Et toi, tu as travaillé samedi ?",
+              "en": "And you, did you work on Saturday?",
+              "user": "Non, je n'ai pas travaillé.",
+              "userEn": "No, I did not work.",
+              "alts": [
+                {
+                  "fr": "Tu as travaillé.",
+                  "en": "You worked."
+                },
+                {
+                  "fr": "J'ai travaillé hier.",
+                  "en": "I worked yesterday."
+                }
+              ]
+            },
+            {
+              "ai": "Et hier soir, alors ?",
+              "en": "And last night, then?",
+              "user": "J'ai mangé avec des amis.",
+              "userEn": "I ate with friends.",
+              "alts": [
+                {
+                  "fr": "Je n'ai pas mangé.",
+                  "en": "I did not eat."
+                },
+                {
+                  "fr": "J'ai bien mangé.",
+                  "en": "I ate well."
+                }
+              ]
+            },
+            {
+              "ai": "Vous avez fini le rapport ?",
+              "en": "Have you finished the report?",
+              "user": "Non, nous n'avons pas fini.",
+              "userEn": "No, we have not finished.",
+              "alts": [
+                {
+                  "fr": "Il a déjà fini.",
+                  "en": "He has already finished."
+                },
+                {
+                  "fr": "Il n'a pas travaillé la semaine dernière.",
+                  "en": "He didn't work last week."
+                }
+              ]
+            },
+            {
+              "ai": "Et Camille, elle a répondu à ton message ?",
+              "en": "And Camille, did she reply to your message?",
+              "user": "Elle n'a pas répondu à mon message.",
+              "userEn": "She didn't reply to my message.",
+              "alts": [
+                {
+                  "fr": "Elle a bien répondu.",
+                  "en": "She answered well."
+                },
+                {
+                  "fr": "Ils ont répondu.",
+                  "en": "They answered."
+                }
+              ]
+            },
+            {
+              "ai": "Tu as parlé avant-hier ?",
+              "en": "Did you speak the day before yesterday?",
+              "user": "J'ai parlé.",
+              "userEn": "I spoke.",
+              "alts": [
+                {
+                  "fr": "Il a fini la semaine dernière.",
+                  "en": "He finished last week."
+                },
+                {
+                  "fr": "On a mangé il y a une heure.",
+                  "en": "We ate an hour ago."
+                }
+              ]
+            },
+            {
+              "ai": "On mange ensemble ce soir, alors ?",
+              "en": "Shall we eat together tonight, then?",
+              "user": "Je vais manger.",
+              "userEn": "I am going to eat.",
+              "alts": [
+                {
+                  "fr": "Il va manger.",
+                  "en": "He is going to eat."
+                },
+                {
+                  "fr": "J'ai mangé une pomme.",
+                  "en": "I ate an apple."
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "twoWords",
+            "whenWord",
+            "inBetween"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s21-dictation",
+          "title": "Spell What You Hear",
+          "frSub": "La dictée",
+          "layer": "core",
+          "itemIds": [
+            "fr.a2.verbes.541",
+            "fr.a2.verbes.543",
+            "fr.a2.verbes.546",
+            "fr.a2.verbes.547",
+            "fr.a2.verbes.551",
+            "fr.a2.verbes.552",
+            "fr.a2.verbes.553",
+            "fr.a2.verbes.554",
+            "fr.a2.verbes.558",
+            "fr.sons.masterclass.021"
+          ],
+          "say": "Ten lines, and four of them are negatives. Listen to the front of the sentence before you write anything: the first little word tells you which tense you are in, and the last word sounds the same either way.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-a2-05-dictee"
+          },
+          "terms": [
+            "pastForm",
+            "oneSound",
+            "twoWords"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s22-speak",
+          "title": "Say It Out Loud",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "skill": "speak",
+          "itemIds": [
+            "fr.a2.verbes.541",
+            "fr.a2.verbes.542",
+            "fr.a2.verbes.543",
+            "fr.a2.verbes.544",
+            "fr.a2.verbes.545",
+            "fr.a2.verbes.546",
+            "fr.a2.verbes.547",
+            "fr.a2.verbes.548",
+            "fr.a2.verbes.549",
+            "fr.a2.verbes.550",
+            "fr.a2.verbes.551",
+            "fr.a2.verbes.552",
+            "fr.a2.verbes.553",
+            "fr.a2.verbes.554",
+            "fr.a2.verbes.555",
+            "fr.a2.verbes.556",
+            "fr.a2.verbes.557",
+            "fr.a2.verbes.558",
+            "fr.a2.verbes.559",
+            "fr.a2.verbes.560",
+            "fr.a2.verbes.561",
+            "fr.a2.verbes.562",
+            "fr.a2.verbes.563",
+            "fr.a2.verbes.564",
+            "fr.a2.verbes.565",
+            "fr.a2.verbes.566",
+            "fr.a2.verbes.567",
+            "fr.a2.verbes.568",
+            "fr.a2.verbes.569"
+          ],
+          "terms": [
+            "twoWords",
+            "inBetween"
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s23-review",
+          "title": "The Whole Thing",
+          "frSub": "Tout, d’un coup",
+          "layer": "core",
+          "cards": [
+            {
+              "front": "How many words is the verb now?",
+              "back": "One verb, two words, and the small ones go in between.",
+              "say": "J'ai mangé."
+            },
+            {
+              "front": "Where does the pas go?",
+              "back": "Ne in front of avoir, pas straight after it, and the past form outside both. The gap is one word wide and nothing longer goes in it.",
+              "say": "Je n'ai pas mangé."
+            },
+            {
+              "front": "Which word do the two halves go round?",
+              "back": "Wrap the verb that changed, not the one carrying the meaning. Here that is avoir, because avoir is the one that changed.",
+              "say": "Ils n'ont pas mangé."
+            },
+            {
+              "front": "-ER, -IR, -RE. What are the three endings?",
+              "back": "Three groups, three endings, and they are the same three groups you already have. An -ER verb ends in -é, an -IR verb ends in -i, an -RE verb ends in -u, and there is nothing else to learn about a regular one.",
+              "say": "Il a vendu."
+            },
+            {
+              "front": "Elle a mangé une pomme. Why not mangée?",
+              "back": "After avoir the past form does not agree with anybody. One shape, every person, every gender.",
+              "say": "Elle a mangé une pomme."
+            },
+            {
+              "front": "What else goes in the gap?",
+              "back": "Short adverbs: bien, mal, déjà, encore, beaucoup. a2.17 taught the placement and this is where it went.",
+              "say": "J'ai bien mangé."
+            },
+            {
+              "front": "You hear something ending in /mɑ̃.ʒe/. How do you know the tense?",
+              "back": "Manger and mangé are one sound. There is no listening exercise anywhere that can tell you which one you heard, and anybody who says otherwise is selling you something. What you listen for is the little word in front.",
+              "say": "Je vais manger."
+            },
+            {
+              "front": "What is still coming?",
+              "back": "Some verbs have a past form you could not have guessed from the naming form, and there are about forty of them. They are the next lesson, a2.20, and not one of them is in this one.",
+              "say": "Il a mangé."
+            },
+            {
+              "front": "Does every verb use avoir?",
+              "back": "A short list of verbs uses être instead of avoir for the first word, and their past form does change to match the person. That is a2.21, and it is the opposite of this rule. Learn this one cleanly first.",
+              "say": "Ils ont mangé."
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s24-progress",
+          "title": "Where You Stand",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "body": "One verb, two words, and the small ones go in between. The exam has six rounds. Everything in it you can say out loud today, and one round is about a difference you can only see, which is why it is written rather than heard.",
+          "stats": [
+            {
+              "k": "New verb forms",
+              "v": "0. a1.07 gave you all six."
+            },
+            {
+              "k": "New endings",
+              "v": "3, and one per group you already had from a2.01, a2.10 and a2.11."
+            },
+            {
+              "k": "The rule",
+              "v": "One verb, two words, and the small ones go in between."
+            },
+            {
+              "k": "Used again in",
+              "v": "a2.20, a2.21 and a2.31."
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s25-quiz",
+          "title": "The Exam",
+          "frSub": "L’examen",
+          "layer": "core",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "say": "Six rounds of six. Miss too many in a round and you get a drill before the next one starts.",
+          "rounds": [
+            {
+              "id": "r1-the-gap",
+              "label": "Where the small words go",
+              "targets": [
+                "err-pas-outside",
+                "err-adverb-outside"
+              ],
+              "say": "Six on the position. Both words are already right in every one of them.",
+              "questions": [
+                {
+                  "q": "You did not eat. Which one is French?",
+                  "format": "mcq",
+                  "opts": [
+                    "Je n'ai mangé pas.",
+                    "Je n'ai pas mangé.",
+                    "Je pas n'ai mangé.",
+                    "J'ai ne pas mangé."
+                  ],
+                  "correct": 1,
+                  "why": "Ne in front of avoir, pas straight after it, and the past form outside both. The gap is one word wide and nothing longer goes in it. One verb, two words, and the small ones go in between.",
+                  "ref": "s04-pair"
+                },
+                {
+                  "q": "Make this negative. Il a mangé.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Il n'a pas mangé.",
+                    "Il n'a pas mangé"
+                  ],
+                  "answer": "Il n'a pas mangé.",
+                  "why": "Ne in front of a, pas straight after it, and mangé untouched. The ne shortens because a is a vowel, and it does that in front of every form of avoir.",
+                  "ref": "s04-pair"
+                },
+                {
+                  "q": "Fix this. You mean that they did not eat.",
+                  "format": "errorSpot",
+                  "prompt": "Ils n'ont mangé pas.",
+                  "accept": [
+                    "Ils n'ont pas mangé.",
+                    "Ils n'ont pas mangé"
+                  ],
+                  "answer": "Ils n'ont pas mangé.",
+                  "why": "The pas went past the gap and landed behind the past form. It belongs straight after ont, which is the word that changed for ils.",
+                  "ref": "s07-where"
+                },
+                {
+                  "q": "Which of these can go in the gap?",
+                  "format": "mcq",
+                  "opts": [
+                    "une pomme",
+                    "le rapport",
+                    "bien",
+                    "mes clés"
+                  ],
+                  "correct": 2,
+                  "why": "Only small words go in the gap: pas, bien, mal, déjà, encore, beaucoup. Everything the sentence is about goes after the past form.",
+                  "ref": "s17-inside"
+                },
+                {
+                  "q": "Make this negative. Nous avons fini.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Nous n'avons pas fini.",
+                    "Nous n'avons pas fini",
+                    "Nous n avons pas fini"
+                  ],
+                  "answer": "Nous n'avons pas fini.",
+                  "why": "The ne shortens in front of avons and the liaison z goes with it, which changes the sound and not the spelling of anything else.",
+                  "ref": "s06-six"
+                },
+                {
+                  "q": "Fix this. Avoir has gone missing.",
+                  "format": "errorSpot",
+                  "prompt": "Je ne mangé pas.",
+                  "accept": [
+                    "Je n'ai pas mangé.",
+                    "Je n'ai pas mangé"
+                  ],
+                  "answer": "Je n'ai pas mangé.",
+                  "why": "Avoir has gone missing altogether. Both halves went round the past form, which is the word that did not change for anybody, and a past form on its own is not a sentence in any person.",
+                  "ref": "s12-errors"
+                }
+              ]
+            },
+            {
+              "id": "r2-the-endings",
+              "label": "One ending per group",
+              "targets": [
+                "err-wrong-ending",
+                "err-pas-outside"
+              ],
+              "say": "Six on the second word, and four of the verbs are ones this lesson never printed a past form for.",
+              "questions": [
+                {
+                  "q": "Parler. J'ai ___.",
+                  "format": "typeIn",
+                  "accept": [
+                    "parlé",
+                    "parle"
+                  ],
+                  "answer": "parlé",
+                  "why": "An -ER verb, so -é. The accent cannot be marked wrong by this app, so if you wrote parle you were right about the group and you should still write the accent.",
+                  "ref": "s10-groups"
+                },
+                {
+                  "q": "Choisir. Nous avons ___.",
+                  "format": "typeIn",
+                  "accept": [
+                    "choisi"
+                  ],
+                  "answer": "choisi",
+                  "why": "An -IR verb, so -i. The -r comes off and nothing else happens.",
+                  "ref": "s10-groups"
+                },
+                {
+                  "q": "Vendre. Il a ___.",
+                  "format": "typeIn",
+                  "accept": [
+                    "vendu"
+                  ],
+                  "answer": "vendu",
+                  "why": "An -RE verb, so -u. a2.11 taught this group and the past form is the only place its ending is not already visible on the naming form.",
+                  "ref": "s10-groups"
+                },
+                {
+                  "q": "Grandir. Elle a ___.   (a verb this lesson never showed you)",
+                  "format": "typeIn",
+                  "accept": [
+                    "grandi"
+                  ],
+                  "answer": "grandi",
+                  "why": "You have never seen this one in this tense and you did not need to. It ends in -ir, so its past form ends in -i, and that is the whole decision.",
+                  "ref": "s16-unseen"
+                },
+                {
+                  "q": "Which group does a past form ending in -u come from?",
+                  "format": "mcq",
+                  "opts": [
+                    "-ER",
+                    "-IR",
+                    "-RE",
+                    "any of them"
+                  ],
+                  "correct": 2,
+                  "why": "Three groups, three endings, and they are the same three groups you already have. An -ER verb ends in -é, an -IR verb ends in -i, an -RE verb ends in -u, and there is nothing else to learn about a regular one.",
+                  "ref": "s03-endings"
+                },
+                {
+                  "q": "Perdre. Which is the past form?",
+                  "format": "mcq",
+                  "opts": [
+                    "perdé",
+                    "perdi",
+                    "perdu",
+                    "perder"
+                  ],
+                  "correct": 2,
+                  "why": "An -RE verb like vendre and répondre, so -u. Nothing about the meaning of the verb affects the ending.",
+                  "ref": "s16-unseen"
+                }
+              ]
+            },
+            {
+              "id": "r3-er-or-e",
+              "label": "Manger or mangé",
+              "targets": [
+                "err-infinitive-for-past",
+                "err-wrong-ending"
+              ],
+              "say": "Six on the pair the ear cannot separate. Every one of these is a spelling question, because there is nothing else it could be.",
+              "questions": [
+                {
+                  "q": "Write it. You ate.   (tu)",
+                  "format": "typeIn",
+                  "accept": [
+                    "Tu as mangé.",
+                    "Tu as mangé",
+                    "Tu as mange",
+                    "Tu as mange."
+                  ],
+                  "answer": "Tu as mangé.",
+                  "why": "Behind avoir it is the past form, never the naming form. Manger and mangé are one sound and this is the only place the difference shows up.",
+                  "ref": "s21-dictation"
+                },
+                {
+                  "q": "Fix this. It sounds exactly right and it is not.",
+                  "format": "errorSpot",
+                  "prompt": "J'ai manger.",
+                  "accept": [
+                    "J'ai mangé.",
+                    "J'ai mangé",
+                    "J'ai mange"
+                  ],
+                  "answer": "J'ai mangé.",
+                  "why": "This is the one nobody hears themselves make. Manger and mangé are the same sound, so the sentence is perfect out loud and wrong the moment it is written down. Behind avoir it is always the past form.",
+                  "ref": "s15-nothear"
+                },
+                {
+                  "q": "Why does this app never ask you to hear manger against mangé?",
+                  "format": "mcq",
+                  "opts": [
+                    "It is too hard",
+                    "They are the same sound",
+                    "The recording is not good enough",
+                    "It comes later"
+                  ],
+                  "correct": 1,
+                  "why": "Manger and mangé are one sound. There is no listening exercise anywhere that can tell you which one you heard, and anybody who says otherwise is selling you something. What you listen for is the little word in front.",
+                  "ref": "s15-nothear"
+                },
+                {
+                  "q": "Je vais ___.   (I am going to eat)",
+                  "format": "typeIn",
+                  "accept": [
+                    "manger"
+                  ],
+                  "answer": "manger",
+                  "why": "Behind aller it is the naming form, which is a2.19's rule and has not changed. Behind avoir it is the past form. Same sound, two different words, and the little word in front decides.",
+                  "ref": "s13-listen"
+                },
+                {
+                  "q": "Fix this. The second word is in the wrong tense.",
+                  "format": "errorSpot",
+                  "prompt": "Nous avons parler ensemble.",
+                  "accept": [
+                    "Nous avons parlé ensemble.",
+                    "Nous avons parlé ensemble",
+                    "Nous avons parle ensemble"
+                  ],
+                  "answer": "Nous avons parlé ensemble.",
+                  "why": "Avons is a form of avoir, so what follows it is a past form. Parler is the naming form and it goes behind aller, pouvoir and vouloir instead.",
+                  "ref": "s19-reading"
+                },
+                {
+                  "q": "Travailler and travaillé. What is the difference?",
+                  "format": "mcq",
+                  "opts": [
+                    "One is longer to say",
+                    "The stress moves",
+                    "Nothing you can hear",
+                    "One is a question"
+                  ],
+                  "correct": 2,
+                  "why": "Nothing at all. /tʁa.va.je/ both times, in every accent of French, and the difference is entirely on the page.",
+                  "ref": "s15-nothear"
+                }
+              ]
+            },
+            {
+              "id": "r4-no-agreement",
+              "label": "It never agrees",
+              "targets": [
+                "err-agreed-past-form",
+                "err-wrong-ending"
+              ],
+              "say": "Six on the thing that does not happen, because a2.21 is about to say the opposite for a short list of verbs and you want this side of it clean.",
+              "questions": [
+                {
+                  "q": "Elle a ___ une pomme.",
+                  "format": "mcq",
+                  "opts": [
+                    "mangée",
+                    "mangés",
+                    "mangé",
+                    "mangées"
+                  ],
+                  "correct": 2,
+                  "why": "After avoir the past form does not agree with anybody. Not with the subject, not with the apple.",
+                  "ref": "s11-noagree"
+                },
+                {
+                  "q": "Fix this. Somebody has agreed something that does not agree.",
+                  "format": "errorSpot",
+                  "prompt": "J'ai mangée une pomme.",
+                  "accept": [
+                    "J'ai mangé une pomme.",
+                    "J'ai mangé une pomme"
+                  ],
+                  "answer": "J'ai mangé une pomme.",
+                  "why": "The apple is feminine and the past form does not care. After avoir it is one shape in every person and every gender.",
+                  "ref": "s11-noagree"
+                },
+                {
+                  "q": "Elles ont ___ le musée.   (visiter)",
+                  "format": "mcq",
+                  "opts": [
+                    "visité",
+                    "visitées",
+                    "visitée",
+                    "visiter"
+                  ],
+                  "correct": 0,
+                  "why": "A feminine plural subject, and still the bare past form. This is the case English speakers get wrong most, because they have just spent two lessons agreeing adjectives.",
+                  "ref": "s11-noagree"
+                },
+                {
+                  "q": "Where does the apple go?",
+                  "format": "mcq",
+                  "opts": [
+                    "In the gap",
+                    "After the past form",
+                    "Before avoir",
+                    "It can go anywhere"
+                  ],
+                  "correct": 1,
+                  "why": "Ne in front of avoir, pas straight after it, and the past form outside both. The gap is one word wide and nothing longer goes in it. An apple is not a small word.",
+                  "ref": "s17-inside"
+                },
+                {
+                  "q": "Write it. She answered well.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Elle a bien répondu.",
+                    "Elle a bien répondu",
+                    "Elle a bien repondu"
+                  ],
+                  "answer": "Elle a bien répondu.",
+                  "why": "Bien in the gap, répondu outside it, and nothing agrees with elle.",
+                  "ref": "s17-inside"
+                },
+                {
+                  "q": "Fix this. Two things are wrong and they are the same mistake.",
+                  "format": "errorSpot",
+                  "prompt": "Elle a mangée bien.",
+                  "accept": [
+                    "Elle a bien mangé.",
+                    "Elle a bien mangé",
+                    "Elle a bien mange"
+                  ],
+                  "answer": "Elle a bien mangé.",
+                  "why": "The adverb has gone on the end instead of in the gap, and the past form has been agreed with a subject it does not agree with. Both come from expecting French to behave like the parts of it you already know.",
+                  "ref": "s12-errors"
+                }
+              ]
+            },
+            {
+              "id": "r5-plan-or-memory",
+              "label": "A plan or a memory",
+              "targets": [
+                "err-tense-heard",
+                "err-infinitive-for-past"
+              ],
+              "say": "Six on the little word in front, and one of them is the only listening question in the lesson.",
+              "questions": [
+                {
+                  "q": "Listen. Which one did you hear?",
+                  "format": "listenChoose",
+                  "say": "J'ai mangé.",
+                  "opts": [
+                    "Je vais manger.",
+                    "J'ai mangé."
+                  ],
+                  "correct": 1,
+                  "why": "Ai, so it is over. Vais would have made it a plan, and the last word of the two sentences is the same sound either way.",
+                  "ref": "s14-which"
+                },
+                {
+                  "q": "Il va manger. When is this?",
+                  "format": "mcq",
+                  "opts": [
+                    "Ahead of him",
+                    "Yesterday",
+                    "Right now",
+                    "Every day"
+                  ],
+                  "correct": 0,
+                  "why": "Va, so it has not happened. a2.19 taught this one lesson ago and the two constructions are the same shape.",
+                  "ref": "s13-listen"
+                },
+                {
+                  "q": "Il a mangé. When is this?",
+                  "format": "mcq",
+                  "opts": [
+                    "Ahead of him",
+                    "Right now",
+                    "Over",
+                    "Every day"
+                  ],
+                  "correct": 2,
+                  "why": "A, so it is finished. The a and the va are both one short unstressed syllable and they are the entire difference.",
+                  "ref": "s13-listen"
+                },
+                {
+                  "q": "Which word tells you the tense?",
+                  "format": "mcq",
+                  "opts": [
+                    "The last one",
+                    "The first little one",
+                    "The longest one",
+                    "The time word"
+                  ],
+                  "correct": 1,
+                  "why": "Je vais manger and j'ai mangé end on exactly the same sound. Vais against ai is the whole difference between something that has not happened and something that is over, and both of them are one short unstressed syllable.",
+                  "ref": "s14-which"
+                },
+                {
+                  "q": "Write it as something that is over. Je vais travailler.",
+                  "format": "typeIn",
+                  "accept": [
+                    "J'ai travaillé.",
+                    "J'ai travaillé",
+                    "J'ai travaille"
+                  ],
+                  "answer": "J'ai travaillé.",
+                  "why": "Swap the little word in front and put the second one in the past form. Nothing else about the sentence moves.",
+                  "ref": "s13-listen"
+                },
+                {
+                  "q": "Hier, ___ mangé au restaurant.",
+                  "format": "mcq",
+                  "opts": [
+                    "j'ai",
+                    "je vais",
+                    "je",
+                    "je mange"
+                  ],
+                  "correct": 0,
+                  "why": "Hier fixes it as over, so the little word in front has to be a form of avoir. « Hier, je vais manger » says something that cannot be true.",
+                  "ref": "s18-ago"
+                }
+              ]
+            },
+            {
+              "id": "r6-how-long-ago",
+              "label": "When, and how long ago",
+              "targets": [
+                "err-adverb-outside",
+                "err-tense-heard"
+              ],
+              "say": "Six on the two things other lessons left here: the short adverb in the gap, and saying how long ago something happened.",
+              "questions": [
+                {
+                  "q": "Fix this. The adverb is outside the gap.",
+                  "format": "errorSpot",
+                  "prompt": "J'ai mangé bien.",
+                  "accept": [
+                    "J'ai bien mangé.",
+                    "J'ai bien mangé"
+                  ],
+                  "answer": "J'ai bien mangé.",
+                  "why": "A short adverb goes in the gap, not on the end. This is the rule a2.17 taught for one-word tenses and then handed forward, because a two-word verb has somewhere new to put it.",
+                  "ref": "s17-inside"
+                },
+                {
+                  "q": "Write it. He has already finished.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Il a déjà fini.",
+                    "Il a déjà fini",
+                    "Il a deja fini"
+                  ],
+                  "answer": "Il a déjà fini.",
+                  "why": "Déjà in the gap. a2.17 put the short ones straight after the verb, and with two words straight-after means in between.",
+                  "ref": "s17-inside"
+                },
+                {
+                  "q": "On a mangé ___ une heure.   (an hour ago)",
+                  "format": "typeIn",
+                  "accept": [
+                    "il y a"
+                  ],
+                  "answer": "il y a",
+                  "why": "a2.18 taught « il y a » as a length of time behind you and could not finish the job, because saying how long ago something happened needs this tense.",
+                  "ref": "s18-ago"
+                },
+                {
+                  "q": "Which of these is NOT allowed in the gap?",
+                  "format": "mcq",
+                  "opts": [
+                    "pas",
+                    "déjà",
+                    "beaucoup",
+                    "le rapport"
+                  ],
+                  "correct": 3,
+                  "why": "The gap takes small words. A report is the thing the sentence is about and it goes after the past form.",
+                  "ref": "s17-inside"
+                },
+                {
+                  "q": "Fix this. Both halves have travelled together.",
+                  "format": "errorSpot",
+                  "prompt": "Il a ne pas fini.",
+                  "accept": [
+                    "Il n'a pas fini.",
+                    "Il n'a pas fini",
+                    "Il n a pas fini"
+                  ],
+                  "answer": "Il n'a pas fini.",
+                  "why": "They are not a unit that moves. The ne goes in front of avoir and shortens against it, and the pas goes in the gap behind it.",
+                  "ref": "s06-six"
+                },
+                {
+                  "q": "What arrives in the next lesson?",
+                  "format": "mcq",
+                  "opts": [
+                    "Past forms you cannot guess",
+                    "A new first word",
+                    "Agreement after avoir",
+                    "A second future"
+                  ],
+                  "correct": 0,
+                  "why": "Some verbs have a past form you could not have guessed from the naming form, and there are about forty of them. They are the next lesson, a2.20, and not one of them is in this one.",
+                  "ref": "s11-noagree"
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "inBetween",
+            "pastForm",
+            "oneSound"
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s26-roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "layer": "core",
+          "body": "Put avoir in front for whoever you are talking about, then the past form of the verb, and leave a gap between them. Everything small goes in that gap and nothing else does. a1.07 gave you all six forms of avoir and you do not learn one new one here. a2.01, a2.10 and a2.11 gave you the three groups, and the three past endings run one per group. a1.18 gave you the two halves of the negative and a2.19 told you which verb they go round. The only new thing in this lesson is that there is now a gap between two words, and what is allowed to sit in it.",
+          "points": [
+            "One verb, two words, and the small ones go in between. The two words are a pair with a gap in the middle, and the gap is where the small words live. Pas goes in it, bien and déjà go in it, and the thing you ate does not.",
+            "Ne in front of avoir, pas straight after it, and the past form outside both. The gap is one word wide and nothing longer goes in it.",
+            "Wrap the verb that changed, not the one carrying the meaning. That is a2.19's line and it is exactly as true with avoir in front as it was with aller.",
+            "Three groups, three endings, and they are the same three groups you already have. An -ER verb ends in -é, an -IR verb ends in -i, an -RE verb ends in -u, and there is nothing else to learn about a regular one.",
+            "After avoir the past form does not agree with anybody, in any person and any gender.",
+            "a2.17 put the short ones straight after the verb when there was one verb. There are two now, so \"straight after the verb\" has become \"in the gap\", and it is the same instruction. In a past tense the short ones move, and that rule arrives with the tense in a2.05.",
+            "a2.18 taught « il y a » as a length of time behind you and then had to hand the sentence forward, because saying how long ago something happened needs a past tense and that tense is this one. Its own card is on the left and it already holds this lesson's tense.",
+            "Some verbs have a past form you could not have guessed from the naming form, and there are about forty of them. They are the next lesson, a2.20, and not one of them is in this one. A short list of verbs uses être instead of avoir for the first word, and their past form does change to match the person. That is a2.21, and it is the opposite of this rule. Learn this one cleanly first. You will want all of it again at a2.31, where the whole conversation is about what you studied and how it went."
+          ],
+          "sheetId": "sheet.a2.05.passe"
+        }
+      ],
+      "itemIds": [
+        "fr.a2.verbes.541",
+        "fr.a2.verbes.542",
+        "fr.a2.verbes.543",
+        "fr.a2.verbes.544",
+        "fr.a2.verbes.545",
+        "fr.a2.verbes.546",
+        "fr.a2.verbes.547",
+        "fr.a2.verbes.548",
+        "fr.a2.verbes.549",
+        "fr.a2.verbes.550",
+        "fr.a2.verbes.551",
+        "fr.a2.verbes.552",
+        "fr.a2.verbes.553",
+        "fr.a2.verbes.554",
+        "fr.a2.verbes.555",
+        "fr.a2.verbes.556",
+        "fr.a2.verbes.557",
+        "fr.a2.verbes.558",
+        "fr.a2.verbes.559",
+        "fr.a2.verbes.560",
+        "fr.a2.verbes.561",
+        "fr.a2.verbes.562",
+        "fr.a2.verbes.563",
+        "fr.a2.verbes.564",
+        "fr.a2.verbes.565",
+        "fr.a2.verbes.566",
+        "fr.a2.verbes.567",
+        "fr.a2.verbes.568",
+        "fr.a2.verbes.569",
+        "fr.a2.verbes.570",
+        "fr.a2.verbes.571",
+        "fr.a2.verbes.572",
+        "fr.a2.verbes.573",
+        "fr.a2.verbes.574",
+        "fr.a2.verbes.575",
+        "fr.a2.verbes.576",
+        "fr.sons.verbes-essentiels.002",
+        "fr.sons.muettes.037",
+        "fr.sons.verbes-essentiels.015",
+        "fr.sons.verbes-essentiels.037",
+        "fr.a2.verbes.027",
+        "fr.a2.verbes.020",
+        "fr.sons.verbes-essentiels.038",
+        "fr.a2.verbes.031",
+        "fr.sons.jours-et-mois.025",
+        "fr.sons.jours-et-mois.027",
+        "fr.sons.mots-essentiels.045",
+        "fr.sons.mots-essentiels.053",
+        "fr.sons.masterclass.021",
+        "fr.a2.verbes.527",
+        "fr.a2.prepositions-essentielles.174",
+        "fr.a2.prepositions-essentielles.186",
+        "fr.sons.alphabet.402",
+        "fr.sons.voyelles.355",
+        "fr.sons.voyelles.445",
+        "fr.a2.negation-et-restriction.113",
+        "fr.a2.negation-et-restriction.114",
+        "fr.a2.negation-et-restriction.117",
+        "fr.a2.negation-et-restriction.142"
+      ],
+      "version": 4,
+      "grammarAssumed": [
+        "The full present of avoir, in six persons, introduced in a1.07",
+        "The regular -ER conjugation and its silent endings, introduced in a2.01",
+        "The regular -IR conjugation, introduced in a2.10",
+        "The regular -RE conjugation, introduced in a2.11",
+        "ne … pas round a single finite verb, introduced in a1.18",
+        "That ne … pas encloses the finite verb rather than the infinitive in a two-verb predicate, introduced in a2.19",
+        "The placement of short adverbs after a simple-tense verb, introduced in a2.17",
+        "il y a plus a duration, introduced in a2.18 for reception and deferred here for production",
+        "The nine subject pronouns, and that on takes the il form, introduced in a1.05"
+      ],
+      "grammarIntroduced": [
+        "The passé composé with avoir as auxiliary, for a completed past event, covering both the English simple past and present perfect",
+        "The regular past participle: -er to -é, -ir to -i, -re to -u, one ending per conjugation class",
+        "That the participle is invariable after avoir, with no agreement for the subject in any person or gender",
+        "That ne … pas encloses the auxiliary and not the participle, extending a2.19's rule from a periphrastic future to a compound tense",
+        "The elision of ne to n' before every form of avoir, and the loss of the liaison in n'avons and n'avez",
+        "The placement of short adverbs between auxiliary and participle, closing the deferral a2.17 made explicit",
+        "il y a plus a duration as \"ago\", in production, closing the deferral a2.18 made and for which its canDo was reworded",
+        "The homophony of the -er infinitive and the -é participle, as an orthographic distinction with no phonetic exponent",
+        "The auxiliary as the sole exponent of tense in the futur proche / passé composé opposition",
+        "Irregular past participles and être as auxiliary are named and reserved for a2.20 and a2.21 respectively"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "The Passé Composé with Avoir",
+        "subFr": "Le passé composé avec avoir",
+        "introFr": "Deux mots pour le passé, et un trou au milieu.",
+        "minutes": 32,
+        "difficulty": 3,
+        "glyph": "🕰️",
+        "screens": 262
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The second word",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-endings"
+          ],
+          "milestone": "You can build the past of any regular verb out of two words, and you know which of the two you already had.",
+          "estScreens": 22,
+          "restPoints": [
+            "s01-scene/after-break"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "What goes in the gap",
+          "sections": [
+            "s04-pair",
+            "s05-english",
+            "s06-six",
+            "s07-where",
+            "s08-produce"
+          ],
+          "milestone": "You can make any of it negative, in any person, and put both halves where French puts them rather than where the end of the sentence feels like it wants them.",
+          "estScreens": 48,
+          "restPoints": [
+            "s05-english/after",
+            "s07-where/after"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "Two words, and one you already had",
+          "sections": [
+            "s09-avoir",
+            "s10-groups",
+            "s11-noagree",
+            "s12-errors"
+          ],
+          "milestone": "You can put any regular verb into the past from its group alone, and you know that the second word never changes for anybody.",
+          "estScreens": 40,
+          "restPoints": [
+            "s10-groups/after"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "A plan, or a memory",
+          "sections": [
+            "s13-listen",
+            "s14-which",
+            "s15-nothear",
+            "s16-unseen"
+          ],
+          "milestone": "You can tell a plan from something that is over by the shortest word in the sentence, and you answered for five verbs the lesson never showed you.",
+          "estScreens": 42,
+          "restPoints": [
+            "s14-which/after"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "What the last two lessons left here",
+          "sections": [
+            "s17-inside",
+            "s18-ago"
+          ],
+          "milestone": "You closed a2.17's question about where a short adverb goes in a two-word verb, and a2.18's about how to say how long ago something happened.",
+          "estScreens": 18,
+          "restPoints": [
+            "s17-inside/after"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Out loud",
+          "sections": [
+            "s19-reading",
+            "s20-scenario",
+            "s21-dictation",
+            "s22-speak",
+            "s23-review"
+          ],
+          "milestone": "You held the conversation the kettle lost, and you spelled the difference the ear cannot hear.",
+          "estScreens": 48,
+          "restPoints": [
+            "s20-scenario/after",
+            "s21-dictation/halfway"
+          ]
+        },
+        {
+          "id": "act7",
+          "title": "Prove it",
+          "sections": [
+            "s24-progress",
+            "s25-quiz",
+            "s26-roundup"
+          ],
+          "milestone": "You built past forms for verbs this lesson never listed, which is the half of it a list could never have taught you.",
+          "estScreens": 44,
+          "restPoints": [
+            "s25-quiz/r4-no-agreement"
+          ]
+        }
+      ],
+      "reframe": "One verb, two words, and the small ones go in between.",
+      "errorTriggers": [
+        {
+          "id": "err-pas-outside",
+          "description": "Puts the pas behind the past form: « je n'ai mangé pas ». The error this lesson exists to prevent, and the one an English speaker makes first, because the end of the sentence is where the thought finished.",
+          "detectOn": [
+            "s04-pair",
+            "s07-where",
+            "s25-quiz/r1-the-gap"
+          ],
+          "drill": "drill-the-gap",
+          "retest": "retest-the-gap"
+        },
+        {
+          "id": "err-wrong-ending",
+          "description": "Gives the past form the wrong group's ending: « j'ai finu », « il a vendi ». It comes from treating the ending as a property of the verb rather than of the class the verb is in.",
+          "detectOn": [
+            "s03-endings",
+            "s10-groups",
+            "s25-quiz/r2-the-endings"
+          ],
+          "drill": "drill-endings",
+          "retest": "retest-endings"
+        },
+        {
+          "id": "err-infinitive-for-past",
+          "description": "Writes the naming form where the past form belongs: « j'ai manger ». THE ONE NOBODY HEARS THEMSELVES MAKE, because the two are one sound, so it survives every amount of speaking practice and shows up the first time the learner writes anything down.",
+          "detectOn": [
+            "s15-nothear",
+            "s21-dictation",
+            "s25-quiz/r3-er-or-e"
+          ],
+          "drill": "drill-one-sound",
+          "retest": "retest-one-sound"
+        },
+        {
+          "id": "err-agreed-past-form",
+          "description": "Agrees the past form with the subject or the object: « elle a mangée ». It comes from a2.03 and a2.16, where agreeing everything was the correct instinct, and it is about to come back as the correct instinct again at a2.21.",
+          "detectOn": [
+            "s11-noagree",
+            "s25-quiz/r4-no-agreement"
+          ],
+          "drill": "drill-no-agreement",
+          "retest": "retest-no-agreement"
+        },
+        {
+          "id": "err-tense-heard",
+          "description": "Hears « je vais manger » as something that happened, or « j'ai mangé » as a plan. Costs comprehension rather than accuracy, and the learner has no way of finding out: both sentences are correct and both end on the same sound.",
+          "detectOn": [
+            "s13-listen",
+            "s14-which",
+            "s25-quiz/r5-plan-or-memory"
+          ],
+          "drill": "drill-plan-or-memory",
+          "retest": "retest-plan-or-memory"
+        },
+        {
+          "id": "err-adverb-outside",
+          "description": "Puts a short adverb on the end rather than in the gap: « j'ai mangé bien ». It is the same error as the pas one and the learner does not usually notice they are the same, which is why the gap is taught as a place rather than as two separate rules.",
+          "detectOn": [
+            "s17-inside",
+            "s25-quiz/r6-how-long-ago"
+          ],
+          "drill": "drill-adverb-gap",
+          "retest": "retest-adverb-gap"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-the-gap",
+          "title": "Both halves, one place",
+          "format": "flashcard",
+          "coach": "Ne in front of avoir, pas straight after it, and the past form outside both. The gap is one word wide and nothing longer goes in it. The English is on the front. Say the French out loud before you turn it over.",
+          "pairs": [
+            [
+              "I did not eat.",
+              "Je n'ai pas mangé."
+            ],
+            [
+              "He did not eat.",
+              "Il n'a pas mangé."
+            ],
+            [
+              "They did not eat.",
+              "Ils n'ont pas mangé."
+            ],
+            [
+              "We did not finish.",
+              "Non, nous n'avons pas fini."
+            ]
+          ]
+        },
+        {
+          "id": "retest-the-gap",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "She did not answer.",
+          "opts": [
+            "Elle n'a répondu pas.",
+            "Elle n'a pas répondu.",
+            "Elle a ne pas répondu."
+          ],
+          "correct": 1,
+          "why": "Round a, and répondu outside both halves."
+        },
+        {
+          "id": "drill-endings",
+          "title": "One ending per group",
+          "format": "sort",
+          "buckets": [
+            "-é",
+            "-i",
+            "-u"
+          ],
+          "items": [
+            "fr.a2.verbes.552",
+            "fr.a2.verbes.553",
+            "fr.a2.verbes.554",
+            "fr.a2.verbes.555",
+            "fr.a2.verbes.556",
+            "fr.a2.verbes.557"
+          ],
+          "coach": "Three groups, three endings, and they are the same three groups you already have. An -ER verb ends in -é, an -IR verb ends in -i, an -RE verb ends in -u, and there is nothing else to learn about a regular one. Read the last word of each sentence and put it in its group."
+        },
+        {
+          "id": "retest-endings",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Répondre. Which is the past form?",
+          "opts": [
+            "répondé",
+            "répondi",
+            "répondu"
+          ],
+          "correct": 2,
+          "why": "An -RE verb, so -u, exactly like vendre."
+        },
+        {
+          "id": "drill-one-sound",
+          "title": "The one you cannot hear",
+          "format": "sort",
+          "buckets": [
+            "after avoir",
+            "after aller"
+          ],
+          "items": [
+            "fr.a2.verbes.541",
+            "fr.a2.verbes.566",
+            "fr.a2.verbes.543",
+            "fr.a2.verbes.567"
+          ],
+          "coach": "Manger and mangé are one sound. There is no listening exercise anywhere that can tell you which one you heard, and anybody who says otherwise is selling you something. What you listen for is the little word in front. Look at the first little word, not at the last one."
+        },
+        {
+          "id": "retest-one-sound",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "J'ai ___ hier.",
+          "opts": [
+            "travailler",
+            "travaillé",
+            "travaille"
+          ],
+          "correct": 1,
+          "why": "Behind avoir it is the past form. All three sound the same and only one of them is French here."
+        },
+        {
+          "id": "drill-no-agreement",
+          "title": "It does not move",
+          "format": "flashcard",
+          "coach": "After avoir the past form is one shape. The English is on the front and the subject changes on every card.",
+          "pairs": [
+            [
+              "She ate an apple.",
+              "Elle a mangé une pomme."
+            ],
+            [
+              "They answered.",
+              "Ils ont répondu."
+            ],
+            [
+              "We chose.",
+              "Nous avons choisi."
+            ],
+            [
+              "She answered well.",
+              "Elle a bien répondu."
+            ]
+          ]
+        },
+        {
+          "id": "retest-no-agreement",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Elles ont ___ le musée.",
+          "opts": [
+            "visitées",
+            "visité",
+            "visiter"
+          ],
+          "correct": 1,
+          "why": "A feminine plural subject and the past form has not moved a letter."
+        },
+        {
+          "id": "drill-plan-or-memory",
+          "title": "The little word in front",
+          "format": "sort",
+          "buckets": [
+            "a plan",
+            "over"
+          ],
+          "items": [
+            "fr.a2.verbes.566",
+            "fr.a2.verbes.541",
+            "fr.a2.verbes.567",
+            "fr.a2.verbes.543",
+            "fr.a2.verbes.571"
+          ],
+          "coach": "Je vais manger and j'ai mangé end on exactly the same sound. Vais against ai is the whole difference between something that has not happened and something that is over, and both of them are one short unstressed syllable."
+        },
+        {
+          "id": "retest-plan-or-memory",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "You hear « On va manger ». When?",
+          "opts": [
+            "It is over",
+            "It has not happened",
+            "You cannot tell"
+          ],
+          "correct": 1,
+          "why": "Va, so it is ahead. The last word would have sounded identical either way."
+        },
+        {
+          "id": "drill-adverb-gap",
+          "title": "In the gap, not on the end",
+          "format": "flashcard",
+          "coach": "a2.17 put the short ones straight after the verb when there was one verb. There are two now, so \"straight after the verb\" has become \"in the gap\", and it is the same instruction. The English is on the front.",
+          "pairs": [
+            [
+              "I ate well.",
+              "J'ai bien mangé."
+            ],
+            [
+              "He has already finished.",
+              "Il a déjà fini."
+            ],
+            [
+              "She answered well.",
+              "Elle a bien répondu."
+            ],
+            [
+              "We worked a lot.",
+              "Nous avons beaucoup travaillé."
+            ]
+          ]
+        },
+        {
+          "id": "retest-adverb-gap",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "We worked a lot.",
+          "opts": [
+            "Nous avons travaillé beaucoup.",
+            "Beaucoup nous avons travaillé.",
+            "Nous avons beaucoup travaillé."
+          ],
+          "correct": 2,
+          "why": "The adverb goes in the gap, exactly where the pas goes."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.a2.05.passe",
+          "title": "Two words, and what goes between",
+          "layer": "deep",
+          "contains": [
+            "The six",
+            "The negative",
+            "The endings",
+            "The gap",
+            "One sound",
+            "What is coming"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-six",
+              "title": "The six",
+              "layer": "deep",
+              "cols": [
+                "Person",
+                "Avoir",
+                "Then"
+              ],
+              "rows": [
+                [
+                  "je",
+                  "j'ai",
+                  "mangé"
+                ],
+                [
+                  "tu",
+                  "as",
+                  "mangé"
+                ],
+                [
+                  "il",
+                  "a",
+                  "mangé"
+                ],
+                [
+                  "nous",
+                  "avons",
+                  "mangé"
+                ],
+                [
+                  "vous",
+                  "avez",
+                  "mangé"
+                ],
+                [
+                  "ils",
+                  "ont",
+                  "mangé"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-negative",
+              "title": "And the negative",
+              "layer": "deep",
+              "cols": [
+                "Person",
+                "Avoir",
+                "Then"
+              ],
+              "rows": [
+                [
+                  "je",
+                  "n'ai pas",
+                  "mangé"
+                ],
+                [
+                  "tu",
+                  "n'as pas",
+                  "mangé"
+                ],
+                [
+                  "il",
+                  "n'a pas",
+                  "mangé"
+                ],
+                [
+                  "nous",
+                  "n'avons pas",
+                  "mangé"
+                ],
+                [
+                  "vous",
+                  "n'avez pas",
+                  "mangé"
+                ],
+                [
+                  "ils",
+                  "n'ont pas",
+                  "mangé"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-endings",
+              "title": "One ending per group",
+              "layer": "deep",
+              "cols": [
+                "Group",
+                "Verb",
+                "Past"
+              ],
+              "rows": [
+                [
+                  "-ER",
+                  "parler",
+                  "parlé"
+                ],
+                [
+                  "-IR",
+                  "finir",
+                  "fini"
+                ],
+                [
+                  "-RE",
+                  "vendre",
+                  "vendu"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-gap",
+              "title": "What goes in the gap",
+              "layer": "deep",
+              "body": "One verb, two words, and the small ones go in between. The two words are a pair with a gap in the middle, and the gap is where the small words live. Pas goes in it, bien and déjà go in it, and the thing you ate does not. Ne in front of avoir, pas straight after it, and the past form outside both. The gap is one word wide and nothing longer goes in it."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-sound",
+              "title": "Manger and mangé",
+              "layer": "deep",
+              "body": "Manger and mangé are one sound. There is no listening exercise anywhere that can tell you which one you heard, and anybody who says otherwise is selling you something. What you listen for is the little word in front. Je vais manger and j'ai mangé end on exactly the same sound. Vais against ai is the whole difference between something that has not happened and something that is over, and both of them are one short unstressed syllable."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-noagree",
+              "title": "It never agrees with anybody",
+              "layer": "deep",
+              "body": "After avoir the past form is one shape and it stays that shape, in every person and every gender. A short list of verbs uses être instead of avoir for the first word, and their past form does change to match the person. That is a2.21, and it is the opposite of this rule. Learn this one cleanly first."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-coming",
+              "title": "What is still coming",
+              "layer": "deep",
+              "body": "Some verbs have a past form you could not have guessed from the naming form, and there are about forty of them. They are the next lesson, a2.20, and not one of them is in this one. And the one case where a past form does agree with avoir needs the little words that replace an object, which is a2.06."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.sons.verbes-essentiels.002",
+          "fr.sons.muettes.037",
+          "fr.a2.verbes.541",
+          "fr.a2.verbes.542",
+          "fr.a2.verbes.543",
+          "fr.a2.verbes.544",
+          "fr.a2.verbes.545",
+          "fr.a2.verbes.546",
+          "fr.a2.verbes.570",
+          "fr.a2.verbes.571",
+          "fr.a2.verbes.572"
+        ],
+        [
+          "fr.sons.masterclass.021",
+          "fr.a2.verbes.547",
+          "fr.a2.verbes.548",
+          "fr.a2.verbes.549",
+          "fr.a2.verbes.550",
+          "fr.a2.verbes.551"
+        ],
+        [
+          "fr.sons.verbes-essentiels.015",
+          "fr.sons.verbes-essentiels.037",
+          "fr.a2.verbes.027",
+          "fr.a2.verbes.020",
+          "fr.sons.verbes-essentiels.038",
+          "fr.a2.verbes.031",
+          "fr.a2.verbes.552",
+          "fr.a2.verbes.553",
+          "fr.a2.verbes.554",
+          "fr.a2.verbes.555",
+          "fr.a2.verbes.556",
+          "fr.a2.verbes.557",
+          "fr.a2.verbes.568",
+          "fr.a2.verbes.569"
+        ],
+        [
+          "fr.a2.verbes.527",
+          "fr.sons.voyelles.445",
+          "fr.a2.verbes.566",
+          "fr.a2.verbes.567"
+        ],
+        [
+          "fr.sons.mots-essentiels.045",
+          "fr.sons.mots-essentiels.053",
+          "fr.sons.jours-et-mois.025",
+          "fr.sons.jours-et-mois.027",
+          "fr.sons.alphabet.402",
+          "fr.sons.voyelles.355",
+          "fr.a2.prepositions-essentielles.174",
+          "fr.a2.prepositions-essentielles.186",
+          "fr.a2.verbes.558",
+          "fr.a2.verbes.559",
+          "fr.a2.verbes.560",
+          "fr.a2.verbes.561",
+          "fr.a2.verbes.562",
+          "fr.a2.verbes.563",
+          "fr.a2.verbes.564",
+          "fr.a2.verbes.565"
+        ],
+        [
+          "fr.a2.verbes.573",
+          "fr.a2.verbes.574",
+          "fr.a2.verbes.575",
+          "fr.a2.verbes.576",
+          "fr.a2.negation-et-restriction.113",
+          "fr.a2.negation-et-restriction.114",
+          "fr.a2.negation-et-restriction.117",
+          "fr.a2.negation-et-restriction.142"
+        ],
+        []
+      ],
+      "terms": {
+        "twoWords": {
+          "term": "two words",
+          "title": "The verb is two words now",
+          "body": "Every verb you have met so far has been one word: je parle, il finit, nous vendons. From here on the past is TWO: a form of avoir for whoever you are talking about, and then the past form of the verb that carries the meaning. a1.07 already gave you all six forms of avoir, so there is nothing new to learn about the first word. Everything that is hard about this tense comes from the fact that there are two of them and there is a gap in between.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.541",
+              "note": "Avoir for je, then the past form. Two words and a finished evening."
+            },
+            {
+              "itemId": "fr.a2.verbes.546",
+              "note": "Avoir moved for ils. The second word did not."
+            }
+          ]
+        },
+        "pastForm": {
+          "term": "past form",
+          "title": "The second word, and where it comes from",
+          "body": "The second word is built off the naming form and the group decides how. An -ER verb ends in -é, an -IR verb ends in -i, an -RE verb loses its ending and takes -u. That is the whole regular system and it is the same three groups a2.01, a2.10 and a2.11 taught you. It never changes for the person: the same five letters sit in all six rows of the table.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.552",
+              "note": "-ER, so -é. a2.01's own verb."
+            },
+            {
+              "itemId": "fr.a2.verbes.553",
+              "note": "-IR, so -i. a2.10's own verb, one tense later."
+            }
+          ]
+        },
+        "inBetween": {
+          "term": "in between",
+          "title": "The gap, and what lives in it",
+          "body": "The two words are a pair with a gap in the middle, and the gap is where the small words live. Pas goes in it, bien and déjà go in it, and the thing you ate does not. Ne in front of avoir, pas straight after it, and the past form outside both. The gap is one word wide and nothing longer goes in it. A short adverb goes there too: bien, mal, déjà, beaucoup, encore. What does NOT go there is the thing the sentence is about. « J'ai mangé une pomme », never « j'ai une pomme mangé », because the gap is one word wide and an object is not a small word.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.547",
+              "note": "Pas in the gap, and mangé outside it."
+            },
+            {
+              "itemId": "fr.a2.verbes.568",
+              "note": "And the apple, which stays outside because it is not a small word."
+            }
+          ]
+        },
+        "whichVerb": {
+          "term": "which verb",
+          "title": "The one that moved for you",
+          "body": "Wrap the verb that changed, not the one carrying the meaning. That is a2.19's line, from one lesson ago, and it was about « je ne vais pas partir ». It is exactly as true here: avoir is the word that changed when you picked the person, so both halves go round avoir, and the past form is left where it is. Nothing about this rule is new. What is new is that the word it aims at is now the FIRST of two rather than the only one there is.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.541",
+              "note": "Avoir moved for je. Mangé did not."
+            },
+            {
+              "itemId": "fr.sons.masterclass.021",
+              "note": "So both halves went round avoir. This card was in the app years before this lesson."
+            }
+          ]
+        },
+        "oneSound": {
+          "term": "one sound",
+          "title": "Manger and mangé",
+          "body": "Manger and mangé are one sound. There is no listening exercise anywhere that can tell you which one you heard, and anybody who says otherwise is selling you something. What you listen for is the little word in front. Manger and mangé are /mɑ̃.ʒe/, parler and parlé are /paʁ.le/, travailler and travaillé are /tʁa.va.je/. The difference is real and it is entirely on paper, which is why this lesson has a dictée and why the ear questions in it are about the little word in front instead.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.566",
+              "note": "a2.19's construction. The last word is the naming form."
+            },
+            {
+              "itemId": "fr.a2.verbes.541",
+              "note": "This lesson. The last word is the past form, and it is the same sound."
+            }
+          ]
+        },
+        "noAgree": {
+          "term": "no agreement",
+          "title": "It does not change for anybody",
+          "body": "After avoir the past form is one shape and it stays that shape. Not mangée for a woman, not mangés for a group, not mangées for a group of women. Elle a mangé, ils ont mangé, elles ont mangé. This is worth saying plainly because a2.21, two lessons from here, says the opposite for a short list of verbs that use être instead, and the contrast only works if you have this side of it cleanly first. There is one case where a past form does agree with avoir and it needs object pronouns, which is a2.06, five lessons after this one.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.569",
+              "note": "A feminine subject, a feminine object, and not a letter has moved."
+            },
+            {
+              "itemId": "fr.a2.verbes.561",
+              "note": "And elle again, with something in the gap. Répondu is still répondu."
+            }
+          ]
+        },
+        "whenWord": {
+          "term": "when",
+          "title": "Say when, and it settles",
+          "body": "French does not need the time word to tell you the thing is over. You do, for a while, because English keeps two different pasts and French is handing you one. Put a time on it until you stop needing to. English keeps two pasts apart, \"I ate\" and \"I have eaten\", and French runs both of them through this one form, so for a while your ear will want a signal that French is not sending. Hier, avant-hier, la semaine dernière, il y a trois jours. a2.18 gave you « il y a » for a length of time behind you and could not finish the job, because saying how long ago something happened needs this tense.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.562",
+              "note": "Yesterday, and there is nothing left to work out."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.174",
+              "note": "a2.18's own card, and it already holds this tense."
+            }
+          ]
+        },
+        "endings": {
+          "term": "endings",
+          "title": "Three groups, three endings",
+          "body": "-ER goes to -é, -IR goes to -i, -RE goes to -u. Three groups you have had since a2.01, and the past form runs one ending per group with no exceptions inside the regular set. Give it a verb you have never met and you can still build it: if it ends in -er the past form ends in -é, and that is the whole of the decision.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.554",
+              "note": "-RE, so -u. a2.11's own verb, and the group where the ending is furthest from the naming form."
+            },
+            {
+              "itemId": "fr.a2.verbes.555",
+              "note": "-IR, so -i, on a verb the endings grid does not use."
+            }
+          ]
+        },
+        "laterOn": {
+          "term": "later on",
+          "title": "What is still coming",
+          "body": "Two things are deliberately not in this lesson. About forty verbs have a past form you could not have guessed, and they are a2.20, which is next. A short list of verbs uses être rather than avoir for the first word, and their past form does change to match the person, and that is a2.21. Neither of them changes anything you have learned here: the shape stays two words with a gap in it. You will need all of this again at a2.31, where the whole conversation is about what you studied and how it went.",
+          "examples": [
+            {
+              "itemId": "fr.a2.verbes.543",
+              "note": "The shape. It survives both of the next two lessons unchanged."
+            },
+            {
+              "itemId": "fr.a2.verbes.551",
+              "note": "And the gap, which survives them too."
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-05-six",
+            "desc": "THE SIX PERSONS, ONE TAKE, ONE VOICE, IN THE ORDER THE SHEET PRINTS THEM AND AT AN EVEN PACE: « J'ai mangé. » « Tu as mangé. » « Il a mangé. » « Nous avons mangé. » « Vous avez mangé. » « Ils ont mangé. » THE LAST WORD OF ALL SIX MUST BE IDENTICAL. `mangé` is the constant and the entire claim of the screen is that it does not move, so a reader who lengthens it in the plural is teaching the opposite of what the table says. THE LIAISONS IN nous avons AND vous avez ARE OBLIGATORY: /nu.za.vɔ̃/ and /vu.za.ve/, one word each, and so is the one in ils ont, /il.zɔ̃/. KEEP THE NASALS CLOSED: avons is /a.vɔ̃/ and ont is /ɔ̃/, with no n sound behind either vowel.",
+            "clipIds": [
+              "J'ai mangé.",
+              "Tu as mangé.",
+              "Il a mangé.",
+              "Nous avons mangé.",
+              "Vous avez mangé.",
+              "Ils ont mangé."
+            ]
+          },
+          {
+            "id": "rec-a2-05-pair",
+            "desc": "THE AFFIRMATIVE AND THE NEGATIVE, ADJACENT, ONE TAKE, THREE PAIRS, AND THE BRIEF NAMES THIS TAKE SPECIFICALLY: « J'ai mangé. » then « Je n'ai pas mangé. », « Il a mangé. » then « Il n'a pas mangé. », « Ils ont mangé. » then « Ils n'ont pas mangé. » RECORDED APART, THE LEARNER COMPARES TWO PERFORMANCES INSTEAD OF TWO SMALL WORDS AND THE ENTIRE TEACHING IS LOST. THE `ai` IS SWALLOWED IN THE NEGATIVE AND MUST STAY SWALLOWED. « je n'ai pas » is /ʒə ne pa/ at ordinary speed and the learner is being asked to catch the n' and the pas around something they can barely hear. Do not lean on « pas » and do not pause before it: it is an ordinary unstressed word sitting in a gap. NOTHING MAY BE STRESSED IN THE NEGATIVE THAT IS NOT STRESSED IN THE AFFIRMATIVE.",
+            "clipIds": [
+              "J'ai mangé.",
+              "Je n'ai pas mangé.",
+              "Il a mangé.",
+              "Il n'a pas mangé.",
+              "Ils ont mangé.",
+              "Ils n'ont pas mangé."
+            ]
+          },
+          {
+            "id": "rec-a2-05-tense",
+            "desc": "THE FUTUR PROCHE AGAINST THE PASSÉ COMPOSÉ, ONE TAKE, ONE VOICE, RECORDED ADJACENTLY, AND THE BRIEF NAMES THIS TAKE SPECIFICALLY. Four lines in this order: « Je vais manger. » « J'ai mangé. » « Je vais manger avec des amis. » « J'ai mangé avec des amis. » APART, THE LEARNER COMPARES TWO PERFORMANCES INSTEAD OF TWO AUXILIARIES. THE LAST WORD OF ALL FOUR IS THE SAME SOUND AND MUST BE THE SAME SOUND. /mɑ̃.ʒe/ every time, with no lengthening, no extra breath and no difference of any kind between the naming form and the past form. A reader who distinguishes them is teaching something that is not true and the whole lesson rests on it not being true. THE DIFFERENCE IS ENTIRELY IN /vɛ/ AGAINST /ʒe/, and both are one short unstressed syllable. Do not lift either of them: the learner has to learn to catch an unstressed syllable, and a take that stresses it teaches them to listen for something that will not be there in the wild.",
+            "clipIds": [
+              "Je vais manger.",
+              "J'ai mangé.",
+              "Je vais manger avec des amis.",
+              "J'ai mangé avec des amis."
+            ]
+          },
+          {
+            "id": "rec-a2-05-where",
+            "desc": "THE AUDIO STEP OF THE GAP TRAP, AND IT IS A WRONG-THEN-RIGHT TAKE. Four lines, one take, in this order: « Je n'ai mangé pas. » then « Je n'ai pas mangé. », then « J'ai mangé bien. » then « J'ai bien mangé. » READ THE WRONG ONES PLAINLY AND AT ORDINARY PACE rather than comically or hesitantly. They are perfectly pronounceable and they are what a fluent English speaker produces on their first attempt; a reading that signals the error teaches that the error is audible. IT IS NOT AUDIBLE. Both wrong lines hold exactly the same words as the right one beside them, in a different order. DO NOT PAUSE AT THE SEAM. A break before « pas » or before « bien » in the wrong lines would mark them, and the learner would learn to listen for a pause that is not there.",
+            "clipIds": [
+              "Je n'ai mangé pas.",
+              "Je n'ai pas mangé.",
+              "J'ai mangé bien.",
+              "J'ai bien mangé."
+            ]
+          },
+          {
+            "id": "rec-a2-05-endings",
+            "desc": "THE THREE GROUPS, ONE TAKE, AS THREE PAIRS: « parler » then « J'ai parlé. », « finir » then « Il a fini. », « vendre » then « Il a vendu. » THE FIRST PAIR IS THE ONE THAT MATTERS AND IT IS THE EASIEST ONE TO FAKE: « parler » and « parlé » ARE THE SAME SOUND and the take has to prove it rather than hide it. Read them identically. Any difference at all between the two teaches the learner that there is one, and the entire dictée in this lesson exists because there is not. THE OTHER TWO PAIRS DO DIFFER, and audibly: /fi.niʁ/ against /fi.ni/, /vɑ̃dʁ/ against /vɑ̃.dy/. Let them. The contrast between a pair you can hear and a pair you cannot is the point of putting all three in one take.",
+            "clipIds": [
+              "parler",
+              "J'ai parlé.",
+              "finir",
+              "Il a fini.",
+              "vendre",
+              "Il a vendu."
+            ]
+          },
+          {
+            "id": "rec-a2-05-scene",
+            "desc": "THE KETTLE ON A MONDAY. She is waiting for it too and has decided to be friendly about it; the question is small talk rather than an enquiry. THE LEARNER'S OWN LINE IS THE TAKE THAT HAS TO BE RIGHT: « Hier soir, j'ai... j'ai... » is somebody who has committed to a tense out loud and cannot produce the word that finishes it. The repeat is not a stammer and it is not embarrassment: it is somebody holding a sentence open while they look for something. Leave a real gap after the second « j'ai » and let it be uncomfortable. HER LAST LINE IS THE EXPENSIVE ONE. « Ah, ce soir alors ! » is cheerful and completely unremarkable: she has heard a correct sentence and believed it. Any hint of doubt, checking or kindness-about-a-mistake turns the scene into a correction and loses the whole point, which is that nothing visibly went wrong.",
+            "clipIds": [
+              "Et hier soir, alors ?",
+              "Hier soir, j'ai... j'ai...",
+              "J'ai mangé avec des amis.",
+              "Je mange avec des amis.",
+              "Ah, ce soir alors."
+            ]
+          },
+          {
+            "id": "rec-a2-05-dictee",
+            "desc": "THE DICTÉE LINES, ONE TAKE EACH, CLEAN AND UNHURRIED, WITH NO CONTRAST INTENT AT ALL. This is the opposite instruction to rec-a2-05-pair and rec-a2-05-tense: here the learner is spelling rather than comparing, and a paired reading would hand them the answer. Read each line as though it were the only line. THE FOUR NEGATIVES ARE THE ONES THAT MATTER. The learner has to hear the n' and the pas as two separate small words between the subject and the second word, and « n'ai » and « n'ont » are very short. Do not run « je n'ai » together into one syllable and do not run « pas mangé » together either. SAY IT THE WAY SOMEBODY WOULD SAY IT, at the pace of somebody dictating a phone number to a friend.",
+            "clipIds": [
+              "J'ai mangé.",
+              "Il a mangé.",
+              "Ils ont mangé.",
+              "Je n'ai pas mangé.",
+              "Ils n'ont pas mangé.",
+              "J'ai parlé.",
+              "Il a fini.",
+              "Il a vendu.",
+              "J'ai bien mangé.",
+              "Il n'a pas mangé."
+            ]
+          },
+          {
+            "id": "rec-a2-05-talk",
+            "desc": "THE CONVERSATION, HER LINES ONLY, ONE TAKE, AS ONE CONTINUOUS EXCHANGE RATHER THAN AS SIX SEPARATE PROMPTS. She is the same colleague, later in the week, with more time. EVERY QUESTION IS ASKED WITHOUT INVERSION and should sound completely ordinary: « Tu as travaillé samedi ? » is a statement with a question mark on it, which is what people say, and reading it as a careful sentence would make it sound like a lesson. NEITHER « as » NOR « a » MAY BE STRESSED anywhere in the take. They are the words carrying the tense and the learner has to get used to catching them unstressed, because that is the only way they will ever hear them.",
+            "clipIds": [
+              "Et toi, tu as travaillé samedi ?",
+              "Et hier soir, alors ?",
+              "Vous avez fini le rapport ?",
+              "Et Camille, elle a répondu à ton message ?",
+              "Tu as parlé avant-hier ?",
+              "On mange ensemble ce soir, alors ?"
+            ]
+          }
+        ],
+        "ambienceDefault": "off"
+      }
     }
   ],
   "items": [
@@ -182069,7 +185082,7 @@
       "fr": "avant-hier",
       "en": "the day before yesterday",
       "ipa": "/a.vɑ̃.tjɛʁ/",
-      "respell": "ah-vahn-TYEHR",
+      "respell": "ah-vahⁿ-TYEHR",
       "notes": "Literally 'before yesterday'. The t links into hier: 'ah-vahn-tyair'.",
       "tags": [
         "jours-et-mois",
@@ -317713,6 +320726,8 @@
       "respell": "ZHAY MAL ahⁿ-tahⁿ-DÜ LA deu-ZYEHM LEHTR",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -324468,6 +327483,8 @@
       "respell": "SOHⁿ STEEL day-kree-TÜR A boh-KOO shahⁿ-ZHAY SEHT a-NAY",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -326001,6 +329018,8 @@
       "respell": "ZHAY leh-SAY MOHⁿ tay-lay-FON SOO LUH ka-na-PAY",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -346367,11 +349386,11 @@
         "no-liaison"
       ],
       "drills": [
-        "sentence",
-        "review",
         "flashcard",
         "voiceflash",
-        "dictation"
+        "dictation",
+        "sentence",
+        "review"
       ],
       "audioRef": null,
       "version": 1
@@ -359070,9 +362089,9 @@
         "futur-proche"
       ],
       "drills": [
-        "sentence",
         "flashcard",
         "voiceflash",
+        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -359498,6 +362517,965 @@
         "review"
       ],
       "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.negation-et-restriction.113",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "negation-et-restriction",
+      "fr": "Elle n'a pas répondu à mon message.",
+      "en": "She didn't reply to my message.",
+      "ipa": "/ɛl na pa ʁe.pɔ̃.dy a mɔ̃ me.saʒ/",
+      "notes": "Répondu à uses the preposition à, easily confused with the verb form a in this same sentence.",
+      "tags": [
+        "homophone"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "respell": "ehl na pa ray-pohⁿ-DÜ a mohⁿ meh-SAHZH"
+    },
+    {
+      "id": "fr.a2.negation-et-restriction.114",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "negation-et-restriction",
+      "fr": "Nous n'avons pas visité le musée samedi.",
+      "en": "We didn't visit the museum on Saturday.",
+      "ipa": "/nu na.vɔ̃ pa vi.zi.te lə my.ze sam.di/",
+      "notes": "The negation wraps around avons, not around visité, so pas comes before the past participle.",
+      "tags": [
+        "orthographe"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "respell": "noo na-vohⁿ pa vee-zee-TAY luh mü-ZAY sam-DEE"
+    },
+    {
+      "id": "fr.a2.negation-et-restriction.117",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "negation-et-restriction",
+      "fr": "Ils n'ont pas payé la facture ce mois-ci.",
+      "en": "They didn't pay the bill this month.",
+      "ipa": "/il nɔ̃ pa pe.je la fak.tyʁ sə mwa.si/",
+      "notes": "Ont sounds exactly like on, so context alone tells you which spelling to use here.",
+      "tags": [
+        "homophone"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "respell": "eel nohⁿ pa pay-YAY lah fak-TÜR suh mwah-SEE"
+    },
+    {
+      "id": "fr.a2.negation-et-restriction.142",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "negation-et-restriction",
+      "fr": "Il n'a pas travaillé la semaine dernière.",
+      "en": "He didn't work last week.",
+      "ipa": "/il na pa tʁa.va.je la sə.mɛn dɛʁ.njɛʁ/",
+      "notes": "Travaillé ends in a silent é sound spelled with the participle ending rather than an accented e alone.",
+      "tags": [
+        "e-muet"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "respell": "eel na pa trah-vah-YAY lah suh-MEN dehr-NYEHR"
+    },
+    {
+      "id": "fr.sons.mots-essentiels.053",
+      "kind": "word",
+      "level": "sons",
+      "theme": "mots-essentiels",
+      "fr": "déjà",
+      "en": "already",
+      "ipa": "/deʒa/",
+      "respell": "day-ZHAH",
+      "notes": "Sounds like 'day-zha', as in déjà vu.",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.verbes-essentiels.002",
+      "kind": "word",
+      "level": "sons",
+      "theme": "verbes-essentiels",
+      "fr": "avoir",
+      "en": "to have",
+      "ipa": "/avwaʁ/",
+      "respell": "ah-VWAR",
+      "notes": "irregular · j'ai, tu as, il a, nous avons",
+      "tags": [
+        "irregular"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a2.verbes.541",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "J'ai mangé.",
+      "en": "I ate. / I have eaten.",
+      "ipa": "/ʒe mɑ̃.ʒe/",
+      "respell": "zhay mahⁿ-ZHAY",
+      "notes": "The frame, and eight letters, so the dictée can take it. One English form covers both of these and French has one form for both, which is the piece of luck in this lesson.",
+      "tags": [
+        "verbes",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.542",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu as mangé.",
+      "en": "You ate.",
+      "ipa": "/ty a mɑ̃.ʒe/",
+      "respell": "tü ah mahⁿ-ZHAY",
+      "notes": "The person moved and the past form did not. Nine letters.",
+      "tags": [
+        "verbes",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.543",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il a mangé.",
+      "en": "He ate.",
+      "ipa": "/il a mɑ̃.ʒe/",
+      "respell": "eel ah mahⁿ-ZHAY",
+      "notes": "Eight letters, and its negative is the one card the corpus already had. See fr.sons.masterclass.021.",
+      "tags": [
+        "verbes",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.544",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous avons mangé.",
+      "en": "We ate.",
+      "ipa": "/nu.za.vɔ̃ mɑ̃.ʒe/",
+      "respell": "noo za-vohⁿ mahⁿ-ZHAY",
+      "notes": "Fourteen letters. The liaison pulls a z across into avons and the nasal survives it.",
+      "tags": [
+        "verbes",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.545",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous avez mangé.",
+      "en": "You ate. (to more than one person, or politely)",
+      "ipa": "/vu.za.ve mɑ̃.ʒe/",
+      "respell": "voo za-vay mahⁿ-ZHAY",
+      "notes": "The same liaison. Thirteen letters.",
+      "tags": [
+        "verbes",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.546",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils ont mangé.",
+      "en": "They ate.",
+      "ipa": "/il.zɔ̃ mɑ̃.ʒe/",
+      "respell": "eel zohⁿ mahⁿ-ZHAY",
+      "notes": "Eleven letters, and the liaison again. Six persons and the second word has not moved once.",
+      "tags": [
+        "verbes",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.547",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je n'ai pas mangé.",
+      "en": "I did not eat.",
+      "ipa": "/ʒə ne pa mɑ̃.ʒe/",
+      "respell": "zhuh nay pa mahⁿ-ZHAY",
+      "notes": "THIRTEEN LETTERS, so the dictée takes it. a2.19 could not test je at all: « Je ne vais pas partir. » is seventeen. Ne shortens to n' in front of avoir and that is the whole difference.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.548",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu n'as pas mangé.",
+      "en": "You did not eat.",
+      "ipa": "/ty na pa mɑ̃.ʒe/",
+      "respell": "tü na pa mahⁿ-ZHAY",
+      "notes": "Thirteen letters. The ne has shortened again, and it does that in front of every single form of avoir.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.549",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous n'avons pas mangé.",
+      "en": "We did not eat.",
+      "ipa": "/nu na.vɔ̃ pa mɑ̃.ʒe/",
+      "respell": "noo na-vohⁿ pa mahⁿ-ZHAY",
+      "notes": "EIGHTEEN LETTERS, so dicteeMode puts it in WORD mode and it carries no dictation drill. The liaison z is gone with the ne: noo na, not noo za.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.550",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous n'avez pas mangé.",
+      "en": "You did not eat. (to more than one person, or politely)",
+      "ipa": "/vu na.ve pa mɑ̃.ʒe/",
+      "respell": "voo na-vay pa mahⁿ-ZHAY",
+      "notes": "Seventeen letters, one over. The same lost liaison.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.551",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils n'ont pas mangé.",
+      "en": "They did not eat.",
+      "ipa": "/il nɔ̃ pa mɑ̃.ʒe/",
+      "respell": "eel nohⁿ pa mahⁿ-ZHAY",
+      "notes": "Fifteen letters. Six persons, one gap, and the past form has stayed outside it every time.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.552",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "J'ai parlé.",
+      "en": "I spoke.",
+      "ipa": "/ʒe paʁ.le/",
+      "respell": "zhay par-LAY",
+      "notes": "The -ER group, and a2.01's own headline verb. An -ER naming form ends in -er and its past form ends in -é, and those are the same sound.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "er"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.553",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il a fini.",
+      "en": "He finished.",
+      "ipa": "/il a fi.ni/",
+      "respell": "eel ah fee-NEE",
+      "notes": "The -IR group, and a2.10's own frame verb. « Il a fini. » beside that lesson's « Il finit tôt. » is one verb in two tenses with the same three letters in front.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "ir"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.554",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il a vendu.",
+      "en": "He sold.",
+      "ipa": "/il a vɑ̃.dy/",
+      "respell": "eel ah vahⁿ-DÜ",
+      "notes": "The -RE group, and a2.11's own frame verb. The naming form loses its -re and takes -u, and this is the only one of the three where the ending is not already on the naming form somewhere.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "re"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.555",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous avons choisi.",
+      "en": "We chose.",
+      "ipa": "/nu.za.vɔ̃ ʃwa.zi/",
+      "respell": "noo za-vohⁿ shwah-ZEE",
+      "notes": "A second -IR verb, in another person, so the ending is clearly the group and not the verb.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "ir"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.556",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ils ont répondu.",
+      "en": "They answered.",
+      "ipa": "/il.zɔ̃ ʁe.pɔ̃.dy/",
+      "respell": "eel zohⁿ ray-pohⁿ-DÜ",
+      "notes": "A second -RE verb. Répondre goes to répondu exactly as vendre goes to vendu, and nothing about the person touches it.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "re"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.557",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu as travaillé.",
+      "en": "You worked.",
+      "ipa": "/ty a tʁa.va.je/",
+      "respell": "tü ah trah-vah-YAY",
+      "notes": "A four-syllable -ER verb, and the ending does not care how long the verb is.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "er"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.558",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "J'ai bien mangé.",
+      "en": "I ate well.",
+      "ipa": "/ʒe bjɛ̃ mɑ̃.ʒe/",
+      "respell": "zhay byehⁿ mahⁿ-ZHAY",
+      "notes": "The gap again, with something other than pas in it. a2.17 put the short ones straight after the verb; there are two words now and the gap is where \"straight after\" has gone.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "adverbe"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.559",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il a déjà fini.",
+      "en": "He has already finished.",
+      "ipa": "/il a de.ʒa fi.ni/",
+      "respell": "eel ah day-ZHAH fee-NEE",
+      "notes": "Déjà in the gap, on an -IR verb. Twelve letters, so the dictée can ask for it.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "adverbe"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.560",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Nous avons beaucoup travaillé.",
+      "en": "We worked a lot.",
+      "ipa": "/nu.za.vɔ̃ bo.ku tʁa.va.je/",
+      "respell": "noo za-vohⁿ boh-KOO trah-vah-YAY",
+      "notes": "A three-syllable adverb, still in the gap. Twenty-six letters, so no dictée.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "adverbe"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.561",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle a bien répondu.",
+      "en": "She answered well.",
+      "ipa": "/ɛl a bjɛ̃ ʁe.pɔ̃.dy/",
+      "respell": "ehl ah byehⁿ ray-pohⁿ-DÜ",
+      "notes": "And the same word in the same place on an -RE verb. Sixteen letters, exactly at the limit.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "adverbe"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.562",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "J'ai travaillé hier.",
+      "en": "I worked yesterday.",
+      "ipa": "/ʒe tʁa.va.je jɛʁ/",
+      "respell": "zhay trah-vah-YAY YEHR",
+      "notes": "Sixteen letters, exactly at the limit, with the commonest past time word in the language on the end.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "temps"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.563",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il a fini la semaine dernière.",
+      "en": "He finished last week.",
+      "ipa": "/il a fi.ni la sə.mɛn dɛʁ.njɛʁ/",
+      "respell": "eel ah fee-NEE lah suh-MEN dehr-NYEHR",
+      "notes": "The time phrase is read off fr.sons.jours-et-mois.036 exactly as that row spells it. Twenty-four letters, so no dictée.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "temps"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.564",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "On a mangé il y a une heure.",
+      "en": "We ate an hour ago.",
+      "ipa": "/ɔ̃ na mɑ̃.ʒe il i a yn œʁ/",
+      "respell": "ohⁿ na mahⁿ-ZHAY eel ee ah ün UHR",
+      "notes": "The loop a2.18 asked for. On rather than nous, which is a2.01's rule for the whole level.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "temps"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.565",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Tu as parlé avant-hier ?",
+      "en": "Did you speak the day before yesterday?",
+      "ipa": "/ty a paʁ.le a.vɑ̃.tjɛʁ/",
+      "respell": "tü ah par-LAY ah-vahⁿ-TYEHR",
+      "notes": "A question with no inversion and no est-ce que, which is a1.19's register point and the way it is actually said. The time word carries the repair this build makes.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "temps"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.566",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Je vais manger.",
+      "en": "I am going to eat.",
+      "ipa": "/ʒə vɛ mɑ̃.ʒe/",
+      "respell": "zhuh veh mahⁿ-ZHAY",
+      "notes": "a2.19's construction, in the frame verb, so the pair with row 541 differs by one syllable and by nothing else. Twelve letters.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.567",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Il va manger.",
+      "en": "He is going to eat.",
+      "ipa": "/il va mɑ̃.ʒe/",
+      "respell": "eel va mahⁿ-ZHAY",
+      "notes": "And the same pair with il in front, where the two little words are va and a and neither of them is stressed. Ten letters.",
+      "tags": [
+        "verbes",
+        "futur-proche"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.568",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "J'ai mangé une pomme.",
+      "en": "I ate an apple.",
+      "ipa": "/ʒe mɑ̃.ʒe yn pɔm/",
+      "respell": "zhay mahⁿ-ZHAY ün POM",
+      "notes": "THE OBJECT DOES NOT GO IN THE GAP. It goes after the past form, like everything that is not a small word, and this is the row that makes the rule true rather than nearly true.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "accord"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.569",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Elle a mangé une pomme.",
+      "en": "She ate an apple.",
+      "ipa": "/ɛl a mɑ̃.ʒe yn pɔm/",
+      "respell": "ehl ah mahⁿ-ZHAY ün POM",
+      "notes": "A feminine subject, a feminine object, and mangé has not moved a letter. With avoir there is no agreement here at all.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "accord"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.570",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Et hier soir, alors ?",
+      "en": "And last night, then?",
+      "ipa": "/e jɛʁ swaʁ a.lɔʁ/",
+      "respell": "ay yehr SWAR ah-LOR",
+      "notes": "Her question, and it has no verb in it at all, which is why he cannot copy a form out of it.",
+      "tags": [
+        "verbes",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.571",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "J'ai mangé avec des amis.",
+      "en": "I ate with friends.",
+      "ipa": "/ʒe mɑ̃.ʒe a.vɛk de.za.mi/",
+      "respell": "zhay mahⁿ-ZHAY ah-VEK day-za-MEE",
+      "notes": "What he meant, in full. a2.19 published « Je vais manger avec des amis. » and this is the same evening in the other direction.",
+      "tags": [
+        "verbes",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.572",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Ah, ce soir alors.",
+      "en": "Ah, tonight then!",
+      "ipa": "/a sə swaʁ a.lɔʁ/",
+      "respell": "ah suh SWAR ah-LOR",
+      "notes": "She has moved his evening to tonight, cheerfully, because the tense told her to. Nobody corrected anything and he is now expected. THE FINAL PUNCTUATION IS A FULL STOP AND NOT « ! »: see SCENE_BUBBLE_CLIP.",
+      "tags": [
+        "verbes",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.573",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Et toi, tu as travaillé samedi ?",
+      "en": "And you, did you work on Saturday?",
+      "ipa": "/e twa ty a tʁa.va.je sam.di/",
+      "respell": "ay TWAH · tü ah trah-vah-YAY sam-DEE",
+      "notes": "A question in the past with no inversion, which is how it is asked.",
+      "tags": [
+        "verbes",
+        "passe-compose"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.574",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Non, je n'ai pas travaillé.",
+      "en": "No, I did not work.",
+      "ipa": "/nɔ̃ ʒə ne pa tʁa.va.je/",
+      "respell": "nohⁿ · zhuh nay pa trah-vah-YAY",
+      "notes": "The refusal, in full, and the gap is doing its job in the first answer of the conversation.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.575",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Vous avez fini le rapport ?",
+      "en": "Have you finished the report?",
+      "ipa": "/vu.za.ve fi.ni lə ʁa.pɔʁ/",
+      "respell": "voo za-vay fee-NEE luh ra-POR",
+      "notes": "An -IR verb in the vous form, and the report is a2.19's: it published « Elle ne va pas finir le rapport ce soir. » and this is the morning after.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "ir"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.verbes.576",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "verbes",
+      "fr": "Non, nous n'avons pas fini.",
+      "en": "No, we have not finished.",
+      "ipa": "/nɔ̃ nu na.vɔ̃ pa fi.ni/",
+      "respell": "nohⁿ · noo na-vohⁿ pa fee-NEE",
+      "notes": "The nous negative, where the ne shortens and takes the liaison with it. Twenty letters, so it is not a dictée target.",
+      "tags": [
+        "verbes",
+        "passe-compose",
+        "negatif"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
       "version": 1
     }
   ],

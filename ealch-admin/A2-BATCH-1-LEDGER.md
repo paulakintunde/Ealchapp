@@ -2691,3 +2691,352 @@ seed above the last published snapshot.
   verbs.
 - **a2.17's compound-tense deferral is still open** and a2.05 is still told to
   close it by naming a2.17.
+
+---
+
+## a2.05 amendments, 2026-08-14
+
+Written by the `a2.05` build, which is **seq 16 and the fifth lesson of BATCH
+2**. Recorded here rather than in a batch-2 ledger for the same reason a2.04's
+and a2.18's are, and because the first section below is a LEVEL-WIDE DECISION
+that doctrine §E left open and that `a2.20`, `a2.21` and `a2.23` all inherit.
+
+Full report: `A2-05-BUILD-REPORT.md`.
+
+### 0. DOCTRINE §E IS SETTLED: A PAST PARTICIPLE IS NOT A CORPUS ITEM
+
+Doctrine §E lists it as undecided and says forty irregular participles are
+"either forty new rows or zero". The a2.05 brief claims sixty on top, and
+a2.20's brief warns that a hundred participle rows in one theme will collide on
+`fr` because the flashcard hub treats two rows sharing an `fr` in one theme as
+one card served twice.
+
+**DECIDED: ZERO ON BOTH SIDES, and it is not a compromise. It is the rule a2.01
+already set, applied to the form in front of us.** §5 of this file:
+
+> **Is a conjugated form ever a corpus item?** **No. Only infinitives and full
+> sentences.** A bare `parles` as a row would be served by the flashcard hub as
+> a card with no subject, which is the one thing this level teaches you not to
+> do.
+
+A past participle is a conjugated form. `mangé` on a card is `parles` on a card:
+a shape with nobody attached to it, unsayable alone, and colliding with the
+infinitive it is built from, because `parler` and `parlé` are one sound.
+
+**MEASURED 2026-08-14, and the corpus has been following the rule it never wrote
+down:**
+
+```
+regular past participles as bare rows (parlé, mangé, fini, vendu, ...)     0
+bare rows that LOOK like participles                                      24
+```
+
+and every one of the twenty-four is a word in its own right: `fermé` and
+`ouvert` are adjectives, `été` is the season, `réussi` is "successful", `vu` is
+the preposition in `vu que`. The only ones glossed AS participles are nine rows
+in `fr.sons.voyelles` that exist to demonstrate a vowel and carry **no
+respelling at all**, which is a2.13 §1 proving the point: a bare participle
+reaches a card the learner cannot say.
+
+**WHAT a2.20 INHERITS.** Its forty irregulars arrive as forty short SENTENCES in
+one frame rather than forty headwords. The `fr` collision cannot happen, because
+neither side authors a headword. What the two lessons did have to split is IDS,
+and that is done:
+
+```
+seq  id      block                          status
+16   a2.05   fr.a2.verbes.541 .. .590       TAKEN, 541-576 used, 577-590 free
+17   a2.20   fr.a2.verbes.591 .. .650       RESERVED, sixty wide, empty
+     403 rows before, 439 after
+```
+
+Sixty wide because a sentence set needs a frame, a negative and contrast rows on
+top of the forty. a2.19's `.530..540` is its unused tail and is not backfilled.
+
+**AND THE SIXTY RESTED ON A FIELD THAT DOES NOT EXIST.** The a2.05 brief says
+"the sub says sixty". The database `sub` is « Le passé composé avec avoir » and
+says nothing of the kind; the sixty comes from the `sub` the brief's own
+identity block carried, which corrections §1 had already measured as a string
+that exists nowhere. Corrections §1 is worth more than it looks: it does not
+only swap two fields, it can delete a design question.
+
+### 1. a2.19's MANIFEST REGEX CANNOT SEE AN ELIDED NEGATIVE, AND MINE WOULD NOT HAVE EITHER
+
+a2.19's generator writes `(ne|n'')` in its measurement patterns and passes them
+to Postgres as a **parameter** rather than embedding them in a single-quoted SQL
+literal. `''` therefore survives as two apostrophes and the alternation can only
+ever match the UN-ELIDED `ne`. Nothing looked wrong there, because all thirteen
+of its rows are `ne vais pas`.
+
+**This lesson's negative is elided in every person, `n'ai`, `n'a`, `n'ont`, so
+the same shape measures ZERO.** Copied verbatim, it did. It was found on the
+first manifest run by an assertion that the `il` row of the paradigm must still
+be in the result set, and not by reading the regex.
+
+```
+(ne|n'')     as a parameter   13 rows   a2.19, all un-elided
+(ne |n'|n’)  as a parameter   90 rows   a2.05
+```
+
+**Any lesson in this band whose subject elides `ne` must not copy that pattern.**
+a2.21, a2.22 and a2.23 all do: `je ne me suis pas`, `il n'est pas`.
+
+### 2. THE DICTÉE GETS FOUR LETTERS BACK, AND a2.19's PREDICTION IS FALSE
+
+a2.19 §6 measured that `ne` and `pas` cost five letters, that only three of its
+eight negatives fit `dicteeMode`'s sixteen-letter LETTERS window, and that `je`,
+the person a learner most wants to produce, is one letter over. It closed with
+*"a2.05's auxiliary plus participle will be longer still; budget for the frame
+before the content."*
+
+**Measured through the real function, false, and by four letters:**
+
+```
+Je ne vais pas partir.   17   WORD mode      a2.19, seq 15
+Je n'ai pas mangé.       13   LETTERS        a2.05, seq 16
+
+affirmative fits    8 of 8 persons (a2.19: 8 of 8)
+negative fits       6 of 8 persons (a2.19: 3 of 8)
+```
+
+`ne` elides to `n'` in front of **every** form of avoir, and the elision takes a
+letter and a space with it. Only `nous` and `vous` go over. **The person a2.19
+could not test is the first one this lesson tests**, and the dictée runs the
+whole `je` pair.
+
+**And the elision costs something the pair check did not expect.** « J'ai
+mangé. » elides je + ai; « Je n'ai pas mangé. » does not, because the n' is
+between them. Every layer in this band checks the affirmative/negative pair by
+stripping `ne`, `n'` and `pas` and comparing what is left, which a2.19 could do
+in one line because its `ne` never touched the subject. Here it leaves « Je ai
+mangé. » and the check dies on a correct lesson. **The first word changes SHAPE
+as well as gaining two neighbours, and only in this person.** `reduceNegative()`
+puts the elision back; a2.21 and a2.23 will need it.
+
+### 3. THE HOUSE-COPY WALK DOES NOT READ `audio`, AND EVERY LESSON IN THIS BAND HAS THE HOLE
+
+**FOUND BY THE SEED-WIDE `sons-alphabet.test.ts` AFTER ALL THREE OF THIS BUILD'S
+LAYERS WERE GREEN**, which is corrections §9's shape in a new place: the jargon
+walk did not read `intro`, and this walk does not read `audio`.
+
+Every A2 batch, merge and test builds its house-copy string out of
+`sections + sheets + terms + intro + overview + acts + drills` and stops there.
+**`Lesson.audio.recorded[].desc` is authored prose that ships in the lesson
+body**, and this build put the banned word `honestly` in one of its takes. The
+em-dash, `honest`, AI-tell and U+203F checks all walked past it.
+
+The audio briefs get the HOUSE-COPY rules and **not** the jargon or error-shape
+ones: a studio brief is read by a recording engineer, so it may legitimately
+quote the wrong forms the take contains and may use the precise words.
+
+**And a second seed-wide contract nothing in this band mentions.**
+`gloss.logic.test.ts` requires every glossary entry to UNDERLINE something in
+its own passage. This build glossed « insister » and « le parapluie » where the
+passage holds « insisté » and « mon parapluie », so both pointed at nothing.
+Neither the batch, the merge nor the lesson's own test looks at that.
+
+Both went to **v2** rather than being corrected under v1.
+
+### 4. `kind` CANNOT SEE A BARE PARTICIPLE, AND THAT IS THE LEDGER DECISION'S OWN GUARD
+
+Found by mutation 8. Every corpus file in this band builds its rows through a
+helper that writes `kind: 'sentence'` unconditionally, so changing an authored
+`fr` from « J'ai parlé. » to « parlé » produces a row that is a headword in
+everything except the field the guard reads. The batch caught it only on the
+version check and the merge missed it entirely.
+
+**A row with no whitespace in its `fr` is a bare word whatever its `kind` says.**
+One line, and it is the assertion the whole §0 decision rests on.
+
+### 5. A PUBLISHED ROW THE NASAL CHECKER IS WRONG ABOUT, ON A ROW A LESSON DISPLAYS
+
+a2.04 §2 measured that `hasPlainNasal`'s first branch has no rescue path;
+a2.18 §2 sharpened the predictor to **a real /m/ or /n/ after a two-letter house
+vowel** and listed `même`, `comme`, `pomme`, `homme`, `femme` and `problème`.
+
+**`deuxième` is the seventh, and the first found on a row a lesson DISPLAYS
+rather than on one it authored.**
+
+```
+fr.sons.alphabet.402  « J'ai mal entendu la deuxième lettre. »
+ZHAY MAL ahⁿ-tahⁿ-DÜ LA deu-ZYEHM LEHTR        FLAGGED
+```
+
+/dø.zjɛm/ has no nasal vowel in it at all. Invariants §9: a false positive is
+not a violation and the row is **not** repaired. The blanket "every displayed
+respelling is clean" guard every lesson in this band runs would have cost this
+lesson the card that closes a2.17's loop. Exempted BY NAME, its token named, and
+the firing asserted in all three layers so a checker fix goes red.
+
+**And this build asserts the false-positive path in the POSITIVE for the first
+time in the band.** Six candidates from its own content do not fire and a
+CONTROL (`le problème` / `luh proh-BLEHM`) does. Six silent negatives prove
+nothing on their own the day the checker changes.
+
+**a2.14 §1's doubled-nasal blind spot was predicted here and does not bite.**
+This lesson authors « J'ai mangé une pomme. » and « Elle a mangé une pomme. »,
+which is the exact word a2.14 named as the next victim, and both are measured
+clear for the reason a2.14 gave itself: `hasPlainNasal`'s first branch catches
+the two-letter house spellings before the French is ever consulted, and `mahⁿ`
+is one of them. Asserted in both directions.
+
+**39 nasals seen, 0 missed.** Both repair tables are empty of blind entries and
+`RESPELL_REPAIRS_INVISIBLE.length === 0` is asserted, which is the second time
+in the band after a2.18.
+
+### 6. avoir IS NOT IN THE SEED CUT
+
+Corrections §10 and a2.11's finding in its sharpest form. Six of this build's
+twenty-three imports are absent from the seed at version 38, and one of them is
+**`fr.sons.verbes-essentiels.002`, `avoir`**, the headword the whole
+construction runs on, the first word of every sentence in the lesson, released
+by act 1's tranche. Without the carry the deck opens on a blank card.
+
+**And the row this build PREDICTED would be missing is not.**
+`fr.sons.masterclass.021` is in the cut. The prediction was made from the shape
+of the row rather than from a read, and the merge's surprise check caught it.
+**Predict nothing about the cut; measure it.**
+
+### 7. THE SECTION COUNT IS 26 AND THAT IS DELIBERATE
+
+Doctrine §F gives 19 to 24 and the brief repeats it and asks for an escalation if
+the lesson overruns. Ledger §a2.13-0 already measured that the 24-section shape
+came from a2.01, was copied six times, was never checked against a subject, and
+that there is no ceiling in `schema.ts`; a2.13 shipped 32 sections and 45
+questions.
+
+This lesson ships **26 sections, 7 acts, 36 questions** because it closes THREE
+deferrals on top of its own Owns: a2.17's adverb placement, a2.18's "ago", and
+the -er/-é contrast a2.19 sits immediately in front of. Folding those into 24
+turns each of them into a single card. The overrun is declared as a constant,
+asserted by all three layers, and reported rather than hidden.
+
+**It did not need a second lesson**, and the reason is §0: once a participle is
+not a corpus item, the "sixty participles" half of the subject disappears and
+what is left is a construction with one rule and three endings.
+
+### 8. THE BRIEF SAID FOUR DEPENDENTS AND THERE ARE THREE
+
+```
+a2.20  seq 17  Irregular Past Participles
+a2.21  seq 18  The Passé Composé with Être
+a2.31  seq 30  School and Studies      <- no document in this band names it
+```
+
+`a2.31`'s canDo is « Can talk about what they studied, which subjects and how it
+went », which is a conversation in this tense fourteen seq positions later. It is
+named on a learner surface here for that reason.
+
+### 9. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3683   pass 3683   fail 0        measured 2026-08-14, before a2.05
+  tests 3730   pass 3730   fail 0        after a2.05 (+47)
+a1-03-genre.test.ts   ending population 1890 both ways, measured off the SEED.
+                      0 gendered rows authored OR carried; ONE was wanted and
+                      refused (fr.sons.jours-et-mois.036, gender=f).
+npx tsc --noEmit      0 in ealch-v2 AND 0 in ealch-admin
+seed.json             version 38, 9115 items, 57 lessons, 75 units (before)
+                      version 38, 9157 items, 58 lessons, 75 units (after, NOT
+                        published; the merge left the version alone)
+pnpm content:parity   ONE pre-existing divergence (b2.01.l1, database-only,
+                        in_review). Nothing in the seed is at risk.
+mutation harness      38 mutations, 0 caught by nothing, 0 skipped, FOUR finding
+                        a weakness rather than confirming a strength
+```
+
+**THREE lessons now sit in the seed above the last published snapshot**: a2.18,
+a2.19 and a2.05.
+
+
+### 11. THE DEVICE PASS, AND THE TWO THINGS ONLY A PIXEL 6 COULD FIND
+
+Done 2026-08-14 on a Pixel 6 over USB against Metro 8082. **The dev build never
+OTA-fetches (a2.14 §12), so every content change needs a force-stop and a cold
+start before the phone shows it.** Both findings below were invisible to the
+batch, the merge, the lesson's own test and the whole 3,729-test suite.
+
+**1. THE INTRO NAMED A UNIT ID, AND a2.05 WAS THE ONLY LESSON IN 58 THAT DID.**
+
+v1's intro read « ...avoir, which you have had since a1.07 ». `intro` is drawn
+on the lesson COVER, which is the first screen, before any card has credited
+anything, so a bare unit id there is a string with no referent.
+
+```
+lesson intros naming a unit id, measured across the seed:   1 of 58
+```
+
+Doctrine §B.7 tells every lesson from seq 14 onward to credit earlier instances
+BY UNIT ID and this lesson does it eleven times in the body, which is where the
+reference has context. Fifty-seven lessons already knew the cover is not that
+place. Guarded in all three layers.
+
+**2. A SCENE BUBBLE ENDING IN A SPACED EXCLAMATION MARK LOSES ITS TAIL.**
+
+`fr.a2.verbes.572` was authored « Ah, ce soir alors ! » and the bubble rendered
+« Ah, ce soir » while the gloss under it still read "Ah, tonight then!" — a
+French line missing a word its own English translates. `ScenePlayer.tsx:276`
+documents the class and records a prior instance on sons.07 mission 1
+(« Ah, à Lyon. Très bien. » rendering without "bien").
+
+**AND THE FIRST FIX DID NOT WORK, WHICH IS THE PART WORTH HAVING.** v3 widened
+the gloss on the theory that the bubble hugs its widest child and squeezes a
+French line longer than its English. On the phone the bubble DID get wider and
+the French still read « Ah, ce soir ». The theory was also refuted by its own
+first test: the `you` bubble in the same scene carries a 26-character French
+against a 21-character gloss and renders in full.
+
+Measured, one variable at a time:
+
+```
+« Ah, ce soir alors ! »     spaced exclamation   CLIPPED to « Ah, ce soir »
+« Ah, ce soir alors. »      full stop            renders in full
+« Et hier soir, alors ? »   spaced question      renders in full
+```
+
+**The trigger is the spaced exclamation mark.** This is app code and a content
+build does not fix app code (the call the ledger already made for
+`TrapAudioStep`); what a content build controls is not triggering it, and the
+guard is one line: no scene bubble's `fr` may contain `" !"`. **Every lesson in
+this band with a scene should check its own bubbles**, and a2.19's
+« Ah, d'accord. À ce soir, alors. » is safe because it ends on a full stop.
+
+**WHAT THE DEVICE CONFIRMED GOOD**, and each of these is a ceiling an earlier
+build paid for:
+
+```
+all 26 mission-row titles render in full, including two at 25 characters
+the endings tapTable          3 columns, 3 rows, no clipping
+term-chip rows                three chips on one row (a2.03 §3's 37)
+the pair screen               adjacent pairs, the gap visible, the imported
+                              published card inline with its own respelling
+the stepped trapDrill         label "FOUR CARDS" over exactly FOUR dots
+                              (a2.18 §3), header reading 7.2 / 26
+the reference sheet           title uncut at 32 (a2.19 §3's 37), all THREE
+                              tables three-column with no horizontal scroll,
+                              n'avons pas on one line, and ALL FOUR teach
+                              cards rendering their bodies — which is the
+                              check the brief asks for by name
+the superscript ⁿ             renders correctly everywhere; no U+203F anywhere
+```
+
+### 10. WHAT a2.20 INHERITS, AND IT IS NEXT
+
+- **The corpus split, settled: ZERO rows on both sides.** §0 above. Its forty
+  irregulars are forty SENTENCES in one frame, and its block is
+  `fr.a2.verbes.591..650`, reserved and empty.
+- **The formation and the negative are taught and guarded here.** One recap, not
+  a re-teach. `IRREGULAR_PAST` in `data/passe-compose-corpus.ts` is the
+  thirty-five-name list this lesson refuses, and it is the list a2.20 owns.
+- **Not one irregular participle appears anywhere in a2.05**, asserted by name in
+  all three layers, with `fait`, `pris`, `mis`, `vu` and `dit` asserted
+  individually. a2.20 is named forward on a learner surface and the fact that
+  the forms exist is stated, so a learner who meets « j'ai fait » first does not
+  conclude they were taught a simplification.
+- **The reference sheet is the object a2.20, a2.21 and a2.23 all assume.**
+  Cross-lesson sheets do not exist (ledger §0), so what they inherit is the rule:
+  two words, the gap, the three endings, and no agreement after avoir.
+- **`reduceNegative()` and the elision finding** (§2) are needed by any lesson
+  whose negative elides, which is a2.21, a2.22 and a2.23.
+- **Do not copy a2.19's manifest regex** (§1).
