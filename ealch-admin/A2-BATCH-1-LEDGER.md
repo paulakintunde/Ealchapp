@@ -2050,3 +2050,231 @@ mutation harness      34 mutations, 0 caught by nothing, 0 skipped
 
 **a2.16's report records seed.version as 33 and it is 35 now.** Two publishes
 landed between the two builds. Measure it yourself.
+
+---
+
+## a2.04 amendments, 2026-08-14
+
+Written by the `a2.04` build, which is **seq 13 and the third lesson of BATCH
+2**. Recorded here rather than in a batch-2 ledger because it opens a block
+inside a namespace this file has never described, and because two of the
+findings below bind every remaining lesson in the band.
+
+Full report: `A2-04-BUILD-REPORT.md`.
+
+### 0. A CARRY IS AN ADDITION TO THE SEED'S ENDING POPULATION EVEN WHEN IT IS NOT AN ADDITION TO THE DATABASE'S
+
+**The most expensive thing this build found, and every guard in this band has
+the hole.**
+
+`a2.04.l1` v1 was applied, merged and green on the batch, the merge and its own
+test. The full suite then went red on `a1-22-pays.test.ts`:
+
+```
+-e     904 -> 909      -in   45 -> 47
+-ant    18 ->  19      -al   11 -> 12
+```
+
+The batch's own check ran the REAL `endingPopulation` and reported the
+population unchanged, **and it was right.** It was answering a different
+question. In POSTGRES those rows already exist, so importing them adds nothing.
+**a1.03 measures the population off THE SEED, and a CARRY is what puts a row
+into the seed.** Fifteen of this lesson's thirty-seven imports are gendered
+nouns; nine were absent from the seed and joined the population the moment the
+merge carried them.
+
+**No A2 lesson before this one imported a gendered noun**, which is why nobody
+has met it: a verb, an adjective and an adverb never carry one. Every manifest
+generator in this band REFUSES a gendered row outright for exactly that reason,
+and this lesson's subject is nouns so it cannot.
+
+**Two things every remaining lesson should copy:**
+
+- **Measure the population off the SEED in the merge**, before and after, and
+  die on any move. The batch's Postgres check is necessary and is not the same
+  check.
+- **`le médecin` IS A SINGLE WORD to `endingPopulation`.** It strips the
+  article, so the brief's "these are multi-word rows (le Japon), so they are
+  safe" is false for every gendered noun with an article. a2.04's brief says it
+  in as many words and it is the largest thing that brief got wrong.
+
+Resolved by WITHDRAWAL rather than by re-rendering a1.03, which is where this
+build differs from a1.22: a1.22's whole subject was the gender of countries and
+no country set left the counts alone, and a2.04 teaches no noun's gender at all.
+The fifteen are DISPLAY rows — printed on cards out of the manifest, repaired in
+Postgres, and not `itemIds` and not in any tranche. **a2.27, a2.28 and a2.29 can
+deck any of those nouns freely; a2.04 owns none of them.**
+
+v1 to v2, because Postgres held v1 with 63 itemIds and the seed would have held
+v1 with 48.
+
+### 1. A FOUR-COLUMN TABLE INSIDE A REFERENCE SHEET CLIPS ON A PIXEL 6
+
+a2.03's device pass recorded that a FIVE-column table inside a sheet clips at the
+right edge and scrolls horizontally per table. This build read four as safe on
+that authority and guarded it at four. **Measured on a Pixel 6: four clips too.**
+
+```
+THE PLACE  THE WORD  EXAMPLE  TAU…      `TAUGHT IN` cut, `a1.2…` under it
+WORD       + LE      + LA     + LE      `+ LES` cut, `aux` and `des` cut
+```
+
+It does scroll, and scrolling to reach the fourth column pushes the FIRST column
+off the other side, so the two things a lookup exists to be read against each
+other are never on screen together. Every host gate was green.
+
+**THE SHEET BUDGET IS THREE COLUMNS.** v2 to v3: both tables are three columns
+and each fourth column is a `teach` block underneath, which is the only shape a
+sheet has that cannot clip. The guard in the batch, the merge and the test is
+`cols.length <= 3`.
+
+**This is the fourth width defect in the band** after the mission-row title
+(§a2.14-13), the term-chip row (§a2.03-3) and the tapTable header and cells
+(§a2.16-2, §a2.17-4). The curve so far, all measured on the same phone:
+
+```
+mission-row title        27 characters
+term-chip row            37 characters
+tapTable header          6 characters at five columns
+tapTable cell            6 at five columns, 11 at three
+reference-sheet table    3 columns
+```
+
+### 2. `hasPlainNasal`'s FIRST BRANCH HAS NO RESCUE PATH, AND THE HOUSE SPELLING IS THE ONE THAT SUFFERS
+
+Corrections §6 and §14.1 describe the checker's blind spots. Invariants §3
+describes its false positive on a real /n/. **Neither says that the two branches
+are not equally defended.**
+
+```
+branch 1   /(?:AH|OH|EH|UH|EU|AI|OU)[NM](?![A-Za-zÀ-ÿ])/     NO RESCUE
+branch 2   a lone vowel closed by N or M, then two rescues:
+           a doubled nasal in the French, and a vowel after the m or n
+```
+
+So a real /m/ or /n/ after a HOUSE TWO-LETTER VOWEL cannot be rescued. `même` is
+/mɛm/ with no nasal vowel anywhere:
+
+```
+MEHM   FLAGGED     branch 1, and there is no way back
+mem    not flagged branch 2, rescued by the `ême` in the French
+```
+
+**SEVEN published rows spell it `MEHM` and the checker flags every one**,
+including `fr.a2.expressions-argot.032` and two `quand même` rows. One spells it
+`mem` and passes: `fr.sons.jours-et-mois.133`, « à la même date ».
+
+**a2.14 §1 found the checker MISSING a bare-vowel spelling where it SEES the
+two-letter one. This is the same asymmetry pointing the other way and it is
+worse**, because a2.14's costs a repair and this one cannot be repaired at all in
+the notation the house prefers. a2.04 takes the invariants §3 remedy for
+`automne` — a form that avoids the shape, READ OFF a published row — repairs
+nothing, and asserts the false positive AS A NEGATIVE in all three layers.
+
+**Who this will bite next:** any lesson whose sentences hold `même`, `comme`,
+`pomme`, `homme` or `femme` AND respell the vowel with the house two-letter form.
+Measured: `femme` and `homme` are clean everywhere (`FAM`, `OM`), `pomme` and
+`comme` are split, and `même` is broken on seven rows out of eight.
+
+### 3. §9 GAINS A FIFTH HOLE: `items` HOLDS TWO DIFFERENT THINGS AND A KEY-BASED WALK CANNOT CLASSIFY IT
+
+`LessonDrill.items` holds CORPUS IDS. `groupDrill.items` holds CARD OBJECTS with
+`fr`, `ipa` and `note`. One is machine data and one is a learner surface, under
+one key.
+
+Every id in this lesson contains its own theme name, so the jargon check fired on
+`fr.a2.prepositions-essentielles.133` thirty times over rather than on any copy.
+
+**Filter by SHAPE rather than by key**: `/^fr\.[a-z0-9]+\.[a-z0-9-]+\.\d+$/i`.
+That also covers the section ids and trigger ids a2.14 §6 had to rename around,
+so the rename workaround is no longer needed.
+
+### 4. THE ID BLOCK, AND THE FIRST BAND LESSON TO OPEN ONE INSIDE A POPULATED NAMESPACE
+
+```
+seq  id      block                                          status
+13   a2.04   fr.a2.prepositions-essentielles.129 .. .168    TAKEN, 129-154 used
+     127 rows in the namespace before, 153 after
+```
+
+`fr.a2.prepositions-essentielles` already held **127 rows nobody in this band
+authored** (`durant`, `au moment de`, `À cause de…`), max `.128`, one gap at
+`.098`. Every other A2 block so far opened an empty namespace or one this band
+owned.
+
+**So a namespace-prefix filter here would pick up a hundred and twenty-seven
+strangers on the first run.** §a2.16-1 records this as a trap that fires when a
+SECOND lesson lands; here it fires immediately. The batch, the merge and the test
+are all scoped to the BLOCK.
+
+**The next lesson writing into `prepositions-essentielles` opens at
+`fr.a2.prepositions-essentielles.169`**, and `a2.18` (Prepositions of Time,
+seq 14) is the obvious candidate. `pays-et-nationalites` is untouched by this
+build: `fr.a1.*` runs to `.320` and `fr.a2.*` holds 17 rows about immigration,
+max `.017`.
+
+### 5. §11's THEME TABLE IS THE SUFFIXED-NAME ERROR A THIRD TIME
+
+§14.2 corrects `adjectifs` and `adverbes`. The same paragraph still lists
+`pays`, `lieux` and `temps` as dead. They are, and the live themes are:
+
+```
+pays-et-nationalites        337 published    fr.a1.* 320, fr.a2.* 17
+prepositions-essentielles   430 published    fr.a1.* 141, fr.a2.* 127, fr.b1.* 86, fr.b2.* 76
+mots-essentiels             387 published    where a1.21 put its headwords
+deplacements                320 published
+transports-quotidiens       415 published
+lieux · ville               0                genuinely dead
+```
+
+**Probe the suffixed or hyphenated name before believing an absence** now holds
+for five theme names rather than two.
+
+### 6. WHAT a2.18 INHERITS, AND IT IS NEXT
+
+- **Both temporal senses of `en` and `dans`, untouched and confirmed.** a2.04
+  names the deferral on a learner surface and guards it as a SHAPE with three
+  must-fire and five must-not-fire lines. `TIME_SHAPE` in
+  `data/prepositions-lieu-corpus.ts` is the guard and a2.18 can invert it.
+- **`il y a` is still owned by no unit at any level.** Corrections §11 lists it
+  as an absence; the preflight confirms no unit body names it. a2.04 does not
+  touch it and a2.18's brief names it.
+- **`sheet.a2.04.lieu` is a lookup a learner returns to**, and a sheetId resolves
+  only inside the lesson that declares it, so a2.18 cannot link it and should not
+  restate it either. What it holds that a2.18 would want is the fold table, and
+  the fold is a1.21's rather than a2.04's.
+
+### 7. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3550   pass 3550   fail 0        measured 2026-08-13, before a2.04
+  tests 3601   pass 3601   fail 0        after a2.04 (+51)
+a1-03-genre.test.ts   35 pass before, 35 pass after; ending population 1890 both
+                      ways, AFTER the withdrawal in §0. v1 moved four figures.
+seed.json             version 36, 9015 items, 54 lessons, 75 units (before)
+                      version 36, 9047 items, 55 lessons, 75 units (after,
+                        NOT published; the merge left the version alone)
+pnpm content:parity   ONE pre-existing divergence (b2.01.l1, database-only,
+                        in_review). Nothing in the seed is at risk from a publish.
+mutation harness      26 mutations, 0 caught by nothing, 0 skipped, SIX of them
+                        finding a weakness rather than confirming a strength
+```
+
+**a2.17's report records seed.version as 35 and it is 36 now.** A publish landed
+between the two builds (`c49bf5f chore(publish): snapshot v36`). Measure it
+yourself rather than carrying the figure forward.
+
+### 8. AND THE BRIEFS' OWNERSHIP CLAIMS ARE WORSE THAN §7 SAYS
+
+Corrections §7 tells you to read the brief files, then the shipped lessons'
+`grammarIntroduced`, and only then the unit bodies. **Doing that in that order is
+what found that three of a2.04's five grid rows were a1.22's and the fourth was
+a1.21's.**
+
+The unit-body search would have reported `chez` as named by a2.04 and a2.28 and
+nothing else, which is true and would have hidden the whole problem. **A brief
+can be wrong about what its own lesson OWNS, not only about what the corpus
+holds, and no build in this band had found that before.** Every remaining brief
+in batch 2 sits downstream of a shipped A1 lesson on the same subject; read that
+lesson's `grammarIntroduced` and its handover before you plan an act.

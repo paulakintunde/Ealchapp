@@ -76,7 +76,8 @@
     "content:prendre-mettre": "tsx scripts/author-prendre-mettre-batch.ts",
     "content:accord-adjectifs": "tsx scripts/author-accord-adjectifs-batch.ts",
     "content:beau-nouveau": "tsx scripts/author-beau-nouveau-batch.ts",
-    "content:adverbes": "tsx scripts/author-adverbes-batch.ts"
+    "content:adverbes": "tsx scripts/author-adverbes-batch.ts",
+    "content:prepositions-lieu": "tsx scripts/author-prepositions-lieu-batch.ts"
   },
   "dependencies": {
     "@blocknote/core": "^0.51.4",

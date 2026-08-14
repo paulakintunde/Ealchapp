@@ -662,7 +662,9 @@
       "level": "a2",
       "title": "Prepositions of Place, in Depth",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.04.l1"
+      ],
       "prereqUnitIds": [
         "a1.21"
       ]
@@ -161317,6 +161319,2836 @@
         "Post-verbal placement of the manner adverb in a simple tense, and its position outside the discontinuous negative morpheme",
         "That placement in a compound tense is DEFERRED to a2.05, named on the learner surface rather than left silent"
       ]
+    },
+    {
+      "id": "a2.04.l1",
+      "unitId": "a2.04",
+      "seq": 1,
+      "title": "Prépositions de lieu",
+      "level": "a2",
+      "tag": "A2 · LEÇON 13",
+      "intro": "French has four small words for where somebody is or where they are going, and which one you use is decided by the place rather than by you. A town, a country, a building, a person: ask which of those four you are looking at and the word is already chosen. Three of the four you have met before without being told they were the same question. The fourth is chez, it takes a person and never a place, and English has nothing like it.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "Two Coffees, One Word",
+          "frSub": "Le couloir",
+          "render": "screens",
+          "layer": "core",
+          "setting": {
+            "place": "The corridor at work",
+            "city": "Nantes",
+            "time": "Tuesday morning"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "A Tuesday, in the corridor at work in Nantes. Somebody from your team catches you on the way past with a coffee in each hand.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Tu fais quoi cet après-midi ?",
+              "en": "What are you doing this afternoon?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-04-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Je vais... euh... à le médecin... au médecin...",
+              "en": "I am going... er... to the doctor... to the doctor...",
+              "stage": "You have the verb and you have the word for the person. What you do not have is the two letters in between, and you can hear yourself trying both of the ones you were taught.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "She is waiting, and one of the coffees is getting cold. What comes out?",
+              "options": [
+                {
+                  "fr": "Je vais chez le médecin",
+                  "respell": "[zhuh veh shay luh mayd-SEHⁿ]",
+                  "en": "the same words, with the one you were never given",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                },
+                {
+                  "fr": "To the doctor.",
+                  "en": "and the sentence is over",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "en-GB"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "She says she has the same one, two floors down, and you talk about the waiting room for the rest of the corridor.",
+                "breaks": "She nods and carries the coffees on. Nothing happened, and nothing happened next time either."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Ah, chez le médecin. Rien de grave ?",
+              "en": "Ah, the doctor's. Nothing serious?",
+              "stage": "She gives you the word without noticing she has given it to you, which is what makes it expensive: nobody corrected anything, so nothing was learned.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "Four kinds",
+              "body": "You did not stall on a word you had never learned. You stalled on which of four small words the place in front of you wanted, and nobody has ever put the four in the same place.",
+              "wrong": {
+                "fr": "Je vais au médecin.",
+                "ipa": "/ʒə vɛ o med.sɛ̃/",
+                "respell": "[zhuh veh oh mayd-SEHⁿ]",
+                "en": "the fold you were taught, on a person"
+              },
+              "right": {
+                "fr": "Je vais chez le médecin.",
+                "ipa": "/ʒə vɛ ʃe lə med.sɛ̃/",
+                "respell": "[zhuh veh shay luh mayd-SEHⁿ]",
+                "en": "I am going to the doctor's."
+              },
+              "coach": "À folds the article in. En throws it out. Chez leaves it alone."
+            }
+          ],
+          "closing": {
+            "text": "À folds the article in. En throws it out. Chez leaves it alone.",
+            "size": "md"
+          },
+          "terms": [
+            "chez",
+            "fourKinds"
+          ]
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "goals": [
+            {
+              "t": "Ask what kind of place it is",
+              "s": "Four kinds of place and four answers. Three of them you already have, and the fourth is the one English gives you no help with at all."
+            },
+            {
+              "t": "Use chez, which is new",
+              "s": "Chez takes a person and never a place. Chez Marie, chez le médecin, chez moi. Never a building, never a shop, never a town."
+            },
+            {
+              "t": "Know what happens to the article",
+              "s": "À folds the article in. En throws it out. Chez leaves it alone."
+            },
+            {
+              "t": "Answer for a place nobody taught you",
+              "s": "Four places this lesson has not shown you, and you can answer all four without being told. That is what a rule is for."
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s03-four",
+          "title": "Four Kinds Of Place",
+          "frSub": "Quatre sortes de lieu",
+          "layer": "core",
+          "say": "Four kinds of place and four answers. Three of them you already have, and the fourth is the one English gives you no help with at all. Tap a row to hear the whole sentence. Two of these four you already own.",
+          "cols": [
+            "The place",
+            "The word",
+            "Example"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "a person",
+                "chez",
+                "chez Marie"
+              ],
+              "say": "Je vais chez le médecin.",
+              "detail": {
+                "title": "chez Marie",
+                "body": "« Je vais chez le médecin » [zhuh veh shay luh mayd-SEHⁿ]. I am going to the doctor's. Nobody has taught you this one, and it is the reason this lesson exists.",
+                "say": "Je vais chez le médecin."
+              }
+            },
+            {
+              "cells": [
+                "a city",
+                "à",
+                "à Paris"
+              ],
+              "say": "Je vais à Paris.",
+              "detail": {
+                "title": "à Paris",
+                "body": "« Je vais à Paris » [zhuh veh a pa-REE]. I am going to Paris. a1.21 taught you this one already.",
+                "say": "Je vais à Paris."
+              }
+            },
+            {
+              "cells": [
+                "a country",
+                "en, au",
+                "en France"
+              ],
+              "say": "Je vais en France.",
+              "detail": {
+                "title": "en France",
+                "body": "« Je vais en France » [zhuh veh ahⁿ FRAHⁿSS]. I am going to France. a1.22 taught you this one already.",
+                "say": "Je vais en France."
+              }
+            },
+            {
+              "cells": [
+                "a building",
+                "à + le",
+                "au marché"
+              ],
+              "say": "Je vais au marché.",
+              "detail": {
+                "title": "au marché",
+                "body": "« Je vais au marché » [zhuh veh oh mar-SHAY]. I am going to the market. a1.21 taught you this one already.",
+                "say": "Je vais au marché."
+              }
+            }
+          ],
+          "terms": [
+            "fourKinds",
+            "chez",
+            "noArticle"
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s04-article",
+          "title": "What Happens To The Le",
+          "frSub": "Ce qui arrive à l’article",
+          "layer": "core",
+          "say": "Every one of these words does something different to the article in front of the place, and there are only three things it can do. À folds the article in. En throws it out. Chez leaves it alone.",
+          "cols": [
+            "Word",
+            "+ le",
+            "+ la"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "à",
+                "au",
+                "à la"
+              ],
+              "say": "au",
+              "detail": {
+                "title": "à · au",
+                "body": "À and le fold into one word and à and la do not. a1.21 gave you both halves of that, and the half that does nothing matters as much as the half that does.",
+                "say": "au"
+              }
+            },
+            {
+              "cells": [
+                "de",
+                "du",
+                "de la"
+              ],
+              "say": "du",
+              "detail": {
+                "title": "de · du",
+                "body": "The same fold coming back, and a1.21 gave you it on the same screen as the one above. De and le give du, de and les give des. a1.29 owns the other du, the one that means some.",
+                "say": "du"
+              }
+            },
+            {
+              "cells": [
+                "en",
+                "en",
+                "en"
+              ],
+              "say": "Je vais en France.",
+              "detail": {
+                "title": "en · en",
+                "body": "En does not fold with anything because there is nothing left to fold with: the article goes. « en France », never « en la France ». A country's article decides between en, au and aux, and a1.22 gave you the whole grid.",
+                "say": "en"
+              }
+            },
+            {
+              "cells": [
+                "chez",
+                "chez le",
+                "chez la"
+              ],
+              "say": "chez le",
+              "detail": {
+                "title": "chez · chez le",
+                "body": "And this one does nothing at all. Chez le, chez la, chez les, all written out, all separate words. It is the only place word in the language that leaves the article exactly where it found it.",
+                "say": "chez le"
+              }
+            }
+          ],
+          "terms": [
+            "theArticle",
+            "aPlusLe",
+            "enDropsIt"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s05-payoff",
+          "title": "You Have Had This Twice",
+          "frSub": "Vous l’avez déjà, deux fois",
+          "layer": "core",
+          "say": "« au Japon » is « à » plus « le Japon ». a1.21 taught the fold and a1.22 taught the country, eleven lessons apart, and neither of them said they were the same operation.",
+          "examples": [
+            {
+              "fr": "aller au marché",
+              "en": "to go to the market",
+              "note": "À and le marché. a1.21 gave you this and somebody wrote the card for a routine lesson."
+            },
+            {
+              "fr": "Je vais au Japon.",
+              "en": "I am going to Japan.",
+              "note": "À and le Japon, which is the same fold with a country behind it. a1.22 gave you the country and called the word au."
+            },
+            {
+              "fr": "Je vais en France.",
+              "en": "I am going to France.",
+              "note": "And the one that is not a fold at all. La France had an article and en got rid of it. Learn the country with its article. Everything else follows."
+            },
+            {
+              "fr": "aller à l'école",
+              "en": "to go to school",
+              "note": "And à l', which folds with nothing. One word goes straight onto the noun. A phrase needs de first."
+            }
+          ],
+          "terms": [
+            "aPlusLe",
+            "theArticle"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s06-nofold",
+          "title": "The One That Does Nothing",
+          "frSub": "Celui qui ne fait rien",
+          "layer": "core",
+          "hint": "Swipe. Four cards, and the whole of what chez does to an article is on the last one.",
+          "cards": [
+            {
+              "label": "the word",
+              "head": "chez",
+              "sub": "[SHAY]",
+              "body": "One syllable, and the z on the end has never been pronounced by anybody. It is the only place word in the language with no English word behind it."
+            },
+            {
+              "label": "with le",
+              "head": "chez le médecin",
+              "sub": "[shay luh mayd-SEHⁿ]",
+              "body": "at the doctor's Three words on the page and three words in the mouth. Nothing folded and nothing disappeared."
+            },
+            {
+              "label": "with la",
+              "head": "chez la dentiste",
+              "sub": "[shay lah dahⁿ-TEEST]",
+              "body": "at the dentist's The same again with la, and dentiste is the same word whether the person is a man or a woman."
+            },
+            {
+              "label": "and the rule",
+              "head": "chez le, chez la",
+              "body": "À plus le is au and de plus le is du, and a1.21 gave you both. Chez does none of that: chez le, chez la, chez les, two words every time."
+            }
+          ],
+          "terms": [
+            "chez",
+            "theArticle"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s07-fold",
+          "title": "The Fold That Does Not",
+          "frSub": "La contraction qui n’a pas lieu",
+          "layer": "core",
+          "swipe": true,
+          "say": "Three cards and then six to prove it. Every wrong answer here is a rule you were taught, running where it should not.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-04-fold"
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "Chez Leaves It Alone"
+            },
+            {
+              "kind": "cards",
+              "label": "Three cards",
+              "title": "Two Fold, One Does Not"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Two Words, Not One"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Fold Or Not",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "The fold is à and de, and nothing else",
+            "body": "À plus le is au and de plus le is du, and a1.21 gave you both. Chez does none of that: chez le, chez la, chez les, two words every time."
+          },
+          "cards": [
+            {
+              "promptLabel": "folds",
+              "promptSound": "Je vais au marché.",
+              "fr": "Je vais au marché.",
+              "ipa": "/ʒə vɛ o maʁ.ʃe/",
+              "tip": "À and le marché became au marché. One word on the page now."
+            },
+            {
+              "promptLabel": "folds",
+              "promptSound": "Je vais au Japon.",
+              "fr": "Je vais au Japon.",
+              "ipa": "/ʒə vɛ o ʒa.pɔ̃/",
+              "tip": "À and le Japon, and the same thing happens. A country is not a special case here."
+            },
+            {
+              "promptLabel": "does not",
+              "promptSound": "Je vais chez le médecin.",
+              "fr": "Je vais chez le médecin.",
+              "ipa": "/ʒə vɛ ʃe lə med.sɛ̃/",
+              "tip": "Chez and le médecin, and the le is still there. It always will be."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "à + le marché",
+              "opts": [
+                "au marché",
+                "à le marché",
+                "chez le marché"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "chez + le médecin",
+              "opts": [
+                "chez au médecin",
+                "chez le médecin",
+                "chez du médecin"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "à + la gare",
+              "opts": [
+                "à la gare",
+                "à gare",
+                "ale gare"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "chez + la dentiste",
+              "opts": [
+                "chez à la dentiste",
+                "chez dentiste",
+                "chez la dentiste"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "de + le Japon",
+              "opts": [
+                "de le Japon",
+                "du Japon",
+                "chez le Japon"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "chez + les voisins",
+              "opts": [
+                "chez les voisins",
+                "chez aux voisins",
+                "aux voisins"
+              ],
+              "correct": 0
+            }
+          ],
+          "terms": [
+            "theArticle",
+            "chez",
+            "aPlusLe"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s08-person",
+          "title": "A Person, Not A Place",
+          "frSub": "Une personne, pas un lieu",
+          "layer": "core",
+          "say": "Chez takes a person and never a place. Chez Marie, chez le médecin, chez moi. Never a building, never a shop, never a town. Seven sentences, and every one of them has a person behind the word.",
+          "examples": [
+            {
+              "fr": "Je reste chez moi.",
+              "en": "I am staying at my place.",
+              "note": "Yourself counts as a person, which is why chez moi is the commonest one of all."
+            },
+            {
+              "fr": "Il est chez lui.",
+              "en": "He is at his place.",
+              "note": "And somebody else. The word after chez is who, never where."
+            },
+            {
+              "fr": "Elle est chez elle.",
+              "en": "She is at her place.",
+              "note": "The same with a woman, and the two words sound almost identical on either side of chez."
+            },
+            {
+              "fr": "On mange chez Marie.",
+              "en": "We are eating at Marie's.",
+              "note": "A name, so there is no article at all. Nothing was dropped: there was never one there."
+            },
+            {
+              "fr": "dormir chez",
+              "en": "to sleep at someone's place",
+              "note": "[dor-MEER shay] Somebody wrote these three bare frames for a family lesson and they are the three verbs this word lives with."
+            },
+            {
+              "fr": "rester chez",
+              "en": "to stay at someone's place",
+              "note": "[rehs-TAY shay] The second."
+            },
+            {
+              "fr": "venir chez",
+              "en": "to come to someone's place",
+              "note": "[vuh-NEER shay] And the third, which is the one the conversation at the end of this lesson needs."
+            }
+          ],
+          "terms": [
+            "chez",
+            "noArticle"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s09-people",
+          "title": "Who You Can Go To",
+          "frSub": "Chez qui",
+          "layer": "core",
+          "hint": "Swipe. Six people and five sentences, and not one of them was written for this lesson.",
+          "cards": [
+            {
+              "label": "a job",
+              "head": "le médecin",
+              "sub": "[mayd-SEHⁿ]",
+              "body": "The person the whole lesson is about, and the one the corridor conversation stopped on."
+            },
+            {
+              "label": "a job",
+              "head": "le dentiste",
+              "sub": "[dahⁿ-TEEST]",
+              "body": "The same word for a man and for a woman, which is why chez le and chez la are both real here."
+            },
+            {
+              "label": "a job",
+              "head": "boulanger",
+              "sub": "[boo-lahⁿ-ZHAY]",
+              "body": "The man who bakes. Half of the pair on the next screen."
+            },
+            {
+              "label": "a job",
+              "head": "le vétérinaire",
+              "sub": "[luh vay-tay-ree-NAIR]",
+              "body": "And the one for the cat. Somebody wrote this for an animal lesson."
+            },
+            {
+              "label": "not a job",
+              "head": "le copain",
+              "sub": "[LUH koh-PEHⁿ]",
+              "body": "A person with no profession attached, so the rule is about people rather than about work."
+            },
+            {
+              "label": "family",
+              "head": "la tante",
+              "sub": "[LAH TAHⁿT]",
+              "body": "And a relative, which is what the corpus puts behind this word more often than anything else."
+            },
+            {
+              "label": "a pronoun",
+              "head": "chez toi",
+              "sub": "[shay twah]",
+              "body": "The person you are talking to. Written for a pronoun lesson years ago."
+            },
+            {
+              "label": "a pronoun",
+              "head": "chez nous",
+              "sub": "[shay noo]",
+              "body": "And the two of you together."
+            },
+            {
+              "label": "a greeting",
+              "head": "Bienvenue chez moi",
+              "sub": "[byehⁿ-vuh-NÜ SHAY MWAH]",
+              "body": "What you say at your own door, and it is a fixed phrase you can use tomorrow."
+            },
+            {
+              "label": "somebody",
+              "head": "passer chez quelqu'un",
+              "sub": "[pah-SAY SHAY kehl-KUHⁿ]",
+              "body": "A person with no name at all, which still counts."
+            },
+            {
+              "label": "the whole shape",
+              "head": "aller chez le vétérinaire",
+              "sub": "[ah-LAY shay luh vay-tay-ree-NAIR]",
+              "body": "Verb, chez, article, person. This is the sentence this lesson exists to build and it was published for a lesson about pets."
+            },
+            {
+              "label": "a whole sentence",
+              "head": "Elle reste chez elle ce week-end.",
+              "sub": "[ell rest shay ell suh week-end]",
+              "body": "Staying rather than going, and the word does not change."
+            },
+            {
+              "label": "a whole sentence",
+              "head": "Vincent invite ses copains chez lui.",
+              "sub": "[vehⁿ-SAHⁿ ehⁿ-VEET SAY ko-PEHⁿ SHAY LÜEE]",
+              "body": "Somebody wrote this for a pronunciation lesson and it happens to be four people in one line."
+            },
+            {
+              "label": "a whole sentence",
+              "head": "Nous mangeons des crêpes sucrées chez ma grand-mère.",
+              "sub": "[NOO mahⁿ-ZHOHⁿ DAY KREHP sü-KRAY SHAY MA grahⁿ-MEHR]",
+              "body": "And this one, where chez is followed by a possessive and a grandmother."
+            }
+          ],
+          "terms": [
+            "chez",
+            "noArticle",
+            "manOrShop"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s10-shop",
+          "title": "The Man Or The Shop",
+          "frSub": "L’homme ou la boutique",
+          "layer": "core",
+          "say": "English says the baker's for the man and the bakery for the shop and lets you use either. French will not: the man takes chez and the shop takes à.",
+          "examples": [
+            {
+              "fr": "chez le boulanger",
+              "en": "at the baker's",
+              "note": "[shay luh boo-lahⁿ-ZHAY] The man. A person, so chez."
+            },
+            {
+              "fr": "à la boulangerie",
+              "en": "at the bakery",
+              "note": "[ah lah boo-lahⁿzh-REE] The shop. A place, so à, and à and la do not fold."
+            },
+            {
+              "fr": "Je vais chez le boulanger.",
+              "en": "I am going to the baker's.",
+              "note": "The whole sentence with the person in it."
+            },
+            {
+              "fr": "Je vais à la boulangerie.",
+              "en": "I am going to the bakery.",
+              "note": "And with the shop. Two sentences with two words in common."
+            },
+            {
+              "fr": "C'est la même porte.",
+              "en": "It is the same door.",
+              "note": "[seh lah mem PORT] And this is why it is hard. They are not two places."
+            }
+          ],
+          "terms": [
+            "manOrShop",
+            "chez"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s11-trap",
+          "title": "Chez Needs A Person",
+          "frSub": "Chez veut quelqu’un",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. Two of the six have two right answers and you have to pick the one that means what you meant.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-04-trap"
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "Who, Never Where"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "The Man And The Shop"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Wrong, Then Right"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Person Or Place",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "The word after chez is who",
+            "body": "Chez takes a person and never a place. Chez Marie, chez le médecin, chez moi. Never a building, never a shop, never a town. Out of 283 sentences in this course that use the word, 0 put it in front of a building. Not one."
+          },
+          "cards": [
+            {
+              "promptLabel": "the person",
+              "promptSound": "chez le boulanger",
+              "fr": "chez le boulanger",
+              "ipa": "/ʃe lə bu.lɑ̃.ʒe/",
+              "tip": "A man, so chez, and the article stays."
+            },
+            {
+              "promptLabel": "the shop",
+              "promptSound": "à la boulangerie",
+              "fr": "à la boulangerie",
+              "ipa": "/a la bu.lɑ̃ʒ.ʁi/",
+              "tip": "A building, so à, and à and la do not fold."
+            },
+            {
+              "promptLabel": "the person",
+              "promptSound": "chez le médecin",
+              "fr": "chez le médecin",
+              "ipa": "/ʃe lə med.sɛ̃/",
+              "tip": "The doctor is a person. This is where you go for an appointment."
+            },
+            {
+              "promptLabel": "the building",
+              "promptSound": "à l’hôpital",
+              "fr": "à l’hôpital",
+              "ipa": "/a lɔ.pi.tal/",
+              "tip": "And the hospital is a building. Different word, and genuinely a different place to be going."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "the bakery, the building",
+              "opts": [
+                "chez la boulangerie",
+                "à la boulangerie",
+                "en la boulangerie"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "the baker's, the man",
+              "opts": [
+                "chez le boulanger",
+                "à le boulanger",
+                "au boulanger"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "the bank",
+              "opts": [
+                "chez la banque",
+                "en la banque",
+                "à la banque"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "the dentist's",
+              "opts": [
+                "à la dentiste",
+                "chez la dentiste",
+                "aux dentistes"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Marie's place",
+              "opts": [
+                "à la Marie",
+                "chez la Marie",
+                "chez Marie"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "the station",
+              "opts": [
+                "la gare",
+                "chez la gare",
+                "à la gare"
+              ],
+              "correct": 2
+            }
+          ],
+          "terms": [
+            "chez",
+            "manOrShop",
+            "noArticle"
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s12-errors",
+          "title": "The Six You Will Make",
+          "frSub": "Les six erreurs",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "errors": [
+            {
+              "wrong": "chez la boulangerie",
+              "right": "à la boulangerie",
+              "why": "The shop is not a person. Chez the baker or à the bakery, and both of them are the same door."
+            },
+            {
+              "wrong": "chez la banque",
+              "right": "à la banque",
+              "why": "Nobody says the first one. The building takes à, and if you mean the person you have to name them."
+            },
+            {
+              "wrong": "chez l'hôpital",
+              "right": "à l'hôpital",
+              "why": "A hospital is a building and a doctor is a person, and this is the pair where the two are genuinely different places to be going."
+            },
+            {
+              "wrong": "chez au médecin",
+              "right": "chez le médecin",
+              "why": "Nothing folds here. Chez leaves the article alone, so the two words stay two words."
+            },
+            {
+              "wrong": "chez du médecin",
+              "right": "chez le médecin",
+              "why": "Same again, coming from instead of going to, and chez still does nothing to the le."
+            },
+            {
+              "wrong": "au médecin",
+              "right": "chez le médecin",
+              "why": "This is what a learner who only has a1.21 produces, and it is the sentence the scene stops on."
+            }
+          ],
+          "terms": [
+            "chez",
+            "manOrShop",
+            "theArticle"
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s13-reading",
+          "title": "Saturday Morning",
+          "frSub": "Le samedi matin",
+          "layer": "core",
+          "questionsInModal": true,
+          "text": "Le samedi matin, je vais chez le boulanger. Il s’appelle Marc et il travaille à la boulangerie de la rue Victor Hugo. Après, je vais à la pharmacie, puis à la banque. À midi, je mange chez ma tante : elle habite à côté de la gare. Mon frère, lui, n’est jamais là le samedi. Il est à Paris, ou chez des amis à Lyon, ou au Japon pour son travail. Ma tante dit toujours la même chose : « Chez qui, cette fois ? »",
+          "glossary": [
+            {
+              "word": "s’appelle",
+              "en": "is called",
+              "ipa": "/sa.pɛl/",
+              "note": "His name, and it is a person, which is the whole reason the first sentence uses chez."
+            },
+            {
+              "word": "la rue",
+              "en": "the street",
+              "ipa": "/la ʁy/",
+              "note": "A street is a place and not a person, so it takes à like every other building here."
+            },
+            {
+              "word": "puis",
+              "en": "then",
+              "ipa": "/pɥi/",
+              "note": "Joins two errands. Nothing about it is this lesson."
+            },
+            {
+              "word": "jamais",
+              "en": "never",
+              "ipa": "/ʒa.mɛ/",
+              "note": "From a1.18, the negation lesson, and it is here because the passage needed one sentence that is not a list."
+            },
+            {
+              "word": "cette fois",
+              "en": "this time",
+              "ipa": "/sɛt fwa/",
+              "note": "Two words and a fixed phrase."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Six places are named in this passage. Which one of them takes chez, and why?",
+              "a": "The baker, and the aunt. Both of them are people. Everything else in the passage is a building, a town or a country, and every one of those takes something else."
+            },
+            {
+              "q": "The baker and the bakery are both in the second sentence. What is different about the two words in front of them?",
+              "a": "Chez in front of the man and à la in front of the shop. It is the same doorway and French will not let you use one word for both."
+            },
+            {
+              "q": "Three different words appear in front of a place in the sixth sentence. What are they, and what decided each one?",
+              "a": "À Paris because a city has no article, chez des amis because they are people, and au Japon because a country with a le folds into au. Three kinds of place in one sentence."
+            },
+            {
+              "q": "The aunt asks « Chez qui ? » rather than « Où ? ». What does her choice of word already tell you?",
+              "a": "That she is expecting a person. Chez cannot be followed by anything else, so the question itself carries the rule."
+            }
+          ],
+          "terms": [
+            "chez",
+            "manOrShop",
+            "fourKinds"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s14-city",
+          "title": "A Town Has No Article",
+          "frSub": "Une ville n’a pas d’article",
+          "layer": "core",
+          "say": "A city takes à and nothing else, because there is no article on it for anything to happen to. Five sentences and four of them were written for other lessons.",
+          "examples": [
+            {
+              "fr": "Je vais à Paris.",
+              "en": "I am going to Paris.",
+              "note": "[zhuh veh a pa-REE] À goes straight on. No fold, no article, nothing to decide."
+            },
+            {
+              "fr": "Paris",
+              "en": "Paris",
+              "note": "[pa-REE] The word on its own, published for a lesson about silent letters."
+            },
+            {
+              "fr": "J'habite à Lyon.",
+              "en": "I live in Lyon.",
+              "note": "[zha-beet a LYOHⁿ] A second city, so this is a rule rather than a fact about Paris."
+            },
+            {
+              "fr": "de Paris",
+              "en": "from Paris",
+              "note": "[duh pa-REE] And coming from, which is de and nothing else for the same reason."
+            },
+            {
+              "fr": "Je viens de Paris.",
+              "en": "I am from Paris.",
+              "note": "[zhuh vyaⁿ duh pa-REE] a2.02 published this one. De Paris, with no du in sight, because there is no le to fold with."
+            }
+          ],
+          "terms": [
+            "noArticle",
+            "fourKinds"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s15-country",
+          "title": "The Country You Own",
+          "frSub": "Le pays que vous avez",
+          "layer": "core",
+          "say": "a1.22 taught you this row and this lesson is not teaching it again. What is new is where it sits: it is one of four, and the thing it has in common with the other three is the article.",
+          "examples": [
+            {
+              "fr": "Je vais en France.",
+              "en": "I am going to France.",
+              "note": "[zhuh veh ahⁿ FRAHⁿSS] la France [LAH FRAHⁿSS] had an article and en threw it away."
+            },
+            {
+              "fr": "Je vais au Japon.",
+              "en": "I am going to Japan.",
+              "note": "[zhuh veh oh zhah-POHⁿ] le Japon [LUH zhah-POHⁿ] had a le and à folded into it. That is the same operation as au marché."
+            },
+            {
+              "fr": "les États-Unis",
+              "en": "the United States",
+              "note": "[LAY zay-tah-zü-NEE] A plural, so aux, and the fold is à and les. Same rule, third form."
+            },
+            {
+              "fr": "Mon grand frère travaille en France.",
+              "en": "My big brother works in France.",
+              "note": "[MOHⁿ GRAHⁿ FREHR tra-VAY AHⁿ FRAHⁿS] The only sentence in the whole course that puts en in front of a country and tells you how to say it. Written for a pronunciation lesson."
+            }
+          ],
+          "terms": [
+            "enDropsIt",
+            "aPlusLe",
+            "theArticle"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s16-building",
+          "title": "Everywhere Else",
+          "frSub": "Tout le reste",
+          "layer": "core",
+          "hint": "Swipe. Seven buildings and four sentences, and the only question on any of them is what the article does.",
+          "cards": [
+            {
+              "label": "a shop",
+              "head": "la boulangerie",
+              "sub": "[lah boo-lahⁿzh-REE]",
+              "body": "The shop half of the pair, and the article does not fold with à."
+            },
+            {
+              "label": "a building",
+              "head": "la banque",
+              "sub": "[BAHⁿK]",
+              "body": "À la banque, and there is no version of this one with a person in it."
+            },
+            {
+              "label": "a building",
+              "head": "la gare",
+              "sub": "[lah GAHR]",
+              "body": "À la gare, and this is where the conversation at the end of the lesson goes."
+            },
+            {
+              "label": "a building",
+              "head": "l'hôpital",
+              "sub": "[loh-pee-TAL]",
+              "body": "À l', which folds with nothing at all."
+            },
+            {
+              "label": "a building",
+              "head": "le restaurant",
+              "sub": "[luh rehs-toh-RAHⁿ]",
+              "body": "Au restaurant. A le word, so it folds."
+            },
+            {
+              "label": "a place",
+              "head": "le marché",
+              "sub": "[luh mar-SHAY]",
+              "body": "Au marché, which is the fourth row of the grid on card one."
+            },
+            {
+              "label": "a shop",
+              "head": "la pharmacie",
+              "sub": "[far-mah-SEE]",
+              "body": "À la pharmacie, and there is no person behind this one in the whole corpus."
+            },
+            {
+              "label": "the fold",
+              "head": "Je vais au marché.",
+              "sub": "[zhuh veh oh mar-SHAY]",
+              "body": "I am going to the market. À and le marché, folded."
+            },
+            {
+              "label": "no fold",
+              "head": "Je vais à la gare.",
+              "sub": "[zhuh veh ah lah GAHR]",
+              "body": "I am going to the station. À and la gare, not folded, and that is half of a1.21's rule."
+            },
+            {
+              "label": "no fold, l'",
+              "head": "Je vais à l'hôpital.",
+              "sub": "[zhuh veh ah loh-pee-TAL]",
+              "body": "I am going to the hospital. And à l', which is the other half."
+            },
+            {
+              "label": "home",
+              "head": "rentrer à la maison",
+              "sub": "[rahⁿ-TRAY ah lah meh-ZOHⁿ]",
+              "body": "Home is a building here rather than a person, so it takes à like every other building. Chez moi is the version with a person in it, and it is a different sentence."
+            },
+            {
+              "label": "the frame",
+              "head": "Je vais au parc.",
+              "sub": "[zhuh veh oh PARK]",
+              "body": "a2.02 published this sentence at seq 5 and the four cards on the first screen of this lesson are built on it."
+            }
+          ],
+          "terms": [
+            "theArticle",
+            "aPlusLe",
+            "fourKinds"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s17-unseen",
+          "title": "Places You Have Not Met",
+          "frSub": "Des lieux nouveaux",
+          "layer": "core",
+          "size": "lg",
+          "say": "Four places this lesson has not shown you, and you can answer all four without being told. That is what a rule is for. Ask what kind of place it is before you look at the options.",
+          "groups": [
+            {
+              "label": "le notaire · the solicitor",
+              "items": [
+                {
+                  "fr": "Je vais chez le médecin.",
+                  "ipa": "/ʒə vɛ ʃe lə med.sɛ̃/",
+                  "note": "[zhuh veh shay luh mayd-SEHⁿ] I am going to the doctor's."
+                }
+              ],
+              "check": {
+                "q": "Vous allez ___ .   (the solicitor)",
+                "opts": [
+                  "à le notaire",
+                  "chez le notaire",
+                  "au notaire"
+                ],
+                "correct": 1,
+                "why": "a person, so chez. Nobody showed you this word and you did not need to be shown."
+              }
+            },
+            {
+              "label": "la piscine · the swimming pool",
+              "items": [
+                {
+                  "fr": "Je vais au marché.",
+                  "ipa": "/ʒə vɛ o maʁ.ʃe/",
+                  "note": "[zhuh veh oh mar-SHAY] I am going to the market."
+                }
+              ],
+              "check": {
+                "q": "Vous allez ___ .   (the swimming pool)",
+                "opts": [
+                  "chez la piscine",
+                  "à la piscine",
+                  "en piscine"
+                ],
+                "correct": 1,
+                "why": "a building, so à + le. Nobody showed you this word and you did not need to be shown."
+              }
+            },
+            {
+              "label": "Marseille · Marseille",
+              "items": [
+                {
+                  "fr": "Je vais à Paris.",
+                  "ipa": "/ʒə vɛ a pa.ʁi/",
+                  "note": "[zhuh veh a pa-REE] I am going to Paris."
+                }
+              ],
+              "check": {
+                "q": "Vous allez ___ .   (Marseille)",
+                "opts": [
+                  "en Marseille",
+                  "à la Marseille",
+                  "à Marseille"
+                ],
+                "correct": 2,
+                "why": "a city, so à. Nobody showed you this word and you did not need to be shown."
+              }
+            },
+            {
+              "label": "le Portugal · Portugal",
+              "items": [
+                {
+                  "fr": "Je vais en France.",
+                  "ipa": "/ʒə vɛ ɑ̃ fʁɑ̃s/",
+                  "note": "[zhuh veh ahⁿ FRAHⁿSS] I am going to France."
+                }
+              ],
+              "check": {
+                "q": "Vous allez ___ .   (Portugal)",
+                "opts": [
+                  "au Portugal",
+                  "en Portugal",
+                  "à le Portugal"
+                ],
+                "correct": 0,
+                "why": "a country, so en, au. Nobody showed you this word and you did not need to be shown."
+              }
+            }
+          ],
+          "terms": [
+            "fourKinds",
+            "chez",
+            "noArticle"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s18-scenario",
+          "title": "The Same Corridor",
+          "frSub": "Le même couloir",
+          "layer": "core",
+          "setting": "The corridor again, a week later, and she has put the coffees down. Every answer wants a place, and every place wants you to have decided what kind of place it is.",
+          "turns": [
+            {
+              "ai": "Tu fais quoi cet après-midi ?",
+              "en": "What are you doing this afternoon?",
+              "user": "Je vais chez le médecin.",
+              "userEn": "I am going to the doctor's.",
+              "alts": [
+                {
+                  "fr": "Je vais chez la dentiste.",
+                  "en": "I am going to the dentist's."
+                },
+                {
+                  "fr": "Je vais à l'hôpital.",
+                  "en": "I am going to the hospital."
+                }
+              ]
+            },
+            {
+              "ai": "Ah bon ? Rien de grave ?",
+              "en": "Really? Nothing serious?",
+              "user": "Non, rien de grave.",
+              "userEn": "No, nothing serious.",
+              "alts": [
+                {
+                  "fr": "Non, ça va.",
+                  "en": "No, it is fine."
+                },
+                {
+                  "fr": "Non, rien du tout.",
+                  "en": "No, nothing at all."
+                }
+              ]
+            },
+            {
+              "ai": "Et après, tu rentres ?",
+              "en": "And afterwards, are you going home?",
+              "user": "Je reste chez moi.",
+              "userEn": "I am staying at my place.",
+              "alts": [
+                {
+                  "fr": "Je vais à la gare.",
+                  "en": "I am going to the station."
+                },
+                {
+                  "fr": "Je vais au marché.",
+                  "en": "I am going to the market."
+                }
+              ]
+            },
+            {
+              "ai": "Tu es chez toi ce soir ?",
+              "en": "Are you at your place tonight?",
+              "user": "Oui, je suis chez moi.",
+              "userEn": "Yes, I am at my place.",
+              "alts": [
+                {
+                  "fr": "Non, je vais chez Marie.",
+                  "en": "No, I am going to Marie's."
+                },
+                {
+                  "fr": "Non, je vais chez le boulanger.",
+                  "en": "No, I am going to the baker's."
+                }
+              ]
+            },
+            {
+              "ai": "On se retrouve chez Marie ?",
+              "en": "Shall we meet at Marie's?",
+              "user": "Non, on se retrouve à la gare.",
+              "userEn": "No, we are meeting at the station.",
+              "alts": [
+                {
+                  "fr": "D'accord, chez Marie.",
+                  "en": "All right, at Marie's."
+                },
+                {
+                  "fr": "Oui, chez elle.",
+                  "en": "Yes, at her place."
+                }
+              ]
+            },
+            {
+              "ai": "Et le week-end, tu pars ?",
+              "en": "And at the weekend, are you going away?",
+              "user": "Je vais en France.",
+              "userEn": "I am going to France.",
+              "alts": [
+                {
+                  "fr": "Je vais à Paris.",
+                  "en": "I am going to Paris."
+                },
+                {
+                  "fr": "Je vais au Japon.",
+                  "en": "I am going to Japan."
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "chez",
+            "fourKinds",
+            "theArticle"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s19-dictation",
+          "title": "Spell What You Hear",
+          "frSub": "La dictée",
+          "layer": "core",
+          "itemIds": [
+            "fr.a2.prepositions-essentielles.130",
+            "fr.a2.prepositions-essentielles.131",
+            "fr.a2.prepositions-essentielles.132",
+            "fr.a2.prepositions-essentielles.133",
+            "fr.a2.prepositions-essentielles.134",
+            "fr.a2.prepositions-essentielles.135",
+            "fr.a2.prepositions-essentielles.136",
+            "fr.a2.prepositions-essentielles.137",
+            "fr.a2.prepositions-essentielles.140",
+            "fr.a2.prepositions-essentielles.141",
+            "fr.a2.prepositions-essentielles.142",
+            "fr.a2.prepositions-essentielles.143",
+            "fr.a2.prepositions-essentielles.144",
+            "fr.a2.prepositions-essentielles.145",
+            "fr.a2.prepositions-essentielles.146",
+            "fr.a2.prepositions-essentielles.147",
+            "fr.a2.prepositions-essentielles.150",
+            "fr.a2.prepositions-essentielles.152"
+          ],
+          "say": "Every line here is short enough to spell letter by letter. Five of them are the small word on its own with the place behind it, and those are the ones worth slowing down for.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-a2-04-dictee"
+          },
+          "terms": [
+            "chez",
+            "noArticle"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s20-speak",
+          "title": "Say It Out Loud",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "skill": "speak",
+          "itemIds": [
+            "fr.a2.prepositions-essentielles.129",
+            "fr.a2.prepositions-essentielles.130",
+            "fr.a2.prepositions-essentielles.131",
+            "fr.a2.prepositions-essentielles.132",
+            "fr.a2.prepositions-essentielles.133",
+            "fr.a2.prepositions-essentielles.135",
+            "fr.a2.prepositions-essentielles.136",
+            "fr.a2.prepositions-essentielles.137",
+            "fr.a2.prepositions-essentielles.141",
+            "fr.a2.prepositions-essentielles.142",
+            "fr.a2.prepositions-essentielles.144",
+            "fr.a2.prepositions-essentielles.145",
+            "fr.a2.prepositions-essentielles.146",
+            "fr.a2.prepositions-essentielles.152",
+            "fr.a2.prepositions-essentielles.153",
+            "fr.a2.prepositions-essentielles.154"
+          ],
+          "terms": [
+            "chez",
+            "fourKinds"
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s21-review",
+          "title": "The Whole Thing",
+          "frSub": "Tout, en un paquet",
+          "layer": "core",
+          "cards": [
+            {
+              "front": "a person · which word?",
+              "back": "chez · chez Marie",
+              "say": "Je vais chez le médecin."
+            },
+            {
+              "front": "a city · which word?",
+              "back": "à · à Paris",
+              "say": "Je vais à Paris."
+            },
+            {
+              "front": "a country · which word?",
+              "back": "en, au · en France",
+              "say": "Je vais en France."
+            },
+            {
+              "front": "a building · which word?",
+              "back": "à + le · au marché",
+              "say": "Je vais au marché."
+            },
+            {
+              "front": "What does à do to the article?",
+              "back": "À and le fold into one word and à and la do not. a1.21 gave you both halves of that, and the half that does nothing matters as much as the half that does.",
+              "say": "Je vais au marché."
+            },
+            {
+              "front": "What does en do to it?",
+              "back": "En does not fold with anything because there is nothing left to fold with: the article goes. « en France », never « en la France ». A country's article decides between en, au and aux, and a1.22 gave you the whole grid.",
+              "say": "Je vais en France."
+            },
+            {
+              "front": "What does chez do to it?",
+              "back": "And this one does nothing at all. Chez le, chez la, chez les, all written out, all separate words. It is the only place word in the language that leaves the article exactly where it found it.",
+              "say": "Je vais chez le médecin."
+            },
+            {
+              "front": "The baker or the bakery?",
+              "back": "English says the baker's for the man and the bakery for the shop and lets you use either. French will not: the man takes chez and the shop takes à.",
+              "say": "C'est la même porte."
+            },
+            {
+              "front": "Why does à Paris have no article?",
+              "back": "Because a town never had one. Nothing was dropped and nothing folded.",
+              "say": "Je vais à Paris."
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s22-progress",
+          "title": "Where You Stand",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "body": "À folds the article in. En throws it out. Chez leaves it alone. The exam has five rounds. One of them asks about four places this lesson never showed you, and that is the point rather than a cruelty: if the rule only works on the places you were given, it is a list.",
+          "stats": [
+            {
+              "k": "Kinds of place",
+              "v": "4"
+            },
+            {
+              "k": "New this lesson",
+              "v": "1. Chez."
+            },
+            {
+              "k": "New words to learn",
+              "v": "0. You had every noun already."
+            },
+            {
+              "k": "Asked by ear",
+              "v": "Au and aux are one sound, du and des are close to one, and an unstressed à can vanish altogether. Nothing in this lesson is asked by ear."
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s23-quiz",
+          "title": "The Exam",
+          "frSub": "L’examen",
+          "layer": "core",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "say": "Five rounds of six. Miss too many in a round and you get a drill before the next one starts.",
+          "rounds": [
+            {
+              "id": "r1-which-kind",
+              "label": "Which kind of place",
+              "targets": [
+                "err-a-for-chez",
+                "err-chez-for-place"
+              ],
+              "say": "Six on the sort. The place is in every question, because the place is what decides it.",
+              "questions": [
+                {
+                  "q": "Vous allez voir le médecin. Which of these is French?",
+                  "format": "mcq",
+                  "opts": [
+                    "Je vais chez le médecin.",
+                    "Je vais au médecin.",
+                    "Je vais à le médecin.",
+                    "Je vais en médecin."
+                  ],
+                  "correct": 0,
+                  "why": "Chez takes a person and never a place. Chez Marie, chez le médecin, chez moi. Never a building, never a shop, never a town. The other three are the three folds you were taught, running on a person.",
+                  "ref": "s03-four"
+                },
+                {
+                  "q": "And the same errand at the hospital?",
+                  "format": "mcq",
+                  "opts": [
+                    "chez l’hôpital",
+                    "à l’hôpital",
+                    "en hôpital",
+                    "au hôpital"
+                  ],
+                  "correct": 1,
+                  "why": "A hospital is a building. It takes à, and à and l' do not fold into anything.",
+                  "ref": "s10-shop"
+                },
+                {
+                  "q": "Je vais ___ Paris.",
+                  "format": "typeIn",
+                  "accept": [
+                    "à",
+                    "a",
+                    "Je vais à Paris."
+                  ],
+                  "answer": "à",
+                  "why": "A town has no article, so nothing folds and nothing is thrown away. À goes straight on.",
+                  "ref": "s14-city"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Je vais chez la gare.",
+                  "accept": [
+                    "Je vais à la gare.",
+                    "Je vais à la gare",
+                    "à la gare"
+                  ],
+                  "answer": "Je vais à la gare.",
+                  "why": "A station is a building and nobody lives in it. Chez needs a person.",
+                  "ref": "s11-trap"
+                },
+                {
+                  "q": "Which one of these four is a person?",
+                  "format": "mcq",
+                  "opts": [
+                    "la boulangerie",
+                    "la pharmacie",
+                    "le boulanger",
+                    "la banque"
+                  ],
+                  "correct": 2,
+                  "why": "English says the baker's for the man and the bakery for the shop and lets you use either. French will not: the man takes chez and the shop takes à. Three shops and one man, and only the man takes chez.",
+                  "ref": "s10-shop"
+                },
+                {
+                  "q": "You are about to name a place and you have half a second. What do you ask yourself first?",
+                  "format": "mcq",
+                  "opts": [
+                    "What am I doing there",
+                    "Whether the verb is going or staying",
+                    "What kind of place it is",
+                    "Whether it is far away"
+                  ],
+                  "correct": 2,
+                  "why": "À folds the article in. En throws it out. Chez leaves it alone. Ask what the place IS before you reach for the word in front of it. A person takes chez. Everything else is a place, and its article decides the rest.",
+                  "ref": "s03-four"
+                }
+              ]
+            },
+            {
+              "id": "r2-the-article",
+              "label": "What happens to the article",
+              "targets": [
+                "err-fold-chez",
+                "err-keep-article"
+              ],
+              "say": "Six on the Owns. Three things can happen to the article and there is no fourth.",
+              "questions": [
+                {
+                  "q": "à + le marché",
+                  "format": "typeIn",
+                  "accept": [
+                    "au marché",
+                    "au marche",
+                    "Je vais au marché."
+                  ],
+                  "answer": "au marché",
+                  "why": "À and le fold into one word. a1.21 taught you this and it has not changed.",
+                  "ref": "s04-article"
+                },
+                {
+                  "q": "chez + le médecin",
+                  "format": "typeIn",
+                  "accept": [
+                    "chez le médecin",
+                    "chez le medecin"
+                  ],
+                  "answer": "chez le médecin",
+                  "why": "À plus le is au and de plus le is du, and a1.21 gave you both. Chez does none of that: chez le, chez la, chez les, two words every time.",
+                  "ref": "s06-nofold"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Je vais en la France.",
+                  "accept": [
+                    "Je vais en France.",
+                    "Je vais en France",
+                    "en France"
+                  ],
+                  "answer": "Je vais en France.",
+                  "why": "En does not fold with the article, it gets rid of it. a1.22 taught that and this is the same fact from the other side.",
+                  "ref": "s04-article"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Je vais chez au dentiste.",
+                  "accept": [
+                    "Je vais chez la dentiste.",
+                    "Je vais chez le dentiste.",
+                    "chez la dentiste",
+                    "chez le dentiste"
+                  ],
+                  "answer": "Je vais chez le dentiste.",
+                  "why": "Two folds in one phrase, and chez does not do either of them. The article stays exactly as it was.",
+                  "ref": "s07-fold"
+                },
+                {
+                  "q": "Which word gets rid of the article rather than doing something to it?",
+                  "format": "mcq",
+                  "opts": [
+                    "à",
+                    "de",
+                    "en",
+                    "chez"
+                  ],
+                  "correct": 2,
+                  "why": "À folds the article in. En throws it out. Chez leaves it alone. In front of a le word: à gives au, de gives du, en gives en, chez gives chez le.",
+                  "ref": "s04-article"
+                },
+                {
+                  "q": "de + le Japon",
+                  "format": "typeIn",
+                  "accept": [
+                    "du Japon",
+                    "du japon"
+                  ],
+                  "answer": "du Japon",
+                  "why": "The same fold coming back rather than going. a1.29 owns the other du, the one that means an amount.",
+                  "ref": "s04-article"
+                }
+              ]
+            },
+            {
+              "id": "r3-man-or-shop",
+              "label": "The man or the shop",
+              "targets": [
+                "err-chez-for-place",
+                "err-a-for-chez"
+              ],
+              "say": "Six where English gives you one phrase and French wants two.",
+              "questions": [
+                {
+                  "q": "You want bread. Which is French?",
+                  "format": "mcq",
+                  "opts": [
+                    "chez la boulangerie",
+                    "à la boulangerie",
+                    "en la boulangerie",
+                    "au boulangerie"
+                  ],
+                  "correct": 1,
+                  "why": "The shop is a building. If you meant the man it is chez le boulanger, and both of them are the same door.",
+                  "ref": "s10-shop"
+                },
+                {
+                  "q": "And the man who baked it?",
+                  "format": "typeIn",
+                  "accept": [
+                    "chez le boulanger",
+                    "chez le boulanger"
+                  ],
+                  "answer": "chez le boulanger",
+                  "why": "A person, so chez, and the article stays where it was.",
+                  "ref": "s10-shop"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Je vais à le médecin.",
+                  "accept": [
+                    "Je vais chez le médecin.",
+                    "chez le médecin",
+                    "Je vais chez le médecin"
+                  ],
+                  "answer": "Je vais chez le médecin.",
+                  "why": "This is the sentence the corridor stopped on, and the fold is not the problem: the word in front of it is.",
+                  "ref": "s01-scene"
+                },
+                {
+                  "q": "Which of these four cannot follow chez?",
+                  "format": "mcq",
+                  "opts": [
+                    "Marie",
+                    "le dentiste",
+                    "la pharmacie",
+                    "mes parents"
+                  ],
+                  "correct": 2,
+                  "why": "Chez takes a person and never a place. Chez Marie, chez le médecin, chez moi. Never a building, never a shop, never a town. A chemist's shop has no person in it as far as the grammar is concerned.",
+                  "ref": "s11-trap"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Je vais chez la banque.",
+                  "accept": [
+                    "Je vais à la banque.",
+                    "à la banque",
+                    "Je vais à la banque"
+                  ],
+                  "answer": "Je vais à la banque.",
+                  "why": "A bank is a building. Nobody has ever gone chez la banque, and there is no person version of it either.",
+                  "ref": "s12-errors"
+                },
+                {
+                  "q": "Chez Marie has no article. Why?",
+                  "format": "mcq",
+                  "opts": [
+                    "Because chez removes it",
+                    "Because Marie is feminine",
+                    "Because it comes after a verb",
+                    "Because a name never had one"
+                  ],
+                  "correct": 3,
+                  "why": "Nothing was dropped. There was never an article on a name to begin with, which is why this row of the grid looks like the easiest and is the one people overthink.",
+                  "ref": "s08-person"
+                }
+              ]
+            },
+            {
+              "id": "r4-say-it",
+              "label": "Say the whole thing",
+              "targets": [
+                "err-keep-article",
+                "err-fold-chez"
+              ],
+              "say": "Six whole sentences. Every one of them is a place plus the word the place asked for.",
+              "questions": [
+                {
+                  "q": "Say you are going to the market.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Je vais au marché.",
+                    "Je vais au marché",
+                    "au marché"
+                  ],
+                  "answer": "Je vais au marché.",
+                  "why": "Le marché, so à folds into it and you get au.",
+                  "ref": "s16-building"
+                },
+                {
+                  "q": "Say you are going to France.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Je vais en France.",
+                    "Je vais en France",
+                    "en France"
+                  ],
+                  "answer": "Je vais en France.",
+                  "why": "La France has an article and en throws it away. There is no en la anything.",
+                  "ref": "s15-country"
+                },
+                {
+                  "q": "Say you are staying at your place.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Je reste chez moi.",
+                    "Je reste chez moi",
+                    "chez moi"
+                  ],
+                  "answer": "Je reste chez moi.",
+                  "why": "You are a person, which is why chez moi is the commonest one of all four kinds.",
+                  "ref": "s08-person"
+                },
+                {
+                  "q": "Which of these is a sentence a French speaker would say?",
+                  "format": "mcq",
+                  "opts": [
+                    "Il est chez la maison.",
+                    "rentrer à la maison",
+                    "Il est en la maison.",
+                    "Il est chez maison."
+                  ],
+                  "correct": 1,
+                  "why": "A house is a building here rather than a person. Chez moi is the version with a person in it, and it is a different sentence.",
+                  "ref": "s16-building"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "On se retrouve à Marie.",
+                  "accept": [
+                    "On se retrouve chez Marie.",
+                    "chez Marie",
+                    "On se retrouve chez Marie."
+                  ],
+                  "answer": "On se retrouve chez Marie.",
+                  "why": "Marie is a person and à is for places. The name keeps its lack of an article either way.",
+                  "ref": "s18-scenario"
+                },
+                {
+                  "q": "Say you are going to the United States.",
+                  "format": "mcq",
+                  "opts": [
+                    "Je vais en États-Unis.",
+                    "Je vais à les États-Unis.",
+                    "Je vais chez les États-Unis.",
+                    "Je vais aux États-Unis."
+                  ],
+                  "correct": 3,
+                  "why": "À and les fold into aux, which is the third form of the same operation. a1.22 taught the country and a1.21 taught the fold.",
+                  "ref": "s15-country"
+                }
+              ]
+            },
+            {
+              "id": "r5-unseen",
+              "label": "Places nobody taught you",
+              "targets": [
+                "err-en-for-city",
+                "err-a-for-chez"
+              ],
+              "say": "Six, and four of them use places this lesson has never shown you. That is the whole difference between a rule and a list.",
+              "questions": [
+                {
+                  "q": "le notaire · the solicitor. Where are you going?",
+                  "format": "mcq",
+                  "opts": [
+                    "à le notaire",
+                    "chez le notaire",
+                    "au notaire",
+                    "en notaire"
+                  ],
+                  "correct": 1,
+                  "why": "A solicitor is a person and you have never seen this word in this lesson. The rule did the work.",
+                  "ref": "s17-unseen"
+                },
+                {
+                  "q": "la piscine · the swimming pool. Where are you going?",
+                  "format": "mcq",
+                  "opts": [
+                    "chez la piscine",
+                    "en piscine",
+                    "à la piscine",
+                    "au piscine"
+                  ],
+                  "correct": 2,
+                  "why": "A swimming pool is a building and la does not fold with à.",
+                  "ref": "s17-unseen"
+                },
+                {
+                  "q": "Marseille. Where are you going?",
+                  "format": "typeIn",
+                  "accept": [
+                    "à Marseille",
+                    "a Marseille"
+                  ],
+                  "answer": "à Marseille",
+                  "why": "A town, so à and nothing else. It has no article for anything to happen to.",
+                  "ref": "s14-city"
+                },
+                {
+                  "q": "le Portugal · Portugal. Where are you going?",
+                  "format": "mcq",
+                  "opts": [
+                    "au Portugal",
+                    "en Portugal",
+                    "à Portugal",
+                    "chez le Portugal"
+                  ],
+                  "correct": 0,
+                  "why": "A country with a le, so à folds into it. a1.22 gave you the article and this lesson gave you the fold.",
+                  "ref": "s17-unseen"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Je vais en Marseille.",
+                  "accept": [
+                    "Je vais à Marseille.",
+                    "à Marseille",
+                    "Je vais à Marseille"
+                  ],
+                  "answer": "Je vais à Marseille.",
+                  "why": "En is for a country with an article on it. A town has neither.",
+                  "ref": "s14-city"
+                },
+                {
+                  "q": "Somebody names a place you have never heard of. What do you need to know about it?",
+                  "format": "mcq",
+                  "opts": [
+                    "Whether it is a person, a town, a country or a building",
+                    "Whether it is far",
+                    "Whether it is masculine",
+                    "Which verb you are using"
+                  ],
+                  "correct": 0,
+                  "why": "Ask what the place IS before you reach for the word in front of it. A person takes chez. Everything else is a place, and its article decides the rest. The gender only matters once you know it is a country, which is a1.22's half.",
+                  "ref": "s17-unseen"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s24-roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "layer": "core",
+          "body": "À folds the article in. En throws it out. Chez leaves it alone. Ask what the place IS before you reach for the word in front of it. A person takes chez. Everything else is a place, and its article decides the rest.",
+          "points": [
+            "Four kinds of place and four answers. Three of them you already have, and the fourth is the one English gives you no help with at all. a person takes chez, as in chez Marie, a city takes à, as in à Paris, a country takes en, au, as in en France, a building takes à + le, as in au marché.",
+            "À folds the article in. En throws it out. Chez leaves it alone. In front of a le word: à gives au, de gives du, en gives en, chez gives chez le.",
+            "Chez takes a person and never a place. Chez Marie, chez le médecin, chez moi. Never a building, never a shop, never a town. Out of 283 sentences in this course that use the word, 0 put it in front of a building. Not one.",
+            "English says the baker's for the man and the bakery for the shop and lets you use either. French will not: the man takes chez and the shop takes à.",
+            "Two of these four are not new. a1.21 gave you what à and de do to an article and a1.22 gave you what en does to a country's. What nobody has told you is that they are the same question asked four times.",
+            "a1.21 owns sur, sous, dans, devant and derrière, and this lesson has not touched one of them.",
+            "En also means how long something takes and dans also means how far ahead something is, and both of those are a2.18, which is the very next lesson. And when you want to ask the way to somewhere rather than say you are going there, that is a2.27.",
+            "a2.28 is called « Chez le médecin » and it is fourteen lessons ahead of you. Its whole title is this lesson's third card."
+          ],
+          "terms": [
+            "notYet",
+            "fourKinds",
+            "chez"
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.a2.prepositions-essentielles.129",
+        "fr.a2.prepositions-essentielles.130",
+        "fr.a2.prepositions-essentielles.131",
+        "fr.a2.prepositions-essentielles.132",
+        "fr.a2.prepositions-essentielles.133",
+        "fr.a2.prepositions-essentielles.134",
+        "fr.a2.prepositions-essentielles.135",
+        "fr.a2.prepositions-essentielles.136",
+        "fr.a2.prepositions-essentielles.137",
+        "fr.a2.prepositions-essentielles.138",
+        "fr.a2.prepositions-essentielles.139",
+        "fr.a2.prepositions-essentielles.140",
+        "fr.a2.prepositions-essentielles.141",
+        "fr.a2.prepositions-essentielles.142",
+        "fr.a2.prepositions-essentielles.143",
+        "fr.a2.prepositions-essentielles.144",
+        "fr.a2.prepositions-essentielles.145",
+        "fr.a2.prepositions-essentielles.146",
+        "fr.a2.prepositions-essentielles.147",
+        "fr.a2.prepositions-essentielles.148",
+        "fr.a2.prepositions-essentielles.149",
+        "fr.a2.prepositions-essentielles.150",
+        "fr.a2.prepositions-essentielles.151",
+        "fr.a2.prepositions-essentielles.152",
+        "fr.a2.prepositions-essentielles.153",
+        "fr.a2.prepositions-essentielles.154",
+        "fr.sons.muettes.009",
+        "fr.a1.pronoms-essentiels.075",
+        "fr.a2.pronoms-essentiels.055",
+        "fr.a1.amis.030",
+        "fr.a1.amis.059",
+        "fr.a1.animaux-domestiques.130",
+        "fr.a1.famille.124",
+        "fr.a1.famille.125",
+        "fr.a1.famille.126",
+        "fr.a1.verbes-essentiels.026",
+        "fr.sons.nasales.157",
+        "fr.sons.voyelles.449",
+        "fr.a1.routines.064",
+        "fr.a1.routines.063",
+        "fr.a1.routines.067",
+        "fr.a2.verbes.261",
+        "fr.sons.muettes.004",
+        "fr.sons.elision.029",
+        "fr.sons.elision.062",
+        "fr.a2.verbes.285",
+        "fr.a1.pays-et-nationalites.011",
+        "fr.sons.nasales.029"
+      ],
+      "version": 3,
+      "grammarAssumed": [
+        "The definite article and its four forms, introduced in a1.04",
+        "Noun gender, and that the article carries it, introduced in a1.03",
+        "The prepositions of place sur, sous, dans, devant and derrière, introduced in a1.21",
+        "The contraction of à and de with the definite article, including the two forms that do not contract, introduced in a1.21",
+        "en, au and aux with a country name, selected by gender and number, introduced in a1.22",
+        "de, du and des with a country name, introduced in a1.22",
+        "The partitive du, de la and de l', and the test that separates it from the locative du, introduced in a1.29",
+        "aller and venir in the present, introduced in a2.02"
+      ],
+      "grammarIntroduced": [
+        "chez as a preposition taking an exclusively animate complement, drilled rather than named",
+        "That chez is the only locative preposition in the language which neither contracts with nor suppresses a following definite article",
+        "The unification of the à-contraction of a1.21 with the au and aux of a1.22 as one operation rather than two rules, so that au Japon is analysed as à plus le Japon",
+        "The three-way opposition of article behaviour: contraction under à and de, suppression under en, and preservation under chez",
+        "A four-way categorisation of the complement (person, city, country, common noun) as the sole selector of the locative preposition, applied productively to complements not presented in the lesson",
+        "The lexical opposition between an agent noun and its place of business, which English neutralises, and the different prepositions the two require",
+        "That a bare toponym takes à with no article, and that the absence is lexical rather than the result of a suppression rule"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "Prepositions of Place, in Depth",
+        "subFr": "Prépositions de lieu",
+        "introFr": "Quatre sortes de lieu, quatre petits mots, et c’est le lieu qui choisit.",
+        "minutes": 30,
+        "difficulty": 3,
+        "glyph": "🚪",
+        "screens": 210
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The word that stopped it",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-four"
+          ],
+          "milestone": "You know what stopped the sentence, and it was not a word you had never learned.",
+          "estScreens": 18,
+          "restPoints": [
+            "s01-scene/after-break"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "What it does to the article",
+          "sections": [
+            "s04-article",
+            "s05-payoff",
+            "s06-nofold",
+            "s07-fold"
+          ],
+          "milestone": "You know the three things a place word can do to an article, and you know which one of them chez does.",
+          "estScreens": 30,
+          "restPoints": [
+            "s04-article/after",
+            "s07-fold/after"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "Chez",
+          "sections": [
+            "s08-person",
+            "s09-people",
+            "s10-shop",
+            "s11-trap",
+            "s12-errors",
+            "s13-reading"
+          ],
+          "milestone": "You can put chez in front of anybody, you will not put it in front of a building, and you can tell the baker from the bakery.",
+          "estScreens": 52,
+          "restPoints": [
+            "s09-people/after",
+            "s10-shop/after",
+            "s11-trap/after"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "The other three kinds",
+          "sections": [
+            "s14-city",
+            "s15-country",
+            "s16-building",
+            "s17-unseen"
+          ],
+          "milestone": "You can answer for a town, a country and a building, including four the lesson never showed you.",
+          "estScreens": 34,
+          "restPoints": [
+            "s15-country/after"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Out loud",
+          "sections": [
+            "s18-scenario",
+            "s19-dictation",
+            "s20-speak",
+            "s21-review"
+          ],
+          "milestone": "You held the conversation the corridor lost, and every answer in it wanted a decision you made before the verb finished.",
+          "estScreens": 38,
+          "restPoints": [
+            "s18-scenario/after",
+            "s19-dictation/halfway"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s22-progress",
+            "s23-quiz",
+            "s24-roundup"
+          ],
+          "milestone": "You answered for four places this lesson never listed, which is the half of it a list could never have taught you.",
+          "estScreens": 38,
+          "restPoints": [
+            "s23-quiz/r3-man-or-shop"
+          ]
+        }
+      ],
+      "reframe": "À folds the article in. En throws it out. Chez leaves it alone.",
+      "errorTriggers": [
+        {
+          "id": "err-a-for-chez",
+          "description": "Uses à, au or aux in front of a person, because every place the learner has ever been taught took one of those. It is not a slip: it is a1.21 working exactly as taught, on the one kind of place a1.21 never covered, and it is the error the scene opens on.",
+          "detectOn": [
+            "s03-four",
+            "s11-trap",
+            "s23-quiz/r1-which-kind"
+          ],
+          "drill": "drill-who-not-where",
+          "retest": "retest-who-not-where"
+        },
+        {
+          "id": "err-chez-for-place",
+          "description": "Uses chez in front of a building, usually the shop belonging to a person the learner has just met. The corpus has never done it once in 283 rows and learners do it constantly, because English says the baker's for both.",
+          "detectOn": [
+            "s10-shop",
+            "s11-trap",
+            "s23-quiz/r3-man-or-shop"
+          ],
+          "drill": "drill-man-or-shop",
+          "retest": "retest-man-or-shop"
+        },
+        {
+          "id": "err-fold-chez",
+          "description": "Folds the article after chez, producing chez au or chez du. A learner who does this has a1.21's contraction rule and is applying it to the one word in the language that does not take it.",
+          "detectOn": [
+            "s06-nofold",
+            "s07-fold",
+            "s23-quiz/r2-the-article"
+          ],
+          "drill": "drill-no-fold",
+          "retest": "retest-no-fold"
+        },
+        {
+          "id": "err-keep-article",
+          "description": "Keeps the article after en, producing en la France. The mirror image of the one above: en is the only one of the four that removes the article rather than doing something to it, and a learner who has learned to fold expects something to be left.",
+          "detectOn": [
+            "s04-article",
+            "s15-country",
+            "s23-quiz/r4-say-it"
+          ],
+          "drill": "drill-nothing-left",
+          "retest": "retest-nothing-left"
+        },
+        {
+          "id": "err-en-for-city",
+          "description": "Puts en in front of a town or à in front of a country, which is the two rows of the grid that look alike being swapped. Both have a proper name and only one of them has an article, and that is the only difference between them.",
+          "detectOn": [
+            "s14-city",
+            "s17-unseen",
+            "s23-quiz/r5-unseen"
+          ],
+          "drill": "drill-town-or-country",
+          "retest": "retest-town-or-country"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-who-not-where",
+          "title": "Who, not where",
+          "format": "sort",
+          "buckets": [
+            "a person",
+            "a place"
+          ],
+          "items": [
+            "fr.a2.prepositions-essentielles.133",
+            "fr.a2.prepositions-essentielles.136",
+            "fr.a2.prepositions-essentielles.135",
+            "fr.a2.prepositions-essentielles.137",
+            "fr.a2.prepositions-essentielles.146",
+            "fr.a2.prepositions-essentielles.132"
+          ],
+          "coach": "Chez takes a person and never a place. Chez Marie, chez le médecin, chez moi. Never a building, never a shop, never a town. Read the word after the small one before you sort it. If it is somebody, the answer is chez and nothing else will do."
+        },
+        {
+          "id": "retest-who-not-where",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Je vais ___ le dentiste.",
+          "opts": [
+            "au",
+            "chez",
+            "à"
+          ],
+          "correct": 1,
+          "why": "A person, so chez, and the le stays exactly where it was."
+        },
+        {
+          "id": "drill-man-or-shop",
+          "title": "The man or the shop",
+          "format": "flashcard",
+          "coach": "English says the baker's for the man and the bakery for the shop and lets you use either. French will not: the man takes chez and the shop takes à. The person is on the front. Say the place out loud before you turn it over.",
+          "pairs": [
+            [
+              "le boulanger",
+              "chez le boulanger"
+            ],
+            [
+              "la boulangerie",
+              "à la boulangerie"
+            ],
+            [
+              "le médecin",
+              "chez le médecin"
+            ],
+            [
+              "l'hôpital",
+              "à l'hôpital"
+            ]
+          ]
+        },
+        {
+          "id": "retest-man-or-shop",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "You want to go to the bank.",
+          "opts": [
+            "chez la banque",
+            "à la banque",
+            "en banque"
+          ],
+          "correct": 1,
+          "why": "A building, and nobody says the first one. There is no person version of a bank."
+        },
+        {
+          "id": "drill-no-fold",
+          "title": "Nothing folds after chez",
+          "format": "flashcard",
+          "coach": "À plus le is au and de plus le is du, and a1.21 gave you both. Chez does none of that: chez le, chez la, chez les, two words every time.",
+          "pairs": [
+            [
+              "à + le marché",
+              "au marché"
+            ],
+            [
+              "de + le Japon",
+              "du Japon"
+            ],
+            [
+              "chez + le médecin",
+              "chez le médecin"
+            ],
+            [
+              "chez + la dentiste",
+              "chez la dentiste"
+            ]
+          ]
+        },
+        {
+          "id": "retest-no-fold",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "chez + le dentiste",
+          "opts": [
+            "chez au dentiste",
+            "chez le dentiste",
+            "chez du dentiste"
+          ],
+          "correct": 1,
+          "why": "Chez leaves it alone. Two words on the page and two words in the mouth."
+        },
+        {
+          "id": "drill-nothing-left",
+          "title": "En leaves nothing behind",
+          "format": "flashcard",
+          "coach": "En is the only one of the four that gets rid of the article rather than doing something to it. Learn the country with its article. Everything else follows.",
+          "pairs": [
+            [
+              "la France",
+              "en France"
+            ],
+            [
+              "le Japon",
+              "au Japon"
+            ],
+            [
+              "les États-Unis",
+              "aux États-Unis"
+            ],
+            [
+              "le marché",
+              "au marché"
+            ]
+          ]
+        },
+        {
+          "id": "retest-nothing-left",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Je vais ___ France.",
+          "opts": [
+            "en",
+            "à la",
+            "en la"
+          ],
+          "correct": 0,
+          "why": "A country with an article, so en, and the article goes rather than folding."
+        },
+        {
+          "id": "drill-town-or-country",
+          "title": "A town or a country",
+          "format": "flashcard",
+          "coach": "They look alike and one of them has an article. That is the only difference and it decides the whole thing.",
+          "pairs": [
+            [
+              "Paris",
+              "à Paris"
+            ],
+            [
+              "Lyon",
+              "à Lyon"
+            ],
+            [
+              "la France",
+              "en France"
+            ],
+            [
+              "le Japon",
+              "au Japon"
+            ]
+          ]
+        },
+        {
+          "id": "retest-town-or-country",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Je vais ___ Lyon.",
+          "opts": [
+            "à",
+            "en",
+            "au"
+          ],
+          "correct": 0,
+          "why": "A town, and a town has no article for anything to happen to."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.a2.04.lieu",
+          "title": "Four kinds of place, and what each word does to the article",
+          "layer": "deep",
+          "contains": [
+            "The four kinds",
+            "What happens to the article",
+            "Going and coming back",
+            "Chez"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-kinds",
+              "title": "The four kinds",
+              "layer": "deep",
+              "cols": [
+                "The place",
+                "The word",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "a person",
+                  "chez",
+                  "chez Marie"
+                ],
+                [
+                  "a city",
+                  "à",
+                  "à Paris"
+                ],
+                [
+                  "a country",
+                  "en, au",
+                  "en France"
+                ],
+                [
+                  "a building",
+                  "à + le",
+                  "au marché"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-who-taught",
+              "title": "Where each row came from",
+              "layer": "deep",
+              "body": "a person is this lesson, a city is a1.21, a country is a1.22, a building is a1.21. Two of these four are not new. a1.21 gave you what à and de do to an article and a1.22 gave you what en does to a country's. What nobody has told you is that they are the same question asked four times."
+            },
+            {
+              "type": "table",
+              "id": "sheet-article",
+              "title": "What happens to the article",
+              "layer": "deep",
+              "cols": [
+                "Word",
+                "+ le",
+                "+ la"
+              ],
+              "rows": [
+                [
+                  "à",
+                  "au",
+                  "à la"
+                ],
+                [
+                  "de",
+                  "du",
+                  "de la"
+                ],
+                [
+                  "en",
+                  "en",
+                  "en"
+                ],
+                [
+                  "chez",
+                  "chez le",
+                  "chez la"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-plural",
+              "title": "And with les",
+              "layer": "deep",
+              "body": "À and les give aux, de and les give des, en still gives en, and chez still gives chez les. The plural changes nothing about which of the three things happens."
+            },
+            {
+              "type": "table",
+              "id": "sheet-both-ways",
+              "title": "Going and coming back",
+              "layer": "deep",
+              "cols": [
+                "The place",
+                "Going",
+                "Coming from"
+              ],
+              "rows": [
+                [
+                  "Marie",
+                  "chez Marie",
+                  "de chez Marie"
+                ],
+                [
+                  "Paris",
+                  "à Paris",
+                  "de Paris"
+                ],
+                [
+                  "la France",
+                  "en France",
+                  "de France"
+                ],
+                [
+                  "le Japon",
+                  "au Japon",
+                  "du Japon"
+                ],
+                [
+                  "le marché",
+                  "au marché",
+                  "du marché"
+                ],
+                [
+                  "la gare",
+                  "à la gare",
+                  "de la gare"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-chez",
+              "title": "Chez",
+              "layer": "deep",
+              "body": "Chez takes a person and never a place. Chez Marie, chez le médecin, chez moi. Never a building, never a shop, never a town. Out of 283 sentences in this course that use the word, 0 put it in front of a building. Not one. À plus le is au and de plus le is du, and a1.21 gave you both. Chez does none of that: chez le, chez la, chez les, two words every time. English says the baker's for the man and the bakery for the shop and lets you use either. French will not: the man takes chez and the shop takes à."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-carries-forward",
+              "title": "What carries forward",
+              "layer": "deep",
+              "body": "À folds the article in. En throws it out. Chez leaves it alone. Ask what the place IS before you reach for the word in front of it. A person takes chez. Everything else is a place, and its article decides the rest. Two of these four are not new. a1.21 gave you what à and de do to an article and a1.22 gave you what en does to a country's. What nobody has told you is that they are the same question asked four times. En also means how long something takes and dans also means how far ahead something is, and both of those are a2.18, which is the very next lesson. And when you want to ask the way to somewhere rather than say you are going there, that is a2.27."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.a2.prepositions-essentielles.129",
+          "fr.a2.prepositions-essentielles.130",
+          "fr.a2.prepositions-essentielles.131",
+          "fr.a2.prepositions-essentielles.132"
+        ],
+        [
+          "fr.sons.muettes.009",
+          "fr.a2.prepositions-essentielles.133",
+          "fr.a2.prepositions-essentielles.134",
+          "fr.a2.prepositions-essentielles.145",
+          "fr.a1.routines.063",
+          "fr.a1.routines.064"
+        ],
+        [
+          "fr.a1.pronoms-essentiels.075",
+          "fr.a2.pronoms-essentiels.055",
+          "fr.a1.amis.030",
+          "fr.a1.amis.059",
+          "fr.a1.animaux-domestiques.130",
+          "fr.a1.verbes-essentiels.026",
+          "fr.sons.nasales.157",
+          "fr.sons.voyelles.449",
+          "fr.a1.famille.124",
+          "fr.a1.famille.125",
+          "fr.a1.famille.126",
+          "fr.a2.prepositions-essentielles.141",
+          "fr.a2.prepositions-essentielles.142",
+          "fr.a2.prepositions-essentielles.143",
+          "fr.a2.prepositions-essentielles.144",
+          "fr.a2.prepositions-essentielles.135",
+          "fr.a2.prepositions-essentielles.137",
+          "fr.a2.prepositions-essentielles.138",
+          "fr.a2.prepositions-essentielles.139",
+          "fr.a2.prepositions-essentielles.140"
+        ],
+        [
+          "fr.sons.muettes.004",
+          "fr.sons.elision.029",
+          "fr.sons.elision.062",
+          "fr.a2.verbes.285",
+          "fr.a1.pays-et-nationalites.011",
+          "fr.sons.nasales.029",
+          "fr.a1.routines.067",
+          "fr.a2.verbes.261",
+          "fr.a2.prepositions-essentielles.146",
+          "fr.a2.prepositions-essentielles.147"
+        ],
+        [
+          "fr.a2.prepositions-essentielles.148",
+          "fr.a2.prepositions-essentielles.149",
+          "fr.a2.prepositions-essentielles.150",
+          "fr.a2.prepositions-essentielles.151",
+          "fr.a2.prepositions-essentielles.152",
+          "fr.a2.prepositions-essentielles.153",
+          "fr.a2.prepositions-essentielles.154"
+        ],
+        []
+      ],
+      "terms": {
+        "chez": {
+          "term": "chez",
+          "title": "A person, and never a place",
+          "body": "Chez takes a person and never a place. Chez Marie, chez le médecin, chez moi. Never a building, never a shop, never a town. Out of 283 sentences in this course that use the word, 0 put it in front of a building. Not one. What the sentences put behind it instead: le 59 times, nous 38 times, moi 34 times, mes 16 times, lui 16 times. Every one of those is a person or a word standing in for one, and that is the whole of the rule. There is no English word for it, which is why it is the one of the four you will have to think about.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.133",
+              "note": "A job, with its article kept."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.136",
+              "note": "A name, which never had an article to keep."
+            },
+            {
+              "itemId": "fr.a1.pronoms-essentiels.075",
+              "note": "And a person you are talking to. Somebody wrote this card for a pronoun lesson."
+            }
+          ]
+        },
+        "theArticle": {
+          "term": "the article",
+          "title": "Three things a word can do to it",
+          "body": "À folds the article in. En throws it out. Chez leaves it alone. In front of a le word: à gives au, de gives du, en gives en, chez gives chez le. That is the whole lesson in one sentence and there is nothing else to it. À and de fold, en throws the article away, and chez leaves it alone. Two of these four are not new. a1.21 gave you what à and de do to an article and a1.22 gave you what en does to a country's. What nobody has told you is that they are the same question asked four times.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.132",
+              "note": "À and le, folded into one word."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.131",
+              "note": "La France had an article and now it does not."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.129",
+              "note": "And le, still standing, because chez did nothing to it."
+            }
+          ]
+        },
+        "fourKinds": {
+          "term": "four kinds",
+          "title": "Look at the place before you look for the word",
+          "body": "Four kinds of place and four answers. Three of them you already have, and the fourth is the one English gives you no help with at all. a person takes chez, as in chez Marie, a city takes à, as in à Paris, a country takes en, au, as in en France, a building takes à + le, as in au marché. Ask what the place IS before you reach for the word in front of it. A person takes chez. Everything else is a place, and its article decides the rest. A learner who asks what they are DOING gets no help from the answer, because going, arriving, staying and living all take the same word. The place decides it, and the place decides it before the verb has finished.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.130",
+              "note": "A city, so nothing to fold with."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.145",
+              "note": "A country with a le, so the le is folded in."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.146",
+              "note": "And a building with a la, which does not fold."
+            }
+          ]
+        },
+        "manOrShop": {
+          "term": "man or shop",
+          "title": "English has one phrase for both of these",
+          "body": "English says the baker's for the man and the bakery for the shop and lets you use either. French will not: the man takes chez and the shop takes à. Say either in English and nobody notices. Say the wrong one in French and you have said something nobody says, and the reason it is hard is that you were never asked to choose before. When the shop has no person behind it, as a bank or a station does, only one of the two is available and the choice disappears.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.135",
+              "note": "The man."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.137",
+              "note": "The shop."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.140",
+              "note": "And the same doorway."
+            }
+          ]
+        },
+        "aPlusLe": {
+          "term": "à plus le",
+          "title": "The fold you already have, with a country behind it",
+          "body": "« au Japon » is « à » plus « le Japon ». a1.21 taught the fold and a1.22 taught the country, eleven lessons apart, and neither of them said they were the same operation. À plus le is au and à plus les is aux, and a1.21 gave you that with de plus le is du and de plus les is des beside it. a1.29 owns the other du, the one that means an amount of something, and its test still separates them: put some in front of the English and see whether it survives.",
+          "examples": [
+            {
+              "itemId": "fr.a1.routines.064",
+              "note": "À and le marché. Somebody wrote this card for a routine lesson."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.145",
+              "note": "À and le Japon, which is the same thing with a country in it."
+            },
+            {
+              "itemId": "fr.a1.routines.063",
+              "note": "And à l', which does not fold at all."
+            }
+          ]
+        },
+        "enDropsIt": {
+          "term": "en drops it",
+          "title": "The one that leaves nothing behind",
+          "body": "A country's article decides between en, au and aux, and a1.22 gave you the whole grid. En is the only one of the four that gets rid of the article rather than doing something to it, which is why « en la France » is not a mistake anybody has to be corrected out of: there is no version of it. a1.22 is where the gender rule lives and this lesson does not repeat it.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.131",
+              "note": "The article on la France is simply gone."
+            },
+            {
+              "itemId": "fr.sons.nasales.029",
+              "note": "The same thing in somebody else's sentence, written for a pronunciation lesson."
+            },
+            {
+              "itemId": "fr.a1.pays-et-nationalites.001",
+              "note": "And the word with its article, which is how a1.22 asked you to store it."
+            }
+          ]
+        },
+        "noArticle": {
+          "term": "no article",
+          "title": "Two places that never had one to begin with",
+          "body": "A city has no article and a person's name has no article, so there is nothing for the word in front to do. À Paris, chez Marie. That is why those two rows of the grid look the simplest and it is also why they are the two learners overthink: there is no rule to apply, and applying one anyway produces « à la Paris » and « chez la Marie », which are the two errors nobody warns you about.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.130",
+              "note": "A city."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.136",
+              "note": "A name."
+            },
+            {
+              "itemId": "fr.sons.elision.062",
+              "note": "And a second city, so it is a rule rather than a fact about Paris."
+            }
+          ]
+        },
+        "notYet": {
+          "term": "not yet",
+          "title": "The other en, and the other dans",
+          "body": "En also means how long something takes and dans also means how far ahead something is, and both of those are a2.18, which is the very next lesson. And when you want to ask the way to somewhere rather than say you are going there, that is a2.27. Everything on the other screens is about where somebody is or where they are going. a2.18 is the very next lesson and it takes both of those words back and does something else with them, and that is worth knowing now so you do not think you have met them twice. a2.28 is called « Chez le médecin » and it is fourteen lessons ahead of you. Its whole title is this lesson's third card.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.131",
+              "note": "En with a place, which is this lesson."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.129",
+              "note": "And chez with a person, which a2.28 is named after."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.148",
+              "note": "The afternoon in her question is a time and no word in this lesson touches it."
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-04-four",
+            "desc": "THE FOUR KINDS, ONE TAKE, ONE VOICE, IN THE ORDER THE GRID PRINTS THEM AND WITH NO GAP BETWEEN THEM: « Je vais chez le médecin. », « Je vais à Paris. », « Je vais en France. », « Je vais au marché. » The claim the whole grid rests on is that these are four answers to ONE question, and four separate recordings are four performances: a reader who records them apart will give each one its own shape and the learner will hear four different sentences instead of one sentence with four endings. THE FIRST THREE WORDS OF ALL FOUR MUST BE IDENTICAL. « Je vais » is the constant and the only thing allowed to move is what comes after it. KEEP EVERY NASAL CLOSED: France is /fʁɑ̃s/ with no n sound behind the vowel, médecin ends /sɛ̃/ with none either, and a reader who lets an n out of either is teaching a sound the language does not have.",
+            "clipIds": [
+              "Je vais chez le médecin.",
+              "Je vais à Paris.",
+              "Je vais en France.",
+              "Je vais au marché."
+            ]
+          },
+          {
+            "id": "rec-a2-04-fold",
+            "desc": "THE AUDIO STEP OF THE FOLD DRILL, THREE LINES, ONE TAKE: « Je vais au marché. », « Je vais au Japon. », « Je vais chez le médecin. » The first two are one word where the page had two and the third is two words that stay two, and THE WHOLE VALUE OF THE TAKE IS THAT THE THIRD ONE HAS A GAP THE FIRST TWO DO NOT. Do not exaggerate it and do not close it: read all three at ordinary conversational pace and let the difference be whatever it naturally is, which is a real and audible thing. A reader who separates « chez » and « le » with a pause is teaching that the phrase is hesitant, and a reader who runs them together is teaching that it folds. Neither is true.",
+            "clipIds": [
+              "Je vais au marché.",
+              "Je vais au Japon.",
+              "Je vais chez le médecin."
+            ]
+          },
+          {
+            "id": "rec-a2-04-trap",
+            "desc": "THE AUDIO STEP OF THE CHEZ TRAP, AND IT IS THE ONLY WRONG-THEN-RIGHT TAKE IN THIS LESSON. « chez la boulangerie » then « à la boulangerie » then « chez le boulanger », one take, in that order. READ THE WRONG ONE PLAINLY AND AT ORDINARY PACE rather than comically or hesitantly: it is perfectly pronounceable, it sounds completely ordinary, and that is exactly why learners keep saying it. A reading that signals the error teaches that the error is audible, and it is not. The two right versions must sound like two ordinary things somebody would say on the same morning, because they are, and because the point of the pair is that they are not alternatives for one slot: they are two different places to be going. Also in this take, each whole: « chez le médecin », « chez la dentiste », « chez Marie », « à l’hôpital ».",
+            "clipIds": [
+              "chez la boulangerie",
+              "à la boulangerie",
+              "chez le boulanger",
+              "chez le médecin",
+              "chez la dentiste",
+              "chez Marie",
+              "à l’hôpital"
+            ]
+          },
+          {
+            "id": "rec-a2-04-scene",
+            "desc": "THE CORRIDOR IN NANTES. She has a coffee in each hand, she is friendly and slightly in a hurry, and her question is small talk rather than a request for information. THE LEARNER'S OWN LINE IS THE TAKE THAT HAS TO BE RIGHT: « Je vais... euh... à le médecin... au médecin... » is somebody trying two forms of a rule they were taught, hearing that neither of them is what people say, and running out of sentence. It must sound like a correction beginning rather than like a forgotten word, and the difference is audible: the first two attempts should be confident and the stall should come after them, not before. HER RECOVERY LINE IS THE EXPENSIVE ONE. « Ah, chez le médecin. Rien de grave ? » is her supplying the word without noticing she has supplied it, and moving straight on to something else. Any hint of correction, emphasis or kindness-about-a-mistake in that line turns the scene into a telling-off and loses the whole point, which is that nothing visibly went wrong.",
+            "clipIds": [
+              "Tu fais quoi cet après-midi ?",
+              "Je vais... euh... à le médecin... au médecin...",
+              "Ah, chez le médecin. Rien de grave ?",
+              "Non, rien de grave."
+            ]
+          },
+          {
+            "id": "rec-a2-04-shop",
+            "desc": "THE MAN AND THE SHOP, ADJACENT, ONE TAKE, AND THEY MUST SOUND EQUALLY ORDINARY. « Je vais chez le boulanger. » then « Je vais à la boulangerie. » then « C'est la même porte. » Both of the first two are things people say every day and neither is more careful or more formal than the other, so any difference in weight between them teaches a distinction the language does not make. The third line is the punchline and should be read flatly, as a fact rather than as a joke. NOTE ON « même »: it is /mɛm/ with a real m and no nasal vowel at all. The app respells it `mem` deliberately rather than `MEHM`, and a reader who nasalises it is saying a different word.",
+            "clipIds": [
+              "Je vais chez le boulanger.",
+              "Je vais à la boulangerie.",
+              "C'est la même porte."
+            ]
+          },
+          {
+            "id": "rec-a2-04-people",
+            "desc": "THE SIX PEOPLE AND THE FIVE PHRASES, ONE TAKE, EVEN PACE, READ AS A LIST. le médecin, le dentiste, boulanger, le vétérinaire, le copain, la tante, then chez toi, chez nous, Bienvenue chez moi, passer chez quelqu'un, aller chez le vétérinaire. EVERY ARTICLE IS ATTACHED AND NONE IS SEPARATED BY A PAUSE, because the learner is being asked to notice that chez does NOT take the article away, and a gap between chez and le would suggest the two words are being held apart on purpose. They are simply two words. THE VOWEL AT THE END OF « médecin » IS /ɛ̃/ AND THE APP WRITES IT EHⁿ, matching three published rows in the sons themes. Read it through the nose with no n behind it.",
+            "clipIds": [
+              "le médecin",
+              "le dentiste",
+              "boulanger",
+              "le vétérinaire",
+              "le copain",
+              "la tante",
+              "chez toi",
+              "chez nous",
+              "Bienvenue chez moi",
+              "passer chez quelqu'un",
+              "aller chez le vétérinaire"
+            ]
+          },
+          {
+            "id": "rec-a2-04-dictee",
+            "desc": "THE DICTÉE LINES, ONE TAKE EACH, CLEAN AND UNHURRIED, WITH NO CONTRAST INTENT AT ALL. This is the opposite instruction to every other take in this lesson: here the learner is spelling rather than comparing, and any pair-reading would hand them the answer. Read each line as though it were the only line. FIVE OF THEM ARE THE SMALL WORD PLUS A PLACE AND NOTHING ELSE, and those five matter most: the learner has to hear where one word ends and the next begins, so do not run « chez le » together into a single syllable and do not put a gap in it either. Say it the way somebody would say it.",
+            "clipIds": [
+              "Je vais à Paris.",
+              "Je vais en France.",
+              "Je vais au marché.",
+              "chez le médecin",
+              "chez la dentiste",
+              "chez le boulanger",
+              "chez Marie",
+              "à la boulangerie",
+              "C'est la même porte.",
+              "Je reste chez moi.",
+              "Il est chez lui.",
+              "Elle est chez elle.",
+              "On mange chez Marie.",
+              "Je vais au Japon.",
+              "Je vais à la gare.",
+              "Je vais à l'hôpital.",
+              "Non, rien de grave.",
+              "Oui, je suis chez moi."
+            ]
+          },
+          {
+            "id": "rec-a2-04-talk",
+            "desc": "THE CONVERSATION, HER LINES ONLY, ONE TAKE, AS ONE CONTINUOUS EXCHANGE RATHER THAN AS SIX SEPARATE PROMPTS. She is the same colleague from the corridor a week later, she has more time, and she is enjoying the conversation. « Tu es chez toi ce soir ? » and « On se retrouve chez Marie ? » both use the word the learner has just spent half an hour on, and NEITHER MAY BE STRESSED: she is not testing anybody, and a lift on chez would turn a conversation into an exercise. Read « Et le week-end, tu pars ? » with genuine curiosity, because it is the turn where the learner gets to choose between three kinds of place and any of the three is a real answer.",
+            "clipIds": [
+              "Tu es chez toi ce soir ?",
+              "On se retrouve chez Marie ?",
+              "Ah bon ? Rien de grave ?",
+              "Et après, tu rentres ?",
+              "Et le week-end, tu pars ?"
+            ]
+          }
+        ],
+        "ambienceDefault": "off"
+      }
     }
   ],
   "items": [
@@ -178772,7 +181604,7 @@
       "fr": "rentrer à la maison",
       "en": "to go home",
       "ipa": "/ʁɑ̃.tʁe a la mɛ.zɔ̃/",
-      "respell": "rahn-TRAY ah lah meh-ZOHN",
+      "respell": "rahⁿ-TRAY ah lah meh-ZOHⁿ",
       "notes": "Je rentre à la maison à six heures.",
       "tags": [
         "phrase"
@@ -282185,6 +285017,7 @@
       },
       "tags": [],
       "drills": [
+        "flashcard",
         "voiceflash",
         "review"
       ],
@@ -282208,6 +285041,7 @@
       },
       "tags": [],
       "drills": [
+        "flashcard",
         "voiceflash",
         "review"
       ],
@@ -282231,6 +285065,7 @@
       },
       "tags": [],
       "drills": [
+        "flashcard",
         "voiceflash",
         "review"
       ],
@@ -296348,6 +299183,8 @@
       "respell": "vehⁿ-SAHⁿ ehⁿ-VEET SAY ko-PEHⁿ SHAY LÜEE",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -299841,8 +302678,8 @@
       "drills": [
         "flashcard",
         "voiceflash",
-        "review",
-        "dictation"
+        "dictation",
+        "review"
       ],
       "audioRef": null,
       "version": 1
@@ -303801,8 +306638,8 @@
       "drills": [
         "flashcard",
         "voiceflash",
-        "review",
-        "dictation"
+        "dictation",
+        "review"
       ],
       "audioRef": null,
       "version": 1
@@ -312553,6 +315390,8 @@
       "respell": "MOHⁿ GRAHⁿ FREHR tra-VAY AHⁿ FRAHⁿS",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -317739,6 +320578,8 @@
       "respell": "NOO mahⁿ-ZHOHⁿ DAY KREHP sü-KRAY SHAY MA grahⁿ-MEHR",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -342668,9 +345509,9 @@
         "singular"
       ],
       "drills": [
-        "sentence",
         "flashcard",
         "voiceflash",
+        "sentence",
         "review"
       ],
       "audioRef": null,
@@ -343461,11 +346302,11 @@
         "nasal"
       ],
       "drills": [
-        "sentence",
         "flashcard",
         "voiceflash",
-        "review",
-        "dictation"
+        "dictation",
+        "sentence",
+        "review"
       ],
       "audioRef": null,
       "version": 1
@@ -348912,6 +351753,736 @@
       "audioRef": null,
       "version": 1,
       "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.amis.030",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "amis",
+      "fr": "Bienvenue chez moi",
+      "en": "Welcome to my place",
+      "ipa": "/bjɛ̃.və.ny ʃe mwa/",
+      "respell": "byehⁿ-vuh-NÜ SHAY MWAH",
+      "tags": [
+        "amis",
+        "phrase"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.amis.059",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "amis",
+      "fr": "passer chez quelqu'un",
+      "en": "to drop by someone's place",
+      "ipa": "pa.se ʃe kɛl.kœ̃",
+      "respell": "pah-SAY SHAY kehl-KUHⁿ",
+      "notes": "Chez means at the home of.",
+      "tags": [
+        "friendship",
+        "verbs"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.animaux-domestiques.130",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "animaux-domestiques",
+      "fr": "aller chez le vétérinaire",
+      "en": "to go to the vet",
+      "ipa": "/ale ʃe lə veteʁinɛʁ/",
+      "respell": "ah-LAY shay luh vay-tay-ree-NAIR",
+      "tags": [
+        "phrase",
+        "verb",
+        "health"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a1.pronoms-essentiels.075",
+      "kind": "phrase",
+      "level": "a1",
+      "theme": "pronoms-essentiels",
+      "fr": "chez toi",
+      "en": "at your place",
+      "ipa": "/ʃe twa/",
+      "respell": "shay twah",
+      "tags": [
+        "pronoun",
+        "stressed",
+        "toi"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.verbes-essentiels.026",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "verbes-essentiels",
+      "fr": "Elle reste chez elle ce week-end.",
+      "en": "She is staying home this weekend.",
+      "ipa": "/ɛl ʁɛst ʃez ɛl sə wikɛnd/",
+      "respell": "ell rest shay ell suh week-end",
+      "tags": [
+        "verbe",
+        "maison"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "sentence"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.pronoms-essentiels.055",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "pronoms-essentiels",
+      "fr": "chez nous",
+      "en": "at our place",
+      "ipa": "/ʃe nu/",
+      "respell": "shay noo",
+      "tags": [
+        "pronoun",
+        "stressed",
+        "nous"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.129",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je vais chez le médecin.",
+      "en": "I am going to the doctor's.",
+      "ipa": "/ʒə vɛ ʃe lə med.sɛ̃/",
+      "respell": "zhuh veh shay luh mayd-SEHⁿ",
+      "notes": "A person, so chez, and the le stays exactly where it was. Nineteen letters, so the dictée takes the short version instead.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "chez"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.130",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je vais à Paris.",
+      "en": "I am going to Paris.",
+      "ipa": "/ʒə vɛ a pa.ʁi/",
+      "respell": "zhuh veh a pa-REE",
+      "notes": "A city has no article to fold with, so à goes straight on. Twelve letters.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "ville"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.131",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je vais en France.",
+      "en": "I am going to France.",
+      "ipa": "/ʒə vɛ ɑ̃ fʁɑ̃s/",
+      "respell": "zhuh veh ahⁿ FRAHⁿSS",
+      "notes": "La France has an article and en throws it away. Fourteen letters, and the country half of this is a1.22's.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "pays"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.132",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je vais au marché.",
+      "en": "I am going to the market.",
+      "ipa": "/ʒə vɛ o maʁ.ʃe/",
+      "respell": "zhuh veh oh mar-SHAY",
+      "notes": "À and le folded into one word, which is a1.21's rule with a shop behind it. Fourteen letters.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.133",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "chez le médecin",
+      "en": "at the doctor's",
+      "ipa": "/ʃe lə med.sɛ̃/",
+      "respell": "shay luh mayd-SEHⁿ",
+      "notes": "Three words and they stay three words. This is the phrase the whole lesson is built to produce.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.134",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "chez la dentiste",
+      "en": "at the dentist's",
+      "ipa": "/ʃe la dɑ̃.tist/",
+      "respell": "shay lah dahⁿ-TEEST",
+      "notes": "The same word with la instead of le, and chez does nothing to that either. Dentiste is the same word for a man and a woman.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.135",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "chez le boulanger",
+      "en": "at the baker's",
+      "ipa": "/ʃe lə bu.lɑ̃.ʒe/",
+      "respell": "shay luh boo-lahⁿ-ZHAY",
+      "notes": "The man who bakes. Half of the pair this lesson exists for.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.136",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "chez Marie",
+      "en": "at Marie's",
+      "ipa": "/ʃe ma.ʁi/",
+      "respell": "shay ma-REE",
+      "notes": "A name, so there is no article to leave alone. Nine letters and the shortest thing in the lesson.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.137",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "à la boulangerie",
+      "en": "at the bakery",
+      "ipa": "/a la bu.lɑ̃ʒ.ʁi/",
+      "respell": "ah lah boo-lahⁿzh-REE",
+      "notes": "The shop where the man works. À and la do not fold, which a1.21 measured and this lesson leans on.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.138",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je vais chez le boulanger.",
+      "en": "I am going to the baker's.",
+      "ipa": "/ʒə vɛ ʃe lə bu.lɑ̃.ʒe/",
+      "respell": "zhuh veh shay luh boo-lahⁿ-ZHAY",
+      "notes": "The person. Twenty-one letters, so the dictée takes the phrase on its own instead.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "chez"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.139",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je vais à la boulangerie.",
+      "en": "I am going to the bakery.",
+      "ipa": "/ʒə vɛ a la bu.lɑ̃ʒ.ʁi/",
+      "respell": "zhuh veh ah lah boo-lahⁿzh-REE",
+      "notes": "The shop. Same errand, same door, and not one word in common with the line above except the first two.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.140",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "C'est la même porte.",
+      "en": "It is the same door.",
+      "ipa": "/sɛ la mɛm pɔʁt/",
+      "respell": "seh lah mem PORT",
+      "notes": "Fifteen letters, and it is the sentence that makes the pair worth learning rather than worth memorising.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.141",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je reste chez moi.",
+      "en": "I am staying at my place.",
+      "ipa": "/ʒə ʁɛst ʃe mwa/",
+      "respell": "zhuh REST shay MWAH",
+      "notes": "Fourteen letters. Chez moi is thirty-four published sentences and this is the first card.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "chez"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.142",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Il est chez lui.",
+      "en": "He is at his place.",
+      "ipa": "/il ɛ ʃe lɥi/",
+      "respell": "eel eh shay LÜEE",
+      "notes": "Twelve letters. The ü and the ee run together into one glide, the way lui always does.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "chez"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.143",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Elle est chez elle.",
+      "en": "She is at her place.",
+      "ipa": "/ɛl ɛ ʃe ɛl/",
+      "respell": "ehl eh shay EHL",
+      "notes": "Fifteen letters, and the reason this row is authored rather than imported is that the only published « chez elle » carries the tie glyph that renders as an underscore on a phone.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "chez"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.144",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "On mange chez Marie.",
+      "en": "We are eating at Marie's.",
+      "ipa": "/ɔ̃ mɑ̃ʒ ʃe ma.ʁi/",
+      "respell": "ohⁿ MAHⁿZH shay ma-REE",
+      "notes": "Sixteen letters, at the limit. On rather than nous, which is a2.01's rule and the register this whole level uses.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "chez"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.145",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je vais au Japon.",
+      "en": "I am going to Japan.",
+      "ipa": "/ʒə vɛ o ʒa.pɔ̃/",
+      "respell": "zhuh veh oh zhah-POHⁿ",
+      "notes": "Thirteen letters. Au here is à plus le Japon, which is the same fold as au marché and nobody has ever said so.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "pays"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.146",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je vais à la gare.",
+      "en": "I am going to the station.",
+      "ipa": "/ʒə vɛ a la ɡaʁ/",
+      "respell": "zhuh veh ah lah GAHR",
+      "notes": "Thirteen letters, and à la does not fold. Half of what a1.21 gave you is the half where nothing happens.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.147",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je vais à l'hôpital.",
+      "en": "I am going to the hospital.",
+      "ipa": "/ʒə vɛ a lɔ.pi.tal/",
+      "respell": "zhuh veh ah loh-pee-TAL",
+      "notes": "Fifteen letters, because the apostrophe is not a letter. À l' does not fold either, and this is the building behind the doctor.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.148",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Tu fais quoi cet après-midi ?",
+      "en": "What are you doing this afternoon?",
+      "ipa": "/ty fɛ kwa sɛ.ta.pʁɛ.mi.di/",
+      "respell": "tü feh KWAH seh-tah-preh-mee-DEE",
+      "notes": "Her question, and every word in it is one the learner has had since a1. The join between cet and après is a HYPHEN, which is a2.16 §7's decision for the whole project, because the tie glyph renders as an underscore on a phone.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.149",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Ah, chez le médecin. Rien de grave ?",
+      "en": "Ah, the doctor's. Nothing serious?",
+      "ipa": "/a ʃe lə med.sɛ̃ ʁjɛ̃ də ɡʁav/",
+      "respell": "ah shay luh mayd-SEHⁿ · RYEHⁿ duh GRAHV",
+      "notes": "She supplies the word and moves straight on, which is what makes it expensive: nothing visibly went wrong.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "chez"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.150",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Non, rien de grave.",
+      "en": "No, nothing serious.",
+      "ipa": "/nɔ̃ ʁjɛ̃ də ɡʁav/",
+      "respell": "nohⁿ RYEHⁿ duh GRAHV",
+      "notes": "Fourteen letters. The answer the learner did have, arriving after the sentence they did not.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.151",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Tu es chez toi ce soir ?",
+      "en": "Are you at your place tonight?",
+      "ipa": "/ty ɛ ʃe twa sə swaʁ/",
+      "respell": "tü eh shay TWAH suh SWAR",
+      "notes": "Seventeen letters, so the dictée cannot take it. Chez toi is the form a friend uses.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "chez"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.152",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Oui, je suis chez moi.",
+      "en": "Yes, I am at my place.",
+      "ipa": "/wi ʒə sɥi ʃe mwa/",
+      "respell": "wee zhuh swee shay MWAH",
+      "notes": "Sixteen letters, exactly at the limit. The same phrase in the answer, which is how French answers this question.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "chez"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.153",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "On se retrouve chez Marie ?",
+      "en": "Shall we meet at Marie's?",
+      "ipa": "/ɔ̃ sə ʁə.tʁuv ʃe ma.ʁi/",
+      "respell": "ohⁿ suh ruh-TROOV shay ma-REE",
+      "notes": "A person, so chez and no article at all, because a name does not have one.",
+      "tags": [
+        "prepositions",
+        "lieu",
+        "chez"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.154",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Non, on se retrouve à la gare.",
+      "en": "No, we are meeting at the station.",
+      "ipa": "/nɔ̃ ɔ̃ sə ʁə.tʁuv a la ɡaʁ/",
+      "respell": "nohⁿ ohⁿ suh ruh-TROOV ah lah GAHR",
+      "notes": "And a place, so à and the article stays visible. Two turns, two kinds, one decision.",
+      "tags": [
+        "prepositions",
+        "lieu"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
     }
   ],
   "scenarios": [
