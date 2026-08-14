@@ -815,7 +815,9 @@
       "level": "a2",
       "title": "Prepositions of Time",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.18.l1"
+      ],
       "prereqUnitIds": [
         "a1.12"
       ]
@@ -164149,6 +164151,2700 @@
         "Post-verbal placement of the manner adverb in a simple tense, and its position outside the discontinuous negative morpheme",
         "That placement in a compound tense is DEFERRED to a2.05, named on the learner surface rather than left silent"
       ]
+    },
+    {
+      "id": "a2.18.l1",
+      "unitId": "a2.18",
+      "seq": 1,
+      "title": "Prépositions de temps",
+      "level": "a2",
+      "tag": "A2 · LEÇON 14",
+      "intro": "Somebody is going to ask you how long you have been here, and the answer is three words long. What makes it hard is not the words: it is that English hands you a past tense for a thing that is still true, and French will not take it. Five small words share this job between them, each one wanting a different shape of time behind it, and once you know what the time is doing the word chooses itself.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "Six Months, No Sentence",
+          "frSub": "Chez la voisine",
+          "render": "screens",
+          "layer": "core",
+          "setting": {
+            "place": "A neighbour's table",
+            "city": "Lyon",
+            "time": "Thursday evening"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "A Thursday evening in Lyon, at a neighbour's table, four people and one bottle of wine. She turns to you halfway through the meal.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "La voisine",
+              "fr": "Tu es ici depuis longtemps ?",
+              "en": "Have you been here long?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-18-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Euh... j'ai été ici... non... je suis... six mois.",
+              "en": "Uh... I have been here... no... I am... six months.",
+              "stage": "You have the number and you have the word for here. What stops you is the verb: English hands you a past tense, you reach for one, and it does not fit the sentence you are standing in.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "Four people are waiting and the answer is three words long. What comes out?",
+              "options": [
+                {
+                  "fr": "Je suis ici depuis six mois",
+                  "respell": "[zhuh SWEE ee-SEE duh-PWEE see MWAH]",
+                  "en": "the present tense, which is the one this sentence wants",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                },
+                {
+                  "fr": "Euh... six mois.",
+                  "en": "a number, and no sentence round it",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "She asks where you were before, and you are three sentences into a conversation instead of one number out of one.",
+                "breaks": "She smiles, says « ah, d'accord », and turns to the person on her left. Nothing went wrong and nothing happened either."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "La voisine",
+              "fr": "Ah, tu es ici depuis six mois. Et avant ?",
+              "en": "Ah, you have been here for six months. And before that?",
+              "stage": "She says your sentence back to you, correctly, without noticing she has done it, and moves on. That is what makes it expensive: nobody corrected anything, so nothing was learned.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "The verb does not move",
+              "body": "You did not stall on a word. You stalled on a tense, and the tense French wanted was the one you already had. English pushes you towards a past here and French will not go there.",
+              "wrong": {
+                "fr": "J'ai habité ici depuis trois ans.",
+                "ipa": "/ʒe a.bi.te i.si də.pɥi tʁwa ɑ̃/",
+                "respell": "[zhay a-bee-TAY ee-SEE duh-PWEE trwah-Zahⁿ]",
+                "en": "the English route, and it says you moved out"
+              },
+              "right": {
+                "fr": "J'habite ici depuis trois ans.",
+                "ipa": "/ʒa.bit i.si də.pɥi tʁwa.zɑ̃/",
+                "respell": "[zha-BEET ee-SEE duh-PWEE trwah-ZAHⁿ]",
+                "en": "I have lived here for three years."
+              },
+              "coach": "If it is still happening, French keeps it in the present."
+            }
+          ],
+          "closing": {
+            "text": "If it is still happening, French keeps it in the present.",
+            "size": "md"
+          },
+          "terms": [
+            "stillRunning",
+            "presentNotPerfect"
+          ]
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "goals": [
+            {
+              "t": "Say how long, in the present",
+              "s": "English says I have lived here. French says I live here, and adds depuis to say since when. The verb never moves."
+            },
+            {
+              "t": "Tell a stretch from a point",
+              "s": "Five words, and every one of them wants a different shape of time behind it. Pick the shape first and the word picks itself."
+            },
+            {
+              "t": "Hear which job il y a is doing",
+              "s": "A measurement and then a full stop means ago. A time word still being described is a thing."
+            },
+            {
+              "t": "Say when something starts",
+              "s": "The clock and the calendar gave you when on a dial and when on a page. These five give you when measured from right now, forwards and backwards, and how wide a stretch was."
+            }
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s03-grid",
+          "title": "Five Words, Five Jobs",
+          "frSub": "Cinq mots, cinq emplois",
+          "layer": "core",
+          "say": "Five words, and every one of them wants a different shape of time behind it. Pick the shape first and the word picks itself. Tap a row to hear the phrase. Four of the five say « une heure » and mean five different things about it.",
+          "cols": [
+            "The word",
+            "The tense",
+            "It measures"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "depuis",
+                "present",
+                "still going"
+              ],
+              "say": "depuis une heure",
+              "detail": {
+                "title": "depuis une heure",
+                "body": "A stretch that started in the past and has not stopped. English reaches for a perfect here and French will not follow: the verb stays in the present, because the thing is still true.",
+                "say": "depuis une heure"
+              }
+            },
+            {
+              "cells": [
+                "pendant",
+                "any tense",
+                "finished"
+              ],
+              "say": "pendant une heure",
+              "detail": {
+                "title": "pendant une heure",
+                "body": "A stretch with both ends on it. It ran, it stopped, and you are saying how wide it was. That works in any tense, which is why it is the easy one.",
+                "say": "pendant une heure"
+              }
+            },
+            {
+              "cells": [
+                "il y a",
+                "a past",
+                "behind you"
+              ],
+              "say": "il y a une heure",
+              "detail": {
+                "title": "il y a une heure",
+                "body": "A single point, measured backwards from now. It needs a past tense to sit in, and that tense is a2.05. You will meet this one here and produce it there.",
+                "say": "il y a une heure"
+              }
+            },
+            {
+              "cells": [
+                "dans",
+                "present",
+                "ahead"
+              ],
+              "say": "dans une heure",
+              "detail": {
+                "title": "dans une heure",
+                "body": "A single point, measured forwards from now. The present tense again, and for the opposite reason: French uses it for something about to happen, so « je pars dans dix minutes » is a present about a future.",
+                "say": "dans une heure"
+              }
+            },
+            {
+              "cells": [
+                "en",
+                "any tense",
+                "how long"
+              ],
+              "say": "en une heure",
+              "detail": {
+                "title": "en une heure",
+                "body": "Not when, and not how wide. How long the whole thing TOOK, start to finish. It is the only one of the five that answers a different question, and it is the one the corpus never made a card for.",
+                "say": "en une heure"
+              }
+            }
+          ],
+          "terms": [
+            "stillRunning",
+            "presentNotPerfect",
+            "theTwoFors"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s04-depuis",
+          "title": "Still Going, Still Present",
+          "frSub": "Ça continue, donc au présent",
+          "layer": "core",
+          "say": "If it is still happening, French keeps it in the present. Six sentences and every verb in them is a present tense. Read the English underneath each one and notice that not one of the six matches.",
+          "examples": [
+            {
+              "fr": "J'habite ici depuis trois ans.",
+              "en": "I have lived here for three years.",
+              "note": "[zha-BEET ee-SEE duh-PWEE trwah-ZAHⁿ] You still live there, so the verb still lives there. English says \"have lived\" and moves the verb; French leaves it exactly where it was."
+            },
+            {
+              "fr": "Elle habite ici depuis six mois.",
+              "en": "She has lived here for six months.",
+              "note": "[ehl a-BEET ee-SEE duh-PWEE see MWAH] The same shape with somebody else in it. Six months is a length."
+            },
+            {
+              "fr": "On travaille ici depuis mars.",
+              "en": "We have been working here since March.",
+              "note": "[ohⁿ tra-VAY ee-SEE duh-PWEE MARS] And a starting point instead of a length. Depuis takes both and the verb does not care which."
+            },
+            {
+              "fr": "Il pleut depuis ce matin.",
+              "en": "It has been raining since this morning.",
+              "note": "[eel PLEU duh-PWEE suh ma-TEHⁿ] No person in it at all, so the rule cannot be about who is speaking. The rain has not stopped and neither has the verb."
+            },
+            {
+              "fr": "Je suis ici depuis six mois.",
+              "en": "I have been here for six months.",
+              "note": "[zhuh SWEE ee-SEE duh-PWEE see MWAH] Être in the present, which is the first verb you ever had. This is the sentence the table lost."
+            },
+            {
+              "fr": "Il pleut pendant la nuit.",
+              "en": "It rains during the night.",
+              "note": "[eel PLEU pahⁿ-DAHⁿ LA NÜEE] And the other word, for contrast, in the same present tense. The rain here starts and stops every night."
+            }
+          ],
+          "terms": [
+            "presentNotPerfect",
+            "stillRunning"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s05-english",
+          "title": "Where English Misleads",
+          "frSub": "Là où l’anglais trompe",
+          "layer": "core",
+          "hint": "Swipe. Five cards, and the last one is the measurement rather than an opinion.",
+          "cards": [
+            {
+              "label": "the English",
+              "head": "I have lived here for three years.",
+              "body": "A perfect tense, and it is the natural English. Every word of it is going to push you the wrong way in a second."
+            },
+            {
+              "label": "the wrong route",
+              "head": "J'ai habité ici depuis trois ans.",
+              "body": "The past tense says you have stopped. With depuis in the sentence that is a contradiction, and a listener hears you say you moved out three years ago."
+            },
+            {
+              "label": "the French",
+              "head": "J'habite ici depuis trois ans.",
+              "sub": "[zha-BEET ee-SEE duh-PWEE trwah-ZAHⁿ]",
+              "body": "I have lived here for three years. English says I have lived here. French says I live here, and adds depuis to say since when. The verb never moves."
+            },
+            {
+              "label": "the word",
+              "head": "depuis",
+              "sub": "[duh-PWEE]",
+              "body": "One word, two jobs, and neither of them is a tense. It means since when and it means for how long, and the verb in front of it is present either way."
+            },
+            {
+              "label": "the evidence",
+              "head": "four to one",
+              "body": "Across every published French sentence in this app, 560 hold depuis and 31 of those sit beside a past tense. 447 hold pendant and 97 do."
+            }
+          ],
+          "terms": [
+            "presentNotPerfect",
+            "theTwoFors"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s06-quand",
+          "title": "Depuis Quand",
+          "frSub": "Depuis quand",
+          "layer": "core",
+          "say": "This is the question you will be asked, in one of its two word orders, by somebody who has just found out you are not from here. Both orders are ordinary and the answer is the same present tense either way.",
+          "examples": [
+            {
+              "fr": "depuis quand ?",
+              "en": "since when?",
+              "note": "[duh-PWEE KAHⁿ] Two words, already a card, published years ago for a lesson about questions."
+            },
+            {
+              "fr": "Depuis quand es-tu ici ?",
+              "en": "How long have you been here?",
+              "note": "[duh-PWEE KAHⁿ eh-TÜ ee-SEE] At the front, which is the written order and the one you will read."
+            },
+            {
+              "fr": "Tu travailles ici depuis quand ?",
+              "en": "How long have you been working here?",
+              "note": "[tü tra-VAY ee-SEE duh-PWEE KAHⁿ] And at the back, which is where a French speaker actually puts it in conversation."
+            },
+            {
+              "fr": "Je suis ici depuis six mois.",
+              "en": "I have been here for six months.",
+              "note": "[zhuh SWEE ee-SEE duh-PWEE see MWAH] The answer, in full, and it is a present tense because you are still here."
+            },
+            {
+              "fr": "Depuis deux ans. Et toi ?",
+              "en": "For two years. And you?",
+              "note": "[duh-PWEE duh-ZAHⁿ · ay TWAH] And the answer with no verb in it at all, which is what people say most of the time."
+            }
+          ],
+          "terms": [
+            "presentNotPerfect",
+            "stillRunning"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s07-tense",
+          "title": "The Tense Depuis Wants",
+          "frSub": "Le temps que depuis exige",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. The word is right in every one of the six and the verb is the only thing being asked about.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-18-tense"
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "Still True, Still Present"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "One Sentence, Two Routes"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Wrong, Then Right"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Which Verb",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "If it is still true, the verb is present",
+            "body": "If it is still happening, French keeps it in the present. English says I have lived here. French says I live here, and adds depuis to say since when. The verb never moves."
+          },
+          "cards": [
+            {
+              "promptLabel": "the wrong route",
+              "promptSound": "J'ai habité ici depuis trois ans.",
+              "fr": "J'ai habité ici depuis trois ans.",
+              "ipa": "/ʒe a.bi.te i.si də.pɥi tʁwa ɑ̃/",
+              "tip": "Word for word from \"I have lived here for three years\", and it says the opposite about when. A listener hears that you moved out three years ago."
+            },
+            {
+              "promptLabel": "the French",
+              "promptSound": "J'habite ici depuis trois ans.",
+              "fr": "J'habite ici depuis trois ans.",
+              "ipa": "/ʒa.bit i.si də.pɥi tʁwa.zɑ̃/",
+              "tip": "Present tense, and the three years are carried entirely by depuis. Nothing else in the sentence has to move."
+            },
+            {
+              "promptLabel": "the wrong route",
+              "promptSound": "Il a plu depuis ce matin.",
+              "fr": "Il a plu depuis ce matin.",
+              "ipa": "/il a ply də.pɥi sə ma.tɛ̃/",
+              "tip": "The rain has not stopped. That is the whole reason you reached for depuis, and the past tense throws it away."
+            },
+            {
+              "promptLabel": "the French",
+              "promptSound": "Il pleut depuis ce matin.",
+              "fr": "Il pleut depuis ce matin.",
+              "ipa": "/il plø də.pɥi sə ma.tɛ̃/",
+              "tip": "The same pair with the weather in it, and no person anywhere. The rule is about the sentence rather than about who is speaking."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "J'habite ici depuis trois ans.",
+              "opts": [
+                "J'ai habité ici depuis trois ans.",
+                "J'habite ici depuis trois ans.",
+                "J'avais habité ici depuis trois ans."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Elle habite ici depuis six mois.",
+              "opts": [
+                "Elle habite ici depuis six mois.",
+                "Elle a habité ici depuis six mois.",
+                "Elle habitait ici depuis six mois."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Il pleut depuis ce matin.",
+              "opts": [
+                "Il a plu depuis ce matin.",
+                "Il pleuvait depuis ce matin.",
+                "Il pleut depuis ce matin."
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "On travaille ici depuis mars.",
+              "opts": [
+                "On a travaillé ici depuis mars.",
+                "On travaille ici depuis mars.",
+                "On travaillait ici depuis mars."
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Je suis ici depuis six mois.",
+              "opts": [
+                "Je suis ici depuis six mois.",
+                "J'ai été ici depuis six mois.",
+                "J'étais ici depuis six mois."
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Tu travailles ici depuis quand ?",
+              "opts": [
+                "Tu as travaillé ici depuis quand ?",
+                "Tu travaillais ici depuis quand ?",
+                "Tu travailles ici depuis quand ?"
+              ],
+              "correct": 2
+            }
+          ],
+          "terms": [
+            "presentNotPerfect",
+            "stillRunning",
+            "theTwoFors"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s08-produce",
+          "title": "Say It About Yourself",
+          "frSub": "Parlez de vous",
+          "layer": "core",
+          "size": "lg",
+          "say": "Four things that are true of you right now. Build each one out loud before you pick, and keep the verb where French keeps it.",
+          "groups": [
+            {
+              "label": "where you live",
+              "items": [
+                {
+                  "fr": "J'habite ici depuis trois ans.",
+                  "ipa": "/ʒa.bit i.si də.pɥi tʁwa.zɑ̃/",
+                  "note": "[zha-BEET ee-SEE duh-PWEE trwah-ZAHⁿ] I have lived here for three years."
+                }
+              ],
+              "check": {
+                "q": "You moved here two years ago and you are still here.",
+                "opts": [
+                  "J'ai habité ici depuis deux ans.",
+                  "J'habite ici depuis deux ans.",
+                  "J'habitais ici depuis deux ans."
+                ],
+                "correct": 1,
+                "why": "Still here, so the present. The two years are entirely depuis's job."
+              }
+            },
+            {
+              "label": "what you study",
+              "items": [
+                {
+                  "fr": "Elle habite ici depuis six mois.",
+                  "ipa": "/ɛl a.bit i.si də.pɥi si mwa/",
+                  "note": "[ehl a-BEET ee-SEE duh-PWEE see MWAH] She has lived here for six months."
+                }
+              ],
+              "check": {
+                "q": "You started French in March and you have not stopped.",
+                "opts": [
+                  "J'apprends le français depuis mars.",
+                  "J'ai appris le français depuis mars.",
+                  "J'apprenais le français depuis mars."
+                ],
+                "correct": 0,
+                "why": "A starting point rather than a length, and the verb behaves exactly the same way."
+              }
+            },
+            {
+              "label": "the weather",
+              "items": [
+                {
+                  "fr": "Il pleut depuis ce matin.",
+                  "ipa": "/il plø də.pɥi sə ma.tɛ̃/",
+                  "note": "[eel PLEU duh-PWEE suh ma-TEHⁿ] It has been raining since this morning."
+                }
+              ],
+              "check": {
+                "q": "It started raining this morning and it is still raining.",
+                "opts": [
+                  "Il a plu depuis ce matin.",
+                  "Il pleuvait depuis ce matin.",
+                  "Il pleut depuis ce matin."
+                ],
+                "correct": 2,
+                "why": "The rain has not stopped, which is the whole reason you reached for depuis. A past tense throws that away."
+              }
+            },
+            {
+              "label": "how long you waited",
+              "items": [
+                {
+                  "fr": "pendant deux heures",
+                  "ipa": "/pɑ̃.dɑ̃ dø zœʁ/",
+                  "note": "[pahⁿ-DAHⁿ duh ZUHR] for two hours"
+                }
+              ],
+              "check": {
+                "q": "You waited twenty minutes and then the bus came.",
+                "opts": [
+                  "J'attends pendant vingt minutes.",
+                  "J'ai attendu depuis vingt minutes.",
+                  "J'ai attendu pendant vingt minutes."
+                ],
+                "correct": 2,
+                "why": "This one is finished, so it is pendant and not depuis, and a past tense is fine here. The word changed because the fact changed."
+              }
+            }
+          ],
+          "terms": [
+            "stillRunning",
+            "theTwoFors",
+            "presentNotPerfect"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s09-pendant",
+          "title": "Pendant Closes The Stretch",
+          "frSub": "Pendant ferme la durée",
+          "layer": "core",
+          "say": "Pendant puts both ends on it. It ran, it stopped, and you are saying how wide it was. That works in any tense, which is why it is the easy one of the five.",
+          "examples": [
+            {
+              "fr": "pendant une heure",
+              "en": "for an hour, during an hour",
+              "note": "[pahⁿ-DAHⁿ TÜN UHR] The phrase on its own, already a card, sitting one id along from the depuis version."
+            },
+            {
+              "fr": "Il pleut pendant deux heures.",
+              "en": "It rains for two hours.",
+              "note": "[eel PLEU pahⁿ-DAHⁿ duh ZUHR] The same weather as two screens ago and the other word. Here the rain stops."
+            },
+            {
+              "fr": "Je lis pendant une heure.",
+              "en": "I read for an hour.",
+              "note": "[zhuh LEE pahⁿ-DAHⁿ tün UHR] An hour with both ends on it, and it happens again tomorrow evening."
+            },
+            {
+              "fr": "Elle danse pendant toute la chanson.",
+              "en": "She dances during the whole song.",
+              "note": "[EHL DAHⁿS pahⁿ-DAHⁿ TOOT LA shahⁿ-SOHⁿ] A song has a beginning and an end, so pendant is the only word that fits it."
+            },
+            {
+              "fr": "Pendant l'hiver, il fait franchement froid ici.",
+              "en": "During winter, it is frankly cold here.",
+              "note": "[pahⁿ-DAHⁿ lee-VEHR EEL FEH frahⁿsh-MAHⁿ FRWA ee-SEE] And at the front of the sentence, which is the other position it takes."
+            }
+          ],
+          "terms": [
+            "theTwoFors",
+            "stillRunning"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s10-pair",
+          "title": "The Same For, Twice",
+          "frSub": "Deux fois « for »",
+          "layer": "core",
+          "hint": "Swipe. Two published cards one id apart, then the same two hours said three ways.",
+          "cards": [
+            {
+              "label": "still going",
+              "head": "depuis une heure",
+              "sub": "[duh-PWEE ZÜN UHR]",
+              "body": "One hour, and you are still inside it. Somebody published this card and the next one on the same afternoon."
+            },
+            {
+              "label": "finished",
+              "head": "pendant une heure",
+              "sub": "[pahⁿ-DAHⁿ TÜN UHR]",
+              "body": "The same hour, out the other side. The English for both of these is the same three words."
+            },
+            {
+              "label": "still going",
+              "head": "depuis deux heures",
+              "sub": "[duh-PWEE duh ZUHR]",
+              "body": "for two hours, and still going Two published cards, consecutive ids, one duration. The English is the same four words twice and the French is not."
+            },
+            {
+              "label": "finished",
+              "head": "pendant deux heures",
+              "sub": "[pahⁿ-DAHⁿ duh ZUHR]",
+              "body": "for two hours Two hours with a start and an end on them."
+            },
+            {
+              "label": "how long it took",
+              "head": "en deux heures",
+              "sub": "[AHⁿ duh ZUHR]",
+              "body": "in two hours, that is how long it took And a third answer about the same two hours, which is the word act four is about."
+            },
+            {
+              "label": "the rule",
+              "head": "still going or finished",
+              "body": "Both of these come out as \"for\" in English and they are not interchangeable in French. Pendant closes the stretch. Depuis leaves it open."
+            }
+          ],
+          "terms": [
+            "theTwoFors",
+            "howLongItTook"
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s11-errors",
+          "title": "The Six You Will Make",
+          "frSub": "Les six erreurs",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "errors": [
+            {
+              "wrong": "J'ai habité ici depuis trois ans.",
+              "right": "J'habite ici depuis trois ans.",
+              "why": "The past tense says you have stopped. With depuis in the sentence that is a contradiction, and a listener hears you say you moved out three years ago."
+            },
+            {
+              "wrong": "Elle a travaillé ici depuis mars.",
+              "right": "Elle travaille ici depuis mars.",
+              "why": "Same again with a starting point instead of a length. Depuis mars means she started in March and is still here, so the verb has to still be here too."
+            },
+            {
+              "wrong": "Il a plu depuis ce matin.",
+              "right": "Il pleut depuis ce matin.",
+              "why": "The rain has not stopped. That is the whole reason you reached for depuis, and the past tense throws it away."
+            },
+            {
+              "wrong": "J'habite ici pendant six mois.",
+              "right": "J'habite ici depuis six mois.",
+              "why": "Pendant says the six months are over. If you still live there, the word is depuis and nothing else will do."
+            },
+            {
+              "wrong": "Je finis dans dix minutes le travail.",
+              "right": "Je finis en dix minutes.",
+              "why": "Dans is when something starts and en is how long it takes. The job takes ten minutes; it does not begin in ten minutes."
+            },
+            {
+              "wrong": "Il y a une heure de retard il y a.",
+              "right": "Il y a une heure de retard.",
+              "why": "One il y a per sentence. The three words are doing one of two jobs and never both at once."
+            }
+          ],
+          "terms": [
+            "theTwoFors",
+            "howLongItTook",
+            "measurementThenStop"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s12-dans",
+          "title": "Dans Points Forward",
+          "frSub": "Dans regarde devant",
+          "layer": "core",
+          "say": "A single point, measured forwards from now. The present tense again, and for the opposite reason: French uses it for something about to happen, so « je pars dans dix minutes » is a present about a future. French says « je pars dans dix minutes » with a present tense, and that is correct as it stands. The other way of saying it is a2.19, which is next.",
+          "examples": [
+            {
+              "fr": "dans une heure",
+              "en": "in an hour",
+              "note": "[DAHⁿ ZÜN UHR] The first of the four published cards, and the respelling was repaired to match the headword."
+            },
+            {
+              "fr": "dans dix minutes",
+              "en": "in ten minutes",
+              "note": "[dAHⁿ dee mee-NÜT] A point ahead. Nothing about it is a length."
+            },
+            {
+              "fr": "Je pars dans dix minutes.",
+              "en": "I am leaving in ten minutes.",
+              "note": "[zhuh PAR dAHⁿ dee mee-NÜT] And the sentence round it, in the present, about something that has not happened."
+            },
+            {
+              "fr": "Le film commence dans une heure.",
+              "en": "The film starts in an hour.",
+              "note": "[luh FEELM ko-MAHⁿS dAHⁿ zün UHR] Anything on a timetable takes this word, and the verb stays present."
+            },
+            {
+              "fr": "On mange dans une heure ?",
+              "en": "Shall we eat in an hour?",
+              "note": "[ohⁿ MAHⁿZH dAHⁿ zün UHR] A question with it, which is what you will actually say over a meal."
+            }
+          ],
+          "terms": [
+            "pointAhead",
+            "stillRunning"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s13-ilya",
+          "title": "Il Y A Points Back",
+          "frSub": "Il y a regarde derrière",
+          "layer": "core",
+          "say": "A single point, measured backwards from now. It needs a past tense to sit in, and that tense is a2.05. You will meet this one here and produce it there. Il y a for \"ago\" wants a past tense, and you do not have one yet. It arrives in a2.05, and this is the phrase it will arrive holding.",
+          "examples": [
+            {
+              "fr": "il y a une heure",
+              "en": "an hour ago",
+              "note": "[EEL EE AH ÜN UHR] Sitting between the dans card and the depuis card, published, and the only one of the three that needs a tense you do not have."
+            },
+            {
+              "fr": "il y a trois jours",
+              "en": "three days ago",
+              "note": "[EEL EE AH trwah ZHOOR] The phrase on its own, which needs no verb at all and is yours today."
+            },
+            {
+              "fr": "J'ai commencé il y a trois jours.",
+              "en": "I started three days ago.",
+              "note": "[zhay ko-mahⁿ-SAY eel ee ah trwah ZHOOR] READ THIS ONE AND MOVE ON. The verb in it is a tense from a2.05 and nothing in this lesson asks you to build one."
+            },
+            {
+              "fr": "dans une heure",
+              "en": "in an hour",
+              "note": "[DAHⁿ ZÜN UHR] The other direction, for comparison. One hour forwards and one hour back, and the two phrases share the last two words."
+            }
+          ],
+          "terms": [
+            "aTenseComing",
+            "measurementThenStop"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s14-twice",
+          "title": "Il Y A, Twice",
+          "frSub": "Il y a, deux fois",
+          "layer": "core",
+          "swipe": true,
+          "say": "You have had this shape before. a2.02 called it what comes next decides, on venir de, and it is the same job here. Four cards and then six to prove it.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-18-twice"
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "What Comes Next Decides"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "A Thing Or A Measurement"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Same Three Words"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Which Job",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "what comes next decides",
+            "body": "You have had this shape before. a2.02 called it what comes next decides, on venir de, and it is the same job here. A measurement and then a full stop means ago. A time word still being described is a thing."
+          },
+          "cards": [
+            {
+              "promptLabel": "there is",
+              "promptSound": "Il y a un problème.",
+              "fr": "Il y a un problème.",
+              "ipa": "/il i a œ̃ pʁɔ.blɛm/",
+              "tip": "A thing behind it, so the three words say that the thing exists."
+            },
+            {
+              "promptLabel": "ago",
+              "promptSound": "Il y a deux jours.",
+              "fr": "Il y a deux jours.",
+              "ipa": "/il i a dø ʒuʁ/",
+              "tip": "A measurement behind it and nothing after that, so the same three words say how far back."
+            },
+            {
+              "promptLabel": "ago",
+              "promptSound": "il y a une heure",
+              "fr": "il y a une heure",
+              "ipa": "/il i a yn œʁ/",
+              "tip": "An hour, and then a full stop. An hour ago."
+            },
+            {
+              "promptLabel": "there is",
+              "promptSound": "Il y a une heure de retard.",
+              "fr": "Il y a une heure de retard.",
+              "ipa": "/il i a yn œʁ də ʁə.taʁ/",
+              "tip": "The same four words as the card above and a fifth one. The hour is being described, so it is a thing again."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Il y a un problème.",
+              "opts": [
+                "there is a problem",
+                "a problem ago"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Il y a deux jours.",
+              "opts": [
+                "there are two days",
+                "two days ago"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Il y a une heure de retard.",
+              "opts": [
+                "there is an hour of delay",
+                "an hour of delay ago"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "il y a une heure",
+              "opts": [
+                "there is an hour",
+                "an hour ago"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Il y a trois chaises.",
+              "opts": [
+                "there are three chairs",
+                "three chairs ago"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "il y a trois jours",
+              "opts": [
+                "there are three days",
+                "three days ago"
+              ],
+              "correct": 1
+            }
+          ],
+          "terms": [
+            "whatComesNext",
+            "measurementThenStop",
+            "aTenseComing"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s15-en",
+          "title": "En Is How Long It Took",
+          "frSub": "En, c’est la durée",
+          "layer": "core",
+          "say": "Dans says when it starts. En says how long it took. One of them is a point and the other is a length, and English uses \"in\" for both. En also means how long something takes and dans also means how far ahead something is, and both of those are a2.18, which is the very next lesson.",
+          "examples": [
+            {
+              "fr": "en une heure",
+              "en": "in an hour, that is how long it takes",
+              "note": "[AHⁿ NÜN UHR] THE ROW THAT DID NOT EXIST. The other four « une heure » cards were published years ago, side by side, and nobody ever wrote this one."
+            },
+            {
+              "fr": "en deux heures",
+              "en": "in two hours, that is how long it took",
+              "note": "[AHⁿ duh ZUHR] The same two hours that depuis and pendant both had, answering a third question."
+            },
+            {
+              "fr": "Je finis en deux heures.",
+              "en": "I finish in two hours.",
+              "note": "[zhuh fee-NEE AHⁿ duh ZUHR] A stopwatch rather than a clock. Nothing here is about when."
+            },
+            {
+              "fr": "Oui, je finis en dix minutes.",
+              "en": "Yes, I finish in ten minutes.",
+              "note": "[wee zhuh fee-NEE AHⁿ dee mee-NÜT] And the pair in one line: she asks about a point ahead and he answers with a length."
+            },
+            {
+              "fr": "en",
+              "en": "in (how long something takes)",
+              "note": "[AHⁿ] The word itself. Its stored meaning in this app is a different en altogether, which is one more job for a two-letter word. a2.04 owns the third."
+            }
+          ],
+          "terms": [
+            "howLongItTook",
+            "pointAhead"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s16-unseen",
+          "title": "Five You Have Not Met",
+          "frSub": "Cinq cas nouveaux",
+          "layer": "core",
+          "size": "lg",
+          "say": "Five situations this lesson has not shown you, and you can answer all five without being told. Read what is true before you read the options.",
+          "groups": [
+            {
+              "label": "the shop is open",
+              "items": [
+                {
+                  "fr": "On travaille ici depuis mars.",
+                  "ipa": "/ɔ̃ tʁa.vaj i.si də.pɥi maʁs/",
+                  "note": "[ohⁿ tra-VAY ee-SEE duh-PWEE MARS] We have been working here since March."
+                }
+              ],
+              "check": {
+                "q": "It opened at eight and it is still open. Le magasin est ouvert ___ huit heures.",
+                "opts": [
+                  "pendant",
+                  "depuis",
+                  "il y a"
+                ],
+                "correct": 1,
+                "why": "Still open, so the stretch is still running. Depuis, and the verb stays present."
+              }
+            },
+            {
+              "label": "the meeting ran",
+              "items": [
+                {
+                  "fr": "pendant deux heures",
+                  "ipa": "/pɑ̃.dɑ̃ dø zœʁ/",
+                  "note": "[pahⁿ-DAHⁿ duh ZUHR] for two hours"
+                }
+              ],
+              "check": {
+                "q": "It started, it ran two hours, it ended. La réunion a duré ___ deux heures.",
+                "opts": [
+                  "depuis",
+                  "dans",
+                  "pendant"
+                ],
+                "correct": 2,
+                "why": "Both ends on it, so pendant. This one is finished, so a past tense is fine here."
+              }
+            },
+            {
+              "label": "the train leaves",
+              "items": [
+                {
+                  "fr": "dans dix minutes",
+                  "ipa": "/dɑ̃ di mi.nyt/",
+                  "note": "[dAHⁿ dee mee-NÜT] in ten minutes"
+                }
+              ],
+              "check": {
+                "q": "It is on the board and it goes at twenty past. Le train part ___ vingt minutes.",
+                "opts": [
+                  "dans",
+                  "en",
+                  "pendant"
+                ],
+                "correct": 0,
+                "why": "A point ahead on a timetable. Dans, and the verb is present because French says it that way."
+              }
+            },
+            {
+              "label": "the walk",
+              "items": [
+                {
+                  "fr": "en deux heures",
+                  "ipa": "/ɑ̃ dø zœʁ/",
+                  "note": "[AHⁿ duh ZUHR] in two hours, that is how long it took"
+                }
+              ],
+              "check": {
+                "q": "Door to door it is a twenty-minute walk. On y va ___ vingt minutes à pied.",
+                "opts": [
+                  "dans",
+                  "depuis",
+                  "en"
+                ],
+                "correct": 2,
+                "why": "How long it takes, start to finish, so en. Dans would mean you set off in twenty minutes."
+              }
+            },
+            {
+              "label": "the parcel",
+              "items": [
+                {
+                  "fr": "Il y a deux jours.",
+                  "ipa": "/il i a dø ʒuʁ/",
+                  "note": "[eel ee ah duh ZHOOR] Two days ago."
+                }
+              ],
+              "check": {
+                "q": "It arrived on Monday and today is Thursday. Le colis est arrivé ___ trois jours.",
+                "opts": [
+                  "il y a",
+                  "depuis",
+                  "dans"
+                ],
+                "correct": 0,
+                "why": "A single point behind you, so il y a. This is the one that needs the tense from a2.05, and the sentence has been built for you."
+              }
+            }
+          ],
+          "terms": [
+            "stillRunning",
+            "pointAhead",
+            "howLongItTook"
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s17-reading",
+          "title": "Six Months In Lyon",
+          "frSub": "Six mois à Lyon",
+          "layer": "core",
+          "questionsInModal": true,
+          "text": "Je suis à Lyon depuis six mois. J’habite dans le quartier de la Guillotière, et je travaille dans une école depuis le mois de mars. Le matin, je prends le tram : il passe toutes les six minutes, alors je ne pars jamais plus de dix minutes avant le cours. Le soir, je lis pendant une heure, toujours à la même table du même café. Il y a un homme qui vient tous les jours à la même heure, et il ne parle à personne. Ma voisine me demande souvent depuis quand je suis ici. Je réponds « depuis six mois », et elle dit toujours la même chose : « Déjà ? »",
+          "glossary": [
+            {
+              "word": "le quartier",
+              "en": "the neighbourhood",
+              "ipa": "/lə kaʁ.tje/",
+              "note": "A part of a city. Nothing about it is this lesson."
+            },
+            {
+              "word": "toutes les",
+              "en": "every",
+              "ipa": "/tut le/",
+              "note": "How often, rather than how long. That is the frequency system and it belongs to another lesson."
+            },
+            {
+              "word": "alors",
+              "en": "so",
+              "ipa": "/a.lɔʁ/",
+              "note": "Joins a fact to what follows from it."
+            },
+            {
+              "word": "personne",
+              "en": "nobody",
+              "ipa": "/pɛʁ.sɔn/",
+              "note": "From a1.18, the negation lesson, and it is here so the passage has one sentence that is not about time."
+            },
+            {
+              "word": "déjà",
+              "en": "already",
+              "ipa": "/de.ʒa/",
+              "note": "What people say when six months sounds short to them and long to you."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Every verb in this passage is in the present tense, and two of the sentences are about things that started in the past. Which two, and what makes the present tense correct in both?",
+              "a": "Being in Lyon since six months ago, and working at a school since March. Both are still true, so French keeps the verb in the present. English would use \"have been\" for both and move the verb; French does not."
+            },
+            {
+              "q": "The passage uses depuis three times and pendant once. What is different about the sentence with pendant in it?",
+              "a": "The hour of reading has both ends on it. It starts, it finishes, and it happens again the next evening. Everything the passage uses depuis for is still going."
+            },
+            {
+              "q": "« Il y a un homme qui vient tous les jours. » Which of the two jobs is il y a doing here, and how can you tell without reading the rest?",
+              "a": "It exists. The word after it is un, which is an article and not a measurement, and that settles it before you get to the noun."
+            },
+            {
+              "q": "The neighbour asks « depuis quand ». What does that question tell you about the answer she is expecting?",
+              "a": "That she expects the thing to still be true. Depuis quand can only be asked about something that is still running, so the answer will be in the present tense whatever it turns out to be."
+            }
+          ],
+          "terms": [
+            "presentNotPerfect",
+            "theTwoFors",
+            "measurementThenStop"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s18-scenario",
+          "title": "The Same Question",
+          "frSub": "La même question",
+          "layer": "core",
+          "setting": "The same table a month later, and this time she asks first. Every answer wants a decision about time that you have to make before the verb comes out.",
+          "turns": [
+            {
+              "ai": "Tu es ici depuis longtemps ?",
+              "en": "Have you been here long?",
+              "user": "Ah, tu es ici depuis six mois. Et avant ?",
+              "userEn": "Ah, you have been here for six months. And before that?",
+              "alts": [
+                {
+                  "fr": "J'habite ici depuis trois ans.",
+                  "en": "I have lived here for three years."
+                },
+                {
+                  "fr": "Depuis six mois, oui.",
+                  "en": "For six months, yes."
+                }
+              ]
+            },
+            {
+              "ai": "Tu travailles ici depuis quand ?",
+              "en": "How long have you been working here?",
+              "user": "Depuis deux ans. Et toi ?",
+              "userEn": "For two years. And you?",
+              "alts": [
+                {
+                  "fr": "On travaille ici depuis mars.",
+                  "en": "We have been working here since March."
+                },
+                {
+                  "fr": "Depuis le mois de mars.",
+                  "en": "Since March."
+                }
+              ]
+            },
+            {
+              "ai": "Et le soir, tu fais quoi ?",
+              "en": "And in the evening, what do you do?",
+              "user": "Je lis pendant une heure.",
+              "userEn": "I read for an hour.",
+              "alts": [
+                {
+                  "fr": "Je lis pendant deux heures.",
+                  "en": "I read for two hours."
+                },
+                {
+                  "fr": "Je travaille pendant une heure.",
+                  "en": "I work for an hour."
+                }
+              ]
+            },
+            {
+              "ai": "On mange dans une heure ?",
+              "en": "Shall we eat in an hour?",
+              "user": "Oui, je finis en dix minutes.",
+              "userEn": "Yes, I finish in ten minutes.",
+              "alts": [
+                {
+                  "fr": "Je pars dans dix minutes.",
+                  "en": "I am leaving in ten minutes."
+                },
+                {
+                  "fr": "Oui, je finis en deux heures.",
+                  "en": "Yes, I finish in two hours."
+                }
+              ]
+            },
+            {
+              "ai": "Il pleut encore ?",
+              "en": "Is it still raining?",
+              "user": "Il pleut depuis ce matin.",
+              "userEn": "It has been raining since this morning.",
+              "alts": [
+                {
+                  "fr": "Il pleut pendant deux heures.",
+                  "en": "It rains for two hours."
+                },
+                {
+                  "fr": "Oui, depuis ce matin.",
+                  "en": "Yes, since this morning."
+                }
+              ]
+            },
+            {
+              "ai": "Le film commence quand ?",
+              "en": "When does the film start?",
+              "user": "Le film commence dans une heure.",
+              "userEn": "The film starts in an hour.",
+              "alts": [
+                {
+                  "fr": "dans dix minutes",
+                  "en": "in ten minutes"
+                },
+                {
+                  "fr": "Dans une heure.",
+                  "en": "In an hour."
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "presentNotPerfect",
+            "theTwoFors",
+            "pointAhead"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s19-dictation",
+          "title": "Spell What You Hear",
+          "frSub": "La dictée",
+          "layer": "core",
+          "itemIds": [
+            "fr.a2.prepositions-essentielles.169",
+            "fr.a2.prepositions-essentielles.180",
+            "fr.a2.prepositions-essentielles.183",
+            "fr.a2.prepositions-essentielles.184",
+            "fr.a2.prepositions-essentielles.185",
+            "fr.a2.prepositions-essentielles.188",
+            "fr.a2.prepositions-essentielles.189"
+          ],
+          "say": "Seven lines, and five of them are the small word with a length behind it and nothing else. The last two are the trap: same three words at the front, and one word at the end decides what they mean.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-a2-18-dictee"
+          },
+          "terms": [
+            "stillRunning",
+            "measurementThenStop"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s20-speak",
+          "title": "Say It Out Loud",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "skill": "speak",
+          "itemIds": [
+            "fr.a2.prepositions-essentielles.169",
+            "fr.a2.prepositions-essentielles.170",
+            "fr.a2.prepositions-essentielles.171",
+            "fr.a2.prepositions-essentielles.172",
+            "fr.a2.prepositions-essentielles.173",
+            "fr.a2.prepositions-essentielles.175",
+            "fr.a2.prepositions-essentielles.176",
+            "fr.a2.prepositions-essentielles.177",
+            "fr.a2.prepositions-essentielles.178",
+            "fr.a2.prepositions-essentielles.179",
+            "fr.a2.prepositions-essentielles.180",
+            "fr.a2.prepositions-essentielles.181",
+            "fr.a2.prepositions-essentielles.183",
+            "fr.a2.prepositions-essentielles.184",
+            "fr.a2.prepositions-essentielles.185",
+            "fr.a2.prepositions-essentielles.188",
+            "fr.a2.prepositions-essentielles.189",
+            "fr.a2.prepositions-essentielles.193",
+            "fr.a2.prepositions-essentielles.195",
+            "fr.a2.prepositions-essentielles.196",
+            "fr.a2.prepositions-essentielles.197"
+          ],
+          "terms": [
+            "presentNotPerfect",
+            "stillRunning"
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s21-review",
+          "title": "The Whole Thing",
+          "frSub": "Tout, d’un coup",
+          "layer": "core",
+          "cards": [
+            {
+              "front": "still going · which word?",
+              "back": "depuis · depuis une heure · present",
+              "say": "depuis une heure"
+            },
+            {
+              "front": "finished · which word?",
+              "back": "pendant · pendant une heure · any tense",
+              "say": "pendant une heure"
+            },
+            {
+              "front": "behind you · which word?",
+              "back": "il y a · il y a une heure · a past",
+              "say": "il y a une heure"
+            },
+            {
+              "front": "ahead · which word?",
+              "back": "dans · dans une heure · present",
+              "say": "dans une heure"
+            },
+            {
+              "front": "how long · which word?",
+              "back": "en · en une heure · any tense",
+              "say": "en une heure"
+            },
+            {
+              "front": "Why is « J'habite ici depuis trois ans » a present tense?",
+              "back": "English says I have lived here. French says I live here, and adds depuis to say since when. The verb never moves.",
+              "say": "J'habite ici depuis trois ans."
+            },
+            {
+              "front": "depuis or pendant, and how do you decide?",
+              "back": "Both of these come out as \"for\" in English and they are not interchangeable in French. Pendant closes the stretch. Depuis leaves it open.",
+              "say": "depuis deux heures"
+            },
+            {
+              "front": "dans or en?",
+              "back": "Dans says when it starts. En says how long it took. One of them is a point and the other is a length, and English uses \"in\" for both.",
+              "say": "en deux heures"
+            },
+            {
+              "front": "When does « il y a » mean ago?",
+              "back": "A measurement and then a full stop means ago. A time word still being described is a thing.",
+              "say": "Il y a deux jours."
+            },
+            {
+              "front": "Which of the five can you not produce yet, and why?",
+              "back": "Il y a for ago, because it needs a past tense and that is a2.05. The other four you can say today.",
+              "say": "il y a trois jours"
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s22-progress",
+          "title": "Where You Stand",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "body": "If it is still happening, French keeps it in the present. The exam has five rounds. Four of the five words you can use in a sentence today; the fifth you will recognise when somebody says it, and you will be able to say it two lessons from now.",
+          "stats": [
+            {
+              "k": "Time words",
+              "v": "5"
+            },
+            {
+              "k": "You can produce",
+              "v": "4 of 5. Il y a waits for a2.05."
+            },
+            {
+              "k": "New words to learn",
+              "v": "0. You had all five already."
+            },
+            {
+              "k": "Asked by ear",
+              "v": "Dans and en both pull an n across into a vowel, so at speed they differ by one consonant. Nothing in this lesson turns on hearing which one it was."
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s23-quiz",
+          "title": "The Exam",
+          "frSub": "L’examen",
+          "layer": "core",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "say": "Five rounds of six. Miss too many in a round and you get a drill before the next one starts.",
+          "rounds": [
+            {
+              "id": "r1-which-word",
+              "label": "Which word",
+              "targets": [
+                "err-wrong-word",
+                "err-pendant-for-depuis"
+              ],
+              "say": "Six on the sort. The situation is in every question, because the situation is what decides it.",
+              "questions": [
+                {
+                  "q": "You moved here in March and you are still here. Je suis ici ___ mars.",
+                  "format": "mcq",
+                  "opts": [
+                    "pendant",
+                    "il y a",
+                    "depuis",
+                    "dans"
+                  ],
+                  "correct": 2,
+                  "why": "Still here, so the stretch is still running. If it is still happening, French keeps it in the present.",
+                  "ref": "s03-grid"
+                },
+                {
+                  "q": "The bus goes at ten past and it is ten to. Le bus part ___ vingt minutes.",
+                  "format": "mcq",
+                  "opts": [
+                    "dans",
+                    "en",
+                    "depuis",
+                    "pendant"
+                  ],
+                  "correct": 0,
+                  "why": "A point ahead of you on a timetable, so dans. The verb stays in the present and that is correct French.",
+                  "ref": "s12-dans"
+                },
+                {
+                  "q": "The walk takes twenty minutes door to door. On y va ___ vingt minutes.",
+                  "format": "mcq",
+                  "opts": [
+                    "depuis",
+                    "dans",
+                    "pendant",
+                    "en"
+                  ],
+                  "correct": 3,
+                  "why": "Dans says when it starts. En says how long it took. One of them is a point and the other is a length, and English uses \"in\" for both.",
+                  "ref": "s15-en"
+                },
+                {
+                  "q": "Il pleut ___ ce matin.   (and it has not stopped)",
+                  "format": "typeIn",
+                  "accept": [
+                    "depuis"
+                  ],
+                  "answer": "depuis",
+                  "why": "Still raining, so the stretch is still open. Pendant would say it stopped.",
+                  "ref": "s04-depuis"
+                },
+                {
+                  "q": "Je lis ___ une heure chaque soir.   (an hour, start to finish)",
+                  "format": "typeIn",
+                  "accept": [
+                    "pendant"
+                  ],
+                  "answer": "pendant",
+                  "why": "Both ends on it, and it happens again tomorrow. That is pendant.",
+                  "ref": "s09-pendant"
+                },
+                {
+                  "q": "Fix this. She is still at that job.",
+                  "format": "errorSpot",
+                  "prompt": "Elle travaille ici pendant six mois.",
+                  "accept": [
+                    "Elle travaille ici depuis six mois.",
+                    "Elle travaille ici depuis six mois",
+                    "depuis six mois"
+                  ],
+                  "answer": "Elle travaille ici depuis six mois.",
+                  "why": "Pendant closes the stretch and she is still inside it. The verb was already right.",
+                  "ref": "s10-pair"
+                }
+              ]
+            },
+            {
+              "id": "r2-the-tense",
+              "label": "The tense depuis wants",
+              "targets": [
+                "err-depuis-past",
+                "err-wrong-word"
+              ],
+              "say": "Six on the Owns, and the word is already right in every one of them. What is being asked about is the verb.",
+              "questions": [
+                {
+                  "q": "I have lived here for three years.",
+                  "format": "typeIn",
+                  "accept": [
+                    "J'habite ici depuis trois ans.",
+                    "J'habite ici depuis trois ans",
+                    "Jhabite ici depuis trois ans"
+                  ],
+                  "answer": "J'habite ici depuis trois ans.",
+                  "why": "English says I have lived here. French says I live here, and adds depuis to say since when. The verb never moves. The English perfect has no French counterpart in this sentence.",
+                  "ref": "s04-depuis"
+                },
+                {
+                  "q": "It has been raining since this morning.",
+                  "format": "typeIn",
+                  "accept": [
+                    "Il pleut depuis ce matin.",
+                    "Il pleut depuis ce matin"
+                  ],
+                  "answer": "Il pleut depuis ce matin.",
+                  "why": "The rain has not stopped, so the verb has not moved either.",
+                  "ref": "s04-depuis"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Elle a travaillé ici depuis mars.",
+                  "accept": [
+                    "Elle travaille ici depuis mars.",
+                    "Elle travaille ici depuis mars"
+                  ],
+                  "answer": "Elle travaille ici depuis mars.",
+                  "why": "Same again with a starting point instead of a length. Depuis mars means she started in March and is still here, so the verb has to still be here too.",
+                  "ref": "s07-tense"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Il a plu depuis ce matin.",
+                  "accept": [
+                    "Il pleut depuis ce matin.",
+                    "Il pleut depuis ce matin"
+                  ],
+                  "answer": "Il pleut depuis ce matin.",
+                  "why": "The rain has not stopped. That is the whole reason you reached for depuis, and the past tense throws it away.",
+                  "ref": "s07-tense"
+                },
+                {
+                  "q": "Why does French use a present tense after depuis?",
+                  "format": "mcq",
+                  "opts": [
+                    "Because depuis is always about the future",
+                    "Because French has no perfect tense",
+                    "Because the past tense comes later in the course",
+                    "Because the thing is still true when you say it"
+                  ],
+                  "correct": 3,
+                  "why": "If it is still happening, French keeps it in the present. It is a fact about the world rather than a rule about grammar, which is why it is easy to run mid-sentence.",
+                  "ref": "s07-tense"
+                },
+                {
+                  "q": "How long have you been here?",
+                  "format": "typeIn",
+                  "accept": [
+                    "Depuis quand es-tu ici ?",
+                    "Depuis quand es-tu ici",
+                    "Tu es ici depuis quand ?",
+                    "Tu es ici depuis quand"
+                  ],
+                  "answer": "Depuis quand es-tu ici ?",
+                  "why": "Two words at the front or two at the back, and either is ordinary. The verb is present in both.",
+                  "ref": "s06-quand"
+                }
+              ]
+            },
+            {
+              "id": "r3-still-or-finished",
+              "label": "Still going, or finished",
+              "targets": [
+                "err-pendant-for-depuis",
+                "err-depuis-past"
+              ],
+              "say": "Six on the pair. Both of these come out as \"for\" in English and the English is no help at all.",
+              "questions": [
+                {
+                  "q": "Which of these means the stretch is finished?",
+                  "format": "mcq",
+                  "opts": [
+                    "depuis deux heures",
+                    "pendant deux heures",
+                    "depuis une heure",
+                    "depuis mars"
+                  ],
+                  "correct": 1,
+                  "why": "Both of these come out as \"for\" in English and they are not interchangeable in French. Pendant closes the stretch. Depuis leaves it open.",
+                  "ref": "s10-pair"
+                },
+                {
+                  "q": "We waited an hour at the station and then it came.",
+                  "format": "mcq",
+                  "opts": [
+                    "Nous attendons depuis une heure.",
+                    "Nous attendons pendant une heure.",
+                    "Nous avons attendu pendant une heure.",
+                    "Nous avons attendu depuis une heure."
+                  ],
+                  "correct": 2,
+                  "why": "Finished, so pendant, and a past tense is fine with it. Depuis would say you are still standing there.",
+                  "ref": "s09-pendant"
+                },
+                {
+                  "q": "J’étudie le français ___ deux ans.   (and I still am)",
+                  "format": "typeIn",
+                  "accept": [
+                    "depuis"
+                  ],
+                  "answer": "depuis",
+                  "why": "Still going, so the open one. The verb is already in the present where it belongs.",
+                  "ref": "s04-depuis"
+                },
+                {
+                  "q": "Elle a dormi ___ huit heures.   (she woke up)",
+                  "format": "typeIn",
+                  "accept": [
+                    "pendant"
+                  ],
+                  "answer": "pendant",
+                  "why": "Both ends on it, so pendant. She is awake now, so the stretch is closed.",
+                  "ref": "s09-pendant"
+                },
+                {
+                  "q": "Fix this. He is still asleep.",
+                  "format": "errorSpot",
+                  "prompt": "Il dort pendant huit heures.",
+                  "accept": [
+                    "Il dort depuis huit heures.",
+                    "Il dort depuis huit heures",
+                    "depuis huit heures"
+                  ],
+                  "answer": "Il dort depuis huit heures.",
+                  "why": "Still asleep, so the stretch is still open, so depuis. The verb was already right and only the word in front of the number is wrong.",
+                  "ref": "s10-pair"
+                },
+                {
+                  "q": "Which one of these can go with a past tense without any trouble?",
+                  "format": "mcq",
+                  "opts": [
+                    "depuis",
+                    "pendant",
+                    "neither of them",
+                    "both of them equally"
+                  ],
+                  "correct": 1,
+                  "why": "Pendant takes any tense because the stretch is closed. Across every published French sentence in this app, 560 hold depuis and 31 of those sit beside a past tense. 447 hold pendant and 97 do.",
+                  "ref": "s10-pair"
+                }
+              ]
+            },
+            {
+              "id": "r4-il-y-a",
+              "label": "Il y a, twice",
+              "targets": [
+                "err-ilya-job",
+                "err-wrong-word"
+              ],
+              "say": "Six on the shape a2.02 named. The three words never change and the word after them always does.",
+              "questions": [
+                {
+                  "q": "Il y a un problème.",
+                  "format": "mcq",
+                  "opts": [
+                    "A problem ago.",
+                    "There is a problem.",
+                    "There was a problem.",
+                    "A problem is coming."
+                  ],
+                  "correct": 1,
+                  "why": "A thing behind it, so it exists. Nothing is being measured.",
+                  "ref": "s14-twice"
+                },
+                {
+                  "q": "Il y a deux jours.",
+                  "format": "mcq",
+                  "opts": [
+                    "There are two days.",
+                    "In two days.",
+                    "Two days ago.",
+                    "For two days."
+                  ],
+                  "correct": 2,
+                  "why": "A measurement and then a full stop means ago. A time word still being described is a thing.",
+                  "ref": "s14-twice"
+                },
+                {
+                  "q": "Il y a une heure de retard.",
+                  "format": "mcq",
+                  "opts": [
+                    "There is an hour of delay.",
+                    "An hour of delay ago.",
+                    "The delay was an hour ago.",
+                    "In an hour there is a delay."
+                  ],
+                  "correct": 0,
+                  "why": "The hour is being described, so it has turned back into a thing. This is why the rule is about the measurement being finished rather than about the noun.",
+                  "ref": "s14-twice"
+                },
+                {
+                  "q": "Which of these tells you which job il y a is doing?",
+                  "format": "mcq",
+                  "opts": [
+                    "The tense of the verb before it",
+                    "Whether the sentence is a question",
+                    "How the phrase is pronounced",
+                    "The word straight after it"
+                  ],
+                  "correct": 3,
+                  "why": "a2.02 named this pattern what comes next decides, on venir de, and it is the same job here.",
+                  "ref": "s14-twice"
+                },
+                {
+                  "q": "Listen. Which one did you hear?",
+                  "format": "listenChoose",
+                  "say": "Il y a deux jours.",
+                  "opts": [
+                    "Il y a un problème.",
+                    "Il y a deux jours."
+                  ],
+                  "correct": 1,
+                  "why": "Two days rather than a problem, and the two are nothing alike to listen to. What is hard about this phrase is never the sound.",
+                  "ref": "s14-twice"
+                },
+                {
+                  "q": "Fix this. You mean that there is a problem.",
+                  "format": "errorSpot",
+                  "prompt": "Il y a un problème il y a.",
+                  "accept": [
+                    "Il y a un problème.",
+                    "Il y a un problème"
+                  ],
+                  "answer": "Il y a un problème.",
+                  "why": "One il y a per sentence. The three words do one of two jobs and never both at once.",
+                  "ref": "s11-errors"
+                }
+              ]
+            },
+            {
+              "id": "r5-ahead-and-back",
+              "label": "Ahead, back, how long",
+              "targets": [
+                "err-dans-for-en",
+                "err-ilya-job"
+              ],
+              "say": "Six on the three that are not about a stretch. Two of them are points and one of them is a length.",
+              "questions": [
+                {
+                  "q": "Je pars ___ dix minutes.   (that is when I set off)",
+                  "format": "typeIn",
+                  "accept": [
+                    "dans"
+                  ],
+                  "answer": "dans",
+                  "why": "A point ahead of you, so dans. The present tense in front of it is doing future work and that is ordinary French.",
+                  "ref": "s12-dans"
+                },
+                {
+                  "q": "Je finis ___ dix minutes.   (that is how long the job takes)",
+                  "format": "typeIn",
+                  "accept": [
+                    "en"
+                  ],
+                  "answer": "en",
+                  "why": "Dans says when it starts. En says how long it took. One of them is a point and the other is a length, and English uses \"in\" for both.",
+                  "ref": "s15-en"
+                },
+                {
+                  "q": "Which of these is a length rather than a moment?",
+                  "format": "mcq",
+                  "opts": [
+                    "dans dix minutes",
+                    "en deux heures",
+                    "il y a trois jours",
+                    "dans une heure"
+                  ],
+                  "correct": 1,
+                  "why": "En is the only one of the five that answers how long rather than when. The other three all point at a moment.",
+                  "ref": "s15-en"
+                },
+                {
+                  "q": "The film starts in an hour. Le film commence ___ une heure.",
+                  "format": "mcq",
+                  "opts": [
+                    "en",
+                    "depuis",
+                    "dans",
+                    "il y a"
+                  ],
+                  "correct": 2,
+                  "why": "A point on a timetable ahead of you. En would mean the film takes an hour to start, which is not a thing.",
+                  "ref": "s12-dans"
+                },
+                {
+                  "q": "Fix this. The tram journey takes ten minutes.",
+                  "format": "errorSpot",
+                  "prompt": "Le tramway traverse la ville dans dix minutes.",
+                  "accept": [
+                    "Le tramway traverse la ville en dix minutes.",
+                    "Le tramway traverse la ville en dix minutes",
+                    "en dix minutes"
+                  ],
+                  "answer": "Le tramway traverse la ville en dix minutes.",
+                  "why": "How long the journey takes, so en. Dans would say the tram sets off in ten minutes.",
+                  "ref": "s15-en"
+                },
+                {
+                  "q": "You want to say something happened three days back. Which word, and what else do you need?",
+                  "format": "mcq",
+                  "opts": [
+                    "Il y a, and a past tense you meet in two lessons",
+                    "Dans, and nothing else",
+                    "Depuis, and a present tense",
+                    "En, and a past tense"
+                  ],
+                  "correct": 0,
+                  "why": "Il y a for \"ago\" wants a past tense, and you do not have one yet. It arrives in a2.05, and this is the phrase it will arrive holding.",
+                  "ref": "s13-ilya"
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "stillRunning",
+            "presentNotPerfect",
+            "whatComesNext"
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s24-roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "layer": "core",
+          "body": "Before you pick the word, ask whether the thing is still running, finished, ahead of you or behind you. The word follows from the answer and never from the English. The clock and the calendar gave you when on a dial and when on a page. These five give you when measured from right now, forwards and backwards, and how wide a stretch was.",
+          "points": [
+            "depuis, pendant, il y a, dans, en. Five words, and every one of them wants a different shape of time behind it. Pick the shape first and the word picks itself.",
+            "If it is still happening, French keeps it in the present. English says I have lived here. French says I live here, and adds depuis to say since when. The verb never moves.",
+            "Both of these come out as \"for\" in English and they are not interchangeable in French. Pendant closes the stretch. Depuis leaves it open.",
+            "You have had this shape before. a2.02 called it what comes next decides, on venir de, and it is the same job here. A measurement and then a full stop means ago. A time word still being described is a thing.",
+            "Dans says when it starts. En says how long it took. One of them is a point and the other is a length, and English uses \"in\" for both.",
+            "Il y a for \"ago\" wants a past tense, and you do not have one yet. It arrives in a2.05, and this is the phrase it will arrive holding. French says « je pars dans dix minutes » with a present tense, and that is correct as it stands. The other way of saying it is a2.19, which is next.",
+            "a1.12 gave you the clock and a1.09 gave you the calendar. a2.04 gave you en and dans in front of a place yesterday, and its own line was: À folds the article in. En throws it out. Chez leaves it alone."
+          ],
+          "sheetId": "sheet.a2.18.temps"
+        }
+      ],
+      "itemIds": [
+        "fr.a2.prepositions-essentielles.169",
+        "fr.a2.prepositions-essentielles.170",
+        "fr.a2.prepositions-essentielles.171",
+        "fr.a2.prepositions-essentielles.172",
+        "fr.a2.prepositions-essentielles.173",
+        "fr.a2.prepositions-essentielles.174",
+        "fr.a2.prepositions-essentielles.175",
+        "fr.a2.prepositions-essentielles.176",
+        "fr.a2.prepositions-essentielles.177",
+        "fr.a2.prepositions-essentielles.178",
+        "fr.a2.prepositions-essentielles.179",
+        "fr.a2.prepositions-essentielles.180",
+        "fr.a2.prepositions-essentielles.181",
+        "fr.a2.prepositions-essentielles.182",
+        "fr.a2.prepositions-essentielles.183",
+        "fr.a2.prepositions-essentielles.184",
+        "fr.a2.prepositions-essentielles.185",
+        "fr.a2.prepositions-essentielles.186",
+        "fr.a2.prepositions-essentielles.187",
+        "fr.a2.prepositions-essentielles.188",
+        "fr.a2.prepositions-essentielles.189",
+        "fr.a2.prepositions-essentielles.190",
+        "fr.a2.prepositions-essentielles.191",
+        "fr.a2.prepositions-essentielles.192",
+        "fr.a2.prepositions-essentielles.193",
+        "fr.a2.prepositions-essentielles.194",
+        "fr.a2.prepositions-essentielles.195",
+        "fr.a2.prepositions-essentielles.196",
+        "fr.a2.prepositions-essentielles.197",
+        "fr.sons.mots-essentiels.027",
+        "fr.sons.mots-essentiels.028",
+        "fr.sons.mots-essentiels.013",
+        "fr.sons.mots-essentiels.088",
+        "fr.sons.jours-et-mois.080",
+        "fr.sons.jours-et-mois.081",
+        "fr.sons.jours-et-mois.082",
+        "fr.sons.jours-et-mois.083",
+        "fr.sons.nasales.030",
+        "fr.sons.nasales.039",
+        "fr.a1.prepositions-essentielles.093",
+        "fr.sons.questions.040"
+      ],
+      "version": 3,
+      "grammarAssumed": [
+        "The full present of être, introduced in a1.06",
+        "The full present of avoir, introduced in a1.07",
+        "The nine subject pronouns, and that on takes the il form, introduced in a1.05",
+        "The numbers from one to a hundred, introduced in a1.02 and a1.27",
+        "The twelve month names and en in front of a bare month, introduced in a1.09",
+        "Telling the time, and à in front of a clock time, introduced in a1.12",
+        "The present of the regular -ER, -IR and -RE verbs, introduced in a2.01, a2.10 and a2.11",
+        "en and dans in front of a place, introduced in a2.04"
+      ],
+      "grammarIntroduced": [
+        "depuis with a present-tense verb to express a situation begun in the past and still obtaining, against the English present perfect which the learner will otherwise calque",
+        "depuis taking either a point of origin or a span, with no change to the verb in either case",
+        "The opposition between depuis and pendant as open and closed duration, and that English neutralises it under a single preposition",
+        "pendant as a bounded span compatible with any tense",
+        "il y a plus a completed measurement of time as a deictic point in the past, against il y a plus a nominal as an existential, and that the following constituent is the sole disambiguator",
+        "That the existential reading survives a temporal noun where that noun is itself modified, which bounds the rule",
+        "dans plus a span as a future point, expressed with a present-tense verb at this trail position",
+        "en plus a span as the time taken to complete an action, against dans as the time until it begins",
+        "The temporal senses of en and dans as distinct from the locative senses introduced in a2.04"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "Prepositions of Time",
+        "subFr": "Prépositions de temps",
+        "introFr": "Cinq petits mots pour le temps, et c’est le temps qui choisit.",
+        "minutes": 30,
+        "difficulty": 3,
+        "glyph": "⏳",
+        "screens": 220
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The question she asked",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-grid"
+          ],
+          "milestone": "You know which of five words a situation wants, and you know it is the situation that decides rather than the English.",
+          "estScreens": 20,
+          "restPoints": [
+            "s01-scene/after-break"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Depuis keeps the present",
+          "sections": [
+            "s04-depuis",
+            "s05-english",
+            "s06-quand",
+            "s07-tense",
+            "s08-produce"
+          ],
+          "milestone": "You can answer how long you have been somewhere, in the present tense, without the English pulling the verb out from under you.",
+          "estScreens": 46,
+          "restPoints": [
+            "s05-english/after",
+            "s07-tense/after"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "Still going, or finished",
+          "sections": [
+            "s09-pendant",
+            "s10-pair",
+            "s11-errors"
+          ],
+          "milestone": "You can tell a stretch that is still running from one that has both ends on it, and you pick the word off that rather than off the English.",
+          "estScreens": 28,
+          "restPoints": [
+            "s10-pair/after"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "Two points and a length",
+          "sections": [
+            "s12-dans",
+            "s13-ilya",
+            "s14-twice",
+            "s15-en",
+            "s16-unseen"
+          ],
+          "milestone": "You can point forwards and recognise a point backwards, you can say how long something took, and you can answer for five situations the lesson never showed you.",
+          "estScreens": 44,
+          "restPoints": [
+            "s14-twice/after",
+            "s15-en/after"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Out loud",
+          "sections": [
+            "s17-reading",
+            "s18-scenario",
+            "s19-dictation",
+            "s20-speak",
+            "s21-review"
+          ],
+          "milestone": "You held the conversation the table lost, and every answer in it wanted a decision about time that you made before the verb came out.",
+          "estScreens": 44,
+          "restPoints": [
+            "s18-scenario/after",
+            "s19-dictation/halfway"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s22-progress",
+            "s23-quiz",
+            "s24-roundup"
+          ],
+          "milestone": "You answered for five situations this lesson never listed, which is the half of it a list could never have taught you.",
+          "estScreens": 38,
+          "restPoints": [
+            "s23-quiz/r3-still-or-finished"
+          ]
+        }
+      ],
+      "reframe": "If it is still happening, French keeps it in the present.",
+      "errorTriggers": [
+        {
+          "id": "err-wrong-word",
+          "description": "Picks the wrong one of the five, usually by translating the English preposition rather than by looking at what the time is doing. \"For\" gives depuis or pendant, \"in\" gives dans or en, and English does not distinguish either pair.",
+          "detectOn": [
+            "s03-grid",
+            "s16-unseen",
+            "s23-quiz/r1-which-word"
+          ],
+          "drill": "drill-which-word",
+          "retest": "retest-which-word"
+        },
+        {
+          "id": "err-depuis-past",
+          "description": "Puts the verb in a past tense after depuis, which is the English perfect being translated word for word. The single biggest interference point at this level and the reason this lesson exists.",
+          "detectOn": [
+            "s04-depuis",
+            "s07-tense",
+            "s23-quiz/r2-the-tense"
+          ],
+          "drill": "drill-verb-stays",
+          "retest": "retest-verb-stays"
+        },
+        {
+          "id": "err-pendant-for-depuis",
+          "description": "Swaps the two words that both come out as \"for\". Pendant closes the stretch and depuis leaves it open, and a learner working from the English has nothing to decide on.",
+          "detectOn": [
+            "s09-pendant",
+            "s10-pair",
+            "s23-quiz/r3-still-or-finished"
+          ],
+          "drill": "drill-open-or-closed",
+          "retest": "retest-open-or-closed"
+        },
+        {
+          "id": "err-ilya-job",
+          "description": "Reads il y a as \"there is\" where it means ago, or the other way round. The two jobs share all three words and only the next one settles it, which is doctrine §B.7's shape and the second of its four instances.",
+          "detectOn": [
+            "s13-ilya",
+            "s14-twice",
+            "s23-quiz/r4-il-y-a"
+          ],
+          "drill": "drill-which-job",
+          "retest": "retest-which-job"
+        },
+        {
+          "id": "err-dans-for-en",
+          "description": "Merges the two that both come out as \"in\". Dans is when it starts and en is how long it takes, and learners produce the wrong one about half the time.",
+          "detectOn": [
+            "s12-dans",
+            "s15-en",
+            "s23-quiz/r5-ahead-and-back"
+          ],
+          "drill": "drill-point-or-length",
+          "retest": "retest-point-or-length"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-which-word",
+          "title": "Still going, finished, ahead or back",
+          "format": "sort",
+          "buckets": [
+            "still going",
+            "finished",
+            "a point"
+          ],
+          "items": [
+            "fr.a2.prepositions-essentielles.180",
+            "fr.a2.prepositions-essentielles.183",
+            "fr.a2.prepositions-essentielles.182",
+            "fr.a2.prepositions-essentielles.171",
+            "fr.a2.prepositions-essentielles.184",
+            "fr.a2.prepositions-essentielles.186"
+          ],
+          "coach": "Before you pick the word, ask whether the thing is still running, finished, ahead of you or behind you. The word follows from the answer and never from the English. Read what the time is doing before you look at the word."
+        },
+        {
+          "id": "retest-which-word",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Il travaille ici ___ deux ans.   (and he still does)",
+          "opts": [
+            "pendant",
+            "depuis",
+            "dans"
+          ],
+          "correct": 1,
+          "why": "Still there, so the stretch is still open."
+        },
+        {
+          "id": "drill-verb-stays",
+          "title": "The verb does not move",
+          "format": "flashcard",
+          "coach": "English says I have lived here. French says I live here, and adds depuis to say since when. The verb never moves. The English is on the front. Say the French out loud before you turn it over, and keep the verb where it is.",
+          "pairs": [
+            [
+              "I have lived here for three years.",
+              "J'habite ici depuis trois ans."
+            ],
+            [
+              "She has lived here for six months.",
+              "Elle habite ici depuis six mois."
+            ],
+            [
+              "It has been raining since this morning.",
+              "Il pleut depuis ce matin."
+            ],
+            [
+              "I have been here for six months.",
+              "Je suis ici depuis six mois."
+            ]
+          ]
+        },
+        {
+          "id": "retest-verb-stays",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "I have been waiting for twenty minutes and the bus is still not here.",
+          "opts": [
+            "J'ai attendu depuis vingt minutes.",
+            "J'attends depuis vingt minutes.",
+            "J'attendais depuis vingt minutes."
+          ],
+          "correct": 1,
+          "why": "Still waiting, so the present. The twenty minutes are entirely depuis's job."
+        },
+        {
+          "id": "drill-open-or-closed",
+          "title": "Open or closed",
+          "format": "flashcard",
+          "coach": "Both of these come out as \"for\" in English and they are not interchangeable in French. Pendant closes the stretch. Depuis leaves it open.",
+          "pairs": [
+            [
+              "for an hour, and still going",
+              "depuis une heure"
+            ],
+            [
+              "for an hour, and it stopped",
+              "pendant une heure"
+            ],
+            [
+              "for two hours, and still going",
+              "depuis deux heures"
+            ],
+            [
+              "for two hours, and it stopped",
+              "pendant deux heures"
+            ]
+          ]
+        },
+        {
+          "id": "retest-open-or-closed",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Elle a dormi ___ huit heures et elle est réveillée maintenant.",
+          "opts": [
+            "depuis",
+            "pendant",
+            "dans"
+          ],
+          "correct": 1,
+          "why": "She is awake, so the stretch is closed, so pendant."
+        },
+        {
+          "id": "drill-which-job",
+          "title": "A thing or a measurement",
+          "format": "sort",
+          "buckets": [
+            "there is",
+            "ago"
+          ],
+          "items": [
+            "fr.a2.prepositions-essentielles.188",
+            "fr.a2.prepositions-essentielles.189",
+            "fr.a2.prepositions-essentielles.190",
+            "fr.a2.prepositions-essentielles.186"
+          ],
+          "coach": "A measurement and then a full stop means ago. A time word still being described is a thing. a2.02 named this pattern what comes next decides."
+        },
+        {
+          "id": "retest-which-job",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Il y a beaucoup de monde.",
+          "opts": [
+            "a lot of people ago",
+            "there are a lot of people"
+          ],
+          "correct": 1,
+          "why": "Beaucoup is an amount of a thing rather than a measurement of time, so the phrase is doing its other job."
+        },
+        {
+          "id": "drill-point-or-length",
+          "title": "A point or a length",
+          "format": "flashcard",
+          "coach": "Dans says when it starts. En says how long it took. One of them is a point and the other is a length, and English uses \"in\" for both.",
+          "pairs": [
+            [
+              "when it starts, an hour from now",
+              "dans une heure"
+            ],
+            [
+              "how long it takes, one hour",
+              "en une heure"
+            ],
+            [
+              "when I leave, ten minutes from now",
+              "dans dix minutes"
+            ],
+            [
+              "how long the job takes, two hours",
+              "en deux heures"
+            ]
+          ]
+        },
+        {
+          "id": "retest-point-or-length",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "J'ai fini le travail ___ deux heures.   (that is how long it took)",
+          "opts": [
+            "dans",
+            "en",
+            "depuis"
+          ],
+          "correct": 1,
+          "why": "A length rather than a moment, so en."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.a2.18.temps",
+          "title": "Five time words, and the tense each one wants",
+          "layer": "deep",
+          "contains": [
+            "The five",
+            "The examples",
+            "Depuis",
+            "The two fors",
+            "Il y a"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-five",
+              "title": "The five",
+              "layer": "deep",
+              "cols": [
+                "The word",
+                "The tense",
+                "It measures"
+              ],
+              "rows": [
+                [
+                  "depuis",
+                  "present",
+                  "still going"
+                ],
+                [
+                  "pendant",
+                  "any tense",
+                  "finished"
+                ],
+                [
+                  "il y a",
+                  "a past",
+                  "behind you"
+                ],
+                [
+                  "dans",
+                  "present",
+                  "ahead"
+                ],
+                [
+                  "en",
+                  "any tense",
+                  "how long"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-examples",
+              "title": "The same hour, five ways",
+              "layer": "deep",
+              "cols": [
+                "The word",
+                "The phrase",
+                "Means"
+              ],
+              "rows": [
+                [
+                  "depuis",
+                  "depuis une heure",
+                  "still going"
+                ],
+                [
+                  "pendant",
+                  "pendant une heure",
+                  "finished"
+                ],
+                [
+                  "il y a",
+                  "il y a une heure",
+                  "behind you"
+                ],
+                [
+                  "dans",
+                  "dans une heure",
+                  "ahead"
+                ],
+                [
+                  "en",
+                  "en une heure",
+                  "how long"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-depuis",
+              "title": "Depuis and the present",
+              "layer": "deep",
+              "body": "English says I have lived here. French says I live here, and adds depuis to say since when. The verb never moves. If it is still happening, French keeps it in the present. Across every published French sentence in this app, 560 hold depuis and 31 of those sit beside a past tense. 447 hold pendant and 97 do."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-two-fors",
+              "title": "The two fors",
+              "layer": "deep",
+              "body": "Both of these come out as \"for\" in English and they are not interchangeable in French. Pendant closes the stretch. Depuis leaves it open. Two published cards, consecutive ids, one duration. The English is the same four words twice and the French is not."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-il-y-a",
+              "title": "Il y a, and which job it is doing",
+              "layer": "deep",
+              "body": "A measurement and then a full stop means ago. A time word still being described is a thing. You have had this shape before. a2.02 called it what comes next decides, on venir de, and it is the same job here."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-en-dans",
+              "title": "A point ahead, and a length",
+              "layer": "deep",
+              "body": "Dans says when it starts. En says how long it took. One of them is a point and the other is a length, and English uses \"in\" for both. The left one is a departure that has not happened. The right one is a job that takes ten minutes from the moment you start it."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-pour",
+              "title": "And a sixth word",
+              "layer": "deep",
+              "body": "You will also meet pour with a length behind it, as in « valide pour six mois ». That one belongs to a plan rather than to something you did, and it is not one of the five."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-what-is-coming",
+              "title": "What is still coming",
+              "layer": "deep",
+              "body": "Il y a for \"ago\" wants a past tense, and you do not have one yet. It arrives in a2.05, and this is the phrase it will arrive holding. French says « je pars dans dix minutes » with a present tense, and that is correct as it stands. The other way of saying it is a2.19, which is next. À plus a time, marking when something happens rather than what time it is is a1.12's, and it has been yours since then."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [
+          "fr.sons.jours-et-mois.080",
+          "fr.sons.jours-et-mois.081",
+          "fr.sons.jours-et-mois.082",
+          "fr.sons.jours-et-mois.083",
+          "fr.a2.prepositions-essentielles.169"
+        ],
+        [
+          "fr.sons.mots-essentiels.027",
+          "fr.sons.questions.040",
+          "fr.a2.prepositions-essentielles.170",
+          "fr.a2.prepositions-essentielles.175",
+          "fr.a2.prepositions-essentielles.176",
+          "fr.a2.prepositions-essentielles.177",
+          "fr.a2.prepositions-essentielles.178",
+          "fr.a2.prepositions-essentielles.179",
+          "fr.a2.prepositions-essentielles.180"
+        ],
+        [
+          "fr.sons.mots-essentiels.028",
+          "fr.sons.nasales.030",
+          "fr.sons.nasales.039",
+          "fr.a1.prepositions-essentielles.093",
+          "fr.a2.prepositions-essentielles.171",
+          "fr.a2.prepositions-essentielles.181",
+          "fr.a2.prepositions-essentielles.182",
+          "fr.a2.prepositions-essentielles.183"
+        ],
+        [
+          "fr.sons.mots-essentiels.013",
+          "fr.sons.mots-essentiels.088",
+          "fr.a2.prepositions-essentielles.172",
+          "fr.a2.prepositions-essentielles.173",
+          "fr.a2.prepositions-essentielles.184",
+          "fr.a2.prepositions-essentielles.185",
+          "fr.a2.prepositions-essentielles.186",
+          "fr.a2.prepositions-essentielles.187",
+          "fr.a2.prepositions-essentielles.188",
+          "fr.a2.prepositions-essentielles.189",
+          "fr.a2.prepositions-essentielles.190",
+          "fr.a2.prepositions-essentielles.174"
+        ],
+        [
+          "fr.a2.prepositions-essentielles.191",
+          "fr.a2.prepositions-essentielles.192",
+          "fr.a2.prepositions-essentielles.193",
+          "fr.a2.prepositions-essentielles.194",
+          "fr.a2.prepositions-essentielles.195",
+          "fr.a2.prepositions-essentielles.196",
+          "fr.a2.prepositions-essentielles.197"
+        ],
+        []
+      ],
+      "terms": {
+        "stillRunning": {
+          "term": "still going",
+          "title": "The question you ask before you pick",
+          "body": "Every one of these five words wants a different shape of time behind it, and the fastest way to the right one is to ask what the thing is doing right now. Still running, and you want depuis. Finished, and you want pendant. Behind you, il y a. Ahead of you, dans. And if the question is not when but how long it took, en. You are not translating; you are checking a fact about the world, and the fact picks the word.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.180",
+              "note": "Started three years ago and has not stopped."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.182",
+              "note": "Started, ran two hours, stopped."
+            }
+          ]
+        },
+        "presentNotPerfect": {
+          "term": "the present",
+          "title": "The verb does not move",
+          "body": "English says I have lived here. French says I live here, and adds depuis to say since when. The verb never moves. That is the whole of it, and it is the single place at this level where translating word for word produces something a French listener cannot decode. « J'ai habité ici depuis trois ans » does not sound like a mistake to them; it sounds like you moved out three years ago, which is the opposite of what you meant. Across every published French sentence in this app, 560 hold depuis and 31 of those sit beside a past tense. 447 hold pendant and 97 do.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.170",
+              "note": "Present in French, perfect in English, same three years."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.177",
+              "note": "No person in it at all, and the verb still stays put."
+            }
+          ]
+        },
+        "theTwoFors": {
+          "term": "two fors",
+          "title": "Pendant closes it, depuis leaves it open",
+          "body": "Both of these come out as \"for\" in English and they are not interchangeable in French. Pendant closes the stretch. Depuis leaves it open. The English word is no help, because English uses one word for both and lets the tense carry the difference. French does the opposite: the preposition carries it and the tense follows. So « depuis deux heures » is two hours you are still inside, and « pendant deux heures » is two hours you came out the other side of.",
+          "examples": [
+            {
+              "itemId": "fr.sons.jours-et-mois.082",
+              "note": "Still inside the hour."
+            },
+            {
+              "itemId": "fr.sons.jours-et-mois.083",
+              "note": "Out the other side of it."
+            }
+          ]
+        },
+        "whatComesNext": {
+          "term": "what next",
+          "title": "You have had this shape before",
+          "body": "a2.02 gave this pattern its name on venir de: one form, two jobs, and the word after it settles which. Here it is three words instead of two. « Il y a » with a thing behind it says that thing exists. « Il y a » with a measurement behind it, and nothing after the measurement, says how far back. Nothing about the three words changes and nothing ever will, so there is no spelling to learn and no sound to catch. There is only the next word.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.188",
+              "note": "A thing. So it exists."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.189",
+              "note": "A measurement, and then a full stop. So it is a distance back."
+            }
+          ]
+        },
+        "measurementThenStop": {
+          "term": "then a stop",
+          "title": "Where the rule is exact",
+          "body": "A measurement and then a full stop means ago. A time word still being described is a thing. That last clause is not a decoration. « Il y a une heure » is an hour ago and « il y a une heure de retard » is an hour of delay, and the first four words are identical. In this app's published French, 33 sentences use it for ago and 130 use it for there is, and only two put anything at all after the measurement.",
+          "examples": [
+            {
+              "itemId": "fr.sons.jours-et-mois.081",
+              "note": "An hour, and then nothing. An hour ago."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.190",
+              "note": "An hour, and then of delay. So the hour is a thing again."
+            }
+          ]
+        },
+        "aTenseComing": {
+          "term": "not yet",
+          "title": "Il y a is waiting for something",
+          "body": "Ago points at a moment behind you, so the sentence around it has to be in a past tense, and you do not have one. That is not an oversight: the past tense is a2.05, two lessons from here. You will meet il y a in this lesson, recognise it when you hear it, and pick it up to use on the day the tense arrives. Everything else here you can say today.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.174",
+              "note": "Shown once, asked for nowhere. Read it and move on."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.186",
+              "note": "The phrase on its own, which needs no verb and is yours now."
+            }
+          ]
+        },
+        "pointAhead": {
+          "term": "ahead",
+          "title": "Dans, and a present tense doing future work",
+          "body": "A single point, measured forwards from now. The present tense again, and for the opposite reason: French uses it for something about to happen, so « je pars dans dix minutes » is a present about a future. So « le film commence dans une heure » is a present tense about something that has not happened, and no French speaker hears it as odd. There is another way to say it, with a verb in front, and that is a2.19, which is the very next lesson. a2.04 owns dans in front of a place, which you did yesterday, and this is the other job.",
+          "examples": [
+            {
+              "itemId": "fr.sons.jours-et-mois.080",
+              "note": "One hour from now, and the film has not started."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.187",
+              "note": "The verb is present and the event is not."
+            }
+          ]
+        },
+        "howLongItTook": {
+          "term": "how long",
+          "title": "En answers a different question",
+          "body": "Dans says when it starts. En says how long it took. One of them is a point and the other is a length, and English uses \"in\" for both. Four of these five words tell you WHEN. En tells you how wide the whole job was, from the moment it started to the moment it finished. « Je pars dans dix minutes » is a departure time. « Je finis en dix minutes » is a stopwatch. And this is the one card the app's published French never made: the other four exist, side by side, and this one had to be written.",
+          "examples": [
+            {
+              "itemId": "fr.a2.prepositions-essentielles.169",
+              "note": "The row that did not exist until this lesson."
+            },
+            {
+              "itemId": "fr.a2.prepositions-essentielles.185",
+              "note": "The same two hours as depuis and pendant, answering a third question."
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-18-five",
+            "desc": "THE FIVE PHRASES, ONE TAKE, ONE VOICE, IN THE ORDER THE GRID PRINTS THEM AND WITH NO GAP BETWEEN THEM: « depuis une heure », « pendant une heure », « il y a une heure », « dans une heure », « en une heure ». FOUR OF THESE FIVE ARE ALREADY PUBLISHED CARDS and the fifth was written for this lesson, and the whole claim of the grid is that they are five answers about ONE hour. Five separate recordings are five performances: a reader who records them apart will give each its own shape and the learner will hear five different phrases rather than one phrase with five fronts. THE LAST TWO WORDS OF ALL FIVE MUST BE IDENTICAL. « une heure » is the constant. THE LIAISONS ARE NOT OPTIONAL AND THEY ARE NOT THE SAME: depuis and dans pull a z across, pendant pulls a t, en pulls an n, and il y a pulls nothing at all. That difference is the only thing separating four of them by ear and a reader who softens it is removing the lesson. KEEP EVERY NASAL CLOSED: pendant is /pɑ̃dɑ̃/ with no n sound behind either vowel and dans is /dɑ̃/ with none behind its one.",
+            "clipIds": [
+              "depuis une heure",
+              "pendant une heure",
+              "il y a une heure",
+              "dans une heure",
+              "en une heure"
+            ]
+          },
+          {
+            "id": "rec-a2-18-tense",
+            "desc": "THE AUDIO STEP OF THE TENSE TRAP, AND IT IS A WRONG-THEN-RIGHT TAKE. « J'ai habité ici depuis trois ans. » then « J'habite ici depuis trois ans. », one take, in that order. READ THE WRONG ONE PLAINLY AND AT ORDINARY PACE rather than comically or hesitantly. It is perfectly pronounceable, it is what a fluent English speaker produces on their first attempt, and a reading that signals the error teaches that the error is audible. It is not audible; it is simply wrong about when. The two are FOUR SYLLABLES APART AND NO MORE, and the learner has to hear which four. Do not lean on them and do not swallow them. THEN THE SAME PAIR AGAIN WITH THE WEATHER: « Il a plu depuis ce matin. » then « Il pleut depuis ce matin. » Four lines, one take, wrong and right alternating, and the whole point is that neither wrong one sounds wrong.",
+            "clipIds": [
+              "J'ai habité ici depuis trois ans.",
+              "J'habite ici depuis trois ans.",
+              "Il a plu depuis ce matin.",
+              "Il pleut depuis ce matin."
+            ]
+          },
+          {
+            "id": "rec-a2-18-twice",
+            "desc": "THE AUDIO STEP OF THE IL Y A TRAP, FOUR LINES, ONE TAKE: « Il y a un problème. », « Il y a deux jours. », « il y a une heure », « Il y a une heure de retard. » THE FIRST THREE WORDS OF ALL FOUR ARE IDENTICAL AND MUST SOUND IDENTICAL. That is the entire point of the take: the phrase carries no signal at all about which job it is doing, and everything is decided by what comes after. A reader who puts more weight on « il y a » in the ago lines, or pauses after it in the existence lines, is inventing a distinction French does not make and teaching the learner to listen for something that is not there. THE THIRD AND FOURTH LINES SHARE FOUR WORDS and differ only in what follows. Read them at the same pace and let the difference be the words themselves.",
+            "clipIds": [
+              "Il y a un problème.",
+              "Il y a deux jours.",
+              "il y a une heure",
+              "Il y a une heure de retard."
+            ]
+          },
+          {
+            "id": "rec-a2-18-scene",
+            "desc": "THE TABLE IN LYON. Four people, most of the way through a meal, and her question is ordinary curiosity rather than an interview. It is the commonest thing anybody says to a foreigner and she has asked it a hundred times. THE LEARNER'S OWN LINE IS THE TAKE THAT HAS TO BE RIGHT: « Euh... j'ai été ici... non... je suis... six mois. » is somebody reaching for the tense their own language handed them, hearing it not fit, starting again, and running out of sentence. The « non » is a self-correction and must sound like one: quick, quiet, and to themselves rather than to the table. HER RECOVERY LINE IS THE EXPENSIVE ONE. « Ah, tu es ici depuis six mois. Et avant ? » is her saying the sentence back correctly without noticing she has done it, and moving straight on. Any hint of correction, emphasis on « es », or kindness-about-a-mistake turns the scene into a telling-off and loses the whole point, which is that nothing visibly went wrong.",
+            "clipIds": [
+              "Tu es ici depuis longtemps ?",
+              "Euh... j'ai été ici... non... je suis... six mois.",
+              "Je suis ici depuis six mois.",
+              "Ah, tu es ici depuis six mois. Et avant ?"
+            ]
+          },
+          {
+            "id": "rec-a2-18-depuis",
+            "desc": "THE SIX DEPUIS SENTENCES, ONE TAKE, EVEN PACE, READ AS ORDINARY SPEECH AND NOT AS A LIST OF EXAMPLES. Every one of them is in the present tense and the learner is being asked to notice that nothing in the verb marks the three years, the six months or the morning. NOTHING MAY BE STRESSED. A lift on « depuis » would teach that the word is doing something dramatic; it is doing all the work quietly, which is the observation the whole act rests on. THE LIAISON IN « trois ans » IS OBLIGATORY: /tʁwa.zɑ̃/, one word, with the nasal closed. DEPUIS IS /dəpɥi/ WITH THE GLIDE, not /dəpwi/ and not /dəpy.i/. The app writes it duh-PWEE, which is the headword's own spelling and the one five published rows use.",
+            "clipIds": [
+              "J'habite ici depuis trois ans.",
+              "Elle habite ici depuis six mois.",
+              "On travaille ici depuis mars.",
+              "Il pleut depuis ce matin.",
+              "Je suis ici depuis six mois.",
+              "Depuis quand es-tu ici ?"
+            ]
+          },
+          {
+            "id": "rec-a2-18-pair",
+            "desc": "DEPUIS AGAINST PENDANT, ADJACENT, ONE TAKE, AND THEY MUST SOUND EQUALLY ORDINARY. « depuis une heure », « pendant une heure », « depuis deux heures », « pendant deux heures ». Both words are everyday and neither is more careful or more formal than the other, so any difference in weight between them teaches a distinction the language does not make: the difference is entirely in what is true about the world, and none of it is in the sound. PENDANT IS TWO CLOSED NASALS, /pɑ̃dɑ̃/, and the app respells it pahⁿ-DAHⁿ after repairing a headword row that had it as pahn-DAHN. A reader who lets an n out of either syllable is saying something else. THE LIAISON DIFFERS BETWEEN THEM: depuis pulls a z into « une », pendant pulls a t. Both are obligatory.",
+            "clipIds": [
+              "depuis une heure",
+              "pendant une heure",
+              "depuis deux heures",
+              "pendant deux heures"
+            ]
+          },
+          {
+            "id": "rec-a2-18-dictee",
+            "desc": "THE DICTÉE LINES, ONE TAKE EACH, CLEAN AND UNHURRIED, WITH NO CONTRAST INTENT AT ALL. This is the opposite instruction to every other take in this lesson: here the learner is spelling rather than comparing, and any pair-reading would hand them the answer. Read each line as though it were the only line. FIVE OF THE SEVEN ARE A SMALL WORD PLUS A LENGTH AND NOTHING ELSE, and those five matter most: the learner has to hear where one word ends and the next begins across a liaison, so do not run « depuis trois » into a single syllable and do not put a gap in it either. Say it the way somebody would say it. THE LAST TWO ARE THE TRAP PAIR and they are the only two sentences in the lesson short enough to spell letter by letter. Their first three words are identical and must sound identical.",
+            "clipIds": [
+              "en une heure",
+              "depuis trois ans",
+              "depuis deux heures",
+              "dans dix minutes",
+              "en deux heures",
+              "Il y a un problème.",
+              "Il y a deux jours."
+            ]
+          },
+          {
+            "id": "rec-a2-18-talk",
+            "desc": "THE CONVERSATION, HER LINES ONLY, ONE TAKE, AS ONE CONTINUOUS EXCHANGE RATHER THAN AS SIX SEPARATE PROMPTS. She is the same neighbour a month later, she has more time, and she is enjoying it. « Tu es ici depuis longtemps ? » and « Tu travailles ici depuis quand ? » both use the word the learner has just spent half an hour on, and NEITHER MAY BE STRESSED: she is not testing anybody, and a lift on « depuis » would turn a conversation into an exercise. « Depuis quand » AT THE END OF THE SENTENCE is the spoken order and it should sound completely natural there, because it is: the written order at the front is the one that sounds careful. Read « On mange dans une heure ? » with the rising intonation of a suggestion rather than a question about a timetable, because it is one.",
+            "clipIds": [
+              "Tu es ici depuis longtemps ?",
+              "Tu travailles ici depuis quand ?",
+              "On mange dans une heure ?",
+              "Et le soir, tu fais quoi ?",
+              "Il pleut encore ?",
+              "Le film commence quand ?"
+            ]
+          }
+        ],
+        "ambienceDefault": "off"
+      }
     }
   ],
   "items": [
@@ -188053,7 +190749,7 @@
       "fr": "dans une heure",
       "en": "in an hour",
       "ipa": "/dɑ̃.zyn.œʁ/",
-      "respell": "DAHN ZÜN UHR",
+      "respell": "DAHⁿ ZÜN UHR",
       "notes": "Dans plus a duration points to the future: an hour from now.",
       "tags": [
         "time",
@@ -188119,7 +190815,7 @@
       "fr": "pendant une heure",
       "en": "for an hour, during an hour",
       "ipa": "/pɑ̃.dɑ̃.tyn.œʁ/",
-      "respell": "pahn-DAHN TÜN UHR",
+      "respell": "pahⁿ-DAHⁿ TÜN UHR",
       "notes": "Pendant marks a finished duration: it lasted an hour.",
       "tags": [
         "time",
@@ -315404,6 +318100,8 @@
       "respell": "EHL DAHⁿS pahⁿ-DAHⁿ TOOT LA shahⁿ-SOHⁿ",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -315566,6 +318264,8 @@
       "respell": "pahⁿ-DAHⁿ lee-VEHR EEL FEH frahⁿsh-MAHⁿ FRWA ee-SEE",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -352508,6 +355208,768 @@
         "review"
       ],
       "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.a1.prepositions-essentielles.093",
+      "kind": "sentence",
+      "level": "a1",
+      "theme": "prepositions-essentielles",
+      "fr": "Il pleut pendant la nuit.",
+      "en": "It rains during the night.",
+      "respell": "eel PLEU pahⁿ-DAHⁿ LA NÜEE",
+      "notes": "{\"tiles\":[{\"w\":\"Il pleut\",\"t\":\"it rains\"},{\"w\":\"pendant la nuit.\",\"t\":\"during the night\"}]}",
+      "tags": [],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "sentence",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.mots-essentiels.027",
+      "kind": "word",
+      "level": "sons",
+      "theme": "mots-essentiels",
+      "fr": "depuis",
+      "en": "since, for (time)",
+      "ipa": "/dəpɥi/",
+      "respell": "duh-PWEE",
+      "notes": "Silent s. Depuis lundi: since Monday.",
+      "tags": [
+        "preposition"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.mots-essentiels.028",
+      "kind": "word",
+      "level": "sons",
+      "theme": "mots-essentiels",
+      "fr": "pendant",
+      "en": "during",
+      "ipa": "/pɑ̃dɑ̃/",
+      "respell": "pahⁿ-DAHⁿ",
+      "notes": "Two nasal vowels, silent t. Pendant la nuit: during the night.",
+      "tags": [
+        "preposition"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.mots-essentiels.088",
+      "kind": "word",
+      "level": "sons",
+      "theme": "mots-essentiels",
+      "fr": "en",
+      "en": "some, of it",
+      "ipa": "/ɑ̃/",
+      "respell": "AHⁿ",
+      "notes": "replaces de + noun: j'en veux",
+      "tags": [
+        "pronoun"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.questions.040",
+      "kind": "phrase",
+      "level": "sons",
+      "theme": "questions",
+      "fr": "depuis quand ?",
+      "en": "since when?",
+      "ipa": "/dəpɥi kɑ̃/",
+      "respell": "duh-PWEE KAHⁿ",
+      "notes": "asks about a starting point in time",
+      "tags": [
+        "question-phrase"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.169",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "en une heure",
+      "en": "in an hour, that is how long it takes",
+      "ipa": "/ɑ̃n yn œʁ/",
+      "respell": "AHⁿ NÜN UHR",
+      "notes": "The fifth card of a set the corpus published four fifths of. Twelve letters, so the dictée can take it.",
+      "tags": [
+        "prepositions",
+        "temps"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.170",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "J'habite ici depuis trois ans.",
+      "en": "I have lived here for three years.",
+      "ipa": "/ʒa.bit i.si də.pɥi tʁwa.zɑ̃/",
+      "respell": "zha-BEET ee-SEE duh-PWEE trwah-ZAHⁿ",
+      "notes": "The sentence the whole lesson exists to produce. The English is a perfect and the French is a present, and nothing in the French moves.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "depuis"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.171",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je lis pendant une heure.",
+      "en": "I read for an hour.",
+      "ipa": "/ʒə li pɑ̃.dɑ̃ tyn œʁ/",
+      "respell": "zhuh LEE pahⁿ-DAHⁿ tün UHR",
+      "notes": "A stretch with both ends on it, in the present, because it happens every evening. Twenty letters, so the dictée takes the phrase instead.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "pendant"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.172",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je pars dans dix minutes.",
+      "en": "I am leaving in ten minutes.",
+      "ipa": "/ʒə paʁ dɑ̃ di mi.nyt/",
+      "respell": "zhuh PAR dAHⁿ dee mee-NÜT",
+      "notes": "A present tense about something that has not happened, which is correct French and not a shortcut. The other way to say it is the next lesson.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "dans"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.173",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je finis en deux heures.",
+      "en": "I finish in two hours.",
+      "ipa": "/ʒə fi.ni ɑ̃ dø zœʁ/",
+      "respell": "zhuh fee-NEE AHⁿ duh ZUHR",
+      "notes": "How long the job takes, start to finish. Nineteen letters. Reuses a2.10's frame verb on purpose: « Il finit tôt » is that lesson's dictée and this is the same verb with a length on it.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "en"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.174",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "J'ai commencé il y a trois jours.",
+      "en": "I started three days ago.",
+      "ipa": "/ʒe kɔ.mɑ̃.se il i a tʁwa ʒuʁ/",
+      "respell": "zhay ko-mahⁿ-SAY eel ee ah trwah ZHOOR",
+      "notes": "THE ONE RECEPTIVE ROW. It holds a passé composé, which is a2.05 and two lessons away, and it is shown once and asked for nowhere: no dictée, no drill, no quiz question.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "il-y-a",
+        "receptive"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.175",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Elle habite ici depuis six mois.",
+      "en": "She has lived here for six months.",
+      "ipa": "/ɛl a.bit i.si də.pɥi si mwa/",
+      "respell": "ehl a-BEET ee-SEE duh-PWEE see MWAH",
+      "notes": "The same shape with somebody else in it. Six months is a length rather than a starting point, and depuis takes either.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "depuis"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.176",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "On travaille ici depuis mars.",
+      "en": "We have been working here since March.",
+      "ipa": "/ɔ̃ tʁa.vaj i.si də.pɥi maʁs/",
+      "respell": "ohⁿ tra-VAY ee-SEE duh-PWEE MARS",
+      "notes": "And a starting point instead of a length, which is the other half of what depuis does. On rather than nous, which is a2.01's rule for the whole level.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "depuis"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.177",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Il pleut depuis ce matin.",
+      "en": "It has been raining since this morning.",
+      "ipa": "/il plø də.pɥi sə ma.tɛ̃/",
+      "respell": "eel PLEU duh-PWEE suh ma-TEHⁿ",
+      "notes": "No person in it at all, so the rule cannot be about who is speaking. The rain has not stopped, so the verb has not either.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "depuis"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.178",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Depuis quand es-tu ici ?",
+      "en": "How long have you been here?",
+      "ipa": "/də.pɥi kɑ̃ ɛ.ty i.si/",
+      "respell": "duh-PWEE KAHⁿ eh-TÜ ee-SEE",
+      "notes": "The question that gets asked, and the reason the scene stalls. Depuis quand is two words and the answer needs a present tense.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "depuis"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.179",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Je suis ici depuis six mois.",
+      "en": "I have been here for six months.",
+      "ipa": "/ʒə sɥi i.si də.pɥi si mwa/",
+      "respell": "zhuh SWEE ee-SEE duh-PWEE see MWAH",
+      "notes": "The answer to the question above, and the sentence the scene never reached. Être in the present, which is a1.06's and the first verb the learner ever had.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "depuis"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.180",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "depuis trois ans",
+      "en": "for three years",
+      "ipa": "/də.pɥi tʁwa.zɑ̃/",
+      "respell": "duh-PWEE trwah-ZAHⁿ",
+      "notes": "Fourteen letters, so the dictée can take it. The liaison carries the s of trois onto ans and the nasal survives it.",
+      "tags": [
+        "prepositions",
+        "temps"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.181",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Il pleut pendant deux heures.",
+      "en": "It rains for two hours.",
+      "ipa": "/il plø pɑ̃.dɑ̃ dø zœʁ/",
+      "respell": "eel PLEU pahⁿ-DAHⁿ duh ZUHR",
+      "notes": "The same weather as row 177 and the other word, so the pair differs by one thing. Here the rain stops.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "pendant"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.182",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "pendant deux heures",
+      "en": "for two hours",
+      "ipa": "/pɑ̃.dɑ̃ dø zœʁ/",
+      "respell": "pahⁿ-DAHⁿ duh ZUHR",
+      "notes": "SEVENTEEN LETTERS, so `dicteeMode` puts it in WORD mode and it carries NO dictation drill. Its partner « depuis deux heures » is sixteen and does. One letter decides which half of the pair the dictée can test, which is corrections §4 costing this lesson a card.",
+      "tags": [
+        "prepositions",
+        "temps"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.183",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "depuis deux heures",
+      "en": "for two hours, and still going",
+      "ipa": "/də.pɥi dø zœʁ/",
+      "respell": "duh-PWEE duh ZUHR",
+      "notes": "Sixteen letters, at the limit. The same two hours as the row above and the other end left open.",
+      "tags": [
+        "prepositions",
+        "temps"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.184",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "dans dix minutes",
+      "en": "in ten minutes",
+      "ipa": "/dɑ̃ di mi.nyt/",
+      "respell": "dAHⁿ dee mee-NÜT",
+      "notes": "Fourteen letters. A point ahead, and the present tense goes in front of it.",
+      "tags": [
+        "prepositions",
+        "temps"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.185",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "en deux heures",
+      "en": "in two hours, that is how long it took",
+      "ipa": "/ɑ̃ dø zœʁ/",
+      "respell": "AHⁿ duh ZUHR",
+      "notes": "Twelve letters, and the shortest thing in the lesson. Same two hours as pendant and depuis, and a third answer.",
+      "tags": [
+        "prepositions",
+        "temps"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.186",
+      "kind": "phrase",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "il y a trois jours",
+      "en": "three days ago",
+      "ipa": "/il i a tʁwa ʒuʁ/",
+      "respell": "EEL EE AH trwah ZHOOR",
+      "notes": "Fourteen letters and NO DICTATION DRILL, because the dictée is a production surface and this phrase needs a tense the learner does not have.",
+      "tags": [
+        "prepositions",
+        "temps"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.187",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Le film commence dans une heure.",
+      "en": "The film starts in an hour.",
+      "ipa": "/lə film kɔ.mɑ̃s dɑ̃.zyn œʁ/",
+      "respell": "luh FEELM ko-MAHⁿS dAHⁿ zün UHR",
+      "notes": "Something on a timetable, which is where dans lives. The present tense is doing future work and nobody has to be told.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "dans"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.188",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Il y a un problème.",
+      "en": "There is a problem.",
+      "ipa": "/il i a œ̃ pʁɔ.blɛm/",
+      "respell": "eel ee ah uhⁿ proh-BLEM",
+      "notes": "Fourteen letters. A thing behind it, so the three words mean there is. `proh-BLEM` and not `proh-BLEHM`: see PROBLEME_FALSE_POSITIVE.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "il-y-a"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.189",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Il y a deux jours.",
+      "en": "Two days ago.",
+      "ipa": "/il i a dø ʒuʁ/",
+      "respell": "eel ee ah duh ZHOOR",
+      "notes": "Thirteen letters. A measurement behind it and nothing after that, so the same three words mean ago. No verb in it at all, which is why it can be here.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "il-y-a"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.190",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Il y a une heure de retard.",
+      "en": "There is an hour of delay.",
+      "ipa": "/il i a yn œʁ də ʁə.taʁ/",
+      "respell": "eel ee ah ün UHR duh ruh-TAR",
+      "notes": "The sharp one. Four words in common with « il y a une heure » and the fifth turns the hour back into a thing. This is why the rule is about the full stop and not about the noun.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "il-y-a"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.191",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Tu es ici depuis longtemps ?",
+      "en": "Have you been here long?",
+      "ipa": "/ty ɛ i.si də.pɥi lɔ̃.tɑ̃/",
+      "respell": "tü eh ee-SEE duh-PWEE lohⁿ-TAHⁿ",
+      "notes": "Her question, and every word in it is one the learner has had since a1. An earlier draft asked « Tu es en France depuis longtemps ? », which is the more natural line and which put a2.04's place sense of en into this lesson's scene; PLACE_SHAPE fired on it and the question was rewritten rather than the guard relaxed.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "depuis"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.192",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Euh... six mois.",
+      "en": "Uh... six months.",
+      "ipa": "/ø si mwa/",
+      "respell": "EU · see MWAH",
+      "notes": "What he says. It is not wrong and it is not a sentence, and the pause in front of it is the whole cost of the lesson.",
+      "tags": [
+        "prepositions",
+        "temps"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.193",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Ah, tu es ici depuis six mois. Et avant ?",
+      "en": "Ah, you have been here for six months. And before that?",
+      "ipa": "/a ty ɛ i.si də.pɥi si mwa e a.vɑ̃/",
+      "respell": "ah tü eh ee-SEE duh-PWEE see MWAH · ay a-VAHⁿ",
+      "notes": "She says his sentence back to him, correctly, without noticing she has done it, and moves on. Nobody corrected anything, so nothing was learned.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "depuis"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.194",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Tu travailles ici depuis quand ?",
+      "en": "How long have you been working here?",
+      "ipa": "/ty tʁa.vaj i.si də.pɥi kɑ̃/",
+      "respell": "tü tra-VAY ee-SEE duh-PWEE KAHⁿ",
+      "notes": "Depuis quand at the end, which is where a French speaker actually puts it in conversation.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "depuis"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.195",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Depuis deux ans. Et toi ?",
+      "en": "For two years. And you?",
+      "ipa": "/də.pɥi dø.zɑ̃ e twa/",
+      "respell": "duh-PWEE duh-ZAHⁿ · ay TWAH",
+      "notes": "The answer with no verb in it, which is what people say, and the question straight back.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "depuis"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.196",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "On mange dans une heure ?",
+      "en": "Shall we eat in an hour?",
+      "ipa": "/ɔ̃ mɑ̃ʒ dɑ̃.zyn œʁ/",
+      "respell": "ohⁿ MAHⁿZH dAHⁿ zün UHR",
+      "notes": "A point ahead, in the present, and the third of the five in three turns.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "dans"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.prepositions-essentielles.197",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "prepositions-essentielles",
+      "fr": "Oui, je finis en dix minutes.",
+      "en": "Yes, I finish in ten minutes.",
+      "ipa": "/wi ʒə fi.ni ɑ̃ di mi.nyt/",
+      "respell": "wee zhuh fee-NEE AHⁿ dee mee-NÜT",
+      "notes": "And the fourth, in the answer, where the two are one word apart and mean different things. Dans is when she starts eating; en is how long his job takes.",
+      "tags": [
+        "prepositions",
+        "temps",
+        "en"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
       "version": 1
     }
   ],

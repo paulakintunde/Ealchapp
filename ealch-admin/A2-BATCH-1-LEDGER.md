@@ -2278,3 +2278,182 @@ can be wrong about what its own lesson OWNS, not only about what the corpus
 holds, and no build in this band had found that before.** Every remaining brief
 in batch 2 sits downstream of a shipped A1 lesson on the same subject; read that
 lesson's `grammarIntroduced` and its handover before you plan an act.
+
+---
+
+## a2.18 amendments, 2026-08-14
+
+Written by the `a2.18` build, which is **seq 14 and the fourth lesson of BATCH
+2**. Recorded here rather than in a batch-2 ledger for the same reason a2.04's
+is, and because three of the findings below bind every remaining lesson in the
+band.
+
+Full report: `A2-18-BUILD-REPORT.md`.
+
+### 0. CORRECTIONS §3 HAS A REAL COUNTEREXAMPLE, AND IT IS A WHOLE PARADIGM
+
+§3 is the most reliable single prediction in the corrections file — five builds,
+five times, "the corpus is full of the forms you want and contains no two
+sentences that differ by one thing". **Measured false here, and not by one row:**
+
+```
+fr.sons.jours-et-mois.080   dans une heure      DAHN ZÜN UHR
+fr.sons.jours-et-mois.081   il y a une heure    EEL EE AH ÜN UHR
+fr.sons.jours-et-mois.082   depuis une heure    duh-PWEE ZÜN UHR
+fr.sons.jours-et-mois.083   pendant une heure   pahn-DAHN TÜN UHR
+                            en une heure        NEVER WRITTEN
+```
+
+Four consecutive published phrase cards, four prepositions, ONE duration, all
+respelled. a2.16 §5 recorded the first half-counterexample to §3; this is a
+whole one, and the lesson's grid is four fifths import.
+
+**What generalises: §3 holds for CONJUGATION and breaks for FUNCTION WORDS.**
+Every build that met it was a verb lesson looking for one verb in six persons,
+and nobody ever wrote those six side by side. A set of small words sharing one
+complement is the shape a pronunciation theme naturally produces, because the
+complement is the constant that makes the recording useful. **a2.19, a2.24 and
+the pronoun block should probe `fr.sons.*` for a consecutive run before
+budgeting to author a paradigm.**
+
+### 1. THE NASAL CHECKER'S BLIND SPOT IS ABOUT THE NEXT CHARACTER, NOT THE COUNT
+
+Corrections §6 splits the repair table by ROW. a2.17 §2 sharpened it to
+per-NASAL and said a two-nasal row is the danger. **Both are approximations of
+one rule:**
+
+> **A nasal is invisible when a LETTER follows the n or m INSIDE the token. A
+> hyphen, a space or the end of the string leaves it visible.**
+
+```
+lentement   lahnt-MAHN   first nasal INVISIBLE   a `t` follows the n
+pendant     pahn-DAHN    BOTH nasals VISIBLE     a hyphen follows the first
+```
+
+`pendant` holds two nasals and the checker reports the row until BOTH are
+repaired, so the minimal repair converges and a half repair still fails. **Two
+nasals in one row is not the predictor and a build that files by count will
+mis-file.** All five of this build's repairs are visible and minimal, which is a
+first in this band, and it is asserted (`RESPELL_REPAIRS_INVISIBLE.length === 0`)
+so the claim can fail.
+
+### 2. a2.04's `même` FALSE POSITIVE IS ABOUT A SHAPE, NOT ABOUT FIVE NOUNS
+
+a2.04 §2 measured that `hasPlainNasal`'s first branch has no rescue path and
+listed the words it expected to bite next: `même`, `comme`, `pomme`, `homme`,
+`femme`. **`problème` is not on that list and is the same thing:**
+
+```
+proh-BLEHM   FLAGGED     branch 1, no rescue
+proh-BLEM    clean       branch 2, rescued by the `ème` in the French
+```
+
+Seven published rows split four to three. **The predictor is A REAL /m/ OR /n/
+AFTER A TWO-LETTER HOUSE VOWEL — every word ending `-ème`, `-ême`, `-ome`,
+`-ame`, `-aine` — and the list is a sample of it.** Same remedy as a2.04: a form
+that avoids the shape, read off a published row, nothing repaired, and the false
+positive asserted AS A NEGATIVE in all three layers.
+
+### 3. A STEP LABEL COUNTS ITS OWN ARRAY, AND NOTHING ANYWHERE CHECKED THAT
+
+**FOUND ON A PIXEL 6 AND BY NOTHING ELSE.** A stepped trapDrill's `cards` step
+was labelled « Three cards » and held FOUR, because the card set grew during the
+build and the label stayed behind. The pager draws **one dot per card directly
+under the label**, so the screen read `THREE CARDS` over four dots.
+
+`schema.ts`, `validateDensity` and `lesson-contract.test.ts` all pass it. This
+is the **sixth** device-only defect in the band and the first that is not a
+width: the others were the mission-row title, the term-chip row, the tapTable
+header and cells, and a2.04's four-column sheet table.
+
+**Every lesson in this band should check it**, and the `say` line with it,
+because the `say` counts the cards too. Three lines in the batch:
+
+```ts
+const WORD = ['zero','one','two','three','four','five','six','seven','eight'];
+const step = (t.steps ?? []).find((s) => s.kind === 'cards');
+if (step?.label && !hasPhrase(step.label, WORD[(t.cards ?? []).length])) die(...);
+```
+
+### 4. AND THE COROLLARY THE SWEEP DOES NOT STATE: A TRAP CARD'S `fr` IS SPOKEN
+
+The ledger's trapDrill sweep says the audio step plays each card's `fr`, so the
+`recordingId` must name a take containing those lines. **The corollary is that
+every card's `fr` must be sayable BY THAT VOICE.** A first draft put "I have
+lived here for three years." in a card's `fr` to show the English source and the
+batch caught it on the take-contents check. The English belongs in `tip`.
+
+### 5. THE ID BLOCK, AND THE THEME DECISION THE BRIEF GOT WRONG
+
+```
+seq  id      block                                          status
+14   a2.18   fr.a2.prepositions-essentielles.169 .. .208    TAKEN, 169-197 used
+     153 rows in the namespace before, 182 after
+```
+
+**The brief said `temps-et-frequence` was "almost certainly your home" and it is
+not.** That theme is frequency and the clock, which is a1.08's, a1.09's and
+a1.12's. `fr.a2.prepositions-essentielles.001` is `durant` — a time preposition,
+the first row anybody put in that half of the namespace — and eleven `depuis`
+and ten `pendant` sentences live there already.
+
+**The next lesson writing into `prepositions-essentielles` opens at `.209`.**
+`.198..208` is this build's unused tail and `.155..168` is a2.04's; ids are the
+SRS key and neither is backfilled.
+
+### 6. A GUARD ADDED TO FIX a2.16 §3 HAD a2.16 §3 IN IT
+
+The merge's grid check looped over the constant the content renders and let
+three cell mutations through, which is a2.16 §3 exactly. Fixed by writing the
+five rows out as literals — and the `il y a` spelling guard added in the SAME
+SESSION to close a different hole compared `IL_Y_A_RESPELL` against content
+built from `IL_Y_A_RESPELL`, and the next mutation run caught it.
+
+**The rule is not "assert a literal once". It is: any guard whose expected value
+comes from the same module as the content is guarding nothing, and that includes
+guards you write while fixing this.**
+
+### 7. THE MERGE CAN ONLY EVER CHECK A QUARTER OF THE DATABASE
+
+One mutation the merge cannot catch and no amount of widening will fix:
+authoring a duplicate of a row that is in POSTGRES and not in the SEED CUT. The
+batch catches it; the merge sees only the cut. Worth knowing before somebody
+spends an hour making the merge match the batch line for line — a2.16 §4 asks
+for that and this is the boundary of it.
+
+### 8. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3601   pass 3601   fail 0        measured 2026-08-14, before a2.18
+  tests 3644   pass 3644   fail 0        after a2.18 (+43)
+a1-03-genre.test.ts   35 pass before and after; ending population 1890 both ways,
+                      measured off the SEED. 0 gendered rows authored OR imported.
+npx tsc --noEmit      0 in ealch-v2 AND 0 in ealch-admin
+seed.json             version 37, 9047 items, 55 lessons, 75 units (before)
+                      version 37, 9081 items, 56 lessons, 75 units (after, NOT
+                        published; the merge left the version alone)
+pnpm content:parity   ONE pre-existing divergence (b2.01.l1, database-only)
+mutation harness      37 mutations, 0 caught by nothing, 0 skipped, SIX finding a
+                        weakness rather than confirming a strength
+```
+
+**Invariants §6 says `ealch-admin` carries five pre-existing tsc errors. It now
+carries ZERO** — somebody cleared them between a2.04 and this build, so the
+"do not add to them" allowance is gone and a new error is the only error.
+
+### 9. WHAT a2.05 AND a2.19 INHERIT, AND ONE THING FOR WHOEVER OWNS THE CURRICULUM
+
+- **a2.05** gets `il y a` for "ago" met and not produced. The deferral is on a
+  learner surface in full and the merge asserts both halves of the sentence.
+  a2.05 should name a2.18 back. One authored row holds a passé composé and is
+  flagged for it: `fr.a2.prepositions-essentielles.174`.
+- **a2.19** gets `dans` taught with the present, which is correct on its own.
+  The verb-in-front version is a2.19's and this lesson names it.
+- **THE canDo OVERCLAIMS BY A THIRD.** « Can say how long, how long ago and when
+  with the right time preposition » promises production of "how long ago", which
+  needs the passé composé at seq 16. The recommendation is to KEEP seq 14 — the
+  main reason being that `dans` pairs with a2.19 at seq 15, one lesson AFTER —
+  and change the canDo instead. Proposed wording in `CANDO_OVERCLAIM`. Editing a
+  unit row is a curriculum decision, not a lesson build's, so it was reported
+  rather than applied.
