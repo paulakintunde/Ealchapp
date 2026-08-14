@@ -209,6 +209,12 @@ wanted and could not write" is the model.
 
 ## §6. The nasal checker is blind to more than the invariants say
 
+> **AMENDED BY §14.** The two-table split this section prescribes is by ROW and
+> the shape it needs is by NASAL: a word with a nasal stem AND a nasal ending
+> carries one of each kind in ONE string, so it belongs in both tables at once.
+> Read §14.1 before you build the table, not after. It matters most for the rows
+> §11 hands the participle block.
+
 `A1-BUILD-INVARIANTS.md` §3 records two blind spots. `a2.11` measured the first one
 properly and it is **much wider than "word-internal"**.
 
@@ -458,6 +464,12 @@ decision is not made. It is still not made. **Creating a theme is product-visibl
 the flashcard hub and the Den; probe what `a1.14` and `a1.16` actually used and
 amend the ledger before authoring.**
 
+> **CORRECTED BY §14.2, AND THIS PARAGRAPH HAS MISDIRECTED TWO BUILDS.** It is
+> true of those exact strings and its conclusion is false. `adjectifs-essentiels`
+> holds 645 published rows and `adverbes-essentiels` holds 325; `a2.03` and
+> `a2.17` both inherited a live suffixed theme and neither created one. **Probe
+> the SUFFIXED name before believing an absence.**
+
 ---
 
 ## §12. What to report, in addition to doctrine §F
@@ -515,3 +527,156 @@ respelling. On a `cardDeck` card `sub` holds PROSE, so the house-copy and jargon
 checks never see it. a2.15 v1 put a banned word in one and only the seed-wide
 `sons-alphabet.test.ts` caught it. Run those checks over a `display()` walk as
 well, which keeps `sub` and drops only machine keys.
+
+---
+
+## §14. What a2.17 found wrong or incomplete in THIS file
+
+§12 asks every build to say what in here it measured wrong. a2.17 found two
+things that have already cost a build each, plus a fourth hole in §9 and one
+piece of advice this file does not give and should.
+
+### 1. §6's SPLIT IS BY ROW AND THE SHAPE IT NEEDS IS BY NASAL
+
+§6 tells you to split the repair table two ways — `RESPELL_REPAIRS_VISIBLE` for
+rows the checker flags and `RESPELL_REPAIRS_INVISIBLE` for rows it does not — and
+to guard each the opposite way round. **That is a split by ROW, and it assumes a
+row holds one nasal.**
+
+A word with a nasal stem AND a nasal suffix holds two, one of each kind, in one
+string. Measured through the real `hasPlainNasalFor`:
+
+```
+lentement    lahnt-MAHN    FLAGGED       the final MAHN ends a token
+             lahnt-MAHⁿ    NOT flagged   and `lahnt` is still wrong
+             lahⁿt-MAHⁿ    NOT flagged   and correct
+```
+
+A row like that belongs in BOTH of §6's tables at once. An author following §6
+literally files it under VISIBLE, repairs what the checker reported, gets a clean
+report, and ships a wrong value. §6 does describe this effect — but only about
+`entendre`, as a curiosity. **It is the general case for any two-nasal row.**
+
+**AND §11 HANDS THE PARTICIPLE BLOCK EXACTLY THOSE ROWS.** Its own import list
+holds `comprendre kohn-PRAHNDR`, `descendre day-SAHN-druh`, `monter mohn-TAY`,
+`tomber tohn-BAY`, `entrer ahn-TRAY`. `kohn-PRAHNDR` is MIXED, not blind: `kohn`
+ends a token so the checker sees it, and `AHNDR` is nasal-then-consonant so it
+does not. §6 currently calls rows like that "blind", which is half right and
+produces exactly the half-repair above. a2.05, a2.20 and a2.21 are next.
+
+**The shape that works:** one table, and every entry carries the value you get by
+repairing ONLY what the checker reports. Assert all three through the real
+function — stored is flagged, half is not, final is not — and assert
+`half !== to` on the mixed rows by name, so the day the checker improves you find
+out instead of carrying a dead list.
+
+**And it needs a THIRD reason, which neither §6 nor a2.11 has.** a2.17's first
+table used one boolean for "half is not the final value" and the batch caught the
+conflation immediately, on `bien`:
+
+```
+bien   BYAN    FLAGGED, so nothing about it is blind
+       BYAⁿ    the minimal repair, and not the house value
+       BYEHⁿ   the house value, which four published rows already hold
+```
+
+Two different reasons for one symptom: a nasal the checker cannot see, and a
+house convention the minimal repair does not reach. Keep them as separate,
+mutually exclusive fields and assert `(half !== to) === (blind || house)`.
+
+### 2. §11's THEME TABLE IS TRUE OF THE STRINGS AND FALSE OF THE CONCEPT
+
+§11 lists:
+
+```
+adjectifs               0              THEME DOES NOT EXIST
+adverbes                0              THEME DOES NOT EXIST
+```
+
+and concludes **"`adjectifs` and `adverbes` do not exist, so `a2.03`, `a2.16` and
+`a2.17` cannot inherit one."**
+
+Every word is true of those exact strings and the conclusion is false:
+
+```
+adjectifs-essentiels   645 published
+adverbes-essentiels    325 published, 120 of them adverb headwords
+```
+
+**That sentence has now misdirected two builds.** a2.03 found the first and
+amended ledger §3; a2.17 found the second and overturned the block §3 then
+reserved for it. Both lessons inherited a live suffixed theme and neither created
+one.
+
+**So: probe the SUFFIXED name before believing an absence.** `X` holding zero
+rows says nothing about `X-essentiels`, and this corpus names its vocabulary
+themes with the suffix. The bare names in that table are dead; the suffixed ones
+are where the corpus lives.
+
+### 3. §9 GAINS A FOURTH HOLE: THE HOUSE BOUNDARY EXCLUDES AN APOSTROPHE
+
+Every guard in this band uses the same word boundary:
+
+```
+(?<![\p{L}\p{N}'’-])   ...   (?![\p{L}\p{N}'’-])
+```
+
+**It excludes `'`, so a shape using it cannot see `j'ai`, `n'est`, `qu'il` or
+`c'est`.** a2.17 wrote a guard to keep the passé composé out of a lesson four
+seq positions ahead of the tense, and it could not see « j'ai bien mangé », which
+is the exact phrase its own brief names. Only its MUST_FIRE list caught it.
+
+If your guard has to see anything after an elided article or pronoun, drop the
+apostrophe from the left boundary and keep it on the right.
+
+### 4. AND A SHAPE BUILT OUT OF FRENCH MORPHOLOGY WILL FIRE ON THE ENGLISH
+
+Half of a learner surface is English by design (invariants §8), and the two
+languages share enough letters that a shape built from French endings reads the
+English as French. a2.17's compound-tense guard matched:
+
+> "You did not stall ON A WORD YOU had not learned."
+
+`on` is a French subject pronoun, `a` is a French auxiliary, and `you` ends in a
+u. **This is a2.14 §6 in a new place: guard the THING rather than the letters.**
+The version that works requires a French subject pronoun AND a participle from a
+list. Put the English sentence that broke it in your MUST_NOT_FIRE list, because
+the next author will write the same shape.
+
+### 5. `adverb` AND `adjective` ARE NOT JARGON, AND THIS FILE SHOULD SAY SO
+
+Invariants §8 bans grammar jargon from a learner surface and does not say where
+the line is, so builds guess, and a2.17's first JARGON list guessed wrong and
+banned `adverb`. Measured across all 53 shipped lessons' learner surfaces:
+
+```
+verb 2607 · noun 1405 · plural 740 · feminine 350 · masculine 203
+adjective 147 · describing word 137 · adverb 3 · adverbs 2
+```
+
+`adjective` is on 147 cards, so the part-of-speech names are HOUSE VOCABULARY and
+banning one is the build inventing a rule. **What the house actually does is
+prefer the plain phrase**: a1.16 runs `describing word` 74 times against
+`adjective` 12.
+
+So guard the RATIO rather than the word — the plain phrase must outnumber the
+technical one — which also lets `overview.titleEn` stay the unit's own English
+name, which `content_units` requires it to match.
+
+### 6. A SECOND SEED-WIDE CONTRACT NO DOCUMENT IN THIS BAND MENTIONS
+
+§9 records that a2.03 was caught by `scenario.logic.test.ts` requiring two `alts`
+and a `userEn` on every role-play turn. There is now a second one:
+**`lesson-contract.test.ts` requires every A2 `trapDrill` to walk
+`rule > cards > audio > drill`**, with `swipe`, an `audio` spec, a `say` and a
+GATED drill step. It was added 2026-08-13 after the stacked shape was found on a
+device in a2.03 and a2.16, and it caught both of a2.17's traps.
+
+**a2.16 is the lesson a2.17 copied**, so the model carried the defect and the
+rule forbidding it landed in between. Two more things that test does NOT check
+and the ledger sweep does: `size` comes OFF a stepped trapDrill, and the audio
+step plays each card's `fr`, so its `recordingId` must name a take that actually
+contains those lines.
+
+**Read the ledger's "The trapDrill shape, swept across seq 1..11" before you
+author one.**
