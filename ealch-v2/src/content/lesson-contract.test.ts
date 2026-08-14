@@ -268,6 +268,51 @@ test('a sub-dividing section is one the pager gives the viewport to', () => {
   }
 });
 
+test('an A2 trapDrill walks its jobs one screen at a time', () => {
+  // THE STACKED SHAPE IS THE DEFECT STEPPING WAS INTRODUCED TO REMOVE, and the
+  // schema comment on TRAP_STEP_KINDS says so in as many words: stacking the
+  // three jobs "made the cards a column and left the drill permanently below
+  // the fold". Two A2 lessons kept shipping it anyway — a2.03 mission 8 and
+  // a2.16 mission 14 — because nothing anywhere asserted the shape, and both
+  // were authored from a neighbour's structure rather than a neighbour's trap.
+  //
+  // What the learner lost, on both: the reflex check sat under six flip cards
+  // in a scrolling page instead of owning a screen, there was no gate holding
+  // them until they had answered it, the section's declared audio played
+  // nowhere, and the pager's header stayed frozen on one mission number for the
+  // whole section because subCount() returns 1 without `steps`.
+  //
+  // SCOPED TO A2 DELIBERATELY. The sons band authors the same type in shapes
+  // this rule would be wrong about: sons.02 and sons.05 have no audio step at
+  // all, and sons.10 has no rule step, both of which are right for what those
+  // sections do. A2 has one shape, thirteen times, and that is what is pinned.
+  const A2 = /^a2\./;
+  for (const { id, lesson } of LESSONS) {
+    if (!A2.test(id)) continue;
+    for (const sec of lesson.sections) {
+      if (sec.type !== 'trapDrill') continue;
+      const s = sec as LessonSection & {
+        steps?: { kind: string; gate?: boolean }[];
+        swipe?: boolean;
+        audio?: unknown;
+        say?: string;
+      };
+      const w = where(id, lesson, sec);
+      const kinds = (s.steps ?? []).map((st) => st.kind).join('>');
+      strictEqual(kinds, 'rule>cards>audio>drill', `${w}: trapDrill steps are ${JSON.stringify(kinds)}, and A2 walks rule, cards, audio, drill`);
+      // Without `swipe` the pager hands this a scrolling page, the cards step
+      // measures nothing and the Continuer button lands below the fold.
+      ok(s.swipe === true, `${w}: a stepped trapDrill must set swipe, or it does not own the viewport`);
+      // An audio step with no spec renders play buttons that resolve to
+      // nothing but bare TTS, with no take for the studio to deliver against.
+      ok(s.audio, `${w}: names an audio step and declares no audio`);
+      ok(s.say, `${w}: has no say line, so the mission opens with no lead-in`);
+      // A reflex the learner can swipe past is not a reflex that was tested.
+      ok((s.steps ?? []).some((st) => st.kind === 'drill' && st.gate === true), `${w}: the drill step is not gated`);
+    }
+  }
+});
+
 /* ─── 5. Structural integrity ─────────────────────────────────────────────── */
 
 test('every act names sections that exist, and every section belongs to at most one act', () => {

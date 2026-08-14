@@ -1715,3 +1715,100 @@ pnpm content:parity                      ONE pre-existing divergence (b2.01.l1,
 **a2.03's report records seed.version as 32 and it is 33 now.** A publish landed
 between the two builds. Measure it yourself rather than carrying either figure
 forward.
+
+## The trapDrill shape, swept across seq 1..11, 2026-08-13
+
+**Two of the thirteen trapDrills in the band shipped in the pre-stepping shape,
+and nothing anywhere asserted the difference.** Found by Paul on a device:
+a2.03.l1 mission 8 (`s08-check`) and a2.16.l1 mission 14 (`s14-which`). The
+other eleven, across a2.01, a2.02, a2.09, a2.10 l1 and l2, a2.11, a2.12, a2.13
+(two), a2.14 and a2.15, all walk `rule > cards > audio > drill`.
+
+### What the stacked shape costs the learner
+
+`TRAP_STEP_KINDS` in schema.ts says why stepping was introduced: stacking the
+jobs "made the cards a column and left the drill permanently below the fold".
+Both sections carried exactly that, plus three consequences that are not
+obvious from reading the authored data:
+
+| | stacked (what shipped) | stepped (the band) |
+|---|---|---|
+| the reflex check | under six flip cards, below the fold | owns a screen |
+| the gate | none, swipe straight past | `gate: true`, held until answered |
+| the declared `audio` | played nowhere at all | a step with both speeds |
+| the pager header | frozen on `MISSION 14 / 24` | `14.1` to `14.4` |
+| the red eyebrow | hardcoded `LES PIÈGES` | the step's own label |
+
+The header freeze is `subCount()`: it returns 1 for a trapDrill without `steps`,
+so there is no sub-position to report and a resume anchor cannot land finer than
+the mission's first screen. `ownsLayout` is false for the same reason, which is
+what puts the check in a scrolling page.
+
+### The four fields, and the one that is not free
+
+`swipe: true`, `say`, `audio` and `steps`, and `size: 'lg'` comes off (the
+stepped branch of MissionSection sizes off `steps?.length`, and no stepped
+trapDrill in the corpus carries a size).
+
+The audio step is the one with a cost. It plays each card's `fr` at the
+section's speeds, so the `recordingId` must name a take that actually contains
+those lines:
+
+- **a2.16** needed nothing new. All six of `s14-which`'s cards are lines
+  `rec-a2-16-pairs` already briefs and already carries, so the step points at
+  the take the lesson already turns on.
+- **a2.03** needed a new one. Every take in that lesson is SENTENCES and the
+  trap's twelve words are bare naming forms, so `rec-a2-03-groups` was briefed
+  rather than pointing the step at clips it does not contain. Its brief is the
+  inverse of the grid takes: nothing in the reading may signal which group a
+  word is in.
+
+### The band's audio-step title is a claim, and check it before copying
+
+Ten A2 traps title theirs **« Wrong, Then Right »**, and for those it is true:
+`wrongThenRight: true` is set and the take really is a wrong reading followed by
+a right one. Neither of these two has such a take, so both got a truthful title
+instead (`Hear The Ending, Not The Group`, `Hear The Next Word Decide`) and
+neither sets the flag. **`wrongThenRight` is read by nothing** — it is declared
+in `SectionAudio` and no component consults it — so it is documentation for the
+studio, and setting it where it is false costs nothing today and misleads a
+reader later.
+
+### Pinned
+
+`lesson-contract.test.ts`, "an A2 trapDrill walks its jobs one screen at a time":
+step kinds exactly `rule>cards>audio>drill`, `swipe`, an `audio` spec, a `say`,
+and a gated drill step. **Scoped to `a2.*` deliberately** — sons.02 and sons.05
+have no audio step and sons.10 has no rule step, and all three are right for
+what those sections do. Proved by mutation: stripping `steps` and `swipe` from
+`s14-which` fails it with the section named.
+
+### a2.03's batch claimed a namespace when it meant a block
+
+Re-running `content:accord-adjectifs` failed on eighteen "foreign" rows that are
+`fr.a2.adjectifs-essentiels.041..058` — a2.16, sitting exactly where a2.03's own
+report reserved it. Both the pre-flight and the post-commit read the whole
+`fr.a2.adjectifs-essentiels.%` prefix. The post-commit one is worse: it fires
+AFTER the transaction commits, so it reports a clean write as a failure.
+
+Same defect and same fix as `a2-03-accord.test.ts` during the a2.16 build.
+Scoped to `ID_BLOCK` (`.001..040`), which the corpus already exported and the
+batch never used. **A row inside the block it does not own is still fatal.**
+a2.17 lands at `.081..120` in the same theme and its batch must be written this
+way from the start, not repaired later.
+
+### Still open
+
+**`TrapAudioStep` hardcodes a French sentence, and it belongs to sons.06.**
+`MissionRich.tsx` prints « Écoutez la paire. Le R sonne, puis le R se tait. »
+above the audio step of EVERY stepped trapDrill, unconditionally and untranslated
+— so all thirteen A2 traps tell an English-medium learner about a moving R that
+none of them teaches. Not fixed here: it is app code, so it needs a build rather
+than a content snapshot, and it touches every sons lesson using the type. The
+fix is an i18n entry and an optional authored override, not a second literal.
+
+### Versions
+
+`a2.03.l1` v3 → **v4**, `a2.16.l1` v2 → **v3**. Both applied to Postgres and
+merged. Suite 3489 → **3490** pass, 0 fail. `content:parity` clean (the one
+pre-existing b2.01.l1 divergence).

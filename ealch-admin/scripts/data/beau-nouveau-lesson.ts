@@ -751,7 +751,24 @@ const SECTIONS: LessonSection[] = [
     title: 'Plain One Or Short One?',
     frSub: 'Quelle forme ?',
     layer: 'core',
-    size: 'lg',
+    /* STEPPED, not stacked, and `swipe` goes with it.
+       This shipped as the original stacked column: six flip cards in a
+       scrolling page with the six-question reflex check underneath them, which
+       put the check permanently below the fold and left the pager's header
+       frozen on MISSION 14 / 24 for the whole section. Every other trapDrill in
+       the band (a2.01, a2.02, a2.09 through a2.15) walks the same content one
+       job per screen and reports 14.1 to 14.4. Without `steps` ownsLayout is
+       false, subCount() returns 1, and neither of those happens.
+       `size: 'lg'` went with it: the stepped branch of MissionSection sizes off
+       `steps?.length`, and no other stepped trapDrill in the corpus carries a
+       size. */
+    swipe: true,
+    /* The pairs take, not a new one. Every one of the six cards below is a line
+       rec-a2-16-pairs already briefs and already carries, so the audio step
+       starts playing real clips the day the studio delivers, with no second
+       brief and nothing further owed. */
+    audio: { mode: 'tts', lang: 'fr-FR', speeds: [1, 0.65], recordingId: 'rec-a2-16-pairs' },
+    say: 'Six cards and then six to prove it. Every one of them turns on the same question: what sound starts the next word?',
     rule: {
       title: 'One decision, and it is not about the adjective',
       body: THE_MOVE,
@@ -773,6 +790,18 @@ const SECTIONS: LessonSection[] = [
       { promptSay: 'un ___ vélo', opts: [form('beau', 'vowel'), form('beau', 'plain'), form('beau', 'femPl')], correct: 1 },
       { promptSay: 'un ___ appartement', opts: [form('nouveau', 'fem'), form('nouveau', 'vowel'), form('nouveau', 'plain')], correct: 1 },
       { promptSay: 'un ___ château', opts: [form('vieux', 'plain'), form('vieux', 'vowel'), form('vieux', 'fem')], correct: 0 },
+    ],
+    /* NOT « Wrong, Then Right » on the audio step, which is what the other ten
+       A2 traps title theirs. Those name a take that really is a wrong reading
+       followed by a right one; rec-a2-16-pairs is a contrast take with no wrong
+       form in it, and the lesson's one spoken wrong form lives on the break
+       card. Copying the band's title here would put a claim on the screen that
+       the audio does not keep. */
+    steps: [
+      { label: 'The rule', kind: 'rule', title: 'One Decision, Not The Adjective' },
+      { label: 'The phrases', kind: 'cards', title: 'Six Phrases, One Question' },
+      { label: 'Hear it', kind: 'audio', title: 'Hear The Next Word Decide' },
+      { label: 'Prove it', kind: 'drill', title: 'Which Form Goes Here?', gate: true },
     ],
     terms: ['aVowelIsComing'],
   },
@@ -1743,7 +1772,22 @@ export const BEAU_NOUVEAU_LESSON: Lesson = {
   // different bodies under one number is the drift this project has lost work to
   // twice, and a2.09 set the precedent of moving the counter rather than
   // relaxing the guard that caught it.
-  version: 2,
+  //
+  // v3: THE TRAPDRILL WAS STILL STACKED, AND IT WAS ONE OF ONLY TWO LEFT.
+  //
+  // `s14-which` shipped as the pre-stepping shape: six flip cards in a scrolling
+  // page with the six-question reflex check under them, so the check sat
+  // permanently below the fold and the pager's header stayed frozen on
+  // MISSION 14 / 24 across the whole section. Eleven other trapDrills in seq
+  // 1..11 walk the same content one job per screen and report 14.1 to 14.4;
+  // a2.03's s08-check was the only other one that did not, and both are fixed
+  // together. The schema comment on TRAP_STEP_KINDS names the defect exactly:
+  // stacking the jobs "left the drill permanently below the fold".
+  //
+  // Nothing new is owed to the studio for it. rec-a2-16-pairs already briefs and
+  // already carries all six of the section's lines, so the audio step is a use
+  // of the take this lesson already turns on rather than a second one.
+  version: 3,
 
   grammarAssumed: [
     'That a describing word changes shape to match what it describes, introduced in a1.13 through colour',

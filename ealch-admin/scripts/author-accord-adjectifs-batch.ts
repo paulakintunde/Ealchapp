@@ -1055,21 +1055,34 @@ async function main() {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 2 });
   const c = await pool.connect();
 
-  /* THE ROW COUNT IS THE ONLY SIGNAL. Ledger §10. Here it is the easy case:
-     the namespace did not exist, so ANY row inside the block this build does not
-     own is somebody else landing in it. */
+  /* THE ROW COUNT IS THE ONLY SIGNAL. Ledger §10.
+     SCOPED TO .001..040, which is what this build owns. It was written when the
+     namespace did not exist, so it read the whole `fr.a2.adjectifs-essentiels.%`
+     prefix and called anything outside AUTHORED_IDS a collision. That premise
+     expired the moment a2.16 landed in .041..058, which is the range THIS
+     LESSON'S OWN REPORT reserved for it: re-running the batch then failed with
+     eighteen "foreign" rows that are exactly where they were meant to be, and
+     the count check below failed for the same reason.
+     Same defect and same fix as a2-03-accord.test.ts, which claimed the whole
+     namespace when it meant its own block. Scoped, not relaxed: a row inside
+     .001..040 that this build does not own is still fatal. */
   const mineNow = await c.query<{ id: string }>(
     "select id from content_items where id like 'fr.a2.adjectifs-essentiels.%' order by id");
-  const foreign = mineNow.rows.map((r) => r.id).filter((id) => !AUTHORED_IDS.includes(id));
+  const inBlock = mineNow.rows.map((r) => r.id).filter((id) => id >= ID_BLOCK.from && id <= ID_BLOCK.to);
+  // Reported at the end against the post-commit figure, and BOTH are now counts
+  // of the block rather than of the prefix, so the pair is comparable.
+  const before = inBlock.length;
+  const foreign = inBlock.filter((id) => !AUTHORED_IDS.includes(id));
   if (foreign.length) {
     c.release(); await pool.end();
-    die(`${foreign.length} rows already exist in this build's id block and it does not own them:\n  ${foreign.join('\n  ')}`);
+    die(`${foreign.length} rows exist inside this build's block ${ID_BLOCK.from}..${ID_BLOCK.to} and it does not own them:\n  ${foreign.join('\n  ')}`);
   }
-  const before = mineNow.rowCount ?? 0;
-  if (before !== ROW_COUNT_BEFORE && before !== AUTHORED_IDS.length) {
+  if (inBlock.length !== ROW_COUNT_BEFORE && inBlock.length !== AUTHORED_IDS.length) {
     c.release(); await pool.end();
-    die(`fr.a2.adjectifs-essentiels holds ${before} rows, and this build expects ${ROW_COUNT_BEFORE} before or ${AUTHORED_IDS.length} on a re-run`);
+    die(`${ID_BLOCK.from}..${ID_BLOCK.to} holds ${inBlock.length} rows, and this build expects ${ROW_COUNT_BEFORE} before or ${AUTHORED_IDS.length} on a re-run`);
   }
+  const outside = (mineNow.rowCount ?? 0) - inBlock.length;
+  if (outside) console.log(`  !! ${outside} rows sit in fr.a2.adjectifs-essentiels outside ${ID_BLOCK.from}..${ID_BLOCK.to}. That is somebody else's allocation. Reported, not fatal.`);
 
   /* THE THEME-WIDE COUNT. Ledger §a2.14-12 narrows it: a total that has GROWN
      by somebody else's allocation is a REPORT, one that has SHRUNK is fatal. */
@@ -1334,9 +1347,15 @@ async function main() {
     die(`transaction rolled back: ${(e as Error).message}`);
   }
 
-  /* IT LANDED. Read back rather than assumed. */
+  /* IT LANDED. Read back rather than assumed.
+     COUNTED INSIDE .001..040, for the same reason the pre-flight above is: this
+     read the whole prefix and compared it to what this build authored, so once
+     a2.16 filled .041..058 the post-commit check reported 51 against 33 and
+     called a clean commit a failure. The count that means anything is the count
+     of THIS BUILD'S BLOCK. */
   const after = await c.query<{ n: string; mx: string }>(
-    "select count(*) n, coalesce(max(id),'') mx from content_items where id like 'fr.a2.adjectifs-essentiels.%'");
+    "select count(*) n, coalesce(max(id),'') mx from content_items where id like 'fr.a2.adjectifs-essentiels.%' and id >= $1 and id <= $2",
+    [ID_BLOCK.from, ID_BLOCK.to]);
   const check = await c.query<{ id: string; respell: string | null; drills: string[] }>(
     'select id, respell, drills::text[] drills from content_items where id = any($1)',
     [[...ALL_REPAIRS.map((r) => r.id), ...RESPELL_ADDITIONS.map((a) => a.id), ...LESSON_DRILL_ADDITIONS.map((d) => d.id)]]);
@@ -1366,7 +1385,7 @@ async function main() {
     + `    ${IMPORTED_IDS.length} rows imported by id out of ${SOURCE_THEMES.length} themes\n`
     + `    ${READ_NOT_IMPORTED.length} rows read and refused\n`
     + `    lesson ${LESSON.id} v${LESSON.version}, ${LESSON.sections.length} sections, ${EXPECTED_ACTS} acts, ${qs.length} questions, ${ACCORD_ADJECTIFS_ITEM_IDS.length} items\n`
-    + `    fr.a2.adjectifs-essentiels row count: ${before} before, ${after.rows[0].n} after (max ${after.rows[0].mx})\n\n`
+    + `    ${ID_BLOCK.from}..${ID_BLOCK.to} row count: ${before} before, ${after.rows[0].n} after (max ${after.rows[0].mx})\n\n`
     + `  NEXT: pnpm tsx scripts/merge-accord-adjectifs-into-seed.ts\n`);
 
   c.release();

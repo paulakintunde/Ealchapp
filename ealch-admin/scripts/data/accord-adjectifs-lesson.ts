@@ -526,7 +526,20 @@ const SECTIONS: LessonSection[] = [
     title: 'Which Group Is It In?',
     frSub: 'Quel groupe ?',
     layer: 'core',
-    size: 'lg',
+    /* STEPPED, not stacked, and `swipe` goes with it.
+       This shipped as the original stacked column: six flip cards in a
+       scrolling page with the six-question reflex check underneath them, which
+       put the check permanently below the fold and left the pager's header
+       frozen on MISSION 8 / 25 for the whole section. Every other trapDrill in
+       the band (a2.01, a2.02, a2.09 through a2.15) walks the same content one
+       job per screen and reports 8.1 to 8.4. Without `steps` ownsLayout is
+       false, subCount() returns 1, and neither of those happens.
+       `size: 'lg'` went with it: the stepped branch of MissionSection sizes off
+       `steps?.length`, and no other stepped trapDrill in the corpus carries a
+       size. */
+    swipe: true,
+    audio: { mode: 'tts', lang: 'fr-FR', speeds: [1.0, 0.65], recordingId: 'rec-a2-03-groups' },
+    say: 'Six cards and then six to prove it. Every one of them asks the same question: which of the four groups does this word belong to?',
     rule: {
       title: 'One decision, not four',
       body: `${THE_MOVE}`,
@@ -546,6 +559,18 @@ const SECTIONS: LessonSection[] = [
       { promptSay: importedFr(namingId('généreux')), opts: [PATTERN_LABEL.default, PATTERN_LABEL.eux, PATTERN_LABEL.invariable], correct: 1 },
       { promptSay: importedFr(namingId('vert')), opts: [PATTERN_LABEL.default, PATTERN_LABEL.invariable, PATTERN_LABEL.if], correct: 0 },
       { promptSay: importedFr(namingId('bleu marine')), opts: [PATTERN_LABEL.eux, PATTERN_LABEL.default, PATTERN_LABEL.invariable], correct: 2 },
+    ],
+    /* NOT « Wrong, Then Right » on the audio step, which is what the other ten
+       A2 traps title theirs. Those name a take that really is a wrong reading
+       followed by a right one, and no take in this lesson is one: rec-a2-03-groups
+       is twelve naming forms whose whole instruction is to give nothing away.
+       Copying the band's title here would put a claim on the screen that the
+       audio does not keep. */
+    steps: [
+      { label: 'The rule', kind: 'rule', title: 'One Decision, Not Four' },
+      { label: 'The groups', kind: 'cards', title: 'Six Words, Four Groups' },
+      { label: 'Hear it', kind: 'audio', title: 'Hear The Ending, Not The Group' },
+      { label: 'Prove it', kind: 'drill', title: 'Which Group Is It In?', gate: true },
     ],
     terms: ['theMasculine'],
   },
@@ -1690,7 +1715,23 @@ export const ACCORD_ADJECTIFS_LESSON: Lesson = {
   // glass can tell you. Renamed to `ends in -eux` and `ends in -if`, which is
   // also what PATTERN_LABEL already calls the two groups on the grid, so the
   // shorter names are the consistent ones as well as the ones that fit.
-  version: 3,
+  //
+  // v4: THE TRAPDRILL WAS THE ONLY ONE IN SEQ 1..11 STILL STACKED.
+  //
+  // `s08-check` shipped as the pre-stepping shape: six flip cards in a scrolling
+  // page with the six-question reflex check under them. Eleven other trapDrills
+  // across a2.01, a2.02 and a2.09..a2.15 walk the same content one job per
+  // screen, and the schema comment on TRAP_STEP_KINDS says why the stepped shape
+  // exists at all: stacking the three jobs "made the cards a column and left the
+  // drill permanently below the fold". So this section carried the exact defect
+  // stepping was introduced to remove, on a mission that is nine sections from
+  // the exam.
+  //
+  // The step's audio needed a take and no existing one fitted: every take in
+  // this lesson is SENTENCES and the trap's twelve words are bare naming forms.
+  // rec-a2-03-groups is briefed here rather than the section pointing at a take
+  // whose clips it does not contain.
+  version: 4,
 
   grammarAssumed: [
     'That a describing word changes shape to match what it describes, introduced in a1.13 through colour',
@@ -1781,6 +1822,18 @@ export const ACCORD_ADJECTIFS_LESSON: Lesson = {
         id: 'rec-a2-03-dictee',
         desc: 'THE FOURTEEN DICTÉE LINES, ONE TAKE EACH, CLEAN AND UNHURRIED, WITH NO CONTRAST INTENT AT ALL. This is the opposite instruction to every other take in the lesson: here the learner is spelling rather than comparing, and any pair-reading would hand them the answer. Read each line as though it were the only line. The plural s and the feminine e must be neither helped nor hidden; say the sentence the way somebody would say it, which is the whole difficulty the exercise exists to create.',
         clipIds: DICTATION_IDS.map((id) => fr(id)),
+      },
+      {
+        // THE TAKE THE STEPPED TRAP NEEDS, AND THE ONLY ONE IN THE LESSON MADE
+        // OF BARE NAMING FORMS. Every other take is sentences, so none of them
+        // could serve the trap's audio step: its twelve words are the masculine
+        // singular on its own, which is the form the whole decision is read off.
+        id: 'rec-a2-03-groups',
+        desc: 'THE TWELVE NAMING FORMS OF THE GROUP CHECK, READ AS A FLAT LIST AT CONVERSATIONAL PACE. Six cards then six drill words: grand, sérieux, sportif, marron, heureux, kaki, then curieux, impulsif, orange, généreux, vert, bleu marine. NOTHING IN THE READING MAY SIGNAL WHICH GROUP A WORD IS IN. That is the whole instruction and it is the opposite of the grid takes: the learner is being asked to decide from the last two letters they can SEE, and a reader who leans on the x of sérieux or the f of sportif has answered the question before it was put. Even weight, even pace, no rising list intonation that would make the last word sound like a conclusion, and roughly a second between them so a learner can repeat into the gap.',
+        clipIds: [
+          ...PATTERN_ORDER.map((p) => form(p, 'm.sg')),
+          ...['heureux', 'kaki', 'curieux', 'impulsif', 'orange', 'généreux', 'vert', 'bleu marine'].map((w) => importedFr(namingId(w))),
+        ],
       },
       {
         id: 'rec-a2-03-break',
