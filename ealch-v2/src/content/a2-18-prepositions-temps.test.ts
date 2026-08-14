@@ -249,7 +249,12 @@ test('the identity block, byte for byte from the unit', { skip: noLesson }, () =
   strictEqual(String(u!.seq), '14');
   strictEqual(u!.title, 'Prepositions of Time');
   strictEqual(u!.sub, 'Prépositions de temps');
-  strictEqual(u!.canDo, 'Can say how long, how long ago and when with the right time preposition');
+  // REWORDED 2026-08-14. The original promised "how long ago", which needs a
+  // past tense this trail position does not have, and the alternative — moving
+  // the unit after a2.05 — was rejected because `dans` pairs with a2.19 at
+  // seq 15, one lesson AFTER. Asserted byte for byte so a silent revert fails.
+  strictEqual(u!.canDo, 'Can say how long something has been going, how long it took and when it starts, with the right time preposition');
+  ok(!u!.canDo.includes('how long ago'), 'the canDo promises production of "how long ago", which needs a2.05\'s past tense');
   deepStrictEqual(u!.prereqUnitIds, [CLOCK_UNIT]);
   ok((u!.lessonIds ?? []).includes('a2.18.l1'));
   strictEqual(L!.tag, 'A2 · LEÇON 14');

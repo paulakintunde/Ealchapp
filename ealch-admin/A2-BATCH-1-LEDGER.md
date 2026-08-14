@@ -2452,11 +2452,39 @@ carries ZERO** — somebody cleared them between a2.04 and this build, so the
   The verb-in-front version is a2.19's and this lesson names it.
 - **THE canDo OVERCLAIMS BY A THIRD.** « Can say how long, how long ago and when
   with the right time preposition » promises production of "how long ago", which
-  needs the passé composé at seq 16. The recommendation is to KEEP seq 14 — the
-  main reason being that `dans` pairs with a2.19 at seq 15, one lesson AFTER —
-  and change the canDo instead. Proposed wording in `CANDO_OVERCLAIM`. Editing a
-  unit row is a curriculum decision, not a lesson build's, so it was reported
-  rather than applied.
+  needs the passé composé at seq 16. KEEP seq 14 — the main reason being that
+  `dans` pairs with a2.19 at seq 15, one lesson AFTER — and change the canDo
+  instead. **APPLIED 2026-08-14 on Paul's instruction**; see §10.
+
+### 10. THE canDo REWORD, AND THREE THINGS IT TURNED UP ABOUT THE SPINE
+
+The a2.18 canDo now reads « Can say how long something has been going, how long
+it took and when it starts, with the right time preposition ». Applied to
+`author-full-curriculum-spine.ts`, to `content_units` and to `seed.json`.
+
+**Three findings that bind anybody who touches a unit row:**
+
+1. **`content:spine` DOES NOT OWN THE A2 BAND.** `update-spine.ts` covers 43
+   older units and prints the other 33 as "left untouched", naming
+   `author-full-curriculum-spine.ts` as their owner — a2.09 through a2.35, so
+   every remaining lesson in this batch. **A build that ran `content:spine`,
+   saw it exit clean and concluded its unit edit had landed would be wrong.**
+2. **THE SPINE'S DRY RUN CANNOT CONFIRM A canDo CHANGE.** Its summary counts
+   created / resequenced / retitled. With the reword staged it still printed
+   `0 created · 0 resequenced · 0 retitled`, because the script writes the whole
+   `body` in one update and the report does not diff that field. What confirms
+   it is `spine-drift.test.ts:97`, which compares canDo SPINE against SEED.
+3. **AND THAT MAKES THE SEED HALF NON-OPTIONAL.** The spine script writes
+   Postgres only, so between the apply and a publish `spine-drift` is RED. This
+   build wrote the one field into `seed.json` with a scoped script
+   (`_a218_cando_seed.ts`) that proves nothing else in the file moved, rather
+   than cutting an OTA snapshot to fix a curriculum field. A later publish
+   regenerates the identical value from the same row.
+
+**A fourth, smaller: `CANDO_OVERCLAIM.shipped` read `UNIT.canDo`.** The field
+recording what was WRONG would have become a second copy of the replacement the
+moment the replacement landed. Any constant whose job is to remember a previous
+value has to be a literal.
 
 ---
 

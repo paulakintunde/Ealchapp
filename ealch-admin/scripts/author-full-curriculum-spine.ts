@@ -656,7 +656,16 @@ const A2: SpineUnit[] = [
     title: 'Prepositions of Time',
     sub: 'Prépositions de temps',
     gloss: 'depuis, pendant, il y a, dans, en',
-    canDo: 'Can say how long, how long ago and when with the right time preposition',
+    // REWORDED 2026-08-14 by the a2.18 build. The original read "Can say how
+    // long, how long ago and when with the right time preposition", and ONE
+    // THIRD OF IT WAS NOT PRODUCIBLE AT THIS TRAIL POSITION: "how long ago"
+    // needs `il y a` in a past tense and the passé composé is a2.05 at seq 16.
+    //
+    // The alternative was moving a2.18 after a2.05, and that was rejected
+    // because `dans` pairs with the futur proche, which is a2.19 at seq 15 —
+    // ONE LESSON AFTER this one, already built and already naming a2.18 back.
+    // See A2-18-BUILD-REPORT.md §1 and CANDO_OVERCLAIM in the corpus file.
+    canDo: 'Can say how long something has been going, how long it took and when it starts, with the right time preposition',
     prereqUnitIds: ['a1.12'],
   },
   {

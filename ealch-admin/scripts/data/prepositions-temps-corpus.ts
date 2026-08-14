@@ -204,7 +204,11 @@ export const UNIT = {
   seq: 14,
   title: 'Prepositions of Time',
   sub: 'Prépositions de temps',
-  canDo: 'Can say how long, how long ago and when with the right time preposition',
+  // REWORDED 2026-08-14, after the build. See CANDO_OVERCLAIM below for the
+  // measurement and the original. The batch compares this against the live
+  // `content_units` row and dies if they disagree, so this line and
+  // `author-full-curriculum-spine.ts` move together or not at all.
+  canDo: 'Can say how long something has been going, how long it took and when it starts, with the right time preposition',
   prereqUnitIds: ['a1.12'],
   lessonIds: [] as string[],
 } as const;
@@ -218,8 +222,15 @@ export const LESSON_ID = 'a2.18.l1';
  *  register the learner actually has. Reported rather than applied: editing a
  *  unit row is a curriculum decision and not a lesson build's. */
 export const CANDO_OVERCLAIM = {
-  shipped: UNIT.canDo,
+  // A LITERAL, NOT `UNIT.canDo`. It read `UNIT.canDo` while the reword was
+  // still a proposal, and the moment the reword landed this field would have
+  // become a second copy of the replacement — the record of what was wrong
+  // erasing itself at the exact moment it started to matter. The `applied`
+  // flag below is what the guards read.
+  wasShipped: 'Can say how long, how long ago and when with the right time preposition',
   proposed: 'Can say how long something has been going, how long it took and when it starts, with the right time preposition',
+  /** Applied to `content_units` and to the spine script on 2026-08-14. */
+  applied: true,
   why: 'At seq 14 the learner has the present tense and venir de. "How long ago" needs a past tense and a2.05 is two lessons away, so one third of the shipped canDo is not producible in this lesson at this position.',
 } as const;
 

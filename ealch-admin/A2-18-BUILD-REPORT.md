@@ -45,15 +45,30 @@ What is genuinely wrong is the canDo, which was written without checking what
 tense the learner would have:
 
 ```
-shipped   Can say how long, how long ago and when with the right time preposition
-proposed  Can say how long something has been going, how long it took and when it
+was       Can say how long, how long ago and when with the right time preposition
+now       Can say how long something has been going, how long it took and when it
           starts, with the right time preposition
 ```
 
-A lesson build does not edit `content_units`, so the block is used as it stands
-and the proposed replacement is `CANDO_OVERCLAIM` in the corpus file. **One
-third of the shipped canDo is not producible at this trail position** and that
-is a curriculum decision to take, not a build one.
+**APPLIED 2026-08-14, after the build and on Paul's instruction.** One third of
+the original was not producible at this trail position. The lesson was built
+against the original and needed no change: it already taught `il y a` receptively
+and named a2.05.
+
+Three things the reword turned up that are worth more than the reword:
+
+- **`content:spine` does not own a2.18.** `update-spine.ts` covers 43 older
+  units and lists a2.18 among 33 it leaves alone, naming
+  `author-full-curriculum-spine.ts` as the owner. A build that ran
+  `content:spine` and saw it succeed would conclude the edit had landed.
+- **The spine's own dry run cannot confirm a canDo change.** Its summary counts
+  created / resequenced / retitled; with the reword staged it still printed
+  `0 created · 0 resequenced · 0 retitled`. What confirms it is
+  `spine-drift.test.ts`, which compares canDo spine-against-SEED.
+- **`CANDO_OVERCLAIM.shipped` read `UNIT.canDo`**, so the record of the wrong
+  wording would have become a second copy of the replacement at the exact moment
+  it started to matter. It is now a literal, `wasShipped`, with an `applied`
+  flag beside it.
 
 ---
 
