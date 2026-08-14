@@ -661,17 +661,70 @@ round. `CHAIN_CELL_WRAPS` names it, so a SECOND one cannot arrive quietly, and
 the guard also refuses to let the list name a cell the chain has stopped
 printing.
 
-**What I did NOT open**, said plainly: the two stepped trapDrills in play
-(`s11-unseen`, `s15-bonbien`) — which is the pair this build most wants eyes on,
-because they were stacked until the contract caught them and the stepped shape
-has never been seen on this lesson; the two listening screens; the quiz rounds;
-the dictée in play; the scenario turns; the speak practice with the mic; the
-reading passage's glossary; the groupDrill; and the reference sheet. Their
-content is asserted host-side and their layouts are house shapes this band has
-shipped a dozen times, but they are unverified on glass. **The two trapDrills are
-the ones I would open next**, and the reference sheet after them: a2.03's device
-pass found that a wide table inside a sheet clips and scrolls horizontally, and
-this one's widest is four columns, which is a2.03's own hero width and was clean.
+### The two stepped trapDrills, opened in a second pass
+
+They were the pair this build most wanted eyes on, because they shipped stacked
+until the contract caught them and the stepped shape had never been read on this
+lesson. **Both work, and the things the ledger sweep says stepping restores are
+all visible.**
+
+```
+s11-unseen  11.1  THE RULE    It Works On Anything    rule in full, Continue owns the screen
+            11.2  FOUR WORDS  Two You Know, Two...    card 1 of 4 flippable, four dots
+            11.3  HEAR IT     The Middle Of The Word  four words, IPA, Normal/Lent
+            11.4  PROVE IT    Build It                lente + ? and parfaite + ?
+s15-bonbien 15.1  THE RULE    Thing Or Doing          both sides of the contrast in one string
+```
+
+- **The pager header reports the sub-position**: MISSION 11.2 / 24, then 11.3,
+  then 11.4. That is `subCount()` working, and the frozen header is one of the
+  five things the sweep says stepping fixes.
+- **The red eyebrow is the step's own label** rather than the hardcoded
+  `LES PIÈGES`: THE RULE, FOUR WORDS, HEAR IT, PROVE IT.
+- **The audio step scrolls and all four words are reachable.** The fourth
+  (`certainement`) sits under the Continue button at rest, and a swipe inside the
+  card brings it up with Continue staying pinned. Checked because at rest it
+  looks like a clipped list, and it is not one.
+- **The generalisation drill is live on glass.** 11.4 asks `parfaite + ?` with
+  `parfaitment` beside `parfaitement` as the distractor, on a word this lesson
+  never lists.
+- **The audio step's title is truthful.** « The Middle Of The Word », not the
+  band's « Wrong, Then Right », because neither take is a wrong reading followed
+  by a right one.
+
+### AND THE OPEN TrapAudioStep DEFECT IS CONFIRMED ON GLASS
+
+`MissionRich.tsx` prints this above the audio step, unconditionally and
+untranslated:
+
+> **« Écoutez la paire. Le R sonne, puis le R se tait. »**
+
+It sits directly above `lentement`, `doucement`, `parfaitement` and
+`certainement`, and tells an English-medium learner about a moving R that this
+lesson neither teaches nor contains. The ledger sweep records it as open and
+app-side; this build adds the fourteenth and fifteenth A2 sections carrying it.
+**Photographed rather than inferred.**
+
+### Three more screens read on the way past
+
+- **The lesson cover.** `intro` renders whole, past the A2 paywall, no jargon.
+  It is the field a2.11 shipped jargon onto.
+- **The exam, round 1.** The `errorSpot` draws a real typing surface: the prompt
+  « Je souvent mange ici. », a "Type the correction" field, and a Check button
+  disabled until something is typed. That is the production surface the brief
+  asks for, and the one format that can catch a whole-sentence error.
+- **All 24 mission rows**, across both halves of the list, every title in full
+  and every frSub French — including mission 13's « Vos propres mots », the
+  frSub the compound-tense guard forced.
+
+**What I did NOT open**, said plainly: steps 2 to 4 of `s15-bonbien`; the two
+listening screens; the rest of the quiz; the dictée in play; the scenario turns;
+the speak practice with the mic; the reading passage's glossary; the groupDrill;
+and the reference sheet. Their content is asserted host-side and their layouts
+are house shapes this band has shipped a dozen times, but they are unverified on
+glass. **The reference sheet is the one I would open next**: a2.03's device pass
+found that a wide table inside a sheet clips and scrolls horizontally, and this
+one's widest is four columns, which is a2.03's own hero width and was clean.
 
 ### And the host half, which was done as well
 
@@ -698,10 +751,10 @@ this one's widest is four columns, which is a2.03's own hero width and was clean
   one-take constraint on the chain pairs and on the two spellings is written into
   `desc` and pinned in all three layers, because it becomes invisible the moment
   the clip exists.
-- **The eleven screens listed in §13.** Named rather than papered over, and the
-  two stepped trapDrills are the ones most likely to hold a defect: they were
-  stacked until the contract caught them and the stepped shape has never been
-  read on this lesson.
+- **The nine screens listed in §13.** Named rather than papered over. The two
+  stepped trapDrills came off that list in a second device pass and both work;
+  what is left is the reference sheet, the two listening screens, the dictée and
+  the scenario in play, the mic, the glossary and the groupDrill.
 - **Whether the plain-phrase ratio is the right guard.** It is measured off the
   house rather than chosen, and 57 to 14 is a long way inside a1.16's 74 to 12.
   A later author who wanted the technical word more often would have a case to
