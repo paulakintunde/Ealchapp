@@ -1812,3 +1812,241 @@ fix is an i18n entry and an optional authored override, not a second literal.
 `a2.03.l1` v3 → **v4**, `a2.16.l1` v2 → **v3**. Both applied to Postgres and
 merged. Suite 3489 → **3490** pass, 0 fail. `content:parity` clean (the one
 pre-existing b2.01.l1 divergence).
+
+---
+
+## a2.17 amendments, 2026-08-13
+
+Written by the `a2.17` build, which is **seq 12 and the second lesson of BATCH
+2**. Recorded here rather than in a batch-2 ledger because it OVERTURNS a
+reservation this file made, and because everything below binds the next adverb
+lesson and `a2.05`.
+
+Full report: `A2-17-BUILD-REPORT.md`.
+
+### 0. §3's THEME DECISION WAS RIGHT ABOUT ADJECTIVES AND WRONG ABOUT ADVERBS
+
+**§3 reserved `fr.a2.adjectifs-essentiels.081..120` for a2.17 and a2.17 did not
+take it.** The reason §3 gave is good and its premise is wrong:
+
+> "`adverbes` is still empty and `a2.17` should not create it either: an adverb
+> built off a feminine adjective belongs beside the adjective it is built from"
+
+§3 probed `adverbes` and **nobody probed `adverbes-essentiels`**:
+
+```
+theme adverbes                0 rows        does not exist, and still does not
+theme adverbes-essentiels   325 rows        325 published, 120 of them adverbs
+  fr.a1.adverbes-essentiels   191 rows      max .191
+  fr.sons.adverbes-essentiels 134 rows      max .134
+  fr.a2.adverbes-essentiels     0 rows      NEXT FREE = .001
+```
+
+It is **§3's own opening error one level down**. That section begins "The
+question was asked the wrong way round" about `adjectifs` against
+`adjectifs-essentiels`. It was asked the wrong way round twice, about the same
+two words, eight days apart, and both times the suffixed theme was the live one.
+
+**What settles it is the flashcard hub rather than tidiness.** `lentement`
+already has a card in `adverbes-essentiels`. Authoring beside it in
+`adjectifs-essentiels` would put a second card for one word in a second deck,
+which is the shape `flashhub-coverage.test.ts` catches inside a theme and which
+nothing catches across two.
+
+```
+seq  id      block                                    status
+10   a2.03   fr.a2.adjectifs-essentiels.001 .. .040   TAKEN, 001-033 used
+11   a2.16   fr.a2.adjectifs-essentiels.041 .. .080   TAKEN, 041-058 used
+12   a2.17   fr.a2.adjectifs-essentiels.081 .. .120   RELEASED, never used
+12   a2.17   fr.a2.adverbes-essentiels.001 .. .040    TAKEN, 001-024 used
+     0 rows in fr.a2.adverbes-essentiels before, 24 after
+```
+
+**The next adverb lesson opens at `fr.a2.adverbes-essentiels.041`.** No theme was
+created and `adverbes` is still dead; the manifest and the batch both refuse to
+run if anybody revives it.
+
+### 1. THE -ment RESPELLING CONVENTION, SETTLED FOR THE LEVEL
+
+> **The suffix `-ment` is respelled `-MAHⁿ`: stressed, capitalised, closed with
+> the superscript nasal, and hyphenated onto whatever the stem ends in. It is
+> never `MAHN`.**
+
+```
+rows whose respell contains MAHN   499
+rows whose respell contains MAHⁿ    79
+of the MAHN rows, in adverbes-essentiels alone   109
+```
+
+Invariants §3 requires the superscript and 499 rows break it. **The 79 that do
+not include every respelled SENTENCE in the sons themes.** a2.17 repaired the TEN
+rows it displays and left the other 489: repairing a row you do not show is how a
+build acquires a defect it cannot test.
+
+### 2. CORRECTIONS §6's REPAIR SPLIT IS PER-ROW AND THE REAL SPLIT IS PER-NASAL
+
+§6 splits the table by ROW — `RESPELL_REPAIRS_VISIBLE` against
+`RESPELL_REPAIRS_INVISIBLE` — and that assumes one nasal per row. **A `-ment`
+adverb on a nasal stem carries two in one string and the checker sees one:**
+
+```
+lentement    lahnt-MAHN    FLAGGED       the final MAHN ends a token
+             lahnt-MAHⁿ    NOT flagged   and `lahnt` is still wrong
+             lahⁿt-MAHⁿ    NOT flagged   and correct
+```
+
+Repairing exactly what the checker reports produces a value it calls clean and
+which is still wrong, **on the same row**. Every repair in a2.17 carries a `half`
+field and all three values are asserted through the real function.
+
+**And a THIRD field was needed that neither §6 nor a2.11 has.** The first version
+used one boolean for "half is not to" and the batch caught the conflation on
+`bien`: `BYAN` is FLAGGED, so nothing is blind about it, and its minimal repair
+`BYAⁿ` is still not the house `BYEHⁿ`. Two different reasons for one symptom.
+`blind` and `house` are separate and mutually exclusive, and the guard asserts
+`(half !== to) === (blind || house)`.
+
+### 3. THE SAME WORD IS RESPELLED TWO WAYS IN ONE DATABASE, AND THE SENTENCE HALF IS RIGHT
+
+```
+lentement   fr.sons.adverbes-essentiels.001   lahnt-MAHN
+            fr.sons.nasales.013               ... lahⁿt-MAHⁿ
+doucement   fr.sons.adverbes-essentiels.003   doos-MAHN
+            fr.sons.nasales.014               ... doos-MAHⁿ
+bien        fr.sons.mots-essentiels.045       BYAN
+            fr.sons.nasales.078               ... BYEHⁿ
+```
+
+All six are imported by a2.17 and the halves sit on one screen, so the headword
+half was repaired to match. **EVERY REPAIRED VALUE IN THAT BUILD WAS READ OFF A
+PUBLISHED ROW**, and the manifest, the batch and the test all re-check that the
+row a value was read off still holds it. a2.16 §7's rule, in a second subject.
+
+### 4. THE THREE-COLUMN CELL BUDGET, MEASURED. a2.16 ASKED FOR THIS BY NAME
+
+a2.16 read a FIVE-column cell at about six characters and wrote "a2.17 should
+know the number before it reaches for five columns". a2.17 used THREE and read
+both of its tapTables on a Pixel 6:
+
+```
+souvent      7 chars    ONE LINE
+doucement    9 chars    ONE LINE
+lentement    9 chars    ONE LINE
+sérieusement 12 chars   BROKE      sérieusemen|t
+```
+
+**A THREE-COLUMN CELL ON A PIXEL 6 HOLDS ELEVEN CHARACTERS.** The band now has
+two points on the curve: six at five columns, eleven at three.
+
+The wrap was ACCEPTED and NAMED rather than designed around — a2.16's precedent
+with `nouvelles` — because that row is a2.03's own card in all three cells and
+trading the lesson's best evidence for a line break is the wrong way round.
+`CHAIN_CELL_WRAPS` holds it, the guard refuses a SECOND one, and it also refuses
+to let the list name a cell the table has stopped printing.
+
+### 5. THE trapDrill CONTRACT CAUGHT a2.17 TOO, AND THE SWEEP HAS A FIFTH FIELD
+
+The sweep above landed the same day and `lesson-contract.test.ts` caught both of
+a2.17's trapDrills in the stacked shape on the first full-suite run:
+
+```
+a2.17.l1 mission 11 (s11-unseen): trapDrill steps are "",
+and A2 walks rule, cards, audio, drill
+```
+
+**a2.16 is the lesson a2.17 was modelled on**, so the model carried the defect
+and the rule forbidding it landed between reading the model and running the
+suite. v1 to v2.
+
+**And the sweep's own "`size` comes off" is NOT in the contract.** v2 stepped both
+traps and left `size: 'lg'` on; v3 took it off, found by reading this section
+rather than by a gate. a2.17's batch now asserts all five fields plus the thing
+the sweep names as the one step with a cost: **the audio step plays each card's
+`fr`, so the `recordingId` has to point at a take that contains those lines.**
+Worth adding to `lesson-contract.test.ts` for the whole band.
+
+**And the open `TrapAudioStep` defect is now on two more screens.** a2.17's two
+traps are the fourteenth and fifteenth A2 sections telling an English-medium
+learner about a moving R that none of them teaches.
+
+### 6. a2.16's MUTATION HARNESS HEADER IS WRONG ABOUT THE LINE ENDINGS
+
+It states "THESE FILES ARE CRLF" and a2.17 wrote every multi-line anchor with
+`\r\n` on that authority. **Both `scripts/data/*.ts` and `seed.json` are LF.**
+Three rows reported SKIPPED until the endings were measured. The harness treating
+a missing anchor as SKIPPED rather than as a pass is the only reason it was
+visible instead of quietly turning three rows green.
+
+### 7. TWO GUARD SHAPES THAT FIRE ON ENGLISH, WHICH IS HALF THE LEARNER SURFACE
+
+A compound-tense shape built out of French morphology alone matches:
+
+> "You did not stall ON A WORD YOU had not learned."
+
+`on` is a French subject pronoun, `a` is a French auxiliary and `you` ends in a
+u. **Invariants §8 makes a learner surface half English by design**, so any shape
+built from French endings will read the English as French. The fix is a2.14 §6:
+guard the THING (a participle from a list, behind a subject pronoun) rather than
+the letters. Worth knowing before the participle lessons, which will all want a
+shape like this.
+
+And the house lookbehind `(?<![\p{L}\p{N}'’-])` **excludes an apostrophe**, so a
+shape using it cannot see `j'ai`, `n'est`, `qu'il` or `c'est`.
+
+### 8. `adverb` IS NOT JARGON, AND NEITHER IS `adjective`. MEASURED
+
+Across all 53 shipped lessons' learner surfaces:
+
+```
+verb 2607 · noun 1405 · plural 740 · feminine 350 · masculine 203
+adjective 147 · describing word 137 · adverb 3 · adverbs 2
+```
+
+a2.17's first JARGON list banned `adverb` and that was the build inventing a
+rule: `adjective` is on 147 cards. **What the house does is prefer the plain
+phrase** — a1.16 runs `describing word` 74 against `adjective` 12 — so the ban
+was replaced by a RATIO check, which also lets `overview.titleEn` stay the unit's
+own name. a2.17 runs 57 to 14.
+
+### 9. A JAVASCRIPT `\b` UNDERCOUNTED A CORPUS MEASUREMENT BY FOUR
+
+a2.17's pre-flight measured its placement evidence at 76 verb-then-adverb using a
+JS regex with `\b`, which is ASCII-only: `répond`, `écoute` and `marché` sit next
+to accented characters and four sentences were dropped. Postgres `~*` with `\y`
+finds 80. **Invariants §0 in a third engine**, and the batch's own re-measurement
+caught it on the first dry run.
+
+**And a re-measurement must exclude the lesson's own rows.** After the first
+apply the figure went 80 to 87, because seven of a2.17's authored sentences match
+the pattern it is measuring. A lesson that counts itself prints a figure that
+grows on every re-apply.
+
+### 10. WHAT a2.05 INHERITS
+
+**The compound-tense deferral.** a2.17 teaches placement for simple tenses only
+and names it on a learner surface: *"In a past tense the short ones move, and
+that rule arrives with the tense in a2.05."*
+
+It is not hypothetical: **82 published sentences put a short adverb between the
+auxiliary and the participle**, and one of them is in a2.17's own theme
+(`fr.a1.adverbes-essentiels.055`, « Franchement, ce film m'a beaucoup déçu. »).
+**a2.05 should close the loop by naming a2.17.**
+
+### 11. BASELINE
+
+```
+node --test "src/**/*.test.ts" "supabase/functions/**/*.test.ts"
+  tests 3489   pass 3489   fail 0        measured 2026-08-13, before a2.17
+  tests 3550   pass 3550   fail 0        after a2.17 (+61)
+a1-03-genre.test.ts   35 pass before, 35 pass after; 0 rows from this theme are
+                      in the ending population at all
+seed.json             version 35, 8976 items, 53 lessons, 75 units (before)
+                      version 35, 9015 items, 54 lessons, 75 units (after,
+                        NOT published; the merge left the version alone)
+pnpm content:parity   ONE pre-existing divergence (b2.01.l1, database-only,
+                        in_review). Nothing in the seed is at risk from a publish.
+mutation harness      34 mutations, 0 caught by nothing, 0 skipped
+```
+
+**a2.16's report records seed.version as 33 and it is 35 now.** Two publishes
+landed between the two builds. Measure it yourself.

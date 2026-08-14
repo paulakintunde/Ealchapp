@@ -971,7 +971,9 @@
       "level": "a2",
       "title": "Adverbs",
       "track": "a2",
-      "lessonIds": [],
+      "lessonIds": [
+        "a2.17.l1"
+      ],
       "prereqUnitIds": [
         "a2.03"
       ]
@@ -158584,6 +158586,2737 @@
         "The whole A1 band, a1.01 to a1.29, and the lesson-by-lesson review in a1.30.l1"
       ],
       "grammarIntroduced": []
+    },
+    {
+      "id": "a2.17.l1",
+      "unitId": "a2.17",
+      "seq": 1,
+      "title": "Les adverbes",
+      "level": "a2",
+      "tag": "A2 · LEÇON 12",
+      "intro": "French has one word for how something is done and it is built out of a word you already have. Take the form you would use about a woman, say it out loud, and put an ending on it: that is the whole rule, and it works on every describing word you have met in this course including the ones nobody taught you here. This lesson is about that, about the one place the word goes, and about the three commonest ones in the language that are not built at all.",
+      "sections": [
+        {
+          "type": "scene",
+          "id": "s01-scene",
+          "title": "Lunch On The Second Floor",
+          "frSub": "À la cantine",
+          "render": "screens",
+          "layer": "core",
+          "setting": {
+            "place": "The canteen at work",
+            "city": "Rennes",
+            "time": "Thursday lunchtime"
+          },
+          "beats": [
+            {
+              "kind": "narration",
+              "size": "md",
+              "text": "A Thursday lunchtime in Rennes, in the canteen at work. Somebody from the second floor you have nodded at for a month sits down opposite you with her tray.",
+              "audio": {
+                "mode": "tts",
+                "voice": "coach"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "tap",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Vous venez souvent ici ?",
+              "en": "Do you come here often?",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "recordingId": "rec-a2-17-scene"
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "you",
+              "reveal": "auto",
+              "size": "md",
+              "fr": "Oui, je souvent... euh... je mange... souvent...",
+              "en": "Yes, I often... er... I eat... often...",
+              "stage": "Five words, and you own every one of them. Your mouth put them in the order your first language uses, you heard it happen, and you stopped to fix it.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "choice",
+              "size": "lg",
+              "prompt": "She is still holding her fork. What comes out?",
+              "options": [
+                {
+                  "fr": "Oui, je mange souvent ici",
+                  "respell": "[wee zhuh MAHⁿZH soo-VAHⁿ ee-SEE]",
+                  "en": "the same five words, in the order French uses",
+                  "outcome": "works",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "fr-FR"
+                  }
+                },
+                {
+                  "fr": "Yes. Often.",
+                  "en": "and you have given up on the sentence",
+                  "outcome": "breaks",
+                  "audio": {
+                    "mode": "tts",
+                    "lang": "en-GB"
+                  }
+                }
+              ],
+              "followUp": {
+                "works": "She says the fish is better on Thursdays and you spend the whole lunch hour talking about the canteen, in French.",
+                "breaks": "She smiles and starts eating. You have lunch together in silence and she does not sit there again."
+              }
+            },
+            {
+              "kind": "bubble",
+              "from": "them",
+              "reveal": "auto",
+              "size": "md",
+              "speaker": "La collègue",
+              "fr": "Ah, moi aussi. Le poisson du jeudi, hein.",
+              "en": "Ah, me too. Thursday fish, eh.",
+              "stage": "Nothing went wrong. Nobody corrected anything, because you stopped before the wrong word arrived and the sentence stopped with it.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR"
+              }
+            },
+            {
+              "kind": "break",
+              "size": "lg",
+              "heading": "One order",
+              "body": "You did not stall on a word you had not learned. You stalled on where to put one, and your first language answered before you did.",
+              "wrong": {
+                "fr": "Je souvent mange ici.",
+                "ipa": "/ʒə su.vɑ̃ mɑ̃ʒ i.si/",
+                "respell": "[zhuh soo-VAHⁿ MAHⁿZH ee-SEE]",
+                "en": "the order English would give you"
+              },
+              "right": {
+                "fr": "Je mange souvent ici.",
+                "ipa": "/ʒə mɑ̃ʒ su.vɑ̃ i.si/",
+                "respell": "[zhuh MAHⁿZH soo-VAHⁿ ee-SEE]",
+                "en": "and this is the one"
+              },
+              "coach": "The verb first, then how.",
+              "audio": {
+                "mode": "tts",
+                "lang": "fr-FR",
+                "speeds": [
+                  1,
+                  0.65
+                ],
+                "audioFirst": true,
+                "recordingId": "rec-a2-17-break"
+              }
+            },
+            {
+              "kind": "resolve",
+              "size": "md",
+              "text": "The word for how goes after the verb. English puts it in front, and French never does. And by the end of this you will be able to build the word for how somebody does something out of any describing word you own."
+            }
+          ],
+          "closing": {
+            "text": "Say the feminine, then add -ment.",
+            "size": "md"
+          },
+          "terms": [
+            "afterTheVerb"
+          ]
+        },
+        {
+          "type": "goals",
+          "id": "s02-goals",
+          "title": "What You Will Be Able To Do",
+          "frSub": "Ce que vous saurez faire",
+          "layer": "core",
+          "goals": [
+            {
+              "t": "Put it in the right place",
+              "s": "The word for how goes after the verb. English puts it in front, and French never does. Out of 27,499 sentences in this course, 80 put it after the verb and 0 put it in front."
+            },
+            {
+              "t": "Build one from any describing word",
+              "s": "Say the feminine, then add -ment. Three steps and the middle one is the one people skip. Plain form, woman form, then the ending."
+            },
+            {
+              "t": "Hear whether you built it right",
+              "s": "That consonant is silent in the plain form and you say it in the long word. Build the long word off the wrong one and the mistake is a sound you can hear, not a spelling you cannot."
+            },
+            {
+              "t": "Know the three that are not built",
+              "s": "Three of them are not built from anything. They are the three you will say most often, and they are the three the rule does not reach."
+            }
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s03-after",
+          "title": "The Verb, Then How",
+          "frSub": "Le verbe, puis comment",
+          "layer": "core",
+          "say": "The word for how goes after the verb. English puts it in front, and French never does. Four sentences. In every one of them the word on the end is the one English would have put in the middle.",
+          "examples": [
+            {
+              "fr": "Je mange souvent.",
+              "en": "I often eat.",
+              "note": "Verb first, then how often. English does the opposite and it is the only thing you have to unlearn here."
+            },
+            {
+              "fr": "Il parle lentement.",
+              "en": "He speaks slowly.",
+              "note": "A long one, in exactly the same place. Length makes no difference at all."
+            },
+            {
+              "fr": "Elle chante bien.",
+              "en": "She sings well.",
+              "note": "And a short one. Same position, and this is the word you will use most."
+            },
+            {
+              "fr": "L'enfant mange trop lentement.",
+              "en": "The child eats too slowly.",
+              "note": "Somebody else wrote this sentence for a pronunciation lesson years ago, and the word order is the same one."
+            }
+          ],
+          "terms": [
+            "afterTheVerb"
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s04-place",
+          "title": "Who, Does, How",
+          "frSub": "Qui, fait, comment",
+          "layer": "core",
+          "say": "The word for how goes after the verb. English puts it in front, and French never does. Read the columns left to right. That is the order, and every one of these five was written by somebody else for another lesson.",
+          "cols": [
+            "Who",
+            "Does",
+            "How"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Maman",
+                "chante",
+                "souvent"
+              ],
+              "say": "Maman chante souvent.",
+              "detail": {
+                "title": "chante souvent",
+                "body": "« Maman chante souvent » ma-MAHⁿ SHAHⁿT soo-VAHⁿ. Mom often sings. The last word could not go anywhere else in this sentence.",
+                "say": "Maman chante souvent."
+              }
+            },
+            {
+              "cells": [
+                "Il",
+                "court",
+                "vite"
+              ],
+              "say": "Il court vite.",
+              "detail": {
+                "title": "court vite",
+                "body": "« Il court vite » eel koor VEET. He runs fast. The last word could not go anywhere else in this sentence.",
+                "say": "Il court vite."
+              }
+            },
+            {
+              "cells": [
+                "Il",
+                "réussit",
+                "toujours"
+              ],
+              "say": "Il réussit toujours.",
+              "detail": {
+                "title": "réussit toujours",
+                "body": "« Il réussit toujours » eel ray-ü-see too-ZHOOR. He always succeeds. The last word could not go anywhere else in this sentence.",
+                "say": "Il réussit toujours."
+              }
+            },
+            {
+              "cells": [
+                "Le vent",
+                "souffle",
+                "doucement"
+              ],
+              "say": "Le vent souffle doucement.",
+              "detail": {
+                "title": "souffle doucement",
+                "body": "« Le vent souffle doucement » LUH VAHⁿ SOOFL doos-MAHⁿ. The wind blows gently. The last word could not go anywhere else in this sentence.",
+                "say": "Le vent souffle doucement."
+              }
+            },
+            {
+              "cells": [
+                "Son nom",
+                "sonne",
+                "bien"
+              ],
+              "say": "Son nom sonne bien.",
+              "detail": {
+                "title": "sonne bien",
+                "body": "« Son nom sonne bien » SOHⁿ NOHⁿ SON BYEHⁿ. His name sounds nice. The last word could not go anywhere else in this sentence.",
+                "say": "Son nom sonne bien."
+              }
+            }
+          ],
+          "terms": [
+            "afterTheVerb"
+          ]
+        },
+        {
+          "type": "commonErrors",
+          "id": "s05-order",
+          "title": "The Order You Reach For",
+          "frSub": "L’ordre anglais",
+          "layer": "core",
+          "swipe": true,
+          "size": "lg",
+          "errors": [
+            {
+              "wrong": "Je souvent mange ici.",
+              "right": "Oui, je mange souvent ici.",
+              "why": "The word for how goes after the verb. English puts it in front, and French never does. This is the sentence the scene stopped on and it is the one your mouth will offer first for months."
+            },
+            {
+              "wrong": "Il lentement parle.",
+              "right": "Il parle lentement.",
+              "why": "Same swap, longer word. The length of the word has nothing to do with where it goes."
+            },
+            {
+              "wrong": "Elle bien chante.",
+              "right": "Elle chante bien.",
+              "why": "And with one of the three that are not built from anything. The rule about position does not care where the word came from."
+            },
+            {
+              "wrong": "Je toujours mange ici.",
+              "right": "Je mange toujours ici.",
+              "why": "A different word for how often and the same correction. There is one position and everything goes in it."
+            },
+            {
+              "wrong": "Il vite court.",
+              "right": "Il court vite.",
+              "why": "The shortest one in the lesson, and it still goes after the verb. Somebody published this sentence for a verb lesson and the order is the same."
+            }
+          ],
+          "terms": [
+            "afterTheVerb"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s06-known",
+          "title": "Five You Already Own",
+          "frSub": "Cinq que vous avez déjà",
+          "layer": "core",
+          "hint": "Swipe. Every one of these has been on a card in this course already.",
+          "cards": [
+            {
+              "fr": "bien",
+              "itemId": "fr.sons.mots-essentiels.045",
+              "note": "[BYEHⁿ] · well, good"
+            },
+            {
+              "fr": "mal",
+              "itemId": "fr.sons.mots-essentiels.046",
+              "note": "[MAL] · badly"
+            },
+            {
+              "fr": "vite",
+              "itemId": "fr.sons.mots-essentiels.064",
+              "note": "[VEET] · fast, quickly"
+            },
+            {
+              "fr": "souvent",
+              "itemId": "fr.sons.mots-essentiels.056",
+              "note": "[soo-VAHⁿ] · often"
+            },
+            {
+              "fr": "toujours",
+              "itemId": "fr.sons.mots-essentiels.054",
+              "note": "[too-ZHOOR] · always"
+            },
+            {
+              "label": "And the position",
+              "head": "After the verb",
+              "body": "The word for how goes after the verb. English puts it in front, and French never does. Out of 27,499 sentences in this course, 80 put it after the verb and 0 put it in front."
+            }
+          ],
+          "terms": [
+            "afterTheVerb",
+            "theThreeOdd"
+          ]
+        },
+        {
+          "type": "tapTable",
+          "id": "s07-chain",
+          "title": "Three Steps, Not Two",
+          "frSub": "Trois étapes",
+          "layer": "core",
+          "say": "Three steps and the middle one is the one people skip. Plain form, woman form, then the ending. Say the feminine, then add -ment. Tap a row to hear all three.",
+          "cols": [
+            "Plain",
+            "For her",
+            "How"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "lent",
+                "lente",
+                "lentement"
+              ],
+              "say": "lentement",
+              "detail": {
+                "title": "lent · lentement",
+                "body": "LAHⁿ · LAHⁿT · lahⁿt-MAHⁿ. There is no t in lent and there is one in lente, and that is the sound you keep.",
+                "say": "lente"
+              }
+            },
+            {
+              "cells": [
+                "doux",
+                "douce",
+                "doucement"
+              ],
+              "say": "doucement",
+              "detail": {
+                "title": "doux · doucement",
+                "body": "DOO · DOOS · doos-MAHⁿ. There is no s in doux and there is one in douce, and that is the sound you keep.",
+                "say": "douce"
+              }
+            },
+            {
+              "cells": [
+                "sérieux",
+                "sérieuse",
+                "sérieusement"
+              ],
+              "say": "sérieusement",
+              "detail": {
+                "title": "sérieux · sérieusement",
+                "body": "say-RYUH · say-RYUHZ · say-ryuhz-MAHⁿ. There is no z in sérieux and there is one in sérieuse, and that is the sound you keep.",
+                "say": "sérieuse"
+              }
+            }
+          ],
+          "terms": [
+            "theChain",
+            "youCanHearIt"
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s08-hear",
+          "title": "The Sound That Comes Back",
+          "frSub": "Le son qui revient",
+          "layer": "core",
+          "swipe": true,
+          "say": "The woman form is the plain one plus a consonant, and the word for how is the woman form plus a sound on the end. Nothing in the middle changes. Listen to each pair before you answer anything.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-17-chain"
+          },
+          "lines": [
+            {
+              "fr": "Il est lent.",
+              "en": "He is slow."
+            },
+            {
+              "fr": "Elle est lente.",
+              "en": "She is slow."
+            },
+            {
+              "fr": "Il est doux.",
+              "en": "He is gentle."
+            },
+            {
+              "fr": "Elle est douce.",
+              "en": "She is gentle."
+            }
+          ],
+          "questions": [
+            {
+              "q": "The first two. What is on the end of the second one that is not on the end of the first?",
+              "opts": [
+                "A t sound",
+                "Nothing, they are the same",
+                "An s sound"
+              ],
+              "correct": 0,
+              "why": "LAHⁿ against LAHⁿT. The t is written in both and said in one."
+            },
+            {
+              "q": "And the second pair?",
+              "opts": [
+                "A t sound",
+                "An s sound",
+                "Nothing"
+              ],
+              "correct": 1,
+              "why": "DOO against DOOS. A different consonant, and the same thing happening."
+            },
+            {
+              "q": "So where does the sound in the middle of the long word come from?",
+              "opts": [
+                "The plain form",
+                "The word for a woman",
+                "It is part of the ending"
+              ],
+              "correct": 1,
+              "why": "That consonant is silent in the plain form and you say it in the long word. Build the long word off the wrong one and the mistake is a sound you can hear, not a spelling you cannot."
+            }
+          ],
+          "terms": [
+            "youCanHearIt",
+            "theChain"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s09-payoff",
+          "title": "You Were Given This",
+          "frSub": "Vous l’avez déjà",
+          "layer": "core",
+          "say": "a2.03 said the plain form tells you the other three, and you have been building the woman form ever since without being told what it was for. This is what it was for. The middle word of every row here is a card you already own.",
+          "examples": [
+            {
+              "fr": "Il est sérieux.",
+              "en": "He is serious.",
+              "note": "a2.03 taught you this one and the x on the end of it is silent."
+            },
+            {
+              "fr": "Elle est sérieuse.",
+              "en": "She is serious.",
+              "note": "a2.03 taught you this one too, on the same screen, and told you the x becomes se. It did not say what for."
+            },
+            {
+              "fr": "Il travaille sérieusement.",
+              "en": "He works seriously.",
+              "note": "This is what for. The buzz on the end of the middle word is now in the middle of this one, and nobody had to teach you the word."
+            },
+            {
+              "fr": "The plain form tells you the other three.",
+              "en": "a2.03",
+              "note": "That sentence was the whole of the last lesson but one, and it is still true. Every one of the other three was a step you have already taken."
+            }
+          ],
+          "terms": [
+            "theChain",
+            "unseen"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s10-already",
+          "title": "When Nothing Changes",
+          "frSub": "Quand rien ne change",
+          "layer": "core",
+          "say": "Some of them already end in an e, so the woman form is the same word and there is nothing to change. The rule still ran. It just had nothing to do. rapide gives rapidement and facile gives facilement.",
+          "examples": [
+            {
+              "fr": "rapide",
+              "en": "fast, quick",
+              "note": "Already ends in an e, so the word for a woman is the same word and there is nothing to add before the ending."
+            },
+            {
+              "fr": "Il lit rapidement.",
+              "en": "He reads quickly.",
+              "note": "rah-peed with the ending on it and nothing in between."
+            },
+            {
+              "fr": "facile",
+              "en": "easy",
+              "note": "The same. One describing word, one form, and the rule has nothing to do."
+            },
+            {
+              "fr": "Il lit facilement.",
+              "en": "He reads easily.",
+              "note": "Same subject and same verb as the row above it, so the only thing that moved is the word on the end."
+            }
+          ],
+          "terms": [
+            "alreadyE",
+            "theChain"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s11-unseen",
+          "title": "Words You Have Not Met",
+          "frSub": "Des mots nouveaux",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. Two of the six use words this lesson has never shown you.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-17-unseen"
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "It Works On Anything"
+            },
+            {
+              "kind": "cards",
+              "label": "Four words",
+              "title": "Two You Know, Two You Do Not"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "The Middle Of The Word"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Build It",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "It is a rule, so it works on anything",
+            "body": "Find the word that describes a woman, say it, and put -ment on the end of it. If you cannot hear a consonant before the ending, you built it off the wrong form."
+          },
+          "cards": [
+            {
+              "promptLabel": "you know this",
+              "promptSound": "lentement",
+              "fr": "lentement",
+              "ipa": "/lɑ̃t.mɑ̃/",
+              "tip": "lent, then lente, then this. You have seen all three."
+            },
+            {
+              "promptLabel": "you know this",
+              "promptSound": "doucement",
+              "fr": "doucement",
+              "ipa": "/dus.mɑ̃/",
+              "tip": "The same three steps with a different consonant in the middle."
+            },
+            {
+              "promptLabel": "new",
+              "promptSound": "parfaitement",
+              "fr": "parfaitement",
+              "ipa": "/paʁ.fɛt.mɑ̃/",
+              "tip": "parfait becomes parfaite becomes this. Nobody showed you the middle step and you did not need to be shown."
+            },
+            {
+              "promptLabel": "new",
+              "promptSound": "certainement",
+              "fr": "certainement",
+              "ipa": "/sɛʁ.tɛn.mɑ̃/",
+              "tip": "certain becomes certaine becomes this. Same operation, third time."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "lente + ?",
+              "opts": [
+                "lentement",
+                "lentment",
+                "lentiment"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "parfaite + ?",
+              "opts": [
+                "parfaitment",
+                "parfaitement",
+                "parfaitement"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "douce + ?",
+              "opts": [
+                "douxment",
+                "doucment",
+                "doucement"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "certaine + ?",
+              "opts": [
+                "certainment",
+                "certainement",
+                "certainement"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "sérieuse + ?",
+              "opts": [
+                "sérieusement",
+                "sérieuxment",
+                "sérieuxment"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "rapide + ?",
+              "opts": [
+                "rapideement",
+                "rapidement",
+                "rapidment"
+              ],
+              "correct": 1
+            }
+          ],
+          "terms": [
+            "unseen",
+            "theChain"
+          ]
+        },
+        {
+          "type": "reading",
+          "id": "s12-reading",
+          "title": "A Day At The Office",
+          "frSub": "Une journée au bureau",
+          "layer": "core",
+          "questionsInModal": true,
+          "text": "Ma collègue Camille arrive toujours avant moi. Elle travaille sérieusement et elle parle doucement, même quand tout le monde crie. Moi je parle vite et je mange souvent à mon bureau, ce qui est une mauvaise idée. Le chef, lui, lit rapidement et répond lentement : il prend son temps et il a raison. Hier il dit à Camille : « Vous comprenez facilement, vous. » Elle chante bien aussi, mais ça, on le sait seulement le vendredi soir.",
+          "glossary": [
+            {
+              "word": "avant",
+              "en": "before",
+              "note": "About time here rather than about place."
+            },
+            {
+              "word": "crie",
+              "en": "shouts",
+              "note": "From crier. The word after it in this sentence tells you how somebody else speaks instead."
+            },
+            {
+              "word": "bureau",
+              "en": "desk, office",
+              "note": "Both meanings, and here it is the desk."
+            },
+            {
+              "word": "prend son temps",
+              "en": "takes his time",
+              "note": "Three words and a fixed phrase. Nothing in it is this lesson."
+            },
+            {
+              "word": "vendredi",
+              "en": "Friday",
+              "note": "One of the seven you had in a1.08."
+            }
+          ],
+          "questions": [
+            {
+              "q": "Six words in this passage say how somebody does something. Where does every single one of them sit?",
+              "a": "After the verb. Not one of them comes in front of it, and that is true of all six."
+            },
+            {
+              "q": "Two of them are built from a describing word that already ends in an e. Which two, and what did the rule have to do?",
+              "a": "Rapidement and facilement. The rule ran and found the word for a woman was the same word, so nothing changed before the ending went on."
+            },
+            {
+              "q": "One of them is not built from anything at all. Which one?",
+              "a": "Bien. Nothing was added to anything to make it, and it is the word you will reach for most often in this whole lesson."
+            },
+            {
+              "q": "Sérieusement and doucement both have a consonant in the middle. Where does each one come from?",
+              "a": "From the word for a woman. Sérieuse has a buzz on the end and douce has an s, and neither sound is in sérieux or doux."
+            }
+          ],
+          "terms": [
+            "afterTheVerb",
+            "theChain"
+          ]
+        },
+        {
+          "type": "cardDeck",
+          "id": "s13-deck",
+          "title": "The Ones You Built",
+          "frSub": "Vos propres mots",
+          "layer": "core",
+          "hint": "Swipe. Say each one out loud and listen for the consonant in the middle.",
+          "cards": [
+            {
+              "fr": "Il parle lentement.",
+              "itemId": "fr.a2.adverbes-essentiels.009",
+              "note": "[eel PARL lahⁿt-MAHⁿ] · He speaks slowly."
+            },
+            {
+              "fr": "Il parle doucement.",
+              "itemId": "fr.a2.adverbes-essentiels.010",
+              "note": "[eel PARL doos-MAHⁿ] · He speaks gently."
+            },
+            {
+              "fr": "Il travaille sérieusement.",
+              "itemId": "fr.a2.adverbes-essentiels.011",
+              "note": "[eel tra-VAHY say-ryuhz-MAHⁿ] · He works seriously."
+            },
+            {
+              "fr": "rapidement",
+              "itemId": "fr.sons.adverbes-essentiels.002",
+              "note": "[ra-peed-MAHⁿ] · quickly"
+            },
+            {
+              "fr": "facilement",
+              "itemId": "fr.sons.adverbes-essentiels.004",
+              "note": "[fa-seel-MAHⁿ] · easily"
+            },
+            {
+              "label": "All of them at once",
+              "head": "Feminine plus the ending",
+              "body": "The woman form is the plain one plus a consonant, and the word for how is the woman form plus a sound on the end. Nothing in the middle changes. Say the feminine, then add -ment."
+            }
+          ],
+          "terms": [
+            "theChain",
+            "youCanHearIt"
+          ]
+        },
+        {
+          "type": "examples",
+          "id": "s14-irregular",
+          "title": "The Three It Misses",
+          "frSub": "Les trois exceptions",
+          "layer": "core",
+          "say": "Three of them are not built from anything. They are the three you will say most often, and they are the three the rule does not reach. bon gives bien, mauvais gives mal, vite comes from nothing at all.",
+          "examples": [
+            {
+              "fr": "Elle chante bien.",
+              "en": "She sings well.",
+              "note": "bon gives bien, and there is no bonnement. This is the one you will say most often in your life."
+            },
+            {
+              "fr": "Il chante mal.",
+              "en": "He sings badly.",
+              "note": "mauvais gives mal. Not mauvaisement either, and the pairing English gives you is broken in both directions."
+            },
+            {
+              "fr": "Il parle vite.",
+              "en": "He speaks fast.",
+              "note": "And this one has no describing word behind it at all. It is a word on its own and it always has been."
+            },
+            {
+              "fr": "Son nom sonne bien.",
+              "en": "His name sounds nice.",
+              "note": "Somebody published this for a pronunciation lesson. Verb, then the word for how, exactly as everywhere else."
+            }
+          ],
+          "terms": [
+            "theThreeOdd"
+          ]
+        },
+        {
+          "type": "trapDrill",
+          "id": "s15-bonbien",
+          "title": "A Thing Or A Doing",
+          "frSub": "Bon ou bien ?",
+          "layer": "core",
+          "swipe": true,
+          "say": "Four cards and then six to prove it. Every one of the six turns on what the word is describing.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "recordingId": "rec-a2-17-bonbien"
+          },
+          "steps": [
+            {
+              "kind": "rule",
+              "label": "The rule",
+              "title": "Thing Or Doing"
+            },
+            {
+              "kind": "cards",
+              "label": "Four cards",
+              "title": "Two Of Each"
+            },
+            {
+              "kind": "audio",
+              "label": "Hear it",
+              "title": "Both, Back To Back"
+            },
+            {
+              "kind": "drill",
+              "label": "Prove it",
+              "title": "Which One Goes Here?",
+              "gate": true
+            }
+          ],
+          "rule": {
+            "title": "One goes with a thing and one goes with a doing",
+            "body": "Bon goes with a thing and bien goes with what somebody does. English lets you say « he sings good » and be understood; French does not let you say it at all."
+          },
+          "cards": [
+            {
+              "promptLabel": "a thing",
+              "promptSound": "C'est un bon jour.",
+              "fr": "C'est un bon jour.",
+              "ipa": "/s‿ɛ tœ̃ bɔ̃ ʒuʁ/",
+              "tip": "A day is a thing, so the describing word goes with it."
+            },
+            {
+              "promptLabel": "a doing",
+              "promptSound": "Elle chante bien.",
+              "fr": "Elle chante bien.",
+              "ipa": "/ɛl ʃɑ̃t bjɛ̃/",
+              "tip": "Singing is a doing, so the other word goes with it. « Elle chante bon » is not a sentence."
+            },
+            {
+              "promptLabel": "a doing",
+              "promptSound": "Il chante mal.",
+              "fr": "Il chante mal.",
+              "ipa": "/il ʃɑ̃t mal/",
+              "tip": "And the opposite, which is the same shape. Not « il chante mauvais »."
+            },
+            {
+              "promptLabel": "a thing",
+              "promptSound": "mauvais",
+              "fr": "mauvais",
+              "ipa": "/mɔvɛ/",
+              "tip": "The describing word, which goes in front of a thing and never after a doing."
+            }
+          ],
+          "drill": [
+            {
+              "promptSay": "Elle chante ___ .",
+              "opts": [
+                "bon",
+                "bien",
+                "bonne"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "C'est un ___ jour.",
+              "opts": [
+                "bien",
+                "bon",
+                "bien du"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Il chante ___ .",
+              "opts": [
+                "mauvaisement",
+                "mauvais",
+                "mal"
+              ],
+              "correct": 2
+            },
+            {
+              "promptSay": "C'est un ___ film.",
+              "opts": [
+                "mauvais",
+                "mal",
+                "malement"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Il travaille ___ .",
+              "opts": [
+                "bien",
+                "bon",
+                "bonnement"
+              ],
+              "correct": 0
+            },
+            {
+              "promptSay": "Elle parle ___ français.",
+              "opts": [
+                "bonne",
+                "bon",
+                "bien"
+              ],
+              "correct": 2
+            }
+          ],
+          "terms": [
+            "theThreeOdd"
+          ]
+        },
+        {
+          "type": "listening",
+          "id": "s16-amment",
+          "title": "Two Spellings, One Sound",
+          "frSub": "Deux graphies, un son",
+          "layer": "core",
+          "swipe": true,
+          "say": "Two endings on the page and one sound in the mouth. One is spelled with an e and one with an a, and both of them come out as the same two syllables. And these two do not use the woman form at all. The ending on the adjective is taken off and replaced, so this is the one place in the lesson where the rule is not the answer.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "audioFirst": true,
+            "recordingId": "rec-a2-17-amment"
+          },
+          "lines": [
+            {
+              "fr": "Il est évident.",
+              "en": "It is obvious."
+            },
+            {
+              "fr": "C'est évidemment vrai.",
+              "en": "It is obviously true."
+            },
+            {
+              "fr": "Il est constant.",
+              "en": "He is constant."
+            },
+            {
+              "fr": "Il travaille constamment.",
+              "en": "He works constantly."
+            }
+          ],
+          "questions": [
+            {
+              "q": "You have just heard both long words. How do their last two syllables compare?",
+              "opts": [
+                "They are the same",
+                "The first is longer",
+                "The second has an extra sound"
+              ],
+              "correct": 0,
+              "why": "ay-vee-da-MAHⁿ and kohⁿs-ta-MAHⁿ. Both end the same way, and on the page one is spelled with an e and one with an a."
+            },
+            {
+              "q": "And the describing words they come from. Do those two end the same way out loud?",
+              "opts": [
+                "No",
+                "Yes",
+                "Only the first one has an ending"
+              ],
+              "correct": 1,
+              "why": "ay-vee-DAHⁿ and kohⁿs-TAHⁿ. Same nasal, two spellings, and that is where the two spellings on the long words come from."
+            },
+            {
+              "q": "So which of these can your ear tell you?",
+              "opts": [
+                "Whether the ending is written with an e or an a",
+                "Which describing word the long word came from",
+                "Neither of those"
+              ],
+              "correct": 1,
+              "why": "Your ear gets the front of the word. It does not get the ending, because every one of these ends the same way. That is why two lines of the dictée are these two words on their own."
+            }
+          ],
+          "terms": [
+            "twoSpellings",
+            "notFromHer"
+          ]
+        },
+        {
+          "type": "groupDrill",
+          "id": "s17-errors",
+          "title": "Build It Under Pressure",
+          "frSub": "Sous pression",
+          "layer": "core",
+          "size": "lg",
+          "say": "Three groups. Say the middle step out loud before you answer, even when nobody asked you to.",
+          "groups": [
+            {
+              "label": "lent · slow",
+              "items": [
+                {
+                  "fr": "Elle est lente.",
+                  "itemId": "fr.a2.adverbes-essentiels.006",
+                  "note": "[eel eh LAHⁿT] · She is slow."
+                },
+                {
+                  "fr": "Il parle lentement.",
+                  "itemId": "fr.a2.adverbes-essentiels.009",
+                  "note": "[eel PARL lahⁿt-MAHⁿ] · He speaks slowly."
+                }
+              ],
+              "check": {
+                "q": "Il parle ___ .   (lent)",
+                "opts": [
+                  "lentement",
+                  "lentment",
+                  "lentment"
+                ],
+                "correct": 0,
+                "why": "lente first, then the ending. Building it off lent loses the t and you would hear that you had."
+              }
+            },
+            {
+              "label": "doux · soft, gentle",
+              "items": [
+                {
+                  "fr": "Elle est douce.",
+                  "itemId": "fr.a2.adverbes-essentiels.008",
+                  "note": "[eel eh DOOS] · She is gentle."
+                },
+                {
+                  "fr": "Il parle doucement.",
+                  "itemId": "fr.a2.adverbes-essentiels.010",
+                  "note": "[eel PARL doos-MAHⁿ] · He speaks gently."
+                }
+              ],
+              "check": {
+                "q": "Il parle ___ .   (doux)",
+                "opts": [
+                  "douxment",
+                  "doucement",
+                  "doucment"
+                ],
+                "correct": 1,
+                "why": "douce has an s on the end and doux has an x that makes no sound at all."
+              }
+            },
+            {
+              "label": "bon · good",
+              "items": [
+                {
+                  "fr": "bien",
+                  "itemId": "fr.sons.mots-essentiels.045",
+                  "note": "[BYEHⁿ] · well, good"
+                },
+                {
+                  "fr": "Elle chante bien.",
+                  "itemId": "fr.a2.adverbes-essentiels.015",
+                  "note": "[el SHAHⁿT BYEHⁿ] · She sings well."
+                }
+              ],
+              "check": {
+                "q": "Elle chante ___ .",
+                "opts": [
+                  "bonnement",
+                  "bon",
+                  "bien"
+                ],
+                "correct": 2,
+                "why": "bon is for a thing and this one is for a doing. There is no word ending in -ment here at all."
+              }
+            }
+          ],
+          "terms": [
+            "theChain",
+            "theThreeOdd"
+          ]
+        },
+        {
+          "type": "scenario",
+          "id": "s18-scenario",
+          "title": "The Same Lunch, Again",
+          "frSub": "Le même déjeuner",
+          "layer": "core",
+          "setting": "The canteen, a week later, and this time she has the whole hour. Every answer wants the word for how, and it wants it in the right place.",
+          "turns": [
+            {
+              "ai": "Vous venez souvent ici, finalement ?",
+              "en": "So do you come here often, in the end?",
+              "user": "Oui, je mange souvent ici.",
+              "userEn": "Yes, I often eat here.",
+              "alts": [
+                {
+                  "fr": "Je mange souvent.",
+                  "en": "I often eat."
+                },
+                {
+                  "fr": "Oui, je mange toujours ici.",
+                  "en": "Yes, I always eat here."
+                }
+              ]
+            },
+            {
+              "ai": "Et votre chef, il parle comment ?",
+              "en": "And your boss, how does he speak?",
+              "user": "Il parle lentement.",
+              "userEn": "He speaks slowly.",
+              "alts": [
+                {
+                  "fr": "Il parle doucement.",
+                  "en": "He speaks gently."
+                },
+                {
+                  "fr": "Il parle vite, lui.",
+                  "en": "He speaks fast, that one."
+                }
+              ]
+            },
+            {
+              "ai": "Et Camille ? Elle travaille bien ?",
+              "en": "And Camille? Does she work well?",
+              "user": "Il travaille sérieusement.",
+              "userEn": "He works seriously.",
+              "alts": [
+                {
+                  "fr": "Oui, elle travaille bien.",
+                  "en": "Yes, she works well."
+                },
+                {
+                  "fr": "Elle travaille sérieusement, oui.",
+                  "en": "She works seriously, yes."
+                }
+              ]
+            },
+            {
+              "ai": "Vous comprenez le chef, vous ?",
+              "en": "Do you understand the boss?",
+              "user": "Il lit facilement.",
+              "userEn": "He reads easily.",
+              "alts": [
+                {
+                  "fr": "Oui, je comprends facilement.",
+                  "en": "Yes, I understand easily."
+                },
+                {
+                  "fr": "Pas toujours. Il parle vite.",
+                  "en": "Not always. He speaks fast."
+                }
+              ]
+            },
+            {
+              "ai": "Vous chantez ? On cherche des gens pour la chorale.",
+              "en": "Do you sing? We are looking for people for the choir.",
+              "user": "Il chante mal.",
+              "userEn": "He sings badly.",
+              "alts": [
+                {
+                  "fr": "Non, je chante mal.",
+                  "en": "No, I sing badly."
+                },
+                {
+                  "fr": "Elle chante bien.",
+                  "en": "She sings well."
+                }
+              ]
+            },
+            {
+              "ai": "Bon. Vous êtes là demain ?",
+              "en": "Right. Are you here tomorrow?",
+              "user": "Oui, évidemment.",
+              "userEn": "Yes, obviously.",
+              "alts": [
+                {
+                  "fr": "Oui, je suis là tous les jours.",
+                  "en": "Yes, I am here every day."
+                },
+                {
+                  "fr": "Évidemment. Je mange toujours ici.",
+                  "en": "Obviously. I always eat here."
+                }
+              ]
+            }
+          ],
+          "terms": [
+            "afterTheVerb",
+            "theChain"
+          ]
+        },
+        {
+          "type": "dictation",
+          "id": "s19-dictation",
+          "title": "Spell What You Hear",
+          "frSub": "La dictée",
+          "layer": "core",
+          "itemIds": [
+            "fr.a2.adverbes-essentiels.001",
+            "fr.a2.adverbes-essentiels.002",
+            "fr.a2.adverbes-essentiels.003",
+            "fr.a2.adverbes-essentiels.004",
+            "fr.a2.adverbes-essentiels.005",
+            "fr.a2.adverbes-essentiels.006",
+            "fr.a2.adverbes-essentiels.007",
+            "fr.a2.adverbes-essentiels.008",
+            "fr.a2.adverbes-essentiels.009",
+            "fr.a2.adverbes-essentiels.010",
+            "fr.a2.adverbes-essentiels.012",
+            "fr.a2.adverbes-essentiels.013",
+            "fr.a2.adverbes-essentiels.014",
+            "fr.a2.adverbes-essentiels.015",
+            "fr.a2.adverbes-essentiels.016",
+            "fr.a2.adverbes-essentiels.017",
+            "fr.a2.adverbes-essentiels.018",
+            "fr.a2.adverbes-essentiels.019",
+            "fr.a2.adverbes-essentiels.020",
+            "fr.sons.adverbes-essentiels.018",
+            "fr.sons.adverbes-essentiels.045"
+          ],
+          "say": "Twenty-one rows. Two of them are single words, and those two are the only ones where listening harder will not help you at all.",
+          "audio": {
+            "mode": "tts",
+            "lang": "fr-FR",
+            "speeds": [
+              1,
+              0.65
+            ],
+            "maxPlays": 3,
+            "recordingId": "rec-a2-17-dictee"
+          },
+          "terms": [
+            "twoSpellings",
+            "youCanHearIt"
+          ]
+        },
+        {
+          "type": "practice",
+          "id": "s20-speak",
+          "title": "Say It Out Loud",
+          "frSub": "À voix haute",
+          "layer": "core",
+          "skill": "speak",
+          "itemIds": [
+            "fr.sons.adjectifs-essentiels.021",
+            "fr.a2.adverbes-essentiels.001",
+            "fr.sons.adverbes-essentiels.001",
+            "fr.sons.adjectifs-essentiels.033",
+            "fr.a2.adverbes-essentiels.002",
+            "fr.sons.adverbes-essentiels.003",
+            "fr.sons.adjectifs-essentiels.037",
+            "fr.a2.adjectifs-essentiels.019",
+            "fr.sons.adverbes-essentiels.021",
+            "fr.a2.adverbes-essentiels.005",
+            "fr.a2.adverbes-essentiels.006",
+            "fr.a2.adverbes-essentiels.007",
+            "fr.a2.adverbes-essentiels.008",
+            "fr.a2.adverbes-essentiels.009",
+            "fr.a2.adverbes-essentiels.010",
+            "fr.a2.adverbes-essentiels.011",
+            "fr.sons.nasales.001",
+            "fr.a2.verbes.477",
+            "fr.a2.verbes.189",
+            "fr.sons.nasales.014",
+            "fr.sons.nasales.078",
+            "fr.a2.adverbes-essentiels.014",
+            "fr.a2.adverbes-essentiels.015",
+            "fr.a2.adverbes-essentiels.016",
+            "fr.a2.adverbes-essentiels.017",
+            "fr.a2.adverbes-essentiels.024"
+          ],
+          "terms": [
+            "youCanHearIt"
+          ]
+        },
+        {
+          "type": "reviewDeck",
+          "id": "s21-review",
+          "title": "The Whole Thing, One Deck",
+          "frSub": "Tout, en un paquet",
+          "layer": "core",
+          "cards": [
+            {
+              "front": "lent · how?",
+              "back": "lent · lente · lentement",
+              "say": "lentement"
+            },
+            {
+              "front": "doux · how?",
+              "back": "doux · douce · doucement",
+              "say": "doucement"
+            },
+            {
+              "front": "sérieux · how?",
+              "back": "sérieux · sérieuse · sérieusement",
+              "say": "sérieusement"
+            },
+            {
+              "front": "Where does it go?",
+              "back": "The word for how goes after the verb. English puts it in front, and French never does.",
+              "say": "Je mange souvent."
+            },
+            {
+              "front": "What is the middle step?",
+              "back": "That consonant is silent in the plain form and you say it in the long word. Build the long word off the wrong one and the mistake is a sound you can hear, not a spelling you cannot.",
+              "say": "Elle est lente."
+            },
+            {
+              "front": "Which three are not built?",
+              "back": "Three of them are not built from anything. They are the three you will say most often, and they are the three the rule does not reach. bon gives bien, mauvais gives mal, vite comes from nothing at all.",
+              "say": "Elle chante bien."
+            },
+            {
+              "front": "Which two endings are one sound?",
+              "back": "Two endings on the page and one sound in the mouth. One is spelled with an e and one with an a, and both of them come out as the same two syllables.",
+              "say": "évidemment"
+            },
+            {
+              "front": "What if it already ends in an e?",
+              "back": "Some of them already end in an e, so the woman form is the same word and there is nothing to change. The rule still ran. It just had nothing to do.",
+              "say": "Il lit rapidement."
+            }
+          ]
+        },
+        {
+          "type": "progressCheck",
+          "id": "s22-progress",
+          "title": "Where You Stand",
+          "frSub": "Où vous en êtes",
+          "layer": "core",
+          "body": "Say the feminine, then add -ment. The exam has five rounds. Two of them ask you to build a word from a describing word this lesson never showed you, and that is the point rather than a cruelty: if the rule only works on the words you were given, it is a list.",
+          "stats": [
+            {
+              "k": "Steps",
+              "v": "3"
+            },
+            {
+              "k": "Not built at all",
+              "v": "3"
+            },
+            {
+              "k": "New words to learn",
+              "v": "0. You had the describing words already."
+            },
+            {
+              "k": "Where it goes",
+              "v": "After the verb, 80 times out of 80"
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "s23-quiz",
+          "title": "The Exam",
+          "frSub": "L’examen",
+          "layer": "core",
+          "passMark": 70,
+          "roundFailThreshold": 60,
+          "say": "Five rounds. Miss too many in a round and you get a drill before the next one starts.",
+          "rounds": [
+            {
+              "id": "r1-where-it-goes",
+              "label": "Where it goes",
+              "targets": [
+                "err-english-order",
+                "err-from-masculine"
+              ],
+              "say": "Six on position, and the wrong answer is the one your first language offers.",
+              "questions": [
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Je souvent mange ici.",
+                  "accept": [
+                    "Oui, je mange souvent ici.",
+                    "Je mange souvent ici."
+                  ],
+                  "answer": "Oui, je mange souvent ici.",
+                  "why": "The word for how goes after the verb. English puts it in front, and French never does. This is the sentence the scene stopped on.",
+                  "ref": "s05-order"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Il lentement parle.",
+                  "accept": [
+                    "Il parle lentement.",
+                    "Il parle lentement"
+                  ],
+                  "answer": "Il parle lentement.",
+                  "why": "Verb first, then how. The length of the word makes no difference.",
+                  "ref": "s04-place"
+                },
+                {
+                  "q": "Je mange ___ ici.   (often)",
+                  "format": "typeIn",
+                  "accept": [
+                    "souvent",
+                    "Je mange souvent ici."
+                  ],
+                  "answer": "souvent",
+                  "why": "After the verb, where every one of the seventy-six sentences in this course puts it.",
+                  "ref": "s04-place"
+                },
+                {
+                  "q": "Which of these is a French sentence?",
+                  "format": "mcq",
+                  "opts": [
+                    "Elle chante bien.",
+                    "Elle bien chante.",
+                    "Bien elle chante.",
+                    "Elle chante bien pas."
+                  ],
+                  "correct": 0,
+                  "why": "The word for how goes after the verb. English puts it in front, and French never does. The other three are the three places English speakers try.",
+                  "ref": "s05-order"
+                },
+                {
+                  "q": "Listen. Which sentence is this?",
+                  "format": "listenChoose",
+                  "say": "Il court vite.",
+                  "opts": [
+                    "Il court vite.",
+                    "Il réussit toujours."
+                  ],
+                  "correct": 0,
+                  "why": "Two published sentences, both with the word for how on the end, and the verbs are what your ear had to separate.",
+                  "ref": "s04-place"
+                },
+                {
+                  "q": "Where does the word go when the sentence is negative?   (a1.18)",
+                  "format": "mcq",
+                  "opts": [
+                    "Between the two negative words",
+                    "Outside the wrap, after both of them",
+                    "In front of the verb",
+                    "It cannot be used in a negative sentence"
+                  ],
+                  "correct": 1,
+                  "why": "a1.18 wraps the verb in two words, and the word for how waits outside it: « Je ne mange pas souvent. »",
+                  "ref": "s06-known"
+                }
+              ]
+            },
+            {
+              "id": "r2-build-it",
+              "label": "Build it",
+              "targets": [
+                "err-from-masculine",
+                "err-english-order"
+              ],
+              "say": "Six, and two of them use describing words this lesson never showed you.",
+              "questions": [
+                {
+                  "q": "lent describes a man. lente describes a woman. Type the word for how somebody does it.",
+                  "format": "typeIn",
+                  "accept": [
+                    "lentement"
+                  ],
+                  "answer": "lentement",
+                  "why": "lente plus the ending. The t you can hear is the middle of the word.",
+                  "ref": "s07-chain"
+                },
+                {
+                  "q": "Now the same with doux and douce.",
+                  "format": "typeIn",
+                  "accept": [
+                    "doucement"
+                  ],
+                  "answer": "doucement",
+                  "why": "douce plus the ending, and the s in the middle is a sound doux does not have.",
+                  "ref": "s07-chain"
+                },
+                {
+                  "q": "parfait describes a man and parfaite describes a woman. This lesson has not shown you either. Build the word for how.",
+                  "format": "typeIn",
+                  "accept": [
+                    "parfaitement"
+                  ],
+                  "answer": "parfaitement",
+                  "why": "parfaite plus the ending, and it is a real word somebody published years ago. Two of these you have never seen in this lesson. If the rule is a rule, that does not matter.",
+                  "ref": "s11-unseen"
+                },
+                {
+                  "q": "And certain, whose woman form is certaine. This lesson has not shown you that one either.",
+                  "format": "typeIn",
+                  "accept": [
+                    "certainement"
+                  ],
+                  "answer": "certainement",
+                  "why": "certaine plus the ending. Two rules run one after the other, one from a2.03 and one from here, on a word neither lesson listed.",
+                  "ref": "s11-unseen"
+                },
+                {
+                  "q": "Which form do you build it from?",
+                  "format": "mcq",
+                  "opts": [
+                    "The plain one",
+                    "The plural",
+                    "It does not matter, they give the same word",
+                    "The one for a woman"
+                  ],
+                  "correct": 3,
+                  "why": "That consonant is silent in the plain form and you say it in the long word. Build the long word off the wrong one and the mistake is a sound you can hear, not a spelling you cannot.",
+                  "ref": "s08-hear"
+                },
+                {
+                  "q": "rapide already ends in an e. Type the word for how.",
+                  "format": "typeIn",
+                  "accept": [
+                    "rapidement"
+                  ],
+                  "answer": "rapidement",
+                  "why": "Some of them already end in an e, so the woman form is the same word and there is nothing to change. The rule still ran. It just had nothing to do.",
+                  "ref": "s10-already"
+                }
+              ]
+            },
+            {
+              "id": "r3-the-three",
+              "label": "The three it misses",
+              "targets": [
+                "err-regularised-irregular",
+                "err-bon-for-bien"
+              ],
+              "say": "Six on the words the rule does not reach, which are the three you will use most.",
+              "questions": [
+                {
+                  "q": "Elle chante ___ .   (well)",
+                  "format": "typeIn",
+                  "accept": [
+                    "bien",
+                    "Elle chante bien."
+                  ],
+                  "answer": "bien",
+                  "why": "Not bonnement. There is no such word and there never has been.",
+                  "ref": "s14-irregular"
+                },
+                {
+                  "q": "Il chante ___ .   (badly)",
+                  "format": "typeIn",
+                  "accept": [
+                    "mal",
+                    "Il chante mal."
+                  ],
+                  "answer": "mal",
+                  "why": "Not mauvaisement. Three letters, and it is the opposite of the one above.",
+                  "ref": "s14-irregular"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Il parle rapidement et il court vitement.",
+                  "accept": [
+                    "Il parle rapidement et il court vite.",
+                    "vite"
+                  ],
+                  "answer": "Il parle rapidement et il court vite.",
+                  "why": "The first one is built and the second one is not. There is no describing word behind the second, so there is nothing to build it from.",
+                  "ref": "s14-irregular"
+                },
+                {
+                  "q": "Which of these four is not a French word?",
+                  "format": "mcq",
+                  "opts": [
+                    "lentement",
+                    "facilement",
+                    "bonnement",
+                    "doucement"
+                  ],
+                  "correct": 2,
+                  "why": "Three of them are not built from anything. They are the three you will say most often, and they are the three the rule does not reach. bon gives bien, mauvais gives mal, vite comes from nothing at all.",
+                  "ref": "s14-irregular"
+                },
+                {
+                  "q": "Listen. Which of these did you hear?",
+                  "format": "listenChoose",
+                  "say": "Elle chante bien.",
+                  "opts": [
+                    "Il chante mal.",
+                    "Elle chante bien."
+                  ],
+                  "correct": 1,
+                  "why": "Two of the three that are not built, in the same frame, and the difference is the whole word rather than an ending.",
+                  "ref": "s14-irregular"
+                },
+                {
+                  "q": "Why are these three worth naming separately?",
+                  "format": "mcq",
+                  "opts": [
+                    "Because they are rare",
+                    "Because they are all short",
+                    "Because they are the three you will say most often and the rule does not reach any of them",
+                    "Because they only work with certain verbs"
+                  ],
+                  "correct": 2,
+                  "why": "Three of them are not built from anything. They are the three you will say most often, and they are the three the rule does not reach.",
+                  "ref": "s14-irregular"
+                }
+              ]
+            },
+            {
+              "id": "r4-bon-or-bien",
+              "label": "A thing or a doing",
+              "targets": [
+                "err-bon-for-bien",
+                "err-regularised-irregular"
+              ],
+              "say": "Six, and each one turns on whether the word is describing a thing or a doing.",
+              "questions": [
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Elle chante bon.",
+                  "accept": [
+                    "Elle chante bien.",
+                    "bien"
+                  ],
+                  "answer": "Elle chante bien.",
+                  "why": "Bon goes with a thing and bien goes with what somebody does. English lets you say « he sings good » and be understood; French does not let you say it at all. Singing is a doing.",
+                  "ref": "s15-bonbien"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Il travaille bon.",
+                  "accept": [
+                    "Il travaille bien.",
+                    "bien"
+                  ],
+                  "answer": "Il travaille bien.",
+                  "why": "Working is a doing too, and the same word goes with all of them.",
+                  "ref": "s15-bonbien"
+                },
+                {
+                  "q": "C'est un ___ jour.",
+                  "format": "typeIn",
+                  "accept": [
+                    "bon",
+                    "C'est un bon jour."
+                  ],
+                  "answer": "bon",
+                  "why": "A day is a thing, so this one takes the describing word rather than the other one.",
+                  "ref": "s15-bonbien"
+                },
+                {
+                  "q": "Which one goes with a doing?",
+                  "format": "mcq",
+                  "opts": [
+                    "bon",
+                    "bonne",
+                    "bien",
+                    "bons"
+                  ],
+                  "correct": 2,
+                  "why": "Bon goes with a thing and bien goes with what somebody does. English lets you say « he sings good » and be understood; French does not let you say it at all.",
+                  "ref": "s15-bonbien"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Il chante mauvais.",
+                  "accept": [
+                    "Il chante mal.",
+                    "mal"
+                  ],
+                  "answer": "Il chante mal.",
+                  "why": "mauvais goes in front of a thing. For a doing it is the other word, and it is three letters long.",
+                  "ref": "s15-bonbien"
+                },
+                {
+                  "q": "English lets you say « he sings good ». What does French do?",
+                  "format": "mcq",
+                  "opts": [
+                    "The same, in conversation",
+                    "It does not allow it at all",
+                    "It allows it after some verbs",
+                    "It allows it in writing only"
+                  ],
+                  "correct": 1,
+                  "why": "Bon goes with a thing and bien goes with what somebody does. English lets you say « he sings good » and be understood; French does not let you say it at all.",
+                  "ref": "s15-bonbien"
+                }
+              ]
+            },
+            {
+              "id": "r5-all-of-it",
+              "label": "All of it at once",
+              "targets": [
+                "err-amment-spelling",
+                "err-from-masculine"
+              ],
+              "say": "Six, and two of them ask for a letter your ear cannot give you.",
+              "questions": [
+                {
+                  "q": "évident ends in -ent. Type the word for how.",
+                  "format": "typeIn",
+                  "accept": [
+                    "évidemment"
+                  ],
+                  "answer": "évidemment",
+                  "why": "-ent gives -emment, and it is said as though it were spelled the other way. The woman form plays no part here.",
+                  "ref": "s16-amment"
+                },
+                {
+                  "q": "constant ends in -ant. Type the word for how.",
+                  "format": "typeIn",
+                  "accept": [
+                    "constamment"
+                  ],
+                  "answer": "constamment",
+                  "why": "-ant gives -amment. Same sound as the one above and a different letter on the page.",
+                  "ref": "s16-amment"
+                },
+                {
+                  "q": "Which of these two is spelled correctly?",
+                  "format": "mcq",
+                  "opts": [
+                    "évidemment",
+                    "évidamment",
+                    "évidentement",
+                    "évidentment"
+                  ],
+                  "correct": 0,
+                  "why": "The describing word ends -ent, so the ending is -emment. The last two options build it off the whole word, which is what the rule would tell you to do and it is wrong here.",
+                  "ref": "s16-amment"
+                },
+                {
+                  "q": "Il travaille ___ .   (sérieux)",
+                  "format": "typeIn",
+                  "accept": [
+                    "sérieusement",
+                    "Il travaille sérieusement."
+                  ],
+                  "answer": "sérieusement",
+                  "why": "sérieuse plus the ending, and a2.03 gave you the middle word.",
+                  "ref": "s09-payoff"
+                },
+                {
+                  "q": "Fix this.",
+                  "format": "errorSpot",
+                  "prompt": "Elle parle douxment.",
+                  "accept": [
+                    "Il parle doucement.",
+                    "doucement",
+                    "Elle parle doucement."
+                  ],
+                  "answer": "Elle parle doucement.",
+                  "why": "Built off the plain form, so the s never arrived. You would hear that it had not.",
+                  "ref": "s08-hear"
+                },
+                {
+                  "q": "You are about to say how somebody does something and you have half a second. What do you say first, in your head?",
+                  "format": "mcq",
+                  "opts": [
+                    "The plain describing word",
+                    "The word for a woman",
+                    "The ending",
+                    "The verb again"
+                  ],
+                  "correct": 1,
+                  "why": "Say the feminine, then add -ment. Find the word that describes a woman, say it, and put -ment on the end of it. If you cannot hear a consonant before the ending, you built it off the wrong form.",
+                  "ref": "s07-chain"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "roundup",
+          "id": "s24-roundup",
+          "title": "What You Can Do Now",
+          "frSub": "Ce que vous savez faire",
+          "layer": "core",
+          "body": "Say the feminine, then add -ment. Find the word that describes a woman, say it, and put -ment on the end of it. If you cannot hear a consonant before the ending, you built it off the wrong form.",
+          "points": [
+            "The word for how goes after the verb. English puts it in front, and French never does. Out of 27,499 sentences in this course, 80 put it after the verb and 0 put it in front.",
+            "The woman form is the plain one plus a consonant, and the word for how is the woman form plus a sound on the end. Nothing in the middle changes. lent becomes lente becomes lentement, doux becomes douce becomes doucement, sérieux becomes sérieuse becomes sérieusement.",
+            "That consonant is silent in the plain form and you say it in the long word. Build the long word off the wrong one and the mistake is a sound you can hear, not a spelling you cannot. lent has no t and lente does, doux has no s and douce does, sérieux has no z and sérieuse does.",
+            "a2.03 said it first: The plain form tells you the other three. You have been building the middle step since then.",
+            "Three of them are not built from anything. They are the three you will say most often, and they are the three the rule does not reach. bon gives bien, mauvais gives mal, vite comes from nothing at all.",
+            "Two endings on the page and one sound in the mouth. One is spelled with an e and one with an a, and both of them come out as the same two syllables. évident ends -ent and gives évidemment, constant ends -ant and gives constamment. And these two do not use the woman form at all. The ending on the adjective is taken off and replaced, so this is the one place in the lesson where the rule is not the answer.",
+            "Some of them already end in an e, so the woman form is the same word and there is nothing to change. The rule still ran. It just had nothing to do.",
+            "In a past tense the short ones move, and that rule arrives with the tense in a2.05. If you meet « j'ai bien mangé » before then, nothing here is wrong: it is a rule you have not been given yet. And when you want to say somebody does it BETTER than somebody else, that is a2.08 and it is a long way off.",
+            "a1.18 owns the wrap and a2.08 owns saying somebody does it better. Neither of them is this."
+          ]
+        }
+      ],
+      "itemIds": [
+        "fr.a2.adverbes-essentiels.001",
+        "fr.a2.adverbes-essentiels.002",
+        "fr.a2.adverbes-essentiels.003",
+        "fr.a2.adverbes-essentiels.004",
+        "fr.a2.adverbes-essentiels.005",
+        "fr.a2.adverbes-essentiels.006",
+        "fr.a2.adverbes-essentiels.007",
+        "fr.a2.adverbes-essentiels.008",
+        "fr.a2.adverbes-essentiels.009",
+        "fr.a2.adverbes-essentiels.010",
+        "fr.a2.adverbes-essentiels.011",
+        "fr.a2.adverbes-essentiels.012",
+        "fr.a2.adverbes-essentiels.013",
+        "fr.a2.adverbes-essentiels.014",
+        "fr.a2.adverbes-essentiels.015",
+        "fr.a2.adverbes-essentiels.016",
+        "fr.a2.adverbes-essentiels.017",
+        "fr.a2.adverbes-essentiels.018",
+        "fr.a2.adverbes-essentiels.019",
+        "fr.a2.adverbes-essentiels.020",
+        "fr.a2.adverbes-essentiels.021",
+        "fr.a2.adverbes-essentiels.022",
+        "fr.a2.adverbes-essentiels.023",
+        "fr.a2.adverbes-essentiels.024",
+        "fr.sons.adjectifs-essentiels.021",
+        "fr.sons.adverbes-essentiels.001",
+        "fr.sons.adjectifs-essentiels.033",
+        "fr.sons.adverbes-essentiels.003",
+        "fr.sons.adjectifs-essentiels.037",
+        "fr.a2.adjectifs-essentiels.019",
+        "fr.sons.adverbes-essentiels.021",
+        "fr.sons.adjectifs-essentiels.020",
+        "fr.sons.adverbes-essentiels.002",
+        "fr.sons.adjectifs-essentiels.018",
+        "fr.sons.adverbes-essentiels.004",
+        "fr.sons.mots-essentiels.045",
+        "fr.sons.mots-essentiels.046",
+        "fr.sons.mots-essentiels.064",
+        "fr.sons.adjectifs-essentiels.003",
+        "fr.sons.adjectifs-essentiels.004",
+        "fr.sons.mots-essentiels.056",
+        "fr.sons.mots-essentiels.054",
+        "fr.sons.adverbes-essentiels.018",
+        "fr.sons.adverbes-essentiels.045",
+        "fr.a2.adjectifs-essentiels.005",
+        "fr.a2.adjectifs-essentiels.006",
+        "fr.sons.nasales.001",
+        "fr.a2.verbes.477",
+        "fr.a2.verbes.189",
+        "fr.sons.nasales.014",
+        "fr.sons.nasales.078",
+        "fr.sons.nasales.013"
+      ],
+      "version": 3,
+      "grammarAssumed": [
+        "That a describing word changes shape to match what it describes, introduced in a1.13 through colour",
+        "The feminine -e on a describing word and the silent consonant it makes audible, introduced in a1.14",
+        "Adjective agreement as a system of inflectional classes, and the -eux class whose feminine is -euse, introduced in a2.03",
+        "The pre-vocalic masculine and the four-form grid it completes, introduced in a2.16",
+        "Standard negation with ne… pas around a finite verb, introduced in a1.18",
+        "The present of regular -er verbs and of the common irregulars, introduced in a2.01, a2.02 and a2.12",
+        "That a final consonant is silent unless a following -e makes it audible, introduced in sons.06"
+      ],
+      "grammarIntroduced": [
+        "The derivation of manner adverbs by suffixation of -ment to the feminine singular of the adjective, as a productive rule rather than as a list",
+        "That the derivation is PHONOLOGICALLY motivated as well as orthographic: the feminine consonant the masculine leaves unrealised is realised in the adverb, so the base is audible in the derivative",
+        "That an adjective whose masculine already ends in -e has a null feminine alternation, so the rule applies vacuously rather than being suspended",
+        "The suppletive adverbs bien and mal for bon and mauvais, and vite as an adverb with no adjectival base at all",
+        "The categorial distinction between an adjective modifying a noun and an adverb modifying a verb, which English neutralises in colloquial speech",
+        "The -ent/-ant class, whose adverbs are -emment and -amment by ending replacement rather than by suffixation to the feminine, and which are homophonous at /amɑ̃/",
+        "Post-verbal placement of the manner adverb in a simple tense, and its position outside the discontinuous negative morpheme",
+        "That placement in a compound tense is DEFERRED to a2.05, named on the learner surface rather than left silent"
+      ],
+      "features": [
+        "roleplay",
+        "voiceflash"
+      ],
+      "overview": {
+        "titleEn": "Adverbs",
+        "subFr": "Les adverbes",
+        "introFr": "Le mot pour dire comment, et il est déjà dans votre poche.",
+        "minutes": 30,
+        "difficulty": 3,
+        "glyph": "ment",
+        "screens": 190
+      },
+      "acts": [
+        {
+          "id": "act1",
+          "title": "The order that gave you away",
+          "sections": [
+            "s01-scene",
+            "s02-goals",
+            "s03-after"
+          ],
+          "milestone": "You know what stopped the sentence, and it was not a word you had never learned.",
+          "estScreens": 18,
+          "restPoints": [
+            "s01-scene/after-break"
+          ]
+        },
+        {
+          "id": "act2",
+          "title": "Where it goes",
+          "sections": [
+            "s04-place",
+            "s05-order",
+            "s06-known"
+          ],
+          "milestone": "You can put the word for how in the one place French puts it, and you know why your first language kept offering the other one.",
+          "estScreens": 20,
+          "restPoints": [
+            "s04-place/after"
+          ]
+        },
+        {
+          "id": "act3",
+          "title": "Where it comes from",
+          "sections": [
+            "s07-chain",
+            "s08-hear",
+            "s09-payoff",
+            "s10-already",
+            "s11-unseen",
+            "s12-reading",
+            "s13-deck"
+          ],
+          "milestone": "You can build the word for how out of any describing word you own, including ones this lesson never showed you.",
+          "estScreens": 46,
+          "restPoints": [
+            "s08-hear/after",
+            "s09-payoff/after",
+            "s11-unseen/after"
+          ]
+        },
+        {
+          "id": "act4",
+          "title": "The ones it does not reach",
+          "sections": [
+            "s14-irregular",
+            "s15-bonbien",
+            "s16-amment",
+            "s17-errors"
+          ],
+          "milestone": "You will not write bonnement, you will not put bon after a verb, and you know which two endings your ear cannot separate.",
+          "estScreens": 30,
+          "restPoints": [
+            "s15-bonbien/after-cards"
+          ]
+        },
+        {
+          "id": "act5",
+          "title": "Out loud",
+          "sections": [
+            "s18-scenario",
+            "s19-dictation",
+            "s20-speak",
+            "s21-review"
+          ],
+          "milestone": "You held the conversation the scene lost, and every answer in it wanted a word you built rather than a phrase you had.",
+          "estScreens": 38,
+          "restPoints": [
+            "s18-scenario/after",
+            "s19-dictation/halfway"
+          ]
+        },
+        {
+          "id": "act6",
+          "title": "Prove it",
+          "sections": [
+            "s22-progress",
+            "s23-quiz",
+            "s24-roundup"
+          ],
+          "milestone": "You built two words from describing words this lesson never listed, which is the half of this a list could never have taught you.",
+          "estScreens": 38,
+          "restPoints": [
+            "s23-quiz/r3-the-three"
+          ]
+        }
+      ],
+      "reframe": "Say the feminine, then add -ment.",
+      "errorTriggers": [
+        {
+          "id": "err-english-order",
+          "description": "Puts the word for how in front of the verb, which is where English puts it. It is not a slip: it is the learner's first language answering before they do, and it is the error the scene opens on.",
+          "detectOn": [
+            "s04-place",
+            "s05-order",
+            "s23-quiz/r1-where-it-goes"
+          ],
+          "drill": "drill-position",
+          "retest": "retest-position"
+        },
+        {
+          "id": "err-from-masculine",
+          "description": "Builds the word off the plain form rather than off the form for a woman, producing something with the right ending and a missing consonant. The learner who does this has the rule and has skipped its middle step.",
+          "detectOn": [
+            "s07-chain",
+            "s08-hear",
+            "s23-quiz/r2-build-it"
+          ],
+          "drill": "drill-middle-step",
+          "retest": "retest-middle-step"
+        },
+        {
+          "id": "err-regularised-irregular",
+          "description": "Writes bonnement, mauvaisement or vitement. The learner is applying the rule they were just given, correctly, to three words it does not reach, and those three are the ones they will need most.",
+          "detectOn": [
+            "s14-irregular",
+            "s23-quiz/r3-the-three"
+          ],
+          "drill": "drill-not-built",
+          "retest": "retest-not-built"
+        },
+        {
+          "id": "err-bon-for-bien",
+          "description": "Puts the describing word after a verb, as in « elle chante bon ». English allows the equivalent in speech and French does not allow it at all, so the learner has no signal that anything went wrong.",
+          "detectOn": [
+            "s15-bonbien",
+            "s23-quiz/r4-bon-or-bien"
+          ],
+          "drill": "drill-thing-or-doing",
+          "retest": "retest-thing-or-doing"
+        },
+        {
+          "id": "err-amment-spelling",
+          "description": "Writes -amment where -emment belongs or the other way round. It is unhearable by construction: the two endings are one sound, so nothing in the learner's ear can settle it and only the describing word behind it can.",
+          "detectOn": [
+            "s16-amment",
+            "s19-dictation",
+            "s23-quiz/r5-all-of-it"
+          ],
+          "drill": "drill-two-spellings",
+          "retest": "retest-two-spellings"
+        }
+      ],
+      "drills": [
+        {
+          "id": "drill-position",
+          "title": "Before or after",
+          "format": "sort",
+          "buckets": [
+            "French order",
+            "English order"
+          ],
+          "items": [
+            "fr.a2.adverbes-essentiels.014",
+            "fr.a2.adverbes-essentiels.009",
+            "fr.a2.adverbes-essentiels.015",
+            "fr.a2.adverbes-essentiels.017",
+            "fr.sons.nasales.001",
+            "fr.a2.verbes.477"
+          ],
+          "coach": "Say each one out loud. The verb comes first and the word for how comes after it, every single time."
+        },
+        {
+          "id": "retest-position",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Je ___ ici.",
+          "opts": [
+            "souvent mange",
+            "mange souvent",
+            "souvent"
+          ],
+          "correct": 1,
+          "why": "The verb, then how."
+        },
+        {
+          "id": "drill-middle-step",
+          "title": "Say the middle one",
+          "format": "flashcard",
+          "coach": "The form for a woman is on the front. Say it out loud, listen to the consonant on the end, then say the long word.",
+          "pairs": [
+            [
+              "lente",
+              "lentement"
+            ],
+            [
+              "douce",
+              "doucement"
+            ],
+            [
+              "sérieuse",
+              "sérieusement"
+            ]
+          ]
+        },
+        {
+          "id": "retest-middle-step",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "douce gives ___ .",
+          "opts": [
+            "douxment",
+            "doucement",
+            "doucment"
+          ],
+          "correct": 1,
+          "why": "That consonant is silent in the plain form and you say it in the long word. Build the long word off the wrong one and the mistake is a sound you can hear, not a spelling you cannot."
+        },
+        {
+          "id": "drill-not-built",
+          "title": "Built or not built",
+          "format": "sort",
+          "buckets": [
+            "built from something",
+            "not built at all"
+          ],
+          "items": [
+            "fr.a2.adverbes-essentiels.009",
+            "fr.a2.adverbes-essentiels.015",
+            "fr.a2.adverbes-essentiels.010",
+            "fr.a2.adverbes-essentiels.016",
+            "fr.a2.adverbes-essentiels.012",
+            "fr.a2.adverbes-essentiels.017"
+          ],
+          "coach": "Look for the ending. If the word does not have it, there was nothing to build it from."
+        },
+        {
+          "id": "retest-not-built",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Elle chante ___ .",
+          "opts": [
+            "bonnement",
+            "bien",
+            "biennement"
+          ],
+          "correct": 1,
+          "why": "Three letters, and it is not built from anything."
+        },
+        {
+          "id": "drill-thing-or-doing",
+          "title": "A thing or a doing",
+          "format": "sort",
+          "buckets": [
+            "goes with a thing",
+            "goes with a doing"
+          ],
+          "items": [
+            "fr.a2.adverbes-essentiels.018",
+            "fr.a2.adverbes-essentiels.015",
+            "fr.sons.adjectifs-essentiels.004",
+            "fr.a2.adverbes-essentiels.016",
+            "fr.sons.adjectifs-essentiels.003",
+            "fr.a2.adverbes-essentiels.017"
+          ],
+          "coach": "Ask what the word is describing. A day is a thing and singing is a doing, and French uses two different words for them."
+        },
+        {
+          "id": "retest-thing-or-doing",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "Il travaille ___ .",
+          "opts": [
+            "bien",
+            "bon",
+            "bonne"
+          ],
+          "correct": 0,
+          "why": "Bon goes with a thing and bien goes with what somebody does. English lets you say « he sings good » and be understood; French does not let you say it at all."
+        },
+        {
+          "id": "drill-two-spellings",
+          "title": "e or a",
+          "format": "flashcard",
+          "coach": "The describing word is on the front. Its last three letters decide the spelling of the long word, and nothing you can hear does.",
+          "pairs": [
+            [
+              "évident",
+              "évidemment"
+            ],
+            [
+              "constant",
+              "constamment"
+            ]
+          ]
+        },
+        {
+          "id": "retest-two-spellings",
+          "title": "One more time",
+          "format": "mcq",
+          "q": "évident gives ___ .",
+          "opts": [
+            "évidamment",
+            "évidemment",
+            "évidentement"
+          ],
+          "correct": 1,
+          "why": "-ent gives -emment."
+        }
+      ],
+      "sheets": [
+        {
+          "id": "sheet.a2.17.adverbes",
+          "title": "Three steps, three exceptions, and one position",
+          "layer": "deep",
+          "contains": [
+            "The three steps",
+            "How to say them",
+            "The ones it misses",
+            "Where it goes"
+          ],
+          "sections": [
+            {
+              "type": "table",
+              "id": "sheet-chain",
+              "title": "The three steps",
+              "layer": "deep",
+              "cols": [
+                "Word",
+                "Plain",
+                "For her",
+                "How"
+              ],
+              "rows": [
+                [
+                  "lent",
+                  "lent",
+                  "lente",
+                  "lentement"
+                ],
+                [
+                  "doux",
+                  "doux",
+                  "douce",
+                  "doucement"
+                ],
+                [
+                  "sérieux",
+                  "sérieux",
+                  "sérieuse",
+                  "sérieusement"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-say",
+              "title": "How to say each one",
+              "layer": "deep",
+              "cols": [
+                "Word",
+                "Plain",
+                "For her",
+                "How"
+              ],
+              "rows": [
+                [
+                  "lent",
+                  "LAHⁿ",
+                  "LAHⁿT",
+                  "lahⁿt-MAHⁿ"
+                ],
+                [
+                  "doux",
+                  "DOO",
+                  "DOOS",
+                  "doos-MAHⁿ"
+                ],
+                [
+                  "sérieux",
+                  "say-RYUH",
+                  "say-RYUHZ",
+                  "say-ryuhz-MAHⁿ"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "id": "sheet-exceptions",
+              "title": "The ones the rule does not reach",
+              "layer": "deep",
+              "cols": [
+                "Describing word",
+                "Word for how",
+                "Why"
+              ],
+              "rows": [
+                [
+                  "bon",
+                  "bien",
+                  "not built from anything"
+                ],
+                [
+                  "mauvais",
+                  "mal",
+                  "not built from anything"
+                ],
+                [
+                  "nothing",
+                  "vite",
+                  "no describing word behind it"
+                ],
+                [
+                  "évident",
+                  "évidemment",
+                  "-ent becomes -emment"
+                ],
+                [
+                  "constant",
+                  "constamment",
+                  "-ant becomes -amment"
+                ],
+                [
+                  "rapide",
+                  "rapidement",
+                  "already ends in an e"
+                ],
+                [
+                  "facile",
+                  "facilement",
+                  "already ends in an e"
+                ]
+              ]
+            },
+            {
+              "type": "teach",
+              "id": "sheet-where",
+              "title": "Where it goes",
+              "layer": "deep",
+              "body": "The word for how goes after the verb. English puts it in front, and French never does. Out of 27,499 sentences in this course, 80 put it after the verb and 0 put it in front. a1.18 wraps the verb in two words, and the word for how waits outside it: « Je ne mange pas souvent. » In a past tense the short ones move, and that rule arrives with the tense in a2.05. If you meet « j'ai bien mangé » before then, nothing here is wrong: it is a rule you have not been given yet."
+            },
+            {
+              "type": "teach",
+              "id": "sheet-carries-forward",
+              "title": "What carries forward",
+              "layer": "deep",
+              "body": "Say the feminine, then add -ment. Find the word that describes a woman, say it, and put -ment on the end of it. If you cannot hear a consonant before the ending, you built it off the wrong form. That consonant is silent in the plain form and you say it in the long word. Build the long word off the wrong one and the mistake is a sound you can hear, not a spelling you cannot. lent has no t and lente does, doux has no s and douce does, sérieux has no z and sérieuse does. Two of these you have never seen in this lesson. If the rule is a rule, that does not matter. You can now do this to every describing word you have ever met in this course, and nobody has to give you the list."
+            }
+          ]
+        }
+      ],
+      "deckTranche": [
+        [],
+        [
+          "fr.sons.nasales.001",
+          "fr.a2.verbes.477",
+          "fr.a2.verbes.189",
+          "fr.sons.nasales.014",
+          "fr.sons.nasales.078",
+          "fr.sons.nasales.013",
+          "fr.sons.mots-essentiels.056",
+          "fr.sons.mots-essentiels.054",
+          "fr.a2.adverbes-essentiels.014"
+        ],
+        [
+          "fr.sons.adjectifs-essentiels.021",
+          "fr.a2.adverbes-essentiels.001",
+          "fr.sons.adverbes-essentiels.001",
+          "fr.sons.adjectifs-essentiels.033",
+          "fr.a2.adverbes-essentiels.002",
+          "fr.sons.adverbes-essentiels.003",
+          "fr.sons.adjectifs-essentiels.037",
+          "fr.a2.adjectifs-essentiels.019",
+          "fr.sons.adverbes-essentiels.021",
+          "fr.a2.adjectifs-essentiels.005",
+          "fr.a2.adjectifs-essentiels.006",
+          "fr.a2.adverbes-essentiels.005",
+          "fr.a2.adverbes-essentiels.006",
+          "fr.a2.adverbes-essentiels.007",
+          "fr.a2.adverbes-essentiels.008",
+          "fr.a2.adverbes-essentiels.009",
+          "fr.a2.adverbes-essentiels.010",
+          "fr.a2.adverbes-essentiels.011",
+          "fr.sons.adjectifs-essentiels.020",
+          "fr.sons.adverbes-essentiels.002",
+          "fr.sons.adjectifs-essentiels.018",
+          "fr.sons.adverbes-essentiels.004",
+          "fr.a2.adverbes-essentiels.012",
+          "fr.a2.adverbes-essentiels.013"
+        ],
+        [
+          "fr.sons.mots-essentiels.045",
+          "fr.sons.mots-essentiels.046",
+          "fr.sons.mots-essentiels.064",
+          "fr.sons.adjectifs-essentiels.003",
+          "fr.sons.adjectifs-essentiels.004",
+          "fr.a2.adverbes-essentiels.015",
+          "fr.a2.adverbes-essentiels.016",
+          "fr.a2.adverbes-essentiels.017",
+          "fr.a2.adverbes-essentiels.018",
+          "fr.a2.adverbes-essentiels.003",
+          "fr.a2.adverbes-essentiels.004",
+          "fr.a2.adverbes-essentiels.019",
+          "fr.a2.adverbes-essentiels.020",
+          "fr.a2.adverbes-essentiels.021",
+          "fr.a2.adverbes-essentiels.022",
+          "fr.sons.adverbes-essentiels.018",
+          "fr.sons.adverbes-essentiels.045"
+        ],
+        [
+          "fr.a2.adverbes-essentiels.023",
+          "fr.a2.adverbes-essentiels.024"
+        ],
+        []
+      ],
+      "terms": {
+        "theChain": {
+          "term": "the chain",
+          "title": "Three steps, and the middle one is the one people skip",
+          "body": "The woman form is the plain one plus a consonant, and the word for how is the woman form plus a sound on the end. Nothing in the middle changes. lent becomes lente becomes lentement, doux becomes douce becomes doucement, sérieux becomes sérieuse becomes sérieusement. Say the feminine, then add -ment. A learner who goes straight from the plain form to the ending gets it right for the words that already end in an e and wrong for every other word in the language, and a2.03 already gave them the step they are skipping.",
+          "examples": [
+            {
+              "itemId": "fr.sons.adjectifs-essentiels.021",
+              "note": "Step one, and the t on the end of it makes no sound."
+            },
+            {
+              "itemId": "fr.a2.adverbes-essentiels.001",
+              "note": "Step two. Now it does."
+            },
+            {
+              "itemId": "fr.sons.adverbes-essentiels.001",
+              "note": "And step three, which keeps it."
+            }
+          ]
+        },
+        "youCanHearIt": {
+          "term": "you can hear it",
+          "title": "The consonant that comes back",
+          "body": "That consonant is silent in the plain form and you say it in the long word. Build the long word off the wrong one and the mistake is a sound you can hear, not a spelling you cannot. lent has no t and lente does, doux has no s and douce does, sérieux has no z and sérieuse does. That is what makes this rule worth running rather than memorising: build the word off the wrong form and you have not made a spelling mistake, you have made a sound that is missing something, and you will hear it half a second after you say it. Your ear gets the front of the word. It does not get the ending, because every one of these ends the same way.",
+          "examples": [
+            {
+              "itemId": "fr.sons.adjectifs-essentiels.033",
+              "note": "No s at the end of this one, whatever the page says."
+            },
+            {
+              "itemId": "fr.a2.adverbes-essentiels.002",
+              "note": "And here it is. Say both out loud, one after the other."
+            },
+            {
+              "itemId": "fr.sons.adverbes-essentiels.003",
+              "note": "The s is now in the middle of the word and it is the same s."
+            }
+          ]
+        },
+        "afterTheVerb": {
+          "term": "after the verb",
+          "title": "Where it goes, and English disagrees",
+          "body": "The word for how goes after the verb. English puts it in front, and French never does. Out of 27,499 sentences in this course, 80 put it after the verb and 0 put it in front. There is no version of this you have to weigh up. The word goes after the verb, every time, and the only thing that makes it hard is that your first language will offer you the other order first. a1.18 wraps the verb in two words, and the word for how waits outside it: « Je ne mange pas souvent. »",
+          "examples": [
+            {
+              "itemId": "fr.a2.adverbes-essentiels.014",
+              "note": "Verb, then the word for how often."
+            },
+            {
+              "itemId": "fr.sons.nasales.001",
+              "note": "Verb, then the same word. Somebody else wrote this sentence years ago."
+            },
+            {
+              "itemId": "fr.a2.adverbes-essentiels.009",
+              "note": "And a long one, in exactly the same place."
+            }
+          ]
+        },
+        "theThreeOdd": {
+          "term": "bien, mal, vite",
+          "title": "The three the rule does not reach",
+          "body": "Three of them are not built from anything. They are the three you will say most often, and they are the three the rule does not reach. bon gives bien, mauvais gives mal, vite comes from nothing at all. Bon goes with a thing and bien goes with what somebody does. English lets you say « he sings good » and be understood; French does not let you say it at all. There is no way to work any of these out and no reason to try. They are three words and you already know all three.",
+          "examples": [
+            {
+              "itemId": "fr.a2.adverbes-essentiels.015",
+              "note": "Not bonnement. There is no such word."
+            },
+            {
+              "itemId": "fr.a2.adverbes-essentiels.016",
+              "note": "And not mauvaisement either."
+            },
+            {
+              "itemId": "fr.a2.adverbes-essentiels.017",
+              "note": "This one has no describing word behind it at all."
+            }
+          ]
+        },
+        "twoSpellings": {
+          "term": "two spellings",
+          "title": "One sound and two ways to write it",
+          "body": "Two endings on the page and one sound in the mouth. One is spelled with an e and one with an a, and both of them come out as the same two syllables. évident ends -ent and gives évidemment, constant ends -ant and gives constamment. And these two do not use the woman form at all. The ending on the adjective is taken off and replaced, so this is the one place in the lesson where the rule is not the answer. So this is the one pair in the lesson where listening will not help you at all, and it is the reason two lines of the dictée are single words rather than sentences.",
+          "examples": [
+            {
+              "itemId": "fr.a2.adverbes-essentiels.019",
+              "note": "Ends in -ent."
+            },
+            {
+              "itemId": "fr.a2.adverbes-essentiels.020",
+              "note": "Ends in -ant, and out loud that is the same ending."
+            },
+            {
+              "itemId": "fr.sons.adverbes-essentiels.018",
+              "note": "And the word it gives, spelled with an e and said with an a."
+            }
+          ]
+        },
+        "alreadyE": {
+          "term": "already an e",
+          "title": "When step two changes nothing",
+          "body": "Some of them already end in an e, so the woman form is the same word and there is nothing to change. The rule still ran. It just had nothing to do. rapide gives rapidement and facile gives facilement. This is not a second rule and it is worth being clear about that: the rule ran, it looked for the woman form, and the woman form was the word it started with. Treat it as an exception and you have two things to remember instead of one.",
+          "examples": [
+            {
+              "itemId": "fr.a2.adverbes-essentiels.012",
+              "note": "Rapide, and there was nothing to change."
+            },
+            {
+              "itemId": "fr.a2.adverbes-essentiels.013",
+              "note": "Facile, same thing, same subject and same verb."
+            },
+            {
+              "itemId": "fr.a2.adverbes-essentiels.001",
+              "note": "And this one, where there was."
+            }
+          ]
+        },
+        "notFromHer": {
+          "term": "not from her",
+          "title": "The two that do not use the woman form",
+          "body": "And these two do not use the woman form at all. The ending on the adjective is taken off and replaced, so this is the one place in the lesson where the rule is not the answer. The ending on the describing word comes off and a different one goes on, so there is no point looking for the woman form here. It is the only place in this lesson where the rule you have just been given is not the answer, and it is worth knowing that it has a boundary.",
+          "examples": [
+            {
+              "itemId": "fr.a2.adverbes-essentiels.003",
+              "note": "The describing word."
+            },
+            {
+              "itemId": "fr.sons.adverbes-essentiels.018",
+              "note": "And the word it gives. Nothing in between."
+            },
+            {
+              "itemId": "fr.sons.adverbes-essentiels.045",
+              "note": "The same story with an a on the page."
+            }
+          ]
+        },
+        "notYet": {
+          "term": "not yet",
+          "title": "What moves in a past tense, and where it goes",
+          "body": "In a past tense the short ones move, and that rule arrives with the tense in a2.05. If you meet « j'ai bien mangé » before then, nothing here is wrong: it is a rule you have not been given yet. And when you want to say somebody does it BETTER than somebody else, that is a2.08 and it is a long way off. Everything on the other screens is about a sentence happening now, which is every sentence you can currently make. When a2.05 gives you the past, the short words move and the long ones do not, and you will be told so then. a2.16 is the lesson you have just come from and its first two columns are the first two of this one.",
+          "examples": [
+            {
+              "itemId": "fr.a2.adverbes-essentiels.014",
+              "note": "Happening now, and the word sits after the verb."
+            },
+            {
+              "itemId": "fr.a2.adverbes-essentiels.015",
+              "note": "The same, with one of the three that are not built."
+            },
+            {
+              "itemId": "fr.a2.adverbes-essentiels.009",
+              "note": "And a long one, which does not move even when the tense does."
+            }
+          ]
+        },
+        "unseen": {
+          "term": "a word you own",
+          "title": "The rule works on words this lesson never showed you",
+          "body": "Two of these you have never seen in this lesson. If the rule is a rule, that does not matter. That is the whole point of learning a rule rather than a list. You have met dozens of describing words in this course and you can now build the matching word for how something is done out of every single one of them, including the ones nobody has taught you here. Find the word that describes a woman, say it, and put -ment on the end of it. If you cannot hear a consonant before the ending, you built it off the wrong form.",
+          "examples": [
+            {
+              "itemId": "fr.sons.adjectifs-essentiels.037",
+              "note": "You met this one in the last lesson but one."
+            },
+            {
+              "itemId": "fr.a2.adjectifs-essentiels.019",
+              "note": "And this is the card you were given then."
+            },
+            {
+              "itemId": "fr.sons.adverbes-essentiels.021",
+              "note": "Nobody had to teach you this. You built it."
+            }
+          ]
+        }
+      },
+      "audio": {
+        "defaultLang": "fr-FR",
+        "speeds": [
+          1,
+          0.65
+        ],
+        "coachVoice": "coach-en-warm",
+        "interfaceSounds": [
+          "correct",
+          "incorrect",
+          "checkpoint"
+        ],
+        "recorded": [
+          {
+            "id": "rec-a2-17-chain",
+            "desc": "THE THREE PAIRS FOR THE LISTENING SCREEN, AND THIS IS THE MOST IMPORTANT TAKE IN THE LESSON. Each pair is ONE TAKE, ONE VOICE, the two lines back to back with the smallest gap the recording allows and no change of pitch, pace or weight between them: « Il est lent. » then « Elle est lente. »; « Il est doux. » then « Elle est douce. »; « Il est sérieux. » then « Elle est sérieuse. » The learner is being asked to hear ONE CONSONANT ARRIVE and nothing else, so everything except that consonant must be identical across the pair. RECORDED APART, THE LEARNER COMPARES TWO PERFORMANCES INSTEAD OF TWO SOUNDS AND THE ENTIRE TEACHING IS LOST. The reader must NOT lean on the new consonant or lengthen it: it is an ordinary final consonant and the whole point is that it is simply there where it was simply not there before. If a listener with their eyes shut cannot say which member of the pair had the extra sound, the take has failed; if they can hear the reader pointing at it, it has failed the other way.",
+            "clipIds": [
+              "Il est lent.",
+              "Elle est lente.",
+              "Il est doux.",
+              "Elle est douce.",
+              "Il est sérieux.",
+              "Elle est sérieuse."
+            ]
+          },
+          {
+            "id": "rec-a2-17-amment",
+            "desc": "THE TWO SPELLINGS THAT ARE ONE SOUND, AND THE VALUE OF THIS TAKE IS THAT NOTHING HAPPENS IN IT. « évidemment » then « constamment », ONE TAKE, and the last two syllables of the two words MUST BE INDISTINGUISHABLE. One is spelled with an e and one with an a and the reader can see the page, which is exactly the problem: a reader who can see the spelling will differentiate them without meaning to, and the screen then teaches the opposite of what it says. If it is possible to record this take without the reader seeing the words written, do that. The FRONT of each word is a different matter and should be left exactly as distinct as the language makes it, because the stem is the only thing the learner's ear is allowed to use. Also in this take: « Il est évident. » and « Il est constant. », same instruction, and the two nasals on the ends of those two must match each other as closely as the two endings do.",
+            "clipIds": [
+              "évidemment",
+              "constamment",
+              "Il est évident.",
+              "Il est constant."
+            ]
+          },
+          {
+            "id": "rec-a2-17-place",
+            "desc": "THE FIVE PLACEMENT ROWS, ONE TAKE EACH, AT ORDINARY CONVERSATIONAL PACE AND WITH NO PAUSE BEFORE THE LAST WORD. The reader must not mark the word for how in any way: no lift, no comma, no breath in front of it. It is an ordinary part of the sentence and the whole claim of the screen is that it simply lives after the verb, so a delivery that sets it apart teaches that it is an addition rather than a position. Every one of these five was published by somebody else for another lesson and they should sound like it.",
+            "clipIds": [
+              "Maman chante souvent.",
+              "Il court vite.",
+              "Il réussit toujours.",
+              "Le vent souffle doucement.",
+              "Son nom sonne bien."
+            ]
+          },
+          {
+            "id": "rec-a2-17-dictee",
+            "desc": "THE TWENTY-ONE DICTÉE LINES, ONE TAKE EACH, CLEAN AND UNHURRIED, WITH NO CONTRAST INTENT AT ALL. This is the opposite instruction to every other take in the lesson: here the learner is spelling rather than comparing, and any pair-reading would hand them the answer. Read each line as though it were the only line. TWO OF THE TWENTY-ONE ARE SINGLE WORDS , « évidemment » and « constamment » , and those two matter most: the learner is being asked for a letter the sound cannot give them, so the two endings must be read identically and neither may be helped. The final consonants on « lente » and « douce » must be neither helped nor hidden either; say them the way somebody would say them, which is the whole difficulty the exercise exists to create.",
+            "clipIds": [
+              "lente",
+              "douce",
+              "évident",
+              "constant",
+              "Il est lent.",
+              "Elle est lente.",
+              "Il est doux.",
+              "Elle est douce.",
+              "Il parle lentement.",
+              "Il parle doucement.",
+              "Il lit rapidement.",
+              "Il lit facilement.",
+              "Je mange souvent.",
+              "Elle chante bien.",
+              "Il chante mal.",
+              "Il parle vite.",
+              "C'est un bon jour.",
+              "Il est évident.",
+              "Il est constant.",
+              "évidemment",
+              "constamment"
+            ]
+          },
+          {
+            "id": "rec-a2-17-break",
+            "desc": "THE BREAK CARD, AND IT IS THE ONE PLACE IN THIS LESSON THE ENGLISH WORD ORDER IS SPOKEN. « Je souvent mange ici. » then « Je mange souvent ici. », one take, back to back. The first is NOT to be read as a mistake, with a wince or a rising edge or a pause: it must be read as somebody genuinely trying to say it, at speed, the way a learner produces it before they hear themselves. A clean and confident reading of it would teach that the wrong order is perfectly good French. The second should arrive at the same pace and with the same weight, so the only difference between the two takes is the order of two words. Nothing else in the delivery may change.",
+            "clipIds": [
+              "Je souvent mange ici.",
+              "Oui, je mange souvent ici."
+            ]
+          },
+          {
+            "id": "rec-a2-17-unseen",
+            "desc": "THE AUDIO STEP OF THE GENERALISATION DRILL, FOUR LINES, ONE TAKE EACH: « lentement », « doucement », « parfaitement », « certainement ». The first two the learner has met and the last two they have not, and NOTHING in the delivery may distinguish those groups. The whole claim of the mission is that a word built by rule sounds like a word that was taught, so a reader who gives the last two any extra care, slowness or emphasis is teaching that they are harder. Read all four at the same ordinary pace, as though they were four items on a list. The consonant before the ending in each one is the thing to keep clean: the t in the first, the s in the second, the t in the third and the n in the fourth.",
+            "clipIds": [
+              "lentement",
+              "doucement",
+              "parfaitement",
+              "certainement"
+            ]
+          },
+          {
+            "id": "rec-a2-17-bonbien",
+            "desc": "THE AUDIO STEP OF THE bon/bien DRILL, TWO PAIRS, EACH ONE TAKE: « C'est un bon jour. » then « Elle chante bien. »; « Il chante mal. » then the describing word « mauvais » on its own. The point of the pairing is that the two words in each pair are NOT alternatives for the same slot, so they must not be read as a contrast between two options: read each sentence as an ordinary statement somebody would make, at ordinary pace, with no lift on the word under test. A reader who leans on bon and bien turns the mission into a listening exercise, and there is nothing here to listen for: the learner has to know what the word is describing.",
+            "clipIds": [
+              "C'est un bon jour.",
+              "Elle chante bien.",
+              "Il chante mal.",
+              "mauvais"
+            ]
+          },
+          {
+            "id": "rec-a2-17-scene",
+            "desc": "THE CANTEEN IN RENNES. She is friendly, unhurried, and asking to make conversation rather than because she needs to know; « Vous venez souvent ici ? » is light and comes out over a tray. The learner's own line , « Oui, je souvent... euh... je mange... souvent... » , is the take that has to be right: two false starts and a stall, and the stall must sound like somebody who has heard their own word order and stopped to fix it, NOT like somebody who has forgotten a word. There is a difference and it is audible: the first sounds like a correction beginning and the second sounds like a gap. Her last line is cheerful and completely unbothered, because she noticed nothing, and that is what makes it expensive.",
+            "clipIds": [
+              "Vous venez souvent ici ?",
+              "Oui, je mange souvent ici."
+            ]
+          }
+        ]
+      }
     }
   ],
   "items": [
@@ -309256,6 +311989,8 @@
       "respell": "ma-MAHⁿ SHAHⁿT soo-VAHⁿ",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -309454,6 +312189,8 @@
       "respell": "lahⁿ-FAHⁿ MAHⁿZH TROH lahⁿt-MAHⁿ",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -309472,6 +312209,8 @@
       "respell": "LUH VAHⁿ SOOFL doos-MAHⁿ",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -310588,6 +313327,8 @@
       "respell": "SOHⁿ NOHⁿ SON BYEHⁿ",
       "tags": [],
       "drills": [
+        "flashcard",
+        "voiceflash",
         "sentence",
         "review"
       ],
@@ -345275,6 +348016,877 @@
         "review"
       ],
       "audioRef": null,
+      "version": 1
+    },
+    {
+      "id": "fr.sons.adjectifs-essentiels.021",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adjectifs-essentiels",
+      "fr": "lent",
+      "en": "slow",
+      "ipa": "/lɑ̃/",
+      "respell": "LAHⁿ",
+      "notes": "Feminine: lente. Opposite: rapide. Un bus lent.",
+      "tags": [
+        "adjective",
+        "opposites"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.adverbes-essentiels.001",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adverbes-essentiels",
+      "fr": "lentement",
+      "en": "slowly",
+      "ipa": "lɑ̃t.mɑ̃",
+      "respell": "lahⁿt-MAHⁿ",
+      "notes": "lent + -ment",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.adjectifs-essentiels.033",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adjectifs-essentiels",
+      "fr": "doux",
+      "en": "soft, gentle",
+      "ipa": "/du/",
+      "respell": "DOO",
+      "notes": "Feminine: douce. Opposite: dur. Une couverture douce.",
+      "tags": [
+        "adjective",
+        "opposites"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.adverbes-essentiels.003",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adverbes-essentiels",
+      "fr": "doucement",
+      "en": "gently, softly",
+      "ipa": "dus.mɑ̃",
+      "respell": "doos-MAHⁿ",
+      "notes": "doux, douce + -ment",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.adverbes-essentiels.021",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adverbes-essentiels",
+      "fr": "sérieusement",
+      "en": "seriously",
+      "ipa": "se.ʁjøz.mɑ̃",
+      "respell": "say-ryuhz-MAHⁿ",
+      "notes": "sérieux, sérieuse + -ment",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.adjectifs-essentiels.020",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adjectifs-essentiels",
+      "fr": "rapide",
+      "en": "fast, quick",
+      "ipa": "/ʁapid/",
+      "respell": "rah-PEED",
+      "notes": "Same form for both genders. Opposite: lent. Un train rapide.",
+      "tags": [
+        "adjective",
+        "opposites"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.adverbes-essentiels.002",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adverbes-essentiels",
+      "fr": "rapidement",
+      "en": "quickly",
+      "ipa": "ʁa.pid.mɑ̃",
+      "respell": "ra-peed-MAHⁿ",
+      "notes": "rapide + -ment",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.adverbes-essentiels.004",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adverbes-essentiels",
+      "fr": "facilement",
+      "en": "easily",
+      "ipa": "fa.sil.mɑ̃",
+      "respell": "fa-seel-MAHⁿ",
+      "notes": "facile + -ment",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.mots-essentiels.045",
+      "kind": "word",
+      "level": "sons",
+      "theme": "mots-essentiels",
+      "fr": "bien",
+      "en": "well, good",
+      "ipa": "/bjɛ̃/",
+      "respell": "BYEHⁿ",
+      "notes": "Nasal ending, like 'byan'. Ça va bien: it is going well.",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.mots-essentiels.046",
+      "kind": "word",
+      "level": "sons",
+      "theme": "mots-essentiels",
+      "fr": "mal",
+      "en": "badly",
+      "ipa": "/mal/",
+      "respell": "MAL",
+      "notes": "Sounds like 'mal'. Opposite of bien. Pas mal: not bad.",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.mots-essentiels.064",
+      "kind": "word",
+      "level": "sons",
+      "theme": "mots-essentiels",
+      "fr": "vite",
+      "en": "fast, quickly",
+      "ipa": "/vit/",
+      "respell": "VEET",
+      "notes": "Sounds like 'veet'. Vite, vite!: quick, quick!",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.mots-essentiels.056",
+      "kind": "word",
+      "level": "sons",
+      "theme": "mots-essentiels",
+      "fr": "souvent",
+      "en": "often",
+      "ipa": "/suvɑ̃/",
+      "respell": "soo-VAHⁿ",
+      "notes": "Silent t, like 'soo-vahn'.",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.mots-essentiels.054",
+      "kind": "word",
+      "level": "sons",
+      "theme": "mots-essentiels",
+      "fr": "toujours",
+      "en": "always",
+      "ipa": "/tuʒuʁ/",
+      "respell": "too-ZHOOR",
+      "notes": "Silent final s, like 'too-zhoor'. Can also mean 'still' in context.",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.adverbes-essentiels.018",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adverbes-essentiels",
+      "fr": "évidemment",
+      "en": "obviously",
+      "ipa": "e.vi.da.mɑ̃",
+      "respell": "ay-vee-da-MAHⁿ",
+      "notes": "évident; -emment is pronounced like -amment",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.sons.adverbes-essentiels.045",
+      "kind": "word",
+      "level": "sons",
+      "theme": "adverbes-essentiels",
+      "fr": "constamment",
+      "en": "constantly",
+      "ipa": "kɔ̃s.ta.mɑ̃",
+      "respell": "kohⁿs-ta-MAHⁿ",
+      "notes": "constant + -amment",
+      "tags": [
+        "adverb"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "dictation",
+        "review"
+      ],
+      "audioRef": null,
+      "version": 1,
+      "cardType": "vocab"
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.001",
+      "kind": "word",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "lente",
+      "en": "slow (feminine)",
+      "ipa": "/lɑ̃t/",
+      "respell": "LAHⁿT",
+      "notes": "The plain form is lent and you cannot hear its t. Here you can, and the long word keeps it.",
+      "tags": [
+        "adverbes-essentiels",
+        "adverbes"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.002",
+      "kind": "word",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "douce",
+      "en": "soft, gentle (feminine)",
+      "ipa": "/dus/",
+      "respell": "DOOS",
+      "notes": "An s arrives on the end and it is a sound rather than a letter. Doux has none of it.",
+      "tags": [
+        "adverbes-essentiels",
+        "adverbes"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.003",
+      "kind": "word",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "évident",
+      "en": "obvious",
+      "ipa": "/e.vi.dɑ̃/",
+      "respell": "ay-vee-DAHⁿ",
+      "notes": "Ends in -ent, and that ending is about to be taken off rather than added to.",
+      "tags": [
+        "adverbes-essentiels",
+        "adverbes"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.004",
+      "kind": "word",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "constant",
+      "en": "constant",
+      "ipa": "/kɔ̃s.tɑ̃/",
+      "respell": "kohⁿs-TAHⁿ",
+      "notes": "Ends in -ant. Same story as the one above and a different vowel on the page.",
+      "tags": [
+        "adverbes-essentiels",
+        "adverbes"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.005",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il est lent.",
+      "en": "He is slow.",
+      "ipa": "/il ɛ lɑ̃/",
+      "respell": "eel eh LAHⁿ",
+      "notes": "The t is on the page and nowhere else. Say it and listen for what is missing.",
+      "tags": [
+        "adverbes",
+        "adv-chaine"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.006",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Elle est lente.",
+      "en": "She is slow.",
+      "ipa": "/ɛl ɛ lɑ̃t/",
+      "respell": "eel eh LAHⁿT",
+      "notes": "And now the t arrives. One letter on the page and one sound in the mouth, and the long word keeps both.",
+      "tags": [
+        "adverbes",
+        "adv-chaine"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.007",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il est doux.",
+      "en": "He is gentle.",
+      "ipa": "/il ɛ du/",
+      "respell": "eel eh DOO",
+      "notes": "An x that has never been pronounced by anybody.",
+      "tags": [
+        "adverbes",
+        "adv-chaine"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.008",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Elle est douce.",
+      "en": "She is gentle.",
+      "ipa": "/ɛl ɛ dus/",
+      "respell": "eel eh DOOS",
+      "notes": "The x has become ce and it makes an s you can hear across a room. That s is the one the long word uses.",
+      "tags": [
+        "adverbes",
+        "adv-chaine"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.009",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il parle lentement.",
+      "en": "He speaks slowly.",
+      "ipa": "/il paʁl lɑ̃t.mɑ̃/",
+      "respell": "eel PARL lahⁿt-MAHⁿ",
+      "notes": "Sixteen letters, which is exactly what the dictée will take. The t you can hear is the middle of the word.",
+      "tags": [
+        "adverbes",
+        "adv-chaine",
+        "adv-place"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.010",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il parle doucement.",
+      "en": "He speaks gently.",
+      "ipa": "/il paʁl dus.mɑ̃/",
+      "respell": "eel PARL doos-MAHⁿ",
+      "notes": "Same verb, same position, different ending on the front half. The s is doing the work.",
+      "tags": [
+        "adverbes",
+        "adv-chaine",
+        "adv-place"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.011",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il travaille sérieusement.",
+      "en": "He works seriously.",
+      "ipa": "/il tʁa.vaj se.ʁjøz.mɑ̃/",
+      "respell": "eel tra-VAHY say-ryuhz-MAHⁿ",
+      "notes": "Twenty-three letters, so the dictée cannot take this one. The z is the third consonant and the third one you can hear.",
+      "tags": [
+        "adverbes",
+        "adv-chaine",
+        "adv-place"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.012",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il lit rapidement.",
+      "en": "He reads quickly.",
+      "ipa": "/il li ʁa.pid.mɑ̃/",
+      "respell": "eel LEE ra-peed-MAHⁿ",
+      "notes": "Rapide already ends in an e, so the woman form is the same word and the ending goes straight on.",
+      "tags": [
+        "adverbes",
+        "adv-deja-e"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.013",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il lit facilement.",
+      "en": "He reads easily.",
+      "ipa": "/il li fa.sil.mɑ̃/",
+      "respell": "eel LEE fa-seel-MAHⁿ",
+      "notes": "And the second one, with the same subject and the same verb, so the only thing that moved is the word on the end.",
+      "tags": [
+        "adverbes",
+        "adv-deja-e"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.014",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Je mange souvent.",
+      "en": "I often eat.",
+      "ipa": "/ʒə mɑ̃ʒ su.vɑ̃/",
+      "respell": "zhuh MAHⁿZH soo-VAHⁿ",
+      "notes": "Fourteen letters and the whole of the placement rule. English would put the middle word first.",
+      "tags": [
+        "adverbes",
+        "adv-place"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.015",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Elle chante bien.",
+      "en": "She sings well.",
+      "ipa": "/ɛl ʃɑ̃t bjɛ̃/",
+      "respell": "el SHAHⁿT BYEHⁿ",
+      "notes": "Not built from anything, and the one you will reach for most often.",
+      "tags": [
+        "adverbes",
+        "adv-irregulier",
+        "adv-place"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.016",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il chante mal.",
+      "en": "He sings badly.",
+      "ipa": "/il ʃɑ̃t mal/",
+      "respell": "eel SHAHⁿT MAL",
+      "notes": "The opposite of the one above, and it is not mauvaisement either.",
+      "tags": [
+        "adverbes",
+        "adv-irregulier",
+        "adv-place"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.017",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il parle vite.",
+      "en": "He speaks fast.",
+      "ipa": "/il paʁl vit/",
+      "respell": "eel PARL VEET",
+      "notes": "No adjective behind it at all. It is a word on its own and it always has been.",
+      "tags": [
+        "adverbes",
+        "adv-irregulier",
+        "adv-place"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.018",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "C'est un bon jour.",
+      "en": "It is a good day.",
+      "ipa": "/s‿ɛ tœ̃ bɔ̃ ʒuʁ/",
+      "respell": "seh-tuhⁿ bohⁿ ZHOOR",
+      "notes": "Bon is in front of a thing here, which is where bon goes and where bien never does.",
+      "tags": [
+        "adverbes",
+        "adv-irregulier"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.019",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il est évident.",
+      "en": "It is obvious.",
+      "ipa": "/il ɛ.t‿e.vi.dɑ̃/",
+      "respell": "eel eh-tay-vee-DAHⁿ",
+      "notes": "Ends in -ent on the page and in a nasal in the mouth.",
+      "tags": [
+        "adverbes",
+        "adv-amment"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.020",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il est constant.",
+      "en": "He is constant.",
+      "ipa": "/il ɛ kɔ̃s.tɑ̃/",
+      "respell": "eel eh kohⁿs-TAHⁿ",
+      "notes": "Ends in -ant, and it is the same nasal as the one above. The page separates them and the mouth does not.",
+      "tags": [
+        "adverbes",
+        "adv-amment"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review",
+        "dictation"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.021",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "C'est évidemment vrai.",
+      "en": "It is obviously true.",
+      "ipa": "/s‿ɛ.t‿e.vi.da.mɑ̃ vʁɛ/",
+      "respell": "seh-tay-vee-da-MAHⁿ VREH",
+      "notes": "The e in the middle of the ending is said as an a. Eighteen letters, so the word itself is the dictée row instead.",
+      "tags": [
+        "adverbes",
+        "adv-amment"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.022",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Il travaille constamment.",
+      "en": "He works constantly.",
+      "ipa": "/il tʁa.vaj kɔ̃s.ta.mɑ̃/",
+      "respell": "eel tra-VAHY kohⁿs-ta-MAHⁿ",
+      "notes": "And the a stays an a. The two endings are two letters and one noise.",
+      "tags": [
+        "adverbes",
+        "adv-amment"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.023",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Vous venez souvent ici ?",
+      "en": "Do you come here often?",
+      "ipa": "/vu və.ne su.vɑ̃ i.si/",
+      "respell": "voo vuh-NAY soo-VAHⁿ ee-SEE",
+      "notes": "Her question, and every word in it is one you have had since a1.",
+      "tags": [
+        "adverbes",
+        "adv-place"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fr.a2.adverbes-essentiels.024",
+      "kind": "sentence",
+      "level": "a2",
+      "theme": "adverbes-essentiels",
+      "fr": "Oui, je mange souvent ici.",
+      "en": "Yes, I often eat here.",
+      "ipa": "/wi ʒə mɑ̃ʒ su.vɑ̃ i.si/",
+      "respell": "wee zhuh MAHⁿZH soo-VAHⁿ ee-SEE",
+      "notes": "Five words, all of them yours, and the only difficulty was which order they go in.",
+      "tags": [
+        "adverbes",
+        "adv-place"
+      ],
+      "drills": [
+        "sentence",
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
       "version": 1
     }
   ],
